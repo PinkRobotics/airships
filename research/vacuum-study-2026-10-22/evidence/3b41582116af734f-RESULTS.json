@@ -1,0 +1,58 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "label": "CVD-PureSiC-HR-5-verified_q1_1-m6-intact",
+  "material": "CVD-PureSiC-HR",
+  "reserve": "5",
+  "section_policy": "verified_q1_1",
+  "removed_member": null,
+  "segments": 6,
+  "ndof": 24012,
+  "radius_m": 0.12477937548301114,
+  "wall_m": 0.0009305959692610106,
+  "frame_tubes_kg": 4199.144841316584,
+  "total_mass_including_reserve_sag_kg": 4825.369207169133,
+  "modes": {
+    "euler": 5.318918486240365,
+    "global_k0p2": 1.2176488057306996,
+    "local_peak": 1.0232093300226421,
+    "compression": null,
+    "joint_sleeve": 1.1432144699570352,
+    "joint_bond": 1.1432144622955485,
+    "film": 1.1432846186728538
+  },
+  "conditional_SF_or_ceiling": 1.0232093300226421,
+  "qualified_structural_SF": null,
+  "qualified_frame_Pf": null,
+  "qualified_hail_break_probability": null,
+  "all_composite_modes_complete": null,
+  "linear_multipliers": [
+    6.088244028653497,
+    6.101965736017524,
+    6.101965736017663,
+    6.163584056651306
+  ],
+  "eigen_relative_residuals": [
+    3.665807455758013e-13,
+    1.9832581009836348e-10,
+    5.0505612181508153e-11,
+    1.6472528931617117e-10
+  ],
+  "equilibrium_relative_residual": 5.007167624140785e-13,
+  "load_rigid_projection_ratio": 3.962343040501833e-16,
+  "q1_peak_compression_Pa": 1065151220.2467724,
+  "q1_peak_tension_Pa": 0.0,
+  "q1_whole_member_scale_needed_m10_Pf1e3_Pa": 3917443906.029226,
+  "max_axial_N": 700649.1115838618,
+  "max_bending_Nm": 3057.389652887826,
+  "local_shell_limit_Pa": 1090449933.5465772,
+  "secondary_failure_trigger_at_q1": false,
+  "individual_secondary_failure_members_at_q1": {
+    "local_shell": [],
+    "compression": null
+  },
+  "merged_bay": null,
+  "pressure_fan_volume_m3": 4156.277016250995,
+  "tube_loss_includes_pressure_bay_merge": false,
+  "dynamic_cascade_probability": null,
+  "elapsed_seconds": 2.5230264659039676
+}

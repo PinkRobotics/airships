@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline004-check-1019",
+  "order": "ord-admiral-rr2-check012-004-004b-glm-1019",
+  "independence": "checker glm, owner grok; owner files read-only; the owner's script was never read",
+  "pins": {
+    "brief_check": {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    "owner_card": {
+      "path": "evidence/bdd81c851bf68931-CARD.md",
+      "sha256": "bdd81c851bf689310aee379f142553a809935d49037922c220951d1079e42378",
+      "bytes": 2878
+    },
+    "owner_nfi": {
+      "path": "evidence/e0152663a63bcf24-NFI.json",
+      "sha256": "e0152663a63bcf240734119b4c21377fa09c7c328c712782b4eaff335c3746fb",
+      "bytes": 1608
+    },
+    "sealed_003_results": {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    "wagner_2020_pdf": {
+      "sha256": "b54893a41e2d610cc37dc9c8bedf9dff19e51708729ed8412241184513776ebc",
+      "bytes": 3198472,
+      "note": "sha256 verified equal to the owner's INPUTS pin; extracted text at unpublished-local-ref:717949c3dcf7d36e"
+    }
+  },
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_Pa": 276000000.0,
+    "R_m": 10.0,
+    "p_ext_Pa": 95460.83791390515,
+    "lift_kg": 4889.442150186961,
+    "t_eq": "(6*tf*d^2)^(1/3), d = face separation = core + tf",
+    "lambda": "[12(1-nu^2)]^(1/4) * sqrt(R/t_eq) * 2*sin(phi/2), phi = pi",
+    "kd_sp8032": "0.14 + 3.2/lambda^2 (lambda > 2)",
+    "p_cl": "4*E*tf*d/(R^2*sqrt(1-nu^2))"
+  },
+  "run": "python3 check004.py <owner 004 CARD.md> <owner 004b CARD.md>; output CHECK-OUT-004.json"
+}

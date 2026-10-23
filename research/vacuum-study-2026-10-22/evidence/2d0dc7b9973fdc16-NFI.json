@@ -1,0 +1,79 @@
+[
+  {
+    "NFI_id": "NFI-ISA",
+    "linked_inputs_or_points": "common atmosphere",
+    "questionable_assumption_or_gap": "Dry constant-g geopotential formula; geometric height substituted.",
+    "direction_of_further_investigation": "Pin ISO 2533 or ICAO Doc 7488 table at 500 m and a humidity case.",
+    "how_it_affects_margin_or_SF": "Density moves float margin. Pressure moves every SF inversely."
+  },
+  {
+    "NFI_id": "NFI-AL",
+    "linked_inputs_or_points": "I-E I-RHO-AL I-NU",
+    "questionable_assumption_or_gap": "Room-temperature typical properties, Poisson estimated.",
+    "direction_of_further_investigation": "MMPDS allowables at about 285 K.",
+    "how_it_affects_margin_or_SF": "E scales collapse linearly in all three models. Density scales metallic mass."
+  },
+  {
+    "NFI_id": "NFI-KD",
+    "linked_inputs_or_points": "P1 I-KD",
+    "questionable_assumption_or_gap": "0.2 is a cited severe typical knockdown, not a curve at R/t.",
+    "direction_of_further_investigation": "Evaluate NASA SP-8032 at this complete-sphere geometry.",
+    "how_it_affects_margin_or_SF": "SF scales directly with the knockdown. It does not change mass."
+  },
+  {
+    "NFI_id": "NFI-SAND",
+    "linked_inputs_or_points": "P2",
+    "questionable_assumption_or_gap": "Collapse formula extrapolates the monocoque D-S identity. Shear, wrinkling and core crush are omitted.",
+    "direction_of_further_investigation": "Replace with a published sandwich-sphere formula that includes core shear.",
+    "how_it_affects_margin_or_SF": "Shear would lower collapse pressure. The omission is optimistic for SF."
+  },
+  {
+    "NFI_id": "NFI-CORE",
+    "linked_inputs_or_points": "I-RHO-CORE",
+    "questionable_assumption_or_gap": "16 kg/m^3 has no pinned datasheet.",
+    "direction_of_further_investigation": "Pin a honeycomb or foam sheet at the thickness used.",
+    "how_it_affects_margin_or_SF": "Core density scales core mass and can erase the float margin. It does not enter the reported collapse formula."
+  },
+  {
+    "NFI_id": "NFI-FRAME",
+    "linked_inputs_or_points": "P3",
+    "questionable_assumption_or_gap": "Tributary width equals spacing, members are pinned, mesh is a real-valued equal triangulation, tube crippling ignored.",
+    "direction_of_further_investigation": "Integer geodesic, end fixity, imperfection knockdown and local crippling.",
+    "how_it_affects_margin_or_SF": "Euler pressure scales with I and E and inversely with s^3. Mass scales with edge count and area."
+  },
+  {
+    "NFI_id": "NFI-FILM",
+    "linked_inputs_or_points": "P3 film",
+    "questionable_assumption_or_gap": "Allowable, density and thickness are not one published film. Pocket radius set equal to spacing.",
+    "direction_of_further_investigation": "Pin one film datasheet and a local pocket test.",
+    "how_it_affects_margin_or_SF": "Film pressure scales with allowable and thickness. Film mass scales with density and thickness."
+  },
+  {
+    "NFI_id": "NFI-GEOM",
+    "linked_inputs_or_points": "all points",
+    "questionable_assumption_or_gap": "External volume ignores skin intrusion and member protrusion.",
+    "direction_of_further_investigation": "Define inner and outer mould lines.",
+    "how_it_affects_margin_or_SF": "Volume error moves lift linearly."
+  },
+  {
+    "NFI_id": "NFI-MASS",
+    "linked_inputs_or_points": "joints nodes systems",
+    "questionable_assumption_or_gap": "Allowances are round owner numbers.",
+    "direction_of_further_investigation": "Replace with a parts list.",
+    "how_it_affects_margin_or_SF": "Each kilogram reduces margin by 1/lift."
+  },
+  {
+    "NFI_id": "NFI-GAS",
+    "linked_inputs_or_points": "I-PINT and gas masses",
+    "questionable_assumption_or_gap": "Perfect vacuum.",
+    "direction_of_further_investigation": "State a hold pressure and the pump mass.",
+    "how_it_affects_margin_or_SF": "Residual gas adds mass and reduces differential pressure."
+  },
+  {
+    "NFI_id": "NFI-CHARTER",
+    "linked_inputs_or_points": "sensitivity only",
+    "questionable_assumption_or_gap": "Charter density and sea-level survival belong to the historical note.",
+    "direction_of_further_investigation": "Do not let them replace the 500 m case.",
+    "how_it_affects_margin_or_SF": "Shown only as labelled sensitivities."
+  }
+]

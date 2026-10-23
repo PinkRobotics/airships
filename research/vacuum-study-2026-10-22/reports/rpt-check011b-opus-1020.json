@@ -1,0 +1,64 @@
+{
+  "id": "rpt-check011b-opus-1020",
+  "unit": "vacuum-mainline011b-check-1019",
+  "at": "2026-10-20T00:48:39-07:00",
+  "body": "CHECK MAINLINE-011b: the arithmetic reproduces. My own scripts (arcs.py not run) match 951 numeric fields (48 RESULTS rows, the 36-row table, 15 named numbers) to 3e-12, and all 169 mode labels. There are no mismatches. Confirmed: the smeared triangulated stiffness (nu 1/3, Et (2/sqrt3)EA/s, D (3sqrt3/4)EI/s, hence sqrt(3/2); Buchert 1968 prints the same), the global pressure (116,990 Pa), Perry, the mass closure, and both SiC rows (1.22552794688, 1.10810389922). The 50 kg systems and margin 0 match the brief (CARD-011, COMMON P3). At 100 kg and 5% margin the same model gives 1.151 and 1.041. Objections are NFI rows and stop nothing. (1) Demonstrated, conservative: on the frame the card counts, statics fix the mean member force at pRs/(2sqrt3), 562 kN at s 2.04 m, not the 974 kN that 022 and 023 use (exact virial identity; geodesic truss solves agree within 1%). With FIX-A, SiC is 1.408. (2) Demonstrated from the cited source, optimistic: local keeps gamma 1 at r/t 140, where SP-8007 gives 0.529, so local is 0.648 at the point. Re-optimised with FIX-B, SiC is 1.075. With both fixes it is 1.205, and 1.130 at 100 kg and 5%; the two-way grid falls to 0.967 with FIX-B alone. (3) Asserted: the global mode presumes moment-rigid joints, which binds 023. Text: the k 0.5 rows are in RESULTS.json only, and INPUTS.json carries no material sources. Every value is QUESTIONABLE; nothing here is a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/40c0760cee0ea356-CHECK.md",
+      "sha256": "40c0760cee0ea35627fdf8ae3a89336f0cceaf2a2a340cf131c4157d66258354",
+      "bytes": 8887
+    },
+    {
+      "path": "evidence/a46affd347956090-RESULTS.json",
+      "sha256": "a46affd34795609018990528139d189354504b07067834332c1c2b7494af99de",
+      "bytes": 587086
+    },
+    {
+      "path": "evidence/af8c48d030b0630d-RESULTS-EXTRA.json",
+      "sha256": "af8c48d030b0630d8361780f23a706d679c460219090a68b4aa6571cb00fee1b",
+      "bytes": 41043
+    },
+    {
+      "path": "evidence/484da7d61f0ffdb3-COMPARE.json",
+      "sha256": "484da7d61f0ffdb335648f36bf1a856a049207bfc3bf0d296f8fc560253a8a14",
+      "bytes": 200545
+    },
+    {
+      "path": "evidence/610aec93220adcc1-NFI.json",
+      "sha256": "610aec93220adcc1926f33247285ea1d4377669a749f7a577002fa6719b14973",
+      "bytes": 4266
+    },
+    {
+      "path": "evidence/94e6e869ebdaf7b4-INPUTS.json",
+      "sha256": "94e6e869ebdaf7b496e98b9842b036dbf104d9e2b97052f5d1416ab0726d59bd",
+      "bytes": 12851
+    },
+    {
+      "path": "evidence/abe9787998797bcc-check011b.py",
+      "sha256": "abe9787998797bcc207626b7915bf556bfde44ad85dfad51ea3d9770f7f4c49f",
+      "bytes": 16855
+    },
+    {
+      "path": "evidence/e767b17117cf1a57-check011b_extra.py",
+      "sha256": "e767b17117cf1a5764fcf9d9f20e1c212ba68565b7bd82ebacb9b33ba0474a80",
+      "bytes": 6468
+    },
+    {
+      "path": "evidence/021132b975e4d2a7-compare011b.py",
+      "sha256": "021132b975e4d2a721754d0863181845079f098f01552f1ff0a5a1e6adfcb5b9",
+      "bytes": 8689
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-55cff924be25afe6f9dd",
+  "re": "ord-admiral-rr2-check011b-opus-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check011b-opus-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

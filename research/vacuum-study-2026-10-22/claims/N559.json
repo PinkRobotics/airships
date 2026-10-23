@@ -1,0 +1,79 @@
+{
+  "id": "N559",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N559",
+    "report": "rpt-ref-5b1ba7a48fcb57c8e35e",
+    "card": "rpt-ref-5b1ba7a48fcb57c8e35e",
+    "file": "evidence/a4edee0295bc38f3-NFI.json",
+    "snapshot": "evidence/a4edee0295bc38f3-NFI.json",
+    "source_sha256": "a4edee0295bc38f39245cd5767c1f102f15cee1b49b2fbac7bb4fd14a6431bd3",
+    "source_json_pointer": "/issues/6",
+    "row_id": "033-NFI-07",
+    "fields": {
+      "id": "033-NFI-07",
+      "tag": "PROJECTION",
+      "title": "Nominal adhesive and seam inventory",
+      "finding": "Nominal film is .015 lb/ft2 per face/core interface; scarf film .07 kg/m2, splice gap .5 mm at 500 kg/m3, sealing .002 kg/m for both faces. Nominal primer is zero. No AF163 mass tolerance was independently verified; the inherited +/- .005 statement is unused.",
+      "next_evidence": "Obtain an installed bill including primer, intersections, closeouts, rejected material, repairs and leak barriers; qualify sustained load, thermal cycling and leakage.",
+      "status": "open"
+    },
+    "inherited_document_tag": {
+      "status": "open",
+      "overall_installed_hull_SF": null
+    }
+  },
+  "claim": "Nominal film is .015 lb/ft2 per face/core interface; scarf film .07 kg/m2, splice gap .5 mm at 500 kg/m3, sealing .002 kg/m for both faces. Nominal primer is zero. No AF163 mass tolerance was independently verified; the inherited +/- .005 statement is unused. | Nominal adhesive and seam inventory",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/558"
+    },
+    {
+      "report": "rpt-ref-5b1ba7a48fcb57c8e35e",
+      "artifact": "evidence/a4edee0295bc38f3-NFI.json",
+      "snapshot": "evidence/a4edee0295bc38f3-NFI.json",
+      "sha256": "a4edee0295bc38f39245cd5767c1f102f15cee1b49b2fbac7bb4fd14a6431bd3",
+      "bytes": 5539,
+      "selector": "/issues/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-5b1ba7a48fcb57c8e35e",
+          "artifact": "evidence/a4edee0295bc38f3-NFI.json",
+          "snapshot": "evidence/a4edee0295bc38f3-NFI.json",
+          "sha256": "a4edee0295bc38f39245cd5767c1f102f15cee1b49b2fbac7bb4fd14a6431bd3",
+          "bytes": 5539,
+          "selector": "/issues/6"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/558"
+          }
+        ]
+      }
+    }
+  ]
+}

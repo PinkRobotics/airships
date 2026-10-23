@@ -1,0 +1,52 @@
+{
+  "id": "rpt-ref-e883782db8adaf6f6cf4",
+  "kind": "report",
+  "from": "ref-54f4f7dcfd67e7445c6b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline073-equibiaxial-wrinkling-1022",
+  "re": "ord-admiral-rr2-mainline073-dispatch-1022",
+  "asks": "none",
+  "standing": "none",
+  "next": "admiral-robotics-review-v2: file the MAINLINE-073 record delta to ref-54f4f7dcfd67e7445c6b, which holds rebuilt admitted version 8",
+  "at": "2026-10-22T09:59:34-07:00",
+  "body": "MAINLINE-073. QUESTIONABLE / PROJECTION. UNREVIEWED. No qualified hull safety factor. simjob-20261022t095337-eb517fa6490c exited 0. No FE.\n\nCR-1457 (2.2-14), unknown waviness, eta 1, is the uniaxial lower bound 0.33 sqrt(Ef Ec tf/tc). (2.2-15) is Rx^3 + Ry^3 = 1 when both facings are in compression. Equibiaxial, the allowable is 0.79370 times that bound. Admissible with a named limit: a flat-panel honeycomb rule, not a test of SR-200 on CR-III and not a sphere series. It applies because the membrane is equibiaxial, and it stops if the wrinkle is long beside R. Cure, gradient, bending and the pressure adder stay QUESTIONABLE. Exemption: one principal membrane stress is not compressive, or a test of this sandwich beats that factor.\n\nOn 069's geometry wrinkling is 0.794, so +5.031 kg does not float. BETA is 1. kc stands. Face-density factors, concept then TRL 7, order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic: 1.9688/2.0628/1.9320/2.0235 beside 1.779/1.863/1.743/1.825, and 1.7158/1.7946/1.6891/1.7662 beside 1.544/1.614/1.519/1.587. The rise is about 1.11, not 1.26, because the face thickened. R30 optimistic concept closes at 914.3 kg/m3, face 3.668 mm, core 167.0 mm, payload +0.009 kg, wrinkling and buckling co-bound. The 993 and 1146 kg/m3 targets become 896.8 and 1030.8. TRL 7 at 1850 kg/m3 needs gamma 0.6407 (factor 3.2036) beside filed 0.553 (factor 2.767).\n\nT3 must be equibiaxial, or a pressurized sphere or dome of this sandwich. A uniaxial coupon admits only 2.2-14. Priority: that allowable; then face density; then cure, gradient, bending and the pressure adder; then kb and dtc.\n",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline073-dispatch-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "links_none": false,
+  "artifacts": [
+    {
+      "path": "evidence/0ce64a6bdeb463fe-CARD.md",
+      "sha256": "0ce64a6bdeb463fe69f6965daf3dbad91dba82b2c3489977673451f4218214fe",
+      "bytes": 6867
+    },
+    {
+      "path": "evidence/763bcab1187f80a2-RESULTS.json",
+      "sha256": "763bcab1187f80a2dd82631056d53b49756ed7dc649cc716236ff7206d2434c6",
+      "bytes": 44517
+    },
+    {
+      "path": "evidence/08e1d5f4d9c3d97d-NFI.json",
+      "sha256": "08e1d5f4d9c3d97d0d944c2effff2d0ec55a252bd6693a1c2022424a3e5767ef",
+      "bytes": 2328
+    },
+    {
+      "path": "evidence/e5861f08c689bf8d-INPUTS.json",
+      "sha256": "e5861f08c689bf8d839f0e0b5419fcec043845001e24f78ac606c6a6c880a128",
+      "bytes": 5916
+    }
+  ],
+  "links_schema": 1,
+  "from_seat": "ref-54f4f7dcfd67e7445c6b",
+  "ingested": "2026-10-22T09:59:39-07:00"
+}

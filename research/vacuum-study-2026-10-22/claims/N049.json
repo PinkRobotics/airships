@@ -1,0 +1,76 @@
+{
+  "id": "N049",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N049",
+    "report": "rpt-ref-d5b4aaa267b71d82fe25",
+    "card": "MAINLINE-009",
+    "file": "evidence/b9cd9c3b294887e6-NFI.json",
+    "row_id": "NFI-FACE-STRENGTH",
+    "fields": {
+      "id": "NFI-FACE-STRENGTH",
+      "value": "SiC face compressive strength",
+      "optimistic": 3900000000.0,
+      "optimistic_source": "Saint-Gobain Hexoloy SA data https://www.ceramicsrefractories.saint-gobain.com/pt/files/4731/view (compressive 3900 MPa, flexural 380 MPa); MatWeb alpha SiC https://www.matweb.com/search/datasheet_print.aspx?matguid=dd2598e783ba4457845586b58c8ea9fb (density 3.10 g/cc, E 410 GPa)",
+      "conservative": 380000000.0,
+      "conservative_source": "Hexoloy SA flexural strength, the figure MAINLINE-008 says governs a bending or tension path.",
+      "factor": 10.263157894736842,
+      "stated_mode_uses": "compressive 3900 MPa, because the stated mode is face compression",
+      "SF_if_flexural_were_used": 0.433343716061625,
+      "direction": "A compressive allowable for the sintered face, and a check that the sphere stress stays membrane compression."
+    }
+  },
+  "claim": "{\"id\": \"NFI-FACE-STRENGTH\", \"value\": \"SiC face compressive strength\", \"optimistic\": 3900000000.0, \"optimistic_source\": \"Saint-Gobain Hexoloy SA data https://www.ceramicsrefractories.saint-gobain.com/pt/files/4731/view (compressive 3900 MPa, flexural 380 MPa); MatWeb alpha SiC https://www.matweb.com/search/datasheet_print.aspx?matguid=dd2598e783ba4457845586b58c8ea9fb (density 3.10 g/cc, E 410 GPa)\", \"conservative\": 380000000.0, \"conservative_source\": \"Hexoloy SA flexural strength, the figure MAINLINE-008 says governs a bending or tension path.\", \"factor\": 10.263157894736842, \"stated_mode_uses\": \"compressive 3900 MPa, because the stated mode is face compression\", \"SF_if_flexural_were_used\": 0.433343716061625, \"direction\": \"A compressive allowable for the sintered face, and a check that the sphere stress stays membrane compression.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/48"
+    },
+    {
+      "report": "rpt-ref-d5b4aaa267b71d82fe25",
+      "artifact": "evidence/b9cd9c3b294887e6-NFI.json",
+      "snapshot": "evidence/b9cd9c3b294887e6-NFI.json",
+      "sha256": "b9cd9c3b294887e6e959aed40d3c037ce09cd0b6d560d4fdd1b1df797f31ba18",
+      "bytes": 4626,
+      "selector": "source row ID: NFI-FACE-STRENGTH"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d5b4aaa267b71d82fe25",
+          "artifact": "evidence/b9cd9c3b294887e6-NFI.json",
+          "snapshot": "evidence/b9cd9c3b294887e6-NFI.json",
+          "sha256": "b9cd9c3b294887e6e959aed40d3c037ce09cd0b6d560d4fdd1b1df797f31ba18",
+          "bytes": 4626,
+          "selector": "source row ID: NFI-FACE-STRENGTH"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/48"
+          }
+        ]
+      }
+    }
+  ]
+}

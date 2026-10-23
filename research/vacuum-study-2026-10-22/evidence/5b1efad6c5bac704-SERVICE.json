@@ -1,0 +1,83 @@
+{
+  "classification": "PROJECTION",
+  "weather": [
+    {
+      "name": "nominal_034_water",
+      "days": 305,
+      "Ta_K": 284.9,
+      "water_Pa": 1000,
+      "pressure_ratio": 1
+    },
+    {
+      "name": "031_optimistic_hot_wet_high",
+      "days": 50,
+      "Ta_K": 294.9,
+      "water_Pa": 1000,
+      "pressure_ratio": 1.01
+    },
+    {
+      "name": "031_conservative_hot_wet_high",
+      "days": 10,
+      "Ta_K": 310.0,
+      "water_Pa": 6000,
+      "pressure_ratio": 1.02
+    }
+  ],
+  "one_year_hours": 8760,
+  "local_patch_dose": {
+    "full_sun_equivalent_hours_year": 2190,
+    "solar_peak_W_m2": 970,
+    "annual_local_solar_J_m2": 7647480000,
+    "assumed_UV_fraction": 0.05,
+    "assumed_visible_fraction": 0.45,
+    "unmeasured_spectral_fractions": true,
+    "candidate_intact_transmission": 0.001,
+    "annual_light_leak_fractions_tested": [
+      0,
+      0.001,
+      0.01,
+      0.05,
+      1
+    ],
+    "annual_UV_J_m2": 382374000.0,
+    "annual_visible_J_m2": 3441366000.0
+  },
+  "cycles_per_year": {
+    "daily_ground_topup": 365,
+    "thermal": 365,
+    "full_vents_assumed": 12,
+    "flight_gusts_assumed": 36500
+  },
+  "full_vents_sensitivity": [
+    0,
+    12,
+    365
+  ],
+  "topup_note": "Re-evacuation is not full venting or fabric folding.",
+  "instantaneous_temperature_factor_note": "Approximate Toyobo graph transfer, reversible; do not count as permanent aging.",
+  "q_gust_ratio": 0.003044535549404153,
+  "peak_pressure_ratio": 1.0230445355494042,
+  "selected_full_restraint_worst": {
+    "weather": "031_conservative_hot_wet_high",
+    "days": 10,
+    "phase": "sun",
+    "hours_per_year": 60,
+    "optics": "037_white_target",
+    "h_W_m2K": 5.0,
+    "air_K": 310.0,
+    "film_K": 321.9402395858107,
+    "sky_K": 300.1,
+    "water_external_Pa": 6000,
+    "air_RH": 0.9632795996647086,
+    "RH_at_film_unclipped": 0.5160554561333642,
+    "RH_at_film": 0.5160554561333642,
+    "condensation_possible": false,
+    "pressure_ratio": 1.02,
+    "added_ply_stress_fully_restrained_Pa": 90501688.12901336,
+    "instantaneous_strength_factor": 0.9640122005177366
+  },
+  "relative_humidity_equation": "Modified Buck over water; coefficient set recorded in METHOD and SOURCE-DATA",
+  "source_037_PBO_unprotected_sun_K": 317.4188083455216,
+  "source_037_PBO_unprotected_night_K": 273.3052231914065,
+  "no_measured_climatology": true
+}

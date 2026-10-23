@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-056",
+  "kind": "filed_change",
+  "label": "056",
+  "claim": "6.03 MPa is a published simulation, not a measured collapse; refined 6.159021 MPa releases no P2 gamma.",
+  "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+  "source_report_body": "MAINLINE056 complete; QUESTIONABLE/PROJECTION. Corrected provenance: 6.03 MPa is the paper's pressure simulation, not a measured pressure test. Owned DF/J2 extension reuses pinned CHECK029 Q8 code. Refined indentation with the midsurface-radius reading gives 6.159021 MPa (+2.140%); four refined-contact indentation/radius scenarios span 6.1590–6.5023 MPa. Contact mesh refinement changes the peak -0.1156%; doubling contact penalty changes it −0.0105%. Linear gaps are +1.977% midsurface and +9.764% outer-radius. Guarded reference paths yield in the foam, then faces, before the implied virgin shear screen and turning point; no sourced PVC80 shear-rupture criterion was recovered. Gaussian early turns are distinguished from larger later peaks. Steel-axis, foam-flow, densification and imported-history uncertainties prevent unique calibration. Directional CR III crush/shear law requirements are sourced. No P2 gamma released. Raw paths, saved states, mesh/step/material checks, source snapshots, receipts and NFIs are pinned. All scopes released; no successor named.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+      "artifact": "evidence/f5b564329a854cb1-CARD.md",
+      "snapshot": "evidence/f5b564329a854cb1-CARD.md",
+      "sha256": "f5b564329a854cb169e29eef96ad49ef290b29ac1bbd5b1a6a11bec2bf5a1e5c",
+      "bytes": 10449,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

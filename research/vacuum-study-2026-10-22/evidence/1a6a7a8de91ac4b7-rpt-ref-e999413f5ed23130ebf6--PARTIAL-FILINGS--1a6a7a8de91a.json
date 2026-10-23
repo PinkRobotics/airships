@@ -1,0 +1,668 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "CHECK048": {
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "PARTIAL; final check PENDING",
+    "source": {
+      "report": "rpt-ref-29ebe6d900e7cbd982ea",
+      "file": "evidence/f3b9ccd41c2337ba-CHECK.md",
+      "original_file": "evidence/f3b9ccd41c2337ba-CHECK.md",
+      "sha256": "f3b9ccd41c2337baa8a6554aaac3f282414a67125488e1348e404356501fbbce",
+      "selector": "/"
+    },
+    "scope": {
+      "schema": 1,
+      "unit": "vacuum-mainline048-check-1020",
+      "status": "partial_after_simjob_admission_refusal",
+      "full_check_complete": false,
+      "order_closed": false,
+      "owner_code_read": false,
+      "owner_code_copied": false,
+      "owner_code_hashed": false,
+      "owner_code_imported": false,
+      "owner_code_executed": false,
+      "out_of_band_contact": false,
+      "stored_main_points_evaluated": 7149,
+      "executed_account_comparisons": 686304,
+      "raw_account_differences": 16679,
+      "executed_thermal_comparisons": 325,
+      "thermal_convention_differences": 297,
+      "account_thermal_tables": "pinned owner input",
+      "independent_geometry_optimization_executed": false,
+      "independent_least_set_search_executed": false,
+      "supplemental_arithmetic_complete": false,
+      "corrected_account_rerun_started": false,
+      "scientific_launch_after_refusal": false,
+      "admitted_jobs": 3,
+      "refused_jobs": 1,
+      "live_own_jobs": 0,
+      "time_budget": null,
+      "installed_hull_SF": null,
+      "qualified_installed_finish_mass_kg_m2": null,
+      "next": "none"
+    },
+    "account": {
+      "tag": "QUESTIONABLE / PROJECTION",
+      "distinct_points": 7149,
+      "comparison_count": 686304,
+      "mismatch_count": 16679,
+      "mismatch_counts_by_field": {
+        "vacuum.initial_gas_kg": 7149,
+        "vacuum.gas_aboard_counted_kg": 7149,
+        "vacuum.desorbed_24h_kg": 2381
+      },
+      "largest_difference_by_field": {
+        "vacuum.initial_gas_kg": {
+          "point": "main.rows[72].least.least",
+          "field": "vacuum.initial_gas_kg",
+          "owner": 1.7287285355241762,
+          "independent": 1.7286530914136542,
+          "delta": -7.544411052196054e-05,
+          "agrees": false,
+          "rtol": 2e-08,
+          "atol": 2e-08
+        },
+        "vacuum.gas_aboard_counted_kg": {
+          "point": "main.rows[72].least.least",
+          "field": "vacuum.gas_aboard_counted_kg",
+          "owner": 2.4154977298723352,
+          "independent": 2.415422285761813,
+          "delta": -7.544411052240463e-05,
+          "agrees": false,
+          "rtol": 2e-08,
+          "atol": 2e-08
+        },
+        "vacuum.desorbed_24h_kg": {
+          "point": "main.rows[412].least.endpoint_trials[2].solution",
+          "field": "vacuum.desorbed_24h_kg",
+          "owner": 0.47888479095463504,
+          "independent": 9.577695819092693,
+          "delta": 9.098811028138057,
+          "agrees": false,
+          "rtol": 2e-08,
+          "atol": 2e-08
+        }
+      },
+      "primary_endpoints": [],
+      "scope": "Independent equations conditional on explicit pinned thermal tables; no owner's code.",
+      "owner_code_read": false,
+      "owner_code_executed": false
+    },
+    "NFI": {
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocking_on_owner_card": false,
+      "checker_complete": false,
+      "rows": [
+        {
+          "id": "NFI-048-C01",
+          "topic": "Thermal model equivalence",
+          "evidence": "THERMAL-COMPARISONS.csv; 297 of 325 comparisons differ",
+          "finding": "The independent converged gray-cavity/sky-ground model does not reproduce published legacy or common temperatures. Differences are not yet attributable to an owner error.",
+          "next_evidence": "A prose or equation specification of local sky/ground exchange, convection length/coefficient, cavity moment, quadrature, fixed-iteration update and day/night curvature convention; independently solve after fresh queue execution authority.",
+          "qualified_value": null
+        },
+        {
+          "id": "NFI-048-C02",
+          "topic": "Independent least-set and geometry search",
+          "evidence": "independent_search.py is unexecuted",
+          "finding": "Stored witnesses and trial bills were evaluated, but no independent optimizer or E-axis favorable-bound search ran.",
+          "next_evidence": "Independently search every subset, refine geometry boundaries, bracket common usage and check E-axis nonmonotonicity under fresh queue authority.",
+          "independently_verified_least_sets": null
+        },
+        {
+          "id": "NFI-048-C03",
+          "topic": "Vacuum bookkeeping and checker rerun",
+          "evidence": "ACCOUNT-MISMATCHES.json; execution/account-02/END.json",
+          "finding": "Initial-gas density versus species convention and gross versus net desorption explain candidate checker amendments; rerun refused, so resolution is not verified.",
+          "next_evidence": "Document initial-gas molecular mass and separate gross release, captured vapor and free vapor fields; rerun the revised independent comparison only with fresh authority."
+        },
+        {
+          "id": "NFI-048-C04",
+          "topic": "Classical CCAg optical citation",
+          "evidence": "COATINGS.json CCAg.optical_source; NASA 2015 printed slide19",
+          "finding": "The cited source gives alpha .08 and normal epsilon .72 on Kapton, rather than the model's .09/.65 pair.",
+          "next_evidence": "Correct the citation and identify the emittance statistic; keep direct-Be optical transfer explicitly PROJECTION.",
+          "url": "https://ntrs.nasa.gov/api/citations/20150018109/downloads/20150018109.pdf"
+        },
+        {
+          "id": "NFI-048-C05",
+          "topic": "Recipe mass and matched optical specimen",
+          "evidence": "CHECK.md finish arithmetic and patent text",
+          "finding": "Selected layer arithmetic agrees, but bulk-density transfer, classical ITO cap and the patent's recipe/overall-thickness ambiguity prevent treating it as a measured installed mass-optics pair.",
+          "next_evidence": "A matched stack drawing, deposited density/areal mass, optical angular statistic and substrate/cure/process record.",
+          "qualified_installed_finish_mass_kg_m2": null
+        },
+        {
+          "id": "NFI-048-C06",
+          "topic": "Be adhesion, protection and durability",
+          "evidence": "SOURCE-AUDIT.md; owner COATING-EVIDENCE.md",
+          "finding": "Space heritage, flexible-film specimens or stainless peel data do not qualify the proposed Be stack or terrestrial UV/humidity cycling.",
+          "next_evidence": "Weighed installed Be coupons including preparation, primer, repairs and edges, with optical and adhesion retention over the intended environment."
+        },
+        {
+          "id": "NFI-048-C07",
+          "topic": "Exterior water and wet thermal state",
+          "evidence": "016 pinned water-film band; 048 dry-optics account",
+          "finding": "The lower-end exterior-water charge remains aboard; internal bake-out and sorbent do not remove later rain/dew. Dry optical values do not establish a wet-hull thermal state.",
+          "next_evidence": "Retained-water distribution, drainage/condensation/frost conditions and wet/aged optical data for a stated mission envelope."
+        },
+        {
+          "id": "NFI-048-C08",
+          "topic": "Material moisture inventory",
+          "evidence": "NASA WVR/TML rows and guide; explicit assumed component fractions",
+          "finding": "WVR is not an equilibrium isotherm. Core, primer, seam and deposited-finish water fractions are planning allowances; nominal mass already containing moisture could create overlap.",
+          "next_evidence": "Cured-lot dry/reference masses, sorption isotherms and desorption data for the installed materials and chosen cure."
+        },
+        {
+          "id": "NFI-048-C09",
+          "topic": "Ground conditioning achievement",
+          "evidence": "AF163-2M coupon paper; inherited nominal volatile credit",
+          "finding": "70C coupon preconditioning does not demonstrate 90% added-water removal or nominal volatile conditioning in the proposed 2U hull.",
+          "next_evidence": "Measured endpoint mass/pressure, compatible process temperatures and transport paths; separately account ground resource cost and reabsorption."
+        },
+        {
+          "id": "NFI-048-C10",
+          "topic": "Sorbent operating capacity and species",
+          "evidence": "BASF 4A ambient equilibrium value; modeled 10%/95% assumptions",
+          "finding": "Capacity and capture at low hull pressure, as well as treating nominal volatiles as water-equivalent capture, are unqualified. Adsorbed material remains aboard.",
+          "next_evidence": "Pressure/temperature-dependent usable capacity, kinetics, regeneration condition, species compatibility and vent conductance."
+        },
+        {
+          "id": "NFI-048-C11",
+          "topic": "Inherited mechanical and cure models",
+          "evidence": "Pinned 040/037b conventions",
+          "finding": "Scalar cure-edge, cell-wall and scarf screens do not establish the actual joint or shell safety factor; thermal/global coupling and manufacturing imperfections remain unresolved.",
+          "next_evidence": "Applicable allowables and assembly tests or validated coupled models; retain qualification values null.",
+          "installed_hull_SF": null
+        },
+        {
+          "id": "NFI-048-C12",
+          "topic": "Supplemental tables and complete coverage",
+          "evidence": "SENSITIVITIES, DRYING-COSTS, SERVICE-AUDIT, SUBSET-BOUNDS and ADDITIONAL-AUDIT retained as owner data",
+          "finding": "Independent rederivation of all auxiliary tables, old040 reoptimization and complete source auditing remains unfinished after refusal.",
+          "next_evidence": "Complete those checks under fresh queue authority; do not infer their validation from the 686304 main-point comparisons."
+        },
+        {
+          "id": "NFI-048-C13",
+          "topic": "Compute admission",
+          "evidence": "execution/account-02/stderr.log",
+          "finding": "Simjob exit75, PSI some avg10 6.13 >= 5.00. Nothing started; no retry or later numerical launch.",
+          "next_evidence": "Fresh queue execution authority and successful mandatory admission before any continuation.",
+          "automatic_retry": false,
+          "standing_order": "ord-sciences-g1-c-simjob-heavy-route-1018"
+        }
+      ]
+    },
+    "classical_optical_correction": {
+      "source_alpha": 0.08,
+      "source_normal_emittance": 0.72,
+      "source_substrate": "Kapton",
+      "modeled_alpha": 0.09,
+      "modeled_emittance": 0.65,
+      "source": "NASA2015 printed slide19, as audited in partialCHECK048",
+      "URL": "https://ntrs.nasa.gov/api/citations/20150018109/downloads/20150018109.pdf",
+      "disposition": "Correct source attribution/statistic; retain the model tuple only as an unqualified projection. No corrected-optics optimization is claimed."
+    },
+    "independent_least_sets_verified": false,
+    "independent_thermal_equivalence": false
+  },
+  "MAINLINE051": {
+    "unit": "vacuum-mainline051-p3-frame-targets-1020",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "PARTIAL_HELD_RESOURCE_ADMISSION",
+    "work_complete": false,
+    "qualified_frame_Pf": null,
+    "qualified_lifetime_Pf": null,
+    "qualified_structural_SF": null,
+    "completed": [
+      "288-row reliability target surface m5..40;actual lengths/coupon/3m references",
+      "592 arithmetic checks",
+      "primary-source material and damage-method evidence review"
+    ],
+    "incomplete": [
+      "material-by-material frame mass/SF recalculation",
+      "material-by-material numerical strength/m gaps",
+      "041-section hail calculation",
+      "lost-member/cascade recalculation",
+      "evidence-backed construction ranking"
+    ],
+    "target_summary": [
+      {
+        "reserve": "5",
+        "load": "operating",
+        "q": 1.0,
+        "peak_compression_GPa": 1.0145523610200073,
+        "area_m2": 0.0007641548070716787,
+        "actual_length_m": [
+          1.984730270495083,
+          2.399568831878784,
+          2.6234981973919025
+        ],
+        "hypothetical_whole_3p9_m10_Pf": 0.0006439158267920496,
+        "hypothetical_coupon1cm3_3p9_m10_Pf": 0.7000009947191338,
+        "m_required_at_hypothetical_3p9_GPa": {
+          "equal_complete_member": {
+            "0.001": 9.681968316183477,
+            "1e-06": 14.683328300965533
+          },
+          "coupon_1cm3": {
+            "0.001": 15.140800086521649,
+            "1e-06": 20.167457670665453
+          }
+        }
+      },
+      {
+        "reserve": "5",
+        "load": "own_screen",
+        "q": 1.1432846186728538,
+        "peak_compression_GPa": 1.1642347984588048,
+        "area_m2": 0.0007641548070716787,
+        "actual_length_m": [
+          1.984730270495083,
+          2.399568831878784,
+          2.6234981973919025
+        ],
+        "hypothetical_whole_3p9_m10_Pf": 0.0025241697604210813,
+        "hypothetical_coupon1cm3_3p9_m10_Pf": 0.9911326670061066,
+        "m_required_at_hypothetical_3p9_GPa": {
+          "equal_complete_member": {
+            "0.001": 10.743153447756859,
+            "1e-06": 16.302395597708916
+          },
+          "coupon_1cm3": {
+            "0.001": 16.812529791787295,
+            "1e-06": 22.40345653633099
+          }
+        }
+      },
+      {
+        "reserve": "019",
+        "load": "operating",
+        "q": 1.0,
+        "peak_compression_GPa": 1.0552624913948132,
+        "area_m2": 0.0007364701258650087,
+        "actual_length_m": [
+          1.984730270495083,
+          2.399568831878784,
+          2.6234981973919025
+        ],
+        "hypothetical_whole_3p9_m10_Pf": 0.0009473076803051309,
+        "hypothetical_coupon1cm3_3p9_m10_Pf": 0.81868497894122,
+        "m_required_at_hypothetical_3p9_GPa": {
+          "equal_complete_member": {
+            "0.001": 9.95975706148423,
+            "1e-06": 15.10694765152488
+          },
+          "coupon_1cm3": {
+            "0.001": 15.550620544080724,
+            "1e-06": 20.72462501456678
+          }
+        }
+      },
+      {
+        "reserve": "019",
+        "load": "own_screen",
+        "q": 1.083205354427274,
+        "peak_compression_GPa": 1.1457475608296588,
+        "area_m2": 0.0007364701258650087,
+        "actual_length_m": [
+          1.984730270495083,
+          2.399568831878784,
+          2.6234981973919025
+        ],
+        "hypothetical_whole_3p9_m10_Pf": 0.0021428273141729467,
+        "hypothetical_coupon1cm3_3p9_m10_Pf": 0.9790462016674567,
+        "m_required_at_hypothetical_3p9_GPa": {
+          "equal_complete_member": {
+            "0.001": 10.60365264686451,
+            "1e-06": 16.08945466368308
+          },
+          "coupon_1cm3": {
+            "0.001": 16.56330113767422,
+            "1e-06": 22.079843462129492
+          }
+        }
+      }
+    ],
+    "materials": [
+      {
+        "id": "Hexoloy-SA",
+        "form": "sintered monolith",
+        "compression_MPa": 3900,
+        "compression_basis": "manufacturer typical; specimen unspecified",
+        "other_statistics": "listed m10 old sheet / m8 current web page, test mode not established as compression; flexure bars3x4x45mm",
+        "source": "https://www.ceramicsrefractories.saint-gobain.com/sites/hps-mac3-cma-pcr/files/assetbank_media/hexoloy-sa-sic-en-1013-tds-215398.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "CVD-PureSiC",
+        "form": "CVD monolith",
+        "compression_MPa": null,
+        "compression_basis": "blank in manufacturer table",
+        "other_statistics": "HR/LR flexure447/590MPa; no m or size basis",
+        "source": "https://www.coorstek.com/media/4249/silicon-carbides.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "CVD-PremaTech",
+        "form": "CVD monolith",
+        "compression_MPa": null,
+        "compression_basis": "not reported",
+        "other_statistics": "four-point flexure scale424MPa m11; geometry/effective size unspecified",
+        "source": "https://www.prematechac.com/wp-content/uploads/2019/05/18437-CVD-Silicon-Carbide-Data-Sheet.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "UltraSiC",
+        "form": "direct-sintered monolith",
+        "compression_MPa": 3500,
+        "compression_basis": "manufacturer typical; size unspecified",
+        "other_statistics": "no compression distribution",
+        "source": "https://www.coorstek.com/media/4249/silicon-carbides.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "SCS-6",
+        "form": "monofilament for composite",
+        "compression_MPa": null,
+        "compression_basis": "no tube compression population",
+        "other_statistics": "maker tensile3900MPa; historical25mm tensile fibre m8.2, NASA19910011930; not compression",
+        "source": "https://www.specmaterials.com/silicon-carbide-fiber-1",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "SCS-Ultra",
+        "form": "monofilament for composite",
+        "compression_MPa": null,
+        "compression_basis": "not reported",
+        "other_statistics": "maker metric tensile5900MPa; m/size absent; page has unit/diameter inconsistencies",
+        "source": "https://www.specmaterials.com/silicon-carbide-fiber-1",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "Hi-Nicalon-S-bundle",
+        "form": "multifilament bundle",
+        "compression_MPa": null,
+        "compression_basis": "not reported",
+        "other_statistics": "tensile25mm bundle n26 m9 scale1730MPa; filament m8.42 scale3062MPa is another population",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7452681/",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "HNS-MI-SiC",
+        "form": "melt-infiltrated CMC",
+        "compression_MPa": 1000,
+        "compression_basis": "reported greater than1000MPa in hot turbine component property averages; not RT tube",
+        "other_statistics": "public m and size absent; private statistically derived curves mentioned but not supplied",
+        "source": "https://bulletin.ceramics.org/article/ceramic-matrix-composites-taking-flight-at-ge-aviation/",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "Tyranno-SA-CVI",
+        "form": "woven CVI composite",
+        "compression_MPa": null,
+        "compression_basis": "not reported",
+        "other_statistics": "flexure mean597MPa SD70 m10.2;34 bars25x4x2mm span16mm",
+        "source": "https://www.jstage.jst.go.jp/article/matertrans/44/9/44_9_1797/_pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "Tyranno-SA3-triplex",
+        "form": "CVD/composite/CVD short tube",
+        "compression_MPa": null,
+        "compression_basis": "not reported",
+        "other_statistics": "ultimate hoop mean282.4MPa m11.05;first drop226.95MPa m5.30;10mm long ID8.5mm OD9.8-10.1mm",
+        "source": "https://www.kns.org/files/pre_paper/33/15S-417%EA%B9%80%EB%8C%80%EC%A2%85.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "M55J-epoxy",
+        "form": "composite coupon; proposed tube",
+        "compression_MPa": 890,
+        "compression_basis": "Toray2025 reference lot average,Vf60%,#2500epoxy130C,SACMA; not allowable",
+        "other_statistics": "compression m and complete-tube size basis absent",
+        "source": "https://www.toraycma.com/wp-content/uploads/M55J-Data-Sheet.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "K13D2U",
+        "form": "fibre for composite tube",
+        "compression_MPa": null,
+        "compression_basis": "not found",
+        "other_statistics": "fibre tensile3700MPa E935GPa rho2.20; not composite compression",
+        "source": "https://www.m-chemical.co.jp/carbon-fiber/pdf/dialead/composites.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "T700S-epoxy",
+        "form": "composite coupon; proposed tube",
+        "compression_MPa": 1450,
+        "compression_basis": "Toray2025 reference lot average,Vf60%,epoxy130C,SACMA; not allowable",
+        "other_statistics": "compression m and complete-tube size basis absent",
+        "source": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      },
+      {
+        "id": "Al6061T6",
+        "form": "ductile metal tube",
+        "compression_MPa": null,
+        "compression_basis": "source gives tensile yield276MPa; no compression fit used",
+        "other_statistics": "tensile elongation12%; brittle Weibull rupture law inappropriate without evidence",
+        "source": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1071/Kaiser_Aluminum_6061_Pipe_Tube.pdf",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "compression_weibull_m": null,
+        "complete_member_compression_scale_MPa": null,
+        "qualified_compression_allowable_MPa": null,
+        "recomputed_frame_mass_kg": null,
+        "recomputed_P3_SF": null,
+        "strength_gap_multiplier": null,
+        "m_gap_multiplier": null,
+        "actual_hail_break_probability": null,
+        "dynamic_lost_member_cascade": null,
+        "computation_status": "not executed after compare-01 admission refusal"
+      }
+    ],
+    "execution": [
+      {
+        "label": "targets-01",
+        "returncode": 0,
+        "started_utc": "2026-10-20T12:05:33.501048+00:00",
+        "ended_utc": "2026-10-20T12:05:35.452540+00:00",
+        "elapsed_seconds": 1.9514693231321871,
+        "admitted": true,
+        "refused": false,
+        "released": true
+      },
+      {
+        "label": "compare-01",
+        "returncode": 75,
+        "started_utc": "2026-10-20T12:12:42.632967+00:00",
+        "ended_utc": "2026-10-20T12:12:42.687293+00:00",
+        "elapsed_seconds": 0.05431754980236292,
+        "admitted": false,
+        "refused": true,
+        "released": false
+      }
+    ],
+    "prior_041_reference": [
+      {
+        "reserve": "5",
+        "mass_kg": {
+          "tube": 4263.217784337443,
+          "film": 160.8308667208401,
+          "joint": 42.78065850692438,
+          "nodes": 5.04,
+          "systems": 100.0,
+          "sag_lift_loss": 73.10073311528532,
+          "reserve": 244.4721075095,
+          "total_with_reserve_and_sag": 4889.442150189992,
+          "headroom": 7.275957614183426e-12
+        },
+        "screened_SF": 1.1432846186728538,
+        "local_peak_sensitivity_SF": 1.0332229353106797
+      },
+      {
+        "reserve": "019",
+        "mass_kg": {
+          "tube": 4108.7650161525835,
+          "film": 152.37925285081053,
+          "joint": 38.85820399967597,
+          "nodes": 5.04,
+          "systems": 100.0,
+          "sag_lift_loss": 73.10073311528532,
+          "reserve": 411.2989440716474,
+          "total_with_reserve_and_sag": 4889.442150190002,
+          "headroom": -2.7284841053187847e-12
+        },
+        "screened_SF": 1.083205354427274,
+        "local_peak_sensitivity_SF": 0.9781320167916636
+      }
+    ],
+    "successor": "none; stop and file; robotics owns progress"
+  },
+  "target_surface_source": {
+    "report": "rpt-ref-8d5027d15bbe034522e3",
+    "file": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv",
+    "original_file": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv",
+    "sha256": "05ec78b6ec5d7d5efb0bb987fef76de1008f2443aecfaa2a78287fbbfe0cccd0",
+    "selector": "/"
+  },
+  "material_evidence_source": {
+    "report": "rpt-ref-8d5027d15bbe034522e3",
+    "file": "evidence/b8e7c269d5ef2c79-MATERIAL-EVIDENCE.json",
+    "original_file": "evidence/b8e7c269d5ef2c79-MATERIAL-EVIDENCE.json",
+    "sha256": "b8e7c269d5ef2c796cc0477fcb830b9cf6693361769af2a8f5b277f4752e2764",
+    "selector": "/"
+  },
+  "rule": "Completed portions are attributed evidence; neither filing closes its assignment. No proposed or unexecuted correction is promoted to a result."
+}

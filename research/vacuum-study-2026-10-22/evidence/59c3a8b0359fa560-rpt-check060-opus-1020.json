@@ -1,0 +1,57 @@
+{
+  "id": "rpt-check060-opus-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-55cff924be25afe6f9dd",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline060-check-1020",
+  "re": "ord-admiral-rr2-check060-opus-6ea7-1020",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check060-opus-6ea7-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "completion": "none",
+  "standing": "none",
+  "next": "none",
+  "at": "2026-10-20T08:13:26-07:00",
+  "body": "CHECK MAINLINE-060 filed, QUESTIONABLE/PROJECTION. Owner code not read or run; rebuilt from 051, 052, 054 and the primary PDFs. The answer stands: no carbon frame floats on sourced compression; not a better lead than SiC. 216 of 237 checked numbers reproduce. Confirmed: DIALEAD K13D2U 340 MPa and the 340-380 MPa pitch set, GRANOC, M55J 890, NCAMP CV 5.198 and CMH-17's 6%; the 0 deg ratio 1.7875 and 0.190 GPa first ply (my lamination theory on 051's plies); every whole-bill row within 1 kg (M55J -469.9 at R10); the CV 6% Pf walls; hail 28.5-32.3 J against Kim's 254 J (Pernas-Sanchez's scaling gives 250 J at 1.45 mm). Mismatches: the member load is 701 kN axial (158 klb, 1.30x NG-2), not 775 kN (1.43x); the Pf walls multiply 051's FE-normalized k(m) by a 0.5-0.8% lower peak (M55J 70/10/10/10 x1.326 not x1.316, R10 -2,092 not -2,044 kg); every CV 5.2% column runs about 1% high (conservative); M55J hail stress 98.9 not 100 MPa. m = 1.2/CV is conservative by 3-4% in m. Objections: Montagnier and Hochard blame their 15% gap on premature Celanese ruptures, so it is not an independent shortfall; Messinger's 110K strut fittings (27.8%, nearer the 158 klb load) leave even the strength-ignored light frame sinking (R10 -730, R30 -11,661 kg). Nine NFI. Next: none.",
+  "artifacts": [
+    {
+      "path": "evidence/4a6c30a727a5eed2-CHECK.md",
+      "sha256": "4a6c30a727a5eed208cb08d0ecdad80712354841e3e91929ec2a165f455e6020",
+      "bytes": 7223
+    },
+    {
+      "path": "evidence/27e0278a5f96db19-RESULTS.json",
+      "sha256": "27e0278a5f96db196fc35061eb43a9743a3a76dac4a1d311c69d0b9433322fd0",
+      "bytes": 42991
+    },
+    {
+      "path": "evidence/b26e733d4a0f5155-NFI.json",
+      "sha256": "b26e733d4a0f51555aa40af691ef7af0a6fc08301e13807d524f9e762180129f",
+      "bytes": 3181
+    },
+    {
+      "path": "evidence/9413d922ef729bab-INPUTS.json",
+      "sha256": "9413d922ef729bab1d31ac8a944ca704d67ff306e999a8609b5b0aef26605c71",
+      "bytes": 10680
+    },
+    {
+      "path": "evidence/13b06e6cdc5d44f2-RESULTS-CHECK.json",
+      "sha256": "13b06e6cdc5d44f2d708e9e37b621691a44ccb20d7596f3c00c4b7e0885e8df4",
+      "bytes": 32596
+    }
+  ],
+  "ingested": "2026-10-20T08:14:20-07:00"
+}

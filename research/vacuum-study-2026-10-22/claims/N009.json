@@ -1,0 +1,96 @@
+{
+  "id": "N009",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N009",
+    "report": "rpt-1228-mainline013-independent-check-1020",
+    "card": "CHECK-MAINLINE-013",
+    "file": "evidence/ef406b56c4cff82e-NFI.json",
+    "row_id": "NFI-CHECK013-KD-CONDITION",
+    "fields": {
+      "id": "NFI-CHECK013-KD-CONDITION",
+      "kind": "clarification",
+      "row": "CARD.md needs paragraph / RESULTS.json kd_scaling",
+      "field": "independence of local needs from kd",
+      "card_value": "Crush, crimp, wrinkling needs and face stress independent of kd; Q h_eq scales inversely with kd.",
+      "checker_value": "Local equations have no explicit kd at fixed geometry. Reoptimising Q changes tf, tc, stress and local needs.",
+      "example_at_rho_1": {
+        "0.1": {
+          "h_m": 0.378140402372981,
+          "face_stress_Pa": 396250728.3544923,
+          "EcGc_req_foam_design_Pa2": 2.026414217431143e+16,
+          "Gc_req_crimp_Pa": 1260230.2477890702
+        },
+        "0.2": {
+          "h_m": 0.1890702011864905,
+          "face_stress_Pa": 374476671.6434306,
+          "EcGc_req_foam_design_Pa2": 1.710378811012676e+16,
+          "Gc_req_crimp_Pa": 2515972.0959315384
+        },
+        "0.4": {
+          "h_m": 0.09453510059324526,
+          "face_stress_Pa": 364463013.9183118,
+          "EcGc_req_foam_design_Pa2": 1.5768064581253444e+16,
+          "Gc_req_crimp_Pa": 5013990.593276669
+        }
+      },
+      "proposed_fix": "Qualify the scaling statement by fixed geometry. Rebuild Q if kd changes.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    }
+  },
+  "claim": "{\"id\": \"NFI-CHECK013-KD-CONDITION\", \"kind\": \"clarification\", \"row\": \"CARD.md needs paragraph / RESULTS.json kd_scaling\", \"field\": \"independence of local needs from kd\", \"card_value\": \"Crush, crimp, wrinkling needs and face stress independent of kd; Q h_eq scales inversely with kd.\", \"checker_value\": \"Local equations have no explicit kd at fixed geometry. Reoptimising Q changes tf, tc, stress and local needs.\", \"example_at_rho_1\": {\"0.1\": {\"h_m\": 0.378140402372981, \"face_stress_Pa\": 396250728.3544923, \"EcGc_req_foam_design_Pa2\": 2.026414217431143e+16, \"Gc_req_crimp_Pa\": 1260230.2477890702}, \"0.2\": {\"h_m\": 0.1890702011864905, \"face_stress_Pa\": 374476671.6434306, \"EcGc_req_foam_design_Pa2\": 1.710378811012676e+16, \"Gc_req_crimp_Pa\": 2515972.0959315384}, \"0.4\": {\"h_m\": 0.09453510059324526, \"face_stress_Pa\": 364463013.9183118, \"EcGc_req_foam_design_Pa2\": 1.5768064581253444e+16, \"Gc_req_crimp_Pa\": 5013990.593276669}}, \"proposed_fix\": \"Qualify the scaling statement by fixed geometry. Rebuild Q if kd changes.\", \"nonblocking\": true, \"halts_owner\": false, \"halts_next_card\": false}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/8"
+    },
+    {
+      "report": "rpt-1228-mainline013-independent-check-1020",
+      "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+      "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+      "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+      "bytes": 6151,
+      "selector": "source row ID: NFI-CHECK013-KD-CONDITION"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline013-independent-check-1020",
+          "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+          "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+          "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+          "bytes": 6151,
+          "selector": "source row ID: NFI-CHECK013-KD-CONDITION"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/8"
+          }
+        ]
+      }
+    }
+  ]
+}

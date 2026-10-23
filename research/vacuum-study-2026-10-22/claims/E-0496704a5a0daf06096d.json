@@ -1,0 +1,43 @@
+{
+  "id": "E-0496704a5a0daf06096d",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-0496704a5a0daf06096d",
+    "report": "rpt-ref-9a28294ab892bcd529f5",
+    "file": "evidence/105e2c83175a7607-NFI.json",
+    "snapshot": "evidence/105e2c83175a7607-NFI.json",
+    "source_sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+    "source_json_pointer": "/items/7",
+    "row_id": "NFI-CHECK049-SUPPLY",
+    "fields": {
+      "id": "NFI-CHECK049-SUPPLY",
+      "kind": "denominator and allocation limits",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "row": "R30 supply comparison",
+      "field": "share of supply",
+      "owner": "433 t Be mine production; 1400 t continuous pitch capacity",
+      "checker": "denominators verified, allocation unverified",
+      "evidence": "Original share arithmetic matches the original 67 wt% assumption. At the original geometry the density-corrected pitch fraction is 5.50926357%; at the independent reoptimized corrected least point it is 5.292775859808878%.",
+      "fix": "Separate mine content, fibre capacity and finished-product availability. Obtain grade-specific production, allocation and manufacturing yield. The broader all-carbon market figures were not independently confirmed from a primary market report."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-CHECK049-SUPPLY\", \"kind\": \"denominator and allocation limits\", \"blocking\": false, \"tag\": \"QUESTIONABLE / PROJECTION\", \"row\": \"R30 supply comparison\", \"field\": \"share of supply\", \"owner\": \"433 t Be mine production; 1400 t continuous pitch capacity\", \"checker\": \"denominators verified, allocation unverified\", \"evidence\": \"Original share arithmetic matches the original 67 wt% assumption. At the original geometry the density-corrected pitch fraction is 5.50926357%; at the independent reoptimized corrected least point it is 5.292775859808878%.\", \"fix\": \"Separate mine content, fibre capacity and finished-product availability. Obtain grade-specific production, allocation and manufacturing yield. The broader all-carbon market figures were not independently confirmed from a primary market report.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-9a28294ab892bcd529f5",
+      "artifact": "evidence/105e2c83175a7607-NFI.json",
+      "snapshot": "evidence/105e2c83175a7607-NFI.json",
+      "sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+      "bytes": 8601,
+      "selector": "/items/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-018b",
+  "open": [
+    {
+      "NFI_id": "NFI-SIM-2024-PDF",
+      "gap": "The Sim 2024 PDF was not opened. Hindawi downloads and Wiley pdfdirect returned HTTP 403. Absolute pressures were read from the EUCASS 2023-367 PDF of the same shells.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "NFI_id": "NFI-GC-NOT-STATED",
+      "gap": "The paper does not state Gc. The 20 MPa row uses G = E/2 from foam modulus 0.04 GPa and Poisson 0. H80 at 27 MPa is a datasheet example. H35 at 12 MPa is the closer compressive-modulus match on the same sheet, not an identified coupon.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "NFI_id": "NFI-FACE-BENDING-SHARE",
+      "gap": "Own-face bending is about half a percent of flexural rigidity. CR-1457 section 2.3.2 says the crimp-formula error from neglecting it can be considerable. The papers do not isolate that error. Linear pressure over p_crimp is a mixed margin near 7.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "NFI_id": "NFI-TRANSFER",
+      "gap": "The shells are numerical, about 43 mm, R/tc near 13, with foam plasticity. They are not a laboratory pressure test and not the beryllium honeycomb sphere.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "NFI_id": "NFI-DESIGN-CREDIT-CAP",
+      "gap": "The products 1.00161658843 and 0.940740927738 apply the measured gamma to the 009c-5 least factor. Design credit is stated to stop at gamma 1, so the carried least stays 0.650411843681.",
+      "tag": "PROJECTION"
+    },
+    {
+      "NFI_id": "NFI-P3-PENDING-011b",
+      "gap": "P3 lattice buckling and member bending remain unscored.",
+      "tag": "QUESTIONABLE"
+    }
+  ]
+}

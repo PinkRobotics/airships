@@ -1,0 +1,45 @@
+{
+  "id": "E-3ca08d24813322146db2",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-3ca08d24813322146db2",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/2",
+    "row_id": "NFI-041-03",
+    "fields": {
+      "id": "NFI-041-03",
+      "status": "open",
+      "topic": "Joint strength, density, rotational stiffness and mass",
+      "evidence": [
+        "MODES.csv",
+        "RESULTS.json:selected_realization",
+        "intake/joint/toray-legacy.pdf",
+        "intake/joint/henkel-ea9394.pdf"
+      ],
+      "finding": "Actual member-end axial force, bending and torsion are included in the annular-sleeve and ring-bond demand. The selected frame reaches 3.356559 kN m end bending and 1.118657 kN m torsion. Equal-stress resized joints attain the requested scalar target by construction, without surplus reserve. The 1550 kg/m3 composite density is assumed; Toray's laminate strength and Henkel's prepared-aluminum shear result do not establish the proposed SiC joint.",
+      "needed": "A joint architecture, laminate orientation/thickness, bondline and surface treatment, peel and transverse/torsional shear interaction, cyclic/environmental data, contact stress and measured rotational stiffness. Include all hardware mass.",
+      "prohibited_inference": "Scalar sleeve/bond sizing does not establish a rigid joint, full multiaxial strength or a manufactured joint mass."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Actual member-end axial force, bending and torsion are included in the annular-sleeve and ring-bond demand. The selected frame reaches 3.356559 kN m end bending and 1.118657 kN m torsion. Equal-stress resized joints attain the requested scalar target by construction, without surplus reserve. The 1550 kg/m3 composite density is assumed; Toray's laminate strength and Henkel's prepared-aluminum shear result do not establish the proposed SiC joint.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

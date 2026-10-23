@@ -1,0 +1,569 @@
+[
+  {
+    "id": "S01",
+    "owner_claim": "S-II 10.06 m; approximately 15,000 measurements; .010 in fit",
+    "independent_finding": "SD 71-256 p.4-45 explicitly uses .010 in for core-to-face matching before bonding. It is not deviation from a nominal sphere. The production common bulkhead is not identified as the two hemisphere specimens in CR-1457.",
+    "disposition": "CONFIRMED WITH ESSENTIAL LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19720008130/downloads/19720008130.pdf"
+    ],
+    "local_evidence": "sources/001-ntrs19720008130.txt, printed pp.4-44–45"
+  },
+  {
+    "id": "S02",
+    "owner_claim": "S-II gamma .21–.22 despite .254 mm precision",
+    "independent_finding": "Own skew-corrected graph reading gives .20991/.22226, approximately ±.01, at R/rho≈241. CR-1457 refers to S-II development tests, with plasticity corrections and thermal-gradient qualifications. No matched shape/buckling dataset is available here.",
+    "disposition": "CORRECT INFERENCE",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    ],
+    "local_evidence": "sources/cr1457-fig623.png; RESULTS.json sensitivities.SII_digitization"
+  },
+  {
+    "id": "S03",
+    "owner_claim": "S-IVB 6.63 m; 350 blocks; .032/.055 in faces; 360 F cure",
+    "independent_finding": "NASA history and Douglas Paper 3817 support the forming/bonding method. The 0–.090 versus 0–.015 in gaps concern bonded versus welded segment fit-up on experimental S-IV work, not final whole-dome accuracy. They are not P2 acceptance limits.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19660024836/downloads/19660024836.pdf",
+      "https://digitalprojects.uah.edu/files/original/20/10318/thedevofaboncombulforsat_090707133327.pdf"
+    ],
+    "local_evidence": "sources/000-sp4206.txt printed p.168; sources/006-uah10318.txt p.15"
+  },
+  {
+    "id": "S04",
+    "owner_claim": "Rohr 57 in: .050 in after forming, .150–.200 after milling",
+    "independent_finding": "The values are supported, but are residual contour errors before extensive hand forming to the welding jig. The report also describes a final creep-sizing tensile failure. They are not achieved final bulkhead precision. Conversions are 1.27 and 3.81–5.08 mm.",
+    "disposition": "CORRECT PRECISION LABEL",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19660014454/downloads/19660014454.pdf"
+    ],
+    "local_evidence": "sources/009-ntrs66014454.txt PDF pp.3–4,25"
+  },
+  {
+    "id": "S05",
+    "owner_claim": "CCTD 5.5 m; out-of-autoclave route toward 10 m",
+    "independent_finding": "Supported for graphite/epoxy laminate tank development. A 10 m capability objective is not a 20 m Be sandwich demonstration.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/20150021410/downloads/20150021410.pdf"
+    ],
+    "local_evidence": "sources/019-ntrs20150021410.txt"
+  },
+  {
+    "id": "S06",
+    "owner_claim": "Ares I weld mismatch ≤.041 in",
+    "independent_finding": "The .041 in value is the magnitude of the maximum post-tack effective mismatch on CBMDA #1, approximately 20% of its weld land thickness. It is not a demonstrated final shape tolerance; the subsequent full weld had PAUT indications.",
+    "disposition": "CORRECT STAGE",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/20120014602/downloads/20120014602.pdf",
+      "https://ntrs.nasa.gov/api/citations/20100017376/downloads/20100017376.pdf"
+    ],
+    "local_evidence": "sources/008-ntrs20120014602.txt Table 2"
+  },
+  {
+    "id": "S07",
+    "owner_claim": "Atlas 5.4 m vented-core fairing; 54 t mould; X-33 debonds",
+    "independent_finding": "ULA confirms the graphite/epoxy faces and vented aluminium core. NASA documents X-33 debond failure mechanisms. Beyond Gravity confirms an out-of-autoclave process. The 54 t mould detail remains secondary-only and receives no precision credit.",
+    "disposition": "PARTLY CONFIRMED",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.ulalaunch.com/docs/default-source/launch-booklets/AtlasV_USSF-7_mob.pdf",
+      "https://ntrs.nasa.gov/api/citations/20200006023/downloads/20200006023.pdf",
+      "https://www.beyondgravity.com/en/news/beyond-gravity-innovating-space-launches-reusable-payload-fairing-concept"
+    ],
+    "local_evidence": "sources/013-ula_atlas.txt; sources/017-ntrs20200006023.txt; SOURCE-INDEX.json"
+  },
+  {
+    "id": "S08",
+    "owner_claim": "CSO 10.4 m, 1.15 m panels, 150 µm rebound, 5–10 µm panels, <30 µm dish",
+    "independent_finding": "Leighton describes compensating the skin-induced panel rebound by pre-straining during cutting. Serabyn independently reports 5–10 µm panel RMS and a dish just below 30 µm. These are reflector measurements with adjustments, not wrinkle-band measurements on compressed Be.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://doi.org/10.7907/75rd-4h66",
+      "https://authors.library.caltech.edu/records/gwhtw-cx480"
+    ],
+    "local_evidence": "sources/021-leighton_nsf.txt printed pp.20,51; sources/024-serabyn91.txt p.1"
+  },
+  {
+    "id": "S09",
+    "owner_claim": "ALMA: .6 mm Ni, 20 mm core, 120 panels, five adjusters",
+    "independent_finding": "The construction is supported by Mangum Table 1 and the ESO 2011 announcement. Distinguish the ESO production description from the prototype test.",
+    "disposition": "CONFIRMED",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://arxiv.org/pdf/astro-ph/0609329",
+      "https://www.eso.org/public/announcements/ann11022/"
+    ],
+    "local_evidence": "sources/030-alma_proto.txt pp.6–7; sources/eso-alma.html"
+  },
+  {
+    "id": "S10",
+    "owner_claim": "ALMA 38 µm laser →55 µm holography→14 µm",
+    "independent_finding": "Values occur, but an intervening hard-stop accident led to a repeat laser measurement of 50 µm before 55 µm holography. Two full and one partial adjustments reached about 14 µm; later evaluation gives 16–17 µm. The sequence is not a pure instrument comparison.",
+    "disposition": "CORRECT CONTEXT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://arxiv.org/pdf/astro-ph/0609329"
+    ],
+    "local_evidence": "sources/030-alma_proto.txt §5.1.1"
+  },
+  {
+    "id": "S11",
+    "owner_claim": "SMT 14–19 µm after 47 µm initial",
+    "independent_finding": "Individual scans of 14/19 µm are reported; the observatory's conclusion from averages is 16–19 µm, with repeatability limitations. Report the aggregate result separately from the best scan.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www3.mpifr-bonn.mpg.de/div/hhertz/holo97/holo97.html"
+    ],
+    "local_evidence": "sources/028-hht_holo97.readable.txt"
+  },
+  {
+    "id": "S12",
+    "owner_claim": "LMT 98 µm, segments <20 µm",
+    "independent_finding": "The 98 µm overall optical RMS is supported. ≤20 µm applies to recent outer-ring segments; some inner segments remain 30–40 µm and 11 ring-4 segments require improvement. The claim cannot cover every segment.",
+    "disposition": "CORRECT POPULATION",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.inaoep.mx/~itziar/papers/2020Hughes_1144522LMT.pdf"
+    ],
+    "local_evidence": "sources/033-lmt_hughes.txt PDF pp.7–8,13–14"
+  },
+  {
+    "id": "S13",
+    "owner_claim": "IRAM 50–60 µm; errors correlated over .3–.5 m",
+    "independent_finding": "The 2013 report states improvement from about 65 to 50 µm, and .3–.5 m for panel deformation correlations. This is not the 20–60 mm wrinkle band; the honeycomb construction detail is not independently established by that report.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://web-archives.iram.fr/legacy-website/medias/uploads/eb2013-v8.2.pdf"
+    ],
+    "local_evidence": "sources/034-iram_eb2013.txt"
+  },
+  {
+    "id": "S14",
+    "owner_claim": "Nobeyama 21–71 µm",
+    "independent_finding": "The paper distinguishes older panels averaging 60 µm, older whole dishes averaging 71 µm, and new panels averaging 21 µm. Keep those three populations separate.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://doi.org/10.1017/S0252921100019035"
+    ],
+    "local_evidence": "sources/038-nma.txt PDF pp.1–2"
+  },
+  {
+    "id": "S15",
+    "owner_claim": "Sandwich radomes to 23.5 m",
+    "independent_finding": "CPI lists 3–23.5 m and foam for larger radomes/honeycomb for smaller ones. Comtech lists 1.5–20 m foam sandwich. Neither supplies a compression-shell shape tolerance.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://cpii.com/docs/related/184/CPI%20Sandwich%20Radomes%20Sheet%20Feb25.pdf",
+      "https://comtech.com/wp-content/uploads/2025/10/ds_Radome_102025.pdf"
+    ],
+    "local_evidence": "sources/045-radome_cpi_sheet.txt; sources/046-radome_comtech.txt"
+  },
+  {
+    "id": "S16",
+    "owner_claim": "SNO 12 m, 122 panels; ±25 mm specified; ±6 mm typical",
+    "independent_finding": "Supported; room-temperature polymerized adhesive and >27.5 MPa bond test results concern acrylic. The geometric tolerance is a different structure, material, thickness and load case.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.hep.upenn.edu/SNO/papers/sno_nim.pdf"
+    ],
+    "local_evidence": "sources/075-sno-nim.txt PDF pp.9–10"
+  },
+  {
+    "id": "S17",
+    "owner_claim": "Moss R18.3 m held <2 cm; JUNO ±50 mm; JT-60SA ±8 mm",
+    "independent_finding": "Moss <2 cm is a required deviation, not a demonstrated final-shell bound in the cited sentence. JUNO ±50 mm is a diameter requirement; panels require <6 mm deviation. JT-60SA ±8 mm is a specified spherical-radius tolerance. They are not interchangeable measured RMS values.",
+    "disposition": "CORRECT METRICS",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.isprs.org/proceedings/XXIII/congress/part5/183_XXIII-B5.pdf",
+      "https://arxiv.org/pdf/2311.17314",
+      "https://conferences.iaea.org/event/214/contributions/17269/attachments/10004/14080/849_Y.Shibama_IAEA.poster.pdf"
+    ],
+    "local_evidence": "sources/076-isprs-faig-1980.txt p.1; sources/074-arxiv-juno-cd-2311.17314.txt p.27; sources/077-jt60sa-cryostat.txt"
+  },
+  {
+    "id": "S18",
+    "owner_claim": "Solar 1×2 ft Be panel, 10 ft radius, 1250 F, .003 in fit",
+    "independent_finding": "Supported for a brazed all-Be sandwich curved cylindrically. This does not establish full-size doubly curved SR-200 face blanks. A later panel's wrinkles only partly responded to additional bend/stretch forming.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19730016169/downloads/19730016169.pdf"
+    ],
+    "local_evidence": "sources/055-ntrs-19730016169.txt PDF pp.86,114"
+  },
+  {
+    "id": "S19",
+    "owner_claim": "SR-200 .795 mm stock envelope and ±.102 mm tolerance",
+    "independent_finding": "The .025–.034 in gauge row specifies ±.004 in (=.1016 mm). At .020–.058 in, the manufacturer explicitly provides smaller dimensions than 24×72 in, without a numerical maximum. The assumed blank is not a procurement specification.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+    ],
+    "local_evidence": "sources/050-mat-sr200-a.txt"
+  },
+  {
+    "id": "S20",
+    "owner_claim": "Forming at 1250–1350 F; chemical milling .001 in/3 min",
+    "independent_finding": "Historical process examples support hot forming, but not a qualified temperature window for this sheet and double curvature. The etch-rate entry is process-specific and includes thickness taper in its source. Neither is a current supplier capability guarantee.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19730016169/downloads/19730016169.pdf",
+      "https://ntrs.nasa.gov/api/citations/19720023297/downloads/19720023297.pdf",
+      "https://ntrs.nasa.gov/api/citations/19720016923/downloads/19720016923.pdf"
+    ],
+    "local_evidence": "sources/055-ntrs-19730016169.txt; sources/054-ntrs-19720023297.txt; LIT-B BS-5/BF rows"
+  },
+  {
+    "id": "S21",
+    "owner_claim": "345 MPa gives a 1.19e-3 elastic limit",
+    "independent_finding": "345/E=1.189655e-3 is the elastic strain component at a tensile proof/yield proxy, not a measured proportional limit or compression forming allowable. The listed 4.645152e-4 strain gives Eε=134.709408 MPa; 67.354704 MPa needs half that strain or another stated model.",
+    "disposition": "CORRECT INTERPRETATION",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+    ],
+    "local_evidence": "RESULTS.json route and sensitivities; intake/upstream/028b-METHOD.md"
+  },
+  {
+    "id": "S22",
+    "owner_claim": "AF163-2U's own verified 200 F/6 h cure",
+    "independent_finding": "The sheet says limited family-level results suggest useful performance at 200 F/6 h. Its numerical 200 F metal-to-metal table is AF163-2K .06 lb/ft² at 50 psi, not U .015 on this core/Be. A supplier process qualification remains open.",
+    "disposition": "CORRECT EVIDENCE LEVEL",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf"
+    ],
+    "local_evidence": "sources/072-3m-af163-2.txt sections V and VI"
+  },
+  {
+    "id": "S23",
+    "owner_claim": "037b cure fix: usage .972→1.052; 30.34:1; +.12 kg",
+    "independent_finding": "Independent mass/scarf equations reproduce baseline .971978 and 250 F 1.052282 usage. At 200 F, the exact nominal stress sizing gives 30.341397:1; the rounded 30.34 route reclosed on mass gives usage .972433. The +.12 kg magnitude is consistent. All are conditional homogenized calculations.",
+    "disposition": "ARITHMETIC CONFIRMED",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json sensitivities.cure_rebuild; intake/upstream/028b-METHOD.md and 035/CARD.md"
+  },
+  {
+    "id": "S24",
+    "owner_claim": "A stress-free temperature above 54 C is the threshold",
+    "independent_finding": "The 54 C threshold in 037b concerns the separate 037 floated point. 028b's 30:1 scarf already binds at nominal load; positive added compression has no spare scarf margin.",
+    "disposition": "CORRECT POINT IDENTITY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "intake/upstream/035/CARD.md sections 1,2 and residual state"
+  },
+  {
+    "id": "S25",
+    "owner_claim": "Room-temperature seam; EA9394/9309 lap shear 29–33 MPa",
+    "independent_finding": "Supplier aluminium lap tests support those approximate values and room-temperature curing. They do not qualify the Be scarf, its peel, sealing, fatigue, applied film thickness, or the inherited 70 g/m² and 10 MPa seam assumptions.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://datasheets.tdx.henkel.com/LOCTITE-EA-9394-AERO-en_US.pdf",
+      "https://www.pccomposites.com/wp-content/uploads/2015/07/PCRS9309-3NAQT_TDS.pdf"
+    ],
+    "local_evidence": "sources/069-henkel-ea9394.txt; sources/070-pcc-ea9309-3na.txt; intake/upstream/028b-METHOD.md"
+  },
+  {
+    "id": "S26",
+    "owner_claim": "028b closes with 2 kg to spare",
+    "independent_finding": "The selected 028b charged-total mass equals lift within numerical roundoff. Unallocated margin is approximately zero; its fixed reserve is already assigned. The 2 kg statement is not supported by the pinned point.",
+    "disposition": "CORRECT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json sensitivities.mass_residual_at_028b_kg; intake/upstream/004/RESULTS.json"
+  },
+  {
+    "id": "S27",
+    "owner_claim": "43.4 kg trapped air in this 23.2 mm core",
+    "independent_finding": "034 used a 30.1182 mm core. At 028b, even a completely void thin-shell core contains at most 34.0851 kg at the specified 500 m atmosphere; a finite annulus with the stated solid fraction gives 33.7988 kg. Ground sea-level full-void upper estimate is 35.7709 kg.",
+    "disposition": "CORRECT GEOMETRY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json sensitivities.trapped_core_air; intake/upstream/012/CARD.md"
+  },
+  {
+    "id": "S28",
+    "owner_claim": "30–50 kg sealed service; 1.061 sea-level proof factor",
+    "independent_finding": "The systems range remains an inherited 24-hour service estimate, not a qualified installed minimum. The pressure ratio reproduces 1.061430. Passing one evacuation would not establish operational reliability or a certified proof factor.",
+    "disposition": "ARITHMETIC / SCOPE CONFIRMED",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json route.sea_level_overload; intake/upstream/012/CARD.md"
+  },
+  {
+    "id": "S29",
+    "owner_claim": "4189 m³ sphere; 2321 m³ largest autoclave; 9.14 m diameter",
+    "independent_finding": "Sphere geometry and 30 ft=9.144 m conversion reproduce. Spirit's 2016 primary release calls its vessel one of the largest. 2321 m³ is a record-page claim, not an exhaustive current facility survey. No cited vessel accommodates this sphere; 'any oven' requires an actual facility/tooling envelope.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://investor.spiritaero.com/news-presentations/news-details/2016/Spirit-AeroSystems-installing-one-of-the-worlds-largest-autoclaves-for-composite-manufacturing/default.aspx"
+    ],
+    "local_evidence": "RESULTS.json envelope; LIT-B CF-1; source retrieval limitations in sources/WEB-PINS.json"
+  },
+  {
+    "id": "S30",
+    "owner_claim": "5.7 km seams, 1189 blanks/skin, 24.1 mm new overlap",
+    "independent_finding": "The old 30:1 approximation gives 5683.0371 m and 1188.5606 panels/skin. At rounded 30.34:1: 5685.2254 m, 1189.2870 panels, minimum integer 1190; overlap 24.108894 mm. No actual spherical tiling, pole closures, scrap or manhole bill is supplied.",
+    "disposition": "ARITHMETIC / LAYOUT LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json coverage and sensitivities"
+  },
+  {
+    "id": "S31",
+    "owner_claim": "1.22 mm upper gauge-patch deflection",
+    "independent_finding": "The value reproduces a first-order unconstrained local membrane estimate. Keeping the exact 1/(1−gauge_fraction) dependence gives 1.40410 mm before compatibility effects. Therefore 1.22 is not established as an upper bound.",
+    "disposition": "CORRECT BOUND LABEL",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json sensitivities.low_gauge_independent_membrane_patch_mm"
+  },
+  {
+    "id": "S32",
+    "owner_claim": "2 m support sag .11 mm; 5 m 4.2 mm; .5 psi inflation",
+    "independent_finding": "The stated strip approximation reproduces .106364 and 4.154826 mm; the .5 psi inner-skin stress is 21.691884 MPa. These do not determine a whole-shell jig load path or release distortion. The ~180 ratio uses k=1/(Rβ), a characteristic inverse length.",
+    "disposition": "ARITHMETIC CONFIRMED; PROJECTION",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json route"
+  },
+  {
+    "id": "S33",
+    "owner_claim": "354 MPa for a locally heated 100 K seam forces room-temperature cure",
+    "independent_finding": "354.346886 MPa is the fully restrained biaxial elastic thermal screen. Actual constraint, stress relaxation, heating width and temporary supports were not solved. It motivates process development, not a universal impossibility theorem for local cure.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json route.seam_hot_cure_stress_MPa_per_100K"
+  },
+  {
+    "id": "S34",
+    "owner_claim": "9.3–16.1 mm dimple; width .36 m",
+    "independent_finding": "Inverse amplitudes and .356777 m characteristic width reproduce. The Lee curve is a lower envelope over widths 1–5 and R/t=100,200; this shell has R/t=240.244. Its k=1 to 5 single-dimple RMS is .11754–.58770 mm, not one uniquely associated RMS.",
+    "disposition": "ARITHMETIC CONFIRMED; RANGE LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://groups.seas.harvard.edu/hutchinson/papers/SphericalShellsMIT-IT-2016.pdf"
+    ],
+    "local_evidence": "sources/lee2016.txt §7; RESULTS.json gamma_need_028b"
+  },
+  {
+    "id": "S35",
+    "owner_claim": "Eq.3 values near .90–.95 from small fabrication errors",
+    "independent_finding": "The inverses/forward values reproduce, but .15/.254/1.27 mm examples are below d/t=.07, excluded from the fit's small-amplitude behavior. A monolithic-shell fit transferred through equivalent thickness does not validate sandwich buckling.",
+    "disposition": "CORRECT IMPLIED CREDIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.epfl.ch/labs/flexlab/wp-content/uploads/2025/12/Baizhikova-et-al.-2026-A-probabilistic-buckling-model-for-hemispherical-shells-with-non-interacting-localized-defects.pdf"
+    ],
+    "local_evidence": "sources/baizhikova2026.txt Eq.3; RESULTS.json precedent_dimples"
+  },
+  {
+    "id": "S36",
+    "owner_claim": "Q .435 requires .075–.129 mm; reflector Q .59–.75",
+    "independent_finding": "CR-1457 inversion reproduces .07511795/.12877362 mm with the exact upstream Q. Whole-panel RMS×sqrt(2) assumes one sinusoid at the relevant wrinkle band. Neither that conversion nor cell-print-through depth is a measured band-limited hull wave.",
+    "disposition": "ARITHMETIC CONFIRMED; PROJECTION",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    ],
+    "local_evidence": "RESULTS.json Q tables; intake/upstream/008,009,010 cards/check"
+  },
+  {
+    "id": "S37",
+    "owner_claim": "Tap a90/95 43 manual, 28 automated",
+    "independent_finding": "Table 4 full cumulative logit values are 41.8 and 29 mm. 43.3/28 remove best and worst inspectors. The worst manual fit did not converge; worst automated is 70 mm. Test panels have .5 mm Al skins, 19 mm panel thickness, 4.76 mm cells and 91 kg/m³ core.",
+    "disposition": "CORRECT COHORT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://icaf.aero/icaf2023/proceedings/documents/55.pdf"
+    ],
+    "local_evidence": "sources/087-icaf2023-genest-tap.txt Table 4 and test-panel description"
+  },
+  {
+    "id": "S38",
+    "owner_claim": "Disbond buckling diameter 29.292–54.780 mm",
+    "independent_finding": "The inferred coefficients are 4.198 and 14.682. Solving the circular-plate boundary equations at Be nu=.0752 gives k=3.600503 and 14.681971, hence 27.127598 and 54.779991 mm. The lower value is below even the 28 mm selected-cohort tap statistic; actual flaw boundary/contact effects remain unknown.",
+    "disposition": "CORRECT POISSON CONVENTION",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://pubs.rsc.org/en/content/articlehtml/2008/sm/b712324h"
+    ],
+    "local_evidence": "RESULTS.json disbond_critical_diameter_mm; independent boundary derivation in METHOD.md"
+  },
+  {
+    "id": "S39",
+    "owner_claim": "Shearography POD .95, 15 m²/h, 168 h both lines",
+    "independent_finding": "NASA's .95 result is for SOFI debonds approximately the foam thickness. Its strip tests require two shear directions. Dantec's 15 m²/h is a vendor hood rate; 167.5516 h is scan-area/rate only, excluding setup, access, repeated orientations and rescans.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/19960028755/downloads/19960028755.pdf",
+      "https://seminare.dgzfp.de/portals/opm2015/BB/3.pdf"
+    ],
+    "local_evidence": "sources/095-ntrs-19960028755.txt; sources/103-dgzfp-dantec-2015.txt p.5"
+  },
+  {
+    "id": "S40",
+    "owner_claim": "UT 6.35 mm; E2580 flat panels",
+    "independent_finding": "The NLR experiment sees .25 in inserts with conventional 5 MHz UT in CFRP. ASTM E2580-24 is for flat parallel-surface panels and does not set accept/reject limits. Neither supplies Be honeycomb/scarf POD.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://reports.nlr.nl/bitstreams/e872e818-2491-4185-9a35-bdf5ac956258/download",
+      "https://store.astm.org/e2580-24.html"
+    ],
+    "local_evidence": "sources/083-nlr-lut-fulltext.txt; public ASTM scope checked 2026-10-20"
+  },
+  {
+    "id": "S41",
+    "owner_claim": "Flash thermography likely blind; kissing bonds escape commercial NDE",
+    "independent_finding": "NASA's 8:1 result concerns its specific composite face/core-wall model, not .8 mm Be. The NASA bond-strength presentation describes limits of current commercial NDE, not impossibility of all methods. E2582-21(2025) excludes core and far-face interfaces and supplies no acceptance criterion.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/20150001252/downloads/20150001252.pdf",
+      "https://ntrs.nasa.gov/api/citations/20230010345/downloads/QNDE%202023%20Conference%20Presentation_Takunju_FINAL.pdf",
+      "https://store.astm.org/e2582-21r25.html"
+    ],
+    "local_evidence": "sources/111-ntrs-20150001252.txt; sources/121-ntrs-20230010345.txt"
+  },
+  {
+    "id": "S42",
+    "owner_claim": "Laser tracker .106/.191 mm at 10/20 m",
+    "independent_finding": "These are the AT960 scale-bar maximum permissible errors under specified tests, not whole-shell coordinate uncertainty. Registration, targets, temperature, line of sight and gauge access require a task-specific uncertainty budget.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://atecorp.com/getmedia/457543d7-b91a-4596-825c-9da1d944b647/hexagon-mi-at960-datasheet-a4_en_1.pdf"
+    ],
+    "local_evidence": "sources/141-at960-datasheet.txt ASME B89.4.19 table"
+  },
+  {
+    "id": "S43",
+    "owner_claim": "Photogrammetry .043–.091 mm on 13.2 m tool; 1:100k–200k",
+    "independent_finding": "GSI Table 3 supports RMS coordinate differences against a tracker on that tool. The relative-accuracy projection gives .2–.1 mm over 20 m; it does not automatically apply to a stitched shell network.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.geodetic.com/wp-content/uploads/2018/08/S-Acceptance-Test-Results-metric-version.pdf"
+    ],
+    "local_evidence": "sources/133-gsi-vstars-accept.txt Table 3"
+  },
+  {
+    "id": "S44",
+    "owner_claim": "RTC360 1.9/2.9 mm at 10/20 m",
+    "independent_finding": "These are supported 3D-point specifications, insufficient by themselves for .075 mm waviness.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://infrabooking.aalto.fi/kokvar/tilakuvat/aaltoinfra/210907101508_leicartc360ds.pdf"
+    ],
+    "local_evidence": "sources/143-leica-rtc360.txt"
+  },
+  {
+    "id": "S45",
+    "owner_claim": "Profiler .4 µm repeatability means yes for .075 mm waviness",
+    "independent_finding": "The current LJ-X8060 page confirms .4 µm Z repeatability but separately specifies linearity and temperature effects. Repeatability is not accuracy or an installed-surface acceptance capability.",
+    "disposition": "CORRECT CAPABILITY CLAIM",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.keyence.com/products/measure/laser-2d/lj-x8000/models/lj-x8060/"
+    ],
+    "local_evidence": "sources/keyence-current.html; public page checked 2026-10-20"
+  },
+  {
+    "id": "S46",
+    "owner_claim": "DIC .003 in (3σ); structured light .001 in; six systems",
+    "independent_finding": "NASA reports those case-specific uncertainties and full-scale 27.5 ft cylinder instrumentation. Geometry, viewing angle, calibration, spatial filtering and paint differ from a Be sphere.",
+    "disposition": "CONFIRMED WITH LIMIT",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://ntrs.nasa.gov/api/citations/20180006177/downloads/20180006177.pdf",
+      "https://ntrs.nasa.gov/api/citations/20180006174/downloads/20180006174.pdf"
+    ],
+    "local_evidence": "sources/147-ntrs-20180006177.txt pp.8,11; sources/149-ntrs-20180006174.txt"
+  },
+  {
+    "id": "S47",
+    "owner_claim": "Fibre sensing .65 mm pitch, ±5 µε",
+    "independent_finding": "The Luna sheet distinguishes measurement uncertainty from system accuracy: the .65 mm-pitch column has ±5 µε uncertainty but ±25 µε system accuracy. Pitch availability also depends on the 610x/600x mode. It is not full-field shape data.",
+    "disposition": "CORRECT METRIC",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://erc-dreamon.ens-paris-saclay.fr/sites/erc_dream_on/files/media/downloads/ds_luna-odisi-6000-data-sheet_0.pdf"
+    ],
+    "local_evidence": "sources/163-luna-odisi6000.txt specification table and notes 6–7"
+  },
+  {
+    "id": "S48",
+    "owner_claim": "OSHA .2 µg/m³ therefore every scarf must be supplier-cut",
+    "independent_finding": "The .2 value is an 8-hour TWA; the 15-minute STEL is 2.0 µg/m³. Controls and regulated-area criteria depend on exposure. Supplier-only cutting is the proposed process choice, not a categorical location requirement in this rule.",
+    "disposition": "CORRECT CAUSAL CLAIM",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1024"
+    ],
+    "local_evidence": "official public rule checked 2026-10-20, paragraphs (b),(c),(e),(f)"
+  },
+  {
+    "id": "S49",
+    "owner_claim": "JCMT £2M/£5M; SMT $5–6M; ALMA $169M/25",
+    "independent_finding": "JCMT's 2011 talk supports the quoted historical estimates. General Dynamics' July 2005 company newsletter independently supports $169M/25; the pinned SEC report rounds to $170M. SMT's 1987 amount remains a secondary report. None is a P2 price or inflation-adjusted estimate.",
+    "disposition": "PARTLY CONFIRMED",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [
+      "https://www.roe.ac.uk/workshop/submm/presentations/walter-gear.pdf",
+      "https://www.gdeb.com/news/ebnews/PDF/ebnews0705.pdf",
+      "https://www.sec.gov/Archives/edgar/data/0000040533/000119312505214365/d10q.htm"
+    ],
+    "local_evidence": "sources/037-jcmt_gear.txt slides22–23; sources/041-gd10q.readable.txt; GD newsletter visible in primary search excerpt, direct fetch failed"
+  },
+  {
+    "id": "S50",
+    "owner_claim": "Four ~1.65 kg F1 blanks at $10–50k/kg",
+    "independent_finding": "At exact .794624 mm gauge each raw blank is 1.638870 kg; four cost $65,554.82–327,774.08 under the inherited planning-price assumption. Tooling, labour, inspection, scrap and qualification remain unpriced.",
+    "disposition": "ARITHMETIC CONFIRMED; PROJECTION",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json sensitivities; intake/upstream/014/CARD.md"
+  },
+  {
+    "id": "S51",
+    "owner_claim": "No seam NDE method",
+    "independent_finding": "No matched Be scarf inspection qualification was found in this evidence packet. That is an evidence gap, not proof that no method can work. The proposed F1 sectioning and representative defect tests remain useful next work.",
+    "disposition": "QUALIFY",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "intake/owner/LIT-C.json and NFI.json; source rows S37–S41"
+  },
+  {
+    "id": "S52",
+    "owner_claim": "Published gamma/Q map supports .2 / about .6",
+    "independent_finding": "The arithmetic is a projection. The historical .2 handbook design factor, isolated defect maps and reflector RMS do not establish any measured installed P2 gamma or Q. Qualified values remain null.",
+    "disposition": "CORRECT QUALIFICATION",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "sources": [],
+    "local_evidence": "RESULTS.json; S02,S34–S36; CHECK.md"
+  }
+]

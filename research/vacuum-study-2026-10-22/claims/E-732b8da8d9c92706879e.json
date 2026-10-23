@@ -1,0 +1,40 @@
+{
+  "id": "E-732b8da8d9c92706879e",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-732b8da8d9c92706879e",
+    "report": "rpt-ref-5c8405d45d6cb50633f1",
+    "file": "evidence/6e8dee54ea712f84-NFI.json",
+    "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+    "source_sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+    "source_json_pointer": "/rows/7",
+    "row_id": "NFI-048-C08",
+    "fields": {
+      "id": "NFI-048-C08",
+      "topic": "Material moisture inventory",
+      "evidence": "NASA WVR/TML rows and guide; explicit assumed component fractions",
+      "next_evidence": "Cured-lot dry/reference masses, sorption isotherms and desorption data for the installed materials and chosen cure.",
+      "partial_finding": "WVR is not an equilibrium isotherm. Core, primer, seam and deposited-finish water fractions are planning allowances; nominal mass already containing moisture could create overlap.",
+      "status": "open_evidence",
+      "finding": "WVR is not an equilibrium isotherm. Core, primer, seam and deposited-finish water fractions are planning allowances; nominal mass already containing moisture could create overlap."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "WVR is not an equilibrium isotherm. Core, primer, seam and deposited-finish water fractions are planning allowances; nominal mass already containing moisture could create overlap.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-5c8405d45d6cb50633f1",
+      "artifact": "evidence/6e8dee54ea712f84-NFI.json",
+      "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+      "sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+      "bytes": 19121,
+      "selector": "/rows/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

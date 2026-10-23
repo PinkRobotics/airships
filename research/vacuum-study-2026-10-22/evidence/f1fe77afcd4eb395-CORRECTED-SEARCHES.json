@@ -1,0 +1,3752 @@
+[
+  {
+    "variant": "original",
+    "R_m": 15,
+    "weather": "ISA",
+    "thermal_basis": "pinned",
+    "properties": {},
+    "endpoint": {
+      "tf_m": 0.0011250623201971737,
+      "tc_m": 0.05781749090576562,
+      "payload_kg": 1586.5627179890016,
+      "bill_kg": {
+        "faces": 10977.7024149412,
+        "core": 2618.619969353305,
+        "charged_joining": 585.6242312260975,
+        "coating": 23.560210742778665,
+        "mooring_pad": 119.85248089815242,
+        "gas": 165.01867256880993,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 282.7433388230814,
+        "contamination": 11.25,
+        "weather_headroom": 0.0,
+        "absorbed_water": 2.6588864562578105,
+        "structural_primer": 28.274333882308138,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 414.1421674419087,
+        "scarf": 64.71330864507684,
+        "splice": 93.79120115827384,
+        "seal": 12.977553980838124,
+        "total": 585.6242312260975,
+        "length_m": 6488.776990419062
+      },
+      "vacuum": {
+        "added_material_water_kg": 2.6588864562578105,
+        "desorbed_24h_kg": 3.2243332072599995,
+        "pressure_SF": 19.333065146418626
+      },
+      "lift_kg": 16501.867256880992,
+      "modes": {
+        "global_buckling": 1.000000001302045,
+        "face_compression": 1.0000000000001326,
+        "core_shear_crimping": 3.865316898510994,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.085922305745831,
+        "intracell_dimpling": 9.57140550582517,
+        "scarf_average_shear_screen": 1.6060556963842383,
+        "core_cell_wall_yield_screen": 4.424329821454741,
+        "thermal_core_interface_screen": 1.9739855767147525
+      },
+      "Vc": 0.6655962758206667,
+      "gamma": 0.4662385103282667,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3266552.8102542427,
+      "edge_shear_Pa": 87320.259257455,
+      "thermal": {
+        "gradient_K": 0.4305112159682491,
+        "curvature_temperature_K": 28.775239362538965,
+        "min_outer_K": 271.5127143320257,
+        "max_outer_K": 291.36428575673887,
+        "swing_K": 19.851571424713136,
+        "rise_K": 6.464285756738876
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.7997168302536011,
+      "point": {
+        "tf_m": 0.0012273180973045223,
+        "tc_m": 0.061391276501055976,
+        "payload_kg": 5.04873096360825e-05,
+        "bill_kg": {
+          "faces": 11975.454691540685,
+          "core": 2780.4807865455864,
+          "charged_joining": 1012.2743068044397,
+          "coating": 23.560210742778665,
+          "mooring_pad": 119.85248089815242,
+          "gas": 165.01867256880993,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 282.7433388230814,
+          "contamination": 11.25,
+          "weather_headroom": 0.0,
+          "absorbed_water": 2.958384587841171,
+          "structural_primer": 28.274333882308138,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 828.2843348838175,
+          "scarf": 70.91447924886937,
+          "splice": 100.03921510219034,
+          "seal": 13.036277569562456,
+          "total": 1012.2743068044397,
+          "length_m": 6518.1387847812275
+        },
+        "vacuum": {
+          "added_material_water_kg": 2.958384587841171,
+          "desorbed_24h_kg": 4.701460919308734,
+          "pressure_SF": 14.725181034614574
+        },
+        "lift_kg": 16501.867256880992,
+        "modes": {
+          "global_buckling": 1.0000000017186086,
+          "face_compression": 1.0068941306020853,
+          "core_shear_crimping": 4.108476040637356,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.00000000000271,
+          "intracell_dimpling": 12.417764819837453,
+          "scarf_average_shear_screen": 1.7509236140468938,
+          "core_cell_wall_yield_screen": 4.423920304421878,
+          "thermal_core_interface_screen": 1.9738028641347884
+        },
+        "Vc": 0.725712314653807,
+        "gamma": 0.4096892421960326,
+        "Q": 0.6833480082260509,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 302182830.85823864,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3179777.6228957246,
+        "edge_shear_Pa": 87328.34238983969,
+        "thermal": {
+          "gradient_K": 0.4534601547999902,
+          "curvature_temperature_K": 28.737826133621642,
+          "min_outer_K": 271.51024855022143,
+          "max_outer_K": 291.36736001874306,
+          "swing_K": 19.857111468521616,
+          "rise_K": 6.467360018743075
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -10806.632945334251
+      },
+      {
+        "mask": 1,
+        "payload_kg": -2988.7973941350574
+      },
+      {
+        "mask": 2,
+        "payload_kg": -6328.573550834513
+      },
+      {
+        "mask": 4,
+        "payload_kg": -10806.632945334251
+      },
+      {
+        "mask": 8,
+        "payload_kg": -10392.407949458855
+      },
+      {
+        "mask": 3,
+        "payload_kg": -2988.7973941350574
+      },
+      {
+        "mask": 5,
+        "payload_kg": -2721.6666720117246
+      },
+      {
+        "mask": 9,
+        "payload_kg": -2574.572398259661
+      },
+      {
+        "mask": 6,
+        "payload_kg": -3927.1119390429085
+      },
+      {
+        "mask": 10,
+        "payload_kg": -5914.348554959124
+      },
+      {
+        "mask": 12,
+        "payload_kg": -10392.407949458855
+      },
+      {
+        "mask": 7,
+        "payload_kg": 1172.337722113607
+      },
+      {
+        "mask": 11,
+        "payload_kg": -2574.572398259661
+      },
+      {
+        "mask": 13,
+        "payload_kg": -2307.441676136332
+      },
+      {
+        "mask": 14,
+        "payload_kg": -3512.8869431675084
+      }
+    ]
+  },
+  {
+    "variant": "original",
+    "R_m": 15,
+    "weather": "optimistic",
+    "thermal_basis": "pinned",
+    "properties": {},
+    "endpoint": {
+      "tf_m": 0.001154009510177077,
+      "tc_m": 0.05726993224584348,
+      "payload_kg": 1141.090224394602,
+      "bill_kg": {
+        "faces": 11260.152223848187,
+        "core": 2593.8204144296674,
+        "charged_joining": 586.620877828961,
+        "coating": 23.560210742778665,
+        "mooring_pad": 119.85248089815242,
+        "gas": 165.01867256880993,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 282.7433388230814,
+        "contamination": 11.25,
+        "weather_headroom": 186.77556759824998,
+        "absorbed_water": 2.7089118661954865,
+        "structural_primer": 28.274333882308138,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 414.1421674419087,
+        "scarf": 66.46306408334094,
+        "splice": 93.02152877904214,
+        "seal": 12.994117524669281,
+        "total": 586.620877828961,
+        "length_m": 6497.058762334641
+      },
+      "vacuum": {
+        "added_material_water_kg": 2.7089118661954865,
+        "desorbed_24h_kg": 3.2550176673012845,
+        "pressure_SF": 19.206169547921387
+      },
+      "lift_kg": 16501.867256880992,
+      "modes": {
+        "global_buckling": 1.000000016956082,
+        "face_compression": 1.000000000000397,
+        "core_shear_crimping": 3.7364429817584854,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.1050487654257404,
+        "intracell_dimpling": 10.070275038322555,
+        "scarf_average_shear_screen": 1.6060556963846628,
+        "core_cell_wall_yield_screen": 4.42439281394019,
+        "thermal_core_interface_screen": 1.9740136818205505
+      },
+      "Vc": 0.6822588997295078,
+      "gamma": 0.47290355989180316,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3154409.856031712,
+      "edge_shear_Pa": 87319.0160314595,
+      "thermal": {
+        "gradient_K": 0.42697768021039856,
+        "curvature_temperature_K": 28.780997911404945,
+        "min_outer_K": 271.51309358154094,
+        "max_outer_K": 291.3638123345421,
+        "swing_K": 19.850718753001132,
+        "rise_K": 6.463812334542119
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8701187968254089,
+      "point": {
+        "tf_m": 0.0012155994319265403,
+        "tc_m": 0.059864700927889015,
+        "payload_kg": 0.00015351093315985054,
+        "bill_kg": {
+          "faces": 11861.110784620741,
+          "core": 2711.340441331759,
+          "charged_joining": 1009.0158259171835,
+          "coating": 23.560210742778665,
+          "mooring_pad": 119.85248089815242,
+          "gas": 165.01867256880993,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 282.7433388230814,
+          "contamination": 11.25,
+          "weather_headroom": 186.77556759824998,
+          "absorbed_water": 2.9254469869924815,
+          "structural_primer": 28.274333882308138,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 828.2843348838175,
+          "scarf": 70.20095231991631,
+          "splice": 97.50102119377242,
+          "seal": 13.029517519677425,
+          "total": 1009.0158259171835,
+          "length_m": 6514.758759838713
+        },
+        "vacuum": {
+          "added_material_water_kg": 2.9254469869924815,
+          "desorbed_24h_kg": 4.674210128528987,
+          "pressure_SF": 14.79066072653074
+        },
+        "lift_kg": 16501.867256880992,
+        "modes": {
+          "global_buckling": 1.0000000137664447,
+          "face_compression": 1.0000000000020735,
+          "core_shear_crimping": 3.90689070692255,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0377565923834482,
+          "intracell_dimpling": 11.764978624080875,
+          "scarf_average_shear_screen": 1.6910179250272062,
+          "core_cell_wall_yield_screen": 4.424094811534838,
+          "thermal_core_interface_screen": 1.9738807232768325
+        },
+        "Vc": 0.7185618381451627,
+        "gamma": 0.4341696289087623,
+        "Q": 0.7285709052432818,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 310745583.435996,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3130476.3053391194,
+        "edge_shear_Pa": 87324.89774917097,
+        "thermal": {
+          "gradient_K": 0.44368561766079434,
+          "curvature_temperature_K": 28.753764202720085,
+          "min_outer_K": 271.511299347348,
+          "max_outer_K": 291.3660507011672,
+          "swing_K": 19.85475135381922,
+          "rise_K": 6.466050701167215
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -11532.36216217362
+      },
+      {
+        "mask": 1,
+        "payload_kg": -3584.3016906680277
+      },
+      {
+        "mask": 2,
+        "payload_kg": -6983.06974435494
+      },
+      {
+        "mask": 4,
+        "payload_kg": -11532.36216217362
+      },
+      {
+        "mask": 8,
+        "payload_kg": -11118.137166298216
+      },
+      {
+        "mask": 3,
+        "payload_kg": -3584.3016906680277
+      },
+      {
+        "mask": 5,
+        "payload_kg": -3196.303719062078
+      },
+      {
+        "mask": 9,
+        "payload_kg": -3170.0766947926204
+      },
+      {
+        "mask": 6,
+        "payload_kg": -4447.491739863566
+      },
+      {
+        "mask": 10,
+        "payload_kg": -6568.844748479532
+      },
+      {
+        "mask": 12,
+        "payload_kg": -11118.137166298216
+      },
+      {
+        "mask": 7,
+        "payload_kg": 726.8652285191984
+      },
+      {
+        "mask": 11,
+        "payload_kg": -3170.0766947926204
+      },
+      {
+        "mask": 13,
+        "payload_kg": -2782.0787231866816
+      },
+      {
+        "mask": 14,
+        "payload_kg": -4033.2667439881734
+      }
+    ]
+  },
+  {
+    "variant": "original",
+    "R_m": 20,
+    "weather": "ISA",
+    "thermal_basis": "independent",
+    "properties": {},
+    "endpoint": {
+      "tf_m": 0.001501483155112373,
+      "tc_m": 0.07698935438432344,
+      "payload_kg": 4320.390435993708,
+      "bill_kg": {
+        "faces": 26045.506733421633,
+        "core": 6198.996421634477,
+        "charged_joining": 1141.6232580379801,
+        "coating": 41.88481909827319,
+        "mooring_pad": 296.83539379710635,
+        "gas": 391.15537201495687,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 502.65482457436696,
+        "contamination": 20.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 6.224460465743623,
+        "structural_primer": 50.26548245743669,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 736.252742118949,
+        "scarf": 156.1305269518482,
+        "splice": 225.77916936004812,
+        "seal": 23.4608196071348,
+        "total": 1141.6232580379801,
+        "length_m": 11730.4098035674
+      },
+      "vacuum": {
+        "added_material_water_kg": 6.224460465743623,
+        "desorbed_24h_kg": 6.839896173007809,
+        "pressure_SF": 21.31918286568822
+      },
+      "lift_kg": 39115.53720149569,
+      "modes": {
+        "global_buckling": 1.000000023114641,
+        "face_compression": 1.0000000000001594,
+        "core_shear_crimping": 3.8604568986410364,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.0871387542339235,
+        "intracell_dimpling": 17.04760935527268,
+        "scarf_average_shear_screen": 1.6060556963842816,
+        "core_cell_wall_yield_screen": 4.05457372250826,
+        "thermal_core_interface_screen": 1.8090129739302088
+      },
+      "Vc": 0.6661889874083303,
+      "gamma": 0.46647559496333213,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3556473.1140099326,
+      "edge_shear_Pa": 95283.41411213062,
+      "thermal": {
+        "gradient_K": 0.6518243562968684,
+        "curvature_temperature_K": 29.006545226494527,
+        "min_outer_K": 269.08353200382277,
+        "max_outer_K": 291.9316714291122,
+        "swing_K": 22.848139425289432,
+        "rise_K": 7.031671429112231
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.7577252388000488,
+      "point": {
+        "tf_m": 0.001681905661910516,
+        "tc_m": 0.08215725902565853,
+        "payload_kg": 0.000888423492142465,
+        "bill_kg": {
+          "faces": 29175.20925434012,
+          "core": 6615.103591712364,
+          "charged_joining": 1915.3882614163326,
+          "coating": 41.88481909827319,
+          "mooring_pad": 296.83539379710635,
+          "gas": 391.15537201495687,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 502.65482457436696,
+          "contamination": 20.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 7.0393136612437335,
+          "structural_primer": 50.26548245743669,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 1472.505484237898,
+          "scarf": 176.32318353781082,
+          "splice": 242.90673670851504,
+          "seal": 23.65285693210898,
+          "total": 1915.3882614163326,
+          "length_m": 11826.428466054489
+        },
+        "vacuum": {
+          "added_material_water_kg": 7.0393136612437335,
+          "desorbed_24h_kg": 9.662189291267362,
+          "pressure_SF": 16.676354186208282
+        },
+        "lift_kg": 39115.53720149569,
+        "modes": {
+          "global_buckling": 1.0000000000022469,
+          "face_compression": 1.0166989926072472,
+          "core_shear_crimping": 4.127330071718962,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.0000000136247766,
+          "intracell_dimpling": 23.943028886185132,
+          "scarf_average_shear_screen": 1.7976861398330086,
+          "core_cell_wall_yield_screen": 4.053725876524785,
+          "thermal_core_interface_screen": 1.8086346938719409
+        },
+        "Vc": 0.7455313354326719,
+        "gamma": 0.39937479456478864,
+        "Q": 0.6577224418519985,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 297188294.21156377,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3388788.3835882396,
+        "edge_shear_Pa": 95303.342854825,
+        "thermal": {
+          "gradient_K": 0.6915870442296793,
+          "curvature_temperature_K": 28.945871615935637,
+          "min_outer_K": 269.0774526859569,
+          "max_outer_K": 291.9378349306324,
+          "swing_K": 22.860382244675446,
+          "rise_K": 7.03783493063242
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -24849.01062645037
+      },
+      {
+        "mask": 1,
+        "payload_kg": -6284.911170182604
+      },
+      {
+        "mask": 2,
+        "payload_kg": -14242.525989231603
+      },
+      {
+        "mask": 4,
+        "payload_kg": -24849.01062645037
+      },
+      {
+        "mask": 8,
+        "payload_kg": -24112.610633783
+      },
+      {
+        "mask": 3,
+        "payload_kg": -6284.911170182604
+      },
+      {
+        "mask": 5,
+        "payload_kg": -5641.449789548489
+      },
+      {
+        "mask": 9,
+        "payload_kg": -5548.511177515233
+      },
+      {
+        "mask": 6,
+        "payload_kg": -8516.771876657149
+      },
+      {
+        "mask": 10,
+        "payload_kg": -13506.125996564246
+      },
+      {
+        "mask": 12,
+        "payload_kg": -24112.610633783
+      },
+      {
+        "mask": 7,
+        "payload_kg": 3583.9904433263146
+      },
+      {
+        "mask": 11,
+        "payload_kg": -5548.511177515233
+      },
+      {
+        "mask": 13,
+        "payload_kg": -4905.049796881154
+      },
+      {
+        "mask": 14,
+        "payload_kg": -7780.371883989705
+      }
+    ]
+  },
+  {
+    "variant": "original",
+    "R_m": 20,
+    "weather": "optimistic",
+    "thermal_basis": "independent",
+    "properties": {},
+    "endpoint": {
+      "tf_m": 0.0015400679910405344,
+      "tc_m": 0.07626344459400777,
+      "payload_kg": 3264.088895146233,
+      "bill_kg": {
+        "faces": 26714.819339795613,
+        "core": 6140.547922766268,
+        "charged_joining": 1144.2144613069659,
+        "coating": 41.88481909827319,
+        "mooring_pad": 296.83539379710635,
+        "gas": 391.15537201495687,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 502.65482457436696,
+        "contamination": 20.0,
+        "weather_headroom": 442.727271344,
+        "absorbed_water": 6.3434191944633245,
+        "structural_primer": 50.26548245743669,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 736.252742118949,
+        "scarf": 160.42106344352,
+        "splice": 224.03906195732816,
+        "seal": 23.5015937871688,
+        "total": 1144.2144613069659,
+        "length_m": 11750.7968935844
+      },
+      "vacuum": {
+        "added_material_water_kg": 6.3434191944633245,
+        "desorbed_24h_kg": 6.913035734165347,
+        "pressure_SF": 21.16403662510118
+      },
+      "lift_kg": 39115.53720149569,
+      "modes": {
+        "global_buckling": 1.0000000000024585,
+        "face_compression": 1.0000000024984936,
+        "core_shear_crimping": 3.731904067380691,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.1062462823112507,
+        "intracell_dimpling": 17.935039874148178,
+        "scarf_average_shear_screen": 1.606055700396745,
+        "core_cell_wall_yield_screen": 4.054693100564025,
+        "thermal_core_interface_screen": 1.8090662363608516
+      },
+      "Vc": 0.6828453835722585,
+      "gamma": 0.4731381534289034,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3434575.379762704,
+      "edge_shear_Pa": 95280.60878298702,
+      "thermal": {
+        "gradient_K": 0.6462199961535133,
+        "curvature_temperature_K": 29.015093184283916,
+        "min_outer_K": 269.08438777720716,
+        "max_outer_K": 291.930802554672,
+        "swing_K": 22.84641477746486,
+        "rise_K": 7.030802554672053
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8132611513137817,
+      "point": {
+        "tf_m": 0.0016597737600545725,
+        "tc_m": 0.08148672138865917,
+        "payload_kg": 0.0006111254988354631,
+        "bill_kg": {
+          "faces": 28791.297788633892,
+          "core": 6561.113524571645,
+          "charged_joining": 1910.6452241600236,
+          "coating": 41.88481909827319,
+          "mooring_pad": 296.83539379710635,
+          "gas": 391.15537201495687,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 502.65482457436696,
+          "contamination": 20.0,
+          "weather_headroom": 442.727271344,
+          "absorbed_water": 6.956889718484504,
+          "structural_primer": 50.26548245743669,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 1472.505484237898,
+          "scarf": 173.82828634931553,
+          "splice": 240.68234306602568,
+          "seal": 23.629110506784716,
+          "total": 1910.6452241600236,
+          "length_m": 11814.555253392358
+        },
+        "vacuum": {
+          "added_material_water_kg": 6.956889718484504,
+          "desorbed_24h_kg": 9.603676428007322,
+          "pressure_SF": 16.752831245686895
+        },
+        "lift_kg": 39115.53720149569,
+        "modes": {
+          "global_buckling": 1.000000003000492,
+          "face_compression": 1.0000000000021045,
+          "core_shear_crimping": 3.988795374879173,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0094653452799105,
+          "intracell_dimpling": 22.434092209382168,
+          "scarf_average_shear_screen": 1.7296122697830318,
+          "core_cell_wall_yield_screen": 4.053834634849736,
+          "thermal_core_interface_screen": 1.8086832181396748
+        },
+        "Vc": 0.7357953890412036,
+        "gamma": 0.41746740302632235,
+        "Q": 0.6918246018752592,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 303811646.6294728,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3405857.230895869,
+        "edge_shear_Pa": 95300.78600856345,
+        "thermal": {
+          "gradient_K": 0.6864886147486805,
+          "curvature_temperature_K": 28.95365289797433,
+          "min_outer_K": 269.07823265895354,
+          "max_outer_K": 291.93704470725675,
+          "swing_K": 22.858812048303168,
+          "rise_K": 7.037044707256747
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -26571.170414752
+      },
+      {
+        "mask": 1,
+        "payload_kg": -7696.860228203652
+      },
+      {
+        "mask": 2,
+        "payload_kg": -15795.686042942107
+      },
+      {
+        "mask": 4,
+        "payload_kg": -26571.170414752
+      },
+      {
+        "mask": 8,
+        "payload_kg": -25834.77042208462
+      },
+      {
+        "mask": 3,
+        "payload_kg": -7696.860228203652
+      },
+      {
+        "mask": 5,
+        "payload_kg": -6766.808019833086
+      },
+      {
+        "mask": 9,
+        "payload_kg": -6960.460235536273
+      },
+      {
+        "mask": 6,
+        "payload_kg": -9751.151831553252
+      },
+      {
+        "mask": 10,
+        "payload_kg": -15059.28605027472
+      },
+      {
+        "mask": 12,
+        "payload_kg": -25834.77042208462
+      },
+      {
+        "mask": 7,
+        "payload_kg": 2527.688902478869
+      },
+      {
+        "mask": 11,
+        "payload_kg": -6960.460235536273
+      },
+      {
+        "mask": 13,
+        "payload_kg": -6030.408027165722
+      },
+      {
+        "mask": 14,
+        "payload_kg": -9014.751838885859
+      }
+    ]
+  },
+  {
+    "variant": "original",
+    "R_m": 30,
+    "weather": "ISA",
+    "thermal_basis": "independent",
+    "properties": {},
+    "endpoint": {
+      "tf_m": 0.0022529453136271617,
+      "tc_m": 0.1154323128961239,
+      "payload_kg": 16242.045338234166,
+      "bill_kg": {
+        "faces": 87931.70926140658,
+        "core": 20912.24333142316,
+        "charged_joining": 3045.2376527001234,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.464895826616,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 20.776661114146634,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 1656.568669767635,
+        "scarf": 545.6188396884868,
+        "splice": 788.4096606369242,
+        "seal": 54.640482607077566,
+        "total": 3045.2376527001234,
+        "length_m": 27320.241303538784
+      },
+      "vacuum": {
+        "added_material_water_kg": 20.776661114146634,
+        "desorbed_24h_kg": 20.411749641053177,
+        "pressure_SF": 23.72778082844308
+      },
+      "lift_kg": 132014.93805504794,
+      "modes": {
+        "global_buckling": 1.0000000225293098,
+        "face_compression": 1.0000000000004245,
+        "core_shear_crimping": 3.858634041466536,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.087556205245442,
+        "intracell_dimpling": 38.3816690726293,
+        "scarf_average_shear_screen": 1.606055696384707,
+        "core_cell_wall_yield_screen": 3.955673485191396,
+        "thermal_core_interface_screen": 1.7648870498070914
+      },
+      "Vc": 0.6663923372839361,
+      "gamma": 0.46655693491357453,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3642594.513455711,
+      "edge_shear_Pa": 97665.70180683777,
+      "thermal": {
+        "gradient_K": 0.9690135849600232,
+        "curvature_temperature_K": 29.578750085684344,
+        "min_outer_K": 268.35680857896307,
+        "max_outer_K": 292.20947186555384,
+        "swing_K": 23.852663286590747,
+        "rise_K": 7.309471865553835
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.7212566137313843,
+      "point": {
+        "tf_m": 0.0025837387470175853,
+        "tc_m": 0.12376990290289433,
+        "payload_kg": 0.003591192071326077,
+        "bill_kg": {
+          "faces": 100842.46738524217,
+          "core": 22422.719095485238,
+          "charged_joining": 4862.970070612504,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.464895826616,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 23.852102346198496,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 3313.13733953527,
+          "scarf": 635.616763498932,
+          "splice": 858.7121872801858,
+          "seal": 55.50378029811673,
+          "total": 4862.970070612504,
+          "length_m": 27751.890149058363
+        },
+        "vacuum": {
+          "added_material_water_kg": 23.852102346198496,
+          "desorbed_24h_kg": 27.631837367616228,
+          "pressure_SF": 19.208568790426444
+        },
+        "lift_kg": 132014.93805504794,
+        "modes": {
+          "global_buckling": 1.0000000006057232,
+          "face_compression": 1.02584893072326,
+          "core_shear_crimping": 4.148206515580008,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.0000000000013372,
+          "intracell_dimpling": 57.84290958933104,
+          "scarf_average_shear_screen": 1.840309974042962,
+          "core_cell_wall_yield_screen": 3.9543660184017027,
+          "thermal_core_interface_screen": 1.7643037025682908
+        },
+        "Vc": 0.7632202707575761,
+        "gamma": 0.39024947995572357,
+        "Q": 0.6362482725028104,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 292917693.8274602,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3406780.121997076,
+        "edge_shear_Pa": 97697.99387616325,
+        "thermal": {
+          "gradient_K": 1.029880034267851,
+          "curvature_temperature_K": 29.48672587631359,
+          "min_outer_K": 268.34695779424544,
+          "max_outer_K": 292.21918596897336,
+          "swing_K": 23.8722281747279,
+          "rise_K": 7.319185968973363
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -81542.1419553562
+      },
+      {
+        "mask": 1,
+        "payload_kg": -18751.232978837303
+      },
+      {
+        "mask": 2,
+        "payload_kg": -45702.54201424468
+      },
+      {
+        "mask": 4,
+        "payload_kg": -81542.1419553562
+      },
+      {
+        "mask": 8,
+        "payload_kg": -79885.24197185462
+      },
+      {
+        "mask": 3,
+        "payload_kg": -18751.232978837303
+      },
+      {
+        "mask": 5,
+        "payload_kg": -16565.205660979962
+      },
+      {
+        "mask": 9,
+        "payload_kg": -17094.332995335717
+      },
+      {
+        "mask": 6,
+        "payload_kg": -26314.151822761865
+      },
+      {
+        "mask": 10,
+        "payload_kg": -44045.64203074307
+      },
+      {
+        "mask": 12,
+        "payload_kg": -79885.24197185462
+      },
+      {
+        "mask": 7,
+        "payload_kg": 14585.145354732507
+      },
+      {
+        "mask": 11,
+        "payload_kg": -17094.332995335717
+      },
+      {
+        "mask": 13,
+        "payload_kg": -14908.305677478696
+      },
+      {
+        "mask": 14,
+        "payload_kg": -24657.251839260134
+      }
+    ]
+  },
+  {
+    "variant": "original",
+    "R_m": 30,
+    "weather": "optimistic",
+    "thermal_basis": "independent",
+    "properties": {},
+    "endpoint": {
+      "tf_m": 0.0023108190095941315,
+      "tc_m": 0.11434542926307475,
+      "payload_kg": 12675.156676032202,
+      "bill_kg": {
+        "faces": 90190.50044327402,
+        "core": 20715.338544219263,
+        "charged_joining": 3055.6311304107385,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.464895826616,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 1494.2045407859998,
+        "absorbed_water": 21.18091015593911,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 1656.568669767635,
+        "scarf": 561.1593110682306,
+        "splice": 783.1138105944582,
+        "seal": 54.78933898041498,
+        "total": 3055.6311304107385,
+        "length_m": 27394.66949020749
+      },
+      "vacuum": {
+        "added_material_water_kg": 21.18091015593911,
+        "desorbed_24h_kg": 20.66140694578322,
+        "pressure_SF": 23.53334556552874
+      },
+      "lift_kg": 132014.93805504794,
+      "modes": {
+        "global_buckling": 1.0000000016746118,
+        "face_compression": 1.0000000000008524,
+        "core_shear_crimping": 3.730192683165624,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.106658554839249,
+        "intracell_dimpling": 40.37889402758686,
+        "scarf_average_shear_screen": 1.6060556963853945,
+        "core_cell_wall_yield_screen": 3.955844935984664,
+        "thermal_core_interface_screen": 1.7649635453231776
+      },
+      "Vc": 0.6830472496629472,
+      "gamma": 0.4732188998651789,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3517775.6308783228,
+      "edge_shear_Pa": 97661.4688648694,
+      "thermal": {
+        "gradient_K": 0.9610201458698034,
+        "curvature_temperature_K": 29.59082806116983,
+        "min_outer_K": 268.35809984957297,
+        "max_outer_K": 292.2081957887285,
+        "swing_K": 23.850095939155583,
+        "rise_K": 7.308195788728561
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.7710074186325073,
+      "point": {
+        "tf_m": 0.0025473946872519916,
+        "tc_m": 0.12343066521822883,
+        "payload_kg": 0.0035051126033067703,
+        "bill_kg": {
+          "faces": 99423.9707722275,
+          "core": 22361.261252088323,
+          "charged_joining": 4849.004869378281,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.464895826616,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 1494.2045407859998,
+          "absorbed_water": 23.567305285455017,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 3313.13733953527,
+          "scarf": 625.588057817197,
+          "splice": 854.8720390335594,
+          "seal": 55.40743299225502,
+          "total": 4849.004869378281,
+          "length_m": 27703.71649612751
+        },
+        "vacuum": {
+          "added_material_water_kg": 23.567305285455017,
+          "desorbed_24h_kg": 27.439098722986753,
+          "pressure_SF": 19.307958144290527
+        },
+        "lift_kg": 132014.93805504794,
+        "modes": {
+          "global_buckling": 1.0000000000018872,
+          "face_compression": 1.0057097333026894,
+          "core_shear_crimping": 4.02983347917653,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0000000038578847,
+          "intracell_dimpling": 54.04544709401105,
+          "scarf_average_shear_screen": 1.7689057030980926,
+          "core_cell_wall_yield_screen": 3.9544192321227727,
+          "thermal_core_interface_screen": 1.7643274447218182
+        },
+        "Vc": 0.7526592508793565,
+        "gamma": 0.4060282822609764,
+        "Q": 0.6657223000786122,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 298759103.21945405,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3445868.0163143994,
+        "edge_shear_Pa": 97696.67917645891,
+        "thermal": {
+          "gradient_K": 1.027406674607872,
+          "curvature_temperature_K": 29.49046765299041,
+          "min_outer_K": 268.34735884701246,
+          "max_outer_K": 292.2187913375761,
+          "swing_K": 23.87143249056363,
+          "rise_K": 7.318791337576108
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -87364.86334136428
+      },
+      {
+        "mask": 1,
+        "payload_kg": -23519.96820426188
+      },
+      {
+        "mask": 2,
+        "payload_kg": -50952.011254843295
+      },
+      {
+        "mask": 4,
+        "payload_kg": -87364.86334136428
+      },
+      {
+        "mask": 8,
+        "payload_kg": -85707.9633578627
+      },
+      {
+        "mask": 3,
+        "payload_kg": -23519.96820426188
+      },
+      {
+        "mask": 5,
+        "payload_kg": -20365.709492985072
+      },
+      {
+        "mask": 9,
+        "payload_kg": -21863.068220760237
+      },
+      {
+        "mask": 6,
+        "payload_kg": -30484.532646012463
+      },
+      {
+        "mask": 10,
+        "payload_kg": -49295.11127134171
+      },
+      {
+        "mask": 12,
+        "payload_kg": -85707.9633578627
+      },
+      {
+        "mask": 7,
+        "payload_kg": 11018.25669253069
+      },
+      {
+        "mask": 11,
+        "payload_kg": -21863.068220760237
+      },
+      {
+        "mask": 13,
+        "payload_kg": -18708.809509483486
+      },
+      {
+        "mask": 14,
+        "payload_kg": -28827.632662510936
+      }
+    ]
+  },
+  {
+    "variant": "density1800",
+    "R_m": 15,
+    "weather": "ISA",
+    "thermal_basis": "pinned",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333
+    },
+    "endpoint": {
+      "tf_m": 0.001125062320747389,
+      "tc_m": 0.05781749370959128,
+      "payload_kg": 1112.4401043714734,
+      "bill_kg": {
+        "faces": 11451.739570277805,
+        "core": 2618.6200963417605,
+        "charged_joining": 585.6242358102497,
+        "coating": 23.560210742778665,
+        "mooring_pad": 119.85248089815242,
+        "gas": 165.01867256880993,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 282.7433388230814,
+        "contamination": 11.25,
+        "weather_headroom": 0.0,
+        "absorbed_water": 2.744213164572779,
+        "structural_primer": 28.274333882308138,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 414.1421674419087,
+        "scarf": 64.71330867829276,
+        "splice": 93.79120570889577,
+        "seal": 12.977553981152505,
+        "total": 585.6242358102497,
+        "length_m": 6488.7769905762525
+      },
+      "vacuum": {
+        "added_material_water_kg": 2.744213164572779,
+        "desorbed_24h_kg": 3.2782699847279972,
+        "pressure_SF": 19.11493581302284
+      },
+      "lift_kg": 16501.867256880992,
+      "modes": {
+        "global_buckling": 1.0000000498911945,
+        "face_compression": 1.0000000000005993,
+        "core_shear_crimping": 3.8653170788592655,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.08592227968129,
+        "intracell_dimpling": 9.57140551519149,
+        "scarf_average_shear_screen": 1.606055696384988,
+        "core_cell_wall_yield_screen": 4.424329821133713,
+        "thermal_core_interface_screen": 1.973985576571521
+      },
+      "Vc": 0.6655962767560639,
+      "gamma": 0.4662385107024256,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3266552.9673033264,
+      "edge_shear_Pa": 87320.25926379093,
+      "thermal": {
+        "gradient_K": 0.43051123397623686,
+        "curvature_temperature_K": 28.775239333191625,
+        "min_outer_K": 271.51271433009293,
+        "max_outer_K": 291.3642857591516,
+        "swing_K": 19.851571429058616,
+        "rise_K": 6.464285759151582
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.875994086265564,
+      "point": {
+        "tf_m": 0.0011823155188965982,
+        "tc_m": 0.060195817369522196,
+        "payload_kg": 0.00031940328335622326,
+        "bill_kg": {
+          "faces": 12034.506144786052,
+          "core": 2726.3370818406847,
+          "charged_joining": 1007.369265875238,
+          "coating": 23.560210742778665,
+          "mooring_pad": 119.85248089815242,
+          "gas": 165.01867256880993,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 282.7433388230814,
+          "contamination": 11.25,
+          "weather_headroom": 0.0,
+          "absorbed_water": 2.955408060603081,
+          "structural_primer": 28.274333882308138,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 828.2843348838175,
+          "scarf": 68.17841316086816,
+          "splice": 97.89615771071104,
+          "seal": 13.010360119841408,
+          "total": 1007.369265875238,
+          "length_m": 6505.180059920704
+        },
+        "vacuum": {
+          "added_material_water_kg": 2.955408060603081,
+          "desorbed_24h_kg": 4.693056283146869,
+          "pressure_SF": 14.747176752855484
+        },
+        "lift_kg": 16501.867256880992,
+        "modes": {
+          "global_buckling": 1.0000000000001277,
+          "face_compression": 1.000000002965932,
+          "core_shear_crimping": 4.025725240288968,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.0237148002037948,
+          "intracell_dimpling": 11.103610630873844,
+          "scarf_average_shear_screen": 1.6870792716313483,
+          "core_cell_wall_yield_screen": 4.424056641409754,
+          "thermal_core_interface_screen": 1.97386369306448
+        },
+        "Vc": 0.6993426903488819,
+        "gamma": 0.43041197822565813,
+        "Q": 0.7324775620945226,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 311471050.65349203,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3236434.074935094,
+        "edge_shear_Pa": 87325.6511758425,
+        "thermal": {
+          "gradient_K": 0.4458236599279332,
+          "curvature_temperature_K": 28.750278036309854,
+          "min_outer_K": 271.511069512466,
+          "max_outer_K": 291.36633709787765,
+          "swing_K": 19.855267585411653,
+          "rise_K": 6.466337097877674
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -11741.771563992064
+      },
+      {
+        "mask": 1,
+        "payload_kg": -3690.9101906872565
+      },
+      {
+        "mask": 2,
+        "payload_kg": -7038.952016231673
+      },
+      {
+        "mask": 4,
+        "payload_kg": -11741.771563992064
+      },
+      {
+        "mask": 8,
+        "payload_kg": -11327.546568116668
+      },
+      {
+        "mask": 3,
+        "payload_kg": -3690.9101906872565
+      },
+      {
+        "mask": 5,
+        "payload_kg": -3410.483234612522
+      },
+      {
+        "mask": 9,
+        "payload_kg": -3276.6851948118638
+      },
+      {
+        "mask": 6,
+        "payload_kg": -4499.639328148583
+      },
+      {
+        "mask": 10,
+        "payload_kg": -6624.727020356273
+      },
+      {
+        "mask": 12,
+        "payload_kg": -11327.546568116668
+      },
+      {
+        "mask": 7,
+        "payload_kg": 698.2151084960769
+      },
+      {
+        "mask": 11,
+        "payload_kg": -3276.6851948118638
+      },
+      {
+        "mask": 13,
+        "payload_kg": -2996.258238737126
+      },
+      {
+        "mask": 14,
+        "payload_kg": -4085.414332273187
+      }
+    ]
+  },
+  {
+    "variant": "density1800",
+    "R_m": 15,
+    "weather": "optimistic",
+    "thermal_basis": "pinned",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333
+    },
+    "endpoint": {
+      "tf_m": 0.0011540095111981495,
+      "tc_m": 0.0572699311917333,
+      "payload_kg": 654.7688952723365,
+      "bill_kg": {
+        "faces": 11746.386080271248,
+        "core": 2593.8203666878176,
+        "charged_joining": 586.6208761833803,
+        "coating": 23.560210742778665,
+        "mooring_pad": 119.85248089815242,
+        "gas": 165.01867256880993,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 282.7433388230814,
+        "contamination": 11.25,
+        "weather_headroom": 186.77556759824998,
+        "absorbed_water": 2.7964339528293327,
+        "structural_primer": 28.274333882308138,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 414.1421674419087,
+        "scarf": 66.46306414514041,
+        "splice": 93.02152707107673,
+        "seal": 12.994117525254376,
+        "total": 586.6208761833803,
+        "length_m": 6497.058762627188
+      },
+      "vacuum": {
+        "added_material_water_kg": 2.7964339528293327,
+        "desorbed_24h_kg": 3.3103421735560468,
+        "pressure_SF": 18.98540281046995
+      },
+      "lift_kg": 16501.867256880992,
+      "modes": {
+        "global_buckling": 1.0000000000030471,
+        "face_compression": 1.0000000010642318,
+        "core_shear_crimping": 3.7364429158379324,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.105048777259968,
+        "intracell_dimpling": 10.070275066856107,
+        "scarf_average_shear_screen": 1.606055698093241,
+        "core_cell_wall_yield_screen": 4.424392814062044,
+        "thermal_core_interface_screen": 1.9740136818749177
+      },
+      "Vc": 0.6822589000732064,
+      "gamma": 0.4729035600292826,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3154409.7950937417,
+      "edge_shear_Pa": 87319.0160290546,
+      "thermal": {
+        "gradient_K": 0.426977673375489,
+        "curvature_temperature_K": 28.78099792254369,
+        "min_outer_K": 271.51309358227456,
+        "max_outer_K": 291.36381233362636,
+        "swing_K": 19.850718751351813,
+        "rise_K": 6.46381233362638
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.9573428630828857,
+      "point": {
+        "tf_m": 0.001173872851532632,
+        "tc_m": 0.058058964583009055,
+        "payload_kg": 0.0002795259242702741,
+        "bill_kg": {
+          "faces": 11948.570258259875,
+          "core": 2629.556587034163,
+          "charged_joining": 1003.3419915442341,
+          "coating": 23.560210742778665,
+          "mooring_pad": 119.85248089815242,
+          "gas": 165.01867256880993,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 282.7433388230814,
+          "contamination": 11.25,
+          "weather_headroom": 186.77556759824998,
+          "absorbed_water": 2.92353600341494,
+          "structural_primer": 28.274333882308138,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 828.2843348838175,
+          "scarf": 67.66633473563908,
+          "splice": 94.38581115388676,
+          "seal": 13.00551077089084,
+          "total": 1003.3419915442341,
+          "length_m": 6502.75538544542
+        },
+        "vacuum": {
+          "added_material_water_kg": 2.92353600341494,
+          "desorbed_24h_kg": 4.664245883599335,
+          "pressure_SF": 14.81644780377935
+        },
+        "lift_kg": 16501.867256880992,
+        "modes": {
+          "global_buckling": 1.0000000155491333,
+          "face_compression": 1.0000000000020017,
+          "core_shear_crimping": 3.7884189624854856,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0829450342754587,
+          "intracell_dimpling": 10.597842963372692,
+          "scarf_average_shear_screen": 1.6334784458537213,
+          "core_cell_wall_yield_screen": 4.424302231625516,
+          "thermal_core_interface_screen": 1.9739732670707726
+        },
+        "Vc": 0.693955808108827,
+        "gamma": 0.46017504949964017,
+        "Q": 0.788772007929269,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 321691634.83429617,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3143822.073098154,
+        "edge_shear_Pa": 87320.80378423337,
+        "thermal": {
+          "gradient_K": 0.43205888698619493,
+          "curvature_temperature_K": 28.772717146889807,
+          "min_outer_K": 271.5125482226317,
+          "max_outer_K": 291.3644931132971,
+          "swing_K": 19.85194489066535,
+          "rise_K": 6.4644931132971175
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -12488.152757500917
+      },
+      {
+        "mask": 1,
+        "payload_kg": -4304.584697834249
+      },
+      {
+        "mask": 2,
+        "payload_kg": -7711.765934370385
+      },
+      {
+        "mask": 4,
+        "payload_kg": -12488.152757500917
+      },
+      {
+        "mask": 8,
+        "payload_kg": -12073.92776162552
+      },
+      {
+        "mask": 3,
+        "payload_kg": -4304.584697834249
+      },
+      {
+        "mask": 5,
+        "payload_kg": -3897.3561769334738
+      },
+      {
+        "mask": 9,
+        "payload_kg": -3890.3597019588487
+      },
+      {
+        "mask": 6,
+        "payload_kg": -5031.841094976469
+      },
+      {
+        "mask": 10,
+        "payload_kg": -7297.541020412427
+      },
+      {
+        "mask": 12,
+        "payload_kg": -12073.92776162552
+      },
+      {
+        "mask": 7,
+        "payload_kg": 240.54389939694374
+      },
+      {
+        "mask": 11,
+        "payload_kg": -3890.3597019588487
+      },
+      {
+        "mask": 13,
+        "payload_kg": -3483.1311810580773
+      },
+      {
+        "mask": 14,
+        "payload_kg": -4617.616099101069
+      }
+    ]
+  },
+  {
+    "variant": "density1800",
+    "R_m": 20,
+    "weather": "ISA",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333
+    },
+    "endpoint": {
+      "tf_m": 0.0015014831624920548,
+      "tc_m": 0.07698935205326202,
+      "payload_kg": 3195.495715247969,
+      "bill_kg": {
+        "faces": 27170.19920317714,
+        "core": 6198.996233943054,
+        "charged_joining": 1141.6232521037575,
+        "coating": 41.88481909827319,
+        "mooring_pad": 296.83539379710635,
+        "gas": 391.15537201495687,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 502.65482457436696,
+        "contamination": 20.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 6.426905081620321,
+        "structural_primer": 50.26548245743669,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 736.252742118949,
+        "scarf": 156.13052777101555,
+        "splice": 225.77916259887493,
+        "seal": 23.460819614918034,
+        "total": 1141.6232521037575,
+        "length_m": 11730.409807459017
+      },
+      "vacuum": {
+        "added_material_water_kg": 6.426905081620321,
+        "desorbed_24h_kg": 6.967865561112117,
+        "pressure_SF": 21.05399691460579
+      },
+      "lift_kg": 39115.53720149569,
+      "modes": {
+        "global_buckling": 1.00000000000055,
+        "face_compression": 1.000000005248016,
+        "core_shear_crimping": 3.8604567869639532,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.0871387790687135,
+        "intracell_dimpling": 17.047609612311643,
+        "scarf_average_shear_screen": 1.6060557048126316,
+        "core_cell_wall_yield_screen": 4.054573722889793,
+        "thermal_core_interface_screen": 1.8090129741004357
+      },
+      "Vc": 0.6661889902341133,
+      "gamma": 0.4664755960936453,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3556472.988513597,
+      "edge_shear_Pa": 95283.41410316451,
+      "thermal": {
+        "gradient_K": 0.6518243383849708,
+        "curvature_temperature_K": 29.006545253814352,
+        "min_outer_K": 269.0835320065579,
+        "max_outer_K": 291.93167142633524,
+        "swing_K": 22.848139419777347,
+        "rise_K": 7.031671426335253
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8211315274238586,
+      "point": {
+        "tf_m": 0.0016150506161936341,
+        "tc_m": 0.0816574209855569,
+        "payload_kg": 0.0008438122968073003,
+        "bill_kg": {
+          "faces": 29225.267429815238,
+          "core": 6574.857842845327,
+          "charged_joining": 1905.5872611931093,
+          "coating": 41.88481909827319,
+          "mooring_pad": 296.83539379710635,
+          "gas": 391.15537201495687,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 502.65482457436696,
+          "contamination": 20.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 7.027931887569768,
+          "structural_primer": 50.26548245743669,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 1472.505484237898,
+          "scarf": 168.80209661791216,
+          "splice": 240.6983925927077,
+          "seal": 23.5812877445915,
+          "total": 1905.5872611931093,
+          "length_m": 11790.64387229575
+        },
+        "vacuum": {
+          "added_material_water_kg": 7.027931887569768,
+          "desorbed_24h_kg": 9.6462552078675,
+          "pressure_SF": 16.699863896757158
+        },
+        "lift_kg": 39115.53720149569,
+        "modes": {
+          "global_buckling": 1.000000029459228,
+          "face_compression": 1.0012437736293085,
+          "core_shear_crimping": 4.096673986463087,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.0000000000010827,
+          "intracell_dimpling": 21.201481043323273,
+          "scarf_average_shear_screen": 1.7263624056589788,
+          "core_cell_wall_yield_screen": 4.053806862872562,
+          "thermal_core_interface_screen": 1.808670827227471
+        },
+        "Vc": 0.7163835626998215,
+        "gamma": 0.41502028140441427,
+        "Q": 0.6967984257636273,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 304762154.00466275,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3507526.7010759166,
+        "edge_shear_Pa": 95301.43889888191,
+        "thermal": {
+          "gradient_K": 0.6877904979700353,
+          "curvature_temperature_K": 28.951665948745248,
+          "min_outer_K": 269.0780334929631,
+          "max_outer_K": 291.93724649067997,
+          "swing_K": 22.859212997716888,
+          "rise_K": 7.037246490680005
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -27067.402789865686
+      },
+      {
+        "mask": 1,
+        "payload_kg": -7950.089722440425
+      },
+      {
+        "mask": 2,
+        "payload_kg": -15929.18702585654
+      },
+      {
+        "mask": 4,
+        "payload_kg": -27067.402789865686
+      },
+      {
+        "mask": 8,
+        "payload_kg": -26331.002797198307
+      },
+      {
+        "mask": 3,
+        "payload_kg": -7950.089722440425
+      },
+      {
+        "mask": 5,
+        "payload_kg": -7274.617874517469
+      },
+      {
+        "mask": 9,
+        "payload_kg": -7213.689729773025
+      },
+      {
+        "mask": 6,
+        "payload_kg": -9875.271148375294
+      },
+      {
+        "mask": 10,
+        "payload_kg": -15192.787033189103
+      },
+      {
+        "mask": 12,
+        "payload_kg": -26331.002797198307
+      },
+      {
+        "mask": 7,
+        "payload_kg": 2459.0957225806196
+      },
+      {
+        "mask": 11,
+        "payload_kg": -7213.689729773025
+      },
+      {
+        "mask": 13,
+        "payload_kg": -6538.217881850105
+      },
+      {
+        "mask": 14,
+        "payload_kg": -9138.871155707726
+      }
+    ]
+  },
+  {
+    "variant": "density1800",
+    "R_m": 20,
+    "weather": "optimistic",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333
+    },
+    "endpoint": {
+      "tf_m": 0.0015400679875675334,
+      "tc_m": 0.07626344632890251,
+      "payload_kg": 2110.286695125149,
+      "bill_kg": {
+        "faces": 27868.413748440846,
+        "core": 6140.548062455792,
+        "charged_joining": 1144.2144659779676,
+        "coating": 41.88481909827319,
+        "mooring_pad": 296.83539379710635,
+        "gas": 391.15537201495687,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 502.65482457436696,
+        "contamination": 20.0,
+        "weather_headroom": 442.727271344,
+        "absorbed_water": 6.551066209788992,
+        "structural_primer": 50.26548245743669,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 736.252742118949,
+        "scarf": 160.42106305665453,
+        "splice": 224.03906701887237,
+        "seal": 23.50159378349158,
+        "total": 1144.2144659779676,
+        "length_m": 11750.79689174579
+      },
+      "vacuum": {
+        "added_material_water_kg": 6.551066209788992,
+        "desorbed_24h_kg": 7.0442936933147875,
+        "pressure_SF": 20.89604114182735
+      },
+      "lift_kg": 39115.53720149569,
+      "modes": {
+        "global_buckling": 1.0000000193473453,
+        "face_compression": 1.0000000000015823,
+        "core_shear_crimping": 3.7319041485740274,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.1062462657188703,
+        "intracell_dimpling": 17.935039748475507,
+        "scarf_average_shear_screen": 1.6060556963865669,
+        "core_cell_wall_yield_screen": 4.054693100277357,
+        "thermal_core_interface_screen": 1.80906623623295
+      },
+      "Vc": 0.6828453823703395,
+      "gamma": 0.4731381529481358,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3434575.4658829737,
+      "edge_shear_Pa": 95280.6087897234,
+      "thermal": {
+        "gradient_K": 0.6462200096113503,
+        "curvature_temperature_K": 29.015093163757573,
+        "min_outer_K": 269.0843877751522,
+        "max_outer_K": 291.93080255675847,
+        "swing_K": 22.846414781606285,
+        "rise_K": 7.030802556758495
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8992462158203125,
+      "point": {
+        "tf_m": 0.0016034942552110233,
+        "tc_m": 0.07887659743517135,
+        "payload_kg": 1.2666423572227359e-06,
+        "bill_kg": {
+          "faces": 29016.148448127675,
+          "core": 6350.952663020271,
+          "charged_joining": 1895.9611015287103,
+          "coating": 41.88481909827319,
+          "mooring_pad": 296.83539379710635,
+          "gas": 391.15537201495687,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 502.65482457436696,
+          "contamination": 20.0,
+          "weather_headroom": 442.727271344,
+          "absorbed_water": 6.951824266243955,
+          "structural_primer": 50.26548245743669,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 1472.505484237898,
+          "scarf": 167.50667367192804,
+          "splice": 232.3799778743521,
+          "seal": 23.56896574453229,
+          "total": 1895.9611015287103,
+          "length_m": 11784.482872266144
+        },
+        "vacuum": {
+          "added_material_water_kg": 6.951824266243955,
+          "desorbed_24h_kg": 9.577907615577919,
+          "pressure_SF": 16.78885792140076
+        },
+        "lift_kg": 39115.53720149569,
+        "modes": {
+          "global_buckling": 1.0000000470153656,
+          "face_compression": 1.000000000000125,
+          "core_shear_crimping": 3.860764239243802,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0539952693597496,
+          "intracell_dimpling": 20.235982357375576,
+          "scarf_average_shear_screen": 1.6715813656786203,
+          "core_cell_wall_yield_screen": 4.054262527795671,
+          "thermal_core_interface_screen": 1.8088741294274273
+        },
+        "Vc": 0.7108735969444769,
+        "gamma": 0.44305370240417263,
+        "Q": 0.7481451938101885,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 314358823.62744117,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3412113.0358478217,
+        "edge_shear_Pa": 95290.72782071901,
+        "thermal": {
+          "gradient_K": 0.6664252120006529,
+          "curvature_temperature_K": 28.984270192646346,
+          "min_outer_K": 269.0813009368674,
+          "max_outer_K": 291.93393485139694,
+          "swing_K": 22.8526339145295,
+          "rise_K": 7.0339348513969355
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -28838.545657987597
+      },
+      {
+        "mask": 1,
+        "payload_kg": -9405.10166060309
+      },
+      {
+        "mask": 2,
+        "payload_kg": -17525.796980387757
+      },
+      {
+        "mask": 4,
+        "payload_kg": -28838.545657987597
+      },
+      {
+        "mask": 8,
+        "payload_kg": -28102.145665320226
+      },
+      {
+        "mask": 3,
+        "payload_kg": -9405.10166060309
+      },
+      {
+        "mask": 5,
+        "payload_kg": -8428.976854864552
+      },
+      {
+        "mask": 9,
+        "payload_kg": -8668.701667935711
+      },
+      {
+        "mask": 6,
+        "payload_kg": -11137.685697786532
+      },
+      {
+        "mask": 10,
+        "payload_kg": -16789.396987720378
+      },
+      {
+        "mask": 12,
+        "payload_kg": -28102.145665320226
+      },
+      {
+        "mask": 7,
+        "payload_kg": 1373.8867024577557
+      },
+      {
+        "mask": 11,
+        "payload_kg": -8668.701667935711
+      },
+      {
+        "mask": 13,
+        "payload_kg": -7692.57686219718
+      },
+      {
+        "mask": 14,
+        "payload_kg": -10401.285705119175
+      }
+    ]
+  },
+  {
+    "variant": "density1800",
+    "R_m": 30,
+    "weather": "ISA",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333
+    },
+    "endpoint": {
+      "tf_m": 0.0022529453142797473,
+      "tc_m": 0.11543231021726673,
+      "payload_kg": 12444.311264210948,
+      "bill_kg": {
+        "faces": 91728.76036971918,
+        "core": 20912.2428461092,
+        "charged_joining": 3045.2376346039396,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.464895826616,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 21.460130234890876,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 1656.568669767635,
+        "scarf": 545.61883986324,
+        "splice": 788.4096423643135,
+        "seal": 54.64048260875096,
+        "total": 3045.2376346039396,
+        "length_m": 27320.24130437548
+      },
+      "vacuum": {
+        "added_material_water_kg": 21.460130234890876,
+        "desorbed_24h_kg": 20.84378448148343,
+        "pressure_SF": 23.39964720515009
+      },
+      "lift_kg": 132014.93805504794,
+      "modes": {
+        "global_buckling": 1.0000000000021305,
+        "face_compression": 1.0000000005531677,
+        "core_shear_crimping": 3.85863395540372,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.0875562186236423,
+        "intracell_dimpling": 38.38166911607969,
+        "scarf_average_shear_screen": 1.6060556972724433,
+        "core_cell_wall_yield_screen": 3.955673485611961,
+        "thermal_core_interface_screen": 1.7648870499947333
+      },
+      "Vc": 0.6663923371772066,
+      "gamma": 0.4665569348708827,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3642594.427479016,
+      "edge_shear_Pa": 97665.701796454,
+      "thermal": {
+        "gradient_K": 0.9690135653513815,
+        "curvature_temperature_K": 29.57875011531273,
+        "min_outer_K": 268.35680858213067,
+        "max_outer_K": 292.20947186242347,
+        "swing_K": 23.85266328029281,
+        "rise_K": 7.309471862423501
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.7835301160812378,
+      "point": {
+        "tf_m": 0.0024817340426608915,
+        "tc_m": 0.1228718620343938,
+        "payload_kg": 0.002564497699495405,
+        "bill_kg": {
+          "faces": 101043.90277816952,
+          "core": 22260.02592324892,
+          "charged_joining": 4824.2735108172155,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.464895826616,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 23.807468144843657,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 3313.13733953527,
+          "scarf": 607.5589296720419,
+          "splice": 848.3429244655546,
+          "seal": 55.234317144349276,
+          "total": 4824.2735108172155,
+          "length_m": 27617.158572174638
+        },
+        "vacuum": {
+          "added_material_water_kg": 23.807468144843657,
+          "desorbed_24h_kg": 27.56887811041523,
+          "pressure_SF": 19.244882512908955
+        },
+        "lift_kg": 132014.93805504794,
+        "modes": {
+          "global_buckling": 1.0000000000005085,
+          "face_compression": 1.0101041511124815,
+          "core_shear_crimping": 4.112684061724312,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.0000000093833803,
+          "intracell_dimpling": 51.263951504198914,
+          "scarf_average_shear_screen": 1.7678265365352461,
+          "core_cell_wall_yield_screen": 3.954505489930237,
+          "thermal_core_interface_screen": 1.7643659300234762
+        },
+        "Vc": 0.733575624353255,
+        "gamma": 0.4058141598537612,
+        "Q": 0.6733538168253337,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 300247695.80404484,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3520947.39661716,
+        "edge_shear_Pa": 97694.54816377889,
+        "thermal": {
+          "gradient_K": 1.0233930724734672,
+          "curvature_temperature_K": 29.49653735101347,
+          "min_outer_K": 268.3480089183018,
+          "max_outer_K": 292.21815085079726,
+          "swing_K": 23.870141932495514,
+          "rise_K": 7.318150850797295
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -89031.47158740077
+      },
+      {
+        "mask": 1,
+        "payload_kg": -24372.335959496122
+      },
+      {
+        "mask": 2,
+        "payload_kg": -51398.43513620793
+      },
+      {
+        "mask": 4,
+        "payload_kg": -89031.47158740077
+      },
+      {
+        "mask": 8,
+        "payload_kg": -87374.57160389915
+      },
+      {
+        "mask": 3,
+        "payload_kg": -24372.335959496122
+      },
+      {
+        "mask": 5,
+        "payload_kg": -22077.661225045158
+      },
+      {
+        "mask": 9,
+        "payload_kg": -22715.435582455422
+      },
+      {
+        "mask": 6,
+        "payload_kg": -30900.74098585581
+      },
+      {
+        "mask": 10,
+        "payload_kg": -49741.53515270635
+      },
+      {
+        "mask": 12,
+        "payload_kg": -87374.57160389915
+      },
+      {
+        "mask": 7,
+        "payload_kg": 10787.411280709275
+      },
+      {
+        "mask": 11,
+        "payload_kg": -22715.435582455422
+      },
+      {
+        "mask": 13,
+        "payload_kg": -20420.761241543543
+      },
+      {
+        "mask": 14,
+        "payload_kg": -29243.841002354282
+      }
+    ]
+  },
+  {
+    "variant": "density1800",
+    "R_m": 30,
+    "weather": "optimistic",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333
+    },
+    "endpoint": {
+      "tf_m": 0.002310819021371119,
+      "tc_m": 0.11434542825269012,
+      "payload_kg": 8779.865564767824,
+      "bill_kg": {
+        "faces": 94085.0907146432,
+        "core": 20715.338361173384,
+        "charged_joining": 3055.631127126743,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.464895826616,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 1494.2045407859998,
+        "absorbed_water": 21.881936380996702,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 1656.568669767635,
+        "scarf": 561.159314239353,
+        "splice": 783.1138041089564,
+        "seal": 54.78933901079916,
+        "total": 3055.631127126743,
+        "length_m": 27394.66950539958
+      },
+      "vacuum": {
+        "added_material_water_kg": 21.881936380996702,
+        "desorbed_24h_kg": 21.10454002127351,
+        "pressure_SF": 23.20235513241795
+      },
+      "lift_kg": 132014.93805504794,
+      "modes": {
+        "global_buckling": 1.000000000001306,
+        "face_compression": 1.00000000519322,
+        "core_shear_crimping": 3.7301926522654867,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.1066585682948007,
+        "intracell_dimpling": 40.37889464882745,
+        "scarf_average_shear_screen": 1.606055704724626,
+        "core_cell_wall_yield_screen": 3.9558449361448065,
+        "thermal_core_interface_screen": 1.7649635453946277
+      },
+      "Vc": 0.6830472529555531,
+      "gamma": 0.47321890118222126,
+      "Q": 0.82,
+      "E_Pa": 200373937759.30072,
+      "Fcy_Pa": 327184388.99429667,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3517775.581723787,
+      "edge_shear_Pa": 97661.46886091582,
+      "thermal": {
+        "gradient_K": 0.9610201384037126,
+        "curvature_temperature_K": 29.59082807245099,
+        "min_outer_K": 268.358099850779,
+        "max_outer_K": 292.2081957875366,
+        "swing_K": 23.85009593675761,
+        "rise_K": 7.30819578753667
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8479470610618591,
+      "point": {
+        "tf_m": 0.0024560523063190836,
+        "tc_m": 0.12053125607888032,
+        "payload_kg": 0.000414766778703779,
+        "bill_kg": {
+          "faces": 99998.26983544133,
+          "core": 21835.991092302378,
+          "charged_joining": 4800.010030861153,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.464895826616,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 1494.2045407859998,
+          "absorbed_water": 23.536330720531307,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 3313.13733953527,
+          "scarf": 600.5382330321053,
+          "splice": 831.1675216071977,
+          "seal": 55.16693668658026,
+          "total": 4800.010030861153,
+          "length_m": 27583.46834329013
+        },
+        "vacuum": {
+          "added_material_water_kg": 23.536330720531307,
+          "desorbed_24h_kg": 27.355345012300553,
+          "pressure_SF": 19.354811911299443
+        },
+        "lift_kg": 132014.93805504794,
+        "modes": {
+          "global_buckling": 1.0000000146880006,
+          "face_compression": 1.0000000000013365,
+          "core_shear_crimping": 3.933202326506943,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0278077413840805,
+          "intracell_dimpling": 48.451489046695286,
+          "scarf_average_shear_screen": 1.7059643483150067,
+          "core_cell_wall_yield_screen": 3.9548711460529593,
+          "thermal_core_interface_screen": 1.764529073356234
+        },
+        "Vc": 0.7258568983200866,
+        "gamma": 0.4278383821731526,
+        "Q": 0.7140150056083275,
+        "E_Pa": 200373937759.30072,
+        "Fcy_Pa": 308023055.83462876,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3489669.1192441774,
+        "edge_shear_Pa": 97685.51560408896,
+        "thermal": {
+          "gradient_K": 1.006380925529426,
+          "curvature_temperature_K": 29.522264513601183,
+          "min_outer_K": 268.35076432552137,
+          "max_outer_K": 292.2154360687058,
+          "swing_K": 23.86467174318441,
+          "rise_K": 7.315436068705799
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -95019.56053937631
+      },
+      {
+        "mask": 1,
+        "payload_kg": -29286.404800918128
+      },
+      {
+        "mask": 2,
+        "payload_kg": -56794.59784041086
+      },
+      {
+        "mask": 4,
+        "payload_kg": -95019.56053937631
+      },
+      {
+        "mask": 8,
+        "payload_kg": -93362.66055587475
+      },
+      {
+        "mask": 3,
+        "payload_kg": -29286.404800918128
+      },
+      {
+        "mask": 5,
+        "payload_kg": -25976.042707262095
+      },
+      {
+        "mask": 9,
+        "payload_kg": -27629.504817416484
+      },
+      {
+        "mask": 6,
+        "payload_kg": -35165.757455070736
+      },
+      {
+        "mask": 10,
+        "payload_kg": -55137.697856909275
+      },
+      {
+        "mask": 12,
+        "payload_kg": -93362.66055587475
+      },
+      {
+        "mask": 7,
+        "payload_kg": 7122.965581266224
+      },
+      {
+        "mask": 11,
+        "payload_kg": -27629.504817416484
+      },
+      {
+        "mask": 13,
+        "payload_kg": -24319.14272376048
+      },
+      {
+        "mask": 14,
+        "payload_kg": -33508.85747156912
+      }
+    ]
+  },
+  {
+    "variant": "density1800_E1_Voigt_3GPa",
+    "R_m": 15,
+    "weather": "ISA",
+    "thermal_basis": "pinned",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333,
+      "E_today_Pa": 192693882040.12082,
+      "E1": 192693882040.12082,
+      "nu": 0.327366048221825,
+      "Fc1": 327072398.61801213
+    },
+    "endpoint": {
+      "tf_m": 0.0011260620926112777,
+      "tc_m": 0.060970565095869796,
+      "payload_kg": 954.2525339048316,
+      "bill_kg": {
+        "faces": 11461.916008332666,
+        "core": 2761.4262881628943,
+        "charged_joining": 590.8044131267474,
+        "coating": 23.560210742778665,
+        "mooring_pad": 119.85248089815242,
+        "gas": 165.01867256880993,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 282.7433388230814,
+        "contamination": 11.25,
+        "weather_headroom": 0.0,
+        "absorbed_water": 2.768976438723319,
+        "structural_primer": 28.274333882308138,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 414.1421674419087,
+        "scarf": 64.77366655462214,
+        "splice": 98.91045387058548,
+        "seal": 12.978125259630998,
+        "total": 590.8044131267474,
+        "length_m": 6489.062629815498
+      },
+      "vacuum": {
+        "added_material_water_kg": 2.768976438723319,
+        "desorbed_24h_kg": 3.306224928980412,
+        "pressure_SF": 19.003732621609398
+      },
+      "lift_kg": 16501.867256880992,
+      "modes": {
+        "global_buckling": 1.000000003136579,
+        "face_compression": 1.00000000000123,
+        "core_shear_crimping": 4.068196721656662,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.0378227063201482,
+        "intracell_dimpling": 9.222512430875266,
+        "scarf_average_shear_screen": 1.6066056137209153,
+        "core_cell_wall_yield_screen": 4.4239679786568535,
+        "thermal_core_interface_screen": 1.973824134757916
+      },
+      "Vc": 0.6412222288848226,
+      "gamma": 0.4564888915539291,
+      "Q": 0.82,
+      "E_Pa": 192693882040.12082,
+      "Fcy_Pa": 327072398.61801213,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3441917.2468402367,
+      "edge_shear_Pa": 87327.40130890618,
+      "thermal": {
+        "gradient_K": 0.45078977640182905,
+        "curvature_temperature_K": 28.742180394642137,
+        "min_outer_K": 271.51053562955303,
+        "max_outer_K": 291.36700231722847,
+        "swing_K": 19.856466687675418,
+        "rise_K": 6.467002317228472
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.9068136811256409,
+      "point": {
+        "tf_m": 0.0011719842121387513,
+        "tc_m": 0.062451750203413314,
+        "payload_kg": 0.00018633306171977893,
+        "bill_kg": {
+          "faces": 11929.346250769764,
+          "core": 2828.5108475264933,
+          "charged_joining": 1010.3592454144614,
+          "coating": 23.560210742778665,
+          "mooring_pad": 119.85248089815242,
+          "gas": 165.01867256880993,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 282.7433388230814,
+          "contamination": 11.25,
+          "weather_headroom": 0.0,
+          "absorbed_water": 2.9516899220792325,
+          "structural_primer": 28.274333882308138,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 828.2843348838175,
+          "scarf": 67.55183445714533,
+          "splice": 101.5186495554531,
+          "seal": 13.00442651804555,
+          "total": 1010.3592454144614,
+          "length_m": 6502.213259022775
+        },
+        "vacuum": {
+          "added_material_water_kg": 2.9516899220792325,
+          "desorbed_24h_kg": 4.699054612668885,
+          "pressure_SF": 14.73337753404463
+        },
+        "lift_kg": 16501.867256880992,
+        "modes": {
+          "global_buckling": 1.0000000026541613,
+          "face_compression": 1.0027604577244797,
+          "core_shear_crimping": 4.169437277050451,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.000000000002308,
+          "intracell_dimpling": 10.394747764366185,
+          "scarf_average_shear_screen": 1.671687677235654,
+          "core_cell_wall_yield_screen": 4.423799746695253,
+          "thermal_core_interface_screen": 1.9737490753751068
+        },
+        "Vc": 0.6671772684615593,
+        "gamma": 0.43140850402954584,
+        "Q": 0.7533162029271032,
+        "E_Pa": 192693882040.12082,
+        "Fcy_Pa": 315206550.9256325,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3387520.335926428,
+        "edge_shear_Pa": 87330.7222684579,
+        "thermal": {
+          "gradient_K": 0.46020938003212447,
+          "curvature_temperature_K": 28.726818912443267,
+          "min_outer_K": 271.509522561692,
+          "max_outer_K": 291.3682640227852,
+          "swing_K": 19.85874146109316,
+          "rise_K": 6.468264022785192
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -12176.148841235343
+      },
+      {
+        "mask": 1,
+        "payload_kg": -3809.005958222915
+      },
+      {
+        "mask": 2,
+        "payload_kg": -7174.3097804309145
+      },
+      {
+        "mask": 4,
+        "payload_kg": -12176.148841235343
+      },
+      {
+        "mask": 8,
+        "payload_kg": -11761.92384535995
+      },
+      {
+        "mask": 3,
+        "payload_kg": -3782.794356295726
+      },
+      {
+        "mask": 5,
+        "payload_kg": -3809.005958222915
+      },
+      {
+        "mask": 9,
+        "payload_kg": -3394.7809623475223
+      },
+      {
+        "mask": 6,
+        "payload_kg": -4844.687135669425
+      },
+      {
+        "mask": 10,
+        "payload_kg": -6760.084784555518
+      },
+      {
+        "mask": 12,
+        "payload_kg": -11761.92384535995
+      },
+      {
+        "mask": 7,
+        "payload_kg": 540.0275380293206
+      },
+      {
+        "mask": 11,
+        "payload_kg": -3368.569360420326
+      },
+      {
+        "mask": 13,
+        "payload_kg": -3394.7809623475223
+      },
+      {
+        "mask": 14,
+        "payload_kg": -4430.462139794025
+      }
+    ]
+  },
+  {
+    "variant": "density1800_E1_Voigt_3GPa",
+    "R_m": 15,
+    "weather": "optimistic",
+    "thermal_basis": "pinned",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333,
+      "E_today_Pa": 192693882040.12082,
+      "E1": 192693882040.12082,
+      "nu": 0.327366048221825,
+      "Fc1": 327072398.61801213
+    },
+    "endpoint": {
+      "tf_m": 0.0011550140197508691,
+      "tc_m": 0.06039641871573751,
+      "payload_kg": 497.77350975133777,
+      "bill_kg": {
+        "faces": 11756.61073194585,
+        "core": 2735.422545129549,
+        "charged_joining": 591.7648405124711,
+        "coating": 23.560210742778665,
+        "mooring_pad": 119.85248089815242,
+        "gas": 165.01867256880993,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 282.7433388230814,
+        "contamination": 11.25,
+        "weather_headroom": 186.77556759824998,
+        "absorbed_water": 2.8210250284045157,
+        "structural_primer": 28.274333882308138,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 414.1421674419087,
+        "scarf": 66.52386380406926,
+        "splice": 98.10411611120023,
+        "seal": 12.994693155292959,
+        "total": 591.7648405124711,
+        "length_m": 6497.346577646479
+      },
+      "vacuum": {
+        "added_material_water_kg": 2.8210250284045157,
+        "desorbed_24h_kg": 3.3380892684139187,
+        "pressure_SF": 18.87650722773224
+      },
+      "lift_kg": 16501.867256880992,
+      "modes": {
+        "global_buckling": 1.0000000145206762,
+        "face_compression": 1.000000000001631,
+        "core_shear_crimping": 3.9324947436496935,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.0560637689756123,
+        "intracell_dimpling": 9.70284476810223,
+        "scarf_average_shear_screen": 1.6066056137215596,
+        "core_cell_wall_yield_screen": 4.424033575081961,
+        "thermal_core_interface_screen": 1.9738534016530778
+      },
+      "Vc": 0.6572858741992533,
+      "gamma": 0.46291434967970135,
+      "Q": 0.82,
+      "E_Pa": 192693882040.12082,
+      "Fcy_Pa": 327072398.61801213,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3323992.4991693073,
+      "edge_shear_Pa": 87326.10648027467,
+      "thermal": {
+        "gradient_K": 0.4471156158872237,
+        "curvature_temperature_K": 28.748171400981466,
+        "min_outer_K": 271.51093062059454,
+        "max_outer_K": 291.3665101574724,
+        "swing_K": 19.855579536877876,
+        "rise_K": 6.466510157472434
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.985017716884613,
+      "point": {
+        "tf_m": 0.001161949798529841,
+        "tc_m": 0.06066245885017048,
+        "payload_kg": 1.9015475118067116e-05,
+        "bill_kg": {
+          "faces": 11827.208360920822,
+          "core": 2747.4718056173665,
+          "charged_joining": 1006.7932208772103,
+          "coating": 23.560210742778665,
+          "mooring_pad": 119.85248089815242,
+          "gas": 165.01867256880993,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 282.7433388230814,
+          "contamination": 11.25,
+          "weather_headroom": 186.77556759824998,
+          "absorbed_water": 2.9192459367383012,
+          "structural_primer": 28.274333882308138,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 828.2843348838175,
+          "scarf": 66.94381201618583,
+          "splice": 98.56640473692762,
+          "seal": 12.99866924027932,
+          "total": 1006.7932208772103,
+          "length_m": 6499.33462013966
+        },
+        "vacuum": {
+          "added_material_water_kg": 2.9192459367383012,
+          "desorbed_24h_kg": 4.671169300655413,
+          "pressure_SF": 14.800372262844062
+        },
+        "lift_kg": 16501.867256880992,
+        "modes": {
+          "global_buckling": 1.0000000108929867,
+          "face_compression": 1.000000000001586,
+          "core_shear_crimping": 3.9500497307609463,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0488021246298518,
+          "intracell_dimpling": 9.878239890897698,
+          "scarf_average_shear_screen": 1.6161793264022404,
+          "core_cell_wall_yield_screen": 4.424003102481123,
+          "thermal_core_interface_screen": 1.9738398058143931
+        },
+        "Vc": 0.6612130645083085,
+        "gamma": 0.4586583024767628,
+        "Q": 0.8088935215966705,
+        "E_Pa": 192693882040.12082,
+        "Fcy_Pa": 325134929.725161,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3318728.6132415067,
+        "edge_shear_Pa": 87326.70798382787,
+        "thermal": {
+          "gradient_K": 0.44882242136787026,
+          "curvature_temperature_K": 28.745388321033296,
+          "min_outer_K": 271.5107471302784,
+          "max_outer_K": 291.36673878683297,
+          "swing_K": 19.855991656554572,
+          "rise_K": 6.466738786832969
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -12928.092871645633
+      },
+      {
+        "mask": 1,
+        "payload_kg": -4395.439508729083
+      },
+      {
+        "mask": 2,
+        "payload_kg": -7846.152379079194
+      },
+      {
+        "mask": 4,
+        "payload_kg": -12928.092871645633
+      },
+      {
+        "mask": 8,
+        "payload_kg": -12513.867875770171
+      },
+      {
+        "mask": 3,
+        "payload_kg": -4395.439508729083
+      },
+      {
+        "mask": 5,
+        "payload_kg": -4302.037864585003
+      },
+      {
+        "mask": 9,
+        "payload_kg": -3981.2145128536868
+      },
+      {
+        "mask": 6,
+        "payload_kg": -5381.968084549651
+      },
+      {
+        "mask": 10,
+        "payload_kg": -7431.927383203805
+      },
+      {
+        "mask": 12,
+        "payload_kg": -12513.867875770171
+      },
+      {
+        "mask": 7,
+        "payload_kg": 83.54851387593953
+      },
+      {
+        "mask": 11,
+        "payload_kg": -3981.2145128536868
+      },
+      {
+        "mask": 13,
+        "payload_kg": -3887.812868709603
+      },
+      {
+        "mask": 14,
+        "payload_kg": -4967.743088674259
+      }
+    ]
+  },
+  {
+    "variant": "density1800_E1_Voigt_3GPa",
+    "R_m": 20,
+    "weather": "ISA",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333,
+      "E_today_Pa": 192693882040.12082,
+      "E1": 192693882040.12082,
+      "nu": 0.327366048221825,
+      "Fc1": 327072398.61801213
+    },
+    "endpoint": {
+      "tf_m": 0.0015028912996732187,
+      "tc_m": 0.08118252632290682,
+      "payload_kg": 2819.8614632679964,
+      "bill_kg": {
+        "faces": 27195.680253297025,
+        "core": 6536.62047434207,
+        "charged_joining": 1154.093040005978,
+        "coating": 41.88481909827319,
+        "mooring_pad": 296.83539379710635,
+        "gas": 391.15537201495687,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 502.65482457436696,
+        "contamination": 20.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 6.486078640478509,
+        "structural_primer": 50.26548245743669,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 736.252742118949,
+        "scarf": 156.28684528986406,
+        "splice": 238.09114773711661,
+        "seal": 23.462304860048267,
+        "total": 1154.093040005978,
+        "length_m": 11731.152430024133
+      },
+      "vacuum": {
+        "added_material_water_kg": 6.486078640478509,
+        "desorbed_24h_kg": 7.034494715854164,
+        "pressure_SF": 20.91842025947777
+      },
+      "lift_kg": 39115.53720149569,
+      "modes": {
+        "global_buckling": 1.0000000018755544,
+        "face_compression": 1.0000000000022709,
+        "core_shear_crimping": 4.062807017639832,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.039045613319982,
+        "intracell_dimpling": 16.42781155363324,
+        "scarf_average_shear_screen": 1.6066056137225877,
+        "core_cell_wall_yield_screen": 4.053884271348177,
+        "thermal_core_interface_screen": 1.8087053642580602
+      },
+      "Vc": 0.641824799378367,
+      "gamma": 0.4567299197513468,
+      "Q": 0.82,
+      "E_Pa": 192693882040.12082,
+      "Fcy_Pa": 327072398.61801213,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3747297.411599988,
+      "edge_shear_Pa": 95299.61912835682,
+      "thermal": {
+        "gradient_K": 0.6841618200035039,
+        "curvature_temperature_K": 28.957204079024464,
+        "min_outer_K": 269.0785886189755,
+        "max_outer_K": 291.93668406922006,
+        "swing_K": 22.858095450244583,
+        "rise_K": 7.0366840692200965
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8621894121170044,
+      "point": {
+        "tf_m": 0.001607245462412107,
+        "tc_m": 0.0833612877238889,
+        "payload_kg": 0.0010062081200885586,
+        "bill_kg": {
+          "faces": 29084.02869444138,
+          "core": 6712.0490675065475,
+          "charged_joining": 1909.63954604413,
+          "coating": 41.88481909827319,
+          "mooring_pad": 296.83539379710635,
+          "gas": 391.15537201495687,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 502.65482457436696,
+          "contamination": 20.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 7.0229953533698,
+          "structural_primer": 50.26548245743669,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 1472.505484237898,
+          "scarf": 167.92701969730945,
+          "splice": 245.63407821441035,
+          "seal": 23.57296389451228,
+          "total": 1909.63954604413,
+          "length_m": 11786.48194725614
+        },
+        "vacuum": {
+          "added_material_water_kg": 7.0229953533698,
+          "desorbed_24h_kg": 9.65436839503482,
+          "pressure_SF": 16.689775871058323
+        },
+        "lift_kg": 39115.53720149569,
+        "modes": {
+          "global_buckling": 1.000000000002108,
+          "face_compression": 1.012235599738825,
+          "core_shear_crimping": 4.178087351085187,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.000000014978237,
+          "intracell_dimpling": 20.086510791511014,
+          "scarf_average_shear_screen": 1.7176109263472352,
+          "core_cell_wall_yield_screen": 4.053528463472396,
+          "thermal_core_interface_screen": 1.808546614878331
+        },
+        "Vc": 0.6858731277168284,
+        "gamma": 0.4211238585632357,
+        "Q": 0.7233314344947867,
+        "E_Pa": 192693882040.12082,
+        "Fcy_Pa": 309677740.0893494,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3598350.7775849886,
+        "edge_shear_Pa": 95307.98427377282,
+        "thermal": {
+          "gradient_K": 0.7008344695890644,
+          "curvature_temperature_K": 28.931754066206715,
+          "min_outer_K": 269.07603680831903,
+          "max_outer_K": 291.93926804800475,
+          "swing_K": 22.863231239685742,
+          "rise_K": 7.039268048004781
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -28098.684864756062
+      },
+      {
+        "mask": 1,
+        "payload_kg": -8220.105913782063
+      },
+      {
+        "mask": 2,
+        "payload_kg": -16251.054687712516
+      },
+      {
+        "mask": 4,
+        "payload_kg": -28098.684864756062
+      },
+      {
+        "mask": 8,
+        "payload_kg": -27362.28487208872
+      },
+      {
+        "mask": 3,
+        "payload_kg": -8168.939750434089
+      },
+      {
+        "mask": 5,
+        "payload_kg": -8220.105913782063
+      },
+      {
+        "mask": 9,
+        "payload_kg": -7483.705921114699
+      },
+      {
+        "mask": 6,
+        "payload_kg": -10694.369065748942
+      },
+      {
+        "mask": 10,
+        "payload_kg": -15514.654695045123
+      },
+      {
+        "mask": 12,
+        "payload_kg": -27362.28487208872
+      },
+      {
+        "mask": 7,
+        "payload_kg": 2083.4614706006178
+      },
+      {
+        "mask": 11,
+        "payload_kg": -7432.539757766717
+      },
+      {
+        "mask": 13,
+        "payload_kg": -7483.705921114699
+      },
+      {
+        "mask": 14,
+        "payload_kg": -9957.969073081556
+      }
+    ]
+  },
+  {
+    "variant": "density1800_E1_Voigt_3GPa",
+    "R_m": 20,
+    "weather": "optimistic",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333,
+      "E_today_Pa": 192693882040.12082,
+      "E1": 192693882040.12082,
+      "nu": 0.327366048221825,
+      "Fc1": 327072398.61801213
+    },
+    "endpoint": {
+      "tf_m": 0.0015414818731049494,
+      "tc_m": 0.08042159043527373,
+      "payload_kg": 1737.4497226120438,
+      "bill_kg": {
+        "faces": 27893.998818364857,
+        "core": 6475.35175891703,
+        "charged_joining": 1156.6038960753235,
+        "coating": 41.88481909827319,
+        "mooring_pad": 296.83539379710635,
+        "gas": 391.15537201495687,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 502.65482457436696,
+        "contamination": 20.0,
+        "weather_headroom": 442.727271344,
+        "absorbed_water": 6.609842240284022,
+        "structural_primer": 50.26548245743669,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 736.252742118949,
+        "scarf": 160.5785690903753,
+        "splice": 236.26949395010743,
+        "seal": 23.50309091589188,
+        "total": 1156.6038960753235,
+        "length_m": 11751.54545794594
+      },
+      "vacuum": {
+        "added_material_water_kg": 6.609842240284022,
+        "desorbed_24h_kg": 7.110442474004233,
+        "pressure_SF": 20.76344001595093
+      },
+      "lift_kg": 39115.53720149569,
+      "modes": {
+        "global_buckling": 1.0000000099274469,
+        "face_compression": 1.0000000000012539,
+        "core_shear_crimping": 3.927459656286309,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.0572677651579887,
+        "intracell_dimpling": 17.282295071332815,
+        "scarf_average_shear_screen": 1.6066056137209543,
+        "core_cell_wall_yield_screen": 4.054009260260263,
+        "thermal_core_interface_screen": 1.808761130062072
+      },
+      "Vc": 0.6578822000741483,
+      "gamma": 0.4631528800296594,
+      "Q": 0.82,
+      "E_Pa": 192693882040.12082,
+      "Fcy_Pa": 327072398.61801213,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3619128.613463304,
+      "edge_shear_Pa": 95296.68095161564,
+      "thermal": {
+        "gradient_K": 0.6783030059076207,
+        "curvature_temperature_K": 28.966145868856454,
+        "min_outer_K": 269.07948491788557,
+        "max_outer_K": 291.93577599117964,
+        "swing_K": 22.85629107329409,
+        "rise_K": 7.035775991179684
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.9257946014404297,
+      "point": {
+        "tf_m": 0.0015879322275030594,
+        "tc_m": 0.08227378937392066,
+        "payload_kg": 0.000725345773389563,
+        "bill_kg": {
+          "faces": 28734.544629055225,
+          "core": 6624.486333231182,
+          "charged_joining": 1904.0403692544307,
+          "coating": 41.88481909827319,
+          "mooring_pad": 296.83539379710635,
+          "gas": 391.15537201495687,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 502.65482457436696,
+          "contamination": 20.0,
+          "weather_headroom": 442.727271344,
+          "absorbed_water": 6.941981322933957,
+          "structural_primer": 50.26548245743669,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 1472.505484237898,
+          "scarf": 165.76438611046152,
+          "splice": 242.21810339908916,
+          "seal": 23.552395506982013,
+          "total": 1904.0403692544307,
+          "length_m": 11776.197753491006
+        },
+        "vacuum": {
+          "added_material_water_kg": 6.941981322933957,
+          "desorbed_24h_kg": 9.594083385629208,
+          "pressure_SF": 16.76854108738533
+        },
+        "lift_kg": 39115.53720149569,
+        "modes": {
+          "global_buckling": 1.0000000220902747,
+          "face_compression": 1.0000000000021103,
+          "core_shear_crimping": 4.018936830995777,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.021253825999472,
+          "intracell_dimpling": 18.887228803870823,
+          "scarf_average_shear_screen": 1.6545847760118357,
+          "core_cell_wall_yield_screen": 4.053707066967278,
+          "thermal_core_interface_screen": 1.8086263016867465
+        },
+        "Vc": 0.6776180645781157,
+        "gamma": 0.44203584235546567,
+        "Q": 0.7664440636592497,
+        "E_Pa": 192693882040.12082,
+        "Fcy_Pa": 317588049.48025644,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3594443.7643700754,
+        "edge_shear_Pa": 95303.7850707223,
+        "thermal": {
+          "gradient_K": 0.6924688362254745,
+          "curvature_temperature_K": 28.94452581479348,
+          "min_outer_K": 269.0773177867791,
+          "max_outer_K": 291.93797160265075,
+          "swing_K": 22.860653815871647,
+          "rise_K": 7.037971602650765
+        },
+        "binding": [
+          "global_buckling",
+          "face_compression"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -29883.033199225996
+      },
+      {
+        "mask": 1,
+        "payload_kg": -9621.517207746641
+      },
+      {
+        "mask": 2,
+        "payload_kg": -17845.36848599744
+      },
+      {
+        "mask": 4,
+        "payload_kg": -29883.033199225996
+      },
+      {
+        "mask": 8,
+        "payload_kg": -29146.63320655864
+      },
+      {
+        "mask": 3,
+        "payload_kg": -9621.517207746641
+      },
+      {
+        "mask": 5,
+        "payload_kg": -9389.077794445868
+      },
+      {
+        "mask": 9,
+        "payload_kg": -8885.117215079263
+      },
+      {
+        "mask": 6,
+        "payload_kg": -11968.845665220819
+      },
+      {
+        "mask": 10,
+        "payload_kg": -17108.96849333006
+      },
+      {
+        "mask": 12,
+        "payload_kg": -29146.63320655864
+      },
+      {
+        "mask": 7,
+        "payload_kg": 1001.0497299446943
+      },
+      {
+        "mask": 11,
+        "payload_kg": -8885.117215079263
+      },
+      {
+        "mask": 13,
+        "payload_kg": -8652.677801778496
+      },
+      {
+        "mask": 14,
+        "payload_kg": -11232.445672553455
+      }
+    ]
+  },
+  {
+    "variant": "density1800_E1_Voigt_3GPa",
+    "R_m": 30,
+    "weather": "ISA",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333,
+      "E_today_Pa": 192693882040.12082,
+      "E1": 192693882040.12082,
+      "nu": 0.327366048221825,
+      "Fc1": 327072398.61801213
+    },
+    "endpoint": {
+      "tf_m": 0.0022550926262259077,
+      "tc_m": 0.12171673089383142,
+      "payload_kg": 11174.579388666316,
+      "bill_kg": {
+        "faces": 91816.18826319708,
+        "core": 22050.7571068744,
+        "charged_joining": 3088.8249765974483,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.464895826616,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 21.662509542922578,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 1656.568669767635,
+        "scarf": 546.1939181285445,
+        "splice": 831.4163992381838,
+        "seal": 54.64598946308505,
+        "total": 3088.8249765974483,
+        "length_m": 27322.994731542523
+      },
+      "vacuum": {
+        "added_material_water_kg": 21.662509542922578,
+        "desorbed_24h_kg": 21.071232884825474,
+        "pressure_SF": 23.23038521836735
+      },
+      "lift_kg": 132014.93805504794,
+      "modes": {
+        "global_buckling": 1.0000000145744559,
+        "face_compression": 1.0000000000014344,
+        "core_shear_crimping": 4.0608030034446925,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.0394633031876648,
+        "intracell_dimpling": 36.98736061318497,
+        "scarf_average_shear_screen": 1.6066056137212439,
+        "core_cell_wall_yield_screen": 3.9546850605087265,
+        "thermal_core_interface_screen": 1.7644460483117244
+      },
+      "Vc": 0.6420305615271473,
+      "gamma": 0.45681222461085896,
+      "Q": 0.82,
+      "E_Pa": 192693882040.12082,
+      "Fcy_Pa": 327072398.61801213,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3838208.024664613,
+      "edge_shear_Pa": 97690.11214263925,
+      "thermal": {
+        "gradient_K": 1.0150381602376837,
+        "curvature_temperature_K": 29.509172333899706,
+        "min_outer_K": 268.3493621387724,
+        "max_outer_K": 292.2168175819166,
+        "swing_K": 23.867455443144244,
+        "rise_K": 7.316817581916634
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8234487175941467,
+      "point": {
+        "tf_m": 0.0024705803063993148,
+        "tc_m": 0.1253054382157959,
+        "payload_kg": 0.002312019933015108,
+        "bill_kg": {
+          "faces": 100589.77795131267,
+          "core": 22700.903663581757,
+          "charged_joining": 4837.536355563038,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.464895826616,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 23.79196240076823,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 3313.13733953527,
+          "scarf": 604.5076649566587,
+          "splice": 864.6863203756938,
+          "seal": 55.20503069541587,
+          "total": 4837.536355563038,
+          "length_m": 27602.515347707937
+        },
+        "vacuum": {
+          "added_material_water_kg": 23.79196240076823,
+          "desorbed_24h_kg": 27.595329115997036,
+          "pressure_SF": 19.231977581877302
+        },
+        "lift_kg": 132014.93805504794,
+        "modes": {
+          "global_buckling": 1.0000000179064867,
+          "face_compression": 1.021099805058429,
+          "core_shear_crimping": 4.190205750530863,
+          "core_crush": 4.966775458363128,
+          "face_wrinkling": 1.00000000000065,
+          "intracell_dimpling": 48.61794431365476,
+          "scarf_average_shear_screen": 1.7594760102443157,
+          "core_cell_wall_yield_screen": 3.9541259713324606,
+          "thermal_core_interface_screen": 1.7641966017255557
+        },
+        "Vc": 0.7025602430498151,
+        "gamma": 0.4119804766678816,
+        "Q": 0.6982696176404853,
+        "E_Pa": 192693882040.12082,
+        "Fcy_Pa": 304956587.7409454,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3607239.3611501143,
+        "edge_shear_Pa": 97703.92492572282,
+        "thermal": {
+          "gradient_K": 1.0410355501083912,
+          "curvature_temperature_K": 29.46984816808377,
+          "min_outer_K": 268.3451485112363,
+          "max_outer_K": 292.2209658007804,
+          "swing_K": 23.87581728954415,
+          "rise_K": 7.32096580078044
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -92519.98212143869
+      },
+      {
+        "mask": 1,
+        "payload_kg": -25272.620068710152
+      },
+      {
+        "mask": 2,
+        "payload_kg": -52487.42325458457
+      },
+      {
+        "mask": 4,
+        "payload_kg": -92519.98212143869
+      },
+      {
+        "mask": 8,
+        "payload_kg": -90863.0821379371
+      },
+      {
+        "mask": 3,
+        "payload_kg": -25113.25903766151
+      },
+      {
+        "mask": 5,
+        "payload_kg": -25272.620068710152
+      },
+      {
+        "mask": 9,
+        "payload_kg": -23615.720085208595
+      },
+      {
+        "mask": 6,
+        "payload_kg": -33669.8306502972
+      },
+      {
+        "mask": 10,
+        "payload_kg": -50830.52327108296
+      },
+      {
+        "mask": 12,
+        "payload_kg": -90863.0821379371
+      },
+      {
+        "mask": 7,
+        "payload_kg": 9517.67940516473
+      },
+      {
+        "mask": 11,
+        "payload_kg": -23456.359054159926
+      },
+      {
+        "mask": 13,
+        "payload_kg": -23615.720085208595
+      },
+      {
+        "mask": 14,
+        "payload_kg": -32012.93066679564
+      }
+    ]
+  },
+  {
+    "variant": "density1800_E1_Voigt_3GPa",
+    "R_m": 30,
+    "weather": "optimistic",
+    "thermal_basis": "independent",
+    "properties": {
+      "rho_f": 1800,
+      "fibre_w": 0.7333333333333333,
+      "E_today_Pa": 192693882040.12082,
+      "E1": 192693882040.12082,
+      "nu": 0.327366048221825,
+      "Fc1": 327072398.61801213
+    },
+    "endpoint": {
+      "tf_m": 0.002312974660521779,
+      "tc_m": 0.12057750311469194,
+      "payload_kg": 7519.5151770631055,
+      "bill_kg": {
+        "faces": 94172.85765059198,
+        "core": 21844.369415858277,
+        "charged_joining": 3098.9824263741148,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.464895826616,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 1494.2045407859998,
+        "absorbed_water": 22.08303420467908,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "joining": {
+        "film": 1656.568669767635,
+        "scarf": 561.739810556177,
+        "splice": 825.8790449382642,
+        "seal": 54.79490111203896,
+        "total": 3098.9824263741148,
+        "length_m": 27397.450556019478
+      },
+      "vacuum": {
+        "added_material_water_kg": 22.08303420467908,
+        "desorbed_24h_kg": 21.33042971158724,
+        "pressure_SF": 23.037055404947495
+      },
+      "lift_kg": 132014.93805504794,
+      "modes": {
+        "global_buckling": 1.0000000123801047,
+        "face_compression": 1.0000000000001306,
+        "core_shear_crimping": 3.925577982056109,
+        "core_crush": 4.8405093535606065,
+        "face_wrinkling": 1.0576802705704849,
+        "intracell_dimpling": 38.91045610737644,
+        "scarf_average_shear_screen": 1.606605613719149,
+        "core_cell_wall_yield_screen": 3.9548638520225703,
+        "thermal_core_interface_screen": 1.7645258190078092
+      },
+      "Vc": 0.6580864597924135,
+      "gamma": 0.46323458391696537,
+      "Q": 0.82,
+      "E_Pa": 192693882040.12082,
+      "Fcy_Pa": 327072398.61801213,
+      "film_kg_m2": 0.07323641454574575,
+      "cure_compression_Pa": 3706964.200985893,
+      "edge_shear_Pa": 97685.69576733757,
+      "thermal": {
+        "gradient_K": 1.0067202494601841,
+        "curvature_temperature_K": 29.521751360148816,
+        "min_outer_K": 268.350709366226,
+        "max_outer_K": 292.2154902176932,
+        "swing_K": 23.864780851467163,
+        "rise_K": 7.315490217693195
+      },
+      "binding": [
+        "global_buckling",
+        "face_compression"
+      ]
+    },
+    "least": {
+      "mask": 7,
+      "usage": 0.8753793239593506,
+      "point": {
+        "tf_m": 0.002434461818154485,
+        "tc_m": 0.12524205292458054,
+        "payload_kg": 0.003566196741303429,
+        "bill_kg": {
+          "faces": 99119.21222913238,
+          "core": 22689.420495651808,
+          "charged_joining": 4825.665125810949,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.464895826616,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 1494.2045407859998,
+          "absorbed_water": 23.506287300296794,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "joining": {
+          "film": 3313.13733953527,
+          "scarf": 594.6493821174641,
+          "splice": 862.7679711373268,
+          "seal": 55.11043302088806,
+          "total": 4825.665125810949,
+          "length_m": 27555.21651044403
+        },
+        "vacuum": {
+          "added_material_water_kg": 23.506287300296794,
+          "desorbed_24h_kg": 27.406518088805857,
+          "pressure_SF": 19.32957292493618
+        },
+        "lift_kg": 132014.93805504794,
+        "modes": {
+          "global_buckling": 1.0000000000013929,
+          "face_compression": 1.001317298688489,
+          "core_shear_crimping": 4.079420514056593,
+          "core_crush": 4.8405093535606065,
+          "face_wrinkling": 1.0000000112196699,
+          "intracell_dimpling": 45.34866954200859,
+          "scarf_average_shear_screen": 1.690220339108843,
+          "core_cell_wall_yield_screen": 3.9541358213043134,
+          "thermal_core_interface_screen": 1.764200996448181
+        },
+        "Vc": 0.6924782750305472,
+        "gamma": 0.4280244673228632,
+        "Q": 0.7320678087930058,
+        "E_Pa": 192693882040.12082,
+        "Fcy_Pa": 311301756.8458431,
+        "film_kg_m2": 0.1464728290914915,
+        "cure_compression_Pa": 3658896.673360787,
+        "edge_shear_Pa": 97703.6815398216,
+        "thermal": {
+          "gradient_K": 1.0405777735798483,
+          "curvature_temperature_K": 29.470540759873668,
+          "min_outer_K": 268.345222756776,
+          "max_outer_K": 292.22089276379694,
+          "swing_K": 23.8756700070209,
+          "rise_K": 7.320892763796971
+        },
+        "binding": [
+          "global_buckling",
+          "face_wrinkling"
+        ]
+      }
+    },
+    "subsets": [
+      {
+        "mask": 0,
+        "payload_kg": -98552.94522239437
+      },
+      {
+        "mask": 1,
+        "payload_kg": -30019.14462649185
+      },
+      {
+        "mask": 2,
+        "payload_kg": -57875.87968907942
+      },
+      {
+        "mask": 4,
+        "payload_kg": -98552.94522239437
+      },
+      {
+        "mask": 8,
+        "payload_kg": -96896.04523889275
+      },
+      {
+        "mask": 3,
+        "payload_kg": -30019.14462649185
+      },
+      {
+        "mask": 5,
+        "payload_kg": -29220.448066799494
+      },
+      {
+        "mask": 9,
+        "payload_kg": -28362.244642990263
+      },
+      {
+        "mask": 6,
+        "payload_kg": -37975.71036947754
+      },
+      {
+        "mask": 10,
+        "payload_kg": -56218.979705578415
+      },
+      {
+        "mask": 12,
+        "payload_kg": -96896.04523889275
+      },
+      {
+        "mask": 7,
+        "payload_kg": 5862.615193561578
+      },
+      {
+        "mask": 11,
+        "payload_kg": -28362.244642990263
+      },
+      {
+        "mask": 13,
+        "payload_kg": -27563.54808329788
+      },
+      {
+        "mask": 14,
+        "payload_kg": -36318.81038597584
+      }
+    ]
+  }
+]

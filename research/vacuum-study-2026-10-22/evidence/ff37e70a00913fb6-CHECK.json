@@ -1,0 +1,269 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "started": "2026-10-20T17:20:53.396307-07:00",
+  "completed": "2026-10-20T17:22:10.939393-07:00",
+  "route": "this seat's 065 copy of model63.py, revert gamma only, Q by factor q/0.82",
+  "specific_modulus_MPa_per_kg_m3": {
+    "E_MPa": 293600.0,
+    "at_1850": 158.7027027027027,
+    "note": "endpoint modulus stays 293.6 GPa when only gamma is reverted"
+  },
+  "rows": [
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "Q082_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -12371.315755373835,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.0393560746815307,
+          "E_Pa": 293600000000.0,
+          "binding": "scarf_average_shear",
+          "tf_m": 0.0016752454782360642,
+          "tc_m": 0.1357462352320121
+        },
+        "TRL7": {
+          "payload_kg": -7805.000104100436,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.039356076065895,
+          "E_Pa": 293600000000.0,
+          "binding": "global_buckling",
+          "tf_m": 0.0016752454810298573,
+          "tc_m": 0.1357462317197275
+        }
+      },
+      "density_factor": 1.5273642448897065,
+      "closure_density_kg_m3": 1211.2369437675238,
+      "closure_payload_kg": 0.0036170486027913284,
+      "closure_binding": "scarf_average_shear",
+      "closure_Vc": 1.0393560745325685
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "Q033_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -29388.76159348207,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.5955811156124058,
+          "E_Pa": 293600000000.0,
+          "binding": "face_wrinkling",
+          "tf_m": 0.002603090197687236,
+          "tc_m": 0.10552609089545563
+        },
+        "TRL7": {
+          "payload_kg": -23345.704763314785,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.5955811249886889,
+          "E_Pa": 293600000000.0,
+          "binding": "face_wrinkling",
+          "tf_m": 0.0026030902123546497,
+          "tc_m": 0.10552609254992418
+        }
+      },
+      "density_factor": 2.118037110392169,
+      "closure_density_kg_m3": 873.4502294237234,
+      "closure_payload_kg": 0.0031670432226746925,
+      "closure_binding": "face_wrinkling",
+      "closure_Vc": 1.5955811087741933
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "Q082_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -13850.462004487454,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.0657773753522923,
+          "E_Pa": 293600000000.0,
+          "binding": "scarf_average_shear",
+          "tf_m": 0.0017181830322719983,
+          "tc_m": 0.1369277330616327
+        },
+        "TRL7": {
+          "payload_kg": -9193.110950466114,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.0657773751493493,
+          "E_Pa": 293600000000.0,
+          "binding": "scarf_average_shear",
+          "tf_m": 0.0017181830320391824,
+          "tc_m": 0.13692773243629722
+        }
+      },
+      "density_factor": 1.6048774866276625,
+      "closure_density_kg_m3": 1152.7359660876139,
+      "closure_payload_kg": 0.006201691141541232,
+      "closure_binding": "global_buckling",
+      "closure_Vc": 1.0657773817209695
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "Q033_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -31324.20860105718,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.632714013138587,
+          "E_Pa": 293600000000.0,
+          "binding": "face_wrinkling",
+          "tf_m": 0.0026640092015300164,
+          "tc_m": 0.10742771997761125
+        },
+        "TRL7": {
+          "payload_kg": -25149.90874625808,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.6327140410114784,
+          "E_Pa": 293600000000.0,
+          "binding": "global_buckling",
+          "tf_m": 0.0026640092487916827,
+          "tc_m": 0.10742771891211782
+        }
+      },
+      "density_factor": 2.2210491118125706,
+      "closure_density_kg_m3": 832.9397086092517,
+      "closure_payload_kg": 0.002769535486550012,
+      "closure_binding": "face_wrinkling",
+      "closure_Vc": 1.632714013882304
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "Q082_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -40183.10020784788,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.043143632400683,
+          "E_Pa": 293600000000.0,
+          "binding": "scarf_average_shear",
+          "tf_m": 0.0025222196838460826,
+          "tc_m": 0.20309409362625774
+        },
+        "TRL7": {
+          "payload_kg": -24952.22305556733,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.0431436325476802,
+          "E_Pa": 293600000000.0,
+          "binding": "scarf_average_shear",
+          "tf_m": 0.00252221968412983,
+          "tc_m": 0.20309409411961699
+        }
+      },
+      "density_factor": 1.494905722152194,
+      "closure_density_kg_m3": 1237.536235620653,
+      "closure_payload_kg": 0.015667589657823555,
+      "closure_binding": "global_buckling",
+      "closure_Vc": 1.0431436358441686
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "Q033_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -97877.74545950821,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.6003924454543381,
+          "E_Pa": 293600000000.0,
+          "binding": "face_wrinkling",
+          "tf_m": 0.003916821132168776,
+          "tc_m": 0.15809269749983285
+        },
+        "TRL7": {
+          "payload_kg": -77634.3080381391,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.6003924454543381,
+          "E_Pa": 293600000000.0,
+          "binding": "face_wrinkling",
+          "tf_m": 0.003916821132168776,
+          "tc_m": 0.15809269749983285
+        }
+      },
+      "density_factor": 2.0801961550040193,
+      "closure_density_kg_m3": 889.339207530852,
+      "closure_payload_kg": 0.021455288009747164,
+      "closure_binding": "global_buckling",
+      "closure_Vc": 1.6003924608415314
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "Q082_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -45192.98982354444,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.0696760523853317,
+          "E_Pa": 293600000000.0,
+          "binding": "global_buckling",
+          "tf_m": 0.002586904202852705,
+          "tc_m": 0.2048691212353989
+        },
+        "TRL7": {
+          "payload_kg": -29652.92193426703,
+          "Q": 0.82,
+          "gamma": 0.2,
+          "Vc": 1.0696760488233494,
+          "E_Pa": 293600000000.0,
+          "binding": "scarf_average_shear",
+          "tf_m": 0.0025869041934890283,
+          "tc_m": 0.20486912525315593
+        }
+      },
+      "density_factor": 1.5699249920600644,
+      "closure_density_kg_m3": 1178.4002480095687,
+      "closure_payload_kg": 0.009047668554558186,
+      "closure_binding": "scarf_average_shear",
+      "closure_Vc": 1.0696760479195948
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "Q033_gamma_handbook",
+      "allowances": {
+        "concept": {
+          "payload_kg": -104441.2304443153,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.6377109151715643,
+          "E_Pa": 293600000000.0,
+          "binding": "face_wrinkling",
+          "tf_m": 0.0040086650006933,
+          "tc_m": 0.16095238277582535
+        },
+        "TRL7": {
+          "payload_kg": -83751.33536831073,
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.6377109105820558,
+          "E_Pa": 293600000000.0,
+          "binding": "face_wrinkling",
+          "tf_m": 0.004008664989910884,
+          "tc_m": 0.16095238159700884
+        }
+      },
+      "density_factor": 2.1805615255806963,
+      "closure_density_kg_m3": 848.4053205090529,
+      "closure_payload_kg": 0.009767650546564255,
+      "closure_binding": "face_wrinkling",
+      "closure_Vc": 1.6377109132415582
+    }
+  ]
+}

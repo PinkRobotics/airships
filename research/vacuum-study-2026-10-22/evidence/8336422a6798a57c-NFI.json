@@ -1,0 +1,42 @@
+{
+  "unit": "vacuum-review-e-graphite-1020",
+  "rule": "REVIEW.md: asserted-not-demonstrated concerns are NFI rows, not defects; reproduced -> fix, asserted -> write down and land",
+  "rows": [
+    {
+      "id": "NFI-1",
+      "assertion": "applied face stress 303.7436 MPa constant",
+      "probe": "solved per-row from reported crimping margins and my sigma_crimp formula; cross-checked = strength/face_compression on all rows",
+      "why_not_checked": "no pinned input carries the level (not pR/4tf, not 066 stresses)",
+      "direction": "common to every row; payloads inherit it uniformly"
+    },
+    {
+      "id": "NFI-2",
+      "assertion": "global buckling margin 1.0007-1.011 vs my gamma*Kc*sigma_o/sigma_appl = 1.0000",
+      "probe": "full re-derivation on 56 rows",
+      "why_not_checked": "CR-1457 gives no blending rule between branches; 'continuous transition beyond the scope of this handbook'",
+      "direction": "their margin higher (less conservative than pure 1/Vc); mode does not bind; <=0.4%"
+    },
+    {
+      "id": "NFI-3",
+      "assertion": "growth+joining overhead 4160-28235 kg/row",
+      "probe": "closure residual lift-payload-faces-core; 066 named bills bracket",
+      "why_not_checked": "070 outputs carry no per-row decomposition",
+      "direction": "R20 within ~7% of 066 named 8911 kg; R30 bracketed"
+    },
+    {
+      "id": "NFI-4",
+      "assertion": "gamma_d = 0.20 for hemispheres",
+      "probe": "CR-1457 Fig 6.2-3 (OCR figure, unreadable)",
+      "why_not_checked": "figure cannot be re-read",
+      "direction": "pinned programme reading per brief; affects gamma0.20 family only"
+    },
+    {
+      "id": "NFI-5",
+      "assertion": "wrinkling level / 10 MPa scarf screen",
+      "probe": "ratio law 0.33*sqrt(Ef*Ec*tf/tc) between-row fit 0.03%; scarf source named owner-selected in artifacts",
+      "why_not_checked": "absolute anchor rides NFI-1; scarf is a screen by admission",
+      "direction": "non-binding modes (margins 3.0-3.3)"
+    }
+  ],
+  "defects_demonstrated": 0
+}

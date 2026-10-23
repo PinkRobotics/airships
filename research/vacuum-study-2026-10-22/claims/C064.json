@@ -1,0 +1,79 @@
+{
+  "id": "C064",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C064",
+    "report": "rpt-ref-025def9d3634f5e320d7",
+    "file": "evidence/866e8fd2fa98eded-NFI.json",
+    "snapshot": "evidence/866e8fd2fa98eded-NFI.json",
+    "source_sha256": "866e8fd2fa98eded086ac2b191d7ee65e5d1ceab3421ae98a8a7ee718c68b2db",
+    "source_json_pointer": "/open/3",
+    "row_id": "NFI-034-CONDITIONING",
+    "fields": {
+      "id": "NFI-034-CONDITIONING",
+      "tag": "PROJECTION",
+      "finding": "Reference calculations assume 90% of the chosen release inventory was removed and the residue releases exponentially with one-day time constant. Neither fraction nor kinetics is demonstrated.",
+      "proposed_next": "Demonstrate the required residual gas load after conditioning; do not treat this as a prescribed bake process.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "open",
+    "blocks_progress": false
+  },
+  "claim": "Reference calculations assume 90% of the chosen release inventory was removed and the residue releases exponentially with one-day time constant. Neither fraction nor kinetics is demonstrated.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/774"
+    },
+    {
+      "report": "rpt-ref-025def9d3634f5e320d7",
+      "artifact": "evidence/866e8fd2fa98eded-NFI.json",
+      "snapshot": "evidence/866e8fd2fa98eded-NFI.json",
+      "sha256": "866e8fd2fa98eded086ac2b191d7ee65e5d1ceab3421ae98a8a7ee718c68b2db",
+      "bytes": 14164,
+      "selector": "/open/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-025def9d3634f5e320d7",
+          "artifact": "evidence/866e8fd2fa98eded-NFI.json",
+          "snapshot": "evidence/866e8fd2fa98eded-NFI.json",
+          "sha256": "866e8fd2fa98eded086ac2b191d7ee65e5d1ceab3421ae98a8a7ee718c68b2db",
+          "bytes": 14164,
+          "selector": "/open/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/774"
+          }
+        ]
+      }
+    }
+  ]
+}

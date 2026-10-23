@@ -1,0 +1,74 @@
+{
+  "id": "N386",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N386",
+    "report": "rpt-ref-74e882831c201b1a953c",
+    "card": "MAINLINE-015b",
+    "file": "evidence/647d16ffad5d78ae-NFI.json",
+    "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+    "source_sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+    "source_json_pointer": "/rows/2",
+    "row_id": "NFI-015B-LEE-RANGE",
+    "fields": {
+      "id": "NFI-015B-LEE-RANGE",
+      "issue": "Lee 2016 Eq. 23 is the lower envelope over k from 1 to 5, computed at R/t 100 and 200. Section 7 gives no FEM result below delta/t 0.15 and no ODE result below 0.2. The envelope does not fix one width. None of these shells is at R/t 100 or 200. At kd 0.9 and 0.7 the inverse is below 0.15. At kd 0.595 it is between 0.15 and 0.2. At kd 0.5, 0.468, 0.3 and 0.2 it is at or above 0.2.",
+      "consequence": "Lee amplitudes below the cutoff are not validated tolerances. Where the amplitude is in range, the single-dimple RMS is the span from k = 1 to k = 5, not one number. The radius transfer remains.",
+      "next": "An envelope at this shell's R/t, or a statement that the 100 and 200 curves may be used outside that pair."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "Lee 2016 Eq. 23 is the lower envelope over k from 1 to 5, computed at R/t 100 and 200. Section 7 gives no FEM result below delta/t 0.15 and no ODE result below 0.2. The envelope does not fix one width. None of these shells is at R/t 100 or 200. At kd 0.9 and 0.7 the inverse is below 0.15. At kd 0.595 it is between 0.15 and 0.2. At kd 0.5, 0.468, 0.3 and 0.2 it is at or above 0.2.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/385"
+    },
+    {
+      "report": "rpt-ref-74e882831c201b1a953c",
+      "artifact": "evidence/647d16ffad5d78ae-NFI.json",
+      "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+      "sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+      "bytes": 2972,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-74e882831c201b1a953c",
+          "artifact": "evidence/647d16ffad5d78ae-NFI.json",
+          "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+          "sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+          "bytes": 2972,
+          "selector": "/rows/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/385"
+          }
+        ]
+      }
+    }
+  ]
+}

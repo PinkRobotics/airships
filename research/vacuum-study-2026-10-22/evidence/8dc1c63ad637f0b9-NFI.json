@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline047-dimple-tolerance-1020",
+  "rows": [
+    {
+      "id": "047-01",
+      "topic": "COMPRESSIVE-YIELD-BASIS",
+      "status": "QUESTIONABLE",
+      "objection": "The 255/300/345 MPa cases are assumed compressive sensitivities. The 345 MPa maker minimum is tensile; 036 found no matched finished-gauge biaxial compressive minimum. Catalog offset-yield strengths do not establish the first microscopic plastic onset; the model explicitly idealizes them as onset stresses.",
+      "proposed_fix": "Test the formed, etched, joined sheet in both in-plane directions and relevant stress states; establish an allowable and plastic curve.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-02",
+      "topic": "ELASTIC-ORTHOTROPY",
+      "status": "QUESTIONABLE",
+      "objection": "nu=.0768 comes from thicker cross-rolled sheet, while scalar E=290 GPa and isotropic J2 ignore texture, tension/compression asymmetry and through-thickness differences.",
+      "proposed_fix": "Use measured orthotropic elasticity and a supported anisotropic yield law; retain .03/.33 as sensitivities only.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-03",
+      "topic": "ENDPOINT-IDENTITY",
+      "status": "QUESTIONABLE",
+      "objection": "The last converged pressure of a load-controlled solve is not a validated collapse pressure. Perfect-plastic tangent singularity and numerical cutbacks can stop the path.",
+      "proposed_fix": "Use a validated continuation/dynamic method, mesh and increment convergence, and a matching physical test before assigning ultimate capacity.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-04",
+      "topic": "PLASTIC-HARDENING-AND-FRACTURE",
+      "status": "QUESTIONABLE",
+      "objection": "Perfect plasticity has no matched Be hardening/ductility/fracture basis. First yield and numerical endpoints answer different questions.",
+      "proposed_fix": "Keep the strict no-yield criterion; measure the actual compression curve and fracture limits before crediting redistribution.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-05",
+      "topic": "BENCHMARK-TRANSFER",
+      "status": "QUESTIONABLE",
+      "objection": "029 overpredicted a different steel/PVC hemisphere by about 10% linearly and 2.31–2.46 times at imperfect nonlinear endpoints. Adding face plasticity does not itself establish a matched benchmark.",
+      "proposed_fix": "Reproduce the complete benchmark constitutive, geometric and solution definitions, then validate a relevant low-Vc Be/CR-III test. Treat transferred ratios as conditional scenarios.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-06",
+      "topic": "THERMAL-STATE",
+      "status": "PROJECTION",
+      "objection": "The 037b 3.410 MPa cold face compression is represented only by a separate strength-debit screen; its residual shape and geometric stiffness are not solved.",
+      "proposed_fix": "Couple measured cure/relaxation behavior, effective core membrane stiffness and shell prestress; preserve self-equilibrium.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-07",
+      "topic": "CORE-HOMOGENIZATION",
+      "status": "QUESTIONABLE",
+      "objection": "Linear transverse shear data, tiny in-plane regularization and a perfect bond omit cell buckling, crushing, curvature-dependent moduli and debonds.",
+      "proposed_fix": "Measure the actual curved core and bond, include nonlinear core laws and disbond sensitivities; use the 038 grounding tests.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-08",
+      "topic": "THREE-DIMENSIONAL-ORIENTATION",
+      "status": "QUESTIONABLE",
+      "objection": "W and L axisymmetric surrogates rotate material directions around the pole and omit general nonaxisymmetric modes and panel/seam geometry.",
+      "proposed_fix": "Run a converged 3D model of the actual core orientation, seams, defects and supports. Do not call the two surrogates universal bounds.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-09",
+      "topic": "RMS-METRIC",
+      "status": "QUESTIONABLE",
+      "objection": "A single Gaussian RMS is diluted by the full sphere area. Reflector dish RMS, core-to-face fit, peak contour error and one localized dimple are not interchangeable.",
+      "proposed_fix": "Specify defect amplitude, footprint and spatial spectrum; scan actual geometry and pass it to the shell model. Keep one-dimple RMS explicitly conditional.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-10",
+      "topic": "MANUFACTURING-TRANSFER",
+      "status": "PROJECTION",
+      "objection": "042 precedents use different materials, gauges, supports, sizes and shape metrics. Its 0.15 mm reflector-class peak is a three-sigma projection.",
+      "proposed_fix": "Demonstrate the full formed Be blank, bond and in-place seam; measure both local and global shape before treating a precedent as an achievable hull tolerance.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-11",
+      "topic": "NUMERICAL-PEAK-STRESS",
+      "status": "QUESTIONABLE",
+      "objection": "The endpoint converges faster than the maximum integration-point face stress near the pole. A coarse-grid first-yield estimate can move the inferred tolerance.",
+      "proposed_fix": "Use the filed mesh/step boundary checks and their brackets; avoid precision beyond those checks. Retain both-face integration-point histories.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    {
+      "id": "047-12",
+      "topic": "MODEL-ONLY-TOLERANCE",
+      "status": "PROJECTION",
+      "objection": "The reported amplitude boundary is on the tested Gaussian-defect branch, with fixed material and perfect interfaces. It is not a global optimum over all defects or installed-hull safety proof.",
+      "proposed_fix": "Validate the actual defect spectrum and coupled failure modes; test the built shell before assigning installed SF.",
+      "disposition": "Recorded; no qualification claimed"
+    }
+  ]
+}

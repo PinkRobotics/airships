@@ -1,0 +1,74 @@
+{
+  "id": "N364",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N364",
+    "report": "rpt-mainline030-opus-register-1020",
+    "card": "MAINLINE-030",
+    "file": "evidence/858f8f97e8cb24d5-NFI.json",
+    "snapshot": "unpublished-local-ref:6f1488c53c571d49",
+    "source_sha256": "858f8f97e8cb24d589c6fe1ba0344efef3e4802ace70f8c747b24285490ce4a0",
+    "source_json_pointer": "/rows/1",
+    "row_id": "NFI-030-TWO-WAY",
+    "fields": {
+      "id": "NFI-030-TWO-WAY",
+      "state": "demonstrated (lattice sum C1212 = 0, rpt-check011b-opus-1020 M4)",
+      "owner": "MAINLINE-022c",
+      "note": "022b re-counted the two-way grid at 2V-4 members but kept the isotropic C = 4. An unbraced two-way grid has no in-plane shear stiffness, so its two-way rows (Ti + Kapton 0.986, SiC 1.98) are not floating points until a discrete solve or diagonals settle it."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "022b re-counted the two-way grid at 2V-4 members but kept the isotropic C = 4. An unbraced two-way grid has no in-plane shear stiffness, so its two-way rows (Ti + Kapton 0.986, SiC 1.98) are not floating points until a discrete solve or diagonals settle it.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/363"
+    },
+    {
+      "report": "rpt-mainline030-opus-register-1020",
+      "artifact": "evidence/858f8f97e8cb24d5-NFI.json",
+      "snapshot": "evidence/858f8f97e8cb24d5-NFI.json",
+      "sha256": "858f8f97e8cb24d589c6fe1ba0344efef3e4802ace70f8c747b24285490ce4a0",
+      "bytes": 2192,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline030-opus-register-1020",
+          "artifact": "evidence/858f8f97e8cb24d5-NFI.json",
+          "snapshot": "evidence/858f8f97e8cb24d5-NFI.json",
+          "sha256": "858f8f97e8cb24d589c6fe1ba0344efef3e4802ace70f8c747b24285490ce4a0",
+          "bytes": 2192,
+          "selector": "/rows/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/363"
+          }
+        ]
+      }
+    }
+  ]
+}

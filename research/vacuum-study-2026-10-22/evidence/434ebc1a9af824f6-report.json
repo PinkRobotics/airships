@@ -1,0 +1,99 @@
+{
+  "id": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline029-crimp-gamma-fe-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline029-dispatch-1019"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline029-dispatch-1019",
+  "supersedes": null,
+  "completion": "none",
+  "body": "MAINLINE-029 completed as a QUESTIONABLE numerical investigation; no benchmarked physical collapse gamma is established.\n\nThe paper linear results are 30.217/30.197 MPa versus 27.53/27.56; elastic imperfect endpoints are 13.957/13.844 MPa versus 6.03/5.63. Full 3D paper refinement approaches the axisymmetric value but leaves the roughly 10% linear mismatch. Crushable foam, face plasticity and the paper's contact-generated defect are not reproduced. Native StVK elasticity also differs from the paper's elastic convention.\n\nBoth lead points have Vc<2. Their 0.595318/0.468229 targets normalize by the handbook pressure; under p/p_crimp the weak-direction targets are 0.464110/0.323009. At 11.8/46 mm dimples, weak-meridian endpoints are 78.627/90.722 kPa against 95.461 kPa operating pressure. Strong-direction endpoints depend materially on face Poisson ratio. Outer-face equivalent-stress diagnostics reach 661–1304 MPa; face survival is not established.\n\nLead mesh refinement and an identical static deck across one/four cores reproduce the numerical results. Multicore eigenvalues, CAX8R spectra and initial overlarge reference-load spectra are excluded with raw evidence retained.\n\nThe enlarged-shell refined 3D eigenpressure is 6.446068 MPa; its graded nonlinear endpoint is 2.253992 MPa. Resolution and load-control limitations remain explicit.\n\n79 native runs, code, counts, resources, sources and 17 nonblocking NFI are pinned. Endpoints are not proven collapse. No other card is gated. The brief names no next job: stop and file.",
+  "priority": 4,
+  "at": "2026-10-20T10:35:36.711863+00:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline029-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/85277b967871a7c4-CARD.md",
+      "sha256": "85277b967871a7c4639cea94274e60494b5cf9587b98778125e560a21fbecfaf",
+      "bytes": 14594
+    },
+    {
+      "path": "evidence/401db0c952cba453-RESULTS.json",
+      "sha256": "401db0c952cba45349dfae56f18431c037c85b653a45dcf37e9e383bd546600f",
+      "bytes": 194351
+    },
+    {
+      "path": "evidence/2fdd2471098ae313-NFI.json",
+      "sha256": "2fdd2471098ae3132594f5aae4b6c4473c663608865de9197d54890278c20b71",
+      "bytes": 9277
+    },
+    {
+      "path": "evidence/6b6799dbc1d09990-INPUTS.json",
+      "sha256": "6b6799dbc1d09990b6fd45481589a0a81d0e97ecc8efd06319d5b76fd8a90350",
+      "bytes": 11578
+    },
+    {
+      "path": "evidence/aa8ec6cccf8706ba-ANALYSIS.json",
+      "sha256": "aa8ec6cccf8706ba4950ca214b6e11b603fa2b085e50f1c42b3c72710f0a4725",
+      "bytes": 219185
+    },
+    {
+      "path": "evidence/5a3adff33edbc9eb-RUN-RESOURCES.json",
+      "sha256": "5a3adff33edbc9eb650480d1234e132746ab0e5b1d59f09b4e02b6b1909d4712",
+      "bytes": 59762
+    },
+    {
+      "path": "evidence/3b25602ab345eadc-EVIDENCE-CHECKS.json",
+      "sha256": "3b25602ab345eadc0e8874835059ca2006ec379ff17f818a9ea7ddec95b6adad",
+      "bytes": 124774
+    },
+    {
+      "path": "evidence/7b6ca926489f1e63-ARTIFACT-MANIFEST.json",
+      "sha256": "7b6ca926489f1e635970eacfa6a3c81cd052e60a28648ca0db4c633e5690f907",
+      "bytes": 494278
+    },
+    {
+      "path": "evidence/53f175db0854066b-axisymmetric.py",
+      "sha256": "53f175db0854066b36961abf9bf1c7a26e4f9d8d29c32c459ae1e4efdd76e36f",
+      "bytes": 11042
+    },
+    {
+      "path": "evidence/4d0343b2414a7ad4-three_dimensional.py",
+      "sha256": "4d0343b2414a7ad47c0669a56fbbd6dfca469fd309fe87eea87ac84b0eb817ea",
+      "bytes": 6054
+    },
+    {
+      "path": "unpublished-local-ref:33cf0b5d1335a509",
+      "sha256": "46b9eee5eeecd2e20a0f55694fa02db9504173086c6396d4dfae796eb7ca26e2",
+      "bytes": 22878
+    },
+    {
+      "path": "unpublished-local-ref:8dbae695e1dda175",
+      "sha256": "4b0e1d522df518b03bfd1a117e089b13b37c6eeddbd700a0c0b28bee7742d536",
+      "bytes": 19348
+    }
+  ],
+  "ingested": "2026-10-20T03:35:50-07:00"
+}

@@ -1,0 +1,138 @@
+{
+  "id": "rpt-1228-mainline050-flyable-weather-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline050-flyable-weather-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline050-dispatch-1019"
+    },
+    {
+      "id": "ord-admiral-rr2-mainline050-simjob-retry-authority-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline050-dispatch-1019",
+  "completion": "none",
+  "body": "MAINLINE-050 complete: 2,027,245-point weather maps for R10/12/15/20/30, all sixteen optimism subsets, zero surfaces, design cases and night-water accounts.\n\nAt 100 m, across RH0–100% and sea-pressure anomaly ±30 hPa, coupled day-design upper ISA offsets are +5.8/+9.5/+12.2/+14.3/+15.8 K. Fixed hulls sized for the full pressure range reduce those to −6.5/−3.0/−0.3/+1.8/+3.3 K. The projected cold-interface limit is about −10.5 K there. Design-family and fixed-vehicle claims are kept explicit.\n\nNo sampled radius floats on the declared MIL 10% hot profile, even at all four endpoints. Humidity and low-pressure marginals retain their missing coincident-weather assumptions.\n\nTwelve-hour deposition is approximately .085–.090 kg/m² in the reference clear case, .0035–.0038 overcast, .236–.243 saturated-clear, and .081–.084 cold frost. Latent heating prevents reference-case frost. R10 loses about 82 kg on the saturated-clear night. Drainage, heating, low-emittance, cover and morning-wait costs are supplied.\n\nFifteen numerical checks pass; 32 upstream pins match. All results remain QUESTIONABLE/PROJECTION; thirteen new NFIs and inherited registers remain open. Qualified installed-hull SF stays null. The refused sweep and explicit retry authority are preserved. The brief names no successor; this seat stops.",
+  "priority": 4,
+  "at": "2026-10-20T12:42:32.812714+00:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline050-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline050-simjob-retry-authority-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "rpt-1228-mainline050-simjob-refusal-retry-request-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/88b0bded5746ec21-CARD.md",
+      "sha256": "88b0bded5746ec212b54c5a96d57527c13b4bd0d2ad93af9f58d2f069dc0c8ee",
+      "bytes": 8209
+    },
+    {
+      "path": "evidence/3b8e4b7c61fd28ba-RESULTS.json",
+      "sha256": "3b8e4b7c61fd28baf21cdc2133c18a9387a631f01096709325103e6085fca900",
+      "bytes": 103802
+    },
+    {
+      "path": "evidence/ae00f8ccc00275d5-NFI.json",
+      "sha256": "ae00f8ccc00275d5a115b3de5f0b94c6eff6c30386d1ee6e083e534637629393",
+      "bytes": 48719
+    },
+    {
+      "path": "evidence/54d0eb35ebc40809-INPUTS.json",
+      "sha256": "54d0eb35ebc40809af892dbf51ff827b09fda8ce7c8dd230a90a3bbe7cca62ad",
+      "bytes": 27623
+    },
+    {
+      "path": "evidence/809696d0f6797c69-METHOD.md",
+      "sha256": "809696d0f6797c69402379f83e0619742991547290afbbf722bba2f10d626d8a",
+      "bytes": 8577
+    },
+    {
+      "path": "evidence/dbaab2b2a8eb31a6-SOURCE-AUDIT.json",
+      "sha256": "dbaab2b2a8eb31a62fa539d8eeb058c737594fc6ba2891d66a9a3a84bc7f5319",
+      "bytes": 5588
+    },
+    {
+      "path": "evidence/bd1bcf2164816e98-VERIFICATION.json",
+      "sha256": "bd1bcf2164816e98bd003eedd4cf53b5816826cdb0a09d415ce9505763a5a339",
+      "bytes": 12147
+    },
+    {
+      "path": "evidence/ca92ba18dbe1f7fb-PACKAGE-VALIDATION.json",
+      "sha256": "ca92ba18dbe1f7fba727d78955de5e78b37fac498a1ace7b59e227bfb6b4a9fe",
+      "bytes": 4802
+    },
+    {
+      "path": "evidence/b0adf3ac7a19d223-DESIGN-DAYS.json",
+      "sha256": "b0adf3ac7a19d22399aed19388fcf95bc9946a5837b9e6f8b10e608c5c698fa2",
+      "bytes": 135869
+    },
+    {
+      "path": "evidence/8abf5b23e80fc725-DEW-FROST.json",
+      "sha256": "8abf5b23e80fc72590cc1986f26f8afc6e8745bd4ffe7881b54b33e8115e1f03",
+      "bytes": 527908
+    },
+    {
+      "path": "evidence/b3c4a96b6b6dd81d-FIXED-HULLS.json",
+      "sha256": "b3c4a96b6b6dd81da2148e2f77266bc4f3713cd81c8ecb5e1cf6cc2a56ab71de",
+      "bytes": 39434
+    },
+    {
+      "path": "evidence/0ab4fc42e40a9c90-COUPLED-ENVELOPE-SUMMARY.json",
+      "sha256": "0ab4fc42e40a9c90207c5030b1e21ef1852b735341531e465a220d04ed0c2b60",
+      "bytes": 61679
+    },
+    {
+      "path": "evidence/da6a00fe67014a07-LEAST-SET-TRANSITIONS.json",
+      "sha256": "da6a00fe67014a075cf8bc327347ffcd9fffbe03ea2192c5ef496412f6c3df93",
+      "bytes": 52649
+    },
+    {
+      "path": "unpublished-local-ref:94362e6630b8b882",
+      "sha256": "09f12846d1f8b200735084d11bc34f1e5c7a220cbb329bd1db9d6772ce8c7776",
+      "bytes": 362197
+    },
+    {
+      "path": "unpublished-local-ref:cb222e3bd670d8f2",
+      "sha256": "82cbff9523732f6d581b997d08fa262129f3ef42af2f223f76d632242fe24864",
+      "bytes": 109419
+    },
+    {
+      "path": "unpublished-local-ref:2e01a84a335f08c6",
+      "sha256": "90e2ee644584374c64022ed08f29509bd63486ea079aae621e8250fb4b9bd3c8",
+      "bytes": 134236
+    },
+    {
+      "path": "evidence/5f30725ab778bd6e-MANIFEST.json",
+      "sha256": "5f30725ab778bd6e6ebb3f8737aed30877b0100a9c082874ceb4a1ea7e32db28",
+      "bytes": 36906
+    }
+  ],
+  "ingested": "2026-10-20T05:44:18-07:00"
+}

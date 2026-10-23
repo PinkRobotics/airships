@@ -1,0 +1,36 @@
+{
+  "id": "rpt-mainline007-check-lead4f19-1019",
+  "unit": "vacuum-mainline007-check-1019",
+  "at": "2026-10-19T23:33:30-07:00",
+  "body": "CHECK MAINLINE-007 behind rpt-ref-05310d05f1fb52d6522e: numeric PASS. I solved both splits from the mass line at densities 32, 16, 8, 6, 4, 3, 2 and 1 kg/m3 and re-derived every geometry, mass, pressure, safety factor, membrane stress, factor, crimp and wrinkling target and crush value. All match at relative 1e-9. The splits coincide at 32 and 16; the equal-factor split peaks on the named set at 1 kg/m3, least SF 0.737028554512, still below 1. My scan from 0.25 to 64 kg/m3 has no interior peak. Buckling SF reaches 1 at 3.73369568197 kg/m3 with yield 0.388961154580. All-face yield SF is 0.777384434128, so yield cannot reach 1 on this ceiling. Catalog material margins reproduce. Five governing labels at the equal split are floating ties; both factors are equal and the card's both_equal is right, with no number change. Check and pins are attached. Second of three; 007b follows.",
+  "artifacts": [
+    {
+      "path": "evidence/1432c30f5fb13e52-CHECK.md",
+      "sha256": "1432c30f5fb13e527863aa5dd4939cd4ecf9ff834e321052a507fb8e7c152b6f",
+      "bytes": 4588
+    },
+    {
+      "path": "evidence/350c633aff03c05a-RESULTS.json",
+      "sha256": "350c633aff03c05a8147fa6570668f8a4cc116067bba82afae52334911e4943c",
+      "bytes": 68745
+    },
+    {
+      "path": "evidence/a27128f0dc1713bc-NFI.json",
+      "sha256": "a27128f0dc1713bc8df4a04dae905f7c70f704dae827b780bc45ea675847da6a",
+      "bytes": 2465
+    },
+    {
+      "path": "evidence/86b404c27efd454d-INPUTS.json",
+      "sha256": "86b404c27efd454d22cec9e56197b1e6128a6e24301bdb5b5643a4145992fcdb",
+      "bytes": 9734
+    },
+    {
+      "path": "evidence/8e119433598d87ae-arithmetic.py",
+      "sha256": "8e119433598d87aeffe6adf1111433b3f5e9000199cbca38e3a682a2811c7673",
+      "bytes": 9360
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-9af2822b3fe57c40be31",
+  "re": "ord-admiral-rr2-check006-007-007b-muse-1019"
+}

@@ -1,0 +1,54 @@
+{
+  "summary": {
+    "schema": 1,
+    "completed_at_utc": "2026-10-20T10:01:39.986534+00:00",
+    "owner_code_read": false,
+    "owner_code_run": false,
+    "method": "Independent geometry and source conversion; augmented 10-state matrix exponential; separately integrated external flux; bracketed threshold roots.",
+    "tolerance": "2e-8 + 2e-9*abs(owner), fixed before first run",
+    "numeric_comparisons": 7670,
+    "passed": 7667,
+    "failed": 3,
+    "uncovered_numeric_fields": {},
+    "categories": {
+      "inherited_or_declared_input": 95,
+      "independently_derived": 7234,
+      "scenario_definition": 341
+    },
+    "mass_conservation_comparisons": 434,
+    "maximum_mass_conservation_residual_kg": 2.7284841053187847e-11,
+    "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43"
+  },
+  "mismatches": [
+    {
+      "path": "/geometry/P2/core_void_m3",
+      "owner": 37.31646143905225,
+      "independent": 37.62314376276223,
+      "difference_independent_minus_owner": 0.3066823237099854,
+      "tolerance": 9.46329228781045e-08,
+      "pass": false,
+      "category": "independently_derived"
+    },
+    {
+      "path": "/geometry/P2/unvented_core_air_kg",
+      "owner": 43.38771114998258,
+      "independent": 43.744289548973256,
+      "difference_independent_minus_owner": 0.35657839899067767,
+      "tolerance": 1.0677542229996517e-07,
+      "pass": false,
+      "category": "independently_derived"
+    },
+    {
+      "path": "/systems_ledger/P2_unvented_core_fraction_of_internal_gas_row",
+      "owner": 0.887375488189865,
+      "independent": 0.8946683119525318,
+      "difference_independent_minus_owner": 0.007292823762666822,
+      "tolerance": 2.177475097637973e-08,
+      "pass": false,
+      "category": "independently_derived"
+    }
+  ]
+}

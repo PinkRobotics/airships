@@ -1,0 +1,85 @@
+{
+  "id": "D115",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D115",
+    "report": "rpt-ref-593068c3ed82fd458128",
+    "file": "evidence/a103f3bba0744beb-NFI.json",
+    "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+    "source_sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+    "source_json_pointer": "/retained_check037b_rows/3",
+    "row_id": "NFI-CHECK037b-FOIL-ALLOWABLE-TRANSFER",
+    "fields": {
+      "id": "NFI-CHECK037b-FOIL-ALLOWABLE-TRANSFER",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "67 GPa/2700 kg/m3 came from a 5056-H14 bulk register, while 227.53 MPa comes from 5052-H39 foil. Neither is a primary allowable for the actual cured 5056-H39 core. The 10 MPa Be scarf limit also remains projected.",
+      "disposition": "Use the present numbers only as model inputs; measure or source the actual foil and bonded-scarf properties.",
+      "carries_owner_rows": [
+        "NFI-037b-FOIL",
+        "NFI-037b-SCARF",
+        "NFI-037b-028B-SCARF-LEVER"
+      ],
+      "blocking": false
+    },
+    "inherited_document_tag": {
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/retained_check037b_rows",
+    "blocks_progress": false
+  },
+  "claim": "67 GPa/2700 kg/m3 came from a 5056-H14 bulk register, while 227.53 MPa comes from 5052-H39 foil. Neither is a primary allowable for the actual cured 5056-H39 core. The 10 MPa Be scarf limit also remains projected.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1075"
+    },
+    {
+      "report": "rpt-ref-593068c3ed82fd458128",
+      "artifact": "evidence/a103f3bba0744beb-NFI.json",
+      "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+      "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+      "bytes": 30702,
+      "selector": "/retained_check037b_rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-593068c3ed82fd458128",
+          "artifact": "evidence/a103f3bba0744beb-NFI.json",
+          "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+          "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+          "bytes": 30702,
+          "selector": "/retained_check037b_rows/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1075"
+          }
+        ]
+      }
+    }
+  ]
+}

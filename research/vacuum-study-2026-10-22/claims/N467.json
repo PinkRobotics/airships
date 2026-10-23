@@ -1,0 +1,84 @@
+{
+  "id": "N467",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N467",
+    "report": "rpt-ref-a5374575ee8867fc8d2e",
+    "card": "rpt-ref-a5374575ee8867fc8d2e",
+    "file": "evidence/5a38cd8c393ec4c9-NFI.json",
+    "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+    "source_sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+    "source_json_pointer": "/findings/1",
+    "row_id": "NFI-015-CHECK-LOW-KD-ENVELOPE",
+    "fields": {
+      "id": "NFI-015-CHECK-LOW-KD-ENVELOPE",
+      "provenance": "carried_from_015_check",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "status": "partly_addressed",
+      "reported": "Primary Lee Eq. 23 now supplies kd 0.2/0.3 amplitudes, with FEM/ODE cutoffs and k 1–5 RMS bounds. Eq. 3 below its floor returns null.",
+      "checked": "The old one-thickness bound and universal worst-width/plateau language are not explicitly repaired in the old 015 artifacts. Lee critical-width interpretation needs the new qualification below.",
+      "evidence": [
+        "COVERAGE.json",
+        "evidence/72c698c144e8d4d8-CHECK.md"
+      ],
+      "followup": "Replace sourced-bound language with the retrieved envelope and its range. Do not assign a unique RMS without the envelope width. k2.625 is tied to amplitude1, not all plateau minima."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "{\"id\": \"NFI-015-CHECK-LOW-KD-ENVELOPE\", \"provenance\": \"carried_from_015_check\", \"disposition\": \"non_blocking\", \"blocks_progress\": false, \"status\": \"partly_addressed\", \"reported\": \"Primary Lee Eq. 23 now supplies kd 0.2/0.3 amplitudes, with FEM/ODE cutoffs and k 1–5 RMS bounds. Eq. 3 below its floor returns null.\", \"checked\": \"The old one-thickness bound and universal worst-width/plateau language are not explicitly repaired in the old 015 artifacts. Lee critical-width interpretation needs the new qualification below.\", \"evidence\": [\"COVERAGE.json\", \"evidence/72c698c144e8d4d8-CHECK.md\"], \"followup\": \"Replace sourced-bound language with the retrieved envelope and its range. Do not assign a unique RMS without the envelope width. k2.625 is tied to amplitude1, not all plateau minima.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/466"
+    },
+    {
+      "report": "rpt-ref-a5374575ee8867fc8d2e",
+      "artifact": "evidence/5a38cd8c393ec4c9-NFI.json",
+      "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+      "sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+      "bytes": 14081,
+      "selector": "/findings/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-a5374575ee8867fc8d2e",
+          "artifact": "evidence/5a38cd8c393ec4c9-NFI.json",
+          "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+          "sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+          "bytes": 14081,
+          "selector": "/findings/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/466"
+          }
+        ]
+      }
+    }
+  ]
+}

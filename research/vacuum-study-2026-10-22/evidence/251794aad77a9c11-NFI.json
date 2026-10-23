@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline044-fatigue-and-life-1020",
+  "status": "OPEN; estimate completed",
+  "tags": [
+    "QUESTIONABLE",
+    "PROJECTION"
+  ],
+  "inherited": [
+    {
+      "source": "inputs/037b/NFI.json",
+      "count": 13,
+      "disposition": "All remain open; no implicit closure."
+    },
+    {
+      "source": "inputs/028b/NFI.json",
+      "disposition": "Manufacture, joining, thin-film and installed-mode qualifications retained."
+    },
+    {
+      "source": "inputs/037-check/NFI.json",
+      "disposition": "Thermal reconstruction, load transfer and pad/support qualifications retained."
+    },
+    {
+      "source": "inputs/034-check/CARD.md",
+      "disposition": "Gas-rate, conditioning, system-power and volume conventions remain conditional."
+    },
+    {
+      "source": "inputs/036-check/CARD.md",
+      "disposition": "Finished thin-sheet compression and material-form qualifications retained."
+    }
+  ],
+  "items": [
+    {
+      "id": "NFI-044-SPECTRUM",
+      "finding": "Annual occurrences, ordinary weather range, altitude mission and handling cycles are declared scenarios, not operating records.",
+      "evidence_needed": "A defined mission plus measured pressure, face temperatures, accelerations, mooring forces and rainflow-counted histories; joint occurrence and dwell statistics."
+    },
+    {
+      "id": "NFI-044-STATIC-ENVELOPE",
+      "finding": "028b has only 607 Pa pressure-screen headroom; +2 kPa weather, sea-level descent and 70 kn uniform-pressure cases fail the static screen.",
+      "evidence_needed": "A complete operational pressure envelope and a new equilibrium, mass and buckling solution with adequate margin."
+    },
+    {
+      "id": "NFI-044-SR200-FATIGUE",
+      "finding": "The manufacturer S200F block rotating-beam data do not supply an SR200 0.8 mm processed-sheet S-N curve under biaxial compression, local bending or notch effects.",
+      "evidence_needed": "Orientation-specific fatigue and fracture data on actual thin stock after forming, machining, surface preparation, bonding and repair; defects and statistical basis."
+    },
+    {
+      "id": "NFI-044-CORE-DENSITY",
+      "finding": "The source 5056 fatigue coupons are 5.3 pcf, versus 1.0 pcf hull core. Normalization by static strength is not a validated density/cell/foil transfer.",
+      "evidence_needed": "CR-III 5056 3/8-1.0 L/W/off-axis shear S-N tests, including actual depth, foil state, curved faces and node/splice manufacturing."
+    },
+    {
+      "id": "NFI-044-MEAN-STRESS",
+      "finding": "Goodman-style correction using absolute core shear mean is an assumed transfer from fully reversed tests; creep and residual-stress relaxation are not established.",
+      "evidence_needed": "Core and adhesive fatigue under the actual residual mean, pressure-temperature sequence and sustained dwell."
+    },
+    {
+      "id": "NFI-044-LOW-STRESS-HORIZON",
+      "finding": "The decade contains over one million pad cycles. Required low-amplitude core lives extend beyond the source test range; finite semilog extrapolation does not demonstrate them.",
+      "evidence_needed": "Longer relevant-amplitude runouts and an accepted lower-bound extrapolation/scatter treatment."
+    },
+    {
+      "id": "NFI-044-THERMAL-BOUNDARY",
+      "finding": "037's complete night inner-temperature and boundary history are absent; the opposite night gradient is a projection. Cure reference changes mean but cannot remove the thermal range.",
+      "evidence_needed": "A reproducible transient thermal model and coated-panel thermal-cycle measurements."
+    },
+    {
+      "id": "NFI-044-PRESSURE-CORE-EDGE",
+      "finding": "The new coupled membrane/edge model balances pressure and thermal force but is homogenized over a short edge region. Pressure contraction may offset thermal residual extension; this is not validated relief.",
+      "evidence_needed": "Cell-resolved and curved-panel validation of free edges, splices and hardpoints during thermal cycling, pressure hold and full vent/evacuation."
+    },
+    {
+      "id": "NFI-044-AF163-015U",
+      "finding": "3M lap runouts and thicker supported-film failure curves do not qualify the actual 0.015 lb/ft2 U-film Be/core joint or the 200F cycle. Gross-area shear masks the sparse core-foot contact: a no-fillet area sensitivity gives 27.0 MPa at the 200F cold edge; effective fillet/contact area is not known.",
+      "evidence_needed": "Actual-film, actual-substrate shear/peel/mixed-mode fatigue, process repeatability and environmental retention, with weighed fillets/primer."
+    },
+    {
+      "id": "NFI-044-HEXBOND-SCARF",
+      "finding": "The face scarf uses HexBond312, a separate adhesive. Its 10 MPa screen is static and unsourced for this Be joint. No applicable S-N or crack-growth data were obtained.",
+      "evidence_needed": "30:1 and proposed 60:1 Be scarf fatigue and sustained-load tests including peel, roots, manufacturing flaws, leak integrity and repairs."
+    },
+    {
+      "id": "NFI-044-CURE-SEQUENCE",
+      "finding": "HexBond312's cited cure is 120C. A later whole-panel scarf cure could invalidate an assumed 200F face/core stress-free state.",
+      "evidence_needed": "An executable joining sequence and measured stress-free temperature/residual strain after every thermal operation."
+    },
+    {
+      "id": "NFI-044-COMBINED-SCARF",
+      "finding": "Adding the inherited local thermal envelope to 037b's cured point takes the scarf below its static screen. The extrema are conservative and not time-correlated.",
+      "evidence_needed": "A complete combined-load, layer-resolved scarf/face/core solution and strain measurements at critical locations."
+    },
+    {
+      "id": "NFI-044-PAD-ASSEMBLY",
+      "finding": "The original pad area exceeds minimum core shear strength at its design load. The 950-day plate-only index excludes assembly support, cyclic plasticity, fasteners, backing and attachment notches.",
+      "evidence_needed": "Detailed pad/insert load sharing and interaction solution, actual 6061-T6 properties/finish, local Be/core response and spectrum tests of the assembly."
+    },
+    {
+      "id": "NFI-044-PAD-INTERACTION",
+      "finding": "The resized pad uses a scalar p/2 reserve against core capacity and an extra allocation of the sum of plate/core Miner indices. Neither is a validated multiaxial failure law.",
+      "evidence_needed": "A calibrated local core shear/compression interaction and separate statistically supported component life requirements."
+    },
+    {
+      "id": "NFI-044-MASS-CLOSURE",
+      "finding": "The quantified strict pad plus 60:1 scarf candidate adds 36.66 kg to an already balanced budget; lugs, fasteners, backing, monitoring and repair margins are additional unknowns.",
+      "evidence_needed": "A complete installed bill of materials and a new floating equilibrium without silently consuming the fixed reserve or systems allocation."
+    },
+    {
+      "id": "NFI-044-VACUUM-SERVICE",
+      "finding": "Gas-cycle amplitudes use assumed leak acceptance, permeability and 90% conditioning. Full venting can change release inventory; it is not equivalent to top-up.",
+      "evidence_needed": "Whole-hull leak/outgassing tests and a defined vent/reconditioning/power service protocol."
+    },
+    {
+      "id": "NFI-044-ENVIRONMENT-AGING",
+      "finding": "Room-temperature S-N screens do not supply ten-year humidity, salt, corrosion, UV/coating damage, creep, fretting or vacuum/environmental bond retention.",
+      "evidence_needed": "Relevant environmental conditioning and fatigue/dwell testing with documented acceleration and retention factors."
+    },
+    {
+      "id": "NFI-044-INSPECTION-REPAIR",
+      "finding": "No defect detection threshold or crack/debond growth law supports an inspection interval. Plate replacement does not reset core, scarf or face damage.",
+      "evidence_needed": "Qualified NDE probability of detection, initial-defect population, growth-to-critical size and tested repair procedures with a complete mass inventory."
+    },
+    {
+      "id": "NFI-044-BUCKLING-DEGRADATION",
+      "finding": "S-N damage does not quantify evolving waviness, debond-induced buckling, impact damage, or nonlinear aerodynamic/local bending stresses. Static projected gamma is not a life property.",
+      "evidence_needed": "Cycled curved-panel and shell stability tests, validated imperfection growth and a combined-load nonlinear structural model."
+    }
+  ]
+}

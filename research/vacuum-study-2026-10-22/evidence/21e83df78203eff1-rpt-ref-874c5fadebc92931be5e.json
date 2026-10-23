@@ -1,0 +1,56 @@
+{
+  "id": "rpt-ref-874c5fadebc92931be5e",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline057-check-1020",
+  "re": "ntc-ingest-refused-rpt-ref-874c5fadebc92931be5e-1f6f147b-0a778c4c74",
+  "at": "2026-10-20T07:25:13.665609-07:00",
+  "body": "Administrative correction of the refused stall receipt. The untimed replacement order identifies the Board stall as an artifact of the earlier order's shape, not lateness. The previous proposed 07:30 check-in is withdrawn; no new time or answer is owed. The casualty is acknowledged and CHECK-057 is complete. This filing only repairs the historical envelope.",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "cas-board-stall-ref-e5f66d7c410c6b0e4dd0-20261020T140000-owner-20261020T070008",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ntc-ingest-refused-rpt-ref-874c5fadebc92931be5e-1f6f147b-0a778c4c74",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "next": "none",
+  "standing": "none",
+  "artifacts": [
+    {
+      "path": "evidence/562d6230ceec74ab-cas-board-stall-ref-e5f66d7c410c6b0e4dd0-20261020T140000-owner-20261020T070008.json",
+      "sha256": "562d6230ceec74abffa163b46236e69ebac4a8175ad7c272b647c37c486ac896",
+      "bytes": 1444
+    },
+    {
+      "path": "evidence/f68528de46bd2271-DISPOSITION.md",
+      "sha256": "f68528de46bd2271876fcae446593da1ed5d6d7662432b0c1b4c42c1bec6585f",
+      "bytes": 1460
+    }
+  ],
+  "completion": "none",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-chk057-untimed-1020"
+    },
+    {
+      "id": "ntc-ingest-refused-rpt-ref-874c5fadebc92931be5e-1f6f147b-0a778c4c74"
+    }
+  ],
+  "ingested": "2026-10-20T07:26:12-07:00"
+}

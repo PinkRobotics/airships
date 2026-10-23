@@ -1,0 +1,58 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "label": "Hexoloy-SA-5-minimum_wall_q1_screen-m6-intact",
+  "material": "Hexoloy-SA",
+  "reserve": "5",
+  "section_policy": "minimum_wall_q1_screen",
+  "removed_member": null,
+  "segments": 6,
+  "ndof": 24012,
+  "radius_m": 0.12477937548301114,
+  "wall_m": 0.0009560071489309424,
+  "frame_tubes_kg": 4165.55717353962,
+  "total_mass_including_reserve_sag_kg": 4791.781539392168,
+  "modes": {
+    "euler": 5.08458203096179,
+    "global_k0p2": 1.1723986173169074,
+    "local_peak": 1.0001402537259336,
+    "compression": 3.3262906584646146,
+    "joint_sleeve": 1.1435207979729605,
+    "joint_bond": 1.143520792873776,
+    "film": 1.1432846186728538
+  },
+  "conditional_SF_or_ceiling": 1.0001402537259336,
+  "qualified_structural_SF": null,
+  "qualified_frame_Pf": null,
+  "qualified_hail_break_probability": null,
+  "all_composite_modes_complete": null,
+  "linear_multipliers": [
+    5.861993086584537,
+    5.8711281898897605,
+    5.871128189889922,
+    5.927626713852475
+  ],
+  "eigen_relative_residuals": [
+    3.573276217410332e-13,
+    7.899808687264738e-08,
+    8.867925320363486e-08,
+    6.156099150917688e-13
+  ],
+  "equilibrium_relative_residual": 5.091896517024955e-13,
+  "load_rigid_projection_ratio": 3.962343040501833e-16,
+  "q1_peak_compression_Pa": 1037542704.23301,
+  "q1_peak_tension_Pa": 0.0,
+  "q1_whole_member_scale_needed_m10_Pf1e3_Pa": 3816266670.539233,
+  "max_axial_N": 700588.7686089617,
+  "max_bending_Nm": 3072.2024721729986,
+  "local_shell_limit_Pa": 1037691737.9117013,
+  "secondary_failure_trigger_at_q1": false,
+  "individual_secondary_failure_members_at_q1": {
+    "local_shell": [],
+    "compression": []
+  },
+  "merged_bay": null,
+  "pressure_fan_volume_m3": 4156.277016250995,
+  "tube_loss_includes_pressure_bay_merge": false,
+  "dynamic_cascade_probability": null,
+  "elapsed_seconds": 1.899597987998277
+}

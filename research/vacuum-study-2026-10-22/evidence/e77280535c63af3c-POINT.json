@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009d",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-20T00:09:59-07:00",
+  "ended_at": "2026-10-20T00:09:59-07:00",
+  "mass": {
+    "margin": 0.05,
+    "structural_kg": 4328.542897788202,
+    "total_kg": 4644.970042677613,
+    "payload_kg": 244.47210750934846
+  },
+  "aramid_crimp_branch": {
+    "source": "rpt-ref-656730310661fdf86af6",
+    "face": "Beryllium S-200F",
+    "core": "Hexcel HRH-10-4.8-32",
+    "tf_m": 0.000752430055433027,
+    "core_m": 0.020642305866854553,
+    "Vc": 3.328884907403892,
+    "Kc": 0.3004008933369442,
+    "gamma": 1.0,
+    "branch": "shear_crimping",
+    "modes": {
+      "global_buckling": 0.6504118436805308,
+      "face_compression": 0.892251567620189,
+      "core_shear_crimping": 0.6504118436805308,
+      "core_crush": 20.950999841461407,
+      "face_wrinkling": 0.6504141274587998
+    },
+    "least_SF": 0.6504118436805308,
+    "governing": "core_shear_crimping",
+    "note": "Handbook gamma is 1 on this branch. The 018 conservative curve is not this carry."
+  },
+  "aluminium_stiff_branch": {
+    "source": "014b formulas, re-optimised at 5 percent. Ceiling check reproduced 0.668649769509.",
+    "face": "Beryllium S-200F",
+    "cores": [
+      {
+        "tf_m": 0.0006509724557417433,
+        "core_m": 0.040420032902513996,
+        "h_m": 0.04107100535825574,
+        "Vc": 0.568100356836699,
+        "Kc": 0.8579749107908252,
+        "gamma": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 0.6170447855269701,
+          "face_yield": 0.771940448044521,
+          "core_shear_crimping": 6.329757041733214,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 0.6170619661451507,
+          "intracell_dimpling": 19.494913735632846
+        },
+        "governing": "global_buckling",
+        "least_SF": 0.6170447855269701,
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6170619661451507,
+        "wrinkle_SF_coefficient_0.82": 1.533305491633405,
+        "core_mass_fraction": 0.30075,
+        "core_name": "Hexcel CR-III 5056 1/4-1.6"
+      },
+      {
+        "tf_m": 0.0006509724557417433,
+        "core_m": 0.040420032902513996,
+        "h_m": 0.04107100535825574,
+        "Vc": 0.568100356836699,
+        "Kc": 0.8579749107908252,
+        "gamma": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 0.6170447855269701,
+          "face_yield": 0.771940448044521,
+          "core_shear_crimping": 6.329757041733214,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 0.6170619661451507,
+          "intracell_dimpling": 8.664406104725712
+        },
+        "governing": "global_buckling",
+        "least_SF": 0.6170447855269701,
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6170619661451507,
+        "wrinkle_SF_coefficient_0.82": 1.533305491633405,
+        "core_mass_fraction": 0.30075,
+        "core_name": "Hexcel CR-III 5056 3/8-1.6"
+      }
+    ],
+    "kd_statement": {
+      "kd_that_brings_global_to_1": 0.3241255816288854,
+      "least_reaches_1": false,
+      "kd_that_brings_least_to_1": null,
+      "mode_that_stays_below_1": {
+        "mode": "face_wrinkling",
+        "SF": 0.6170619661451507
+      }
+    },
+    "Gc": "W shear, 10.5 ksi, the lower modulus",
+    "density_kg_m3": 25.629541398336222
+  }
+}

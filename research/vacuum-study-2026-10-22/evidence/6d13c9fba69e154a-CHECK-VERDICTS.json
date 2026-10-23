@@ -1,0 +1,1705 @@
+[
+  {
+    "check_id": "rpt-1228-mainline009c5-independent-check-1019",
+    "at": "2026-10-20T07:24:32.232614+00:00",
+    "checker_seat": "ref-ed3515d83349998d6b1b",
+    "cards_checked": [
+      "MAINLINE-009c-5"
+    ],
+    "report_checked": null,
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "All 87 POINT.json numeric leaves match frozen inputs; least SF 0.650411843680531 reproduces.",
+      "Vc 3.32888 and Kc 0.300401 reproduce; CR-1457 supports unity gamma on the weak-core branch, so all three kd levels agree.",
+      "Hexcel Ec=76 MPa and GW=14 MPa verified.",
+      "Continuous crimp/wrinkle balance 0.650413022409815 differs from the filed value only by search resolution."
+    ],
+    "objections": [
+      {
+        "text": "Opening mass sentence is wrong: total mass 4644.97 kg is 95% of lift and the payload reserve 244.47 kg is 5%.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Card's wording for the Vc=2 endpoint needs correction: CR-1457 includes equality at Vc=2 in the weak-core branch; neither filed geometry lies there.",
+        "demonstrated": null,
+        "nfi_ids": []
+      },
+      {
+        "text": "Shared S200F source discrepancy: the cited Materion grade table gives E=290 GPa, not the inherited 303 GPa; strength edition stays an NFI.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Opening sentence on mass split of the 5% float point",
+        "old": null,
+        "new": "total mass 95% of lift, payload reserve 5%"
+      },
+      {
+        "what": "Beryllium S200F modulus (303 GPa belongs to S200FH); E-only fixed-geometry SF 0.636308391376, rebalanced 0.643084807693",
+        "old": "303 GPa",
+        "new": "290 GPa"
+      },
+      {
+        "what": "Endpoint wording at Vc=2 in the weak-core branch",
+        "old": null,
+        "new": null
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:0a2dcc41bcece944",
+      "evidence/0d6f82c4ccdf1879-CARD.md"
+    ]
+  },
+  {
+    "check_id": "rpt-1228-mainline013-independent-check-1020",
+    "at": "2026-10-20T07:47:50.305945+00:00",
+    "checker_seat": "ref-ed3515d83349998d6b1b",
+    "cards_checked": [
+      "MAINLINE-013",
+      "MAINLINE-007",
+      "MAINLINE-007b"
+    ],
+    "report_checked": null,
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "All 4,554 calculated numeric comparisons (including 007/007b), 982 printed values and 75 source-table checks agree.",
+      "All 76 core records and 40 scaling records have source pointers and required tags.",
+      "No core at or below 10 kg/m3 establishes all three local checks; best Q wrinkling-product gap stays 5,844x.",
+      "The 190 kg/m3 local-model pass still has global SF 0.02035 and an inferred G.",
+      "20 of 21 Crossref identities independently re-observed; the other was rate-limited."
+    ],
+    "objections": [
+      {
+        "text": "Named S200F modulus is 290 not 303 GPa; the ideal Q threshold and required ideal fraction at 5 kg/m3 change, flipping the below-unity assertion.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Basotect (>9 kPa) and EPS12 specification minima do not prove actual failure; keep them as bounds and mark physical evidence incomplete.",
+        "demonstrated": false,
+        "nfi_ids": []
+      },
+      {
+        "text": "Knockdown independence claim needs a fixed-geometry qualification; reoptimising Q changes local needs (rho_c=1, kd 0.2 to 0.4).",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Densest Meza 2015 record's notes field copies the lightest specimen's description; the numeric row uses the correct high-density point.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "S200F modulus",
+        "old": "303 GPa",
+        "new": "290 GPa"
+      },
+      {
+        "what": "Ideal Q design crossing density",
+        "old": "4.81751557814 kg/m3",
+        "new": "5.29333338323 kg/m3"
+      },
+      {
+        "what": "Ideal B crossing density",
+        "old": "8.82396627456 kg/m3",
+        "new": "9.21851132666 kg/m3"
+      },
+      {
+        "what": "Required ideal fraction at 5 kg/m3",
+        "old": "0.982088063907",
+        "new": "1.02611270125"
+      },
+      {
+        "what": "Basotect and EPS12 strength treated as exact values",
+        "old": "exactly 9 kPa (Basotect)",
+        "new": "greater than 9 kPa bound"
+      },
+      {
+        "what": "Densest Meza 2015 notes field",
+        "old": "lightest specimen: 12 um, N=20, 0.000104",
+        "new": "octets, 8 um, N=10, 0.00182"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:50130c3c74ed03bd",
+      "evidence/f9d24ca952465ad1-CARD.md"
+    ]
+  },
+  {
+    "check_id": "rpt-1228-mainline014b-independent-check-1019",
+    "at": "2026-10-20T07:24:32.224998+00:00",
+    "checker_seat": "ref-ed3515d83349998d6b1b",
+    "cards_checked": [
+      "MAINLINE-014b"
+    ],
+    "report_checked": null,
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "Own code reproduces all 30 face/kd winners, 1,530 per-core optima and 3,911 non-timing numeric leaves.",
+      "All 51 core rows and scalings match; Hexcel Ec and GW checked against downloaded PDFs.",
+      "CR-1457 supports the selected weak-core unity gamma.",
+      "Beryllium remains first among QUESTIONABLE faces even with the corrected modulus."
+    ],
+    "objections": [
+      {
+        "text": "Inherited S200F modulus 303 GPa is S200FH; the cited Materion table gives 290 GPa for S200F. E-only fixed-geometry SF is 0.670589282589.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Equality at Vc=2 in the weak-core branch needs explicit handling, though no optimized row sits exactly there.",
+        "demonstrated": null,
+        "nfi_ids": []
+      },
+      {
+        "text": "Sentence claiming honeycomb wrinkling uses Gc is wrong; laminate bending-stiffness provenance is requested.",
+        "demonstrated": null,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "S200F modulus",
+        "old": "303 GPa",
+        "new": "290 GPa"
+      },
+      {
+        "what": "Beryllium fixed-geometry least SF with E-only substitution",
+        "old": "0.685338231171",
+        "new": "0.670589282589"
+      },
+      {
+        "what": "Beryllium reoptimized grid SF (continuous balance 0.677676080411)",
+        "old": null,
+        "new": "0.677588686611"
+      },
+      {
+        "what": "Overall face ordering",
+        "old": "CNT, beryllium, graphene",
+        "new": "CNT, graphene, beryllium"
+      },
+      {
+        "what": "Sentence that honeycomb wrinkling uses Gc",
+        "old": null,
+        "new": null
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:3ccee08808fc510a",
+      "evidence/666240757aad6273-CARD.md"
+    ]
+  },
+  {
+    "check_id": "rpt-admiral-rr2-co-mainline002-strength-questionable-not-objection-1019",
+    "at": "2026-10-19T20:54:36-07:00",
+    "checker_seat": "admiral-robotics-review-v2",
+    "cards_checked": [
+      "MAINLINE-002"
+    ],
+    "report_checked": "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019",
+    "verdict": "ruling",
+    "confirmed": [
+      "Una's 97 numbers agree at 1e-12; this seat's independent check reproduces 36 at 9 significant figures.",
+      "Buckling governs all six rows and stays governing for any compressive allowable of 146.5 MPa or more.",
+      "276 MPa carries its QUESTIONABLE tag, a source with the tensile-to-compression transfer disclosed, and NFI-AL-YIELD-CARRY."
+    ],
+    "objections": [
+      {
+        "text": "Una's source objection on every sigma-dependent output goes beyond the CO's scope; a QUESTIONABLE tag is the Admiral's standard, not a source gate.",
+        "demonstrated": false,
+        "nfi_ids": [
+          "NFI-AL-YIELD-CARRY"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Recommends Una's correction be carried as a qualification, not an objection; strength factors P2-A x2.30, P3-A x4.31, P1-A x1.38 kept as QUESTIONABLE directions",
+        "old": "SOURCE OBJECTION",
+        "new": "QUALIFICATION"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:5e198d3b094f5505"
+    ]
+  },
+  {
+    "check_id": "rpt-admiral-rr2-sciences-mainline-card-yield-missing-1019",
+    "at": "2026-10-19T19:21:11-07:00",
+    "checker_seat": "admiral-robotics-review-v2",
+    "cards_checked": [
+      "MAINLINE-001"
+    ],
+    "report_checked": "rpt-mainline-grok-estimates-card-1019",
+    "verdict": "ruling",
+    "confirmed": [
+      "Every margin and buckling SF reproduces exactly from the stated inputs."
+    ],
+    "objections": [
+      {
+        "text": "No point checks material strength: at 500 m yield SF is 0.40 (P1), 0.23 (P2) and 0.071 (P3), so modulus-only factors cannot reach SF 1.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Factors are taken at a thin geometry with float margin unspent (P1 42%, P3 67%); spending P1's margin on thickness gives E x359, not x1156.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Each point should state collapse as the lesser of buckling and yield; yield strength must also rise at the same geometry",
+        "old": "modulus factors 1156, 8.16, 30.1 only",
+        "new": "plus strength x2.5, x4.3, x14"
+      },
+      {
+        "what": "P1 modulus factor when float margin is spent on thickness (1.26 mm)",
+        "old": "1156",
+        "new": "359"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:97a706d2dbfc839e"
+    ]
+  },
+  {
+    "check_id": "rpt-admiral-rr2-sciences-mainline003-feasibility-core-limits-1019",
+    "at": "2026-10-19T20:58:38-07:00",
+    "checker_seat": "admiral-robotics-review-v2",
+    "cards_checked": [
+      "MAINLINE-002"
+    ],
+    "report_checked": "rpt-sciences-g2-co-mainline002-admitted-closed1800-next1800-1019",
+    "verdict": "ruling",
+    "confirmed": [
+      "Proposed MAINLINE-003 is feasible on paper: owner 1165+35 and Una 565+35 sum to 1800 seconds; closed-form arithmetic only.",
+      "At 16 kg/m3 core no split gains over 1.3%; best SF 0.234 at faces 0.337 mm, core 0.113 m.",
+      "At the best split modelled SF scales as 1/core density: 0.47 at 8, 0.93 at 4, 1.0 near 3.7 kg/m3."
+    ],
+    "objections": [
+      {
+        "text": "The 1/density scaling holds only because core shear and wrinkling are omitted; put those omitted limits beside any core change as property targets.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-SAND"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Omitted core limits as property targets: crimping needs Gc about 1 MPa at 0.49 m; wrinkling needs Ec*Gc near 4e16 Pa^2",
+        "old": null,
+        "new": "Gc >= ~1 MPa; Ec*Gc ~ 4e16 Pa^2"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:a12acc778b1b6185"
+    ]
+  },
+  {
+    "check_id": "rpt-check011b-opus-1020",
+    "at": "2026-10-20T00:48:39-07:00",
+    "checker_seat": "ref-55cff924be25afe6f9dd",
+    "cards_checked": [
+      "MAINLINE-011b"
+    ],
+    "report_checked": "rpt-mainline011b-grok-p3-global-arcs-1019",
+    "verdict": "objection",
+    "confirmed": [
+      "951 numeric fields (48 RESULTS rows, 36-row table, 15 named numbers) match to 3e-12; all 169 mode labels match.",
+      "Smeared triangulated stiffness (nu 1/3, Et, D, sqrt(3/2) factor) confirmed; Buchert 1968 prints the same.",
+      "Global pressure 116,990 Pa, Perry term and mass closure confirmed.",
+      "Both SiC rows reproduce: equilateral 1.22552794688 and two-way 1.10810389922.",
+      "50 kg systems and margin 0 match the brief and COMMON P3 rule."
+    ],
+    "objections": [
+      {
+        "text": "Member force pRs/2 is the two-way arch resultant; statics fix mean compression at pRs/(2 sqrt3), 562 kN not 974 kN. Conservative; with FIX-A SiC is 1.408.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHK011B-FORCE"
+        ]
+      },
+      {
+        "text": "Local buckling keeps gamma 1 at r/t 140.5; SP-8007 gives 0.529, so local is 0.648. Optimistic; re-optimised SiC falls to 1.075.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHK011B-LOCAL-GAMMA"
+        ]
+      },
+      {
+        "text": "Global mode presumes moment-rigid joints; pinned or soft nodes lower stiffness, so 023's joints must carry member-end moments.",
+        "demonstrated": false,
+        "nfi_ids": [
+          "NFI-CHK011B-JOINTS"
+        ]
+      },
+      {
+        "text": "Arcs stay fully compressed, so the 380 MPa flexural scan (0.262) is not their allowable; open item is compressive strength of a 0.88 mm brittle wall.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHK011B-SIC-FIBRE"
+        ]
+      },
+      {
+        "text": "Wright's modified k of 0.4 may be the coefficient in p=kE(t/R)^2, about 0.327 of classical, which would cut k 0.4 global pressures about 18%.",
+        "demonstrated": false,
+        "nfi_ids": [
+          "NFI-CHK011B-WRIGHT-K"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Report body says k 0.4 and 0.5 are in the card; the CARD.md table carries k 1, 0.4 and 0.2 only",
+        "old": "k 0.4 and 0.5 in card",
+        "new": "k 1, 0.4, 0.2 in card; k 0.5 only in RESULTS.json"
+      },
+      {
+        "what": "INPUTS.json material rows carry no source (COMMON.md asks for one); sources are in 011's INPUTS.json",
+        "old": null,
+        "new": "pin 011 INPUTS.json or copy sources"
+      },
+      {
+        "what": "Card says no coefficient was taken from Buchert; Buchert 1968 prints the card's Et and D, so it can cite it",
+        "old": "no Buchert coefficient",
+        "new": "cite Buchert 1968"
+      },
+      {
+        "what": "The 'two_way' rows are the triangulated frame scored with C=4, not a true two-way frame",
+        "old": null,
+        "new": null
+      },
+      {
+        "what": "FIX-A (equilibrium member force) SiC equilateral k 0.2 least SF",
+        "old": "1.22552794688",
+        "new": "1.408"
+      },
+      {
+        "what": "FIX-B (SP-8007 gamma on local mode) SiC equilateral k 0.2 least SF; both fixes give 1.205",
+        "old": "1.22552794688",
+        "new": "1.075"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:f73ff4cb8deabe9b",
+      "evidence/40c0760cee0ea356-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-check019-opus-1020",
+    "at": "2026-10-20T01:00:15-07:00",
+    "checker_seat": "ref-55cff924be25afe6f9dd",
+    "cards_checked": [
+      "MAINLINE-019"
+    ],
+    "report_checked": "rpt-ref-d7f99cd71e977826da48",
+    "verdict": "objection",
+    "confirmed": [
+      "158 items compared, 0 mismatches, largest relative difference 2.6e-8; all 34 source pins still match.",
+      "Reserve 535.95 kg (10.96%) optimistic and 4229.07 kg (86.49%) conservative, set by aluminium; every line item reproduced.",
+      "Both families reproduce at 0, 5, 10.96 and 86.49% margin (aramid 0.685398/0.650413/0.608701/0.009665).",
+      "Climate formula is the exact ideal-mixture moist-air ratio with no double count; +25.1 K alone loses 395.89 kg.",
+      "Panel widths, vacuum route, sensitivities and the 290 GPa row reproduce."
+    ],
+    "objections": [
+      {
+        "text": "Step rule gives aramid the optimistic gamma 1 and aluminium the conservative 0.2; either of 018's curves applied to both puts aluminium ahead, so 'aramid leads' rests on mixed pairing.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHK019-GAMMA-PAIRING"
+        ]
+      },
+      {
+        "text": "014b's grid value 0.668649769509 is not reproduced; its grid is unstated and seven regular grids land 5e-5 to 8e-4 away.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Payload is 0 kg on both lines although the brief asks every line item for optimistic and conservative values.",
+        "demonstrated": null,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Ranking of aluminium versus aramid when one gamma curve is applied to both (optimistic line, optimistic curve)",
+        "old": "aramid 0.609 ahead of aluminium (mixed pairing)",
+        "new": "aluminium 0.847 vs aramid 0.609"
+      },
+      {
+        "what": "Same ranking under the conservative curve (optimistic line)",
+        "old": "aramid ahead",
+        "new": "aluminium 0.557 vs aramid 0.253"
+      },
+      {
+        "what": "Order cites the owner report id with the wrong prefix",
+        "old": "rpt-ref-ea73d14ec4d4d8963f76",
+        "new": "rpt-ref-d7f99cd71e977826da48"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:396e3becda8aa53a",
+      "evidence/301a3e894c4e3132-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-444cea756201354c34c3",
+    "at": "2026-10-20T00:34:19-07:00",
+    "checker_seat": "ref-baa4584cf36c531365e7",
+    "cards_checked": [
+      "MAINLINE-009d"
+    ],
+    "report_checked": null,
+    "verdict": "reproduced",
+    "confirmed": [
+      "All 84 numeric comparisons reproduce under the stated formulas; payload 244.472107509 kg.",
+      "Aramid least SF 0.650411843681 (crimp); aluminium 0.617044785527 (global) with both cell sizes tied.",
+      "Independent mass-fraction sweep reproduces the aluminium grid optimum and the 0.668649769509 ceiling check.",
+      "Global-only aluminium kd=0.324125581629 reproduces; no kd alone makes every mode reach 1.",
+      "The 018 curve carry reproduces; ranking of the two materials depends on the curve."
+    ],
+    "objections": [
+      {
+        "text": "Dimpling is explicitly uniaxial upstream; NASA eq 2.1-6 equal-biaxial factors 9.747 and 4.332 are half the filed values, though neither governs.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Omitted aramid intracellular dimpling mode is 26.343 equal-biaxial and does not govern.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Aluminium dimpling safety factors (1/4 and 3/8 inch cells) under equal-biaxial interaction",
+        "old": "19.4949 and 8.6644",
+        "new": "9.7475 and 4.3322"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:ef363df59fa8c243",
+      "evidence/28f79918dcc53ab4-CARD.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-0d85ae067b41baf8d095",
+    "at": "2026-10-20T00:43:08-07:00",
+    "checker_seat": "ref-baa4584cf36c531365e7",
+    "cards_checked": [
+      "MAINLINE-009e"
+    ],
+    "report_checked": null,
+    "verdict": "reproduced",
+    "confirmed": [
+      "All 86 numeric and 16 categorical comparisons reproduce; payload 244.472107509 kg.",
+      "Least SF 0.924148226770 is face compression; global 0.924388366791 at the filed grid point.",
+      "Continuous refinement gives 0.924200015818, only 0.0056% higher; grid resolution, not an arithmetic error.",
+      "Maximum Vc on this mass line is 0.7035, so the Vc=2 transition is never reached.",
+      "Handbook zero-payload control reproduces 0.668649769509."
+    ],
+    "objections": [
+      {
+        "text": "Upstream dimpling NFI persists: equal-biaxial factors 16.725 and 7.433 are half the stated uniaxial estimates; neither governs.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Changing gamma alone cannot lift face compression to 1 at held geometry; strength would need 306.2 MPa versus 283 MPa.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Aluminium intracell dimpling SF (1/4 and 3/8 inch) under equal-biaxial interaction",
+        "old": "33.4499 and 14.8666",
+        "new": "16.7250 and 7.4333"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:bc664f2f1e196504",
+      "evidence/1330d6b413ac0d8f-CARD.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-62323cf6831eb964377f",
+    "at": "2026-10-20T00:25:12-07:00",
+    "checker_seat": "ref-baa4584cf36c531365e7",
+    "cards_checked": [
+      "MAINLINE-018"
+    ],
+    "report_checked": null,
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "All four held-geometry optimistic rescores and modes reproduce (Be 0.685338, K13D2U 0.651932, AlBeMet 0.553994, SiC 0.235168).",
+      "Conservative least SFs reproduce: 0.137068, 0.130450, 0.110868, 0.235159.",
+      "130 numeric comparisons: 127 match; the other three share the unequal-face correction.",
+      "Unity knockdown at Vc >= 2 is the CR-1457 handbook rule; the continuous transition is unspecified."
+    ],
+    "objections": [
+      {
+        "text": "Sim dimple row omits the unequal-face factor 0.999702513752156 in sigma0, changing three dimple fields.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "The 0.20/0.22 numerical KDFs use perfect linear FE pressures; imperfect pressures exceed handbook unity-crimp predictions by 1.4464 and 1.5400, so they do not refute unity alone.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Original card did not open Plantema, SP-8007, SP-8032 or a shear-flexible imperfection study, and has no per-specimen gamma-versus-Vc series.",
+        "demonstrated": false,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Sim dimple sigma_0",
+        "old": "19119540732.73865 Pa",
+        "new": "19113852932.30557 Pa"
+      },
+      {
+        "what": "Sim dimple Vc",
+        "old": "197.24625832023136",
+        "new": "197.18758027094242"
+      },
+      {
+        "what": "Sim dimple Gc for Vc=2",
+        "old": "1972462583.2023137 Pa",
+        "new": "1971875802.7094243 Pa"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:ff672c5b67bed251",
+      "evidence/534ab894c67c7e77-CARD.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-d458cd5a32d90025482b",
+    "at": "2026-10-20T00:56:33-07:00",
+    "checker_seat": "ref-baa4584cf36c531365e7",
+    "cards_checked": [
+      "MAINLINE-018b"
+    ],
+    "report_checked": null,
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "72 of 75 numeric comparisons reproduce; EUCASS linear/nonlinear/imperfect pressures match (27.53/12.45/6.03 flat, 27.56/12.44/5.63 dimple).",
+      "H80/H35 shear 27/12 MPa and compression modulus 90/40 MPa match the 2012 data sheet.",
+      "Own-face-bending fractions 0.004723195 (flat) and 0.004538262 (dimple) reproduce.",
+      "Lead-least-times-gamma products reproduce; carried least stays 0.650411843681 with the declared cap."
+    ],
+    "objections": [
+      {
+        "text": "Same unequal-face omission as 018 changes three dimple fields by -0.0297%.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Lead-least-times-gamma products are not all-mode least factors: unchanged wrinkling limits any uncapped crimp increase to 0.650414127459.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "H80/H35 rows are denominator-only sensitivities, and face-bending fractions measure facings-only rigidity, not effect on collapse pressure.",
+        "demonstrated": false,
+        "nfi_ids": []
+      },
+      {
+        "text": "The high-Vc numerical cases do not calibrate the continuous optimistic curve or test its moderate-Vc segment.",
+        "demonstrated": false,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Dimple sigma_0",
+        "old": "19119540732.739 Pa",
+        "new": "19113852932.306 Pa"
+      },
+      {
+        "what": "Dimple Vc",
+        "old": "197.24625832023",
+        "new": "197.18758027094"
+      },
+      {
+        "what": "Dimple classical pressure",
+        "old": "767777835.49685 Pa",
+        "new": "767549432.14939 Pa"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:b3d8962c46d42efe",
+      "evidence/5adcc356a8a74ca6-CARD.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-88e650e7f8b713866e0b",
+    "at": "2026-10-20T00:57:17-07:00",
+    "checker_seat": "ref-fd33765b99866c31a369",
+    "cards_checked": [
+      "MAINLINE-015"
+    ],
+    "report_checked": "rpt-ref-06668dbf12580ed0ffc3",
+    "verdict": "partial",
+    "confirmed": [
+      "Beryllium/5056-core correction holds: frozen wrinkling 0.6688192083; re-optimising at kd 0.3 gives 0.8536141922.",
+      "All 264 shell fields reproduce with inferred nu 0.30; 599 numeric comparisons preserved.",
+      "Continuous SF 1 threshold is kd 0.5183040769, with global buckling and face yield both active.",
+      "Frozen least SF 0.668649769508548 and kd 0.299110250418539 for global SF 1 reproduce.",
+      "014 HRH-10 thickness mappings reproduce: CNT 42.449886 mm, graphene 38.249319 mm, Be 39.046516 mm."
+    ],
+    "objections": [
+      {
+        "text": "Prominent RMS mixes a lambda 1 amplitude with a lambda 2.625 width; matched-width kd 0.9 RMS is 0.1745 mm (P2-E) and 0.0395 mm (Be/core).",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "The kd 0.9 inverse (delta/t 0.0323) lies in the small-defect regime the source excludes below about 0.07.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Filed widths imply nu 0.30 though INPUTS and COMMON declare 0.33; 193 of 599 differences mostly repeat this convention.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Core-shear reductions 10.30166/6.99750/0.78332% come from an unsourced square-root rule; CR-1457 model gives 13.58816/8.73524/0.88686%.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "One-face 10% thinning loses 5.14568% pressure, not 10.0%; both faces lose 10.02659%.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "The '0.05 mm panel looser than 0.10 mm ask' statement is numerically reversed; matched-width ask is 0.03947 mm.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "PNAS mean 0.2691694 and 0.1% quantile 0.2824006 cannot describe one nonnegative distribution with threshold 0.235.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "DVA-C 0.20 mm and GBT-panel 0.05 mm attributions were not located in the cited documents; NRAO 0.26 mm is a 1.65 m replica.",
+        "demonstrated": null,
+        "nfi_ids": []
+      },
+      {
+        "text": "Both cited DOIs are wrong: Hutchinson-Thompson is 10.1016/j.ijsolstr.2018.01.030; Gerasimidis et al is 10.1115/1.4040455.",
+        "demonstrated": null,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Threshold kd for SF 1 (continuous, not first 0.001 grid point)",
+        "old": "0.519",
+        "new": "0.518304076929753"
+      },
+      {
+        "what": "Hydrostatic pressure difference across 20 m (uses sea-level density)",
+        "old": "240.262925 Pa",
+        "new": "228.939839514 Pa"
+      },
+      {
+        "what": "Frozen Be core-shear reduction",
+        "old": "11.39981%",
+        "new": "15.11569%"
+      },
+      {
+        "what": "P2-E pressure loss from one 10% thin face",
+        "old": "10.0%",
+        "new": "5.14568%"
+      },
+      {
+        "what": "P2-E kd 0.9 RMS against the 0.25 mm criterion",
+        "old": "1.82224",
+        "new": "0.697838"
+      },
+      {
+        "what": "Be kd 0.9 RMS against the 0.25 mm criterion",
+        "old": "0.412293",
+        "new": "0.157890"
+      },
+      {
+        "what": "Matched-width ask replacing the 0.10 mm panel ask",
+        "old": "0.10 mm",
+        "new": "0.03947 mm"
+      },
+      {
+        "what": "Hutchinson-Thompson DOI",
+        "old": "10.1016/j.ijsolstr.2018.08.020",
+        "new": "10.1016/j.ijsolstr.2018.01.030"
+      },
+      {
+        "what": "Gerasimidis/Virot/Hutchinson/Rubinstein DOI",
+        "old": "10.1115/1.4039193",
+        "new": "10.1115/1.4040455"
+      },
+      {
+        "what": "Lower-kd envelope supplied from Lee 2016 Eq. 23: delta/t = 0.25/(kd-0.068) - 0.28",
+        "old": null,
+        "new": "Lee 2016 Eq. 23"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:2301c910a526037f",
+      "evidence/72c698c144e8d4d8-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-abc18453b6845bec0152",
+    "at": "2026-10-19T23:31:03-07:00",
+    "checker_seat": "ref-3dada7412231c2ce03cc",
+    "cards_checked": [
+      "MAINLINE-006"
+    ],
+    "report_checked": null,
+    "verdict": "reproduced",
+    "confirmed": [
+      "All 452 RESULTS.json fields re-derived from COMMON.md pins with 0 mismatches.",
+      "All four INPUTS pins hash-match (CARD-006 brief, COMMON, sealed 002 and 003 results).",
+      "Every row tagged QUESTIONABLE, ESTIMATE_PENDING_UNA, not a certification."
+    ],
+    "objections": [
+      {
+        "text": "Note only: margin-0 rows carry cosmetic solver residues (float margin 1.86e-16, payload 9.1e-13 kg); mass is conserved.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Note only: non-integer continuum edge count 4353.118474 is inherited from sealed 002.",
+        "demonstrated": null,
+        "nfi_ids": []
+      },
+      {
+        "text": "Note only: P2-A knee 0.00864635 sits 0.07% above the next segment; NFI-KNEE already covers it.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-KNEE"
+        ]
+      }
+    ],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:9f9d56d8345cfb54",
+      "evidence/fabcd4a4a697e44e-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-650cc5448a49ba2d595f",
+    "at": "2026-10-19T23:39:59-07:00",
+    "checker_seat": "ref-3dada7412231c2ce03cc",
+    "cards_checked": [
+      "MAINLINE-007"
+    ],
+    "report_checked": null,
+    "verdict": "reproduced",
+    "confirmed": [
+      "429 fields re-derived from COMMON.md pins with 0 mismatches; both split rules at all eight densities.",
+      "Buckling SF crosses 1 at 3.73369568197 kg/m3; named-set high 0.737028554512 at 1 kg/m3.",
+      "Own 200k-point grid confirms the closed form dominates (gap under 1e-4); identity sep = M/(2S rho) holds.",
+      "All pins hash-match: 14/14 RESULTS and 16/16 INPUTS.",
+      "6061 gap factors, sealed 002/003 cross-checks, psi-to-Pa conversions and catalog margins reproduce."
+    ],
+    "objections": [
+      {
+        "text": "Note only: the datasheet values are carried as sourced QUESTIONABLE pins; the check verifies arithmetic and named sources, not the datasheets' own prints.",
+        "demonstrated": false,
+        "nfi_ids": [
+          "NFI-DATASHEET"
+        ]
+      }
+    ],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:da5541674f83cb31",
+      "evidence/3155cc63aca22f2d-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-634f29e75c3b83c462be",
+    "at": "2026-10-19T23:46:28-07:00",
+    "checker_seat": "ref-3dada7412231c2ce03cc",
+    "cards_checked": [
+      "MAINLINE-007b"
+    ],
+    "report_checked": null,
+    "verdict": "reproduced",
+    "confirmed": [
+      "230 fields, 0 mismatches: Vc, Kc, gamma_d and SF_general via the CR-1457 chain, not as ratio times classical.",
+      "Own Newton solve of the biaxial root gives 0.6823278038280194; foam and honeycomb wrinkling reproduce.",
+      "17-row crimp-boundary table reproduces: buckling-peak rows within 0.02% of 2.453 MPa; every sourced Gc above it.",
+      "Owner's pinned CR-1457 PDF hash matches; Kc branches, gamma_d 0.20, Q 0.50, Rx^3+Ry=1 and 0.33 honeycomb form appear in it.",
+      "Trim range 0.8637 (HRH-10-24) to 0.9911 (Plascore-32) and the infinite-shear identity reproduce; 6/6 pins match."
+    ],
+    "objections": [
+      {
+        "text": "Note only: CR-1457 equation numbers 6.2-25 to 6.2-29 were not individually located; the forms appear in text and figures, and arithmetic uses only verified forms.",
+        "demonstrated": false,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:3a031ae4e7738657",
+      "evidence/a435c86d2a02d3e6-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-e92af61311c9bf4a89cd",
+    "at": "2026-10-20T01:00:14-07:00",
+    "checker_seat": "ref-3f7ec48b84b54a049007",
+    "cards_checked": [
+      "MAINLINE-021"
+    ],
+    "report_checked": null,
+    "verdict": "partial",
+    "confirmed": [
+      "Filed floating point, all six modes and all eight subset outcomes reproduce on a 4000-step search across 51 cores.",
+      "Twenty recorded checks pass; gamma plus wrinkling stays the least pair (refined usage 0.908635 versus filed 0.909899).",
+      "Family least SFs reproduce within grid resolution (aluminium today 0.6167, aramid today 0.6497).",
+      "Strongest-source sheet strength 379.2 MPa confirmed; the main two-optimism route survives at inherited 283 MPa."
+    ],
+    "objections": [
+      {
+        "text": "Datasheets give S-200F E of 290 GPa, not 303; at E290 the same geometry needs gamma 0.5953 and C 0.3707, and full-gamma global falls to 0.9424.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "At E290 the sheet's gamma-only claim fails: refined gamma-only usage is 1.0919, outside the named range, so two optimisms are needed.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Inherited Be Poisson ratio 0.33 conflicts with sheet values 0.0768 and 0.0752; an isotropic 0.0768 sensitivity changes the preferred pair to wrinkling plus strength on aramid.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Guide gives S-200F compression about 255 MPa versus inherited 283 MPa; the demand is 282.948 MPa, 1.1096 times the guide value.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Filed RESULTS.json and float021.py bytes no longer match their pins; original CARD and inputs matched. Check covers original claims, not the changed release.",
+        "demonstrated": true,
+        "nfi_ids": []
+      },
+      {
+        "text": "Larger tube strengths (450 and 544 MPa) cannot be transferred silently to the sheet strongest-source claim.",
+        "demonstrated": null,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "S-200F/SR-200 modulus",
+        "old": "303 GPa",
+        "new": "290 GPa"
+      },
+      {
+        "what": "Required gamma / C in the headline tuple at E290",
+        "old": "0.579149449 / 0.362641644",
+        "new": "0.595317964 / 0.370680714"
+      },
+      {
+        "what": "Fewest optimisms for the sheet claim at E290",
+        "old": "gamma alone",
+        "new": "two optimisms needed"
+      },
+      {
+        "what": "Be Poisson ratio (orthotropic sheet)",
+        "old": "0.33",
+        "new": "0.0768 / 0.0752"
+      },
+      {
+        "what": "S-200F compression starting strength per the guide",
+        "old": "283 MPa",
+        "new": "about 255 MPa"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:f943eefdb09351e4",
+      "evidence/0610f83c281aa972-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-78794352b6bc0d9b9309",
+    "at": "2026-10-19T22:53:03-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-005"
+    ],
+    "report_checked": "rpt-ref-eb07faa637b7487d6dc5",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "168 comparisons against RESULTS.json, worst relative difference 3.259e-16; all nine rows match.",
+      "Film matches: allowable 596630236.961907 Pa, SF 2.514120; CARD.md digits match; pins 12/12.",
+      "Required compressive strength is membrane stress, independent of 276 MPa; P1 and P2 moduli scale as 1/kd."
+    ],
+    "objections": [
+      {
+        "text": "P3 and P3-A E_required_scaling is wrong: the Euler formula has no kd, so moduli stay at kd 0.4 where the card's scaling would halve them.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-005-P3-KD"
+        ]
+      },
+      {
+        "text": "Card INPUTS lack QUESTIONABLE tags and sources on kd and external pressure; no pascal values change.",
+        "demonstrated": null,
+        "nfi_ids": [
+          "NFI-CHECK-005-TAGS"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Scaling of required buckling moduli with kd",
+        "old": "every modulus scales as E(0.2)*0.2/kd",
+        "new": "P1 and P2 only; P3, P3-A unchanged (2.0747e12, 7.175e11 Pa)"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:b576406676dd9196",
+      "evidence/940f2b4b6a5923e1-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-40cc094053ddae09d5ac",
+    "at": "2026-10-19T23:20:37-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-005b"
+    ],
+    "report_checked": "rpt-ref-9dd3721f6f2e5595ab9a",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "Required core strength is p/2 = 47730.41895695257 Pa on P2, P2-A, P2-C, P2-K, P2-E; thickness does not enter.",
+      "Margins match (1.05, 11.6, 22, 13, 23, 2.1); 25 kPa fails and 70 kPa passes.",
+      "Honeycomb and PMI from 20.8 kg/m3 up clear by more than ten (smallest 11.565); pins 12/12."
+    ],
+    "objections": [
+      {
+        "text": "Only 1% point is 25 kPa at 14.4 kg/m3; reaching the requirement scales to 27.49 (linear) or 19.90 kg/m3 (squared); card gives 18-22 with no exponent.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-005B-1PCT"
+        ]
+      },
+      {
+        "text": "Rohacell range 52-110 kg/m3, 0.8-3.6 MPa has no RESULTS entry and no URL; margins 16.76 and 75.42 display as 17 and 75.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-005B-RANGE"
+        ]
+      },
+      {
+        "text": "Owner report's 'ten times from 20 kg/m3 up' fails for Pyrogel XTF at 200 kg/m3 (margin 2.137); the card's honeycomb-and-PMI limit holds.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Lowest density on the 1% strain definition",
+        "old": "18-22 kg/m3",
+        "new": "27.49 (linear) or 19.90 (squared) kg/m3"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:6d0e6ea11b428310",
+      "evidence/25f9dd80634b0fa1-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-f08b92e3e640a19fb4ea",
+    "at": "2026-10-19T22:57:53-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-008"
+    ],
+    "report_checked": "rpt-ref-45da79edf548b064b228",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "480 comparisons against RESULTS.json, worst relative difference 5.672e-16; P2-E rank order 1 to 15 matches.",
+      "All 15 candidates carry QUESTIONABLE or PROJECTION tags and a source; pins 16/16.",
+      "Worst tf/d is 0.007222; letting separation follow face thickness moves SF_b by at most 0.348 percent."
+    ],
+    "objections": [
+      {
+        "text": "Basis sentences differ from their stated products (T700, M55J, K13D2U, boron, CNT moduli); tables use rounded values and rank order is unchanged.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-008-BASIS"
+        ]
+      },
+      {
+        "text": "T700, M55J and K13D2U compressive strengths (520, 350, 220 MPa) name no numeric unidirectional value, so cannot be re-derived.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-008-BASIS"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Quasi-isotropic modulus basis sentences (T700, M55J, K13D2U, boron, CNT-yarn)",
+        "old": "54, 135, 210, 86, 180 GPa",
+        "new": "53.6, 136.5, 211.15, 85.68, 179.2 GPa"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:2bd5a33c102a97dd",
+      "evidence/31b4cbcf83df7aac-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-c49d322288a0b11e4381",
+    "at": "2026-10-19T23:38:45-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-008b"
+    ],
+    "report_checked": "rpt-ref-cc9cef5e55adca018a8f",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "878 comparisons against RESULTS.json; worst relative difference 3.73e-5 from 005's printed five-figure requirements.",
+      "Headline table agrees; filed hashes 5/5 and six input pins match.",
+      "Best catalog product is Hexcel HRH-10-4.8-32, 76 MPa times 14 MPa = 1.064e15 Pa^2.",
+      "Thirteen candidates QUESTIONABLE, CNT-yarn and graphene PROJECTION; each candidate has a source."
+    ],
+    "objections": [
+      {
+        "text": "Close says no candidate passes buckling at kd 0.1407 and SiC 0.8529 is best, but the table gives beryllium 1.0562; yield still limits beryllium at 0.5817.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-008B-BE-KD"
+        ]
+      },
+      {
+        "text": "Best-three factors 1.28, 1.45, 1.65 equal 1/SF; the core product moves by the cube (2.08, 3.08, 4.47), as the miss column prints.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-008B-PRODUCT"
+        ]
+      },
+      {
+        "text": "On the conservative 1 kg/m3 row graphene (2.032) and M55J (1.539) also clear a face factor of 1.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-008B-1KG"
+        ]
+      },
+      {
+        "text": "NFI says HexWeb has no compressive modulus, but 007 records stabilised 76 and 41 MPa, which 007 tags as outside the continuum wrinkling formula.",
+        "demonstrated": null,
+        "nfi_ids": [
+          "NFI-CHECK-008B-HEXWEB"
+        ]
+      },
+      {
+        "text": "Two P3 yield cells follow printed requirements and differ in the last digit; rank unchanged.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-008B-P3-DIGIT"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Beryllium buckling at kd 0.1407 in the close and report",
+        "old": "no candidate passes buckling",
+        "new": "beryllium 1.0562 passes buckling"
+      },
+      {
+        "what": "SiC P3 yield SF",
+        "old": "0.8720",
+        "new": "0.8719"
+      },
+      {
+        "what": "Graphene QI P3 yield SF",
+        "old": "0.4159",
+        "new": "0.4158"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:f4a7c785682934c2",
+      "evidence/0a496cae29f678bb-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-7d4d494ebf14f37f5ea0",
+    "at": "2026-10-19T23:17:41-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-010"
+    ],
+    "report_checked": "rpt-ref-58b2bed18db2449100f2",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "410 numeric leaves agree, worst relative difference 8.915e-16; CARD.md digits agree; pins 12/12.",
+      "500 m pressure is 0.059 Pa below the pinned value, inside the card's 0.1 Pa claim.",
+      "Both SFs pass 1 only at n=27 (mass 3.49082 times lift); buckling ratio exactly 9 there.",
+      "No internal fraction raises either factor once the margin is restored; the tables stand."
+    ],
+    "objections": [
+      {
+        "text": "Lever 3 claim that rescaling restores the SF gain to baseline is wrong: scaling faces and core gives P2-E buckling 0.1121 versus 0.2339, yield 0.3806 versus 0.3887.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-010-RESCALE"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Lever 3 prose that the SF gain cancels to the last digit after rescaling (only the fixed-structure product SF*(1-f) equals baseline)",
+        "old": "returns to baseline SF",
+        "new": "P2-E buckling 0.112110, yield 0.380577"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:7c0871978041e73f",
+      "evidence/a005fd4f4f087e28-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-3484d24f707ffbfe30ee",
+    "at": "2026-10-19T23:44:31-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-011"
+    ],
+    "report_checked": "rpt-ref-f21d4bd21d2026511818",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "Four limits match at 6061 s 3 m: Euler 0.2333, yield 0.2331, local 0.908, film 0.838.",
+      "Own scan reproduces best values: T700 0.765, M55J 0.487, K13D2U 0.287, SiC 2.849, CNT 1.949.",
+      "Fixed r_o 0.02 m row matches 005; P2-E ratios 0.997 at kd 0.2 and 1.417 at kd 0.1407; hashes 4/4."
+    ],
+    "objections": [
+      {
+        "text": "Card does not say arc or straight; a straight chord at s 3 m sags 112.5 mm, past the 86.6 mm radius, and no bending term is carried.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-011-SHAPE"
+        ]
+      },
+      {
+        "text": "No global mode is carried; the follow-on two-way expression gives SF 0.704 at the 6061 point and no triangular coefficient is sourced.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-011-GLOBAL"
+        ]
+      },
+      {
+        "text": "K13D2U at fixed r_o 0.02 m is yield-bound at 0.285 with Euler 0.405, not Euler-bound as the card says.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-011-K13"
+        ]
+      },
+      {
+        "text": "SiC film becomes the least limit at s 0.90 (SF 2.793), not from s 1.0; the 'spans 0.2319-0.2333' sentence is not the bottom of the s<=3 scan.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "K13D2U binding mode at r_o 0.02 m, s 1",
+        "old": "Euler",
+        "new": "yield 0.2852 (Euler 0.4050)"
+      },
+      {
+        "what": "First spacing at which SiC film is the least limit",
+        "old": "s 1.0, SF 2.514",
+        "new": "s 0.90, SF 2.793"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:bb7d2774c8324776",
+      "evidence/8214dfb6596f658a-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-e5b19d75c664308465ef",
+    "at": "2026-10-20T00:07:06-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-016"
+    ],
+    "report_checked": "ref-0c9ab80606a173c6adb6",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "Stated formulas reproduce the tables; 009 pin matches five mode factors, thicknesses and the 244.472 kg margin.",
+      "Leak, permeation, outgassing, moisture, pump work, eight seam rows, face temperatures, shear-lag, climate margins and gust loads match.",
+      "Climbing 500 m to 1500 m loses 9.36 percent of density, about 9.4 percent per km."
+    ],
+    "objections": [
+      {
+        "text": "Storm margin scales the 244.472 kg margin by pressure ratio, but section 5 scales the whole lift; a 10 percent storm low gives -244.5 kg, not +220 kg.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-016-MARGIN"
+        ]
+      },
+      {
+        "text": "Added air mass 2445 kg is half the displaced air and the hull is 4645 kg, so the sentence that they are equal is false.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-016-ADDED"
+        ]
+      },
+      {
+        "text": "Inputs used but absent from registers: patch area 0.0707 m2, spreader target 1.5, cradle 250 kPa, pump ceiling 1000 Pa, water density, Stefan-Boltzmann constant.",
+        "demonstrated": null,
+        "nfi_ids": [
+          "NFI-CHECK-016-SOURCE"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Vacuum mass rate at stated R_air 287.05",
+        "old": "0.00056590766 kg/s",
+        "new": "0.00056591357 kg/s"
+      },
+      {
+        "what": "No-convection temperature bound stored in RESULTS (card's 313.5 K stands)",
+        "old": "313.526 K",
+        "new": "313.538 K"
+      },
+      {
+        "what": "Storm margin for a 10 percent low (whole-lift scaling)",
+        "old": "+220 kg",
+        "new": "-244.5 kg"
+      },
+      {
+        "what": "Display roundings: lambda, synoptic upper factor, retained water",
+        "old": "1.526, 0.2425, 125.6 kg",
+        "new": "1.525, 0.2424, 125.7 kg"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:dae6a7ae34bfe584",
+      "evidence/2bc8991e359fc5aa-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-ref-6936f2b720197d97b0f2",
+    "at": "2026-10-20T00:07:18-07:00",
+    "checker_seat": "ref-cca93dbfd236dcaa3a8b",
+    "cards_checked": [
+      "MAINLINE-017"
+    ],
+    "report_checked": "rpt-mainline017-improvement-directions-lead4f19-1019",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "Three P2 leaders and both P3 points agree: CNT 0.750492, beryllium 0.685398, graphene 0.677924, SiC 2.848476, T700 0.765124.",
+      "Single-property factors match: CNT density 1.459123, beryllium 1.637323, graphene 1.654709, T700 pair 1.307371 and 1.308051.",
+      "Gc caps at 0.510, 0.560 and 0.403 on global buckling, so the branch crossing is real."
+    ],
+    "objections": [
+      {
+        "text": "Prose places 014's next-mode figures beside the re-optimised factor; CNT wrinkling, beryllium wrinkling and yield, graphene crimping and beryllium density are misquoted.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-017-PROSE"
+        ]
+      },
+      {
+        "text": "Recorded combination product is not the product of the recorded split (CNT 1.47425 versus 1.45297); least factors at the stated split are 0.9954, 0.9891, 0.9977.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-CHECK-017-COMBO"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "CNT wrinkling factor",
+        "old": "0.750642",
+        "new": "0.750492"
+      },
+      {
+        "what": "Beryllium wrinkling factor",
+        "old": "0.685455",
+        "new": "0.685398"
+      },
+      {
+        "what": "Beryllium yield factor",
+        "old": "0.940266",
+        "new": "0.940245"
+      },
+      {
+        "what": "Graphene crimping factor",
+        "old": "0.677970",
+        "new": "0.677924"
+      },
+      {
+        "what": "Beryllium density at factor 1.637323",
+        "old": "1129.7 kg/m3",
+        "new": "1129.9 kg/m3"
+      },
+      {
+        "what": "Least factors at the recorded combination (CNT, beryllium, graphene)",
+        "old": "1.0010, 1.0004, 1.0009",
+        "new": "0.9954, 0.9891, 0.9977"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:3c6207d674e8dfe9",
+      "evidence/6c9a21a43f6aeb25-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-mainline004-check-glm-1019",
+    "at": "2026-10-19T23:45:00-07:00",
+    "checker_seat": "ref-c713c40ee838487ac6d3",
+    "cards_checked": [
+      "MAINLINE-004"
+    ],
+    "report_checked": "rpt-mainline004-grok-knockdown-card-1019",
+    "verdict": "reproduced",
+    "confirmed": [
+      "Sealed 003 geometry re-solved from mass rules; total mass equals sealed lift 4889.442150186961 kg for all four families.",
+      "t_eq equals (6 tf d^2)^(1/3) with d the face separation; the core-only form is excluded on every row.",
+      "Lambda, kd 0.14+3.2/lambda^2, classical pressure, SFs, required moduli and ratios agree within 5e-9 relative.",
+      "COMMON.md invariant holds: 0.2 times p_cl at the P2 baseline is 11701.558395327309 Pa.",
+      "Wagner 2020 eq 7 (about 0.2 elastic) and Table 3 row 12 (Krenzke and Kiernan) confirmed against a hash-matching PDF."
+    ],
+    "objections": [
+      {
+        "text": "Note only: SP-8032 monograph page remains unretrieved, so the 0.14+3.2/lambda^2 form is not independently retrievable; the owner's NFI already records it.",
+        "demonstrated": false,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:573e592e91c5a885",
+      "evidence/877358fd7a4c7c9f-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-mainline004b-check-glm-1019",
+    "at": "2026-10-19T23:45:00-07:00",
+    "checker_seat": "ref-c713c40ee838487ac6d3",
+    "cards_checked": [
+      "MAINLINE-004b"
+    ],
+    "report_checked": "rpt-mainline004b-grok-kd-range-1019",
+    "verdict": "reproduced",
+    "confirmed": [
+      "Every branch (SP-8032 row, 0.20, 0.90, 1.0, 0.22 flat, 0.20 dimple) on every family agrees within 1e-12.",
+      "Required moduli and above/below 68.9 GPa sides agree within 5e-9; ratio 0.9/kd_sp matches NFI-OPT-GAP (6.3936 to 6.3969).",
+      "Wagner 2020 Table 3 rows 11 and 12 and Sim et al 2024 KDFs (0.20 dimple, 0.22 flat) confirmed.",
+      "Yield SFs stay at the sealed 003 values at every knockdown."
+    ],
+    "objections": [
+      {
+        "text": "Note only: the owner's unretrieved gaps (SP-8032 monograph page, Wagner 2018 threshold equation) stand as recorded.",
+        "demonstrated": false,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:7e697a7ccb43bc66",
+      "evidence/545a0a59c85e70c1-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-mainline006-check-lead4f19-1019",
+    "at": "2026-10-19T23:32:42-07:00",
+    "checker_seat": "ref-9af2822b3fe57c40be31",
+    "cards_checked": [
+      "MAINLINE-006"
+    ],
+    "report_checked": "rpt-mainline006-grok-float-margin-1019",
+    "verdict": "reproduced",
+    "confirmed": [
+      "Every thickness solved from its own mass budget; geometry, masses, pressures, SFs, segments, secants and knees match at 1e-9.",
+      "Zero-margin least SF: P1 0.00278766036714, P2-A 0.230789025110, P2-E 0.233885578993, P3 0.0960261390545.",
+      "0-30% secants and knees match for P1, P2-A, P2-E and P3."
+    ],
+    "objections": [
+      {
+        "text": "P2-E baseline is an equal split at the 002 P2 counted mass, not a sealed 002 row; numbers are right, provenance label is not.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "CHECK-NFI-1"
+        ]
+      },
+      {
+        "text": "Note only: P3 at zero margin carries a 1.8e-12 kg payload solver residue; no other row differs.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Provenance label of the P2-E baseline",
+        "old": "each family's sealed 002 baseline",
+        "new": "equal-split row at the 002 P2 mass (3636.17669088 kg)"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:6d27f147d6b2bb37",
+      "evidence/2d0e646f8fd08a45-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-mainline007-check-lead4f19-1019",
+    "at": "2026-10-19T23:33:30-07:00",
+    "checker_seat": "ref-9af2822b3fe57c40be31",
+    "cards_checked": [
+      "MAINLINE-007"
+    ],
+    "report_checked": "rpt-ref-05310d05f1fb52d6522e",
+    "verdict": "reproduced",
+    "confirmed": [
+      "Both splits solved from the mass line at eight densities; all fields match at 1e-9.",
+      "Equal-factor split peaks at 1 kg/m3, least SF 0.737028554512, still below 1; no interior peak 0.25 to 64.",
+      "Buckling SF reaches 1 at 3.73369568197 kg/m3 with yield 0.388961154580; all-face yield SF 0.777384434128.",
+      "Catalog material margins reproduce.",
+      "Five governing-label ties at the equal split are floating ties; the card's both_equal is right."
+    ],
+    "objections": [],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:439313c1d81edf81",
+      "evidence/1432c30f5fb13e52-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-mainline007b-check-lead4f19-1019",
+    "at": "2026-10-19T23:34:15-07:00",
+    "checker_seat": "ref-9af2822b3fe57c40be31",
+    "cards_checked": [
+      "MAINLINE-007b"
+    ],
+    "report_checked": "rpt-ref-3dd5ab5528276031581d",
+    "verdict": "reproduced",
+    "confirmed": [
+      "All 13 evaluated comparisons and 17 crimp-boundary rows match at 1e-9; CR-1457 general-instability trim reproduces.",
+      "P2-E with Plascore at 16 kg/m3 falls from 0.233885578993 to 0.227959198328; yield stays 0.388692217064.",
+      "Trim range 0.863720643326 (HRH-10-6.4-24) to 0.991105457684 (Plascore at 32); all Vc below 2.",
+      "Equibiaxial factor 0.682327803828; Hexcel honeycomb wrinkling (0.0565, 0.0415) would govern if admitted."
+    ],
+    "objections": [
+      {
+        "text": "Note only: owner RESULTS started_at equals ended_at, so its elapsed time is unusable; no number depends on it.",
+        "demonstrated": null,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:3091d3c484a4c05a",
+      "evidence/f0441d0212af1ef5-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-mainline012-check-glm-1019",
+    "at": "2026-10-19T23:45:00-07:00",
+    "checker_seat": "ref-c713c40ee838487ac6d3",
+    "cards_checked": [
+      "MAINLINE-012"
+    ],
+    "report_checked": "rpt-mainline012-grok-equal-margin-1019",
+    "verdict": "reproduced",
+    "confirmed": [
+      "Own ISA anchored to the sealed 500 m state reproduces sealed pressure and density exactly (0.000000 Pa).",
+      "Radius rows (P2-A and P2-E at R 5/10/20/40 m, margins 0 and 5%) agree within 5e-9 relative.",
+      "Altitude rows 0/500/2000/5000/11000 m agree on temperature, pressure, lift, SFs and cold-air fraction.",
+      "All four infeasibility calls reproduce; the fixed 0.1 m core alone exceeds the ceiling at 5 m and 11 km."
+    ],
+    "objections": [],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:c649e5faf5d06e11",
+      "evidence/52aaf894862b5b46-CHECK.md"
+    ]
+  },
+  {
+    "check_id": "rpt-xo-h1-mainline-estimates-review-600-sci-1019",
+    "at": "2026-10-19T19:47:15-07:00",
+    "checker_seat": "ref-d526e566bdbe9a62c2c1",
+    "cards_checked": [
+      "MAINLINE-001"
+    ],
+    "report_checked": null,
+    "verdict": "admitted",
+    "confirmed": [
+      "41 stated numbers agree at relative 1e-12: atmosphere, lift, masses, margins, collapse pressures and SFs for P1, P2, P3.",
+      "Improvement factors equal 1/SF (1155.78, 8.158, 30.11); ten sensitivity values agree.",
+      "All 35 input rows carry QUESTIONABLE and a source or assumption basis; 11/11 NFI rows complete."
+    ],
+    "objections": [
+      {
+        "text": "Aluminium yield is absent from all three stated models, so modulus factors are conditional buckling/Euler factors, not strength-complete SF 1 requirements; advisory yield factors not admitted.",
+        "demonstrated": false,
+        "nfi_ids": [
+          "NFI-AL-YIELD-CARRY",
+          "NFI-FLOAT-ALLOCATION-CARRY"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Reading of the modulus improvement factors (qualification, not a gate)",
+        "old": "requirement for SF 1",
+        "new": "conditional buckling/Euler factors within the stated models"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:7f54611867428cb7",
+      "evidence/1dee95d57f532806-UNA600-MAINLINE-ESTIMATES-REVIEW.md"
+    ]
+  },
+  {
+    "check_id": "rpt-xo-h1-mainline002-review-600-sci-1019",
+    "at": "2026-10-19T20:47:22-07:00",
+    "checker_seat": "ref-d526e566bdbe9a62c2c1",
+    "cards_checked": [
+      "MAINLINE-002"
+    ],
+    "report_checked": "rpt-mainline002-grok-strength-card-1019",
+    "verdict": "admitted",
+    "confirmed": [
+      "97 RESULTS.json numbers agree at relative 1e-12: atmosphere, masses, margins, every stated limit, governing limit and factors.",
+      "Allocation thicknesses P1-A t, P2-A tf and P3-A tw match closed forms; residuals are numerical zero, not reserve.",
+      "All 71 checker values appear in CARD.md; baseline inputs 35/35 tagged and sourced; NFI 8/8 and 11/11 complete."
+    ],
+    "objections": [
+      {
+        "text": "276 MPa is typical tensile yield transferred to compression by assumption; not an admitted compressive value, with no raw source capture.",
+        "demonstrated": false,
+        "nfi_ids": [
+          "NFI-AL-YIELD-CARRY"
+        ]
+      },
+      {
+        "text": "No physical-model or construction-safety certification: shear, wrinkling, core crush, crippling and fabrication are unmodeled.",
+        "demonstrated": false,
+        "nfi_ids": []
+      },
+      {
+        "text": "Owner's phase-4 breach stands: 328.744 s against its 165 s cap.",
+        "demonstrated": null,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [],
+    "files_read": [
+      "unpublished-local-ref:958e775f847b2c78",
+      "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md"
+    ]
+  },
+  {
+    "check_id": "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019",
+    "at": "2026-10-19T20:50:24-07:00",
+    "checker_seat": "ref-d526e566bdbe9a62c2c1",
+    "cards_checked": [
+      "MAINLINE-002"
+    ],
+    "report_checked": "rpt-mainline002-grok-strength-card-1019",
+    "verdict": "partial",
+    "confirmed": [
+      "Atmosphere, V and lift, masses, float margins, allocation thicknesses, stiffness limits and film limit remain admitted as filed.",
+      "Governing limit, collapse pressure and crush SF in every row are the stiffness limit, which does not contain sigma."
+    ],
+    "objections": [
+      {
+        "text": "Source objection on 276 MPa as a compressive value: it is a search-snippet tensile typical yield with no raw capture and no compressive allowable retrieved.",
+        "demonstrated": null,
+        "nfi_ids": [
+          "NFI-AL-YIELD-CARRY"
+        ]
+      },
+      {
+        "text": "Stiffness limit governs only while true compressive allowable stays above P1 0.59, P2 146.3, P3 129.4, P1-A 1.059, P2-A 146.5, P3-A 114.3 MPa.",
+        "demonstrated": true,
+        "nfi_ids": []
+      }
+    ],
+    "corrections": [
+      {
+        "what": "Verdict on MAINLINE-002 amended to apply the CO's source condition: aluminium yield limits and stiffness-only remaining SF checked as arithmetic of a tensile premise only",
+        "old": "ADMITTED for scope",
+        "new": "ADMITTED with SOURCE OBJECTION on every sigma-dependent output"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:bd088132b5c5bdb5",
+      "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md"
+    ]
+  },
+  {
+    "check_id": "rpt-xo-mainline003-review-600-sci-1019",
+    "at": "2026-10-19T22:16:43-07:00",
+    "checker_seat": "ref-d526e566bdbe9a62c2c1",
+    "cards_checked": [
+      "MAINLINE-003"
+    ],
+    "report_checked": "rpt-mainline003-grok-p2-targets-1019",
+    "verdict": "admitted_with_defects",
+    "confirmed": [
+      "90 numbers agree at 1e-12 with 0 mismatches; card print 56/56; pins 5/5 and 31/31.",
+      "Tags and the 276 MPa transfer present; inherited inputs 35/35; NFI 10/10, 11/11 and 8/8 complete.",
+      "NFI-SHEAR dependency (Gc proportional to p, inversely to d) is correct."
+    ],
+    "objections": [
+      {
+        "text": "NFI-AL-YIELD-CARRY says required compressive strength scales with sigma, but sigma_req = pR/(4 tf) is sigma-independent; doubling sigma gives ratio 1.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-AL-YIELD-CARRY"
+        ]
+      },
+      {
+        "text": "NFI-KD says required modulus scales directly with knockdown; E_req scales inversely (doubling kd halves it), so a larger knockdown lowers required E for MAINLINE-004.",
+        "demonstrated": true,
+        "nfi_ids": [
+          "NFI-KD"
+        ]
+      }
+    ],
+    "corrections": [
+      {
+        "what": "NFI-AL-YIELD-CARRY effect sentence on required compressive strength",
+        "old": "scales linearly with sigma",
+        "new": "independent of sigma; only strength pressure and SF scale"
+      },
+      {
+        "what": "NFI-KD effect sentence on required modulus",
+        "old": "scales directly with knockdown",
+        "new": "scales inversely with knockdown"
+      }
+    ],
+    "files_read": [
+      "unpublished-local-ref:3e3c9e3b78eafa84",
+      "evidence/dcfa7ae3942a9e4f-UNA600-MAINLINE003-REVIEW.md"
+    ]
+  }
+]

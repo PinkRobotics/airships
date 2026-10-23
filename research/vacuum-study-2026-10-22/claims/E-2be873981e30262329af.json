@@ -1,0 +1,40 @@
+{
+  "id": "E-2be873981e30262329af",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-2be873981e30262329af",
+    "report": "rpt-ref-22285eadc9122df1c8b7",
+    "file": "evidence/84ce05528108d3ac-NFI.json",
+    "snapshot": "evidence/84ce05528108d3ac-NFI.json",
+    "source_sha256": "84ce05528108d3acd5416a915758558551c0854ffeba2edadd32c1088bfd417c",
+    "source_json_pointer": "/rows/0",
+    "row_id": "N057-01-MGA-SOURCE",
+    "fields": {
+      "id": "N057-01-MGA-SOURCE",
+      "owner_state": "open",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "AIAA S-120A and SAWE RP 7 tables are paywalled and were not opened. The allowances are NASA GSFC IDC Table VI-1 (NTRS 20120013284), adapted from AIAA S-120-2006 Table 1. My map from maturity to its TRL rows is estimated to TRL 0-2, calculated to TRL 3-5 and measured to TRL 8. Different tables shift the numbers; no plausible table brings the concept-stage allowance below the 2.8-9.9% that the bills tolerate.",
+      "checker_disposition": "Open applicability; source table transcription verified. Historical NASA guidance is not direct access to S-120A, a present project requirement, or installed-hull maturity evidence.",
+      "evidence": "SOURCE-CHECK.md",
+      "blocking": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"N057-01-MGA-SOURCE\", \"owner_state\": \"open\", \"state\": \"checked; physical/applicability condition open\", \"owner_note\": \"AIAA S-120A and SAWE RP 7 tables are paywalled and were not opened. The allowances are NASA GSFC IDC Table VI-1 (NTRS 20120013284), adapted from AIAA S-120-2006 Table 1. My map from maturity to its TRL rows is estimated to TRL 0-2, calculated to TRL 3-5 and measured to TRL 8. Different tables shift the numbers; no plausible table brings the concept-stage allowance below the 2.8-9.9% that the bills tolerate.\", \"checker_disposition\": \"Open applicability; source table transcription verified. Historical NASA guidance is not direct access to S-120A, a present project requirement, or installed-hull maturity evidence.\", \"evidence\": \"SOURCE-CHECK.md\", \"blocking\": false}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q3",
+  "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+  "sources": [
+    {
+      "report": "rpt-ref-22285eadc9122df1c8b7",
+      "artifact": "evidence/84ce05528108d3ac-NFI.json",
+      "snapshot": "evidence/84ce05528108d3ac-NFI.json",
+      "sha256": "84ce05528108d3acd5416a915758558551c0854ffeba2edadd32c1088bfd417c",
+      "bytes": 9069,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

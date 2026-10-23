@@ -1,0 +1,38 @@
+[
+  {
+    "id": "NFI-008-QI-LAMINATE",
+    "issue": "QI laminate E and compressive strength for T700, M55J, K13D2U and boron/epoxy are estimates from UD/fibre data with the stated reduction factors, not measured laminate cards.",
+    "effect": "Those four rows move with the assumed QI factors; fibre properties were not used, per the brief.",
+    "needed": "Measured QI laminate modulus and compressive strength for each system at the intended fibre volume fraction."
+  },
+  {
+    "id": "NFI-008-SIGMA-TRANSFER",
+    "issue": "6061-T6, 7075-T6, 2195-T8 and AlBeMet 162 compressive strengths are tensile yields transferred to compression; AZ31 uses a compressive yield, Ti-6Al-4V and Be S-200F use compressive values, SiC a compressive ultimate, Vitreloy 1 a compressive ultimate.",
+    "effect": "SF_y for transferred rows is QUESTIONABLE; the 6061 baseline itself is the pinned transfer, so ratios are consistent with 002/003.",
+    "needed": "Measured compressive yield for each metal temper and product form."
+  },
+  {
+    "id": "NFI-008-BRITTLE-FACES",
+    "issue": "SiC and beryllium rank on compressive membrane modes only. SiC flexural strength (~380 MPa) and fracture toughness, and beryllium toxicity, joining and low ductility, are outside both formulas.",
+    "effect": "A high least-SF here is not a buildable face; bending, impact, attachment and thermal paths can govern.",
+    "needed": "A fracture/joining assessment before either is carried as a face material."
+  },
+  {
+    "id": "NFI-008-OMITTED-MODES",
+    "issue": "Core shear, face wrinkling, core crush, laminate anisotropy (nu, shear), face-core bond and thermal stress are omitted, as in 002/003; equal face mass holds the pinned core and separation fixed.",
+    "effect": "SF_b is a first-order tf<<d scaling; a candidate whose tf approached d, or whose nu differs strongly, would need the full sandwich formulas.",
+    "needed": "MAINLINE-004 knockdown for kd rescaling, and a sandwich failure check per candidate."
+  },
+  {
+    "id": "NFI-008-PROJECTIONS",
+    "issue": "CNT-yarn and graphene QI rows are PROJECTION scenarios, not available materials; their assumed values are stated per row.",
+    "effect": "They bound a direction, not a procurement option; the available-only best three are listed separately.",
+    "needed": "A demonstrated QI CNT-yarn or graphene laminate card."
+  },
+  {
+    "id": "NFI-008-KD",
+    "issue": "All buckling SFs inherit kd=0.2; required E scales as 1/kd (Una's 003 correction), so every SF_b scales linearly with kd/0.2.",
+    "effect": "MAINLINE-004's knockdown rescales every buckling column by one multiplication, as COMMON.md states.",
+    "needed": "MAINLINE-004 filed values (next job 008c)."
+  }
+]

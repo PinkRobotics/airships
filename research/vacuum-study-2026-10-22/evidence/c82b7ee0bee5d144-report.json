@@ -1,0 +1,141 @@
+{
+  "id": "rpt-ref-14993e3c2e5e64177c8f",
+  "kind": "report",
+  "from": "ref-70f7af6d0a8d64c42272",
+  "from_seat": "ref-70f7af6d0a8d64c42272",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline043-sic-frame-reliability-1020",
+  "re": "ord-admiral-rr2-mainline043-fold-041-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline043-fold-041-1020"
+    }
+  ],
+  "at": "2026-10-20T04:06:08.341176-07:00",
+  "body": "MAINLINE-043 supplement folds both MAINLINE-041 frequency-5 closure witnesses alongside frozen 022d. QUESTIONABLE / PROJECTION; actual member/frame/lifetime probabilities remain null.\n\nEach f5 point has 750 members and 1500 end interfaces. Actual lengths and correlated force/moment arrays reproduce target peak compression 1.164235/1.145748 GPa at q=1.143285/1.083205. Positive longitudinal tension remains zero in these ideal fields, without resolving local multiaxial stress.\n\nFor hypothetical compression m=10 and common whole-member scale 3.9 GPa, summed per-member peak envelopes give own-screen frame Pf 0.00252417/0.00214283. Required common scales for frame Pf 1e-3/1e-6 are 4.27868/8.53751 GPa (5%) and 4.20909/8.39866 GPa (019). A 1 cm3 calibration instead gives Pf 0.991133/0.979046. No catalogue-to-full-member qualification is implied.\n\nAt common 022d q=1.258252, peaks rise to 1.285383/1.337950 GPa and whole-member-hypothesis Pf to 0.00672419/0.00992957; these loads exceed the new source screens. Total volume changes little despite smaller members; surface area increases 18.44%/17.04%. Strength/scatter, tensile-size and proof comparisons are filed.\n\n041's local-wall sensitivity remains 1.033223/0.978132; its sub-unity 019 result is not hidden by fracture projections. Material, joint, instability and lifetime NFIs remain unclosed.\n\nTwenty-six input pins, 843 scientific checks and 77 packaging checks pass. One admitted job released. All 96 original 043 artifacts remain unchanged. Fold complete; no successor named; SLEEPING.",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline043-fold-041-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/d7e6bb886c179c1c-CARD.md",
+      "sha256": "d7e6bb886c179c1cc83c7de5ff418aa5f1e37bdd3d166756d3c5ea4f04adc366",
+      "bytes": 12219
+    },
+    {
+      "path": "evidence/efccfc01ccfc6f96-METHOD.md",
+      "sha256": "efccfc01ccfc6f960ff9e7b4a807f629e889800848177a144ddfbf11186fc488",
+      "bytes": 7746
+    },
+    {
+      "path": "evidence/4f6de7f265ec37e3-RESULTS.json",
+      "sha256": "4f6de7f265ec37e3b9ce5f16bed1d5dd4e74bdbb9aff7f1a004994b3f3b567df",
+      "bytes": 318531
+    },
+    {
+      "path": "evidence/baff59a164490001-NFI.json",
+      "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+      "bytes": 6222
+    },
+    {
+      "path": "evidence/23c6ecb7ed6ebb02-INPUTS.json",
+      "sha256": "23c6ecb7ed6ebb02f28e295c23348eff29975a68b90cea4ad54c8ab8a311d94e",
+      "bytes": 12721
+    },
+    {
+      "path": "evidence/265883cd25719769-VALIDATION.json",
+      "sha256": "265883cd2571976982b0d82e385bd05b218001bb1783f1674817c7f4c63fd1cc",
+      "bytes": 135488
+    },
+    {
+      "path": "evidence/34454b3890f091ff-EXECUTION.json",
+      "sha256": "34454b3890f091fffdb5db981f6930637fc566f96dce1e0c53494c5ab4405abb",
+      "bytes": 1539
+    },
+    {
+      "path": "evidence/f1ed4e0b8228bc58-PACKAGE-CHECK.json",
+      "sha256": "f1ed4e0b8228bc58a32bdaba693d7090176f70b948e41145a74ec1c785b018ae",
+      "bytes": 6155
+    },
+    {
+      "path": "evidence/0a8b0e917e0f399c-COVERAGE.json",
+      "sha256": "0a8b0e917e0f399c6f5fda7a8ce779cacc778c7a761e14e77bb8a009b8375a81",
+      "bytes": 1266
+    },
+    {
+      "path": "evidence/7d55e6f53c50614f-PRIOR-FREEZE-CHECK.json",
+      "sha256": "7d55e6f53c50614f813cd8bc50d555868f5a5450ae845e924f25907de74f9b26",
+      "bytes": 21285
+    },
+    {
+      "path": "evidence/cc72ad30c64a0f7c-TIMING.json",
+      "sha256": "cc72ad30c64a0f7cb2d198f86d7bf3db833aaa42e2eacae5ea33fb0e7f7936b4",
+      "bytes": 303
+    },
+    {
+      "path": "evidence/3eadceb9931d9741-fold.py",
+      "sha256": "3eadceb9931d9741e6636b8a0a4ce223dd31398ad642a39e7f8245dfd5ced11a",
+      "bytes": 18173
+    },
+    {
+      "path": "evidence/904380251fc13049-run_job.py",
+      "sha256": "904380251fc130490c38afab2937b487c21c4304aded328577de068c26ef4104",
+      "bytes": 1914
+    },
+    {
+      "path": "evidence/747a002bf257778c-package.py",
+      "sha256": "747a002bf257778ce2478552861477229acd1d332dbeeb950c7e5a8ddc663fd0",
+      "bytes": 6833
+    },
+    {
+      "path": "evidence/7486e3770f7273b8-MANIFEST.json",
+      "sha256": "7486e3770f7273b86772738ce7f5da6a506914c801788a5eea7231b9c449d87f",
+      "bytes": 14223
+    },
+    {
+      "path": "evidence/5e0640b0576a0778-MEMBERS-f5-019-common_022d_q.csv",
+      "sha256": "5e0640b0576a0778ebaae12986cb1476e729ff70e59e67ac1f31253fa6f6de4b",
+      "bytes": 186605
+    },
+    {
+      "path": "evidence/8b39bce7c4d03376-MEMBERS-f5-019-operating.csv",
+      "sha256": "8b39bce7c4d03376afa960fa7e294559f5463ac0137048da947d328554c1261f",
+      "bytes": 171217
+    },
+    {
+      "path": "evidence/935910f29ff14543-MEMBERS-f5-019-own_screen.csv",
+      "sha256": "935910f29ff14543a6f6fe8bcd62e8ba6a91ddd6f42aade29160bd0ff2e38525",
+      "bytes": 182484
+    },
+    {
+      "path": "evidence/2db886b19cf324a8-MEMBERS-f5-5-common_022d_q.csv",
+      "sha256": "2db886b19cf324a87503ccbc07da57dbc58acad33643feb1bb8b5d41fc6a7e54",
+      "bytes": 184852
+    },
+    {
+      "path": "evidence/cd0053904c7cc092-MEMBERS-f5-5-operating.csv",
+      "sha256": "cd0053904c7cc09217f223e2812c4613dc04b72a16a4f2514866fe4d1445731a",
+      "bytes": 169330
+    },
+    {
+      "path": "evidence/a7b4671a13e5cade-MEMBERS-f5-5-own_screen.csv",
+      "sha256": "a7b4671a13e5cade71f3ece1e89361a48723574ef073eb41a24a827989f66287",
+      "bytes": 182203
+    }
+  ],
+  "ingested": "2026-10-20T04:07:16-07:00"
+}

@@ -1,0 +1,1508 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "rows": [
+    {
+      "card": "044 / CHECK044",
+      "lead": "P2",
+      "source": {
+        "report": "rpt-1228-mainline044-independent-check-1020",
+        "file": "evidence/247ce0fe0e314a8e-RESULTS.json",
+        "original_file": "evidence/247ce0fe0e314a8e-RESULTS.json",
+        "sha256": "247ce0fe0e314a8e402743e76b03237a9501719e95d1031dd93d9ca8f66b9576",
+        "selector": "/headlines"
+      },
+      "mass_delta_kg": 36.661200272130486,
+      "mass_without_old_plate_credit_kg": 40.075233911001774,
+      "credit_required_kg": 3.414033639,
+      "least_SF_effect": "Original six-pad core SF .714286; combined R10 scarf sensitivity .9891. Conditional resized pad/scarf candidate does not qualify life.",
+      "updated_048_least_SF": null,
+      "transfer_scope": "044's old R10 six-pad spectrum is not 048's resized single heavy pad or R30; reprice on the selected geometry.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "qualified_installed_life": null
+    },
+    {
+      "card": "044 / CHECK044",
+      "lead": "P3",
+      "mass_delta_kg": null,
+      "least_SF_effect": "Not calculated for P3 by 044; no film/frame life closure follows.",
+      "qualified_least_SF": null,
+      "transfer_scope": "No transfer of Be/honeycomb pad or scarf result to the SiC/PBO frame.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "qualified_installed_life": null
+    },
+    {
+      "card": "045",
+      "lead": "P2",
+      "source": {
+        "report": "rpt-ref-57c98dcce7960aca042a",
+        "file": "evidence/0f190506f5c765cf-RESULTS.json",
+        "original_file": "evidence/0f190506f5c765cf-RESULTS.json",
+        "sha256": "0f190506f5c765cf0a0da865aeade0b58acfc60a8a7461f9afa98885c5fd6376",
+        "selector": "/answer"
+      },
+      "mass_delta_kg": null,
+      "example_shield_kg": 25,
+      "original_028b_margin_kg": 14.580615772865713,
+      "vent_air_kg": 2645.6600292227477,
+      "least_SF_effect": "Crushed-core growth is a local loss of load capacity; a 25 kg shield needs usage1.021 on the old bill. Venting admits2645.660kg and ends the evacuated float condition.",
+      "updated_048_least_SF": null,
+      "transfer_scope": "028b damage geometry and 14.581kg margin; not the new 048 coated account. Barrier protection and vent hardware are unpriced/unqualified.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "qualified_installed_life": null
+    },
+    {
+      "card": "045",
+      "lead": "P3",
+      "source": {
+        "report": "rpt-ref-57c98dcce7960aca042a",
+        "file": "evidence/0f190506f5c765cf-RESULTS.json",
+        "original_file": "evidence/0f190506f5c765cf-RESULTS.json",
+        "sha256": "0f190506f5c765cf0a0da865aeade0b58acfc60a8a7461f9afa98885c5fd6376",
+        "selector": "/answer"
+      },
+      "mass_delta_kg": null,
+      "example_protection_kg": 100,
+      "lost_member_film_SF": 0.8388349843718808,
+      "least_SF_effect": "Lost member: filmSF.838835. CHECK045 all-edge linear stress range1.959485–3.270739; selected cases2.427–3.271. Improved old022d witnesses: 1.5mm wallsSF.805476, 2mmSF.483053, tear filmSF.975445 at848.604kg. None reaches1; not a global optimum proof.",
+      "checked_tear_film_kg": 848.604,
+      "checked_wall_1p5_SF": 0.805476,
+      "checked_wall_2_SF": 0.483053,
+      "updated_041_least_SF": null,
+      "transfer_scope": "Old022d section and f4/f5 member-loss surrogates; no directly qualified damaged041 capacity.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "qualified_installed_life": null
+    },
+    {
+      "card": "046 / CHECK046",
+      "lead": "P2",
+      "mass_delta_kg": null,
+      "least_SF_effect": "PBO film ageing is not a Be/honeycomb life calculation.",
+      "qualified_least_SF": null,
+      "transfer_scope": "No change to P2 SF established; 044 and bond/cure/finish life questions remain.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "qualified_installed_life": null
+    },
+    {
+      "card": "046 / CHECK046",
+      "lead": "P3",
+      "source": {
+        "report": "rpt-ref-b6da4592385c83f4db2a",
+        "file": "evidence/aad6f5987d63ba88-RESULTS.json",
+        "original_file": "evidence/aad6f5987d63ba88-RESULTS.json",
+        "sha256": "aad6f5987d63ba8894eb8e2656b7863346d3897c33bb6b3ff46081a2603fd5ed",
+        "selector": "/peak_service"
+      },
+      "OD4_white_package_kg": 95.751050702,
+      "hot_fiber_additions_kg": [
+        0.713771403,
+        9.165385273
+      ],
+      "closure_delta_ranges_kg": [
+        [
+          31.464822105,
+          51.464822105
+        ],
+        [
+          39.916435975,
+          59.916435975
+        ]
+      ],
+      "least_SF_effect": "At041-5/019, warehouse ten-year filmSF=.985018/.933256; hot/full-restraint target=.995706/.944784. These fall below the unchanged intact screens. A film-only SF1 fix does not restore the019 local-shell sensitivity .978132.",
+      "qualified_least_SF": null,
+      "transfer_scope": "Direct041 film geometry, with frame held fixed and reserve retained; whole-vehicle reclosure still open.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "qualified_installed_life": null
+    }
+  ],
+  "damage_answer_045": {
+    "p2_gamma_unaffected_below_lambda": 0.6309701457716703,
+    "p2_patch_critical_diameter_m": {
+      "clamped": 0.05477999083256553,
+      "ss": 0.027127598072411194
+    },
+    "p2_design_hail": {
+      "fluid rho v2": {
+        "depth_m": 0.00039071160817356253,
+        "crushed_diameter_m": 0.08086510609617895,
+        "clamped": "stable",
+        "ss": "grows"
+      },
+      "Shi-calibrated k rho v2": {
+        "depth_m": 0.0016753843391029098,
+        "crushed_diameter_m": 0.08086510609617895,
+        "clamped": "grows",
+        "ss": "grows"
+      },
+      "all energy to the panel": {
+        "depth_m": 0.005430417308869799,
+        "crushed_diameter_m": 0.08086510609617895,
+        "clamped": "grows",
+        "ss": "grows"
+      }
+    },
+    "p2_mass_margin_kg": 14.580615772865713,
+    "p2_vent_fraction_for_design_hail": 0.45890373150418806,
+    "p2_air_admitted_kg": 2645.6600292227477,
+    "p3_design_hail_tube_fracture_per_strike": {
+      "tube C-ring flexure": 0.011321397848186643,
+      "tube sectored flexure": 0.05277275756547162,
+      "Hexoloy SA 4-pt bars": 3.2885135524685083e-06
+    },
+    "p3_member_loss_stress_ratio": [
+      2.4274675503841734,
+      3.2707393900497066
+    ],
+    "p3_merged_bay_film_SF": 0.8388349843718808,
+    "p3_tear_half_length_range_m": [
+      6.7412780706048785e-06,
+      0.0019085307248779145
+    ],
+    "p3_torn_bay_touchdown_m_s": [
+      23.09036312891972,
+      34.587475082131604
+    ],
+    "puncture_dp_max_ratio": 1.01104440402543,
+    "hole_for_0914_touchdown_m": [
+      0.06310093448065347,
+      0.06560676741241875
+    ],
+    "landing_valve_m": {
+      "0.914": 0.06993774843963013,
+      "2.0": 0.10345549108836496,
+      "7.5": 0.20034069702947366
+    }
+  },
+  "film_life_rows": [
+    {
+      "point": "022d-5",
+      "initial": {
+        "id": "022d-5",
+        "sf0": 1.258252476557821,
+        "film_kg": 214.54155754530413,
+        "gauge_m": 0.00010944022237810727,
+        "curvature_m": 3.1707585691074884,
+        "seam_m": 1378.7121224207638,
+        "nodes": 146.3287607564972,
+        "reserve_kg": 244.4721075095,
+        "sag_lift_kg": 99.72041870184702,
+        "closure_kg": 4889.44215019,
+        "overall_source_sf": 1.258252476557821,
+        "stress_total_gauge_equivalent_Pa": 1382870316.1070561,
+        "stress_in_each_half_thickness_ply_Pa": 2765740632.2141123,
+        "fraction_of_5p8_GPa_fiber_strength": 0.47685183314036417,
+        "minimum_nominal_retention": 0.7947530552339402,
+        "maximum_nominal_loss_fraction": 0.20524694476605976,
+        "maximum_constant_log_loss_per_year_for_ten_years": 0.022972383492816398,
+        "maximum_compounded_fractional_loss_per_year_for_ten_years": 0.022710527277650994
+      },
+      "ten_year_laws": {
+        "outdoor_uncovered": {
+          "scenario": "outdoor_uncovered",
+          "point": "022d-5",
+          "age_years": 10,
+          "retained_fraction": 0.017400954439353654,
+          "effective_total_gauge_strength_GPa": 0.030277660724475356,
+          "half_ply_assumed_strength_GPa": 0.06055532144895071,
+          "film_SF": 0.021894794017786542,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "light_blocked_humid_40C80RH_proxy": {
+          "scenario": "light_blocked_humid_40C80RH_proxy",
+          "point": "022d-5",
+          "age_years": 10,
+          "retained_fraction": 0.6249170434393839,
+          "effective_total_gauge_strength_GPa": 1.087355655584528,
+          "half_ply_assumed_strength_GPa": 2.174711311169056,
+          "film_SF": 0.7863034175507961,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "light_blocked_warehouse_endpoint_exponential": {
+          "scenario": "light_blocked_warehouse_endpoint_exponential",
+          "point": "022d-5",
+          "age_years": 10,
+          "retained_fraction": 0.8615688736605606,
+          "effective_total_gauge_strength_GPa": 1.4991298401693753,
+          "half_ply_assumed_strength_GPa": 2.9982596803387507,
+          "film_SF": 1.0840711690085327,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "sealed_argon_55C_loss_ceiling_extrapolation": {
+          "scenario": "sealed_argon_55C_loss_ceiling_extrapolation",
+          "point": "022d-5",
+          "age_years": 10,
+          "retained_fraction": 0.49187771366140615,
+          "effective_total_gauge_strength_GPa": 0.8558672217708467,
+          "half_ply_assumed_strength_GPa": 1.7117344435416935,
+          "film_SF": 0.6189063513780629,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "dry_protection_acceptance_target": {
+          "scenario": "dry_protection_acceptance_target",
+          "point": "022d-5",
+          "age_years": 10,
+          "retained_fraction": 0.9511101304657719,
+          "effective_total_gauge_strength_GPa": 1.654931627010443,
+          "half_ply_assumed_strength_GPa": 3.309863254020886,
+          "film_SF": 1.1967366771377896,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        }
+      },
+      "ten_year_hot": {
+        "point": "022d-5",
+        "age_years": 10,
+        "irreversible_retention": 0.9511101304657719,
+        "pressure_only_hot_SF": 1.1276818530176025,
+        "full_restraint_hot_SF": 1.092730518506035,
+        "full_restraint_added_ply_stress_MPa": 90.50168812901336,
+        "fiber_mass_kg_for_hot_SF1": 195.8038114912189,
+        "extra_fiber_mass_kg_for_hot_SF1": 0
+      },
+      "minimum_including_unchanged_local_sensitivity": {
+        "outdoor_uncovered": 0.021894794017786542,
+        "light_blocked_humid_40C80RH_proxy": 0.7863034175507961,
+        "light_blocked_warehouse_endpoint_exponential": 1.0840711690085327,
+        "sealed_argon_55C_loss_ceiling_extrapolation": 0.6189063513780629,
+        "dry_protection_acceptance_target": 1.1967366771377896
+      },
+      "hot_minimum_including_unchanged_local_sensitivity": 1.092730518506035
+    },
+    {
+      "point": "041-5",
+      "initial": {
+        "id": "041-5",
+        "sf0": 1.1432846186728538,
+        "film_kg": 160.8308667208401,
+        "gauge_m": 8.204175461658818e-05,
+        "curvature_m": 2.6159809746514977,
+        "seam_m": 1799.676623909088,
+        "nodes": 252,
+        "reserve_kg": 244.4721075095,
+        "sag_lift_kg": 73.10073311528532,
+        "closure_kg": 4889.442150189992,
+        "overall_source_sf": 1.1432846186728538,
+        "local_peak_sensitivity_sf": 1.0332229353106797,
+        "stress_total_gauge_equivalent_Pa": 1521930734.9904037,
+        "stress_in_each_half_thickness_ply_Pa": 3043861469.9808073,
+        "fraction_of_5p8_GPa_fiber_strength": 0.5248037017208288,
+        "minimum_nominal_retention": 0.8746728362013816,
+        "maximum_nominal_loss_fraction": 0.1253271637986184,
+        "maximum_constant_log_loss_per_year_for_ten_years": 0.013390536402724692,
+        "maximum_compounded_fractional_loss_per_year_for_ten_years": 0.013301282002402437
+      },
+      "ten_year_laws": {
+        "outdoor_uncovered": {
+          "scenario": "outdoor_uncovered",
+          "point": "041-5",
+          "age_years": 10,
+          "retained_fraction": 0.017400954439353654,
+          "effective_total_gauge_strength_GPa": 0.030277660724475356,
+          "half_ply_assumed_strength_GPa": 0.06055532144895071,
+          "film_SF": 0.019894243560740144,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "light_blocked_humid_40C80RH_proxy": {
+          "scenario": "light_blocked_humid_40C80RH_proxy",
+          "point": "041-5",
+          "age_years": 10,
+          "retained_fraction": 0.6249170434393839,
+          "effective_total_gauge_strength_GPa": 1.087355655584528,
+          "half_ply_assumed_strength_GPa": 2.174711311169056,
+          "film_SF": 0.7144580437107633,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "light_blocked_warehouse_endpoint_exponential": {
+          "scenario": "light_blocked_warehouse_endpoint_exponential",
+          "point": "041-5",
+          "age_years": 10,
+          "retained_fraction": 0.8615688736605606,
+          "effective_total_gauge_strength_GPa": 1.4991298401693753,
+          "half_ply_assumed_strength_GPa": 2.9982596803387507,
+          "film_SF": 0.9850184411834141,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "sealed_argon_55C_loss_ceiling_extrapolation": {
+          "scenario": "sealed_argon_55C_loss_ceiling_extrapolation",
+          "point": "041-5",
+          "age_years": 10,
+          "retained_fraction": 0.49187771366140615,
+          "effective_total_gauge_strength_GPa": 0.8558672217708467,
+          "half_ply_assumed_strength_GPa": 1.7117344435416935,
+          "film_SF": 0.5623562242970559,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "dry_protection_acceptance_target": {
+          "scenario": "dry_protection_acceptance_target",
+          "point": "041-5",
+          "age_years": 10,
+          "retained_fraction": 0.9511101304657719,
+          "effective_total_gauge_strength_GPa": 1.654931627010443,
+          "half_ply_assumed_strength_GPa": 3.309863254020886,
+          "film_SF": 1.0873895828254483,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        }
+      },
+      "ten_year_hot": {
+        "point": "041-5",
+        "age_years": 10,
+        "irreversible_retention": 0.9511101304657719,
+        "pressure_only_hot_SF": 1.0246443709282707,
+        "full_restraint_hot_SF": 0.9957063689495029,
+        "full_restraint_added_ply_stress_MPa": 90.50168812901336,
+        "fiber_mass_kg_for_hot_SF1": 161.54463812407434,
+        "extra_fiber_mass_kg_for_hot_SF1": 0.7137714032342382
+      },
+      "minimum_including_unchanged_local_sensitivity": {
+        "outdoor_uncovered": 0.019894243560740144,
+        "light_blocked_humid_40C80RH_proxy": 0.7144580437107633,
+        "light_blocked_warehouse_endpoint_exponential": 0.9850184411834141,
+        "sealed_argon_55C_loss_ceiling_extrapolation": 0.5623562242970559,
+        "dry_protection_acceptance_target": 1.0332229353106797
+      },
+      "hot_minimum_including_unchanged_local_sensitivity": 0.9957063689495029
+    },
+    {
+      "point": "041-019",
+      "initial": {
+        "id": "041-019",
+        "sf0": 1.0832053544272742,
+        "film_kg": 152.37925285081053,
+        "gauge_m": 7.773048498671885e-05,
+        "curvature_m": 2.6159809746514977,
+        "seam_m": 1799.676623909088,
+        "nodes": 252,
+        "reserve_kg": 411.2989440716474,
+        "sag_lift_kg": 73.10073311528532,
+        "closure_kg": 4889.442150190002,
+        "overall_source_sf": 1.083205354427274,
+        "local_peak_sensitivity_sf": 0.9781320167916636,
+        "stress_total_gauge_equivalent_Pa": 1606343610.5520308,
+        "stress_in_each_half_thickness_ply_Pa": 3212687221.1040616,
+        "fraction_of_5p8_GPa_fiber_strength": 0.5539115898455279,
+        "minimum_nominal_retention": 0.9231859830758798,
+        "maximum_nominal_loss_fraction": 0.07681401692412015,
+        "maximum_constant_log_loss_per_year_for_ten_years": 0.007992456632029772,
+        "maximum_compounded_fractional_loss_per_year_for_ten_years": 0.007960601872943007
+      },
+      "ten_year_laws": {
+        "outdoor_uncovered": {
+          "scenario": "outdoor_uncovered",
+          "point": "041-019",
+          "age_years": 10,
+          "retained_fraction": 0.017400954439353654,
+          "effective_total_gauge_strength_GPa": 0.030277660724475356,
+          "half_ply_assumed_strength_GPa": 0.06055532144895071,
+          "film_SF": 0.018848807020852926,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "light_blocked_humid_40C80RH_proxy": {
+          "scenario": "light_blocked_humid_40C80RH_proxy",
+          "point": "041-019",
+          "age_years": 10,
+          "retained_fraction": 0.6249170434393839,
+          "effective_total_gauge_strength_GPa": 1.087355655584528,
+          "half_ply_assumed_strength_GPa": 2.174711311169056,
+          "film_SF": 0.6769134875264021,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "light_blocked_warehouse_endpoint_exponential": {
+          "scenario": "light_blocked_warehouse_endpoint_exponential",
+          "point": "041-019",
+          "age_years": 10,
+          "retained_fraction": 0.8615688736605606,
+          "effective_total_gauge_strength_GPa": 1.4991298401693753,
+          "half_ply_assumed_strength_GPa": 2.9982596803387507,
+          "film_SF": 0.9332560171569949,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "sealed_argon_55C_loss_ceiling_extrapolation": {
+          "scenario": "sealed_argon_55C_loss_ceiling_extrapolation",
+          "point": "041-019",
+          "age_years": 10,
+          "retained_fraction": 0.49187771366140615,
+          "effective_total_gauge_strength_GPa": 0.8558672217708467,
+          "half_ply_assumed_strength_GPa": 1.7117344435416935,
+          "film_SF": 0.5328045731614808,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        },
+        "dry_protection_acceptance_target": {
+          "scenario": "dry_protection_acceptance_target",
+          "point": "041-019",
+          "age_years": 10,
+          "retained_fraction": 0.9511101304657719,
+          "effective_total_gauge_strength_GPa": 1.654931627010443,
+          "half_ply_assumed_strength_GPa": 3.309863254020886,
+          "film_SF": 1.0302475859705473,
+          "qualified_strength_Pa": null,
+          "qualified_SF": null
+        }
+      },
+      "ten_year_hot": {
+        "point": "041-019",
+        "age_years": 10,
+        "irreversible_retention": 0.9511101304657719,
+        "pressure_only_hot_SF": 0.9707996161635252,
+        "full_restraint_hot_SF": 0.9447844600903462,
+        "full_restraint_added_ply_stress_MPa": 90.50168812901336,
+        "fiber_mass_kg_for_hot_SF1": 161.5446381240743,
+        "extra_fiber_mass_kg_for_hot_SF1": 9.16538527326379
+      },
+      "minimum_including_unchanged_local_sensitivity": {
+        "outdoor_uncovered": 0.018848807020852926,
+        "light_blocked_humid_40C80RH_proxy": 0.6769134875264021,
+        "light_blocked_warehouse_endpoint_exponential": 0.9332560171569949,
+        "sealed_argon_55C_loss_ceiling_extrapolation": 0.5328045731614808,
+        "dry_protection_acceptance_target": 0.9781320167916636
+      },
+      "hot_minimum_including_unchanged_local_sensitivity": 0.9447844600903462
+    }
+  ],
+  "pad_life_044": {
+    "pad_core_static_SF": 0.7142857142857143,
+    "pad_plate_only_index_days": 949.8463929647498,
+    "rigid_ambient_min_L_index_days": 3697.149914483174,
+    "rigid_ambient_min_W_index_days": 3989.1412478726697,
+    "free_edge_200F_min_W_index_days": 18816.049843344892,
+    "relative_strict_pad_and_scarf_added_kg": 36.661200272130486,
+    "conditional_no_old_plate_credit_added_kg": 40.075233911001774,
+    "qualified_hull_life_days": null
+  },
+  "CHECK046_water": {
+    "coupon_water_kg_year": 458.672527,
+    "with_weighted_leakage_kg_year": 459.261468
+  },
+  "CHECK045": {
+    "results": {
+      "status": "COMPLETE_WITH_CORRECTIONS",
+      "tag": "QUESTIONABLE",
+      "certification": null,
+      "installed_damage_tolerance": null,
+      "checks": {
+        "total": 1358,
+        "passed": 1287,
+        "different": 71,
+        "arithmetic": 895,
+        "trajectory": 311,
+        "selected_frame": 56,
+        "audit": 96,
+        "explicit_findings": 88,
+        "input_pins": 72,
+        "source_files": 46
+      },
+      "main_conclusion": "No demonstrated installed damage tolerance for either lead; main conditional danger screens reproduce.",
+      "p2_patch_critical_diameter_m": {
+        "clamped": {
+          "D_crit_m": 0.05477999083256553
+        },
+        "ss": {
+          "D_crit_m": 0.027127598072411198
+        }
+      },
+      "p2_design_hail_depths_m": {
+        "fluid rho v2": 0.00039071160817356253,
+        "Shi-calibrated k rho v2": 0.0016753843391029098,
+        "all energy to the panel": 0.005430417308869799
+      },
+      "p2_vent_fraction": 0.45890373150418806,
+      "p2_vent_air_kg": 2645.660029222747,
+      "p2_vent_seconds": 614.0670729964407,
+      "p3_nominal_SF": 1.2582524765568135,
+      "p3_perry_SF": 3.454499160200503,
+      "p3_sampled_frame_reproduced": true,
+      "p3_all_orbits_tension_range_MPa": [
+        0.0,
+        1019.3722396461247
+      ],
+      "hole_threshold_m": {
+        "v0.914_cd0.47": 0.06310093409874737,
+        "v4.2_cd0.47": 0.14697223847740376,
+        "v0.914_cd0.2": 0.06560677030011354,
+        "v4.2_cd0.2": 0.1302264084762476
+      },
+      "nfi_new": 15,
+      "nfi_inherited": 16,
+      "all_nfi_nonblocking": true,
+      "owner_code_read_or_run": false
+    },
+    "source": {
+      "report": "rpt-ref-e0fc07c506c86dae19c1",
+      "file": "evidence/db1d09deb67905e0-CARD.md",
+      "original_file": "evidence/db1d09deb67905e0-CARD.md",
+      "sha256": "db1d09deb67905e02776e14dc7b54117bb12cd47f2569a46a108b17a22c21103",
+      "selector": "/"
+    },
+    "exact_findings": {
+      "report": "rpt-ref-e0fc07c506c86dae19c1",
+      "file": "evidence/ab67a5776e8e19ef-MISMATCHES.json",
+      "original_file": "evidence/ab67a5776e8e19ef-MISMATCHES.json",
+      "sha256": "ab67a5776e8e19ef098677459780b4502ea1178634165634c0c07272f850c206",
+      "selector": "/"
+    },
+    "findings": [
+      {
+        "path": "COMPUTE/p2/calibration/pach/test_depth_m",
+        "owner": 1.1,
+        "independent": 0.0011,
+        "difference": -1.0989,
+        "relative_tolerance": 2e-07,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "COMPUTE/p2/pricing/patch/3/feasible",
+        "owner": true,
+        "independent": false,
+        "difference": null,
+        "relative_tolerance": 2e-07,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "COMPUTE/p2/pricing/patch/6/feasible",
+        "owner": true,
+        "independent": false,
+        "difference": null,
+        "relative_tolerance": 2e-07,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "COMPUTE/p2/pricing/denser_core/0/feasible",
+        "owner": true,
+        "independent": false,
+        "difference": null,
+        "relative_tolerance": 2e-07,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "COMPUTE/p2/pricing/denser_core/1/feasible",
+        "owner": true,
+        "independent": false,
+        "difference": null,
+        "relative_tolerance": 2e-07,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "COMPUTE/p2/pricing/denser_core/2/feasible",
+        "owner": true,
+        "independent": false,
+        "difference": null,
+        "relative_tolerance": 2e-07,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "COMPUTE/p2/pricing/denser_core/3/feasible",
+        "owner": true,
+        "independent": false,
+        "difference": null,
+        "relative_tolerance": 2e-07,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "DET/p3/modes/perry",
+        "owner": 4.0958179358775295,
+        "independent": 3.454499160200503,
+        "difference": -0.6413187756770267,
+        "relative_tolerance": 3e-06,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "arithmetic_or_label"
+      },
+      {
+        "path": "COMPUTE/p3/film/stop_25mm_slit/E_81GPa/film_kg",
+        "owner": 881.2220755959133,
+        "independent": 881.6798416511251,
+        "difference": 0.4577660552117777,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/film/stop_25mm_slit/E_180GPa/SF",
+        "owner": 0.9752050521142835,
+        "independent": 0.9754447039773477,
+        "difference": 0.00023965186306418307,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/film/stop_25mm_slit/E_180GPa/film_kg",
+        "owner": 880.5338336513306,
+        "independent": 848.604492104353,
+        "difference": -31.92934154697764,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/0/strikes_to_half_shi/tube C-ring flexure",
+        "owner": 1272.2040564351516,
+        "independent": 1271.8574556364124,
+        "difference": -0.3466007987392459,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/0/strikes_to_half_shi/tube sectored flexure",
+        "owner": 484.448386329987,
+        "independent": 484.1017319782784,
+        "difference": -0.3466543517085938,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/1/strikes_to_half_shi/tube C-ring flexure",
+        "owner": 272.1787412224585,
+        "independent": 271.83202125649444,
+        "difference": -0.3467199659640414,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/1/strikes_to_half_shi/tube sectored flexure",
+        "owner": 76.8512279441337,
+        "independent": 76.50413132072087,
+        "difference": -0.3470966234128241,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/2/strikes_to_half_shi/tube C-ring flexure",
+        "owner": 89.60796617131169,
+        "independent": 89.26094433399125,
+        "difference": -0.34702183732044034,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/2/strikes_to_half_shi/tube sectored flexure",
+        "owner": 20.5517803063225,
+        "independent": 20.203225085546514,
+        "difference": -0.3485552207759852,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/3/strikes_to_half_shi/tube C-ring flexure",
+        "owner": 36.19836286440315,
+        "independent": 35.850672609283365,
+        "difference": -0.3476902551197867,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/3/strikes_to_half_shi/tube sectored flexure",
+        "owner": 7.140538295013602,
+        "independent": 6.7880675020117724,
+        "difference": -0.3524707930018298,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/4/strikes_to_half_shi/tube C-ring flexure",
+        "owner": 17.62344110250715,
+        "independent": 17.274549901924708,
+        "difference": -0.34889120058244316,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/4/strikes_to_half_shi/tube sectored flexure",
+        "owner": 3.196091839384156,
+        "independent": 2.835411691855686,
+        "difference": -0.3606801475284698,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/5/strikes_to_half_shi/tube C-ring flexure",
+        "owner": 9.134098671120476,
+        "independent": 8.782967015590593,
+        "difference": -0.35113165552988335,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/5/strikes_to_half_shi/tube sectored flexure",
+        "owner": 1.6410350722974325,
+        "independent": 1.2629169169623877,
+        "difference": -0.3781181553350448,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/5/strikes_to_half_shi/Hexoloy SA 4-pt bars",
+        "owner": 3133.404575157448,
+        "independent": 3133.058011661284,
+        "difference": -0.34656349616398074,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/6/strikes_to_half_shi/tube C-ring flexure",
+        "owner": 61.224522789027084,
+        "independent": 60.87729172503565,
+        "difference": -0.3472310639914369,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/tube_hail/6/strikes_to_half_shi/tube sectored flexure",
+        "owner": 13.134564357377082,
+        "independent": 12.78485931819346,
+        "difference": -0.34970503918362184,
+        "relative_tolerance": 3e-05,
+        "absolute_tolerance": 1e-13,
+        "pass_": false,
+        "note": "",
+        "category": "rare_event_approximation"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/1/SF",
+        "owner": 1.1968928565172503,
+        "independent": 1.200403167177056,
+        "difference": 0.003510310659805782,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/1/s",
+        "owner": 3.1009801514822666,
+        "independent": 3.148327982800433,
+        "difference": 0.047347831318166556,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/1/OD",
+        "owner": 0.26981129471785137,
+        "independent": 0.2711595631707049,
+        "difference": 0.0013482684528535183,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/1/wall",
+        "owner": 0.0010997114285240805,
+        "independent": 0.0011086977982640855,
+        "difference": 8.986369740004996e-06,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/1/film_kg",
+        "owner": 347.28335642272526,
+        "independent": 353.61999272543613,
+        "difference": 6.336636302710872,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/1/tube_kg",
+        "owner": 4056.3351009399807,
+        "independent": 4048.563881023718,
+        "difference": -7.771219916262908,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/5/s",
+        "owner": 2.1424110691595164,
+        "independent": 2.1430876367132035,
+        "difference": 0.0006765675536870575,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/5/OD",
+        "owner": 0.22547692470361413,
+        "independent": 0.22550051540364532,
+        "difference": 2.3590700031189682e-05,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/5/wall",
+        "owner": 0.0007996559245376927,
+        "independent": 0.0007997545026081493,
+        "difference": 9.857807045654532e-08,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/5/film_kg",
+        "owner": 882.7200782596385,
+        "independent": 883.0135221066973,
+        "difference": 0.29344384705882476,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/film_allowable/5/tube_kg",
+        "owner": 3562.0961389052736,
+        "independent": 3561.787293280231,
+        "difference": -0.30884562504252244,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/0/SF",
+        "owner": 0.8001885158324694,
+        "independent": 0.8054760968287314,
+        "difference": 0.005287580996262031,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/0/s",
+        "owner": 2.488706262038045,
+        "independent": 2.4972791139509285,
+        "difference": 0.008572851912883372,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/0/OD",
+        "owner": 0.16971627888559473,
+        "independent": 0.17087767665147066,
+        "difference": 0.0011613977658759267,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/1/SF",
+        "owner": 0.4690595762141611,
+        "independent": 0.48305251413348677,
+        "difference": 0.013992937919325654,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/1/s",
+        "owner": 1.886949096579991,
+        "independent": 1.9162376949097724,
+        "difference": 0.029288598329781257,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/1/OD",
+        "owner": 0.09856696443310095,
+        "independent": 0.10149779351114809,
+        "difference": 0.002930829078047134,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/2/SF",
+        "owner": null,
+        "independent": 0.22330397701713248,
+        "difference": null,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/2/s",
+        "owner": null,
+        "independent": 1.2966474483877484,
+        "difference": null,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/wall_min/2/OD",
+        "owner": null,
+        "independent": 0.04839162968617212,
+        "difference": null,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "COMPUTE/p3/pricing/extra_mass/3/SF",
+        "owner": 1.10586666683298,
+        "independent": 1.1058994537094162,
+        "difference": 3.278687643626377e-05,
+        "relative_tolerance": 2e-05,
+        "absolute_tolerance": 1e-10,
+        "pass_": false,
+        "note": "",
+        "category": "search_witness_difference"
+      },
+      {
+        "path": "leak/holes/0/p2_cd0.47/t_first_half_kg_s",
+        "owner": 4650.414108836426,
+        "independent": 4641.792545854732,
+        "difference": -8.621562981693387,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/0/p3_cd0.47/t_first_half_kg_s",
+        "owner": 4650.414108836426,
+        "independent": 4641.792545854732,
+        "difference": -8.621562981693387,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/1/p2_cd0.47/t_first_half_kg_s",
+        "owner": 523.6207125673055,
+        "independent": 515.7547612517997,
+        "difference": -7.865951315505868,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/1/p3_cd0.47/t_first_half_kg_s",
+        "owner": 523.6207125673055,
+        "independent": 515.7547612517997,
+        "difference": -7.865951315505868,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/1/p2_cd0.2/t_first_half_kg_s",
+        "owner": 522.6539975755137,
+        "independent": 515.7547555090674,
+        "difference": -6.899242066446277,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/1/p3_cd0.2/t_first_half_kg_s",
+        "owner": 522.6539975755137,
+        "independent": 515.7547555090674,
+        "difference": -6.899242066446277,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/2/p2_cd0.47/t_first_half_kg_s",
+        "owner": 51.161640212630445,
+        "independent": 46.4202881890714,
+        "difference": -4.741352023559045,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/2/p3_cd0.47/t_first_half_kg_s",
+        "owner": 51.161640212630445,
+        "independent": 46.4202881890714,
+        "difference": -4.741352023559045,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/2/p2_cd0.2/t_first_half_kg_s",
+        "owner": 51.17063167934207,
+        "independent": 46.42028811423382,
+        "difference": -4.750343565108253,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/2/p3_cd0.2/t_first_half_kg_s",
+        "owner": 51.17063167934207,
+        "independent": 46.42028811423382,
+        "difference": -4.750343565108253,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/3/p2_cd0.47/t_first_half_kg_s",
+        "owner": 7.8898280210446865,
+        "independent": 5.15784146801551,
+        "difference": -2.7319865530291763,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/3/p3_cd0.47/t_first_half_kg_s",
+        "owner": 7.8898280210446865,
+        "independent": 5.15784146801551,
+        "difference": -2.7319865530291763,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/3/p2_cd0.2/t_first_half_kg_s",
+        "owner": 7.722080571801773,
+        "independent": 5.157841468014107,
+        "difference": -2.564239103787666,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/3/p3_cd0.2/t_first_half_kg_s",
+        "owner": 7.722080571801773,
+        "independent": 5.157841468014107,
+        "difference": -2.564239103787666,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/4/p2_cd0.47/t_first_half_kg_s",
+        "owner": 0.7701639924606151,
+        "independent": 0.46420576912413986,
+        "difference": -0.3059582233364752,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/4/p3_cd0.47/t_first_half_kg_s",
+        "owner": 0.7701639924606151,
+        "independent": 0.46420576912413986,
+        "difference": -0.3059582233364752,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/4/p2_cd0.2/t_first_half_kg_s",
+        "owner": 0.7701639924606151,
+        "independent": 0.46420576912414274,
+        "difference": -0.3059582233364723,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/holes/4/p3_cd0.2/t_first_half_kg_s",
+        "owner": 0.7701639924606151,
+        "independent": 0.46420576912414274,
+        "difference": -0.3059582233364723,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "Independent DOP853 integration; event times are rooted rather than sampled.",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/big/0/t_first_half_kg_s",
+        "owner": 0.0015353764121057204,
+        "independent": 0.0008374780429666336,
+        "difference": -0.0006978983691390868,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/big/1/t_first_half_kg_s",
+        "owner": 0.0015353764121057204,
+        "independent": 0.0008374780429666336,
+        "difference": -0.0006978983691390868,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/big/2/t_first_half_kg_s",
+        "owner": 0.4962890672926076,
+        "independent": 0.05157841882474991,
+        "difference": -0.4447106484678577,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/big/3/t_first_half_kg_s",
+        "owner": 0.4962890672926076,
+        "independent": 0.05157841882474991,
+        "difference": -0.4447106484678577,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/big/4/t_first_half_kg_s",
+        "owner": 0.008510439106152182,
+        "independent": 0.004642057694264516,
+        "difference": -0.003868381411887666,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "leak/big/5/t_first_half_kg_s",
+        "owner": 0.008510439106152182,
+        "independent": 0.004642057694264516,
+        "difference": -0.003868381411887666,
+        "relative_tolerance": 0.001,
+        "absolute_tolerance": 2e-05,
+        "pass_": false,
+        "note": "",
+        "category": "sampled_event_time"
+      },
+      {
+        "path": "COMPUTE/threats/hail_iec/1/m_kg",
+        "owner": 0.020662320000000005,
+        "independent": 0.0207,
+        "difference": 3.76799999999948e-05,
+        "category": "primary_source_input",
+        "note": "IEC 61215-2:2016 Table 3 prints all six masses; original computation substituted constant-density masses."
+      },
+      {
+        "path": "COMPUTE/threats/hail_iec/1/E_J",
+        "owner": 7.643405414400001,
+        "independent": 7.657343999999999,
+        "difference": 0.013938585599998277,
+        "category": "primary_source_input",
+        "note": "IEC 61215-2:2016 Table 3 prints all six masses; original computation substituted constant-density masses."
+      },
+      {
+        "path": "COMPUTE/threats/hail_iec/3/m_kg",
+        "owner": 0.08017944,
+        "independent": 0.0802,
+        "difference": 2.055999999998892e-05,
+        "category": "primary_source_input",
+        "note": "IEC 61215-2:2016 Table 3 prints all six masses; original computation substituted constant-density masses."
+      },
+      {
+        "path": "COMPUTE/threats/hail_iec/3/E_J",
+        "owner": 46.0715071212,
+        "independent": 46.08332099999999,
+        "difference": 0.011813878799991073,
+        "category": "primary_source_input",
+        "note": "IEC 61215-2:2016 Table 3 prints all six masses; original computation substituted constant-density masses."
+      },
+      {
+        "path": "COMPUTE/threats/hail_iec/4/m_kg",
+        "owner": 0.13234728,
+        "independent": 0.132,
+        "difference": -0.00034728000000000536,
+        "category": "primary_source_input",
+        "note": "IEC 61215-2:2016 Table 3 prints all six masses; original computation substituted constant-density masses."
+      },
+      {
+        "path": "COMPUTE/threats/hail_iec/4/E_J",
+        "owner": 89.12861397960002,
+        "independent": 88.89474000000001,
+        "difference": -0.23387397960000555,
+        "category": "primary_source_input",
+        "note": "IEC 61215-2:2016 Table 3 prints all six masses; original computation substituted constant-density masses."
+      },
+      {
+        "path": "CARD/P2 growth table/55 mm/clamped",
+        "owner": "deeper than the core",
+        "independent": "19.176311 mm, below the 23.237218 mm core depth",
+        "category": "prose"
+      },
+      {
+        "path": "NFI-045-DENT-MODEL/calibration",
+        "owner": "model reads Pach within 1.1–1.2 mm and 30 mm",
+        "independent": "model is 1.489009–1.541057 mm deep, 21.879845–27.046444 mm wide; test is 1.1–1.2 mm by about 30 mm",
+        "category": "prose"
+      },
+      {
+        "path": "CARD/P2 response/all impact dent width range",
+        "owner": "lambda 0.077–0.258",
+        "independent": "hail 0.077170–0.147242; tools 0.061648–0.077394; 8 lb bird reaches 0.314510; mooring 0.700718",
+        "category": "prose"
+      },
+      {
+        "path": "CARD/Detection/laser",
+        "owner": "resolves 0.2 mm contours",
+        "independent": "0.2 mm is a plotted contour interval and dent-diameter threshold, not a demonstrated detection resolution or PoD",
+        "category": "source_scope"
+      },
+      {
+        "path": "CARD/Threats/IEC masses",
+        "owner": "table does not print the 35/55/65 mm masses",
+        "independent": "Table 3 prints 20.7/80.2/132.0 g",
+        "category": "source_scope"
+      },
+      {
+        "path": "CARD/Puncture and leak/torn-bay heaviness",
+        "owner": "about 5131 kg heavy",
+        "independent": "5130.39–5130.88 kg is admitted gas; net downward buoyancy deficit at the model ground is 4888.565477–4889.052149 kg",
+        "category": "quantity_definition"
+      },
+      {
+        "path": "CARD/P3 hail table/25 mm/strikes to 50 percent, lower end",
+        "owner": 484,
+        "independent": 485,
+        "category": "integer_probability_threshold",
+        "note": "Exact independent-trial real count is about 484.102; round upward to reach at least 50%."
+      },
+      {
+        "path": "DET/frame/f4/pinned_intact_cond",
+        "owner": 46606.814677048475,
+        "independent": 128.87113853635648,
+        "category": "matrix_representation_unspecified",
+        "note": "The anchored/scaled matrix constraints are not stated in the permitted non-code inputs; numerical condition depends on that representation. Rank is the invariant comparison."
+      },
+      {
+        "path": "DET/frame/f4/pinned_one_gone_cond",
+        "owner": 9.42429429003896e+16,
+        "independent": null,
+        "category": "matrix_representation_unspecified",
+        "note": "The anchored/scaled matrix constraints are not stated in the permitted non-code inputs; numerical condition depends on that representation. Rank is the invariant comparison. Damaged condition is mathematically infinite."
+      },
+      {
+        "path": "DET/frame/f5/pinned_intact_cond",
+        "owner": 116864.61910511019,
+        "independent": 204.19307959330743,
+        "category": "matrix_representation_unspecified",
+        "note": "The anchored/scaled matrix constraints are not stated in the permitted non-code inputs; numerical condition depends on that representation. Rank is the invariant comparison."
+      },
+      {
+        "path": "DET/frame/f5/pinned_one_gone_cond",
+        "owner": 2.498152698987527e+17,
+        "independent": null,
+        "category": "matrix_representation_unspecified",
+        "note": "The anchored/scaled matrix constraints are not stated in the permitted non-code inputs; numerical condition depends on that representation. Rank is the invariant comparison. Damaged condition is mathematically infinite."
+      }
+    ],
+    "corrections": {
+      "clamped_55mm_growth_depth_mm": 19.176311,
+      "source_core_depth_mm": 23.237218,
+      "pach_measured_m": 0.0011,
+      "modeled_Pach_depth_mm": [
+        1.489,
+        1.541
+      ],
+      "measured_Pach_depth_mm": [
+        1.1,
+        1.2
+      ],
+      "IEC_printed_35_55_65mm_masses_g": [
+        20.7,
+        80.2,
+        132.0
+      ],
+      "corrected_Perry_SF": 3.454499160200503,
+      "exact_independent_half_failure_counts": [
+        60.877292,
+        12.784859
+      ],
+      "all_edge_class_stress_range": [
+        1.959485,
+        3.270739
+      ],
+      "all_edge_class_tension_range_MPa": [
+        0.0,
+        1019.3722396461247
+      ],
+      "improved_wall_SF": {
+        "1.5mm": 0.805476,
+        "2mm": 0.483053,
+        "3mm": 0.223304
+      },
+      "improved_tear_SF": 0.975445,
+      "improved_tear_film_kg": 848.604,
+      "half_kg_event_100mm_hole_s": 0.464206,
+      "torn_bay_half_kg_event_s": 0.000837478,
+      "ground_first_contact_centre_m": 10,
+      "ground_contact_torn_bay_speed_m_s": [
+        23.099647,
+        34.541863
+      ],
+      "sea_level_vent_air_kg": 2912.791114
+    },
+    "no_universal_dynamic_cascade_or_puncture_claim": true,
+    "no_installed_damage_tolerance": true
+  },
+  "all_costs_are_scenario_costs": true,
+  "qualified_hull_SF": null,
+  "qualified_lifetime": null
+}

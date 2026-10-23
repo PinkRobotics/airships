@@ -1,0 +1,70 @@
+{
+  "id": "N158",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N158",
+    "report": "rpt-ref-44f9940325e236cb80b3",
+    "card": "MAINLINE-013",
+    "file": "evidence/fe5e5ec3daad9605-NFI.json",
+    "row_id": "NFI-013-STRENGTH-BASIS",
+    "fields": {
+      "id": "NFI-013-STRENGTH-BASIS",
+      "issue": "Most ultralight strengths are not crush strengths: stress at 80 percent strain (Qiu 2012), undefined 'max stress' (Si 2014), ultimate stress of undefined strain (Xu 2019), 40 percent compression (Basotect), indentation or tension (Kashani 2019). These can fail the crush check but never pass it.",
+      "numbers": "The only structural pass at or below 10 kg/m3 is meza2015-hier-hollow-alumina-heaviest-halfcell at 5.3 kg/m3, margin 1.34, read by eye from a plot (about 25 percent) with its density inferred from relative density times 2900 kg/m3.",
+      "closes_when": "a small-strain collapse or yield strength is measured at the candidate density."
+    }
+  },
+  "claim": "Most ultralight strengths are not crush strengths: stress at 80 percent strain (Qiu 2012), undefined 'max stress' (Si 2014), ultimate stress of undefined strain (Xu 2019), 40 percent compression (Basotect), indentation or tension (Kashani 2019). These can fail the crush check but never pass it.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/157"
+    },
+    {
+      "report": "rpt-ref-44f9940325e236cb80b3",
+      "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+      "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+      "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+      "bytes": 9230,
+      "selector": "source row ID: NFI-013-STRENGTH-BASIS"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-44f9940325e236cb80b3",
+          "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+          "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+          "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+          "bytes": 9230,
+          "selector": "source row ID: NFI-013-STRENGTH-BASIS"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/157"
+          }
+        ]
+      }
+    }
+  ]
+}

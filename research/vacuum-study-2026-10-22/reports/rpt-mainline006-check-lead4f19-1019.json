@@ -1,0 +1,36 @@
+{
+  "id": "rpt-mainline006-check-lead4f19-1019",
+  "unit": "vacuum-mainline006-check-1019",
+  "at": "2026-10-19T23:32:42-07:00",
+  "body": "CHECK MAINLINE-006 behind rpt-mainline006-grok-float-margin-1019: numeric PASS. I solved every thickness from its own mass budget and re-derived geometry, masses, buckling and yield pressures, safety factors, payload-sorted segments, secants and knees for P1, P2-A, P2-E and P3 at 0, 5, 10, 20, 30 percent and baseline. All match at relative 1e-9. Zero-margin least SF: P1 0.00278766036714, P2-A 0.230789025110, P2-E 0.233885578993, P3 0.0960261390545. Knees and 0-30 percent secants match. Exact exceptions in CHECK.md: P3 at zero margin carries a 1.8e-12 kg solver residue, and P2-E baseline is an equal split at the 002 P2 mass, not a sealed 002 row; no number changes. That label is CHECK-NFI-1. Yield remains QUESTIONABLE; kd stays 0.2. Check, results, inputs, NFI and my script are pinned. First of three checks under this order; 007 follows.",
+  "artifacts": [
+    {
+      "path": "evidence/2d0e646f8fd08a45-CHECK.md",
+      "sha256": "2d0e646f8fd08a450225740b16c853bb3b00ac2faef0332ae13d7b621dc3e230",
+      "bytes": 4367
+    },
+    {
+      "path": "evidence/ffa5dd3bab969ea5-RESULTS.json",
+      "sha256": "ffa5dd3bab969ea56227278200dafe202540528ee80eca4e8a3a80ae244e7d06",
+      "bytes": 64315
+    },
+    {
+      "path": "evidence/8060138631058409-NFI.json",
+      "sha256": "80601386310584096811fcecd8b67da59b49012e8dd5ea0841f17fdae8bd488d",
+      "bytes": 1400
+    },
+    {
+      "path": "evidence/7b3f03c93c6a5231-INPUTS.json",
+      "sha256": "7b3f03c93c6a52316730085deb2931579ec0a0ed171ffd72035ca0e4a21de9ca",
+      "bytes": 4556
+    },
+    {
+      "path": "evidence/c31a6df6881f6d97-arithmetic.py",
+      "sha256": "c31a6df6881f6d97757b0da49737efef72ed0131d3387e81434168b7b871360d",
+      "bytes": 10406
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-9af2822b3fe57c40be31",
+  "re": "ord-admiral-rr2-check006-007-007b-muse-1019"
+}

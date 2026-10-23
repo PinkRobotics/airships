@@ -1,0 +1,37 @@
+{
+  "id": "E-2f271a9ec77bf4dff691",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-2f271a9ec77bf4dff691",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/2",
+    "row_id": "C029-03-EUCASS-CONSTITUTIVE",
+    "fields": {
+      "id": "C029-03-EUCASS-CONSTITUTIVE",
+      "state": "demonstrated in the elastic model",
+      "direction": "supports the card's NFI-029-FOAM, -FACE-PLASTICITY and -STEEL-CURVE",
+      "note": "At the paper's 6.03 MPa, my elastic imperfect flat model (96 x 2f x 4c) has the foam at -3.15 MPa principal stress and the outer face at 1015 MPa von Mises (inner face 363). The foam passes the Fig. 3 plateau, read at about 1.4 MPa, at 2.75 MPa. The face passes 750 MPa at 4.56 MPa: Fig. 5 as printed starts near 7,500 MPa, which is impossible for 201 steel, and reads about 750 MPa if the axis is off by 10. The perfect model at 12.45 MPa: outer face 1014 MPa at the clamped edge (750 MPa reached at 9.29 MPa), foam -1.11 MPa. This is consistent with the paper's note that its perfect model buckles at the bottom edge. The factor of 2.3 is constitutive, so no elastic model should be expected to close it."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "At the paper's 6.03 MPa, my elastic imperfect flat model (96 x 2f x 4c) has the foam at -3.15 MPa principal stress and the outer face at 1015 MPa von Mises (inner face 363). The foam passes the Fig. 3 plateau, read at about 1.4 MPa, at 2.75 MPa. The face passes 750 MPa at 4.56 MPa: Fig. 5 as printed starts near 7,500 MPa, which is impossible for 201 steel, and reads about 750 MPa if the axis is off by 10. The perfect model at 12.45 MPa: outer face 1014 MPa at the clamped edge (750 MPa reached at 9.29 MPa), foam -1.11 MPa. This is consistent with the paper's note that its perfect model buckles at the bottom edge. The factor of 2.3 is constitutive, so no elastic model should be expected to close it.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

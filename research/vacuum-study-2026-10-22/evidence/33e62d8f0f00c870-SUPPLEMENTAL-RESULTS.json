@@ -1,0 +1,337 @@
+{
+  "grid": [
+    {
+      "R_m": 10,
+      "least_mask_bitsets": [
+        0,
+        8,
+        520,
+        2048,
+        2176,
+        32768
+      ],
+      "float_grid_fraction_not_probability": 0.18153454565185756,
+      "thermally_infeasible_or_cold_front_unresolved_fraction": 0.3549201009251472
+    },
+    {
+      "R_m": 12,
+      "least_mask_bitsets": [
+        0,
+        8,
+        520,
+        552,
+        2048,
+        2176,
+        32768
+      ],
+      "float_grid_fraction_not_probability": 0.24610493551593418,
+      "thermally_infeasible_or_cold_front_unresolved_fraction": 0.3549201009251472
+    },
+    {
+      "R_m": 15,
+      "least_mask_bitsets": [
+        0,
+        2,
+        8,
+        520,
+        552,
+        2048,
+        2176,
+        32768
+      ],
+      "float_grid_fraction_not_probability": 0.3006370714935787,
+      "thermally_infeasible_or_cold_front_unresolved_fraction": 0.3549201009251472
+    },
+    {
+      "R_m": 20,
+      "least_mask_bitsets": [
+        0,
+        2,
+        8,
+        40,
+        128,
+        552,
+        2176,
+        32768
+      ],
+      "float_grid_fraction_not_probability": 0.3456439650856211,
+      "thermally_infeasible_or_cold_front_unresolved_fraction": 0.3549201009251472
+    },
+    {
+      "R_m": 30,
+      "least_mask_bitsets": [
+        0,
+        2,
+        8,
+        40,
+        128,
+        552,
+        2176,
+        32768
+      ],
+      "float_grid_fraction_not_probability": 0.37803274887840393,
+      "thermally_infeasible_or_cold_front_unresolved_fraction": 0.3549201009251472
+    }
+  ],
+  "gas_24h_bounds": [
+    {
+      "R_m": 10,
+      "mask": 2,
+      "mass_kg_upper": 3.1923896191733703,
+      "gas_allowance_kg": 48.89442150186961,
+      "pressure_Pa_upper": 102.49116931015585,
+      "minimum_pressure_ceiling_Pa": 800.0,
+      "inventory_kg": 2.2917216606431747,
+      "connected_gas_volume_m3": 4185.591127578047,
+      "passes": true
+    },
+    {
+      "R_m": 12,
+      "mask": 2,
+      "mass_kg_upper": 4.879627277159516,
+      "gas_allowance_kg": 84.48956035523068,
+      "pressure_Pa_upper": 89.97636512864531,
+      "minimum_pressure_ceiling_Pa": 800.0,
+      "inventory_kg": 3.416369200710219,
+      "connected_gas_volume_m3": 7232.784429737846,
+      "passes": true
+    },
+    {
+      "R_m": 15,
+      "mask": 2,
+      "mass_kg_upper": 8.289089519198495,
+      "gas_allowance_kg": 165.01867256880993,
+      "pressure_Pa_upper": 77.48393151095745,
+      "minimum_pressure_ceiling_Pa": 800.0,
+      "inventory_kg": 5.612230609934515,
+      "connected_gas_volume_m3": 14126.691320284228,
+      "passes": true
+    },
+    {
+      "R_m": 20,
+      "mask": 2,
+      "mass_kg_upper": 16.715781587945543,
+      "gas_allowance_kg": 391.15537201495687,
+      "pressure_Pa_upper": 65.03418359961825,
+      "minimum_pressure_ceiling_Pa": 800.0,
+      "inventory_kg": 10.797739569493672,
+      "connected_gas_volume_m3": 33485.855714158104,
+      "passes": true
+    },
+    {
+      "R_m": 30,
+      "mask": 2,
+      "mass_kg_upper": 46.60702621821409,
+      "gas_allowance_kg": 1320.1493805504795,
+      "pressure_Pa_upper": 52.695997360861895,
+      "minimum_pressure_ceiling_Pa": 800.0,
+      "inventory_kg": 28.062819821425457,
+      "connected_gas_volume_m3": 113015.89217875218,
+      "passes": true
+    }
+  ],
+  "gas_note": "Bounding temperatures 258/326 K and pressure 106500 Pa deliberately combined; all finite inventory water; leak/permeability/bake/core venting remain projections.",
+  "dew_account": [
+    {
+      "R_m": 10,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.0901981304012755,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.18360680349485375,
+      "fresh_dry_payload_after_night_kg": 117.38080046894241,
+      "preexisting_0p1_plus_night_payload_kg": -8.282905674649326,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 10,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0038284005569214296,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.17869406110116948,
+      "fresh_dry_payload_after_night_kg": 219.7426698123745,
+      "preexisting_0p1_plus_night_payload_kg": 94.07896366878275,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 10,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.24310792815785132,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.17763140130834934,
+      "fresh_dry_payload_after_night_kg": -82.2802302931881,
+      "preexisting_0p1_plus_night_payload_kg": -207.94393643677984,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 10,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08438576978317021,
+      "ice_kg_m2": 0.08438576978317021,
+      "threshold_at_night_density_kg_m2": 0.43571474227549156,
+      "fresh_dry_payload_after_night_kg": 441.4930075900509,
+      "preexisting_0p1_plus_night_payload_kg": 315.8293014464592,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 12,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08967483192433293,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.2678817373623481,
+      "fresh_dry_payload_after_night_kg": 322.47561884719073,
+      "preexisting_0p1_plus_night_payload_kg": 141.51988200041862,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 12,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0037957481559818805,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.2619864464899273,
+      "fresh_dry_payload_after_night_kg": 467.2108806400174,
+      "preexisting_0p1_plus_night_payload_kg": 286.25514379324534,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 12,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.24235110726071982,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.2607112547385425,
+      "fresh_dry_payload_after_night_kg": 33.22374015464809,
+      "preexisting_0p1_plus_night_payload_kg": -147.731996692124,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 12,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08400427337532254,
+      "ice_kg_m2": 0.08400427337532254,
+      "threshold_at_night_density_kg_m2": 0.5704112638991129,
+      "fresh_dry_payload_after_night_kg": 880.1813537765337,
+      "preexisting_0p1_plus_night_payload_kg": 699.2256169297616,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 15,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08888459137913504,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.37144752472858433,
+      "fresh_dry_payload_after_night_kg": 798.9278720286709,
+      "preexisting_0p1_plus_night_payload_kg": 516.1845332055897,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 15,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.003746024892145399,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.3640784111380575,
+      "fresh_dry_payload_after_night_kg": 1018.8158197325736,
+      "preexisting_0p1_plus_night_payload_kg": 736.0724809094922,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 15,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.24121571498519456,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.36248442144882775,
+      "fresh_dry_payload_after_night_kg": 342.8791896028384,
+      "preexisting_0p1_plus_night_payload_kg": 60.135850779757064,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 15,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08343214561202167,
+      "ice_kg_m2": 0.08343214561202167,
+      "threshold_at_night_density_kg_m2": 0.7496094328995405,
+      "fresh_dry_payload_after_night_kg": 1883.5719045577619,
+      "preexisting_0p1_plus_night_payload_kg": 1600.82856573468,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 20,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08755551629303072,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.5250322770388668,
+      "fresh_dry_payload_after_night_kg": 2198.9980442806054,
+      "preexisting_0p1_plus_night_payload_kg": 1696.3432197062384,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 20,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0036616507283782256,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.5152067922514981,
+      "fresh_dry_payload_after_night_kg": 2571.306333741735,
+      "preexisting_0p1_plus_night_payload_kg": 2068.6515091673687,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 20,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.2393231267257281,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.5130814726658579,
+      "fresh_dry_payload_after_night_kg": 1376.059533543048,
+      "preexisting_0p1_plus_night_payload_kg": 873.4047089686811,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 20,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08247900500926632,
+      "ice_kg_m2": 0.08247900500926632,
+      "threshold_at_night_density_kg_m2": 1.0292481546001424,
+      "fresh_dry_payload_after_night_kg": 4758.980808000244,
+      "preexisting_0p1_plus_night_payload_kg": 4256.325983425877,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 30,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08486382114050614,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.8079830203304409,
+      "fresh_dry_payload_after_night_kg": 8178.285469841399,
+      "preexisting_0p1_plus_night_payload_kg": 7047.312114549074,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 30,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0034880104025933685,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.793244793149387,
+      "fresh_dry_payload_after_night_kg": 8931.938784480133,
+      "preexisting_0p1_plus_night_payload_kg": 7800.965429187808,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 30,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.2355369724746611,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.7900568137709276,
+      "fresh_dry_payload_after_night_kg": 6271.4716548700635,
+      "preexisting_0p1_plus_night_payload_kg": 5140.498299577739,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 30,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08057418556285834,
+      "ice_kg_m2": 0.08057418556285834,
+      "threshold_at_night_density_kg_m2": 1.5643068366723534,
+      "fresh_dry_payload_after_night_kg": 16780.62094782083,
+      "preexisting_0p1_plus_night_payload_kg": 15649.647592528503,
+      "thermal_weather_cold_case_qualified": false
+    }
+  ],
+  "seconds": 30.477869749069214
+}

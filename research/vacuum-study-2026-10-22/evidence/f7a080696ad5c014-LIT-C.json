@@ -1,0 +1,1489 @@
+[
+  {
+    "id": "bond-ut-through-transmission-pulse-echo",
+    "target": "bond",
+    "method": "Ultrasonic through-transmission (squirter/immersion) and pulse-echo C-scan (ASTM E2580 type practice)",
+    "resolution": [
+      {
+        "quantity": "E2580 test frequency band (pulse echo, Procedure A)",
+        "value": "0.5 to 20",
+        "unit": "MHz",
+        "conditions": "ASTM E2580 section 1.3.1 scope text",
+        "quote": "a longitudinal wave in the range of 0.5 MHz to 20 MHz",
+        "location": "E2580-24 s1.3.1; web page text (unpaginated)"
+      },
+      {
+        "quantity": "E2580 geometry limitation",
+        "value": "flat panels with parallel surfaces",
+        "unit": "n/a",
+        "conditions": "section 1.1; our sphere is curved and the scarf seams are tapered, so E2580 is not directly applicable",
+        "quote": "flat panel (parallel surfaces) composites and flat sandwich core panels",
+        "location": "E2580-24 s1.1; web page text (unpaginated)"
+      },
+      {
+        "quantity": "E2580 acceptance criteria",
+        "value": "none given in the standard",
+        "unit": "n/a",
+        "conditions": "no minimum detectable flaw size is stated in the public scope text",
+        "quote": "This practice does not specify accept-reject criteria.",
+        "location": "E2580-24 s1.4; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Conventional 5 MHz pulse-echo UT: smallest insert discriminated",
+        "value": 6.35,
+        "unit": "mm",
+        "conditions": "0.25 inch = 6.35 mm (unit conversion by this worker); CFRP laminate and stiffened panel with foil inserts, NOT honeycomb, NOT beryllium; UT and laser UT both discriminated it",
+        "quote": "Both techniques can easily discriminate defects of 0.25 inch",
+        "location": "abstract; pdf page 1"
+      },
+      {
+        "quantity": "Scan index used for the UT and LUT C-scans",
+        "value": 0.5,
+        "unit": "mm",
+        "conditions": "lab scan, CFRP samples",
+        "quote": "The scan index in both directions was set at 0.5 mm",
+        "location": "s2.1; pdf page 3"
+      },
+      {
+        "quantity": "Dry-disbond contrast for through-transmission through an air gap",
+        "value": 0.01,
+        "unit": "% of sound transmitted",
+        "conditions": "F/A-18 rudder: carbon/epoxy skin on aluminium honeycomb, squirter through-transmission; a dry disbond transmits almost nothing but water in the cells transmits strongly and masks disbond",
+        "quote": "Air, which simulates a dry disbond condition only transmits 0.01% of the sound",
+        "location": "s2; pdf page 3"
+      },
+      {
+        "quantity": "Through-transmission UT was used as the reference to size disbonds in an Al/Al honeycomb panel",
+        "value": "n/a",
+        "unit": "n/a",
+        "conditions": "19 mm aluminium honeycomb panel, 0.5 mm 2024-T3 skins, 4.76 mm cells (the closest metallic-skin honeycomb found)",
+        "quote": "Damage areas were sized by performing ultrasonic through-transmission measurements.",
+        "location": "p.4; pdf page 4"
+      }
+    ],
+    "coverage_rate": "null: no m2/h figure for TT or pulse-echo UT in any source opened. NLR reports only a scan time (36 minutes for the stiffened CFRP panel 'sample 1') with the area not stated in the text read.",
+    "used_on": "Honeycomb sandwich control surfaces: F/A-18 rudders, carbon/epoxy skin on aluminium honeycomb, manual and squirter through-transmission (Edwards et al. 2011, opened). FAA honeycomb reliability study lists an 'Ultra Image UT Scanner' and a 'MAUS' resonance scanner among participants (Galella 2006, opened; their PoD curves were charts and were not read numerically). Production use on large panels (Airbus/Boeing gantries) not documented in anything opened.",
+    "limitations": "E2580 covers flat panels with parallel surfaces only. Squirter TT needs access to both faces and water or a couplant. Water in the cells transmits sound and masks disbond. Core cell-wall paths transmit sound, so the contrast between bonded and disbonded is not binary. No kissing/weak-bond capability stated.",
+    "beryllium_notes": "Be has acoustic impedance 24e6 kg/m2s against aluminium 17e6 (Materion tech brief), longitudinal velocity about 12.9 km/s, and low internal attenuation at high frequency (see record bond-beryllium-acoustic-and-xray). No source opened reports UT of a bonded Be face; the 0.8 mm face would be acoustically thin and the first echoes of the bond line would arrive earlier than for aluminium or CFRP of the same thickness. That last clause is an inference, not a sourced fact.",
+    "sources": [
+      {
+        "citation": "ASTM E2580-24 Standard Practice for Ultrasonic Testing of Flat Panel Composites and Sandwich Core Materials Used in Aerospace Applications (ASTM store abstract: scope, significance only; standard body not purchased)",
+        "url": "https://store.astm.org/e2580-24.html",
+        "local_path": "unpublished-local-ref:31a97d9ac114ce2e",
+        "pages_read": "store abstract page only (scope 1.1-1.7, significance 5.1-5.2)"
+      },
+      {
+        "citation": "van Elburg, Kramer, Jansen (NLR), Comparison of Laser Ultrasonic Testing and traditional Ultrasonic Testing (BINDT, 2025)",
+        "url": "https://reports.nlr.nl/bitstreams/e872e818-2491-4185-9a35-bdf5ac956258/download",
+        "local_path": "unpublished-local-ref:151d78165fe84e4d",
+        "pages_read": "pp.1-12, read"
+      },
+      {
+        "citation": "Edwards, Savage, Hungler, Krause, Examination of F/A-18 honeycomb composite rudders for disbond due to water using through-transmission ultrasonics, Ultragarsas 66(2) (2011)",
+        "url": "https://ultragarsas.ktu.lt/index.php/USnd/article/view/529/707",
+        "local_path": "unpublished-local-ref:b2dfae698a96f71c",
+        "pages_read": "abstract and introduction read; remainder skimmed"
+      },
+      {
+        "citation": "Genest, Pant, Khan, Klishch, Mandache, Probability of detection of automated tap testing for disbond detection in metallic honeycomb structures (31st ICAF Symposium, Delft, 2023)",
+        "url": "https://icaf.aero/icaf2023/proceedings/documents/55.pdf",
+        "local_path": "unpublished-local-ref:4e5a29803413d01d",
+        "pages_read": "pp.1-9 read (damage introduction, results, conclusions)"
+      },
+      {
+        "citation": "Galella (FAA), FAA Inspection Research Activities for Composite Materials (slides, 2006 Composite Damage Tolerance Workshop)",
+        "url": "https://faa.niar.wichita.edu/Portals/0/2006%20Composite%20Damage%20Tolerance%20Workshop/FAA%20Inspectin%20Research%20Activities%20for%20Composite%20Materials%20-%20Galella.pdf",
+        "local_path": "unpublished-local-ref:854a136df790331c",
+        "pages_read": "slides 8-16 (honeycomb inspection reliability study) read; remaining slides not read"
+      },
+      {
+        "citation": "Materion Tech Brief, Acoustic Properties of Beryllium",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/5c819640ed3111eeae6eca0979eb494a",
+        "local_path": "unpublished-local-ref:6499777371132412",
+        "pages_read": "5 pages, read [manufacturer tech brief]"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "ASTM E2580 body text (not purchased) so no stated sensitivity or reference-standard requirement; no minimum detectable disbond size for UT of metal-faced honeycomb; no m2/h rate for TT or pulse-echo; no source on UT of Be-faced sandwich."
+  },
+  {
+    "id": "bond-air-coupled-ultrasound",
+    "target": "bond",
+    "method": "Air-coupled ultrasound (through-transmission, 400 kHz class) for skin-to-core disbond",
+    "resolution": [
+      {
+        "quantity": "Transducer resonance frequency used",
+        "value": 400,
+        "unit": "kHz",
+        "conditions": "focused transmitter and receiver, 30 mm diameter, through-transmission, 5 mm sandwich with 0.5 mm GFRP skins over 3.6 mm aluminium honeycomb with 3.46 mm aperture",
+        "quote": "the operating frequency of air-coupled transducer is 400 kHz",
+        "location": "s4.4; pdf page 11"
+      },
+      {
+        "quantity": "Preset PTFE disbond diameters in the specimen",
+        "value": "3 to 15",
+        "unit": "mm",
+        "conditions": "ten sizes (3,4,5,6,7,8,9,10,12,15 mm) placed in the adhesive layer; the paper states the C-scan 'is consistent with the layout' but does not report a smallest-detected size",
+        "quote": null,
+        "location": "s3.1 (specimen text); no verbatim quote taken"
+      },
+      {
+        "quantity": "Scan speed",
+        "value": 15,
+        "unit": "mm/s",
+        "conditions": "laboratory C-scan with 400 V excitation; 60 x 173 mm scan area",
+        "quote": "The scanning speed is 15 mm/s",
+        "location": "s4.4; pdf page 11"
+      },
+      {
+        "quantity": "Scan step",
+        "value": 0.5,
+        "unit": "mm",
+        "conditions": "same scan",
+        "quote": "the scanning step is 0.5 mm",
+        "location": "s4.4; pdf page 11"
+      },
+      {
+        "quantity": "Main difficulty reported",
+        "value": "weak transmitted signal, poor SNR",
+        "unit": "n/a",
+        "conditions": "honeycomb attenuates the air-coupled signal; the paper needed P3 polyphase coded pulse compression to recover SNR",
+        "quote": "resulting in weak transmitted signal and poor signal-to-noise ratio",
+        "location": "s1; pdf page 2"
+      }
+    ],
+    "coverage_rate": "null: not stated as an areal rate. Only a single-channel lab speed of 15 mm/s at 0.5 mm step is given; no area per hour is quoted in the source (this worker did not compute one).",
+    "used_on": "Aeronautical honeycomb sandwich coupons in the lab (Li & Zhou 2019, opened). F/A-18 rudders and aerospace composites are cited in other sources but those were not opened.",
+    "limitations": "Specimen is 5 mm thick with 0.5 mm GFRP skins; a 23 mm core and 0.8 mm Be skins are far outside what was tested. Air-to-solid impedance mismatch makes the received signal weak; the paper needed coded excitation. Needs two-sided access for the through-transmission geometry used.",
+    "beryllium_notes": "No air-coupled result on any metal skin was found. Be-to-air impedance ratio is larger than aluminium-to-air (impedance 24e6 vs 17e6 kg/m2s, air 0.0004e6; Materion Table 1), which on its face lowers coupling, but no source quantifies the effect for a 0.8 mm Be plate. Treat as untested.",
+    "sources": [
+      {
+        "citation": "Li & Zhou, Detection and Characterization of Debonding Defects in Aeronautical Honeycomb Sandwich Composites Using Noncontact Air-Coupled Ultrasonic Testing Technique, Appl. Sci. 9(2):283 (2019)",
+        "url": "https://www.mdpi.com/2076-3417/9/2/283",
+        "local_path": "unpublished-local-ref:44002e71affd0eaa",
+        "pages_read": "pp.1-13, read sections 1, 3, 4.4, 5"
+      },
+      {
+        "citation": "Materion Tech Brief, Acoustic Properties of Beryllium",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/5c819640ed3111eeae6eca0979eb494a",
+        "local_path": "unpublished-local-ref:6499777371132412",
+        "pages_read": "5 pages, read [manufacturer tech brief]"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Minimum detected disbond size is not reported in the paper; no air-coupled data on metal-faced honeycomb; no areal rate; NASA air-coupled acoustic thermography reports (ntrs 20070035909, 20090019139) were downloaded but not read."
+  },
+  {
+    "id": "bond-laser-ultrasonics",
+    "target": "bond",
+    "method": "Laser ultrasonics (laser-generated, laser-detected) incl. laser tapping for skin disbond",
+    "resolution": [
+      {
+        "quantity": "Smallest insert discriminated by laser UT in thin CFRP",
+        "value": 6.35,
+        "unit": "mm",
+        "conditions": "0.25 inch = 6.35 mm (conversion by this worker); thin (<3 mm) CFRP; the 0.25 inch insert at 5.25 mm depth was NOT detected by LUT",
+        "quote": "Both techniques can easily discriminate defects of 0.25 inch",
+        "location": "abstract; pdf page 1"
+      },
+      {
+        "quantity": "Depth/thickness limit",
+        "value": "less suited above 5 mm",
+        "unit": "mm",
+        "conditions": "CFRP, 1064 nm 2 mJ generation, 10 kHz repetition, Doppler vibrometer detection",
+        "quote": "laser ultrasonics is less suited for defect detection in thick (> 5 mm) components",
+        "location": "abstract; pdf page 1"
+      },
+      {
+        "quantity": "Speed relative to single-element UT",
+        "value": 10,
+        "unit": "times faster",
+        "conditions": "3-repetition LUT scan 3 min 37 s vs 36 min UT on the same CFRP stiffened panel",
+        "quote": "Laser ultrasonics is up to 10 times faster than traditional single element ultrasonics",
+        "location": "abstract; pdf page 1"
+      },
+      {
+        "quantity": "Angular tolerance for the sensing laser on shiny CFRP at 1 m stand-off",
+        "value": 10,
+        "unit": "degrees",
+        "conditions": "also tested on shiny and matte aluminium; the tolerance shrinks with distance",
+        "quote": "resulting in a 10 degree tolerance at a 1 meter stand-off distance",
+        "location": "s4.1; pdf page 10"
+      }
+    ],
+    "coverage_rate": "null in opened sources as an m2/h figure. Relative only: 'up to 10 times faster' than single-element UT (NLR). Search-result snippets mention an F-22 duct section inspected in under 2 h vs 24 h and a vendor figure of 64 ft2/h; neither source was opened and neither is relied on here.",
+    "used_on": "NLR: aerospace CFRP components, including a curved panel scanned from 18 orientations (opened). Lockheed Martin LaserUT on F-22 composite parts and a 1995 Iowa State hangar paper on an aircraft's composite structure exist per search results but were not opened.",
+    "limitations": "Detectability worse than UT above 5 mm depth; signal is broadband and limited by the ablation threshold of the surface (NLR). For a metal face the thermoelastic/ablation generation and the 12.9 km/s sound speed change the picture, but no source was opened on that.",
+    "beryllium_notes": "No source on laser ultrasonics of beryllium was found. Be's high sound speed (about 12.9 km/s) and low attenuation (Materion) would put the through-thickness resonance of a 0.8 mm face far higher in frequency than for aluminium; whether laser generation reaches it is untested in anything opened. Inference only. ",
+    "sources": [
+      {
+        "citation": "van Elburg, Kramer, Jansen (NLR), Comparison of Laser Ultrasonic Testing and traditional Ultrasonic Testing (BINDT, 2025)",
+        "url": "https://reports.nlr.nl/bitstreams/e872e818-2491-4185-9a35-bdf5ac956258/download",
+        "local_path": "unpublished-local-ref:151d78165fe84e4d",
+        "pages_read": "pp.1-12, read"
+      },
+      {
+        "citation": "Materion Tech Brief, Acoustic Properties of Beryllium",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/5c819640ed3111eeae6eca0979eb494a",
+        "local_path": "unpublished-local-ref:6499777371132412",
+        "pages_read": "5 pages, read [manufacturer tech brief]"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Blouin/Monchalin laser-acoustics (skin disbond in honeycomb, AIP Conf. Proc. 894, 2007) full text not opened (only a bibliographic citation seen via search); no laser-UT result on honeycomb with metal skins; no verified m2/h; no Be data."
+  },
+  {
+    "id": "bond-shearography-vacuum",
+    "target": "bond",
+    "method": "Shearography (vacuum-stress, thermal, acoustic) incl. ASTM E2581; used on Space Shuttle external-tank SOFI and on RMS honeycomb",
+    "resolution": [
+      {
+        "quantity": "Probability of detection 0.95 or better when debond diameter equals foam thickness",
+        "value": 0.95,
+        "unit": "POD",
+        "conditions": "SOFI foam on aluminium substrate, vacuum stress below 0.4 psi pressure reduction; 24 inch square panels, 600+ images; this is flaw-diameter-to-thickness scaling, not an absolute size",
+        "quote": "POD of 0.95 or greater for defects with a diameter equal to the thickness",
+        "location": "s3.3.4; pdf page 7"
+      },
+      {
+        "quantity": "Void detected in 1.75 inch foam at jack-pad close-out",
+        "value": 0.375,
+        "unit": "inch (9.5 mm, conversion by this worker)",
+        "conditions": "pressure reduction under 0.4 psi",
+        "quote": "Voids 0.375 inch were detected in 1.75 inch thick foam",
+        "location": "abstract; pdf page 1"
+      },
+      {
+        "quantity": "Smallest debond detected by vacuum stress on a cone-shaped SRB section (LTI test)",
+        "value": 0.375,
+        "unit": "inch (9.5 mm, conversion by this worker)",
+        "conditions": "75 inch base diameter, 78 inch high cone; programmed debonds; acoustic stress detected 0.75 inch",
+        "quote": "Vacuum stressing was the most sensitive detecting debonds as small as 0.375 inch in diameter.",
+        "location": "s3.1; pdf page 4"
+      },
+      {
+        "quantity": "Same study, 1996 abstract wording of the sensitivity result",
+        "value": "debond diameter approximately half the SOFI thickness, repeatable",
+        "unit": "n/a",
+        "conditions": "the 1995 TM says POD 0.95 at diameter equal to thickness; the 1996 CR abstract says repeatable detection at about half; the two statements differ in wording",
+        "quote": "repeatable detection of debonds with a diameter approximately half the SOFI thickness",
+        "location": "abstract; pdf page 1"
+      },
+      {
+        "quantity": "Honeycomb (nylon-adhesive honeycomb, Kevlar and graphite-epoxy faces): acoustic stressing sensitivity",
+        "value": "an individual honeycomb cell",
+        "unit": "n/a",
+        "conditions": "Shuttle remote manipulator arm tube, 13.5 inch OD, 0.210 inch honeycomb; field of view about nine inches square",
+        "quote": "acoustic stressing provided sensitivity as small as an individual honeycomb cell",
+        "location": "s3.5; pdf page 8"
+      },
+      {
+        "quantity": "Whole RMS tube inspection time with acoustic stressing",
+        "value": 4,
+        "unit": "hours",
+        "conditions": "13.5 inch OD tube honeycomb structure, field of view about 9 inch square",
+        "quote": "With acoustic stressing shearographic inspection of the entire RMS takes four hours.",
+        "location": "s3.5; pdf page 8"
+      },
+      {
+        "quantity": "Seam debonds need two shear directions",
+        "value": "at least two shear vectors (0 and 90 degrees)",
+        "unit": "n/a",
+        "conditions": "strip/seam debonds on test panels; relevant to the 2.8 km of seam",
+        "quote": "importance of using at least two shear vectors",
+        "location": "s5; pdf page 10"
+      },
+      {
+        "quantity": "Small embedded debris detection at one-foot field of view",
+        "value": "1/8 inch concrete chip (3.2 mm, conversion by this worker); smaller chips not reliably detected",
+        "unit": "n/a",
+        "conditions": "net-spray NCFI foam test panel, acoustic stressing; 12 inch inspection grid cells on the tank",
+        "quote": "Smaller concrete chips were not reliably detected",
+        "location": "slide 9; pdf page 9"
+      },
+      {
+        "quantity": "Worst-case POD-limited delamination size on net spray foam",
+        "value": "1.18 inch diameter (30 mm, conversion by this worker)",
+        "unit": "n/a",
+        "conditions": "POD study per MIL-HDBK-1823, 100 defects and 300 blanks; crush depth 0.43 inch",
+        "quote": "Delamination 1.18” diameter",
+        "location": "slide 7; pdf page 7"
+      },
+      {
+        "quantity": "E2581 statement of use on sandwich",
+        "value": "excellent results on composite and metal face sheet sandwich with honeycomb and foam cores",
+        "unit": "n/a",
+        "conditions": "ASTM scope/significance text; no numeric sensitivity given in the public text",
+        "quote": "Shearography has been used with excellent results for composite and metal face sheet sandwich panels",
+        "location": "E2581 s5.4; web page text (unpaginated)"
+      },
+      {
+        "quantity": "E2581: far-side bond lines",
+        "value": "often detectable",
+        "unit": "n/a",
+        "conditions": "same section",
+        "quote": "Frequently, defects at multiple and far side bond lines can be detected.",
+        "location": "E2581 s5.4; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "Vendor claims only, none verified independently: Dantec Q-810 portable vacuum hood 15 m2/h ('Grosse Flaechen abscannen (15qm/hr)', slide 7, 2015); Dantec robotic system 1-2 m2/min in a vacuum chamber, delivered 2008 to a business-jet maker (2009 press release); Dantec SHS33 '~1 m2/minute' (UAH sheet quoting the vendor). Against these, the NASA field figure is 4 h for the whole 13.5 inch OD RMS tube with acoustic stressing (1995).",
+    "used_on": "Space Shuttle external tank SOFI close-outs and acreage (KSC 1995; Michoud/MSFC ET-122 after Hurricane Katrina, 95 indications, 8 tanks inspected to 2010); SRB forward section MSA-2 ablator; RMS arm honeycomb; business-jet composite parts in a vacuum chamber (Dantec press release). ASTM E2581 states use on composite and metal face-sheet honeycomb and foam sandwiches.",
+    "limitations": "Needs a matte, light surface and a stable article (NASA ET-122 slide 5: 'The part under test must have a matte, light colored, surface'). Fringes encode slope, so asymmetric/strip defects need two shear directions. The loading must deflect the face over the flaw: for a very stiff 0.8 mm Be face over a 3/8 inch cell the deflection per unit stress is unknown from these sources. Shuttle results are on foam, not metal faces; honeycomb result was on a thin Kevlar skin. The ET-122 team stated follow-up tactile and visual inspection was needed to confirm indications.",
+    "beryllium_notes": "Be is a bright metal: shearography needs a diffuse surface (coating or paint), a surface condition requirement from the ET paper. Be face stiffness (E about 290 GPa, Materion) is higher than aluminium (70 GPa, Materion Table 1) and far higher than the Shuttle's foam or Kevlar skins, so the pressure-induced out-of-plane bulge over a disbond may be smaller; no source quantifies it. Inference only. The natural load for the sphere is the evacuation itself (a program inference, not sourced).",
+    "sources": [
+      {
+        "citation": "Davis, Hooker, Simmons, Tenbusch, Shearographic Non-Destructive Evaluation of the Space Shuttle (NASA TM-111441, KSC, 1995)",
+        "url": "https://ntrs.nasa.gov/api/citations/19960028755/downloads/19960028755.pdf",
+        "local_path": "unpublished-local-ref:116f42d2494768cf",
+        "pages_read": "pp.1-10, read in full"
+      },
+      {
+        "citation": "Davis et al., Shearographic Non-Destructive Evaluation of Space Shuttle Thermal Protection Systems (NASA CR-201408, 1996); earlier-text variant of the same study, abstract says 'approximately half the SOFI thickness'",
+        "url": "https://ntrs.nasa.gov/api/citations/19960029100/downloads/19960029100.pdf",
+        "local_path": "unpublished-local-ref:9514b0cdbaae4aff",
+        "pages_read": "abstract and section 3 skimmed; not read line by line"
+      },
+      {
+        "citation": "Ussery, Walker, Scheurer, Lovell, Rivers, Large Scale Shearography Inspection of the Space Shuttle External Fuel Tank (ASNT Spring Conference 2010 slides)",
+        "url": "https://ntrs.nasa.gov/api/citations/20100017430/downloads/20100017430.pdf",
+        "local_path": "unpublished-local-ref:d17b0b5f8289d13f",
+        "pages_read": "slides 1-19, read"
+      },
+      {
+        "citation": "ASTM E2581-14(2023) Standard Practice for Shearography of Polymer Matrix Composites, Sandwich Core Materials and Filament-Wound Pressure Vessels in Aerospace Applications (ASTM store abstract: scope, significance only)",
+        "url": "https://store.astm.org/e2581-14.html",
+        "local_path": "unpublished-local-ref:bec0b153a090c8e1",
+        "pages_read": "store abstract page only (scope 1.1-1.6, significance 5.1-5.4)"
+      },
+      {
+        "citation": "Moser (Dantec Dynamics), Shearography - eine schnelle und flexible ZfP-Technik fuer Verbundwerkstoffe (DGZfP Optische Pruef- und Messverfahren, 2015) [manufacturer presentation, German]",
+        "url": "https://seminare.dgzfp.de/portals/opm2015/BB/3.pdf",
+        "local_path": "unpublished-local-ref:cbc185bb04216ce3",
+        "pages_read": "slides 1-12 skimmed; slide 7 read"
+      },
+      {
+        "citation": "Dantec Dynamics press release 04/12/2009, Robotic shearography NDT (airframer.com) [manufacturer press release]",
+        "url": "https://www.airframer.com/news/release/robotic-shearography-ndt",
+        "local_path": "unpublished-local-ref:0703316197d1d16a",
+        "pages_read": "full release read"
+      },
+      {
+        "citation": "UAH Research Institute equipment sheet quoting Dantec SHS33 shearography system (March 2014, 7th ed.) [manufacturer-derived]",
+        "url": "https://www.uah.edu/images/research/ri/rfal/ShearographySystemSpecs.pdf",
+        "local_path": "unpublished-local-ref:6df306a65643c8d7",
+        "pages_read": "1 page, read"
+      },
+      {
+        "citation": "Materion SR-200 Structural-Grade Beryllium data sheet",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "local_path": "unpublished-local-ref:14189876aeccd43f",
+        "pages_read": "3 pages, read [manufacturer data sheet]"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "ASTM E2581 body text (and Guide E2533) not obtained; no minimum disbond size for shearography on a 0.8 mm metal face over 23 mm honeycomb; no independent (non-vendor) m2/h figure; the FAA/Sandia 2016 honeycomb PoD report (ROSAP 57662) was blocked to download and its shearography PoD numbers were not read; Applied Laser 2024 (honeycomb under negative pressure, 10 mm class) seen only in a search summary, not opened."
+  },
+  {
+    "id": "bond-thermography-flash-lockin",
+    "target": "bond",
+    "method": "Active thermography: flash (pulsed) and lock-in; ASTM E2582",
+    "resolution": [
+      {
+        "quantity": "Face-sheet-to-core-wall thickness ratio at which the core disbond signal reaches the noise",
+        "value": "8:1 not detectable; 4:1 to 6:1 detectable",
+        "unit": "ratio",
+        "conditions": "FEM with simulated camera noise; composite (graphite plain-weave) face 1 mm over aluminium honeycomb with 0.2 mm wall, 25.4 mm core, 3.2 mm cell; flash 4.8 kJ, 640x512 camera, NETD under 0.02 K, 12 s acquisition",
+        "quote": "The temperature difference is barely above the noise for the 8:1 ratio configuration",
+        "location": "p.6; pdf page 10"
+      },
+      {
+        "quantity": "Flash thermography: core crushing",
+        "value": "not detected",
+        "unit": "n/a",
+        "conditions": "same samples; X-ray CT detected it",
+        "quote": "The flash thermography technique was not able to detect the core",
+        "location": "Summary; pdf page 15"
+      },
+      {
+        "quantity": "E2582 scope exclusion",
+        "value": "does not apply to core discontinuities or the far-side face-core bond",
+        "unit": "n/a",
+        "conditions": "section 1.6; our 23 mm core has a second bond on the far face that flash thermography from one side cannot cover",
+        "quote": "It does not apply to discontinuities in the sandwich core, or at the interface",
+        "location": "E2582-19 s1.6; web page text (unpaginated)"
+      },
+      {
+        "quantity": "E2582 curved-panel limit",
+        "value": "local surface normal within 30 degrees of the camera axis",
+        "unit": "degrees",
+        "conditions": "section 5.6; implies tiling a sphere into patches",
+        "quote": "curved panels where the local surface normal is less than 30 degrees",
+        "location": "E2582-19 s5.6; web page text (unpaginated)"
+      },
+      {
+        "quantity": "E2582 surface requirement",
+        "value": "optically opaque, adequate emissivity; coat low-emissivity surfaces",
+        "unit": "n/a",
+        "conditions": "sections 1.5 and 5.3; the practice is written for polymer and ceramic composites, not metal faces",
+        "quote": "sufficiently optically opaque to absorb incident light",
+        "location": "E2582-19 s1.5; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "null: no m2/h figure in any thermography source opened. NASA TM says only that the technique is 'capable of imaging large areas' and gives a 12 s acquisition per flash image.",
+    "used_on": "NASA Langley composite sandwich with aluminium honeycomb and CFRP faces (opened); ISS radiator panels with aluminium faces (NTRS 20100021124; its download failed so only the title was seen); F/A-18 rudder water mapping before neutron radiography (Edwards 2011, abstract). FAA honeycomb study ranked thermography with shearography and MAUS as best advanced methods (Roach, opened).",
+    "limitations": "Detection limit is set by the face-to-core-wall thickness ratio because heat spreads laterally into the core walls; this was shown for composite faces. Single-sided access cannot see the far-side bond. Sees the face-core interface only through the face; thick conductive faces spread the heat.",
+    "beryllium_notes": "Be has thermal conductivity 216 W/m.K and specific heat 1.95 J/g.C (Materion SR-200). The NASA model's composite face has 0.0021 cal/cm.s.C (about 0.88 W/m.K, conversion by this worker) and its aluminium core 0.33 cal/cm.s.C. Whether high lateral conduction in a 0.8 mm Be face blurs the local thermal contrast of a disbond, and what face-to-wall thickness ratio the program's core has (cell-wall thickness not given in the task), are open questions; no thermography of a Be face was found. E2582 s5.3 says low-emissivity optically translucent surfaces may need an opaque high-emissivity coating; Be emissivity is not given in any source opened.",
+    "sources": [
+      {
+        "citation": "Zalameda & Parker, Nondestructive Evaluation (NDE) for Inspection of Composite Sandwich Structures (NASA/TM-2014-218545)",
+        "url": "https://ntrs.nasa.gov/api/citations/20150001252/downloads/20150001252.pdf",
+        "local_path": "unpublished-local-ref:8ca5d875cb12067c",
+        "pages_read": "pp.1-9 read; remainder (X-ray CT comparison) skimmed"
+      },
+      {
+        "citation": "Zalameda & Parker, Thermal inspection of composite honeycomb structures (NASA Langley, SPIE paper)",
+        "url": "https://ntrs.nasa.gov/api/citations/20140006406/downloads/20140006406.pdf",
+        "local_path": "unpublished-local-ref:7d20a04c99bc67f8",
+        "pages_read": "abstract, sections 1-3 read"
+      },
+      {
+        "citation": "ASTM E2582-19 Standard Practice for Infrared Flash Thermography of Composite Panels and Repair Patches Used in Aerospace Applications (ASTM store abstract: scope, significance only)",
+        "url": "https://store.astm.org/e2582-19.html",
+        "local_path": "unpublished-local-ref:9660decc54149033",
+        "pages_read": "store abstract page only (scope 1.1-1.9, significance 5.1-5.6)"
+      },
+      {
+        "citation": "Roach, Assessing conventional and advanced NDI for composite aircraft (CompositesWorld article summarising the FAA/Sandia AANC Composite Flaw Detection Experiments)",
+        "url": "https://www.compositesworld.com/articles/assessing-conventional-and-advanced-ndi-for-composite-aircraft",
+        "local_path": "unpublished-local-ref:08b0a6260c62ec63",
+        "pages_read": "article body read; web page text file"
+      },
+      {
+        "citation": "Materion SR-200 Structural-Grade Beryllium data sheet",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "local_path": "unpublished-local-ref:14189876aeccd43f",
+        "pages_read": "3 pages, read [manufacturer data sheet]"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No lock-in thermography numbers (minimum disbond size, modulation frequency) because no lock-in paper was opened (Genest/Maldague comparison and the Measurement paper on CFRP/aluminium honeycomb were seen only as search results); no thermography result on any thick-metal-faced honeycomb; no m2/h; E2582 body text not obtained."
+  },
+  {
+    "id": "bond-tap-testing-automated",
+    "target": "bond",
+    "method": "Tap testing: manual coin/hammer and instrumented (automated) tap testers",
+    "resolution": [
+      {
+        "quantity": "a90/95 disbond equivalent diameter, manual tap",
+        "value": 43,
+        "unit": "mm",
+        "conditions": "Al/Al honeycomb, 19 mm thick, 0.5 mm 2024-T3 skins, 5052 core 4.76 mm cell; 11 inspectors, 70 damage sites; ideal lab conditions",
+        "quote": "from 43 to 28 mm (1.70 to 1.10 inches)",
+        "location": "p.9 conclusions; pdf page 9"
+      },
+      {
+        "quantity": "a90/95 disbond equivalent diameter, automated tap tester",
+        "value": 28,
+        "unit": "mm",
+        "conditions": "same study; the automated tester has a 6 mm tip against 3 mm for the manual tap",
+        "quote": "Overall, the a90/95 value decreased by 15 mm (0.6 inch) equivalent diameter",
+        "location": "abstract; pdf page 1/9"
+      },
+      {
+        "quantity": "Conventional NDI (tap hammers, low-frequency bond tester, MIA, Woodpecker) PoD",
+        "value": "90% POD not reached for 1 inch flaws",
+        "unit": "n/a",
+        "conditions": "carbon or fibreglass skins (3, 6, 9 ply) over Nomex; flaws 0.2 to 3 in2; at 9 plies it exceeds 2 inch",
+        "quote": "90% POD is not achieved for 1” dia. flaws",
+        "location": "slide 15; pdf page 15"
+      },
+      {
+        "quantity": "Manual tap limit by skin thickness",
+        "value": "about 8 to 10 plies",
+        "unit": "plies",
+        "conditions": "FAA/Sandia AANC study, 44 honeycomb panels, 70+ inspectors",
+        "quote": "the limit of manual tap testing is about 8 to 10 plies",
+        "location": "Roach article; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "null: not stated in the sources opened.",
+    "used_on": "Helicopter and fixed-wing metallic honeycomb panels (RCAF Griffon, per Genest); FAA/Sandia hangar-condition PoD trials on Nomex honeycomb; the Space Shuttle RMS inspector tapped bubbles (NASA TM-111441, s1.3).",
+    "limitations": "Operator-dependent and noise-sensitive; the 28 mm best figure is far above a 10 mm dimple/disbond target. Limited by skin stiffness (8-10 plies for composite skins). Not a source for kissing bonds beyond the FAA study listing them as flaw type.",
+    "beryllium_notes": "No tap data on beryllium. Be (E about 290 GPa) is stiffer than aluminium (about 70 GPa), both per Materion; by analogy with the 8-10 ply limit the tap response of a 0.8 mm Be face may be less sensitive; this is an inference, not a source finding.",
+    "sources": [
+      {
+        "citation": "Genest, Pant, Khan, Klishch, Mandache, Probability of detection of automated tap testing for disbond detection in metallic honeycomb structures (31st ICAF Symposium, Delft, 2023)",
+        "url": "https://icaf.aero/icaf2023/proceedings/documents/55.pdf",
+        "local_path": "unpublished-local-ref:4e5a29803413d01d",
+        "pages_read": "pp.1-9 read (damage introduction, results, conclusions)"
+      },
+      {
+        "citation": "Galella (FAA), FAA Inspection Research Activities for Composite Materials (slides, 2006 Composite Damage Tolerance Workshop)",
+        "url": "https://faa.niar.wichita.edu/Portals/0/2006%20Composite%20Damage%20Tolerance%20Workshop/FAA%20Inspectin%20Research%20Activities%20for%20Composite%20Materials%20-%20Galella.pdf",
+        "local_path": "unpublished-local-ref:854a136df790331c",
+        "pages_read": "slides 8-16 (honeycomb inspection reliability study) read; remaining slides not read"
+      },
+      {
+        "citation": "Roach, Assessing conventional and advanced NDI for composite aircraft (CompositesWorld article summarising the FAA/Sandia AANC Composite Flaw Detection Experiments)",
+        "url": "https://www.compositesworld.com/articles/assessing-conventional-and-advanced-ndi-for-composite-aircraft",
+        "local_path": "unpublished-local-ref:08b0a6260c62ec63",
+        "pages_read": "article body read; web page text file"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Tap data for skins thicker than 0.5 mm metal; the numeric PoD curves from Roach 2016 (ROSAP 57662) not opened; no automated-tap scan rate."
+  },
+  {
+    "id": "bond-bondtester-lowfreq-resonance-mia",
+    "target": "bond",
+    "method": "Bond testers: Fokker-type low-frequency pitch-catch, resonance, mechanical impedance analysis (MIA)",
+    "resolution": [
+      {
+        "quantity": "Swept-frequency MIA on thin aluminium skins over Nomex honeycomb: skin thickness range over which most disbonds were detected",
+        "value": "0.5 to 2.0",
+        "unit": "mm skin thickness",
+        "conditions": "MIA 3000 instrument, 1 to 8 kHz sweep, two layers of thin aluminium skin with Nomex core; abstract only",
+        "quote": "most disbonds could be detected if the thicknesses of aluminium skin",
+        "location": "abstract; web page text (unpaginated)"
+      },
+      {
+        "quantity": "FAA reliability study: MIA mode best of the conventional devices, LFBT spread wide",
+        "value": "n/a",
+        "unit": "n/a",
+        "conditions": "carbon/glass skins over Nomex, blind tests; 'Difficulty/complexity in deploying LFBT equipment produced large data spread'",
+        "quote": "Overall, MIA mode worked well (reliability, repeatability, ease of use)",
+        "location": "slide 15; pdf page 15"
+      }
+    ],
+    "coverage_rate": "null: not stated; bond testers are spot probes.",
+    "used_on": "Aircraft honeycomb flight surfaces in maintenance (FAA/Sandia study, MIA and low-frequency bond tester). The Fokker Bondtester 80-L was evaluated on Army composite airframes (DTIC ADA201815) but that document was blocked to download and was not read.",
+    "limitations": "Spot instrument; no imaging; operator-sensitive; the 0.5-2.0 mm result is for aluminium skin over Nomex, with a 0.8 mm skin inside the range but a 23 mm aluminium core and Be face untested. Weak bonds are detected only as stiffness changes.",
+    "beryllium_notes": "The 0.5-2.0 mm aluminium range suggests a 0.8 mm skin is detectable by swept-frequency impedance, but Be (E about 290 GPa, Materion) is stiffer than aluminium (70 GPa in Materion Table 1); no Be bond-tester data found.",
+    "sources": [
+      {
+        "citation": "Liew, Jiang, Lim, Low, Experimental detection of disbonds and delamination in honeycomb structures, Eng. Fract. Mech. 47(5):723-741 (1994) (publication record with abstract; paper not opened)",
+        "url": "https://scholars.cityu.edu.hk/en/publications/experimental-detection-of-disbonds-and-delamination-in-honeycomb-/",
+        "local_path": "unpublished-local-ref:e972e91a72971a25",
+        "pages_read": "abstract only"
+      },
+      {
+        "citation": "Galella (FAA), FAA Inspection Research Activities for Composite Materials (slides, 2006 Composite Damage Tolerance Workshop)",
+        "url": "https://faa.niar.wichita.edu/Portals/0/2006%20Composite%20Damage%20Tolerance%20Workshop/FAA%20Inspectin%20Research%20Activities%20for%20Composite%20Materials%20-%20Galella.pdf",
+        "local_path": "unpublished-local-ref:854a136df790331c",
+        "pages_read": "slides 8-16 (honeycomb inspection reliability study) read; remaining slides not read"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": "No Fokker-specific specification or minimum detectable disbond size (the Army report ADA201815 returned HTTP 403); no bond-tester data on Be or on 23 mm aluminium core; Olympus BondMaster probe page was downloaded as undecodable data and was not read."
+  },
+  {
+    "id": "bond-weak-kissing-bond-methods",
+    "target": "bond",
+    "method": "Weak-bond and kissing-bond detection: phase-based/swept-frequency ultrasonics, nonlinear ultrasonics, vibrothermography",
+    "resolution": [
+      {
+        "quantity": "Statement on commercial NDE and weak bonds",
+        "value": "commercial NDE detects gross defects but fails on weak or kissing bonds",
+        "unit": "n/a",
+        "conditions": "NASA Langley QNDE 2023 slide",
+        "quote": "These techniques fail to detect weak or kissing bonds",
+        "location": "slide 13; pdf page 13"
+      },
+      {
+        "quantity": "Phase-based gauge R&R: share of variation from sample-to-sample",
+        "value": 94.73,
+        "unit": "% of variance",
+        "conditions": "glass-glass coupons 5.08 cm x 5.08 cm x 1.10 cm, bondline about 100 micrometre; total gage R&R 5.27%; lab prototype, NOT a sandwich bond",
+        "quote": null,
+        "location": "slide 'Gage R&R results' (no verbatim quote; numbers read from the slide text)"
+      },
+      {
+        "quantity": "Kissing disbonds simulated in the FAA honeycomb study by pillow inserts at the bondline",
+        "value": "simulated tight contact but no adhesive strength",
+        "unit": "n/a",
+        "conditions": "carbon/epoxy or fibreglass skins over 1 inch Nomex",
+        "quote": "pillow inserts at the skin-to-core bondline that simulated tight contact but no adhesive strength",
+        "location": "Roach article; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "null: laboratory methods, no area rate.",
+    "used_on": "Laboratory glass and composite coupons (NASA Langley); research on bonded composite joints (FAA CACRC Inspection Task Group lists angle-beam ultrasonic spectroscopy, nonlinear ultrasonics and vibrothermography as under study).",
+    "limitations": "None of the weak-bond methods found is qualified for large honeycomb or metal faces; they were developed on simple adhesive coupons. Conventional UT, thermography and shearography are described as unreliable for kissing bonds in several sources (NASA slide; Telford et al. kiss-bond panel abstract).",
+    "beryllium_notes": "No weak-bond data on beryllium found.",
+    "sources": [
+      {
+        "citation": "Takunju, Webster, Zalameda (NASA Langley), Measurement system analysis of a novel phase-based ultrasonic NDE technique for bond strength measurement (QNDE 2023 slides)",
+        "url": "https://ntrs.nasa.gov/api/citations/20230010345/downloads/QNDE%202023%20Conference%20Presentation_Takunju_FINAL.pdf",
+        "local_path": "unpublished-local-ref:a7f445975aaf6621",
+        "pages_read": "slides on motivation, set-up and Gage R&R skimmed"
+      },
+      {
+        "citation": "Roach, Assessing conventional and advanced NDI for composite aircraft (CompositesWorld article summarising the FAA/Sandia AANC Composite Flaw Detection Experiments)",
+        "url": "https://www.compositesworld.com/articles/assessing-conventional-and-advanced-ndi-for-composite-aircraft",
+        "local_path": "unpublished-local-ref:08b0a6260c62ec63",
+        "pages_read": "article body read; web page text file"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No quantified kissing-bond detection threshold on honeycomb; no method demonstrated on Be or on metal-faced sandwich; the TWI SWAK project and Telford et al. (pure.ul.ie) kiss-bond panel paper were seen as abstracts only; NASA LAR-TOPS-332 page blocked."
+  },
+  {
+    "id": "bond-seam-scarf-joint-inspection",
+    "target": "seam",
+    "method": "Inspection of 30:1 scarf-bonded seams (ultrasonic, shearography, thermography adapted)",
+    "resolution": [
+      {
+        "quantity": "Shearography of strip/seam-shaped debonds",
+        "value": "needs shear vector perpendicular to the long axis; use at least two shear directions",
+        "unit": "n/a",
+        "conditions": "SOFI test panels with seam/strip debonds",
+        "quote": "importance of using at least two shear vectors",
+        "location": "s5; pdf page 10"
+      },
+      {
+        "quantity": "E2580 geometry limit",
+        "value": "parallel surfaces",
+        "unit": "n/a",
+        "conditions": "a 30:1 scarf has a taper angle of about 1.9 degrees (conversion by this worker, arctan 1/30), so the faying surfaces are not parallel to the outer face",
+        "quote": "flat panel (parallel surfaces) composites and flat sandwich core panels",
+        "location": "E2580-24 s1.1; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "null",
+    "used_on": "No source found that inspected a scarf joint. This record is a placeholder for the seam target: only generic statements above are sourced.",
+    "limitations": "No scarf-specific NDE source was opened. The generic methods in the bond records (shearography, UT, thermography) are the only candidates; the 2.8 km of seam is a line feature, so line-scan or tiled methods apply, but this is not sourced.",
+    "beryllium_notes": "No beryllium scarf joint literature found.",
+    "sources": [
+      {
+        "citation": "Davis, Hooker, Simmons, Tenbusch, Shearographic Non-Destructive Evaluation of the Space Shuttle (NASA TM-111441, KSC, 1995)",
+        "url": "https://ntrs.nasa.gov/api/citations/19960028755/downloads/19960028755.pdf",
+        "local_path": "unpublished-local-ref:116f42d2494768cf",
+        "pages_read": "pp.1-10, read in full"
+      },
+      {
+        "citation": "ASTM E2580-24 Standard Practice for Ultrasonic Testing of Flat Panel Composites and Sandwich Core Materials Used in Aerospace Applications (ASTM store abstract: scope, significance only; standard body not purchased)",
+        "url": "https://store.astm.org/e2580-24.html",
+        "local_path": "unpublished-local-ref:31a97d9ac114ce2e",
+        "pages_read": "store abstract page only (scope 1.1-1.7, significance 5.1-5.2)"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": "Everything scarf-specific: no minimum detectable flaw in a scarf bondline, no kissing-bond data for scarf joints, no seam-scanning rate. A search for scarf-repair NDE returned only general kissing-bond and phased-array items (BINDT/TWI SWAK project, EWI article) which were not opened."
+  },
+  {
+    "id": "bond-beryllium-acoustic-and-xray",
+    "target": "bond",
+    "method": "Beryllium-specific physical facts that bear on UT, X-ray and radiography of a Be-faced sandwich",
+    "resolution": [
+      {
+        "quantity": "Longitudinal sound velocity of beryllium (table value)",
+        "value": 12900,
+        "unit": "m/s",
+        "conditions": "Materion Tech Brief Table 1; text says about 13,000 m/s; aluminium 6400 m/s in the same table",
+        "quote": "longitudinal sound waves in beryllium is about 13,000 meters/second",
+        "location": "p.1 text; pdf page 1"
+      },
+      {
+        "quantity": "Acoustic impedance, Be vs Al (x10^6 kg/m2.s)",
+        "value": "24 (Be) vs 17 (Al)",
+        "unit": "kg/m2.s x 1e6",
+        "conditions": "Table 1 row for Beryllium: density 1.85, Young's modulus 300 GPa, Poisson 0.02, velocity 12900, impedance 24, Debye 1000 K",
+        "quote": "Beryllium 1.85 300 0.02 12900 24 1000",
+        "location": "Table 1; pdf page 3"
+      },
+      {
+        "quantity": "Beryllium sheet typical properties",
+        "value": "density 1.85 g/cm3; modulus 290 GPa; thermal conductivity 216 W/m.K; specific heat 1.95 J/g.C",
+        "unit": "various",
+        "conditions": "SR-200 structural-grade sheet, 25 C",
+        "quote": "1.85 g/cm3 290 GPa 1287°C 1.95 J/g/°C 216 W/m·K",
+        "location": "p.1; pdf page 1"
+      },
+      {
+        "quantity": "Mass attenuation coefficient of Be at 50 keV",
+        "value": 0.1554,
+        "unit": "cm2/g",
+        "conditions": "NIST table; aluminium at 50 keV is 0.3681 cm2/g",
+        "quote": "5.00000E-02 1.554E-01 1.401E-02",
+        "location": "NIST Be table row 0.05 MeV; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Mass attenuation coefficient of Al at 50 keV",
+        "value": 0.3681,
+        "unit": "cm2/g",
+        "conditions": "NIST table",
+        "quote": "5.00000E-02 3.681E-01",
+        "location": "NIST Al table row 0.05 MeV; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Mass attenuation coefficient of Be at 20 keV",
+        "value": 0.2251,
+        "unit": "cm2/g",
+        "conditions": "NIST table; aluminium at 20 keV is 3.441 cm2/g",
+        "quote": "2.00000E-02 2.251E-01",
+        "location": "NIST Be table row 0.02 MeV; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Mass attenuation coefficient of Be at 100 keV",
+        "value": 0.1328,
+        "unit": "cm2/g",
+        "conditions": "NIST table; Al at 100 keV is 0.1704 cm2/g",
+        "quote": "1.00000E-01 1.328E-01",
+        "location": "NIST Be table row 0.1 MeV; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Radiography of brazed beryllium honeycomb panels",
+        "value": "25 kV, 2 minutes, film; final 10 ft2 panel showed 97% braze",
+        "unit": "n/a",
+        "conditions": "all-Be brazed honeycomb (not an adhesive-bonded Al core); X-ray parameters 'Power 25 KV, Time 2 minutes'",
+        "quote": "revealed a 97 percent braze in the final panel",
+        "location": "Conclusions; pdf page 135"
+      },
+      {
+        "quantity": "Materion's own NDT clause for Be bar",
+        "value": "radiography to 2% penetrameter sensitivity per ASTM E1742; up to 10 inch (254 mm) Be thickness",
+        "unit": "% / mm",
+        "conditions": "S-200 bar; penetrant inspection per ASTM E1417",
+        "quote": "A 10” (254 mm) maximum thickness of beryllium can be inspected with radiography.",
+        "location": "p.2; pdf page 2"
+      }
+    ],
+    "coverage_rate": "n/a",
+    "used_on": "Radiography of brazed beryllium honeycomb sandwich panels (NASA CR-130648, 1972, panels of 10 ft2); X-ray CT of aluminium-core sandwich with CFRP faces to find core crush and skin-to-core disbond (Zalameda & Parker, opened, composite faces).",
+    "limitations": "The NIST numbers show the X-ray transparency of Be, but the opposite matters here too: an aluminium core inside Be faces gives good X-ray contrast (Zalameda said aluminium honeycomb has 'excellent X-ray contrast compared to the composite face sheet'), yet X-ray is poor on thin area-type disbonds (MDPI/Li & Zhou 2019 intro: low contrast for debond defects, not independently verified here). Radiography/CT of a 20 m sphere is impractical as a field method; the CT system in the NASA paper took samples up to 25.4 x 25.4 cm.",
+    "beryllium_notes": "This record is the Be note. Be is nearly X-ray transparent: NIST mass attenuation at 50 keV is 0.1554 cm2/g for Be against 0.3681 for Al, and at 20 keV 0.2251 against 3.441 (rows quoted above), so radiography can see the core and bond-line voids through the faces. High velocity (about 12.9 km/s against 6.4 km/s for aluminium, Materion Table 1) and low attenuation favour high-frequency UT inside Be; high stiffness and conductivity are the limiting factors for shearography and thermography.",
+    "sources": [
+      {
+        "citation": "Materion SR-200 Structural-Grade Beryllium data sheet",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "local_path": "unpublished-local-ref:14189876aeccd43f",
+        "pages_read": "3 pages, read [manufacturer data sheet]"
+      },
+      {
+        "citation": "Materion S-200-F, S-200-FC, S-200-FH Structural-Grade Beryllium data sheet (includes NDT clause)",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c2eca2d0f75e11ee9aa0f6c265376dea",
+        "local_path": "unpublished-local-ref:f2a780e02dbc96a9",
+        "pages_read": "3 pages, read [manufacturer data sheet]"
+      },
+      {
+        "citation": "Materion Tech Brief, Acoustic Properties of Beryllium",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/5c819640ed3111eeae6eca0979eb494a",
+        "local_path": "unpublished-local-ref:6499777371132412",
+        "pages_read": "5 pages, read [manufacturer tech brief]"
+      },
+      {
+        "citation": "NIST X-Ray Mass Attenuation Coefficients - Beryllium (Z=4)",
+        "url": "https://physics.nist.gov/PhysRefData/XrayMassCoef/ElemTab/z04.html",
+        "local_path": "unpublished-local-ref:07cb9191709126d9",
+        "pages_read": "table read"
+      },
+      {
+        "citation": "NIST X-Ray Mass Attenuation Coefficients - Aluminum (Z=13)",
+        "url": "https://physics.nist.gov/PhysRefData/XrayMassCoef/ElemTab/z13.html",
+        "local_path": "unpublished-local-ref:154012e279610c32",
+        "pages_read": "table read"
+      },
+      {
+        "citation": "Vogan & Grant (Solar/International Harvester), Development of Beryllium Honeycomb Sandwich Composite for Structural and Other Related Applications (NASA CR-130648, 1972)",
+        "url": "https://ntrs.nasa.gov/api/citations/19730016169/downloads/19730016169.pdf",
+        "local_path": "unpublished-local-ref:1174771babc4b8e4",
+        "pages_read": "136 pp.; keyword search; read conclusions and section 9.5 (radiograph inspection)"
+      },
+      {
+        "citation": "Zalameda & Parker, Nondestructive Evaluation (NDE) for Inspection of Composite Sandwich Structures (NASA/TM-2014-218545)",
+        "url": "https://ntrs.nasa.gov/api/citations/20150001252/downloads/20150001252.pdf",
+        "local_path": "unpublished-local-ref:8ca5d875cb12067c",
+        "pages_read": "pp.1-9 read; remainder (X-ray CT comparison) skimmed"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No source on ultrasonic or laser inspection of an adhesively bonded Be face; the Be face thickness used in CR-130648 not extracted (136-page report keyword-searched only)."
+  },
+  {
+    "id": "shape-photogrammetry-vstars",
+    "target": "global shape",
+    "method": "Industrial coded-target photogrammetry (V-STARS, GSI) and film/plate photogrammetry of spheres",
+    "resolution": [
+      {
+        "quantity": "Vendor relative accuracy",
+        "value": "1:200,000 (0.025 mm on 5 m; 0.1 mm on 10 m)",
+        "unit": "relative",
+        "conditions": "manufacturer glossary; the 10 m example works out to 1:100,000, not 1:200,000 (the vendor's two examples (0.025 mm on 5 m, 0.1 mm on 10 m) are not the same ratio)",
+        "quote": "V-STARS is capable of relative accuracy to about 1:200,000",
+        "location": "Accuracy entry; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Aerospace-manufacturer acceptance test: RMS difference to laser tracker on 3.81 m tool",
+        "value": "0.031 to 0.043",
+        "unit": "mm RMS",
+        "conditions": "37 points; standard (laser tracker) accuracy 0.020 mm; estimated system accuracy 6.0 to 10.0 ppm of the 3810 mm maximum dimension",
+        "quote": "The RMS of the differences range from 0.031mm to 0.043mm.",
+        "location": "Low aspect ratio test; pdf page 4"
+      },
+      {
+        "quantity": "Same test on a 13.2 m long empennage tool",
+        "value": "0.043 to 0.091",
+        "unit": "mm RMS",
+        "conditions": "31 points; standard accuracy 0.023 mm; 99 photographs and under 45 minutes per measurement",
+        "quote": "The RMS of the differences range from 0.043mm to 0.091mm.",
+        "location": "High aspect ratio test; pdf page 9"
+      },
+      {
+        "quantity": "Vendor typical accuracy specification used in the 1997 test",
+        "value": 10,
+        "unit": "ppm RMS (one sigma)",
+        "conditions": "i.e. 1:100,000",
+        "quote": "equal to or better than the 10ppm RMS (one sigma) typical accuracy specification",
+        "location": "Table 2 note; pdf page 6"
+      },
+      {
+        "quantity": "Coordinate residual of a V-STARS solution on a 12 m dish",
+        "value": 100,
+        "unit": "micrometre rms",
+        "conditions": "about 5000 retro-reflective targets, camera more than 10 m from the apex, scale bars",
+        "quote": "with rms errors of ~ 100 µm",
+        "location": "s3; pdf page 4"
+      },
+      {
+        "quantity": "Image acquisition time per elevation on the 12 m dish",
+        "value": 1,
+        "unit": "hour",
+        "conditions": "same campaign, night-time, two elevations",
+        "quote": "It took about an hour to acquire images",
+        "location": "s3; pdf page 4"
+      },
+      {
+        "quantity": "Greenland Telescope 12 m dish surface measured by V-STARS after panel iterations",
+        "value": 17,
+        "unit": "micrometre RMS",
+        "conditions": "best result; ambient 2 to 5 C; 26 um RMS at -15 C; reported to follow the dish, not a measurement uncertainty",
+        "quote": "The result, 17 μm RMS, is the best surface accuracy achieved",
+        "location": "Fig. 9 caption; pdf page 17"
+      },
+      {
+        "quantity": "GSI's own precision estimate for a 12 m dish, as reported by the GLT team",
+        "value": 45,
+        "unit": "micrometre RMS",
+        "conditions": "the GLT team 'constantly achieved values better than 20um RMS'",
+        "quote": "should be around 45 um RMS",
+        "location": "s6.1; pdf page 18"
+      },
+      {
+        "quantity": "35 m diameter aluminium sphere (LNG tank), plate photogrammetry: claimed precision",
+        "value": "about 1 part in 100,000 (about 0.4 mm on 35 m)",
+        "unit": "relative",
+        "conditions": "408 targets, 9 camera stations inside the tank, plates measured to 3 micrometre; NBS tested the claim",
+        "quote": "claimed precision for this technique approaches 1 part in 100,000",
+        "location": "Summary; pdf page 10"
+      },
+      {
+        "quantity": "NBS finding on error direction",
+        "value": "radial error worst (NBS text: a factor of about 3 between radial and tangential); error grows with camera-to-target distance",
+        "unit": "n/a",
+        "conditions": "the radial direction is the one that matters for shape; NBS upper bound on radial std dev from residuals was 7.1 mm, which includes the tank's own deviation from a sphere, so it is not a measurement uncertainty",
+        "quote": "the precision of measurement is poorest in the radial direction",
+        "location": "Error analysis; pdf page 32"
+      }
+    ],
+    "coverage_rate": "Not an areal rate. Acquisition times: about 1 h of imaging per elevation for a 12 m dish with about 5000 targets (arXiv 0905.1252); under 30 min (3 m tool, about 30 photographs) and under 45 min (13.2 m tool, 99 photographs) in the GSI acceptance test; targets must be placed first (not timed in the sources).",
+    "used_on": "12 m parabolic dishes (RRI/ISTRAC prototype; Greenland Telescope); 35 m aluminium spherical LNG tanks (NBS 1979); aerospace assembly tools of 3 to 13 m (GSI test). A GSI web news headline mentions the James Webb Telescope (page not opened).",
+    "limitations": "Needs retro-reflective targets on the surface (about 5000 on a 12 m dish; the 1,257 m2 sphere would need many more). Sub-0.05 mm results on 12 m dishes occurred after repeated panel adjustments and are not blind accuracy. Temperature changes degrade results (GLT). Relative accuracy is a vendor claim; independent checks gave 0.03 to 0.09 mm on 3 to 13 m objects. Radial error is the weak axis for a sphere measured from inside.",
+    "beryllium_notes": "No specific Be issue; the target adhesives and the thermal expansion of Be (11.3 ppm/C, Materion) matter to a 20 m sphere (temperature control is required, as GLT and NBS both note).",
+    "sources": [
+      {
+        "citation": "Geodetic Systems Inc. (GSI) Glossary, 'Accuracy' entry [manufacturer web page]",
+        "url": "https://www.geodetic.com/?p=75",
+        "local_path": "unpublished-local-ref:7f9eecfeac97379b",
+        "pages_read": "glossary entry read"
+      },
+      {
+        "citation": "Brown (GSI), V-STARS/S Acceptance Test Results (1997 acceptance test by an aerospace manufacturer) [manufacturer report]",
+        "url": "https://www.geodetic.com/wp-content/uploads/2018/08/S-Acceptance-Test-Results-metric-version.pdf",
+        "local_path": "unpublished-local-ref:0b95bd8e617825ce",
+        "pages_read": "13 pages, read in full"
+      },
+      {
+        "citation": "Photogrammetric Measurements of a 12-metre Preloaded Parabolic Dish Antenna (arXiv:0905.1252, RRI/ISTRAC)",
+        "url": "https://arxiv.org/pdf/0905.1252",
+        "local_path": "unpublished-local-ref:e9d4da935ddfeb0d",
+        "pages_read": "7 pages, read sections 3-4"
+      },
+      {
+        "citation": "Chen et al., The Greenland Telescope: Construction, Commissioning, and Operations in Pituffik (arXiv:2307.10468)",
+        "url": "https://arxiv.org/pdf/2307.10468",
+        "local_path": "unpublished-local-ref:d59166b9ed8b4cb4",
+        "pages_read": "section 6.1 photogrammetry read; rest keyword-searched"
+      },
+      {
+        "citation": "Jackson, Collier, Haber, Tryon (NBS), Custody Transfer Systems for LNG Ships: Tank Survey Techniques and Sounding Tables (NBSIR 79-1751, 1979)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1751.pdf",
+        "local_path": "unpublished-local-ref:ab304be35c3215c7",
+        "pages_read": "92 pp.; read the summary and survey description (pdf p.10) and the random-error analysis (pdf pp.32-33); the tank-model statistics and appendices not read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No photogrammetry result at 20 m diameter with current systems; no accuracy for a closed sphere measured from the inside at the 20 m range; the SPIE 2020 large-satellite deformation paper and the Chinese 2015 planar-antenna paper (0.1 mm) were seen only as search results."
+  },
+  {
+    "id": "shape-laser-tracker",
+    "target": "global shape",
+    "method": "Laser tracker (Leica AT960 class), ASME B89.4.19 specification",
+    "resolution": [
+      {
+        "quantity": "Horizontal scale-bar MPE at 10 m range",
+        "value": 0.106,
+        "unit": "mm",
+        "conditions": "ADM and IFM; typical value (half MPE) 0.053 mm; variation in air temperature not included",
+        "quote": "10 0.106 0.106 0.053 0.053",
+        "location": "Horizontal scale bar table; pdf page 2"
+      },
+      {
+        "quantity": "Horizontal scale-bar MPE at 20 m range",
+        "value": 0.191,
+        "unit": "mm",
+        "conditions": "ADM and IFM; typical value 0.096 mm",
+        "quote": "20 0.191 0.191 0.096 0.096",
+        "location": "Horizontal scale bar table; pdf page 2"
+      },
+      {
+        "quantity": "In-line distance MPE, IFM, 2 to 20 m",
+        "value": 0.005,
+        "unit": "mm",
+        "conditions": "ADM 0.014 mm; the in-line distance is only the radial distance, not the 3D position",
+        "quote": "2 to 20 0.014 0.005 0.007 0.003",
+        "location": "In-line distance table; pdf page 1"
+      },
+      {
+        "quantity": "Angular accuracy (MPE)",
+        "value": "+-15 um + 6 um/m",
+        "unit": "um",
+        "conditions": "typical is half",
+        "quote": "± 15 µm + 6 µm/m",
+        "location": "Performance table; pdf page 2"
+      }
+    ],
+    "coverage_rate": "null: point-by-point instrument; no areal rate in the data sheet.",
+    "used_on": "GSI used a laser tracker as the 0.020 to 0.023 mm reference for V-STARS on 3.8 m and 13.2 m tools (gsi-vstars-accept, opened); the GLT team used a laser tracker for surveying panels (arXiv 2307.10468). Application to a 20 m sphere not documented in sources opened.",
+    "limitations": "Single-point measurement: cannot map 1,257 m2 at 10 to 20 mm resolution in reasonable time; reflector must be mounted on a nest at each point; temperature and refractive-index uncertainties are excluded from the quoted MPE; needs line of sight (inside a 20 m sphere is fine, outside the line of sight to the far hemisphere is not).",
+    "beryllium_notes": "n/a",
+    "sources": [
+      {
+        "citation": "Leica Absolute Tracker AT960 ASME B89.4.19-2006 specifications data sheet (Hexagon MI, 2016, as hosted by ATEC) [manufacturer data sheet]",
+        "url": "https://atecorp.com/getmedia/457543d7-b91a-4596-825c-9da1d944b647/hexagon-mi-at960-datasheet-a4_en_1.pdf",
+        "local_path": "unpublished-local-ref:052b28bdead70c61",
+        "pages_read": "2 pages, read"
+      },
+      {
+        "citation": "Brown (GSI), V-STARS/S Acceptance Test Results (1997 acceptance test by an aerospace manufacturer) [manufacturer report]",
+        "url": "https://www.geodetic.com/wp-content/uploads/2018/08/S-Acceptance-Test-Results-metric-version.pdf",
+        "local_path": "unpublished-local-ref:0b95bd8e617825ce",
+        "pages_read": "13 pages, read in full"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Official Hexagon data sheet not obtained (the copy read is a distributor's 2016 reproduction); no laser-tracker survey of a sphere of this size found."
+  },
+  {
+    "id": "shape-laser-radar-nikon-apdis",
+    "target": "global shape",
+    "method": "Laser radar (Nikon Metrology APDIS MV430/MV450, frequency-modulated, noncontact)",
+    "resolution": [
+      {
+        "quantity": "Length MPE formula",
+        "value": "20 um + 5 um/m",
+        "unit": "um",
+        "conditions": "ASME B89.4.19-2006 at 20 C; typical is half MPE; range 0.5 m to 30 m (MV430) or 50 m (MV450). WebFetch extraction of the vendor spec table; NOT verified verbatim and no local copy",
+        "quote": null,
+        "location": "vendor product page, spec table"
+      },
+      {
+        "quantity": "Tabulated two-point MPE at 20 m",
+        "value": 420,
+        "unit": "um",
+        "conditions": "same table: 216 um at 10 m, 625 um at 30 m (typical 210 um at 20 m). The tabulated values do not match the printed formula (about 321 um at 20 m); unresolved discrepancy, check with Nikon",
+        "quote": null,
+        "location": "vendor product page, spec table"
+      },
+      {
+        "quantity": "Scan rate",
+        "value": "500 to 1000",
+        "unit": "points/s",
+        "conditions": "default settings: stacking 4, point spacing 0.1 mm, line spacing 1 mm (vendor table lists '2 sec/cm2' and '1 sec/cm2' against these rates)",
+        "quote": null,
+        "location": "vendor product page, spec table"
+      }
+    ],
+    "coverage_rate": "Vendor table (via extraction): '500 pts/sec: 2 sec/cm2' and '1000 pts/sec: 1 sec/cm2' at 0.1 mm point spacing and 1 mm line spacing. Not verified.",
+    "used_on": "Large aerospace fuselage and wing measurement per the CMSC paper (cmsc.org, not opened). Nikon launch notice (2020) not opened.",
+    "limitations": "The vendor's own table and formula disagree. The maximum range quoted (30 or 50 m) covers a 20 m sphere only from the centre. Accuracy at 20 m is hundreds of micrometres, i.e. of the order of the 0.1 to 0.4 mm figures for photogrammetry and well above the 0.02 mm waviness target.",
+    "beryllium_notes": "No Be-specific information.",
+    "sources": [
+      {
+        "citation": "Nikon Metrology APDIS MV4x0 laser radar product page, specification table [manufacturer web page; direct download blocked (HTTP 403); values taken from a WebFetch extraction and NOT checked verbatim]",
+        "url": "https://industry.nikon.com/en-us/products/laser-radar/apdis-mv4x0/",
+        "local_path": null,
+        "pages_read": "specification table via WebFetch extraction only"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": "The Nikon page could not be downloaded (HTTP 403); the extraction came from the WebFetch tool and the spec numbers are therefore unverified; no independent test (NIST or NASA) of laser radar at 20 m found; MV331/MV351 specs not found."
+  },
+  {
+    "id": "shape-terrestrial-laser-scanner",
+    "target": "global shape",
+    "method": "Terrestrial laser scanner (Leica RTC360 and ScanStation P50, time-of-flight)",
+    "resolution": [
+      {
+        "quantity": "RTC360 3D point accuracy at 10 / 20 / 40 m (68% confidence)",
+        "value": "1.9 / 2.9 / 5.3",
+        "unit": "mm",
+        "conditions": "89% albedo target; angular accuracy 18 arcsec; range accuracy 1.0 mm + 10 ppm",
+        "quote": "3D point accuracy 1.9 mm @ 10 m 2.9 mm @ 20 m",
+        "location": "page 2; pdf page 2"
+      },
+      {
+        "quantity": "RTC360 range noise at 10 and 20 m",
+        "value": "0.4 and 0.5",
+        "unit": "mm",
+        "conditions": "single shot, 89% albedo",
+        "quote": "Range noise* ** 0.4 mm @ 10 m, 0.5 mm @ 20 m",
+        "location": "page 2; pdf page 2"
+      },
+      {
+        "quantity": "ScanStation P50 range noise",
+        "value": "0.4 mm rms at 10 m; 0.5 mm rms at 50 m",
+        "unit": "mm rms",
+        "conditions": "range accuracy 1.2 mm + 10ppm; angular accuracy 8 arcsec",
+        "quote": "0.4 mm rms at 10 m",
+        "location": "page 1; pdf page 2"
+      }
+    ],
+    "coverage_rate": "Vendor: RTC360 up to 2,000,000 points/s, full-dome scan in under 2 min at 6 mm @ 10 m resolution; P50 up to 1,000,000 points/s. Not an m2/h figure.",
+    "used_on": "Construction and plant survey (Leica marketing); the Polish composite-deformation study and NIST LADAR evaluation facility seen as titles only.",
+    "limitations": "Millimetre-class accuracy (1.9 to 5.3 mm on 3D points) is coarser than the 0.1 mm-class figures for photogrammetry and laser trackers above, and cannot be expected to resolve a 10 mm dimple over 0.35 m at 1.9 to 5.3 mm point accuracy (no source states the required resolution; the 10 mm depth is the program's requirement).",
+    "beryllium_notes": "Accuracy is quoted for 89% albedo; Be is a bright specular metal and the albedo dependence is not given in the sheets.",
+    "sources": [
+      {
+        "citation": "Leica RTC360 3D Reality Capture Solution product specifications (Leica Geosystems, 2018) [manufacturer data sheet]",
+        "url": "https://infrabooking.aalto.fi/kokvar/tilakuvat/aaltoinfra/210907101508_leicartc360ds.pdf",
+        "local_path": "unpublished-local-ref:ab111fe760f4ed3a",
+        "pages_read": "2 pages, read"
+      },
+      {
+        "citation": "Leica ScanStation P50 data sheet (Leica Geosystems) [manufacturer data sheet]",
+        "url": "https://www.tpm.com/wp-content/uploads/2021/10/Leica-ScanStation-P50-DS-869145-1220-en-LR.pdf",
+        "local_path": "unpublished-local-ref:9dde54611041d472",
+        "pages_read": "2 pages, read"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "No scanner result on a metal sandwich shell; no sub-millimetre TLS evaluation."
+  },
+  {
+    "id": "waviness-structured-light-fringe-projection",
+    "target": "waviness",
+    "method": "Structured-light / blue-light fringe projection scanners (GOM/ZEISS ATOS, Hexagon StereoScan)",
+    "resolution": [
+      {
+        "quantity": "NASA shell imperfection measurement by photogrammetry plus structured light on 8 ft diameter cylinders",
+        "value": 0.001,
+        "unit": "inch (0.0254 mm, conversion by this worker)",
+        "conditions": "as-built outer mold line of 8 ft (2.44 m) diameter metallic test articles, measurement accuracy as stated by NASA",
+        "quote": "measurement accuracy of ±0.001 inch",
+        "location": "s IV.A, p.11; pdf page 11"
+      },
+      {
+        "quantity": "Best-fit radius from DIC compared with structured-light radius",
+        "value": 0.189,
+        "unit": "% difference",
+        "conditions": "average radius of 8 DIC systems 47.888 inch vs 47.979 inch from structured light",
+        "quote": "within 0.189% of the structured-light-based radius measurement",
+        "location": "s III; pdf page 7"
+      },
+      {
+        "quantity": "ATOS 5 accuracy from the vendor",
+        "value": "no single figure published; per-volume acceptance document gives probing error, sphere spacing error and length measurement error",
+        "unit": "n/a",
+        "conditions": "ZEISS staff reply, 2023: accuracy depends on temperature, calibration, surface, lighting, reflections, angle and contrast",
+        "quote": "there is no value we could share",
+        "location": "forum reply; web page text (unpaginated)"
+      },
+      {
+        "quantity": "ATOS 5 data per scan",
+        "value": "up to 12 million measuring points; measuring area and resolution selectable",
+        "unit": "points",
+        "conditions": "ZEISS web page; the table of measuring-area and point-distance values was not extractable from the page text",
+        "quote": "An individual measurement consists of up to 12 million independent measuring points.",
+        "location": "product page; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "null: no m2/h in any fringe-projection source opened. NASA used structured-light scanning plus photogrammetry for whole cylinders (time not stated in the paragraphs read).",
+    "used_on": "NASA Shell Buckling Knockdown Factor (SBKF) 8 ft diameter metallic and composite cylinders and the 27.5 ft (8.4 m) diameter cylinders (imperfections measured with a structured-light approach; Lovejoy et al., opened).",
+    "limitations": "Needs diffuse (non-shiny) surface or developer spray; small measuring volume per shot so a 1,257 m2 shell requires thousands of stitched scans referenced to photogrammetry targets (the ZEISS page describes TRITOP photogrammetry referencing); vendor refuses a general accuracy figure.",
+    "beryllium_notes": "Bright metal surfaces typically need a matte coating for fringe projection (ZEISS markets blue light for 'shiny and dark surfaces'); no Be case found.",
+    "sources": [
+      {
+        "citation": "Gardner, Hilburger, Haynie, Lindell, Waters, Digital Image Correlation Data Processing and Analysis Techniques to Enhance Test Data Assessment and Improve Structural Simulations (NASA Langley, SBKF)",
+        "url": "https://ntrs.nasa.gov/api/citations/20180006177/downloads/20180006177.pdf",
+        "local_path": "unpublished-local-ref:6741c1c5da54a333",
+        "pages_read": "pp.1-16; read set-up, uncertainty and imperfection sections"
+      },
+      {
+        "citation": "Lovejoy, Hilburger, Gardner, Test and Analysis of Full-Scale 27.5-Foot-Diameter Stiffened Metallic Launch Vehicle Cylinders (NASA Langley, SBKF)",
+        "url": "https://ntrs.nasa.gov/api/citations/20180006174/downloads/20180006174.pdf",
+        "local_path": "unpublished-local-ref:c4955fb031d40cde",
+        "pages_read": "34 pp.; keyword-searched, instrumentation and imperfection paragraphs read"
+      },
+      {
+        "citation": "ZEISS Qualityforum thread 'Accuracy Details of GOM ATOS 5' (ZEISS staff reply, 2023-02-20)",
+        "url": "https://qualityforum.zeiss.com/topic/2594-accuracy-details-of-gom-atos-5/",
+        "local_path": "unpublished-local-ref:6cd770686690a48b",
+        "pages_read": "thread read"
+      },
+      {
+        "citation": "ZEISS ATOS 5 product page [manufacturer web page]",
+        "url": "https://www.zeiss.com/metrology/en/systems/optical-3d/3d-scanning/atos/atos-5.html",
+        "local_path": "unpublished-local-ref:39c5c37bde72d6ad",
+        "pages_read": "page read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No datasheet value for point distance and measuring-area for any named scanner (ZEISS overview PDF and Hexagon pages gave none; a university page quoting 0.01 mm accuracy for an older ATOS was seen in a search summary only); no vertical resolution stated for any scanner; no 0.02 mm waviness evidence at 10-100 mm wavelengths; no areal rate."
+  },
+  {
+    "id": "waviness-laser-line-profiler",
+    "target": "waviness",
+    "method": "Laser line profiler (Keyence LJ-X8060 as an example head)",
+    "resolution": [
+      {
+        "quantity": "Z-axis (height) repeatability",
+        "value": 0.4,
+        "unit": "micrometre",
+        "conditions": "reference distance 64 mm; Z measurement range +-7.3 mm; this is the finest head in the LJ-X8000 series found",
+        "quote": "Repeatability Z-axis (height) 0.4 μm",
+        "location": "spec table; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Profile data interval, X-axis",
+        "value": 5,
+        "unit": "micrometre",
+        "conditions": "3200 profile points; X width 15 mm on the near side",
+        "quote": "Profile data count 3200 points",
+        "location": "spec table; web page text (unpaginated)"
+      },
+      {
+        "quantity": "Linearity, Z axis",
+        "value": "+-0.04% of F.S.",
+        "unit": "of full scale",
+        "conditions": "F.S. = 14.6 mm per the same table",
+        "quote": "Linearity Z-axis (height) ±0.04% of F.S.",
+        "location": "spec table; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "null: the extracted page text gives no sampling frequency or areal rate; areal rate depends on the robot or gantry that carries the head.",
+    "used_on": "Industrial inline inspection (manufacturer); no large-aerospace-shell use in a source opened.",
+    "limitations": "A 15 mm line at 64 mm stand-off must be carried on a robot or gantry over a 20 m sphere; the positional accuracy of the carrier (not the sensor) sets whether 10 to 100 mm wavelengths and 0.02 mm are met; the catalogue repeatability is a lab figure on a reference target.",
+    "beryllium_notes": "Blue (405 nm) laser lines give better results on shiny/translucent surfaces than red, but no Be data in the sheet.",
+    "sources": [
+      {
+        "citation": "Keyence LJ-X8060 2D/3D laser profiler sensor head specification [manufacturer web page]",
+        "url": "https://keyence.com/products/measure/laser-2d/lj-x8000/models/lj-x8060",
+        "local_path": "unpublished-local-ref:904eff140c4f09dc",
+        "pages_read": "specification table read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Sampling frequency, speed and width at far side not extracted; no application to a large sandwich shell found."
+  },
+  {
+    "id": "waviness-deflectometry",
+    "target": "waviness",
+    "method": "Phase-measuring deflectometry / SCOTS (fringe reflection) for slope and waviness of specular surfaces",
+    "resolution": [
+      {
+        "quantity": "SCOTS accuracy on a 130 mm off-axis parabola with no calibration of test geometry",
+        "value": 1,
+        "unit": "micrometre rms or better",
+        "conditions": "1.6 mm peak-to-valley figure; slope measurement sensitivity about 20 microradian; with 1 mm spatial sampling a sag resolution of about 20 nm is obtained",
+        "quote": "1 μm rms or better accuracy was achieved",
+        "location": "s3.A, p.5; pdf page 5"
+      },
+      {
+        "quantity": "SCOTS scope",
+        "value": "large, highly aspherical shapes such as solar collectors and primary telescope mirrors",
+        "unit": "n/a",
+        "conditions": "tested on a 130 mm OAP, a 1 m solar reflector segment and a larger off-axis segment per the abstract",
+        "quote": "can achieve measurement accuracy comparable with interferometric methods",
+        "location": "abstract; pdf page 1"
+      },
+      {
+        "quantity": "PMD review: accuracy reach",
+        "value": "micrometre level; nanometre with micro-objectives",
+        "unit": "n/a",
+        "conditions": "review statement, not a measurement",
+        "quote": "accuracy of the existing PMD methods can reach a level of micrometer",
+        "location": "s5.3; pdf page 18"
+      },
+      {
+        "quantity": "A portable deflectometer (SPOTS) reported surface accuracy",
+        "value": 1,
+        "unit": "nm RMS (mid to high spatial frequency)",
+        "conditions": "slope precision 300 nrad RMS; small optics",
+        "quote": "1 nm root mean square (RMS) surface accuracy",
+        "location": "s6.1; pdf page 19"
+      },
+      {
+        "quantity": "Display size",
+        "value": "the screen must be about twice the object size",
+        "unit": "n/a",
+        "conditions": "a limit for large specular objects, with display flatness an error source",
+        "quote": "required to be twice as large as the object under test",
+        "location": "s4.2; pdf page 16"
+      }
+    ],
+    "coverage_rate": "null: not stated as an areal rate; SCOTS measures the whole mirror in one or a few frames at the field of the camera.",
+    "used_on": "Astronomical mirrors (1 m class, 8.4 m GMT segment per Su et al.), solar reflector segments, X-ray optics, automotive glass and car bodies (PMD review).",
+    "limitations": "Requires a specular (mirror-like) or polished surface and a screen at least the size of the field; slope is measured and height is integrated, so long-wavelength shape is weaker than short-wavelength waviness (which suits the 10 to 100 mm band); a large sphere would need many screens or a scanned screen.",
+    "beryllium_notes": "Polished Be mirrors are the classical specular case; whether a 0.8 mm structural Be face is specular enough is not stated in any source opened.",
+    "sources": [
+      {
+        "citation": "Su, Parks, Wang, Angel, Burge, Software configurable optical test system: a computerized reverse Hartmann test, Appl. Opt. 49(23):4404 (2010)",
+        "url": "https://wp.optics.arizona.edu/jcwyant/wp-content/uploads/sites/13/2016/08/03-SCOTS-AO-paper.pdf",
+        "local_path": "unpublished-local-ref:90d695f989170d3b",
+        "pages_read": "pp.1-9, read abstract, intro, experiments"
+      },
+      {
+        "citation": "Zhang et al., Three-Dimensional Shape Measurements of Specular Objects Using Phase-Measuring Deflectometry, Sensors 17(12):2835 (2017)",
+        "url": "https://eprints.hud.ac.uk/id/eprint/34099/1/sensors-17-02835-v2%20(1).pdf",
+        "local_path": "unpublished-local-ref:b5d02f7a8bf7af88",
+        "pages_read": "27 pp.; keyword-searched, read sections 4.2, 5.3, 6"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No deflectometry result on a metal sandwich shell, a large dish or a curved surface of 20 m scale; the University of Arizona SCOTS dissertation download returned a login page; no areal rate."
+  },
+  {
+    "id": "load-digital-image-correlation",
+    "target": "under load",
+    "method": "Stereo digital image correlation (3D-DIC, VIC-3D) on large shells under load",
+    "resolution": [
+      {
+        "quantity": "Displacement measurement uncertainty (3 sigma) of the SBKF DIC systems",
+        "value": 0.003,
+        "unit": "inch (0.076 mm, conversion by this worker)",
+        "conditions": "eight 2-camera systems, each camera 5 megapixel, around an 8 ft (2.44 m) cylinder; sigma about 0.001 inch",
+        "quote": "with a measurement accuracy of ±0.003 inch",
+        "location": "s IV.A, p.11; pdf page 11"
+      },
+      {
+        "quantity": "DIC cameras per system",
+        "value": "two 5-megapixel (2448 by 2048)",
+        "unit": "n/a",
+        "conditions": "each system covered 60 to 80 degrees of arc",
+        "quote": "Each DIC system used two 5-megapixel (2448 by 2048 pixels) cameras",
+        "location": "s II, p.6; pdf page 6"
+      },
+      {
+        "quantity": "27.5 ft (8.4 m) diameter cylinders: number of DIC systems",
+        "value": 6,
+        "unit": "systems",
+        "conditions": "global displacement and strain on the outer mold line during buckling tests; load introduction rings examined to about 12 inch",
+        "quote": "measured using six DIC systems",
+        "location": "s IV; pdf page 4"
+      },
+      {
+        "quantity": "Expected DIC shape error on a 300 mm cylinder at 11 pixels/mm",
+        "value": "0.001 to 0.004",
+        "unit": "mm",
+        "conditions": "two 9-megapixel cameras at about 700 mm, pair stitched round the circumference; small scale, not a large-structure figure",
+        "quote": "the expected measurement error ranges from 0.001 mm to 0.004 mm",
+        "location": "s3.4; pdf page 9"
+      }
+    ],
+    "coverage_rate": "null as m2/h. Frame rate 0.2 Hz in the SBKF low-speed set-up (1 frame per 5 s). 8 systems at about every 45 degrees cover a full 8 ft cylinder circumference at one time.",
+    "used_on": "NASA SBKF: 8 ft diameter metallic and composite cylinders, and 27.5 ft diameter Al-Li integrally stiffened cylinders (six DIC systems) in buckling tests; NASA TRAC boom 7.5 m (title seen, not opened).",
+    "limitations": "Needs a speckle pattern on the surface; uncertainty grows towards the edge of each camera's field (Fig. 8 of Gardner); a 3-sigma displacement uncertainty of 0.076 mm at 2.4 m is larger than the 0.02 mm waviness target and is a displacement figure, not an absolute-shape figure; a vacuum chamber optical access (a 20 m sphere evacuated) is not addressed in any source opened.",
+    "beryllium_notes": "Speckle paint on a Be face is standard practice in principle but no Be DIC source found. Be face deflection under external pressure may be small given Be stiffness (Materion), which would make a 0.076 mm DIC uncertainty a larger fraction of the signal; inference, not sourced.",
+    "sources": [
+      {
+        "citation": "Gardner, Hilburger, Haynie, Lindell, Waters, Digital Image Correlation Data Processing and Analysis Techniques to Enhance Test Data Assessment and Improve Structural Simulations (NASA Langley, SBKF)",
+        "url": "https://ntrs.nasa.gov/api/citations/20180006177/downloads/20180006177.pdf",
+        "local_path": "unpublished-local-ref:6741c1c5da54a333",
+        "pages_read": "pp.1-16; read set-up, uncertainty and imperfection sections"
+      },
+      {
+        "citation": "Lovejoy, Hilburger, Gardner, Test and Analysis of Full-Scale 27.5-Foot-Diameter Stiffened Metallic Launch Vehicle Cylinders (NASA Langley, SBKF)",
+        "url": "https://ntrs.nasa.gov/api/citations/20180006174/downloads/20180006174.pdf",
+        "local_path": "unpublished-local-ref:c4955fb031d40cde",
+        "pages_read": "34 pp.; keyword-searched, instrumentation and imperfection paragraphs read"
+      },
+      {
+        "citation": "Castro et al., Measuring geometric imperfections of variable-angle filament-wound cylinders with a simple digital image correlation setup, Composite Structures (2021)",
+        "url": "https://acris.aalto.fi/ws/portalfiles/portal/66967284/ENG_Castro_et_al_Measuring_geometric_imperfections_Composite_Structures.pdf",
+        "local_path": "unpublished-local-ref:ecd54f4663655751",
+        "pages_read": "14 pp.; keyword-searched, sections 3.2-3.4 read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No DIC through a vacuum-chamber window or inside a sphere; no source on DIC of a spherical shell under external pressure; no photogrammetry-in-vacuum example."
+  },
+  {
+    "id": "load-fibre-optic-strain-sensing",
+    "target": "under load",
+    "method": "Distributed fibre-optic strain sensing: Rayleigh OFDR (Luna ODiSI) and FBG/OFDR (NASA Armstrong FOSS)",
+    "resolution": [
+      {
+        "quantity": "ODiSI HD gage pitch (spatial resolution)",
+        "value": 0.65,
+        "unit": "mm",
+        "conditions": "NIST-traceable calibrated HD Rayleigh sensors; per the performance table the 0.65 mm pitch is offered only in the 2.5 to 20 m modes, 1.3 mm up to 50 m, 2.6 and 5.2 mm up to 100 m (extended-range modules)",
+        "quote": "gage pitch down to 0.65 mm",
+        "location": "p.1; pdf page 2/6"
+      },
+      {
+        "quantity": "Instrument accuracy",
+        "value": 1,
+        "unit": "microstrain",
+        "conditions": "instrument only",
+        "quote": "Instrument accuracy ±1 µϵ",
+        "location": "spec table; pdf page 5"
+      },
+      {
+        "quantity": "Strain resolution",
+        "value": 0.1,
+        "unit": "microstrain",
+        "conditions": "strain range +-15,000 microstrain",
+        "quote": "Resolution 0.1 µϵ",
+        "location": "spec table; pdf page 5"
+      },
+      {
+        "quantity": "Measurement uncertainty by gage pitch (0.65, 1.3, 2.6, 5.2 mm, 6 mm CFG, 6 mm)",
+        "value": "+-5, +-4, +-2, +-2, +-2, +-5",
+        "unit": "microstrain",
+        "conditions": "the definition in footnote 7 was not read",
+        "quote": "±5 µϵ ±4 µϵ ±2 µϵ ±2 µϵ ±2 µϵ ±5 µϵ",
+        "location": "spec table; pdf page 5"
+      },
+      {
+        "quantity": "System (instrument and sensor) accuracy",
+        "value": "+-25 to +-30",
+        "unit": "microstrain",
+        "conditions": "vs NIST-traceable extensometer, average of 150 measurements at each of seven strain steps",
+        "quote": "System (instrument and sensor) accuracy6 ±25 µϵ ±30 µϵ",
+        "location": "spec table; pdf page 5"
+      },
+      {
+        "quantity": "NASA Armstrong FOSS sensor spacing",
+        "value": 0.25,
+        "unit": "inch (6.35 mm, conversion by this worker)",
+        "conditions": "up to eight 40-foot fibres, 16,000 sensors per system, 100 Hz in flight",
+        "quote": "0.25-inch spatial resolution for a total of 16,000 sensors per system",
+        "location": "p.2; pdf page 2"
+      },
+      {
+        "quantity": "Validation statement on accuracy",
+        "value": "as accurate as foil strain gages (correlation above 0.99)",
+        "unit": "n/a",
+        "conditions": "cantilever steel beam and the Ikhana UAV wing, 2,880 FBG sensors at 0.5 inch spacing",
+        "quote": "are as accurate as traditional strain gages",
+        "location": "Conclusion; pdf page 3"
+      }
+    ],
+    "coverage_rate": "Not an area rate: fibre length per channel 1 to 100 m (ODiSI) and 8 x 40 ft = 16,000 sensors per FOSS system at 0.25 inch; measurement rate per the ODiSI table: 62.5 Hz at 0.65 mm pitch in the 2.5 m mode, 250 Hz at 2.6/5.2 mm pitch in that mode, falling to 10 Hz in the 100 m mode (aggregate over channels).",
+    "used_on": "NASA Armstrong: Ikhana (Predator B) 66 ft span wing with 2,880 FBG sensors (6 fibres of 20 ft), 18 flights; steel cantilever beam validation. ODiSI: composite parts and structural tests (vendor).",
+    "limitations": "A fibre senses strain along a line, not out-of-plane shape; a dimple of 10 mm over 0.35 m changes local strain but fibre must be bonded to the surface in the right pattern. The bonding adhesive and the Be face stiffness reduce strain transfer (not quantified in sources). The quoted system accuracy is in microstrain; no source relates it to deflection of a Be face.",
+    "beryllium_notes": "No FOS-on-Be source found. The CTE of Be (11.3 ppm/C, Materion) is near that of silica-clad fibre with polyimide coating bonded to steel; no data.",
+    "sources": [
+      {
+        "citation": "Luna ODiSI 6000 Series data sheet [manufacturer data sheet]",
+        "url": "https://erc-dreamon.ens-paris-saclay.fr/sites/erc_dream_on/files/media/downloads/ds_luna-odisi-6000-data-sheet_0.pdf",
+        "local_path": "unpublished-local-ref:47fd84c9afb54670",
+        "pages_read": "6 pages, spec table read"
+      },
+      {
+        "citation": "Chan, Parker, Piazza, Richards (NASA Armstrong), Fiber-Optic Sensing System: Overview, Development and Deployment in Flight at NASA",
+        "url": "https://ntrs.nasa.gov/api/citations/20150022384/downloads/20150022384.pdf",
+        "local_path": "unpublished-local-ref:cd84afdb37e1e7b2",
+        "pages_read": "3 pages, read"
+      },
+      {
+        "citation": "Materion SR-200 Structural-Grade Beryllium data sheet",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "local_path": "unpublished-local-ref:14189876aeccd43f",
+        "pages_read": "3 pages, read [manufacturer data sheet]"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No fibre-optic sensing in a vacuum on a thin metal shell; strain accuracy vs temperature compensation not read in detail; NASA FOSS shape-sensing accuracy (displacement) not extracted (NTRS 20160005234 etc. only titles)."
+  },
+  {
+    "id": "standards-astm-e2580-e2581-e2582",
+    "target": "bond",
+    "method": "ASTM E2580 (UT), E2581 (shearography), E2582 (flash thermography) - what the public scope text says",
+    "resolution": [
+      {
+        "quantity": "E2580: two procedures, frequencies, geometry",
+        "value": "pulse echo and through transmission, 0.5-20 MHz, flat panels with parallel surfaces",
+        "unit": "n/a",
+        "conditions": "no sensitivity or flaw size in the public text; accept/reject set by contract",
+        "quote": "This practice does not specify accept-reject criteria.",
+        "location": "s1.4; web page text (unpaginated)"
+      },
+      {
+        "quantity": "E2581: defect types",
+        "value": "delamination, deformation under load, disbond/unbond, microcracks, thickness variation",
+        "unit": "n/a",
+        "conditions": "keywords list thermal, vacuum stress and vibration stress shearography; metal-faced honeycomb stated as used with excellent results; no accept/reject criteria (s1.4)",
+        "quote": "delamination, deformation under load, disbond/unbond, microcracks, and thickness variation",
+        "location": "s5.1; web page text (unpaginated)"
+      },
+      {
+        "quantity": "E2582: flaw types and 1-D heat-flow rule",
+        "value": "heated area must exceed the thickness (and inspection area by 5%)",
+        "unit": "n/a",
+        "conditions": "does not cover core or far-side bond; curved panels within 30 degrees of the optical axis; flaws must have aspect ratio greater than one (s5.4)",
+        "quote": "of the heated area should be significantly greater than the thickness",
+        "location": "s5.5; web page text (unpaginated)"
+      }
+    ],
+    "coverage_rate": "n/a",
+    "used_on": "Aerospace composites and sandwich (Committee E07 practices). All three specify polymer-matrix (E2582 also ceramic-matrix) composites; none states a scope for beryllium or other metal faces except E2581's sentence on metal face sheet sandwich.",
+    "limitations": "None of the three public texts gives a minimum detectable flaw size; E2580 and E2582 require flat or near-flat panels; E2582 excludes core and far-side bond; the relevant guides (E2533 for shearography) and the full texts were not read.",
+    "beryllium_notes": "The standards define no Be case; E2582 explicitly says surfaces need opacity and emissivity.",
+    "sources": [
+      {
+        "citation": "ASTM E2580-24 Standard Practice for Ultrasonic Testing of Flat Panel Composites and Sandwich Core Materials Used in Aerospace Applications (ASTM store abstract: scope, significance only; standard body not purchased)",
+        "url": "https://store.astm.org/e2580-24.html",
+        "local_path": "unpublished-local-ref:31a97d9ac114ce2e",
+        "pages_read": "store abstract page only (scope 1.1-1.7, significance 5.1-5.2)"
+      },
+      {
+        "citation": "ASTM E2581-14(2023) Standard Practice for Shearography of Polymer Matrix Composites, Sandwich Core Materials and Filament-Wound Pressure Vessels in Aerospace Applications (ASTM store abstract: scope, significance only)",
+        "url": "https://store.astm.org/e2581-14.html",
+        "local_path": "unpublished-local-ref:bec0b153a090c8e1",
+        "pages_read": "store abstract page only (scope 1.1-1.6, significance 5.1-5.4)"
+      },
+      {
+        "citation": "ASTM E2582-19 Standard Practice for Infrared Flash Thermography of Composite Panels and Repair Patches Used in Aerospace Applications (ASTM store abstract: scope, significance only)",
+        "url": "https://store.astm.org/e2582-19.html",
+        "local_path": "unpublished-local-ref:9660decc54149033",
+        "pages_read": "store abstract page only (scope 1.1-1.9, significance 5.1-5.6)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Full standard texts; ASTM E2533 (shearography guide), E2982 (COPV shearography), E1316 (NDT terminology), MIL-HDBK-1823A (PoD), SAE ARP 5606 (honeycomb NDI reference standards, named in Galella slides 'Published as Aerospace Recommended Practice 5606') and ARP 5605 not obtained."
+  },
+  {
+    "id": "GAPS",
+    "target": "bond",
+    "method": "GAPS",
+    "resolution": [],
+    "coverage_rate": "null",
+    "used_on": "n/a",
+    "limitations": "n/a",
+    "beryllium_notes": "n/a",
+    "sources": [],
+    "confidence": "partial",
+    "missing": "1) No source found that inspects an adhesively bonded beryllium face on aluminium honeycomb by any bond-NDE method (UT, air-coupled, laser UT, shearography, thermography, tap). Only Be physical data (Materion, NIST) and radiography of an all-Be brazed honeycomb (NASA CR-130648) were found. 2) No minimum detectable disbond size for 0.8 mm metal faces over 23 mm core with 3/8 inch cells in any source opened; the closest numbers are 28-43 mm a90/95 for tap on 0.5 mm Al faces over 19 mm core (Genest 2023) and shearography on foam (POD 0.95 at debond diameter equal to foam thickness) and a Kevlar-skinned honeycomb tube (single-cell sensitivity with acoustic excitation). 3) No areal rate (m2/h) from an independent source: only vendor claims (Dantec 15 m2/h hood, 1-2 m2/min robot, ~1 m2/min) and field anecdotes. None for UT, thermography, air-coupled, laser UT, fringe projection or profilers. 4) No scarf-joint NDE source (30:1 seam), and no kissing/weak bond detection shown on honeycomb; NASA phase method only on glass coupons. 5) Lock-in thermography: no numbers read. 6) Nikon laser-radar MPE could not be downloaded (extraction only, unverified and internally inconsistent). Official Hexagon AT960 sheet not obtained (distributor copy). ZEISS/GOM/Hexagon scanner measuring-area and point-distance tables not obtained. 7) Nothing found on shape measurement of a 20 m closed evacuated sphere under external pressure, with DIC through a window or photogrammetry in vacuum. The only sphere-scale photogrammetry is the 35 m LNG tank (NBS, 1979) and its 7 mm residual scatter is dominated by the tank's own shape. 8) Documents that failed or were blocked: ROSAP FAA/Sandia honeycomb PoD report (HTTP 403), DTIC ADA201815 Fokker bondtester evaluation (403), Nikon pages (403), NASA LAR-TOPS-332 (403), Olympus BondMaster probe pages (undecodable), UArizona SCOTS dissertation (login page). 9) Downloaded but not read: ntrs 20070035909 and 20090019139 (air-coupled acoustic thermography), 20130010408, 20160007045, 20160012012, NBSIR 81-1655, arXiv 2002.12201 (NDT composites review), Materion further sheets, Hexagon StereoScan/PrimeScan pages (no spec table in extracted text). 10) Search-summary-only items not relied on: iPhoton 64 ft2/h and Lockheed F-22 duct figures (laser UT); Laser Technology 5-10 m2/h shearography (SAMPE 2004); Applied Laser 2024 honeycomb negative-pressure shearography 10 mm class; 2015 Chinese laser shearography 10 mm debond sensitivity. 11) Inferences marked as such in beryllium_notes (thermal blur, stiffer face reducing shearography deflection, acoustic thinness) are not sourced facts."
+  }
+]

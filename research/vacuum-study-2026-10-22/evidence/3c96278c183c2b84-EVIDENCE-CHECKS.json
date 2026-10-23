@@ -1,0 +1,2102 @@
+{
+  "summary": {
+    "completed_at_utc": "2026-10-20T10:07:29.545586+00:00",
+    "checks": 232,
+    "passed": 232,
+    "source_and_inheritance_checks": 124,
+    "display_and_validation_metadata_checks": 108,
+    "pinned_snapshot_checks": 83,
+    "owner_code_opened_or_executed": false
+  },
+  "checks": [
+    {
+      "quantity": "P2 inherited face_thickness_m",
+      "checked_value": 0.0006917479988347394,
+      "independent_reference": 0.0006917479988347394,
+      "difference": 0.0,
+      "tolerance": 2.0000138349599767e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited core_thickness_m",
+      "checked_value": 0.030118230884842855,
+      "independent_reference": 0.030118230884842855,
+      "difference": 0.0,
+      "tolerance": 2.0006023646176969e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited face_mass_kg",
+      "checked_value": 3216.321838286494,
+      "independent_reference": 3216.321838286494,
+      "difference": 0.0,
+      "tolerance": 6.632643676572988e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited core_mass_kg",
+      "checked_value": 606.2617584409768,
+      "independent_reference": 606.2617584409768,
+      "difference": 0.0,
+      "tolerance": 1.4125235168819534e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited core_cell_m",
+      "checked_value": 0.009524999999999999,
+      "independent_reference": 0.009524999999999999,
+      "difference": 0.0,
+      "tolerance": 2.0001905e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited panel_width_m",
+      "checked_value": 3.1278027873808982,
+      "independent_reference": 3.1278027873808982,
+      "difference": 0.0,
+      "tolerance": 2.062556055747618e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited systems_allowance_kg",
+      "checked_value": 100.0,
+      "independent_reference": 100.0,
+      "difference": 0.0,
+      "tolerance": 4e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited face_density_kg_m3",
+      "checked_value": 1850,
+      "independent_reference": 1850,
+      "difference": 0,
+      "tolerance": 3.9e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 inherited bond_film_kg_m2_per_face",
+      "checked_value": 0.1464728290914915,
+      "independent_reference": 0.1464728290914915,
+      "difference": 0.0,
+      "tolerance": 2.00292945658183e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P2 core mass from material density and geometry",
+      "checked_value": 606.2617584409768,
+      "independent_reference": 606.2617584409768,
+      "difference": 0.0,
+      "tolerance": 1.4125235168819534e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/021b/RESULTS.json"
+    },
+    {
+      "quantity": "P3 inherited kapton/nodes",
+      "checked_value": 425.97063298389315,
+      "independent_reference": 425.97063298389315,
+      "difference": 0.0,
+      "tolerance": 1.0519412659677864e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/members",
+      "checked_value": 1271.9118989516794,
+      "independent_reference": 1271.9118989516794,
+      "difference": 0.0,
+      "tolerance": 2.743823797903359e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/n_coef",
+      "checked_value": 5.340489990004039,
+      "independent_reference": 5.340489990004039,
+      "difference": 0.0,
+      "tolerance": 2.106809799800081e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/m_nodes",
+      "checked_value": 8.519412659677863,
+      "independent_reference": 8.519412659677863,
+      "difference": 0.0,
+      "tolerance": 2.1703882531935574e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/m_film",
+      "checked_value": 981.2569224663256,
+      "independent_reference": 981.2569224663256,
+      "difference": 0.0,
+      "tolerance": 2.1625138449326512e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/m_joint",
+      "checked_value": 191.45051984393825,
+      "independent_reference": 191.45051984393825,
+      "difference": 0.0,
+      "tolerance": 5.829010396878765e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/m_tube",
+      "checked_value": 3138.733815147145,
+      "independent_reference": 3138.733815147145,
+      "difference": 0.0,
+      "tolerance": 6.47746763029429e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/m_end",
+      "checked_value": 0.07526092019491813,
+      "independent_reference": 0.07526092019491813,
+      "difference": 0.0,
+      "tolerance": 2.0015052184038985e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/reserve",
+      "checked_value": 469.4814800729127,
+      "independent_reference": 469.4814800729127,
+      "difference": 0.0,
+      "tolerance": 1.1389629601458252e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/sag_kg",
+      "checked_value": 58.182536001265326,
+      "independent_reference": 58.182536001265326,
+      "difference": 0.0,
+      "tolerance": 3.1636507200253067e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/vehicle",
+      "checked_value": 4419.960670117087,
+      "independent_reference": 4419.960670117087,
+      "difference": 0.0,
+      "tolerance": 9.039921340234174e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/s_m",
+      "checked_value": 1.85,
+      "independent_reference": 1.85,
+      "difference": 0.0,
+      "tolerance": 2.037e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/t_film_m",
+      "checked_value": 0.0005499010199072409,
+      "independent_reference": 0.0005499010199072409,
+      "difference": 0.0,
+      "tolerance": 2.0000109980203983e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/r_o_m",
+      "checked_value": 0.10187442884757343,
+      "independent_reference": 0.10187442884757343,
+      "difference": 0.0,
+      "tolerance": 2.0020374885769516e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/t_w_m",
+      "checked_value": 0.0006734969813912556,
+      "independent_reference": 0.0006734969813912556,
+      "difference": 0.0,
+      "tolerance": 2.0000134699396279e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/rt",
+      "checked_value": 151.26189376102246,
+      "independent_reference": 151.26189376102246,
+      "difference": 0.0,
+      "tolerance": 5.025237875220449e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/A_m2",
+      "checked_value": 0.00042967764550260926,
+      "independent_reference": 0.00042967764550260926,
+      "difference": 0.0,
+      "tolerance": 2.0000085935529102e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/I_m4",
+      "checked_value": 2.214991255657777e-06,
+      "independent_reference": 2.214991255657777e-06,
+      "difference": 0.0,
+      "tolerance": 2.0000000442998253e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/length_m",
+      "checked_value": 1.8526483869264585,
+      "independent_reference": 1.8526483869264585,
+      "difference": 0.0,
+      "tolerance": 2.0370529677385294e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/N_N",
+      "checked_value": 509807.64931658097,
+      "independent_reference": 509807.64931658097,
+      "difference": 0.0,
+      "tolerance": 1.019815298633162e-06,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/sigma_axial_Pa",
+      "checked_value": 1186488649.4624145,
+      "independent_reference": 1186488649.4624145,
+      "difference": 0.0,
+      "tolerance": 0.002372977498924829,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/k",
+      "checked_value": 0.2,
+      "independent_reference": 0.2,
+      "difference": 0.0,
+      "tolerance": 2.004e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_yield",
+      "checked_value": 3.2870099530805024,
+      "independent_reference": 3.2870099530805024,
+      "difference": 0.0,
+      "tolerance": 2.0657401990616102e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_euler",
+      "checked_value": 5.122279418770031,
+      "independent_reference": 5.122279418770031,
+      "difference": 0.0,
+      "tolerance": 2.1024455883754006e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_local",
+      "checked_value": 0.7082761781039622,
+      "independent_reference": 0.7082761781039622,
+      "difference": 0.0,
+      "tolerance": 2.0141655235620792e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_film",
+      "checked_value": 0.7192825669694961,
+      "independent_reference": 0.7192825669694961,
+      "difference": 0.0,
+      "tolerance": 2.01438565133939e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_perry",
+      "checked_value": 3.018030701535017,
+      "independent_reference": 3.018030701535017,
+      "difference": 0.0,
+      "tolerance": 2.0603606140307003e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_global",
+      "checked_value": 0.7017459107278406,
+      "independent_reference": 0.7017459107278406,
+      "difference": 0.0,
+      "tolerance": 2.014034918214557e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/gamma",
+      "checked_value": 0.5167263984505766,
+      "independent_reference": 0.5167263984505766,
+      "difference": 0.0,
+      "tolerance": 2.0103345279690115e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_local_gamma1",
+      "checked_value": 1.3706986525707894,
+      "independent_reference": 1.3706986525707894,
+      "difference": 0.0,
+      "tolerance": 2.027413973051416e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/SF_least",
+      "checked_value": 0.7017459107278406,
+      "independent_reference": 0.7017459107278406,
+      "difference": 0.0,
+      "tolerance": 2.014034918214557e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/k04_SF_least",
+      "checked_value": 0.7082761781039622,
+      "independent_reference": 0.7082761781039622,
+      "difference": 0.0,
+      "tolerance": 2.0141655235620792e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited kapton/k04_SF_global",
+      "checked_value": 1.4034918214556813,
+      "independent_reference": 1.4034918214556813,
+      "difference": 0.0,
+      "tolerance": 2.0280698364291136e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/ti_kapton_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/nodes",
+      "checked_value": 46.66111084602568,
+      "independent_reference": 46.66111084602568,
+      "difference": 0.0,
+      "tolerance": 2.9332222169205134e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/members",
+      "checked_value": 133.98333253807704,
+      "independent_reference": 133.98333253807704,
+      "difference": 0.0,
+      "tolerance": 4.679666650761541e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/n_coef",
+      "checked_value": 16.454482671904334,
+      "independent_reference": 16.454482671904334,
+      "difference": 0.0,
+      "tolerance": 2.329089653438087e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/m_nodes",
+      "checked_value": 0.9332222169205135,
+      "independent_reference": 0.9332222169205135,
+      "difference": 0.0,
+      "tolerance": 2.0186644443384104e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/m_film",
+      "checked_value": 217.17480701365733,
+      "independent_reference": 217.17480701365733,
+      "difference": 0.0,
+      "tolerance": 6.343496140273146e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/m_joint",
+      "checked_value": 23.18138839899542,
+      "independent_reference": 23.18138839899542,
+      "difference": 0.0,
+      "tolerance": 2.463627767979908e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/m_tube",
+      "checked_value": 3957.588677565962,
+      "independent_reference": 3957.588677565962,
+      "difference": 0.0,
+      "tolerance": 8.115177355131924e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/m_end",
+      "checked_value": 0.08650847818107318,
+      "independent_reference": 0.08650847818107318,
+      "difference": 0.0,
+      "tolerance": 2.0017301695636216e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/reserve",
+      "checked_value": 590.5640549944649,
+      "independent_reference": 590.5640549944649,
+      "difference": 0.0,
+      "tolerance": 1.3811281099889297e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/sag_kg",
+      "checked_value": 179.2651109228175,
+      "independent_reference": 179.2651109228175,
+      "difference": 0.0,
+      "tolerance": 5.58530221845635e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/vehicle",
+      "checked_value": 4298.878095195535,
+      "independent_reference": 4298.878095195535,
+      "difference": 0.0,
+      "tolerance": 8.79775619039107e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/s_m",
+      "checked_value": 5.7,
+      "independent_reference": 5.7,
+      "difference": 0.0,
+      "tolerance": 2.1140000000000001e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/t_film_m",
+      "checked_value": 0.00011078347452324353,
+      "independent_reference": 0.00011078347452324353,
+      "difference": 0.0,
+      "tolerance": 2.0000022156694905e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/r_o_m",
+      "checked_value": 0.16561974184185138,
+      "independent_reference": 0.16561974184185138,
+      "difference": 0.0,
+      "tolerance": 2.0033123948368372e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/t_w_m",
+      "checked_value": 0.00159177158769494,
+      "independent_reference": 0.00159177158769494,
+      "difference": 0.0,
+      "tolerance": 2.000031835431754e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/rt",
+      "checked_value": 104.04742936873684,
+      "independent_reference": 104.04742936873684,
+      "difference": 0.0,
+      "tolerance": 4.080948587374737e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/A_m2",
+      "checked_value": 0.001648468630220589,
+      "independent_reference": 0.001648468630220589,
+      "difference": 0.0,
+      "tolerance": 2.0000329693726044e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/I_m4",
+      "checked_value": 2.239241621676398e-05,
+      "independent_reference": 2.239241621676398e-05,
+      "difference": 0.0,
+      "tolerance": 2.0000004478483244e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/length_m",
+      "checked_value": 5.7801285634700275,
+      "independent_reference": 5.7801285634700275,
+      "difference": 0.0,
+      "tolerance": 2.1156025712694007e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/N_N",
+      "checked_value": 1570758.703299736,
+      "independent_reference": 1570758.703299736,
+      "difference": 0.0,
+      "tolerance": 3.1417174065994716e-06,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/sigma_axial_Pa",
+      "checked_value": 952859323.1947311,
+      "independent_reference": 952859323.1947311,
+      "difference": 0.0,
+      "tolerance": 0.0019057188463894622,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/k",
+      "checked_value": 0.2,
+      "independent_reference": 0.2,
+      "difference": 0.0,
+      "tolerance": 2.004e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_yield",
+      "checked_value": 4.092944157721146,
+      "independent_reference": 4.092944157721146,
+      "difference": 0.0,
+      "tolerance": 2.081858883154423e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_euler",
+      "checked_value": 1.7266332058327198,
+      "independent_reference": 1.7266332058327198,
+      "difference": 0.0,
+      "tolerance": 2.0345326641166545e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_local",
+      "checked_value": 1.4274004176577701,
+      "independent_reference": 1.4274004176577701,
+      "difference": 0.0,
+      "tolerance": 2.0285480083531555e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_film",
+      "checked_value": 1.4170465717478142,
+      "independent_reference": 1.4170465717478142,
+      "difference": 0.0,
+      "tolerance": 2.0283409314349564e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_perry",
+      "checked_value": 1.6448737338327826,
+      "independent_reference": 1.6448737338327826,
+      "difference": 0.0,
+      "tolerance": 2.0328974746766558e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_global",
+      "checked_value": 1.4184374789671974,
+      "independent_reference": 1.4184374789671974,
+      "difference": 0.0,
+      "tolerance": 2.028368749579344e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/gamma",
+      "checked_value": 0.5752688455983981,
+      "independent_reference": 0.5752688455983981,
+      "difference": 0.0,
+      "tolerance": 2.0115053769119682e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_local_gamma1",
+      "checked_value": 2.4812753699063603,
+      "independent_reference": 2.4812753699063603,
+      "difference": 0.0,
+      "tolerance": 2.0496255073981273e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/SF_least",
+      "checked_value": 1.4170465717478142,
+      "independent_reference": 1.4170465717478142,
+      "difference": 0.0,
+      "tolerance": 2.0283409314349564e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/k04_SF_least",
+      "checked_value": 1.4170465717478142,
+      "independent_reference": 1.4170465717478142,
+      "difference": 0.0,
+      "tolerance": 2.0283409314349564e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "P3 inherited zylon_barrier/k04_SF_global",
+      "checked_value": 2.836874957934395,
+      "independent_reference": 2.836874957934395,
+      "difference": 0.0,
+      "tolerance": 2.0567374991586878e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/022c/SAG.json#cap/cfrp_zylon_019"
+    },
+    {
+      "quantity": "019 systems sealed_vacuum_hardware_kg",
+      "checked_value": 15,
+      "independent_reference": 15.0,
+      "difference": 0.0,
+      "tolerance": 2.3e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 systems sealed_power_package_kg",
+      "checked_value": 10,
+      "independent_reference": 10.0,
+      "difference": 0.0,
+      "tolerance": 2.2000000000000002e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 systems sealed_controls_kg",
+      "checked_value": 5,
+      "independent_reference": 5.0,
+      "difference": 0.0,
+      "tolerance": 2.1e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 systems monitoring_W",
+      "checked_value": 5,
+      "independent_reference": 5.0,
+      "difference": 0.0,
+      "tolerance": 2.1e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 power battery_Wh_kg",
+      "checked_value": 150,
+      "independent_reference": 150.0,
+      "difference": 0.0,
+      "tolerance": 5e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 power battery_usable_fraction",
+      "checked_value": 0.8,
+      "independent_reference": 0.8,
+      "difference": 0.0,
+      "tolerance": 2.016e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 power power_conversion_efficiency",
+      "checked_value": 0.9,
+      "independent_reference": 0.9,
+      "difference": 0.0,
+      "tolerance": 2.0180000000000002e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 environment R_m",
+      "checked_value": 10.0,
+      "independent_reference": 10.0,
+      "difference": 0.0,
+      "tolerance": 2.2000000000000002e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 environment p_external_Pa",
+      "checked_value": 95460.83791390515,
+      "independent_reference": 95460.83791390515,
+      "difference": 0.0,
+      "tolerance": 1.911216758278103e-07,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 environment T_K",
+      "checked_value": 284.9,
+      "independent_reference": 284.9,
+      "difference": 0.0,
+      "tolerance": 7.698e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "019 environment lift_reference_kg",
+      "checked_value": 4889.442150186961,
+      "independent_reference": 4889.442150186961,
+      "difference": 0.0,
+      "tolerance": 9.978884300373923e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/019/INPUTS.json"
+    },
+    {
+      "quantity": "028 joining scarf_run_ratio",
+      "checked_value": 30,
+      "independent_reference": 30,
+      "difference": 0,
+      "tolerance": 2.6000000000000003e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/028/INPUTS.json"
+    },
+    {
+      "quantity": "028 joining scarf_film_kg_m2",
+      "checked_value": 0.07,
+      "independent_reference": 0.07,
+      "difference": 0.0,
+      "tolerance": 2.0014000000000002e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/028/INPUTS.json"
+    },
+    {
+      "quantity": "028 joining core_splice_gap_m",
+      "checked_value": 0.0005,
+      "independent_reference": 0.0005,
+      "difference": 0.0,
+      "tolerance": 2.0000100000000002e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/028/INPUTS.json"
+    },
+    {
+      "quantity": "028 joining core_splice_density_kg_m3",
+      "checked_value": 500,
+      "independent_reference": 500,
+      "difference": 0,
+      "tolerance": 1.2e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/028/INPUTS.json"
+    },
+    {
+      "quantity": "028 joining seal_mass_kg_per_unique_m",
+      "checked_value": 0.002,
+      "independent_reference": 0.002,
+      "difference": 0.0,
+      "tolerance": 2.0000400000000002e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/028/INPUTS.json"
+    },
+    {
+      "quantity": "Inherited EA9394 nominal shear",
+      "checked_value": 28900000.0,
+      "independent_reference": 28900000.0,
+      "difference": 0.0,
+      "tolerance": 5.7800199999999996e-05,
+      "pass": true,
+      "evidence": "inputs/034-extra/upstream/023-corrected/INPUTS.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC22348",
+      "checked_value": 2.59,
+      "independent_reference": 2.59,
+      "difference": 0.0,
+      "tolerance": 2.0518e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-af163.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC22351",
+      "checked_value": 3.17,
+      "independent_reference": 3.17,
+      "difference": 0.0,
+      "tolerance": 2.0634e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-af163.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC22354",
+      "checked_value": 4.85,
+      "independent_reference": 4.85,
+      "difference": 0.0,
+      "tolerance": 2.097e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-af163.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC22357",
+      "checked_value": 4.42,
+      "independent_reference": 4.42,
+      "difference": 0.0,
+      "tolerance": 2.0884e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-af163.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC10365",
+      "checked_value": 0.97,
+      "independent_reference": 0.97,
+      "difference": 0.0,
+      "tolerance": 2.0194e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-kapton-film.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC32902",
+      "checked_value": 0.26,
+      "independent_reference": 0.26,
+      "difference": 0.0,
+      "tolerance": 2.0052e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-mylar.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC12224",
+      "checked_value": 0.57,
+      "independent_reference": 0.57,
+      "difference": 0.0,
+      "tolerance": 2.0114000000000002e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-graphite-epoxy.json"
+    },
+    {
+      "quantity": "NASA TML percent GSFC35448",
+      "checked_value": 2.63,
+      "independent_reference": 2.63,
+      "difference": 0.0,
+      "tolerance": 2.0526e-10,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/nasa-outgassing-ea9394.json"
+    },
+    {
+      "quantity": "Kapton source transmission CO2",
+      "checked_value": 6840.0,
+      "independent_reference": 6840,
+      "difference": 0.0,
+      "tolerance": 1.388e-08,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/kapton-summary-fralock.pdf#Table10"
+    },
+    {
+      "quantity": "Kapton source transmission O2",
+      "checked_value": 3800.0,
+      "independent_reference": 3800,
+      "difference": 0.0,
+      "tolerance": 7.8e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/kapton-summary-fralock.pdf#Table10"
+    },
+    {
+      "quantity": "Kapton source transmission H2",
+      "checked_value": 38000.0,
+      "independent_reference": 38000,
+      "difference": 0.0,
+      "tolerance": 7.62e-08,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/kapton-summary-fralock.pdf#Table10"
+    },
+    {
+      "quantity": "Kapton source transmission N2",
+      "checked_value": 910.0,
+      "independent_reference": 910,
+      "difference": 0.0,
+      "tolerance": 2.02e-09,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/kapton-summary-fralock.pdf#Table10"
+    },
+    {
+      "quantity": "Kapton source transmission He",
+      "checked_value": 63080.0,
+      "independent_reference": 63080,
+      "difference": 0.0,
+      "tolerance": 1.2635999999999997e-07,
+      "pass": true,
+      "evidence": "inputs/034-extra/sources/kapton-summary-fralock.pdf#Table10"
+    },
+    {
+      "quantity": "Kapton water g/m2/day at 25um",
+      "checked_value": 54.0,
+      "independent_reference": 54,
+      "difference": 0.0,
+      "tolerance": 3.08e-10,
+      "pass": true,
+      "evidence": "kapton-summary-fralock.pdf#Table10"
+    },
+    {
+      "quantity": "Kapton equilibrium moisture",
+      "checked_value": 0.018,
+      "independent_reference": 0.018,
+      "difference": 0.0,
+      "tolerance": 2.00036e-10,
+      "pass": true,
+      "evidence": "kapton-summary-fralock.pdf#Table10"
+    },
+    {
+      "quantity": "Mylar oxygen cc/m2/day",
+      "checked_value": 0.5,
+      "independent_reference": 0.5,
+      "difference": 0.0,
+      "tolerance": 2.01e-10,
+      "pass": true,
+      "evidence": "barrier-flex-pack-films-2001.pdf"
+    },
+    {
+      "quantity": "Mylar water strict source upper bound g/m2/day",
+      "checked_value": 1.0,
+      "independent_reference": 1,
+      "difference": 0.0,
+      "tolerance": 2.02e-10,
+      "pass": true,
+      "evidence": "barrier-flex-pack-films-2001.pdf"
+    },
+    {
+      "quantity": "PET density kg/m3",
+      "checked_value": 1390,
+      "independent_reference": 1390,
+      "difference": 0,
+      "tolerance": 2.98e-09,
+      "pass": true,
+      "evidence": "mylar-physical-thermal.pdf"
+    },
+    {
+      "quantity": "Zylon HM moisture fraction",
+      "checked_value": 0.006,
+      "independent_reference": 0.006,
+      "difference": 0.0,
+      "tolerance": 2.00012e-10,
+      "pass": true,
+      "evidence": "zylon-hp-fiber-data.pdf#moisture"
+    },
+    {
+      "quantity": "KNF APDCB mass kg",
+      "checked_value": 8.5,
+      "independent_reference": 8.5,
+      "difference": 0.0,
+      "tolerance": 2.17e-10,
+      "pass": true,
+      "evidence": "knf-n920.pdf#page1"
+    },
+    {
+      "quantity": "KNF APDCB electrical W",
+      "checked_value": 100,
+      "independent_reference": 100,
+      "difference": 0,
+      "tolerance": 4e-10,
+      "pass": true,
+      "evidence": "knf-n920.pdf#page3"
+    },
+    {
+      "quantity": "KNF APDCB ultimate upper limit Pa",
+      "checked_value": 150,
+      "independent_reference": 150,
+      "difference": 0,
+      "tolerance": 5e-10,
+      "pass": true,
+      "evidence": "knf-n920.pdf#page3"
+    },
+    {
+      "quantity": "Edwards mass kg",
+      "checked_value": 44,
+      "independent_reference": 44,
+      "difference": 0,
+      "tolerance": 2.88e-10,
+      "pass": true,
+      "evidence": "Edwards manual A37310880_X Table3, independently read through web"
+    },
+    {
+      "quantity": "Edwards 50Hz speed m3/h",
+      "checked_value": 27.5,
+      "independent_reference": 27.5,
+      "difference": 0.0,
+      "tolerance": 2.55e-10,
+      "pass": true,
+      "evidence": "Edwards manual A37310880_X Table2"
+    },
+    {
+      "quantity": "Edwards mechanical W",
+      "checked_value": 750,
+      "independent_reference": 750,
+      "difference": 0,
+      "tolerance": 1.7e-09,
+      "pass": true,
+      "evidence": "Edwards manual A37310880_X Table5"
+    },
+    {
+      "quantity": "Edwards water kg/h",
+      "checked_value": 0.7,
+      "independent_reference": 0.7,
+      "difference": 0.0,
+      "tolerance": 2.014e-10,
+      "pass": true,
+      "evidence": "Edwards manual A37310880_X Table2"
+    },
+    {
+      "quantity": "Edwards ultimate with ballast Pa",
+      "checked_value": 3.0,
+      "independent_reference": 3,
+      "difference": 0.0,
+      "tolerance": 2.06e-10,
+      "pass": true,
+      "evidence": "Edwards manual A37310880_X Table2"
+    },
+    {
+      "quantity": "BASF4A catalog kgwater/kgbed",
+      "checked_value": 0.21,
+      "independent_reference": 0.21,
+      "difference": 0.0,
+      "tolerance": 2.0042000000000002e-10,
+      "pass": true,
+      "evidence": "basf-sorbead-air.pdf#Table1"
+    },
+    {
+      "quantity": "SAES D100-5 NEG mass kg",
+      "checked_value": 0.0135,
+      "independent_reference": 0.0135,
+      "difference": 0.0,
+      "tolerance": 2.00027e-10,
+      "pass": true,
+      "evidence": "saes-nextorr-2017.pdf#D100-5"
+    },
+    {
+      "quantity": "SAES D100-5 N2 TorrL",
+      "checked_value": 0.3,
+      "independent_reference": 0.3,
+      "difference": 0.0,
+      "tolerance": 2.006e-10,
+      "pass": true,
+      "evidence": "saes-nextorr-2017.pdf#D100-5"
+    },
+    {
+      "quantity": "SAES D100-5 O2 TorrL",
+      "checked_value": 5.0,
+      "independent_reference": 5,
+      "difference": 0.0,
+      "tolerance": 2.1e-10,
+      "pass": true,
+      "evidence": "saes-nextorr-2017.pdf#D100-5"
+    },
+    {
+      "quantity": "CARD table 1/P2/column1/4186.52",
+      "checked_value": 4186.52,
+      "independent_reference": 4186.518547590929,
+      "difference": 0.0014524090711347526,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P2/column2/808.89",
+      "checked_value": 808.89,
+      "independent_reference": 808.8939160455294,
+      "difference": -0.003916045529422263,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P2/column3/132.17",
+      "checked_value": 132.17,
+      "independent_reference": 132.17071266937936,
+      "difference": -0.0007126693793679806,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P3_Kapton/column1/4138.95",
+      "checked_value": 4138.95,
+      "independent_reference": 4138.945165330834,
+      "difference": 0.004834669165575178,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P3_Kapton/column2/2356.41",
+      "checked_value": 2356.41,
+      "independent_reference": 2356.4055279053973,
+      "difference": 0.004472094602533616,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P3_Kapton/column3/425.97",
+      "checked_value": 425.97,
+      "independent_reference": 425.97063298389315,
+      "difference": -0.0006329838931264931,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P3_Zylon_barrier/column1/4035.21",
+      "checked_value": 4035.21,
+      "independent_reference": 4035.2135967341346,
+      "difference": -0.0035967341345894965,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P3_Zylon_barrier/column2/774.44",
+      "checked_value": 774.44,
+      "independent_reference": 774.4408874322422,
+      "difference": -0.0008874322421661418,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 1/P3_Zylon_barrier/column3/46.66",
+      "checked_value": 46.66,
+      "independent_reference": 46.66111084602568,
+      "difference": -0.0011108460256821218,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P2/column1/1.72588e-06",
+      "checked_value": 1.72588e-06,
+      "independent_reference": 1.7258784830335711e-06,
+      "difference": 1.5169664287992415e-12,
+      "tolerance": 5.9999999999999995e-12,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P2/column2/1.13634e-08",
+      "checked_value": 1.13634e-08,
+      "independent_reference": 1.1363402461130507e-08,
+      "difference": -2.4611305058803756e-15,
+      "tolerance": 1.05e-12,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P2/column3/0.100084",
+      "checked_value": 0.100084,
+      "independent_reference": 0.10008403725335115,
+      "difference": -3.725335114002082e-08,
+      "tolerance": 5.00001e-07,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P2/column4/1.8561",
+      "checked_value": 1.8561,
+      "independent_reference": 1.8560988951420971,
+      "difference": 1.1048579029449002e-06,
+      "tolerance": 5.0000001000000005e-05,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Kapton/column1/0.0110353",
+      "checked_value": 0.0110353,
+      "independent_reference": 0.011035264405430269,
+      "difference": 3.5594569730915127e-08,
+      "tolerance": 5.0001e-08,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Kapton/column2/3.08503",
+      "checked_value": 3.08503,
+      "independent_reference": 3.0850279805348477,
+      "difference": 2.0194651524363394e-06,
+      "tolerance": 5.000001000000001e-06,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Kapton/column3/0.293852",
+      "checked_value": 0.293852,
+      "independent_reference": 0.2938520383093629,
+      "difference": -3.830936290416531e-08,
+      "tolerance": 5.00001e-07,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Kapton/column4/1.02493",
+      "checked_value": 1.02493,
+      "independent_reference": 1.0249312800972046,
+      "difference": -1.280097204681141e-06,
+      "tolerance": 5.000001000000001e-06,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Zylon_barrier/column1/0.00076113",
+      "checked_value": 0.00076113,
+      "independent_reference": 0.0007611295028073071,
+      "difference": 4.971926929409412e-10,
+      "tolerance": 5.001e-09,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Zylon_barrier/column2/1.25664",
+      "checked_value": 1.25664,
+      "independent_reference": 1.2566370614359172,
+      "difference": 2.938564082732853e-06,
+      "tolerance": 5.000001000000001e-06,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Zylon_barrier/column3/0.0874599",
+      "checked_value": 0.0874599,
+      "independent_reference": 0.08745992737571447,
+      "difference": -2.7375714473087953e-08,
+      "tolerance": 5.0001e-08,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 2/P3_Zylon_barrier/column4/0.21215",
+      "checked_value": 0.21215,
+      "independent_reference": 0.21214971641701807,
+      "difference": 2.835829819303193e-07,
+      "tolerance": 5.000001000000001e-06,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P2/column1/464.87",
+      "checked_value": 464.87,
+      "independent_reference": 464.86510958210823,
+      "difference": 0.004890417891772358,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P2/column2/488.53",
+      "checked_value": 488.53,
+      "independent_reference": 488.5251850071247,
+      "difference": 0.004814992875253665,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P2/column3/398.21",
+      "checked_value": 398.21,
+      "independent_reference": 398.2068550462282,
+      "difference": 0.003144953771766268,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P2/column4/398.21",
+      "checked_value": 398.21,
+      "independent_reference": 398.20688827680743,
+      "difference": 0.0031117231925463784,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Kapton/column1/13.97",
+      "checked_value": 13.97,
+      "independent_reference": 13.97184485628276,
+      "difference": -0.0018448562827586557,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Kapton/column2/14.42",
+      "checked_value": 14.42,
+      "independent_reference": 14.423493632265169,
+      "difference": -0.0034936322651688556,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Kapton/column3/7.76",
+      "checked_value": 7.76,
+      "independent_reference": 7.759671132383345,
+      "difference": 0.0003288676166546267,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Kapton/column4/14.01",
+      "checked_value": 14.01,
+      "independent_reference": 14.005958389068812,
+      "difference": 0.004041610931187378,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Zylon_barrier/column1/35.83",
+      "checked_value": 35.83,
+      "independent_reference": 35.83191044687926,
+      "difference": -0.0019104468792647822,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Zylon_barrier/column2/36.36",
+      "checked_value": 36.36,
+      "independent_reference": 36.35656493128853,
+      "difference": 0.0034350687114681477,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Zylon_barrier/column3/19.49",
+      "checked_value": 19.49,
+      "independent_reference": 19.488464744730603,
+      "difference": 0.0015352552693954635,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 3/P3_Zylon_barrier/column4/36.27",
+      "checked_value": 36.27,
+      "independent_reference": 36.26579117705717,
+      "difference": 0.004208822942835866,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P2/column1/54.83",
+      "checked_value": 54.83,
+      "independent_reference": 54.826234687869444,
+      "difference": 0.003765312130553866,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P2/column2/92.08",
+      "checked_value": 92.08,
+      "independent_reference": 92.08208930628905,
+      "difference": -0.0020893062890507963,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P2/column3/1.785",
+      "checked_value": 1.785,
+      "independent_reference": 1.7853021237227227,
+      "difference": -0.000302123722722758,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P2/column4/38.912",
+      "checked_value": 38.912,
+      "independent_reference": 38.911851831401236,
+      "difference": 0.00014816859876276567,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Kapton/column1/151.21",
+      "checked_value": 151.21,
+      "independent_reference": 151.21309969906815,
+      "difference": -0.003099699068144446,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Kapton/column2/865.81",
+      "checked_value": 865.81,
+      "independent_reference": 865.8130307462809,
+      "difference": -0.0030307462809560093,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Kapton/column3/4.544",
+      "checked_value": 4.544,
+      "independent_reference": 4.543916101648398,
+      "difference": 8.389835160116377e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Kapton/column4/34.544",
+      "checked_value": 34.544,
+      "independent_reference": 34.54399623480403,
+      "difference": 3.7651959701179294e-06,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Zylon_barrier/column1/64.15",
+      "checked_value": 64.15,
+      "independent_reference": 64.14866454447996,
+      "difference": 0.0013354555200493223,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Zylon_barrier/column2/355.05",
+      "checked_value": 355.05,
+      "independent_reference": 355.04896180144266,
+      "difference": 0.0010381985573530983,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Zylon_barrier/column3/1.972",
+      "checked_value": 1.972,
+      "independent_reference": 1.9723984418624738,
+      "difference": -0.0003984418624738417,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 4/P3_Zylon_barrier/column4/37.109",
+      "checked_value": 37.109,
+      "independent_reference": 37.10934347431046,
+      "difference": -0.0003434743104548943,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P2/column1/30",
+      "checked_value": 30.0,
+      "independent_reference": 30,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P2/column1/50",
+      "checked_value": 50.0,
+      "independent_reference": 50,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P2/column2/43.74",
+      "checked_value": 43.74,
+      "independent_reference": 43.739329378398864,
+      "difference": 0.0006706216011380661,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P2/column3/56.83",
+      "checked_value": 56.83,
+      "independent_reference": 56.83333333333333,
+      "difference": -0.0033333333333303017,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P2/column4/100",
+      "checked_value": 100.0,
+      "independent_reference": 100,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Kapton/column1/30",
+      "checked_value": 30.0,
+      "independent_reference": 30,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Kapton/column1/50",
+      "checked_value": 50.0,
+      "independent_reference": 50,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Kapton/column2/69.35",
+      "checked_value": 69.35,
+      "independent_reference": 69.34830217724382,
+      "difference": 0.0016978227561708081,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Kapton/column3/292.33",
+      "checked_value": 292.33,
+      "independent_reference": 292.33333333333337,
+      "difference": -0.003333333333387145,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Kapton/column4/1000",
+      "checked_value": 1000.0,
+      "independent_reference": 1000,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Zylon_barrier/column1/30",
+      "checked_value": 30.0,
+      "independent_reference": 30,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Zylon_barrier/column1/50",
+      "checked_value": 50.0,
+      "independent_reference": 50,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Zylon_barrier/column2/45.91",
+      "checked_value": 45.91,
+      "independent_reference": 45.91313339317677,
+      "difference": -0.003133393176774746,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Zylon_barrier/column3/292.33",
+      "checked_value": 292.33,
+      "independent_reference": 292.33333333333337,
+      "difference": -0.003333333333387145,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD table 5/P3_Zylon_barrier/column4/1000",
+      "checked_value": 1000.0,
+      "independent_reference": 1000,
+      "difference": 0.0,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 face mm",
+      "checked_value": 0.691748,
+      "independent_reference": 0.6917479988347394,
+      "difference": 1.1652606657364117e-09,
+      "tolerance": 5.00001e-07,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 core mm",
+      "checked_value": 30.1182,
+      "independent_reference": 30.118230884842855,
+      "difference": -3.088484285385107e-05,
+      "tolerance": 5.0000001000000005e-05,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 panel m",
+      "checked_value": 3.1278,
+      "independent_reference": 3.1278027873808982,
+      "difference": -2.7873808980949377e-06,
+      "tolerance": 5.000001000000001e-06,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 AF mass kg",
+      "checked_value": 368.126,
+      "independent_reference": 368.1263710594745,
+      "difference": -0.00037105947450299936,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 scarf kg",
+      "checked_value": 2.351,
+      "independent_reference": 2.351418396256031,
+      "difference": -0.00041839625603090624,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 splice kg",
+      "checked_value": 6.091,
+      "independent_reference": 6.090613431200986,
+      "difference": 0.00038656879901388663,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 seal kg",
+      "checked_value": 1.618,
+      "independent_reference": 1.6177878320910588,
+      "difference": 0.00021216790894129645,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Kapton gauge um",
+      "checked_value": 549.901,
+      "independent_reference": 549.9010199072409,
+      "difference": -1.9907240925931546e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon gauge um",
+      "checked_value": 110.783,
+      "independent_reference": 110.78347452324353,
+      "difference": -0.00047452324352548203,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon fiber kg",
+      "checked_value": 217.175,
+      "independent_reference": 217.17480701365733,
+      "difference": 0.00019298634268238857,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon CFRP wraps kg",
+      "checked_value": 23.181,
+      "independent_reference": 23.18138839899542,
+      "difference": -0.0003883989954189815,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon SiC tubes kg",
+      "checked_value": 3957.589,
+      "independent_reference": 3957.588677565984,
+      "difference": 0.0003224340157430561,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Kapton sag volume m3",
+      "checked_value": 49.845,
+      "independent_reference": 49.845039455556844,
+      "difference": -3.9455556844814055e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon sag volume m3",
+      "checked_value": 153.577,
+      "independent_reference": 153.57660805225623,
+      "difference": 0.0003919477437648311,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Sphere film area",
+      "checked_value": 1256.637,
+      "independent_reference": 1256.6370614359173,
+      "difference": -6.143591735963128e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 trapped air kg",
+      "checked_value": 43.39,
+      "independent_reference": 43.3877111499826,
+      "difference": 0.0022888500174005344,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Kapton trapped air kg",
+      "checked_value": 88.15,
+      "independent_reference": 88.15261788174739,
+      "difference": -0.0026178817473834215,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon trapped air kg",
+      "checked_value": 76.11,
+      "independent_reference": 76.10974269530796,
+      "difference": 0.000257304692041771,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Pressure ceiling Pa",
+      "checked_value": 954.608,
+      "independent_reference": 954.6083791390515,
+      "difference": -0.0003791390515743842,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Gas allowance kg",
+      "checked_value": 48.8944,
+      "independent_reference": 48.89442150186961,
+      "difference": -2.150186961102918e-05,
+      "tolerance": 5.0000001000000005e-05,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Scarf path mm",
+      "checked_value": 20.764,
+      "independent_reference": 20.763965897597014,
+      "difference": 3.410240298507006e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Scarf gap um",
+      "checked_value": 56.0,
+      "independent_reference": 56.00000000000001,
+      "difference": -7.105427357601002e-15,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Scarf path area/length",
+      "checked_value": 2.18157,
+      "independent_reference": 2.1815706846153096,
+      "difference": -6.846153097761487e-07,
+      "tolerance": 5.000001000000001e-06,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 all-species permeation kg/day",
+      "checked_value": 1.737e-06,
+      "independent_reference": 1.7372418854947016e-06,
+      "difference": -2.418854947015621e-10,
+      "tolerance": 5.01e-10,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative BASF catalog bed kg/kgwater",
+      "checked_value": 4.76,
+      "independent_reference": 4.761904761904762,
+      "difference": -0.0019047619047620756,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative SAES N2 getter kg/kg",
+      "checked_value": 29868.0,
+      "independent_reference": 29867.80918250532,
+      "difference": 0.1908174946802319,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative SAES O2 getter kg/kg",
+      "checked_value": 1569.0,
+      "independent_reference": 1568.9420709520043,
+      "difference": 0.05792904799568532,
+      "tolerance": 0.500000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative KNF installed speed",
+      "checked_value": 0.675,
+      "independent_reference": 0.675,
+      "difference": 0.0,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative P2 hot speed",
+      "checked_value": 0.403,
+      "independent_reference": 0.4028583374488134,
+      "difference": 0.00014166255118663873,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Edwards installed speed",
+      "checked_value": 20.625,
+      "independent_reference": 20.625,
+      "difference": 0.0,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Kapton hot speed",
+      "checked_value": 21.112,
+      "independent_reference": 21.112077351164213,
+      "difference": -7.735116421514476e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon hot speed",
+      "checked_value": 8.456,
+      "independent_reference": 8.455671305279045,
+      "difference": 0.0003286947209542035,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Kapton pump shortfall %",
+      "checked_value": 2.3,
+      "independent_reference": 2.307102911108616,
+      "difference": -0.007102911108616272,
+      "tolerance": 0.050000000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Kapton installed fraction needed",
+      "checked_value": 0.768,
+      "independent_reference": 0.7677119036786987,
+      "difference": 0.00028809632130133433,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Edwards extra kg",
+      "checked_value": 192.33,
+      "independent_reference": 192.33333333333337,
+      "difference": -0.0033333333333587234,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative 30day monitor battery kg",
+      "checked_value": 33.33,
+      "independent_reference": 33.333333333333336,
+      "difference": -0.003333333333337407,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative 365day monitor battery kg",
+      "checked_value": 405.56,
+      "independent_reference": 405.55555555555554,
+      "difference": 0.00444444444445935,
+      "tolerance": 0.0050000000010000005,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative PET barrier kg",
+      "checked_value": 20.961,
+      "independent_reference": 20.960706184751103,
+      "difference": 0.0002938152488951573,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Al barrier kg",
+      "checked_value": 0.17,
+      "independent_reference": 0.16964600329384882,
+      "difference": 0.0003539967061511884,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Barrier attachment kg",
+      "checked_value": 31.416,
+      "independent_reference": 31.415926535897935,
+      "difference": 7.346410206565679e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Total barrier kg",
+      "checked_value": 57.546,
+      "independent_reference": 57.54627872394288,
+      "difference": -0.00027872394288408486,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Kapton joint adhesive kg",
+      "checked_value": 12.565,
+      "independent_reference": 12.564741612169993,
+      "difference": 0.0002583878300068676,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon joint adhesive kg",
+      "checked_value": 4.078,
+      "independent_reference": 4.078030172370963,
+      "difference": -3.0172370962588957e-05,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon lower total kg",
+      "checked_value": 91.624,
+      "independent_reference": 91.62430889631385,
+      "difference": -0.00030889631385377925,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon upper total kg",
+      "checked_value": 111.624,
+      "independent_reference": 111.62430889631385,
+      "difference": -0.00030889631385377925,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon residual kg",
+      "checked_value": 8.376,
+      "independent_reference": 8.375691103686155,
+      "difference": 0.00030889631384489746,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "CARD narrative Zylon overage kg",
+      "checked_value": 11.624,
+      "independent_reference": 11.624308896313849,
+      "difference": -0.0003088963138484502,
+      "tolerance": 0.000500000001,
+      "pass": true,
+      "evidence": "inputs/034/CARD.md"
+    },
+    {
+      "quantity": "Owner validation report count (not an owner-code rerun)",
+      "checked_value": 36,
+      "independent_reference": 36,
+      "difference": 0,
+      "tolerance": 0,
+      "pass": true,
+      "evidence": "inputs/034/VALIDATION.json"
+    }
+  ],
+  "mismatches": []
+}

@@ -1,0 +1,38 @@
+{
+  "id": "E-bd0e126bf3301a8b32b3",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-bd0e126bf3301a8b32b3",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check037~1NFI.json/rows/19",
+    "row_id": "NFI-CHECK037-CURRENT-GEOMETRY",
+    "fields": {
+      "id": "NFI-CHECK037-CURRENT-GEOMETRY",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "037 used 022c before 022d filed; several quoted high P3 factors are outside the half-wave band.",
+      "proposed_fix": "Carry the now-filed 022d in-band geometry into the next thermal/load calculation, charging both film plies and fittings. Keep this audit tied to the original 022c record."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "037 used 022c before 022d filed; several quoted high P3 factors are outside the half-wave band.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check037~1NFI.json/rows/19"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

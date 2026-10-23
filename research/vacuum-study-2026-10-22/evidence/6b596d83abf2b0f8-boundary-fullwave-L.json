@@ -1,0 +1,292 @@
+{
+  "label": "fullwave",
+  "width_mm": 2181.4248249368884,
+  "meridian": "L",
+  "config": {
+    "ntheta": 512,
+    "grading": 2,
+    "nface": 2,
+    "ncore": 6,
+    "cores": 4,
+    "increment": 0.2,
+    "maximum_increment": 0.2,
+    "service_fraction": 0.8
+  },
+  "boundaries": [
+    {
+      "SF": 1.0,
+      "yield_screen_MPa": 345.0,
+      "status": "tested_boundary_bracket",
+      "amplitude_estimate_mm": 21.318884730185484,
+      "passing_amplitude_mm": 21.270528,
+      "failing_amplitude_mm": 21.357897,
+      "passing_run": "tol-fullwave-L-a21.270528",
+      "failing_run": "tol-fullwave-L-a21.357897",
+      "passing_max_mises_MPa": 344.8725098204432,
+      "failing_max_mises_MPa": 345.1028539618889,
+      "pressure_kPa": 95.46083791390515,
+      "rms_estimate_mm": 1.6409637250490992,
+      "rms_bracket_mm": [
+        1.637241596002451,
+        1.6439665894300304
+      ],
+      "interpolation": "secant estimate inside tested pass/fail amplitudes; high-yield law is identical before first yield"
+    },
+    {
+      "SF": 1.05,
+      "yield_screen_MPa": 345.0,
+      "status": "tested_boundary_bracket",
+      "amplitude_estimate_mm": 14.344816247448314,
+      "passing_amplitude_mm": 14.299457,
+      "failing_amplitude_mm": 14.389457,
+      "passing_run": "tol-fullwave-L-a14.299457",
+      "failing_run": "tol-fullwave-L-a14.389457",
+      "passing_max_mises_MPa": 344.890535434,
+      "failing_max_mises_MPa": 345.107730636615,
+      "pressure_kPa": 100.23387980960041,
+      "rms_estimate_mm": 1.1041535897620487,
+      "rms_bracket_mm": [
+        1.100662183874722,
+        1.1075896914401298
+      ],
+      "interpolation": "secant estimate inside tested pass/fail amplitudes; high-yield law is identical before first yield"
+    }
+  ],
+  "evaluations": [
+    {
+      "amplitude_mm": 0.0,
+      "run": "tol-perfect-L",
+      "at_SF1": {
+        "inner_mises_MPa": 300.5759421309918,
+        "max_mises_MPa": 300.5759421309918,
+        "max_mises_eid": "5111",
+        "max_mises_face": "inner",
+        "max_mises_ip": "10",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 300.14835166751004,
+        "p_kPa": 95.46084268694705,
+        "pole_uy_mm": "-19.07554",
+        "time": "0.952381",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 315.58727362065974,
+        "max_mises_MPa": 315.58727362065974,
+        "max_mises_eid": "5111",
+        "max_mises_face": "inner",
+        "max_mises_ip": "10",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 315.1383012120318,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-20.0269",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    },
+    {
+      "amplitude_mm": 14.062128,
+      "run": "tol-fullwave-L-a14.062128",
+      "at_SF1": {
+        "inner_mises_MPa": 316.9410965358098,
+        "max_mises_MPa": 327.4411729378764,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 327.4411729378764,
+        "p_kPa": 95.46083791390515,
+        "pole_uy_mm": "-20.65153",
+        "time": "0.8",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 332.97662621652717,
+        "max_mises_MPa": 344.3198480703169,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 344.3198480703169,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-21.70843",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    },
+    {
+      "amplitude_mm": 14.299457,
+      "run": "tol-fullwave-L-a14.299457",
+      "at_SF1": {
+        "inner_mises_MPa": 317.2340052011707,
+        "max_mises_MPa": 327.9709112876039,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 327.9709112876039,
+        "p_kPa": 95.46083791390515,
+        "pole_uy_mm": "-20.68258",
+        "time": "0.8",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 333.2886370324189,
+        "max_mises_MPa": 344.890535434,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 344.890535434,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-21.74176",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    },
+    {
+      "amplitude_mm": 14.389457,
+      "run": "tol-fullwave-L-a14.389457",
+      "at_SF1": {
+        "inner_mises_MPa": 317.345258486309,
+        "max_mises_MPa": 328.1724568286819,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 328.1724568286819,
+        "p_kPa": 95.46083791390515,
+        "pole_uy_mm": "-20.6944",
+        "time": "0.8",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 333.4070907172872,
+        "max_mises_MPa": 345.107730636615,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 345.107730636615,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-21.75445",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    },
+    {
+      "amplitude_mm": 14.462128,
+      "run": "tol-fullwave-L-a14.462128",
+      "at_SF1": {
+        "inner_mises_MPa": 317.43511116901243,
+        "max_mises_MPa": 328.33550324514596,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 328.33550324514596,
+        "p_kPa": 95.46083791390515,
+        "pole_uy_mm": "-20.70396",
+        "time": "0.8",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 333.5028439131369,
+        "max_mises_MPa": 345.2834767276024,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 345.2834767276024,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-21.76472",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    },
+    {
+      "amplitude_mm": 20.957897,
+      "run": "tol-fullwave-L-a20.957897",
+      "at_SF1": {
+        "p_kPa": 95.46083791390515,
+        "interpolation": "linear between native increments",
+        "max_mises_MPa": 344.131819902703,
+        "max_peeq": 0.0,
+        "inner_mises_MPa": 325.69313657624934,
+        "outer_mises_MPa": 344.131819902703
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 342.2863258428459,
+        "max_mises_MPa": 362.3178624872888,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 362.3178624872888,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-22.76571",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    },
+    {
+      "amplitude_mm": 21.270528,
+      "run": "tol-fullwave-L-a21.270528",
+      "at_SF1": {
+        "inner_mises_MPa": 326.07872250825073,
+        "max_mises_MPa": 344.8725098204432,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 344.8725098204432,
+        "p_kPa": 95.46083791390515,
+        "pole_uy_mm": "-21.68044",
+        "time": "0.8",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 342.7195442947496,
+        "max_mises_MPa": 363.2105885374541,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 363.2105885374541,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-22.81846",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    },
+    {
+      "amplitude_mm": 21.357897,
+      "run": "tol-fullwave-L-a21.357897",
+      "at_SF1": {
+        "inner_mises_MPa": 326.1925509159426,
+        "max_mises_MPa": 345.1028539618889,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 345.1028539618889,
+        "p_kPa": 95.46083791390515,
+        "pole_uy_mm": "-21.69412",
+        "time": "0.8",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      },
+      "at_SF105": {
+        "inner_mises_MPa": 342.84106947464477,
+        "max_mises_MPa": 363.4619319296393,
+        "max_mises_eid": "70",
+        "max_mises_face": "outer",
+        "max_mises_ip": "16",
+        "max_peeq": 0.0,
+        "outer_mises_MPa": 363.4619319296393,
+        "p_kPa": 100.23387980960041,
+        "pole_uy_mm": "-22.8333",
+        "time": "1.0",
+        "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+      }
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "rpt-ref-f6de390e1555b4ca8e78",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-dbd2fa05cc3e88be3cdc",
+  "to": "ref-9d7d3b2e560b8e1798a7",
+  "cc": [
+    "ref-5cf73d8bfab7071b094e",
+    "ref-d526e566bdbe9a62c2c1",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline022b-check-1020",
+  "re": "ord-admiral-rr2-check022b-codex-d1c0-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check022b-codex-d1c0-1020"
+    }
+  ],
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check022b-codex-d1c0-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "standing": "none",
+  "next": "none",
+  "completion": "Independent 022b/022c check completed and filed, exact differences and nine technical followups retained.",
+  "at": "2026-10-20T01:40:42-07:00",
+  "body": "CHECK MAINLINE-022b and 022c complete. Seventy rows reproduce: 4,894 independent field comparisons, 33 ancillary calculations and 894 printed numbers, with zero arithmetic mismatches. Owner scripts were not run or imported.\n\nDemonstrated source mismatch: 024 doubles total thickness for Zylon 0/90; both scans omit that factor. At the published 022c equilateral 5%/019 points, corrected film/least factors are 0.746876/0.708523, versus reported least 1.485116/1.417047. Exact differences are pinned.\n\nOmitted modes matter. The cap projection points develop 665.740/990.543 MPa tensile bending at their reported limits, without an independent tensile limit. NASA long-strut interaction remains unqualified. The 023 sleeve/wrap sizing consumes its assumed bond/axial allowables at design force; its frozen joint multiplier is 1, absent from the six-mode minimum.\n\nThe 0.25 m radius cap is not driving the tested optima. Continuous searches widened to spacing 19.9 m/radius 1 m return the same maxima within 9e-12, inside the original bounds. Twelve film gauges limit the reported grid optima; refined witnesses are documented separately.\n\nSixty-three artifact and twelve PDF pins verify; 87 package checks pass. CHECK, RESULTS, INPUTS, nine-row NFI, 24 exact source/scope differences, scripts and complete manifest are pinned. Qualified system factor and compression allowable remain unknown. Objections become NFI and stop no work. No successor assigned; awaiting robotics dispatch.",
+  "artifacts": [
+    {
+      "path": "evidence/136d8ec758a8a3db-CHECK.md",
+      "sha256": "136d8ec758a8a3db63f3e684de0da53916c0506e5ab9db987b68ffc27653e070",
+      "bytes": 10617
+    },
+    {
+      "path": "evidence/1de4285ab2db3db4-RESULTS.json",
+      "sha256": "1de4285ab2db3db48047724986b064ae84d5f528f209a2fff1a1dc55493a1424",
+      "bytes": 111282
+    },
+    {
+      "path": "evidence/4d40dc90e52f7d0b-INPUTS.json",
+      "sha256": "4d40dc90e52f7d0bab2fc81c7a6caca52b8b06e3717faae07d37cbabb87cb484",
+      "bytes": 36018
+    },
+    {
+      "path": "evidence/c6fe867af95c0749-NFI.json",
+      "sha256": "c6fe867af95c0749ef0f3668929c8bb986dd42bcc9ecbcf39baae14684a8eb2e",
+      "bytes": 202959
+    },
+    {
+      "path": "evidence/0fbd9075e751bf06-MISMATCHES.json",
+      "sha256": "0fbd9075e751bf063c814081acb0e1549a1224c899e3ae21dfdab2b5ab4b200b",
+      "bytes": 10540
+    },
+    {
+      "path": "evidence/ee33f40217760dd5-MANIFEST.json",
+      "sha256": "ee33f40217760dd538c06a588b4ec9afdde007494904c325705b7b2a8f610c9b",
+      "bytes": 23275
+    },
+    {
+      "path": "evidence/8be712c4d4fdc6d5-ARITHMETIC.json",
+      "sha256": "8be712c4d4fdc6d56440d962efef3a9affbfd9a7577588ff67e945fb63996203",
+      "bytes": 1425782
+    },
+    {
+      "path": "evidence/a6fc8b16878ca4ad-STUDIES.json",
+      "sha256": "a6fc8b16878ca4adf7f70c9aba83b8880907bc5c49a4b0aa3f740430df96148e",
+      "bytes": 172187
+    },
+    {
+      "path": "evidence/396b9858eaca9cc8-SOURCE-CHECKS.json",
+      "sha256": "396b9858eaca9cc83fc7b13eb1d13d6b3a60dd2e25667db61a086f2d7fd150cf",
+      "bytes": 175957
+    },
+    {
+      "path": "evidence/314ef37b0a6abf23-SOURCE-LEDGER.md",
+      "sha256": "314ef37b0a6abf23793bb310b9c0bd7b426f602fd239f8abfb1780c5b4bcd0cd",
+      "bytes": 5228
+    },
+    {
+      "path": "evidence/3a1426b8e5231c9d-INPUT-PINS.json",
+      "sha256": "3a1426b8e5231c9d5dc83368c5cf5933293221e0dfb546fec4705f36bfa3ca82",
+      "bytes": 28812
+    },
+    {
+      "path": "evidence/ac81c1593c02e019-EXTERNAL-PDF-PINS.json",
+      "sha256": "ac81c1593c02e019487c37ea839ee7b95e7059520202a0a51ac6a65a352bf0b7",
+      "bytes": 5063
+    },
+    {
+      "path": "evidence/d9d71eea103c5eb0-check_model.py",
+      "sha256": "d9d71eea103c5eb0b680fb4a5b231b85130845da227f054f5142d38242b42f29",
+      "bytes": 16782
+    },
+    {
+      "path": "evidence/9763752d07eda80a-check_studies.py",
+      "sha256": "9763752d07eda80a1b1f38fed6a0b24d65c0ade45a6e65eae2ede13180181102",
+      "bytes": 7201
+    },
+    {
+      "path": "evidence/7992a83950f81910-check_sources.py",
+      "sha256": "7992a83950f81910efa4ca49e988113a29f6fbea8445e72b5dfaa27f64c54421",
+      "bytes": 9980
+    },
+    {
+      "path": "evidence/b5b36fe0dbe1240c-assemble_check.py",
+      "sha256": "b5b36fe0dbe1240cc55fe25194b52890589220ee76ff3ce2b8228e35ebb671b4",
+      "bytes": 15248
+    }
+  ],
+  "ingested": "2026-10-20T01:43:16-07:00"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-3d309c9998ff4bbe5e81",
+  "unit": "vacuum-review-e-069-1020",
+  "at": "2026-10-22T09:43:45-07:00",
+  "body": "REVIEW-E on 069. QUESTIONABLE / PROJECTION. No qualified hull safety factor.\n\nVersion 8 rebuilt from pinned version 7 and DELTA-D matches the admission: sha256 dede05e82b02973f6d4b2d79170dd9930563bc0500ce63717897c62da70040c7, 21796723 bytes. The live record is those bytes plus DELTA-069-GRAPHITE-071 only. That delta is unadmitted. It says the graphite variant is thermally infeasible on CR-III unless core expansion is at or below 12.2e-6 per K. DELTA-E should re-append it.\n\nLift 132014.938 kg, faces 73751.362 kg, core 32375.509 kg, film 1656.569 kg, and payload +5.031 kg reproduce. ISA +1499.236 kg and both same-geometry TRL 7 payloads reproduce. CR-1457 (4.2-4) is Kc = 1 minus Vc/4 below Vc 2, and (6.2-1) uses it on domes with gamma 0.20. That term stands. Independent Vc is 1.32086 against filed 1.32282. Handbook buckling with no cure is 1.027 against filed 1.000. Equation 2.2-14 on membrane stress is 1.0491, the filed membrane-only figure.\n\nCure, the gradient and bending stresses, and the pressure adder are absent from CR-1457, DOI 10.2514/3.5568 and DOI 10.2514/3.1932. Factors without them are 1.769, 1.809 and 1.740. Equation 2.2-15, equibiaxial, puts the filed wrinkling margin at 0.794. Face stress must fall by 1.260, or the sphere must be shown exempt. Thermal 1.071 cannot be checked without kb and dtc. Scarf, splice, mooring and weather headroom were not re-derived and exceed +5 kg.\n\nThe +5 kg point is a hypothetical 1014 kg/m3 face. It does not stand with the graphite route. The 069 page still quotes factor 1.659 and thermal 1.071.\n",
+  "artifacts": [
+    {
+      "path": "evidence/cdaee9ebcf4e97f7-CARD.md",
+      "sha256": "cdaee9ebcf4e97f708775c592242361795a1401062f3fc72017a817ba6501457",
+      "bytes": 5324
+    },
+    {
+      "path": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+      "bytes": 6467
+    },
+    {
+      "path": "evidence/d6ab3e37f0bb52e7-NFI.json",
+      "sha256": "d6ab3e37f0bb52e7927cd40e04e91ea6c3fb4be81384dc29c586e423a7cf7a41",
+      "bytes": 1464
+    },
+    {
+      "path": "evidence/67e182127c27f204-INPUTS.json",
+      "sha256": "67e182127c27f204e936126d2a890f534d61c21c1bcf7e675c62e1fa61dcf782",
+      "bytes": 3645
+    }
+  ],
+  "from": "ref-54f4f7dcfd67e7445c6b",
+  "from_seat": "ref-54f4f7dcfd67e7445c6b",
+  "re": "ord-admiral-rr2-review-e1-dispatch-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-e1-dispatch-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

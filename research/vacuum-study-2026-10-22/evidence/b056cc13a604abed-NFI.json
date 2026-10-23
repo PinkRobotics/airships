@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-021b",
+  "unit": "vacuum-mainline021b-floating-point-on-019-budget-1020",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "rows": [
+    {
+      "id": "NFI-021b-GAMMA",
+      "optimism": "O1",
+      "needed": 0.46822856667720764,
+      "today": 0.2,
+      "full_at_point": 0.5544727352669614,
+      "improvement_factor": 2.341142833386038,
+      "usage": 0.83420513484806,
+      "state": "PROJECTION",
+      "grounding_card": "MAINLINE-018b; MAINLINE-015's map",
+      "tolerance_015": {
+        "kd": 0.46822856667720764,
+        "t_eq_mm": 53.364448806653826,
+        "R_over_t_eq": 187.39067344687226,
+        "in_fit_range": true,
+        "status": "lambda_I_1 inversion",
+        "delta_over_t_eq": 0.8586135991025216,
+        "amplitude_mm": 45.819441454003304,
+        "rms_worst_mm": 1.7088520330420545
+      }
+    },
+    {
+      "id": "NFI-021b-WRINKLE",
+      "optimism": "O2",
+      "needed": 0.6092014443376216,
+      "today": 0.33,
+      "full": 0.82,
+      "improvement_factor": 1.8460649828412774,
+      "usage": 0.6735316047895863,
+      "state": "between the design lower bound and the classical value; no test at this tc/tf",
+      "grounding_card": "none pending"
+    },
+    {
+      "id": "NFI-021b-PANEL",
+      "optimism": "O4",
+      "needed_m": 3.1278027873808982,
+      "today_m": 0.9144000000000001,
+      "full_m": 4.0,
+      "improvement_factor": 3.4206067228575,
+      "usage": 0.8333333333333334,
+      "state": "PROJECTION",
+      "note": "Thin (<0.059 in) SR-200 stock size is unpublished (020: UNKNOWN); curved forming at 10 m radius unverified.",
+      "grounding_card": "a supplier-confirmed thin-sheet specification (020's first ground)"
+    },
+    {
+      "id": "NFI-021b-FILM",
+      "optimism": "O5",
+      "needed_lb_ft2": 0.03,
+      "today_lb_ft2": 0.03,
+      "full_lb_ft2": 0.015,
+      "usage": 0.0,
+      "state": "not needed at the floating point",
+      "note": "Be/honeycomb bond suitability of any AF 163 weight is unqualified (019, 020)."
+    },
+    {
+      "id": "NFI-021b-FACE-AT-ONE",
+      "optimism": "O3",
+      "needed_Pa": 345000000.0,
+      "today_Pa": 345000000.0,
+      "usage": 0.0,
+      "issue": "Face compression is exactly 1 on SR-200's minimum tensile yield used as compressive; no compressive minimum is published; 020's gauge tolerance ±0.1016 mm and post-form properties can take it below 1.",
+      "grounding_card": "MAINLINE-020 follow-up: post-form compression and gauge map"
+    },
+    {
+      "id": "NFI-021b-RESERVE-HIDES-OPTIMISMS",
+      "issue": "019's 535.95 kg reserve embeds 4 m panels and 0.015 lb/ft2 films; at today's panel and film this point's reserve is 1229.4 kg.",
+      "numbers": {
+        "least_set_reserve_as_given": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "usage": 0.6656351070909744
+      }
+    },
+    {
+      "id": "NFI-021b-JOINT-PARAMETERS",
+      "issue": "019's optimistic joint parameters (60 mm strips, 0.2 mm adhesive, 1.5 mm core splice) are owner assumptions, not validated joints; 020's own splice model weighs 0.218 kg per hull-seam metre in its optimistic case."
+    },
+    {
+      "id": "NFI-021b-CLIMATE-SERVICE",
+      "issue": "The fixed reserve items are 019's optimistic sealed-service day (0.1 mm water, +10 K, 1 percent, 1 kPa); 019's conservative day needs 4229 kg.",
+      "grounding_card": "MAINLINE-019 follow-ups (site, gas-load measurement)"
+    },
+    {
+      "id": "NFI-021b-ARAMID-BLOCKED",
+      "issue": "The aramid family reaches 0.9407 with every optimism full; core shear crimping, which no named optimism touches, ties with global and wrinkling on the crimp branch."
+    },
+    {
+      "id": "NFI-021b-MARGIN",
+      "issue": "No payload: 019's unladen case. 019's +100 kg payload sensitivity raises the reserve to 637.85 kg."
+    }
+  ]
+}

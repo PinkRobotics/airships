@@ -1,0 +1,37 @@
+{
+  "id": "E-c14770c63421960e76fa",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-c14770c63421960e76fa",
+    "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+    "file": "evidence/298ddfd71d18cdeb-NFI.json",
+    "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+    "source_sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+    "source_json_pointer": "/issues/2",
+    "row_id": "NFI056-DENSIFICATION",
+    "fields": {
+      "id": "NFI056-DENSIFICATION",
+      "status": "open",
+      "finding": "The printed densification slope exceeds E=40 MPa. Converting all plotted total strains with epsilon_p=epsilon_total-sigma/E gives nonmonotone plastic strain. The conditional model retains the monotone portion and explicitly extrapolates its last hardening slope.",
+      "consequence": "Any path using extrapolation has material uncertainty beyond plot digitization. Full densification cannot be claimed fitted."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The printed densification slope exceeds E=40 MPa. Converting all plotted total strains with epsilon_p=epsilon_total-sigma/E gives nonmonotone plastic strain. The conditional model retains the monotone portion and explicitly extrapolates its last hardening slope.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+      "artifact": "evidence/298ddfd71d18cdeb-NFI.json",
+      "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+      "sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+      "bytes": 5002,
+      "selector": "/issues/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,626 @@
+{
+  "unit": "vacuum-mainline066-improvement-vector-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "norm": "L1 sum of nonnegative natural logs of improvement factors. Factor 1 is the base.",
+  "simjob": {
+    "scope": "simjob-20261020t175116-2cf59f790fe1",
+    "exit": 0,
+    "elapsed_s": 111.71064535109326
+  },
+  "base": {
+    "definition": "gamma 0.20, Q 0.33 with BETA 1, E_full, strength_full, favorable film. Same material point as DELTA-C's four handbook rows.",
+    "differs_from_delta_c": "Payloads match DELTA-C within 0.01 kg. Same gamma, Q, BETA=1, E_full, strength_full and favorable film.",
+    "max_abs_difference_kg": 0.0020861789816990495,
+    "co_binding": "face_wrinkling and global_buckling on every row",
+    "rows": {
+      "concept:20:ISA": {
+        "point": {
+          "payload_kg": -19594.208679278785,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 7689.425128462705,
+          "mass_before_growth_kg": 51020.32075231177,
+          "geometry": {
+            "tf_m": 0.0020927579209688942,
+            "tc_m": 0.11764215720431538
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2914390002639335,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004298717
+            ],
+            [
+              "global_buckling",
+              1.000000014279677
+            ],
+            [
+              "thermal_interface",
+              1.0711372993415926
+            ],
+            [
+              "scarf_average_shear",
+              1.252368049091647
+            ]
+          ],
+          "co_binding": [
+            "face_wrinkling",
+            "global_buckling"
+          ],
+          "bill_faces_kg": 38921.59002872575,
+          "bill_core_kg": 9472.261683121791,
+          "bill_joining_kg": 1222.0007734724459
+        },
+        "delta_c_payload_kg": -19594.208605672735,
+        "difference_kg": -7.360605013673194e-05
+      },
+      "concept:20:optimistic": {
+        "point": {
+          "payload_kg": -21184.234559666944,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 7840.171896995798,
+          "mass_before_growth_kg": 52459.599864166834,
+          "geometry": {
+            "tf_m": 0.0021386864731142686,
+            "tc_m": 0.11930540859592977
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.319603887251875,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000001415708
+            ],
+            [
+              "face_wrinkling",
+              1.0000000126759845
+            ],
+            [
+              "thermal_interface",
+              1.071127162527881
+            ],
+            [
+              "scarf_average_shear",
+              1.2475745215486589
+            ]
+          ],
+          "co_binding": [
+            "global_buckling",
+            "face_wrinkling"
+          ],
+          "bill_faces_kg": 39775.77973662449,
+          "bill_core_kg": 9606.182658396207,
+          "bill_joining_kg": 1230.4201193672238
+        },
+        "delta_c_payload_kg": -21184.23455564135,
+        "difference_kg": -4.025594535050914e-06
+      },
+      "concept:30:ISA": {
+        "point": {
+          "payload_kg": -64564.8225562039,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 25749.52910511725,
+          "mass_before_growth_kg": 170830.2315061346,
+          "geometry": {
+            "tf_m": 0.003146943220203237,
+            "tc_m": 0.1762111346298442
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.29456180372878,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003990992
+            ],
+            [
+              "global_buckling",
+              1.0000000123427324
+            ],
+            [
+              "thermal_interface",
+              1.0708118841814234
+            ],
+            [
+              "scarf_average_shear",
+              1.249919970060791
+            ]
+          ],
+          "co_binding": [
+            "face_wrinkling",
+            "global_buckling"
+          ],
+          "bill_faces_kg": 131687.03050870454,
+          "bill_core_kg": 31923.21138364027,
+          "bill_joining_kg": 3351.637761477487
+        },
+        "delta_c_payload_kg": -64564.821981282366,
+        "difference_kg": -0.0005749215342802927
+      },
+      "concept:30:optimistic": {
+        "point": {
+          "payload_kg": -69947.21729081307,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 26260.874186404435,
+          "mass_before_growth_kg": 175701.2811594566,
+          "geometry": {
+            "tf_m": 0.003216062663051361,
+            "tc_m": 0.17870775041833908
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3228171449615547,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004048104
+            ],
+            [
+              "global_buckling",
+              1.0000000304779284
+            ],
+            [
+              "thermal_interface",
+              1.0707994720765919
+            ],
+            [
+              "scarf_average_shear",
+              1.2451435679851746
+            ]
+          ],
+          "co_binding": [
+            "face_wrinkling",
+            "global_buckling"
+          ],
+          "bill_faces_kg": 134579.40369187808,
+          "bill_core_kg": 32375.509666193622,
+          "bill_joining_kg": 3383.7340821387206
+        },
+        "delta_c_payload_kg": -69947.21520463409,
+        "difference_kg": -0.0020861789816990495
+      },
+      "TRL7:20:ISA": {
+        "point": {
+          "payload_kg": -14403.014676574076,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 2498.2312791610557,
+          "mass_before_growth_kg": 51020.32059890871,
+          "geometry": {
+            "tf_m": 0.002092757916079756,
+            "tc_m": 0.11764215646082289
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2914389971569302,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003706804
+            ],
+            [
+              "global_buckling",
+              1.0000000070146704
+            ],
+            [
+              "thermal_interface",
+              1.071137299346126
+            ],
+            [
+              "scarf_average_shear",
+              1.2523680465229683
+            ]
+          ],
+          "co_binding": [
+            "face_wrinkling",
+            "global_buckling"
+          ],
+          "bill_faces_kg": 38921.58993779644,
+          "bill_core_kg": 9472.261623257577,
+          "bill_joining_kg": 1222.000770871491
+        },
+        "delta_c_payload_kg": -14403.015003408918,
+        "difference_kg": 0.0003268348427809542
+      },
+      "TRL7:20:optimistic": {
+        "point": {
+          "payload_kg": -15892.121571510135,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 2548.058880284502,
+          "mass_before_growth_kg": 52459.59989272132,
+          "geometry": {
+            "tf_m": 0.0021386864668282344,
+            "tc_m": 0.11930541034260773
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3196038837818203,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.00000000042001
+            ],
+            [
+              "global_buckling",
+              1.000000012428281
+            ],
+            [
+              "thermal_interface",
+              1.071127162517196
+            ],
+            [
+              "scarf_average_shear",
+              1.247574517224345
+            ]
+          ],
+          "co_binding": [
+            "face_wrinkling",
+            "global_buckling"
+          ],
+          "bill_faces_kg": 39775.779619715395,
+          "bill_core_kg": 9606.182799034486,
+          "bill_joining_kg": 1230.4201241736675
+        },
+        "delta_c_payload_kg": -15892.121478656387,
+        "difference_kg": -9.285374835599214e-05
+      },
+      "TRL7:30:ISA": {
+        "point": {
+          "payload_kg": -47222.286343434724,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 8406.99337236518,
+          "mass_before_growth_kg": 170830.2310261175,
+          "geometry": {
+            "tf_m": 0.00314694321339329,
+            "tc_m": 0.17621113360154803
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2945618008439677,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.000000000353687
+            ],
+            [
+              "global_buckling",
+              1.0000000056347822
+            ],
+            [
+              "thermal_interface",
+              1.070811884186554
+            ],
+            [
+              "scarf_average_shear",
+              1.2499199677094244
+            ]
+          ],
+          "co_binding": [
+            "face_wrinkling",
+            "global_buckling"
+          ],
+          "bill_faces_kg": 131687.0302237354,
+          "bill_core_kg": 31923.211197349454,
+          "bill_joining_kg": 3351.63775274772
+        },
+        "delta_c_payload_kg": -47222.28610855001,
+        "difference_kg": -0.00023488471197197214
+      },
+      "TRL7:30:optimistic": {
+        "point": {
+          "payload_kg": -52262.178358895064,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 8575.835633064009,
+          "mass_before_growth_kg": 175701.280780879,
+          "geometry": {
+            "tf_m": 0.003216062657660153,
+            "tc_m": 0.17870774961206942
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3228171426777622,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003640768
+            ],
+            [
+              "global_buckling",
+              1.0000000253161045
+            ],
+            [
+              "thermal_interface",
+              1.0707994720806087
+            ],
+            [
+              "scarf_average_shear",
+              1.24514356616926
+            ]
+          ],
+          "co_binding": [
+            "face_wrinkling",
+            "global_buckling"
+          ],
+          "bill_faces_kg": 134579.4034662775,
+          "bill_core_kg": 32375.50952012614,
+          "bill_joining_kg": 3383.734075250715
+        },
+        "delta_c_payload_kg": -52262.178107306456,
+        "difference_kg": -0.00025158860808005556
+      }
+    }
+  },
+  "log_derivatives_kg_per_e_fold": {
+    "method": "p2_opt payload at factor 1.02 minus the base, divided by ln(1.02). Direct follow-up on the pinned model.",
+    "rows": {
+      "concept:30:ISA": {
+        "face_density": 149950.6,
+        "gamma": 81463.4,
+        "face_modulus": 77082.7,
+        "Q": 71901.1,
+        "core_Gc": 38377.7,
+        "bond_film": 2132.8,
+        "face_strength": 0.0,
+        "core_density": 40518.8,
+        "core_Ec": 36115.9
+      },
+      "concept:20:ISA": {
+        "face_density": 44319.6,
+        "gamma": 24005.7,
+        "face_modulus": 22835.0,
+        "Q": 21158.6,
+        "core_Gc": 11269.5,
+        "bond_film": 947.9,
+        "face_strength": 0.0,
+        "core_density": 12017.3,
+        "core_Ec": 10627.8
+      },
+      "TRL7:30:ISA": {
+        "face_density": 136911.3,
+        "gamma": 74202.9,
+        "face_modulus": 70290.6,
+        "Q": 65655.8,
+        "core_Gc": 34957.1,
+        "bond_film": 1722.6,
+        "face_strength": 0.0,
+        "core_density": 36990.7,
+        "core_Ec": 32978.6
+      },
+      "concept:20:optimistic": {
+        "core_density": 12190.0,
+        "core_Ec": 10979.0
+      },
+      "concept:30:optimistic": {
+        "core_density": 41102.7,
+        "core_Ec": 37313.4
+      },
+      "TRL7:20:ISA": {
+        "core_density": 10971.1,
+        "core_Ec": 9705.6
+      },
+      "TRL7:20:optimistic": {
+        "core_density": 11128.7,
+        "core_Ec": 10026.0
+      },
+      "TRL7:30:optimistic": {
+        "core_density": 37523.6,
+        "core_Ec": 34071.0
+      }
+    },
+    "modulus_to_density_ratio_concept_R30_ISA": 0.51405396177141,
+    "core_method": "p2_opt n=180 at factor 1.02, divided by ln(1.02). BETA=1. Direct follow-up."
+  },
+  "indices_067": {
+    "specific_modulus_expects_ratio": 1.0,
+    "wrinkling_rho_over_E_to_the_third_expects_ratio": 0.3333333333333333,
+    "density_over_strength_expects": "strength elasticity comparable to density elasticity",
+    "measured": "Concept R30 ISA modulus/density elasticity ratio is 0.514. Strength elasticity is 0. The ratio sits between 1/3 and 1 because wrinkling and global buckling co-bind and thermal stress grows with modulus."
+  },
+  "density_only": [
+    {
+      "case": "concept:20:ISA",
+      "factor": 1.7787112411829835,
+      "density_kg_m3": 1040.0788824888766,
+      "l1": 0.5758890802663112,
+      "payload_kg": 1.4290668358198673
+    },
+    {
+      "case": "concept:20:optimistic",
+      "factor": 1.862737888736865,
+      "density_kg_m3": 993.1617385280638,
+      "l1": 0.6220473886116742,
+      "payload_kg": 1.5068534262991307
+    },
+    {
+      "case": "concept:30:ISA",
+      "factor": 1.7432855136997145,
+      "density_kg_m3": 1061.2145775672793,
+      "l1": 0.5557715590323488,
+      "payload_kg": 4.762584706353664
+    },
+    {
+      "case": "concept:30:optimistic",
+      "factor": 1.824771768877316,
+      "density_kg_m3": 1013.8254172675006,
+      "l1": 0.6014549210646182,
+      "payload_kg": 5.031511016728473
+    },
+    {
+      "case": "TRL7:20:ISA",
+      "factor": 1.544302074177815,
+      "density_kg_m3": 1197.952156468441,
+      "l1": 0.43457207636436385,
+      "payload_kg": 1.134320806910182
+    },
+    {
+      "case": "TRL7:20:optimistic",
+      "factor": 1.6143251292809768,
+      "density_kg_m3": 1145.9897182075047,
+      "l1": 0.4789169927336536,
+      "payload_kg": 1.2219963455088418
+    },
+    {
+      "case": "TRL7:30:ISA",
+      "factor": 1.5187090036035908,
+      "density_kg_m3": 1218.139877758229,
+      "l1": 0.41786063423035347,
+      "payload_kg": 3.7521971454852974
+    },
+    {
+      "case": "TRL7:30:optimistic",
+      "factor": 1.5869831238459213,
+      "density_kg_m3": 1165.7338834937823,
+      "l1": 0.46183480749020184,
+      "payload_kg": 4.055315299586255
+    }
+  ],
+  "joint": {
+    "concept": {
+      "factor": 1.8627378852281273,
+      "density_kg_m3": 993.1617403988284,
+      "l1": 0.6220473867280287,
+      "set_by": "R20 optimistic"
+    },
+    "TRL7": {
+      "factor": 1.614325129280978,
+      "density_kg_m3": 1145.9897182075038,
+      "l1": 0.47891699273365423,
+      "set_by": "R20 optimistic"
+    }
+  },
+  "modulus_closure": [
+    {
+      "case": "concept:20:ISA",
+      "factor": 2.1249098321875666,
+      "l1": 0.7537293695643877,
+      "payload": 0.05512705329329037,
+      "E_GPa": 623.8735267302696
+    },
+    {
+      "case": "concept:30:ISA",
+      "factor": 2.0886230512678616,
+      "l1": 0.7365050217101835,
+      "payload": 11.706041701465438,
+      "E_GPa": 613.2197278522442
+    },
+    {
+      "case": "TRL7:20:ISA",
+      "factor": 1.9237553102281617,
+      "l1": 0.6542791665196629,
+      "payload": 2.4484667667302347,
+      "E_GPa": 564.8145590829884
+    },
+    {
+      "case": "TRL7:30:ISA",
+      "factor": 1.8971392152375022,
+      "l1": 0.6403470753121044,
+      "payload": 1.8007561135163996,
+      "E_GPa": 557.0000735937307
+    },
+    {
+      "case": "TRL7:20:optimistic",
+      "factor": 1.9471001795831124,
+      "l1": 0.6663411783705021,
+      "payload": 2.2638148628129784,
+      "E_GPa": 571.6686127256019
+    },
+    {
+      "case": "TRL7:30:optimistic",
+      "factor": 1.9199815626269272,
+      "l1": 0.6523155831951076,
+      "payload": 11.169901765622853,
+      "E_GPa": 563.7065867872659
+    }
+  ],
+  "pairs_beat_density": [],
+  "pair_count": 39,
+  "gamma_alone": {
+    "concept:20:ISA": null,
+    "concept:20:optimistic": null,
+    "concept:30:ISA": 4.827412832941818,
+    "concept:30:optimistic": null,
+    "TRL7:20:ISA": 2.3595641851132347,
+    "TRL7:20:optimistic": 3.043464411952052,
+    "TRL7:30:ISA": 2.230575204177467,
+    "TRL7:30:optimistic": 2.7669873295303313
+  },
+  "q_cap_payload_concept_R30_ISA": -40183.10047094216,
+  "gamma_cap_payload": {
+    "concept:20:ISA": -426.0433654786766,
+    "concept:20:optimistic": -1785.726634760862,
+    "concept:30:optimistic": -4207.267683709877
+  },
+  "today": {
+    "face_modulus_Pa": 293600000000.0,
+    "face_density_kg_m3": 1850.0,
+    "face_strength_Pa": 379200000.0,
+    "core_density_kg_m3": 16.018463373960138,
+    "core_Ec_Pa": 103421359.3975254,
+    "core_Gc_Pa": 46884349.59354485,
+    "bond_film_kg_m2_interface": 0.07323641454574575,
+    "gamma": 0.2,
+    "Q": 0.33
+  },
+  "started": "2026-10-20T17:51:16-07:00",
+  "simjob_completed": "2026-10-20T17:53:08-07:00",
+  "artifacts_closed": "2026-10-20T18:07:48-07:00",
+  "clock_note": "started and simjob_completed are the kept simjob clocks truncated to seconds. artifacts_closed is the clock when RESULTS was patched with the core slopes."
+}

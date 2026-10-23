@@ -1,0 +1,43 @@
+{
+  "id": "E-3d9f82001816c6c5bd46",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-3d9f82001816c6c5bd46",
+    "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+    "file": "evidence/8225ec6358048fa7-NFI.json",
+    "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+    "source_sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+    "source_json_pointer": "/resolved_local/0",
+    "row_id": "CHECKER-CURVATURE-CONVENTIONS",
+    "fields": {
+      "id": "CHECKER-CURVATURE-CONVENTIONS",
+      "status": "RESOLVED",
+      "finding": "Initial 10 probe and 27 legacy/common curvature comparisons used different extrema conventions.",
+      "resolution": "Owner historical diagnostics use 1441-angle sampling; checker diagnostics use derivative roots. Settled tables use roots. Matched-convention comparisons pass.",
+      "exact_ledgers": [
+        "history/thermal01/THERMAL-MISMATCHES.json",
+        "history/supplement01/SUPPLEMENT-MISMATCHES.json",
+        "history/supplement02/SUPPLEMENT-MISMATCHES.json"
+      ],
+      "maximum_initial_probe_difference_K": 0.00021321463623991121
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Initial 10 probe and 27 legacy/common curvature comparisons used different extrema conventions.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+      "artifact": "evidence/8225ec6358048fa7-NFI.json",
+      "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+      "sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+      "bytes": 11519,
+      "selector": "/resolved_local/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

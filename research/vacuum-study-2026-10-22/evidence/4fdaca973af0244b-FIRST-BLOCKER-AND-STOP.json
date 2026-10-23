@@ -1,0 +1,40 @@
+{
+  "status": "FIRST_BLOCKER_OWNER_REVIEW_HELPER_TEXT_DECODE_FAILURE",
+  "unit": "h1-native-packaged-evidence-acquisition-1019",
+  "origin_monotonic": 2059188.367194322,
+  "stop_monotonic": 2059732.924667569,
+  "stop_utc": "2026-10-19T21:10:07.744363+00:00",
+  "acquisition_actual_seconds": 320.59513237699866,
+  "patch_review_start_monotonic": 2059508.962326699,
+  "patch_review_actual_seconds": 223.96234087017365,
+  "patch_cap_seconds": 650,
+  "unused_patch_not_transferred_seconds": 426.03765912982635,
+  "runtime_phase": "NOT_RUN",
+  "runtime_actual_seconds": 0,
+  "filing_start_monotonic": 2059732.924667569,
+  "filing_deadline_monotonic": 2060097.924667569,
+  "error": {
+    "command": "python3 .ship/notes/h1-native-evidence-a-1800-1019/review_patch_data.py",
+    "tool_chunk_id": "c8543a",
+    "exit_code": 1,
+    "exception": "UnicodeDecodeError",
+    "detail": "'utf-8' codec can't decode byte 0xb0 in position 25150: invalid start byte",
+    "site": "review_patch_data.py:16 default read_text while loading a touched source file for exact-context composition",
+    "ownership": "Owner-created helper assumed UTF-8; the acquisition/source contract did not impose UTF-8. This is an incomplete review caused by the helper, not a failed authenticated source hash or scientific FAIL."
+  },
+  "rule": "Stop at first failed guard/missing review premise; no corrected helper run, parser retry, new GET, runtime snapshot or loader call.",
+  "reached": [
+    "Five authenticated GETs,17186822 transferred bytes",
+    "Exact three source members,quilt dsc relation and safe source metadata",
+    "Exact .deb package and payload sha564ed098",
+    "1176/1176 unpatched source files identical under declared prefix normalization",
+    "All four listed patch texts and build-source settings read; exact-context composition incomplete"
+  ],
+  "not_run": [
+    "Completed exact-context patch disposition",
+    "Final feature acceptance",
+    "Private32-file snapshot and package rehash",
+    "Single Ops loader door and actual control receipt",
+    "Native solve/build/install/project test"
+  ]
+}

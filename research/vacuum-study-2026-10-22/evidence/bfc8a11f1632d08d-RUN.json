@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline034-check-1020",
+  "started_at": "2026-10-20T02:49:46-07:00",
+  "completed_at": "2026-10-20T03:15:06.371115-07:00",
+  "elapsed_seconds_measured": 1520.371115,
+  "time_budget": null,
+  "times_are": "observations, never limits",
+  "owner_code_read": false,
+  "owner_code_run": false,
+  "commands": [
+    "TMPDIR=unpublished-local-ref:1ffe4110219d37c0 OPENBLAS_NUM_THREADS=1 python3 independent_check.py",
+    "TMPDIR=unpublished-local-ref:1ffe4110219d37c0 python3 audit_evidence.py",
+    "TMPDIR=unpublished-local-ref:1ffe4110219d37c0 python3 area_sensitivity_check.py"
+  ],
+  "numeric_comparisons": 7670,
+  "additional_source_inheritance_display_checks": 232,
+  "snapshot_pin_checks": 83,
+  "mass_balance_checks": 434,
+  "unresolved_numerical_mismatches_after_reconstruction": 0,
+  "new_NFI": 3,
+  "total_NFI": 20,
+  "early_local_output_repairs": [
+    "Constant-envelope displayed samples aligned to filed days [1,7,30]",
+    "NumPy boolean cast for JSON serialization"
+  ],
+  "reconciliation": "Initial three core-void differences retained; explicit bond/splice displacement convention added. No tolerance change.",
+  "tracked_jobs_remaining": 0,
+  "successor_named": false
+}

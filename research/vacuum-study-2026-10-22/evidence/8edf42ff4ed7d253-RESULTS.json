@@ -1,0 +1,335 @@
+{
+  "schema": "review-a1-results-v1",
+  "unit": "vacuum-review-a-056-062-1020",
+  "order": "ord-admiral-rr2-review-a1-dispatch-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "status": "review complete; fixes explicitly unreviewed; physical qualification open",
+  "claims": [
+    {
+      "id": "A1-01",
+      "card": "056",
+      "claim": "6.03 MPa is the source paper's simulation, not a measured pressure test.",
+      "why_load_bearing": "Changes validation strength of the benchmark.",
+      "disposition": "reproduces",
+      "reviewer_finding": "EUCASS2023-367 §§3.1–3.2.1: experiments validate axial compression; 6.03 MPa is a pressure-postbuckling prediction.",
+      "evidence": [
+        "sources/primary--eucass2023-367.pdf"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-02",
+      "card": "056",
+      "claim": "Refined midsurface indentation peak 6.159021 MPa; scenario range 6.1590–6.5023 MPa.",
+      "why_load_bearing": "Determines claimed agreement and ambiguity with the benchmark.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Independent force equilibrium at the saved refined state gives 6.159020624266 MPa; original 6.159020624174. Independent raw-path maxima give 6.159020624–6.502271779 MPa. Scope: frozen-state equilibrium and sampled maxima, not a rerun of contact/plastic history or proof of physical instability.",
+      "evidence": [
+        "FIELD-CHECK.json",
+        "check_field_a1.py"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-03",
+      "card": "056",
+      "claim": "Peak differences: +2.140% to 6.03 MPa, contact refinement −0.1156%, penalty doubling −0.0105%.",
+      "why_load_bearing": "Supports the convergence and accuracy headline.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Independent ratios: +2.139645510%, mesh −0.115571622%, penalty −0.010452458%. These reproduce the printed rounding; they are observed numerical changes, not certified error bounds.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "FIELD-CHECK.json"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-04",
+      "card": "056",
+      "claim": "Linear gaps +1.977% midsurface and +9.764% outer-radius.",
+      "why_load_bearing": "Tests the radius-reading sensitivity independently of plastic calibration.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Fresh Q8 elastic/prestress eigenproblems give 30.218153613699 MPa outer-radius and 28.074312431918 MPa midsurface-radius: +9.764451920% and +1.977161031% relative to 27.53 MPa.",
+      "evidence": [
+        "LINEAR-CHECK.json",
+        "check_linear_a1.py"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-05",
+      "card": "056",
+      "claim": "No P2 gamma released; directional CR III law still required.",
+      "why_load_bearing": "Prevents numerical benchmark agreement becoming hull capacity.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Withholding P2 gamma is supported: the benchmark is steel/PVC with unresolved calibration; Hexcel supplies distinct directional anchors, not a matched installed CR III crush/unload/mixed-load law.",
+      "evidence": [
+        "sources/primary--eucass2023-367.pdf",
+        "sources/primary--criii.pdf",
+        "ADMISSIBILITY.md"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-06",
+      "card": "062",
+      "claim": "047 is inadmissible as a physical manufacturing tolerance.",
+      "why_load_bearing": "Controls whether target amplitudes can be used for fabrication acceptance.",
+      "disposition": "reproduces",
+      "reviewer_finding": "The source record supports withholding physical tolerance release: 345 MPa is a tensile proxy; the in-plane core law, processed compression/bond and manufactured residual state remain unqualified.",
+      "evidence": [
+        "sources/047--INPUTS.json",
+        "sources/primary--sr200.pdf",
+        "sources/primary--af163.pdf",
+        "ADMISSIBILITY.md"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-07",
+      "card": "062",
+      "claim": "SR-200 E=290 GPa is sourced, with sheet/form/allowable limits.",
+      "why_load_bearing": "Sets the material stiffness for every shape target.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Materion SR-200 p.1 lists representative scalar E=290 GPa. Its mechanical minimums are tensile; the source does not identify a finished, formed, biaxial compressive allowable.",
+      "evidence": [
+        "sources/primary--sr200.pdf"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-08",
+      "card": "062",
+      "claim": "The light bond film is 2U; its identity is sourced, with limits.",
+      "why_load_bearing": "Sets a joining-mass credit and the admissibility of the proposed construction route.",
+      "disposition": "reproduces",
+      "reviewer_finding": "3M p.1 lists unsupported AF 163-2U at 0.015 lb/ft². Its p.15 200°F table concerns 2K 0.060 lb/ft², so product identity does not qualify the proposed Be/CR III process.",
+      "evidence": [
+        "sources/primary--af163.pdf"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-09",
+      "card": "062",
+      "claim": "Cure-debited SF1.05 amplitude at R10 is 0.793 mm.",
+      "why_load_bearing": "Sets a quoted shape target.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Eliminating C between source and target equations gives 0.792569717998 mm at R10, SF1.05, with the declared cure debit.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "check_accounts_a1.py"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-10",
+      "card": "062",
+      "claim": "Cure-debited SF1.05 amplitude at R20 is 1.628 mm.",
+      "why_load_bearing": "Sets a quoted shape target.",
+      "disposition": "reproduces",
+      "reviewer_finding": "The independent ratio gives 1.628412576678 mm at R20 under the same declared hypothesis.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "check_accounts_a1.py"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-11",
+      "card": "062",
+      "claim": "Cure-debited SF1.05 amplitude at R30 is 2.486 mm.",
+      "why_load_bearing": "Sets a quoted shape target.",
+      "disposition": "reproduces",
+      "reviewer_finding": "The independent ratio gives 2.485983493740 mm at R30 under the same declared hypothesis.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "check_accounts_a1.py"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-12",
+      "card": "062",
+      "claim": "The stated amplitude scaling law transfers the radius/face-core geometry.",
+      "why_load_bearing": "Determines whether the three sizes share a defensible target family.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Under homothety, R/tf and tc/tf are constant, so membrane stress, scaled residual debit and C are constant; d and allowed amplitude scale with R. This is a dimensional consequence of the hypothesis, not validation of C transfer.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "METHOD.md"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-13",
+      "card": "062",
+      "claim": "R10 first-shell route costs $66.5–477.4 million.",
+      "why_load_bearing": "Feeds the build-route decision.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Independent stock/labor/material arithmetic and supplied facility allowances reproduce $66,519,656.56–477,421,594.60. Rates are unquoted assumptions.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "sources/062--ASSUMPTIONS.json"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-14",
+      "card": "062",
+      "claim": "R20 first-shell route costs $522.8 million–3.814 billion.",
+      "why_load_bearing": "Feeds the size/cost decision.",
+      "disposition": "reproduces",
+      "reviewer_finding": "The same conditional account reproduces $522,773,952.34–3,813,773,030.71.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "sources/062--ASSUMPTIONS.json"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-15",
+      "card": "062",
+      "claim": "R30 first-shell route costs $1.835–13.448 billion.",
+      "why_load_bearing": "Feeds the size/cost decision.",
+      "disposition": "reproduces",
+      "reviewer_finding": "The same conditional account reproduces $1,834,656,370.48–13,448,336,376.35.",
+      "evidence": [
+        "ACCOUNT-CHECK.json",
+        "sources/062--ASSUMPTIONS.json"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-16",
+      "card": "062",
+      "claim": "All six complete mass bills have negative payload with concept growth.",
+      "why_load_bearing": "Controls the float/no-float conclusion.",
+      "disposition": "differs",
+      "reviewer_finding": "All six negative signs reproduce, but inherited coating growth overcharges the stated 20% total allowance. Payload rises 0.095193/0.380771/0.856735 kg at R10/20/30 after removing the embedded-margin denominator error. Six unreviewed field corrections are listed in FIXES.json.",
+      "evidence": [
+        "FIXES.json",
+        "ACCOUNT-CHECK.json"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    },
+    {
+      "id": "A1-17",
+      "card": "062",
+      "claim": "Seven precedent records distinguish RMS, fit and maximum local defects.",
+      "why_load_bearing": "Controls whether manufacturing examples demonstrate the target tolerance.",
+      "disposition": "reproduces",
+      "reviewer_finding": "Seven records preserve the missing local-defect metrics. Spot checks confirm ALMA's adjusted/masked 16–17 µm RMS and S-II's 0.010 inch core-to-face gap; neither establishes this hull's maximum local defect.",
+      "evidence": [
+        "sources/062--PRECEDENTS.json",
+        "sources/primary--alma-prototypes.pdf",
+        "sources/primary--sii-lessons.pdf"
+      ],
+      "tag": "QUESTIONABLE / PROJECTION",
+      "physical_qualification": "open; no new hull/material qualification"
+    }
+  ],
+  "counts": {
+    "claims": 17,
+    "reproduces": 16,
+    "differs": 1,
+    "cannot_be_checked_without_a_source_or_test": 0,
+    "fix_rows": 6,
+    "nfi_rows": 11
+  },
+  "field_check": "FIELD-CHECK.json",
+  "linear_check": "LINEAR-CHECK.json",
+  "account_check": "ACCOUNT-CHECK.json",
+  "fixes": "FIXES.json",
+  "nfi": "NFI.json",
+  "decisions_changed": "None: 6.03 remains numerical; no P2 gamma or physical tolerance is released; all six concept-growth payloads remain negative.",
+  "review_scope_limits": [
+    "Frozen-state pressure reconstruction is not a rerun of the entire plastic/contact path.",
+    "Cost reproduction is conditional on unquoted rates and supplied facility allowances.",
+    "No owner artifacts were changed; correction rows have not received another review."
+  ],
+  "measured_times": {
+    "unit": "vacuum-review-a-056-062-1020",
+    "order": "ord-admiral-rr2-review-a1-dispatch-1020",
+    "start": "2026-10-20T09:56:03.094758-07:00",
+    "end": "2026-10-20T10:18:06.950100-07:00",
+    "times_are": "measurements only",
+    "elapsed_seconds": 1323.855342,
+    "end_scope": "review evidence and package validation complete; queue filing follows",
+    "attempts": [
+      {
+        "receipt": "20261020T100222-check_field_a1-1.execution.json",
+        "check": "check_field_a1.py",
+        "started": "2026-10-20T10:02:22.947188-07:00",
+        "ended": "2026-10-20T10:02:23.548647-07:00",
+        "exit_code": 0,
+        "reservation_released": true
+      },
+      {
+        "receipt": "20261020T100438-check_linear_a1-1.execution.json",
+        "check": "check_linear_a1.py",
+        "started": "2026-10-20T10:04:38.057324-07:00",
+        "ended": "2026-10-20T10:04:39.179224-07:00",
+        "exit_code": 1,
+        "reservation_released": true
+      },
+      {
+        "receipt": "20261020T100451-check_linear_a1-1.execution.json",
+        "check": "check_linear_a1.py",
+        "started": "2026-10-20T10:04:51.003039-07:00",
+        "ended": "2026-10-20T10:04:52.522039-07:00",
+        "exit_code": 0,
+        "reservation_released": true
+      },
+      {
+        "receipt": "20261020T100850-check_accounts_a1-1.execution.json",
+        "check": "check_accounts_a1.py",
+        "started": "2026-10-20T10:08:50.162537-07:00",
+        "ended": "2026-10-20T10:08:50.280477-07:00",
+        "exit_code": 0,
+        "reservation_released": true
+      },
+      {
+        "receipt": "20261020T101659-validate_a1-1.execution.json",
+        "check": "validate_a1.py",
+        "started": "2026-10-20T10:16:59.032378-07:00",
+        "ended": "2026-10-20T10:16:59.204603-07:00",
+        "exit_code": 0,
+        "reservation_released": true
+      }
+    ],
+    "final_check_exit_codes": {
+      "check_field_a1.py": 0,
+      "check_linear_a1.py": 0,
+      "check_accounts_a1.py": 0,
+      "validate_a1.py": 0
+    },
+    "failed_attempt_note": "First linear check completed its first independent solve, then the reviewer comparison adapter mistook a four-value eigenvalue list for a scalar. Adapter corrected to select the minimum; corrected run passed. Original receipt retained. This was not an owner correction.",
+    "live_local_jobs": 0,
+    "tokens": null,
+    "points": null,
+    "usage_note": "No trustworthy task-scoped token or point meter was available; no estimate substituted."
+  },
+  "usage_measurements": {
+    "attributed_tokens": null,
+    "codex_points_before": null,
+    "codex_points_after": null,
+    "reason": "No trustworthy task-specific token or points meter is exposed; values are not inferred from transcript length."
+  }
+}

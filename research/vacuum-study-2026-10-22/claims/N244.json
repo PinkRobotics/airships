@@ -1,0 +1,71 @@
+{
+  "id": "N244",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N244",
+    "report": "rpt-mainline-grok-estimates-card-1019",
+    "card": "rpt-mainline-grok-estimates-card-1019",
+    "file": "evidence/2d0dc7b9973fdc16-NFI.json",
+    "row_id": "NFI-KD",
+    "fields": {
+      "NFI_id": "NFI-KD",
+      "linked_inputs_or_points": "P1 I-KD",
+      "questionable_assumption_or_gap": "0.2 is a cited severe typical knockdown, not a curve at R/t.",
+      "direction_of_further_investigation": "Evaluate NASA SP-8032 at this complete-sphere geometry.",
+      "how_it_affects_margin_or_SF": "SF scales directly with the knockdown. It does not change mass."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-KD\", \"linked_inputs_or_points\": \"P1 I-KD\", \"questionable_assumption_or_gap\": \"0.2 is a cited severe typical knockdown, not a curve at R/t.\", \"direction_of_further_investigation\": \"Evaluate NASA SP-8032 at this complete-sphere geometry.\", \"how_it_affects_margin_or_SF\": \"SF scales directly with the knockdown. It does not change mass.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/243"
+    },
+    {
+      "report": "rpt-mainline-grok-estimates-card-1019",
+      "artifact": "evidence/2d0dc7b9973fdc16-NFI.json",
+      "snapshot": "evidence/2d0dc7b9973fdc16-NFI.json",
+      "sha256": "2d0dc7b9973fdc16d2e2213d67cbbd05f28383921151366389f7cbdb66cd48ca",
+      "bytes": 4143,
+      "selector": "source row ID: NFI-KD"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline-grok-estimates-card-1019",
+          "artifact": "evidence/2d0dc7b9973fdc16-NFI.json",
+          "snapshot": "evidence/2d0dc7b9973fdc16-NFI.json",
+          "sha256": "2d0dc7b9973fdc16d2e2213d67cbbd05f28383921151366389f7cbdb66cd48ca",
+          "bytes": 4143,
+          "selector": "source row ID: NFI-KD"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/243"
+          }
+        ]
+      }
+    }
+  ]
+}

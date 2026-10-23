@@ -1,0 +1,1034 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009c-5",
+  "status": "ARITHMETIC_MATCH_WITH_NFI_FIX_PROPOSALS",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "owner_not_gated": true,
+  "numeric_coverage": {
+    "numeric_leaves": 87,
+    "checked_leaves": 87,
+    "exclusions": []
+  },
+  "arithmetic_summary": {
+    "checks": 93,
+    "passed": 93,
+    "mismatches": []
+  },
+  "arithmetic_checks": [
+    {
+      "path": "optimum.core_mass_fraction",
+      "reported": 0.1917680823191768,
+      "independent": 0.1917680823191768,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.tf_m",
+      "reported": 0.000752430055433027,
+      "independent": 0.000752430055433027,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.core_m",
+      "reported": 0.020642305866854553,
+      "independent": 0.020642305866854553,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.h_m",
+      "reported": 0.02139473592228758,
+      "independent": 0.02139473592228758,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.Vc",
+      "reported": 3.328884907403892,
+      "independent": 3.328884907403892,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.Kc",
+      "reported": 0.3004008933369442,
+      "independent": 0.3004008933369442,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.branch",
+      "reported": "shear_crimping",
+      "independent": "shear_crimping",
+      "passed": true,
+      "difference": null
+    },
+    {
+      "path": "optimum.least_SF",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.second_SF",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "optimum.gamma_d",
+      "reported": 1.0,
+      "independent": 1.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.governing",
+      "reported": "core_shear_crimping",
+      "independent": "core_shear_crimping",
+      "passed": true,
+      "difference": null
+    },
+    {
+      "path": "optimum.second_mode",
+      "reported": "face_wrinkling",
+      "independent": "face_wrinkling",
+      "passed": true,
+      "difference": null
+    },
+    {
+      "path": "optimum.modes_at_0.20_design_wrinkle.global_buckling",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.modes_at_0.20_design_wrinkle.face_compression",
+      "reported": 0.892251567620189,
+      "independent": 0.8922515676201891,
+      "passed": true,
+      "difference": 1.1102230246251565e-16
+    },
+    {
+      "path": "optimum.modes_at_0.20_design_wrinkle.core_shear_crimping",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.modes_at_0.20_design_wrinkle.core_crush",
+      "reported": 20.950999841461407,
+      "independent": 20.950999841461407,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.modes_at_0.20_design_wrinkle.face_wrinkling",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "optimum.masses_kg.structural",
+      "reported": 4328.542897788202,
+      "independent": 4328.542897788202,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.masses_kg.faces",
+      "reported": 3498.466527043067,
+      "independent": 3498.466527043067,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.masses_kg.core",
+      "reported": 830.076370745136,
+      "independent": 830.076370745136,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.masses_kg.joints",
+      "reported": 216.42714488941016,
+      "independent": 216.4271448894101,
+      "passed": true,
+      "difference": -5.684341886080802e-14
+    },
+    {
+      "path": "optimum.masses_kg.systems",
+      "reported": 100.0,
+      "independent": 100.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "optimum.masses_kg.total",
+      "reported": 4644.9700426776135,
+      "independent": 4644.970042677613,
+      "passed": true,
+      "difference": -9.094947017729282e-13
+    },
+    {
+      "path": "optimum.masses_kg.payload",
+      "reported": 244.47210750934755,
+      "independent": 244.47210750934806,
+      "passed": true,
+      "difference": 5.115907697472721e-13
+    },
+    {
+      "path": "optimum.masses_kg.float_margin",
+      "reported": 0.0499999999999999,
+      "independent": 0.05,
+      "passed": true,
+      "difference": 1.0408340855860843e-16
+    },
+    {
+      "path": "other_branch.core_mass_fraction",
+      "reported": 0.5278747212527874,
+      "independent": 0.5278747212527874,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.tf_m",
+      "reported": 0.00043952885537908913,
+      "independent": 0.00043952885537908913,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.core_m",
+      "reported": 0.0568215071230911,
+      "independent": 0.0568215071230911,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.h_m",
+      "reported": 0.05726103597847019,
+      "independent": 0.05726103597847019,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.Vc",
+      "reported": 1.9999645895869647,
+      "independent": 1.9999645895869647,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.Kc",
+      "reported": 0.5000088526032589,
+      "independent": 0.5000088526032589,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.branch",
+      "reported": "stiff_or_moderate_core",
+      "independent": "stiff_or_moderate_core",
+      "passed": true,
+      "difference": null
+    },
+    {
+      "path": "other_branch.least_SF",
+      "reported": 0.175022781624177,
+      "independent": 0.175022781624177,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.second_SF",
+      "reported": 0.3385076113825892,
+      "independent": 0.3385076113825893,
+      "passed": true,
+      "difference": 5.551115123125783e-17
+    },
+    {
+      "path": "other_branch.gamma_d",
+      "reported": 0.2,
+      "independent": 0.2,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.governing",
+      "reported": "face_wrinkling",
+      "independent": "face_wrinkling",
+      "passed": true,
+      "difference": null
+    },
+    {
+      "path": "other_branch.second_mode",
+      "reported": "global_buckling",
+      "independent": "global_buckling",
+      "passed": true,
+      "difference": null
+    },
+    {
+      "path": "other_branch.modes_at_0.20_design_wrinkle.global_buckling",
+      "reported": 0.3385076113825892,
+      "independent": 0.3385076113825893,
+      "passed": true,
+      "difference": 5.551115123125783e-17
+    },
+    {
+      "path": "other_branch.modes_at_0.20_design_wrinkle.face_compression",
+      "reported": 0.5212050042320596,
+      "independent": 0.5212050042320596,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.modes_at_0.20_design_wrinkle.core_shear_crimping",
+      "reported": 1.6925380574435132,
+      "independent": 1.6925380574435134,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "other_branch.modes_at_0.20_design_wrinkle.core_crush",
+      "reported": 20.950999841461407,
+      "independent": 20.950999841461407,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.modes_at_0.20_design_wrinkle.face_wrinkling",
+      "reported": 0.175022781624177,
+      "independent": 0.175022781624177,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.masses_kg.structural",
+      "reported": 4328.542897788202,
+      "independent": 4328.542897788202,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.masses_kg.faces",
+      "reported": 2043.6145221875222,
+      "independent": 2043.6145221875222,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.masses_kg.core",
+      "reported": 2284.92837560068,
+      "independent": 2284.92837560068,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.masses_kg.joints",
+      "reported": 216.4271448894101,
+      "independent": 216.4271448894101,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.masses_kg.systems",
+      "reported": 100.0,
+      "independent": 100.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.masses_kg.total",
+      "reported": 4644.970042677613,
+      "independent": 4644.970042677613,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "other_branch.masses_kg.payload",
+      "reported": 244.47210750934846,
+      "independent": 244.47210750934806,
+      "passed": true,
+      "difference": -3.979039320256561e-13
+    },
+    {
+      "path": "other_branch.masses_kg.float_margin",
+      "reported": 0.050000000000000086,
+      "independent": 0.05,
+      "passed": true,
+      "difference": -8.326672684688674e-17
+    },
+    {
+      "path": "levels.0.2.Vc",
+      "reported": 3.328884907403892,
+      "independent": 3.328884907403892,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.2.Kc",
+      "reported": 0.3004008933369442,
+      "independent": 0.3004008933369442,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.2.least_SF",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.2.second_SF",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "levels.0.2.gamma_d",
+      "reported": 1.0,
+      "independent": 1.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.2.modes.global_buckling",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.2.modes.face_compression",
+      "reported": 0.892251567620189,
+      "independent": 0.8922515676201891,
+      "passed": true,
+      "difference": 1.1102230246251565e-16
+    },
+    {
+      "path": "levels.0.2.modes.core_shear_crimping",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.2.modes.core_crush",
+      "reported": 20.950999841461407,
+      "independent": 20.950999841461407,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.2.modes.face_wrinkling",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "levels.0.9.Vc",
+      "reported": 3.328884907403892,
+      "independent": 3.328884907403892,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.9.Kc",
+      "reported": 0.3004008933369442,
+      "independent": 0.3004008933369442,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.9.least_SF",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.9.second_SF",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "levels.0.9.gamma_d",
+      "reported": 1.0,
+      "independent": 1.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.9.modes.global_buckling",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.9.modes.face_compression",
+      "reported": 0.892251567620189,
+      "independent": 0.8922515676201891,
+      "passed": true,
+      "difference": 1.1102230246251565e-16
+    },
+    {
+      "path": "levels.0.9.modes.core_shear_crimping",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.9.modes.core_crush",
+      "reported": 20.950999841461407,
+      "independent": 20.950999841461407,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.9.modes.face_wrinkling",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "levels.0.1407.Vc",
+      "reported": 3.328884907403892,
+      "independent": 3.328884907403892,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.1407.Kc",
+      "reported": 0.3004008933369442,
+      "independent": 0.3004008933369442,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.1407.least_SF",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.1407.second_SF",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "levels.0.1407.gamma_d",
+      "reported": 1.0,
+      "independent": 1.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.1407.modes.global_buckling",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.1407.modes.face_compression",
+      "reported": 0.892251567620189,
+      "independent": 0.8922515676201891,
+      "passed": true,
+      "difference": 1.1102230246251565e-16
+    },
+    {
+      "path": "levels.0.1407.modes.core_shear_crimping",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.1407.modes.core_crush",
+      "reported": 20.950999841461407,
+      "independent": 20.950999841461407,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "levels.0.1407.modes.face_wrinkling",
+      "reported": 0.6504141274587998,
+      "independent": 0.6504141274588,
+      "passed": true,
+      "difference": 2.220446049250313e-16
+    },
+    {
+      "path": "wrinkle_coefficient_0.82.SF_wrinkle",
+      "reported": 1.6161805591400482,
+      "independent": 1.6161805591400482,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "wrinkle_coefficient_0.82.least_SF",
+      "reported": 0.6504118436805308,
+      "independent": 0.6504118436805308,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "ceiling_check.fraction",
+      "reported": 0.19175,
+      "independent": 0.19175,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "ceiling_check.least_SF",
+      "reported": 0.6853382311714157,
+      "independent": 0.6853382311714158,
+      "passed": true,
+      "difference": 1.1102230246251565e-16
+    },
+    {
+      "path": "nfi[4].factor_on_Ec",
+      "reported": 6.1744719926538085,
+      "independent": 6.1744719926538085,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "nfi[4].design",
+      "reported": 0.33,
+      "independent": 0.33,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "nfi[4].theoretical",
+      "reported": 0.82,
+      "independent": 0.82,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "schema",
+      "reported": 1,
+      "independent": 1.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "point.payload_margin",
+      "reported": 0.05,
+      "independent": 0.05,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "branch.Vc",
+      "reported": 3.328884907403892,
+      "independent": 3.328884907403892,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "branch.Kc",
+      "reported": 0.3004008933369442,
+      "independent": 0.3004008933369442,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "branch.gamma_d",
+      "reported": 1.0,
+      "independent": 1.0,
+      "passed": true,
+      "difference": 0.0
+    },
+    {
+      "path": "sources.RESULTS.json.bytes",
+      "reported": 31544,
+      "independent": 31544.0,
+      "passed": true,
+      "difference": 0.0
+    }
+  ],
+  "core_and_inherited_input_summary": {
+    "checks": 592,
+    "passed": 592,
+    "mismatches": []
+  },
+  "primary_face_provenance": {
+    "checks": 2,
+    "passed": 1,
+    "mismatches": [
+      {
+        "path": "Beryllium S-200F.E_Pa",
+        "reported": 303000000000.0,
+        "independent": 290000000000.0,
+        "passed": false,
+        "difference": -13000000000.0
+      }
+    ]
+  },
+  "shared_checks": [
+    {
+      "path": "unpublished-local-ref:3829442b5c3f6ea7",
+      "sha256": "151a73446375b3182e4d481b0996dad89c0d4592e299b7a2e86782f7123cf6f1",
+      "bytes": 4640
+    },
+    {
+      "path": "unpublished-local-ref:fdce1a050c84d4af",
+      "sha256": "e1e1600639783affa6140035ca37f364fecd29c6f3b75afa714abf7922badc9b",
+      "bytes": 3338
+    },
+    {
+      "path": "unpublished-local-ref:1ce5136e425e9f06",
+      "sha256": "506bd0091ef8fb671e829bcea2653c6d4bbffbc5b57811a8b20a2df6acbdcc44",
+      "bytes": 2386
+    },
+    {
+      "path": "unpublished-local-ref:6b0a96405b686ed5",
+      "sha256": "62c7520f90ad00a9b20c91f5f972423eeab67961474f017c1ec08dc25114211d",
+      "bytes": 853
+    },
+    {
+      "path": "evidence/69c465fd213d4a89-SOURCE-REVIEW.md",
+      "sha256": "69c465fd213d4a8933a4b56d4a067f24b7b2de12264c589497beae317f90b0bf",
+      "bytes": 4994
+    },
+    {
+      "path": "evidence/5045f49354547d83-independent_check.py",
+      "sha256": "5045f49354547d83e88c652ae83b516e44e5d6e701ef8d635fb1e8b19e369a0c",
+      "bytes": 20266
+    },
+    {
+      "path": "evidence/75ac911e6ea5e85c-CALCULATIONS.json",
+      "sha256": "75ac911e6ea5e85cee36dbe659431a8b410aedfe7b9a1a260fab448dbd42cd83",
+      "bytes": 3772019
+    }
+  ],
+  "material_sensitivity": {
+    "fixed_geometry": {
+      "core_mass_fraction": 0.1917680823191768,
+      "tf_m": 0.000752430055433027,
+      "core_m": 0.020642305866854553,
+      "h_m": 0.02139473592228758,
+      "Vc": 3.186061462531778,
+      "Kc": 0.3138671402796348,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6504118436805308,
+        "face_yield": 0.8922515676201891,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6363083913758895,
+        "intracell_dimpling": 50.425734059771
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.6363083913758895,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.6504118436805308,
+      "factor_to_SF_1": 1.5715650045690899,
+      "d_balance_m": 0.04605975926880338,
+      "h_over_d_balance": 0.46449951675666695
+    },
+    "continuous_balance": {
+      "core_mass_fraction": 0.189401784242666,
+      "tf_m": 0.0007546329798089771,
+      "core_m": 0.020387592735885304,
+      "h_m": 0.021142225715694282,
+      "Vc": 3.193653256049577,
+      "Kc": 0.313121030940272,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6430848076928736,
+        "face_yield": 0.8948638539232117,
+        "core_shear_crimping": 0.6430848076928736,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6430848076928735,
+        "intracell_dimpling": 50.86993330992408
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.6430848076928735,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.6430848076928736,
+      "factor_to_SF_1": 1.555004857893616,
+      "d_balance_m": 0.04605975926880338,
+      "h_over_d_balance": 0.45901728648447515
+    },
+    "grid_balance": {
+      "core_mass_fraction": 0.189375,
+      "tf_m": 0.0007546579148168047,
+      "core_m": 0.020384709625605235,
+      "h_m": 0.02113936754042204,
+      "Vc": 3.1937388925028944,
+      "Kc": 0.3131126349581797,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6430018748179749,
+        "face_yield": 0.8948934225185411,
+        "core_shear_crimping": 0.643001874817975,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6431621596898356,
+        "intracell_dimpling": 50.87497609548578
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.643001874817975,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6431621596898356,
+      "factor_to_SF_1": 1.5552054187759348,
+      "d_balance_m": 0.04605975926880338,
+      "h_over_d_balance": 0.4589552328541997
+    }
+  },
+  "sensitivity_strength_Pa": 283000000,
+  "source_mismatches": [
+    {
+      "id": "NFI-S200F-MODULUS",
+      "type": "source_mismatch",
+      "row": "Beryllium S-200F",
+      "field": "E_Pa",
+      "reported": 303000000000,
+      "source_value": 290000000000,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4",
+      "page": 2,
+      "proposed_fix": "Use grade-specific E=290 GPa or explicitly source a 303 GPa S200F scenario; retain QUESTIONABLE.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-STRENGTH-EDITION",
+      "type": "source_version_conflict",
+      "row": "Beryllium S-200F",
+      "field": "compressive_yield_MPa",
+      "reported": 283,
+      "current_guide_value_approx": 255,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74",
+      "page": 4,
+      "proposed_fix": "Pin the exact older MB-001 edition supporting 283 MPa and reconcile the newer guide. Current computations retain the frozen strength; 37/41 sensitivity is arithmetically correct.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-PAYLOAD-SENTENCE",
+      "type": "text_mismatch",
+      "row": "CARD.md opening",
+      "field": "mass_fraction",
+      "reported": "The mass is 5 percent of lift",
+      "reported_fraction": 0.05,
+      "independent_total_mass_fraction": 0.95,
+      "independent_payload_fraction": 0.05,
+      "proposed_fix": "Say payload reserve is 5% of lift and total mass is 95%.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-BRANCH-EQUALITY",
+      "type": "source_endpoint_mismatch",
+      "row": "Vc=2, kd=.20",
+      "field": "gamma_d",
+      "reported": 0.2,
+      "independent": 1.0,
+      "source_url": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "page": "6-7",
+      "proposed_fix": "Use gamma=1 for Vc>=2 to follow the cited convention. Neither published point lies exactly at 2.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-OPTIMUM-RESOLUTION",
+      "type": "estimate_resolution",
+      "row": "optimum",
+      "field": "least_SF",
+      "reported": 0.6504118436805308,
+      "independent_continuous_balance": 0.6504130224098148,
+      "independent_fraction": 0.19176846298505057,
+      "proposed_fix": "Label the filed point as a finite search result; optional refinement only.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-OTHER-BRANCH-RESOLUTION",
+      "type": "estimate_resolution",
+      "row": "other_branch",
+      "field": "least_SF",
+      "reported": 0.175022781624177,
+      "independent_boundary_limit": 0.17502890484090416,
+      "proposed_fix": "Label grid resolution; the small refinement changes no decision.",
+      "stops_owner": false
+    }
+  ],
+  "measurements": {
+    "end_utc": "2026-10-20T07:18:09.853162+00:00",
+    "interpretation": "Untimed task; timestamps are measurements only, with no budget or cap.",
+    "start_utc": "2026-10-20T06:58:37.506926+00:00",
+    "start_monotonic_s": 2095042.687222073
+  },
+  "independent_points": {
+    "optimum": {
+      "core_mass_fraction": 0.1917680823191768,
+      "tf_m": 0.000752430055433027,
+      "core_m": 0.020642305866854553,
+      "h_m": 0.02139473592228758,
+      "Vc": 3.328884907403892,
+      "Kc": 0.3004008933369442,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6504118436805308,
+        "face_yield": 0.8922515676201891,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274588,
+        "intracell_dimpling": 52.68619800038143
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.6504118436805308,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6504141274588,
+      "factor_to_SF_1": 1.5374873777531946,
+      "d_balance_m": 0.04408359798004284,
+      "h_over_d_balance": 0.4853219088871382,
+      "masses_kg": {
+        "structural": 4328.542897788202,
+        "faces": 3498.466527043067,
+        "core": 830.076370745136,
+        "joints": 216.4271448894101,
+        "systems": 100,
+        "total": 4644.970042677613,
+        "payload": 244.47210750934806,
+        "float_margin": 0.05
+      }
+    },
+    "other_branch": {
+      "core_mass_fraction": 0.5278747212527874,
+      "tf_m": 0.00043952885537908913,
+      "core_m": 0.0568215071230911,
+      "h_m": 0.05726103597847019,
+      "Vc": 1.9999645895869647,
+      "Kc": 0.5000088526032589,
+      "gamma": 0.2,
+      "branch": "stiff_or_moderate_core",
+      "sfs": {
+        "global_buckling": 0.3385076113825893,
+        "face_yield": 0.5212050042320596,
+        "core_shear_crimping": 1.6925380574435134,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.175022781624177,
+        "intracell_dimpling": 10.501724749576683
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.175022781624177,
+      "second_mode": "global_buckling",
+      "second_SF": 0.3385076113825893,
+      "factor_to_SF_1": 5.713541921344162,
+      "d_balance_m": 0.04408359798004284,
+      "h_over_d_balance": 1.298919294300636,
+      "masses_kg": {
+        "structural": 4328.542897788202,
+        "faces": 2043.6145221875222,
+        "core": 2284.92837560068,
+        "joints": 216.4271448894101,
+        "systems": 100,
+        "total": 4644.970042677613,
+        "payload": 244.47210750934806,
+        "float_margin": 0.05
+      }
+    },
+    "independent_fine_grid": {
+      "core_mass_fraction": 0.19176861646399998,
+      "tf_m": 0.0007524295581665738,
+      "core_m": 0.02064236336328818,
+      "h_m": 0.021394792921454756,
+      "Vc": 3.3288831108708816,
+      "Kc": 0.30040105545742224,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6504134976563386,
+        "face_yield": 0.8922509779484061,
+        "core_shear_crimping": 0.6504134976563386,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504125768709524,
+        "intracell_dimpling": 52.686093542586434
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.6504125768709524,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.6504134976563386,
+      "factor_to_SF_1": 1.5374856445901857,
+      "d_balance_m": 0.04408359798004284,
+      "h_over_d_balance": 0.485323201866155
+    },
+    "continuous_crimp_wrinkle_balance": {
+      "core_mass_fraction": 0.19176846298505057,
+      "tf_m": 0.000752429701049046,
+      "core_m": 0.020642346842502348,
+      "h_m": 0.021394776543551396,
+      "Vc": 3.3288836270794704,
+      "Kc": 0.3004010088743565,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6504130224098149,
+        "face_yield": 0.8922511473822409,
+        "core_shear_crimping": 0.6504130224098148,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.650413022409815,
+        "intracell_dimpling": 52.68612355704017
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.6504130224098148,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.650413022409815,
+      "factor_to_SF_1": 1.5374845913984732,
+      "d_balance_m": 0.04408359798004284,
+      "h_over_d_balance": 0.4853228303469481
+    },
+    "Vc_2_core_mass_fractions": [
+      0.007676139509385059,
+      0.5278662386790861
+    ],
+    "face_strength_37_over_41_SF": 0.8052026341938292,
+    "crimp_allowable_gap": 1.5374873777531946,
+    "limit_other_branch": {
+      "core_mass_fraction": 0.5278662386800861,
+      "tf_m": 0.0004395367522989067,
+      "core_m": 0.056820594041737206,
+      "h_m": 0.057260130794036114,
+      "Vc": 1.9999999999958267,
+      "Kc": 0.5000000000010434,
+      "gamma": 0.2,
+      "branch": "stiff_or_moderate_core",
+      "sfs": {
+        "global_buckling": 0.33850234878614144,
+        "face_yield": 0.5212143686095664,
+        "core_shear_crimping": 1.6925117439307071,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.17502890484090416,
+        "intracell_dimpling": 10.502290806393855
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.17502890484090416,
+      "second_mode": "global_buckling",
+      "second_SF": 0.33850234878614144,
+      "factor_to_SF_1": 5.713342038613387,
+      "d_balance_m": 0.04408359798004284,
+      "h_over_d_balance": 1.2988987609395777
+    }
+  }
+}

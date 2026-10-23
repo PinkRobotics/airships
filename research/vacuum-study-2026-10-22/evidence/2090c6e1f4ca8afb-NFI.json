@@ -1,0 +1,62 @@
+[
+  {
+    "NFI_id": "NFI-AL-YIELD-CARRY",
+    "gap": "276 MPa remains the inherited AA typical tensile yield, transferred to compression. Strength safety factors are QUESTIONABLE. The carry is parallel and is not a gate.",
+    "direction": "A compression yield or design allowable can replace the transfer.",
+    "effect": "Strength pressure and the required compressive strength scale linearly with this value."
+  },
+  {
+    "NFI_id": "NFI-DENSITY",
+    "gap": "All three points keep the inherited core density of 16 kg/m3. The advisory lower-density leads were not given a point.",
+    "direction": "A later card can spend one of three points on a named lower density.",
+    "effect": "A lighter core leaves more of the ceiling for faces or for a thicker core."
+  },
+  {
+    "NFI_id": "NFI-SAND",
+    "gap": "Buckling still uses the inherited sandwich extrapolation and omits core shear from the stated safety factor.",
+    "direction": "Replace with a published sandwich formula that includes shear.",
+    "effect": "The stated buckling pressure can fall once shear is inside the model."
+  },
+  {
+    "NFI_id": "NFI-SHEAR",
+    "gap": "The shear target uses the advisory crimping formula p=2*Gc*d/R. It is not a measured core modulus.",
+    "direction": "Pin a core datasheet and a sourced sandwich shear formula.",
+    "effect": "The required Gc scales with external pressure and inversely with d."
+  },
+  {
+    "NFI_id": "NFI-WRINKLE",
+    "gap": "The wrinkling target uses the advisory one-half cube-root formula and an equal Ec and Gc split.",
+    "direction": "Separate Ec and Gc from a datasheet.",
+    "effect": "The reported product is the quantity fixed by the formula. The square root is only the equal-split assumption."
+  },
+  {
+    "NFI_id": "NFI-CRUSH",
+    "gap": "Core crush has no formula in the pinned brief, so no crush target was produced.",
+    "direction": "Name a crush pressure formula before treating crush as a stated limit.",
+    "effect": "Crush is absent from the least stated safety factor."
+  },
+  {
+    "NFI_id": "NFI-KD",
+    "gap": "Knockdown remains 0.2, the inherited severe typical value.",
+    "direction": "Evaluate a knockdown curve at these R/t and sandwich proportions.",
+    "effect": "Buckling pressure and the required modulus scale directly with the knockdown."
+  },
+  {
+    "NFI_id": "NFI-MASS",
+    "gap": "Joint fraction, payload allowance and zero gas are unchanged inherited numbers.",
+    "direction": "Replace them with a parts list.",
+    "effect": "They set the structural mass on the ceiling."
+  },
+  {
+    "NFI_id": "NFI-GEOM",
+    "gap": "External volume still ignores wall and core intrusion.",
+    "direction": "Inner and outer mould lines.",
+    "effect": "A smaller displaced volume lowers the ceiling."
+  },
+  {
+    "NFI_id": "NFI-RULE",
+    "gap": "Equal mass, core-only and proportional scale are stated rules. They are not an optimum and not the advisory search.",
+    "direction": "Do not read the equal-mass point as a proved best split.",
+    "effect": "Another rule would move both safety factors."
+  }
+]

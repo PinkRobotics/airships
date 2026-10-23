@@ -1,0 +1,42 @@
+{
+  "id": "E-3eab7164eaa28a0f8efe",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-3eab7164eaa28a0f8efe",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/10",
+    "row_id": "NFI-043-CHECK-11",
+    "fields": {
+      "id": "NFI-043-CHECK-11",
+      "key": "rise8_mass_label",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "issue": "The inherited mass_from_owner_arc_length_and_independent_section_kg field contains charged total rather than only tube mass.",
+      "needed": "Rename as total_mass_with_inherited_allowances_kg and expose tube_mass_kg separately; values 5446.290626 and 5039.557739 kg.",
+      "disposition": "Label correction only; no headline stress/Pf change.",
+      "blocks_check": false,
+      "owner": "sciences / robotics programme",
+      "execution_authorized_by_this_row": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The inherited mass_from_owner_arc_length_and_independent_section_kg field contains charged total rather than only tube mass.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

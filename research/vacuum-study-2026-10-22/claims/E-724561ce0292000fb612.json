@@ -1,0 +1,37 @@
+{
+  "id": "E-724561ce0292000fb612",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-724561ce0292000fb612",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/8",
+    "row_id": "C029-09-TRANSFER-OFFSET",
+    "fields": {
+      "id": "C029-09-TRANSFER-OFFSET",
+      "state": "noted",
+      "direction": "minor",
+      "note": "Transfer40 axisymmetric eigenpressures match to 7 digits on the owner's meshes (24/48/96/192 with 1f x 2c, 384 with 2f x 4c). The static endpoints sit 0.04% to 0.13% below my displacement-control limit points at every mesh, consistent with load control stopping just short of the limit. Not a mismatch at 0.2%."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Transfer40 axisymmetric eigenpressures match to 7 digits on the owner's meshes (24/48/96/192 with 1f x 2c, 384 with 2f x 4c). The static endpoints sit 0.04% to 0.13% below my displacement-control limit points at every mesh, consistent with load control stopping just short of the limit. Not a mismatch at 0.2%.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

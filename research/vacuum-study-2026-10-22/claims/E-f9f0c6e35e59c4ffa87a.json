@@ -1,0 +1,39 @@
+{
+  "id": "E-f9f0c6e35e59c4ffa87a",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-f9f0c6e35e59c4ffa87a",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/0",
+    "row_id": "CHECK046-01",
+    "fields": {
+      "id": "CHECK046-01",
+      "topic": "Annual water field scope",
+      "status": "OPEN",
+      "finding": "MOISTURE.csv annual_water_throughput_kg and CARD's 458.7 kg/year equal coupon permeation alone. Daily calculations include seam leakage; the annual field does not.",
+      "evidence": "At either 041 point, coupon-only 458.672527424 kg/year; adding the declared 305/50/10-day water weighting under the same nominal-pressure convention gives 459.261468067 kg/year. Continuous hot-leak upper envelope gives 461.780431057 kg/year, before initial residual water.",
+      "needed": "Rename the existing field annual_coupon_water_kg or include and identify the annual seam/port terms. This labeling omission does not alter the reported 24-hour moisture calculation."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "MOISTURE.csv annual_water_throughput_kg and CARD's 458.7 kg/year equal coupon permeation alone. Daily calculations include seam leakage; the annual field does not.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

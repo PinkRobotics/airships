@@ -1,0 +1,122 @@
+{
+  "unit": "vacuum-mainline070-graphite-face-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "note": "INPUTS.json is not hashed into itself. The parent model is the 066 copy of 063 as version 7 carried it. The patched copy adds FACE_ALPHA and FORCE_GAMMA only. Drivers set BETA to 1. Poisson stays the copied case value 0.0768. No finite-element run.",
+  "carry": "The 068 catalogue slope, 1.219 concept and 1.056 TRL 7, is not this re-optimized clear. Gamma held at 0.20 is outside the named CR-1457 support because Vc is above 2. Version 7's own step sets gamma to 1 and is reported beside it.",
+  "simjobs": [
+    {
+      "scope": "simjob-20261020t183738-e805ab35990e.scope",
+      "exit": 0,
+      "reported_after_s": 25
+    },
+    {
+      "scope": "simjob-20261020t183910-56b3157beb42.scope",
+      "exit": 0,
+      "reported_after_s": 65
+    }
+  ],
+  "pins": {
+    "card": {
+      "path": "evidence/40310d6d87090aba-CARD.md",
+      "sha256": "40310d6d87090abadfd3cd16472661e9baf4c3d68d5b3a4cc5c42b1c46286990",
+      "bytes": 3448
+    },
+    "results": {
+      "path": "evidence/0bf313b068a05a24-RESULTS.json",
+      "sha256": "0bf313b068a05a2446c69dfa88223831130a89582f3a6dc16da5a820aeef4979",
+      "bytes": 57727
+    },
+    "nfi": {
+      "path": "evidence/2308cdf0b2bf04fc-NFI.json",
+      "sha256": "2308cdf0b2bf04fc49df27364f9ba7859db84303049cbfcc427f99018f8210f7",
+      "bytes": 1904
+    },
+    "run": {
+      "path": "evidence/ceb992196f231915-RUN.json",
+      "sha256": "ceb992196f231915f9d3eada97fb6579d9d461c4e8816e4d1eaa9cc0373efab0",
+      "bytes": 60283
+    },
+    "run_gamma020": {
+      "path": "evidence/b7633306d6e1ebaf-RUN-GAMMA020.json",
+      "sha256": "b7633306d6e1ebafc4dc6512dd237aefba81449d81677e4008dec5288bd9aee6",
+      "bytes": 47060
+    },
+    "run070": {
+      "path": "unpublished-local-ref:8935cbe973dd3b1c",
+      "sha256": "af7fc55591eba045e40527a097eb38d3073d44e6b05bc50136530225cbb87720",
+      "bytes": 7773
+    },
+    "run070b": {
+      "path": "unpublished-local-ref:312598b9b7b454f7",
+      "sha256": "c2a07c597374fb3ff8493986d6bf3ee78859f2e96c3a483873878fef15eeffcd",
+      "bytes": 3138
+    },
+    "model63_patched": {
+      "path": "unpublished-local-ref:010032553eaa0e0b",
+      "sha256": "aad53f360f523ed70d4e154e1656fc727a159edce28485baeac94d1f7baf294e",
+      "bytes": 19579
+    },
+    "model63_parent_066": {
+      "path": "evidence/2c44efb4bb78a17d-model63.py",
+      "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+      "bytes": 19294
+    },
+    "card_070": {
+      "path": "unpublished-local-ref:fc4ebab996715dce",
+      "sha256": "945babb8df807c2fa40b15eeec59124cf677f3412737dfea3b785108b591a274",
+      "bytes": 2614
+    },
+    "admissibility": {
+      "path": "withheld-source:93549c873c543f1a",
+      "sha256": "c6971dac8f1fb0fe07c9b9db3654c93f8cd26c32d869f0102a4cbd02451e7e05",
+      "bytes": 1173
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+      "bytes": 6686
+    },
+    "process": {
+      "path": "withheld-source:1e41db6abdc46dc9",
+      "sha256": "0ca073ecfc5861f5650ea0445dfb97bf87ff004850d7414d0cdcc282cb820d15",
+      "bytes": 5343
+    },
+    "private-key-reference:16bb9104146d64447f79658a": "[withheld: private instruction field]",
+    "his_word_3": {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021
+    },
+    "his_word_4": {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063
+    },
+    "his_word_5": {
+      "path": "unpublished-local-ref:cc845a34db50125b",
+      "sha256": "dd537cc474ed292987295ba8cdc0a170db4895a60c73f3fd42618e0174505e48",
+      "bytes": 1071
+    },
+    "card_066": {
+      "path": "evidence/c9204851c20162b7-CARD.md",
+      "sha256": "c9204851c20162b7b826ecb701d724ab4af44d476e381aac57313af05a445884",
+      "bytes": 8285
+    },
+    "results_066": {
+      "path": "evidence/99cff638c72579c1-RESULTS.json",
+      "sha256": "99cff638c72579c1128a9a264558ff4a982b82e2a1b8e013cffe33c0b0af5018",
+      "bytes": 18989
+    },
+    "card_068": {
+      "path": "evidence/9419b93645334968-CARD.md",
+      "sha256": "9419b93645334968768bac7a3023d2070c98dec6e07bcb5cabac7004a6aefc59",
+      "bytes": 7674
+    },
+    "results_068": {
+      "path": "evidence/b9befa531528e82e-RESULTS.json",
+      "sha256": "b9befa531528e82e40899c3416a2bc0ac71a62a7a4446bb320e960bbbc140e89",
+      "bytes": 9510
+    }
+  }
+}

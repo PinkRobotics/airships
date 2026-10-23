@@ -1,0 +1,32 @@
+test,measured_or_assumed_value,unit,affected_mode,affected_mode_SF,fixed_P2_all_other_named_modes_at_threshold_SF,delta_mass_or_reserve_kg,note,inherited_Perry_SF,conditional_least_scored_SF
+P2 gamma,0.2,dimensionless,global buckling,0.3545071178634554,0.3545071178634554,,"Same 028b geometry, E=290 GPa and core; a surrogate result needs model transfer.",,
+P2 gamma,0.45,dimensionless,global buckling,0.7976410151927746,0.7976410151927746,,"Same 028b geometry, E=290 GPa and core; a surrogate result needs model transfer.",,
+P2 gamma,0.5641635666030083,dimensionless,global buckling,1.0,1.0,,"Same 028b geometry, E=290 GPa and core; a surrogate result needs model transfer.",,
+P2 gamma,0.6,dimensionless,global buckling,1.063521353590366,1.0,,"Same 028b geometry, E=290 GPa and core; a surrogate result needs model transfer.",,
+P2 wrinkle,0.33,dimensionless,wrinkling,0.7592702508089013,0.7592702508089013,,"Coefficient inferred with measured core/face properties, same convention.",,
+P2 wrinkle,0.43462785437520957,dimensionless,wrinkling,1.0,1.0,,"Coefficient inferred with measured core/face properties, same convention.",,
+P2 wrinkle,0.61,dimensionless,wrinkling,1.4034995545255449,1.0,,"Coefficient inferred with measured core/face properties, same convention.",,
+P2 wrinkle,0.82,dimensionless,wrinkling,1.8866715323130274,1.0,,"Coefficient inferred with measured core/face properties, same convention.",,
+P2 compression,255.0,MPa,face compression,0.8490566037735819,0.8490566037735819,,"Post-process strength screen, not a statistical allowable.",,
+P2 compression,280.0,MPa,face compression,0.9322974472807959,0.9322974472807959,,"Post-process strength screen, not a statistical allowable.",,
+P2 compression,300.3333333333344,MPa,face compression,1.0,1.0,,"Post-process strength screen, not a statistical allowable.",,
+P2 compression,345.0,MPa,face compression,1.148723640399552,1.0,,"Post-process strength screen, not a statistical allowable.",,
+P2 scarf,6.0,MPa mean shear,scarf mean-shear screen,0.6,0.6,,"Peel, local instability, cyclic damage still unquantified.",,
+P2 scarf,8.0,MPa mean shear,scarf mean-shear screen,0.8,0.8,,"Peel, local instability, cyclic damage still unquantified.",,
+P2 scarf,10.0,MPa mean shear,scarf mean-shear screen,1.0,1.0,,"Peel, local instability, cyclic damage still unquantified.",,
+P2 scarf,12.0,MPa mean shear,scarf mean-shear screen,1.2,1.0,,"Peel, local instability, cyclic damage still unquantified.",,
+P2 added bond/primer mass,0.0,g/m2 on EACH of two interfaces,mass closure,,,0.0,Same geometry is heavier by this amount; no unused joining allowance on nominal route.,,
+P2 added bond/primer mass,5.0,g/m2 on EACH of two interfaces,mass closure,,,12.566370614359174,Same geometry is heavier by this amount; no unused joining allowance on nominal route.,,
+P2 added bond/primer mass,10.0,g/m2 on EACH of two interfaces,mass closure,,,25.13274122871835,Same geometry is heavier by this amount; no unused joining allowance on nominal route.,,
+P2 added bond/primer mass,25.0,g/m2 on EACH of two interfaces,mass closure,,,62.83185307179586,Same geometry is heavier by this amount; no unused joining allowance on nominal route.,,
+P2 added seam mass,0.0,g/m physical coincident seam,mass closure,,,0.0,Increment includes both skins; do not double count coincident seam length.,,
+P2 added seam mass,2.0,g/m physical coincident seam,mass closure,,,5.683037087839708,Increment includes both skins; do not double count coincident seam length.,,
+P2 added seam mass,10.0,g/m physical coincident seam,mass closure,,,28.415185439198538,Increment includes both skins; do not double count coincident seam length.,,
+P3 compression,0.38,GPa,mean compression and inherited Perry surrogate,0.3659765688413474,,,Global smeared screen unvalidated at this spacing; not installed-hull SF.,0.33239174010114014,0.33239174010114014
+P3 compression,1.0,GPa,mean compression and inherited Perry surrogate,0.9630962337930195,,,Global smeared screen unvalidated at this spacing; not installed-hull SF.,0.8095893573990006,0.8095893573990006
+P3 compression,1.2,GPa,mean compression and inherited Perry surrogate,1.1557154805516234,,,Global smeared screen unvalidated at this spacing; not installed-hull SF.,0.9296036453264751,0.9296036453264751
+P3 compression,3.9,GPa,mean compression and inherited Perry surrogate,3.756075311792776,,,Global smeared screen unvalidated at this spacing; not installed-hull SF.,1.299372936373895,1.2945403446628159
+P3 film,0.1155,GPa effective sustained biaxial strength,film,0.11108894038056537,,,"Fixed filed gauge/density; replacement mass, laminate directionality and sag require recalculation.",,
+P3 film,0.5,GPa effective sustained biaxial strength,film,0.48090450381197125,,,"Fixed filed gauge/density; replacement mass, laminate directionality and sag require recalculation.",,
+P3 film,1.0,GPa effective sustained biaxial strength,film,0.9618090076239425,,,"Fixed filed gauge/density; replacement mass, laminate directionality and sag require recalculation.",,
+P3 film,1.5,GPa effective sustained biaxial strength,film,1.4427135114359138,,,"Fixed filed gauge/density; replacement mass, laminate directionality and sag require recalculation.",,

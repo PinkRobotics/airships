@@ -1,0 +1,414 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "blocking_on_owner_card": false,
+  "checker_complete": true,
+  "rows": [
+    {
+      "id": "NFI-048-C01",
+      "topic": "Thermal model equivalence",
+      "evidence": "THERMAL-COMPARISONS.csv; 297 of 325 comparisons differ",
+      "qualified_value": null,
+      "partial_finding": "The independent converged gray-cavity/sky-ground model does not reproduce published legacy or common temperatures. Differences are not yet attributable to an owner error.",
+      "status": "resolved_numerically",
+      "finding": "Independent current tables and legacy conventions reproduce; physical boundary is separately retained as C16.",
+      "continuation_evidence": "THERMAL-RESOLVED-RESULTS.json; EXTRA-AUDITS.json",
+      "partial_next_evidence": "A prose or equation specification of local sky/ground exchange, convection length/coefficient, cavity moment, quadrature, fixed-iteration update and day/night curvature convention; independently solve after fresh queue execution authority.",
+      "next_evidence": "Numerical/administrative closure complete. Physical evidence remains in the separately open entries."
+    },
+    {
+      "id": "NFI-048-C02",
+      "topic": "Independent least-set and geometry search",
+      "evidence": "independent_search.py is unexecuted",
+      "independently_verified_least_sets": 1080,
+      "partial_finding": "Stored witnesses and trial bills were evaluated, but no independent optimizer or E-axis favorable-bound search ran.",
+      "status": "resolved_numerically",
+      "finding": "All1080 configurations,16 subsets each, all ties/common roots and3775 E bounds independently reproduce.",
+      "continuation_evidence": "SEARCH-*.json; SUMMARY.json",
+      "partial_next_evidence": "Independently search every subset, refine geometry boundaries, bracket common usage and check E-axis nonmonotonicity under fresh queue authority.",
+      "next_evidence": "Numerical/administrative closure complete. Physical evidence remains in the separately open entries."
+    },
+    {
+      "id": "NFI-048-C03",
+      "topic": "Vacuum bookkeeping and checker rerun",
+      "evidence": "ACCOUNT-MISMATCHES.json; execution/account-02/END.json",
+      "partial_finding": "Initial-gas density versus species convention and gross versus net desorption explain candidate checker amendments; rerun refused, so resolution is not verified.",
+      "status": "resolved_numerically",
+      "finding": "Species normalization and net desorption corrections pass the complete tighter witness audit.",
+      "continuation_evidence": "DETAIL-VALIDATION.json",
+      "partial_next_evidence": "Document initial-gas molecular mass and separate gross release, captured vapor and free vapor fields; rerun the revised independent comparison only with fresh authority.",
+      "next_evidence": "Numerical/administrative closure complete. Physical evidence remains in the separately open entries."
+    },
+    {
+      "id": "NFI-048-C04",
+      "topic": "Classical CCAg optical citation",
+      "evidence": "COATINGS.json CCAg.optical_source; NASA 2015 printed slide19",
+      "next_evidence": "Correct the citation and identify the emittance statistic; keep direct-Be optical transfer explicitly PROJECTION.",
+      "url": "https://ntrs.nasa.gov/api/citations/20150018109/downloads/20150018109.pdf",
+      "partial_finding": "The cited source gives alpha .08 and normal epsilon .72 on Kapton, rather than the model's .09/.65 pair.",
+      "status": "open_evidence",
+      "finding": "The cited source gives alpha .08 and normal epsilon .72 on Kapton, rather than the model's .09/.65 pair."
+    },
+    {
+      "id": "NFI-048-C05",
+      "topic": "Recipe mass and matched optical specimen",
+      "evidence": "CHECK.md finish arithmetic and patent text",
+      "next_evidence": "A matched stack drawing, deposited density/areal mass, optical angular statistic and substrate/cure/process record.",
+      "qualified_installed_finish_mass_kg_m2": null,
+      "partial_finding": "Selected layer arithmetic agrees, but bulk-density transfer, classical ITO cap and the patent's recipe/overall-thickness ambiguity prevent treating it as a measured installed mass-optics pair.",
+      "status": "open_evidence",
+      "finding": "Selected layer arithmetic agrees, but bulk-density transfer, classical ITO cap and the patent's recipe/overall-thickness ambiguity prevent treating it as a measured installed mass-optics pair."
+    },
+    {
+      "id": "NFI-048-C06",
+      "topic": "Be adhesion, protection and durability",
+      "evidence": "SOURCE-AUDIT.md; owner COATING-EVIDENCE.md",
+      "next_evidence": "Weighed installed Be coupons including preparation, primer, repairs and edges, with optical and adhesion retention over the intended environment.",
+      "partial_finding": "Space heritage, flexible-film specimens or stainless peel data do not qualify the proposed Be stack or terrestrial UV/humidity cycling.",
+      "status": "open_evidence",
+      "finding": "Space heritage, flexible-film specimens or stainless peel data do not qualify the proposed Be stack or terrestrial UV/humidity cycling."
+    },
+    {
+      "id": "NFI-048-C07",
+      "topic": "Exterior water and wet thermal state",
+      "evidence": "016 pinned water-film band; 048 dry-optics account",
+      "next_evidence": "Retained-water distribution, drainage/condensation/frost conditions and wet/aged optical data for a stated mission envelope.",
+      "partial_finding": "The lower-end exterior-water charge remains aboard; internal bake-out and sorbent do not remove later rain/dew. Dry optical values do not establish a wet-hull thermal state.",
+      "status": "open_evidence",
+      "finding": "The lower-end exterior-water charge remains aboard; internal bake-out and sorbent do not remove later rain/dew. Dry optical values do not establish a wet-hull thermal state."
+    },
+    {
+      "id": "NFI-048-C08",
+      "topic": "Material moisture inventory",
+      "evidence": "NASA WVR/TML rows and guide; explicit assumed component fractions",
+      "next_evidence": "Cured-lot dry/reference masses, sorption isotherms and desorption data for the installed materials and chosen cure.",
+      "partial_finding": "WVR is not an equilibrium isotherm. Core, primer, seam and deposited-finish water fractions are planning allowances; nominal mass already containing moisture could create overlap.",
+      "status": "open_evidence",
+      "finding": "WVR is not an equilibrium isotherm. Core, primer, seam and deposited-finish water fractions are planning allowances; nominal mass already containing moisture could create overlap."
+    },
+    {
+      "id": "NFI-048-C09",
+      "topic": "Ground conditioning achievement",
+      "evidence": "AF163-2M coupon paper; inherited nominal volatile credit",
+      "next_evidence": "Measured endpoint mass/pressure, compatible process temperatures and transport paths; separately account ground resource cost and reabsorption.",
+      "partial_finding": "70C coupon preconditioning does not demonstrate 90% added-water removal or nominal volatile conditioning in the proposed 2U hull.",
+      "status": "open_evidence",
+      "finding": "70C coupon preconditioning does not demonstrate 90% added-water removal or nominal volatile conditioning in the proposed 2U hull."
+    },
+    {
+      "id": "NFI-048-C10",
+      "topic": "Sorbent operating capacity and species",
+      "evidence": "BASF 4A ambient equilibrium value; modeled 10%/95% assumptions",
+      "next_evidence": "Pressure/temperature-dependent usable capacity, kinetics, regeneration condition, species compatibility and vent conductance.",
+      "partial_finding": "Capacity and capture at low hull pressure, as well as treating nominal volatiles as water-equivalent capture, are unqualified. Adsorbed material remains aboard.",
+      "status": "open_evidence",
+      "finding": "Capacity and capture at low hull pressure, as well as treating nominal volatiles as water-equivalent capture, are unqualified. Adsorbed material remains aboard."
+    },
+    {
+      "id": "NFI-048-C11",
+      "topic": "Inherited mechanical and cure models",
+      "evidence": "Pinned 040/037b conventions",
+      "next_evidence": "Applicable allowables and assembly tests or validated coupled models; retain qualification values null.",
+      "installed_hull_SF": null,
+      "partial_finding": "Scalar cure-edge, cell-wall and scarf screens do not establish the actual joint or shell safety factor; thermal/global coupling and manufacturing imperfections remain unresolved.",
+      "status": "open_evidence",
+      "finding": "Scalar cure-edge, cell-wall and scarf screens do not establish the actual joint or shell safety factor; thermal/global coupling and manufacturing imperfections remain unresolved."
+    },
+    {
+      "id": "NFI-048-C12",
+      "topic": "Supplemental tables and complete coverage",
+      "evidence": "SENSITIVITIES, DRYING-COSTS, SERVICE-AUDIT, SUBSET-BOUNDS and ADDITIONAL-AUDIT retained as owner data",
+      "partial_finding": "Independent rederivation of all auxiliary tables, old040 reoptimization and complete source auditing remains unfinished after refusal.",
+      "status": "resolved_check_coverage",
+      "finding": "Auxiliary arithmetic, independent sensitivity searches, old040 targets and source review completed. Null least fields are explicitly carried in C17.",
+      "continuation_evidence": "SUPPLEMENTAL-RESULTS.json; EXTRA-AUDITS.json; SOURCE-AUDIT.md",
+      "partial_next_evidence": "Complete those checks under fresh queue authority; do not infer their validation from the 686304 main-point comparisons.",
+      "next_evidence": "Numerical/administrative closure complete. Physical evidence remains in the separately open entries."
+    },
+    {
+      "id": "NFI-048-C13",
+      "topic": "Compute admission",
+      "evidence": "execution/account-02/stderr.log",
+      "automatic_retry": true,
+      "standing_order": "ord-sciences-g1-c-simjob-heavy-route-1018",
+      "partial_finding": "Simjob exit75, PSI some avg10 6.13 >= 5.00. Nothing started; no retry or later numerical launch.",
+      "status": "resolved_authority_and_execution",
+      "finding": "Explicit resume order authorized>=60s unchanged exit75 retries; all final jobs completed and reservations released.",
+      "continuation_evidence": "EXECUTION.json; intake/RESUME-ORDER.json",
+      "partial_next_evidence": "Fresh queue execution authority and successful mandatory admission before any continuation.",
+      "next_evidence": "Numerical/administrative closure complete. Physical evidence remains in the separately open entries."
+    },
+    {
+      "id": "NFI-048-C14",
+      "status": "source_correction_to_file",
+      "topic": "SolarWhite linked manufacturer mass and optical label",
+      "finding": "The source sheet supplies285g/m² at150um and1.9g/cm³ with alpha .18/hemispherical epsilon .89 onAl2024-T3. Correct the claimed absence and ambiguous web-heading interpretation; installed Be qualification is still absent.",
+      "evidence": "sources/enbio-solarwhite-datasheet.pdf; SOLARWHITE-SOURCE.json; SOURCE-AUDIT.md",
+      "qualified_installed_Be_mass_kg_m2": null
+    },
+    {
+      "id": "NFI-048-C15",
+      "status": "open_evidence",
+      "topic": "Exact200F bond transfer and tooling",
+      "finding": "The detailed200F tests useAF163-2K .060lb/ft²,EC3924B and metal joints at50psi, not2U .015Be/honeycomb. Require exact construction allowables,process/tooling evidence and measured stress-free temperature.",
+      "evidence": "intake/addendum048/8-WATER-AND-BOND-SOURCES.md; pinned3M sheet",
+      "qualified_bond_strength_Pa": null
+    },
+    {
+      "id": "NFI-048-C16",
+      "status": "open_evidence",
+      "topic": "Physical thermal and residual-stress boundary",
+      "finding": "Numerical equivalence is closed. The actual convection,radiative core term,coupled weather/wetting and residual cure field remain unqualified. Cure inclusion is a sensitivity; whole-hull scalar modes remain projections.",
+      "evidence": "METHOD.md; thermal and addendum checks",
+      "installed_hull_SF": null
+    },
+    {
+      "id": "NFI-048-C17",
+      "status": "result_or_status_correction_to_file",
+      "topic": "Twelve null sensitivity least-set fields",
+      "finding": "Independent floating subsets exist for12 R12/R15 optical sensitivity rows with null least fields. Populate them or explicitly marknot searched; do not use null as a no-geometry conclusion. Failed legacy finish screens and physical qualification remain separate.",
+      "evidence": "EXTRA-AUDITS.json; NULL-SENSITIVITY-WITNESSES.json",
+      "mismatches": [
+        {
+          "row": "sensitivity[3]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[3]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.8956638102733123,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[4]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 11,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[4]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9402367833555111,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[6]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[6]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.7331120777709974,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[7]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[7]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9550298750111395,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[12]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[12]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.891744791055459,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[13]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 11,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[13]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9360844463992892,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[15]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[15]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.7287464576313327,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[16]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[16]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9503822720521123,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[21]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[21]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.8973457738050504,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[22]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 11,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[22]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.942042325215403,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[24]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[24]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.7351292323168406,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[25]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[25]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9572123313120349,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check047",
+  "kind": "filed_change",
+  "label": "check047",
+  "claim": "Independent direct estimates are 1.2179/.7469 mm; core regularization and compression allowables remain physical gaps.",
+  "report": "rpt-ref-a18ff970381ef39185d1",
+  "source_report_body": "QUESTIONABLE/PROJECTION. CHECK-047 complete, behind rpt-ref-e23aa05d834f8e89bb2c. Owner code neither read nor run.\n\nEverything the order names re-derives: 72/72 arithmetic rows, and 43/44 rows of an independent CalculiX model (own mesh, 4 mm at the dimple).\n\nCriterion: 95.4608 kPa is ISA 500 m; SF 1.05 = 100.2339.\n\nPerfect sphere: membrane statics put first yield at 80.95/95.24/109.52 kPa, inside all three brackets. Own FE gives 80.977/95.283/109.594 (card 80.974/95.280/109.590); endpoints within 0.003 kPa.\n\n345 MPa brackets: same pass/fail at every tested pair. SF 1: 1.209/1.227 mm carry 344.646/345.358 MPa (card 344.597/345.309). SF 1.05: 344.619/345.380 (card 344.585/345.345). Estimates 1.2179/0.7469 mm (card 1.2192/0.7478). Own 345 MPa runs yield where the card's do; L332, W402 and cure-debit pairs reproduce.\n\nCore law: own exact minimisation puts ellipticity loss at 0.0877 MPa shear for the inherited law (CHECK-029: 0.088) and 2.65 MPa for the regularized one. At the governing state: +0.498 MPa regularized, -0.005444 inherited (card -0.005455). Regularization from 0.01 to 10 MPa moves the answer at most 0.004 mm.\n\nEndpoint division: own endpoints 105.0765/104.9167 kPa (card 105.0759/104.9204), same 0.521-0.539 mm; transfer factors match CHECK-029.\n\nOne mismatch: the 11.8 mm face-yield estimate, 61.910 against 63.596 kPa (coarse sweep mesh; diagnostic only). Two NFI: unsourced E = 290 GPa (298.7 GPa adds 0.015 mm); unstated sweep mesh.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-a18ff970381ef39185d1",
+      "artifact": "evidence/ed8fbe522708eccf-CHECK.md",
+      "snapshot": "evidence/ed8fbe522708eccf-CHECK.md",
+      "sha256": "ed8fbe522708eccf17a2f828cbc8cb66a4c04b26d746e8841516ef749348d577",
+      "bytes": 8568,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

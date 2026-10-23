@@ -1,0 +1,86 @@
+{
+  "id": "D426",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D426",
+    "report": "rpt-ref-e0fc07c506c86dae19c1",
+    "file": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "source_sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+    "source_json_pointer": "/new/3",
+    "row_id": "NFI-CHECK045-PERRY",
+    "fields": {
+      "id": "NFI-CHECK045-PERRY",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Perry factor does not follow the cited equation",
+      "finding": "The filed 4.095817936 differs from 3.454499160 obtained from the stated L/1000 bow, direct magnified bending and an independent quadratic root. The pinned 022d table also gives 3.454499160.",
+      "proposed_fix": "Replace the non-governing factor and add the direct-stress check. The overall nominal 1.258252477 is unchanged.",
+      "refs": [
+        "AUDIT-CHECKS.json",
+        "inputs/upstream/022d_tables_csv/TABLES.csv"
+      ]
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/new",
+    "blocks_progress": false
+  },
+  "claim": "The filed 4.095817936 differs from 3.454499160 obtained from the stated L/1000 bow, direct magnified bending and an independent quadratic root. The pinned 022d table also gives 3.454499160. | Perry factor does not follow the cited equation",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1386"
+    },
+    {
+      "report": "rpt-ref-e0fc07c506c86dae19c1",
+      "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+      "bytes": 17031,
+      "selector": "/new/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-e0fc07c506c86dae19c1",
+          "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+          "bytes": 17031,
+          "selector": "/new/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1386"
+          }
+        ]
+      }
+    }
+  ]
+}

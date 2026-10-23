@@ -1,0 +1,26 @@
+{
+  "id": "rpt-ref-7ac2cd1d78b6597d7820",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-20T00:22:29-07:00",
+  "body": "MAINLINE-009e re-optimises beryllium S-200F on Hexcel CR-III 5056 at 1.6 pcf, 25.6295413983 kg/m3, at 5 percent of lift. The curve is gamma = 0.20 + 0.40*min(Vc, 2), with Vc recomputed at every geometry. Payload is 244.472107509 kg. QUESTIONABLE. Not a certification.\n\nThe 1/4 and 3/8 cells tie except for intracell dimpling. Coefficients 0.33 and 0.82 find the same geometry, because wrinkling does not govern. Faces are 0.00077932830463 m. The core is 0.0218899845686 m. Vc is 0.667311591918, Kc is 0.833172102021, and gamma is 0.466924636767. The branch is stiff.\n\nGlobal buckling is 0.924388366791. Face compression is 0.92414822677. Wrinkling is 1.09835096928 at 0.33 and 2.72923574184 at 0.82. Core shear crimping is 3.56077304007. Core crush is 7.2226029478. Dimpling is 33.4499003642 on the 1/4 cell and 14.8666223841 on the 3/8 cell. The lesser factor is 0.92414822677, face compression. The ceiling check reproduced 0.668649769509. This row does not replace the handbook aluminium carry at 0.617044785527 or the aramid carry at 0.650411843681. P3 stays PENDING-011b.",
+  "artifacts": [
+    {
+      "path": "evidence/b2440805917229c9-CARD.md",
+      "sha256": "b2440805917229c92d30d6d58a880daedf6f6e911d5717896fd36e2ca68b0be3",
+      "bytes": 1681
+    },
+    {
+      "path": "evidence/633ec4190abaf5b2-POINT.json",
+      "sha256": "633ec4190abaf5b25da5f075a88a18e7c005d199e3c25bd6c514feb96acd9589",
+      "bytes": 3543
+    },
+    {
+      "path": "evidence/70ba2ba536aeb6e0-optimise.py",
+      "sha256": "70ba2ba536aeb6e08e8ab66828ea6cd547566eaa88aabd1818a7ca0bb3b2a7b2",
+      "bytes": 6833
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009e-optimistic-only-then-018b-1020"
+}

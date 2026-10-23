@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-9c23c1ab945493363f3b",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-20T00:10:36-07:00",
+  "body": "MAINLINE-009d carries both points at 5 percent of lift. Payload is 244.472107509 kg. QUESTIONABLE. Not a certification.\n\nAramid, the filed 009c-5 row. Beryllium S-200F faces 0.000752430055433 m, Hexcel HRH-10-4.8-32 core 0.0206423058669 m. Vc 3.3288849074, Kc 0.300400893337, gamma 1, shear crimping. Global buckling and core shear crimping are 0.650411843681. Face wrinkling is 0.650414127459. Face compression is 0.89225156762. Core crush is 20.9509998415. The lesser factor is 0.650411843681.\n\nAluminium, re-optimised. Same face on Hexcel CR-III 5056 at 1.6 pcf, 25.6295413983 kg/m3. The 1/4 and 3/8 cells tie. Faces 0.000650972455742 m, core 0.0404200329025 m. Vc 0.568100356837, Kc 0.857974910791, gamma = kd = 0.20, stiff branch. Global buckling 0.617044785527. Face wrinkling 0.617061966145. Face compression 0.771940448045. Core shear crimping 6.32975704173. Core crush 7.2226029478. Intracell dimpling 19.4949137356 on the 1/4 cell and 8.66440610473 on the 3/8 cell. The lesser factor is 0.617044785527, global buckling. The ceiling check reproduced 0.668649769509.\n\nThe kd that brings global buckling to 1 is 0.324125581629. No kd brings the least factor to 1. Wrinkling stays 0.617061966145 and face compression stays 0.771940448045. P3 stays PENDING-011b.",
+  "artifacts": [
+    {
+      "path": "evidence/6228dba5de010f62-CARD.md",
+      "sha256": "6228dba5de010f62d9d675df361e895717756971efb04ca125d60cc6bde6b7e9",
+      "bytes": 2166
+    },
+    {
+      "path": "evidence/e77280535c63af3c-POINT.json",
+      "sha256": "e77280535c63af3cf42d2d1423a5d76e07f1b03280ae5bbce5ebf279df107d9b",
+      "bytes": 3191
+    },
+    {
+      "path": "evidence/377a389c7af73797-both.py",
+      "sha256": "377a389c7af73797cbf9598bed542772d05756f0f80757d67075c2f6cdbb0f2d",
+      "bytes": 9811
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009d-carry-al-honeycomb-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline009d-carry-al-honeycomb-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

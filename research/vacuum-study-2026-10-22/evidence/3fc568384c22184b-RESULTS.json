@@ -1,0 +1,649 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline026-p3-lattice-model-1020",
+  "tag": "QUESTIONABLE",
+  "status": "completed_conditional_elastic_model",
+  "certification": "none",
+  "finalized_utc": "2026-10-20T08:47:48.227103+00:00",
+  "physical_inputs": {
+    "radius_m": 10,
+    "pressure_Pa": 95460.8379139,
+    "target_spacing_m": 2.04,
+    "E_Pa": 410000000000,
+    "poisson_ratio": 0.14,
+    "density_kg_m3": 3100,
+    "outer_radius_m": 0.12368836237368608,
+    "wall_m": 0.0008802990936851718,
+    "lift_allowance_kg": 4889.442150189999,
+    "film_mass_inherited_kg": 97.515,
+    "node_allowance_kg_each": 0.02,
+    "joint_allowance_fraction_of_member_mass": 0.05,
+    "systems_allowance_kg": 50,
+    "compressive_typical_strength_Pa": 3900000000,
+    "inherited_local_shell_coefficient": 0.6
+  },
+  "model": {
+    "frequency": 6,
+    "segments_per_arc": 24,
+    "main_nodes": 362,
+    "members": 1080,
+    "film_cells": 720,
+    "beam_nodes": 25202,
+    "beam_elements": 25920,
+    "rotational_nodes": 25202,
+    "DOF": 151212,
+    "joint_type": "rigid",
+    "arc_length_m": {
+      "min": 1.6274677754191222,
+      "mean": 2.0013435607236976,
+      "max": 2.170540448058861
+    },
+    "arc_total_length_m": 2161.4510455815935,
+    "straight_subelement_total_length_m": 2161.444692990426,
+    "tube_mass_kg": 4567.702931780806,
+    "joints_5pct_kg": 228.3851465890403,
+    "node_mass_kg": 7.24,
+    "film_mass_inherited_kg": 97.515,
+    "systems_inherited_kg": 50,
+    "total_mass_with_inherited_allowances_kg": 4950.843078369846,
+    "radius_m": 10.0,
+    "E_Pa": 410000000000.0,
+    "nu": 0.14,
+    "r_o_m": 0.12368836237368608,
+    "wall_m": 0.0008802990936851718,
+    "A_m2": 0.0006816960123390163,
+    "I_m4": 5.177588818283229e-06,
+    "GJ_Nm2": 1862115.2767509858,
+    "tag": "QUESTIONABLE",
+    "certification": "none"
+  },
+  "line_load_check": {
+    "equal_triangle_width_at_requested_spacing_m": 0.5888972745734183,
+    "line_load_at_requested_spacing_N_per_m": 56216.62727599055,
+    "N_equals_wR_at_actual_mean_spacing_N": 551513.6519823915,
+    "discrete_mean_compression_N": 550543.522936495,
+    "old_local_share_over_equal_triangle_share": 1.7320508075688772
+  },
+  "linear": {
+    "primary_formulation": "standard initial-compression integral N*(vprime²+wprime²), cubic Hermite interpolation, plus conservative pressure Hessian",
+    "first_lambda": 6.465222443853006,
+    "representative_low_eigenvalues": [
+      6.465222443853006,
+      6.4652224438549215,
+      6.4652224438707355,
+      6.46627185406457,
+      6.505207009121031,
+      6.505207009147218,
+      6.507121397083387,
+      6.5071213971111534,
+      6.519569325554047,
+      6.519569325583733,
+      6.535880315313951,
+      6.535880315334075
+    ],
+    "multiplicity_note": "Lanczos vectors include symmetry degeneracies; no complete census of all multiplicities is claimed.",
+    "mode_character": [
+      {
+        "lambda": 6.465222443853006,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.34416938691750226,
+        "joint_translation_rms": 0.3209827456635781,
+        "member_relative_translation_rms": 0.06779654492553813,
+        "radial_fraction": 0.9778557731478086
+      },
+      {
+        "lambda": 6.4652224438549215,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.3441694549580123,
+        "joint_translation_rms": 0.31908349816011444,
+        "member_relative_translation_rms": 0.06739539411182091,
+        "radial_fraction": 0.977855773131995
+      },
+      {
+        "lambda": 6.4652224438707355,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.3441694003944846,
+        "joint_translation_rms": 0.3360422444339341,
+        "member_relative_translation_rms": 0.07097734512477598,
+        "radial_fraction": 0.9778557731424122
+      },
+      {
+        "lambda": 6.46627185406457,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.25628123246528234,
+        "joint_translation_rms": 0.38091483976336843,
+        "member_relative_translation_rms": 0.09156093715729212,
+        "radial_fraction": 0.9816578921921318
+      },
+      {
+        "lambda": 6.505207009121031,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.34346601663893744,
+        "joint_translation_rms": 0.3590935154493707,
+        "member_relative_translation_rms": 0.07371579741247239,
+        "radial_fraction": 0.9782845269389704
+      },
+      {
+        "lambda": 6.505207009147218,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.35504938358529076,
+        "joint_translation_rms": 0.34560676923826494,
+        "member_relative_translation_rms": 0.07094719756646901,
+        "radial_fraction": 0.9782845269389963
+      },
+      {
+        "lambda": 6.507121397083387,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.32252555556187834,
+        "joint_translation_rms": 0.33736930248997216,
+        "member_relative_translation_rms": 0.0713828430410202,
+        "radial_fraction": 0.9773965317275173
+      },
+      {
+        "lambda": 6.5071213971111534,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.3212969640910096,
+        "joint_translation_rms": 0.3346887530140619,
+        "member_relative_translation_rms": 0.07081567453704829,
+        "radial_fraction": 0.9773965317273885
+      },
+      {
+        "lambda": 6.519569325554047,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.2598876680900098,
+        "joint_translation_rms": 0.3167282945495079,
+        "member_relative_translation_rms": 0.07806345645608677,
+        "radial_fraction": 0.981678559209005
+      },
+      {
+        "lambda": 6.519569325583733,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.25988766814293607,
+        "joint_translation_rms": 0.3292157603882252,
+        "member_relative_translation_rms": 0.08114121983403161,
+        "radial_fraction": 0.9816785592089783
+      },
+      {
+        "lambda": 6.535880315313951,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.27313546909541603,
+        "joint_translation_rms": 0.33856536319133723,
+        "member_relative_translation_rms": 0.08090840149457743,
+        "radial_fraction": 0.9820680525167533
+      },
+      {
+        "lambda": 6.535880315334075,
+        "class": "global_lattice",
+        "joint_participation_fraction": 0.27313546471315087,
+        "joint_translation_rms": 0.3573345730342934,
+        "member_relative_translation_rms": 0.08539375920594619,
+        "radial_fraction": 0.9820680525135327
+      }
+    ],
+    "eigen_residuals": [
+      2.0516455607826712e-07,
+      2.21729859729861e-07,
+      5.210287841439537e-09,
+      3.1114269535405536e-10,
+      3.425827302593164e-10,
+      3.029187938043858e-10,
+      3.229165370576065e-10,
+      3.23852960706374e-10,
+      2.79343871135201e-10,
+      2.716778745337245e-10,
+      4.812323389720902e-08,
+      3.215665813852865e-08
+    ],
+    "mesh_convergence": [
+      {
+        "segments": 3,
+        "lambda": 6.472319662311285
+      },
+      {
+        "segments": 6,
+        "lambda": 6.4662751985742855
+      },
+      {
+        "segments": 12,
+        "lambda": 6.465400189710405
+      },
+      {
+        "segments": 24,
+        "lambda": 6.46522244385321
+      }
+    ],
+    "relative_change_m12_to_m24": -2.7491856935513148e-05,
+    "dead_pressure_first_lambda": 6.571963275671537,
+    "011b_continuum_perfect_lambda": 6.127639734402722,
+    "ratio_to_011b_continuum": 1.0550918010983863,
+    "continuum_scaled_to_actual_mean_spacing": 6.245996591240607,
+    "member_Euler_benchmark": {
+      "min": 7.571721534683924,
+      "mean": 9.789080392494736,
+      "max": 17.17209281550514
+    },
+    "011b_Euler_with_two_way_load": 5.170415097855431,
+    "011b_Euler_with_equal_triangular_share": 8.955421645706814
+  },
+  "pinned": {
+    "zero_energy_member_roll_coordinates": 1080,
+    "positive_buckling_factor": null,
+    "design_load_reserve": "none in the pressure-only freely rolling ball-pin model",
+    "first_several_kinematic_zero_modes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "zero_modes_are_not_a_positive_generalized_eigensolve": true,
+    "max_Kz_relative_residual": 3.1664896202216504e-19,
+    "max_finite_roll_elastic_energy_J": 9.387170110422361e-22,
+    "roll_volume_curvature_range_m3_per_rad2": [
+      -0.04717867007239561,
+      -0.01642700590767647
+    ],
+    "max_initial_pressure_roll_torque_Nm": 23.47554156533815,
+    "physical_DOF": 20526,
+    "film_material_stiffness_included": false
+  },
+  "nonlinear": {
+    "perfect": {
+      "6": {
+        "path": "nonlinear/perfect-m6",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 34572,
+        "critical_lambda": 5.140679594069376,
+        "k_vs_discrete_same_mesh_linear": 0.7949985789659524,
+        "k_vs_discrete_finest_linear": 0.7951280313575326,
+        "k_vs_011b_continuum_perfect": 0.8389330667088333,
+        "k_vs_same_mesh_perfect_nonlinear": 1.0,
+        "ratio_to_011b_k02_pressure": 4.194665333544166,
+        "ratio_to_011b_k04_pressure": 2.097332666772083,
+        "stability_bracket": [
+          {
+            "control_m": 0.1002080078125,
+            "lambda": 5.140679609445936,
+            "relative_tangent_eigenvalue": 4.2706883347105194e-05
+          },
+          {
+            "control_m": 0.10020898437499999,
+            "lambda": 5.140679578692817,
+            "relative_tangent_eigenvalue": -6.39594312226607e-05
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.18834412100446588,
+        "mean_inward_joint_displacement_m": 0.10020849609374997,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.1026001390272914,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.2657708038911775,
+        "critical_max_compressive_axial_stress_Pa": 5105298675.2170315,
+        "nominal_compression_strength_ratio_at_critical": 0.7639122112349689,
+        "nominal_local_wall_stress_ratio_at_critical": 0.34293780801878543,
+        "max_converged_relative_equilibrium_residual": 2.730515916763181e-09,
+        "elapsed_seconds_scientific": 460.05291969003156,
+        "imperfection": {
+          "case": "perfect",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "measured_max_point_offset_m": 0.0,
+          "measured_max_joint_offset_m": 0.0
+        }
+      },
+      "12": {
+        "path": "nonlinear/perfect-m12-mixed",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 73452,
+        "critical_lambda": 5.107400587927113,
+        "k_vs_discrete_same_mesh_linear": 0.7899589256757454,
+        "k_vs_discrete_finest_linear": 0.7899806437105842,
+        "k_vs_011b_continuum_perfect": 0.8335021002054629,
+        "k_vs_same_mesh_perfect_nonlinear": 1.0,
+        "ratio_to_011b_k02_pressure": 4.167510501027314,
+        "ratio_to_011b_k04_pressure": 2.083755250513657,
+        "stability_bracket": [
+          {
+            "control_m": 0.09959283002266334,
+            "lambda": 5.1074006300616315,
+            "relative_tangent_eigenvalue": 2.3587302794670813e-05
+          },
+          {
+            "control_m": 0.09959380658516334,
+            "lambda": 5.107400545792595,
+            "relative_tangent_eigenvalue": -7.873233196251603e-05
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.18717500678427487,
+        "mean_inward_joint_displacement_m": 0.09959331830391331,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.10170132738524264,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.079177328005188,
+        "critical_max_compressive_axial_stress_Pa": 5075534183.430007,
+        "nominal_compression_strength_ratio_at_critical": 0.7683920271352424,
+        "nominal_local_wall_stress_ratio_at_critical": 0.344948900684373,
+        "max_converged_relative_equilibrium_residual": 5.811008370227443e-09,
+        "elapsed_seconds_scientific": 1130.0989446230233,
+        "imperfection": {
+          "case": "perfect",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "measured_max_point_offset_m": 0.0,
+          "measured_max_joint_offset_m": 0.0
+        }
+      },
+      "relative_change_m6_to_m12": -0.006473658887563349
+    },
+    "nodes": {
+      "6": {
+        "path": "nonlinear/ref-80a76c274cf1c1a28600",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 34572,
+        "critical_lambda": 4.983930742116369,
+        "k_vs_discrete_same_mesh_linear": 0.770757598317995,
+        "k_vs_discrete_finest_linear": 0.7708831034661434,
+        "k_vs_011b_continuum_perfect": 0.813352442072407,
+        "k_vs_same_mesh_perfect_nonlinear": 0.969508145939723,
+        "ratio_to_011b_k02_pressure": 4.066762210362035,
+        "ratio_to_011b_k04_pressure": 2.0333811051810176,
+        "stability_bracket": [
+          {
+            "control_m": 0.1915490857166789,
+            "lambda": 4.983930742372122,
+            "relative_tangent_eigenvalue": 1.5650965568743439e-06
+          },
+          {
+            "control_m": 0.1915496960682414,
+            "lambda": 4.983930741860617,
+            "relative_tangent_eigenvalue": -1.5973763432045434e-07
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.20004897974939165,
+        "mean_inward_joint_displacement_m": 0.09695313768824121,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.005500052448390257,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.627492335860418,
+        "critical_max_compressive_axial_stress_Pa": 5223969804.717225,
+        "nominal_compression_strength_ratio_at_critical": 0.7465586796612634,
+        "nominal_local_wall_stress_ratio_at_critical": 0.3351474075097394,
+        "max_converged_relative_equilibrium_residual": 1.901108982585604e-08,
+        "elapsed_seconds_scientific": 355.5653169970028,
+        "imperfection": {
+          "case": "nodes",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "amplitude_m": 0.01,
+          "pattern": "seeded independent radial joint offsets, linearly carried along each arc",
+          "measured_max_point_offset_m": 0.009999999999999998,
+          "measured_max_joint_offset_m": 0.009999999999999998
+        }
+      },
+      "12": {
+        "path": "nonlinear/nodes-m12",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 73452,
+        "critical_lambda": 4.950376047460733,
+        "k_vs_discrete_same_mesh_linear": 0.7656720237270784,
+        "k_vs_discrete_finest_linear": 0.7656930740515268,
+        "k_vs_011b_continuum_perfect": 0.8078764845895855,
+        "k_vs_same_mesh_perfect_nonlinear": 0.9692554876471692,
+        "ratio_to_011b_k02_pressure": 4.039382422947927,
+        "ratio_to_011b_k04_pressure": 2.0196912114739636,
+        "stability_bracket": [
+          {
+            "control_m": 0.19077811867380373,
+            "lambda": 4.950376046689966,
+            "relative_tangent_eigenvalue": 1.6248573999951257e-06
+          },
+          {
+            "control_m": 0.19077872902536624,
+            "lambda": 4.950376048231499,
+            "relative_tangent_eigenvalue": -4.667400688436024e-11
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.19900360235228287,
+        "mean_inward_joint_displacement_m": 0.09633162098622391,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.005389579727666956,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.422308689759202,
+        "critical_max_compressive_axial_stress_Pa": 5192245565.652678,
+        "nominal_compression_strength_ratio_at_critical": 0.7511200983634064,
+        "nominal_local_wall_stress_ratio_at_critical": 0.3371951335549088,
+        "max_converged_relative_equilibrium_residual": 1.3358386058485398e-08,
+        "elapsed_seconds_scientific": 942.4581065587699,
+        "imperfection": {
+          "case": "nodes",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "amplitude_m": 0.01,
+          "pattern": "seeded independent radial joint offsets, linearly carried along each arc",
+          "measured_max_point_offset_m": 0.009999999999999998,
+          "measured_max_joint_offset_m": 0.009999999999999998
+        }
+      },
+      "relative_change_m6_to_m12": -0.006732576432510351
+    },
+    "members": {
+      "6": {
+        "path": "nonlinear/ref-fbfe82fa2fdfe2799846",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 34572,
+        "critical_lambda": 5.116337662216148,
+        "k_vs_discrete_same_mesh_linear": 0.7912341348144577,
+        "k_vs_discrete_finest_linear": 0.7913629742284664,
+        "k_vs_011b_continuum_perfect": 0.8349605858012884,
+        "k_vs_same_mesh_perfect_nonlinear": 0.9952648416599801,
+        "ratio_to_011b_k02_pressure": 4.174802929006442,
+        "ratio_to_011b_k04_pressure": 2.087401464503221,
+        "stability_bracket": [
+          {
+            "control_m": 0.23169240890580572,
+            "lambda": 5.116337661299857,
+            "relative_tangent_eigenvalue": 7.418439762816595e-07
+          },
+          {
+            "control_m": 0.23169301925736824,
+            "lambda": 5.116337663132438,
+            "relative_tangent_eigenvalue": -1.1124673975735344e-06
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.19732093800395725,
+        "mean_inward_joint_displacement_m": 0.09945867412726547,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.007062637159150006,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.538087534519445,
+        "critical_max_compressive_axial_stress_Pa": 5182646852.859307,
+        "nominal_compression_strength_ratio_at_critical": 0.7525112381231106,
+        "nominal_local_wall_stress_ratio_at_critical": 0.3378196482737788,
+        "max_converged_relative_equilibrium_residual": 5.709834458894801e-09,
+        "elapsed_seconds_scientific": 369.08761429274455,
+        "imperfection": {
+          "case": "members",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "amplitude_m": 0.00204,
+          "pattern": "sinusoidal member crookedness; seeded independent transverse directions; end nodes fixed",
+          "measured_max_point_offset_m": 0.0020400000000000006,
+          "measured_max_joint_offset_m": 0.0
+        }
+      },
+      "12": {
+        "path": "nonlinear/members-m12",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 73452,
+        "critical_lambda": 5.082613207915408,
+        "k_vs_discrete_same_mesh_linear": 0.7861250748259317,
+        "k_vs_discrete_finest_linear": 0.7861466874581936,
+        "k_vs_011b_continuum_perfect": 0.8294569243977957,
+        "k_vs_same_mesh_perfect_nonlinear": 0.9951467719077494,
+        "ratio_to_011b_k02_pressure": 4.1472846219889785,
+        "ratio_to_011b_k04_pressure": 2.0736423109944893,
+        "stability_bracket": [
+          {
+            "control_m": 0.22945545182546173,
+            "lambda": 5.082613207084018,
+            "relative_tangent_eigenvalue": 5.369569386749315e-07
+          },
+          {
+            "control_m": 0.22945606217702422,
+            "lambda": 5.082613208746799,
+            "relative_tangent_eigenvalue": -1.1549668500782398e-06
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.19609107681350013,
+        "mean_inward_joint_displacement_m": 0.09883394618435398,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.006863680122522987,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.334511966695578,
+        "critical_max_compressive_axial_stress_Pa": 5152105334.650895,
+        "nominal_compression_strength_ratio_at_critical": 0.7569721010496892,
+        "nominal_local_wall_stress_ratio_at_critical": 0.33982223251240484,
+        "max_converged_relative_equilibrium_residual": 6.937844797693904e-09,
+        "elapsed_seconds_scientific": 1008.8737034541555,
+        "imperfection": {
+          "case": "members",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "amplitude_m": 0.00204,
+          "pattern": "sinusoidal member crookedness; seeded independent transverse directions; end nodes fixed",
+          "measured_max_point_offset_m": 0.0020400000000000006,
+          "measured_max_joint_offset_m": 0.0
+        }
+      },
+      "relative_change_m6_to_m12": -0.006591522398881833
+    },
+    "eigen": {
+      "6": {
+        "path": "nonlinear/ref-f49d351d88feacdd2d10",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 34572,
+        "critical_lambda": 4.567958873052904,
+        "k_vs_discrete_same_mesh_linear": 0.7064281572890734,
+        "k_vs_discrete_finest_linear": 0.706543187449957,
+        "k_vs_011b_continuum_perfect": 0.74546792420037,
+        "k_vs_same_mesh_perfect_nonlinear": 0.8885904654168292,
+        "ratio_to_011b_k02_pressure": 3.7273396210018497,
+        "ratio_to_011b_k04_pressure": 1.8636698105009248,
+        "stability_bracket": [
+          {
+            "control_m": 0.23048789774443135,
+            "lambda": 4.567958872698512,
+            "relative_tangent_eigenvalue": 7.535066640170419e-07
+          },
+          {
+            "control_m": 0.23048850809599383,
+            "lambda": 4.567958873407296,
+            "relative_tangent_eigenvalue": -5.825591999597568e-07
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.21104682105703965,
+        "mean_inward_joint_displacement_m": 0.08893616013963059,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.005470735495646396,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.868179162210628,
+        "critical_max_compressive_axial_stress_Pa": 4917443007.617185,
+        "nominal_compression_strength_ratio_at_critical": 0.7930951093807997,
+        "nominal_local_wall_stress_ratio_at_critical": 0.35603868397623023,
+        "max_converged_relative_equilibrium_residual": 1.3965135184513875e-08,
+        "elapsed_seconds_scientific": 605.6225581718609,
+        "imperfection": {
+          "case": "eigen",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "amplitude_m": 0.01,
+          "pattern": "first standard initial-stress m6 eigenvector translations, maximum point offset R/1000, dominant radial lobe inward; same field interpolated on finer meshes",
+          "source": "classical/rigid-m6/modes.npz",
+          "measured_max_point_offset_m": 0.01,
+          "measured_max_joint_offset_m": 0.009730486064935123
+        }
+      },
+      "12": {
+        "path": "nonlinear/eigen-m12",
+        "tag": "QUESTIONABLE",
+        "physical_DOF": 73452,
+        "critical_lambda": 4.539579837323961,
+        "k_vs_discrete_same_mesh_linear": 0.7021343929411961,
+        "k_vs_discrete_finest_linear": 0.7021536964501656,
+        "k_vs_011b_continuum_perfect": 0.7408366082354948,
+        "k_vs_same_mesh_perfect_nonlinear": 0.8888239250421499,
+        "ratio_to_011b_k02_pressure": 3.7041830411774743,
+        "ratio_to_011b_k04_pressure": 1.8520915205887372,
+        "stability_bracket": [
+          {
+            "control_m": 0.2324975804143224,
+            "lambda": 4.539579837054328,
+            "relative_tangent_eigenvalue": 8.261905989061765e-07
+          },
+          {
+            "control_m": 0.2324981907658849,
+            "lambda": 4.539579837593594,
+            "relative_tangent_eigenvalue": -6.142653349260852e-07
+          }
+        ],
+        "limit_point_with_descending_pressure_observed": true,
+        "max_displacement_m": 0.20994118697198708,
+        "mean_inward_joint_displacement_m": 0.08840829879245865,
+        "critical_mode_class": "localized_nodal_snap",
+        "critical_mode_joint_participation_fraction": 0.0053797149506971086,
+        "critical_mode_joint_RMS_over_member_relative_RMS": 5.652153500419504,
+        "critical_max_compressive_axial_stress_Pa": 4888276505.065287,
+        "nominal_compression_strength_ratio_at_critical": 0.7978272088247824,
+        "nominal_local_wall_stress_ratio_at_critical": 0.3581630325424389,
+        "max_converged_relative_equilibrium_residual": 1.1037904053478451e-08,
+        "elapsed_seconds_scientific": 1072.6278752079234,
+        "imperfection": {
+          "case": "eigen",
+          "stress_free_reference": true,
+          "seed": 20261020,
+          "amplitude_m": 0.01,
+          "pattern": "first standard initial-stress m6 eigenvector translations, maximum point offset R/1000, dominant radial lobe inward; same field interpolated on finer meshes",
+          "source": "classical/rigid-m6/modes.npz",
+          "measured_max_point_offset_m": 0.01,
+          "measured_max_joint_offset_m": 0.009730486064935123
+        }
+      },
+      "relative_change_m6_to_m12": -0.006212629429821481
+    }
+  },
+  "mass_screen": {
+    "mass_kg": 4950.843078369846,
+    "inherited_spherical_lift_allowance_kg": 4889.442150189999,
+    "payload_kg": -61.40092817984714,
+    "mass_over_lift_percent": 1.2557859627700285,
+    "load_model_volume_m3": 4167.275913727444,
+    "volume_note": "Lift comparison retains inherited spherical allowance; the fan is a load approximation, not a validated membrane shape."
+  },
+  "local_material_screen": {
+    "max_unit_load_axial_compressive_stress_Pa": 863586316.6401045,
+    "inherited_local_wall_stress_Pa": 1750799936.9601378,
+    "nominal_wall_lambda_from_axial_stress_only": 2.027359516037556,
+    "nominal_compression_lambda_from_axial_stress_only": 4.516051175027251,
+    "note": "QUESTIONABLE inherited stress screen only. Bending, flaws, ovalization, joints and film can reduce capacity. Frame-only elastic limits do not supersede earlier failure."
+  },
+  "rejected_linear_formulation": {
+    "path": "geometric-audit/RESULTS.json",
+    "first_lambda_sequence": [
+      6.589931114105532,
+      6.398557425744678,
+      6.180528236772272,
+      5.602373023207629
+    ],
+    "reason": "truncated whole-corotational-tangent eigenproblem drifts with mesh; exact derivatives confirm it is not finite-difference cancellation"
+  },
+  "checks": {
+    "analytical_and_zero_state": "CHECKS.json",
+    "finite_state_and_stability_solver": "NONLINEAR-CHECKS.json",
+    "mixed_condensed_equivalence": "MIXED-CHECKS.json",
+    "finite_rotation_exact_bending": "PURE-BENDING-CHECKS.json"
+  },
+  "time_note": "Elapsed times are measurements. No task or phase budget. Concurrent invocation durations must not be summed as task wall time."
+}

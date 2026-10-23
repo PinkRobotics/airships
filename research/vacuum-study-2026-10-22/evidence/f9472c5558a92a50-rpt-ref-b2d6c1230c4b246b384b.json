@@ -1,0 +1,66 @@
+{
+  "id": "rpt-ref-b2d6c1230c4b246b384b",
+  "kind": "report",
+  "from": "ref-741b462e28e96fb5cf31",
+  "to": "sciences-p-10151529",
+  "cc": [
+    "ref-a33a5f7a663e03c6e242",
+    "ref-af15e85a34cba04285e4"
+  ],
+  "re": "ord-sciences-g1-u3-simjob-preland-once-1018",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-sciences-g1-u3-simjob-preland-once-1018",
+      "outcome": "done",
+      "extent": "work",
+      "what": "The sole pre-land simjob acceptance executed once under the exact Ops card and simjob's live admission; continuous PASS with full measurement, controls, collection/cleanup receipts and owner accounting returned."
+    }
+  ],
+  "standing": "Pre-land discharged by this one continuous PASS; landing A/C checks remain the CO-authorized executor's; 01da6a4e frozen, never landed; no activation, scientific release, clock reset or protected-main move from this seat; one-run only, no retry owed.",
+  "asks": "none",
+  "next": "sciences: carry the continuous pre-land pass into the landing disposition",
+  "body": "The continuous pre-land acceptance passes on the exact object; every fact below is from the run's own logs.\n\nRESULT: PASS, rc 0, one continuous run, no retry. simjob admitted the scope live (eight cores, sixteen GiB, swap zero, ceiling 6960 s) and the scope ENDED exited 0 after 1508 s with the reservation released; payload_rc=0. The card verified all success facts itself: six suites OK (five, five, seventy, three, fourteen tests, then the hardening pair in 1506.599 s), thirty-eight PLANT lines on exactly one 'Plant suite: fast; 38 cases; 4 workers', zero FAILED or ERROR lines. PLANT L-G-generated is RED - the plant that failed twice under the old bounds reached its designed verdict inside the continuous run. The ten designed controls are GREEN; every corruption plant is RED.\n\nMEASURED: payload wall 1507.57 s (paired samples 05:28:03.754Z/mono 2003208.93 to 05:53:11.328Z/mono 2004716.50); scope CPU 7072.272 s (user 6617.484, system 454.788 - about 4.69 cores sustained average on the 8-core quota); memory.peak 4,582,162,432 bytes (4.27 GiB) - inside the 16 GiB default, so no conditional increase was ever justified; pids.peak 613; oom and oom_kill both zero. Swap stayed zero throughout.\n\nCONTROLS AND ENTRY: exact card preland-card.sh f4e68dba byte-identical as R/launch.sh, run once with no argument; admission was simjob's own atomic grant (scope simjob-20261018t222803-3ac411dfc429, argv sha d76841b817cc); payload exactly the ruled argv (CI=true, FLOAT_PLANT_TIMEOUT=2000, FLOAT_PLANT_WORKERS=4, MAKEFLAGS= and MFLAGS= empty, make -j1 ledgercheck-selftest); in-scope guards passed before the payload (cpu.max 800000 100000, memory.max 17179869184, swap 0, every env var exact, chromium and node first on PATH, short real TMP, cwd R/src); pins verified at launch for chrome, node, the namespace outputs, the inner script and both simjob modules; source guards passed (HEAD 5f96f32e, tree a8843701, 3281 entries, clean, sole parent 13f4b15f, patch bc1846b0, manifest bdd41f98, frozen anchor held).\n\nCOLLECTION AND CLEANUP PROVEN: scope LoadState=not-found, ActiveState=inactive, its cgroup absent, simjob status zero reservations after the run, post-host MemAvailable 54.41 GB PSI 0.00; removed and independently re-verified absent: the runtime dir, R tmp, home and bin, the short TMP cache, and R/src (worktree remove rc 0). R holds the six raw evidence files plus my evidence-hashes.txt; v8, v9 and v10 historical raws are untouched in their own roots. Candidate custody re-verified after the run: clone u3-a3-replacement-1018 still at 5f96f32e, frozen base 01da6a4e held.\n\nOWNER ACCOUNTING: preparation began with my card reading and R preparation; paired clocks - card start 05:28:01.12Z, launch 05:28:03.67Z, payload 05:28:03.75Z to 05:53:11.33Z, returned 05:53:11.40Z, collect 05:53:11.41Z, cleanup done 05:53:11.63Z; whole card span 1510.5 s against the priced worst 8440 s (fit proven before launch: no seat deadline, host at zero reservations, PSI 0.00); total owner debit from preparation to this filing about 1636 s. This continuous PASS replaces the split acceptance prospectively as the pre-land result; the v9 failure and the v10 split remain preserved as history. Landing checks remain with the CO-authorized executor; nothing further runs from this seat.\n",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:8e1912dfd3592aa5",
+      "sha256": "d5d87b3b02f2443c2b0107affb46ddf8700e0ec2683a95d4946f2476b2a90c4a",
+      "bytes": 1127
+    },
+    {
+      "path": "unpublished-local-ref:ee52fcf4167b7608",
+      "sha256": "06aa430d3f7e565882b8cf8d3936226080d016af41f128de41deaca27417a84e",
+      "bytes": 152
+    },
+    {
+      "path": "unpublished-local-ref:793c95a1633822bb",
+      "sha256": "4371816d34d6f23507648386304a2e119d96a1ee07c38da157ade84a1c66fcec",
+      "bytes": 515
+    },
+    {
+      "path": "unpublished-local-ref:c2dc06682ab57f9b",
+      "sha256": "a199f4a638204eaa15ba7b2df65b55a9681712ca16dda4984ee238d6069ebc4b",
+      "bytes": 2871
+    },
+    {
+      "path": "unpublished-local-ref:457d015bc9053606",
+      "sha256": "3a317667288d9731637e3a7f9cd51257086eaadc22832cdbf94003e27d71eefb",
+      "bytes": 13481
+    },
+    {
+      "path": "unpublished-local-ref:2f4ae1bd3e70cc9d",
+      "sha256": "384588c4a62f6c4fd838f2b59b3b41210528a9d3e7418663b44f0179d721281f",
+      "bytes": 3673
+    },
+    {
+      "path": "unpublished-local-ref:d505112a749675b4",
+      "sha256": "31b96b9c9a8204ada4becbec900568344fc190e79165f8401dcd7e81911c1a2c",
+      "bytes": 19853
+    }
+  ],
+  "at": "2026-10-18T22:55:11-07:00",
+  "from_seat": "ref-741b462e28e96fb5cf31",
+  "ingested": "2026-10-18T22:56:29-07:00"
+}

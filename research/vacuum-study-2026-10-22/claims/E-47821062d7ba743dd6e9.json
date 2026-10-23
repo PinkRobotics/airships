@@ -1,0 +1,36 @@
+{
+  "id": "E-47821062d7ba743dd6e9",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-47821062d7ba743dd6e9",
+    "report": "rpt-ref-3fb9907ba4e1c52825f0",
+    "file": "evidence/bfc76c0341f3dd34-NFI.json",
+    "snapshot": "evidence/bfc76c0341f3dd34-NFI.json",
+    "source_sha256": "bfc76c0341f3dd349a4ffd0b0ea9881cf8bdee9b963e0e8d83495e650a338cca",
+    "source_json_pointer": "/resolved_locally/0",
+    "row_id": "/resolved_locally/0",
+    "fields": {
+      "finding": "Owner/checker thermal numerical discrepancy",
+      "disposition": "Different convection/core-gap equations reproduce all 118499 comparisons; no remaining numerical mismatch.",
+      "evidence": "THERMAL-REPRODUCTION-SUMMARY.json"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Owner/checker thermal numerical discrepancy",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-3fb9907ba4e1c52825f0",
+      "artifact": "evidence/bfc76c0341f3dd34-NFI.json",
+      "snapshot": "evidence/bfc76c0341f3dd34-NFI.json",
+      "sha256": "bfc76c0341f3dd349a4ffd0b0ea9881cf8bdee9b963e0e8d83495e650a338cca",
+      "bytes": 7836,
+      "selector": "/resolved_locally/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

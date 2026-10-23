@@ -1,0 +1,70 @@
+{
+  "id": "N148",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N148",
+    "report": "rpt-ref-f21d4bd21d2026511818",
+    "card": "MAINLINE-011",
+    "file": "evidence/0f1373271ca0676e-NFI.json",
+    "row_id": "NFI-011-GLOBAL",
+    "fields": {
+      "NFI_id": "NFI-011-GLOBAL",
+      "gap": "No global frame mode: the model checks member Euler, member yield, tube local buckling and film only. Snap-through or general-instability of the whole stiffened sphere between nodes is unmodelled, and MAINLINE-004's spherical knockdown therefore neither applies to nor rescales any P3 number.",
+      "direction": "Add an equivalent-stiffened-shell general-instability check (ribbed-sphere analogy) before any P3 number is read as a whole-vehicle figure.",
+      "effect": "Could only lower the P3 rows; the aluminum plateau's flatness and the material ranking survive any such factor applied uniformly."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-011-GLOBAL\", \"gap\": \"No global frame mode: the model checks member Euler, member yield, tube local buckling and film only. Snap-through or general-instability of the whole stiffened sphere between nodes is unmodelled, and MAINLINE-004's spherical knockdown therefore neither applies to nor rescales any P3 number.\", \"direction\": \"Add an equivalent-stiffened-shell general-instability check (ribbed-sphere analogy) before any P3 number is read as a whole-vehicle figure.\", \"effect\": \"Could only lower the P3 rows; the aluminum plateau's flatness and the material ranking survive any such factor applied uniformly.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/147"
+    },
+    {
+      "report": "rpt-ref-f21d4bd21d2026511818",
+      "artifact": "evidence/0f1373271ca0676e-NFI.json",
+      "snapshot": "evidence/0f1373271ca0676e-NFI.json",
+      "sha256": "0f1373271ca0676e10b2226955ec043374b1eb803a154ba6b2fe8820f46a0811",
+      "bytes": 3866,
+      "selector": "source row ID: NFI-011-GLOBAL"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f21d4bd21d2026511818",
+          "artifact": "evidence/0f1373271ca0676e-NFI.json",
+          "snapshot": "evidence/0f1373271ca0676e-NFI.json",
+          "sha256": "0f1373271ca0676e10b2226955ec043374b1eb803a154ba6b2fe8820f46a0811",
+          "bytes": 3866,
+          "selector": "source row ID: NFI-011-GLOBAL"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/147"
+          }
+        ]
+      }
+    }
+  ]
+}

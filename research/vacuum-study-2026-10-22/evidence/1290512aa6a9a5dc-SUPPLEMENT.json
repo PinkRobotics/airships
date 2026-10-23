@@ -1,0 +1,136 @@
+{
+  "miniature": {
+    "scale": 0.05,
+    "face_um": 39.73120335,
+    "core_mm": 1.1618608953,
+    "stiffness_factor": 0.2513369898331983,
+    "G_MPa": 11.783771297128897,
+    "p_design_kPa": 23.992839648234472,
+    "p_gamma1_kPa": 42.528162165804645,
+    "fabrication_radius_min_m": 0.43034411608361833,
+    "full_vacuum_sea_level_overload": 0.06143002946809606
+  },
+  "rig_and_cost_scope": {
+    "B_article_diameter_m": 5,
+    "B_mould_diameter_m": 5.4,
+    "B_tank_diameter_m": 5,
+    "D_article_required_diameter_m": 6,
+    "D_fits_B_mould": false,
+    "D_fits_B_tank": false,
+    "area5_m2": 19.95172932191687,
+    "area6_m2": 28.94085328940056,
+    "area_multiplier": 1.4505436006296049,
+    "D_face_mass_kg": 497.7882616480865,
+    "D_face_mass_over_B": 1.50003104187463,
+    "gamma_5m_water_if_head_from_pole": 0.8560837535484669,
+    "gamma_5m_water_if_head_from_base": 0.8382349795601837
+  },
+  "owner_path_tau088_crossing_kPa": {
+    "S1-be-sphere-d16": 10.126660706586025,
+    "S2-be-sphere-d9": 16.75052264584573
+  },
+  "refinement": [
+    {
+      "label": "refined-S1",
+      "coarse_label": "S1-be-sphere-d16",
+      "coarse_peak_kPa": 79.40526946308114,
+      "refined_sample_peak_kPa": 79.4052075176305,
+      "refined_peak_search_kPa": 79.40791999747277,
+      "peak_mesh_change_relative": -7.801176301613921e-07,
+      "coarse_crossings": {
+        "face_yield_outer": 58.643637108781306,
+        "face_yield_inner": 73.06898630350199,
+        "core_W_shear_typ": 24.94125597763878,
+        "core_W_shear_min": 18.675681938495156,
+        "core_crush_typ": 69.24393881249294
+      },
+      "refined_crossings": {
+        "face_yield_outer": 58.51385428603266,
+        "face_yield_inner": 72.96573383038745,
+        "core_W_shear_typ": 24.93251073338393,
+        "core_W_shear_min": 18.67921745728347,
+        "core_crush_typ": 68.97549255694604
+      }
+    },
+    {
+      "label": "refined-C3",
+      "coarse_label": "C3-be-cap2500-d16",
+      "coarse_peak_kPa": 80.5057437956058,
+      "refined_sample_peak_kPa": 80.5040772562533,
+      "refined_peak_search_kPa": 80.50771090700442,
+      "peak_mesh_change_relative": -2.070087516647945e-05,
+      "coarse_crossings": {
+        "face_yield_outer": 58.961053447307165,
+        "face_yield_inner": 58.24597113287168,
+        "core_W_shear_typ": 24.81527710768819,
+        "core_W_shear_min": 18.564803816095623,
+        "core_crush_typ": 59.31869236052461
+      },
+      "refined_crossings": {
+        "face_yield_outer": 58.819963369676,
+        "face_yield_inner": 52.67443366742097,
+        "core_W_shear_typ": 24.81390617647276,
+        "core_W_shear_min": 18.56517632170012,
+        "core_crush_typ": 53.78526958676858
+      }
+    }
+  ],
+  "caps": [
+    {
+      "diameter_m": 3,
+      "material": "Be",
+      "limit_kPa": 71.45564521760198,
+      "limit_ratio": 0.8998854320471102,
+      "core_shear_onset_ratio": 0.9720026322356267
+    },
+    {
+      "diameter_m": 3,
+      "material": "5052-O",
+      "limit_kPa": 77.72209956812058,
+      "limit_ratio": 0.9230459367789821,
+      "core_shear_onset_ratio": 0.9804433450610746
+    },
+    {
+      "diameter_m": 4,
+      "material": "Be",
+      "limit_kPa": 76.52608676792623,
+      "limit_ratio": 0.9637406595982454,
+      "core_shear_onset_ratio": 0.9775115018386973
+    },
+    {
+      "diameter_m": 4,
+      "material": "5052-O",
+      "limit_kPa": 81.11353479432586,
+      "limit_ratio": 0.9633234192812936,
+      "core_shear_onset_ratio": 0.9825575380552637
+    },
+    {
+      "diameter_m": 5,
+      "material": "Be",
+      "limit_kPa": 80.5057437956058,
+      "limit_ratio": 1.0138589584792772,
+      "core_shear_onset_ratio": 0.9949489765044898
+    },
+    {
+      "diameter_m": 5,
+      "material": "5052-O",
+      "limit_kPa": 85.29542605438887,
+      "limit_ratio": 1.0129885435780128,
+      "core_shear_onset_ratio": 0.994827949148761
+    },
+    {
+      "diameter_m": 6,
+      "material": "Be",
+      "limit_kPa": 80.07089046547975,
+      "limit_ratio": 1.0083825797317907,
+      "core_shear_onset_ratio": 1.001014715073587
+    },
+    {
+      "diameter_m": 6,
+      "material": "5052-O",
+      "limit_kPa": 85.0176243298536,
+      "limit_ratio": 1.0096893049510671,
+      "core_shear_onset_ratio": 0.999661175554984
+    }
+  ]
+}

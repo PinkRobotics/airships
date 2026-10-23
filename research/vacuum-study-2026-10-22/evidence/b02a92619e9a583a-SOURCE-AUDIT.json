@@ -1,0 +1,208 @@
+[
+  {
+    "id": "SA_catalog_compression",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#SA_catalog_compression",
+    "source_url": "https://www.ceramicsrefractories.saint-gobain.com/sites/hps-mac3-cma-pcr/files/assetbank_media/hexoloy-sa-sic-en-1013-tds-215398.pdf",
+    "retained_source": "sources/hexoloy.pdf",
+    "location": "p.4",
+    "finding": "Confirmed typical 3900 MPa compression. No matched compression m, characteristic scale, reference size or sample count is supplied.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "SA_catalog_4pt_m10",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#SA_catalog_4pt_m10",
+    "source_url": "https://www.ceramicsrefractories.saint-gobain.com/sites/hps-mac3-cma-pcr/files/assetbank_media/hexoloy-sa-sic-en-1013-tds-215398.pdf",
+    "retained_source": "sources/hexoloy.pdf",
+    "location": "p.4",
+    "finding": "Confirmed 380 MPa four-point value, m=10, 3×4×45 mm bars. Treating the typical value as a mean and choosing 40/20 mm spans are explicit hypotheses.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "SA_catalog_4pt_m8",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#SA_catalog_4pt_m8",
+    "source_url": "https://www.ceramicsrefractories.saint-gobain.com/materials/silicon-carbide-sic/hexoloy-silicon-carbide-material/hexoloy-sa-sic-material",
+    "retained_source": "sources/hexoloy-page.html",
+    "location": "property table",
+    "finding": "Confirmed current-page m=8, distinct from the linked old sheet's m=10. These are separate sensitivity cases, not one fitted population.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "SA_NIST_tension",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#SA_NIST_tension",
+    "source_url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00297",
+    "retained_source": "sources/nist.html",
+    "location": "material 9, 20 C",
+    "finding": "Confirmed 234±50 MPa and m=5 for the specified SA direct-tension entry. Overall length is 165 mm; usable gauge volume remains unestablished.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "SA_NIST_flexure",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#SA_NIST_flexure",
+    "source_url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00297",
+    "retained_source": "sources/nist.html",
+    "location": "material 9, 20 C",
+    "finding": "Confirmed 395±19 MPa, m=9 and 3×4×50 mm bars for the specified SA bend entry. Gross volume is not a stress-weighted reference volume.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CVD_PremaTech_flexure",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CVD_PremaTech_flexure",
+    "source_url": "https://www.prematechac.com/wp-content/uploads/2019/05/18437-CVD-Silicon-Carbide-Data-Sheet.pdf",
+    "retained_source": "sources/cvd.pdf",
+    "location": "one-page table",
+    "finding": "Confirmed mean 415 MPa, m=11 and reported fitted scale 424 MPa; 0.5 micrometre RMS finish. The separately mean-implied 434.519 MPa is not substituted for the reported fit. Test dimensions remain missing.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CVD_NIST_flexure",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CVD_NIST_flexure",
+    "source_url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00297",
+    "retained_source": "sources/nist.html",
+    "location": "material 13, 20 C",
+    "finding": "Confirmed Morton CVD mean 454±71 MPa, m=8 and 3×4×50 mm bars. This is a different population from the commercial manufacturer table.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CVD_Hong_A",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CVD_Hong_A",
+    "source_url": "https://doi.org/10.1557/jmr.2009.0158",
+    "retained_source": null,
+    "location": "Tables II and IV, author full text viewed in browser",
+    "finding": "Confirmed n=21, mean 263 MPa, m=5; ID/OD/length 1.022/1.222/5.83 mm, loaded length 3 mm; effective area 9.64 mm², volume .65 mm³, surface-normalized scale 448 MPa. Coupon mean-implied scale and surface-normalized scale are different quantities.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CVD_Hong_B",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CVD_Hong_B",
+    "source_url": "https://doi.org/10.1557/jmr.2009.0158",
+    "retained_source": null,
+    "location": "Tables II and IV, author full text viewed in browser",
+    "finding": "Confirmed n=17, mean 239 MPa, m=9.7; ID/OD/length .894/1.084/5.27 mm, loaded length 3 mm; effective area 8.42 mm², volume .35 mm³, surface-normalized scale 312 MPa. Both Hong populations measure hoop tension under internal pressure.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CVD_compression",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CVD_compression",
+    "source_url": "https://www.prematechac.com/wp-content/uploads/2019/05/18437-CVD-Silicon-Carbide-Data-Sheet.pdf",
+    "retained_source": "sources/cvd.pdf",
+    "location": "table scope",
+    "finding": "No compression distribution or specimen/reference geometry appears in the retrieved manufacturer table. This is a scoped evidence gap, not a claim that no CVD compression research exists.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "RBSC_3pt",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#RBSC_3pt",
+    "source_url": "https://doi.org/10.4150/KPMI.2017.24.6.450",
+    "retained_source": "sources/rbsc.html",
+    "location": "Tables 2–3",
+    "finding": "Confirmed n=25, mean 280.7±33.8 MPa, m=8.6, 3×4×40 mm bars and 30 mm span. Paper geometric volume/area 360 mm³/120 mm² differ from the assumed tensile stress integrals 1.953125 mm³/13.4765625 mm².",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "RBSC_Cring100",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#RBSC_Cring100",
+    "source_url": "https://doi.org/10.4150/KPMI.2017.24.6.450",
+    "retained_source": "sources/rbsc.html",
+    "location": "Tables 2–3",
+    "finding": "Confirmed n=25, 119.3±16.3 MPa, m=9; outer/inner radii 49.2/44.9 mm, width 10 mm. The diametral compression fixture produces hoop-tension failure; it is not an axial crushing fit.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "RBSC_Cring200",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#RBSC_Cring200",
+    "source_url": "https://doi.org/10.4150/KPMI.2017.24.6.450",
+    "retained_source": "sources/rbsc.html",
+    "location": "Tables 2–3",
+    "finding": "Confirmed n=25, 108.3±17.7 MPa, m=7.3; outer/inner radii 101.4/94.9 mm, width 12 mm. No transfer to the selected thin, large-diameter tube is qualified.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "RBSC_CarSIK_compression",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#RBSC_CarSIK_compression",
+    "source_url": "https://www.schunk-group.com/technical-ceramics/en/materials/silicon-carbide",
+    "retained_source": "sources/schunk.html",
+    "location": "grade-specific entries",
+    "finding": "Confirmed typical 1000 MPa for CarSIK-G/Z. The page's 3800 MPa value belongs to a different SSiC grade and is not an RBSC fit. No matched reference size or m is supplied.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CMC_mini_A",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CMC_mini_A",
+    "source_url": "https://doi.org/10.13801/j.cnki.fhclxb.20230217.004",
+    "retained_source": "sources/cmc-cn.pdf",
+    "location": "section 1.2, equations 5–6, Tables 2–3",
+    "finding": "Confirmed tensile m=20.59, scale 374.79 MPa, mean 365.08 MPa, n=60 and 50 mm gauge. Text and equations resolve the table's erroneous scale-unit header; gauge area is absent.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CMC_mini_B",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CMC_mini_B",
+    "source_url": "https://doi.org/10.13801/j.cnki.fhclxb.20230217.004",
+    "retained_source": "sources/cmc-cn.pdf",
+    "location": "Tables 2–3 and appendix",
+    "finding": "Confirmed tensile m=5.01, scale 400.74 MPa and mean 367.78 MPa. Appendix labels extend to 64 with omissions; exact fitted cohort remains unresolved. Neither furnace population supplies monolithic tube compression parameters.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "CMC_2p5D_compression",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "owner_record": "intake/owner/SOURCE-DATA.json#CMC_2p5D_compression",
+    "source_url": "https://doi.org/10.1016/j.jmrt.2024.12.069",
+    "retained_source": null,
+    "location": "sections 2.1–3.2 and Table 1, author full text viewed in browser",
+    "finding": "Confirmed three compression coupons, 14.1×10.2×3.2 mm and average strength 460 MPa for the named woven architecture. A Weibull fit is not established; it cannot be combined with the mini-composite tensile distributions.",
+    "disposition": "source values confirmed; transfer remains conditional"
+  },
+  {
+    "id": "SA_property_version",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "source_url": "https://www.ceramicsrefractories.saint-gobain.com/materials/silicon-carbide-sic/hexoloy-silicon-carbide-material/hexoloy-sa-sic-material",
+    "retained_source": "sources/hexoloy-page.html",
+    "location": "web table versus linked sheet p.4",
+    "finding": "Old sheet: density 3.10 g/cm³, E=430 GPa, m=10. Current page: density 3.15, E numerical value 410 with a mislabeled metric unit and 59×10^6 psi companion, m=8. Model E410/rho3100 mixes versions; retain as inherited assumptions until a matched material deck is established.",
+    "disposition": "qualification limitation"
+  },
+  {
+    "id": "compression_failure_model",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "source_url": "https://store.astm.org/c1424-26.html",
+    "retained_source": "sources/compression-standard.html",
+    "location": "public scope/significance, sections 4.2 and 4.4",
+    "finding": "The official scope distinguishes compression failure from tensile weakest-link assumptions and calls for appropriate component-scale evaluation. It does not supply a compression distribution for this design. Current direct retrieval timed out; retained official HTML supports the cited scope.",
+    "disposition": "qualification limitation"
+  },
+  {
+    "id": "compatible_size_transfer",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "source_url": "https://store.astm.org/c1683-10r24.html",
+    "retained_source": "sources/size-standard.html",
+    "location": "public scope/significance",
+    "finding": "Size transfer presupposes compatible flaw populations and the relevant brittle-material and stress assumptions. The monolithic model is not a demonstrated transfer law for the continuous-fiber composite populations.",
+    "disposition": "qualification limitation"
+  },
+  {
+    "id": "proof_and_life",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "source_url": "https://ntrs.nasa.gov/api/citations/20030014949/downloads/20030014949.pdf",
+    "retained_source": "sources/cares.pdf",
+    "location": "CARES/Life proof-loading and time-dependent reliability framework",
+    "finding": "Proof conditioning, multiple flaw populations and subcritical crack growth require stress and material information beyond instantaneous scalar truncation. The original proof outline is appropriately conditional; no lifetime Pf is established.",
+    "disposition": "qualification limitation"
+  }
+]

@@ -1,0 +1,820 @@
+[
+  {
+    "id": "LITB-01",
+    "kind": "test_series",
+    "citation": {
+      "title": "Design and Testing of Honeycomb Sandwich Cylinders Under Axial Compression",
+      "authors": "John H. Cunningham and Marcus J. Jacobson (Douglas Aircraft Co.)",
+      "year": 1962,
+      "report_no": "NASA TN D-1510 (Collected Papers on Instability of Shell Structures, NASA symposium 24-25 Oct 1962); paper pp. 341-359 as printed",
+      "ntrs_id": "19630000960",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19630000960/downloads/19630000960.pdf",
+      "also_fetched": "https://ntrs.nasa.gov/citations/19630000960 (NTRS record page, for metadata)"
+    },
+    "access": "full text (OCR PDF, tables checked against page image)",
+    "shell": {
+      "type": "circular cylinder",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R": "outside diameter 36 in (mean radius not stated)",
+      "L": "30 in",
+      "note": "8 cylinders tested; first 3 failed at low stress from unscalloped end doublers (paper: stress below ~30,000 psi); 5 satisfactory cylinders reported in Table I"
+    },
+    "faces": {
+      "material": "7075-T6 aluminium",
+      "t_f": "0.010 in each face",
+      "E_f": "10.6e6 psi (as legend of Fig. 4, OCR-read)",
+      "poisson": null,
+      "note": "stress-strain curve from tension coupons (compression coupons not feasible); Fig. 11"
+    },
+    "core": {
+      "type": "Hexcel aluminium honeycomb, 3/16-5052-.001P, ribbon direction parallel to load",
+      "density": null,
+      "t_c": "0.125 in (spec 1), 0.188 in (specs 2,3), 0.400 in (specs 4,5)",
+      "G_c": "20,000 and 40,000 psi were the values used in the predictions (axial shear modulus; 40,000 on Fig. 4 legend)",
+      "G_c_direction": "plane normal to faces and parallel to load",
+      "missing": "core density; measured G_c not given"
+    },
+    "measured": [
+      {
+        "spec": 1,
+        "t_c_in": 0.125,
+        "load_lb": 137600,
+        "face_stress_psi": 61000,
+        "failure": "wrinkle about 6 in from end"
+      },
+      {
+        "spec": 2,
+        "t_c_in": 0.188,
+        "load_lb": 156000,
+        "face_stress_psi": 69000,
+        "failure": "wrinkle at center"
+      },
+      {
+        "spec": 3,
+        "t_c_in": 0.188,
+        "load_lb": 141400,
+        "face_stress_psi": 62500,
+        "failure": "wrinkle at center"
+      },
+      {
+        "spec": 4,
+        "t_c_in": 0.4,
+        "load_lb": 168500,
+        "face_stress_psi": 74000,
+        "failure": "wrinkle at center"
+      },
+      {
+        "spec": 5,
+        "t_c_in": 0.4,
+        "load_lb": 178000,
+        "face_stress_psi": 78800,
+        "failure": "wrinkle at edge of doubler"
+      }
+    ],
+    "predicted_psi": [
+      {
+        "spec": 1,
+        "wrinkling": 74800,
+        "monocell": 70000,
+        "general_instability_small_deflection": 57000,
+        "general_instability_large_deflection": 31000
+      },
+      {
+        "spec": 2,
+        "wrinkling": 74800,
+        "monocell": 70000,
+        "general_instability_small_deflection": 64800,
+        "general_instability_large_deflection": 45400
+      },
+      {
+        "spec": 3,
+        "wrinkling": 74800,
+        "monocell": 70000,
+        "general_instability_small_deflection": 64800,
+        "general_instability_large_deflection": 45400
+      },
+      {
+        "spec": 4,
+        "wrinkling": 74800,
+        "monocell": 70000,
+        "general_instability_small_deflection": 69000,
+        "general_instability_large_deflection": 64000
+      },
+      {
+        "spec": 5,
+        "wrinkling": 74800,
+        "monocell": 70000,
+        "general_instability_small_deflection": 69000,
+        "general_instability_large_deflection": 64000
+      }
+    ],
+    "prediction_basis": "Small-deflection classical sandwich-cylinder buckling WITH core shear (rigid-core region, Eq. 1-2) with a tangent-modulus plasticity reduction (stress at intersection of K*Et curve and tension stress-strain curve, Fig. 7-10); large-deflection (postbuckling) theory; symmetric-wrinkling and monocell criteria. No imperfections assumed. Predictions are in the inelastic range, so they are plasticity-reduced values, not elastic classical stresses.",
+    "ratios_as_stated": null,
+    "ratios_note": "No measured/predicted ratio is stated. The paper says the 0.010 in faces were stabilised well into the inelastic range and failures occurred at stresses much higher than predicted by large-deflection theory; it says small-deflection general-instability and wrinkling predictions are in close agreement with each other and that exact agreement with test is not expected. Raw numbers above are as printed; no ratios computed here.",
+    "recommended_knockdown": null,
+    "locations": [
+      {
+        "item": "Table I (loads, face stress, failure type)",
+        "location": "printed p. 353, Table I",
+        "quote": "Wrinkle About 6\" from End"
+      },
+      {
+        "item": "Table II (predicted vs actual failing stress)",
+        "location": "printed p. 353, Table II",
+        "quote": "Predicted Buckling Stresses (psi) ... Actual Failing Stress (Psi)"
+      },
+      {
+        "item": "specimen description",
+        "location": "section 'Comparison Between Test and Theory', ~pp. 349-350",
+        "quote": "eight 7075-T6 aluminum sandwich cylinders with faces 0.010 inches thick"
+      },
+      {
+        "item": "summary of outcome",
+        "location": "same section, last paragraph",
+        "quote": "failures occurred at stresses much higher than predicted by the large deflection theory"
+      }
+    ],
+    "missing_inputs": [
+      "E_f measured; core density; measured G_c; mean R; Poisson ratio",
+      "stress-strain data are tension, not compression (paper says so)"
+    ],
+    "caveat": "Tests are in the plastic range with plasticity-reduced predictions. NASA CR-1457 Sec. 4.2.1.2.1 explicitly warns that comparing inelastic test stress against an inelastic prediction hides the true knockdown (compare to the elastic classical value). Failure was local face wrinkling at/near stress levels of the wrinkling prediction, not clean general instability. Thin faces: R/t_f is large, but the stated imperfection discussion says imperfection sensitivity is tied to total sandwich thickness."
+  },
+  {
+    "id": "LITB-02",
+    "kind": "test_series",
+    "citation": {
+      "title": "Buckling of Layered Orthotropic and Sandwich Cylindrical Shells in Axial Compression",
+      "authors": "Edward W. Kuenzi (U.S. Forest Products Laboratory)",
+      "year": 1962,
+      "report_no": "NASA TN D-1510 symposium paper, pp. 323-330 as printed (NASA Symposium on Instability of Shell Structures, 24-25 Oct 1962)",
+      "ntrs_id": "19630000958",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19630000958/downloads/19630000958.pdf",
+      "also_fetched": "https://ntrs.nasa.gov/citations/19630000958"
+    },
+    "access": "full text (OCR PDF); Fig. 3-4 read from page image",
+    "shell": {
+      "type": "curved sandwich panels treated as representing a complete cylinder (calculation: panels larger than one theoretical buckle); the paper says further experiments on complete sandwich cylinders are needed",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R": null,
+      "L": null,
+      "missing": "panel dimensions and radius are in FPL Report 1830 (ref. 6 of the paper), which was not opened"
+    },
+    "faces": {
+      "material": "aluminium",
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": "end-grain balsa wood and soft cork board (not honeycomb or foam)",
+      "density": null,
+      "t_c": null,
+      "G_c": "range 320 psi to 15,000 psi (core modulus of rigidity)",
+      "G_c_direction": null
+    },
+    "measured": "Experimental facing stresses at buckling were converted to an experimental N (non-dimensional buckling coefficient) via formula (7); plotted vs theoretical N in Fig. 4 (approximately 30-40 symbols, count not stated; not tabulated). Facing stresses at buckling were well below compressive proportional limit (elastic).",
+    "predicted_psi": null,
+    "prediction_basis": "Large-deflection (von Karman-Tsien diamond-mode) theory modified for sandwich with core shear by an approximate 'tilting' method (March and Kuenzi, FPL 1830). N=1 at V=0 is the shear-rigid-core limit. This is NOT the small-deflection classical stress.",
+    "ratios_as_stated": "Qualitative: 'reasonably close agreement between experimental and theoretical values of N'. No numeric ratio. Figure 4: most points lie on the soft-core (low N, <0.4) part; two points near N about 1.0-1.1 lie slightly above the 45 degree line (eye-read, approximate).",
+    "recommended_knockdown": null,
+    "locations": [
+      {
+        "item": "experimental vs theoretical N",
+        "location": "printed p. 327 (text) and Fig. 4 (p. 330)",
+        "quote": "there is reasonably close agreement between experimental and theoretical values of N"
+      },
+      {
+        "item": "core G_c range",
+        "location": "p. 327",
+        "quote": "Core modulus of rigidity values ranged from 15,000 psi. to 320 psl."
+      },
+      {
+        "item": "need for cylinder tests",
+        "location": "p. 328 Concluding remarks",
+        "quote": "Further experimental evaluation of complete sandwich cylindrical shells is necessary."
+      }
+    ],
+    "missing_inputs": [
+      "panel geometry, face thickness and E, core thickness, density, individual test values (all in FPL 1830, unread)"
+    ],
+    "caveat": "These are the data CR-1457 re-plots as 'ref 4-2'. NASA CR-1457 Fig. 4.2-3 shows two stiff-core points from ref 4-2 at R/rho about 1050 and 1300 with gamma_c about 0.42-0.44 (eye-read), consistent with experiment equal to large-deflection theory, i.e. about 0.4 of the small-deflection value."
+  },
+  {
+    "id": "LITB-03",
+    "kind": "unread_source",
+    "citation": {
+      "title": "Buckling of Cylinders of Sandwich Construction in Axial Compression",
+      "authors": "H. W. March and Edward W. Kuenzi (U.S. Forest Products Laboratory)",
+      "year": "1952, revised Dec 1957",
+      "report_no": "FPL Report No. 1830",
+      "ntrs_id": null,
+      "doi": null,
+      "url_fetched": null,
+      "attempted": [
+        "https://apps.dtic.mil/sti/tr/pdf/AD0217226.pdf (DTIC scan; curl returned an HTML block page, WebFetch returned HTTP 403)",
+        "https://www.fpl.fs.usda.gov/documnts/fplrn/fplrn018.pdf (FPL-018, Zahn & Kuenzi 1963; HTTP 502)"
+      ]
+    },
+    "access": "NOT OPENED. Bibliographic details come from NASA CR-1457 ref 4-2 and Kuenzi 1962 ref 6 (both opened). A DTIC identifier AD0217226 appeared only in search results.",
+    "shell": {
+      "type": "curved sandwich panels (per Kuenzi 1962)",
+      "loading": "axial compression"
+    },
+    "geometry": null,
+    "faces": null,
+    "core": null,
+    "measured": null,
+    "predicted_psi": null,
+    "prediction_basis": null,
+    "ratios_as_stated": null,
+    "recommended_knockdown": null,
+    "locations": [
+      {
+        "item": "CR-1457 re-plots FPL 1830 data (weak-core points) in Figs. 4.2-3 and 4.2-4",
+        "location": "CR-1457 pp. 4-10 and 4-12",
+        "quote": "Test Data from Reference 4-2"
+      }
+    ],
+    "missing_inputs": [
+      "everything: individual panel tests and geometry"
+    ],
+    "caveat": "Treat any FPL 1830 number as unread. See LITB-02 and LITB-06 for how it is cited."
+  },
+  {
+    "id": "LITB-04",
+    "kind": "test_series",
+    "citation": {
+      "title": "Structural Behavior and Buckling Strength of Honeycomb Sandwich Cylinders Subjected to Bending",
+      "authors": "James P. Peterson and James Kent Anderson (NASA Langley)",
+      "year": 1965,
+      "report_no": "NASA TN D-2926 (August 1965)",
+      "ntrs_id": "19650020360",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19650020360/downloads/19650020360.pdf",
+      "also_fetched": "https://ntrs.nasa.gov/citations/19650020360"
+    },
+    "access": "full text (OCR PDF with spaced letters; key tables and Figs. 2, 9 checked on page images)",
+    "shell": {
+      "type": "circular cylinders",
+      "loading": "pure bending (the paper argues bending buckling load per unit circumference is little different from compression)"
+    },
+    "geometry": {
+      "R": "diameter about 77 in (1.96 m) => R about 38.5 in (unit arithmetic only); R/h = 157, 117, 92 for cylinders 1, 2, 3",
+      "L": "67.25 in overall (Fig. 2 dimension, printed p. 21)",
+      "note": "scalloped doublers at both ends; six longitudinal splices per face sheet"
+    },
+    "faces": {
+      "material": "7075-T6 aluminium alloy",
+      "t_f": "0.0210, 0.0204, 0.0195 in (cyl 1,2,3)",
+      "E_f": null,
+      "poisson": "0.32 (elastic value assumed)",
+      "note": "h/t_s = 11.6, 16.1, 21.5 (h = depth between face centroids); tension coupon stress-strain curves (Fig. 5), no compression curves"
+    },
+    "core": {
+      "type": "3003-H19 aluminium hexagonal honeycomb, 1/4 in cell, 0.002 in foil, bonded with FM 47 Type II adhesive film (glass carrier)",
+      "density": "relative density beta = 0.025, 0.026, 0.026 (cyl 1,2,3)",
+      "t_c": null,
+      "G_c": "G_xz taken from a plot of G_xz vs relative density (Fig. 3, from MIL-HDBK-23 data); no numeric value stated in text",
+      "G_c_direction": "x-z plane (axial)",
+      "missing": "t_c not tabulated (only h/t_s and R/h); G_c numeric"
+    },
+    "measured": [
+      {
+        "cylinder": 1,
+        "M_cr_in_kips": 11300,
+        "M_cr_MN_m": 1.28
+      },
+      {
+        "cylinder": 2,
+        "M_cr_in_kips": 13030,
+        "M_cr_MN_m": 1.47
+      },
+      {
+        "cylinder": 3,
+        "M_cr_in_kips": 12560,
+        "M_cr_MN_m": 1.42
+      }
+    ],
+    "predicted_psi": null,
+    "prediction_basis": "Plastic-buckling equation derived in the paper for isotropic sandwich cylinders with shear-resistant core (axisymmetric mode, small-deflection with transverse shear and plasticity; wall stiffnesses include core and adhesive contributions). Calculated N_calc uses stiffnesses at the calculated buckling load. Not the large-deflection MIL-HDBK-23 chart (which gives about 40 percent of this prediction for elastic shear-resistant-core cylinders).",
+    "ratios_as_stated": "Fig. 9 plots N_test/N_calc vs R/rho. Eye-read (approximate): cyl 1 about 0.87 at R/rho about 300; cyl 2 about 0.92 at about 235; cyl 3 about 0.89 at about 190. Text: recomputing with stiffnesses at the TEST strain lowers the points by about 20 percent (cyl 3, most plastic) and about 6 percent (cyl 1); on that basis the cylinders buckled lower than the conventional-cylinder curve.",
+    "recommended_knockdown": "None formal. Finding: sandwich bending cylinders fall on the NASA lower-limit curve for conventional thin-wall cylinders in bending (Peterson TN D-526 / ref 18), with early buckling attributed to prebuckling wall bending from end restraint (Poisson expansion).",
+    "locations": [
+      {
+        "item": "abstract",
+        "location": "p. 1",
+        "quote": "Buckling of the test cylinders occurred at lower loads than predicted by theory"
+      },
+      {
+        "item": "geometry table",
+        "location": "printed p. 12 (table before 'Test Specimens and Test Procedure')",
+        "quote": "R/h 157 117 92 ; t_s 0.0210 .0204 .0195"
+      },
+      {
+        "item": "M_cr table",
+        "location": "printed p. 14",
+        "quote": "M_cr in.-kips: 11 300, 13 030, 12 560"
+      },
+      {
+        "item": "Fig. 9 correlation",
+        "location": "printed p. 27, Fig. 9",
+        "quote": "Correlation of buckling load of test cylinders with buckling data on conventional thin-wall cylinders."
+      },
+      {
+        "item": "20 / 6 percent lowering",
+        "location": "Results and Discussion, around printed pp. 15-16",
+        "quote": "lowered approximately 20 percent, the least plastic cylinder (cylinder 1) by approximately 6 percent"
+      }
+    ],
+    "missing_inputs": [
+      "E_f",
+      "t_c",
+      "numeric G_c",
+      "tabulated N_test and N_calc values (only in Fig. 9)"
+    ],
+    "caveat": "Stresses at buckling are at or into the face-sheet inelastic range (plastic buckling equation), so N_test/N_calc is plasticity-adjusted, not an elastic classical knockdown. CR-1457 re-reduces these three cylinders to gamma_b (LITB-07) with different numbers. Elastic region ratios are therefore not directly given here."
+  },
+  {
+    "id": "LITB-05",
+    "kind": "test_series",
+    "citation": {
+      "title": "Test of a Truss-Core Sandwich Cylinder Loaded to Failure in Bending",
+      "authors": "James P. Peterson and James Kent Anderson (NASA Langley)",
+      "year": 1965,
+      "report_no": "NASA TN D-3157 (NTRS record lists date Dec 1, 1965; printed text signed Aug 19, 1965)",
+      "ntrs_id": "19660003732",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19660003732/downloads/19660003732.pdf",
+      "also_fetched": "https://ntrs.nasa.gov/citations/19660003732"
+    },
+    "access": "full text (OCR PDF; Figs. 1 and 12 checked on page images)",
+    "shell": {
+      "type": "circular cylinder, all-welded TRUSS-CORE (corrugated-core) sandwich - not honeycomb or foam",
+      "loading": "pure bending"
+    },
+    "geometry": {
+      "R": "61.76 in (156.87 cm), about 10 ft diameter",
+      "L": "31.25 in dimension labelled on Fig. 1 beside the test region (read as test-section length; not confirmed in text)",
+      "note": "one cylinder; initial wall imperfections about one-half the wall thickness (average wall thickness 0.242 in)"
+    },
+    "faces": {
+      "material": "Rene 41, heat treated",
+      "t_f": "0.011 in each face (Fig. 1)",
+      "E_f": "31,500 ksi (stated as measured/tabulated Young's modulus of wall material); axial wall stiffness E_x = 1050 kips/in",
+      "poisson": null
+    },
+    "core": {
+      "type": "corrugated truss core of Rene 41 sheet, web thickness 0.0070 in; section depth h = 0.242 in",
+      "density": null,
+      "t_c": null,
+      "G_c": "transverse shear stiffness assumed large; a check using the weak (circumferential) direction changed the calculated buckling load by less than 1 percent",
+      "G_c_direction": null
+    },
+    "measured": [
+      {
+        "M_collapse_in_kips": 24100,
+        "M_collapse_MN_m": 2.72,
+        "face_stress_ksi_about": 38
+      }
+    ],
+    "predicted_psi": null,
+    "prediction_basis": "Classical small-deflection buckling theory (eq. A4 of NACA TN 2601, Stein and Mayers) using measured axial wall stiffness and large shear stiffness; simply supported ends (clamped ends would raise it about 4 percent).",
+    "ratios_as_stated": "Failure at about 62 percent of the classical small-deflection load, and about 80 percent of the design load (design used the NASA bending lower-bound correlation).",
+    "recommended_knockdown": "None formal; the paper says the gap is comparable to extrapolating the lower limit of conventional thin-wall cylinder data.",
+    "locations": [
+      {
+        "item": "62 percent result",
+        "location": "Summary, printed p. 1 and Test Results p. 6",
+        "quote": "Failure occurred at 62 percent of the calculated load"
+      },
+      {
+        "item": "geometry",
+        "location": "Fig. 1, printed p. 15",
+        "quote": "61.76 (156.87)"
+      },
+      {
+        "item": "imperfections",
+        "location": "Test Specimen section, printed p. 4",
+        "quote": "imperfections on the order of one-half the wall thickness are prevalent"
+      }
+    ],
+    "missing_inputs": [
+      "core density/G_c (not applicable in the honeycomb sense)",
+      "explicit L statement in text"
+    ],
+    "caveat": "Not honeycomb or foam. Included as a documented sandwich-shell bending test with measured imperfections. The paper also says the earlier honeycomb cylinders of TN D-2926 agreed well with the NASA conventional-cylinder curve, while this one, with measurable buckle-like imperfections, fell near the lower limit of data from various sources (about 0.6 at its abscissa)."
+  },
+  {
+    "id": "LITB-06",
+    "kind": "recommended_knockdown",
+    "citation": {
+      "title": "Manual for Structural Stability Analysis of Sandwich Plates and Shells",
+      "authors": "R. T. Sullins, G. W. Smith, E. E. Spier (General Dynamics Convair, for NASA MSC, contract NAS 9-8244)",
+      "year": 1969,
+      "report_no": "NASA CR-1457 (Dec 1969)",
+      "ntrs_id": "19700004831",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    },
+    "access": "full text (OCR PDF; Figs. 4.2-3, 4.2-4, 4.2-5, 4.3-1 viewed as images; numbers read from plots are approximate eye-reads)",
+    "shell": {
+      "type": "circular sandwich cylinder, simply supported",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R": "design variable; knockdown is a function of R/rho where rho = h/2 for equal faces (h = distance between facing middle surfaces)",
+      "L": "not stated for the data set"
+    },
+    "faces": {
+      "material": "not tabulated for the underlying data",
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": "mixed (stiff-core data from honeycomb and plastic-faced cylinders; weak-core points from FPL panels)",
+      "G_c": "G_xz and G_yz enter through V_c = sigma_o / sigma_crimp, sigma_crimp = (t1+t2) t_c G_xz / ... (Eq. 4.2-7, OCR garbled)",
+      "density": null,
+      "t_c": null,
+      "G_c_direction": "G_xz axial, G_yz circumferential"
+    },
+    "measured": "Figure 4.2-3 plots 11 axial-compression sandwich cylinder points (non weak-core) plus 2 cone points as gamma_c vs R/rho: FPL 1830 (ref 4-2), Baker AIAA J. Sept 1968 (ref 4-10), Jenkinson and Kuenzi FPL PE-227 (ref 4-28). Eye-read gamma_c: ref 4-2: about 0.42 and 0.44 at R/rho about 1050 and 1300; ref 4-10 cylinders: about 0.54 (R/rho 180), 0.69, 0.58, 0.57 (about 270), 0.49 (about 410); ref 4-28: about 0.76, 0.63, 0.61 (R/rho about 105); ref 4-10 cones: about 0.57 and 0.51-0.52 (R/rho about 195). Numbers not tabulated.",
+    "predicted_psi": null,
+    "prediction_basis": "Classical small-deflection sandwich theory of Zahn and Kuenzi (FPL-018, 1963) with core shear, facing bending about own middle surface neglected; test points converted to elastic-equivalent (plasticity-corrected) stress before dividing (Sec. 4.2.1.2.1, Eqs. 4.2-12 to 4.2-15).",
+    "ratios_as_stated": "gamma_c (test/classical) per Fig. 4.2-3 as above. Weak-core (V_c >= 2) panels from ref 4-2: Fig. 4.2-4 (about 40 points, test sigma_cr 3-17 ksi vs predicted 1-13 ksi) - 'all but one of the test results exceed the predicted strengths', the exception at 86 percent. One weak-core Hexcel (ref 4-11) test point (Fig. 4.2-5, test about 140 ksi vs predicted about 165 ksi, eye-read) appears to be that 86 percent point (inference from position; text does not say).",
+    "recommended_knockdown": "Design gamma_c is the solid curve of Fig. 4.2-3, stated to be 75 percent of a curve derived from the Seide-Weingarten-Morgan isotropic lower bound (gamma = 1 - 0.901(1 - e^-phi)) rewritten in terms of R/rho. Eye-read values of the solid curve: about 0.68 at R/rho = 10, about 0.55 at 100, about 0.31 at 1000. All plotted test points lie on or above it (eye). Weak-core (V_c > 2, shear crimping): gamma = 1, no knockdown. Stiff or moderately stiff core (V_c < 2): curve above, stated to be only a 'best-available' approach. Transition for 0 < V_c < 2 not defined by a continuous relation.",
+    "locations": [
+      {
+        "item": "recommended curve basis, test-point count",
+        "location": "printed pp. 4-9 and 4-10, Fig. 4.2-3 (PDF p. 188)",
+        "quote": "Eleven such data points are shown."
+      },
+      {
+        "item": "75 percent rule",
+        "location": "printed p. 4-11 (top)",
+        "quote": "gives gamma_c values that are 75 percent of those obtained from the dashed curve"
+      },
+      {
+        "item": "weak-core comparison",
+        "location": "printed p. 4-11, Figs. 4.2-4, 4.2-5",
+        "quote": "all but one of the test results exceed the predicted strengths"
+      },
+      {
+        "item": "reliability statement",
+        "location": "printed pp. 4-11 and 4-12",
+        "quote": "the method proposed here is not very reliable when V_c < 2.0"
+      },
+      {
+        "item": "lack of data",
+        "location": "printed p. 4-8",
+        "quote": "lack of sufficient sandwich test data for a thorough empirical determination"
+      },
+      {
+        "item": "inelastic-data trap",
+        "location": "Sec. 4.2.1.2.1, printed pp. 4-13 to 4-16",
+        "quote": "some of the results presented in the literature can be quite misleading"
+      }
+    ],
+    "missing_inputs": [
+      "per-point geometry, face and core properties for refs 4-10, 4-28 (CR-1457 does not tabulate them); Baker AIAA 1968 and Hexcel 25 Jul 1963 status summary not opened"
+    ],
+    "caveat": "The 'recommended' curve is a design curve built mostly from isotropic-cylinder data plus a handful of sandwich points, scaled to 75 percent; it is not itself a measurement. Axis is R/rho, not R/t_f."
+  },
+  {
+    "id": "LITB-07",
+    "kind": "recommended_knockdown",
+    "citation": {
+      "title": "Manual for Structural Stability Analysis of Sandwich Plates and Shells",
+      "authors": "Sullins, Smith, Spier",
+      "year": 1969,
+      "report_no": "NASA CR-1457",
+      "ntrs_id": "19700004831",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    },
+    "access": "full text; Fig. 4.3-1 viewed as image (eye-read)",
+    "shell": {
+      "type": "circular sandwich cylinder",
+      "loading": "pure bending"
+    },
+    "geometry": {
+      "R": "function of R/rho",
+      "L": null
+    },
+    "faces": {
+      "material": "per ref 4-20 = TN D-2926 (7075-T6, see LITB-04)",
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": "honeycomb (ref 4-20)",
+      "G_c": null,
+      "density": null,
+      "t_c": null,
+      "G_c_direction": null
+    },
+    "measured": "Fig. 4.3-1 plots the three TN D-2926 bending cylinders as gamma_b (eye-read): about 0.62 (R/rho about 170), about 0.75 (about 230), about 0.80 (about 290); the axial points of Fig. 4.2-3 are overlaid.",
+    "predicted_psi": null,
+    "prediction_basis": "Same classical small-deflection basis as axial, with test stress converted to elastic-equivalent value.",
+    "ratios_as_stated": "gamma_b values above are plot readings, not stated numbers.",
+    "recommended_knockdown": "Design gamma_b = 75 percent of the curve obtained from the Seide-Weingarten-Morgan bending lower bound gamma_b = 1 - 0.731(1 - e^-phi) rewritten in R/rho; same 'only three bending data points' limitation. Eye-read solid curve: about 0.69 at R/rho = 10, about 0.60 at 100, about 0.42 at 1000.",
+    "locations": [
+      {
+        "item": "recommendation",
+        "location": "printed p. 4-27 (PDF p. 205)",
+        "quote": "it is recommended here that the solid curve shown in Figure 4.3-1 be used"
+      },
+      {
+        "item": "data scarcity",
+        "location": "printed p. 4-26",
+        "quote": "Since only three such data points are available"
+      }
+    ],
+    "missing_inputs": [
+      "tabulated gamma_b values"
+    ],
+    "caveat": "CR-1457's re-reduction of TN D-2926 (gamma_b about 0.62-0.80) differs from the 0.87-0.92 N_test/N_calc plotted in TN D-2926 itself (LITB-04) because of different elastic-equivalent treatment; both are eye-read."
+  },
+  {
+    "id": "LITB-08",
+    "kind": "test_series",
+    "citation": {
+      "title": "Manual for Structural Stability Analysis of Sandwich Plates and Shells (Sec. 4.4.1.2, 'Empirical Knock-Down Factor', external lateral pressure)",
+      "authors": "Sullins, Smith, Spier",
+      "year": 1969,
+      "report_no": "NASA CR-1457; underlying tests: (a) M. I. Kazimi, 'Sandwich Cylinders Part II - Uniformity of the Mechanical Properties of the Core', Aerospace Engineering, Sept 1960 (CR-1457 ref 4-27); (b) P. M. Jenkinson and E. W. Kuenzi, 'The Buckling Under External Radial Pressure and Buckling Under Axial Compression of Sandwich Cylindrical Shells', FPL Report PE-227, Jan 1962 (ref 4-28). Neither primary source opened.",
+      "ntrs_id": "19700004831",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    },
+    "access": "full text of CR-1457 secondary summary only; primary reports not opened",
+    "shell": {
+      "type": "circular sandwich cylinders",
+      "loading": "external uniform lateral pressure"
+    },
+    "geometry": {
+      "R": null,
+      "L": null,
+      "note": "not given in CR-1457; for ref 4-28, facings were thick, t_f/h about 0.25"
+    },
+    "faces": {
+      "material": "(a) not stated; (b) glass-reinforced plastic, three layers of glass fabric per facing, in-plane essentially isotropic",
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": "(a) honeycomb, one cylinder normal-expanded and one over-expanded core; (b) not stated in CR-1457",
+      "G_c": null,
+      "density": null,
+      "t_c": null,
+      "G_c_direction": null
+    },
+    "measured": [
+      {
+        "source": "Kazimi (4-27)",
+        "specimen": "normal-expanded core",
+        "test_Pcr_psi": 17,
+        "theory_Pcr_psi": 30.5,
+        "ratio_as_stated": 0.56
+      },
+      {
+        "source": "Kazimi (4-27)",
+        "specimen": "over-expanded core",
+        "test_Pcr_psi": 27,
+        "theory_Pcr_psi": 30.5,
+        "ratio_as_stated": 0.88
+      },
+      {
+        "source": "Jenkinson and Kuenzi (4-28)",
+        "cylinder": 1,
+        "test_Pcr_psi": 60,
+        "theory_Pcr_psi": 55.2,
+        "ratio_as_stated": 1.09
+      },
+      {
+        "source": "Jenkinson and Kuenzi (4-28)",
+        "cylinder": 2,
+        "test_Pcr_psi": 52.5,
+        "theory_Pcr_psi": 45.2,
+        "ratio_as_stated": 1.16
+      },
+      {
+        "source": "Jenkinson and Kuenzi (4-28)",
+        "cylinder": 3,
+        "test_Pcr_psi": 52.5,
+        "theory_Pcr_psi": 52.6,
+        "ratio_as_stated": 1.0
+      },
+      {
+        "source": "Jenkinson and Kuenzi (4-28)",
+        "cylinder": 4,
+        "test_Pcr_psi": 52.5,
+        "theory_Pcr_psi": 45.2,
+        "ratio_as_stated": 1.16
+      },
+      {
+        "source": "Jenkinson and Kuenzi (4-28)",
+        "cylinder": 5,
+        "test_Pcr_psi": 52.5,
+        "theory_Pcr_psi": 47.6,
+        "ratio_as_stated": 1.1
+      }
+    ],
+    "predicted_psi": null,
+    "prediction_basis": "Theoretical Pcr from MIL-HDBK-23 (CR-1457 ref 4-5) classical small-deflection sandwich theory with gamma_p = 1.0 (no knockdown). For cylinders 2-5 of ref 4-28 the paper reports initial buckling between 50 and 55 psi, so CR-1457 assumed 52.5 psi for each.",
+    "ratios_as_stated": "Kazimi 0.56 and 0.88; Jenkinson-Kuenzi 1.00 to 1.16 (all at or above theory). Total 7 cylinders.",
+    "recommended_knockdown": "Uniform gamma_p = 0.90 regardless of R/t, stated to follow SP-8007 (CR-1457 cites the Sept 1965 edition). CR-1457 calls the method 'best-available' and says more tests with small t_f/h are desirable. Note: the Kazimi normal-expanded result (0.56) is below 0.90; the report nevertheless says the results 'seem to provide added justification'.",
+    "locations": [
+      {
+        "item": "0.90 knockdown",
+        "location": "printed p. 4-38, Sec. 4.4.1.2",
+        "quote": "uniform knock-down factor gamma_p of 0.90 regardless of the radius-to-thickness ratio"
+      },
+      {
+        "item": "Kazimi table",
+        "location": "printed p. 4-38",
+        "quote": "Normal-Expanded 17 30.5 .56 ; Over-Expanded 27 30.5 .88"
+      },
+      {
+        "item": "Jenkinson-Kuenzi table",
+        "location": "printed p. 4-39",
+        "quote": "60 55.2 1.09 ... 52.5 52.6 1.00"
+      },
+      {
+        "item": "initial buckling range",
+        "location": "printed p. 4-39",
+        "quote": "initial buckling occurred at external lateral pressures which ranged from 50 to 55 psi"
+      },
+      {
+        "item": "thick facings, scarce data",
+        "location": "printed pp. 4-40 and 4-41",
+        "quote": "meager test data available from sandwich cylinders subjected to external lateral pressure"
+      }
+    ],
+    "missing_inputs": [
+      "geometry (R, L), face/core properties and G_c for all 7 cylinders (primary reports unread)"
+    ],
+    "caveat": "Only 7 cylinders, thick facings (t_f/h about 0.25) in one series; the one honeycomb series has two cylinders, scatter attributed by Kazimi to core uniformity. External-pressure buckling is less imperfection-sensitive for isotropic shells, which is the stated reason for 0.90."
+  },
+  {
+    "id": "LITB-09",
+    "kind": "test_series",
+    "citation": {
+      "title": "Manual for Structural Stability Analysis of Sandwich Plates and Shells (Chapters 5 and 6: cones, domes)",
+      "authors": "Sullins, Smith, Spier",
+      "year": 1969,
+      "report_no": "NASA CR-1457; underlying: E. H. Baker AIAA J. Sept 1968 (ref 5-2, 4-10); North American Rockwell XSM-64A conical bulkhead tests (refs 5-7, 5-8); Gonzalez and Patton, S-II 55-inch domes (ref 6-4). Primary sources not opened.",
+      "ntrs_id": "19700004831",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    },
+    "access": "CR-1457 text and Fig. 6.2-3 only (secondary)",
+    "shell": {
+      "type": "truncated cones (axial compression and hydrostatic) and sandwich domes (external pressure) - not cylinders",
+      "loading": "axial compression (cones); uniform external pressure (cone bulkhead, domes)"
+    },
+    "geometry": {
+      "R": null,
+      "L": null,
+      "note": "cones: vertex half-angle 15 degrees (two Baker cones); other geometry not given in CR-1457"
+    },
+    "faces": {
+      "material": null,
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": null,
+      "G_c": null,
+      "density": null,
+      "t_c": null,
+      "G_c_direction": null
+    },
+    "measured": "Cones, axial: two Baker cones, converted via equivalent-cylinder concept (R = radius at small end, L = slant length) to gamma_c about 0.5-0.6 (eye-read from Fig. 4.2-3, with the 'ref 4-10 conical' symbols). Cone hydrostatic: one North American Rockwell test specimen analysed, experimental 43.6 psi vs design critical pressure 36.4 psi (the second specimen stressed too far into plasticity and not analysed). Domes: 2 hemisphere and 6 approximately ellipsoidal dome points (some with thermal gradient) in Fig. 6.2-3; 3 specimens discarded as too plastic, 1 for faulty edge.",
+    "predicted_psi": null,
+    "prediction_basis": "Equivalent cylinder (cones); classical small-deflection with plasticity reduction (domes).",
+    "ratios_as_stated": "Cone hydrostatic: 36.4 predicted vs 43.6 test (ratio not stated). Domes: gamma_d values only in Fig. 6.2-3, not tabulated.",
+    "recommended_knockdown": "Domes under external pressure: gamma_d = 0.20 for hemispheres, 0.35 for ellipsoids and torispherical domes (Eqs. 6.2-13, 6.2-14), explicitly 'based on meager test results', rough guideline only. Cones: use equivalent-cylinder gamma_c.",
+    "locations": [
+      {
+        "item": "dome knockdowns",
+        "location": "printed p. 6-10",
+        "quote": "gamma_d = 0.20 for hemispheres ... 0.35 for ellipsoids and torispherical domes"
+      },
+      {
+        "item": "cone hydrostatic test",
+        "location": "printed p. 5-29/5-30 (OCR garbled page number)",
+        "quote": "design critical pressure was computed to be 36.4 psi ... experimental value of 43.6 psi"
+      },
+      {
+        "item": "Baker cones",
+        "location": "printed p. 5-1",
+        "quote": "two axially compressed, truncated sandwich cones having vertex half-angles equal to 15 degrees"
+      }
+    ],
+    "missing_inputs": [
+      "all geometry and material data (CR-1457 does not tabulate)"
+    ],
+    "caveat": "Not cylinders; listed for completeness of the CR-1457 data base."
+  },
+  {
+    "id": "LITB-10",
+    "kind": "recommended_knockdown",
+    "citation": {
+      "title": "Buckling of Thin-Walled Circular Cylinders (NASA Space Vehicle Design Criteria, Structures), Sec. 4.4 Isotropic Sandwich Cylinders",
+      "authors": "V. I. Weingarten, P. Seide, J. P. Peterson",
+      "year": "Sept 1965, revised Aug 1968",
+      "report_no": "NASA SP-8007",
+      "ntrs_id": "19690013955",
+      "doi": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19690013955/downloads/19690013955.pdf",
+      "also_fetched": "https://ntrs.nasa.gov/citations/19690013955"
+    },
+    "access": "full text (OCR PDF, Aug 1968 revision); Fig. 11 viewed as image; plot values eye-read",
+    "shell": {
+      "type": "isotropic sandwich circular cylinder",
+      "loading": "axial compression, bending, lateral pressure"
+    },
+    "geometry": {
+      "R": "abscissa is r/h (radius over sandwich depth between face centroids)",
+      "L": null
+    },
+    "faces": {
+      "material": null,
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": "honeycomb (density ratio delta >= 0.03 recommended)",
+      "G_c": "G_xz, G_yz enter through the parameter N_o/D_q",
+      "density": "delta >= 0.03",
+      "t_c": null,
+      "G_c_direction": null
+    },
+    "measured": null,
+    "predicted_psi": null,
+    "prediction_basis": "Small-deflection sandwich buckling theory (NACA TN 2601; FPL-018 Zahn and Kuenzi) times a correlation factor gamma.",
+    "ratios_as_stated": null,
+    "recommended_knockdown": "Axial: gamma from Fig. 11 vs r/h, same functional form as isotropic cylinder with thickness replaced by geometric-mean radius of gyration; eye-read about 0.86 at r/h = 10, about 0.7 at 100, about 0.31 at 1000; the correction fades and reaches zero for a weak (shear-crimping) core (N_o/D_q > 2). Bending: Fig. 12. Lateral pressure: gamma = 0.56 with Fig. 13, 'no experimental data to substantiate'. Designs limited to delta >= 0.03 unless substantiated by tests.",
+    "locations": [
+      {
+        "item": "axial correlation factor",
+        "location": "Sec. 4.4.1, printed pp. 28-30, Fig. 11 (PDF p. 40)",
+        "quote": "Figures 9 and 10 are based on the small-deflection buckling theory"
+      },
+      {
+        "item": "lateral pressure factor",
+        "location": "Sec. 4.4.3, printed p. 32",
+        "quote": "There are no experimental data to substantiate figure 13"
+      },
+      {
+        "item": "core density limit",
+        "location": "Sec. 4.4.1, printed p. 30",
+        "quote": "designs should be limited to sandwiches with rather heavy cores"
+      }
+    ],
+    "missing_inputs": [
+      "no test series; I did not trace SP-8007's own refs 21, 56, 58, 63 (Kiciman and Konishi ASME 61-AV-36 not located)"
+    ],
+    "caveat": "Design guidance, not a measurement. CR-1457 cites SP-8007 (Sept 1965 edition) for a uniform 0.90 in external pressure, whereas the Aug 1968 revision text read here gives 0.56 with Fig. 13; I did not open the 1965 edition, so the difference is unresolved."
+  },
+  {
+    "id": "LITB-11",
+    "kind": "unread_source",
+    "citation": {
+      "title": "Not located / not opened",
+      "authors": null,
+      "year": null,
+      "report_no": "E. H. Baker, 'Experimental Investigation of Sandwich Cylinders and Cones Subjected to Axial Compression', AIAA J. 6(9), Sept 1968; Hexcel Products 'Status Summary Report for R&D Project 6002', 25 Jul 1963; Jenkinson and Kuenzi FPL PE-227 (1962); Kazimi 1960; Norris and Zahn FPL 1869 (1959), FPL-07 (1963); Kuenzi, Bohannan, Stevens FPL-0104 (1965); Raville FPL 1844 series; Kiciman and Konishi ASME 61-AV-36 (1961); Peterson & Dow NASA Memo 2-12-59L (stringers, not sandwich)",
+      "ntrs_id": null,
+      "doi": null,
+      "url_fetched": null
+    },
+    "access": "NOT OPENED. Web searches did not return an openable copy; DTIC and fpl.fs.usda.gov hosts refused or errored from this environment. Only CR-1457's secondary summaries (LITB-06, 08, 09) exist for these.",
+    "shell": null,
+    "geometry": null,
+    "faces": null,
+    "core": null,
+    "measured": null,
+    "predicted_psi": null,
+    "prediction_basis": null,
+    "ratios_as_stated": null,
+    "recommended_knockdown": null,
+    "locations": [],
+    "missing_inputs": [
+      "all"
+    ],
+    "caveat": "These are the likely sources of the data behind CR-1457's Fig. 4.2-3 and Sec. 4.4. A retrieval attempt through DTIC/FPL/Library channels (not available here) is needed to get per-specimen geometry, E_f, G_c."
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline022d-check-1020",
+  "rows": [
+    {
+      "id": "NFI-022D-CHECK-01",
+      "owner": "MAINLINE-022d",
+      "state": "open precision fix",
+      "kind": "document/output numerical mismatch",
+      "evidence": "SENSITIVITIES.two_way_square_cell[16:32], FIELD-CHECKS.json, MISMATCHES.csv",
+      "note": "Sixteen square-membrane rows imply coefficient 0.07028850698306077; INPUTS/METHOD declare 0.07028850747757764. All 50 strict field mismatches arise from this difference. Maximum least-SF effect is 3.976191154109188e-9 and maximum sag-mass effect is 3.634157224041701e-6 kg. Primary witnesses are unaffected.",
+      "settle": "State the actual coefficient and series truncation consistently, or regenerate square-membrane sensitivity rows with the declared coefficient.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-02",
+      "owner": "MAINLINE-022d / MAINLINE-026",
+      "state": "open applicability check",
+      "kind": "discrete versus continuum evidence",
+      "evidence": "Frozen mainline026b RESULTS/CARD; ARITHMETIC-CHECK.continuum_NFI",
+      "note": "Frequency-4 ideal rigid-frame linear multiplier 5.254643802209333 is 15.1571087172215% below source continuum 6.1933813461115825 even though its nominal half-wave/spacing is 1.05829486. A one-member wavelength screen does not validate continuum capacity. The 022d section, spacing and joints differ, so this is not a universal 15.16% correction.",
+      "settle": "Under a new routed card, solve a matched discrete frame for the 022d candidate with explicit joint stiffness, imperfections and relevant instability modes. Do not reuse the unverified new 026b nonlinear crossing as first loss.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-03",
+      "owner": "MAINLINE-022d / MAINLINE-025",
+      "state": "open qualification",
+      "kind": "compression, tension and reliability",
+      "evidence": "upstream/025/CARD.md; ALLOWABLE-INTERFACE.md; SOURCE-ARITHMETIC.json",
+      "note": "The 3.9 GPa bulk compression input and 15.586 MPa fixed reference tensile screen remain PROJECTION for full arcs. The headline extreme compression is 1.198096384 GPa and opposite-face tensile stress is zero at its target. Contact tension, size-dependent positive-stress exposure and failure statistics are unresolved. Original-continuum versus 1047-member reference counts explain small rounded tensile differences.",
+      "settle": "Establish a matched compression/contact basis and calibrated failure populations; update effective stressed size when geometry changes. Preserve null qualified allowable/probability fields until supported.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-04",
+      "owner": "MAINLINE-022d / MAINLINE-024",
+      "state": "open qualification",
+      "kind": "complete membrane",
+      "evidence": "SOURCE-ARITHMETIC.best_details.zylon; upstream/024 source PDFs",
+      "note": "The corrected two-ply charge is arithmetically sound: 214.541557545304 kg total, with 54.720111189054 micrometres per direction. The 0.6 filament knockdown, off-axis/biaxial response, continuous gauge, seams, attachments, coating/barrier mass, creep and environmental retention do not yet describe a qualified gas membrane. Cap/sag/lift and loaded surface-area approximations remain conditional.",
+      "settle": "Provide a complete membrane layup and pressure-loaded cell model with measured retention, permeability and full installed mass.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-05",
+      "owner": "MAINLINE-022d / MAINLINE-023",
+      "state": "open qualification",
+      "kind": "joint mass, material provenance and force transfer",
+      "evidence": "upstream/023/INPUTS.json; web-sources Toray/Henkel PDFs; SOURCES.md",
+      "note": "Candidate-multiplier joint sizing is correct, including quadratic mass. At the headline, 44.191468267 kg and 1.258252477 axial/bond multipliers are consequences of equal-stress design, without extra reserve. Legacy Toray supports 1470 MPa but does not establish 1550 kg/m3 composite density. Henkel's 28.9 MPa datum is prepared aluminum, not SiC. Percent-joint cases have unknown capacity; sub-unity Ti cases size below operating demand.",
+      "settle": "Pin density and laminate/manufacturing specification; verify ceramic adhesion, peel, load spreading, moment transfer and rotational stiffness; include adhesive and attachment mass.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-06",
+      "owner": "MAINLINE-022d / MAINLINE-025",
+      "state": "open model convention",
+      "kind": "local shell and coupled failure",
+      "evidence": "NASA SP-8007 equations 7-10; SOURCE-ARITHMETIC.best_details.local_source_conventions",
+      "note": "The declared 0.6 coefficient and outer-radius gamma convention reproduce. NASA uses a Poisson-dependent coefficient and shell radius. At the fixed headline geometry, an illustrative nu=0.14/mid-radius evaluation gives local SF 1.229307846 rather than 1.258252477. L/midradius is 23.2469. Long curved ceramic shell/column interaction and bending/contact coupling are unqualified.",
+      "settle": "Declare the material Poisson ratio, shell radius convention and valid coupled instability model; reoptimize only under an assigned model-change card. The diagnostic is not a replacement optimum.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-07",
+      "owner": "MAINLINE-022d / MAINLINE-030",
+      "state": "open applicability",
+      "kind": "two-way mechanism",
+      "evidence": "Owner METHOD/NFI; upstream/030/NFI.json",
+      "note": "The two-way numerical optima use an isotropic global surrogate despite missing in-plane shear stiffness in an unbraced pin grid. Square-cell sag/wavelength sensitivity changes a comparison, but cannot establish missing bracing or joint stiffness.",
+      "settle": "Specify and count a shear-stable lattice or validate explicitly modeled moment-resisting joints; establish a matching continuum only afterward.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-08",
+      "owner": "MAINLINE-022d / MAINLINE-025",
+      "state": "open realization",
+      "kind": "geometry, manufacture and complete mass",
+      "evidence": "Primary counts/mass closure; upstream/025/CARD.md",
+      "note": "Fractional area-based node/member counts and exact residual mass closure are model bookkeeping. No integer spherical layout, matched 275.083-mm OD/1.137365-mm wall/3.184194-m curved member process, flaw tolerance, installed equipment or complete attachment/barrier allowance is demonstrated.",
+      "settle": "Build an integer geometric and installed-mass bill with matched manufacturing evidence; carry all dimensional and flaw tolerances into mechanics.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-022D-CHECK-09",
+      "owner": "MAINLINE-022d",
+      "state": "recorded numerical limitation",
+      "kind": "optimization extent",
+      "evidence": "INDEPENDENT-OPTIMA.json; ARITHMETIC-CHECK.active_roots",
+      "note": "Independent searches recover all 176 reported optima to 1e-6 SF, and eight active-equation Zylon solutions agree. This supplies numerical corroboration of the specified surrogate, not a mathematical global certificate or structural qualification.",
+      "settle": "Retain best-found terminology; any stronger optimization guarantee requires a separate mathematical bound or certified search.",
+      "stops_other_work": false
+    }
+  ],
+  "qualified_structural_SF": null,
+  "next": "none"
+}

@@ -1,0 +1,121 @@
+{
+  "id": "rpt-ref-d907de1e97319ecc3f9a",
+  "kind": "report",
+  "from": "ref-70f7af6d0a8d64c42272",
+  "from_seat": "ref-70f7af6d0a8d64c42272",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline028b-joining-into-021b-1020",
+  "re": "ord-admiral-rr2-mainline028b-joining-into-021b-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline028b-joining-into-021b-1020"
+    }
+  ],
+  "at": "2026-10-20T01:32:35-07:00",
+  "body": "MAINLINE-028b complete on 019’s fixed 411.299 kg reserve, with stock-envelope panels and geometry-dependent 028 joining. Two adjustable factors suffice in each commissioned case: gamma and wrinkling; no singleton works. AF’s fixed 0.015 film remains original O5 at full, so it is not erased from the optimism accounting.\n\nSR-200 uses 1850 kg/m³, 290 GPa and the explicit 345 MPa tensile-as-compression assumption. The exact 021b nu=0.33 comparison is preserved; the sheet-based scalar nu=0.0752 check is reported separately. Enforcing 028’s assumed 10 MPa scarf-shear screen gives maximum remaining usages 0.971978 nominal, 0.996076 primer and 0.651469 laboratory bond/ideal weld. Physical joining at the resized points is 215.742, 227.880 and 50.151 kg. Only excess above the existing joint allowance is charged; the laboratory case retains its unused allowance. All factors, subsets, six continuum modes and seam screens are tabulated.\n\nThe nominal/primer six-mode optima alone fail the scarf screen. After enforcing it, full-endpoint reoptimized SF is only 1.006358/1.002803. Bond, peel, weld/HAZ and other local modes remain unqualified; installed-hull SF is unknown.\n\nThe 255 MPa sensitivity has no floating set: even a zero-core face-only upper bound is SF=0.958217. Optimized full-endpoint SFs are 0.869846/0.866848/0.870902.\n\nTwelve checks passed; 16 upstream pins verified; 22 NFI rows. No successor is named. Awaiting the next queued job.",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline028b-joining-into-021b-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/501ecbe6b0e11bab-CARD.md",
+      "sha256": "501ecbe6b0e11bab238809f5a61a63e487d364305015af559285faaec8d24c6f",
+      "bytes": 13125
+    },
+    {
+      "path": "evidence/b2563f5a903f9779-RESULTS.json",
+      "sha256": "b2563f5a903f977953e50ab1eac337c8776ed7a5824a27419307f2a1e7035d0e",
+      "bytes": 119382
+    },
+    {
+      "path": "evidence/0eb090401eeebaf4-PROPERTY-CHECKS.json",
+      "sha256": "0eb090401eeebaf4a9a4dbe5464c1a7b2cc51cbae1d89d766c58b3d4e3a13ef6",
+      "bytes": 117869
+    },
+    {
+      "path": "evidence/737765424727a77d-NFI.json",
+      "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+      "bytes": 13400
+    },
+    {
+      "path": "evidence/52566f98ee23246b-INPUTS.json",
+      "sha256": "52566f98ee23246b17b3cba274a0b9224bf0fef17e7f9193b6c4547072f77c96",
+      "bytes": 49455
+    },
+    {
+      "path": "evidence/d2102ac041ebbeba-METHOD.md",
+      "sha256": "d2102ac041ebbeba589712aeda20eb8fa6962324c65079eeeb0edc054fbe0810",
+      "bytes": 9462
+    },
+    {
+      "path": "evidence/4cbf9798cb46de3e-VALIDATION.json",
+      "sha256": "4cbf9798cb46de3e5f1f7d4bc71d33650b975118651051c086b732f035d3667c",
+      "bytes": 8722
+    },
+    {
+      "path": "evidence/71437ec9e2293216-TIMING.json",
+      "sha256": "71437ec9e2293216083303d22e6ab507fb231e1d4fa267d59462099c06854020",
+      "bytes": 221
+    },
+    {
+      "path": "evidence/1dc9d1bc578c644a-calculate.py",
+      "sha256": "1dc9d1bc578c644a9200b74db3243bf27465fa73148eb664c45c49eec3b7ac0b",
+      "bytes": 19149
+    },
+    {
+      "path": "evidence/50aec9975f00eb6d-property_checks.py",
+      "sha256": "50aec9975f00eb6d7232c70a03eeeebf847867d5ea424b85eb8fac5d6b092b9f",
+      "bytes": 4632
+    },
+    {
+      "path": "evidence/04dfce782e2eea65-make_report.py",
+      "sha256": "04dfce782e2eea65380ab35dfca381cba4d48bc1145b4ca6b7ff80423794ff7d",
+      "bytes": 22424
+    },
+    {
+      "path": "evidence/4701aaeeeb127016-plot.py",
+      "sha256": "4701aaeeeb127016bcaf73a541beca9ef005c99bbc67eca2decd3060ef65dd54",
+      "bytes": 2858
+    },
+    {
+      "path": "unpublished-local-ref:87ec29b3d130697d",
+      "sha256": "0055b0e70c1f2b91d5cf02f3d0be93241ee906560855231dbb077d6da44668b9",
+      "bytes": 187828
+    },
+    {
+      "path": "evidence/419ac022fbfb5ff0-joining-021b-comparison.svg",
+      "sha256": "419ac022fbfb5ff050795677932f310650b85a63873bae97d090d60d6f8002e7",
+      "bytes": 33767
+    },
+    {
+      "path": "evidence/0919985fe0686bd2-SOURCES.json",
+      "sha256": "0919985fe0686bd25c26ebad92c94ee2b0e880ea3443d0a277eded7f1f7bac36",
+      "bytes": 1352
+    },
+    {
+      "path": "evidence/fde0cdedeefa4a9b-vacuum-mainline028b-joining-into-021b-1020.md",
+      "sha256": "fde0cdedeefa4a9bee177d4a976d5587a0d4ecf40a08cc57eab75f8b54069b65",
+      "bytes": 1501
+    },
+    {
+      "path": "evidence/788479702bd1113e-MANIFEST.json",
+      "sha256": "788479702bd1113ef268f25467000f947251b81630ce2f6cba12f05df59e4918",
+      "bytes": 13778
+    }
+  ],
+  "ingested": "2026-10-20T01:34:27-07:00"
+}

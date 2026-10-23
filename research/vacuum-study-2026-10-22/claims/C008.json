@@ -1,0 +1,80 @@
+{
+  "id": "C008",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C008",
+    "report": "rpt-ref-4b8e7b08241bb7a45536",
+    "file": "evidence/86e8a9642552d39e-NFI.json",
+    "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+    "source_sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+    "source_json_pointer": "/rows/7",
+    "row_id": "NFI-022D-CHECK-08",
+    "fields": {
+      "id": "NFI-022D-CHECK-08",
+      "owner": "MAINLINE-022d / MAINLINE-025",
+      "state": "open realization",
+      "kind": "geometry, manufacture and complete mass",
+      "evidence": "Primary counts/mass closure; upstream/025/CARD.md",
+      "note": "Fractional area-based node/member counts and exact residual mass closure are model bookkeeping. No integer spherical layout, matched 275.083-mm OD/1.137365-mm wall/3.184194-m curved member process, flaw tolerance, installed equipment or complete attachment/barrier allowance is demonstrated.",
+      "settle": "Build an integer geometric and installed-mass bill with matched manufacturing evidence; carry all dimensional and flaw tolerances into mechanics.",
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "Fractional area-based node/member counts and exact residual mass closure are model bookkeeping. No integer spherical layout, matched 275.083-mm OD/1.137365-mm wall/3.184194-m curved member process, flaw tolerance, installed equipment or complete attachment/barrier allowance is demonstrated.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/718"
+    },
+    {
+      "report": "rpt-ref-4b8e7b08241bb7a45536",
+      "artifact": "evidence/86e8a9642552d39e-NFI.json",
+      "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+      "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+      "bytes": 7666,
+      "selector": "/rows/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-4b8e7b08241bb7a45536",
+          "artifact": "evidence/86e8a9642552d39e-NFI.json",
+          "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+          "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+          "bytes": 7666,
+          "selector": "/rows/7"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/718"
+          }
+        ]
+      }
+    }
+  ]
+}

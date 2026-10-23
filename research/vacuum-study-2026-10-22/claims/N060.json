@@ -1,0 +1,71 @@
+{
+  "id": "N060",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N060",
+    "report": "ref-0c9ab80606a173c6adb6",
+    "card": "MAINLINE-016",
+    "file": "evidence/e000d61baed6b1db-NFI.json",
+    "row_id": "NFI-016-PUMP",
+    "fields": {
+      "NFI_id": "NFI-016-PUMP",
+      "rank": 4,
+      "gap": "Holding p_int at a 1000 Pa ceiling takes 46.3 L/s there, 527 to 844 W real, and a QUESTIONABLE 150 to 400 kg pump set: 61 to 164 percent of the whole 244.472 kg float margin. The ceiling itself is an owner assumption; commissioning pump-down is 506 kWh.",
+      "direction": "Shop a real Roots or screw pump specification at this duty (mass, power, intake pressure curve); set the operational p_int ceiling from the leak budget; consider distributed smaller pumps or a ground-only pump.",
+      "effect": "Trades directly against the margin; can exceed it entirely at the conservative end."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-016-PUMP\", \"rank\": 4, \"gap\": \"Holding p_int at a 1000 Pa ceiling takes 46.3 L/s there, 527 to 844 W real, and a QUESTIONABLE 150 to 400 kg pump set: 61 to 164 percent of the whole 244.472 kg float margin. The ceiling itself is an owner assumption; commissioning pump-down is 506 kWh.\", \"direction\": \"Shop a real Roots or screw pump specification at this duty (mass, power, intake pressure curve); set the operational p_int ceiling from the leak budget; consider distributed smaller pumps or a ground-only pump.\", \"effect\": \"Trades directly against the margin; can exceed it entirely at the conservative end.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/59"
+    },
+    {
+      "report": "ref-0c9ab80606a173c6adb6",
+      "artifact": "evidence/e000d61baed6b1db-NFI.json",
+      "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+      "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+      "bytes": 6808,
+      "selector": "source row ID: NFI-016-PUMP"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "ref-0c9ab80606a173c6adb6",
+          "artifact": "evidence/e000d61baed6b1db-NFI.json",
+          "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+          "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+          "bytes": 6808,
+          "selector": "source row ID: NFI-016-PUMP"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/59"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "rpt-ops-g29-u3-a2-grant-real-tmp-1018",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T14:47:31-07:00",
+  "body": "FRESH A2 GRANT 89225d75eed3-u3gate-a2-1018144637, measured 14:46:37: MemAvailable 63.5 GB, PSI 0.0, running 2 cores and 4 GiB (the U4 muse block); cap 4 CPU, 16 GiB. Unstarted it holds until 15:01:37. The consumed A grant is never reused. Card v3 (CARD-v3.md, group-v3-A2.sh e5c87b07): TMPDIR and AIRSHIPS_TMPDIR are unpublished-local-ref:a097816ce8c82700, a real 0700 directory the service creates itself (CacheDirectory), with no symlink in any component. The Chromium socket path is 91 bytes against 107. The su3cft/t alias now serves only XDG_CACHE_HOME and A3D_CHROME_PROFILE. New unit u3gate-a2-1018.service; receipt root unpublished-local-ref:bc2d5205538f1783; source unpublished-local-ref:30c2e0fc06a0b2d9 reused in place. Steps: mkdir -m 0700 A2, A2/home, A2unpublished-local-ref:e9671acd244849c5 and A2/bin; ln -s the CfT path to A2/bin/chromium; copy group-v3-A2.sh to A2/launch.sh and verify e5c87b07; then invoke once: bash unpublished-local-ref:483bfc6d1c87f495 89225d75eed3-u3gate-a2-1018144637. It re-checks HEAD, tree, diff, untracked, entries, the pins including the manifest, owned paths, the short TMP's absence and the grant, and compares the real TMP in-unit before make. PASS requires every removal, src included; a failed removal gives 31. A second failure stops and reports to Sciences and the CO. Report status.txt and the log hashes; I ledger the launch check.",
+  "artifacts": [
+    {
+      "path": "withheld-source:4269c7876acc0ee8",
+      "sha256": "00743dbdf55178f63478c2fa7af7e3eccff0c6fa7627a09e1db124f6d3c4bcc2",
+      "bytes": 5168
+    },
+    {
+      "path": "unpublished-local-ref:7587acf2b61a36a6",
+      "sha256": "e5c87b0798a7387e23aebadccc767c65b982f472c64a6cbb5a8d6f92c9d6ff19",
+      "bytes": 13594
+    },
+    {
+      "path": "unpublished-local-ref:163364a4c46fc17f",
+      "sha256": "0b45fb66eb9423888bb66f8e94e77173ead8b2303307e500762eecf97a48ab16",
+      "bytes": 13569
+    },
+    {
+      "path": "unpublished-local-ref:441af099c5e4b5f6",
+      "sha256": "8d18d98f35c0d0ed97b224d99ebc38742e9a98fc6c58a1997f161d130da1c17f",
+      "bytes": 13478
+    },
+    {
+      "path": "evidence/ae1c1ba118ec07d1-card3.py",
+      "sha256": "ae1c1ba118ec07d13e1a5ca4f0e4b37849f0cc3f9e2da34e8e610fd954ff0dba",
+      "bytes": 14057
+    },
+    {
+      "path": "unpublished-local-ref:ae6a8af5c5cd6adf",
+      "sha256": "2854d060f3961520c506dad86c26ad81aba9f450fe59b3fa9ad0d5bf034520bd",
+      "bytes": 1574
+    },
+    {
+      "path": "evidence/4411276efe865ac5-results.json",
+      "sha256": "4411276efe865ac5369023e27e5766a842d94b1cfa39950c0dbfd26e4ac02218",
+      "bytes": 559
+    },
+    {
+      "path": "unpublished-local-ref:e635a0d3ce97b9d8",
+      "sha256": "59ec0af5f3d7d8e70d4c72f2731d5f5c4200363a2572b93959ac05fc05761771",
+      "bytes": 1358
+    },
+    {
+      "path": "unpublished-local-ref:1c5fede056d5914c",
+      "sha256": "4a24668757c7df294101efd1b33f9ef5c6c5f603d344caae337ba83c2116cb6d",
+      "bytes": 2414
+    },
+    {
+      "path": "unpublished-local-ref:236dac7f9fc3a1f2",
+      "sha256": "86126927313011d6afd2a7e466d32775f0af7feed88bad1614f4bbc8247ec46a",
+      "bytes": 4832
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-ops-u3-short-real-tmp-relaunch-card-1018"
+}

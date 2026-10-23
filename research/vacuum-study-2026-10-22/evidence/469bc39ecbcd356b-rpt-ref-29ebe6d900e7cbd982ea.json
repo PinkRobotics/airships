@@ -1,0 +1,145 @@
+{
+  "id": "rpt-ref-29ebe6d900e7cbd982ea",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline048-check-1020",
+  "re": "ord-admiral-rr2-check048-codex-1693-1020",
+  "at": "2026-10-20T05:24:43.014780-07:00",
+  "body": "Partial CHECK MAINLINE-048; full check remains open. QUESTIONABLE/PROJECTION. Owner code never read, copied, hashed or run.\n\nThree admitted jobs completed and released. Independent account equations evaluated all 7,149 main design points: 686,304 comparisons. Compared bills, payloads, structural modes, material-water/sorbent terms and pressure values agree conditional on pinned thermal tables. The 16,679 raw differences are confined to initial gas, counted gas and gross/net desorption conventions; exact rows are retained. Proposed checker corrections remain unverified.\n\nSelected finish arithmetic gives 7.5752 g/m² before 10%, and classical 9.3256–11.1786. The R10 bake endpoint bill reproduces +124.261910 kg at the supplied geometry; exterior water remains charged. The old optimum and end-to-end reconciliation optimization were not independently rerun.\n\nIndependent thermal reconstruction differs in 297/325 comparisons; boundary/iteration equivalence remains unresolved. Least-set optimization, E-axis bounds and supplemental audits are unfinished. Classical CCAg's optical citation gives a different pair and normal-emittance statistic. Thirteen nonblocking NFIs preserve these gaps and material/process qualification limits.\n\nSimjob refused account-02 at12:13:10Z: PSI some avg10 6.13>=5.00, exit75, nothing started. Standing no-retry rule applied; no later scientific launch. Draft search is unexecuted.\n\nRequired custody checks pass for the 176-file package and 95 input pins. Live COMMON.md drift is recorded; the dispatch-pinned copy is intact. Prior043 pins unchanged. No time budget or live own work; no successor; SLEEPING.",
+  "asks": "none",
+  "links_schema": 1,
+  "links_none": true,
+  "completion": "none",
+  "next": "none",
+  "standing": "none",
+  "deadline": "2026-10-20T07:00:00-07:00",
+  "artifacts": [
+    {
+      "path": "evidence/f3b9ccd41c2337ba-CHECK.md",
+      "sha256": "f3b9ccd41c2337baa8a6554aaac3f282414a67125488e1348e404356501fbbce",
+      "bytes": 12984
+    },
+    {
+      "path": "evidence/ef031a1f18a672e1-CARD.md",
+      "sha256": "ef031a1f18a672e184632262a68bbab9935c82d3b83c8f84ee6e6b3537d18e9b",
+      "bytes": 1698
+    },
+    {
+      "path": "evidence/3e0b535a9cd2d75a-METHOD.md",
+      "sha256": "3e0b535a9cd2d75aa85aaf9833cdcb983f6240c38e05fda966efd12728fa7c23",
+      "bytes": 5194
+    },
+    {
+      "path": "evidence/ff19a0dec5005792-SOURCE-AUDIT.md",
+      "sha256": "ff19a0dec500579228c4f020bdd96b39d7a09b4a2a885e7dc517938aa8070f9f",
+      "bytes": 6340
+    },
+    {
+      "path": "evidence/7db6c8f4a37da690-NFI.json",
+      "sha256": "7db6c8f4a37da690f3942c191cc916e48a0d5ee8da68a634d2fd8f3f08add09d",
+      "bytes": 6931
+    },
+    {
+      "path": "evidence/2b5870295510a91b-SCOPE.json",
+      "sha256": "2b5870295510a91b6dfb9804d020f449fdbe7394aef736e01caf87d5714d730b",
+      "bytes": 1026
+    },
+    {
+      "path": "evidence/bbc86f139b8273f3-INPUTS.json",
+      "sha256": "bbc86f139b8273f382b1107bf948ac76dc666917bdcb41b597d6f1c02f669a3a",
+      "bytes": 35396
+    },
+    {
+      "path": "evidence/bf080cba3f101965-ACCOUNT-RESULTS.json",
+      "sha256": "bf080cba3f10196581a7d0514cb9f1d9b66dfeb6c9181a6be8bc7f6d49d640a0",
+      "bytes": 1436
+    },
+    {
+      "path": "unpublished-local-ref:8602a9a63934ab50",
+      "sha256": "34ca1bb086e6f4317120843e8d3778b42e74a6859ff01830218b2ae8e0604dfb",
+      "bytes": 7036105
+    },
+    {
+      "path": "evidence/cdd112505d0466db-ACCOUNT-MISMATCHES.json",
+      "sha256": "cdd112505d0466db01ff2b6fccbd7996cf69f7e714b30317571cf793cfd67b78",
+      "bytes": 4686993
+    },
+    {
+      "path": "evidence/3ccd1fe6585c5d58-THERMAL-RESULTS.json",
+      "sha256": "3ccd1fe6585c5d5843b5c04ab5d5f13e3500ea41d756998d7056924004607713",
+      "bytes": 98618
+    },
+    {
+      "path": "evidence/49a18705faf56c81-THERMAL-COMPARISONS.csv",
+      "sha256": "49a18705faf56c818180c84d831606ac2b052a2cc0bb9d95c78431c3cb550419",
+      "bytes": 34996
+    },
+    {
+      "path": "evidence/123f7eac13f819c2-THERMAL-DIAGNOSTIC.json",
+      "sha256": "123f7eac13f819c2b4975b002f224046413849f64b6237821cf7235462dd54e5",
+      "bytes": 425
+    },
+    {
+      "path": "evidence/1020979af7eebbd6-EXECUTION.json",
+      "sha256": "1020979af7eebbd60c03a0f6c6dbca5418ca2f76c96b64b638c3924abcb7504c",
+      "bytes": 14919
+    },
+    {
+      "path": "evidence/ca334b59c18afc9a-CODE.json",
+      "sha256": "ca334b59c18afc9acac8dfd315ff2917a5691e748d3e523485630eee5146109b",
+      "bytes": 2595
+    },
+    {
+      "path": "evidence/7a2c95aa20d44899-SOURCE-DRIFT.json",
+      "sha256": "7a2c95aa20d4489959e606490887f09a27ac6524a1ce868b922c5fb2a3d7b5f1",
+      "bytes": 807
+    },
+    {
+      "path": "evidence/c8de4c1c1d75f841-BROWSER-SOURCE-NOTES.json",
+      "sha256": "c8de4c1c1d75f841ebe82be50d9ef2eba5c7092bf50e78dd96b2ec4eae64e44a",
+      "bytes": 1269
+    },
+    {
+      "path": "evidence/cf50e81714d5c84e-PREVIOUS-FREEZE-CHECK.json",
+      "sha256": "cf50e81714d5c84e9b583146ea39d313f00fefa143a9aa825158c7865e5c0611",
+      "bytes": 4542
+    },
+    {
+      "path": "evidence/132bc81ed05a1920-WORK-END.json",
+      "sha256": "132bc81ed05a19203f3f09413273effb789aa1dd8fa3330465cf6c172b645bad",
+      "bytes": 469
+    },
+    {
+      "path": "evidence/e3bff9f5f2562bad-START.json",
+      "sha256": "e3bff9f5f2562bad85495e400808875a453b4c846ee0a35f9f23cb77913e0639",
+      "bytes": 2894
+    },
+    {
+      "path": "evidence/a21d4a8c390b52b9-END.json",
+      "sha256": "a21d4a8c390b52b98f9a42b1ae74d766667e9c2bd0984f820af59bd485f67f55",
+      "bytes": 3080
+    },
+    {
+      "path": "unpublished-local-ref:26c1e97617db199a",
+      "sha256": "208fc30f56217b4998b69591e0a216efd06b30cb3f637654bced557841fedc4d",
+      "bytes": 277
+    },
+    {
+      "path": "evidence/c1b0a862389e3498-MANIFEST.json",
+      "sha256": "c1b0a862389e3498ab9792eca17cb7f3fdd5c5eb1ab27f55ab2ecb06c873fb65",
+      "bytes": 29482
+    },
+    {
+      "path": "evidence/7dee30c76615cd76-PACKAGE-CHECK.json",
+      "sha256": "7dee30c76615cd762ee0608d86955c15d03673c30de00a08a952d163a52e9fb8",
+      "bytes": 88701
+    }
+  ]
+}

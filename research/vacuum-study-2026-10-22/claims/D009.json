@@ -1,0 +1,84 @@
+{
+  "id": "D009",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D009",
+    "report": "rpt-ref-14993e3c2e5e64177c8f",
+    "file": "evidence/baff59a164490001-NFI.json",
+    "snapshot": "evidence/baff59a164490001-NFI.json",
+    "source_sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+    "source_json_pointer": "/items/5",
+    "row_id": "NFI-043F-06",
+    "fields": {
+      "id": "NFI-043F-06",
+      "status": "open",
+      "topic": "System risk and service life",
+      "finding": "All headline probabilities are tube-fracture-only and omit joints, membrane, instability, shared batches and degradation. Equal allocation at frame Pf=1e-6 is approximately 1.333334e-9 per member.",
+      "remaining": "Define whole-system risk allocation, valid component marginals, dependence/common-cause model and service duration/load spectrum with aging and crack-growth evidence.",
+      "related_prior": [
+        "NFI-043-12",
+        "NFI-043-14"
+      ],
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/items",
+    "blocks_progress": false
+  },
+  "claim": "All headline probabilities are tube-fracture-only and omit joints, membrane, instability, shared batches and degradation. Equal allocation at frame Pf=1e-6 is approximately 1.333334e-9 per member.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/969"
+    },
+    {
+      "report": "rpt-ref-14993e3c2e5e64177c8f",
+      "artifact": "evidence/baff59a164490001-NFI.json",
+      "snapshot": "evidence/baff59a164490001-NFI.json",
+      "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+      "bytes": 6222,
+      "selector": "/items/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-14993e3c2e5e64177c8f",
+          "artifact": "evidence/baff59a164490001-NFI.json",
+          "snapshot": "evidence/baff59a164490001-NFI.json",
+          "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+          "bytes": 6222,
+          "selector": "/items/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/969"
+          }
+        ]
+      }
+    }
+  ]
+}

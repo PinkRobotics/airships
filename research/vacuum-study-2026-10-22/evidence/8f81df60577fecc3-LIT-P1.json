@@ -1,0 +1,687 @@
+[
+  {
+    "id": "SII-CB",
+    "structure": "Saturn V S-II stage common bulkhead (LOX tank aft/top dome shared with LH2 tank bottom), North American Aviation, Seal Beach CA",
+    "diameter_m": 10.06,
+    "dome_or_shell_shape": "Modified ellipsoidal dome, about 33 ft diameter and 12 ft high each; compound contour of three sections (elliptical, toroidal, conical); each facing sheet built from 12 gore panels plus a 3-ft 'dollar' cap; core surface area about 1400 sq ft. (10.06 m is my conversion of 33 ft; SP-4206 says 10 m.)",
+    "construction": {
+      "faces": "2014-T6 aluminium aft and forward facing sheets; gores chemically milled, tapering from about 13 mm (1/2 in) at base to 0.79 mm (1/32 in) at apex (SP-4206 p.214, NAA brochure). No separate uniform face-sheet gauge is given in any source opened.",
+      "core": "Phenolic honeycomb; SP-4206 and RPE call it fiberglass/phenolic, SD 71-256 p.4-48 calls it 'phenolic impregnated nylon' (sources disagree); thickness from nearly 5 in (about 13 cm) at apex to 0.080 in (RPE) or about 1/8 in (NAA brochure) at the periphery; cells 3/8 by 4.75 in per SD 71-256 p.1-26 (wording unclear); core pre-faced and supplied as blocks/panels (Honeycomb Products per NAA brochure)",
+      "adhesive": "HT 424 pre-bond primer named (NAA brochure); adhesive film type for S-II not stated in sources opened (HT 424 adhesive is named for the Douglas S-IV/S-IVB bulkheads in Douglas Paper 3817). Bondline-bridging limit about 0.010 in (SD 71-256).",
+      "overall": "Gore forming: 10 x 22 ft gores, underwater explosive forming (3 blasts per gore) at El Toro using pits up to 25 ft diameter by 15 ft deep with 80-ton crane (SD 71-256 p.4-50; SP-4206 p.213)"
+    },
+    "tooling": "No hard bonding mold: skins are inflated (aft sheet at 1/2 psi air, tool seals the underside) and measured; forward sheet drawn smooth under a compartmented vacuum bell, then lowered onto the core by overhead crane and vacuum bell and pulled down by 130 turnbuckle-type load cells to 1000 lb each. 43 dial indicators on a 'rainbow beam' measure contour every 2 degrees of circumference. Core machined on a skate-mounted cutter (diamond-coated, 8-in diameter, face concave to the 198-in radius) following computer cutting tables. 636 bolts later join J-section to LH2 tank (SP-4206).",
+    "cure_method": {
+      "process": "Adhesive bonded in an autoclave ('gargantuan autoclave' per SP-4206 p.213) for the core-to-aft-sheet bond; skins bonded to core 'in a condition of preload induced by applications of vacuum and/or pressure' (NAA brochure). Whether the final forward-sheet bond is also autoclaved is not stated in the S-II sources opened (it is for the S-IVB).",
+      "temperature": null,
+      "pressure": null,
+      "facility": "Autoclave size not found in any source opened (null). Assembly building and bulkhead fabrication building at Seal Beach mentioned only in film captions (not opened)."
+    },
+    "assembly": "12 gores welded (20-ft meridian welds) into each facing sheet, plus dollar; aft sheet loaded on tool; core panels fit to measured contour, bonded to aft sheet, then machined in 0.010-in increments per 360-degree pass around the panel periphery until the core contour matches the forward sheet contour; forward sheet lowered on and bonded. Sequence: weld -> chemical clean/prime HT 424 -> measure (about 15,000 points total) -> machine core -> PVC-film impression fit check -> bond. Circumference of welded bulkheads held to a tolerance via Pi-tape checks after every second meridian weld.",
+    "shape_accuracy": [
+      {
+        "quantity": "core-to-facing contour match required for a good bond",
+        "value": "0.010",
+        "unit": "in (0.254 mm, my conversion)",
+        "measured_or_specified": "specified",
+        "quote": "the core contour must match the bulkhead within ten thousandths of an inch",
+        "location": "SD 71-256 printed p.4-45 (PDF p.296); NAA brochure says 'within the required 10,000ths of an inch' (ambiguous wording; SD 71-256 equates it to 0.010 in)"
+      },
+      {
+        "quantity": "core fit check before adhesive, via PVC impression layer",
+        "value": "0.010",
+        "unit": "in",
+        "measured_or_specified": "specified acceptance check",
+        "quote": "verifies that the core matches the facing sheet within 0.010 inch",
+        "location": "SD 71-256 p.4-45"
+      },
+      {
+        "quantity": "maximum gap the adhesive can bridge",
+        "value": "0.010",
+        "unit": "in",
+        "measured_or_specified": "specified",
+        "quote": "the maximum gap which the adhesive can bridge",
+        "location": "SD 71-256 p.4-45"
+      },
+      {
+        "quantity": "contour measurement density",
+        "value": "approx 15,000 points total; 7740 aft sheet; forward sheet 7560 (OCR '756Q', uncertain); problem statement says 7920 points for the traces",
+        "unit": "points",
+        "measured_or_specified": "measured (process data)",
+        "quote": "accurately measured at approximately 15,000 points, and deviations from true contour are recorded",
+        "location": "SD 71-256 pp.4-44 to 4-46 (PDF pp.295-297)"
+      },
+      {
+        "quantity": "core machining step",
+        "value": "0.010",
+        "unit": "in per 360-degree sweep",
+        "measured_or_specified": "process",
+        "quote": "Cutting machine head is re-adjusted for the next 0.010-inch cut",
+        "location": "SD 71-256 p.4-46"
+      },
+      {
+        "quantity": "equatorial circumference of welded 33-ft bulkhead",
+        "value": "+-0.078 (theoretically +-0.025 on diameter)",
+        "unit": "in (+-1.98 mm; +-0.64 mm on diameter, my conversion)",
+        "measured_or_specified": "specified",
+        "quote": "tolerance of +-0.078 inch (which is theoretically +-0.025 inch on the diameter)",
+        "location": "SD 71-256 p.4-47 (PDF p.298); OCR renders +- as '*'; stated to be hard to hold"
+      },
+      {
+        "quantity": "calculated cutter profile error in the 198-in-radius region",
+        "value": "<0.0015",
+        "unit": "in",
+        "measured_or_specified": "calculated (design), not measured",
+        "quote": "theoretical error of less than 0.0015 inch",
+        "location": "SD 71-256 p.4-49"
+      },
+      {
+        "quantity": "weld accuracy (secondary source)",
+        "value": "0.011 on 20-ft welds; mismatch over 0.028 judged too large on the forward-bulkhead-to-cylinder weld",
+        "unit": "in",
+        "measured_or_specified": "specified (secondary history page, not primary)",
+        "quote": "20-foot welds accurate to 0.011\"",
+        "location": "enginehistory.org RPE 8.20"
+      }
+    ],
+    "inspection": "Ultrasonic through-transmission (primary) plus pulse-echo (supplement on lower 15 in where core is thin), recorded on a C-scan; water squirter nozzles, turntable at 3 rpm with 0.060 in index per revolution; suspect areas checked by sonic methods, radiography if canted core suspected; out-of-tolerance debonds go to Material Review Board (SD 70-556-1 pp.131-161). SP-4206 p.214: ultrasonic equipment verified complete bonding. Photoelastic coating was proposed to inspect the 33-ft bulkhead in hours instead of days (NTRS 19660024836). NO flaw counts, void sizes or disbond frequencies for S-II bulkheads found in any source opened.",
+    "problems": "Thin gores sag, so core fit was among the 'most critical operations' (SP-4206 p.214); localized distortion from residual stress (SD 71-256); first approach (putty pads, about 1700 measurements) judged inadequate and replaced by inflation technique; phenolic dust from machining hurt bonding (SD 71-256 p.2-33); heat leak through bulkhead cells higher than predicted, fixed by vacuum pumping (p.1-26). Secondary sources only: first aft bulkhead ruptured at a repaired weld in hydrostatic proof test 28 Oct 1964; a bulkhead burst in a water test days before shipment in 1965 (hslb.org page fetched, not archived); no error-free bulkhead-to-cylinder weld until Jan 1968.",
+    "cost_class": "No dollar figures found. Qualitative: NAA brochure says the inflation technique 'reduces manufacturing costs by eliminating the need for hard tooling'; hand sanding judged not acceptable at S-II size (SD 71-256); schedule slips noted in secondary sources only.",
+    "sources": [
+      {
+        "citation": "Roger E. Bilstein, Stages to Saturn, NASA SP-4206 (1980), Ch.6 S-IVB sec. and Ch.7 'The Lower Stages: S-IC and S-II' (full-book PDF, 534 pp)",
+        "url": "https://history.nasa.gov/SP-4206/ch7.htm (server returns the whole-book PDF)",
+        "local_path": "unpublished-local-ref:dabb47780a95bf9f",
+        "pages_read": "book pp.167-168 (S-IVB bulkhead), pp.212-214 (S-II bulkhead) read; rest of book not read"
+      },
+      {
+        "citation": "North American Rockwell Space Division, Saturn S-II Problem Resolution History, SD 71-256, Sept 1971 (NTRS 19720008130)",
+        "url": "https://ntrs.nasa.gov/api/citations/19720008130/downloads/19720008130.pdf",
+        "local_path": "unpublished-local-ref:501ec5b4786d07e4",
+        "pages_read": "printed pp.1-26, 2-33/2-34, 4-44 to 4-50 (PDF pp.~191,295-301) read; the remaining ~560 pages not read"
+      },
+      {
+        "citation": "C. T. Cerquettini (North American), 'The Common Bulkhead for the Saturn S-II Vehicle', NAA brochure, scanned/transcribed by heroicrelics.org from UAH Saturn V collection",
+        "url": "http://heroicrelics.org/info/s-ii/common-bulkhead-for-s-ii.html",
+        "local_path": "unpublished-local-ref:ef757eff4b4999dd",
+        "pages_read": "whole page (transcription of a short brochure)"
+      },
+      {
+        "citation": "North American Rockwell, Saturn S-II Quality Assurance Techniques, Nondestructive Testing Processes Vol I, SD 70-556-1 (NTRS 19720007821)",
+        "url": "https://ntrs.nasa.gov/api/citations/19720007821/downloads/19720007821.pdf",
+        "local_path": "unpublished-local-ref:380f0c776fc58aa9",
+        "pages_read": "printed pp.131-161 (sec 3.0-3.1 common bulkhead ultrasonic inspection) read; rest of 176 pp not read"
+      },
+      {
+        "citation": "enginehistory.org, Rocket Propulsion Evolution 8.20 S-II Stage (secondary history page; numbers NOT primary)",
+        "url": "https://www.enginehistory.org/Rockets/RPE08.20/RPE08.20.shtml",
+        "local_path": "unpublished-local-ref:756cbc27e1d54ce1",
+        "pages_read": "S-II structure paragraphs only"
+      },
+      {
+        "citation": "NASA MSFC, Papers from the Structural Adhesive Bonding Conference, 14 Mar 1966 (NTRS 19660024836), 350 pp",
+        "url": "https://ntrs.nasa.gov/api/citations/19660024836/downloads/19660024836.pdf",
+        "local_path": "unpublished-local-ref:53e7e0adb653beaf",
+        "pages_read": "grepped for common bulkhead/S-II/autoclave; read the Douglas Paper 3817 copy and the photoelastic-coating void-detection passage; not read in full"
+      }
+    ],
+    "confidence": "partial",
+    "missing": [
+      "autoclave dimensions, cure temperature, pressure and cycle time for S-II",
+      "adhesive film designation and bondline thickness for S-II",
+      "as-built contour residual (RMS, peak) after bonding",
+      "flaw statistics (void/unbond counts) for S-II bulkheads",
+      "uniform facing-sheet thickness (only gore taper known)",
+      "source for 'dollar' and J-section cure"
+    ]
+  },
+  {
+    "id": "SIVB-CB",
+    "structure": "Saturn S-IVB (and S-IV) common bulkhead, Douglas Aircraft, Huntington Beach",
+    "diameter_m": 6.63,
+    "dome_or_shell_shape": "Hemispherical/spherical double-faced dome, about 5 cm thick (SP-4206 p.167); Douglas Paper 3817 p.3: 'spherical in shape', S-IV and S-IVB differ only in diameter and thickness. Welded gore segments plus dollar and attach rings. (S-IVB 21.7 ft is the task's figure; 6.63 m is SP-4206's.)",
+    "construction": {
+      "faces": "2014-T6 aluminium; forward sheet 0.813 mm, aft sheet 1.4 mm (SP-4206 p.167). Experimental S-IV article used nominal 0.025 in (0.64 mm) LH2 skin (Douglas p.7).",
+      "core": "Phenolic fiberglass honeycomb (HRP core); experimental article used 6 lb/cu ft core in a 12-in band at the greatest circumference and 4 lb/cu ft elsewhere (Douglas p.8)",
+      "adhesive": "HT 424 primer and HT 424 adhesive film (Douglas p.8)"
+    },
+    "tooling": "Aft dome set on a bonding fixture; honeycomb bonded to it; forward dome lowered over fixture for final bond; contour mismatch measured with the 'Paulino/Paleno block' system: 350 small honeycomb blocks, each with a putty pad, forward dome lowered on to record indentation (SP-4206 pp.167-168; Douglas p.4); final core surface spot-faced then hand sanded; finished unit machined on a Niles boring mill (SP-4206 p.168).",
+    "cure_method": {
+      "process": "Autoclave, vacuum bag, two bond cycles (core to aft dome; then forward dome to core)",
+      "temperature": "182 C (360 F) final bond cycle (SP-4206 p.168); 325 F in the experimental S-IV article (Douglas p.8)",
+      "pressure": "45 psi (310 kPa, my conversion) under vacuum bag, experimental article (Douglas p.8)",
+      "facility": "'oversized autoclave' (SP-4206 p.168); size not given. Cycle durations: first bond about 30 h including heat-up and cool-down with thermocouple spread held to 10 F; integral forward-dome bond needs 60 h with 5 F spread because both domes must contract together (Douglas pp.9-10)."
+    },
+    "assembly": "Preformed gore segments welded (MIG) into complete forward and aft domes with dollar and attach rings; aft dome on fixture; core bonded (cycle 1); core sculpted; forward dome bonded (cycle 2); machined to tolerance; Douglas (p.5) lists weld porosity, weld cracking, skin debonding and skin wrinkling as the main difficulties, and notes weld metal ages through repeated bond cycles.",
+    "shape_accuracy": [
+      {
+        "quantity": "gap tolerance between welded gore segments (S-IV)",
+        "value": "0 to 0.015",
+        "unit": "in (0 to 0.38 mm, my conversion)",
+        "measured_or_specified": "specified",
+        "quote": "The gap tolerance (between parts) on the S-IV welded segments is 0 to 0.015 in.",
+        "location": "Douglas Paper 3817, PDF p.15"
+      },
+      {
+        "quantity": "gap tolerance between bonded gore segments (experimental S-IV)",
+        "value": "0 to 0.090",
+        "unit": "in (0 to 2.3 mm, my conversion)",
+        "measured_or_specified": "specified",
+        "quote": "gap tolerance on the bonded segments is 0 to 0.090 in",
+        "location": "Douglas Paper 3817, PDF p.15"
+      },
+      {
+        "quantity": "forward-dome versus core fit",
+        "value": "not quantified",
+        "unit": "-",
+        "measured_or_specified": "measured via 350 putty pads but values not published",
+        "quote": "the aluminum skin developed an exasperatingly uneven terrain of gaps, gullies, and wrinkles",
+        "location": "SP-4206 p.168"
+      }
+    ],
+    "inspection": "Sonic (Growler) tests of the core bonds in the experimental S-IV bulkhead found no unbonds ('none were detected'); ultrasonic pulse-echo of bonded doublers found about 80 small unbond areas, each under 1/2 in diameter, mostly overstated by transducer size; small adhesive channels missed by ultrasonics (Douglas pp.12-13). Production inspection statistics not given.",
+    "problems": "Douglas p.5: weld cracking or debonding has occurred during cryogenic loading in most S-IV common bulkheads; wrinkles on LH2 side of S-IV-6 and the dynamic vehicle attributed to forcing excess forward-dome metal onto the core; Douglas calls fitup and weld-zone cracks 'inherent' to the process; hand sanding 'time consuming and subject to some human error'.",
+    "cost_class": "Experimental bonded bulkhead used about 50% of the bonding man-hours of a production bulkhead (Douglas Paper 3817 conclusions); no dollar figures.",
+    "sources": [
+      {
+        "citation": "Roger E. Bilstein, Stages to Saturn, NASA SP-4206 (1980), Ch.6 S-IVB sec. and Ch.7 'The Lower Stages: S-IC and S-II' (full-book PDF, 534 pp)",
+        "url": "https://history.nasa.gov/SP-4206/ch7.htm (server returns the whole-book PDF)",
+        "local_path": "unpublished-local-ref:dabb47780a95bf9f",
+        "pages_read": "book pp.167-168 (S-IVB bulkhead), pp.212-214 (S-II bulkhead) read; rest of book not read"
+      },
+      {
+        "citation": "A. C. Robertson (Douglas) and E. L. Brown (NASA MSFC), The Development of a Bonded Common Bulkhead for Saturn, Douglas Paper 3817, Structural Adhesive Bonding Conference, Huntsville, 15-16 Mar 1966 (UAH Saturn History Document; also in NTRS 19660024836 proceedings)",
+        "url": "https://digitalprojects.uah.edu/files/original/20/10318/thedevofaboncombulforsat_090707133327.pdf",
+        "local_path": "unpublished-local-ref:7c34dc746e7dd6d4",
+        "pages_read": "all 29 PDF pages (text by OCR, key pages checked by image)"
+      },
+      {
+        "citation": "NASA MSFC, Papers from the Structural Adhesive Bonding Conference, 14 Mar 1966 (NTRS 19660024836), 350 pp",
+        "url": "https://ntrs.nasa.gov/api/citations/19660024836/downloads/19660024836.pdf",
+        "local_path": "unpublished-local-ref:53e7e0adb653beaf",
+        "pages_read": "grepped for common bulkhead/S-II/autoclave; read the Douglas Paper 3817 copy and the photoelastic-coating void-detection passage; not read in full"
+      }
+    ],
+    "confidence": "read in full (Douglas paper); partial (SP-4206 read for the S-IVB section only)",
+    "missing": [
+      "S-IVB production autoclave dimensions",
+      "measured contour mismatch values from putty-pad readings",
+      "S-IVB core thickness at apex"
+    ]
+  },
+  {
+    "id": "SIV-BONDED-EXP",
+    "structure": "Douglas/MSFC experimental one-side-bonded S-IV-size common bulkhead (research article DA-103), plus 3-ft test bulkheads",
+    "diameter_m": null,
+    "dome_or_shell_shape": "S-IV-size spherical dome (S-IV aft dome reused); diameter not stated in the paper; 3-ft test bulkheads for joint leak tests",
+    "construction": {
+      "faces": "Forward skin in gore segments (nominal 0.025 in; 0.020 to 0.035 in range) joined by bonded joints; sheets 0.025-0.032 in not available at 120 in width so thicker sheet was chem-milled",
+      "core": "HRP honeycomb, 6 lb/cu ft band plus 4 lb/cu ft, core net 1 in over sanded area",
+      "adhesive": "HT 424; doublers with Narmco 7343 polyurethane; Epon 934 paste for gap seal"
+    },
+    "tooling": "existing S-IV joining/bonding tooling reused",
+    "cure_method": {
+      "process": "autoclave, vacuum bag",
+      "temperature": "325 F",
+      "pressure": "45 psi",
+      "facility": "not stated; second cycle thermocouple spread limits 10 F / 5 F; segmented skin allowed one 30 h cycle (saving 30 h of autoclave time)"
+    },
+    "assembly": "production S-IV aft dome; core bonded; forward ring; forward gore segments and dollar individually fitted and bonded with same cure; doublers over joints cured 24 h RT vacuum, 24 h RT, 24 h at 160 F",
+    "shape_accuracy": [
+      {
+        "quantity": "gap tolerance, welded vs bonded segments",
+        "value": "0 to 0.015 vs 0 to 0.090",
+        "unit": "in",
+        "measured_or_specified": "specified",
+        "quote": "gap tolerance on the bonded segments is 0 to 0.090 in",
+        "location": "Douglas Paper 3817 PDF p.15"
+      }
+    ],
+    "inspection": "Growler sonic tests of gore bonds: no unbonds; ultrasonic pulse-echo of doublers: about 80 small unbond areas; C-scan or infrared recommended for production",
+    "problems": "adhesive channels in doubler bonds, doubler misfit, HT 424 foam migration into seal-weld area; structural tests not yet done at time of paper",
+    "cost_class": "bonding man-hours about 50% of production (including doublers)",
+    "sources": [
+      {
+        "citation": "A. C. Robertson (Douglas) and E. L. Brown (NASA MSFC), The Development of a Bonded Common Bulkhead for Saturn, Douglas Paper 3817, Structural Adhesive Bonding Conference, Huntsville, 15-16 Mar 1966 (UAH Saturn History Document; also in NTRS 19660024836 proceedings)",
+        "url": "https://digitalprojects.uah.edu/files/original/20/10318/thedevofaboncombulforsat_090707133327.pdf",
+        "local_path": "unpublished-local-ref:7c34dc746e7dd6d4",
+        "pages_read": "all 29 PDF pages (text by OCR, key pages checked by image)"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": [
+      "structural test results",
+      "S-IV diameter"
+    ]
+  },
+  {
+    "id": "ARES1-CB",
+    "structure": "Ares I upper stage common bulkhead (NASA MSFC bonding demonstration article and manufacturing development articles)",
+    "diameter_m": 5.49,
+    "dome_or_shell_shape": "18 ft (5.5 m) diameter dome pair; aft dome spun-formed 2014 aluminium; forward dome (bonding demonstrator slide shows about 14 ft by 9 ft; meaning of dimensions unlabelled)",
+    "construction": {
+      "faces": "0.070 in (1.78 mm, my conversion) 2014 aluminium skin",
+      "core": "2.0 in (50.8 mm, my conversion) perforated phenolic honeycomb",
+      "adhesive": "not stated (first bond and second bond; pre-cured adhesive and missing adhesive are the calibration defects)"
+    },
+    "tooling": "Domes welded on MSFC Robotic Weld Tool (7-axis, 30-ft rotary turntable, positional accuracy <0.010 in) via friction-stir welding to Y-rings",
+    "cure_method": {
+      "process": "not stated in sources opened",
+      "temperature": null,
+      "pressure": null,
+      "facility": null
+    },
+    "assembly": "aft dome first bond to core, forward dome second bond, then seal plate; spun domes trimmed and FSW'd to Y-rings",
+    "shape_accuracy": [
+      {
+        "quantity": "dome-to-Y-ring effective weld mismatch, CBMDA #1 vs #2 (weld fit-up, not shell contour)",
+        "value": "average -0.021 and maximum -0.041 (#1); average -0.003 and maximum +0.015 (#2)",
+        "unit": "in",
+        "measured_or_specified": "measured",
+        "quote": "The maximum value of effective mismatch is -0.041\"",
+        "location": "NTRS 20120014602 Sec.4.1-4.2 and Tables 2-3"
+      }
+    ],
+    "inspection": "Phased-array ultrasonics (2.25 MHz, 64 element) for first/second bond; shearography (1.5-2 psig, 16x16 in field of view) after seal plate; unbonded regions found and confirmed by dissection; impact damage 4 and 8 ft-lb detected; about 100 PAUT indications in one FSW weld (CBMDA #1), 2 in CBMDA #2",
+    "problems": "bond-line NDE development; weld fit-up from tack welds",
+    "cost_class": null,
+    "sources": [
+      {
+        "citation": "J. Walker, NDE Methods for the Ares I Common Bulkhead, ASNT Spring Conf 24 Mar 2010 (NTRS 20100017376)",
+        "url": "https://ntrs.nasa.gov/api/citations/20100017376/downloads/20100017376.pdf",
+        "local_path": "unpublished-local-ref:252c80fc572dbb16",
+        "pages_read": "slides 1-18"
+      },
+      {
+        "citation": "Carter and Jones, Robotic Manufacturing of 18-ft Diameter Cryogenic Fuel Tank Dome Assemblies for Ares I (NTRS 20120014602)",
+        "url": "https://ntrs.nasa.gov/api/citations/20120014602/downloads/20120014602.pdf",
+        "local_path": "unpublished-local-ref:25376f0d91985d82",
+        "pages_read": "paper text and slides read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": [
+      "bonding cure method, temperature, pressure, oven or autoclave size",
+      "adhesive",
+      "dome contour or surface accuracy",
+      "bond flaw statistics"
+    ]
+  },
+  {
+    "id": "ROHR-57IN",
+    "structure": "Rohr 57-in (1.45 m) NASA composite (bonded honeycomb) elliptical bulkhead development article, NASA contract NAS8-11874, Rohr Report 24-6003, Mar 1966",
+    "diameter_m": 1.448,
+    "dome_or_shell_shape": "Elliptical bulkhead, 57.00 in major diameter (1.448 m, my conversion); skin gores welded to dome shape",
+    "construction": {
+      "faces": "2219-T37 aluminium, outer skin max 0.044 in, inner skin max 0.068 in (about 0.063 in sheet gauge before chem-milling)",
+      "core": "1 in thick HRP honeycomb, 3/16 in cell (follow-on proposal: 3/8 in thick)",
+      "adhesive": "HT 424 primer/adhesive"
+    },
+    "tooling": "2-in wall 356-T6 cast aluminium bond jig sized to stay within 0.020 in of major diameter at 200 psi; plaster master models; numerically controlled templates",
+    "cure_method": {
+      "process": "autoclave bond with creep-forming and weld-ageing of skins in the same cycle",
+      "temperature": "350 F (+-5 F)",
+      "pressure": "about 200 psi selected (209 psig reached) because skins were being creep-sized",
+      "facility": "Rohr convection-heated autoclave (size not stated)"
+    },
+    "assembly": "stretch-formed skin gores welded on plaster weld jig, core spliced with potting compound, bonded in jig",
+    "shape_accuracy": [
+      {
+        "quantity": "skin gores out of contour after stretch-form and trim",
+        "value": "approx 0.050 (OCR '.0S0') then 0.150 to 0.200 after chem-milling",
+        "unit": "in",
+        "measured_or_specified": "measured",
+        "quote": "parts to become a total of .150-.200 inch out of contour",
+        "location": "Rohr 24-6003 printed p.10-11"
+      },
+      {
+        "quantity": "bond jig stiffness requirement",
+        "value": "<=0.020",
+        "unit": "in change of major diameter",
+        "measured_or_specified": "specified (design)",
+        "quote": "preclude a dimensional change greater than .020 inches",
+        "location": "Rohr 24-6003 printed p.7-8"
+      },
+      {
+        "quantity": "permanent set from creep sizing",
+        "value": "about 0.5% strain vs 0.8% target",
+        "unit": "strain",
+        "measured_or_specified": "measured",
+        "quote": "agreed with the .5% which was predicted",
+        "location": "Rohr 24-6003 printed p.60"
+      }
+    ],
+    "inspection": "radiography of welds; ultrasonic and tap test of bonded skin; contour template checks at stages; final contour check of bulkhead not done because skins failed",
+    "problems": "edge-member weld joints failed in tension during final bond and creep cycle; article not completed (design deficiency at 'zee' edge member)",
+    "cost_class": null,
+    "sources": [
+      {
+        "citation": "W. Gore, NASA Composite Bulkhead Development Program, Final Report, Rohr 24-6003 (NTRS 19660014454)",
+        "url": "https://ntrs.nasa.gov/api/citations/19660014454/downloads/19660014454.pdf",
+        "local_path": "unpublished-local-ref:8d15663b583da834",
+        "pages_read": "summary, sections 2.1-2.4, 2.6, 3 read; OCR noisy"
+      }
+    ],
+    "confidence": "partial",
+    "missing": [
+      "tabulated contour readings (figures 20-23 not extracted)"
+    ]
+  },
+  {
+    "id": "SHUTTLE-PLBD",
+    "structure": "Space Shuttle orbiter payload bay doors (two doors, each about 61 ft long), Rockwell Tulsa",
+    "diameter_m": null,
+    "dome_or_shell_shape": "Curved cylindrical-type door panel, arc length 10.5 ft per door (3.2 m, my conversion); each door about 61 ft (18.6 m, my conversion) long, 5 panels (four about 15 ft, aft about 2 ft) joined by expansion joints and shear pins; not a dome",
+    "construction": {
+      "faces": "graphite/epoxy face plates: three plies (0/45/0) over 0.60 in Nomex core on most panels; five plies (90/0/45/0/90) over 0.30 in Nomex near hinge torque box; tapered at 30 degrees to solid laminate at edges",
+      "core": "Nomex honeycomb 0.60 in or 0.30 in",
+      "adhesive": "not stated"
+    },
+    "tooling": null,
+    "cure_method": {
+      "process": "not found",
+      "temperature": null,
+      "pressure": null,
+      "facility": null
+    },
+    "assembly": "five panels per door; doors are not structural members, designed to let orbiter bend/twist and thermally expand",
+    "shape_accuracy": [],
+    "inspection": "not found",
+    "problems": "doors described as extremely fragile and unable to support themselves in 1 g (secondary quote via search snippet, not opened)",
+    "cost_class": "23% weight saving over aluminium honeycomb; port door about 2375 lb, starboard about 2535 lb (handbook)",
+    "sources": [
+      {
+        "citation": "NASA, Payload Bay Doors and Radiator Panels Familiarization Handbook (NTRS 19920011434)",
+        "url": "https://ntrs.nasa.gov/api/citations/19920011434/downloads/19920011434.pdf",
+        "local_path": "unpublished-local-ref:801610f83eba8470",
+        "pages_read": "PDF pp.10-11 read"
+      },
+      {
+        "citation": "HAER TX-116 Space Transportation System documentation (NASA), PLBD paragraph",
+        "url": "https://www.nasa.gov/wp-content/uploads/2024/12/2c.pdf?emrc=0f6676",
+        "local_path": "unpublished-local-ref:dcaf906463f9e15c",
+        "pages_read": "PDF p.16 read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": [
+      "cure method, tooling, facility, shape accuracy, inspection results"
+    ]
+  },
+  {
+    "id": "ATLASV-5M-PLF",
+    "structure": "Atlas V 5.4 m payload fairing (RUAG Space; Emmen then Decatur AL)",
+    "diameter_m": 5.4,
+    "dome_or_shell_shape": "Ogive plus cylinder, two bisector halves, lengths 20.7, 23.4 or 26.5 m (CompositesWorld); 54-ton bonding mold",
+    "construction": {
+      "faces": "woven carbon prepreg inner and outer face sheets (Solvay) plus cork exterior; thicknesses not stated",
+      "core": "vented aluminium honeycomb (Hexcel), expanded and bent to radius",
+      "adhesive": "not stated (prepreg self-adhesive implied but not stated)"
+    },
+    "tooling": "6 m x 21 m CNC layup table with laser projection; main bonding mold plus secondary mold for ogive outer skin; laser towers; debulk after each ply",
+    "cure_method": {
+      "process": "out-of-autoclave oven cure under vacuum bag with multi-zone air return",
+      "temperature": null,
+      "pressure": "vacuum only",
+      "facility": "large curing oven by ASC Process Systems; mold weighs 54 tons; oven dimensions not given"
+    },
+    "assembly": "cylinder inner skin draped, ogive inner skin hand laid up; core laid over; outer skin and cork; cure; trim; two halves fastened at launch site",
+    "shape_accuracy": [],
+    "inspection": "visual then robotic ultrasonic NDI (Genesis Systems on KUKA robots) for voids and FOD; witness coupons cured with part and cut for porosity",
+    "problems": null,
+    "cost_class": "secondary mold cuts processing time by at least 60% versus a single mold (CompositesWorld)",
+    "sources": [
+      {
+        "citation": "CompositesWorld, Plant tour: RUAG Space, Decatur, Alabama (trade press)",
+        "url": "https://www.compositesworld.com/news/plant-tour-ruag-space-decatur-alabama-us",
+        "local_path": "unpublished-local-ref:9e1033cf4896c913",
+        "pages_read": "whole article"
+      },
+      {
+        "citation": "ULA Atlas V mission booklet: 5-m PLF sandwich composite",
+        "url": "https://www.ulalaunch.com/docs/default-source/launch-booklets/AtlasV_USSF-7_mob.pdf",
+        "local_path": "unpublished-local-ref:c04f09dbf25b7bad",
+        "pages_read": "page 1"
+      }
+    ],
+    "confidence": "partial",
+    "missing": [
+      "cure temperature and pressure",
+      "mold or part shape accuracy",
+      "face-sheet and core thicknesses"
+    ]
+  },
+  {
+    "id": "ARIANE5-PLF",
+    "structure": "Ariane 5 payload fairing (RUAG Space Switzerland), 5.4 m",
+    "diameter_m": 5.4,
+    "dome_or_shell_shape": "ogive-cylinder bisector; shells now two panels per half instead of seven (ESA)",
+    "construction": {
+      "faces": "carbon-fibre composite skins, cork exterior (ESA/CompositesWorld for RUAG fairings generally)",
+      "core": "aluminium honeycomb",
+      "adhesive": null
+    },
+    "tooling": "new oven, mould and inspection systems developed at Emmen with ESA",
+    "cure_method": {
+      "process": "out-of-autoclave cure in an industrial oven (first flew VA238, 2017 per search snippet)",
+      "temperature": null,
+      "pressure": null,
+      "facility": "size not stated"
+    },
+    "assembly": "two panels per half-shell, versus seven with autoclave limits",
+    "shape_accuracy": [],
+    "inspection": null,
+    "problems": null,
+    "cost_class": "ESA: out-of-autoclave reduces cost, time and mass",
+    "sources": [
+      {
+        "citation": "ESA, ESA and industry collaborate to improve rocket fairings",
+        "url": "https://www.esa.int/Enabling_Support/Space_Transportation/ESA_and_industry_collaborate_to_improve_rocket_fairings",
+        "local_path": "unpublished-local-ref:b11bbd5f3c92269d",
+        "pages_read": "whole article"
+      },
+      {
+        "citation": "NASA MSFC composite fairing study slides (NTRS 20130013656), fairing size table (Ariane 5.4 m, Atlas V 5.4 m, Delta IV 5.1 m)",
+        "url": "https://ntrs.nasa.gov/api/citations/20130013656/downloads/20130013656.pdf",
+        "local_path": "unpublished-local-ref:639ee3d3aecd5719",
+        "pages_read": "slides 3-5"
+      }
+    ],
+    "confidence": "snippet only for construction; ESA article read in full",
+    "missing": [
+      "construction thicknesses",
+      "cure cycle",
+      "shape accuracy"
+    ]
+  },
+  {
+    "id": "DELTAIV-5M-PLF",
+    "structure": "Delta IV 5 m class composite fairing",
+    "diameter_m": 5.1,
+    "dome_or_shell_shape": "bisector fairing; diameter 5.1 m from NASA table",
+    "construction": {
+      "faces": null,
+      "core": null,
+      "adhesive": null
+    },
+    "tooling": null,
+    "cure_method": {
+      "process": null,
+      "temperature": null,
+      "pressure": null,
+      "facility": null
+    },
+    "assembly": "bisector (the ULA WGS-3 booklet gives this for the 4 m fairing)",
+    "shape_accuracy": [],
+    "inspection": null,
+    "problems": null,
+    "cost_class": null,
+    "sources": [
+      {
+        "citation": "NASA slides NTRS 20130013656 (size table only)",
+        "url": "https://ntrs.nasa.gov/api/citations/20130013656/downloads/20130013656.pdf",
+        "local_path": "unpublished-local-ref:639ee3d3aecd5719",
+        "pages_read": "slide 4"
+      },
+      {
+        "citation": "ULA Delta IV WGS booklet (4 m fairing statement)",
+        "url": "https://www.ulalaunch.com/docs/default-source/launch-booklets/div_gpsiiisv02_mob.pdf",
+        "local_path": "unpublished-local-ref:548bccd1e812af9c",
+        "pages_read": "page 1"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": [
+      "everything except diameter; no source opened gives Delta IV 5 m construction or cure"
+    ]
+  },
+  {
+    "id": "X33-LH2",
+    "structure": "X-33 composite LH2 tank (Lockheed Martin), quad-lobed sandwich",
+    "diameter_m": null,
+    "dome_or_shell_shape": "multi-lobe (4 lobes) conformal tank, dims labelled on one slide 28.5 ft, 20.0 ft, 14.0 ft (which is which unclear); lobe skins are sandwich, ends are composite domes; hold-down bulkhead sandwich",
+    "construction": {
+      "faces": "IM7/977-2 graphite/epoxy; inner [45/90_3/-45/0_3/-45/90_3/45]T, outer [65/0/-65/90/-65/0/65]T",
+      "core": "Korex 3/16-3.0 honeycomb, 1.5 in thick (hold-down bulkhead core AMS 3711)",
+      "adhesive": "AF-191"
+    },
+    "tooling": "lobes cured separately then bonded to a longeron frame",
+    "cure_method": {
+      "process": "heated autoclave; inner facesheet-to-core bond saw 7 excursions to 350 F totalling 9 h and a final cycle to 387 F for 6 min on Lobe 1; adhesive out-time 6 days (Lobe 1), 9 days (Lobe 4); repair patches cured in heated autoclave with no pressure",
+      "temperature": "350 F nominal, 387 F peak (read from slide image)",
+      "pressure": null,
+      "facility": "size not stated"
+    },
+    "assembly": "4 lobes bonded to longerons; lobes 1 and 4 had local disbonds, cut away, patched and cured 23 Dec 1998",
+    "shape_accuracy": [],
+    "inspection": "after autoclave, lobe 1 found with severe skin/core disbonds and cracked skins, skin separated from core except near centre; plug-pull tests on 20 sq in per lobe about 64,000 sq in bondline per lobe (avg 344 to 442 psi, SD 13 to 100)",
+    "problems": "1999 proof test failure: inner facesheet microcracks let LH2 into core, N2 cryopumped in, core pressure rose, debond starting at 0.5 in by 2 5/8 in PTFE tape; weak core-to-facesheet bond ('mfg snafu', fuzz remnants in adhesive, poor fillets)",
+    "cost_class": null,
+    "sources": [
+      {
+        "citation": "E. H. Glaessgen, Failure Analysis of the X-33 LH2 Composite Tank, 2012 (NTRS 20200006023)",
+        "url": "https://ntrs.nasa.gov/api/citations/20200006023/downloads/20200006023.pdf",
+        "local_path": "unpublished-local-ref:a46b4841574c0e3e",
+        "pages_read": "slides 1-30 text-read"
+      },
+      {
+        "citation": "A. T. Nettles, X-33 Tank Failure During Autoclave Fabrication, 2 Oct 2001 (NTRS 20020021989; scanned slides, read as images)",
+        "url": "https://ntrs.nasa.gov/api/citations/20020021989/downloads/20020021989.pdf",
+        "local_path": "unpublished-local-ref:e8740517c5deea30",
+        "pages_read": "slides 1-8 and plug-pull slides viewed"
+      }
+    ],
+    "confidence": "partial",
+    "missing": [
+      "tank dimensions disambiguation",
+      "cure pressure",
+      "shape accuracy of lobes"
+    ]
+  },
+  {
+    "id": "CCTD",
+    "structure": "NASA/Boeing Composite Cryotank Technologies and Demonstration, 2.4 m and 5.5 m tanks",
+    "diameter_m": 5.5,
+    "dome_or_shell_shape": "cryotank with one-piece composite wall (not sandwich); fluted-core skirt only on 5.5 m",
+    "construction": {
+      "faces": "Cytec 5320-1/IM7 OoA prepreg, thick (145 gsm) and thin (70 gsm) plies; wall is solid laminate",
+      "core": "fluted core in skirt only; Boeing ruled out honeycomb for skirt",
+      "adhesive": "none in skirt (co-cured)"
+    },
+    "tooling": "robotic automated fibre placement on breakdown tooling; 2.4 m on 24-piece collapsible composite tool (search snippet)",
+    "cure_method": {
+      "process": "out-of-autoclave oven cure",
+      "temperature": null,
+      "pressure": "vacuum (OoA)",
+      "facility": "report states no autoclave existed large enough for a 10 m tank; oven size not stated"
+    },
+    "assembly": "one-piece wall; Y-joint; scarf joints",
+    "shape_accuracy": [],
+    "inspection": "ultrasonic inspection and structural health monitoring; porosity about 3% estimated",
+    "problems": "permeation slightly above CCTD requirement, attributed to OoA porosity and microcracks; Y-joint achieved safety factor 0.52-0.53 at LH2",
+    "cost_class": "20-25% cost saving from AFP estimated; 33% weight saving demonstrated",
+    "sources": [
+      {
+        "citation": "Jackson, Vickers, Fikes, CCTD 2.4 and 5.5M OoA tank test results (NTRS 20150021410)",
+        "url": "https://ntrs.nasa.gov/api/citations/20150021410/downloads/20150021410.pdf",
+        "local_path": "unpublished-local-ref:616f12947c7fc1ab",
+        "pages_read": "all 8 pages"
+      },
+      {
+        "citation": "CompositesWorld, NASA/Boeing composite launch vehicle fuel tank scores firsts",
+        "url": "https://compositesworld.com/articles/nasaboeing-composite-launch-vehicle-fuel-tank-scores-firsts",
+        "local_path": "unpublished-local-ref:3093eeaa42d6d42b",
+        "pages_read": "whole article"
+      }
+    ],
+    "confidence": "partial",
+    "missing": [
+      "not a honeycomb sandwich shell so limited relevance",
+      "oven size, cure cycle, measured shape accuracy"
+    ]
+  },
+  {
+    "id": "APOLLO-CM-HEATSHIELD",
+    "structure": "Apollo command module heat shield substructure (brazed stainless honeycomb) and inner pressure shell (bonded aluminium honeycomb)",
+    "diameter_m": 3.9,
+    "dome_or_shell_shape": "blunt spherical-conical aeroshell, about 3.9 m (12.8 ft) base (secondary article, not opened)",
+    "construction": {
+      "faces": null,
+      "core": null,
+      "adhesive": null
+    },
+    "tooling": null,
+    "cure_method": {
+      "process": null,
+      "temperature": null,
+      "pressure": null,
+      "facility": null
+    },
+    "assembly": "40 brazed panels per web-search snippet of a NASA ALSJ PDF whose link returned 404",
+    "shape_accuracy": [],
+    "inspection": null,
+    "problems": null,
+    "cost_class": null,
+    "sources": [
+      {
+        "citation": "NASA ALSJ CSM25 Apollo Manufacturing pp245-252 (link 404 on retrieval; only a search-result summary seen)",
+        "url": "https://www.nasa.gov/wp-content/uploads/static/history/alsj/CSM25_Apollo_Manufacturing_pp245-252.pdf",
+        "local_path": null,
+        "pages_read": "not opened"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": [
+      "all fields; document could not be retrieved"
+    ]
+  },
+  {
+    "id": "GAPS",
+    "structure": "searches that failed",
+    "diameter_m": null,
+    "dome_or_shell_shape": null,
+    "construction": null,
+    "tooling": null,
+    "cure_method": null,
+    "assembly": null,
+    "shape_accuracy": [],
+    "inspection": null,
+    "problems": null,
+    "cost_class": null,
+    "sources": [],
+    "confidence": "n/a",
+    "missing": [
+      "S-II bonding autoclave dimensions, cure temperature, pressure and cycle time: searched SP-4206, SD 71-256, SD 70-559-1, SD 70-556-1, NTRS full-text queries, NAA brochure; only 'gargantuan autoclave' found",
+      "As-built contour residual (RMS or peak) after bonding for S-II or S-IVB: none published in sources opened; only the 0.010 in required fit and 0.0 to 0.015/0.090 in gap tolerances",
+      "S-II/S-IVB flaw statistics (void counts, disbond frequency): none found; S-IV note is only 'most bulkheads' had weld crack or debond at cryogenic loading",
+      "S-II NAA original reports (NAA S&ID bonding process spec, MSFC-HDBK) not located in NTRS; NTRS 19660024846 (Douglas paper) is metadata-only but a UAH copy was read",
+      "Space Shuttle payload bay door cure method, tooling, facility, shape accuracy: not found (only constructions)",
+      "Ariane 5 and Atlas V/Delta IV fairing cure temperature, oven size, mold or part shape accuracy: not found",
+      "Delta IV 5 m fairing construction: not found",
+      "X-33 tank full dimensions, cure pressure and shape accuracy: not found; NTRS 20030067586 is a scanned PDF not read",
+      "Apollo CM heat shield: source link 404, only summary seen",
+      "'10,000ths of an inch' wording in NAA brochure is ambiguous (0.0001 in vs 0.010 in); SD 71-256 uses 'ten thousandths' and '0.010 inch' together, so 0.010 in is used here",
+      "Core material conflict for S-II: SP-4206/RPE fiberglass-phenolic vs SD 71-256 phenolic-impregnated nylon fabric"
+    ]
+  }
+]

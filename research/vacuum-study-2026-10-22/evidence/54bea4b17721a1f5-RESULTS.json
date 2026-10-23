@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-018b",
+  "unit": "vacuum-mainline018b-crimp-gamma-measured-1020",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-20T00:25:15-07:00",
+  "ended_at": "2026-10-20T00:25:15-07:00",
+  "p_crimp_formula": "p = 2 * h^2 * Gc / (R_middle * tc)",
+  "p_classical_formula": "p = 2 * sigma_0 * (t_outer + t_inner) / R_middle",
+  "gamma_definition": "imperfect collapse pressure / p_crimp",
+  "Gc_paper_Pa": 20000000.0,
+  "Gc_basis": "G = E / (2 * (1 + nu)) from the stated foam modulus 0.04 GPa and Poisson 0.",
+  "shells": {
+    "flat": {
+      "name": "flat",
+      "t_outer_m": 0.00042,
+      "t_inner_m": 0.00042,
+      "t_core_m": 0.0031,
+      "h_m": 0.0035199999999999997,
+      "R_outer_m": 0.0428,
+      "R_middle_m": 0.04083,
+      "R_over_tc": 13.170967741935483,
+      "sigma_0_Pa": 19178708418.605698,
+      "sigma_crimp_Pa": 95164362.5192012,
+      "Vc": 201.53246352841413,
+      "branch": "shear_crimping",
+      "p_crimp_Pa": 3915653.4173954944,
+      "p_classical_Pa": 789131279.5311676,
+      "linear_over_crimp": 7.030755040192409,
+      "nonlinear_perfect_over_crimp": 3.179545958968234,
+      "gamma_imperfect_over_crimp": 1.5399728620544941,
+      "published_kdf_check": 0.21903378132945878,
+      "face_bending_share_of_flexural_rigidity": 0.004723195064743116,
+      "lead_least_times_gamma": 1.0016165884275698,
+      "pressures": {
+        "linear_perfect_Pa": 27530000.0,
+        "nonlinear_perfect_Pa": 12450000.0,
+        "imperfect_Pa": 6030000.0,
+        "figure_linear": "Figure 9",
+        "figure_imperfect": "Figure 10",
+        "published_kdf": 0.22
+      }
+    },
+    "dimple": {
+      "name": "dimple",
+      "t_outer_m": 0.00042,
+      "t_inner_m": 0.0004,
+      "t_core_m": 0.0031,
+      "h_m": 0.00351,
+      "R_outer_m": 0.0428,
+      "R_middle_m": 0.04084,
+      "R_over_tc": 13.174193548387098,
+      "sigma_0_Pa": 19119540732.73865,
+      "sigma_crimp_Pa": 96932336.74272227,
+      "Vc": 197.24625832023136,
+      "branch": "shear_crimping",
+      "p_crimp_Pa": 3892483.6498056934,
+      "p_classical_Pa": 767777835.4968507,
+      "linear_over_crimp": 7.08031233512715,
+      "nonlinear_perfect_over_crimp": 3.1959029553331546,
+      "gamma_imperfect_over_crimp": 1.4463773021322879,
+      "published_kdf_check": 0.20428156748911466,
+      "face_bending_share_of_flexural_rigidity": 0.004538262400473471,
+      "lead_least_times_gamma": 0.9407409277382122,
+      "pressures": {
+        "linear_perfect_Pa": 27560000.0,
+        "nonlinear_perfect_Pa": 12440000.0,
+        "imperfect_Pa": 5630000.0,
+        "figure_linear": "Figure 12",
+        "figure_imperfect": "Figure 13",
+        "published_kdf": 0.2
+      }
+    }
+  },
+  "sensitivity": {
+    "flat": {
+      "paper_E_over_2": {
+        "Gc_Pa": 20000000.0,
+        "p_crimp_Pa": 3915653.4173954944,
+        "gamma": 1.5399728620544941,
+        "lead_least_times_gamma": 1.0016165884275698
+      },
+      "H80": {
+        "Gc_Pa": 27000000.0,
+        "p_crimp_Pa": 5286132.113483918,
+        "gamma": 1.1407206385588844,
+        "lead_least_times_gamma": 0.7419382136500516
+      },
+      "H35": {
+        "Gc_Pa": 12000000.0,
+        "p_crimp_Pa": 2349392.0504372967,
+        "gamma": 2.56662143675749,
+        "lead_least_times_gamma": 1.6693609807126164
+      }
+    },
+    "dimple": {
+      "paper_E_over_2": {
+        "Gc_Pa": 20000000.0,
+        "p_crimp_Pa": 3892483.6498056934,
+        "gamma": 1.4463773021322879,
+        "lead_least_times_gamma": 0.9407409277382122
+      },
+      "H80": {
+        "Gc_Pa": 27000000.0,
+        "p_crimp_Pa": 5254852.927237687,
+        "gamma": 1.071390594172065,
+        "lead_least_times_gamma": 0.6968451316579348
+      },
+      "H35": {
+        "Gc_Pa": 12000000.0,
+        "p_crimp_Pa": 2335490.189883416,
+        "gamma": 2.4106288368871467,
+        "lead_least_times_gamma": 1.5679015462303538
+      }
+    }
+  },
+  "design_credit_cap": 1.0,
+  "carried_least_if_capped": 0.650411843681
+}

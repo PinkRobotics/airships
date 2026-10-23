@@ -1,0 +1,82 @@
+{
+  "p3_strength_needed_MPa": {
+    "film_specific_strength": {
+      "factor": 3.7912376510354675,
+      "strength_MPa": 1196.6583731444848,
+      "rule": "lowest strength keeping the re-optimised least SF at 0.999"
+    },
+    "sic_density": {
+      "factor": 1.4056203537288658,
+      "strength_MPa": 825.7166695497917,
+      "rule": "lowest strength keeping the re-optimised least SF at 0.999"
+    },
+    "sic_modulus": {
+      "factor": 1.6079277202919662,
+      "strength_MPa": 1174.7638165328315,
+      "rule": "lowest strength keeping the re-optimised least SF at 0.999"
+    },
+    "lattice_knockdown": {
+      "factor": 1.9864868273792367,
+      "strength_MPa": 1201.5978373437645,
+      "rule": "lowest strength keeping the re-optimised least SF at 0.999"
+    }
+  },
+  "criii_family": {
+    "5056 3/8-1.0": {
+      "R10": {
+        "least": 0.5283607832673977,
+        "governing": "global_buckling",
+        "tf": 0.000731197610841909,
+        "tc": 0.03738822912142883
+      },
+      "R20": {
+        "least": 0.5710576524936555,
+        "governing": "global_buckling",
+        "tf": 0.0015571339826939644,
+        "tc": 0.07727691937247583
+      }
+    },
+    "5056 1/4-1.6": {
+      "R10": {
+        "least": 0.5425485874549154,
+        "governing": "global_buckling",
+        "tf": 0.0006088764186998448,
+        "tc": 0.04094792884765884
+      },
+      "R20": {
+        "least": 0.5938971228513991,
+        "governing": "global_buckling",
+        "tf": 0.001306245902310587,
+        "tc": 0.08435564295498366
+      }
+    },
+    "5056 3/8-1.6": {
+      "R10": {
+        "least": 0.5425485874549154,
+        "governing": "global_buckling",
+        "tf": 0.0006088764186998448,
+        "tc": 0.04094792884765884
+      },
+      "R20": {
+        "least": 0.5938971228513991,
+        "governing": "global_buckling",
+        "tf": 0.001306245902310587,
+        "tc": 0.08435564295498366
+      }
+    },
+    "5056 1/4-2.3": {
+      "R10": {
+        "least": 0.46110381703922965,
+        "governing": "global_buckling",
+        "tf": 0.0004503623657230853,
+        "tc": 0.04435242091982799
+      },
+      "R20": {
+        "least": 0.5139309301086403,
+        "governing": "global_buckling",
+        "tf": 0.000978334309370562,
+        "tc": 0.09149994627412639
+      }
+    }
+  }
+}

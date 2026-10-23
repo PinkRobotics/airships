@@ -1,0 +1,222 @@
+[
+  {
+    "point_id": "P1",
+    "construction_family": "simple_shell",
+    "geometry_scale_and_residual_pressure": "Complete sphere, external radius 10 m, thickness 0.0007 m, p_int=0.",
+    "model_equations_and_source_ids": "Zoelly p_cl=2*E*(t/R)^2/sqrt(3*(1-nu^2)); p_collapse=kd*p_cl. Identity 4/R^2*sqrt(D*S) checked.",
+    "material_and_other_input_ids": [
+      "I-E",
+      "I-RHO-AL",
+      "I-NU",
+      "I-KD",
+      "I-R",
+      "I-T1",
+      "I-J1",
+      "I-SYS1",
+      "I-GAS1",
+      "I-PINT"
+    ],
+    "displaced_volume_m3": 4188.790204786391,
+    "lift_basis": "supported mass rho_air*V_external at computed ISA density; p_int=0",
+    "lift_equivalent_mass_kg": 4889.442150186961,
+    "all_mass_breakdown_kg": {
+      "shell": 2375.0440461138837,
+      "joints": 237.5044046113884,
+      "systems_payload": 200.0,
+      "residual_gas": 0.0
+    },
+    "all_mass_kg": 2812.5484507252722,
+    "float_margin": 0.42477109569284366,
+    "collapse_pressure_estimate_Pa": 82.59456002608204,
+    "classical_or_mode_pressure_Pa": 412.9728001304101,
+    "external_pressure_at_500m_Pa": 95460.83791390515,
+    "crush_safety_factor": 0.0008652193070060097,
+    "pressure_convention": "p_int=0 so differential equals external. SF = p_collapse/p_ext(500 m ISA). p_collapse already includes the knockdown where one is applied.",
+    "if_SF_below1_property_to_improve": "Young_modulus_of_6061-T6",
+    "improvement_factor_relative_to_stated_baseline": 1155.776335436137,
+    "scaling_or_calculation_for_factor": {
+      "required": true,
+      "property": "Young_modulus_of_6061-T6",
+      "improvement_factor": 1155.776335436137,
+      "equals_one_over_SF_because_linear": true,
+      "scaling": "p_collapse = kd*2*(t/R)^2/sqrt(3*(1-nu^2))*E, linear in E",
+      "held_fixed": "R, t, nu, knockdown, all masses, p_ext",
+      "baseline_name": "E",
+      "baseline_value": 68900000000.0,
+      "target_value": 79632989511549.84
+    },
+    "float_note": "margin=(lift-all_mass)/lift. Margin is positive at the stated allowances. It falls if those allowances or densities rise.",
+    "NFI_ids": [
+      "NFI-ISA",
+      "NFI-AL",
+      "NFI-KD",
+      "NFI-GEOM",
+      "NFI-MASS",
+      "NFI-GAS"
+    ],
+    "extra": {
+      "nfi": [
+        "NFI-ISA",
+        "NFI-AL",
+        "NFI-KD",
+        "NFI-GEOM",
+        "NFI-MASS",
+        "NFI-GAS"
+      ],
+      "mode": "knocked_down_zoelly"
+    }
+  },
+  {
+    "point_id": "P2",
+    "construction_family": "sandwich",
+    "geometry_scale_and_residual_pressure": "Complete sphere, external radius 10 m, two faces 0.0002 m, core 0.10 m, p_int=0.",
+    "model_equations_and_source_ids": "Owner extrapolation: D=E*tf*d^2/(2*(1-nu^2)), S=E*2*tf, p_cl=4/R^2*sqrt(D*S), p_collapse=kd*p_cl. d=core+tf. Core shear, wrinkling and core crush omitted.",
+    "material_and_other_input_ids": [
+      "I-E",
+      "I-RHO-AL",
+      "I-NU",
+      "I-KD",
+      "I-R",
+      "I-TF",
+      "I-CORE-T",
+      "I-RHO-CORE",
+      "I-J2",
+      "I-SYS2",
+      "I-GAS2",
+      "I-PINT"
+    ],
+    "displaced_volume_m3": 4188.790204786391,
+    "lift_basis": "supported mass rho_air*V_external at computed ISA density; p_int=0",
+    "lift_equivalent_mass_kg": 4889.442150186961,
+    "all_mass_breakdown_kg": {
+      "faces": 1357.1680263507908,
+      "core": 2010.6192982974678,
+      "joints": 168.38936623241295,
+      "systems_payload": 100.0,
+      "residual_gas": 0.0
+    },
+    "all_mass_kg": 3636.1766908806717,
+    "float_margin": 0.2563207459686106,
+    "collapse_pressure_estimate_Pa": 11701.558395327304,
+    "classical_or_mode_pressure_Pa": 58507.791976636516,
+    "external_pressure_at_500m_Pa": 95460.83791390515,
+    "crush_safety_factor": 0.12257967404267688,
+    "pressure_convention": "p_int=0 so differential equals external. SF = p_collapse/p_ext(500 m ISA). p_collapse already includes the knockdown where one is applied.",
+    "if_SF_below1_property_to_improve": "Young_modulus_of_6061-T6_faces",
+    "improvement_factor_relative_to_stated_baseline": 8.157959366508381,
+    "scaling_or_calculation_for_factor": {
+      "required": true,
+      "property": "Young_modulus_of_6061-T6_faces",
+      "improvement_factor": 8.157959366508381,
+      "equals_one_over_SF_because_linear": true,
+      "scaling": "p_collapse = kd*4*tf*d/(R^2*sqrt(1-nu^2))*E, linear in E",
+      "held_fixed": "R, tf, d, nu, knockdown, core, all masses, p_ext; shear omitted",
+      "baseline_name": "E",
+      "baseline_value": 68900000000.0,
+      "target_value": 562083400352.4275
+    },
+    "float_note": "margin=(lift-all_mass)/lift. Margin is positive at the stated allowances. It falls if those allowances or densities rise.",
+    "NFI_ids": [
+      "NFI-ISA",
+      "NFI-AL",
+      "NFI-SAND",
+      "NFI-CORE",
+      "NFI-GEOM",
+      "NFI-MASS",
+      "NFI-GAS"
+    ],
+    "extra": {
+      "nfi": [
+        "NFI-ISA",
+        "NFI-AL",
+        "NFI-SAND",
+        "NFI-CORE",
+        "NFI-GEOM",
+        "NFI-MASS",
+        "NFI-GAS"
+      ],
+      "mode": "knocked_down_owner_sandwich"
+    }
+  },
+  {
+    "point_id": "P3",
+    "construction_family": "frame_membrane",
+    "geometry_scale_and_residual_pressure": "Complete sphere, external radius 10 m, spacing 1 m, tube 0.020 m outer by 0.001 m wall, film 80e-6 m, p_int=0.",
+    "model_equations_and_source_ids": "Equilibrium N=p*R/2. Owner tributary: F=N*s. Pinned Euler p_euler=2*pi^2*E*I/(R*s^3). Film p_film=2*sigma*t_film/s. Collapse is the lesser. No extra knockdown.",
+    "material_and_other_input_ids": [
+      "I-E",
+      "I-RHO-AL",
+      "I-R",
+      "I-S",
+      "I-RO",
+      "I-TW",
+      "I-SIG",
+      "I-TFILM",
+      "I-RHO-FILM",
+      "I-NODE",
+      "I-SYS3",
+      "I-GAS3",
+      "I-PINT"
+    ],
+    "displaced_volume_m3": 4188.790204786391,
+    "lift_basis": "supported mass rho_air*V_external at computed ISA density; p_int=0",
+    "lift_equivalent_mass_kg": 4889.442150186961,
+    "all_mass_breakdown_kg": {
+      "frame": 1440.0538444621336,
+      "film": 97.51503596742718,
+      "nodes": 29.060789827747495,
+      "systems_payload": 50.0,
+      "residual_gas": 0.0
+    },
+    "all_mass_kg": 1616.6296702573084,
+    "float_margin": 0.6693631664717636,
+    "collapse_pressure_estimate_Pa": 3170.210558873461,
+    "classical_or_mode_pressure_Pa": {
+      "p_euler": 3170.210558873461,
+      "p_film": 240000.00000000003
+    },
+    "external_pressure_at_500m_Pa": 95460.83791390515,
+    "crush_safety_factor": 0.03320954045817858,
+    "pressure_convention": "p_int=0 so differential equals external. SF = p_collapse/p_ext(500 m ISA). p_collapse already includes the knockdown where one is applied.",
+    "if_SF_below1_property_to_improve": "Young_modulus_of_6061-T6_frame",
+    "improvement_factor_relative_to_stated_baseline": 30.111828896257066,
+    "scaling_or_calculation_for_factor": {
+      "required": true,
+      "property": "Young_modulus_of_6061-T6_frame",
+      "improvement_factor": 30.111828896257066,
+      "equals_one_over_SF_because_linear": true,
+      "scaling": "p_euler = (2*pi^2*I/(R*s^3))*E, linear in E",
+      "held_fixed": "R, s, tube radii, film, knockdown not applied, nu unused",
+      "baseline_name": "E",
+      "baseline_value": 68900000000.0,
+      "target_value": 2074705010952.1118
+    },
+    "float_note": "margin=(lift-all_mass)/lift. Margin is positive at the stated allowances. It falls if those allowances or densities rise.",
+    "NFI_ids": [
+      "NFI-ISA",
+      "NFI-AL",
+      "NFI-FRAME",
+      "NFI-FILM",
+      "NFI-GEOM",
+      "NFI-MASS",
+      "NFI-GAS"
+    ],
+    "extra": {
+      "nfi": [
+        "NFI-ISA",
+        "NFI-AL",
+        "NFI-FRAME",
+        "NFI-FILM",
+        "NFI-GEOM",
+        "NFI-MASS",
+        "NFI-GAS"
+      ],
+      "mode": "pinned_euler_member",
+      "n_triangles": 2902.078982774749,
+      "n_edges": 4353.118474162124,
+      "n_nodes": 1453.0394913873747,
+      "tube_area_m2": 0.00012252211349000203,
+      "tube_I_m4": 2.3309832091472876e-08
+    }
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "id": "rpt-ref-444cea756201354c34c3",
+  "unit": "vacuum-mainline009d-check-1019",
+  "at": "2026-10-20T00:34:19-07:00",
+  "body": "MAINLINE-009d both points checked: all 84 numeric comparisons reproduce under the stated formulas. Payload 244.472107509 kg. Aramid least SF 0.650411843681, crimp; aluminium 0.617044785527, global, with both cell sizes tied. Independent mass-fraction search reproduces the aluminium grid optimum and the 0.668649769509 ceiling check.\n\nGlobal-only aluminium kd=0.324125581629 reproduces. No kd alone makes every mode reach 1: wrinkling stays 0.617061966145 and face compression 0.771940448045.\n\nKnown upstream modelling NFI: dimpling is explicitly uniaxial. NASA eq 2.1-6 gives equal-biaxial factors 9.747456867816 and 4.332203052363, half the filed values; neither governs. The omitted aramid dimpling mode is 26.343099000191 equal-biaxial and also does not govern.\n\nThe separate 018 curve carry reproduces. At held geometries optimistic/conservative least SFs are aramid 0.650412/0.130082 and aluminium 0.617062/0.617045. Ranking depends on the curve. Source/packaging gaps and inherited assumptions are in NFI. QUESTIONABLE/PROJECTION; no certification.\n\nThis and rpt-ref-62323cf6831eb964377f complete the two-part check order. Proceeding to the queued MAINLINE-009e check.",
+  "artifacts": [
+    {
+      "path": "evidence/28f79918dcc53ab4-CARD.md",
+      "sha256": "28f79918dcc53ab4d97b894482ca04b83dbd7135f68a6988cf27d0c160f10eec",
+      "bytes": 5896
+    },
+    {
+      "path": "evidence/bee89d47f9a66651-RESULTS.json",
+      "sha256": "bee89d47f9a666510744d336a00e86998331020cc2d294fba673c4c2bd274b96",
+      "bytes": 44775
+    },
+    {
+      "path": "evidence/b6edcef00e1a043c-INPUTS.json",
+      "sha256": "b6edcef00e1a043c0478c8725d6293668225b6bf5f5f2c5f103e0d9957f306e2",
+      "bytes": 26974
+    },
+    {
+      "path": "evidence/c719feb664ab8a57-NFI.json",
+      "sha256": "c719feb664ab8a57caedd0766e264c36a41aa85b9193cdd06f99fb66f67ec8a0",
+      "bytes": 3341
+    },
+    {
+      "path": "evidence/6461005326dd4aa5-recalculate.py",
+      "sha256": "6461005326dd4aa597fee48c99a8fffe08de83240df58e978478a1b8a10a2495",
+      "bytes": 9167
+    },
+    {
+      "path": "unpublished-local-ref:f21c166875e85495",
+      "sha256": "0467f718f7d9d3a175635718573f94f58baea1d753e83db4be8edcba9f374034",
+      "bytes": 269874
+    },
+    {
+      "path": "unpublished-local-ref:688ee002d731c55b",
+      "sha256": "7a51c3631504018a5de35f545be43edcebd73e248d240e8da59fb5d2b550c43c",
+      "bytes": 174949
+    },
+    {
+      "path": "unpublished-local-ref:1b5504be3dbcf019",
+      "sha256": "5dd577735c411e1c9c934e96ec53f330c58afd06658466c2cf0b03585823af14",
+      "bytes": 82780
+    },
+    {
+      "path": "unpublished-local-ref:34591390744eba48",
+      "sha256": "0c4475f8cdb48f59489f4d119867f1e7dc61927a5c8947e228ee21eba77e5605",
+      "bytes": 69036
+    }
+  ],
+  "from": "ref-baa4584cf36c531365e7",
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "re": "ord-admiral-rr2-check018-then-009d-codex-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check018-then-009d-codex-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

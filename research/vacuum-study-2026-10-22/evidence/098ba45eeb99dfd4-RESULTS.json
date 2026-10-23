@@ -1,0 +1,1384 @@
+{
+  "schema": 1,
+  "check": "CHECK-047",
+  "unit": "vacuum-mainline047-check-1020",
+  "order": "ord-admiral-rr2-check047-opus-65d1-1020",
+  "checked_report": "rpt-ref-e23aa05d834f8e89bb2c",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "certification": "none",
+  "owner_code_read_or_run": false,
+  "job_started_at": "2026-10-20T07:31:39-07:00",
+  "job_ended_at": "2026-10-20T08:56:15.096126-07:00",
+  "times_are": "measurements only",
+  "verdict": {
+    "arithmetic_rows": 72,
+    "arithmetic_agree": 72,
+    "fe_rows_compared": 44,
+    "fe_agree": 43,
+    "mismatches": [
+      "larger-dimple 11.8 mm face-yield estimate 61.910 vs 63.596 kPa (mesh; diagnostic)",
+      "core thickness 15th digit",
+      "service pressure 8th digit"
+    ],
+    "governing_estimates_mm": {
+      "SF1": 1.2179347115063897,
+      "SF1.05": 0.7469470771194129
+    },
+    "regularization_effect_MPa": [
+      0.016250019844562757,
+      -0.14780031001595262
+    ],
+    "E298.7_SF1_estimate_mm": 1.232633806671951,
+    "simple_shear_ellipticity_MPa": {
+      "inherited": {
+        "m_on_n": 0.08774008730419428,
+        "n_on_m": 0.08773361769110789
+      },
+      "regularized": {
+        "m_on_n": 2.656966540461591,
+        "n_on_m": 2.6463249133945905
+      }
+    },
+    "acoustic": {
+      "regularized": {
+        "run": "g-W332-a1.208988-hi",
+        "pressure_kPa": 95.46083791390515,
+        "exact_min_MPa": 0.497944974166263,
+        "sufficient_bound_min_MPa": 0.3500570803816897,
+        "worst_shear_MPa": 0.11978271052035638
+      },
+      "inherited": {
+        "run": "c-W332-a1.208988-hi-ein0.01",
+        "pressure_kPa": 95.46083791390515,
+        "exact_min_MPa": -0.0054442746369633525,
+        "sufficient_bound_min_MPa": -0.14250486845174595,
+        "worst_shear_MPa": 0.11979208952590724
+      },
+      "regularized SF1.05 frame": {
+        "run": "g-W332-a0.737936-hi",
+        "pressure_kPa": 100.23387980960041,
+        "exact_min_MPa": 0.4979345703621931,
+        "sufficient_bound_min_MPa": 0.3905782539347674,
+        "worst_shear_MPa": 0.07728429768110288
+      }
+    }
+  },
+  "arithmetic": [
+    {
+      "check": "service pressure = ISA 500 m (US 1976 constants, R* = 8.31432)",
+      "card": 95.46083791390515,
+      "mine": 95.46083934230589,
+      "tolerance": 1e-07,
+      "agrees": true,
+      "note": "agrees to 1.5e-08 relative; the constant set differs beyond the 8th digit"
+    },
+    {
+      "check": "SF 1.05 target",
+      "card": 100.23387980960041,
+      "mine": 100.23387980960041,
+      "tolerance": 1e-12,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "face thickness (028b via 037b)",
+      "card": 0.794624066985892,
+      "mine": 0.7946240669858919,
+      "tolerance": 1e-12,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "core thickness (028b via 037b)",
+      "card": 23.23721790601544,
+      "mine": 23.23721790601548,
+      "tolerance": 1e-12,
+      "agrees": true,
+      "note": "differs in the 15th digit only"
+    },
+    {
+      "check": "037b scarf ratio",
+      "card": 30.34139731914874,
+      "mine": 30.34139731914874,
+      "tolerance": 1e-12,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "037b residual face compression, MPa",
+      "card": 3.41022257,
+      "mine": 3.4102225696822703,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "cure-debit yield screen, MPa",
+      "card": 341.58977743,
+      "mine": 341.58977743,
+      "tolerance": 1e-12,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "classical length w = sqrt(R t_eq)/[12(1-nu^2)]^1/4",
+      "card": 347.1529189,
+      "mine": 347.1529189444301,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "classical length with face bending",
+      "card": 347.1845439,
+      "mine": 347.1845438720782,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "full classical wavelength 2 pi w",
+      "card": 2181.424825,
+      "mine": 2181.4248249368884,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "width 332.2164186 in 029",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "width 401.8559050 in 029",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "G_L = 15 ksi (CR III Table II)",
+      "card": 103.4213594,
+      "mine": 103.4213593975254,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "G_W = 6.8 ksi (CR III Table II)",
+      "card": 46.8843496,
+      "mine": 46.884349593544854,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "029 carries both shear moduli",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "CR III 1.0 pcf row (L typ, L min, W typ, W min, crush)",
+      "card": [
+        55,
+        45,
+        35,
+        25,
+        35
+      ],
+      "mine": [
+        55.0,
+        45.0,
+        35.0,
+        25.0,
+        35.0
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "CR III moduli ksi (compressive, L, W)",
+      "card": [
+        15.0,
+        15.0,
+        6.8
+      ],
+      "mine": [
+        15.0,
+        15.0,
+        6.8
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "S_W min avg MPa",
+      "card": 0.172369,
+      "mine": 0.172369,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "rounded to the card's 6 decimals"
+    },
+    {
+      "check": "S_L min avg MPa",
+      "card": 0.310264,
+      "mine": 0.310264,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "rounded to the card's 6 decimals"
+    },
+    {
+      "check": "S_W typical MPa",
+      "card": 0.241317,
+      "mine": 0.241317,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "rounded to the card's 6 decimals"
+    },
+    {
+      "check": "S_L typical MPa",
+      "card": 0.379212,
+      "mine": 0.379212,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "rounded to the card's 6 decimals"
+    },
+    {
+      "check": "perfect sphere first yield 255 MPa inside the card bracket",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "membrane estimate 80.9510 kPa; bracket [80.1, 81.0]; endpoint 81.044172"
+    },
+    {
+      "check": "perfect sphere first yield 300 MPa inside the card bracket",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "membrane estimate 95.2365 kPa; bracket [94.94999999999999, 95.28750000000001]; endpoint 95.36283"
+    },
+    {
+      "check": "perfect sphere first yield 345 MPa inside the card bracket",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "membrane estimate 109.5220 kPa; bracket [109.51875, 109.645308]; endpoint 109.68211799999999"
+    },
+    {
+      "check": "perfect sphere face stress at service, MPa (membrane, equal faces)",
+      "card": 300.7068,
+      "mine": 300.7066074522289,
+      "tolerance": 1e-05,
+      "agrees": true,
+      "note": "own value; the card prints no number"
+    },
+    {
+      "check": "SF 1.0 amplitude estimate by linear interpolation of face stress",
+      "card": 1.2191760361482857,
+      "mine": 1.2191760361482855,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.0 single-Gaussian RMS, micrometres (exact sphere integral)",
+      "card": 14.32,
+      "mine": 14.32,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.0 RMS bracket agrees to 1e-9",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.0 small-patch RMS a w/(sqrt 8 R) against the exact integral, nm",
+      "card": 14319.325,
+      "mine": 14319.983,
+      "tolerance": 0.0001,
+      "agrees": true,
+      "note": "the small-patch form is 4.6e-05 high; the card uses the exact integral, as it states"
+    },
+    {
+      "check": "SF 1.0 core index >= meridian shear / S_W (quadratic interaction adds the hoop term)",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "index 0.6944309, ratio 0.6943987, implied hoop shear 0.00207 MPa"
+    },
+    {
+      "check": "SF 1.05 amplitude estimate by linear interpolation of face stress",
+      "card": 0.7477706794756136,
+      "mine": 0.7477706794756138,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.05 single-Gaussian RMS, micrometres (exact sphere integral)",
+      "card": 8.78,
+      "mine": 8.78,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.05 RMS bracket agrees to 1e-9",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.05 small-patch RMS a w/(sqrt 8 R) against the exact integral, nm",
+      "card": 8782.629,
+      "mine": 8783.033,
+      "tolerance": 0.0001,
+      "agrees": true,
+      "note": "the small-patch form is 4.6e-05 high; the card uses the exact integral, as it states"
+    },
+    {
+      "check": "SF 1.05 core index >= meridian shear / S_W (quadratic interaction adds the hoop term)",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "index 0.4482294, ratio 0.4482083, implied hoop shear 0.00135 MPa"
+    },
+    {
+      "check": "042's mapped amplitudes, mm",
+      "card": [
+        9.32,
+        16.06
+      ],
+      "mine": [
+        9.32,
+        16.06
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "ratio to 042, low",
+      "card": 7.6,
+      "mine": 7.6,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "7.643 with the unrounded estimate"
+    },
+    {
+      "check": "ratio to 042, high",
+      "card": 13.2,
+      "mine": 13.2,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "13.171"
+    },
+    {
+      "check": "015b's own RMS 0.1393 and 0.6544 mm are in 015b",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "the card quotes 015b's values at 015b's widths (333.96 and 403.97 mm), not recomputed at 047's widths"
+    },
+    {
+      "check": "015b 11.801 mm at 333.964 mm, small-patch RMS",
+      "card": 0.1393,
+      "mine": 0.1393,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "015b 45.819 mm at 403.970 mm, small-patch RMS",
+      "card": 0.6544,
+      "mine": 0.6544,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (332.216, 'W')",
+      "card": [
+        1.209,
+        1.227,
+        0.738,
+        0.756,
+        0.119693,
+        0.6944
+      ],
+      "mine": [
+        1.209,
+        1.227,
+        0.738,
+        0.756,
+        0.119693,
+        0.6944
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (332.216, 'L')",
+      "card": [
+        1.796,
+        1.811,
+        1.111,
+        1.129,
+        0.131763,
+        0.4247
+      ],
+      "mine": [
+        1.796,
+        1.811,
+        1.111,
+        1.129,
+        0.131763,
+        0.4247
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (347.153, 'W')",
+      "card": [
+        1.223,
+        1.241,
+        0.748,
+        0.766,
+        0.11526,
+        0.6687
+      ],
+      "mine": [
+        1.223,
+        1.241,
+        0.748,
+        0.766,
+        0.11526,
+        0.6687
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (347.153, 'L')",
+      "card": [
+        1.798,
+        1.816,
+        1.114,
+        1.132,
+        0.126322,
+        0.4071
+      ],
+      "mine": [
+        1.798,
+        1.816,
+        1.114,
+        1.132,
+        0.126322,
+        0.4071
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (401.856, 'W')",
+      "card": [
+        1.284,
+        1.302,
+        0.789,
+        0.807,
+        0.101647,
+        0.5897
+      ],
+      "mine": [
+        1.284,
+        1.302,
+        0.789,
+        0.807,
+        0.101647,
+        0.5897
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (401.856, 'L')",
+      "card": [
+        1.821,
+        1.839,
+        1.136,
+        1.154,
+        0.109734,
+        0.3537
+      ],
+      "mine": [
+        1.821,
+        1.839,
+        1.136,
+        1.154,
+        0.109734,
+        0.3537
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (2181.425, 'W')",
+      "card": [
+        21.127,
+        21.217,
+        14.262,
+        14.352,
+        0.012361,
+        0.0717
+      ],
+      "mine": [
+        21.127,
+        21.217,
+        14.262,
+        14.352,
+        0.012361,
+        0.0717
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "boundary table (2181.425, 'L')",
+      "card": [
+        21.271,
+        21.358,
+        14.299,
+        14.389,
+        0.013029,
+        0.042
+      ],
+      "mine": [
+        21.271,
+        21.358,
+        14.299,
+        14.389,
+        0.013029,
+        0.042
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "1.10 division, passing capacity kPa",
+      "card": 95.52354545454546,
+      "mine": 95.52354545454546,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "1.10 division, failing capacity kPa",
+      "card": 95.38216363636364,
+      "mine": 95.38216363636364,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "1.10 division: passing side passes, failing side fails",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "1.10 bracket, mm",
+      "card": [
+        0.521,
+        0.539
+      ],
+      "mine": [
+        0.521,
+        0.539
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "all eight footprints pass at 0.520967 mm",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "perfect sphere 345: endpoint / 1.10 below the SF 1.05 target",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "99.7110 < 100.2339"
+    },
+    {
+      "check": "1.10 global estimate RMS, mm",
+      "card": 0.007514693161768268,
+      "mine": 0.0075146931617682666,
+      "tolerance": 1e-09,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "transfer factors 2.3146-2.4589 (CHECK-029 record)",
+      "card": [
+        2.3146,
+        2.4589
+      ],
+      "mine": [
+        2.3146,
+        2.4589
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "perfect-sphere endpoint / 2.3146 below service: no admissible amplitude",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "47.39 kPa"
+    },
+    {
+      "check": "cure-debit SF 1.0 bracket",
+      "card": [
+        1.117,
+        1.135
+      ],
+      "mine": [
+        1.117,
+        1.135
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "cure-debit SF 1.0 RMS, micrometres",
+      "card": 13.3,
+      "mine": 13.3,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "estimate 1.132525 mm"
+    },
+    {
+      "check": "cure-debit SF 1.05 bracket",
+      "card": [
+        0.653,
+        0.671
+      ],
+      "mine": [
+        0.653,
+        0.671
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "cure-debit SF 1.05 RMS, micrometres",
+      "card": 7.83,
+      "mine": 7.83,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "estimate 0.666497 mm"
+    },
+    {
+      "check": "larger dimple (332.2, 'W', 11.8)",
+      "card": [
+        61.91,
+        22.651,
+        68.629
+      ],
+      "mine": [
+        61.91,
+        22.651,
+        68.629
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "larger dimple (332.2, 'W', 46.0)",
+      "card": [
+        44.707,
+        12.043,
+        56.953
+      ],
+      "mine": [
+        44.707,
+        12.043,
+        56.953
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "larger dimple (401.9, 'W', 11.8)",
+      "card": [
+        57.215,
+        26.202,
+        64.857
+      ],
+      "mine": [
+        57.215,
+        26.202,
+        64.857
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "larger dimple (401.9, 'W', 46.0)",
+      "card": [
+        41.429,
+        11.631,
+        51.485
+      ],
+      "mine": [
+        41.429,
+        11.631,
+        51.485
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "larger dimple (2181.4, 'W', 11.8)",
+      "card": [
+        101.91,
+        null,
+        102.152
+      ],
+      "mine": [
+        101.91,
+        null,
+        102.152
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "larger dimple (2181.4, 'W', 46.0)",
+      "card": [
+        77.457,
+        null,
+        78.33
+      ],
+      "mine": [
+        77.457,
+        null,
+        78.33
+      ],
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "inherited probe second variation, MPa (its own a, N, E)",
+      "card": -0.005455133179006033,
+      "mine": -0.00545513317900604,
+      "tolerance": 1e-06,
+      "agrees": true,
+      "note": "W orientation: meridian shear modulus 6.8 ksi"
+    },
+    {
+      "check": "inherited probe exact minimum over a and N is negative",
+      "card": true,
+      "mine": "True",
+      "tolerance": 0,
+      "agrees": true,
+      "note": "-0.005455 MPa"
+    },
+    {
+      "check": "inherited law: simple-shear loss of ellipticity, MPa (CHECK-029 found about 0.088)",
+      "card": 0.088,
+      "mine": 0.08773361769110789,
+      "tolerance": 0.15,
+      "agrees": true,
+      "note": "own exact minimisation; both shear senses"
+    },
+    {
+      "check": "regularized law: no loss of ellipticity below 0.5 MPa simple shear",
+      "card": true,
+      "mine": true,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "{\"m_on_n\": 2.656966540461591, \"n_on_m\": 2.6463249133945905}"
+    }
+  ],
+  "fe": [
+    {
+      "check": "perfect sphere 255 MPa: own stress below yield at the card's lower bracket, above at its upper",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "252.241 / 255.072 MPa"
+    },
+    {
+      "check": "perfect sphere 255 MPa first yield, kPa (interpolated)",
+      "card": 80.97427573789561,
+      "mine": 80.97708927415692,
+      "difference": 0.002813536261314198,
+      "tolerance": 0.02,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "perfect sphere 300 MPa: own stress below yield at the card's lower bracket, above at its upper",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "298.953 / 300.014 MPa"
+    },
+    {
+      "check": "perfect sphere 300 MPa first yield, kPa (interpolated)",
+      "card": 95.27981155403744,
+      "mine": 95.28298803760337,
+      "difference": 0.0031764835659373603,
+      "tolerance": 0.02,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "perfect sphere 345 MPa: own stress below yield at the card's lower bracket, above at its upper",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "344.765 / 345.162 MPa"
+    },
+    {
+      "check": "perfect sphere 345 MPa first yield, kPa (interpolated)",
+      "card": 109.59013059273423,
+      "mine": 109.59362524496835,
+      "difference": 0.0034946522341243735,
+      "tolerance": 0.02,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "perfect sphere 345 MPa numerical endpoint, kPa",
+      "card": 109.68211799999999,
+      "mine": 109.68419510201912,
+      "difference": 0.002077102019129029,
+      "tolerance": 0.1,
+      "agrees": true,
+      "note": "last converged follower-pressure increment of own run"
+    },
+    {
+      "check": "perfect sphere 300 MPa numerical endpoint, kPa",
+      "card": 95.36283,
+      "mine": 95.36449,
+      "difference": 0.001660000000001105,
+      "tolerance": 0.1,
+      "agrees": true,
+      "note": "last converged follower-pressure increment of own run"
+    },
+    {
+      "check": "perfect sphere 255 MPa numerical endpoint, kPa",
+      "card": 81.044172,
+      "mine": 81.04191,
+      "difference": -0.0022620000000017626,
+      "tolerance": 0.1,
+      "agrees": true,
+      "note": "last converged follower-pressure increment of own run"
+    },
+    {
+      "check": "SF 1.0 passing amplitude 1.208988: max face stress, MPa",
+      "card": 344.59707366660876,
+      "mine": 344.6457699772824,
+      "difference": 0.04869631067361979,
+      "tolerance": 0.7,
+      "agrees": true,
+      "note": "own max at s = 2 mm, outer face"
+    },
+    {
+      "check": "SF 1.0 failing amplitude 1.226988: max face stress, MPa",
+      "card": 345.3089551220218,
+      "mine": 345.35844975960947,
+      "difference": 0.0494946375876566,
+      "tolerance": 0.7,
+      "agrees": true,
+      "note": "own max at s = 2 mm, outer face"
+    },
+    {
+      "check": "SF 1.0 own pass at 1.208988 and fail at 1.226988",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.0 tolerance estimate, mm",
+      "card": 1.2191760361482857,
+      "mine": 1.2179347115063897,
+      "difference": -0.00124132464189608,
+      "tolerance": 0.018,
+      "agrees": true,
+      "note": "within one bracket width (0.018 mm) counts as reproduced"
+    },
+    {
+      "check": "SF 1.0 passing core shear, MPa (current material frame)",
+      "card": 0.1196927634170715,
+      "mine": 0.11978271052035638,
+      "difference": 8.994710328488753e-05,
+      "tolerance": 0.003,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.0 passing core index (minimum average)",
+      "card": 0.6944308800962183,
+      "mine": 0.695017817513684,
+      "difference": 0.0005869374174656272,
+      "tolerance": 0.02,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.0 passing core compression, MPa",
+      "card": 0.06488323066879312,
+      "mine": 0.0649254401231432,
+      "difference": 4.220945435008672e-05,
+      "tolerance": 0.003,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.0 own minimum sufficient acoustic bound at the passing state, MPa (card's minimum 0.314142 over all passing states)",
+      "card": null,
+      "mine": 0.3500570803816897,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": "positive = locally strongly elliptic by the card's own sufficient bound"
+    },
+    {
+      "check": "SF 1.0 345 MPa own run at 1.208988: yields = False",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "PEEQ max 0.0"
+    },
+    {
+      "check": "SF 1.0 345 MPa own run at 1.226988: yields = True",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "PEEQ max 1.831323e-06"
+    },
+    {
+      "check": "SF 1.05 passing amplitude 0.737936: max face stress, MPa",
+      "card": 344.5848505593717,
+      "mine": 344.61919130011074,
+      "difference": 0.03434074073902593,
+      "tolerance": 0.7,
+      "agrees": true,
+      "note": "own max at s = 2 mm, outer face"
+    },
+    {
+      "check": "SF 1.05 failing amplitude 0.755936: max face stress, MPa",
+      "card": 345.34468111102706,
+      "mine": 345.3798724603285,
+      "difference": 0.03519134930144219,
+      "tolerance": 0.7,
+      "agrees": true,
+      "note": "own max at s = 2 mm, outer face"
+    },
+    {
+      "check": "SF 1.05 own pass at 0.737936 and fail at 0.755936",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.05 tolerance estimate, mm",
+      "card": 0.7477706794756136,
+      "mine": 0.7469470771194129,
+      "difference": -0.0008236023562007144,
+      "tolerance": 0.018,
+      "agrees": true,
+      "note": "within one bracket width (0.018 mm) counts as reproduced"
+    },
+    {
+      "check": "SF 1.05 passing core shear, MPa (current material frame)",
+      "card": 0.07725718248314528,
+      "mine": 0.07728429768110288,
+      "difference": 2.7115197957602866e-05,
+      "tolerance": 0.003,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.05 passing core index (minimum average)",
+      "card": 0.4482293716581388,
+      "mine": 0.44842905127405946,
+      "difference": 0.00019967961592065597,
+      "tolerance": 0.02,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.05 passing core compression, MPa",
+      "card": 0.060646753486338745,
+      "mine": 0.060670583888727224,
+      "difference": 2.3830402388479166e-05,
+      "tolerance": 0.003,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "SF 1.05 own minimum sufficient acoustic bound at the passing state, MPa (card's minimum 0.314142 over all passing states)",
+      "card": null,
+      "mine": 0.3905782539347674,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": "positive = locally strongly elliptic by the card's own sufficient bound"
+    },
+    {
+      "check": "SF 1.05 345 MPa own run at 0.737936: yields = False",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "PEEQ max 0.0"
+    },
+    {
+      "check": "SF 1.05 345 MPa own run at 0.755936: yields = True",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "PEEQ max 1.916604e-06"
+    },
+    {
+      "check": "(332.216, 'L') SF 1 own pass/fail at the card's pair",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "344.796 / 345.187 MPa (card 344.754 / 345.144)"
+    },
+    {
+      "check": "(332.216, 'L') SF 1 tolerance estimate, mm",
+      "card": 1.8051885001456462,
+      "mine": 1.8035151102431808,
+      "difference": -0.0016733899024654608,
+      "tolerance": 0.018,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "(332.216, 'L') SF 1 passing core shear, MPa",
+      "card": 0.13176346274947193,
+      "mine": 0.131735221570376,
+      "difference": -2.8241179095916946e-05,
+      "tolerance": 0.003,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "(401.856, 'W') SF 1 own pass/fail at the card's pair",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "344.690 / 345.378 MPa (card 344.636 / 345.325)"
+    },
+    {
+      "check": "(401.856, 'W') SF 1 tolerance estimate, mm",
+      "card": 1.2937901216185705,
+      "mine": 1.2923799192531462,
+      "difference": -0.001410202365424329,
+      "tolerance": 0.018,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "(401.856, 'W') SF 1 passing core shear, MPa",
+      "card": 0.10164711618679496,
+      "mine": 0.1016874400117681,
+      "difference": 4.032382497314024e-05,
+      "tolerance": 0.003,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "cure debit SF 1.0: own pass/fail at the card's pair",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "341.044 / 341.749 vs 341.5898 MPa"
+    },
+    {
+      "check": "cure debit SF 1.0 estimate, mm",
+      "card": 1.1325252392061023,
+      "mine": 1.1313693924929773,
+      "difference": -0.001155846713124964,
+      "tolerance": 0.018,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "cure debit SF 1.05: own pass/fail at the card's pair",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "341.045 / 341.797 vs 341.5898 MPa"
+    },
+    {
+      "check": "cure debit SF 1.05 estimate, mm",
+      "card": 0.6664965681650071,
+      "mine": 0.6657857964504279,
+      "difference": -0.000710771714579228,
+      "tolerance": 0.018,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "1.10 division passing amplitude 0.520967: numerical endpoint, kPa",
+      "card": 105.0759,
+      "mine": 105.0764586633294,
+      "difference": 0.0005586633294001331,
+      "tolerance": 0.1,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "1.10 division passing: own endpoint/1.1 >= service",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "needs 105.0069 kPa"
+    },
+    {
+      "check": "1.10 division failing amplitude 0.538967: numerical endpoint, kPa",
+      "card": 104.92038000000001,
+      "mine": 104.9167234359019,
+      "difference": -0.003656564098108106,
+      "tolerance": 0.1,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "1.10 division failing: own endpoint/1.1 < service",
+      "card": true,
+      "mine": true,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": true,
+      "note": "needs 105.0069 kPa"
+    },
+    {
+      "check": "mesh control at 1.208988: refined minus base max face stress, MPa",
+      "card": null,
+      "mine": 0.11366388888995971,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": "own 2 mm / 3+8+3 layers against own 4 mm / 2+6+2"
+    },
+    {
+      "check": "mesh control at 1.208988: refined minus base core shear, MPa",
+      "card": null,
+      "mine": 1.423285285448439e-06,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": ""
+    },
+    {
+      "check": "mesh control at 1.226988: refined minus base max face stress, MPa",
+      "card": null,
+      "mine": 0.11567087463635062,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": "own 2 mm / 3+8+3 layers against own 4 mm / 2+6+2"
+    },
+    {
+      "check": "mesh control at 1.226988: refined minus base core shear, MPa",
+      "card": null,
+      "mine": 1.6239173179222188e-06,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": ""
+    },
+    {
+      "check": "11.8 mm / 332.2 W: first minimum-average core shear, kPa",
+      "card": 22.651259501439558,
+      "mine": 22.71990740095384,
+      "difference": 0.06864789951428207,
+      "tolerance": 0.5,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "11.8 mm / 332.2 W: first face yield (pre-yield branch), kPa",
+      "card": 61.91029002173456,
+      "mine": 63.59590926875821,
+      "difference": 1.6856192470236522,
+      "tolerance": 0.5,
+      "agrees": false,
+      "note": ""
+    },
+    {
+      "check": "11.8 mm / 332.2 W: 345 MPa numerical endpoint, kPa",
+      "card": 68.62850999999999,
+      "mine": 68.60911999999999,
+      "difference": -0.01939000000000135,
+      "tolerance": 0.5,
+      "agrees": true,
+      "note": ""
+    },
+    {
+      "check": "core in-plane law inherited 0.01/0.005 MPa minus regularized 1/0.5: max face stress at 1.208988 mm, MPa",
+      "card": null,
+      "mine": 0.016250019844562757,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": "core shear 0.11979 vs 0.11978 MPa"
+    },
+    {
+      "check": "core in-plane law stiffer 10/5 MPa minus regularized 1/0.5: max face stress at 1.208988 mm, MPa",
+      "card": null,
+      "mine": -0.14780031001595262,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": "core shear 0.11970 vs 0.11978 MPa"
+    },
+    {
+      "check": "face E 298.7 GPa minus 290 GPa: max face stress at 1.208988 mm, MPa",
+      "card": null,
+      "mine": -0.5664853036194586,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": ""
+    },
+    {
+      "check": "face E 298.7 GPa minus 290 GPa: max face stress at 1.226988 mm, MPa",
+      "card": null,
+      "mine": -0.5782849635641583,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": ""
+    },
+    {
+      "check": "face E 298.7 GPa: SF 1 tolerance estimate, mm (linear, extrapolated past the pair)",
+      "card": null,
+      "mine": 1.232633806671951,
+      "difference": null,
+      "tolerance": 0,
+      "agrees": null,
+      "note": "+0.0147 mm against own 290 GPa estimate"
+    }
+  ],
+  "fe_runs": [
+    "c-W332-a1.208988-hi-ein0.01",
+    "c-W332-a1.208988-hi-ein10",
+    "e-W402-a0.520967-345",
+    "e-W402-a0.538967-345",
+    "e-perfect-255",
+    "e-perfect-300",
+    "e-perfect-345",
+    "f-W332-a1.208988-hi-E298.7",
+    "f-W332-a1.226988-hi-E298.7",
+    "g-L332-a1.79559-hi",
+    "g-L332-a1.810809-hi",
+    "g-W332-a0.65274-hi",
+    "g-W332-a0.67074-hi",
+    "g-W332-a0.737936-hi",
+    "g-W332-a0.755936-hi",
+    "g-W332-a1.117424-hi",
+    "g-W332-a1.135424-hi",
+    "g-W332-a1.208988-hi",
+    "g-W332-a1.226988-hi",
+    "g-W402-a1.284271-hi",
+    "g-W402-a1.302271-hi",
+    "m-W332-a1.208988-hi",
+    "m-W332-a1.226988-hi",
+    "p-W332-a0.737936-345",
+    "p-W332-a0.755936-345",
+    "p-W332-a1.208988-345",
+    "p-W332-a1.226988-345",
+    "perfect-W-hi",
+    "s-W332-a11.8-345",
+    "s-W332-a11.8-hi"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "E-e27616c3ffbfba075a66",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-e27616c3ffbfba075a66",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/3",
+    "row_id": "NFI-041-04",
+    "fields": {
+      "id": "NFI-041-04",
+      "status": "open",
+      "topic": "Complete membrane constitution and coupling",
+      "evidence": [
+        "film/rigid/RESULTS.json",
+        "film/pinned/RESULTS.json",
+        "intake/film/zylon-hp-fiber-data.pdf",
+        "film.py"
+      ],
+      "finding": "A 270 GPa filament-derived axial tangent changes perfect linear multipliers, but the assumed taut, perfectly attached 0/90 skin has no qualified shear modulus, Poisson coupling, prestress, wrinkling, sagged equilibrium or free interior kinematics. The projected tangent can overstate restraint. No film-stiffness credit is used in primary resizing.",
+      "needed": "An actual gas-tight laminate, biaxial and shear constitutive data, tension-only/wrinkling treatment, pressure-equilibrated geometry, seams and attachments, plus tear, creep, fatigue and permeability evidence.",
+      "prohibited_inference": "Neither the fiber modulus nor the conditional pinned-film result proves a stable pressure vessel."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "A 270 GPa filament-derived axial tangent changes perfect linear multipliers, but the assumed taut, perfectly attached 0/90 skin has no qualified shear modulus, Poisson coupling, prestress, wrinkling, sagged equilibrium or free interior kinematics. The projected tangent can overstate restraint. No film-stiffness credit is used in primary resizing.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "reference": "mesh512g2-f2c6-a1-cap",
+  "trial": "target-ramp5-a1-cap",
+  "reference_increments": 21,
+  "trial_increments": 5,
+  "points": [
+    {
+      "SF": 1.0,
+      "reference_MPa": 335.99294650851823,
+      "trial_MPa": 335.99314650846975,
+      "difference_MPa": 0.00019999995151920302,
+      "trial_interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+    },
+    {
+      "SF": 1.05,
+      "reference_MPa": 355.37072462299096,
+      "trial_MPa": 355.3708746423568,
+      "difference_MPa": 0.00015001936583303177,
+      "trial_interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+    }
+  ],
+  "stress_agreement_tolerance_MPa": 0.01,
+  "scope": "Identical pre-yield law and geometry at a=1 mm. Both load histories reach service and 1.05 service at native increments. Actual-yield boundary confirmations remain separate.",
+  "reference_solver_s": 38.05587553186342,
+  "trial_solver_s": 8.745989752933383
+}

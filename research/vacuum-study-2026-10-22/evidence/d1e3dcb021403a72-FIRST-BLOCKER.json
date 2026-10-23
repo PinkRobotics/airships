@@ -1,0 +1,27 @@
+{
+  "status": "OPS_ADMISSION_WINDOW_BLOCKER",
+  "first_observed_monotonic": 2015630.836758685,
+  "first_observed_utc": "2026-10-19T08:55:05.656455+00:00",
+  "phase_start": {
+    "captured_monotonic": 2015559.638537287,
+    "captured_utc": "2026-10-19T08:53:54.458230+00:00",
+    "phase": "one_offline_test_including_admission_reap_collection",
+    "cap_seconds": 600,
+    "origin_monotonic": 2014112.830277349,
+    "admission_plus_collection_reserve_seconds": 60
+  },
+  "latest_worst_case_start_monotonic": 2015619.638537287,
+  "phase_elapsed_at_first_observation_seconds": 71.19822139805183,
+  "maximum_remaining_phase_at_first_observation_seconds": 528.8017786019482,
+  "frozen_job_plus_backstop_seconds": 540,
+  "canonical_Ops_admission_received_before_latest_start": false,
+  "request_status": "Canonical request was ingested by first blocker observation; queue view still rendered2026-10-19T01:30:54-07:00 and contained no Ops response. Earlier6.989s/31.644s request was not ingested. Ingestion is not Ops approval.",
+  "reason": "Remaining phase time is below the frozen420s payload+120s launcher backstop; exact Ops admission was not received in the total60s admission/collection reserve. No late reply can start this closed unit.",
+  "observation_over_reserve_seconds": 11.198221398051828,
+  "whole_offline_phase_cap_violation": false,
+  "note": "The first deadline observation was11.198s after the shared60s reserve, disclosed; no payload was started. The600s phase cap was not exceeded. No timeout/refusal/payload failure is invented.",
+  "test_invocations": 0,
+  "simjob_invocations": 0,
+  "native_processes": 0,
+  "continuation_permitted": false
+}

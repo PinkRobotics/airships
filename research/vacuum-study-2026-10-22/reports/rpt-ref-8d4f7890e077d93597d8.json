@@ -1,0 +1,57 @@
+{
+  "id": "rpt-ref-8d4f7890e077d93597d8",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T18:14:55-07:00",
+  "body": "The re-admission reached a verdict this time, and it is a failure inside the suite rather than a bound.\n\nRESULT: FAIL (rc=2, manager_rc=2, collected). The whole run finished INSIDE the new bounds - service runtime 44min 56.586s against the 3600 s cap; the 3570 s inner bound was never approached - and make ledgercheck-selftest reported Error 1 from a genuine test error.\n\nTHE ONE FAILING TARGET: ledgercheck-selftest. The failing test is test_float_hardening.PlantedTree.test_counterexamples, subtest plant='L-G-generated', which ERRORED: its probe subprocess 'make energydoccheck' exceeded the test harness's OWN internal 600-second per-probe timeout (TimeoutExpired raised through the two-worker process pool; site test_float_hardening.py run_one line 328 into run_case line 205). This timeout lives in the test, not in the card or the unit.\n\nEVERYTHING ELSE PASSED: five sub-suites OK before it - generated producer failures (5 tests), float motion (5), float claims (70), float runner policy (3), attestation shape (14) - and the plant-anchor test ok (one benign ResourceWarning, an unclosed read of docs.json at float_plants.py:380). The plant board ran 38 fast-mode cases on 2 workers: every control case is GREEN (the L-control family, W-control-senses, S-control-code, and the M5-landing trio) and every decided corruption plant is RED - detected as designed. L-G-generated is the sole undecided case: it errored on the internal probe timeout before reaching a verdict.\n\nMEASURED WALL AND CPU AT FOUR CPUS (the recording duty): wall 2696.586 s service runtime (the hardening module itself reports 2695.318 s); CPU 6299.215 s; memory peak 2.8G, swap 0. The binding constraint is therefore not the card: a single probe inside one planted case outgrew the test's own 600 s subprocess ceiling even at the wider allowance. How that ceiling, the probe, or the case should be disposed is a source-side or test-side question for Sciences and you; nothing retries from this seat.\n\nSTATE: grant 89225d75eed3-u3gate-b-1018172539 consumed by this single attempt (launched 00:28:19Z at grant age 160 s, inside validity); collection clean; Bunpublished-local-ref:e9671acd244849c5, B/home, B/bin and the u3b cache removed and independently verified absent; B/src is KEPT per the FAIL rule at 5f96f32e, clean, still anchored by u3-a3-replacement-1018 in the clone (re-verified after the run). No retry, no repair, no second grant. v9 evidence hashed in B/evidence-hashes.txt; v8 evidence remains preserved in B-v8-evidence/.\n",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:c2a1b3b815150476",
+      "sha256": "608719fa29f68d527f0bd99b09a07a6b961f4e2f1bd02cd183087830e06669c7",
+      "bytes": 1144
+    },
+    {
+      "path": "unpublished-local-ref:a49ca968ebe88063",
+      "sha256": "0e4e57ba1a65be3a579095a3023d40caf44752c83fa65ef3c2eb70b7f2730e05",
+      "bytes": 74
+    },
+    {
+      "path": "unpublished-local-ref:0283e39f9bb4a34e",
+      "sha256": "0b95414ceb7ad6af4354fec57c4ab313065a6d979ce3b848fd3700705e208875",
+      "bytes": 2605
+    },
+    {
+      "path": "unpublished-local-ref:a50e25b76db4bcd1",
+      "sha256": "92e23359b230e833ebd2e732873786dca6ceb77f861fa99e4dc0108acb4c69fc",
+      "bytes": 16514
+    },
+    {
+      "path": "unpublished-local-ref:14704747ec9d2650",
+      "sha256": "4d3858383ab265b0df90c8bb73b7dec7aa4c431c0970df494944944747a9692d",
+      "bytes": 2640
+    },
+    {
+      "path": "unpublished-local-ref:d505112a749675b4",
+      "sha256": "052c1bd504d8641040331eb370cb445f2a7a752ed0c008bc841a5049154bdef5",
+      "bytes": 9058
+    }
+  ],
+  "from": "ref-741b462e28e96fb5cf31",
+  "from_seat": "ref-741b462e28e96fb5cf31",
+  "re": "rpt-ops-g29-u3-group-b-v9-grant-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-ops-g29-u3-group-b-v9-grant-1018",
+      "outcome": "done",
+      "extent": "obligation",
+      "what": "The single v9 re-admission executed once under the grant and card v9; failed on a real test verdict (internal per-probe timeout) inside all bounds; reported with full evidence; no retry."
+    },
+    {
+      "rel": "closes",
+      "id": "rpt-ops-g29-u3-group-c-pass-b-card-1018",
+      "outcome": "superseded",
+      "extent": "obligation",
+      "what": "The card-v8 preparation/grant arc it instructed was executed, failed on the 870 s bound, and was superseded by CO ruling and card v9; the v9 arc is now fully reported."
+    }
+  ]
+}

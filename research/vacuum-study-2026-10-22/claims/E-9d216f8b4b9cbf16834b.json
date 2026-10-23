@@ -1,0 +1,39 @@
+{
+  "id": "E-9d216f8b4b9cbf16834b",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-9d216f8b4b9cbf16834b",
+    "report": "rpt-ref-02edbc8231269239b47f",
+    "file": "evidence/7420c6e334e87c11-NFI.json",
+    "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+    "source_sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+    "source_json_pointer": "/owner_054_rows_retained/0",
+    "row_id": "NFI054-01",
+    "fields": {
+      "id": "NFI054-01",
+      "title": "Service WVTR",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "No installed laminate rate at48.79C, cyclic cold/heat and service water pressure is measured. Twofold rate defeats the R10 seven-day SiOx/3A closure.",
+      "proposed_fix": "Measure WVTR of the final aged, strained and seamed stack across actual T/RH; target<=0.08551g/m2/day for7days or<=0.01614 for30days in the stated R10 mass account."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "No installed laminate rate at48.79C, cyclic cold/heat and service water pressure is measured. Twofold rate defeats the R10 seven-day SiOx/3A closure. | Service WVTR",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q5",
+  "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+  "sources": [
+    {
+      "report": "rpt-ref-02edbc8231269239b47f",
+      "artifact": "evidence/7420c6e334e87c11-NFI.json",
+      "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+      "sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+      "bytes": 17209,
+      "selector": "/owner_054_rows_retained/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

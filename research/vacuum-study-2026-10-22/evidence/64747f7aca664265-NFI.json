@@ -1,0 +1,43 @@
+{
+  "unit": "vacuum-mainline072-graphite-matched-core-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "open": [
+    {
+      "id": "NFI-072-CARBON-WALL-MODULUS",
+      "fact": "The ±45 carbon wall-laminate modulus of the Ultracor cores is not published. The sweep's base is 35 GPa from the ±45 datasheet range 20-47 GPa. The carbon core's interface releases only below ~18 GPa (at half the base the margin reaches 1.025), so the carbon verdict turns on an unmeasured value. The needed source is the maker's wall-laminate modulus, or a plate-shear modulus plus t-t CTE test on the core itself."
+    },
+    {
+      "id": "NFI-072-CARBON-CTE-CROSS-GRADE",
+      "fact": "UCF-355's expansion is the UCF-51 measured core value 4.5e-6/K, the same maker and ±45 polycyanate construction but a different fiber (T300 vs XN50). No CTE of UCF-355 itself was opened. The carbon release alphas (<= 2.99e-6 at base kb) sit below the family value either way, so the cross-grade does not change the verdict."
+    },
+    {
+      "id": "NFI-072-CTE-ORIENTATION",
+      "fact": "Every published composite-core CTE is the core's through-thickness value; no honeycomb in-plane CTE was published for any composite wall. The interface mismatch term uses one scalar per core, the installed convention. For aluminium the published t-t (23.76) and the alloy value (23.6) agree, and re-running CR-III on the published value moves the interface margin from 0.5359 to 0.5325. For carbon and Kevlar the literature in-plane values are near zero, so both conventions release those cores; for glass both sit above the release bar."
+    },
+    {
+      "id": "NFI-072-KB-CONSTRUCTION",
+      "fact": "kb = 0.5·E_wall·(rho_core/rho_wall) is version 7's installed regularization for an aluminium core, not a measured interface stiffness. Carrying the same construction to composite walls is a projection; the kb x[0.5,2] sensitivity is in RUN.json. HRH-49's verdict is kb-robust (interface 2.73-5.45); UCF-355's is not (its whole verdict moves)."
+    },
+    {
+      "id": "NFI-072-ULTRACOR-BASIS",
+      "fact": "The Ultracor pages do not state bare vs stabilized for the compressive values, and UCF-51's W plate-shear modulus and Ec are absent. The CR-III baseline used the crush column; the Ultracor rows use the single published compressive yield as the flatwise value."
+    },
+    {
+      "id": "NFI-072-HRH49-PRELIMINARY",
+      "fact": "Hexcel flags the HRH-49 1/4-2.1 row as preliminary data. It is the only feasible core of the sweep; a lot test would carry that row's whole verdict."
+    },
+    {
+      "id": "NFI-072-CRIMP-GAMMA-ABOVE-VC2",
+      "fact": "071's named limit carries over: gamma 1 above Vc 2 is the CR-1457 weak-core statement, not a test of this film on these cores. The Kevlar optima sit at Vc 17.5-18.0, far into that branch, and the rule says to use the minimum core shear modulus when crimping is critical - the W value is used, but it is a datasheet typical, not the lot minimum."
+    },
+    {
+      "id": "NFI-072-TI-BE-INVAR-ROWS",
+      "fact": "Titanium, beryllium and Invar honeycombs have no opened catalog core table (braze-formed panels 1972/1963; ECSS chart is graphical). Their rows carry alloy CTE only. Beryllium's alloy CTE 11.3e-6 misses the CR-III-stiffness release by 1% and its wall modulus 287 GPa makes kb large, so the interface is not expected to release."
+    },
+    {
+      "id": "NFI-072-KEVLAR-SPLICE",
+      "fact": "The splice mass keeps the aluminium assumption (500 kg/m3 splice density) for every core. On a Kevlar-core hull the splice material would differ; at R20 the splice account is ~300 kg, small against the -27 to -97 t payloads."
+    }
+  ]
+}

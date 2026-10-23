@@ -1,0 +1,61 @@
+{
+  "name": "cfull-fullwave-L-y345-a46.000000-nu0.0768",
+  "analysis": "static",
+  "amplitude_mm": 46.0,
+  "width_mm": 2181.4248249368884,
+  "meridian": "L",
+  "yield_MPa": 345.0,
+  "nu": 0.0768,
+  "ntheta": 256,
+  "nface": 1,
+  "ncore": 4,
+  "grading": 1.5,
+  "increments": 33,
+  "endpoint_kPa": 79.37819999999999,
+  "endpoint_kind": "last_converged_static_increment",
+  "first_yield_bracket_kPa": [
+    75.6,
+    79.2
+  ],
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 59.9338992559342,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        57.6,
+        61.2
+      ]
+    },
+    "300.0": {
+      "p_kPa": 69.33159014420755,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        68.4,
+        72.0
+      ]
+    },
+    "345.0": {
+      "p_kPa": 78.22074719322408,
+      "kind": "last_two_elastic_points_extrapolation",
+      "bracket_kPa": [
+        75.6,
+        79.2
+      ],
+      "inside_native_bracket": true
+    }
+  },
+  "endpoint_max_mises_MPa": 345.00004376348807,
+  "endpoint_max_peeq": 0.000260802,
+  "endpoint_pole_uy_mm": -22.6216,
+  "solver": {
+    "returncode": 201,
+    "elapsed_s": 30.505857625044882,
+    "ended_at": "2026-10-20T14:00:22.630615+00:00"
+  },
+  "errors": [
+    " *ERROR: increment size smaller than minimum"
+  ],
+  "eigen_kPa": [],
+  "eigen_native_output_labels": [],
+  "peeq_detection_threshold": 1e-10
+}

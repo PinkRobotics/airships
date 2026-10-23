@@ -1,0 +1,152 @@
+{
+  "056": {
+    "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+    "body": "MAINLINE056 complete; QUESTIONABLE/PROJECTION. Corrected provenance: 6.03 MPa is the paper's pressure simulation, not a measured pressure test. Owned DF/J2 extension reuses pinned CHECK029 Q8 code. Refined indentation with the midsurface-radius reading gives 6.159021 MPa (+2.140%); four refined-contact indentation/radius scenarios span 6.1590–6.5023 MPa. Contact mesh refinement changes the peak -0.1156%; doubling contact penalty changes it −0.0105%. Linear gaps are +1.977% midsurface and +9.764% outer-radius. Guarded reference paths yield in the foam, then faces, before the implied virgin shear screen and turning point; no sourced PVC80 shear-rupture criterion was recovered. Gaussian early turns are distinguished from larger later peaks. Steel-axis, foam-flow, densification and imported-history uncertainties prevent unique calibration. Directional CR III crush/shear law requirements are sourced. No P2 gamma released. Raw paths, saved states, mesh/step/material checks, source snapshots, receipts and NFIs are pinned. All scopes released; no successor named.",
+    "artifacts": {
+      "CARD.md": {
+        "path": "evidence/f5b564329a854cb1-CARD.md",
+        "sha256": "f5b564329a854cb169e29eef96ad49ef290b29ac1bbd5b1a6a11bec2bf5a1e5c",
+        "bytes": 10449,
+        "local_path": "evidence/f5b564329a854cb1-CARD.md"
+      },
+      "RESULTS.json": {
+        "path": "evidence/6fa69481a000b1f5-RESULTS.json",
+        "sha256": "6fa69481a000b1f5cabd5d769ddaab3ea2727464d46cb5f59956a914ef537647",
+        "bytes": 467810,
+        "local_path": "evidence/6fa69481a000b1f5-RESULTS.json"
+      },
+      "NFI.json": {
+        "path": "evidence/298ddfd71d18cdeb-NFI.json",
+        "sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+        "bytes": 5002,
+        "local_path": "evidence/298ddfd71d18cdeb-NFI.json"
+      },
+      "INPUTS.json": {
+        "path": "evidence/609be755745e366f-INPUTS.json",
+        "sha256": "609be755745e366f347d17d4ca65716de21d32ba9f6c9a0f82cf6593896784ad",
+        "bytes": 43259,
+        "local_path": "evidence/609be755745e366f-INPUTS.json"
+      },
+      "METHOD.md": {
+        "path": "evidence/a8f73c4c084d8eb7-METHOD.md",
+        "sha256": "a8f73c4c084d8eb7cef0f217f8b87bccfcf9d1e5a1d64eff41e0854d17712715",
+        "bytes": 10445,
+        "local_path": "evidence/a8f73c4c084d8eb7-METHOD.md"
+      },
+      "HONEYCOMB-TRANSFER.md": {
+        "path": "evidence/a54c0fbffdaefa70-HONEYCOMB-TRANSFER.md",
+        "sha256": "a54c0fbffdaefa700ebd0bd84690debb79faec17bbd80c38b8b341cbc62e2569",
+        "bytes": 4297,
+        "local_path": "evidence/a54c0fbffdaefa70-HONEYCOMB-TRANSFER.md"
+      },
+      "VERIFICATION.json": {
+        "path": "evidence/d0a5946d1b55f9f7-VERIFICATION.json",
+        "sha256": "d0a5946d1b55f9f7a2b282fd713b1847959761f8bf39b2006194a0f307221df2",
+        "bytes": 9040,
+        "local_path": "evidence/d0a5946d1b55f9f7-VERIFICATION.json"
+      },
+      "EVIDENCE-AUDIT.json": {
+        "path": "evidence/9ebc584f823b6187-EVIDENCE-AUDIT.json",
+        "sha256": "9ebc584f823b61876b806318e59e0d51b2db050db34557db09085fa0029930a6",
+        "bytes": 48874,
+        "local_path": "evidence/9ebc584f823b6187-EVIDENCE-AUDIT.json"
+      },
+      "ARTIFACT-MANIFEST.json": {
+        "path": "evidence/f6f41feddb7746ac-ARTIFACT-MANIFEST.json",
+        "sha256": "f6f41feddb7746ac4bb3e316e96d57260ceb2ed85a087bdac713480068c600b8",
+        "bytes": 117015,
+        "local_path": "evidence/f6f41feddb7746ac-ARTIFACT-MANIFEST.json"
+      }
+    }
+  },
+  "062": {
+    "report": "rpt-1228-mainline062-buildable-shape-1020",
+    "body": "MAINLINE062 complete; QUESTIONABLE/PROJECTION. 047 is not admissible as a physical hull tolerance: finished-sheet compression, directional CR III crushing/unloading/mixed loading, processed bond and manufactured residual state remain unqualified. SR-200’s 290 GPa and light 2U film identity are sourced, with limits. Closed-form transfer of 057 bills gives cure-debited SF1.05 amplitudes 0.793/1.628/2.486 mm at R10/20/30; no FE sweep. Seven precedent records distinguish RMS, fit and maximum local defects. Candidate passive panel/jig/closure route has unquoted first-shell costs $66.5–477.4M/$522.8M–3.814B/$1.835–13.448B; full qualification costs remain open. Whole mass bills retain concept growth: all six cases have negative payload. Pins, arithmetic, stock takeoff and cost closure verified. Sixteen NFIs and REVIEW-A handoff included. No qualified cheapest route or P2 capacity released; no successor.",
+    "artifacts": {
+      "CARD.md": {
+        "path": "evidence/80d1151ad89df3c3-CARD.md",
+        "sha256": "80d1151ad89df3c32c7b3be4849a2ee19401b88f51f1fa5b5cda67d71505cb33",
+        "bytes": 8589,
+        "local_path": "evidence/80d1151ad89df3c3-CARD.md"
+      },
+      "RESULTS.json": {
+        "path": "evidence/edf2b92f73acfced-RESULTS.json",
+        "sha256": "edf2b92f73acfced51fa9ad1b6dff5f4714154df9d5f10f5ea3f466d17692540",
+        "bytes": 33071,
+        "local_path": "evidence/edf2b92f73acfced-RESULTS.json"
+      },
+      "NFI.json": {
+        "path": "evidence/33496447d5518061-NFI.json",
+        "sha256": "33496447d55180613afb76e9185f48a4a043524f4f98901f22a08c4f893095fa",
+        "bytes": 9036,
+        "local_path": "evidence/33496447d5518061-NFI.json"
+      },
+      "INPUTS.json": {
+        "path": "evidence/99534b24f1a8b473-INPUTS.json",
+        "sha256": "99534b24f1a8b473938ba87a5f5f806527820f928114c6740ceab6f5ed9eb1f6",
+        "bytes": 31022,
+        "local_path": "evidence/99534b24f1a8b473-INPUTS.json"
+      },
+      "ADMISSIBILITY.md": {
+        "path": "evidence/b917115da385a04c-ADMISSIBILITY.md",
+        "sha256": "b917115da385a04cb840e8d9431b4dcd331a23a9cf3bb77bfccf7072841d0576",
+        "bytes": 6260,
+        "local_path": "evidence/b917115da385a04c-ADMISSIBILITY.md"
+      },
+      "METHOD.md": {
+        "path": "evidence/0367cc200ce41c7e-METHOD.md",
+        "sha256": "0367cc200ce41c7e9580e10a245c64773e399a79824dc48f8285f7dfc45f13b7",
+        "bytes": 5963,
+        "local_path": "evidence/0367cc200ce41c7e-METHOD.md"
+      },
+      "FE-NEXT.md": {
+        "path": "evidence/d52a49f389fbf989-FE-NEXT.md",
+        "sha256": "d52a49f389fbf98917b9152e51d44e98998acd4de7fb75f2f88ab959277afc53",
+        "bytes": 3899,
+        "local_path": "evidence/d52a49f389fbf989-FE-NEXT.md"
+      },
+      "PRECEDENTS.json": {
+        "path": "evidence/e47ecdb745c4ca8a-PRECEDENTS.json",
+        "sha256": "e47ecdb745c4ca8a8dddd0ff667a61bbb9c312f95d7bbecf74bf3ea7359eb4b4",
+        "bytes": 14847,
+        "local_path": "evidence/e47ecdb745c4ca8a-PRECEDENTS.json"
+      },
+      "BUILD-ROUTE.md": {
+        "path": "evidence/d52926ad436ca81e-BUILD-ROUTE.md",
+        "sha256": "d52926ad436ca81e50a23ad4faff44848c6d0d5b640699601682fadad46ac7a4",
+        "bytes": 9022,
+        "local_path": "evidence/d52926ad436ca81e-BUILD-ROUTE.md"
+      },
+      "MASS-BILL.csv": {
+        "path": "evidence/3bd11241dd1c8622-MASS-BILL.csv",
+        "sha256": "3bd11241dd1c862268c8f878c642cbe4171f8a2b487af40cb89e38538f89e679",
+        "bytes": 7423,
+        "local_path": "evidence/3bd11241dd1c8622-MASS-BILL.csv"
+      },
+      "COST-BILL.csv": {
+        "path": "evidence/513df556aabd89f1-COST-BILL.csv",
+        "sha256": "513df556aabd89f1c3206f1053478b630d03aca40d7f07e7f9e5f6199ec1c8ec",
+        "bytes": 5323,
+        "local_path": "evidence/513df556aabd89f1-COST-BILL.csv"
+      },
+      "REVIEW.md": {
+        "path": "evidence/99444f4ab94b0224-REVIEW.md",
+        "sha256": "99444f4ab94b02241728946e716630137403c842e5b18917953696d9870ec96f",
+        "bytes": 3558,
+        "local_path": "evidence/99444f4ab94b0224-REVIEW.md"
+      },
+      "VERIFICATION.json": {
+        "path": "evidence/ccc71a0a17b9665b-VERIFICATION.json",
+        "sha256": "ccc71a0a17b9665be3782cb8c0225cc70f59cb6714adc4976631b07f60198a14",
+        "bytes": 2289,
+        "local_path": "evidence/ccc71a0a17b9665b-VERIFICATION.json"
+      },
+      "ARTIFACT-MANIFEST.json": {
+        "path": "evidence/717907c00dda567e-ARTIFACT-MANIFEST.json",
+        "sha256": "717907c00dda567e1e8741216f7ba8f196ae06ee60929df0fedcc9e1096af979",
+        "bytes": 29082,
+        "local_path": "evidence/717907c00dda567e-ARTIFACT-MANIFEST.json"
+      }
+    }
+  }
+}

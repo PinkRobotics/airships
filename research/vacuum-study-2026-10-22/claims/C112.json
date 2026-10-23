@@ -1,0 +1,78 @@
+{
+  "id": "C112",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C112",
+    "report": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+    "file": "evidence/2fdd2471098ae313-NFI.json",
+    "snapshot": "evidence/2fdd2471098ae313-NFI.json",
+    "source_sha256": "2fdd2471098ae3132594f5aae4b6c4473c663608865de9197d54890278c20b71",
+    "source_json_pointer": "/2",
+    "row_id": "NFI-029-DEFECT",
+    "fields": {
+      "id": "NFI-029-DEFECT",
+      "status": "open",
+      "title": "Different defect construction",
+      "issue": "Paper uses an indenter radius0.1R, contact and a stress-free reset. Present paper check uses a Gaussian of width0.1R and amplitude0.75total_thickness in every layer. Lead defects use015 lambda_I1, not a measured hull shape. Width and through-thickness deformation affect the result.",
+      "tag": "QUESTIONABLE",
+      "gates_other_cards": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "root_list",
+    "blocks_progress": false
+  },
+  "claim": "Paper uses an indenter radius0.1R, contact and a stress-free reset. Present paper check uses a Gaussian of width0.1R and amplitude0.75total_thickness in every layer. Lead defects use015 lambda_I1, not a measured hull shape. Width and through-thickness deformation affect the result. | Different defect construction",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/822"
+    },
+    {
+      "report": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+      "artifact": "evidence/2fdd2471098ae313-NFI.json",
+      "snapshot": "evidence/2fdd2471098ae313-NFI.json",
+      "sha256": "2fdd2471098ae3132594f5aae4b6c4473c663608865de9197d54890278c20b71",
+      "bytes": 9277,
+      "selector": "/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+          "artifact": "evidence/2fdd2471098ae313-NFI.json",
+          "snapshot": "evidence/2fdd2471098ae313-NFI.json",
+          "sha256": "2fdd2471098ae3132594f5aae4b6c4473c663608865de9197d54890278c20b71",
+          "bytes": 9277,
+          "selector": "/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/822"
+          }
+        ]
+      }
+    }
+  ]
+}

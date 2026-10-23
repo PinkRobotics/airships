@@ -1,0 +1,44 @@
+[
+  {
+    "NFI_id": "NFI-017-P3-MODES",
+    "gap": "The best P3 point (SiC, least SF 2.848476) is scored on 011's four modes only. Global lattice buckling and member bending are absent; 011b had not filed when this card started, and 009 carries P3 as PENDING-011b with an equivalent-continuum lattice estimate of about 0.70 perfect at the 6061 optimum, 0.14-0.35 knocked down, not recomputed here.",
+    "direction": "011b. Do not admit the SiC point as passing until those two modes are scored.",
+    "effect": "SiC's factor-1 ranking is conditional on the scored modes."
+  },
+  {
+    "NFI_id": "NFI-017-GC-BRANCH",
+    "gap": "Raising core Gc alone lowers Vc. Past Vc = 2 the CR-1457 branch sets gamma = kd (0.20) instead of 1, so the least SF falls (caps 0.510 CNT, 0.560 Be, 0.403 graphene at a 1e4 multiplier in my scan). The governing mode's own property is not a direction alone.",
+    "direction": "Any Gc direction must be paired with a knockdown direction, which has no sourced value above 0.20 today.",
+    "effect": "Gc is listed as not alone on all three P2 leaders."
+  },
+  {
+    "NFI_id": "NFI-017-FACE-DENSITY",
+    "gap": "The cheapest P2 direction on all three leaders is face density alone (factors 1.459, 1.637, 1.655), requiring faces at 959.5, 1129.7 and 906.5 kg/m3 carrying CNT, Be and graphene E and sigma. The lightest QUESTIONABLE face today is T700 at 1550 kg/m3.",
+    "direction": "A structural face at about 0.9-1.1 g/cc with those stiffness and strength values.",
+    "effect": "All three are PROJECTION. Beryllium itself cannot get lighter; that direction is a different face carrying Be-like properties."
+  },
+  {
+    "NFI_id": "NFI-017-WRINKLE-COEFF",
+    "gap": "The CNT wrinkling-coefficient requirement (0.600) lies inside the sourced theoretical band 0.78-0.91, above the design 0.33. It is a coefficient the card is scored with, not a measured property of this sphere.",
+    "direction": "A sphere-specific wrinkling test or interaction to replace the flat-plate equibiaxial factor.",
+    "effect": "First direction by availability, seventh by factor."
+  },
+  {
+    "NFI_id": "NFI-017-SIC-SIGMA",
+    "gap": "SiC and T700 P3 values are 011's equal-mass swap properties from 008. SiC sigma 3900 MPa is compressive strength; flexural strength about 380 MPa governs bending paths (008's note), and 011 uses compressive sigma for member yield.",
+    "direction": "Score member bending before the SiC direction is admitted (011b).",
+    "effect": "P3 SiC strength is QUESTIONABLE as a tube direction."
+  },
+  {
+    "NFI_id": "NFI-017-UNFILED",
+    "gap": "MAINLINE-014b, 011b and 013 had not filed at the start of this card. This card used 014, 009, 009b and 011 and named that. The 009b Kc restatement does not change the 014 leaders, which already carry Kc and sit on the crimping branch.",
+    "direction": "Revisit if 014b or 011b lands a better point.",
+    "effect": "The three best P2 points could change under 014b."
+  },
+  {
+    "NFI_id": "NFI-017-COMBO",
+    "gap": "The cheapest combination is a product-minimising differential-evolution search on a 900-point depth grid, seeded, not a proof of global optimality. In all three P2 points it returns face density alone, at products 1.474, 1.657 and 1.685 on the grid against continuous single factors 1.459, 1.637 and 1.655.",
+    "direction": "An analytic product bound if a later card needs to beat these products.",
+    "effect": "Split statements read as 'cheapest found'."
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "tag": "QUESTIONABLE",
+  "verified_utc": "2026-10-20T08:53:00.601332+00:00",
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "all eight intake pins match",
+      "pass": true
+    },
+    {
+      "check": "all four archived primary web sources match",
+      "pass": true
+    },
+    {
+      "check": "code archive equals current files and preserved source snapshots",
+      "pass": true,
+      "files": 20
+    },
+    {
+      "check": "local document links resolve",
+      "pass": true
+    },
+    {
+      "check": "all eight required nonlinear cases have converged equilibrium and sign-changing stability brackets; mesh changes below 0.7 percent",
+      "pass": true
+    },
+    {
+      "check": "all four verification suites pass; all thirty own admitted invocations ended and released",
+      "pass": true
+    },
+    {
+      "check": "all manifest byte counts and SHA-256 pins independently re-read and matched",
+      "pass": true,
+      "files": 263
+    }
+  ],
+  "manifest": {
+    "path": "MANIFEST.json",
+    "sha256": "ed14f69708583e8548e93d32a25ebe5c7096241e362eca51613e9feb9435ed52",
+    "bytes": 44866
+  },
+  "note": "MANIFEST and this check are separately pinned in the queue report; no hash self-reference."
+}

@@ -1,0 +1,31 @@
+{
+  "reader2_sealed": {
+    "wall": "2026-10-19T10:51:24.865-07:00",
+    "monotonic": 2047810.045759925
+  },
+  "head_acceptance": "2026-10-19T10:55:31-07:00",
+  "owner_origin": {
+    "captured_monotonic": 2048253.222125794,
+    "captured_utc": "2026-10-19T17:58:48.041822+00:00",
+    "scope": "Actual intake sample before queue/order read; new order details not yet assumed."
+  },
+  "reader1_sealed": {
+    "captured_monotonic": 2048485.010098633,
+    "captured_utc": "2026-10-19T18:02:39.829795+00:00"
+  },
+  "reader1_atomic_pin_filed": {
+    "captured_monotonic": 2048485.011718296,
+    "captured_utc": "2026-10-19T18:02:39.831414+00:00"
+  },
+  "first_unblind": {
+    "captured_monotonic": 2048504.79626617,
+    "captured_utc": "2026-10-19T18:02:59.615960+00:00",
+    "reader1_filed_monotonic": 2048485.011718296,
+    "scope": "First reader2 content opening occurs after this sample; reader1 pin already atomically filed."
+  },
+  "monotonic_order_verified": true,
+  "head_acceptance_before_origin": true,
+  "own_sealed_records_unchanged": true,
+  "reference_native_response_before_or_after_reading": false,
+  "reader2_budget_qualification": "Exact closing accounting is not in the named reader2 artifacts; the Head requested it separately. Do not infer debit237 orretired663 from approximate202s. This unit does not reopen or charge that grant."
+}

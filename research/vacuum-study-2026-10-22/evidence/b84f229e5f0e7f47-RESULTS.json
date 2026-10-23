@@ -1,0 +1,1065 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-008",
+  "unit": "vacuum-mainline008-material-gap-1019",
+  "status": "ESTIMATE_PENDING_CHECKER",
+  "started_at": "2026-10-19T22:42:07-07:00",
+  "ended_at": "2026-10-19T22:42:55-07:00",
+  "case": {
+    "R_m": 10.0,
+    "p_external_Pa": 95460.83791390515,
+    "kd": 0.2,
+    "lift_mass_kg": 4889.44215019,
+    "face_material_baseline": {
+      "rho": 2700.0,
+      "E_GPa": 68.9,
+      "sigma_c_MPa": 276.0
+    },
+    "rows_from": {
+      "P2-A": {
+        "SF_b_Al": 0.23078902511015878,
+        "SF_y_Al": 0.43471919227695743,
+        "tf_Al_m": 0.0003758936444928841,
+        "d_m": 0.10037589364449288,
+        "source": "MAINLINE-002 RESULTS P2-A"
+      },
+      "P2-C": {
+        "SF_b_Al": 0.19520275430953535,
+        "SF_y_Al": 0.23129903824973394,
+        "tf_Al_m": 0.0002,
+        "d_m": 0.1595641050163484,
+        "source": "MAINLINE-003 RESULTS P2-C"
+      },
+      "P2-K": {
+        "SF_b_Al": 0.22486424851387674,
+        "SF_y_Al": 0.31327432420100315,
+        "tf_Al_m": 0.0002708825134523563,
+        "d_m": 0.1357121392396305,
+        "source": "MAINLINE-003 RESULTS P2-K"
+      },
+      "P2-E": {
+        "SF_b_Al": 0.23388557899250978,
+        "SF_y_Al": 0.3886922170642076,
+        "tf_Al_m": 0.0003360949703945902,
+        "d_m": 0.1137681474785688,
+        "source": "MAINLINE-003 RESULTS P2-E"
+      }
+    }
+  },
+  "formulas": {
+    "equal_face_mass": "tf_new = tf_Al * rho_Al / rho_new; core thickness, separation d, joints and systems held at each pinned row",
+    "SF_b": "SF_b,Al * (E/rho)/(E/rho)_Al, first order since tf << d (max tf/d in this table stated in RESULTS checks)",
+    "SF_y": "SF_y,Al * (sigma_c/rho)/(sigma_c/rho)_Al",
+    "gap": "1/min(SF_b, SF_y)",
+    "kd_scaling": "every SF_b scales as kd/0.2; required E scales as 1/kd"
+  },
+  "checks": {
+    "aluminium_candidate_reproduces_pinned_rows": true,
+    "tf_much_smaller_than_d_all_candidates_rows": 0.007222229527720235,
+    "candidate_count": 15,
+    "row_count": 4,
+    "pins_verified": 16
+  },
+  "baseline_figures_6061": {
+    "E_over_rho_Pa_per_kg_m3": 25518518.51851852,
+    "sigma_c_over_rho_Pa_per_kg_m3": 102222.22222222222
+  },
+  "candidates_ranked_by_least_SF_P2E": [
+    {
+      "name": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+      "rho": 3100,
+      "E_GPa": 410.0,
+      "sigma_c_MPa": 3900,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "measured compressive strength of sintered SiC; flexural strength is only ~380 MPa and governs any bending/tension path (NFI)",
+      "source": "Saint-Gobain Hexoloy SA data https://www.ceramicsrefractories.saint-gobain.com/pt/files/4731/view (compressive 3900 MPa, flexural 380 MPa); MatWeb alpha SiC https://www.matweb.com/search/datasheet_print.aspx?matguid=dd2598e783ba4457845586b58c8ea9fb (density 3.10 g/cc, E 410 GPa)",
+      "E_over_rho_Pa_per_kg_m3": 132258064.51612903,
+      "sigma_c_over_rho_Pa_per_kg_m3": 1258064.5161290322,
+      "E_over_rho_GPa_per_g_cc": 132.25806451612902,
+      "sigma_c_over_rho_MPa_per_g_cc": 1258.0645161290322,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0003273912387518668,
+          "tf_over_d": 0.0032616520447768796,
+          "SF_b": 1.1961395701902982,
+          "SF_y": 5.350155557125247,
+          "least_SF": 1.1961395701902982,
+          "gap_1_over_least_SF": 0.8360228395762431,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 0.8360228395762431,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.18691045322377903
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00017419354838709678,
+          "tf_over_d": 0.0010916837992432538,
+          "SF_b": 1.0117020882094463,
+          "SF_y": 2.8466326236204984,
+          "least_SF": 1.0117020882094463,
+          "gap_1_over_least_SF": 0.9884332667236487,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 0.9884332667236487,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.35129225728051516
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00023592993107140705,
+          "tf_over_d": 0.0017384585667374927,
+          "SF_b": 1.1654324786032189,
+          "SF_y": 3.85551499980898,
+          "least_SF": 1.1654324786032189,
+          "gap_1_over_least_SF": 0.8580505678016703,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 0.8580505678016703,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.25936872247923937
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0002927278774404495,
+          "tf_over_d": 0.002573021394196407,
+          "SF_b": 1.2121884729842611,
+          "SF_y": 4.78369453680003,
+          "least_SF": 1.2121884729842611,
+          "gap_1_over_least_SF": 0.8249542231152563,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 0.8249542231152563,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.20904344796834223
+        }
+      },
+      "rank_by_least_SF_P2E": 1
+    },
+    {
+      "name": "CNT-yarn composite quasi-isotropic",
+      "rho": 1400,
+      "E_GPa": 180.0,
+      "sigma_c_MPa": 1200,
+      "tag": "PROJECTION",
+      "sigma_c_basis": "PROJECTION scenario: QI laminate retaining ~50% of reported UD CNT-laminate specific modulus and a compressive strength below its reported UD tensile specific strength; no such QI structural laminate is available today",
+      "source": "PROJECTION from UD CNT-yarn laminate report https://chemrxiv.org/engage/chemrxiv/article-details/639c91d7e8047a61d0eb2d2f (specific modulus 256 GPa per g/cc, specific tensile strength 1.71 GPa per g/cc, unidirectional)",
+      "E_over_rho_Pa_per_kg_m3": 128571428.57142857,
+      "sigma_c_over_rho_Pa_per_kg_m3": 857142.8571428572,
+      "E_over_rho_GPa_per_g_cc": 128.57142857142858,
+      "sigma_c_over_rho_MPa_per_g_cc": 857.1428571428572,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0007249377429505623,
+          "tf_over_d": 0.007222229527720235,
+          "SF_b": 1.1627977006379553,
+          "SF_y": 3.645160929030389,
+          "least_SF": 1.1627977006379553,
+          "gap_1_over_least_SF": 0.8599948206393612,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 0.8599948206393612,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.2743363103768369
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.0003857142857142857,
+          "tf_over_d": 0.0024172998411814907,
+          "SF_b": 0.983501333137406,
+          "SF_y": 1.9394639853238562,
+          "least_SF": 0.983501333137406,
+          "gap_1_over_least_SF": 1.0167754392461907,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 1.0167754392461907,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.5156063776214013
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.0005224162759438299,
+          "tf_over_d": 0.0038494439692044477,
+          "SF_b": 1.1329465558546972,
+          "SF_y": 2.6268343954742503,
+          "least_SF": 1.1329465558546972,
+          "gap_1_over_least_SF": 0.8826541683121125,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 0.8826541683121125,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.38068635073565776
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0006481831571895668,
+          "tf_over_d": 0.005697404515720615,
+          "SF_b": 1.1783992472564768,
+          "SF_y": 3.259220453643977,
+          "least_SF": 1.1783992472564768,
+          "gap_1_over_least_SF": 0.8486088244949053,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 0.8486088244949053,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.3068218349212764
+        }
+      },
+      "rank_by_least_SF_P2E": 2
+    },
+    {
+      "name": "Graphene composite quasi-isotropic",
+      "rho": 1500,
+      "E_GPa": 150.0,
+      "sigma_c_MPa": 900,
+      "tag": "PROJECTION",
+      "sigma_c_basis": "PROJECTION scenario: graphene-reinforced laminate at a small fraction of monolayer graphene properties (E ~1 TPa); no structural graphene QI laminate is available today",
+      "source": "PROJECTION; monolayer basis in Lee et al., Science 2008 (graphene E ~1.0 TPa, DOI 10.1126/science.1157996) and graphene-reinforced carbon fibre https://www.science.org/doi/10.1126/sciadv.aaz4191",
+      "E_over_rho_Pa_per_kg_m3": 100000000.0,
+      "sigma_c_over_rho_Pa_per_kg_m3": 600000.0,
+      "E_over_rho_GPa_per_g_cc": 100.0,
+      "sigma_c_over_rho_MPa_per_g_cc": 600.0,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0006766085600871915,
+          "tf_over_d": 0.006740747559205552,
+          "SF_b": 0.9043982116072985,
+          "SF_y": 2.551612650321272,
+          "least_SF": 0.9043982116072985,
+          "gap_1_over_least_SF": 1.1057076265363217,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 1.1057076265363217,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.39190901482405277
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00036,
+          "tf_over_d": 0.002256146518436058,
+          "SF_b": 0.7649454813290936,
+          "SF_y": 1.3576247897266993,
+          "least_SF": 0.7649454813290936,
+          "gap_1_over_least_SF": 1.307282707602245,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 1.307282707602245,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.7365805394591447
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00048758852421424125,
+          "tf_over_d": 0.0035928143712574846,
+          "SF_b": 0.8811806545536534,
+          "SF_y": 1.838784076831975,
+          "least_SF": 0.8811806545536534,
+          "gap_1_over_least_SF": 1.1348410735441445,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 1.1348410735441445,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.5438376439080826
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0006049709467102623,
+          "tf_over_d": 0.0053175775480059076,
+          "SF_b": 0.9165327478661486,
+          "SF_y": 2.281454317550784,
+          "least_SF": 0.9165327478661486,
+          "gap_1_over_least_SF": 1.091068488636307,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 1.091068488636307,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.4383169070303949
+        }
+      },
+      "rank_by_least_SF_P2E": 3
+    },
+    {
+      "name": "CFRP quasi-isotropic M55J/epoxy",
+      "rho": 1640,
+      "E_GPa": 135.0,
+      "sigma_c_MPa": 350,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "QI laminate estimate: UD E ~ 325 GPa (Vf 0.6 rule of mixtures on 540 GPa fibre), E_QI ~ 0.42 x UD; sigma_c_QI ~ 0.35 x estimated UD compressive strength; not fibre properties",
+      "source": "Toray M55J data sheet https://www.toraycma.com/wp-content/uploads/M55J-Technical-Data-Sheet-1.pdf.pdf (fibre 540 GPa, 1.93 g/cc in Toray carbon-fibre card); QI reduction stated in sigma_c_basis",
+      "E_over_rho_Pa_per_kg_m3": 82317073.17073171,
+      "sigma_c_over_rho_Pa_per_kg_m3": 213414.63414634147,
+      "E_over_rho_GPa_per_g_cc": 82.31707317073172,
+      "sigma_c_over_rho_MPa_per_g_cc": 213.41463414634148,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0006188492927626751,
+          "tf_over_d": 0.006165317889517272,
+          "SF_b": 0.744474137603569,
+          "SF_y": 0.9075858004191517,
+          "least_SF": 0.744474137603569,
+          "gap_1_over_least_SF": 1.34323000557005,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 1.34323000557005,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.1018242016767654
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00032926829268292685,
+          "tf_over_d": 0.0020635486449110288,
+          "SF_b": 0.6296807315818758,
+          "SF_y": 0.48289499634587885,
+          "least_SF": 0.48289499634587885,
+          "gap_1_over_least_SF": 2.0708435737937094,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 1.5881064003464311,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.0708435737937094
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00044596511361058653,
+          "tf_over_d": 0.003286110705418431,
+          "SF_b": 0.7253621241752635,
+          "SF_y": 0.6540390517186904,
+          "least_SF": 0.6540390517186904,
+          "gap_1_over_least_SF": 1.5289606903015807,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 1.3786217486017756,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.5289606903015807
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0005533270854057278,
+          "tf_over_d": 0.004863638001224916,
+          "SF_b": 0.7544629326946956,
+          "SF_y": 0.8114928975028194,
+          "least_SF": 0.7544629326946956,
+          "gap_1_over_least_SF": 1.3254461639729949,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 1.3254461639729949,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.2322966757654532
+        }
+      },
+      "rank_by_least_SF_P2E": 4
+    },
+    {
+      "name": "Beryllium S-200F",
+      "rho": 1850,
+      "E_GPa": 303.0,
+      "sigma_c_MPa": 283,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "compressive yield 41 ksi = 283 MPa (tensile yield 37 ksi on the same page)",
+      "source": "Materion beryllium data sheet https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4 (S-200F density 1.85 g/cc, E 303 GPa); Brush/Materion Beryllium Guide MB-001 compressive-yield note",
+      "E_over_rho_Pa_per_kg_m3": 163783783.7837838,
+      "sigma_c_over_rho_Pa_per_kg_m3": 152972.97297297296,
+      "E_over_rho_GPa_per_g_cc": 163.78378378378378,
+      "sigma_c_over_rho_MPa_per_g_cc": 152.97297297297297,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.000548601535205831,
+          "tf_over_d": 0.005465470993950448,
+          "SF_b": 1.4812576114433054,
+          "SF_y": 0.650546288325153,
+          "least_SF": 0.650546288325153,
+          "gap_1_over_least_SF": 1.537169634115543,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 0.6751020162020445,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.537169634115543
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.0002918918918918919,
+          "tf_over_d": 0.0018293079879211282,
+          "SF_b": 1.2528566532038667,
+          "SF_y": 0.34613316711050074,
+          "least_SF": 0.34613316711050074,
+          "gap_1_over_least_SF": 2.889061479857423,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 0.7981759105822288,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.889061479857423
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00039534204666019564,
+          "tf_over_d": 0.0029130927334520148,
+          "SF_b": 1.4432310179986862,
+          "SF_y": 0.46880711148058457,
+          "least_SF": 0.46880711148058457,
+          "gap_1_over_least_SF": 2.133073444303787,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 0.6928897643751378,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.133073444303787
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0004905169838191316,
+          "tf_over_d": 0.004311549363248033,
+          "SF_b": 1.5011320140726652,
+          "SF_y": 0.5816680827629475,
+          "least_SF": 0.5816680827629475,
+          "gap_1_over_least_SF": 1.7191935222746941,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 0.6661639287053358,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.7191935222746941
+        }
+      },
+      "rank_by_least_SF_P2E": 5
+    },
+    {
+      "name": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "rho": 1750,
+      "E_GPa": 210.0,
+      "sigma_c_MPa": 220,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "QI laminate estimate: UD E ~ 515 GPa (Vf 0.55 rule of mixtures on 935 GPa fibre), E_QI ~ 0.41 x UD; sigma_c_QI low, pitch high-modulus laminates are compression-weak; not fibre properties",
+      "source": "Mitsubishi Chemical K13D2U tow data https://www.m-chemical.co.jp/carbon-fiber/en/product/tow/ (935 GPa, 3.70 GPa, 2.20 g/cc); QI reduction stated in sigma_c_basis",
+      "E_over_rho_Pa_per_kg_m3": 120000000.0,
+      "sigma_c_over_rho_Pa_per_kg_m3": 125714.28571428571,
+      "E_over_rho_GPa_per_g_cc": 120.0,
+      "sigma_c_over_rho_MPa_per_g_cc": 125.71428571428571,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0005799501943604498,
+          "tf_over_d": 0.005777783622176187,
+          "SF_b": 1.0852778539287584,
+          "SF_y": 0.534623602924457,
+          "least_SF": 0.534623602924457,
+          "gap_1_over_least_SF": 1.8704748434784337,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 0.9214230221136012,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.8704748434784337
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.0003085714285714286,
+          "tf_over_d": 0.0019338398729451928,
+          "SF_b": 0.9179345775949121,
+          "SF_y": 0.2844547178474989,
+          "least_SF": 0.2844547178474989,
+          "gap_1_over_least_SF": 3.515498029236827,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 1.0894022563352044,
+          "factor_sigma_c_over_rho_for_its_SF1": 3.515498029236827
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00041793302075506395,
+          "tf_over_d": 0.0030795551753635586,
+          "SF_b": 1.0574167854643841,
+          "SF_y": 0.3852690446695567,
+          "least_SF": 0.3852690446695567,
+          "gap_1_over_least_SF": 2.5955887550158487,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 0.9457008946201204,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.5955887550158487
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0005185465257516534,
+          "tf_over_d": 0.004557923612576492,
+          "SF_b": 1.0998392974393782,
+          "SF_y": 0.4780189998677833,
+          "least_SF": 0.4780189998677833,
+          "gap_1_over_least_SF": 2.09196705628143,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 0.9092237405302557,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.09196705628143
+        }
+      },
+      "rank_by_least_SF_P2E": 6
+    },
+    {
+      "name": "Boron/epoxy quasi-isotropic",
+      "rho": 2000,
+      "E_GPa": 86.0,
+      "sigma_c_MPa": 850,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "QI laminate estimate: E_QI ~ 0.42 x UD E1 (204 GPa); sigma_c_QI ~ 0.34 x UD longitudinal compressive strength (2500 MPa); not fibre properties",
+      "source": "Boron fibre review https://www.compositesworld.com/articles/boron-fiber-the-original-high-performance-fiber ; unidirectional boron/epoxy property table (E1 204 GPa, compressive 2500 MPa) in composites textbook extract https://structures.dhu.edu.cn/_upload/article/files/79/64/d90aa6424b14824d25a678e990c0/4ff4b286-e563-4c01-a7f0-ac45163b28a4.pdf",
+      "E_over_rho_Pa_per_kg_m3": 43000000.0,
+      "sigma_c_over_rho_Pa_per_kg_m3": 425000.0,
+      "E_over_rho_GPa_per_g_cc": 43.0,
+      "sigma_c_over_rho_MPa_per_g_cc": 425.0,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0005074564200653936,
+          "tf_over_d": 0.005055560669404164,
+          "SF_b": 0.38889123099113837,
+          "SF_y": 1.8073922939775677,
+          "least_SF": 0.38889123099113837,
+          "gap_1_over_least_SF": 2.5714130849681895,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 2.5714130849681895,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.5532833150457216
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00027,
+          "tf_over_d": 0.0016921098888270435,
+          "SF_b": 0.3289265569715102,
+          "SF_y": 0.9616508927230786,
+          "least_SF": 0.3289265569715102,
+          "gap_1_over_least_SF": 3.0401923432610354,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 3.0401923432610354,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.0398784086482042
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00036569139316068095,
+          "tf_over_d": 0.002694610778443114,
+          "SF_b": 0.37890768145807097,
+          "SF_y": 1.3024720544226491,
+          "least_SF": 0.37890768145807097,
+          "gap_1_over_least_SF": 2.639165287311964,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 2.639165287311964,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.7677707913996459
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0004537282100326968,
+          "tf_over_d": 0.003988183161004431,
+          "SF_b": 0.3941090815824439,
+          "SF_y": 1.6160301415984717,
+          "least_SF": 0.3941090815824439,
+          "gap_1_over_least_SF": 2.5373685782239694,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 2.5373685782239694,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.6188003393370282
+        }
+      },
+      "rank_by_least_SF_P2E": 7
+    },
+    {
+      "name": "AlBeMet 162 (AM162, HIP)",
+      "rho": 2071,
+      "E_GPa": 193.0,
+      "sigma_c_MPa": 193,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "HIP tensile yield transferred to compression",
+      "source": "Materion AlBeMet technical data sheet https://web.archive.org/web/20171024043552/https://materion.com/[private path] (density 2.071 g/cc, E 193 GPa, HIP yield 193 MPa)",
+      "E_over_rho_Pa_per_kg_m3": 93191694.83341381,
+      "sigma_c_over_rho_Pa_per_kg_m3": 93191.69483341381,
+      "E_over_rho_GPa_per_g_cc": 93.1916948334138,
+      "sigma_c_over_rho_MPa_per_g_cc": 93.1916948334138,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0004900593144040498,
+          "tf_over_d": 0.004882241109999193,
+          "SF_b": 0.8428240214399257,
+          "SF_y": 0.396315179069697,
+          "least_SF": 0.396315179069697,
+          "gap_1_over_least_SF": 2.523244258136622,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 1.1864873028791305,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.523244258136622
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00026074360212457754,
+          "tf_over_d": 0.0016340993614940066,
+          "SF_b": 0.7128656586021972,
+          "SF_y": 0.21086559183748027,
+          "least_SF": 0.21086559183748027,
+          "gap_1_over_least_SF": 4.742357400683591,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 1.4027888535980568,
+          "factor_sigma_c_over_rho_for_its_SF1": 4.742357400683591
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00035315441155063347,
+          "tf_over_d": 0.002602231558129516,
+          "SF_b": 0.821187186522719,
+          "SF_y": 0.2855990075877766,
+          "least_SF": 0.2855990075877766,
+          "gap_1_over_least_SF": 3.501412727047582,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 1.2177491519740535,
+          "factor_sigma_c_over_rho_for_its_SF1": 3.501412727047582
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0004381730661831934,
+          "tf_over_d": 0.0038514564567884413,
+          "SF_b": 0.8541324014397232,
+          "SF_y": 0.3543543242292784,
+          "least_SF": 0.3543543242292784,
+          "gap_1_over_least_SF": 2.8220341382174543,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 1.1707786735574048,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.8220341382174543
+        }
+      },
+      "rank_by_least_SF_P2E": 8
+    },
+    {
+      "name": "CFRP quasi-isotropic T700/epoxy",
+      "rho": 1550,
+      "E_GPa": 54.0,
+      "sigma_c_MPa": 520,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "QI laminate estimate: E_QI ~ 0.40 x UD composite E (134 GPa, Toray T700S composite), sigma_c_QI ~ 0.33 x UD compressive strength; not fibre properties",
+      "source": "Toray T700S data sheet https://www.rockwestcomposites.com/downloads/T700SDataSheet.pdf (fibre 230 GPa, 1.80 g/cc; composite tensile modulus 134 GPa); QI reduction stated in sigma_c_basis",
+      "E_over_rho_Pa_per_kg_m3": 34838709.67741936,
+      "sigma_c_over_rho_Pa_per_kg_m3": 335483.87096774194,
+      "E_over_rho_GPa_per_g_cc": 34.83870967741935,
+      "sigma_c_over_rho_MPa_per_g_cc": 335.48387096774195,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0006547824775037336,
+          "tf_over_d": 0.006523304089553759,
+          "SF_b": 0.3150806672696395,
+          "SF_y": 1.4267081485667326,
+          "least_SF": 0.3150806672696395,
+          "gap_1_over_least_SF": 3.1737904095024043,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 3.1737904095024043,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.7009141995891714
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00034838709677419355,
+          "tf_over_d": 0.0021833675984865076,
+          "SF_b": 0.26649713543078096,
+          "SF_y": 0.7591020329654662,
+          "least_SF": 0.26649713543078096,
+          "gap_1_over_least_SF": 3.752385549599037,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 3.752385549599037,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.317345964801932
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.0004718598621428141,
+          "tf_over_d": 0.0034769171334749853,
+          "SF_b": 0.30699196997353084,
+          "SF_y": 1.0281373332823946,
+          "least_SF": 0.30699196997353084,
+          "gap_1_over_least_SF": 3.257414192580415,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 3.257414192580415,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.9726327092971477
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.000585455754880899,
+          "tf_over_d": 0.005146042788392814,
+          "SF_b": 0.3193081831275615,
+          "SF_y": 1.2756518764800082,
+          "least_SF": 0.3193081831275615,
+          "gap_1_over_least_SF": 3.131770661826436,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 3.131770661826436,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.7839129298812831
+        }
+      },
+      "rank_by_least_SF_P2E": 9
+    },
+    {
+      "name": "Al-Li 2195-T8",
+      "rho": 2710,
+      "E_GPa": 76.0,
+      "sigma_c_MPa": 560,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "tensile yield (L direction) transferred to compression",
+      "source": "MatWeb 2195 composition/density sheet https://www.matweb.com/search/datasheet_print.aspx?matguid=4363dafc7f5545688506d8b4af1e9468 ; MakeItFrom 2195-T8 https://www.makeitfrom.com/compare/2195-2195-T8-Aluminum/B390.0-B390.0-F-SC174B-A23900-Cast-Aluminum (E 76 GPa, yield 560 MPa)",
+      "E_over_rho_Pa_per_kg_m3": 28044280.44280443,
+      "sigma_c_over_rho_Pa_per_kg_m3": 206642.0664206642,
+      "E_over_rho_GPa_per_g_cc": 28.04428044280443,
+      "sigma_c_over_rho_MPa_per_g_cc": 206.6420664206642,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0003745065830740912,
+          "tf_over_d": 0.003731041084431117,
+          "SF_b": 0.25363197078285865,
+          "SF_y": 0.8787841846124921,
+          "least_SF": 0.25363197078285865,
+          "gap_1_over_least_SF": 3.9427206156755674,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 3.9427206156755674,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.1379358180426962
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00019926199261992622,
+          "tf_over_d": 0.0012487895858502168,
+          "SF_b": 0.2145234560184912,
+          "SF_y": 0.4675706532884081,
+          "least_SF": 0.2145234560184912,
+          "gap_1_over_least_SF": 4.661494917897478,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.661494917897478,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.138714209215302
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00026988294698205233,
+          "tf_over_d": 0.001988642640917427,
+          "SF_b": 0.2471207739707663,
+          "SF_y": 0.6332835688966211,
+          "least_SF": 0.2471207739707663,
+          "gap_1_over_least_SF": 4.046604354348199,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.046604354348199,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.5790714446331113
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.00033485476755180574,
+          "tf_over_d": 0.002943308605907329,
+          "SF_b": 0.25703501416172436,
+          "SF_y": 0.7857407243717336,
+          "least_SF": 0.25703501416172436,
+          "gap_1_over_least_SF": 3.890520531847883,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 3.890520531847883,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.272684447913254
+        }
+      },
+      "rank_by_least_SF_P2E": 10
+    },
+    {
+      "name": "Ti-6Al-4V (annealed)",
+      "rho": 4430,
+      "E_GPa": 113.8,
+      "sigma_c_MPa": 970,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "compressive yield, typical annealed value",
+      "source": "ASM MatWeb Ti-6Al-4V annealed data sheet (density 4.43 g/cc, E 113.8 GPa, compressive yield 970 MPa)",
+      "E_over_rho_Pa_per_kg_m3": 25688487.584650114,
+      "sigma_c_over_rho_Pa_per_kg_m3": 218961.62528216705,
+      "E_over_rho_GPa_per_g_cc": 25.688487584650115,
+      "sigma_c_over_rho_MPa_per_g_cc": 218.96162528216706,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0002290999639121416,
+          "tf_over_d": 0.002282420166773889,
+          "SF_b": 0.23232622230453856,
+          "SF_y": 0.9311754216748058,
+          "least_SF": 0.23232622230453856,
+          "gap_1_over_least_SF": 4.304292430189722,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.304292430189722,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.0739115066003426
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.00012189616252821671,
+          "tf_over_d": 0.0007639322297187556,
+          "SF_b": 0.19650292500056624,
+          "SF_y": 0.49544621746986395,
+          "least_SF": 0.19650292500056624,
+          "gap_1_over_least_SF": 5.088982772124733,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 5.088982772124733,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.018382550394233
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.00016509769442920133,
+          "tf_over_d": 0.001216528568145875,
+          "SF_b": 0.22636198304335386,
+          "SF_y": 0.6710385833434973,
+          "least_SF": 0.22636198304335386,
+          "gap_1_over_least_SF": 4.417702948858137,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.417702948858137,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.490227275781117
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.00020484343568067574,
+          "tf_over_d": 0.0018005341584670118,
+          "SF_b": 0.2354434011448481,
+          "SF_y": 0.8325849089632281,
+          "least_SF": 0.2354434011448481,
+          "gap_1_over_least_SF": 4.247305276501616,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.247305276501616,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.2010786998832883
+        }
+      },
+      "rank_by_least_SF_P2E": 11
+    },
+    {
+      "name": "6061-T6 (baseline)",
+      "rho": 2700,
+      "E_GPa": 68.9,
+      "sigma_c_MPa": 276,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "typical tensile yield transferred to compression, per pinned COMMON.md",
+      "source": "Pinned COMMON.md (MAINLINE-001/002); ASM MatWeb 6061-T6 data sheet (AA typical values)",
+      "E_over_rho_Pa_per_kg_m3": 25518518.51851852,
+      "sigma_c_over_rho_Pa_per_kg_m3": 102222.22222222222,
+      "E_over_rho_GPa_per_g_cc": 25.51851851851852,
+      "sigma_c_over_rho_MPa_per_g_cc": 102.22222222222221,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.00037589364449288416,
+          "tf_over_d": 0.0037448597551141957,
+          "SF_b": 0.23078902511015878,
+          "SF_y": 0.43471919227695743,
+          "least_SF": 0.23078902511015878,
+          "gap_1_over_least_SF": 4.3329616714776025,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.3329616714776025,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.3003355217933534
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.0002,
+          "tf_over_d": 0.0012534147324644767,
+          "SF_b": 0.19520275430953535,
+          "SF_y": 0.2312990382497339,
+          "least_SF": 0.19520275430953535,
+          "gap_1_over_least_SF": 5.1228785348709165,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 5.1228785348709165,
+          "factor_sigma_c_over_rho_for_its_SF1": 4.323407514216719
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.0002708825134523563,
+          "tf_over_d": 0.001996007984031936,
+          "SF_b": 0.22486424851387676,
+          "SF_y": 0.31327432420100315,
+          "least_SF": 0.22486424851387676,
+          "gap_1_over_least_SF": 4.44712757412074,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.44712757412074,
+          "factor_sigma_c_over_rho_for_its_SF1": 3.1920905185909194
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0003360949703945902,
+          "tf_over_d": 0.002954209748892171,
+          "SF_b": 0.23388557899250978,
+          "SF_y": 0.38869221706420765,
+          "least_SF": 0.23388557899250978,
+          "gap_1_over_least_SF": 4.275594948211943,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.275594948211943,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.5727296717001438
+        }
+      },
+      "rank_by_least_SF_P2E": 12
+    },
+    {
+      "name": "7075-T6",
+      "rho": 2810,
+      "E_GPa": 71.7,
+      "sigma_c_MPa": 503,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "tensile yield transferred to compression; no compressive yield retrieved",
+      "source": "ASM MatWeb 7075-T6 data sheet; density 2.81 g/cc, E 71.7 GPa, tensile yield 503 MPa",
+      "E_over_rho_Pa_per_kg_m3": 25516014.234875444,
+      "sigma_c_over_rho_Pa_per_kg_m3": 179003.5587188612,
+      "E_over_rho_GPa_per_g_cc": 25.516014234875446,
+      "sigma_c_over_rho_MPa_per_g_cc": 179.0035587188612,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.00036117894666576057,
+          "tf_over_d": 0.0035982638216399744,
+          "SF_b": 0.23076637641367723,
+          "SF_y": 0.7612462414659547,
+          "least_SF": 0.23076637641367723,
+          "gap_1_over_least_SF": 4.333386932450577,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.333386932450577,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.3136353856726704
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.0001921708185053381,
+          "tf_over_d": 0.0012043486753217393,
+          "SF_b": 0.19518359790496798,
+          "SF_y": 0.405032781276708,
+          "least_SF": 0.19518359790496798,
+          "gap_1_over_least_SF": 5.123381322681045,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 5.123381322681045,
+          "factor_sigma_c_over_rho_for_its_SF1": 2.4689359632765764
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.0002602785716446128,
+          "tf_over_d": 0.0019178724401730347,
+          "SF_b": 0.2248421812508788,
+          "SF_y": 0.5485814891141657,
+          "least_SF": 0.2248421812508788,
+          "gap_1_over_least_SF": 4.447564039970776,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.447564039970776,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.8228832358429965
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.00032293822778127885,
+          "tf_over_d": 0.002838564527405289,
+          "SF_b": 0.23386262641282154,
+          "SF_y": 0.6806474031601685,
+          "least_SF": 0.23386262641282154,
+          "gap_1_over_least_SF": 4.2760145788954285,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.2760145788954285,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.4691894736645048
+        }
+      },
+      "rank_by_least_SF_P2E": 13
+    },
+    {
+      "name": "Mg AZ31B",
+      "rho": 1770,
+      "E_GPa": 45.0,
+      "sigma_c_MPa": 97,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "compressive yield 97 MPa (rolled/extruded AZ31; tension-compression asymmetry retained, tensile yield not used)",
+      "source": "AZ31 property table in https://zenodo.org/records/5519242/files/E27900610521.pdf (compressive yield 97 MPa); density 1.77 g/cc, E 45 GPa (ASM MatWeb AZ31B)",
+      "E_over_rho_Pa_per_kg_m3": 25423728.813559324,
+      "sigma_c_over_rho_Pa_per_kg_m3": 54802.259887005646,
+      "E_over_rho_GPa_per_g_cc": 25.423728813559322,
+      "sigma_c_over_rho_MPa_per_g_cc": 54.80225988700565,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.0005733970848196538,
+          "tf_over_d": 0.005712497931530129,
+          "SF_b": 0.22993174871372,
+          "SF_y": 0.23305689932312934,
+          "least_SF": 0.22993174871372,
+          "gap_1_over_least_SF": 4.349116664376198,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 4.349116664376198,
+          "factor_sigma_c_over_rho_for_its_SF1": 4.290797667455093
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 0.0003050847457627119,
+          "tf_over_d": 0.0019119885749458122,
+          "SF_b": 0.1944776647446848,
+          "SF_y": 0.12400151092607327,
+          "least_SF": 0.12400151092607327,
+          "gap_1_over_least_SF": 8.064417865006307,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 5.141978649902164,
+          "factor_sigma_c_over_rho_for_its_SF1": 8.064417865006307
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.0004132106137408824,
+          "tf_over_d": 0.003044757941743631,
+          "SF_b": 0.22402897997126783,
+          "SF_y": 0.16794920475772274,
+          "least_SF": 0.16794920475772274,
+          "gap_1_over_least_SF": 5.9541812147462245,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 4.463708222606968,
+          "factor_sigma_c_over_rho_for_its_SF1": 5.9541812147462245
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.0005126872429747985,
+          "tf_over_d": 0.004506421650852464,
+          "SF_b": 0.23301680030495303,
+          "SF_y": 0.20838142071791527,
+          "least_SF": 0.20838142071791527,
+          "gap_1_over_least_SF": 4.798892322332778,
+          "limiting_figure": "sigma_c/rho",
+          "factor_E_over_rho_for_its_SF1": 4.291536055302807,
+          "factor_sigma_c_over_rho_for_its_SF1": 4.798892322332778
+        }
+      },
+      "rank_by_least_SF_P2E": 14
+    },
+    {
+      "name": "Metallic glass Vitreloy 1 (Zr41.2Ti13.8Cu12.5Ni10Be22.5)",
+      "rho": 6120,
+      "E_GPa": 96.0,
+      "sigma_c_MPa": 1900,
+      "tag": "QUESTIONABLE",
+      "sigma_c_basis": "compressive ultimate strength (bulk metallic glass has no distinct compressive yield; failure is shear-band fracture)",
+      "source": "Review of Zr-based bulk metallic glasses https://www.mdpi.com/2075-4701/5/3/1262 (E 70-96 GPa, compressive ultimate 1400-1900 MPa for Vitreloy 1); density 6.12 g/cc typical for Vitreloy 1",
+      "E_over_rho_Pa_per_kg_m3": 15686274.509803921,
+      "sigma_c_over_rho_Pa_per_kg_m3": 310457.5163398693,
+      "E_over_rho_GPa_per_g_cc": 15.686274509803921,
+      "sigma_c_over_rho_MPa_per_g_cc": 310.4575163398693,
+      "rows": {
+        "P2-A": {
+          "tf_at_equal_face_mass_m": 0.00016583543139391947,
+          "tf_over_d": 0.0016521440096092038,
+          "SF_b": 0.1418663861344782,
+          "SF_y": 1.3202788768002225,
+          "least_SF": 0.1418663861344782,
+          "gap_1_over_least_SF": 7.048886119169051,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 7.048886119169051,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.7574157381231167
+        },
+        "P2-C": {
+          "tf_at_equal_face_mass_m": 8.823529411764706e-05,
+          "tf_over_d": 0.000552977087851975,
+          "SF_b": 0.11999144805162251,
+          "SF_y": 0.7024747005666473,
+          "least_SF": 0.11999144805162251,
+          "gap_1_over_least_SF": 8.333927260964312,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 8.333927260964312,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.423538810996831
+        },
+        "P2-K": {
+          "tf_at_equal_face_mass_m": 0.0001195069912289807,
+          "tf_over_d": 0.0008805917576611482,
+          "SF_b": 0.1382244164005731,
+          "SF_y": 0.9514405626309239,
+          "least_SF": 0.1382244164005731,
+          "gap_1_over_least_SF": 7.234611843843921,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 7.234611843843921,
+          "factor_sigma_c_over_rho_for_its_SF1": 1.0510378044370943
+        },
+        "P2-E": {
+          "tf_at_equal_face_mass_m": 0.00014827719282114272,
+          "tf_over_d": 0.0013033278303936047,
+          "SF_b": 0.1437698428025331,
+          "SF_y": 1.1804910684494796,
+          "least_SF": 0.1437698428025331,
+          "gap_1_over_least_SF": 6.955561615056456,
+          "limiting_figure": "E/rho",
+          "factor_E_over_rho_for_its_SF1": 6.955561615056456,
+          "factor_sigma_c_over_rho_for_its_SF1": 0.8471050961134791
+        }
+      },
+      "rank_by_least_SF_P2E": 15
+    }
+  ],
+  "best_three_overall_P2E": [
+    {
+      "name": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+      "tag": "QUESTIONABLE",
+      "rank_P2E": 1,
+      "SF_b_P2E": 1.2121884729842611,
+      "SF_y_P2E": 4.78369453680003,
+      "least_SF_P2E": 1.2121884729842611,
+      "limiting_figure": "E/rho",
+      "gap": 0.8249542231152563,
+      "factor_limiting_figure_for_its_mode_SF1": 0.8249542231152563,
+      "factor_E_over_rho_for_buckling_SF1": 0.8249542231152563,
+      "factor_sigma_c_over_rho_for_yield_SF1": 0.20904344796834223,
+      "note": "gap is the factor for the limiting figure's own mode; if the other mode is also below 1, both figures need their own factors (listed) to meet both modes at once."
+    },
+    {
+      "name": "CNT-yarn composite quasi-isotropic",
+      "tag": "PROJECTION",
+      "rank_P2E": 2,
+      "SF_b_P2E": 1.1783992472564768,
+      "SF_y_P2E": 3.259220453643977,
+      "least_SF_P2E": 1.1783992472564768,
+      "limiting_figure": "E/rho",
+      "gap": 0.8486088244949053,
+      "factor_limiting_figure_for_its_mode_SF1": 0.8486088244949053,
+      "factor_E_over_rho_for_buckling_SF1": 0.8486088244949053,
+      "factor_sigma_c_over_rho_for_yield_SF1": 0.3068218349212764,
+      "note": "gap is the factor for the limiting figure's own mode; if the other mode is also below 1, both figures need their own factors (listed) to meet both modes at once."
+    },
+    {
+      "name": "Graphene composite quasi-isotropic",
+      "tag": "PROJECTION",
+      "rank_P2E": 3,
+      "SF_b_P2E": 0.9165327478661486,
+      "SF_y_P2E": 2.281454317550784,
+      "least_SF_P2E": 0.9165327478661486,
+      "limiting_figure": "E/rho",
+      "gap": 1.091068488636307,
+      "factor_limiting_figure_for_its_mode_SF1": 1.091068488636307,
+      "factor_E_over_rho_for_buckling_SF1": 1.091068488636307,
+      "factor_sigma_c_over_rho_for_yield_SF1": 0.4383169070303949,
+      "note": "gap is the factor for the limiting figure's own mode; if the other mode is also below 1, both figures need their own factors (listed) to meet both modes at once."
+    }
+  ],
+  "best_three_available_P2E": [
+    {
+      "name": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+      "tag": "QUESTIONABLE",
+      "rank_P2E": 1,
+      "SF_b_P2E": 1.2121884729842611,
+      "SF_y_P2E": 4.78369453680003,
+      "least_SF_P2E": 1.2121884729842611,
+      "limiting_figure": "E/rho",
+      "gap": 0.8249542231152563,
+      "factor_limiting_figure_for_its_mode_SF1": 0.8249542231152563,
+      "factor_E_over_rho_for_buckling_SF1": 0.8249542231152563,
+      "factor_sigma_c_over_rho_for_yield_SF1": 0.20904344796834223,
+      "note": "gap is the factor for the limiting figure's own mode; if the other mode is also below 1, both figures need their own factors (listed) to meet both modes at once."
+    },
+    {
+      "name": "CFRP quasi-isotropic M55J/epoxy",
+      "tag": "QUESTIONABLE",
+      "rank_P2E": 4,
+      "SF_b_P2E": 0.7544629326946956,
+      "SF_y_P2E": 0.8114928975028194,
+      "least_SF_P2E": 0.7544629326946956,
+      "limiting_figure": "E/rho",
+      "gap": 1.3254461639729949,
+      "factor_limiting_figure_for_its_mode_SF1": 1.3254461639729949,
+      "factor_E_over_rho_for_buckling_SF1": 1.3254461639729949,
+      "factor_sigma_c_over_rho_for_yield_SF1": 1.2322966757654532,
+      "note": "gap is the factor for the limiting figure's own mode; if the other mode is also below 1, both figures need their own factors (listed) to meet both modes at once."
+    },
+    {
+      "name": "Beryllium S-200F",
+      "tag": "QUESTIONABLE",
+      "rank_P2E": 5,
+      "SF_b_P2E": 1.5011320140726652,
+      "SF_y_P2E": 0.5816680827629475,
+      "least_SF_P2E": 0.5816680827629475,
+      "limiting_figure": "sigma_c/rho",
+      "gap": 1.7191935222746941,
+      "factor_limiting_figure_for_its_mode_SF1": 1.7191935222746941,
+      "factor_E_over_rho_for_buckling_SF1": 0.6661639287053358,
+      "factor_sigma_c_over_rho_for_yield_SF1": 1.7191935222746941,
+      "note": "gap is the factor for the limiting figure's own mode; if the other mode is also below 1, both figures need their own factors (listed) to meet both modes at once."
+    }
+  ],
+  "NFI": [
+    "NFI-008-QI-LAMINATE",
+    "NFI-008-SIGMA-TRANSFER",
+    "NFI-008-BRITTLE-FACES",
+    "NFI-008-OMITTED-MODES",
+    "NFI-008-PROJECTIONS",
+    "NFI-008-KD"
+  ]
+}

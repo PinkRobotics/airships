@@ -1,0 +1,24 @@
+{
+  "id": "rpt-1228-mainline050-dew-conventions-1020",
+  "unit": "vacuum-mainline050-check-1020",
+  "at": "2026-10-20T13:21:42.984106+00:00",
+  "body": "Equation-only clarification filed in CONVENTIONS.md; no executable code is attached. Each dry compartment contains one Be face plus half the core metal; coating/polymer storage is omitted. Outer enthalpy is referenced to ice at 273.15 K, with incoming vapor enthalpy Ls+cpv(Ta−273.15), added once. Lewis transfer and ambient density use 95460.83791390515 Pa throughout. Through-core conductance is 130*rho_core/(2700*tc)+0.8*sigmaSB*mean(Tinner)^3, with the area-weighted old inner temperature. Night geometries are the mask11, usage1 MASS-CURVES reference rows. All fluxes use the old state in forward Euler; phase is decoded from updated enthalpy and mass for output. The attached equations include constants, geometry, saturation, convection and update order. Original results and qualifications are unchanged.",
+  "artifacts": [
+    {
+      "path": "evidence/42ef056cf970ccf1-CONVENTIONS.md",
+      "sha256": "42ef056cf970ccf1ffd8049932177711365e3565d5d3fdca758b218d2f68c170",
+      "bytes": 7377
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "re": "q-ref-fb5fd651ac3cba87c03d",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "q-ref-fb5fd651ac3cba87c03d",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

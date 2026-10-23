@@ -1,0 +1,43 @@
+{
+  "id": "E-0c69def4fc6b5d335118",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-0c69def4fc6b5d335118",
+    "report": "rpt-ref-5c8405d45d6cb50633f1",
+    "file": "evidence/6e8dee54ea712f84-NFI.json",
+    "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+    "source_sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+    "source_json_pointer": "/rows/0",
+    "row_id": "NFI-048-C01",
+    "fields": {
+      "id": "NFI-048-C01",
+      "topic": "Thermal model equivalence",
+      "evidence": "THERMAL-COMPARISONS.csv; 297 of 325 comparisons differ",
+      "qualified_value": null,
+      "partial_finding": "The independent converged gray-cavity/sky-ground model does not reproduce published legacy or common temperatures. Differences are not yet attributable to an owner error.",
+      "status": "resolved_numerically",
+      "finding": "Independent current tables and legacy conventions reproduce; physical boundary is separately retained as C16.",
+      "continuation_evidence": "THERMAL-RESOLVED-RESULTS.json; EXTRA-AUDITS.json",
+      "partial_next_evidence": "A prose or equation specification of local sky/ground exchange, convection length/coefficient, cavity moment, quadrature, fixed-iteration update and day/night curvature convention; independently solve after fresh queue execution authority.",
+      "next_evidence": "Numerical/administrative closure complete. Physical evidence remains in the separately open entries."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Independent current tables and legacy conventions reproduce; physical boundary is separately retained as C16.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-5c8405d45d6cb50633f1",
+      "artifact": "evidence/6e8dee54ea712f84-NFI.json",
+      "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+      "sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+      "bytes": 19121,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

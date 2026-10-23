@@ -1,0 +1,44 @@
+{
+  "id": "E-a14540c57972b9941bae",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-a14540c57972b9941bae",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/4",
+    "row_id": "NFI-041-05",
+    "fields": {
+      "id": "NFI-041-05",
+      "status": "open",
+      "topic": "Imperfections, nonlinear capacity and the global 0.2 factor",
+      "evidence": [
+        "RESULTS.json:selected_mesh_study",
+        "NONLINEAR-AUDIT-M24.json",
+        "METHODS.md"
+      ],
+      "finding": "The selected perfect f=4 frame has a verified first sampled elastic tangent loss near 5.430902; m12 to m24 changes it by about 0.35%. Smallest-algebraic values are checked along the sampled path and independently audited. The inherited 0.2 factor is not calibrated to this frame. Applying it to the nonlinear value would be an alternative arithmetic sensitivity near 1.086180. The primary resize retains 022d's 0.2-times-linear convention.",
+      "needed": "Manufacturing and joint-imperfection distributions, path refinement as needed, measured stiffness, and validated nonlinear analyses for final resized candidates before adopting a capacity factor.",
+      "prohibited_inference": "Perfect elastic first loss is not material/joint collapse, a global certification of every inter-step state, or a validated knockdown. The frozen 026b nonlinear paths remain unverified."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The selected perfect f=4 frame has a verified first sampled elastic tangent loss near 5.430902; m12 to m24 changes it by about 0.35%. Smallest-algebraic values are checked along the sampled path and independently audited. The inherited 0.2 factor is not calibrated to this frame. Applying it to the nonlinear value would be an alternative arithmetic sensitivity near 1.086180. The primary resize retains 022d's 0.2-times-linear convention.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,1542 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline055-gamma-test-1020",
+  "order": "ord-admiral-rr2-mainline055-dispatch-1019",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "certification": false,
+  "measured_times": {
+    "order_received_local": "2026-10-20T05:59:40-07:00 (order at); ingested 06:00:22",
+    "first_working_line_local": "2026-10-20T06:04:09-07:00",
+    "results_built_local": "2026-10-20T06:28:20-07:00",
+    "note": "measurements, not a budget"
+  },
+  "gamma_definition": "gamma = p_collapse / (Kc p_classical) of the article's own section, the line's convention (028b, 038)",
+  "scaling": {
+    "schema": 1,
+    "sources": {
+      "028b": "028b nominal AF/scarf least set (CARD.md): tf 0.794624 mm, tc 23.2372 mm, gamma 0.564164, wrinkle 0.434628",
+      "040": "040 common account RESULTS.json, R30 ISA actual heavy70 vented least set {gamma, Q}",
+      "core": "Hexcel CR III Table II, 5056 3/8 in. 1.0 pcf (owner-pinned copy 0467f718..., read in CHECK-029)",
+      "Be": "Materion SR-200 sheet: 290 GPa, 345 MPa tensile minimum used as compression proxy (028b/038); sheet 0.020-0.250 in.",
+      "5052-O": "Gabrian 5052 datasheet: 5052-O yield 89.6 MPa (13 ksi), E 70.3 GPa; MakeItFrom lists 79 MPa (range 65-90)",
+      "handbook": "MMPDS / MIL-HDBK-5J typical values (not opened this session): 5052-H32, 2024-T3, 7075-T6, CP-Ti Gr 2, Ti-6Al-4V",
+      "CFRP": "CMH-17 class typical quasi-isotropic carbon/epoxy (not opened): E about 55 GPa, compressive strength about 500 MPa",
+      "reis2017": "Lopez Jimenez, Marthelot, Lee, Hutchinson, Reis, J. Appl. Mech. 84 (2017) 034501, doi 10.1115/1.4035665",
+      "042": "042 / CHECK-042: dimple tolerance 9.318267-16.057295 mm over the 015b width, waviness 0.0751-0.1288 mm",
+      "038": "038 T7: three R 0.5 m surrogate shells, USD 30-90k; 0.4303 m conditional minimum radius; 6.143% sea-level overload"
+    },
+    "designs": {
+      "R10 lead (028b)": {
+        "inputs": {
+          "R": 10000.0,
+          "tf": 0.794624067,
+          "tc": 23.237217906,
+          "gamma": 0.564164,
+          "nu": 0.0752
+        },
+        "groups": {
+          "h_mm": 24.031841973000002,
+          "t_eq_mm": 41.62437129670229,
+          "R_over_h": 416.1145871063522,
+          "R_over_teq": 240.24386887958244,
+          "tf_over_h": 0.03306546655444753,
+          "sqrt_R_teq_mm": 645.1695226582103,
+          "lambda1_width_mm": 356.77705886427606,
+          "p_classical_kPa": 222.1458604673442,
+          "p_crimp_kPa": 233.049341287675,
+          "Vc": 0.9532138526541828,
+          "Kc": 0.7616965368364543,
+          "p_H_kPa": 169.2077325905303,
+          "gamma_needed_at_p": 0.5641635665960248,
+          "face_stress_at_p_MPa": 300.3333333279849,
+          "face_stress_over_yield": 0.8705314009506809,
+          "classical_face_stress_MPa": 698.902379417059,
+          "classical_over_yield": 2.025803998310316,
+          "E_over_sy": 840.5797101449275,
+          "wrinkle_stress_MPa": 830.4371403758939,
+          "wrinkle_margin": 2.765051521833571,
+          "dimpling_stress_MPa": 4059.610593416971,
+          "dimpling_margin": 13.517016404514758,
+          "cell_over_h": 0.39634914421880046,
+          "wrinkle_wavelength_mm": 38.17168360783913,
+          "cells_per_wrinkle_wavelength": 4.007525838093347,
+          "panel_short_side_over_sqrt_R_teq": 0.9448679433714449,
+          "panel_long_side_over_sqrt_R_teq": 2.8346038301143346,
+          "gamma_line": 0.564164,
+          "face_stress_at_collapse_if_gamma_line_MPa": 300.3335640512507,
+          "collapse_stress_over_yield": 0.8705320697137701
+        }
+      },
+      "R30 ISA (040)": {
+        "inputs": {
+          "R": 30000.0,
+          "tf": 2.4649,
+          "tc": 102.59,
+          "gamma": 0.3865,
+          "nu": 0.0768
+        },
+        "groups": {
+          "h_mm": 105.0549,
+          "t_eq_mm": 181.96042438406764,
+          "R_over_h": 285.56497602682026,
+          "R_over_teq": 164.87101578021372,
+          "tf_over_h": 0.023462970313616976,
+          "sqrt_R_teq_mm": 2336.4102232959926,
+          "lambda1_width_mm": 1292.028743598251,
+          "p_classical_kPa": 334.74621642362774,
+          "p_crimp_kPa": 336.2515029048929,
+          "Vc": 0.9955233315888228,
+          "Kc": 0.7511191671027944,
+          "p_H_kPa": 251.43429927092697,
+          "gamma_needed_at_p": 0.37966513793346257,
+          "face_stress_at_p_MPa": 290.4605802889569,
+          "face_stress_over_yield": 0.8419147254752375,
+          "classical_face_stress_MPa": 1018.5389359313594,
+          "classical_over_yield": 2.9522867708155345,
+          "E_over_sy": 840.5797101449275,
+          "wrinkle_stress_MPa": 696.0895433004666,
+          "wrinkle_margin": 2.3965026256161184,
+          "dimpling_stress_MPa": 39072.0134543472,
+          "dimpling_margin": 134.51743921835265,
+          "cell_over_h": 0.09066687988851543,
+          "wrinkle_wavelength_mm": 129.3301356183271,
+          "cells_per_wrinkle_wavelength": 13.577966994050088,
+          "panel_short_side_over_sqrt_R_teq": 0.2609130853485277,
+          "panel_long_side_over_sqrt_R_teq": 0.7827392560455831,
+          "gamma_line": 0.3865,
+          "face_stress_at_collapse_if_gamma_line_MPa": 295.6895513049615,
+          "collapse_stress_over_yield": 0.857071163202787
+        }
+      }
+    },
+    "stand_ins": {
+      "SR-200 Be (design)": {
+        "E_MPa": 290000.0,
+        "nu": 0.0752,
+        "yield_MPa": 345.0,
+        "source": "Be",
+        "post_yield": "low ductility (about 2-3% elongation)",
+        "face_t_mm": 0.794624067,
+        "core_t_mm": 23.237217906,
+        "face_kg_per_m2_two_faces": 2.9401090479,
+        "p_classical_ratio_to_Be": 1.0,
+        "Vc": 0.9532138526541828,
+        "face_stress_over_yield_at_p": 0.8705314009506809,
+        "yield_ratio_vs_Be": 1.0,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.0,
+        "wrinkle_margin": 2.765051521833571,
+        "wrinkle_margin_ratio_vs_Be": 1.0,
+        "dimpling_margin": 13.517016404514758,
+        "E_over_sy": 840.5797101449275
+      },
+      "5052-O": {
+        "E_MPa": 70300.0,
+        "nu": 0.33,
+        "yield_MPa": 89.6,
+        "source": "5052-O",
+        "post_yield": "ductile, strain-hardening (about 25% elongation)",
+        "face_t_mm": 3.1031235756796316,
+        "core_t_mm": 20.92871839732037,
+        "face_kg_per_m2_two_faces": 16.632742365642827,
+        "p_classical_ratio_to_Be": 0.9999999999999999,
+        "Vc": 0.8585169005741052,
+        "face_stress_over_yield_at_p": 0.8583376648145397,
+        "yield_ratio_vs_Be": 0.9859927670353708,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.306675360413763,
+        "wrinkle_margin": 11.070281746737118,
+        "wrinkle_margin_ratio_vs_Be": 4.00364393188455,
+        "dimpling_margin": 217.75135695124746,
+        "E_over_sy": 784.5982142857143
+      },
+      "5052-H32": {
+        "E_MPa": 70300.0,
+        "nu": 0.33,
+        "yield_MPa": 193.0,
+        "source": "handbook",
+        "post_yield": "ductile",
+        "face_t_mm": 3.1031235756796316,
+        "core_t_mm": 20.92871839732037,
+        "face_kg_per_m2_two_faces": 16.632742365642827,
+        "p_classical_ratio_to_Be": 0.9999999999999999,
+        "Vc": 0.8585169005741052,
+        "face_stress_over_yield_at_p": 0.3984821490537966,
+        "yield_ratio_vs_Be": 0.45774586490346736,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.306675360413763,
+        "wrinkle_margin": 11.070281746737118,
+        "wrinkle_margin_ratio_vs_Be": 4.00364393188455,
+        "dimpling_margin": 217.75135695124746,
+        "E_over_sy": 364.24870466321244
+      },
+      "6061-T6": {
+        "E_MPa": 68900.0,
+        "nu": 0.33,
+        "yield_MPa": 276.0,
+        "source": "COMMON",
+        "post_yield": "ductile",
+        "face_t_mm": 3.166176884909697,
+        "core_t_mm": 20.865665088090307,
+        "face_kg_per_m2_two_faces": 17.097355178512366,
+        "p_classical_ratio_to_Be": 1.0000000000000002,
+        "Vc": 0.8559303909473112,
+        "face_stress_over_yield_at_p": 0.27309955642859124,
+        "yield_ratio_vs_Be": 0.31371591665774207,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.3066753604137633,
+        "wrinkle_margin": 11.31227562755587,
+        "wrinkle_margin_ratio_vs_Be": 4.0911626919900685,
+        "dimpling_margin": 226.69037259257357,
+        "E_over_sy": 249.63768115942028
+      },
+      "2024-T3": {
+        "E_MPa": 73100.0,
+        "nu": 0.33,
+        "yield_MPa": 345.0,
+        "source": "handbook",
+        "post_yield": "ductile",
+        "face_t_mm": 2.984262481125555,
+        "core_t_mm": 21.047579491874448,
+        "face_kg_per_m2_two_faces": 16.592499395058088,
+        "p_classical_ratio_to_Be": 0.9999999999999999,
+        "Vc": 0.8633927012112086,
+        "face_stress_over_yield_at_p": 0.23179770769149521,
+        "yield_ratio_vs_Be": 0.2662715066203884,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.3066753604137629,
+        "wrinkle_margin": 10.616145452806602,
+        "wrinkle_margin_ratio_vs_Be": 3.839402401358071,
+        "dimpling_margin": 201.38947334764148,
+        "E_over_sy": 211.8840579710145
+      },
+      "7075-T6": {
+        "E_MPa": 71700.0,
+        "nu": 0.33,
+        "yield_MPa": 503.0,
+        "source": "handbook",
+        "post_yield": "limited ductility",
+        "face_t_mm": 3.042532599306529,
+        "core_t_mm": 20.989309373693473,
+        "face_kg_per_m2_two_faces": 17.099033208102693,
+        "p_classical_ratio_to_Be": 0.9999999999999999,
+        "Vc": 0.8610024028514571,
+        "face_stress_over_yield_at_p": 0.15594161423553535,
+        "yield_ratio_vs_Be": 0.17913381879761744,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.306675360413763,
+        "wrinkle_margin": 10.838447698841346,
+        "wrinkle_margin_ratio_vs_Be": 3.919799545599105,
+        "dimpling_margin": 209.33083642622017,
+        "E_over_sy": 142.54473161033798
+      },
+      "CP-Ti grade 2": {
+        "E_MPa": 105000.0,
+        "nu": 0.37,
+        "yield_MPa": 275.0,
+        "source": "handbook",
+        "post_yield": "ductile",
+        "face_t_mm": 2.0447133534712,
+        "core_t_mm": 21.987128619528804,
+        "face_kg_per_m2_two_faces": 18.443314448310225,
+        "p_classical_ratio_to_Be": 1.0000000000000002,
+        "Vc": 0.9019339434266995,
+        "face_stress_over_yield_at_p": 0.4244241852991332,
+        "yield_ratio_vs_Be": 0.4875460952191184,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.3676321184766902,
+        "wrinkle_margin": 7.060131067100479,
+        "wrinkle_margin_ratio_vs_Be": 2.5533452130464243,
+        "dimpling_margin": 96.0639097976086,
+        "E_over_sy": 381.8181818181818
+      },
+      "Ti-6Al-4V": {
+        "E_MPa": 113800.0,
+        "nu": 0.342,
+        "yield_MPa": 880.0,
+        "source": "handbook",
+        "post_yield": "moderate ductility",
+        "face_t_mm": 1.908262503489996,
+        "core_t_mm": 22.123579469510005,
+        "face_kg_per_m2_two_faces": 16.907205780921366,
+        "p_classical_ratio_to_Be": 1.0,
+        "Vc": 0.9075312933734387,
+        "face_stress_over_yield_at_p": 0.14211648646840347,
+        "yield_ratio_vs_Be": 0.16325256769968594,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.3244714274627787,
+        "wrinkle_margin": 6.606239757401119,
+        "wrinkle_margin_ratio_vs_Be": 2.389192282760925,
+        "dimpling_margin": 82.72046724717231,
+        "E_over_sy": 129.3181818181818
+      },
+      "CFRP quasi-isotropic": {
+        "E_MPa": 55000.0,
+        "nu": 0.3,
+        "yield_MPa": 500.0,
+        "source": "CFRP",
+        "post_yield": "linear to brittle failure, no yield",
+        "face_t_mm": 4.008198126362847,
+        "core_t_mm": 20.023643846637157,
+        "face_kg_per_m2_two_faces": 12.425414191724824,
+        "p_classical_ratio_to_Be": 1.0000000000000002,
+        "Vc": 0.8213898398869809,
+        "face_stress_over_yield_at_p": 0.11908198510202375,
+        "yield_ratio_vs_Be": 0.13679229143483845,
+        "biaxial_membrane_stiffness_ratio_vs_Be": 1.2638686425330092,
+        "wrinkle_margin": 14.695598645634302,
+        "wrinkle_margin_ratio_vs_Be": 5.314764853238359,
+        "dimpling_margin": 359.50390773588873,
+        "E_over_sy": 110.0
+      }
+    },
+    "geometric_scales": [
+      {
+        "scale": 1.0,
+        "R_m": 10.0,
+        "diameter_m": 20.0,
+        "Be_face_mm": 0.794624067,
+        "core_mm": 23.237217906,
+        "cell_needed_mm": 9.525,
+        "Be_gauge_ok_min_0p508mm": true,
+        "dimpling_margin_with_stock_3_8_cell": 13.517016404514758,
+        "cells_per_wrinkle_wavelength_stock_cell": 4.007525838093347,
+        "cells_through_core_stock_cell": 2.4396029297637796,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 16.057295
+      },
+      {
+        "scale": 0.75,
+        "R_m": 7.5,
+        "diameter_m": 15.0,
+        "Be_face_mm": 0.59596805025,
+        "core_mm": 17.427913429500002,
+        "cell_needed_mm": 7.143750000000001,
+        "Be_gauge_ok_min_0p508mm": true,
+        "dimpling_margin_with_stock_3_8_cell": 7.603321727539552,
+        "cells_per_wrinkle_wavelength_stock_cell": 3.0056443785700098,
+        "cells_through_core_stock_cell": 1.8297021973228347,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 12.04297125
+      },
+      {
+        "scale": 0.639,
+        "R_m": 6.390000000000001,
+        "diameter_m": 12.780000000000001,
+        "Be_face_mm": 0.507764778813,
+        "core_mm": 14.848582241934002,
+        "cell_needed_mm": 6.086475,
+        "Be_gauge_ok_min_0p508mm": false,
+        "dimpling_margin_with_stock_3_8_cell": 5.519281655307871,
+        "cells_per_wrinkle_wavelength_stock_cell": 2.560809010541649,
+        "cells_through_core_stock_cell": 1.5589062721190552,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 10.260611505
+      },
+      {
+        "scale": 0.5,
+        "R_m": 5.0,
+        "diameter_m": 10.0,
+        "Be_face_mm": 0.3973120335,
+        "core_mm": 11.618608953,
+        "cell_needed_mm": 4.7625,
+        "Be_gauge_ok_min_0p508mm": false,
+        "dimpling_margin_with_stock_3_8_cell": 3.3792541011286894,
+        "cells_per_wrinkle_wavelength_stock_cell": 2.0037629190466735,
+        "cells_through_core_stock_cell": 1.2198014648818898,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 8.0286475
+      },
+      {
+        "scale": 0.25,
+        "R_m": 2.5,
+        "diameter_m": 5.0,
+        "Be_face_mm": 0.19865601675,
+        "core_mm": 5.8093044765,
+        "cell_needed_mm": 2.38125,
+        "Be_gauge_ok_min_0p508mm": false,
+        "dimpling_margin_with_stock_3_8_cell": 0.8448135252821724,
+        "cells_per_wrinkle_wavelength_stock_cell": 1.0018814595233367,
+        "cells_through_core_stock_cell": 0.6099007324409449,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 4.01432375
+      },
+      {
+        "scale": 0.1,
+        "R_m": 1.0,
+        "diameter_m": 2.0,
+        "Be_face_mm": 0.0794624067,
+        "core_mm": 2.3237217906,
+        "cell_needed_mm": 0.9525000000000001,
+        "Be_gauge_ok_min_0p508mm": false,
+        "dimpling_margin_with_stock_3_8_cell": 0.1351701640451476,
+        "cells_per_wrinkle_wavelength_stock_cell": 0.4007525838093347,
+        "cells_through_core_stock_cell": 0.24396029297637795,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 1.6057295
+      },
+      {
+        "scale": 0.05,
+        "R_m": 0.5,
+        "diameter_m": 1.0,
+        "Be_face_mm": 0.03973120335,
+        "core_mm": 1.1618608953,
+        "cell_needed_mm": 0.47625000000000006,
+        "Be_gauge_ok_min_0p508mm": false,
+        "dimpling_margin_with_stock_3_8_cell": 0.0337925410112869,
+        "cells_per_wrinkle_wavelength_stock_cell": 0.20037629190466735,
+        "cells_through_core_stock_cell": 0.12198014648818897,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 0.80286475
+      },
+      {
+        "scale": 0.0430344,
+        "R_m": 0.430344,
+        "diameter_m": 0.860688,
+        "Be_face_mm": 0.0341961699489048,
+        "core_mm": 0.9999997302539665,
+        "cell_needed_mm": 0.40990266000000003,
+        "Be_gauge_ok_min_0p508mm": false,
+        "dimpling_margin_with_stock_3_8_cell": 0.025032968068775443,
+        "cells_per_wrinkle_wavelength_stock_cell": 0.1724614699268443,
+        "cells_through_core_stock_cell": 0.1049868483206264,
+        "design_pressure_kPa": 95.46083791390001,
+        "dimple_amp_mm_at_16p057": 0.691016055948
+      }
+    ],
+    "hex_honeycomb_lightest_per_cell_pcf": {
+      "1/8": 3.1,
+      "5/32": 2.6,
+      "3/16": 2.0,
+      "1/4": 1.6,
+      "3/8": 1.0,
+      "source": "Hexcel CR III Tables I and II (owner-pinned copy)"
+    },
+    "caps_R10": [
+      {
+        "base_radius_m": 1.0,
+        "diameter_m": 2.0,
+        "rise_mm": 50.12562893379982,
+        "cap_lambda": 2.8063898065185455,
+        "edge_distance_over_sqrt_R_teq": 1.5525752169577485,
+        "edge_distance_over_dimple_width": 2.8075633977257812,
+        "shell_area_m2": 3.1494861522998696,
+        "panels_0p61x1p83_per_face": 2.8250655668352986
+      },
+      {
+        "base_radius_m": 1.5,
+        "diameter_m": 3.0,
+        "rise_mm": 113.14003335740563,
+        "cap_lambda": 4.2162487752413655,
+        "edge_distance_over_sqrt_R_teq": 2.3337784487450466,
+        "edge_distance_over_dimple_width": 4.220234150031623,
+        "shell_area_m2": 7.108797952450593,
+        "panels_0p61x1p83_per_face": 6.376538694222306
+      },
+      {
+        "base_radius_m": 2.0,
+        "diameter_m": 4.0,
+        "rise_mm": 202.04102886728833,
+        "cap_lambda": 5.634272692597292,
+        "edge_distance_over_sqrt_R_teq": 3.121007947813487,
+        "edge_distance_over_dimple_width": 5.643802363058627,
+        "shell_area_m2": 12.694612240263927,
+        "panels_0p61x1p83_per_face": 11.386972410755634
+      },
+      {
+        "base_radius_m": 2.5,
+        "diameter_m": 5.0,
+        "rise_mm": 317.54163448145846,
+        "cap_lambda": 7.063475038660621,
+        "edge_distance_over_sqrt_R_teq": 3.916493979768173,
+        "edge_distance_over_dimple_width": 7.082301085905931,
+        "shell_area_m2": 19.951729321916904,
+        "panels_0p61x1p83_per_face": 17.896552256629512
+      },
+      {
+        "base_radius_m": 3.0,
+        "diameter_m": 6.0,
+        "rise_mm": 460.60798583054384,
+        "cap_lambda": 8.507144476476132,
+        "edge_distance_over_sqrt_R_teq": 4.722675875326704,
+        "edge_distance_over_dimple_width": 8.54014142572176,
+        "shell_area_m2": 28.94085328940056,
+        "panels_0p61x1p83_per_face": 25.959729349187207
+      },
+      {
+        "base_radius_m": 4.0,
+        "diameter_m": 8.0,
+        "rise_mm": 834.8486100883201,
+        "cap_lambda": 11.45307068451073,
+        "edge_distance_over_sqrt_R_teq": 6.378429724515927,
+        "edge_distance_over_dimple_width": 11.534285510886392,
+        "shell_area_m2": 52.455085206262325,
+        "panels_0p61x1p83_per_face": 47.05181983842358
+      }
+    ],
+    "reis2017_plateau_at_lambda1": 0.4469700178321551,
+    "rig_reach": [
+      {
+        "rig": "evacuation at the 500 m design ambient",
+        "max_dp_kPa": 95.46083791390001,
+        "max_gamma_R10_section": 0.564164
+      },
+      {
+        "rig": "evacuation at sea level, 1 kPa residual",
+        "max_dp_kPa": 100.325,
+        "max_gamma_R10_section": 0.5929107112075593
+      },
+      {
+        "rig": "sea level evacuation + 2 m water",
+        "max_dp_kPa": 119.9383,
+        "max_gamma_R10_section": 0.7088233516474022
+      },
+      {
+        "rig": "sea level evacuation + 5 m water",
+        "max_dp_kPa": 149.35825,
+        "max_gamma_R10_section": 0.8826923123071662
+      },
+      {
+        "rig": "sea level evacuation + 10 m water",
+        "max_dp_kPa": 198.3915,
+        "max_gamma_R10_section": 1.1724739134067732
+      }
+    ],
+    "article_counts": [
+      {
+        "n": 2,
+        "k_90_95": 20.581467624244947,
+        "mean_needed_R10_cov5": null,
+        "mean_needed_R30_cov5": null,
+        "mean_needed_R10_cov10": null,
+        "mean_needed_R30_cov10": null,
+        "mean_needed_R10_cov15": null,
+        "mean_needed_R30_cov15": null
+      },
+      {
+        "n": 3,
+        "k_90_95": 6.155281103326256,
+        "mean_needed_R10_cov5": 0.8149880170344851,
+        "mean_needed_R30_cov5": 0.5583356410260643,
+        "mean_needed_R10_cov10": 1.4673738579121771,
+        "mean_needed_R30_cov10": 1.005275054918528,
+        "mean_needed_R10_cov15": 7.354711597186237,
+        "mean_needed_R30_cov15": 5.038598762615979
+      },
+      {
+        "n": 4,
+        "k_90_95": 4.161933184729742,
+        "mean_needed_R10_cov5": 0.7124152291819628,
+        "mean_needed_R30_cov5": 0.48806461610246066,
+        "mean_needed_R10_cov10": 0.966354133742273,
+        "mean_needed_R30_cov10": 0.6620342182262401,
+        "mean_needed_R10_cov15": 1.5015942256758024,
+        "mean_needed_R30_cov15": 1.0287188977384194
+      },
+      {
+        "n": 5,
+        "k_90_95": 3.406633262800808,
+        "mean_needed_R10_cov5": 0.6799873816267207,
+        "mean_needed_R30_cov5": 0.465848801055593,
+        "mean_needed_R10_cov10": 0.855653905639795,
+        "mean_needed_R30_cov10": 0.5861952101335441,
+        "mean_needed_R10_cov15": 1.1536977899899126,
+        "mean_needed_R30_cov15": 0.790380449357104
+      },
+      {
+        "n": 6,
+        "k_90_95": 3.0062565935242453,
+        "mean_needed_R10_cov5": 0.6639667158738147,
+        "mean_needed_R30_cov5": 0.45487329160533,
+        "mean_needed_R10_cov10": 0.8066695719457202,
+        "mean_needed_R30_cov10": 0.5526368034064933,
+        "mean_needed_R10_cov15": 1.0275060056603103,
+        "mean_needed_R30_cov15": 0.7039284165379391
+      },
+      {
+        "n": 8,
+        "k_90_95": 2.581908750021066,
+        "mean_needed_R10_cov5": 0.6477908421804626,
+        "mean_needed_R30_cov5": 0.44379145160405276,
+        "mean_needed_R10_cov10": 0.7605244812829745,
+        "mean_needed_R30_cov10": 0.5210235180122618,
+        "mean_needed_R10_cov15": 0.9207628481498701,
+        "mean_needed_R30_cov15": 0.6308003360900816
+      },
+      {
+        "n": 10,
+        "k_90_95": 2.354640131829059,
+        "mean_needed_R10_cov5": 0.6394474289160297,
+        "mean_needed_R30_cov5": 0.4380755086748631,
+        "mean_needed_R10_cov10": 0.7379168668681247,
+        "mean_needed_R30_cov10": 0.5055353922698546,
+        "mean_needed_R10_cov15": 0.8722333461881114,
+        "mean_needed_R30_cov15": 0.5975535275233887
+      },
+      {
+        "n": 15,
+        "k_90_95": 2.068372099292308,
+        "mean_needed_R10_cov5": 0.6292390218266068,
+        "mean_needed_R30_cov5": 0.431081887422777,
+        "mean_needed_R10_cov10": 0.7112839975128725,
+        "mean_needed_R30_cov10": 0.4872896268438348,
+        "mean_needed_R10_cov15": 0.8179322307924544,
+        "mean_needed_R30_cov15": 0.5603526761744522
+      }
+    ]
+  },
+  "fe_runs": {
+    "C1-be-cap1500-d16": {
+      "label": "C1-be-cap1500-d16",
+      "limit_kPa": 71.45619089029783,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.4222986136408809,
+      "face_yield_outer_kPa": 51.92304231991589,
+      "face_yield_inner_kPa": 57.90547288905121,
+      "core_W_shear_typ_kPa": 24.24207540965938,
+      "core_W_shear_min_kPa": 18.263235172226306,
+      "core_crush_typ_kPa": 62.64707294346688,
+      "args": {
+        "label": "C1-be-cap1500-d16",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "1500",
+        "nth": "256"
+      }
+    },
+    "C2-be-cap2000-d16": {
+      "label": "C2-be-cap2000-d16",
+      "limit_kPa": 76.52694901424948,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.4522662637377148,
+      "face_yield_outer_kPa": 56.146099687629345,
+      "face_yield_inner_kPa": 57.58780072853751,
+      "core_W_shear_typ_kPa": 24.379832960790573,
+      "core_W_shear_min_kPa": 18.287905525816953,
+      "core_crush_typ_kPa": 56.91671445739882,
+      "args": {
+        "label": "C2-be-cap2000-d16",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "2000",
+        "nth": "256"
+      }
+    },
+    "C3-be-cap2500-d16": {
+      "label": "C3-be-cap2500-d16",
+      "limit_kPa": 80.50530337764192,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.4757779218781837,
+      "face_yield_outer_kPa": 58.96011161168262,
+      "face_yield_inner_kPa": 57.61075405976462,
+      "core_W_shear_typ_kPa": 24.813572137058742,
+      "core_W_shear_min_kPa": 18.564513044960933,
+      "core_crush_typ_kPa": 59.07565779899292,
+      "args": {
+        "label": "C3-be-cap2500-d16",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "2500",
+        "nth": "256"
+      }
+    },
+    "C4-be-cap3000-d16": {
+      "label": "C4-be-cap3000-d16",
+      "limit_kPa": 80.07051218658317,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.4732083514194216,
+      "face_yield_outer_kPa": 59.05121486279851,
+      "face_yield_inner_kPa": 58.35478048067997,
+      "core_W_shear_typ_kPa": 24.96905121103295,
+      "core_W_shear_min_kPa": 18.67545486611293,
+      "core_crush_typ_kPa": 60.686611784981764,
+      "args": {
+        "label": "C4-be-cap3000-d16",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "3000",
+        "nth": "256"
+      }
+    },
+    "C5-al-cap2000-d16": {
+      "label": "C5-al-cap2000-d16",
+      "limit_kPa": 81.1143783534853,
+      "p_H_kPa": 174.4668665672748,
+      "Vc": 0.8585169005789048,
+      "gamma_H_elastic": 0.46492712312344664,
+      "face_yield_outer_kPa": 49.10472112644148,
+      "face_yield_inner_kPa": 62.456556797337164,
+      "core_W_shear_typ_kPa": 25.146921495793826,
+      "core_W_shear_min_kPa": 18.852713376858677,
+      "core_crush_typ_kPa": 64.58020607440686,
+      "args": {
+        "label": "C5-al-cap2000-d16",
+        "R": "10000",
+        "tf": "3.1031235757",
+        "tc": "20.9287183973",
+        "Ef": "70300",
+        "nuf": "0.33",
+        "sy": "89.6",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "2000",
+        "nth": "256"
+      }
+    },
+    "C6-al-cap2500-d16": {
+      "label": "C6-al-cap2500-d16",
+      "limit_kPa": 85.29539233957537,
+      "p_H_kPa": 174.4668665672748,
+      "Vc": 0.8585169005789048,
+      "gamma_H_elastic": 0.4888916389559005,
+      "face_yield_outer_kPa": 51.362269477280854,
+      "face_yield_inner_kPa": 62.15623877682463,
+      "core_W_shear_typ_kPa": 25.462936395711292,
+      "core_W_shear_min_kPa": 19.042382441099143,
+      "core_crush_typ_kPa": 67.24252170939977,
+      "args": {
+        "label": "C6-al-cap2500-d16",
+        "R": "10000",
+        "tf": "3.1031235757",
+        "tc": "20.9287183973",
+        "Ef": "70300",
+        "nuf": "0.33",
+        "sy": "89.6",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "2500",
+        "nth": "256"
+      }
+    },
+    "C7-al-cap3000-d16": {
+      "label": "C7-al-cap3000-d16",
+      "limit_kPa": 85.0173610582918,
+      "p_H_kPa": 174.4668665672748,
+      "Vc": 0.8585169005789048,
+      "gamma_H_elastic": 0.4872980338963612,
+      "face_yield_outer_kPa": 51.663387194355536,
+      "face_yield_inner_kPa": 62.921405976890895,
+      "core_W_shear_typ_kPa": 25.587108794528167,
+      "core_W_shear_min_kPa": 19.12783309075733,
+      "core_crush_typ_kPa": 67.37029329328976,
+      "args": {
+        "label": "C7-al-cap3000-d16",
+        "R": "10000",
+        "tf": "3.1031235757",
+        "tc": "20.9287183973",
+        "Ef": "70300",
+        "nuf": "0.33",
+        "sy": "89.6",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "3000",
+        "nth": "256"
+      }
+    },
+    "C8-al-cap1500-d16": {
+      "label": "C8-al-cap1500-d16",
+      "limit_kPa": 77.72203256371232,
+      "p_H_kPa": 174.4668665672748,
+      "Vc": 0.8585169005789048,
+      "gamma_H_elastic": 0.4454830541347663,
+      "face_yield_outer_kPa": 46.34876060047423,
+      "face_yield_inner_kPa": 63.29154596819681,
+      "core_W_shear_typ_kPa": 25.09385935813003,
+      "core_W_shear_min_kPa": 18.852831694097205,
+      "core_crush_typ_kPa": 61.07578979777884,
+      "args": {
+        "label": "C8-al-cap1500-d16",
+        "R": "10000",
+        "tf": "3.1031235757",
+        "tc": "20.9287183973",
+        "Ef": "70300",
+        "nuf": "0.33",
+        "sy": "89.6",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "1500",
+        "nth": "256"
+      }
+    },
+    "D1-be-sphere-d1": {
+      "label": "D1-be-sphere-d1",
+      "limit_kPa": 134.74547462203904,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.7963316602564064,
+      "face_yield_outer_kPa": 97.78511513579672,
+      "face_yield_inner_kPa": 108.2613261800723,
+      "core_W_shear_typ_kPa": 127.92650215618589,
+      "core_W_shear_min_kPa": 119.53940315145846,
+      "core_crush_typ_kPa": null,
+      "args": {
+        "label": "D1-be-sphere-d1",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "1.0",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "D2-be-sphere-d2": {
+      "label": "D2-be-sphere-d2",
+      "limit_kPa": 120.31181966831917,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.7110302692812777,
+      "face_yield_outer_kPa": 89.21061340960425,
+      "face_yield_inner_kPa": 105.78768264071644,
+      "core_W_shear_typ_kPa": 101.32762828920349,
+      "core_W_shear_min_kPa": 89.54414390402918,
+      "core_crush_typ_kPa": null,
+      "args": {
+        "label": "D2-be-sphere-d2",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "2.0",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "D4-be-sphere-d4": {
+      "label": "D4-be-sphere-d4",
+      "limit_kPa": 103.81236736257124,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.6135202320439409,
+      "face_yield_outer_kPa": 77.48705141361908,
+      "face_yield_inner_kPa": 98.01873379954412,
+      "core_W_shear_typ_kPa": 70.23172367837113,
+      "core_W_shear_min_kPa": 58.29979555121362,
+      "core_crush_typ_kPa": 103.79464028326166,
+      "args": {
+        "label": "D4-be-sphere-d4",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "4.0",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "D6-be-sphere-d6": {
+      "label": "D6-be-sphere-d6",
+      "limit_kPa": 94.65169927275396,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.5593816418650547,
+      "face_yield_outer_kPa": 70.12588867553785,
+      "face_yield_inner_kPa": 90.37200922723467,
+      "core_W_shear_typ_kPa": 53.18357586592849,
+      "core_W_shear_min_kPa": 42.662209535548364,
+      "core_crush_typ_kPa": 93.43221235495028,
+      "args": {
+        "label": "D6-be-sphere-d6",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "6.0",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "L1-be-sphere-d16-loc": {
+      "label": "L1-be-sphere-d16-loc",
+      "limit_kPa": 79.40532269163262,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.46927715108497664,
+      "face_yield_outer_kPa": 58.639495255034795,
+      "face_yield_inner_kPa": 73.06522330429036,
+      "core_W_shear_typ_kPa": 24.91795775317577,
+      "core_W_shear_min_kPa": 18.66554631664308,
+      "core_crush_typ_kPa": 69.26005057934778,
+      "args": {
+        "label": "L1-be-sphere-d16-loc",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "L3-be-cap2500-d16-loc": {
+      "label": "L3-be-cap2500-d16-loc",
+      "limit_kPa": 80.50530337764192,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.4757779218781837,
+      "face_yield_outer_kPa": 58.96011161168262,
+      "face_yield_inner_kPa": 57.61075405976462,
+      "core_W_shear_typ_kPa": 24.813572137058742,
+      "core_W_shear_min_kPa": 18.564513044960933,
+      "core_crush_typ_kPa": 59.07565779899292,
+      "args": {
+        "label": "L3-be-cap2500-d16-loc",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "2500",
+        "nth": "256"
+      }
+    },
+    "L4-be-cap3000-d16-loc": {
+      "label": "L4-be-cap3000-d16-loc",
+      "limit_kPa": 80.07051218658317,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.4732083514194216,
+      "face_yield_outer_kPa": 59.05121486279851,
+      "face_yield_inner_kPa": 58.35478048067997,
+      "core_W_shear_typ_kPa": 24.96905121103295,
+      "core_W_shear_min_kPa": 18.67545486611293,
+      "core_crush_typ_kPa": 60.686611784981764,
+      "args": {
+        "label": "L4-be-cap3000-d16-loc",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "a": "3000",
+        "nth": "256"
+      }
+    },
+    "R30a-be-sphere": {
+      "label": "R30a-be-sphere",
+      "limit_kPa": 118.08448765012764,
+      "p_H_kPa": 251.41373674950012,
+      "Vc": 0.9954015796447417,
+      "gamma_H_elastic": 0.46968192421316624,
+      "face_yield_outer_kPa": 66.17465226282877,
+      "face_yield_inner_kPa": 85.80457489463632,
+      "core_W_shear_typ_kPa": 30.9829956218306,
+      "core_W_shear_min_kPa": 22.993105560656623,
+      "core_crush_typ_kPa": 79.8349682520239,
+      "args": {
+        "label": "R30a-be-sphere",
+        "R": "10000",
+        "tf": "0.821633333",
+        "tc": "34.196666667",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "23.3977",
+        "width": "430.676",
+        "nth": "512"
+      }
+    },
+    "R30b-be-cap3000": {
+      "label": "R30b-be-cap3000",
+      "limit_kPa": 119.55658870063435,
+      "p_H_kPa": 251.41373674950012,
+      "Vc": 0.9954015796447417,
+      "gamma_H_elastic": 0.47553721704457363,
+      "face_yield_outer_kPa": 66.14664529025418,
+      "face_yield_inner_kPa": 62.590864034367314,
+      "core_W_shear_typ_kPa": 30.797109364742553,
+      "core_W_shear_min_kPa": 22.873632954639906,
+      "core_crush_typ_kPa": 64.07013543376087,
+      "args": {
+        "label": "R30b-be-cap3000",
+        "R": "10000",
+        "tf": "0.821633333",
+        "tc": "34.196666667",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "23.3977",
+        "width": "430.676",
+        "a": "3000",
+        "nth": "256"
+      }
+    },
+    "R30c-be-cap2500": {
+      "label": "R30c-be-cap2500",
+      "limit_kPa": 115.50143395949357,
+      "p_H_kPa": 251.41373674950012,
+      "Vc": 0.9954015796447417,
+      "gamma_H_elastic": 0.4594078090274565,
+      "face_yield_outer_kPa": 63.88056605701928,
+      "face_yield_inner_kPa": 62.298364115130724,
+      "core_W_shear_typ_kPa": 30.468151095238202,
+      "core_W_shear_min_kPa": 22.657785498945092,
+      "core_crush_typ_kPa": 64.14121306335318,
+      "args": {
+        "label": "R30c-be-cap2500",
+        "R": "10000",
+        "tf": "0.821633333",
+        "tc": "34.196666667",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "23.3977",
+        "width": "430.676",
+        "a": "2500",
+        "nth": "256"
+      }
+    },
+    "S1-be-sphere-d16": {
+      "label": "S1-be-sphere-d16",
+      "limit_kPa": 79.40532269163262,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.46927715108497664,
+      "face_yield_outer_kPa": 58.639495255034795,
+      "face_yield_inner_kPa": 73.06522330429036,
+      "core_W_shear_typ_kPa": 24.91795775317577,
+      "core_W_shear_min_kPa": 18.66554631664308,
+      "core_crush_typ_kPa": 69.26005057934778,
+      "args": {
+        "label": "S1-be-sphere-d16",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "S2-be-sphere-d9": {
+      "label": "S2-be-sphere-d9",
+      "limit_kPa": 86.4364586684141,
+      "p_H_kPa": 169.2077325905303,
+      "Vc": 0.9532138526541828,
+      "gamma_H_elastic": 0.5108304292309365,
+      "face_yield_outer_kPa": 63.54190348413447,
+      "face_yield_inner_kPa": 81.68009636389014,
+      "core_W_shear_typ_kPa": 37.80658717386026,
+      "core_W_shear_min_kPa": 29.35448331878388,
+      "core_crush_typ_kPa": 81.431751554771,
+      "args": {
+        "label": "S2-be-sphere-d9",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.0752",
+        "sy": "345",
+        "amp": "9.318",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "S3-be33-sphere-d16": {
+      "label": "S3-be33-sphere-d16",
+      "limit_kPa": 83.97093231501759,
+      "p_H_kPa": 175.59075305985948,
+      "Vc": 1.0069216103491068,
+      "gamma_H_elastic": 0.47821955798772403,
+      "face_yield_outer_kPa": 55.5311986457097,
+      "face_yield_inner_kPa": 77.11789773700195,
+      "core_W_shear_typ_kPa": 25.03986017714731,
+      "core_W_shear_min_kPa": 18.713474619923,
+      "core_crush_typ_kPa": 65.70185142301462,
+      "args": {
+        "label": "S3-be33-sphere-d16",
+        "R": "10000",
+        "tf": "0.794624067",
+        "tc": "23.237217906",
+        "Ef": "290000",
+        "nuf": "0.33",
+        "sy": "345",
+        "amp": "16.057",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "S4-al-sphere-d16": {
+      "label": "S4-al-sphere-d16",
+      "limit_kPa": 84.20194151587013,
+      "p_H_kPa": 174.4668665672748,
+      "Vc": 0.8585169005789048,
+      "gamma_H_elastic": 0.4826242550954607,
+      "face_yield_outer_kPa": 51.342633129313256,
+      "face_yield_inner_kPa": 76.50530793450186,
+      "core_W_shear_typ_kPa": 25.576174630322477,
+      "core_W_shear_min_kPa": 19.10106860967837,
+      "core_crush_typ_kPa": 66.91587937181775,
+      "args": {
+        "label": "S4-al-sphere-d16",
+        "R": "10000",
+        "tf": "3.1031235757",
+        "tc": "20.9287183973",
+        "Ef": "70300",
+        "nuf": "0.33",
+        "sy": "89.6",
+        "amp": "16.057",
+        "width": "356.777",
+        "nth": "512"
+      }
+    },
+    "S5-al-sphere-d9": {
+      "label": "S5-al-sphere-d9",
+      "limit_kPa": 92.38355663433643,
+      "p_H_kPa": 174.4668665672748,
+      "Vc": 0.8585169005789048,
+      "gamma_H_elastic": 0.5295192058643017,
+      "face_yield_outer_kPa": 57.54480404476045,
+      "face_yield_inner_kPa": 85.82758768065351,
+      "core_W_shear_typ_kPa": 39.37678192646936,
+      "core_W_shear_min_kPa": 30.395812947371983,
+      "core_crush_typ_kPa": 84.76862337301188,
+      "args": {
+        "label": "S5-al-sphere-d9",
+        "R": "10000",
+        "tf": "3.1031235757",
+        "tc": "20.9287183973",
+        "Ef": "70300",
+        "nuf": "0.33",
+        "sy": "89.6",
+        "amp": "9.318",
+        "width": "356.777",
+        "nth": "512"
+      }
+    }
+  },
+  "stand_in_check": {
+    "dimple 16.057 mm": {
+      "Be": {
+        "label": "S1-be-sphere-d16",
+        "limit_kPa": 79.40532269163262,
+        "p_H_kPa": 169.2077325905303,
+        "Vc": 0.9532138526541828,
+        "gamma_H_elastic": 0.46927715108497664,
+        "face_yield_outer_kPa": 58.639495255034795,
+        "face_yield_inner_kPa": 73.06522330429036,
+        "core_W_shear_typ_kPa": 24.91795775317577,
+        "core_W_shear_min_kPa": 18.66554631664308,
+        "core_crush_typ_kPa": 69.26005057934778,
+        "args": {
+          "label": "S1-be-sphere-d16",
+          "R": "10000",
+          "tf": "0.794624067",
+          "tc": "23.237217906",
+          "Ef": "290000",
+          "nuf": "0.0752",
+          "sy": "345",
+          "amp": "16.057",
+          "width": "356.777",
+          "nth": "512"
+        }
+      },
+      "5052-O": {
+        "label": "S4-al-sphere-d16",
+        "limit_kPa": 84.20194151587013,
+        "p_H_kPa": 174.4668665672748,
+        "Vc": 0.8585169005789048,
+        "gamma_H_elastic": 0.4826242550954607,
+        "face_yield_outer_kPa": 51.342633129313256,
+        "face_yield_inner_kPa": 76.50530793450186,
+        "core_W_shear_typ_kPa": 25.576174630322477,
+        "core_W_shear_min_kPa": 19.10106860967837,
+        "core_crush_typ_kPa": 66.91587937181775,
+        "args": {
+          "label": "S4-al-sphere-d16",
+          "R": "10000",
+          "tf": "3.1031235757",
+          "tc": "20.9287183973",
+          "Ef": "70300",
+          "nuf": "0.33",
+          "sy": "89.6",
+          "amp": "16.057",
+          "width": "356.777",
+          "nth": "512"
+        }
+      },
+      "gamma_ratio": 1.0284418365130825,
+      "limit_ratio": 1.0604067669728512,
+      "core_shear_onset_ratio": 1.0264153621122027,
+      "face_yield_onset_ratio": 0.8755640359115296
+    },
+    "dimple 9.318 mm": {
+      "Be": {
+        "label": "S2-be-sphere-d9",
+        "limit_kPa": 86.4364586684141,
+        "p_H_kPa": 169.2077325905303,
+        "Vc": 0.9532138526541828,
+        "gamma_H_elastic": 0.5108304292309365,
+        "face_yield_outer_kPa": 63.54190348413447,
+        "face_yield_inner_kPa": 81.68009636389014,
+        "core_W_shear_typ_kPa": 37.80658717386026,
+        "core_W_shear_min_kPa": 29.35448331878388,
+        "core_crush_typ_kPa": 81.431751554771,
+        "args": {
+          "label": "S2-be-sphere-d9",
+          "R": "10000",
+          "tf": "0.794624067",
+          "tc": "23.237217906",
+          "Ef": "290000",
+          "nuf": "0.0752",
+          "sy": "345",
+          "amp": "9.318",
+          "width": "356.777",
+          "nth": "512"
+        }
+      },
+      "5052-O": {
+        "label": "S5-al-sphere-d9",
+        "limit_kPa": 92.38355663433643,
+        "p_H_kPa": 174.4668665672748,
+        "Vc": 0.8585169005789048,
+        "gamma_H_elastic": 0.5295192058643017,
+        "face_yield_outer_kPa": 57.54480404476045,
+        "face_yield_inner_kPa": 85.82758768065351,
+        "core_W_shear_typ_kPa": 39.37678192646936,
+        "core_W_shear_min_kPa": 30.395812947371983,
+        "core_crush_typ_kPa": 84.76862337301188,
+        "args": {
+          "label": "S5-al-sphere-d9",
+          "R": "10000",
+          "tf": "3.1031235757",
+          "tc": "20.9287183973",
+          "Ef": "70300",
+          "nuf": "0.33",
+          "sy": "89.6",
+          "amp": "9.318",
+          "width": "356.777",
+          "nth": "512"
+        }
+      },
+      "gamma_ratio": 1.0365850888356465,
+      "limit_ratio": 1.0688031191645238,
+      "core_shear_onset_ratio": 1.0415323061398873,
+      "face_yield_onset_ratio": 0.9056197704106957
+    }
+  },
+  "cap_check": [
+    {
+      "label": "C1-be-cap1500-d16",
+      "base_radius_mm": 1500.0,
+      "limit_kPa": 71.45619089029783,
+      "limit_vs_sphere": 0.8998917008094669,
+      "core_shear_onset_vs_sphere": 0.9728756926947494,
+      "outer_face_yield_vs_sphere": 0.8854619586013195
+    },
+    {
+      "label": "C2-be-cap2000-d16",
+      "base_radius_mm": 2000.0,
+      "limit_kPa": 76.52694901424948,
+      "limit_vs_sphere": 0.9637508723620306,
+      "core_shear_onset_vs_sphere": 0.9784041373809371,
+      "outer_face_yield_vs_sphere": 0.9574792457445076
+    },
+    {
+      "label": "C3-be-cap2500-d16",
+      "base_radius_mm": 2500.0,
+      "limit_kPa": 80.50530337764192,
+      "limit_vs_sphere": 1.013852732395296,
+      "core_shear_onset_vs_sphere": 0.9958108277913055,
+      "outer_face_yield_vs_sphere": 1.0054675838400962
+    },
+    {
+      "label": "C4-be-cap3000-d16",
+      "base_radius_mm": 3000.0,
+      "limit_kPa": 80.07051218658317,
+      "limit_vs_sphere": 1.0083771398742851,
+      "core_shear_onset_vs_sphere": 1.0020504673121002,
+      "outer_face_yield_vs_sphere": 1.0070211997216734
+    },
+    {
+      "label": "C8-al-cap1500-d16",
+      "base_radius_mm": 1500.0,
+      "limit_kPa": 77.72203256371232,
+      "limit_vs_sphere": 0.9230432358743592,
+      "core_shear_onset_vs_sphere": 0.9811420089531049,
+      "outer_face_yield_vs_sphere": 0.9027343900290176
+    },
+    {
+      "label": "C5-al-cap2000-d16",
+      "base_radius_mm": 2000.0,
+      "limit_kPa": 81.1143783534853,
+      "limit_vs_sphere": 0.9633314492896473,
+      "core_shear_onset_vs_sphere": 0.9832166795569288,
+      "outer_face_yield_vs_sphere": 0.9564122082084241
+    },
+    {
+      "label": "C6-al-cap2500-d16",
+      "base_radius_mm": 2500.0,
+      "limit_kPa": 85.29539233957537,
+      "limit_vs_sphere": 1.012986052388105,
+      "core_shear_onset_vs_sphere": 0.995572510891565,
+      "outer_face_yield_vs_sphere": 1.0003824569713466
+    },
+    {
+      "label": "C7-al-cap3000-d16",
+      "base_radius_mm": 3000.0,
+      "limit_kPa": 85.0173610582918,
+      "limit_vs_sphere": 1.0096840943064,
+      "core_shear_onset_vs_sphere": 1.0004275136670644,
+      "outer_face_yield_vs_sphere": 1.0062473240169514
+    },
+    {
+      "label": "R30c-be-cap2500",
+      "base_radius_mm": 2500.0,
+      "limit_kPa": 115.50143395949357,
+      "limit_vs_sphere": 0.9781253766516107,
+      "core_shear_onset_vs_sphere": 0.9833829971486153,
+      "outer_face_yield_vs_sphere": 0.9653328558992955
+    },
+    {
+      "label": "R30b-be-cap3000",
+      "base_radius_mm": 3000.0,
+      "limit_kPa": 119.55658870063435,
+      "limit_vs_sphere": 1.012466506649615,
+      "core_shear_onset_vs_sphere": 0.9940003781636573,
+      "outer_face_yield_vs_sphere": 0.999576771896536
+    }
+  ],
+  "dimple_series_R10_Be": [
+    {
+      "dimple_mm": 1.0,
+      "dimple_over_t_eq": 0.024024386887958243,
+      "elastic_limit_kPa": 134.74547462203904,
+      "gamma_H_elastic": 0.7963316602564064,
+      "outer_face_345MPa_at_kPa": 97.78511513579672,
+      "core_W_typ_shear_at_kPa": 127.92650215618589,
+      "core_W_min_shear_at_kPa": 119.53940315145846,
+      "core_crush_at_kPa": null
+    },
+    {
+      "dimple_mm": 2.0,
+      "dimple_over_t_eq": 0.04804877377591649,
+      "elastic_limit_kPa": 120.31181966831917,
+      "gamma_H_elastic": 0.7110302692812777,
+      "outer_face_345MPa_at_kPa": 89.21061340960425,
+      "core_W_typ_shear_at_kPa": 101.32762828920349,
+      "core_W_min_shear_at_kPa": 89.54414390402918,
+      "core_crush_at_kPa": null
+    },
+    {
+      "dimple_mm": 4.0,
+      "dimple_over_t_eq": 0.09609754755183297,
+      "elastic_limit_kPa": 103.81236736257124,
+      "gamma_H_elastic": 0.6135202320439409,
+      "outer_face_345MPa_at_kPa": 77.48705141361908,
+      "core_W_typ_shear_at_kPa": 70.23172367837113,
+      "core_W_min_shear_at_kPa": 58.29979555121362,
+      "core_crush_at_kPa": 103.79464028326166
+    },
+    {
+      "dimple_mm": 6.0,
+      "dimple_over_t_eq": 0.14414632132774946,
+      "elastic_limit_kPa": 94.65169927275396,
+      "gamma_H_elastic": 0.5593816418650547,
+      "outer_face_345MPa_at_kPa": 70.12588867553785,
+      "core_W_typ_shear_at_kPa": 53.18357586592849,
+      "core_W_min_shear_at_kPa": 42.662209535548364,
+      "core_crush_at_kPa": 93.43221235495028
+    },
+    {
+      "dimple_mm": 9.318,
+      "dimple_over_t_eq": 0.2238592370219949,
+      "elastic_limit_kPa": 86.4364586684141,
+      "gamma_H_elastic": 0.5108304292309365,
+      "outer_face_345MPa_at_kPa": 63.54190348413447,
+      "core_W_typ_shear_at_kPa": 37.80658717386026,
+      "core_W_min_shear_at_kPa": 29.35448331878388,
+      "core_crush_at_kPa": 81.431751554771
+    },
+    {
+      "dimple_mm": 16.057,
+      "dimple_over_t_eq": 0.38575958025994544,
+      "elastic_limit_kPa": 79.40532269163262,
+      "gamma_H_elastic": 0.46927715108497664,
+      "outer_face_345MPa_at_kPa": 58.639495255034795,
+      "core_W_typ_shear_at_kPa": 24.91795775317577,
+      "core_W_min_shear_at_kPa": 18.66554631664308,
+      "core_crush_at_kPa": 69.26005057934778
+    }
+  ],
+  "dimple_tolerance_from_fe_mm": {
+    "elastic gamma_H 0.564164 (R10 need)": 5.823329047943682,
+    "outer face below 345 MPa at operating": 1.2710684884226882,
+    "core below CR III W typical shear (35 psi) at operating": 2.3773352438995956,
+    "core below CR III W minimum shear (25 psi) at operating": 1.8027456952092222,
+    "042 tolerance from the 015b map, for comparison": [
+      9.318267,
+      16.057295
+    ],
+    "precedents (042)": "dome class 1-5 mm, reflector class 0.15 mm"
+  },
+  "costs": {
+    "A: 038 T7 model shells, R 0.5 m, three articles": {
+      "USD": [
+        30000,
+        90000
+      ],
+      "basis": "038 T7 (pinned), PROJECTION"
+    },
+    "B: three full-section stand-in caps, 5 m diameter on R 10 m": {
+      "items": {
+        "tooling: R 10 m male mould about 5.4 m diameter (once)": [
+          40000,
+          150000
+        ],
+        "rig: steel ring base with edge doubler seat, vacuum cavity, pumps, 5 m water tank, safety (once)": [
+          80000,
+          250000
+        ],
+        "instrumentation: stereo DIC (rental or partner), strain gauges and DAQ, acoustic emission, pressure/level/LVDT (once)": [
+          60000,
+          185000
+        ],
+        "pre-test elastic-plastic FE with measured face/core properties (once)": [
+          30000,
+          100000
+        ],
+        "per article: 5052-O faces about 333 kg, CR III core about 20 m2, film adhesive": [
+          5000,
+          46000
+        ],
+        "per article: forming, core fitting, 200 F bond, seams (300-700 h at USD 150-250/h)": [
+          45000,
+          175000
+        ],
+        "per article: metrology before and after (photogrammetry or tracker 0.1-0.3 mm)": [
+          5000,
+          20000
+        ],
+        "per article: test operations and data reduction": [
+          15000,
+          50000
+        ]
+      },
+      "n_articles": 3,
+      "basis": "PROJECTION; labor rate from 038; 5052 sheet USD 1.9-3.9 per kg bulk to about 90 per kg retail; retail 1/8 in. 5052 core about GBP 203 per m2 as an upper indicator; DIC purchase indicator USD 180-350k (NIST notice) so rental or partner is assumed",
+      "once_USD": [
+        210000,
+        685000
+      ],
+      "per_article_USD": [
+        70000,
+        291000
+      ],
+      "USD": [
+        420000,
+        1558000
+      ]
+    },
+    "C: one SR-200 confirmation cap": {
+      "USD": [
+        1000000,
+        4600000
+      ],
+      "basis": "PROJECTION; about 59 kg Be at 038's USD 10-50k/kg planning range plus Be forming and handling 0.3-1.5M and test 50-150k"
+    },
+    "D: two R30-similar caps on the same mould and rig": {
+      "USD": [
+        150000,
+        610000
+      ],
+      "basis": "PROJECTION; per-article items of B"
+    },
+    "precursors: CR III 3/8-1.0 shear and crush witnesses (C273, C365)": {
+      "USD": [
+        5000,
+        15000
+      ],
+      "basis": "PROJECTION"
+    }
+  },
+  "outcome_table": [
+    {
+      "gamma": "< 0.21",
+      "R10 (needs 0.564)": "fails",
+      "R30 (needs 0.37-0.42 ISA)": "fails",
+      "meaning": "below the S-II record: the built article is worse than 1960s domes; reject the route or the section"
+    },
+    {
+      "gamma": "0.21-0.25",
+      "R10 (needs 0.564)": "fails",
+      "R30 (needs 0.37-0.42 ISA)": "fails",
+      "meaning": "confirms the record; P2 rests on optimism at both radii"
+    },
+    {
+      "gamma": "0.25-0.37",
+      "R10 (needs 0.564)": "fails",
+      "R30 (needs 0.37-0.42 ISA)": "fails",
+      "meaning": "better than the record, still short of 040's least R30 set"
+    },
+    {
+      "gamma": "0.37-0.42",
+      "R10 (needs 0.564)": "fails",
+      "R30 (needs 0.37-0.42 ISA)": "clears some ISA rows (0.3734-0.4184 by pad/floor)",
+      "meaning": "R30 becomes the P2 path; R10 is out"
+    },
+    {
+      "gamma": "0.42-0.53",
+      "R10 (needs 0.564)": "fails",
+      "R30 (needs 0.37-0.42 ISA)": "clears ISA; optimistic-weather rows need 0.459-0.530",
+      "meaning": "R30 with margin"
+    },
+    {
+      "gamma": "0.53-0.564",
+      "R10 (needs 0.564)": "fails, just",
+      "R30 (needs 0.37-0.42 ISA)": "clears every 040 row",
+      "meaning": "R10 needs a little more than the article shows"
+    },
+    {
+      "gamma": "0.564-0.593",
+      "R10 (needs 0.564)": "clears at SF 1 only",
+      "R30 (needs 0.37-0.42 ISA)": "clears",
+      "meaning": "the top of what sea-level evacuation alone can show (0.593)"
+    },
+    {
+      "gamma": ">= 0.593",
+      "R10 (needs 0.564)": "clears with margin",
+      "R30 (needs 0.37-0.42 ISA)": "clears",
+      "meaning": "needs the water head (5 m reaches 0.883)"
+    }
+  ],
+  "fe_model": "CHECK-029 axisymmetric model (check029/axi029.py): Q8 total-Lagrangian St. Venant-Kirchhoff, follower pressure, CR III 5056 3/8-1.0 core in W, E_in 0.01 MPa as the card's; elastic, so limits are elastic limits"
+}

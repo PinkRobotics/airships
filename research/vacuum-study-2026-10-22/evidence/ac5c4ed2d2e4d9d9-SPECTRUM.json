@@ -1,0 +1,95 @@
+{
+  "tag": "PROJECTION",
+  "year_days": 365,
+  "thermal_cycles": 365,
+  "outer_T_K": [
+    271.0756617514537,
+    301.56900146374886
+  ],
+  "inner_T_K": [
+    271.47485825018845,
+    301.1698049650141
+  ],
+  "inner_night_basis": "PROJECTION: equal and opposite maximum through-core gradient; 037 did not file night inner T",
+  "gradient_T_K": [
+    -0.3991964987347387,
+    0.3991964987347387
+  ],
+  "pressure_rows": [
+    {
+      "id": "weather_restricted",
+      "count": 365,
+      "dp_low": -100,
+      "dp_high": 100,
+      "kind": "weather"
+    },
+    {
+      "id": "altitude_500_to_1000_m",
+      "count": 12,
+      "dp_low": -5586.272311227588,
+      "dp_high": 0,
+      "kind": "altitude"
+    },
+    {
+      "id": "gust_small",
+      "count": 100000,
+      "dp_low": 0,
+      "dp_high": 25,
+      "kind": "gust"
+    },
+    {
+      "id": "gust_medium",
+      "count": 10000,
+      "dp_low": 0,
+      "dp_high": 100,
+      "kind": "gust"
+    },
+    {
+      "id": "gust_limit",
+      "count": 100,
+      "dp_low": 0,
+      "dp_high": 290.63372090048773,
+      "kind": "gust"
+    }
+  ],
+  "pad_rows": [
+    {
+      "id": "moor_small",
+      "count": 100000,
+      "f_low": 0,
+      "f_high": 0.1
+    },
+    {
+      "id": "moor_medium",
+      "count": 10000,
+      "f_low": 0.1,
+      "f_high": 0.3
+    },
+    {
+      "id": "moor_large",
+      "count": 1000,
+      "f_low": 0.3,
+      "f_high": 0.6
+    },
+    {
+      "id": "dock_handling",
+      "count": 730,
+      "f_low": 0,
+      "f_high": 1
+    }
+  ],
+  "daily_topup_count": 365,
+  "scheduled_full_vent_count": 0,
+  "commissioning_pressure_half_cycles": 1,
+  "full_vent_sensitivity_cycles_per_year": [
+    0,
+    12,
+    365
+  ],
+  "count_multipliers": [
+    0.1,
+    1,
+    10
+  ],
+  "restrictions": "Reference residence/mooring at 500m; flights only upward; weather excursion restricted to +/-100Pa; gust severity follows 037, occurrences are assumptions. Broad-weather, descent-to-sea-level and 70kn mooring scenarios are separate static rejections."
+}

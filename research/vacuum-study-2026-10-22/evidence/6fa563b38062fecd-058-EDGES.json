@@ -1,0 +1,88 @@
+{
+  "pressure_loads": [
+    {
+      "dp_hPa": 30,
+      "T_K": 307.5,
+      "RH": 1,
+      "Q_Pa": 756.8555499659582,
+      "independent_design_Pa": 103953.19780784745,
+      "owner_Pa": 103953.19780784745,
+      "difference_Pa": 0.0
+    },
+    {
+      "dp_hPa": -30,
+      "T_K": 307.5,
+      "RH": 1,
+      "Q_Pa": 756.8555499659582,
+      "independent_design_Pa": 98019.41905822608,
+      "owner_Pa": 98019.41905822608,
+      "difference_Pa": 0.0
+    }
+  ],
+  "edges": [
+    {
+      "lead": "P2",
+      "R_m": 10,
+      "independent_full_K": -6.512488870767925,
+      "owner_full_K": -6.512488870768038,
+      "independent_trim_K": 5.408419476896313,
+      "owner_trim_K": 5.408419476897279,
+      "independent_gain_K": 11.920908347664238,
+      "scope": "Fixed saved hull masses, saturated low-pressure corner, before added relief hardware."
+    },
+    {
+      "lead": "P3",
+      "R_m": 10,
+      "independent_full_K": -5.2479332121711195,
+      "independent_trim_K": 1.3072990014943002,
+      "independent_gain_K": 6.55523221366542,
+      "owner_full_K": -5.247933212170892,
+      "owner_trim_K": 1.3072990014950392
+    },
+    {
+      "lead": "P2",
+      "R_m": 30,
+      "independent_full_K": 3.338960525844925,
+      "owner_full_K": 3.338960525844641,
+      "independent_trim_K": 15.364638448119024,
+      "owner_trim_K": 15.364638448119194,
+      "independent_gain_K": 12.025677922274099,
+      "scope": "Fixed saved hull masses, saturated low-pressure corner, before added relief hardware."
+    },
+    {
+      "lead": "P3",
+      "R_m": 30,
+      "independent_full_K": 10.820532520965116,
+      "independent_trim_K": 17.2274133063504,
+      "independent_gain_K": 6.406880785385283,
+      "owner_full_K": 10.820532520964434,
+      "owner_trim_K": 17.22741330635131
+    }
+  ],
+  "bands": [
+    {
+      "R_m": 10,
+      "independent_hardware_kg": 15.531413794235286,
+      "whole_mass_kg": 4824.191384298503,
+      "independent_hot_K": 4.062867255065953,
+      "cold_input_K": -21.664809211947045,
+      "independent_width_K": 25.727676467012998,
+      "owner_width_K": 25.727676467013794,
+      "baseline_width_K": 4.029781804059212,
+      "cold_shift_K": 11.122871791951638,
+      "scope": "Independent mass, EOS/root and subtraction; cold thermal roots are supplied boundary inputs."
+    },
+    {
+      "R_m": 30,
+      "independent_hardware_kg": 380.7370316500173,
+      "whole_mass_kg": 125494.59729661109,
+      "independent_hot_K": 13.35259650258729,
+      "cold_input_K": -21.273637683978563,
+      "independent_width_K": 34.62623418656585,
+      "owner_width_K": 34.626234186566194,
+      "baseline_width_K": 13.846685054288344,
+      "cold_shift_K": 10.766748092970602,
+      "scope": "Independent mass, EOS/root and subtraction; cold thermal roots are supplied boundary inputs."
+    }
+  ]
+}

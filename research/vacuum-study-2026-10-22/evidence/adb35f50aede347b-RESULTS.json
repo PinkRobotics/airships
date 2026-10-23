@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-005",
+  "unit": "vacuum-mainline005-strength-limits-1019",
+  "status": "ESTIMATE_PENDING_CHECKER",
+  "started_at": "2026-10-19T22:36:15-07:00",
+  "case": {
+    "R_m": 10.0,
+    "p_external_Pa": 95460.83791390515,
+    "kd": 0.2,
+    "E_6061_Pa": 68900000000.0,
+    "sigma_6061_Pa_QUESTIONABLE": 276000000.0,
+    "rho_6061": 2700.0,
+    "nu": 0.33
+  },
+  "figures_6061": {
+    "E_over_rho2": 9451.303155006859,
+    "E_over_rho": 25518518.51851852,
+    "sig_over_rho": 102222.22222222222
+  },
+  "rows": [
+    {
+      "point_id": "P1",
+      "family": "P1",
+      "geometry": {
+        "t": 0.0007
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 82.59456002608204,
+      "yield_pressure_Pa_at_6061": 38640.0,
+      "buckling_SF": 0.0008652193070060097,
+      "yield_SF_QUESTIONABLE": 0.4047733169370344,
+      "E_required_Pa": 79632989511549.84,
+      "E_required_x_68p9GPa": 1155.776335436137,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 681863127.9564654,
+      "sigma_required_x_276MPa": 2.4705185795524107,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho2": 10923592.525589827,
+        "sig_over_rho": 252541.8992431353
+      },
+      "figures_6061": {
+        "E_over_rho2": 9451.303155006859,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "fixed shell+joints mass: t follows 1/rho; buckling p ~ E*t^2 -> E/rho^2; yield p ~ sigma*t -> sigma/rho",
+      "both_modes_at_once": {
+        "E_Pa": 79632989511549.84,
+        "sigma_Pa": 681863127.9564654,
+        "figures": {
+          "E_over_rho2": 10923592.525589827,
+          "sig_over_rho": 252541.8992431353
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P1-A",
+      "family": "P1",
+      "geometry": {
+        "t": 0.0012564779436796986
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 266.1123944669882,
+      "yield_pressure_Pa_at_6061": 69357.58249111936,
+      "buckling_SF": 0.0027876603671443925,
+      "yield_SF_QUESTIONABLE": 0.7265553498877941,
+      "E_required_Pa": 24716066853789.434,
+      "E_required_x_68p9GPa": 358.7237569490484,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 379874706.0944829,
+      "sigma_required_x_276MPa": 1.376357630777112,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho2": 3390406.975828455,
+        "sig_over_rho": 140694.33559054922
+      },
+      "figures_6061": {
+        "E_over_rho2": 9451.303155006859,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "fixed shell+joints mass: t follows 1/rho; buckling p ~ E*t^2 -> E/rho^2; yield p ~ sigma*t -> sigma/rho",
+      "both_modes_at_once": {
+        "E_Pa": 24716066853789.434,
+        "sigma_Pa": 379874706.0944829,
+        "figures": {
+          "E_over_rho2": 3390406.975828455,
+          "sig_over_rho": 140694.33559054922
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P2",
+      "family": "P2",
+      "geometry": {
+        "tf": 0.0002,
+        "core": 0.1,
+        "d": 0.1002
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 11701.558395327302,
+      "yield_pressure_Pa_at_6061": 22080.0,
+      "buckling_SF": 0.12257967404267685,
+      "yield_SF_QUESTIONABLE": 0.23129903824973394,
+      "E_required_Pa": 562083400352.4276,
+      "E_required_x_68p9GPa": 8.157959366508383,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 1193260473.9238143,
+      "sigma_required_x_276MPa": 4.3234075142167185,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho_faces": 208179037.16756576,
+        "sig_over_rho_faces": 441948.3236754868
+      },
+      "figures_6061": {
+        "E_over_rho": 25518518.51851852,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "core held (thickness, density, separation at row value); face mass fixed: tf follows 1/rho; buckling p ~ E*tf -> E/rho; yield p ~ sigma*tf -> sigma/rho",
+      "both_modes_at_once": {
+        "E_Pa": 562083400352.4276,
+        "sigma_Pa": 1193260473.9238143,
+        "figures": {
+          "E_over_rho_faces": 208179037.16756576,
+          "sig_over_rho_faces": 441948.3236754868
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P2-A",
+      "family": "P2",
+      "geometry": {
+        "tf": 0.0003758936444928841,
+        "core": 0.1,
+        "d": 0.10037589364449288
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 22031.313718349054,
+      "yield_pressure_Pa_at_6061": 41498.658352014405,
+      "buckling_SF": 0.23078902511015878,
+      "yield_SF_QUESTIONABLE": 0.43471919227695743,
+      "E_required_Pa": 298541059164.8068,
+      "E_required_x_68p9GPa": 4.3329616714776025,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 634892604.0149655,
+      "sigma_required_x_276MPa": 2.3003355217933534,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho_faces": 110570762.65363215,
+        "sig_over_rho_faces": 235145.4088944317
+      },
+      "figures_6061": {
+        "E_over_rho": 25518518.51851852,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "core held (thickness, density, separation at row value); face mass fixed: tf follows 1/rho; buckling p ~ E*tf -> E/rho; yield p ~ sigma*tf -> sigma/rho",
+      "both_modes_at_once": {
+        "E_Pa": 298541059164.8068,
+        "sigma_Pa": 634892604.0149655,
+        "figures": {
+          "E_over_rho_faces": 110570762.65363215,
+          "sig_over_rho_faces": 235145.4088944317
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P2-C",
+      "family": "P2",
+      "geometry": {
+        "tf": 0.0002,
+        "core": 0.1593641050163484,
+        "d": 0.1595641050163484
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 18634.21848949041,
+      "yield_pressure_Pa_at_6061": 22080.0,
+      "buckling_SF": 0.1952027543095354,
+      "yield_SF_QUESTIONABLE": 0.23129903824973394,
+      "E_required_Pa": 352966331052.6061,
+      "E_required_x_68p9GPa": 5.122878534870916,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 1193260473.9238143,
+      "sigma_required_x_276MPa": 4.3234075142167185,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho_faces": 130728270.76022448,
+        "sig_over_rho_faces": 441948.3236754868
+      },
+      "figures_6061": {
+        "E_over_rho": 25518518.51851852,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "core held (thickness, density, separation at row value); face mass fixed: tf follows 1/rho; buckling p ~ E*tf -> E/rho; yield p ~ sigma*tf -> sigma/rho",
+      "both_modes_at_once": {
+        "E_Pa": 352966331052.6061,
+        "sigma_Pa": 1193260473.9238143,
+        "figures": {
+          "E_over_rho_faces": 130728270.76022448,
+          "sig_over_rho_faces": 441948.3236754868
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P2-K",
+      "family": "P2",
+      "geometry": {
+        "tf": 0.0002708825134523563,
+        "core": 0.13544125672617813,
+        "d": 0.1357121392396305
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 21465.72958001528,
+      "yield_pressure_Pa_at_6061": 29905.429485140136,
+      "buckling_SF": 0.22486424851387676,
+      "yield_SF_QUESTIONABLE": 0.31327432420100315,
+      "E_required_Pa": 306407089856.91895,
+      "E_required_x_68p9GPa": 4.4471275741207394,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 881016983.1310939,
+      "sigma_required_x_276MPa": 3.19209051859092,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho_faces": 113484107.35441442,
+        "sig_over_rho_faces": 326302.58634484955
+      },
+      "figures_6061": {
+        "E_over_rho": 25518518.51851852,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "core held (thickness, density, separation at row value); face mass fixed: tf follows 1/rho; buckling p ~ E*tf -> E/rho; yield p ~ sigma*tf -> sigma/rho",
+      "both_modes_at_once": {
+        "E_Pa": 306407089856.91895,
+        "sigma_Pa": 881016983.1310939,
+        "figures": {
+          "E_over_rho_faces": 113484107.35441442,
+          "sig_over_rho_faces": 326302.58634484955
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P2-E",
+      "family": "P2",
+      "geometry": {
+        "tf": 0.0003360949703945902,
+        "core": 0.1134320525081742,
+        "d": 0.1137681474785688
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 22326.913346603833,
+      "yield_pressure_Pa_at_6061": 37104.88473156276,
+      "buckling_SF": 0.23388557899250975,
+      "yield_SF_QUESTIONABLE": 0.3886922170642076,
+      "E_required_Pa": 294588491931.80286,
+      "E_required_x_68p9GPa": 4.275594948211943,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 710073389.3892398,
+      "sigma_required_x_276MPa": 2.572729671700144,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho_faces": 109106848.86363068,
+        "sig_over_rho_faces": 262990.14421823696
+      },
+      "figures_6061": {
+        "E_over_rho": 25518518.51851852,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "core held (thickness, density, separation at row value); face mass fixed: tf follows 1/rho; buckling p ~ E*tf -> E/rho; yield p ~ sigma*tf -> sigma/rho",
+      "both_modes_at_once": {
+        "E_Pa": 294588491931.80286,
+        "sigma_Pa": 710073389.3892398,
+        "figures": {
+          "E_over_rho_faces": 109106848.86363068,
+          "sig_over_rho_faces": 262990.14421823696
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P3",
+      "family": "P3",
+      "geometry": {
+        "tw": 0.001,
+        "A": 0.00012252211349000203,
+        "I": 2.3309832091472876e-08
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 3170.210558873461,
+      "yield_pressure_Pa_at_6061": 6763.220664648112,
+      "buckling_SF": 0.03320954045817858,
+      "yield_SF_QUESTIONABLE": 0.07084811753640555,
+      "E_required_Pa": 2074705010952.1118,
+      "E_required_x_68p9GPa": 30.111828896257066,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 3895657493.767233,
+      "sigma_required_x_276MPa": 14.114701064374032,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho_members": 768409263.3155969,
+        "sig_over_rho_members": 1442836.1088026788
+      },
+      "figures_6061": {
+        "E_over_rho": 25518518.51851852,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "fixed outer tube radius ro=0.02 m, thin-wall A~2*pi*ro*tw, I~pi*ro^3*tw; member mass fixed: tw follows 1/rho; Euler p ~ E*tw -> E/rho; yield p ~ sigma*tw -> sigma/rho",
+      "film_pressure_Pa": 240000.00000000003,
+      "film_SF": 2.5141199809753694,
+      "sigma_film_required_Pa": 596630236.9619071,
+      "sigma_film_baseline_Pa_QUESTIONABLE": 1500000000.0,
+      "both_modes_at_once": {
+        "E_Pa": 2074705010952.1118,
+        "sigma_Pa": 3895657493.767233,
+        "figures": {
+          "E_over_rho_members": 768409263.3155969,
+          "sig_over_rho_members": 1442836.1088026788
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    },
+    {
+      "point_id": "P3-A",
+      "family": "P3",
+      "geometry": {
+        "tw": 0.0034965263377450123,
+        "A": 0.00040097830013850045,
+        "I": 6.740090789789744e-08
+      },
+      "p_external_Pa": 95460.83791390515,
+      "buckling_pressure_Pa_at_6061_kd0p2": 9166.735695781266,
+      "yield_pressure_Pa_at_6061": 22134.002167645223,
+      "buckling_SF": 0.09602613905451597,
+      "yield_SF_QUESTIONABLE": 0.23186473795262078,
+      "E_required_Pa": 717512967598.1671,
+      "E_required_x_68p9GPa": 10.413831169784718,
+      "E_required_scaling": "E_req(kd) = E_req(kd=0.2) * 0.2/kd (inversely proportional to kd)",
+      "sigma_required_Pa": 1190349177.0119777,
+      "sigma_required_x_276MPa": 4.312859336999919,
+      "sigma_required_note": "membrane stress at external pressure; independent of assumed sigma (Una 003 correction)",
+      "figures_required": {
+        "E_over_rho_members": 265745543.5548767,
+        "sig_over_rho_members": 440870.0655599917
+      },
+      "figures_6061": {
+        "E_over_rho": 25518518.51851852,
+        "sig_over_rho": 102222.22222222222
+      },
+      "figure_derivation": "fixed outer tube radius ro=0.02 m, thin-wall A~2*pi*ro*tw, I~pi*ro^3*tw; member mass fixed: tw follows 1/rho; Euler p ~ E*tw -> E/rho; yield p ~ sigma*tw -> sigma/rho",
+      "film_pressure_Pa": 240000.00000000003,
+      "film_SF": 2.5141199809753694,
+      "sigma_film_required_Pa": 596630236.9619071,
+      "sigma_film_baseline_Pa_QUESTIONABLE": 1500000000.0,
+      "both_modes_at_once": {
+        "E_Pa": 717512967598.1671,
+        "sigma_Pa": 1190349177.0119777,
+        "figures": {
+          "E_over_rho_members": 265745543.5548767,
+          "sig_over_rho_members": 440870.0655599917
+        },
+        "note": "models independent at fixed geometry/mass, so the SF-1 pair is the two single-mode requirements together"
+      }
+    }
+  ],
+  "ended_at": "2026-10-19T22:36:54-07:00"
+}

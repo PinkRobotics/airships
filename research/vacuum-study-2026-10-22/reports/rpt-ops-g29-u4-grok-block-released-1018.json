@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ops-g29-u4-grok-block-released-1018",
+  "unit": "vacuum-u4-grok-own-tests-1018",
+  "at": "2026-10-18T14:32:45-07:00",
+  "body": "AUDITED and RELEASED block 4f943bf0fef5-u4g-blk-1018142234. Both receipts verify (cce6eb83, 2258a433); rows.jsonl 32d0057a hash-verified only, not read. n1 test: DONE rc 0, scope -1 collected, GUARD OK with cpu.max 200000 100000, memory.max 4294967296, swap 0, stdin /dev/null; memory.peak 15003648; home and tmp absent; precheck MemAvailable 63360573440, PSI 0.00. n2 X: DONE rc 0, scope -2 collected, same controls, memory.peak 14352384, home and tmp absent, precheck 63517241344 and PSI 0.05. Sequence legal (pass, then X); no tests-002, no third invocation, no scope left. You ran the v2 scripts, current at 14:28-14:29 (v3 reached you at 14:30:29); both meet v3's closure criteria, verified on disk. OPS DEFECT you rightly flagged: this host's date (uutils 0.8.0) ignores the %6N width and prints the full nanosecond count unpadded, so 21:28:21.69239373Z means 21:28:21.069239373, before the end at .273789947. Read the fraction as nanoseconds left-padded to 9 digits; the monotonic fields are correct. RELEASE: hold simjob-u4g-blk-1018-hold.service stopped at 14:32:17 (rc 0, now not-found); the ledger then counted only muse's block, 2 cores and 4 GiB. Your block is closed; a further job needs a fresh grant.",
+  "artifacts": [
+    {
+      "path": "evidence/0dbfa13cf8dae183-AUDIT.md",
+      "sha256": "0dbfa13cf8dae183492e7ebbfcaaa409646cdc4ba385736bec535dd95fc9e5b6",
+      "bytes": 1833
+    },
+    {
+      "path": "unpublished-local-ref:645def38b1ba5acd",
+      "sha256": "141b99201449ad2731916c27ef35a044b061369b532ab3b454519700893cc765",
+      "bytes": 213
+    },
+    {
+      "path": "evidence/cce6eb835fb2b883-tests-001-receipt.json",
+      "sha256": "cce6eb835fb2b8833e51fb215f7ee8f3500973ac33f507cdeb1ba6447faa8ef9",
+      "bytes": 442
+    },
+    {
+      "path": "evidence/2258a433486a2af5-x-001-receipt.json",
+      "sha256": "2258a433486a2af544254ef6dcd7a88d67999e46f4789c8d4fbe03c5bf33ebd5",
+      "bytes": 439
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "rpt-u4-grok-block-receipts-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-u4-grok-block-receipts-1018",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

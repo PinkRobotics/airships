@@ -1,0 +1,121 @@
+{
+  "unit": "vacuum-mainline030e-design-register-1020",
+  "order": "ord-admiral-rr2-mainline030e-dispatch-1020",
+  "start": "2026-10-20T10:25:47.130313-07:00",
+  "end": "2026-10-20T10:49:50.268172-07:00",
+  "times_are": "measurements only",
+  "elapsed_seconds": 1443.137859,
+  "end_scope": "Evidence synthesis, queue preflight and validation complete; atomic report filing follows",
+  "scientific_model_runs": 0,
+  "live_local_jobs": 0,
+  "tokens": null,
+  "points": null,
+  "usage_note": "No reliable task-scoped token or point meter available; no estimate substituted",
+  "attempts": [
+    {
+      "receipt": "20261020T103415-bootstrap030e-1.execution.json",
+      "script": "bootstrap030e.py",
+      "started": "2026-10-20T10:34:15.819310-07:00",
+      "ended": "2026-10-20T10:34:16.321566-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T103752-enrich030e-1.execution.json",
+      "script": "enrich030e.py",
+      "started": "2026-10-20T10:37:52.881639-07:00",
+      "ended": "2026-10-20T10:37:53.201154-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T103812-enrich030e-1.execution.json",
+      "script": "enrich030e.py",
+      "started": "2026-10-20T10:38:12.958603-07:00",
+      "ended": "2026-10-20T10:38:13.231519-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T103818-apply_delta-1.execution.json",
+      "script": "apply_delta.py",
+      "started": "2026-10-20T10:38:18.635610-07:00",
+      "ended": "2026-10-20T10:38:19.007283-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104431-apply_delta-1.execution.json",
+      "script": "apply_delta.py",
+      "started": "2026-10-20T10:44:31.353276-07:00",
+      "ended": "2026-10-20T10:44:31.724199-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104438-render030e-1.execution.json",
+      "script": "render030e.py",
+      "started": "2026-10-20T10:44:38.551366-07:00",
+      "ended": "2026-10-20T10:44:38.824689-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104442-validate030e-1.execution.json",
+      "script": "validate030e.py",
+      "started": "2026-10-20T10:44:42.452632-07:00",
+      "ended": "2026-10-20T10:44:44.011649-07:00",
+      "exit_code": 1,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104516-validate030e-1.execution.json",
+      "script": "validate030e.py",
+      "started": "2026-10-20T10:45:16.962640-07:00",
+      "ended": "2026-10-20T10:45:17.930851-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104728-apply_delta-1.execution.json",
+      "script": "apply_delta.py",
+      "started": "2026-10-20T10:47:28.068205-07:00",
+      "ended": "2026-10-20T10:47:28.441624-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104815-apply_delta-1.execution.json",
+      "script": "apply_delta.py",
+      "started": "2026-10-20T10:48:15.671144-07:00",
+      "ended": "2026-10-20T10:48:16.044207-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104816-render030e-1.execution.json",
+      "script": "render030e.py",
+      "started": "2026-10-20T10:48:16.080133-07:00",
+      "ended": "2026-10-20T10:48:16.348817-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    },
+    {
+      "receipt": "20261020T104816-validate030e-1.execution.json",
+      "script": "validate030e.py",
+      "started": "2026-10-20T10:48:16.377864-07:00",
+      "ended": "2026-10-20T10:48:17.347999-07:00",
+      "exit_code": 0,
+      "reservation_released": true
+    }
+  ],
+  "final_script_exit_codes": {
+    "bootstrap030e.py": 0,
+    "enrich030e.py": 0,
+    "apply_delta.py": 0,
+    "render030e.py": 0,
+    "validate030e.py": 0
+  },
+  "retained_validation_failure": "Initial wording-integrity test falsely rejected W05 because its correct ten-year qualifier retained the original phrase as a substring. The test was corrected; wording and source findings did not change.",
+  "coverage_alias_refinement": "The prepared review inventory normalized MAINLINE-009c-5 to 009c5 before its delta was applied; both preparation receipts are retained."
+}

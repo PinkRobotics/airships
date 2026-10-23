@@ -1,0 +1,39 @@
+{
+  "id": "E-d5b6d31f59ec16d1ca4a",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-d5b6d31f59ec16d1ca4a",
+    "report": "rpt-ref-e23aa05d834f8e89bb2c",
+    "file": "evidence/e5f8a3dd183321bf-NFI.json",
+    "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+    "source_sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+    "source_json_pointer": "/rows/12",
+    "row_id": "047-13",
+    "fields": {
+      "id": "047-13",
+      "topic": "CORE-SHEAR-STRENGTH",
+      "status": "QUESTIONABLE",
+      "objection": "Core shear is now screened against Hexcel Table II minimum-average and typical values with a stated quadratic interaction. Catalog plate-shear tests at 0.625-inch thickness do not qualify this curved 23.237-mm core, its density, adhesive, temperature, seams or scatter.",
+      "proposed_fix": "Measure L/W shear and crushing of the actual curved core/bond stack; establish installed allowables and a supported failure law.",
+      "disposition": "Computed conditional screen; qualification remains open"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"047-13\", \"topic\": \"CORE-SHEAR-STRENGTH\", \"status\": \"QUESTIONABLE\", \"objection\": \"Core shear is now screened against Hexcel Table II minimum-average and typical values with a stated quadratic interaction. Catalog plate-shear tests at 0.625-inch thickness do not qualify this curved 23.237-mm core, its density, adhesive, temperature, seams or scatter.\", \"proposed_fix\": \"Measure L/W shear and crushing of the actual curved core/bond stack; establish installed allowables and a supported failure law.\", \"disposition\": \"Computed conditional screen; qualification remains open\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-e23aa05d834f8e89bb2c",
+      "artifact": "evidence/e5f8a3dd183321bf-NFI.json",
+      "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+      "sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+      "bytes": 7955,
+      "selector": "/rows/12"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

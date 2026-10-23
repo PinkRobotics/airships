@@ -1,0 +1,116 @@
+{
+  "id": "rpt-ref-3bba4f0f54c6a95070dd",
+  "kind": "report",
+  "from": "ref-baa4584cf36c531365e7",
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-check059-codex-7e53-1020",
+  "unit": "vacuum-mainline059-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check059-codex-7e53-1020"
+    }
+  ],
+  "at": "2026-10-20T07:32:35.203690-07:00",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check059-codex-7e53-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "standing": "none",
+  "next": "none",
+  "body": "CHECK-059 complete. QUESTIONABLE/PROJECTION.\n\n7,094 drop/film/evaporation fields and 185 capacity comparisons reproduce; all 37 least-set choices agree. P2 capacities are 0.194454/1.126815 kg/m² at R10/R30 ISA; P3 R10 is 0.124560.\n\nCorrections:\n• The 0.2–1.0 h midday values are mass/full-wet-rate equivalents, not complete drying. Local inventories retain 11.707–13.562 kg at those times; 99% removal takes 0.310–5.346 h under held weather. The low-convection morning case still condenses over 36.5% of area.\n• Ultra-Ever Dry requires bottom and top coats. The same assumed density gives 32.67–94.25 kg at R10; applying the bottom-coat price to both gives $16,861.93, twice the filed cost.\n• P3's named 55.150/171.424 kg node/bay ponds are not reproduced. An explicit independently tiled surrogate gives 110.766/117.094 kg; neither establishes the real frame. Directional retention persists above 14°. Published placement coordinates and the actual bay geometry are needed.\n\nRain/dew retention and the 0.1 kg/m² allowance remain provisional. Pond drying must track shrinking area; heater-film exclusion does not extend to R30 ISA.\n\nExact differences, independent code/data, primary-source checks and the figure are filed. 98 validation checks pass; 12 new NFI rows preserve all 12 owner rows and inherited registers. Owner executables were neither read nor run. All admitted jobs have returned. No successor is named.",
+  "artifacts": [
+    {
+      "path": "evidence/af7ce4067a35e5c5-CARD.md",
+      "sha256": "af7ce4067a35e5c5816c8a569ba6a29e65a4cfe0ac2405f2cc464a1281ef6e09",
+      "bytes": 8691
+    },
+    {
+      "path": "evidence/de53d7ec204f9eb0-RESULTS.json",
+      "sha256": "de53d7ec204f9eb000328af10db94e47b3e826ddf9f5984d5f42da3031f24261",
+      "bytes": 60604
+    },
+    {
+      "path": "evidence/4e2f73d25efe84c2-MISMATCHES.json",
+      "sha256": "4e2f73d25efe84c2e4d2ffdc53b6f282f412dfd61c64101b1092d69d1c7b3b82",
+      "bytes": 9192
+    },
+    {
+      "path": "evidence/5f42c0a3a68df880-NFI.json",
+      "sha256": "5f42c0a3a68df880d2d90c00dd542c3a291c91c897f17077300cd2c4aa818242",
+      "bytes": 10167
+    },
+    {
+      "path": "evidence/114d0ee0eef37765-METHOD.md",
+      "sha256": "114d0ee0eef37765eb8905beebc96255be35a33d3947aab2c835982d49f2de4f",
+      "bytes": 7156
+    },
+    {
+      "path": "evidence/06bb9e0b964eab83-SOURCE-AUDIT.md",
+      "sha256": "06bb9e0b964eab83114d98044b3d15b8c45a0cb90bf9fa2c7a840ed47817e753",
+      "bytes": 4376
+    },
+    {
+      "path": "evidence/f3cd05c0a413bb36-LOCAL-DRYING.json",
+      "sha256": "f3cd05c0a413bb365dcce91d9a2fb64ec605447db85e28fa936ed64f630cb7f9",
+      "bytes": 45062
+    },
+    {
+      "path": "evidence/160a03e43b1f1f09-PONDS-INDEPENDENT.json",
+      "sha256": "160a03e43b1f1f097d67881119b5ccfe774d6d27300ca94e281bdedf9ed4c58a",
+      "bytes": 22989
+    },
+    {
+      "path": "evidence/9dd3606c1338eba0-POND-VALIDATION.json",
+      "sha256": "9dd3606c1338eba0827e2285fdfe9e7b23c9d671fdb0cf830657f1d64e2f9d7a",
+      "bytes": 29289
+    },
+    {
+      "path": "evidence/6d4b755678cdf1b3-CAPACITY-COMPARISONS.json",
+      "sha256": "6d4b755678cdf1b396c7e5b42ae2ced9baecab6d2f41899b36a63d6de0ca44de",
+      "bytes": 33097
+    },
+    {
+      "path": "evidence/ae15cfa1309495e8-WATER-COMPARISONS.json",
+      "sha256": "ae15cfa1309495e8f8a3fc88fb694d8601a435a26be840bd9c54a207e7f77d9c",
+      "bytes": 205108
+    },
+    {
+      "path": "evidence/68faf75e33a72a91-VALIDATION.json",
+      "sha256": "68faf75e33a72a91900c8a92714143dbfd4ce1cd37ca5212f50ec705272821c1",
+      "bytes": 15352
+    },
+    {
+      "path": "evidence/3a1ccca8b78fac17-INPUT-PINS.json",
+      "sha256": "3a1ccca8b78fac17ee8f177a739268f5a54f7e528dcf5ea19a1d4b1fa4161771",
+      "bytes": 21140
+    },
+    {
+      "path": "unpublished-local-ref:d3f60551d55d68cc",
+      "sha256": "53359ded0874060e401f9f8414d0c4202e9f0bfd2897fa3c90df0c4e6b51ba86",
+      "bytes": 38800
+    },
+    {
+      "path": "evidence/ac8ddee0521a7519-DELIVERY-CHECKS.json",
+      "sha256": "ac8ddee0521a75194a20532a476e89fc27fbd1e9ca5410d12e955f5cac918960",
+      "bytes": 9135
+    },
+    {
+      "path": "evidence/ba100996e60c06c0-MANIFEST.json",
+      "sha256": "ba100996e60c06c0dc9b3764ca0220997d0e4ea132772c34140bbc3fe815bb51",
+      "bytes": 45300
+    }
+  ],
+  "ingested": "2026-10-20T07:33:19-07:00"
+}

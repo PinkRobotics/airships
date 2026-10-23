@@ -1,0 +1,1301 @@
+[
+  {
+    "label": "old021",
+    "width_mm": 332.2164186283597,
+    "meridian": "W",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 0.5482710550884047,
+      "passing_amplitude_mm": 0.541153,
+      "failing_amplitude_mm": 0.559153,
+      "passing_run": "cal-old021-W-a0.541153",
+      "failing_run": "cal-old021-W-a0.559153",
+      "passing_capacity_kPa": 95.51495454545454,
+      "failing_capacity_kPa": 95.37810545454545,
+      "rms_estimate_mm": 0.006439489595792997,
+      "rms_bracket_mm": [
+        0.006355887440875896,
+        0.006567298952843428
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.2187942753867074,
+        "bracket_mm": [
+          1.208988,
+          1.226988
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 0.747401151827681,
+        "bracket_mm": [
+          0.737936,
+          0.755936
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.6001322468734503,
+        "bracket_mm": [
+          0.559153,
+          1.0
+        ],
+        "bracket_capacity_kPa": [
+          95.75527054412434,
+          92.58781990416799
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09895783331827,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5765890067267958,
+        "bracket_mm": [
+          0.559153,
+          1.0
+        ],
+        "bracket_capacity_kPa": [
+          95.58589263918495,
+          92.42404478381002
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.92189654292578,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5482710550884047,
+        "bracket_mm": [
+          0.541153,
+          0.559153
+        ],
+        "bracket_capacity_kPa": [
+          95.51495454545454,
+          95.37810545454545
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70468363636364,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "p128-a0-y345",
+      "sweep-old021-W-y345-a0.5",
+      "cal-old021-W-a0.541153",
+      "cal-old021-W-a0.559153",
+      "sweep-old021-W-y345-a1",
+      "sweep-old021-W-y345-a2",
+      "sweep-old021-W-y345-a5",
+      "sweep-old021-W-y345-a11.8",
+      "sweep-old021-W-y345-a46"
+    ]
+  },
+  {
+    "label": "old021",
+    "width_mm": 332.2164186283597,
+    "meridian": "L",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 1.0333818825680068,
+      "passing_amplitude_mm": 1.02444,
+      "failing_amplitude_mm": 1.04244,
+      "passing_run": "cal-old021-L-a1.024440",
+      "failing_run": "cal-old021-L-a1.042440",
+      "passing_capacity_kPa": 95.5008,
+      "failing_capacity_kPa": 95.42035636363634,
+      "rms_estimate_mm": 0.012137157012975413,
+      "rms_bracket_mm": [
+        0.012032133851112167,
+        0.0122435453630797
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.8045963703879861,
+        "bracket_mm": [
+          1.79559,
+          1.810809
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.1203986569329112,
+        "bracket_mm": [
+          1.111375,
+          1.129375
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 1.1238438280048317,
+        "bracket_mm": [
+          1.04244,
+          2.0
+        ],
+        "bracket_capacity_kPa": [
+          95.79768853105598,
+          91.83528670224023
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09935211359958,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 1.0829652594936778,
+        "bracket_mm": [
+          1.04244,
+          2.0
+        ],
+        "bracket_capacity_kPa": [
+          95.62823559453119,
+          91.67284270962503
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.9222901257795,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 1.0333818825680068,
+        "bracket_mm": [
+          1.02444,
+          1.04244
+        ],
+        "bracket_capacity_kPa": [
+          95.5008,
+          95.42035636363634
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70507636363635,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "perfect-L-y345",
+      "sweep-old021-L-y345-a0.5",
+      "sweep-old021-L-y345-a1",
+      "cal-old021-L-a1.024440",
+      "cal-old021-L-a1.042440",
+      "sweep-old021-L-y345-a2",
+      "sweep-old021-L-y345-a5",
+      "sweep-old021-L-y345-a11.8",
+      "sweep-old021-L-y345-a46"
+    ]
+  },
+  {
+    "label": "current",
+    "width_mm": 347.1529189444301,
+    "meridian": "W",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 0.5401940200867549,
+      "passing_amplitude_mm": 0.533271,
+      "failing_amplitude_mm": 0.551271,
+      "passing_run": "cal-current-W-a0.533271",
+      "failing_run": "cal-current-W-a0.551271",
+      "passing_capacity_kPa": 95.51338363636361,
+      "failing_capacity_kPa": 95.37676363636363,
+      "rms_estimate_mm": 0.006629851369010247,
+      "rms_bracket_mm": [
+        0.0065448845006386095,
+        0.006765800172054258
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.2321016108010463,
+        "bracket_mm": [
+          1.223052,
+          1.241052
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 0.7568365180052798,
+        "bracket_mm": [
+          0.747743,
+          0.765743
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5915803150947544,
+        "bracket_mm": [
+          0.551271,
+          1.0
+        ],
+        "bracket_capacity_kPa": [
+          95.75392341982985,
+          92.49125409193555
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09895783331827,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5683155176349983,
+        "bracket_mm": [
+          0.551271,
+          1.0
+        ],
+        "bracket_capacity_kPa": [
+          95.58454789776806,
+          92.32764978321929
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.92189654292578,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5401940200867549,
+        "bracket_mm": [
+          0.533271,
+          0.551271
+        ],
+        "bracket_capacity_kPa": [
+          95.51338363636361,
+          95.37676363636363
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70468363636364,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "p128-a0-y345",
+      "sweep-current-W-y345-a0.5",
+      "cal-current-W-a0.533271",
+      "cal-current-W-a0.551271",
+      "p128-a1-W-y345",
+      "sweep-current-W-y345-a2",
+      "sweep-current-W-y345-a5",
+      "sweep-current-W-y345-a11.8",
+      "sweep-current-W-y345-a46"
+    ]
+  },
+  {
+    "label": "current",
+    "width_mm": 347.1529189444301,
+    "meridian": "L",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 1.0007056697663232,
+      "passing_amplitude_mm": 1.0,
+      "failing_amplitude_mm": 1.009701,
+      "passing_run": "p128-a1-L-y345",
+      "failing_run": "cal-current-L-a1.009701",
+      "passing_capacity_kPa": 95.4638018181818,
+      "failing_capacity_kPa": 95.42305636363635,
+      "rms_estimate_mm": 0.012281753606993042,
+      "rms_bracket_mm": [
+        0.012273092856424986,
+        0.012392154130225165
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.8070574137246975,
+        "bracket_mm": [
+          1.798048,
+          1.815809
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.1232280767948257,
+        "bracket_mm": [
+          1.114225,
+          1.132225
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 1.0897203939405984,
+        "bracket_mm": [
+          1.009701,
+          2.0
+        ],
+        "bracket_capacity_kPa": [
+          95.80039920799004,
+          91.59807782799315
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09935211359958,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 1.0498578256457123,
+        "bracket_mm": [
+          1.009701,
+          2.0
+        ],
+        "bracket_capacity_kPa": [
+          95.63094147665053,
+          91.43605342525458
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.9222901257795,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 1.0007056697663232,
+        "bracket_mm": [
+          1.0,
+          1.009701
+        ],
+        "bracket_capacity_kPa": [
+          95.4638018181818,
+          95.42305636363635
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70507636363635,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "perfect-L-y345",
+      "sweep-current-L-y345-a0.5",
+      "p128-a1-L-y345",
+      "cal-current-L-a1.009701",
+      "sweep-current-L-y345-a2",
+      "sweep-current-L-y345-a5",
+      "sweep-current-L-y345-a11.8",
+      "sweep-current-L-y345-a46"
+    ]
+  },
+  {
+    "label": "old021b",
+    "width_mm": 401.8559050423529,
+    "meridian": "W",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 0.5283547900693306,
+      "passing_amplitude_mm": 0.520967,
+      "failing_amplitude_mm": 0.538967,
+      "passing_run": "cal-old021b-W-a0.520967",
+      "failing_run": "cal-old021b-W-a0.538967",
+      "passing_capacity_kPa": 95.51744181818181,
+      "failing_capacity_kPa": 95.37952909090907,
+      "rms_estimate_mm": 0.007506228627016136,
+      "rms_bracket_mm": [
+        0.00740127180188445,
+        0.007656994126780116
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.2933800492579204,
+        "bracket_mm": [
+          1.284271,
+          1.302271
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 0.7985327040802926,
+        "bracket_mm": [
+          0.789411,
+          0.807411
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5788922297720904,
+        "bracket_mm": [
+          0.538967,
+          1.0
+        ],
+        "bracket_capacity_kPa": [
+          95.75669981014411,
+          92.34026117253637
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09895783331827,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5560653481617654,
+        "bracket_mm": [
+          0.538967,
+          1.0
+        ],
+        "bracket_capacity_kPa": [
+          95.58731937702969,
+          92.17692394952937
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.92189654292578,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.5283547900693306,
+        "bracket_mm": [
+          0.520967,
+          0.538967
+        ],
+        "bracket_capacity_kPa": [
+          95.51744181818181,
+          95.37952909090907
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70468363636364,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "p128-a0-y345",
+      "sweep-old021b-W-y345-a0.5",
+      "cal-old021b-W-a0.520967",
+      "cal-old021b-W-a0.538967",
+      "sweep-old021b-W-y345-a1",
+      "sweep-old021b-W-y345-a2",
+      "sweep-old021b-W-y345-a5",
+      "sweep-old021b-W-y345-a11.8",
+      "sweep-old021b-W-y345-a46"
+    ]
+  },
+  {
+    "label": "old021b",
+    "width_mm": 401.8559050423529,
+    "meridian": "L",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 0.9218339293189053,
+      "passing_amplitude_mm": 0.91369,
+      "failing_amplitude_mm": 0.93169,
+      "passing_run": "cal-old021b-L-a0.913690",
+      "failing_run": "cal-old021b-L-a0.931690",
+      "passing_capacity_kPa": 95.50035818181817,
+      "failing_capacity_kPa": 95.41300909090907,
+      "rms_estimate_mm": 0.013096306420729831,
+      "rms_bracket_mm": [
+        0.012980607279662252,
+        0.013236329604557917
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.8349005276539982,
+        "bracket_mm": [
+          1.821423,
+          1.839423
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 1.1449891541692512,
+        "bracket_mm": [
+          1.135922,
+          1.153922
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 1.0018908217846416,
+        "bracket_mm": [
+          1.0,
+          2.0
+        ],
+        "bracket_capacity_kPa": [
+          95.46938448347976,
+          90.94935533846703
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09935211359958,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.9658139495274747,
+        "bracket_mm": [
+          0.93169,
+          1.0
+        ],
+        "bracket_capacity_kPa": [
+          95.62087231530947,
+          95.30051227166543
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.9222901257795,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 0.9218339293189053,
+        "bracket_mm": [
+          0.91369,
+          0.93169
+        ],
+        "bracket_capacity_kPa": [
+          95.50035818181817,
+          95.41300909090907
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70507636363635,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "perfect-L-y345",
+      "sweep-old021b-L-y345-a0.5",
+      "cal-old021b-L-a0.913690",
+      "cal-old021b-L-a0.931690",
+      "sweep-old021b-L-y345-a1",
+      "sweep-old021b-L-y345-a2",
+      "sweep-old021b-L-y345-a5",
+      "sweep-old021b-L-y345-a11.8",
+      "sweep-old021b-L-y345-a46"
+    ]
+  },
+  {
+    "label": "fullwave",
+    "width_mm": 2181.4248249368884,
+    "meridian": "W",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 7.440520628206328,
+      "passing_amplitude_mm": 7.422147,
+      "failing_amplitude_mm": 7.479837,
+      "passing_run": "cal-fullwave-W-a7.422147",
+      "failing_run": "cal-fullwave-W-a7.479837",
+      "passing_capacity_kPa": 95.4684,
+      "failing_capacity_kPa": 95.44465636363635,
+      "rms_estimate_mm": 0.5727140326941432,
+      "rms_bracket_mm": [
+        0.5712997721563284,
+        0.5757403045057549
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 21.18233267059636,
+        "bracket_mm": [
+          21.127133,
+          21.217133
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 14.307135114183271,
+        "bracket_mm": [
+          14.261888,
+          14.351888
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 8.081179436592938,
+        "bracket_mm": [
+          7.479837,
+          11.8
+        ],
+        "bracket_capacity_kPa": [
+          95.82208462346244,
+          93.22681681342164
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09895783331827,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 7.7995966181483425,
+        "bracket_mm": [
+          7.479837,
+          11.8
+        ],
+        "bracket_capacity_kPa": [
+          95.65258853360524,
+          93.06191139540863
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.92189654292578,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 7.440520628206328,
+        "bracket_mm": [
+          7.422147,
+          7.479837
+        ],
+        "bracket_capacity_kPa": [
+          95.4684,
+          95.44465636363635
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70468363636364,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38447709794915,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.60319471769445,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "p128-a0-y345",
+      "sweep-fullwave-W-y345-a1",
+      "cal-fullwave-W-a7.332147",
+      "cal-fullwave-W-a7.422147",
+      "cal-fullwave-W-a7.479837",
+      "sweep-fullwave-W-y345-a11.8",
+      "sweep-fullwave-W-y345-a46"
+    ]
+  },
+  {
+    "label": "fullwave",
+    "width_mm": 2181.4248249368884,
+    "meridian": "L",
+    "reading": "Hypothetical transfer of benchmark pressure-endpoint bias only; first-yield pressure is not recalibrated.",
+    "refined_10percent_SF1": {
+      "status": "tested_endpoint_bracket",
+      "factor": 1.1,
+      "SF": 1,
+      "amplitude_estimate_mm": 7.602092813780832,
+      "passing_amplitude_mm": 7.590599,
+      "failing_amplitude_mm": 7.646875,
+      "passing_run": "cal-fullwave-L-a7.590599",
+      "failing_run": "cal-fullwave-L-a7.646875",
+      "passing_capacity_kPa": 95.4674018181818,
+      "failing_capacity_kPa": 95.43526363636363,
+      "rms_estimate_mm": 0.5851506164488861,
+      "rms_bracket_mm": [
+        0.5842659110941961,
+        0.5885976046025394
+      ]
+    },
+    "scenarios": [
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 21.318884730185484,
+        "bracket_mm": [
+          21.270528,
+          21.357897
+        ],
+        "target_kPa": 95.46083791390515,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0,
+        "SF": 1.05,
+        "status": "refined_unadjusted_boundary",
+        "amplitude_mm": 14.344816247448314,
+        "bracket_mm": [
+          14.299457,
+          14.389457
+        ],
+        "target_kPa": 100.23387980960041,
+        "source": "BOUNDARIES.json",
+        "note": "Use refined target-load results, not coarse yield-bracket midpoint interpolation."
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 8.24871652216205,
+        "bracket_mm": [
+          7.646875,
+          11.8
+        ],
+        "bracket_capacity_kPa": [
+          95.81265475340096,
+          93.38487392119441
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0956672714078375,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 100.09935211359958,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 7.959346376465499,
+        "bracket_mm": [
+          7.646875,
+          11.8
+        ],
+        "bracket_capacity_kPa": [
+          95.64317534368706,
+          93.21968892189442
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.0976087904104612,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.9222901257795,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1,
+        "status": "sampled_crossing",
+        "amplitude_mm": 7.602092813780832,
+        "bracket_mm": [
+          7.590599,
+          7.646875
+        ],
+        "bracket_capacity_kPa": [
+          95.4674018181818,
+          95.43526363636363
+        ],
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 1.1,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 99.70507636363635,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.314579767827529,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 47.38466374090093,
+        "target_kPa": 100.23387980960041
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 95.46083791390515
+      },
+      {
+        "endpoint_divisor": 2.458907992895204,
+        "SF": 1.05,
+        "status": "no_admissible_amplitude_even_zero",
+        "amplitude_mm": null,
+        "perfect_capacity_kPa": 44.603370405439264,
+        "target_kPa": 100.23387980960041
+      }
+    ],
+    "runs": [
+      "perfect-L-y345",
+      "sweep-fullwave-L-y345-a1",
+      "cal-fullwave-L-a7.500599",
+      "cal-fullwave-L-a7.590599",
+      "cal-fullwave-L-a7.646875",
+      "sweep-fullwave-L-y345-a11.8",
+      "sweep-fullwave-L-y345-a46"
+    ]
+  }
+]

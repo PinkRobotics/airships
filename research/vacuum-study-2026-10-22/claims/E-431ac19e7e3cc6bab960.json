@@ -1,0 +1,40 @@
+{
+  "id": "E-431ac19e7e3cc6bab960",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-431ac19e7e3cc6bab960",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/5",
+    "row_id": "C055-06",
+    "fields": {
+      "id": "C055-06",
+      "title": "Cost arithmetic agrees for B; C is rounded and D has unallocated allowances",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "B sums to USD 210000–685000 once, 70000–291000 per article and 420000–1558000 for three. C's literal 58.660260kg basis gives 936602.60–4583013.00, consistent with rounded 1–4.6M. Twice B's per-article lines gives D 140000–582000, not 150000–610000; the extra 10000/28000 is unallocated and cannot establish a tooling upgrade.",
+      "proposed_fix": "Expose contingencies, fabrication yield, edge reinforcement, transport/tax and the larger D rig as separate PROJECTION lines; retain no-quote status."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Cost arithmetic agrees for B; C is rounded and D has unallocated allowances",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

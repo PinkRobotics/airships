@@ -1,0 +1,88 @@
+{
+  "id": "N193",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N193",
+    "report": "rpt-ref-769a7442efd5a04681e9",
+    "card": "MAINLINE-021",
+    "file": "evidence/fae865c7f039491f-NFI.json",
+    "row_id": "NFI-021-GAMMA",
+    "fields": {
+      "id": "NFI-021-GAMMA",
+      "optimism": "O1",
+      "binds": true,
+      "needed": 0.5953179642995181,
+      "today": 0.2,
+      "improvement_factor": 2.9765898214975905,
+      "usage_of_018_stretch": 0.9580717283996654,
+      "state": "PROJECTION: no sphere or dome test at Vc near 1 supports a knockdown above 0.20 (018)",
+      "grounding_card": "MAINLINE-018b (crimp gamma measured from Sim's absolute loads); MAINLINE-015 (kd precision)",
+      "tolerance_015": {
+        "kd": 0.5953179642995181,
+        "t_eq_mm": 36.47148976173557,
+        "R_over_t_eq": 274.1867706893509,
+        "in_fit_range": true,
+        "wavelength_m": 0.6039163001752442,
+        "status": "lambda_I_1 inversion",
+        "delta_over_t_eq": 0.3235790017685749,
+        "amplitude_mm": 11.801408250115193,
+        "rms_worst_mm": 0.3638641267074433,
+        "rms_narrow_mm": 0.13861490541235935
+      },
+      "note": "Under 018's conservative gamma the point is 0.338601. 015's map: one dimple of 11.8 mm (RMS 0.364 mm) at this gamma, QUESTIONABLE."
+    }
+  },
+  "claim": "Under 018's conservative gamma the point is 0.338601. 015's map: one dimple of 11.8 mm (RMS 0.364 mm) at this gamma, QUESTIONABLE.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/192"
+    },
+    {
+      "report": "rpt-ref-769a7442efd5a04681e9",
+      "artifact": "evidence/fae865c7f039491f-NFI.json",
+      "snapshot": "evidence/fae865c7f039491f-NFI.json",
+      "sha256": "fae865c7f039491f49a45abcd82644a2ef2b4fe5f2c615a6682f816bf3e3eb8c",
+      "bytes": 5437,
+      "selector": "source row ID: NFI-021-GAMMA"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-769a7442efd5a04681e9",
+          "artifact": "evidence/fae865c7f039491f-NFI.json",
+          "snapshot": "evidence/fae865c7f039491f-NFI.json",
+          "sha256": "fae865c7f039491f49a45abcd82644a2ef2b4fe5f2c615a6682f816bf3e3eb8c",
+          "bytes": 5437,
+          "selector": "source row ID: NFI-021-GAMMA"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/192"
+          }
+        ]
+      }
+    }
+  ]
+}

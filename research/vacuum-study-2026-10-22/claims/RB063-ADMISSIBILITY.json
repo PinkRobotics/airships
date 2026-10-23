@@ -1,0 +1,43 @@
+{
+  "id": "RB063-ADMISSIBILITY",
+  "kind": "review_b",
+  "claim": "The admissibility readings match 017b's card and 040's E_full_Pa and strength_full_Pa. The favorable ramp is not the CR-1457 step.",
+  "numerical_status": "reproduced",
+  "physical_qualification": "open",
+  "qualification": "REVIEW-B numerical check only. No installed hull safety factor is released.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "rep-ref-a76ea3d6778b4cf194ac",
+      "artifact": "evidence/8f23c591f42c4336-CARD.md",
+      "snapshot": "evidence/8f23c591f42c4336-CARD.md",
+      "sha256": "8f23c591f42c4336587e664b50c38032ec47108871399194040a7089c5747bf2",
+      "bytes": 9701,
+      "selector": ""
+    },
+    {
+      "report": "017b",
+      "artifact": "evidence/e8fe539b269713c0-CARD.md",
+      "snapshot": "evidence/e8fe539b269713c0-CARD.md",
+      "sha256": "e8fe539b269713c05c5f1cdd43bcd3df67bd6cc57acafe9fcd2e9745d11f986d",
+      "bytes": 20556,
+      "selector": ""
+    },
+    {
+      "report": "040",
+      "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+      "bytes": 22506,
+      "selector": "/E_full_Pa"
+    },
+    {
+      "report": "rpt-ref-af391e597aed690513ec",
+      "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+      "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+      "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+      "bytes": 12943,
+      "selector": ""
+    }
+  ]
+}

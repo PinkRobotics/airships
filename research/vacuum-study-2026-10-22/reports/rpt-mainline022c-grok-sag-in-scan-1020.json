@@ -1,0 +1,49 @@
+{
+  "id": "rpt-mainline022c-grok-sag-in-scan-1020",
+  "unit": "vacuum-mainline022-p3-optimistic-floating-point-1020",
+  "at": "2026-10-20T01:18:49-07:00",
+  "body": "QUESTIONABLE. 022b already subtracted L·s/(16R), 61.1180268774 kg at s 2 m. 024's inradius cap, rho = s, is 62.9000389203 kg at 2 m and 125.800077841 kg at 4 m. This scan charges that lift and re-optimises. Gamma stays on the local mode. No outer radius sits on the 0.25 m cap. Projection film, 5 percent joints, k 0.2: least 1.37332138578 by global at s 6.15 m, sag 193.41761968 kg, r_o 167.640119605 mm. The 019 reserve is 1.29454034466 by local at the same s. Mylar and 380 MPa, 5 percent: 0.411790451893 by Perry at s 0.55 m. On the 019 reserve, 0.395851626757 by Perry. Titanium and Kapton, 5 percent: 0.739113638303 by film at s 1.85 m. On the 019 reserve, 0.701745910728 by global. CFRP and Zylon, 5 percent: 1.48511637206 by global at s 5.5 m. On the 019 reserve, 1.41704657175 by film at s 5.7 m. The membrane mean is s/40, 1.16600297093 times the cap mean. The order's factor is 1.19. That sensitivity puts the projection row at 1.35814269787 by global, still at s 6.15 m, and the CFRP row at 1.47381373895 by global at s 5.55 m. On that sensitivity Mylar is 0.411514570673 by Perry and titanium with Kapton is 0.739113638303 by film. 025 files no qualified compression allowable. Its equilateral multipliers are 0.45120 at 380 MPa, 1.16866 at 1 GPa and 1.20571 at 3.9 GPa. Crush 3900 MPa stays PROJECTION. Origin 2026-10-20T01:16:00.184955-07:00. End 2026-10-20T01:18:00.051298-07:00. Elapsed 119.866342279 s, a measurement. Not a certification. The caps-open order stays open.",
+  "artifacts": [
+    {
+      "path": "evidence/2ef38293630a5e18-SAG.md",
+      "sha256": "2ef38293630a5e1859c9bced34d2c6143ea480bce5261d54c1528ada8e018fdf",
+      "bytes": 5302
+    },
+    {
+      "path": "evidence/14a2669241c3ad27-SAG.json",
+      "sha256": "14a2669241c3ad2795770db8787b39ec72bb3a9dea8df11358caf6b7396da748",
+      "bytes": 39644
+    },
+    {
+      "path": "evidence/92855d7d3ff2c05e-sag_scan.py",
+      "sha256": "92855d7d3ff2c05ee4de714f075148a658f87931f55faa971554b7e4aa3e0035",
+      "bytes": 7077
+    },
+    {
+      "path": "evidence/76c99d6e36640b10-SAG_ORIGIN.json",
+      "sha256": "76c99d6e36640b1075365dca0ef74c433d2278c420339c01237e9539c2dbd98f",
+      "bytes": 56
+    },
+    {
+      "path": "evidence/d7843f6319319057-gamma_local.py",
+      "sha256": "d7843f6319319057349cb890ad8c89f9389e346c416fdbd8eb4f221115492f86",
+      "bytes": 12775
+    },
+    {
+      "path": "evidence/45fcb72bc3261280-equilibrium.py",
+      "sha256": "45fcb72bc3261280d6c4d1c85a58eb214587aca91d0f1da51ade880638ca907b",
+      "bytes": 17655
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline022c-sag-in-scan-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline022c-sag-in-scan-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

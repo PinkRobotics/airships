@@ -1,0 +1,70 @@
+{
+  "id": "N180",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N180",
+    "report": "rpt-ref-06668dbf12580ed0ffc3",
+    "card": "MAINLINE-015",
+    "file": "evidence/32fd0bf058dd6218-NFI.json",
+    "row_id": "NFI-015-CORE-SHEAR-SENSITIVITY",
+    "fields": {
+      "id": "NFI-015-CORE-SHEAR-SENSITIVITY",
+      "issue": "Core shear's cut to the classical pressure is derived: 10.3, 7.0 and 0.8 percent on P2-E at 9, 14 and 138 MPa, and 11.4 percent on the aluminium core at 72.4 MPa. The cut to imperfection sensitivity has no retrieved coefficient.",
+      "consequence": "The kd levels are applied with no shear-dependent correction.",
+      "next": "A shear-flexible imperfection study."
+    }
+  },
+  "claim": "Core shear's cut to the classical pressure is derived: 10.3, 7.0 and 0.8 percent on P2-E at 9, 14 and 138 MPa, and 11.4 percent on the aluminium core at 72.4 MPa. The cut to imperfection sensitivity has no retrieved coefficient.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/179"
+    },
+    {
+      "report": "rpt-ref-06668dbf12580ed0ffc3",
+      "artifact": "evidence/32fd0bf058dd6218-NFI.json",
+      "snapshot": "evidence/32fd0bf058dd6218-NFI.json",
+      "sha256": "32fd0bf058dd6218c0c22c124cdaabe5452a14c1dcc3e6dcb239e3b4bc604d82",
+      "bytes": 6822,
+      "selector": "source row ID: NFI-015-CORE-SHEAR-SENSITIVITY"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-06668dbf12580ed0ffc3",
+          "artifact": "evidence/32fd0bf058dd6218-NFI.json",
+          "snapshot": "evidence/32fd0bf058dd6218-NFI.json",
+          "sha256": "32fd0bf058dd6218c0c22c124cdaabe5452a14c1dcc3e6dcb239e3b4bc604d82",
+          "bytes": 6822,
+          "selector": "source row ID: NFI-015-CORE-SHEAR-SENSITIVITY"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/179"
+          }
+        ]
+      }
+    }
+  ]
+}

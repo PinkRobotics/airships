@@ -1,0 +1,103 @@
+{
+  "id": "N188",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N188",
+    "report": "rpt-ref-3e02218a03708a878faa",
+    "card": "MAINLINE-020",
+    "file": "evidence/72e91c4df6df4236-NFI.json",
+    "row_id": "NFI-020-THERMAL-FATIGUE",
+    "fields": {
+      "id": "NFI-020-THERMAL-FATIGUE",
+      "rank": 4,
+      "tag": "QUESTIONABLE",
+      "claim": "Daily thermal-cycle life of the pressure-loaded Be/HRH10 joint is UNKNOWN.",
+      "optimistic": {
+        "assumed_delta_alpha_per_K": 5e-06,
+        "assumed_delta_T_K": 30,
+        "screen_peak_shear_MPa": 0.05770430820956852,
+        "bulk_smooth_zero_mean_benchmark_cycles": 10000000
+      },
+      "conservative": {
+        "assumed_delta_alpha_per_K": 2e-05,
+        "assumed_delta_T_K": 60,
+        "screen_peak_shear_MPa": 0.46163446567654814,
+        "qualified_joint_cycles": null
+      },
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c2eca2d0f75e11ee9aa0f6c265376dea"
+        },
+        {
+          "id": "S03",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+        },
+        {
+          "id": "S05",
+          "url": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=AF163-2.pdf"
+        },
+        {
+          "id": "S07",
+          "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf"
+        }
+      ],
+      "needed_to_ground": "Measure effective directional core/face/adhesive expansion, service temperature histories, restraint and fatigue under representative compressive mean load. Test the assumed 10,958 daily cycles if a 30-year target is adopted.",
+      "effect_on_lead": "016 concerned SiC/PVC; only its scalar equation is reused. Gc is not shear strength. The upper elastic thermal screen may exceed yield; no fatigue margin or life can be inferred.",
+      "closed_by_this_card": false
+    }
+  },
+  "claim": "Daily thermal-cycle life of the pressure-loaded Be/HRH10 joint is UNKNOWN.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/187"
+    },
+    {
+      "report": "rpt-ref-3e02218a03708a878faa",
+      "artifact": "evidence/72e91c4df6df4236-NFI.json",
+      "snapshot": "evidence/72e91c4df6df4236-NFI.json",
+      "sha256": "72e91c4df6df423644151b05eede28320435690d46ff64a0ae2e2b7459d26aba",
+      "bytes": 12646,
+      "selector": "source row ID: NFI-020-THERMAL-FATIGUE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-3e02218a03708a878faa",
+          "artifact": "evidence/72e91c4df6df4236-NFI.json",
+          "snapshot": "evidence/72e91c4df6df4236-NFI.json",
+          "sha256": "72e91c4df6df423644151b05eede28320435690d46ff64a0ae2e2b7459d26aba",
+          "bytes": 12646,
+          "selector": "source row ID: NFI-020-THERMAL-FATIGUE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/187"
+          }
+        ]
+      }
+    }
+  ]
+}

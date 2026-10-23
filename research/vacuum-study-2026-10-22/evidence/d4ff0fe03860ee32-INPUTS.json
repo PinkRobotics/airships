@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline047-dimple-tolerance-1020",
+  "tag": "QUESTIONABLE/PROJECTION",
+  "model": {
+    "R_outer_mm": 10000,
+    "tf_each_mm": 0.794624066985892,
+    "tc_mm": 23.23721790601544,
+    "E_face_MPa": 290000,
+    "nu_face": 0.0768,
+    "yield_cases_MPa": [
+      255,
+      300,
+      345
+    ],
+    "face_law": "native finite-strain isotropic J2, ideal perfect plastic; no hardening qualification",
+    "core_Eradial_MPa": 103.4213593975254,
+    "core_G_L_MPa": 103.4213593975254,
+    "core_G_W_MPa": 46.88434959354485,
+    "core_Einplane_MPa": 0.01,
+    "core_Ginplane_MPa": 0.005,
+    "bond": "shared nodes, perfectly bonded",
+    "scarf_ratio": 30.34139731914874,
+    "scarf_or_cell_geometry_explicit": false,
+    "scope": "Historical face-only campaign; final regularized model in core_fold"
+  },
+  "pressure_kPa": 95.46083791390515,
+  "SF_targets": [
+    1,
+    1.05
+  ],
+  "thermal_sensitivity": {
+    "face_residual_compression_MPa": 3.4102225696822703,
+    "approach": "Separate conservative yield-strength debit using von Mises norm triangle inequality; no thermomechanical prestress field or stiffness simulated",
+    "debit_yield_MPa": 341.5897774303177
+  },
+  "widths": {
+    "old021_mm": 332.2164186283597,
+    "old021b_mm": 401.8559050423529,
+    "current_lambdaI1_mm": 347.1529189444301,
+    "inverse_classical_wavenumber_mm": 347.1845438720782,
+    "full_classical_wavelength_mm": 2181.4248249368884
+  },
+  "first_yield": "First converged integration-point PEEQ > 1e-10, bracketed by last elastic and first plastic increment. Last-two-elastic extrapolation is an estimate only; confirmed boundary checks use target load caps.",
+  "endpoint": "Last converged monotonic follower-pressure static increment; load-control failure is not a validated collapse load or postbuckling branch. Retain native return code and diagnostics.",
+  "RMS": "one Gaussian inward offset: delta(theta)=a exp[-(R theta/w)^2]; RMS about prescribed sphere = a sqrt(0.5 integral_0^pi exp[-2(R theta/w)^2] sin(theta)dtheta); small-patch a*w/(sqrt(8)*R). No random-field or multi-dimple interpretation.",
+  "reuse": "029 axisymmetric.py explicitly authorized by CARD-047. Original preserved, own modifications in axisymmetric.py. Native runs all admitted by simjob.",
+  "sources": [
+    {
+      "title": "CalculiX 2.21 manual",
+      "url": "https://www.dhondt.de/ccx_2.21.pdf",
+      "pages": "253,258-259,488,563-564",
+      "use": "Native finite-strain plastic law, stress/PEEQ output and material keywords"
+    },
+    {
+      "title": "NASA CR-194164",
+      "url": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+      "pages": "PDF22, Table2",
+      "use": "nu12 .0768; not validation of a scalar isotropic formed-face law"
+    },
+    {
+      "title": "EUCASS2023-367",
+      "url": "https://www.eucass.eu/doi/EUCASS2023-367.pdf",
+      "use": "029 benchmark differs in constitutive law, imperfection, core and solution method; conditional factors only"
+    }
+  ],
+  "exact_037b_reoptimized_sensitivity": {
+    "tf_mm": 0.7946220285897285,
+    "tc_mm": 23.231908629338502,
+    "residual_face_compression_MPa": 3.40945214262086,
+    "run": "geometry-037b-exact-a1-cap",
+    "note": "Primary geometry holds the requested 028b point. This controlled sensitivity checks the very small re-optimized 037b geometry, at the same prescribed dimple width."
+  },
+  "core_fold": {
+    "authority": "ord-admiral-rr2-mainline047-fold-chk029-1020",
+    "core_Einplane_MPa": 1,
+    "core_Ginplane_MPa": 0.5,
+    "core_law": "Orthotropic StVK, zero Poisson; shear-strength stop; unsourced in-plane regularization",
+    "strengths_psi": {
+      "minimum_average": {
+        "W": 25,
+        "L": 45
+      },
+      "typical": {
+        "W": 35,
+        "L": 55
+      }
+    },
+    "criterion": "min(endpoint,first face yield,first core shear failure)",
+    "catalog_basis": "Hexcel CR III Table II, 5056 3/8 inch / 1.0 pcf; 0.625 inch test thickness"
+  }
+}

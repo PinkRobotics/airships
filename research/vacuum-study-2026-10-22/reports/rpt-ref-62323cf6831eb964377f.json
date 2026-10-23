@@ -1,0 +1,64 @@
+{
+  "id": "rpt-ref-62323cf6831eb964377f",
+  "unit": "vacuum-mainline018-check-1019",
+  "at": "2026-10-20T00:25:12-07:00",
+  "body": "MAINLINE-018 checked independently. All four held-geometry rescores and their modes reproduce: optimistic Be 0.685338231171, K13D2U 0.651932173894, AlBeMet 0.553994420508, SiC 0.235167984044; conservative 0.137067646234, 0.130450400320, 0.110868173353, 0.235159313250.\n\nI downloaded CR-1457 from NTRS and visually read pages 6-7 and 6-12. Unity at Vc >= 2 is the handbook rule; its continuous transition is unspecified.\n\nOne demonstrated correction affects three Sim dimple fields: the unequal-face factor is 0.999702513752156, giving sigma0 19113852932.30557 Pa, Vc 197.18758027094242 and Gc(Vc=2) 1971875802.7094243 Pa. Filed Vc was 197.24625832023136. Flat Vc 201.532463528414 reproduces. Both remain on the crimp branch.\n\nThe 0.20/0.22 numerical KDFs use perfect linear FE pressures. Their imperfect pressures exceed the conditional handbook unity-crimp predictions by 1.4464/1.5400, so those KDFs alone do not refute unity. Physical validation and the missing source/test series remain NFI. 130 numeric comparisons: 127 match; three share the unequal-face correction. QUESTIONABLE/PROJECTION; no certification.\n\nProceeding to MAINLINE-009d both points. This report does not close the two-part order.",
+  "artifacts": [
+    {
+      "path": "evidence/534ab894c67c7e77-CARD.md",
+      "sha256": "534ab894c67c7e778f2e2588f1d22a096667bdc13dd26e67039928619e68ff0f",
+      "bytes": 5737,
+      "match": true
+    },
+    {
+      "path": "evidence/26bad35864727a96-RESULTS.json",
+      "sha256": "26bad35864727a96f882e0c86ecf640bf13ec5a74c9ff74169eb0d05c1a1db74",
+      "bytes": 47103,
+      "match": true
+    },
+    {
+      "path": "evidence/6e3afeffb9fc47d2-NFI.json",
+      "sha256": "6e3afeffb9fc47d2268e543cdc6f64c09438a178a4716ebdd1cd058b61fa6ed4",
+      "bytes": 3820,
+      "match": true
+    },
+    {
+      "path": "evidence/b6a9486957d5bf62-INPUTS.json",
+      "sha256": "b6a9486957d5bf62633cfe3cf958900487f1239f1b42acb4004b9cc572f3615d",
+      "bytes": 38568,
+      "match": true
+    },
+    {
+      "path": "evidence/efa1170b647ca8dc-recalculate.py",
+      "sha256": "efa1170b647ca8dc13f2c967b803183e984ffd4b4ef4b38fe9ee8e6bcba21b4d",
+      "bytes": 8054,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:663183e5ffe45542",
+      "sha256": "6a1a55855cc2c8b0a864289518b868a0528db319739a26eacb6a4b262f110b51",
+      "bytes": 10571741,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:1fb569707146604b",
+      "sha256": "6fd6a6ca6a39a8c53131e4c7b4a47d3377cd3fc0b2be2dea2334df4bf45596eb",
+      "bytes": 86120,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:3682f6270b91fbe8",
+      "sha256": "ce26002564ed8f9a9d27cab722ab511b74bbff0a7c01caf471c3abb504f070d5",
+      "bytes": 103568,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:880052c313b3d32c",
+      "sha256": "9546969ebc5cf10425a5c46e5fcf60fa92e82a2ce5e0262cf5bf51303c0f552b",
+      "bytes": 87544,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "re": "ord-admiral-rr2-check018-then-009d-codex-1020"
+}

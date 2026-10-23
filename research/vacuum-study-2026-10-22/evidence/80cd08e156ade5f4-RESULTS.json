@@ -1,0 +1,58 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "label": "K13D2U-70-10-10-10-5-same_tube_mass-m6-intact",
+  "material": "K13D2U-70-10-10-10",
+  "reserve": "5",
+  "section_policy": "same_tube_mass",
+  "removed_member": null,
+  "segments": 6,
+  "ndof": 24012,
+  "radius_m": 0.12477937548301114,
+  "wall_m": 0.0016900477329973157,
+  "frame_tubes_kg": 4263.217784337441,
+  "total_mass_including_reserve_sag_kg": 4889.442150189991,
+  "modes": {
+    "euler": 8.582024622542125,
+    "global_k0p2": 1.759410574390022,
+    "local_peak": 1.0009373653341842,
+    "compression": null,
+    "joint_sleeve": 1.1307185971937346,
+    "joint_bond": 1.130718386958167,
+    "film": 1.1432846186728538
+  },
+  "conditional_SF_or_ceiling": 1.0009373653341842,
+  "qualified_structural_SF": null,
+  "qualified_frame_Pf": null,
+  "qualified_hail_break_probability": null,
+  "all_composite_modes_complete": false,
+  "linear_multipliers": [
+    8.79705287195011,
+    8.918859450577699,
+    8.918859450577868,
+    9.013004367145054
+  ],
+  "eigen_relative_residuals": [
+    3.580391898154208e-13,
+    2.0040169987893676e-09,
+    4.233958827853153e-09,
+    1.1238747853778343e-10
+  ],
+  "equilibrium_relative_residual": 4.89029330152662e-13,
+  "load_rigid_projection_ratio": 3.962343040501833e-16,
+  "q1_peak_compression_Pa": 588233773.949161,
+  "q1_peak_tension_Pa": 0.0,
+  "q1_whole_member_scale_needed_m10_Pf1e3_Pa": 2157271103.152882,
+  "max_axial_N": 701639.7011565415,
+  "max_bending_Nm": 2783.08599865193,
+  "local_shell_limit_Pa": 588792199.0079426,
+  "secondary_failure_trigger_at_q1": false,
+  "individual_secondary_failure_members_at_q1": {
+    "local_shell": [],
+    "compression": null
+  },
+  "merged_bay": null,
+  "pressure_fan_volume_m3": 4156.277016250995,
+  "tube_loss_includes_pressure_bay_merge": false,
+  "dynamic_cascade_probability": null,
+  "elapsed_seconds": 2.265231586061418
+}

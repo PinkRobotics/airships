@@ -1,0 +1,39 @@
+{
+  "status": "STATE_TO_TANGENT_BOUND_BLOCKER",
+  "call_reference": 1,
+  "state": "identity F=I; independent offline reference only, not a native call",
+  "raw_result": {
+    "path": "unpublished-local-ref:ce12ac25775d8c7b",
+    "sha256": "64666f0095491af0c8f26ec2af611a7279237707a55af6a71d5a82f4e74082f1",
+    "bytes": 1587
+  },
+  "raw_reference_progress": {
+    "path": "unpublished-local-ref:a5530fb997c87428",
+    "sha256": "82f49a9d2aff16b2ec823bb089ff84d46f4b0d7b7848d7528c875f7b6ea7afb5",
+    "bytes": 1198
+  },
+  "normalized_conservative_bound_exact": "31857000095571/276400000000000000000",
+  "normalized_conservative_bound_display": 1.1525687444128437e-07,
+  "fixed_allowance_exact": "1/10000000",
+  "bound_to_allowance_ratio_exact": "31857000095571/27640000000000",
+  "meaning": "The frozen conservative proof does not fit the required1e-7 state-to-tangent allowance. This is not an observed native error, physical failure or proof that no tighter valid bound exists. No recalculation, tightening, tolerance change or repair is authorized.",
+  "identity_reference_scope": "Frozen offline code reached identity reference K/H assembly transiently, but stopped before writing references.json. Only the progress/bound certificate is retained; no complete reference set or DERIVED-SEAL exists.",
+  "counts": {
+    "launcher_invocations": 1,
+    "simjob_admitted_payloads": 1,
+    "offline_test_invocations": 1,
+    "offline_negative_cases_reached": 0,
+    "native_batches": 0,
+    "native_processes": 0,
+    "native_stages": 0,
+    "final_native_comparisons": 0
+  },
+  "stop": "First blocker terminates new unit scientific work. No native request, retry, repair, extension or automatic continuation. Return throughUna before binding.",
+  "qualification_flags": {
+    "Q0_native": false,
+    "Q0_energy": false,
+    "native_qualified": false,
+    "H1_qualified": false,
+    "conditional_interface_pass": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "E-e5fae1e233fb75ace69f",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-e5fae1e233fb75ace69f",
+    "report": "rpt-mainline058-opus-flyable-band-1020",
+    "file": "evidence/40312491d454281a-NFI.json",
+    "snapshot": "evidence/40312491d454281a-NFI.json",
+    "source_sha256": "40312491d454281a36cf60d1faf724afa1fbf873fe66168ac64764c3912f2d9b",
+    "source_json_pointer": "/rows/6",
+    "row_id": "N058-07-SKY-AND-WIND",
+    "fields": {
+      "id": "N058-07-SKY-AND-WIND",
+      "state": "PROJECTION",
+      "note": "The primary cold test applies 050's clear-sky depressions every night (24.9 K) and day (9.9 K, no sun credit): conservative. The cloud-aware sensitivity mixes clear and overcast (2 K) sky radiance by observed oktas; 3.1 % of hours have no cloud report and are treated as clear. Wind is fixed at 2 m/s."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The primary cold test applies 050's clear-sky depressions every night (24.9 K) and day (9.9 K, no sun credit): conservative. The cloud-aware sensitivity mixes clear and overcast (2 K) sky radiance by observed oktas; 3.1 % of hours have no cloud report and are treated as clear. Wind is fixed at 2 m/s.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-mainline058-opus-flyable-band-1020",
+      "artifact": "evidence/40312491d454281a-NFI.json",
+      "snapshot": "evidence/40312491d454281a-NFI.json",
+      "sha256": "40312491d454281a36cf60d1faf724afa1fbf873fe66168ac64764c3912f2d9b",
+      "bytes": 6548,
+      "selector": "/rows/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

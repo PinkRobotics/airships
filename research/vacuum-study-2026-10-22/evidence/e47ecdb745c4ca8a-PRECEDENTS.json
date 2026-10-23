@@ -1,0 +1,280 @@
+{
+  "unit": "vacuum-mainline062-buildable-shape-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "records": [
+    {
+      "id": "P062-ALMA",
+      "category": "adjustable radio reflector",
+      "build": "ALMA 12 m AEC and VertexRSI prototypes",
+      "diameter_m": 12,
+      "demonstrated_size_in_requested_range": true,
+      "RMS_mm": {
+        "AEC_summary": 0.017,
+        "Vertex_summary": 0.016,
+        "summary_uncertainty": 0.005,
+        "AEC_best_faulty_panel_excluded": 0.014
+      },
+      "accuracy_scope": "Holographically adjusted reflector; the best AEC figure excludes a faulty panel. No conversion to a maximum defect or full unmasked acceptance.",
+      "largest_local_dimple_mm": null,
+      "local_dimple_span_m": null,
+      "missing_metric_reason": "No largest inward dimple with its spatial span established from this record.",
+      "mechanism": "AEC: 120 nickel-skin aluminum-honeycomb panels, five adjusters each; Vertex: 264 machined aluminum panels, eight adjusters. Ground-supported backup structures.",
+      "areal_mass_kg_m2": {
+        "AEC_whole_antenna": 707.355302630646,
+        "Vertex_whole_antenna": 954.9296585513721
+      },
+      "mass_basis": "80 t and 108 t whole antennas divided by pi*6^2 projected m2; panel-only mass not established.",
+      "cost_per_m2": 48453.838230199246,
+      "cost_currency_year": "USD, year 2000",
+      "cost_basis": "NSF 2006 review: 137M USD2000, no contingency, for 25 North American antennas. Whole-antenna procurement, not the AEC prototype or a panel quote.",
+      "transfer": "Transfers panel metrology and adjustable assembly methods. Accuracy relies on support; does not show that an unsupported bonded Be pressure sphere keeps the shape.",
+      "sources": [
+        {
+          "url": "https://arxiv.org/pdf/astro-ph/0609329",
+          "local_path": "sources/alma-prototypes.pdf",
+          "locator": "PDF pp.6, 8, 12, 14",
+          "sha256": "d1f8e416a8afe353375463a03151b578cde7b2a7917065b7d029a7db314feb3d",
+          "bytes": 4113380
+        },
+        {
+          "url": "https://www.nrao.edu/archives/files/original/b60d725dc7b817249207f6b1fa146173.pdf",
+          "local_path": "sources/alma-cost-review.pdf",
+          "locator": "PDF pp.15, 20",
+          "sha256": "5093137b9077f563baa4dd4f63b7c06ea2a7e2f2532b1104b5b8828ae38bc80c",
+          "bytes": 170552
+        }
+      ],
+      "assessment_tag": "QUESTIONABLE transfer / PROJECTION application",
+      "null_policy": "Unknown or not established in the inspected record; never zero."
+    },
+    {
+      "id": "P062-GBT",
+      "category": "active radio reflector",
+      "build": "Green Bank Telescope",
+      "diameter_m": 100,
+      "physical_aperture_axes_m": [
+        100,
+        110
+      ],
+      "demonstrated_size_in_requested_range": "100 m effective diameter; one physical axis is 110 m",
+      "RMS_mm": 0.22,
+      "accuracy_scope": "Ruze-equivalent surface RMS inferred from measured efficiency; not a bound on each local defect.",
+      "largest_local_dimple_mm": null,
+      "local_dimple_span_m": null,
+      "missing_metric_reason": "No maximum inward deviation and corresponding span established.",
+      "mechanism": "2004 panels with active surface on a large ground-supported moving structure.",
+      "areal_mass_kg_m2": 980.3921568627451,
+      "mass_basis": "7.7 million kg moving structure divided by 7854 projected m2; not reflector skin mass.",
+      "cost_per_m2": null,
+      "cost_currency_year": null,
+      "cost_basis": "A comparable primary-source procurement breakdown was not established in the inspected sources; unknown, not zero.",
+      "transfer": "Transfers active measurement/correction concepts. Directly carrying the supporting structure is incompatible with the inherited flight bill. Passive retention after removal is unproved.",
+      "sources": [
+        {
+          "url": "https://www.gb.nrao.edu/GBT/Performance/PlaningObservations.htm",
+          "local_path": "sources/gbt-performance.html",
+          "locator": "Surface accuracy and aperture efficiency sections",
+          "sha256": "b107ede9b71d1543fb8b0aa798298e9f4782e4441cea9edfa6b623117f88ebe9",
+          "bytes": 21951
+        },
+        {
+          "url": "https://www.nrao.edu/greenbank/2010brochure.pdf",
+          "local_path": "sources/gbt-facts.pdf",
+          "locator": "Telescope specifications",
+          "sha256": "e63d706eb9b8bdd4a0d9bcb6a6003b8754aa8489466ec2878ddcdf0556aeabdd",
+          "bytes": 2206687
+        }
+      ],
+      "assessment_tag": "QUESTIONABLE transfer / PROJECTION application",
+      "null_policy": "Unknown or not established in the inspected record; never zero."
+    },
+    {
+      "id": "P062-SII",
+      "category": "launch-vehicle sandwich dome",
+      "build": "Saturn S-II common bulkhead",
+      "diameter_m": 10.06,
+      "demonstrated_size_in_requested_range": true,
+      "RMS_mm": null,
+      "largest_local_dimple_mm": null,
+      "local_dimple_span_m": null,
+      "other_accuracy_mm": {
+        "core_to_face_fit": 0.254
+      },
+      "accuracy_scope": "0.010 inch fit of machined core to face sheets; not a global contour RMS or an external-surface local-dimple maximum.",
+      "missing_metric_reason": "No admissible conversion from bond fit to a free-standing shell shape bound.",
+      "mechanism": "Matched core profiling and bonded dome assembly.",
+      "areal_mass_kg_m2": null,
+      "mass_basis": "Matched complete bulkhead mass and area not established from the inspected passage.",
+      "cost_per_m2": null,
+      "cost_currency_year": null,
+      "cost_basis": "No matched production cost established.",
+      "transfer": "Useful manufacturing fit precedent, but its material, bond, thermal history, supports and loads differ. The 042 gamma 0.21–0.22 belongs to a separate hemisphere evidence chain, not automatically this flight bulkhead.",
+      "sources": [
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/19720008130/downloads/19720008130.pdf",
+          "local_path": "sources/sii-lessons.pdf",
+          "locator": "PDF p.296, printed p.4-45",
+          "sha256": "bb091302c2ada4486232578865190bee02d415bea74a80c851cc5db6a9586b54",
+          "bytes": 39308402
+        }
+      ],
+      "assessment_tag": "QUESTIONABLE transfer / PROJECTION application",
+      "null_policy": "Unknown or not established in the inspected record; never zero."
+    },
+    {
+      "id": "P062-SPIN",
+      "category": "spun dome",
+      "build": "NASA spun aluminum/FSW production examples and Orion dome fabrication",
+      "diameter_m": 5.5,
+      "demonstrated_size_in_requested_range": true,
+      "RMS_mm": null,
+      "largest_local_dimple_mm": null,
+      "local_dimple_span_m": null,
+      "accuracy_scope": "2012 presentation identifies applications up to 5.5 m. The separate 2016 fabrication record reports template/profile inspection without a numerical RMS or local-dimple bound.",
+      "missing_metric_reason": "No sourced 0.1–5 mm maximum deviation proved for the 5.5 m example. Separate records are not one measured article.",
+      "mechanism": "Spinning/stretching and friction-stir welded aluminum blanks, followed by contour inspection.",
+      "areal_mass_kg_m2": null,
+      "mass_basis": "Matched finished mass/area not established.",
+      "cost_per_m2": null,
+      "cost_currency_year": null,
+      "cost_basis": "Matched production price not established.",
+      "transfer": "Supports large-dome forming capability only. Aluminum forming performance does not establish Be sheet ductility, springback, gauge loss or sandwich cure shape.",
+      "sources": [
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/20120014531/downloads/20120014531.pdf",
+          "local_path": "sources/spin-2012.pdf",
+          "locator": "PDF p.23",
+          "sha256": "3d306cbd391d59875db7f1b3997d5ff0192b84705131f5d46ed861d3c9660532",
+          "bytes": 7466401
+        },
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/20160003616/downloads/20160003616.pdf",
+          "local_path": "sources/spin-2016.pdf",
+          "locator": "PDF pp.32, 36",
+          "sha256": "7edc0fc9dd060e1e8330668c8a14cdf10fa4be89d3925b617163598fedc2cf11",
+          "bytes": 14821362
+        }
+      ],
+      "assessment_tag": "QUESTIONABLE transfer / PROJECTION application",
+      "null_policy": "Unknown or not established in the inspected record; never zero."
+    },
+    {
+      "id": "P062-STRETCH",
+      "category": "stretch-formed dome, scale exclusion",
+      "build": "NASA 1974 gore development for an 8.387 m dome",
+      "diameter_m": 3.048,
+      "target_full_scale_diameter_m": 8.387,
+      "demonstrated_size_in_requested_range": false,
+      "RMS_mm": null,
+      "largest_local_dimple_mm": null,
+      "local_dimple_span_m": null,
+      "other_accuracy_mm": {
+        "trimmed_gore_A_base_die_gap": 12.7,
+        "trimmed_gore_A_nose_die_gap": 0.7874
+      },
+      "accuracy_scope": "A 36.3%-scale test article, not a demonstrated 8.387 m shell. Reported local die-fit gaps are not surface RMS or inward-dimple bounds.",
+      "missing_metric_reason": "This test is below the requested 5 m lower bound and does not establish full-size retained shape.",
+      "mechanism": "Stretch-forming dome gores, trimming and die-fit assessment.",
+      "areal_mass_kg_m2": null,
+      "mass_basis": "Comparable full-size finished hull mass not established.",
+      "cost_per_m2": null,
+      "cost_currency_year": null,
+      "cost_basis": "The study includes a production cost analysis, but no directly comparable qualified finished sphere cost is extracted; this field remains unknown.",
+      "transfer": "Shows springback and trimming must be measured. It cannot justify a blanket 1–5 mm full-size dome claim.",
+      "sources": [
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/19740023230/downloads/19740023230.pdf",
+          "local_path": "sources/stretch-1974.pdf",
+          "locator": "PDF pp.11, 22; printed p.2-15 for die-fit results",
+          "sha256": "6b9f1d58dfcf5fedc9bee943b6264bea75a6c46a36415cb6b2c17889efda46d0",
+          "bytes": 4381956
+        }
+      ],
+      "assessment_tag": "QUESTIONABLE transfer / PROJECTION application",
+      "null_policy": "Unknown or not established in the inspected record; never zero."
+    },
+    {
+      "id": "P062-WEBB",
+      "category": "segmented beryllium mirror",
+      "build": "JWST 6.5 m primary, 18 segments",
+      "diameter_m": 6.5,
+      "segment_flat_to_flat_m": 1.32,
+      "demonstrated_size_in_requested_range": true,
+      "RMS_mm": 2e-05,
+      "accuracy_scope": "20 nm RMS cryogenic segment figure, not a whole-hull geometric RMS or local-dimple bound. This is far better than 0.1 mm but under a different metric and support arrangement.",
+      "largest_local_dimple_mm": null,
+      "local_dimple_span_m": null,
+      "missing_metric_reason": "No applicable maximum pressure-hull defect/span reported.",
+      "mechanism": "Lightweighted Be mirror bodies with segment positioning and curvature control.",
+      "areal_mass_kg_m2": 14.4,
+      "mass_basis": "18*20 kg mirror bodies / 25 m2 unobscured collecting area; excludes actuators and backplane.",
+      "cost_per_m2": null,
+      "cost_currency_year": null,
+      "cost_basis": "Mirror fabrication cost not established. Total mission budget is not treated as a mirror price.",
+      "transfer": "Shows precision Be metrology and fabrication. Ribbed mirror bodies differ from SR-200 bonded thin faces, and the uncharged supports/control do not disappear on transfer.",
+      "sources": [
+        {
+          "url": "https://ntrs.nasa.gov/api/citations/20200001556/downloads/20200001556.pdf",
+          "local_path": "sources/webb-mission.pdf",
+          "locator": "PDF p.4",
+          "sha256": "4d7ffecebfffed9dcd376c6372d0ab573312e587e71d497ccf481a6fa6ea64ec",
+          "bytes": 1774139
+        },
+        {
+          "url": "https://science.nasa.gov/wp-content/uploads/2024/08/webbmediakit.pdf",
+          "local_path": "sources/webb-media.pdf",
+          "locator": "Mirror segment specifications",
+          "sha256": "a7b6898ee1df1af202d91ee9ecb57c3866fc95760521e0edf9a9b6acd41db054",
+          "bytes": 29212099
+        },
+        {
+          "url": "https://science.nasa.gov/mission/webb/webbs-mirrors/",
+          "local_path": "sources/webb-mirrors.html",
+          "locator": "Primary mirror and segment descriptions",
+          "sha256": "7dea844e494bb028470c4d7d9ddb45d780f32d155000c657cfab422375aa0e3b",
+          "bytes": 415040
+        }
+      ],
+      "assessment_tag": "QUESTIONABLE transfer / PROJECTION application",
+      "null_policy": "Unknown or not established in the inspected record; never zero."
+    },
+    {
+      "id": "P062-KECK",
+      "category": "segmented optical mirror",
+      "build": "Keck 10 m, 36 primary segments",
+      "diameter_m": 10,
+      "segment_span_m": 1.8,
+      "demonstrated_size_in_requested_range": true,
+      "RMS_mm": null,
+      "largest_local_dimple_mm": null,
+      "local_dimple_span_m": null,
+      "accuracy_scope": "The inspected operator record supplies segmentation and mass, not a suitable complete contour RMS/local-dimple pair. Relative alignment precision is not substituted for surface RMS.",
+      "missing_metric_reason": "No applicable maximum defect/span established.",
+      "mechanism": "Actively aligned segments on a ground-supported telescope.",
+      "areal_mass_kg_m2": 183.34649444186343,
+      "mass_basis": "36*400 kg / (pi*5^2) nominal aperture area; segments only, excluding the supporting telescope.",
+      "cost_per_m2": null,
+      "cost_currency_year": null,
+      "cost_basis": "Foundation gifts in the annual report are funding amounts, not a segmented-mirror procurement breakdown; no price/m2 inferred.",
+      "transfer": "Transfers segment measurement/alignment practice. Direct mass and continuous pressure-boundary requirements rule out simple copying.",
+      "sources": [
+        {
+          "url": "https://keckobservatory.org/a_mirrors_perfect_reflection/",
+          "local_path": "sources/keck-mirrors.html",
+          "locator": "Segment count, size and mass",
+          "sha256": "df25bb2177e3e8aeb97e02bb930801f13791503e21cc43702ea7f838db282901",
+          "bytes": 133629
+        },
+        {
+          "url": "https://www.keckobservatory.org/wp-content/uploads/2017/09/annual-report-2012.pdf",
+          "local_path": "sources/keck-report2012.pdf",
+          "locator": "PDF p.14, founding gifts",
+          "sha256": "d192149d4c6d69a05c1fe0c2f33d415f719722a29c1b1052a56dd4ea558640e6",
+          "bytes": 4505618
+        }
+      ],
+      "assessment_tag": "QUESTIONABLE transfer / PROJECTION application",
+      "null_policy": "Unknown or not established in the inspected record; never zero."
+    }
+  ]
+}

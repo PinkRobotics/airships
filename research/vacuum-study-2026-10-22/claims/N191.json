@@ -1,0 +1,88 @@
+{
+  "id": "N191",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N191",
+    "report": "rpt-ref-3e02218a03708a878faa",
+    "card": "MAINLINE-020",
+    "file": "evidence/72e91c4df6df4236-NFI.json",
+    "row_id": "NFI-020-CONTROLLED-PROCESS-COST",
+    "fields": {
+      "id": "NFI-020-CONTROLLED-PROCESS-COST",
+      "rank": 6,
+      "tag": "QUESTIONABLE",
+      "claim": "Controlled fabrication costs are an explicit open procurement item.",
+      "optimistic": {
+        "route": "existing equipped contractor",
+        "owner_allowance_fraction_of_conversion_F": 0.1
+      },
+      "conservative": {
+        "route": "dedicated controlled capacity",
+        "owner_allowance_fraction_of_conversion_F": 0.3,
+        "separate_capital_C_USD": null
+      },
+      "sources": [
+        {
+          "id": "S08",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1024"
+        }
+      ],
+      "needed_to_ground": "Specify jurisdiction and process steps; get a contractor quote including enclosure/extraction or wet processing, exposure assessment, waste/hygiene and surveillance obligations. Price F and C separately.",
+      "effect_on_lead": "Adds process and capital burdens without stopping this estimate card. Cost multipliers are assumptions, not OSHA charges or a substitute for the actual exposure-control specification.",
+      "closed_by_this_card": false
+    }
+  },
+  "claim": "Controlled fabrication costs are an explicit open procurement item.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/190"
+    },
+    {
+      "report": "rpt-ref-3e02218a03708a878faa",
+      "artifact": "evidence/72e91c4df6df4236-NFI.json",
+      "snapshot": "evidence/72e91c4df6df4236-NFI.json",
+      "sha256": "72e91c4df6df423644151b05eede28320435690d46ff64a0ae2e2b7459d26aba",
+      "bytes": 12646,
+      "selector": "source row ID: NFI-020-CONTROLLED-PROCESS-COST"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-3e02218a03708a878faa",
+          "artifact": "evidence/72e91c4df6df4236-NFI.json",
+          "snapshot": "evidence/72e91c4df6df4236-NFI.json",
+          "sha256": "72e91c4df6df423644151b05eede28320435690d46ff64a0ae2e2b7459d26aba",
+          "bytes": 12646,
+          "selector": "source row ID: NFI-020-CONTROLLED-PROCESS-COST"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/190"
+          }
+        ]
+      }
+    }
+  ]
+}

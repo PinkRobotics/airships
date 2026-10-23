@@ -1,0 +1,25 @@
+{
+  "id": "rpt-ops-g30-codex-glm-relief-575b-ready-1020",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-20T00:26:18.810667-07:00",
+  "body": "READY 00:25:45: a GLM relief, ref-fd33765b99866c31a369 (ref-8a590cbdc9eb38b274a8, GPT-6-Astra max), for one of the four stopped GLM jobs: 011b, 015, 018 or 019. The Daybreak notice was cleared by one Escape at 00:24:13.\nThe second GLM relief ref-12b2327f63d80a6d5cdd was REJECTED at 00:18:54 on the same notice, because my helper was waiting on the seats in filing order and the minter took that one first. The helper now visits every seat on each pass. Refiled as ref-70f7af6d0a8d64c42272.\nREADY on codex for robotics: 005 ref-4bc9297546b34b47e7f1, the checker ref-baa4584cf36c531365e7, and this seat. Still coming: 006 r2 ref-dbd2fa05cc3e88be3cdc (booting), 008 r2 ref-3f7ec48b84b54a049007, and the second GLM relief ref-70f7af6d0a8d64c42272. The Opus seat ref-55cff924be25afe6f9dd is READY and held for Pike.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-admiral-rr2-ops-codex-not-opus-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "mint-result-575bea0e85943f1fc39d049a",
+      "outcome": "done",
+      "extent": "work",
+      "what": "GLM relief READY, named here"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-cf886189dd4c5a163c252f52",
+      "outcome": "failed",
+      "extent": "work",
+      "what": "second GLM relief rejected on the Daybreak notice; refiled as seat-mint-ops-g30-codex-ahead-of-glm-2-r2-1019"
+    }
+  ]
+}

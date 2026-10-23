@@ -1,0 +1,70 @@
+{
+  "id": "N167",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N167",
+    "report": "rpt-ref-44f9940325e236cb80b3",
+    "card": "MAINLINE-013",
+    "file": "evidence/fe5e5ec3daad9605-NFI.json",
+    "row_id": "NFI-013-WRINKLE-LEVEL",
+    "fields": {
+      "id": "NFI-013-WRINKLE-LEVEL",
+      "issue": "The wrinkling-precision gap, carried as 009 and 014 carry it: design coefficients (continuum 0.50, CR-1457 eq 2.2-5; honeycomb 0.33, eq 2.2-14) against classical ones (0.76, NASA/CR-1999-208994 Table 3; 0.82, eq 2.2-12).",
+      "numbers": "The product need falls to 0.285 at 0.76 (a factor 3.51); the honeycomb Ec need falls to 0.162 at 0.82 (6.17). No verdict in this card moves.",
+      "closes_when": "a representative wrinkling test fixes the coefficient for the chosen face and core."
+    }
+  },
+  "claim": "The wrinkling-precision gap, carried as 009 and 014 carry it: design coefficients (continuum 0.50, CR-1457 eq 2.2-5; honeycomb 0.33, eq 2.2-14) against classical ones (0.76, NASA/CR-1999-208994 Table 3; 0.82, eq 2.2-12).",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/166"
+    },
+    {
+      "report": "rpt-ref-44f9940325e236cb80b3",
+      "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+      "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+      "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+      "bytes": 9230,
+      "selector": "source row ID: NFI-013-WRINKLE-LEVEL"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-44f9940325e236cb80b3",
+          "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+          "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+          "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+          "bytes": 9230,
+          "selector": "source row ID: NFI-013-WRINKLE-LEVEL"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/166"
+          }
+        ]
+      }
+    }
+  ]
+}

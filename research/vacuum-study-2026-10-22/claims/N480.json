@@ -1,0 +1,74 @@
+{
+  "id": "N480",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N480",
+    "report": "rpt-ref-490f8e9228d526b69dc8",
+    "card": "CHECK-030",
+    "file": "evidence/c637ae242ae817f5-NFI.json",
+    "snapshot": "evidence/c637ae242ae817f5-NFI.json",
+    "source_sha256": "c637ae242ae817f556f21743c6edbf6c0c02b4638e18b8aa9443f2ad245b6037",
+    "source_json_pointer": "/rows/0",
+    "row_id": "NFI-030-COEFF-106",
+    "fields": {
+      "id": "NFI-030-COEFF-106",
+      "issue": "REGISTER.md writes the smeared half-wave as pi*sqrt(1.06*rg*R). The stored waves match pi*sqrt((3/4)*rg_section*R), which is pi*sqrt(1.06066*rg_thin*R). Using the printed 1.06 with the stored thin-ring rg shortens the 022b wave by 1.094 mm, from 3.514184 m to 3.513090 m.",
+      "consequence": "The ratio stays 0.571 at s 6.15 m and 1.481 at s 2.04 m. The half-wave is still shorter than the 6.15 m member, so 022b's continuum optimum stays outside the band. This does not stop the card.",
+      "next": "Write 1.06066, or 3/4 on the section radius of gyration, in the sentence that cites CONTINUUM.json."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "REGISTER.md writes the smeared half-wave as pi*sqrt(1.06*rg*R). The stored waves match pi*sqrt((3/4)*rg_section*R), which is pi*sqrt(1.06066*rg_thin*R). Using the printed 1.06 with the stored thin-ring rg shortens the 022b wave by 1.094 mm, from 3.514184 m to 3.513090 m.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/479"
+    },
+    {
+      "report": "rpt-ref-490f8e9228d526b69dc8",
+      "artifact": "evidence/c637ae242ae817f5-NFI.json",
+      "snapshot": "evidence/c637ae242ae817f5-NFI.json",
+      "sha256": "c637ae242ae817f556f21743c6edbf6c0c02b4638e18b8aa9443f2ad245b6037",
+      "bytes": 1158,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-490f8e9228d526b69dc8",
+          "artifact": "evidence/c637ae242ae817f5-NFI.json",
+          "snapshot": "evidence/c637ae242ae817f5-NFI.json",
+          "sha256": "c637ae242ae817f556f21743c6edbf6c0c02b4638e18b8aa9443f2ad245b6037",
+          "bytes": 1158,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/479"
+          }
+        ]
+      }
+    }
+  ]
+}

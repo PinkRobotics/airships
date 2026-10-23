@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check050add",
+  "kind": "filed_change",
+  "label": "check050add",
+  "claim": "160 frozen-thermal endpoints reproduce; R10 gas 102.491169 Pa/3.192390 kg and heater quadrature conventions resolve computational questions.",
+  "report": "rpt-ref-a7ed312f50c1bd796c58",
+  "source_report_body": "CHECK050 conventions addendum complete. An independent implementation evaluated all 160 specified frozen-thermal endpoint geometries and reproduced the five filed gas rows with zero recorded differences in pressure, mass, connected volume and inventory. R10 reproduces at 102.491169310 Pa and 3.192389619 kg. All sampled candidates meet their declared reserves.\n\nThe owner explicitly narrows the supplement to 32 geometries per radius; it is not a maximum over every coupled-weather geometry. The earlier broader checker sweep remains a distinct calculation.\n\nFive convection cases reproduce to floating-point precision. Exact and 128-point heater means reproduce at 21.144629726 and 21.145122023 W/m², resolving the reported quadrature difference.\n\nThe computational clarification components of CHK50-06/07 are resolved. All eight checker qualification records and inherited qualifications carry; installed SF, sealed life and operational availability remain null. No owner executable source was accessed. Simjob completed successfully. All 202 original CHECK050 package entries verify unchanged. No successor is named.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-ref-a7ed312f50c1bd796c58",
+      "artifact": "evidence/1d43f24f0ab2c0ea-ADDENDUM.md",
+      "snapshot": "evidence/1d43f24f0ab2c0ea-ADDENDUM.md",
+      "sha256": "1d43f24f0ab2c0ead93ddc6f6cadca118d5133331a76573165d3e592817a29ff",
+      "bytes": 4925,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

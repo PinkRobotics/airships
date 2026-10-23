@@ -1,0 +1,70 @@
+{
+  "id": "N146",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N146",
+    "report": "rpt-ref-58b2bed18db2449100f2",
+    "card": "MAINLINE-010",
+    "file": "evidence/21991360c704a696-NFI.json",
+    "row_id": "NFI-010-ISA",
+    "fields": {
+      "NFI_id": "NFI-010-ISA",
+      "gap": "ISA is a standard column, not weather. The 500 m point matches the pinned case within 0.1 Pa; other altitudes are the same formula, QUESTIONABLE.",
+      "direction": "Fly a measured column when a site is named.",
+      "effect": "Lever 2 numbers move with the real lapse and pressure."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-010-ISA\", \"gap\": \"ISA is a standard column, not weather. The 500 m point matches the pinned case within 0.1 Pa; other altitudes are the same formula, QUESTIONABLE.\", \"direction\": \"Fly a measured column when a site is named.\", \"effect\": \"Lever 2 numbers move with the real lapse and pressure.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/145"
+    },
+    {
+      "report": "rpt-ref-58b2bed18db2449100f2",
+      "artifact": "evidence/21991360c704a696-NFI.json",
+      "snapshot": "evidence/21991360c704a696-NFI.json",
+      "sha256": "21991360c704a6963bbe0fcadb5e8e11e70b3a78a3481b1f161efb451a5116e0",
+      "bytes": 1558,
+      "selector": "source row ID: NFI-010-ISA"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58b2bed18db2449100f2",
+          "artifact": "evidence/21991360c704a696-NFI.json",
+          "snapshot": "evidence/21991360c704a696-NFI.json",
+          "sha256": "21991360c704a6963bbe0fcadb5e8e11e70b3a78a3481b1f161efb451a5116e0",
+          "bytes": 1558,
+          "selector": "source row ID: NFI-010-ISA"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/145"
+          }
+        ]
+      }
+    }
+  ]
+}

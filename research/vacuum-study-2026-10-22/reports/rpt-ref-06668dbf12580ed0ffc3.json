@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-06668dbf12580ed0ffc3",
+  "unit": "vacuum-mainline015-kd-precision-1019",
+  "at": "2026-10-20T00:22:36-07:00",
+  "body": "MAINLINE-015 knockdown against shape precision. Built on the glm partial. Own arithmetic is kd.py. compute.py was not run. t_eq = sqrt(3)(d+tf) matches the radius of gyration. On P2-E, t_eq is 0.197052 m and the wavelength is 1.404 m. The narrow-branch fit inverts to 6.36 mm, 36.2 mm and 118 mm at kd 0.9, 0.7 and 0.5. The floor is 0.45, so kd 0.2 and 0.3 do not invert. The worst-width plateau is 0.2338. One thickness anchors kd 0.2 at 197.052 mm on P2-E. kd 0.3 is on the unretrieved rising branch: the amplitude is below one t_eq and is not a sourced pair.\n\n014b beryllium on CR-III 5056 at 1.6 pcf reproduces least SF 0.668649769508548 by global buckling. Face 0.693 mm, core 41.55 mm, t_eq 73.17 mm, R/t 136.7, wavelength 0.855 m. kd 0.9 is 2.36 mm, single-dimple RMS 0.10 mm. The kd 0.3 ceiling is 73.17 mm. Global buckling alone reaches 1 at kd 0.2991. Wrinkling is 0.6688 and does not scale, so the least factor stays 0.6688. Re-optimising the core crosses 1 at kd 0.519 by yield. 014 beryllium on HRH-10 has t_eq 39.05 mm on the crimp branch, where kd does not enter.\n\nAgainst a 0.25 mm assembled surface, P2-E at kd 0.9 is looser on amplitude and RMS. On the aluminium point the 0.10 mm RMS ask is tighter. NFI-015-KD03-AMPLITUDE and NFI-015-BE-WRINKLING. No next job is named.",
+  "artifacts": [
+    {
+      "path": "evidence/65d25de349b95c0b-CARD.md",
+      "sha256": "65d25de349b95c0bcf38b5787372233fa70cac4c71295bb7c76abdd12ad35efd",
+      "bytes": 5661
+    },
+    {
+      "path": "evidence/9caaf013c165487e-owner015.json",
+      "sha256": "9caaf013c165487e6b0804258bfd9a7038317c3629cd74f383438c40141969f3",
+      "bytes": 40574
+    },
+    {
+      "path": "evidence/32fd0bf058dd6218-NFI.json",
+      "sha256": "32fd0bf058dd6218c0c22c124cdaabe5452a14c1dcc3e6dcb239e3b4bc604d82",
+      "bytes": 6822
+    },
+    {
+      "path": "evidence/5cc941f3f2ec544a-INPUTS.json",
+      "sha256": "5cc941f3f2ec544a46f87278ba44e00f415d84e17d7a34193b17731b4340f37e",
+      "bytes": 3832
+    },
+    {
+      "path": "evidence/ac9986bca29d3de2-kd.py",
+      "sha256": "ac9986bca29d3de2b74148bd5a433c268c94a7854a99a270ef99e327fd4e6b99",
+      "bytes": 18369
+    }
+  ],
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-mainline015-rotated-grok-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline015-rotated-grok-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "started_at": "2026-10-20T05:07:23-07:00",
+  "packaged_at": "2026-10-20T05:33:49.002787-07:00",
+  "policy": "scientific jobs admitted; no admission refusal; no foreign executable",
+  "initial_help_probe": "tools/simjob.py run --help returned usage64 before calculations; not an admission attempt",
+  "runs": [
+    {
+      "receipt_file": "inspect.execution.json",
+      "tag": "inspect",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/inspect_data.py"
+      ],
+      "started_at": "2026-10-20T05:14:56.431188-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/inspect_data.py",
+          "sha256": "4844f3aa72a26405efe411815371229cf7c1d457a32639b648cf376069eff15b"
+        }
+      ],
+      "ended_at": "2026-10-20T05:14:56.671732-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "receipt_file": "primary-corrected.execution.json",
+      "tag": "primary-corrected",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/run52.py"
+      ],
+      "started_at": "2026-10-20T05:22:46.859285-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:f18542515be2241e",
+          "sha256": "2e3dcabf6896e839ed80b0c0e76781f5d072a172533eba91d6cc61bf40467f03"
+        },
+        {
+          "path": "unpublished-local-ref:4f141fd5b2352192",
+          "sha256": "4844f3aa72a26405efe411815371229cf7c1d457a32639b648cf376069eff15b"
+        },
+        {
+          "path": "unpublished-local-ref:232e84532362e30f",
+          "sha256": "eacc351ea4d180da01d260954424a52601abd58442cd85ebe57bd8c4d5e639b5"
+        },
+        {
+          "path": "unpublished-local-ref:4592a9890a4acf01",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        },
+        {
+          "path": "unpublished-local-ref:510fcafd2c87b245",
+          "sha256": "cb3de1be6772de2caa1981e90ea12f13a9bc287679bf0f8a01574100894a9746"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/run52.py",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        }
+      ],
+      "ended_at": "2026-10-20T05:22:47.678946-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "receipt_file": "primary-final.execution.json",
+      "tag": "primary-final",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/run52.py"
+      ],
+      "started_at": "2026-10-20T05:24:44.930905-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:f18542515be2241e",
+          "sha256": "2e3dcabf6896e839ed80b0c0e76781f5d072a172533eba91d6cc61bf40467f03"
+        },
+        {
+          "path": "unpublished-local-ref:4f141fd5b2352192",
+          "sha256": "4844f3aa72a26405efe411815371229cf7c1d457a32639b648cf376069eff15b"
+        },
+        {
+          "path": "unpublished-local-ref:232e84532362e30f",
+          "sha256": "45491c9c38fec4a057c3234a7373a9be5635923cfae71bc9017fb9bbfcfde13e"
+        },
+        {
+          "path": "unpublished-local-ref:4592a9890a4acf01",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        },
+        {
+          "path": "unpublished-local-ref:510fcafd2c87b245",
+          "sha256": "7e4e7a91dc9e60184b4812d287907a795494b3f29a93cd989bcf02a83f636beb"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/run52.py",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        }
+      ],
+      "ended_at": "2026-10-20T05:24:45.707048-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "receipt_file": "primary.execution.json",
+      "tag": "primary",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/run52.py"
+      ],
+      "started_at": "2026-10-20T05:18:49.884116-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/run52.py",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        }
+      ],
+      "ended_at": "2026-10-20T05:18:50.682111-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "receipt_file": "render.execution.json",
+      "tag": "render",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/render52.py"
+      ],
+      "started_at": "2026-10-20T05:31:28.380935-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:f18542515be2241e",
+          "sha256": "2e3dcabf6896e839ed80b0c0e76781f5d072a172533eba91d6cc61bf40467f03"
+        },
+        {
+          "path": "unpublished-local-ref:4f141fd5b2352192",
+          "sha256": "4844f3aa72a26405efe411815371229cf7c1d457a32639b648cf376069eff15b"
+        },
+        {
+          "path": "unpublished-local-ref:232e84532362e30f",
+          "sha256": "45491c9c38fec4a057c3234a7373a9be5635923cfae71bc9017fb9bbfcfde13e"
+        },
+        {
+          "path": "unpublished-local-ref:ffb0b642f609759b",
+          "sha256": "dcc17073b2d41b86c97368166c3b7b2eafd5765f77c224122e911d95c77cc210"
+        },
+        {
+          "path": "unpublished-local-ref:4592a9890a4acf01",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        },
+        {
+          "path": "unpublished-local-ref:510fcafd2c87b245",
+          "sha256": "7e4e7a91dc9e60184b4812d287907a795494b3f29a93cd989bcf02a83f636beb"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/render52.py",
+          "sha256": "dcc17073b2d41b86c97368166c3b7b2eafd5765f77c224122e911d95c77cc210"
+        }
+      ],
+      "ended_at": "2026-10-20T05:31:32.364204-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "receipt_file": "validation-corrected.execution.json",
+      "tag": "validation-corrected",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/validate52.py"
+      ],
+      "started_at": "2026-10-20T05:22:51.533056-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:f18542515be2241e",
+          "sha256": "2e3dcabf6896e839ed80b0c0e76781f5d072a172533eba91d6cc61bf40467f03"
+        },
+        {
+          "path": "unpublished-local-ref:4f141fd5b2352192",
+          "sha256": "4844f3aa72a26405efe411815371229cf7c1d457a32639b648cf376069eff15b"
+        },
+        {
+          "path": "unpublished-local-ref:232e84532362e30f",
+          "sha256": "eacc351ea4d180da01d260954424a52601abd58442cd85ebe57bd8c4d5e639b5"
+        },
+        {
+          "path": "unpublished-local-ref:4592a9890a4acf01",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        },
+        {
+          "path": "unpublished-local-ref:510fcafd2c87b245",
+          "sha256": "cb3de1be6772de2caa1981e90ea12f13a9bc287679bf0f8a01574100894a9746"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/validate52.py",
+          "sha256": "cb3de1be6772de2caa1981e90ea12f13a9bc287679bf0f8a01574100894a9746"
+        }
+      ],
+      "ended_at": "2026-10-20T05:22:54.868117-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "receipt_file": "validation-final.execution.json",
+      "tag": "validation-final",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/validate52.py"
+      ],
+      "started_at": "2026-10-20T05:24:50.998743-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:f18542515be2241e",
+          "sha256": "2e3dcabf6896e839ed80b0c0e76781f5d072a172533eba91d6cc61bf40467f03"
+        },
+        {
+          "path": "unpublished-local-ref:4f141fd5b2352192",
+          "sha256": "4844f3aa72a26405efe411815371229cf7c1d457a32639b648cf376069eff15b"
+        },
+        {
+          "path": "unpublished-local-ref:232e84532362e30f",
+          "sha256": "45491c9c38fec4a057c3234a7373a9be5635923cfae71bc9017fb9bbfcfde13e"
+        },
+        {
+          "path": "unpublished-local-ref:4592a9890a4acf01",
+          "sha256": "c2c6594a0169c0954d716649ac5303193162a45aeba6cefc73764fa89c554215"
+        },
+        {
+          "path": "unpublished-local-ref:510fcafd2c87b245",
+          "sha256": "7e4e7a91dc9e60184b4812d287907a795494b3f29a93cd989bcf02a83f636beb"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/validate52.py",
+          "sha256": "7e4e7a91dc9e60184b4812d287907a795494b3f29a93cd989bcf02a83f636beb"
+        }
+      ],
+      "ended_at": "2026-10-20T05:24:54.416714-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "receipt_file": "validation.execution.json",
+      "tag": "validation",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/validate52.py"
+      ],
+      "started_at": "2026-10-20T05:21:13.724127-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:331b14c897890880",
+      "source_pins": [
+        {
+          "path": ".ship/work/outputs/vacuum-mainline052-p3-common-account-1020/validate52.py",
+          "sha256": "70b68fc146bc3df7b837b433333f26724310399c1be17962f50fddcccbcc014f"
+        }
+      ],
+      "ended_at": "2026-10-20T05:21:17.157439-07:00",
+      "exit_code": 1,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    }
+  ],
+  "live_scientific_jobs": 0,
+  "successor": "none"
+}

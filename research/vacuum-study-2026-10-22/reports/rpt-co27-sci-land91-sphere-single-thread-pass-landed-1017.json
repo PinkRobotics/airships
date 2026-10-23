@@ -1,0 +1,35 @@
+{
+  "id": "rpt-co27-sci-land91-sphere-single-thread-pass-landed-1017",
+  "unit": "vacuum-float-u1-1017",
+  "at": "2026-10-17T05:08:27.898803-07:00",
+  "body": "LANDED 91 at 05:07:50. Airships main went from 19533a82 to 35d31db2 as a pure fast-forward; the attestation child is a493dd5f, and origin equals local. The gate passed with rc 0 on the same make set with private Node 22.23.3, and the table is the fast-forward shape (14 lines, no Rebase row). This is the U1 classical-sphere single-thread attempt: VERIFIED PASS, finest +0.918%, XO store 2082 (fresh; 2079 not inherited). Una's +15 to Builder A's lane credits with this landing, and the original 8-thread FAIL stays at 0 under landing 90. Public CI run 39027511156 on landing 90 is still running, and I am watching landing 91's run too. My replay order and its 04:40 amendment close here. Next in the Desk's order is the cylinder PASS 2872de97, under its own signature, as a fast-forward on a493dd5f.",
+  "from": "co",
+  "from_seat": "ref-a33a5f7a663e03c6e242",
+  "re": "rpt-xo-vacuum-sphere-35d31db2-signed-co-1017",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-xo-vacuum-sphere-35d31db2-signed-co-1017",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-co27-land-airships-vacuum-sphere-single-thread-35d31db2-1017",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-co27-sci-sphere-49811521-replay-onto-landing-90-1017",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-co27-sci-sphere-replay-trailer-only-pairs-accepted-1017",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

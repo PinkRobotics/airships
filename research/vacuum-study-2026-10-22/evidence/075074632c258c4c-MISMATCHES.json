@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline034-check-1020",
+  "verdict": "Headline arithmetic reproduced; reconstruction assumptions and sensitivity scope require explicit carry. No physical qualification.",
+  "unresolved_numeric_mismatches_after_explicit_reconstruction": 0,
+  "initial_core_void_comparison": [
+    {
+      "path": "/geometry/P2/core_void_m3",
+      "owner": 37.31646143905225,
+      "independent": 37.62314376276223,
+      "difference_independent_minus_owner": 0.3066823237099854,
+      "tolerance": 9.46329228781045e-08,
+      "pass": false,
+      "category": "independently_derived"
+    },
+    {
+      "path": "/geometry/P2/unvented_core_air_kg",
+      "owner": 43.38771114998258,
+      "independent": 43.744289548973256,
+      "difference_independent_minus_owner": 0.35657839899067767,
+      "tolerance": 1.0677542229996517e-07,
+      "pass": false,
+      "category": "independently_derived"
+    },
+    {
+      "path": "/systems_ledger/P2_unvented_core_fraction_of_internal_gas_row",
+      "owner": 0.887375488189865,
+      "independent": 0.8946683119525318,
+      "difference_independent_minus_owner": 0.007292823762666822,
+      "tolerance": 2.177475097637973e-08,
+      "pass": false,
+      "category": "independently_derived"
+    }
+  ],
+  "reconciliation": "AF bond and splice displacement exactly explain all three initial differences. The inferred convention is recorded, not presented as measured geometry.",
+  "reconstruction_assumptions": "RECONSTRUCTION-ASSUMPTIONS.json",
+  "headline_comparisons": [
+    {
+      "material": "P2",
+      "quantity": "pressure_limit_days_instant_320K_envelope",
+      "owner_days": 398.2068550462282,
+      "independent_days": 398.2068550462282,
+      "difference_days": 0.0
+    },
+    {
+      "material": "P2",
+      "quantity": "gas_inventory_limit_days",
+      "owner_days": 464.86510958210783,
+      "independent_days": 464.86510958210823,
+      "difference_days": 3.979039320256561e-13
+    },
+    {
+      "material": "P3_Kapton",
+      "quantity": "pressure_limit_days_instant_320K_envelope",
+      "owner_days": 7.759671132385577,
+      "independent_days": 7.759671132383345,
+      "difference_days": -2.2319923687064147e-12
+    },
+    {
+      "material": "P3_Kapton",
+      "quantity": "gas_inventory_limit_days",
+      "owner_days": 13.971844856282772,
+      "independent_days": 13.97184485628276,
+      "difference_days": -1.2434497875801753e-14
+    },
+    {
+      "material": "P3_Zylon_barrier",
+      "quantity": "pressure_limit_days_instant_320K_envelope",
+      "owner_days": 19.48846474473061,
+      "independent_days": 19.488464744730603,
+      "difference_days": -7.105427357601002e-15
+    },
+    {
+      "material": "P3_Zylon_barrier",
+      "quantity": "gas_inventory_limit_days",
+      "owner_days": 35.831910446879164,
+      "independent_days": 35.83191044687926,
+      "difference_days": 9.947598300641403e-14
+    }
+  ],
+  "documentation_and_scope_findings": [
+    {
+      "id": "NFI-CHECK034-INPUT-COMPLETENESS",
+      "tag": "PROJECTION",
+      "finding": "Kapton includes 0.1 kg of unconditioned seals/titanium-surface release inventory in RESULTS, but INPUTS has no scalar for it. At the reference 10% retained fraction this contributes 0.01 kg to the 1.0249312800972046 kg residual inventory. The full-area AF bond also uses 1250 kg/m3 in the solid-volume reconstruction although INPUTS names that density only for scarf adhesive; 019/021b carry the same generic adhesive-density assumption. These are reconstructed assumptions, not measured material properties.",
+      "proposed_next": "Add named inputs for Kapton residual seals/surface inventory and AF bond density, with provenance and service-data tags. RECONSTRUCTION-ASSUMPTIONS.json makes both explicit here."
+    },
+    {
+      "id": "NFI-CHECK034-CORE-VOID-CONVENTION",
+      "tag": "QUESTIONABLE",
+      "finding": "The reported 37.31646143905225 m3 honeycomb void is recovered by subtracting full-area AF volume 0.2945010968475796 m3 and core splice volume 0.012181226862401973 m3 from A*t_core-core_mass/2700. Without that unstated placement convention the independent values are 37.62314376276223 m3, 43.744289548973256 kg trapped air, and 0.8946683119525318 of the gas allowance, versus filed 37.31646143905225 m3, 43.38771114998258 kg and 0.887375488189865. This is an unresolved manufactured-section convention, not a discrepancy in the quoted endurance calculation.",
+      "exact_initial_differences": [
+        {
+          "path": "/geometry/P2/core_void_m3",
+          "owner": 37.31646143905225,
+          "independent": 37.62314376276223,
+          "difference_independent_minus_owner": 0.3066823237099854,
+          "tolerance": 9.46329228781045e-08,
+          "pass": false,
+          "category": "independently_derived"
+        },
+        {
+          "path": "/geometry/P2/unvented_core_air_kg",
+          "owner": 43.38771114998258,
+          "independent": 43.744289548973256,
+          "difference_independent_minus_owner": 0.35657839899067767,
+          "tolerance": 1.0677542229996517e-07,
+          "pass": false,
+          "category": "independently_derived"
+        },
+        {
+          "path": "/systems_ledger/P2_unvented_core_fraction_of_internal_gas_row",
+          "owner": 0.887375488189865,
+          "independent": 0.8946683119525318,
+          "difference_independent_minus_owner": 0.007292823762666822,
+          "tolerance": 2.177475097637973e-08,
+          "pass": false,
+          "category": "independently_derived"
+        }
+      ],
+      "proposed_next": "Specify the reference core envelope and measured adhesive/fillet/splice displacements. Keep the two interpretations separate until a manufactured section establishes them."
+    },
+    {
+      "id": "NFI-CHECK034-AREA-SENSITIVITY-SCOPE",
+      "tag": "PROJECTION",
+      "finding": "The +10% area case multiplies film transmission only, leaving film mass, area-dependent outgassing inventory and barrier/attachment mass unchanged. It is a rate sensitivity at fixed inherited geometry, not a complete larger-area assembly. At fixed gauges, 10% more Kapton adds 98.12569224663257 kg; 10% more Zylon adds 21.717480701365734 kg structural fiber and 5.254627872394289 kg barrier/attachment. The Zylon vacuum/barrier/joint-bond subtotal becomes 96.87893676870814–116.87893676870814 kg, leaving only 3.1210632312918616 kg of the 100 kg line at the low bill. These illustrations are not a structural reoptimization.",
+      "numerical_detail": "AREA-SENSITIVITY-CHECK.json",
+      "proposed_next": "Label the existing case permeation-only, or consistently propagate actual manufactured area through film, barrier, attachment and release inventories before taking mass or endurance credit."
+    }
+  ]
+}

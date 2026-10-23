@@ -1,0 +1,44 @@
+{
+  "id": "E-9ad6bbb6ae96ef442326",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-9ad6bbb6ae96ef442326",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/0",
+    "row_id": "NFI-041-01",
+    "fields": {
+      "id": "NFI-041-01",
+      "status": "open",
+      "topic": "Full-size ceramic material and contact reliability",
+      "evidence": [
+        "SOURCES.md",
+        "RESULTS.json:best_closure_by_reserve",
+        "intake/technical/Hexoloy-SA.pdf"
+      ],
+      "finding": "The best 5% closure witness requires 1.164235 GPa extreme compression under the declared amplified-demand screen. The 3.9 GPa typical compression value and fixed 15.586 MPa tension reliability projection are not qualified allowables for long, thin curved arcs or their contacts. The vendor sheet gives E=430 GPa; the dispatched comparison retains E=410 GPa.",
+      "needed": "Production-representative arc and joint/contact tests, defect/size statistics, environmental durability, and a stated reliability model. Resolve the modulus edition and geometry transfer before claiming capacity.",
+      "prohibited_inference": "No qualified compression allowable or assembly failure probability follows from the reported required stress."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The best 5% closure witness requires 1.164235 GPa extreme compression under the declared amplified-demand screen. The 3.9 GPa typical compression value and fixed 15.586 MPa tension reliability projection are not qualified allowables for long, thin curved arcs or their contacts. The vendor sheet gives E=430 GPa; the dispatched comparison retains E=410 GPa.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

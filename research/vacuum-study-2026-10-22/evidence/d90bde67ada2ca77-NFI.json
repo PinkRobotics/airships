@@ -1,0 +1,96 @@
+{
+  "schema": 1,
+  "tag": "QUESTIONABLE",
+  "rows": [
+    {
+      "id": "NFI-026B-01",
+      "tag": "QUESTIONABLE",
+      "status": "computed_departure",
+      "owner": "sciences",
+      "issue": "Coarse-bay continuum departure",
+      "evidence": "Frequency4 linear 5.254643802 versus 6.193381346; frequency 2 2.183661359 versus 6.876245150. Last mesh changes below 0.0161%.",
+      "implication": "Use discrete frame results for these cases; no continuum applicability threshold is validated."
+    },
+    {
+      "id": "NFI-026B-02",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Freely pinned curved members roll",
+      "evidence": "Rigidity rank 3V-6; internal mechanisms1080/480/120 at frequencies 6/4/2, excluding six rigid motions.",
+      "implication": "Specify joint and film anti-roll restraint before assigning positive pinned reserve."
+    },
+    {
+      "id": "NFI-026B-03",
+      "tag": "QUESTIONABLE",
+      "status": "computed_correction",
+      "owner": "sciences",
+      "issue": "Rise eightfold does not reduce lattice thrust eightfold",
+      "evidence": "Frequency6 mean compression 538.899 kN at rise8 versus 550.519 kN at rise1; peak bending 4.248 GPa versus 0.059 GPa. Frozen spherical load gives513.844 kN and4.069 GPa.",
+      "implication": "Reject isolated supported-arch thrust reduction as a lattice-equilibrium rule. Elastic stresses exceed plausible capability."
+    },
+    {
+      "id": "NFI-026B-04",
+      "tag": "QUESTIONABLE",
+      "status": "unresolved",
+      "owner": "sciences",
+      "issue": "New nonlinear first instability not verified",
+      "evidence": "Nearest-zero triplets can skip an already-negative family. Frequency4 has eta 0.000165 at lambda  5.059945, then reports positive nearest-zero modes at5.080744. Raw final zero 5.082444 is not accepted as first loss; frequency 2 zero 2.218113 lacks an independent smallest-algebraic check.",
+      "implication": "Freshly authorized smallest-algebraic or inertia checks must find and refine earliest tangent loss. Do not use raw critical_lambda_estimate as a first-instability allowable."
+    },
+    {
+      "id": "NFI-026B-05",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Film shape, sag and material stiffness unresolved",
+      "evidence": "Fan load-transfer surface has no membrane material stiffness or solved equilibrium sag. Frequency4 omits sag charge; frequency 2 carries022b debit187.937933 kg.",
+      "implication": "Remaining payload301.391/301.814 kg is conditional; do not interpret uncharged sag as physically zero or substitute fan volume for actual lift."
+    },
+    {
+      "id": "NFI-026B-06",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Actual thin curved SiC sections, film and joints ungrounded",
+      "evidence": "E410 GPa comparison input; nu0.14. Film masses184.442/348.856 kg use the source projection; joints5% of tube+film+node mass.",
+      "implication": "Fabrication, ceramic defects, residual stress, joint compliance, seals and film strength need separate evidence. No certification."
+    },
+    {
+      "id": "NFI-026B-07",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Beam-only instability omits earlier failure modes",
+      "evidence": "No wall ovalization/local buckling, ceramic tensile fracture, bond failure, stress concentration or film failure. Unit-pressure stresses and prior026 material screens are retained.",
+      "implication": "Elastic frame factors are not physical structural allowables."
+    },
+    {
+      "id": "NFI-026B-08",
+      "tag": "QUESTIONABLE",
+      "status": "disclosed_stop",
+      "owner": "sciences",
+      "issue": "One optional static refinement refused by simjob",
+      "evidence": "frequency 6m24rise1 request:31 GiB charged+6 GiB requested exceeds36 GiB; exit75, nothing started. Other requests in the same already-submitted batch were admitted. All 16 admissions ended and released.",
+      "implication": "No retry/fallback/subsequent scientific launch. Paired m12 force/rise comparison complete; m24 rise-8 refinement complete. New numerical work requires fresh authority."
+    },
+    {
+      "id": "NFI-026B-09",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Finite grid, eigenvalue multiplicity and model scope",
+      "evidence": "Ordered cases change section and frequency; actual arc lengths differ from nominal source bay. Twelve modes do not guarantee every degenerate eigenvector. Initial-moment couplings and shear deformation omitted.",
+      "implication": "Coarse-grid discrepancy is established for these cases; do not infer a universal cutoff or uniquely attribute the difference to one mechanism."
+    },
+    {
+      "id": "NFI-026B-10",
+      "tag": "QUESTIONABLE",
+      "status": "computed_correction",
+      "owner": "sciences",
+      "issue": "Source-dependent mass conventions",
+      "evidence": "frequency 6 mass 4950.843 kg exceeds inherited lift61.401 kg; frequency 4/2 totals 4588.051/4399.690 kg. frequency 6 joints 5%tube systems 50; frequency 4/2 joints 5%(tube+film+nodes) systems 100.",
+      "implication": "Compare each case with its stated source allowances. Do not treat the three masses as an optimization under one common budget."
+    }
+  ]
+}

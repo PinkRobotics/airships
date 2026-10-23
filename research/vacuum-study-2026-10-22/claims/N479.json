@@ -1,0 +1,88 @@
+{
+  "id": "N479",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N479",
+    "report": "rpt-ref-a5374575ee8867fc8d2e",
+    "card": "rpt-ref-a5374575ee8867fc8d2e",
+    "file": "evidence/5a38cd8c393ec4c9-NFI.json",
+    "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+    "source_sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+    "source_json_pointer": "/findings/13",
+    "row_id": "NFI-015B-CHECK-LEE-CRITICAL-WIDTH",
+    "fields": {
+      "id": "NFI-015B-CHECK-LEE-CRITICAL-WIDTH",
+      "provenance": "new",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "status": "qualification",
+      "reported": "CARD treats k1–k5 as the RMS span at an amplitude obtained by inverting the lower envelope.",
+      "checked": {
+        "valid": "These are broad conditional geometric RMS bounds at that fixed amplitude under the stated area approximation.",
+        "limit": "Different widths generally have different knockdowns. The span is not an iso-knockdown curve and does not show that every width attains the requested kd.",
+        "source": "Lee section 7 and Fig. 6(c) supply the minimizing width kc(alpha); Eq. 23 alone omits this information.",
+        "radii": "Be-015 and Be-021b lie between the two computed R/t values; P2-E and Be-021 lie outside that interval. None exactly equals a computed radius."
+      },
+      "evidence": [
+        "unpublished-local-ref:bae7bfd366ef3415 section 7, Fig. 6(b,c), Eq. 23"
+      ],
+      "followup": "Label the range conditional geometric bounds; use the source critical-width curve, or new calculations, when an envelope-associated RMS is required."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "{\"id\": \"NFI-015B-CHECK-LEE-CRITICAL-WIDTH\", \"provenance\": \"new\", \"disposition\": \"non_blocking\", \"blocks_progress\": false, \"status\": \"qualification\", \"reported\": \"CARD treats k1–k5 as the RMS span at an amplitude obtained by inverting the lower envelope.\", \"checked\": {\"valid\": \"These are broad conditional geometric RMS bounds at that fixed amplitude under the stated area approximation.\", \"limit\": \"Different widths generally have different knockdowns. The span is not an iso-knockdown curve and does not show that every width attains the requested kd.\", \"source\": \"Lee section 7 and Fig. 6(c) supply the minimizing width kc(alpha); Eq. 23 alone omits this information.\", \"radii\": \"Be-015 and Be-021b lie between the two computed R/t values; P2-E and Be-021 lie outside that interval. None exactly equals a computed radius.\"}, \"evidence\": [\"unpublished-local-ref:bae7bfd366ef3415 section 7, Fig. 6(b,c), Eq. 23\"], \"followup\": \"Label the range conditional geometric bounds; use the source critical-width curve, or new calculations, when an envelope-associated RMS is required.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/478"
+    },
+    {
+      "report": "rpt-ref-a5374575ee8867fc8d2e",
+      "artifact": "evidence/5a38cd8c393ec4c9-NFI.json",
+      "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+      "sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+      "bytes": 14081,
+      "selector": "/findings/13"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-a5374575ee8867fc8d2e",
+          "artifact": "evidence/5a38cd8c393ec4c9-NFI.json",
+          "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+          "sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+          "bytes": 14081,
+          "selector": "/findings/13"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/478"
+          }
+        ]
+      }
+    }
+  ]
+}

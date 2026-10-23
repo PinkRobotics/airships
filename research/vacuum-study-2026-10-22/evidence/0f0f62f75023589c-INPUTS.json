@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline015b-kd-precision-fix-1020",
+  "card": "MAINLINE-015b",
+  "note": "Own arithmetic in map015b.py. kd.py and check.py were not executed. Geometries are copied from the pinned RESULTS files. nu 0.33 is the only live Poisson ratio, from COMMON.md.",
+  "case": {
+    "R_m": 10.0,
+    "nu": 0.33
+  },
+  "equations": {
+    "eq3": "kd = 0.45 + 0.51 exp(-3.88 delta/t), lambda_I = 1",
+    "lee_23": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+    "t_eq": "sqrt(3)*(core+tf)",
+    "beta0": "lambda * sqrt(t_eq/R) / [12(1-nu^2)]^(1/4)",
+    "rms": "delta * beta0 / sqrt(8)"
+  },
+  "lee_limits": {
+    "k": [
+      1,
+      5
+    ],
+    "R_over_t": [
+      100,
+      200
+    ],
+    "no_FEM_below_delta_over_t": 0.15,
+    "no_ODE_below_delta_over_t": 0.2,
+    "read": "primary PDF pages for section 7 and Eq. 23"
+  },
+  "pins": [
+    {
+      "role": "COMMON, declared nu 0.33",
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "role": "CARD-015 brief",
+      "path": "unpublished-local-ref:e0a1835ad116c787",
+      "sha256": "cf246efb62b5ace5b01aaca540c3c9c9774bbfeddb584d57b44e77eee683b2d1",
+      "bytes": 2001
+    },
+    {
+      "role": "Lee 2016 primary PDF, Eq. 23",
+      "path": "unpublished-local-ref:bae7bfd366ef3415",
+      "sha256": "fcdfcc4f155ab6316e98e537ed5795b2c53c37ce1168e7347746c6433d2f5c82",
+      "bytes": 1803722
+    },
+    {
+      "role": "codex check that named the mixed map",
+      "path": "evidence/72c698c144e8d4d8-CHECK.md",
+      "sha256": "72c698c144e8d4d839f2fd80ca5523beda1d66b0e8d89227449f027cc7739c65",
+      "bytes": 16566
+    },
+    {
+      "role": "filed 015 RESULTS, P2-E and frozen Be geometry",
+      "path": "evidence/9caaf013c165487e-owner015.json",
+      "sha256": "9caaf013c165487e6b0804258bfd9a7038317c3629cd74f383438c40141969f3",
+      "bytes": 40574
+    },
+    {
+      "role": "021 floating-point geometry and gamma",
+      "path": "evidence/83db70aa5f7d2d26-RESULTS.json",
+      "sha256": "83db70aa5f7d2d267dc1e2630c367c35a417739d8614bd9ecccad4908274805e",
+      "bytes": 67507
+    },
+    {
+      "role": "021b floating-point geometry and gamma",
+      "path": "evidence/422427edc4e7111e-RESULTS.json",
+      "sha256": "422427edc4e7111e30fa6c489d252789ce699b132c915cabd24396c4f5b8b2fb",
+      "bytes": 31076
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "status": "not reproduced from the written specification",
+  "independent_boundary": {
+    "external_h": "Whitaker D=2R, stated air properties, no viscosity correction",
+    "ground_temperature_K": 284.9,
+    "sky_view_factor": "(1+cos(theta))/2",
+    "cavity": "uniform enclosure radiosity; emissivity .20",
+    "pattern": "mean of inner/outer temperature"
+  },
+  "comparison": {
+    "gradient_K": {
+      "owner": 0.41390118066578907,
+      "independent": 0.4646088939754236,
+      "independent_minus_owner": 0.05070771330963453
+    },
+    "swing_K": {
+      "owner": 31.118178069461408,
+      "independent": 33.640781943837,
+      "independent_minus_owner": 2.5226038743755907
+    },
+    "rise_K": {
+      "owner": 17.12376627418348,
+      "independent": 18.476891625284793,
+      "independent_minus_owner": 1.353125351101312
+    },
+    "curvature_temperature_K": {
+      "owner": 55.79003444310727,
+      "independent": 56.10569412740193,
+      "independent_minus_owner": 0.3156596842946655
+    },
+    "max_outer_K": {
+      "owner": 302.02376627418346,
+      "independent": 303.37689162528477,
+      "independent_minus_owner": 1.353125351101312
+    },
+    "min_outer_K": {
+      "owner": 270.90558820472205,
+      "independent": 269.7361096814478,
+      "independent_minus_owner": -1.1694785232742788
+    }
+  },
+  "resolution": {
+    "64": {
+      "tc_m": [
+        0.02210679007353296
+      ],
+      "gradient_K": [
+        0.4642409273365615
+      ],
+      "swing_K": [
+        33.626993326839795
+      ],
+      "rise_K": [
+        18.466996388256064
+      ],
+      "curvature_temperature_K": [
+        56.024841631306856
+      ],
+      "max_outer_K": [
+        303.36699638825604
+      ],
+      "min_outer_K": [
+        269.74000306141625
+      ],
+      "diagnostics": [
+        {
+          "iterations": 5,
+          "update_K": 3.7638496776114135e-14,
+          "energy_residual_W_m2": 2.0463630789890885e-12,
+          "h_W_m2K": 2.0003531525224467
+        },
+        {
+          "iterations": 5,
+          "update_K": 3.553878676417121e-14,
+          "energy_residual_W_m2": 1.9895196601282805e-12,
+          "h_W_m2K": 2.0003531525224467
+        }
+      ]
+    },
+    "128": {
+      "tc_m": [
+        0.02210679007353296
+      ],
+      "gradient_K": [
+        0.4646088939754236
+      ],
+      "swing_K": [
+        33.640781943837
+      ],
+      "rise_K": [
+        18.476891625284793
+      ],
+      "curvature_temperature_K": [
+        56.10569412740193
+      ],
+      "max_outer_K": [
+        303.37689162528477
+      ],
+      "min_outer_K": [
+        269.7361096814478
+      ],
+      "diagnostics": [
+        {
+          "iterations": 5,
+          "update_K": 3.6220112852318866e-14,
+          "energy_residual_W_m2": 2.1032064978498966e-12,
+          "h_W_m2K": 2.0003531525224467
+        },
+        {
+          "iterations": 5,
+          "update_K": 3.873501768512737e-14,
+          "energy_residual_W_m2": 2.1032064978498966e-12,
+          "h_W_m2K": 2.0003531525224467
+        }
+      ]
+    },
+    "256": {
+      "tc_m": [
+        0.02210679007353296
+      ],
+      "gradient_K": [
+        0.4647017340645334
+      ],
+      "swing_K": [
+        33.644260852870104
+      ],
+      "rise_K": [
+        18.47938817933465
+      ],
+      "curvature_temperature_K": [
+        56.125959448389
+      ],
+      "max_outer_K": [
+        303.3793881793346
+      ],
+      "min_outer_K": [
+        269.7351273264645
+      ],
+      "diagnostics": [
+        {
+          "iterations": 5,
+          "update_K": 4.049299384669309e-14,
+          "energy_residual_W_m2": 2.0463630789890885e-12,
+          "h_W_m2K": 2.0003531525224467
+        },
+        {
+          "iterations": 5,
+          "update_K": 4.268747500457545e-14,
+          "energy_residual_W_m2": 2.1600499167107046e-12,
+          "h_W_m2K": 2.0003531525224467
+        }
+      ]
+    },
+    "512": {
+      "tc_m": [
+        0.02210679007353296
+      ],
+      "gradient_K": [
+        0.46472505049268875
+      ],
+      "swing_K": [
+        33.64513456496849
+      ],
+      "rise_K": [
+        18.480015174706807
+      ],
+      "curvature_temperature_K": [
+        56.13104054463975
+      ],
+      "max_outer_K": [
+        303.3800151747068
+      ],
+      "min_outer_K": [
+        269.7348806097383
+      ],
+      "diagnostics": [
+        {
+          "iterations": 5,
+          "update_K": 4.4225903874831406e-14,
+          "energy_residual_W_m2": 2.1600499167107046e-12,
+          "h_W_m2K": 2.0003531525224467
+        },
+        {
+          "iterations": 5,
+          "update_K": 4.157055794186355e-14,
+          "energy_residual_W_m2": 2.0463630789890885e-12,
+          "h_W_m2K": 2.0003531525224467
+        }
+      ]
+    }
+  },
+  "constant_field_projection_test": [
+    {
+      "quadrature": "midpoint",
+      "nodes": 37,
+      "constant_temperature_K": 300,
+      "spurious_curvature_temperature_K": 242.80128548918438
+    },
+    {
+      "quadrature": "Gauss-Legendre",
+      "nodes": 128,
+      "constant_temperature_K": 300,
+      "spurious_curvature_temperature_K": 7.097059502580996e-10
+    }
+  ],
+  "finding": "Removing the constant projection is mathematically justified. The revised absolute thermal values remain unclosed from the written boundary specification."
+}

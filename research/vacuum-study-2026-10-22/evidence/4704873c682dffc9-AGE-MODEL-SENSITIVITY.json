@@ -1,0 +1,105 @@
+{
+  "outdoor_interior_residuals": [
+    {
+      "month": 0,
+      "manual_HM_retention": 1,
+      "continuation": 1.0,
+      "difference": 0.0,
+      "within_manual_point_reading_band": true
+    },
+    {
+      "month": 0.5,
+      "manual_HM_retention": 0.71,
+      "continuation": 0.71,
+      "difference": 0.0,
+      "within_manual_point_reading_band": true
+    },
+    {
+      "month": 2.25,
+      "manual_HM_retention": 0.44,
+      "continuation": 0.5093177753749132,
+      "difference": 0.06931777537491318,
+      "within_manual_point_reading_band": false
+    },
+    {
+      "month": 4,
+      "manual_HM_retention": 0.335,
+      "continuation": 0.41708860056268915,
+      "difference": 0.08208860056268913,
+      "within_manual_point_reading_band": false
+    },
+    {
+      "month": 6,
+      "manual_HM_retention": 0.35,
+      "continuation": 0.3499999999999999,
+      "difference": -5.551115123125783e-17,
+      "within_manual_point_reading_band": true
+    }
+  ],
+  "anchor_reading_sensitivity": [
+    {
+      "year": 1,
+      "outdoor_endpoint_corner_range": [
+        0.20695549022194462,
+        0.2701242386718868
+      ],
+      "humid_tail_corner_range": null,
+      "warehouse_endpoint_corner_range": [
+        0.9776685988465526,
+        0.9926531329752627
+      ],
+      "interpretation": "Deterministic reading/model sensitivity; not confidence bounds"
+    },
+    {
+      "year": 5,
+      "outdoor_endpoint_corner_range": [
+        0.028412907243258494,
+        0.08389323267232801
+      ],
+      "humid_tail_corner_range": [
+        0.6563082175541189,
+        0.7441059138924462
+      ],
+      "warehouse_endpoint_corner_range": [
+        0.8932197821254526,
+        0.9638014783946097
+      ],
+      "interpretation": "Deterministic reading/model sensitivity; not confidence bounds"
+    },
+    {
+      "year": 10,
+      "outdoor_endpoint_corner_range": [
+        0.006348428725503752,
+        0.03829581125521684
+      ],
+      "humid_tail_corner_range": [
+        0.5380305941178051,
+        0.6969572184229519
+      ],
+      "warehouse_endpoint_corner_range": [
+        0.7978415791802411,
+        0.9289132897556354
+      ],
+      "interpretation": "Deterministic reading/model sensitivity; not confidence bounds"
+    }
+  ],
+  "warehouse10_SF_ranges": {
+    "022d-5": [
+      1.003886142904341,
+      1.168807447342501
+    ],
+    "041-5": [
+      0.9121600056144297,
+      1.0620122762584179
+    ],
+    "022d-019": [
+      0.9527197242569561,
+      1.1092352621981876
+    ],
+    "041-019": [
+      0.8642262705527494,
+      1.0062038492619585
+    ]
+  },
+  "warning": "Calendar-to-service equivalence and tail structure dominate; corner ranges exclude those unknowns."
+}

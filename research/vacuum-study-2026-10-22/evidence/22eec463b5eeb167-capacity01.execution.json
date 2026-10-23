@@ -1,0 +1,48 @@
+{
+  "tag": "capacity01",
+  "command": [
+    "python3",
+    "tools/simjob.py",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "1G",
+    "--",
+    "python3",
+    ".ship/work/outputs/vacuum-mainline059-check-1020/capacity_check.py"
+  ],
+  "started_at": "2026-10-20T07:08:08.881469-07:00",
+  "cores": 1,
+  "memory": "1G",
+  "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+  "source_pins": [
+    {
+      "path": "evidence/015df10734ee9eb1-admit.py",
+      "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+    },
+    {
+      "path": "evidence/4cbb8498bc418169-capacity_check.py",
+      "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+    },
+    {
+      "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+      "sha256": "5303e6f8c2b2280c88eb0d60e246c5a7f9c978f9f6bd065d41c7a7cdc4466fd8"
+    },
+    {
+      "path": "evidence/1bc63dd16be03461-pond_check.py",
+      "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+    },
+    {
+      "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+      "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+    },
+    {
+      "path": ".ship/work/outputs/vacuum-mainline059-check-1020/capacity_check.py",
+      "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+    }
+  ],
+  "ended_at": "2026-10-20T07:08:16.406447-07:00",
+  "exit_code": 1,
+  "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+}

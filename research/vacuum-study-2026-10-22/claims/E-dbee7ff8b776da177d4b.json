@@ -1,0 +1,42 @@
+{
+  "id": "E-dbee7ff8b776da177d4b",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-dbee7ff8b776da177d4b",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/12",
+    "row_id": "NFI-043-CHECK-13",
+    "fields": {
+      "id": "NFI-043-CHECK-13",
+      "key": "proof_cost_and_yield",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "issue": "High/custom is a qualitative cost class; no validated cycle time, yield, rejection rate, price or supplier capability is available.",
+      "needed": "Estimate cost and yield only after defining the test protocol, traceable population and manufacturing process.",
+      "disposition": "Do not interpret hypothetical proof rejection fractions as a production scrap forecast.",
+      "blocks_check": false,
+      "owner": "sciences / robotics programme",
+      "execution_authorized_by_this_row": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "High/custom is a qualitative cost class; no validated cycle time, yield, rejection rate, price or supplier capability is available.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/12"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

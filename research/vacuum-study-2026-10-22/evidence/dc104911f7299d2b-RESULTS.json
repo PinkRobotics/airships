@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-005b",
+  "unit": "vacuum-mainline005b-nfi-crush-1019",
+  "status": "ESTIMATE_PENDING_CHECKER",
+  "started_at": "2026-10-19T22:37:28-07:00",
+  "model_QUESTIONABLE": {
+    "statement": "core through-thickness compressive stress near p/2 when both faces carry equal membrane force (brief's example model)",
+    "sigma_core_Pa": 47730.41895695257,
+    "p_external_Pa": 95460.83791390515,
+    "applies_to": [
+      "P2",
+      "P2-A",
+      "P2-C",
+      "P2-K",
+      "P2-E"
+    ],
+    "mainline007": "same formula on filing; no 007 rows exist yet, none computed"
+  },
+  "required_core_strength_Pa": {
+    "P2": 47730.41895695257,
+    "P2-A": 47730.41895695257,
+    "P2-C": 47730.41895695257,
+    "P2-K": 47730.41895695257,
+    "P2-E": 47730.41895695257
+  },
+  "real_cores_QUESTIONABLE": [
+    {
+      "core": "EPS geofoam EPS15 class",
+      "density_kg_m3": 14.4,
+      "strength_Pa": 25000,
+      "definition": "1% strain",
+      "source": "https://www.oceanicsupplystore.com.au/shop/high-density-eps-foam-block-expanded-polystyrene-high-compressive-strength-9762/document/629"
+    },
+    {
+      "core": "EPS 15 kg/m3",
+      "density_kg_m3": 15,
+      "strength_Pa": 70000,
+      "definition": "10% strain",
+      "source": "https://www.insulationshop.co/40mm_grey_polystyrene_ewi_graphite.html"
+    },
+    {
+      "core": "EPS lightest class",
+      "density_kg_m3": 11,
+      "strength_Pa": 50000,
+      "definition": "10% strain, AS 1366.3",
+      "source": "https://nationalpolystyrene.com.au/wp-content/uploads/2020/02/Technical-Data2-National-Poly-10022020.pdf"
+    },
+    {
+      "core": "Hexcel ACG-1 aluminium honeycomb",
+      "density_kg_m3": 20.8,
+      "strength_Pa": 552000,
+      "definition": "bare yield",
+      "source": "https://lookpolymers.com/pdf/Hexcel-HexWeb-ACG-1-Honeycomb-Aluminum-Commercial-Grade.pdf"
+    },
+    {
+      "core": "Hexcel CR-PAA 3/8-5056 aluminium honeycomb",
+      "density_kg_m3": 36.8,
+      "strength_Pa": 1070000,
+      "definition": "bare minimum",
+      "source": "https://www.lookpolymers.com/polymer_Hexcel-HexWeb-CR-PAA-38-5056-00015-Phosphoric-Acid-Anodized-Aluminum-Honeycomb.php"
+    },
+    {
+      "core": "Hexcel HRH-10 Nomex honeycomb 1.5 pcf",
+      "density_kg_m3": 24.0,
+      "strength_Pa": 621000,
+      "definition": "stabilized typical",
+      "source": "https://www.lookpolymers.com/findproperty.php?pid=2&sx_id=142&value=0.621&type=1"
+    },
+    {
+      "core": "Rohacell 71 HERO PMI foam",
+      "density_kg_m3": 71,
+      "strength_Pa": 1100000,
+      "definition": "ISO 844",
+      "source": "https://www.matweb.com/search/datasheet_print.aspx?matguid=d2ba4dd34eba4ff1b4c412477289a0ef"
+    },
+    {
+      "core": "Pyrogel XTF aerogel blanket",
+      "density_kg_m3": 200,
+      "strength_Pa": 102000,
+      "definition": "ASTM C165, 10% strain",
+      "source": "https://www.glava.no/dokumentasjon/_/attachment/download/b8f26ae0-3c1f-457f-9ee4-4925cd60a4bc:84e0e828a30df07bfc892579c18eae723ec21fbc/datasheet-pyrogel-xtf.pdf"
+    },
+    {
+      "core": "Ni-P metallic microlattice",
+      "density_kg_m3": 0.9,
+      "strength_Pa": null,
+      "definition": "recovers past 50% strain; no qualifying crush strength",
+      "tag": "PROJECTION",
+      "source": "doi:10.1126/science.1211649"
+    }
+  ],
+  "lowest_density_meeting_crush": {
+    "density_kg_m3": 11,
+    "basis": "EPS 10%-strain definition, margin 1.05, QUESTIONABLE",
+    "at_1pct_definition_kg_m3": "18-22"
+  },
+  "ended_at": "2026-10-19T22:37:56-07:00"
+}

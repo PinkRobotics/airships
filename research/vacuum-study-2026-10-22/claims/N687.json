@@ -1,0 +1,83 @@
+{
+  "id": "N687",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N687",
+    "report": "rpt-ref-d3afcdc3514000cb6fc2",
+    "card": "rpt-ref-d3afcdc3514000cb6fc2",
+    "file": "evidence/064ba103ce9ab63c-NFI.json",
+    "snapshot": "evidence/064ba103ce9ab63c-NFI.json",
+    "source_sha256": "064ba103ce9ab63c750bcde0c467f025dd13387e9a80f0b9b071d9916fd6bce3",
+    "source_json_pointer": "/rows/14",
+    "row_id": "NFI-C035-IMPERFECTION",
+    "fields": {
+      "id": "NFI-C035-IMPERFECTION",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "The record does not establish that required imperfection control exceeds every recorded sandwich dome.",
+      "next_evidence": "Quantify the lead geometry's admissible measured imperfection distribution; compare like geometry/material/boundary cases before any universal claim.",
+      "evidence": [
+        "E07",
+        "E17",
+        "E18",
+        "E19",
+        "E20"
+      ],
+      "blocks_card": false
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "The record does not establish that required imperfection control exceeds every recorded sandwich dome.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/686"
+    },
+    {
+      "report": "rpt-ref-d3afcdc3514000cb6fc2",
+      "artifact": "evidence/064ba103ce9ab63c-NFI.json",
+      "snapshot": "evidence/064ba103ce9ab63c-NFI.json",
+      "sha256": "064ba103ce9ab63c750bcde0c467f025dd13387e9a80f0b9b071d9916fd6bce3",
+      "bytes": 7719,
+      "selector": "/rows/14"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d3afcdc3514000cb6fc2",
+          "artifact": "evidence/064ba103ce9ab63c-NFI.json",
+          "snapshot": "evidence/064ba103ce9ab63c-NFI.json",
+          "sha256": "064ba103ce9ab63c750bcde0c467f025dd13387e9a80f0b9b071d9916fd6bce3",
+          "bytes": 7719,
+          "selector": "/rows/14"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/686"
+          }
+        ]
+      }
+    }
+  ]
+}

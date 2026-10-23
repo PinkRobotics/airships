@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "unit": "h1-stvk-interface-1019",
+  "status": "OPS_ADMISSION_WINDOW_BLOCKER",
+  "authority": [
+    "ord-sciences-g1-h1-stvk-oracle-conditional-unit-1019",
+    "ord-co27-sci-h1-stvk-oracle-unit-granted-1019"
+  ],
+  "result": "One immutable implementation/deck/parser/oracle pack prepared. No offline or native execution; no conditional interface pass claimed.",
+  "sealed_pack": {
+    "path": "evidence/70e66d6fe4e495d5-PACK-SEAL.json",
+    "sha256": "70e66d6fe4e495d5a57a0dc1d6da171358462bcd06b6f72e39b9ad08fbc65bb1",
+    "bytes": 15327
+  },
+  "literal_entries": {
+    "path": "evidence/c0fc7bb28734d189-literal-entries.json",
+    "sha256": "c0fc7bb28734d189bd6a4de513d4706ccb3de7bf80af1315ca427b784f1ccb20",
+    "bytes": 2668
+  },
+  "prepared_inventory": {
+    "literal_decks": 10,
+    "planned_stages": 20,
+    "physical_nodes": 125,
+    "straight_C3D10_elements": 48,
+    "planned_native_operator_dimension": 195,
+    "planned_retained_macro_negative_dimension": 189,
+    "planned_offline_negative_cases": 9,
+    "note": "Prepared specification counts, not native/test observations."
+  },
+  "first_precise_blocker": {
+    "status": "OPS_ADMISSION_WINDOW_BLOCKER",
+    "first_observed_monotonic": 2015630.836758685,
+    "first_observed_utc": "2026-10-19T08:55:05.656455+00:00",
+    "phase_start": {
+      "captured_monotonic": 2015559.638537287,
+      "captured_utc": "2026-10-19T08:53:54.458230+00:00",
+      "phase": "one_offline_test_including_admission_reap_collection",
+      "cap_seconds": 600,
+      "origin_monotonic": 2014112.830277349,
+      "admission_plus_collection_reserve_seconds": 60
+    },
+    "latest_worst_case_start_monotonic": 2015619.638537287,
+    "phase_elapsed_at_first_observation_seconds": 71.19822139805183,
+    "maximum_remaining_phase_at_first_observation_seconds": 528.8017786019482,
+    "frozen_job_plus_backstop_seconds": 540,
+    "canonical_Ops_admission_received_before_latest_start": false,
+    "request_status": "Canonical request was ingested by first blocker observation; queue view still rendered2026-10-19T01:30:54-07:00 and contained no Ops response. Earlier6.989s/31.644s request was not ingested. Ingestion is not Ops approval.",
+    "reason": "Remaining phase time is below the frozen420s payload+120s launcher backstop; exact Ops admission was not received in the total60s admission/collection reserve. No late reply can start this closed unit.",
+    "observation_over_reserve_seconds": 11.198221398051828,
+    "whole_offline_phase_cap_violation": false,
+    "note": "The first deadline observation was11.198s after the shared60s reserve, disclosed; no payload was started. The600s phase cap was not exceeded. No timeout/refusal/payload failure is invented.",
+    "test_invocations": 0,
+    "simjob_invocations": 0,
+    "native_processes": 0,
+    "continuation_permitted": false
+  },
+  "resource_cleanup": {
+    "path": "evidence/d659a54b61f4b305-CLEANUP.json",
+    "sha256": "d659a54b61f4b305f15e957728b4dcb0eee10c624fb611a6f6f7bc8e793eac9c",
+    "bytes": 924
+  },
+  "not_run_inventory": {
+    "path": "evidence/fe03fb794a0608c9-NOT-RUN-INVENTORY.json",
+    "sha256": "fe03fb794a0608c9e314b667e5cb8eb04b39ddeaeb8e656e4723417c9ee2c26f",
+    "bytes": 4344
+  },
+  "raw_evidence": "No scientific raw output exists. Retained input custody, source extracts, source/distro comparisons, ELF candidate-library metadata, literal source/decks/maps and admission request are retained. No solver result is inferred from prepared bytes.",
+  "complete_matrix_reference": "Independent exact-rational StVK/barycentric oracle is implemented but unexecuted. No matrices or offline negative evidence were generated; no state bound is attested.",
+  "test_and_native_flags": {
+    "conditional_interface_pass": false,
+    "Q0_native": false,
+    "Q0_energy": false,
+    "native_qualified": false,
+    "H1_qualified": false
+  },
+  "phase_accounting_note": "Preparation, all admission waiting/observations, blocker classification, closure and filing are continuously charged from actual monotonic2014112.830277349. No clock pause/reset. Observed admission reserve overrun is disclosed in FIRST-BLOCKER; phase caps and final debit in final-budget.json.",
+  "budget_file": "unpublished-local-ref:649a7f27faefffc8",
+  "return_route": "Sciences routes this first-blocker return and untested pack to Una. The unit and its pending admission ask close; no late reply or unused budget is execution authority.",
+  "carry": {
+    "path": "evidence/7e0764f480739380-CARRY.json",
+    "sha256": "7e0764f48073938092104a004ac0e9de91d033bb6f2ce3e3b3b5ae0e9c942ec2",
+    "bytes": 5349
+  }
+}

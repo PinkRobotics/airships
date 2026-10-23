@@ -1,0 +1,151 @@
+{
+  "id": "rpt-ref-52963d63a80d69bb90bd",
+  "kind": "report",
+  "from": "ref-70f7af6d0a8d64c42272",
+  "from_seat": "ref-70f7af6d0a8d64c42272",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline041-check-1020",
+  "re": "ord-admiral-rr2-check041-codex-fd4e-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check041-codex-fd4e-1020"
+    }
+  ],
+  "at": "2026-10-20T04:52:52.918492-07:00",
+  "body": "CHECK-041 filed: qualified computational corroboration; QUESTIONABLE / PROJECTION.\n\nAll 203 primary comparisons and 50 continuum/mass comparisons pass. Reproduced f4 SF 1.133450616, +178.318674 kg tubes, and 174.443889 kg closure deficit. Closed f5 SFs are 1.143284619/1.083205354, requiring 1.164235/1.145748 GPa extreme SiC compression. Local-wall sensitivities reproduce 1.033223/0.978132; the sub-unity 019 result remains visible.\n\nIndependent zero-start nonlinear continuations give m24 bracket [5.430900815498,5.430922833327], contained in the reported bracket. Re-equilibrated owner endpoints independently change tangent sign. The m12 interval also agrees; m6 crosses earlier. Exact formulation/eigenvalue differences are retained.\n\nAll 98 printed numeric table cells are checked: 89 agree, three nonlinear midpoints and six film values differ. Film rigid/pinned multipliers are 7.151119777/2.046193535 versus 7.155002497/2.047133403; direction-field reproducibility remains an NFI. Bare-pin rank and finite rolls independently corroborate 480 mechanisms and no positive stable margin for the prescribed configuration.\n\nPrior 043-fold exposure to owner score/force postprocessors is disclosed: this is not blind. No owner code was newly read or executed for this check. Fixed witnesses were checked; optimization was not repeated.\n\nTwelve nonblocking NFIs retain material, joint, film, instability and manufacturing qualifications. Capacity/probability fields remain null. All 29 admissions released; one failed numerical attempt is retained with its correction. Sixty-two input pins, 554 package files and 1305 integrity checks pass. Complete; no successor; SLEEPING.",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check041-codex-fd4e-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/3200c54e4337d87c-CHECK.md",
+      "sha256": "3200c54e4337d87cdb35f817ec4e696f66513f32950b696210f042ac13a424f2",
+      "bytes": 7181
+    },
+    {
+      "path": "evidence/1c0f69887fcac622-METHOD.md",
+      "sha256": "1c0f69887fcac6222487b0e6cc36efc469cae408c77876e8cd1feb506b683c50",
+      "bytes": 9464
+    },
+    {
+      "path": "evidence/0213f62ee9182cdf-COVERAGE.md",
+      "sha256": "0213f62ee9182cdf540fa76acbde06371764af44f18f4da56390452b4bb65d71",
+      "bytes": 3518
+    },
+    {
+      "path": "evidence/64a994bb89e2177f-SOURCES.md",
+      "sha256": "64a994bb89e2177f6801a5fcd61921c0d629649a6e15a4fa150cdaafab4279e7",
+      "bytes": 3340
+    },
+    {
+      "path": "evidence/1193066a868e77ff-RESULTS.json",
+      "sha256": "1193066a868e77ff437438dec6f8cb613249f1b465155ffb74b5f8b93c17d2aa",
+      "bytes": 26576
+    },
+    {
+      "path": "evidence/d298a85ef299552d-NFI.json",
+      "sha256": "d298a85ef299552db215a5f8be55e3f6ff45590b248b47fc9a6c4752a12e2b6b",
+      "bytes": 7501
+    },
+    {
+      "path": "evidence/1829320d688175e6-SCALAR-CHECK.json",
+      "sha256": "1829320d688175e6f3f64e51a2a3f91b80c2a6bc7ea67d4c379ab8ec79c4ab24",
+      "bytes": 85438
+    },
+    {
+      "path": "evidence/30f8eb64a2ae14d5-SUPPLEMENT-CHECK.json",
+      "sha256": "30f8eb64a2ae14d5a07bcd41a01e2a2dd1ff6ef3020359a07d91676563939acc",
+      "bytes": 19053
+    },
+    {
+      "path": "withheld-source:e122a1c4ef6b4144",
+      "sha256": "6556bd97ce3a56c01d7e9aeebe52245a019c43d33d252f57bde2140d6c6db928",
+      "bytes": 41420
+    },
+    {
+      "path": "withheld-source:216f6011cc004924",
+      "sha256": "e12ec41319265c1acb0932603ac4c2ca35b9a06b692bf04d406321c371e2316b",
+      "bytes": 14836
+    },
+    {
+      "path": "evidence/6415fa996fefa5ba-MISMATCHES.json",
+      "sha256": "6415fa996fefa5bac2088c676657105a1379ff7d12184ca93bd950b032b20beb",
+      "bytes": 20645
+    },
+    {
+      "path": "evidence/cd7fbb60195e250d-MISMATCHES.csv",
+      "sha256": "cd7fbb60195e250d5fc3954521b5116c98a9fd3d1890d5f0eec608d44864cdfe",
+      "bytes": 11298
+    },
+    {
+      "path": "evidence/65f45d4af508f4f0-NONLINEAR-CHECK.json",
+      "sha256": "65f45d4af508f4f02f7277f87fc64aee1ee1c5937252ec12310078d92920667d",
+      "bytes": 8324
+    },
+    {
+      "path": "evidence/d0577c24abdf5f8e-PIN-CHECK.json",
+      "sha256": "d0577c24abdf5f8e92767550625b02b389d8fff9a5b4521308d7ffa43e36b396",
+      "bytes": 3939
+    },
+    {
+      "path": "evidence/09f304b5bbf696d2-ENERGY-VALIDATION.json",
+      "sha256": "09f304b5bbf696d264f5464a4731228d06ba331c9ceaeae5e6a1e3e8d9049ac6",
+      "bytes": 323
+    },
+    {
+      "path": "evidence/a6e0cc54f947caa2-INPUTS.json",
+      "sha256": "a6e0cc54f947caa2800139a81d1d383840be08554c84c346edaeb69fbbacfe9f",
+      "bytes": 31676
+    },
+    {
+      "path": "evidence/954a71fafc161ef1-PRIOR-EXPOSURE.json",
+      "sha256": "954a71fafc161ef14f446c69840a745fab11008b60248f5830997ad52c45bc53",
+      "bytes": 355
+    },
+    {
+      "path": "evidence/5a98ee9c6d3d7cec-EXECUTION.json",
+      "sha256": "5a98ee9c6d3d7cec76b1916e8351d6e8d5458cc2ce043dbd2e7d72793641e786",
+      "bytes": 111546
+    },
+    {
+      "path": "evidence/87213b552b24a2ed-TIMING.json",
+      "sha256": "87213b552b24a2ed45c80852ae83aa082c2da120054d5fd9e4ec3044350d1567",
+      "bytes": 298
+    },
+    {
+      "path": "evidence/bd11677a88e34af4-PRIOR-FREEZE-CHECK.json",
+      "sha256": "bd11677a88e34af4f938c1c9018daca0abd17c9717a1298e10becbbf31599e12",
+      "bytes": 4630
+    },
+    {
+      "path": "unpublished-local-ref:683e949e4ccade83",
+      "sha256": "b5379673e838fa62faece004d459c13a9ce9b983f7cebf1a2deb41e073fb4389",
+      "bytes": 492491
+    },
+    {
+      "path": "evidence/657c5d5687ee105b-MANIFEST.json",
+      "sha256": "657c5d5687ee105bf58faf39b9265d6091ec4aa6f1c995d3779ae0c0b3e83972",
+      "bytes": 98229
+    },
+    {
+      "path": "evidence/54c7693395dd1e20-PACKAGE-CHECK.json",
+      "sha256": "54c7693395dd1e20845934d3da08dd4c587067cb9abf6347cfb22d49ce58819d",
+      "bytes": 319359
+    }
+  ],
+  "ingested": "2026-10-20T04:53:14-07:00"
+}

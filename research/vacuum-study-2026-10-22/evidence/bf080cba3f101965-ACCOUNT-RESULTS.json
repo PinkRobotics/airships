@@ -1,0 +1,47 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "distinct_points": 7149,
+  "comparison_count": 686304,
+  "mismatch_count": 16679,
+  "mismatch_counts_by_field": {
+    "vacuum.initial_gas_kg": 7149,
+    "vacuum.gas_aboard_counted_kg": 7149,
+    "vacuum.desorbed_24h_kg": 2381
+  },
+  "largest_difference_by_field": {
+    "vacuum.initial_gas_kg": {
+      "point": "main.rows[72].least.least",
+      "field": "vacuum.initial_gas_kg",
+      "owner": 1.7287285355241762,
+      "independent": 1.7286530914136542,
+      "delta": -7.544411052196054e-05,
+      "agrees": false,
+      "rtol": 2e-08,
+      "atol": 2e-08
+    },
+    "vacuum.gas_aboard_counted_kg": {
+      "point": "main.rows[72].least.least",
+      "field": "vacuum.gas_aboard_counted_kg",
+      "owner": 2.4154977298723352,
+      "independent": 2.415422285761813,
+      "delta": -7.544411052240463e-05,
+      "agrees": false,
+      "rtol": 2e-08,
+      "atol": 2e-08
+    },
+    "vacuum.desorbed_24h_kg": {
+      "point": "main.rows[412].least.endpoint_trials[2].solution",
+      "field": "vacuum.desorbed_24h_kg",
+      "owner": 0.47888479095463504,
+      "independent": 9.577695819092693,
+      "delta": 9.098811028138057,
+      "agrees": false,
+      "rtol": 2e-08,
+      "atol": 2e-08
+    }
+  },
+  "primary_endpoints": [],
+  "scope": "Independent equations conditional on explicit pinned thermal tables; no owner's code.",
+  "owner_code_read": false,
+  "owner_code_executed": false
+}

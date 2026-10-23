@@ -1,0 +1,52 @@
+{
+  "id": "rpt-ref-490f8e9228d526b69dc8",
+  "unit": "vacuum-mainline030-check-1020",
+  "at": "2026-10-20T01:41:42-07:00",
+  "body": "CHECK MAINLINE-030. The half-wave test, the today factors 0.336 and 0.427, and the in-band film 1.130 stand. The printed coefficient 1.06 is a rounding of the coefficient that was computed. It does not move the conclusion.\n\nThe stored half-wave is pi times the square root of (3/4)*rg*R. rg is the tube value sqrt((ro^2+ri^2)/2). That is the same as pi times the square root of 1.06066*rg_thin*R, and the sentence rounds 1.06066 to 1.06. With that printed 1.06, the 022b wave is 3.51309 m against the stored 3.51418 m. The ratio stays 0.571. At s 6.15 m the half-wave is shorter than the member, so the smeared mode does not describe the 40-node frame and the filed optimum is outside the band. At s 2.04 m the ratio is 1.481. Member force p*R*s/(2*sqrt(3)) is 1.694766 MN.\n\nToday's least factor is the needed global factor scaled by 0.20 over gamma. 0.20/0.59532 is 0.336. 0.20/0.46823 is 0.427.\n\nThe in-band film factor is 1.5 GPa times 80 µm, divided by (p/2) times 2.224 m, which is 1.13045. Twenty merged rows hold 117 source pointers, and every cited row id is in its NFI file. Unique source rows are 362. One note, NFI-CHK011B-TEXT, is cited on R057 and on R079, and the note contains both subjects. No next job.",
+  "artifacts": [
+    {
+      "path": "evidence/ad9875f824269d2f-CARD.md",
+      "sha256": "ad9875f824269d2fe92954576d9f4ae0451e259450766c97f70753f79089115d",
+      "bytes": 1059,
+      "observed_sha256": "ad9875f824269d2fe92954576d9f4ae0451e259450766c97f70753f79089115d",
+      "observed_bytes": 1059,
+      "matches": true,
+      "snapshot": "evidence/ad9875f824269d2f-CARD.md"
+    },
+    {
+      "path": "evidence/bac73484a5654535-RESULTS.json",
+      "sha256": "bac73484a565453511df3895cb275e1096e379f60ffb3eacfedfb1360a3d741f",
+      "bytes": 3304,
+      "observed_sha256": "bac73484a565453511df3895cb275e1096e379f60ffb3eacfedfb1360a3d741f",
+      "observed_bytes": 3304,
+      "matches": true,
+      "snapshot": "evidence/bac73484a5654535-RESULTS.json"
+    },
+    {
+      "path": "evidence/c637ae242ae817f5-NFI.json",
+      "sha256": "c637ae242ae817f556f21743c6edbf6c0c02b4638e18b8aa9443f2ad245b6037",
+      "bytes": 1158,
+      "observed_sha256": "c637ae242ae817f556f21743c6edbf6c0c02b4638e18b8aa9443f2ad245b6037",
+      "observed_bytes": 1158,
+      "matches": true,
+      "snapshot": "evidence/c637ae242ae817f5-NFI.json"
+    },
+    {
+      "path": "evidence/3af39a96805bde0f-INPUTS.json",
+      "sha256": "3af39a96805bde0f2359e2473bffa2fa78a5a29064d4fc4fcabd71dc441c2917",
+      "bytes": 2485,
+      "observed_sha256": "3af39a96805bde0f2359e2473bffa2fa78a5a29064d4fc4fcabd71dc441c2917",
+      "observed_bytes": 2485,
+      "matches": true,
+      "snapshot": "evidence/3af39a96805bde0f-INPUTS.json"
+    },
+    {
+      "path": "evidence/d5e3f49f5dc93427-check030.py",
+      "sha256": "d5e3f49f5dc9342710f89bed248f23843b4740c1c1ab4ad606e8f0cb409aaeaa",
+      "bytes": 4871,
+      "observed_sha256": "d5e3f49f5dc9342710f89bed248f23843b4740c1c1ab4ad606e8f0cb409aaeaa",
+      "observed_bytes": 4871,
+      "matches": true
+    }
+  ]
+}

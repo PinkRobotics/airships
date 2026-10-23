@@ -1,0 +1,77 @@
+{
+  "id": "C022",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C022",
+    "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+    "file": "evidence/1c1bd18f1657b61c-NFI.json",
+    "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+    "source_sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+    "source_json_pointer": "/rows/0",
+    "row_id": "N039-01",
+    "fields": {
+      "id": "N039-01",
+      "issue": "Frame adequacy is assumed, not shown",
+      "detail": "The bays are scored as clamped caps (O5) only when the stiffener rigidity EI_e/(a D_skin) is at least 10, a flat-plate order of magnitude. Mixed modes with wavelengths between a and 2a are not modelled.",
+      "to_close": "Shell FE of frame plus sandwich bays (extend 026's beam model with shell bays), then a subscale frame-bay test.",
+      "tag": "PROJECTION"
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "Frame adequacy is assumed, not shown",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/732"
+    },
+    {
+      "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+      "artifact": "evidence/1c1bd18f1657b61c-NFI.json",
+      "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+      "sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+      "bytes": 6701,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+          "artifact": "evidence/1c1bd18f1657b61c-NFI.json",
+          "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+          "sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+          "bytes": 6701,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/732"
+          }
+        ]
+      }
+    }
+  ]
+}

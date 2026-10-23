@@ -1,0 +1,80 @@
+{
+  "id": "C003",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C003",
+    "report": "rpt-ref-4b8e7b08241bb7a45536",
+    "file": "evidence/86e8a9642552d39e-NFI.json",
+    "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+    "source_sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+    "source_json_pointer": "/rows/2",
+    "row_id": "NFI-022D-CHECK-03",
+    "fields": {
+      "id": "NFI-022D-CHECK-03",
+      "owner": "MAINLINE-022d / MAINLINE-025",
+      "state": "open qualification",
+      "kind": "compression, tension and reliability",
+      "evidence": "upstream/025/CARD.md; ALLOWABLE-INTERFACE.md; SOURCE-ARITHMETIC.json",
+      "note": "The 3.9 GPa bulk compression input and 15.586 MPa fixed reference tensile screen remain PROJECTION for full arcs. The headline extreme compression is 1.198096384 GPa and opposite-face tensile stress is zero at its target. Contact tension, size-dependent positive-stress exposure and failure statistics are unresolved. Original-continuum versus 1047-member reference counts explain small rounded tensile differences.",
+      "settle": "Establish a matched compression/contact basis and calibrated failure populations; update effective stressed size when geometry changes. Preserve null qualified allowable/probability fields until supported.",
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "The 3.9 GPa bulk compression input and 15.586 MPa fixed reference tensile screen remain PROJECTION for full arcs. The headline extreme compression is 1.198096384 GPa and opposite-face tensile stress is zero at its target. Contact tension, size-dependent positive-stress exposure and failure statistics are unresolved. Original-continuum versus 1047-member reference counts explain small rounded tensile differences.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/713"
+    },
+    {
+      "report": "rpt-ref-4b8e7b08241bb7a45536",
+      "artifact": "evidence/86e8a9642552d39e-NFI.json",
+      "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+      "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+      "bytes": 7666,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-4b8e7b08241bb7a45536",
+          "artifact": "evidence/86e8a9642552d39e-NFI.json",
+          "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+          "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+          "bytes": 7666,
+          "selector": "/rows/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/713"
+          }
+        ]
+      }
+    }
+  ]
+}

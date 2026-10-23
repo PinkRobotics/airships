@@ -1,0 +1,19 @@
+{
+  "unit": "vacuum-review-a-058-061-1020",
+  "brief_pins": "INPUT-PINS.json",
+  "dependency_pins": "DEPENDENCY-PINS.json",
+  "source_audit": "SOURCE-AUDIT.json",
+  "claims_listed_before_derivation": "LOAD-BEARING.json",
+  "own_implementations": [
+    "independent_review.py",
+    "independent_thermal.py"
+  ],
+  "owner_code_policy": "No owner code read, imported or executed; paths in provenance metadata are not executions.",
+  "authoritative_check_files": [
+    "checks/058-EDGES.json",
+    "checks/058-THERMAL-MIXED-CONVECTION.json",
+    "checks/058-COVERAGE-height27.29-humidityTrue.json",
+    "checks/061-ARITHMETIC.json"
+  ],
+  "diagnostic_files": "Other thermal/height weather outputs are retained diagnostics, not authoritative findings."
+}

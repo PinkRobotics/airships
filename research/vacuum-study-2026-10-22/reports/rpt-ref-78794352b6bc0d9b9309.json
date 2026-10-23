@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-78794352b6bc0d9b9309",
+  "unit": "vacuum-mainline005-check-1019",
+  "at": "2026-10-19T22:53:03-07:00",
+  "body": "MAINLINE-005 check: the numbers agree. I recomputed every limit from the pinned formulas and the 002/003 geometry, not from the owner's script. 168 comparisons against RESULTS.json, worst relative difference 3.259e-16. All nine rows match: buckling and yield pressures, required E and sigma, multiples of 68.9 GPa and 276 MPa, equal-mass figures, both-mode pairs and safety factors. The film matches too (allowable 596630236.961907 Pa, SF 2.514120). CARD.md digits match. Pins 12/12, and the four filed files match their sha256. Required compressive strength is membrane stress and does not depend on 276 MPa (doubling it leaves P1 sigma_req at ratio 1). P1 and P2 moduli scale as 1/kd. 6061 E, nu, rho and sigma are QUESTIONABLE, source ASM MatWeb in the pinned 001/002 inputs. Film 1.5 GPa is QUESTIONABLE with no datasheet. kd and external pressure are QUESTIONABLE only on those pins, not on the card INPUTS.\n\nOne claim does not match the formula. Rows P3 and P3-A, field E_required_scaling. The card and NFI-005-KD say every buckling modulus scales as E(0.2) times 0.2/kd. The stated Euler formula 2*pi^2*E*I/(R*s^3) has no kd, and the published moduli match it (P3 2074705010952.1118 Pa, P3-A 717512967598.1671 Pa). At kd 0.4 those two stay the same (ratio 1); the card's scaling would halve them. NFI-CHECK-005-P3-KD: do not multiply the P3 requirements when MAINLINE-004 lands. NFI-CHECK-005-TAGS: copy the missing tags and sources onto the card. Neither stops the card or 005b.",
+  "artifacts": [
+    {
+      "path": "evidence/940f2b4b6a5923e1-CHECK.md",
+      "sha256": "940f2b4b6a5923e11210a5eb43e14fca2e75ecbb03176b5357d15d1fa5fef6ac",
+      "bytes": 4227
+    },
+    {
+      "path": "evidence/dfd0110c66178aa8-check005.py",
+      "sha256": "dfd0110c66178aa8ff17c1abf6ac49bf5780e611f61416f87b8a978915421cd6",
+      "bytes": 7653
+    },
+    {
+      "path": "unpublished-local-ref:e4fcc954a7cd7136",
+      "sha256": "4123210480e1cd7b772b1aa4a8011b1c6073a47c7ba7d103d51c12b5902e7ff3",
+      "bytes": 480
+    }
+  ],
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-check005-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check005-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,454 @@
+{
+  "schema": "ship.xo.unit-return.v1",
+  "decision": "RETURN",
+  "unit": "review-candidate-access-gap-0923",
+  "at": "2026-09-24T18:15:06.746906-07:00",
+  "object": {
+    "candidate": "57f98dd9f0e75fcdee0aa1ba2dad798199e076bf",
+    "tree": "f1e6d284b85c529f43222f33372ed13c0e6e0b75",
+    "base": "0e830089138d47c612ea1aa7042873f6e8dd9ff3",
+    "worktree": "unpublished-local-ref:627a9bd50e86cd14",
+    "branch": "review-candidate-access-gap-0923",
+    "tracked_status": ""
+  },
+  "verification": {
+    "path": "unpublished-local-ref:ed974b958033b2d1",
+    "sha256": "c6a8debe291b92511f195d8ecd0dbe60f8665f79b90c6a4d63ad467c82c822fd",
+    "bytes": 31938
+  },
+  "authority_brief": {
+    "path": "withheld-source:dc6ab2492f25e3f8",
+    "sha256": "7893799557dce9879e8bb5a1d4eaacb959fec2998e53791e5e5391e2594c9f96",
+    "bytes": 11727
+  },
+  "manifest": {
+    "path": "unpublished-local-ref:491da4e61cf21349",
+    "sha256": "178f3052113c8a5d0ccc15d82dcd29fd6ba5cc779a99c8be7c69348110d8c968",
+    "bytes": 5894
+  },
+  "blocking_conditions": [
+    {
+      "id": "B1",
+      "paths": [
+        "entire eight-commit range 0e830089138d47c612ea1aa7042873f6e8dd9ff3..57f98dd9f0e75fcdee0aa1ba2dad798199e076bf"
+      ],
+      "finding": "Current primary main is 754c91bf6d2af1828fc2b372ccdbfcc2372e050b; supplied range is stale.",
+      "resolution": "Rebase all eight commits unsquashed onto current primary. Retain every equal range-diff row, exact base/tip/tree and cumulative patch equality. Mechanically acknowledge each exact resulting SHA with range-diff as reason. No new round/full wrapper for patch-identical rebase."
+    },
+    {
+      "id": "B2",
+      "paths": [
+        "tests/test_ship_worker_sandbox.py",
+        "commit 7ad41be37b402ec0031867f187c0d168a9f0e80d",
+        "gov-a2dea6eb5944"
+      ],
+      "finding": "B3 git-am inherited gov-a2dea6eb5944, which binds original 6cf9912158a5023ea7b002e3c19d887655a9c63e/tree9d403e9e7827a2cae2bbff43ee05a895154e673b/basea6135c4b72dd12e9156ab6105daef31c979382ff, not applied7ad41be/tree dcc326c79f4ffb63c602848006e3724f87055c65. Other seven approval records bind exactly. No applied-object acknowledgement found.",
+      "resolution": "Record original-to-applied patch identity and mechanically acknowledge exact current/rebased B3 object. Current-base rebase acknowledgements for all eight may close this in one pass. Use mechanical acknowledge, not another semantic analyze. Existing copied patch is regenerated: its From object and abbreviated index lengths differ, diff hunks identical; retain original2800-byte provenance alongside2802-byte copy."
+    },
+    {
+      "id": "B3",
+      "paths": [
+        "tests/test_ship_poll.py",
+        "tests/test_ship_claude_2163.py::test_launch_plan_pins_claude_and_glm_to_the_same_live_pin",
+        "tests/test_ship_worker_sandbox.py",
+        "raw focused receipts and retained-clone-size proof"
+      ],
+      "finding": "Part B acceptance explicitly requires raw focused base receipts and B3 eighteen-test/clone-size evidence. Submitted59-file manifest and decision note contain claims, not raw focused or size receipts. Six raw full wrappers do not establish the named current-base-focused claim or684K size.",
+      "resolution": "Locate and submit retained raw base/tip focused receipts plus size measurement, candidate/base/command. If unavailable, state that and capture only bounded focused B1/B2/B3 checks and B3 size at named current objects. No seventh full wrapper. Do not claim zero new reds or universal baseline from attribution."
+    },
+    {
+      "id": "B4",
+      "paths": [
+        "ref-d70466ca3ec284f000dd",
+        "tools/review.py r0 route and _R0_INCOMPATIBLE_FLAGS",
+        "docs/working/deferrals/review-candidate-access-gap-0923.md"
+      ],
+      "finding": "R3 Codex executed quote-plus-lift false-refusal; Claude traced --r0 --candidate applying unseeded bound honesty. Both qualify as demonstrated under I.3g.0b; calling the latter undemonstrated is incorrect. The original deferred findings are still fail-closed, not false PASS.",
+      "resolution": "CO rules once under I.3g.1 on these two retained false-refusal limits or bounded final correction. A corrected hand-up can carry the ruling without altering code/docs merely for editorial wording. No R4. Mixed-clause HIGH already corrected by2478; final correction deliberately unreviewed."
+    }
+  ],
+  "governance": [
+    {
+      "candidate": "a516648979e9f9f49a2594477483a6d3a32c1161",
+      "tree": "4c404494b34a487cf050b4877a7d9d98a965aa41",
+      "parent": "0e830089138d47c612ea1aa7042873f6e8dd9ff3",
+      "audit": {
+        "path": "unpublished-local-ref:c69bad5741fb8daa",
+        "sha256": "5335bbd16fb8930962a7246a82be0062031796c05209367a7d4a9b8fd617b568",
+        "bytes": 11063
+      },
+      "audit_result": "a516648979e9f9f49a2594477483a6d3a32c1161",
+      "audit_base": "0e830089138d47c612ea1aa7042873f6e8dd9ff3",
+      "audit_tree": "4c404494b34a487cf050b4877a7d9d98a965aa41",
+      "decision": "approve",
+      "exact": true
+    },
+    {
+      "candidate": "7bbdb2d6d3530fe126a6d3aead2d85ad95023e13",
+      "tree": "559835f99ef622f8646b733d77afebcb9ef84a4b",
+      "parent": "a516648979e9f9f49a2594477483a6d3a32c1161",
+      "audit": {
+        "path": "unpublished-local-ref:7c0bea531a6f97af",
+        "sha256": "efad891356180e3b4b9162c9f22918e940e5c3e1023eb879c4e7996e316f70fd",
+        "bytes": 3137
+      },
+      "audit_result": "7bbdb2d6d3530fe126a6d3aead2d85ad95023e13",
+      "audit_base": "a516648979e9f9f49a2594477483a6d3a32c1161",
+      "audit_tree": "559835f99ef622f8646b733d77afebcb9ef84a4b",
+      "decision": "approve",
+      "exact": true
+    },
+    {
+      "candidate": "7ad41be37b402ec0031867f187c0d168a9f0e80d",
+      "tree": "dcc326c79f4ffb63c602848006e3724f87055c65",
+      "parent": "7bbdb2d6d3530fe126a6d3aead2d85ad95023e13",
+      "audit": {
+        "path": "unpublished-local-ref:b38e0242da0d0d00",
+        "sha256": "1544dd1f3313cc3cec932d23ffd9c358214db1774e9ef31c873ab4791028bfd2",
+        "bytes": 2865
+      },
+      "audit_result": "6cf9912158a5023ea7b002e3c19d887655a9c63e",
+      "audit_base": "a6135c4b72dd12e9156ab6105daef31c979382ff",
+      "audit_tree": "9d403e9e7827a2cae2bbff43ee05a895154e673b",
+      "decision": "approve",
+      "exact": false
+    },
+    {
+      "candidate": "30eeb5042e8cc20096428233be5080f37bddcdee",
+      "tree": "a3fa720443a7c11a2327c38170e9c7a8ddd1f265",
+      "parent": "7ad41be37b402ec0031867f187c0d168a9f0e80d",
+      "audit": {
+        "path": "unpublished-local-ref:1f235c5525647ce6",
+        "sha256": "c04832080b607f495b67280b63e00637cc897aac7ed031f14f37f6e19d024f6b",
+        "bytes": 3343
+      },
+      "audit_result": "30eeb5042e8cc20096428233be5080f37bddcdee",
+      "audit_base": "7ad41be37b402ec0031867f187c0d168a9f0e80d",
+      "audit_tree": "a3fa720443a7c11a2327c38170e9c7a8ddd1f265",
+      "decision": "approve",
+      "exact": true
+    },
+    {
+      "candidate": "83ec4cc7a802a799a01df4087f7541097a9399db",
+      "tree": "f5854d8f38f7fcbb05b3499871afa863191a105b",
+      "parent": "30eeb5042e8cc20096428233be5080f37bddcdee",
+      "audit": {
+        "path": "unpublished-local-ref:2db9cd83b98d7bc8",
+        "sha256": "8cc00cc0a32c36adb7e35b24222f1d33b6370dfd12fed212eb3286b52e450dfd",
+        "bytes": 8360
+      },
+      "audit_result": "83ec4cc7a802a799a01df4087f7541097a9399db",
+      "audit_base": "30eeb5042e8cc20096428233be5080f37bddcdee",
+      "audit_tree": "f5854d8f38f7fcbb05b3499871afa863191a105b",
+      "decision": "approve",
+      "exact": true
+    },
+    {
+      "candidate": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+      "tree": "a8987154e68843f659ff2b6a22a19cef7d395293",
+      "parent": "83ec4cc7a802a799a01df4087f7541097a9399db",
+      "audit": {
+        "path": "unpublished-local-ref:8e8a2bc86ca0bc00",
+        "sha256": "90412c4ffc4b91f8a75e386c807a5ca95bc1c40038a58a94fd6cfe78232d1829",
+        "bytes": 2936
+      },
+      "audit_result": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+      "audit_base": "83ec4cc7a802a799a01df4087f7541097a9399db",
+      "audit_tree": "a8987154e68843f659ff2b6a22a19cef7d395293",
+      "decision": "approve",
+      "exact": true
+    },
+    {
+      "candidate": "2478dc00ba62ae2b023adfb8db9bc82659c90b57",
+      "tree": "8635e0828c2b9c28bfccf320fa377febdcef6647",
+      "parent": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+      "audit": {
+        "path": "unpublished-local-ref:2cfa56e9bd443d55",
+        "sha256": "1711c68a5652e26c61b96149d1343cd460fec2c45d140cddab828a498f95080f",
+        "bytes": 2876
+      },
+      "audit_result": "2478dc00ba62ae2b023adfb8db9bc82659c90b57",
+      "audit_base": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+      "audit_tree": "8635e0828c2b9c28bfccf320fa377febdcef6647",
+      "decision": "approve",
+      "exact": true
+    },
+    {
+      "candidate": "57f98dd9f0e75fcdee0aa1ba2dad798199e076bf",
+      "tree": "f1e6d284b85c529f43222f33372ed13c0e6e0b75",
+      "parent": "2478dc00ba62ae2b023adfb8db9bc82659c90b57",
+      "audit": {
+        "path": "unpublished-local-ref:dad2b93889f8acae",
+        "sha256": "1e202e4c090e807aa84840b03c43581dbf3e6658db970149c071beadb8ad7a2f",
+        "bytes": 4696
+      },
+      "audit_result": "57f98dd9f0e75fcdee0aa1ba2dad798199e076bf",
+      "audit_base": "2478dc00ba62ae2b023adfb8db9bc82659c90b57",
+      "audit_tree": "f1e6d284b85c529f43222f33372ed13c0e6e0b75",
+      "decision": "approve",
+      "exact": true
+    }
+  ],
+  "rounds": [
+    {
+      "artifact": {
+        "path": "unpublished-local-ref:b71189dc0825708e",
+        "sha256": "433a87c24e845e5c3c961d69dbb9754977c6feef14a6d233b40dc29174a8146e",
+        "bytes": 1441
+      },
+      "evidence": {
+        "schema": "helm.review-evidence.v1",
+        "candidate": "30eeb5042e8cc20096428233be5080f37bddcdee",
+        "round_id": "r1",
+        "required_lanes": [
+          "codex",
+          "claude"
+        ],
+        "exit_code": 0,
+        "lanes": [
+          {
+            "lane": "codex",
+            "candidate": "30eeb5042e8cc20096428233be5080f37bddcdee",
+            "round_id": "r1",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 4652,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "codex_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          },
+          {
+            "lane": "claude",
+            "candidate": "30eeb5042e8cc20096428233be5080f37bddcdee",
+            "round_id": "r1",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 7541,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "claude_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          }
+        ]
+      },
+      "validated": true
+    },
+    {
+      "artifact": {
+        "path": "unpublished-local-ref:9e812d71c33206b0",
+        "sha256": "402608469aebd44d5500c424b5148dceb42469d37b52d3e4efcd533f5908d4e6",
+        "bytes": 1442
+      },
+      "evidence": {
+        "schema": "helm.review-evidence.v1",
+        "candidate": "83ec4cc7a802a799a01df4087f7541097a9399db",
+        "round_id": "r2",
+        "required_lanes": [
+          "codex",
+          "claude"
+        ],
+        "exit_code": 0,
+        "lanes": [
+          {
+            "lane": "codex",
+            "candidate": "83ec4cc7a802a799a01df4087f7541097a9399db",
+            "round_id": "r2",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 3132,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "codex_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          },
+          {
+            "lane": "claude",
+            "candidate": "83ec4cc7a802a799a01df4087f7541097a9399db",
+            "round_id": "r2",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 11290,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "claude_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          }
+        ]
+      },
+      "validated": true
+    },
+    {
+      "artifact": {
+        "path": "unpublished-local-ref:573c15f50cb81b76",
+        "sha256": "8e0843ffc036d177cabdb05118e59142a7f268691206673e194b0b9241746d57",
+        "bytes": 1442
+      },
+      "evidence": {
+        "schema": "helm.review-evidence.v1",
+        "candidate": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+        "round_id": "r3",
+        "required_lanes": [
+          "codex",
+          "claude"
+        ],
+        "exit_code": 0,
+        "lanes": [
+          {
+            "lane": "codex",
+            "candidate": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+            "round_id": "r3",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 4582,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "codex_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          },
+          {
+            "lane": "claude",
+            "candidate": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+            "round_id": "r3",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 16428,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "claude_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          }
+        ]
+      },
+      "validated": true
+    }
+  ],
+  "findings_dispositions": [
+    "R1 executed marker-substring wrong-pin and absent-CLI incomplete-bound-round findings corrected by83ec. Both R2 lanes confirmed closure. Claude advisory severity did not erase executed counterexample.",
+    "R2 executed/traced stale installed candidate-clause HIGH corrected by3a71. R3 exposed mixed bound/stale clauses in either order; Codex executed, Claude traced but declined due no dispatch. Demonstrated by law regardless. Builder reproduced and corrected both mixed and headerless-stale siblings in2478; no R4.",
+    "R3 quoted lifted no-shell false-refusal remains demonstrated; explicit conservative policy trade-off needs CO ruling, not rejection as undemonstrated. r0-with-candidate remains a traced fail-closed unsupported combination, no internal caller measured; request same one-time ruling.",
+    "All six raw reviewer answers consumed; evidence validation passed at exact30eeb/83ec/3a71 candidates, both families Completed exit0. Read-only Claude and bounded Codex probe limits retained; no independent XO suite/review."
+  ],
+  "acceptance_measurements": {
+    "A3": "Both committed wrapper fixtures equal original CO bytes:360R1 sha747c8a7464d67940c0a11850cee6d26156391c59c55ee722c0647c20fb271062/22421;361R3 sha0d308d06cde50c08d061e56ee6b249fee166137bebc10d831efb26a1e9585fa5/21747.",
+    "B1": "Six @kirk fixtures become @fo and Kirk expectation becomes Una; production aliases unchanged.",
+    "B2": "Outcome(iii), report-only, no registry/pin change. Preserved TUI mint receipts record both models on2.1.282, codeword replies; retire outputs BLIND then RETIRED. Four headless stderr/stdout artifacts show both2.1.280 and2.1.282 × glm-5.3 andglm-5.3[1m] turn/codeword with unrecognized_model marker. Binary/argv/rc provenance attributed to retained results/mint records. Two versions×two ids do not prove universally negative for all versions/models, and advisory1M text is not measured1M context. No XO lifecycle actions.",
+    "B3": "19-insertion test helper patch hunks identical to supplied original. Applied copy format differs only From SHA/index abbreviation. Eighteen passes and684K size currently only attributed.",
+    "B4": "Final full log shows sitemap/home, cache-root divergence and crew_oob/no-key classes present; hook-KeyError, AF_UNIX-length, detached-rename classes absent in retained output. Two component-page drift failures and glm pin-coupling failure also present. No extra fixes authorized.",
+    "test_root": "unpublished-local-ref:e162a1caf9b07f32 still exists at18:11 despite cleanup statement; existence alone does not establish ownership, live use or residual contents. XO did not clean it."
+  },
+  "full_wrappers": [
+    {
+      "tip": "7ad41be37",
+      "main": "13F/25980P/25S/22W",
+      "driver": 25,
+      "console": 68,
+      "note": "Recovered wiped-inode log; seven own Codex streaming double failures corrected in30eeb."
+    },
+    {
+      "tip": "30eeb5042",
+      "main": "6F/25986P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "83ec4cc7a",
+      "main": "6F/25989P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "3a71b0e23",
+      "main": "6F/25991P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "2478dc00b",
+      "main": "6F/25994P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "57f98dd9f0e75fcdee0aa1ba2dad798199e076bf",
+      "main": "6F/25994P/26S/22W/558.77s",
+      "driver": "25P/2.28s",
+      "console": "68P/3deselected/10.54s",
+      "markers": "main1 driver0 console0 WRAPPER_EXIT1",
+      "artifact": {
+        "path": "unpublished-local-ref:812e17b801203834",
+        "sha256": "25ee18720458a7f1e6ed0534e3bcd9afec253d044266ac1640ebfa3ac8828ad7",
+        "bytes": 48096
+      }
+    }
+  ],
+  "final_failures": [
+    "test_crew_oob_verify.py::test_a_replaced_file_at_the_same_path_is_not_a_key",
+    "test_pinkai_console_component_pages.py::test_the_template_is_the_shad_draft_plus_the_mechanism_and_nothing_else",
+    "test_pinkai_console_component_pages.py::test_the_reconstruction_still_refuses_a_smuggled_statement_on_its_own",
+    "test_pinkai_console_sitemap.py::test_r2_issues_never_embed_values_and_the_index_is_validated_before_writing",
+    "test_ship_claude_2163.py::test_launch_plan_pins_claude_and_glm_to_the_same_live_pin",
+    "test_test_framework_cache_defaults.py::test_test_framework_routes_model_services_through_cache"
+  ],
+  "limits": "No green full-suite, universal no-new-reds, universal GLM smoke, live deployment/adoption or undiscovered-bug-free assertion. All six wrappers retained; no seventh requested."
+}

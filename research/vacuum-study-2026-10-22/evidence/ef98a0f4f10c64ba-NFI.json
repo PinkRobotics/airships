@@ -1,0 +1,44 @@
+[
+  {
+    "NFI_id": "NFI-SHEAR",
+    "gap": "Confirmed: sourced cores stay on the moderate branch (all Vc < 2). Kc trims buckling SF to 0.863720643326-0.991105457684 of the 007 value. P2-E/Plascore 16 falls 0.2338855789925097 to 0.22795919832772132; yield unchanged and larger.",
+    "direction": "A core shear modulus below about 2.45 MPa would enter the crimping branch. None sourced does.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-WRINKLE",
+    "gap": "Confirmed: foam wrinkling (Eq 2.2-5, Q 0.50, equibiaxial factor 0.6823278038280193 from x^3+x=1) gives 0.7090620695678252 of the advisory uniaxial SF and stays above trimmed general instability. Hexcel honeycomb wrinkling (Eq 2.2-14) gives 0.05652863640260287 and 0.0415196459641, below general instability, so it would govern if admitted. Plascore Ec is open; Hexcel stabilised Ec is QUESTIONABLE.",
+    "direction": "Owner directions stand.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-SAND",
+    "gap": "Confirmed: general instability includes transverse shear and restores the kd 0.2 classical pressure at infinite shear (Kc=1). The 007 splits were not re-searched.",
+    "direction": "A new split search only for a named core whose Kc moves the equal-factor point.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-KD",
+    "gap": "Confirmed: gamma_d = 0.20 on the moderate branch, equal to kd, with a handbook jump to 1 at Vc=2 that no sourced row reaches. Do not apply the MAINLINE-004 kd/0.2 multiplication on the crimping branch.",
+    "direction": "Owner direction stands.",
+    "effect": "No sourced row reached the jump."
+  },
+  {
+    "NFI_id": "NFI-GEOM",
+    "gap": "Confirmed: handbook radius is the middle surface; ratios use external 10 m in both pressures and do not move with that choice, since both scale as 1/R^2.",
+    "direction": "Absolute pressure on thick rows still needs an inner mould line.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-CORE-FLOOR",
+    "gap": "Confirmed: densities 8-1 have no sourced Gc/Ec and are not revised; the microlattice has no modulus and no SF.",
+    "direction": "Do not extrapolate catalog moduli downward.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-BIAX",
+    "gap": "Confirmed: Eq 2.2-6 is a flat-plate interaction applied to equibiaxial membrane stress; the solved factor is 0.6823278038280193.",
+    "direction": "A sphere-specific wrinkling interaction could replace it.",
+    "effect": "Owner statement stands."
+  }
+]

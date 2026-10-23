@@ -1,0 +1,68 @@
+{
+  "id": "N338",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N338",
+    "report": "rpt-mainline014b-grok-metal-honeycomb-1019",
+    "card": "MAINLINE-14B",
+    "file": "evidence/e56941cee236de62-NFI.json",
+    "row_id": "NFI-CARBON",
+    "fields": {
+      "id": "NFI-CARBON",
+      "note": "No carbon-fiber honeycomb sheet located here lists stabilised Ec and both shear moduli in this density band. Hexcel's product list has no carbon honeycomb table. Ultracor UCF-51-3/8-2.0 on MatWeb lists density 0.032 g/cc, compressive yield 1.41 MPa and L shear modulus 0.331 GPa, and omits Ec and W shear, so it is not scored. HFT is fiberglass phenolic. HRH-49 is Kevlar 49 fabric. Neither is carbon."
+    }
+  },
+  "claim": "No carbon-fiber honeycomb sheet located here lists stabilised Ec and both shear moduli in this density band. Hexcel's product list has no carbon honeycomb table. Ultracor UCF-51-3/8-2.0 on MatWeb lists density 0.032 g/cc, compressive yield 1.41 MPa and L shear modulus 0.331 GPa, and omits Ec and W shear, so it is not scored. HFT is fiberglass phenolic. HRH-49 is Kevlar 49 fabric. Neither is carbon.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/337"
+    },
+    {
+      "report": "rpt-mainline014b-grok-metal-honeycomb-1019",
+      "artifact": "evidence/e56941cee236de62-NFI.json",
+      "snapshot": "evidence/e56941cee236de62-NFI.json",
+      "sha256": "e56941cee236de6243935baef4e1aea357b68683f6179ae5930e0263ac35cb50",
+      "bytes": 4778,
+      "selector": "source row ID: NFI-CARBON"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline014b-grok-metal-honeycomb-1019",
+          "artifact": "evidence/e56941cee236de62-NFI.json",
+          "snapshot": "evidence/e56941cee236de62-NFI.json",
+          "sha256": "e56941cee236de6243935baef4e1aea357b68683f6179ae5930e0263ac35cb50",
+          "bytes": 4778,
+          "selector": "source row ID: NFI-CARBON"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/337"
+          }
+        ]
+      }
+    }
+  ]
+}

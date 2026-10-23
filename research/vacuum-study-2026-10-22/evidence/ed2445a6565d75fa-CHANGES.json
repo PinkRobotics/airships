@@ -1,0 +1,890 @@
+[
+  {
+    "id": "CHANGE-check030d",
+    "kind": "filed_change",
+    "label": "check030d",
+    "claim": "550 checked numbers stand; all ten wording items and 22 joined/broken-token occurrences are corrected in the annotated historical card.",
+    "report": "rpt-ref-158a1f387003d2ecc887",
+    "source_report_body": "QUESTIONABLE/PROJECTION. CHECK-030d complete behind its owner; no 030d code read or run.\n\nNo numerical mismatch in 550 numbers. I re-derived 85 P2 values with my own code (model49, which reproduces 048 bit for bit), and all match:\n- the whole R10 bill: +118.694826 kg named endpoint, +0.000003 kg least point;\n- the least point: gamma 0.498375922, Q 0.710673963, film 0.081667779, usage 0.842794177;\n- the cure-included R10-15 table: 18 endpoints within 0.0005 kg, and every least set;\n- 052's comparison points, the 1 mm best (-998.333 kg) and both lost AgFEP floats.\n\nMy own arithmetic confirms R30 Be at 102.230791 t (23.610%/23.775%), six Weibull scales, 18 reports, 408 pins, intact snapshots, 51 links, 104 rows and 1553 findings. Four sub-workers traced 449 more to source reports, with no mismatches.\n\nWording: 10 items, four of which change the reading:\n- line 143 reverses Pach's stored (1.1 in a metres field) and corrected (0.0011 m) depth;\n- line 213's +82.640676 kg is 048's unnamed all-four endpoint;\n- line 23 calls 040's repair an allowance;\n- line 244 names four of five new grounding routes.\nTypography: 22 joined tokens (\"2, 027, 245\", \"AtR30\", \"colderh 2\").\n\nThe pending list was correct at filing. Since then eight reports have filed, for a 030e: CHECK-029, 049, 051-complete, CHECK-052, CHECK-048 complete with its thermal reply, 053 and 054.\n\nScope: other cards' model outputs were traced, not recomputed. Of the 432 1 mm cases, 24 were recomputed, including the best. Four NFI/fix rows.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-158a1f387003d2ecc887",
+        "artifact": "evidence/ea4a6d3de41d3163-CHECK.md",
+        "snapshot": "evidence/ea4a6d3de41d3163-CHECK.md",
+        "sha256": "ea4a6d3de41d31633abc4c94ee428fef8ed67f5be4042b24231bb69c5e404a68",
+        "bytes": 9972,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-047",
+    "kind": "filed_change",
+    "label": "047",
+    "claim": "Regularized-core model gives SF1/SF1.05 pass–fail dimples 1.209–1.227/0.738–0.756 mm; no physical tolerance is qualified.",
+    "report": "rpt-ref-e23aa05d834f8e89bb2c",
+    "source_report_body": "MAINLINE-047 filed with CHECK-029 folded in. QUESTIONABLE/PROJECTION.\n\nThe criterion is min(endpoint, first face yield, first core shear). The 255/300 MPa cases fail even at zero dimple. With assumed 345 MPa faces, the governing tested pass–fail brackets are 1.209–1.227 mm at SF1 and 0.738–0.756 mm at SF1.05; single-Gaussian RMS estimates 14.32/8.78 micrometres.\n\nThese results explicitly use orthotropic StVK core E_in=1 MPa, G_in=.5 MPa, inherited radial/transverse moduli, and catalog minimum-average/typical shear strengths. The inherited .01-MPa core is not accepted after CHECK-029's ellipticity finding. The stronger regularization is unsourced: no actual-hull tolerance is qualified.\n\nNew native core stress/strain fields check current-frame shear and local ellipticity on passing paths. Face yield governs the small-dimple limits; larger dimples encounter material limits before numerical endpoints. Both meridians and all four footprints are covered.\n\nConditional endpoint division by 1.10 gives a common SF1 bracket 0.521–0.539 mm; SF1.05 then fails even at zero. Transferring 2.31–2.46x permits none. CHECK-029 identifies a foam-law artifact behind that larger gap, so these are rejection scenarios, not empirical calibration.\n\nCure debit, controls, 015b/042 comparisons and inherited-law sensitivities are retained. 319 native records, 1892 checks, 14 NFIs. Retry and keep-turn-open orders observed. No successor; stop and file.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-ref-e23aa05d834f8e89bb2c",
+        "artifact": "evidence/ad003407cf8ed499-CARD.md",
+        "snapshot": "evidence/ad003407cf8ed499-CARD.md",
+        "sha256": "ad003407cf8ed499f22a51e10ce00562d2ccf5bc1cafa37cad744e4377ba2f17",
+        "bytes": 12909,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-049",
+    "kind": "filed_change",
+    "label": "049",
+    "claim": "Sourced Be-free faces do not float; the 60% Vf projection needs CHECK-049's consistent mixture and reoptimization.",
+    "report": "rpt-ref-06643b916584f58fd9e4",
+    "source_report_body": "QUESTIONABLE/PROJECTION. MAINLINE-049 complete, folding in 048's finish and water, CHECK-040's rows and simjob.\n\nNo beryllium-free P2 floats on sourced faces at R 15-30, either weather, even at all four optimism endpoints. Under 048's account the closest, quasi-isotropic K13D2U on 5056 bonded at room temperature, is short 1.0/1.9/4.8 t and needs 7-12% more modulus. AlBeMet: short 1.7-10.0 t, and 62% beryllium. M55J: short 2.9-19.5 t. Aramid cores are crimp-bound, and undried their water breaks the service pressure. CFRP bonded to 5056 at 200 F fails the free edge (0.55); it needs a bond at or below 50 C.\n\nOne projection floats: K13D2U at 60% Vf (200 GPa), on gamma, Q and face compression. R 30 ISA usage 0.721 (gamma x1.95, Q x1.93, 293 MPa). Endpoints +1.6/+4.3/+16.3 t. Beryllium floats on gamma and Q alone (usage 0.72/0.60/0.53).\n\nCHECK-040's rows: at 1 mm of water only R 30 floats. Cure in the global and crimp demand costs the floating builds at most 0.45 t; edge/scarf costs beryllium 0.2-1.4 t and the CFRP nothing. No float is lost. The 60% Vf face fails 048's full-cycle screen at 037's geometry (0.890) and passes at its own (1.18).\n\nSupply at R 30: 4.8% of pitch-fibre capacity, against 24% of world beryllium.\n\nEasier to ground: beryllium's optimisms, fewer and smaller, on a sourced face. The CFRP's case is supply.\n\nChecks: 040's 12 rows; 048's 8 bit for bit; CHECK-040's 28 within 0.0006 kg. Results come from simjob runs; two earlier bare runs repeated identically. 17 NFI.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-06643b916584f58fd9e4",
+        "artifact": "evidence/e092afb908ded8b8-CARD.md",
+        "snapshot": "evidence/e092afb908ded8b8-CARD.md",
+        "sha256": "e092afb908ded8b8d4215ccb1d8acfa9658492edeb2c5b8db49a460a6d2ee741",
+        "bytes": 36037,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-051",
+    "kind": "filed_change",
+    "label": "051",
+    "claim": "Completed member/material, reliability, hail and damage tables replace the partial filing; hypothetical distributions remain unqualified.",
+    "report": "rpt-ref-17635c55001d23054259",
+    "source_report_body": "MAINLINE-051 COMPLETE. QUESTIONABLE / PROJECTION. Resume finished; prior partial and all its pins preserved.\n\nDelivered m5–40 target surfaces, 18 material/layup models, frame masses and SFs, explicit q≥1 mechanical witnesses, numerical strength/m gaps, 980 hail scenarios and 72 same-budget member-loss cases. 182 FE solves; 592 target, six regression, 145 hail and 560 FE/mesh checks pass.\n\nAt 5% reserve, Hexoloy's same-mass mechanical SF is 1.05399. Required whole-member compression scale at m10/Pf1e-3 is 3.72734 GPa; assuming 3.9 GPa gives Pf0.00063595. This is hypothetical, not a measured distribution. At the original higher 041 screens, scale improvements remain 1.09710×/1.07925×.\n\nK13D2U 50/20/20/10 has same-mass mechanical ceilings 1.13574/1.07598 and required scales 2.16141/2.24573 GPa; compression data are absent. Its 5% q≥1 witness totals 4282 kg including reserve/sag, versus 5249 kg for M55J's best modeled layup and 21179 kg for aluminium.\n\nThe transferred SiC hail estimates are 1.153–5.393% at the 5% section; actual break probabilities remain unidentified. All sampled member losses trigger secondary overload; dynamic cascade is not proven. Joints and film need redesign as well as tubes.\n\nSixteen qualification NFIs remain; no evidence-backed winner. Unchanged admission retries completed at one core/1GiB; all admitted jobs released. One early 29-second manual retry is disclosed. No successor; SLEEPING.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-ref-17635c55001d23054259",
+        "artifact": "evidence/ddcb7f00a136d59c-CARD.md",
+        "snapshot": "evidence/ddcb7f00a136d59c-CARD.md",
+        "sha256": "ddcb7f00a136d59c7378f568a319e131c0b6dd398c30a3173c57dc6c33874fb2",
+        "bytes": 19545,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-053",
+    "kind": "filed_change",
+    "label": "053",
+    "claim": "Four thermal alternatives reproduce; maximum resized payload loss 4.388925 kg changes no endpoint float sign or least/tied set.",
+    "report": "rpt-ref-3fb9907ba4e1c52825f0",
+    "source_report_body": "MAINLINE-053 complete; QUESTIONABLE/PROJECTION. Owner convection-floor and core-gap terms explain the discrepancy. All 118,499 independent comparisons pass. The routed owner boundary reply is incorporated; its 46 supplied reference entries also match.\n\nFour explicit R10–30 thermal alternatives, 9,640 thickness rows and 52 finish screens are filed. Physical boundary and installed-hull qualification remain open; no single validated temperature table is claimed.\n\nAll 5,760 endpoint witnesses across 360 accounts were evaluated. No endpoint float sign, minimum optimism-axis choice or tied set changes. Largest resized payload loss is 4.388925 kg. Under forced/conduction, cure-inclusive retained-floor/bake ISA payloads are 118.088578/325.606508/808.781562 kg at R10/12/15; optimistic values are −29.863021/62.148681/294.119183 kg.\n\nAll 288 frozen scarf comparisons cross below one (largest deficit 0.0366%); 85 frozen global crossings also occur. Resizing restores the stated constraints. Free-edge, wall and multilayer finish screens remain passing. All mass debits and inherited qualifications carry.\n\n31,460 accounting checks and 323 delivery checks pass. Manifest pins 269 files; all 142 frozen inputs match. One later COMMON amendment adds the simjob rule already followed. Nine new nonblocking NFI groups and six inherited registers remain open.\n\nBoth 053 orders are complete. No time budget, pending job or named successor. Stop and file; no out-of-band contact, wake or restore.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-3fb9907ba4e1c52825f0",
+        "artifact": "evidence/8b817facdc012a8d-CARD.md",
+        "snapshot": "evidence/8b817facdc012a8d-CARD.md",
+        "sha256": "8b817facdc012a8dbf7bbf0bc4962ce1744a6086301a29629ed9b2f7a9fdb08a",
+        "bytes": 18881,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-053fold",
+    "kind": "filed_change",
+    "label": "053fold",
+    "claim": "Completed CHECK-048 is folded; convection/core-radiation conventions and finish-source corrections remain explicit.",
+    "report": "rpt-ref-a1657be60b663f493887",
+    "source_report_body": "Completed CHECK-048 folded into MAINLINE-053. Its reconstruction confirms that omitted boundary terms caused the mismatch. Coverage is 103,714 thermal comparisons with 26 reconciled legacy entries; 1,714,368 is the full-account tighter audit count.\n\nThe owner includes relevant buoyancy and core-radiation mechanisms, but its coefficients are not established as physically best supported. CHECK-040's omissions are likewise unqualified. Primary forced-convection, large-sphere and bonded-honeycomb evidence, plus explicit Re/Ra/Ri diagnostics, support retaining the four conditional alternatives and the open physical-boundary NFI.\n\nExisting consequences remain: maximum resized payload cost 4.388925 kg; no thermal-only endpoint float or minimum/tied-set changes. Frozen scarf/global crossings and restored resized limits retain their previous disposition. CHECK-048's cure-inclusion float/set changes are a separate mechanical comparison.\n\nAdopt SolarWhite .285 kg/m² and .18/.89 Al-source correction, classical CCAg normal-emittance/citation correction, and twelve null-field floating witnesses. Selected multilayer inputs and all mass debits remain unchanged.\n\nAll 36 equivalent primary accounts agree within 0.000062 kg. 458 fold checks and 79 package checks pass; prior 269-file manifest and 68 report pins remain intact. Completed-check NFI dispositions and nine MAINLINE-053 physical groups carry. Manifest pins 52 files. No repeated solver run, time budget, live job, successor or out-of-band contact.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-a1657be60b663f493887",
+        "artifact": "evidence/a0cad7c8a29508b2-CARD.md",
+        "snapshot": "evidence/a0cad7c8a29508b2-CARD.md",
+        "sha256": "a0cad7c8a29508b217cf632b7bb9de4d3eb077c4bc99e7daed1141996d786fb5",
+        "bytes": 8925,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-054",
+    "kind": "filed_change",
+    "label": "054",
+    "claim": "R10 ISA MET one-day payload is +30.710562 kg; SIOX/3A seven/thirty-day payload is +1.115544/−55.428312 kg before concept growth.",
+    "report": "rpt-ref-71723c1ae93445240630",
+    "source_report_body": "MAINLINE-054 complete — QUESTIONABLE / PROJECTION throughout. Reproduced least-root ingress 1.258056 kg/day and 17.279789 h humidity crossing; schedule 15.551810 h.\n\nAt 052 favourable endpoints, R10 ISA MET alone supports the conditional one-day screen with +30.71 kg payload. Seven-day SiOx/3A gives +1.12 kg: 17.16 kg beads, 27.23 kg capture system, 2.51 kg barrier increment. Thirty days gives −55.43 kg. Net working capacity is 6 wt% with bed ≤333 K; seven days requires about 277 m3/h effective water conductance and 16.54 W peak heat rejection. Doubling WVTR makes that payload −15.09 kg.\n\nThirty-day SiOx/3A gives R12 ISA +110.83 kg and R15 optimistic +180.67 kg; passive foil30 alternatives give +47.35/+77.60 kg. R12 optimistic SiOx/3A fails at −74.55 kg; both-weather fails throughout. Thin ALD/ML3 remains an unverified carrier/flex transfer, not an installed-service result.\n\nAramid same-gauge SF is 0.517/0.310 for yarn/60%-efficiency bounds; resizing is charged. UHMWPE fails the 30-day, 1%-creep screen at the cited 900 MPa/30 C condition.\n\nFirst grounding route: metallised seamed-panel testing, then HX/cartridge transport and thermal demonstration. Full bills, source conditions, regeneration, defect sensitivities, 16 new and 15 inherited NFI included. 5,949 assertions pass; 88 frozen pins verified. Seven scientific invocations admitted/released; no refusal. No successor started.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q5",
+    "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+    "sources": [
+      {
+        "report": "rpt-ref-71723c1ae93445240630",
+        "artifact": "evidence/d63503565eee22e5-CARD.md",
+        "snapshot": "evidence/d63503565eee22e5-CARD.md",
+        "sha256": "d63503565eee22e5224f5567597a3340698c06d9775504ebc89019d8311e3b12",
+        "bytes": 13530,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-055",
+    "kind": "filed_change",
+    "label": "055",
+    "claim": "Three full-section 5 m cap tests cost an unquoted $0.420–1.558M; use corrected rig reach and direct limits from CHECK-055.",
+    "report": "rpt-mainline055-opus-gamma-test-1020",
+    "source_report_body": "MAINLINE-055 filed, QUESTIONABLE/PROJECTION. The cheapest test that turns gamma into evidence is three 5 m spherical caps on the true R10 curvature at full cross-section: 5052-O faces 3.10 mm, matched to Be's classical stiffness, on the real CR III 3/8-1.0 core. They are built with the route's seams and a reinforced edge, seeded with 2, 6 and 16 mm pole dimples, and loaded by evacuation plus a water head (sea level reaches gamma 0.593; 5 m of water 0.883). Cost USD 0.42-1.56M; an R30-similar pair adds 0.15-0.61M and a Be confirmation cap 1-4.6M. 038's 1 m foil/foam shells (30-90k) calibrate the elastic FE but cannot measure P2's gamma, because CHECK-029's core shear, face yield and core law are absent. Scaling: the 3/8-1.0 cell cannot shrink without a denser, stronger core, and SR-200 stops at 0.508 mm, so core physics survives only at full thickness. My FE: 5 m caps match the sphere within 1.4%; 5052-O alone keeps the face-yield ratio (0.99), elastic gamma within 3-4%. Adverse pre-test prediction: at 042's 9.3-16.1 mm tolerance the 028b section reaches elastic gamma 0.47-0.51, and its core passes CR III shear strength at 25-38 kPa. Gamma 0.564 needs dimples of at most 5.8 mm, the core 2.4 mm, the faces 1.3 mm. The outcome table maps each gamma band to R10/R30. Three articles per configuration discriminate models; statistical bounds need far more, so results count through a validated FE. First: the dimple specification, 038 T1, core witnesses, rig safety. Twelve NFI. Next: none.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-mainline055-opus-gamma-test-1020",
+        "artifact": "evidence/ae502f99e70cfeb1-CARD.md",
+        "snapshot": "evidence/ae502f99e70cfeb1-CARD.md",
+        "sha256": "ae502f99e70cfeb17b60f9c94d8038c0572b2a297d6e2b8e2b64c03b57afb321",
+        "bytes": 12723,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-056",
+    "kind": "filed_change",
+    "label": "056",
+    "claim": "6.03 MPa is a published simulation, not a measured collapse; refined 6.159021 MPa releases no P2 gamma.",
+    "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+    "source_report_body": "MAINLINE056 complete; QUESTIONABLE/PROJECTION. Corrected provenance: 6.03 MPa is the paper's pressure simulation, not a measured pressure test. Owned DF/J2 extension reuses pinned CHECK029 Q8 code. Refined indentation with the midsurface-radius reading gives 6.159021 MPa (+2.140%); four refined-contact indentation/radius scenarios span 6.1590–6.5023 MPa. Contact mesh refinement changes the peak -0.1156%; doubling contact penalty changes it −0.0105%. Linear gaps are +1.977% midsurface and +9.764% outer-radius. Guarded reference paths yield in the foam, then faces, before the implied virgin shear screen and turning point; no sourced PVC80 shear-rupture criterion was recovered. Gaussian early turns are distinguished from larger later peaks. Steel-axis, foam-flow, densification and imported-history uncertainties prevent unique calibration. Directional CR III crush/shear law requirements are sourced. No P2 gamma released. Raw paths, saved states, mesh/step/material checks, source snapshots, receipts and NFIs are pinned. All scopes released; no successor named.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+        "artifact": "evidence/f5b564329a854cb1-CARD.md",
+        "snapshot": "evidence/f5b564329a854cb1-CARD.md",
+        "sha256": "f5b564329a854cb169e29eef96ad49ef290b29ac1bbd5b1a6a11bec2bf5a1e5c",
+        "bytes": 10449,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-057",
+    "kind": "filed_change",
+    "label": "057",
+    "claim": "Concept growth defeats every evaluated P2/P3 case; corrected direct-048 and coating-denominator values are carried by size.",
+    "report": "rpt-mainline057-opus-mass-growth-1020",
+    "source_report_body": "MAINLINE-057 filed, QUESTIONABLE/PROJECTION. Once a sourced concept-stage mass-growth allowance is carried, no hull size from R10 to R30 floats, for either lead, in ISA or optimistic weather, at any of the 16 optimism subsets with every axis at its endpoint. The table is NASA GSFC IDC Table VI-1, adapted from AIAA S-120-2006 (S-120A and SAWE RP 7 are paywalled): calculated structure 15%, estimated hardware 30%, thermal 20%. Allocations (100 kg systems, gas, contamination, vacuum service), the water film, weather headroom and P3's sag debit carry none; the finish's own +10% and P3's joint allowance are credited. At R10, P2's +118.7 kg becomes -588.7 (MGA 707 kg) and P3's +30.9 becomes -649.7 (681 kg). R10 tolerates only 2.8% (P2) and 0.7% (P3) flat growth on hardware, so it needs flight-proven masses. Tolerance rises with radius: P2 reaches 9.9% at R30 ISA (6.3% optimistic), P3 7.5% (5.0%). R30 is the least-bad design point: it floats at TRL 7-8 allowances (5-6%), never at the 15-30% a concept carries. R20 is the smallest size where P2 floats in both weathers at TRL 7. The allowance costs more optimism than exists: the least sets' usage would need 1.78-2.13 (P2) and 4.6-30 (P3), linearly extrapolated. P2's R20/R30 bills are 040's with 048's finish transferred, checked within 0.2-9.2 kg at R10-15. Sensitivity gives payload at R10/12/15/20/30 against flat 0-30%. Eight NFI. Next: none.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-mainline057-opus-mass-growth-1020",
+        "artifact": "evidence/72231da907e3d985-CARD.md",
+        "snapshot": "evidence/72231da907e3d985-CARD.md",
+        "sha256": "72231da907e3d985b3357e88105923f5d9ffc679333f27ecd18dce0ad9b40c93",
+        "bytes": 9653,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-058",
+    "kind": "filed_change",
+    "label": "058",
+    "claim": "Relief and low-emittance finish widen conditional bands; REVIEW-A2's valve/bladder corrections lower the sampled day fractions.",
+    "report": "rpt-mainline058-opus-flyable-band-1020",
+    "source_report_body": "MAINLINE-058 filed, QUESTIONABLE/PROJECTION. My own P2 model reproduces 050's five fixed hulls exactly; P3 comes from 052's rows. Two levers widen the band. Relief: size the hull for the -30 hPa day, then climb (or admit air) above it. The worst-corner hot edge rises 11.9-12.0 K for P2 and 6.4-6.6 K for P3, P2's hull is 4.5-4.7% lighter, and there is no upper pressure limit. A low-emittance finish (Al with acrylic overcoat, eps 0.05) moves P2's clear-night cold edge 11 K lower for 0.2-0.5% of mass. Inside the whole bill, P2's worst-corner band widens from 4.0 to 25.7 K at R10 and from 13.8 to 34.6 K at R30. Trim air cannot be pumped out in flight (034's pumps take 11 days to 1.5 years); on the ground it costs 17-19 h per flight day. Climbing needs up to 510 m, ballast 0.2-0.4 t at R10. Thrust buys about 0.6 K for an hour, a kite helps only tethered hulls, shade nothing. At London Heathrow 2014-2023, 24-hour days covered: P2 R10 34% as built, 64% relieved, 84% with the finish, R12 96%; P3 sized at standard pressure and climbing, 78% (R10) and 97% (R12). 95% of days needs R12 with gamma/Q/film (P2) or S/F/J (P3); 99% needs R20 (P2) or R15 (P3). No relieved hull reaches a MIL-HDBK-310 hot day at R30 or below (10%: P3 0.9 t short, P2 3.0-3.9 t). All of this assumes flight-proven masses (057). 17 NFI. Next: none.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q2",
+    "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+    "sources": [
+      {
+        "report": "rpt-mainline058-opus-flyable-band-1020",
+        "artifact": "evidence/4f1328c26181ad6a-CARD.md",
+        "snapshot": "evidence/4f1328c26181ad6a-CARD.md",
+        "sha256": "4f1328c26181ad6a5a652197b098e67e00ccbaeed34fe7734e98959dce8d3d15",
+        "bytes": 13029,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-059",
+    "kind": "filed_change",
+    "label": "059",
+    "claim": "Carry CHECK-059's 99%-removal times, two-coat Ultra-Ever Dry bill and unreproduced P3 ponding; 0.1 kg/m² stays provisional.",
+    "report": "rpt-ref-4fb99766fa9a4406a85a",
+    "source_report_body": "QUESTIONABLE/PROJECTION. MAINLINE-059 complete.\n\nWhat stays on (a Furmidge drop model calibrated on a measured plate; five finishes): P2's smooth hull keeps 0.014-0.051 kg/m2 after rain with 10 min drainage (upper reading x1.48) and 0.011-0.056 after dew.\n\nP3's film bays sag into dishes under vacuum (024: 9.9 cm crown on 2.32 m bays at R10), so its top bays pond rain. That is 37 kg mean over frame orientations at R10, ranging 5-171 (node on top 55, bay on top 171), and it scales as R cubed.\n\nHow fast: an energy balance (checked against 050 and FAO-56) dries P2's residue in 0.2-1.0 h at fair midday and 0.6-7.7 h on a fair morning. Ponds need 65-465 h.\n\nCapacity (own model, cure included): P2 carries 0.1945 kg/m2 in all at R10 ISA and 1.127 at R30. 1 mm floats only at R30 ISA. P3 carries 0.1246 at R10 (052).\n\nAnswer: P2 keeps the 0.1 kg/m2 design load and holds it by waiting, at no mass cost. Topcoats add 16-47 kg to save 8-17 kg; heater film adds 503 kg.\n\nP3 carries 0.1 kg/m2 only if its ponds are emptied: with a bay on top, R10 sinks (210 against 157 kg). The cheapest fix is to put a node on top and tip the hull past 14 deg after rain. A night shelter (about 4.9M RUB, floor-scaled) is the fallback.\n\nGround it by weighing a full-scale P2 panel and a sagged P3 bay after rain and dew. 12 NFI.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q5",
+    "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+    "sources": [
+      {
+        "report": "rpt-ref-4fb99766fa9a4406a85a",
+        "artifact": "evidence/82221133565eca1f-CARD.md",
+        "snapshot": "evidence/82221133565eca1f-CARD.md",
+        "sha256": "82221133565eca1fce497df228592eba7d2536e8a2519c96328b521edc5ddcf9",
+        "bytes": 16620,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-060",
+    "kind": "filed_change",
+    "label": "060",
+    "claim": "Carbon remains an alternative beside SiC, with no sourced-compression float; corrected axial load is about 701 kN.",
+    "report": "rpt-ref-93808d41af02a0580060",
+    "source_report_body": "QUESTIONABLE/PROJECTION. MAINLINE-060 complete.\n\nCompression: ultra-high-modulus pitch laminates (K13D2U class) are sourced at 340-380 MPa unidirectional; the one independent measurement sits 15% below its data sheet. Scatter is CV 5-6% (m about 20). No tube or multidirectional tests exist. 50/20/20/10 fails first-ply at 0.19 GPa: 11.4 times below 2.16 GPa, and 3.65 times below what its stiffness-sized wall carries.\n\nWhole bill (052 line by line, 054's one- and seven-day cavity, R 10-30): no carbon frame floats on sourced compression, even at mean strength with every 052 endpoint and ground service. Best at mean: M55J 50/20/20/10, -470 kg at R10, -4.6 t at R30. Best meeting Pf 1e-3 with carbon's own scatter: M55J 70/10/10/10, -2.0 t at R10, -47 t at R30. M55J tubes weigh 1.12-1.14 times SiC's; floating allows 1.007-1.079.\n\nOnly K13D2U 50/20/20/10 floats, and only with compression ignored: +619 kg at R10, +24.8 t at R30. It needs 0.59 GPa laminate at mean (UD 1.06 GPa), UD 1.94 GPa for Pf 1e-3, 3.07 GPa size-scaled. Titanium fittings at a sourced strut share delay floating to R12.\n\nHail: the design strike carries about 32 J, 7-8 times below ice delamination of flat PAN-carbon panels. No pitch, tube or preloaded data.\n\nAnswer: not a better lead than SiC.\n\nGrounding test: compress about 30 full-length K13D2U 50/20/20/10 tubes with fittings to failure; floating needs 0.59 GPa, data predict 0.19. 12 NFI.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-ref-93808d41af02a0580060",
+        "artifact": "evidence/faa6a21f6713c8f1-CARD.md",
+        "snapshot": "evidence/faa6a21f6713c8f1-CARD.md",
+        "sha256": "faa6a21f6713c8f1e08d6815a9cbe6055f1bcebbcf13fb90dd367cc2151b92fc",
+        "bytes": 18386,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-050notes",
+    "kind": "filed_change",
+    "label": "050notes",
+    "claim": "Dew uses actual night density; frozen geometry, thermal and gas conventions are explicitly separated.",
+    "report": "rpt-1228-mainline050-dew-conventions-1020",
+    "source_report_body": "Equation-only clarification filed in CONVENTIONS.md; no executable code is attached. Each dry compartment contains one Be face plus half the core metal; coating/polymer storage is omitted. Outer enthalpy is referenced to ice at 273.15 K, with incoming vapor enthalpy Ls+cpv(Ta−273.15), added once. Lewis transfer and ambient density use 95460.83791390515 Pa throughout. Through-core conductance is 130*rho_core/(2700*tc)+0.8*sigmaSB*mean(Tinner)^3, with the area-weighted old inner temperature. Night geometries are the mask11, usage1 MASS-CURVES reference rows. All fluxes use the old state in forward Euler; phase is decoded from updated enthalpy and mass for output. The attached equations include constants, geometry, saturation, convection and update order. Original results and qualifications are unchanged.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q2",
+    "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+    "sources": [
+      {
+        "report": "rpt-1228-mainline050-dew-conventions-1020",
+        "artifact": "evidence/42ef056cf970ccf1-CONVENTIONS.md",
+        "snapshot": "evidence/42ef056cf970ccf1-CONVENTIONS.md",
+        "sha256": "42ef056cf970ccf1ffd8049932177711365e3565d5d3fdca758b218d2f68c170",
+        "bytes": 7377,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-050gas",
+    "kind": "filed_change",
+    "label": "050gas",
+    "claim": "Convection and the 32-geometries-per-radius gas supplement are explicit; this is not an all-weather gas maximum.",
+    "report": "rpt-1228-check050-convection-gas-conventions-1020",
+    "source_report_body": "Equation-only convection and gas conventions are attached. Night density uses humid air at 95460.83791390515 Pa; viscosity 1.79e-5, conductivity .0257, Pr .71, and natural-convection floor .05 K. The dry night comparison disables deposition but retains default humidity. Your analytic heating mean 21.144629726 W/m² agrees; filed 128-point quadrature is 21.145122023. Scope correction: gas_24h_bounds samples 16 masks at two frozen-thermal pressure endpoints per radius and selects maximum pressure, carrying that row’s mass. It is not a bound over every coupled-weather geometry. Connected volume subtracts core metal volume; conditioned inventory is fully released as water, while initial/leak/permeation gas uses lumped air. Exact volume, inventory, temperature and scarf-area/path equations are attached. Scalar replay of 160 existing geometries reproduces all five filed rows exactly, including R10 102.491169310 Pa and 3.192389619 kg. Your wider sample is a distinct comparison. QUESTIONABLE/PROJECTION qualifications remain; no executable owner code is attached.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q2",
+    "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+    "sources": [
+      {
+        "report": "rpt-1228-check050-convection-gas-conventions-1020",
+        "artifact": "evidence/15aa9c7a1ecf40d8-CONVECTION.md",
+        "snapshot": "evidence/15aa9c7a1ecf40d8-CONVECTION.md",
+        "sha256": "15aa9c7a1ecf40d807f65995da0aab996ef5caa4b35576e7cf06d60a576acfbc",
+        "bytes": 4562,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check029",
+    "kind": "filed_change",
+    "label": "check029",
+    "claim": "Elastic endpoints reproduce but exceed core/face admissibility; inherited core loses ellipticity and the foam-law comparison is not empirical gamma.",
+    "report": "rpt-check029-opus-1020",
+    "source_report_body": "CHECK MAINLINE-029 on my own axisymmetric StVK model (owner code not read or run). The card's arithmetic and lead results reproduce: 64 of 66 normalisations exactly (the two widths follow 015's nu 0.30, as stated); weak-meridian endpoints 78.631/90.736 kPa against 78.627/90.722, all 14 within 0.032%, each a true limit point, unchanged on 4x meshes; eigenpressures within 0.0063% on the owner's meshes; face stresses within 1.7%; transfer40 within 0.15%; 21 arithmetic items. Objections (NFI.json): (1) The endpoints are not attainable: the core's flank shear passes the card's own Hexcel CR III strength at 18-41 kPa and reaches 4.8-7.4 times it at the limits (mesh-converged); faces pass 345 MPa at 43-59 kPa. (2) The card's core law (in-plane E 0.01 MPa) loses ellipticity at 0.088 MPa shear, reached at 7-11 kPa; refined meshes go unstable on the flank below the endpoints, but stay stable to the limits at 1 MPa. (3) With that core, 021b's lowest linear mode is face wrinkling near 197.4 kPa, below 203.245/234.532. (4) The EUCASS elastic endpoints 13.957/13.844 MPa are StVK foam collapse; they fall with core refinement (13.37 at 12 elements), so 13.96 against 6.03 measures the foam law. Linear gap: 42.80 mm as mid radius gives 28.08 (+2.0%); E_steel 187 GPa closes it; unestablished. Fix cards proposed: core and face admissibility; a crushable foam law. Seven simjob refusals were retried unchanged under the standing order, which this report also closes. QUESTIONABLE; no certification.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-check029-opus-1020",
+        "artifact": "evidence/002b20b3c78cb099-CHECK.md",
+        "snapshot": "evidence/002b20b3c78cb099-CHECK.md",
+        "sha256": "002b20b3c78cb099103e32e4360bf6fa5d963c6c4c58e4eba4b30d222a8e6964",
+        "bytes": 18094,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check048",
+    "kind": "filed_change",
+    "label": "check048",
+    "claim": "Complete independent accounts/searches replace partial status; SolarWhite 285 g/m²/.18/.89 and twelve null-field witnesses are carried.",
+    "report": "rpt-ref-5c8405d45d6cb50633f1",
+    "source_report_body": "Complete CHECK MAINLINE-048, including the supplied cure/water addendum. QUESTIONABLE/PROJECTION; installed-hull SF remains unknown. Owner executable code was never accessed.\n\nIndependent thermal reconstruction, 17,858 design points/1,714,368 comparisons at 2e-8, 1,080 configurations/17,280 subset optimizations and 3,775 favorable-E bounds reproduce. Every main least-set selection agrees; maximum search payload difference 0.000638 kg. Supplemental water/resource/service arithmetic and historical040 checks also complete.\n\nR10 ISA/floor/bake reproduces +124.262 kg; including cure compression yields +118.695 kg. Two formerly floating cases fail with cure. All 432 one-millimetre-water cases remain negative; the best relaxed bound is −998.280 kg.\n\nCorrections: the linked SolarWhite manufacturer sheet supplies 285 g/m² and explicit .18/.89 aluminum-substrate optics, contrary to the claimed missing mass/label ambiguity. Classical CCAg’s cited NASA slide supplies different optics and normal emittance. Twelve null R12/R15 sensitivity least fields have independently verified floating witnesses; populate them or label not searched. These witnesses do not cure failed finish screens or qualify wet/aged optics.\n\nExact differences and seventeen NFI dispositions retain material, bond, retention, conditioning and physical-boundary qualifications. Both orders are complete. Mandatory simjob retries and corrected checker failures retain receipts; every admitted reservation released. Custody verifies pinned inputs and frozen partial/prior043 artifacts. No time budget, live own work, successor or out-of-band contact. SLEEPING.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-5c8405d45d6cb50633f1",
+        "artifact": "evidence/f7d4b6611fb3bd32-CHECK.md",
+        "snapshot": "evidence/f7d4b6611fb3bd32-CHECK.md",
+        "sha256": "f7d4b6611fb3bd32feb0ab266af90062b5ac26efbe5e6ff408661c9f90d2a9d8",
+        "bytes": 12058,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check048boundary",
+    "kind": "filed_change",
+    "label": "check048boundary",
+    "claim": "Owner boundary equations identify the natural-convection floor and core-radiation term; 053 resolves numerical, not physical, selection.",
+    "report": "rpt-ref-0faaf1787ac688f46f7f",
+    "source_report_body": "Equations and conventions supplied in BOUNDARY-REPLY.md; no code or numerical rerun. The stated constant forced-convection setup differs from the filed boundary: h is the maximum of forced convection and 1.32 max(abs(To-Ta), 0.05)^0.25. Forced convection uses diameter 2R and velocity 2 m/s, without a viscosity-ratio multiplier.\n\nSky/ground fractions are (1+mu)/2 and (1-mu)/2. Ground is 284.9 K; day/night sky is 275/260 K, solar 970/0 W/m². Inner qi = 0.2 sigma [Ti^4 - area_mean(Ti^4)]. U = 130(rho_core/rho_Al)/tc + 0.2*4sigma*area_mean(Ti)^3, and To = Ti + qi/U. Both radiative terms are present. Common aluminium density 2700 differs from legacy 2640 kg/m³.\n\nThe attachment supplies normalized averages, the complete outer balance, current 128-point iteration tolerances and legacy 37-midpoint/25-update conventions. Current structural mean removal precedes degree 2–6 projection; absolute radiation temperatures are retained. It distinguishes original 037 finite-difference curvature from the later legacy diagnostic.\n\nAlready-filed common reference values are copied with selectors: 302.024817534/270.905193616 K and daytime gradient 0.422761140 K. Six owner-source pins match filed manifests. Natural convection and conductance are candidate causes, not a demonstrated quantitative closure of every discrepancy. Independent thermal reproduction and physical-boundary NFIs remain open. Question answered; no further request.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-0faaf1787ac688f46f7f",
+        "artifact": "evidence/5a506bbbb0a1042d-rpt-ref-0faaf1787ac688f46f7f.json",
+        "snapshot": "evidence/5a506bbbb0a1042d-rpt-ref-0faaf1787ac688f46f7f.json",
+        "sha256": "5a506bbbb0a1042d60cf35b158723ce23bf6dc9de1d4dee94c82228706f9a6f2",
+        "bytes": 3238,
+        "selector": "/body"
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check049",
+    "kind": "filed_change",
+    "label": "check049",
+    "claim": "60% Vf requires 1800 kg/m³ and fibre fraction .733333; R30 ISA reoptimized usage .783530/endpoint +12.444 t remains a projection.",
+    "report": "rpt-ref-9a28294ab892bcd529f5",
+    "source_report_body": "CHECK-049 complete with nonblocking corrections. Owner/predecessor code was neither read nor run. All 648 accounts were independently searched; 14,604 ledger comparisons reproduce mass/joins within 1.1e-9 kg. The 208 configurations with pinned thermal tables reproduce endpoints within 0.000492 kg and least usage within 7.2e-8. K13's 1.0/1.9/4.8 t deficits stand.\n\nFix 1: the “60% Vf” projection retains a 52.549% Vf mixture. Consistent density is 1800 rather than 1725.490 kg/m3; fibre mass fraction is .733333 rather than .67. At the published R30/ISA least geometry, payload becomes -4354.509 kg and fibre demand 77.130 t, 5.509% of cited capacity. Independent-thermal reoptimization still floats at usage .783530, endpoint +12.444 t; its matching original-mixture baseline is .721257/+16.242 t.\n\nFix 2: AlBeMet R15/ISA/old-coating “none through x8” misses a positive modulus interval [3.155175,3.733361]; the x3.3 witness carries +10.529 kg. This is hypothetical modulus, not sourced AlBeMet.\n\nThermal closure remains conditional: the R30 50 C edge factor is 1.017581 with owner inputs, .959664 under the specified independent boundary. Source, service, reference-modulus and provenance limitations are exact NFI rows. The sourced Be-free no-float conclusion survives. Eight nonblocking NFIs; no successor selected.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-9a28294ab892bcd529f5",
+        "artifact": "evidence/8c16207f5ecc987c-CARD.md",
+        "snapshot": "evidence/8c16207f5ecc987c-CARD.md",
+        "sha256": "8c16207f5ecc987c8182ff0d9b031b9cc80f340aa05069ec1bc1ccbc0d78a1d6",
+        "bytes": 6902,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check050",
+    "kind": "filed_change",
+    "label": "check050",
+    "claim": "Displayed quantities and weather classifications reproduce; 680 marginal-cold knots are excluded and availability remains unknown.",
+    "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+    "source_report_body": "CHECK050 complete: all 89 checked displayed quantities reproduce. Fixed-hull upper offsets at 100 m are −6.512/−3.040/−0.312/+1.786/+3.339 K; the conservative cold start remains about −10.5 K. The sampled MIL 10% hot case fails at every radius. R10 saturated-night payload reproduces at −82.280 kg.\n\nIndependently reoptimized 57,120 coupled and 5,200 frozen knots; checked 42,160 filed finite geometries and all three 2,027,245-point maps. No weather classification, least-set or zero-surface finite-status mismatch remains. Strict finite-knot masses agree within 0.00414 kg; night deposits within floating-point precision.\n\nThe exact ledger distinguishes interpolation differences up to 0.23814 kg, small heater quadrature differences, and 680 excluded marginal-cold knots. A checker interface-tolerance issue was corrected and retained in the audit. The broader gas sweep passes; the owner's exact scalar sampling/conventions remain an NFI.\n\nEight checker NFIs and all owner/inherited qualifications remain. Installed-hull SF and operational availability are null. No050 executable source was accessed; upstream040/048 authorship is disclosed. Numerical jobs used simjob, and all communication used the queue. No successor is named.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q2",
+    "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+    "sources": [
+      {
+        "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+        "artifact": "evidence/97926e05973aab9b-CHECK.md",
+        "snapshot": "evidence/97926e05973aab9b-CHECK.md",
+        "sha256": "97926e05973aab9b08f85c7f064ab711ec3540b90ddd3dd266f7749621053745",
+        "bytes": 6429,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check050add",
+    "kind": "filed_change",
+    "label": "check050add",
+    "claim": "160 frozen-thermal endpoints reproduce; R10 gas 102.491169 Pa/3.192390 kg and heater quadrature conventions resolve computational questions.",
+    "report": "rpt-ref-a7ed312f50c1bd796c58",
+    "source_report_body": "CHECK050 conventions addendum complete. An independent implementation evaluated all 160 specified frozen-thermal endpoint geometries and reproduced the five filed gas rows with zero recorded differences in pressure, mass, connected volume and inventory. R10 reproduces at 102.491169310 Pa and 3.192389619 kg. All sampled candidates meet their declared reserves.\n\nThe owner explicitly narrows the supplement to 32 geometries per radius; it is not a maximum over every coupled-weather geometry. The earlier broader checker sweep remains a distinct calculation.\n\nFive convection cases reproduce to floating-point precision. Exact and 128-point heater means reproduce at 21.144629726 and 21.145122023 W/m², resolving the reported quadrature difference.\n\nThe computational clarification components of CHK50-06/07 are resolved. All eight checker qualification records and inherited qualifications carry; installed SF, sealed life and operational availability remain null. No owner executable source was accessed. Simjob completed successfully. All 202 original CHECK050 package entries verify unchanged. No successor is named.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q2",
+    "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+    "sources": [
+      {
+        "report": "rpt-ref-a7ed312f50c1bd796c58",
+        "artifact": "evidence/1d43f24f0ab2c0ea-ADDENDUM.md",
+        "snapshot": "evidence/1d43f24f0ab2c0ea-ADDENDUM.md",
+        "sha256": "1d43f24f0ab2c0ead93ddc6f6cadca118d5133331a76573165d3e592817a29ff",
+        "bytes": 4925,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check051",
+    "kind": "filed_change",
+    "label": "check051",
+    "claim": "Main frame/reliability numbers reproduce; 336 shear labels and two Weibull inversions remain exact attributed corrections.",
+    "report": "rpt-ref-43804748980d8ca4b5f6",
+    "source_report_body": "CHECK-051 COMPLETE. QUESTIONABLE / PROJECTION. The requested headline results reproduce; physical qualification remains open.\n\nIndependently re-derived 288 m5–40 target rows, 18 material models, 108 frame comparisons, 280 gap rows, 36 witnesses, 980 hail scenarios and 72 member-loss cases. Re-solved all 182 FE cases, plus 25 expanded-spectrum checks. All 319 prose-table checks pass.\n\nHexoloy SFs are 1.053993/0.997807, with operating m10 scales 3.727343/3.873840 GPa. K13D2U ceilings are 1.135743/1.075982 and scales 2.161413/2.245731 GPa. Witness totals are 4281.952/5248.454/21178.569 kg; the filed 4282/5249/21179 figures round upward.\n\nThe 1.153–5.393% transferred hail estimates and all 72 secondary-overload triggers reproduce. Actual hail and dynamic-cascade probabilities remain unidentified.\n\n116,566 comparisons retain 338 flagged fields: 336 signed-versus-magnitude shear labels and two ill-conditioned Weibull inversions. Exact row/field/owner/independent differences are pinned. Higher-mode ordering differences resolve in the expanded spectra. Twenty-one NFI entries retain qualification gaps and fixes, including the legacy joint-strength reference.\n\nAll 1,658 package checks pass. Prior 048/043 packages remain unchanged. Owner programs were never accessed; all 15 attempts are accounted for and every admitted job released. Peak own allocation two cores. No out-of-band contact. No successor; SLEEPING.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-ref-43804748980d8ca4b5f6",
+        "artifact": "evidence/4512285d11dbe992-CHECK.md",
+        "snapshot": "evidence/4512285d11dbe992-CHECK.md",
+        "sha256": "4512285d11dbe992392883b4ddb0cba607a61e65a51bfea217019fd878948c23",
+        "bytes": 4716,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check052",
+    "kind": "filed_change",
+    "label": "check052",
+    "claim": "88,750 fields and 326 table cells reproduce; 288 f5-5 labels and 52.426 kg family difference are corrected.",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "source_report_body": "CHECK-052 complete. All 88,750 numerical field comparisons and 326 printed table cells match; eight independent checks pass. No owner code was accessed. Sixteen owner-output pins and 252 non-executable input pins verify.\n\nR10 ISA least S/F/J reproduces 1.055318 GPa compression, 5.343008 GPa ply strength (92.12%), retention .861568874 and sleeves 45.874 kg. Water ingress 1.258056 kg/day gives the 32.5165 Pa crossing at 17.279789 h; ground schedule 15.551810 h. Dry onboard duty needs 15–148 pumps and fails every tested case. Ground closure remains R10 ISA/R12 optimistic; P2 comparison reproduces.\n\nTwo presentation corrections: 288 f5-5 sensitivity fields incorrectly say f5-019; METHOD’s 52.425 kg family difference rounds to 52.426 kg. Neither changes closure.\n\nThe order’s COMMON.md pin differs from the live file. Humidity crossings retain 284.9 K bulk gas; holding rates/cold-film target fixed at 320 K gives a counterfactual 15.321116 h crossing, not a validated weather case.\n\nFour nonblocking checker findings, all 15 owner NFIs and 11 inherited registers are preserved. Qualified installed SF/life/Pf remain null. Released simjob receipts and exact comparisons are pinned. No successor.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-1228-mainline052-independent-check-1020",
+        "artifact": "evidence/754a25a154ccf2b5-CARD.md",
+        "snapshot": "evidence/754a25a154ccf2b5-CARD.md",
+        "sha256": "754a25a154ccf2b55e52cff934ed362edfa859b3f6f2cb2bea89b47213ad3dfa",
+        "bytes": 7196,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check053",
+    "kind": "filed_change",
+    "label": "check053",
+    "claim": "Four boundaries, all 5,760 endpoint grids and frozen scarf/global crossings reproduce; no installed boundary is selected.",
+    "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+    "source_report_body": "CHECK-053 complete: numerical PASS; QUESTIONABLE/PROJECTION.\n\nOwn equations reproduce 653,001 scalar comparisons, including all 9,640 settled thermal rows. All 7,310 search checks and 6,342 final cross-checks pass. No owner executable was accessed.\n\nR10 gradients 0.464608894/0.426155555/0.451215439/0.413901181 K and swings 33.640781944/31.120115857/33.638308050/31.118178070 K reproduce the four boundaries. Core-gap and inner-enclosure radiation are distinct paths, so simultaneous inclusion is not inherently double counting. Effective gap emissivity .20 remains unqualified; two .20 gray plates give 1/9.\n\nMaximum resized loss is 4.388925039 kg. Independent reoptimization gives 4.388889843 kg; largest individual endpoint discrepancy is 0.000103912 kg. All 5,760 endpoint grids, 360 reoptimized endpoints and 60 primary least-set rows pass. No endpoint float sign or minimum-set choice changes.\n\nAll 288 frozen scarf crossings and 85 global crossings reproduce. Largest scarf deficit is 0.0366%; resizing restores the declared scalar constraints. This is not installed qualification.\n\nExact differences and corrected checker conventions are retained. Four checker NFI clarifications extend nine owner groups and six inherited registers. All 206 input pins verify. Ten one-core/1-GiB admitted runs ended; one disclosed schema failure was corrected.\n\nOne report filed. No successor, pending job or out-of-band contact. End turn.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+        "artifact": "evidence/af548217596299b5-CARD.md",
+        "snapshot": "evidence/af548217596299b5-CARD.md",
+        "sha256": "af548217596299b50995d17547ba7303dd019b96d6e055cc59698f5bc9259952",
+        "bytes": 6049,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check054",
+    "kind": "filed_change",
+    "label": "check054",
+    "claim": "One/seven/thirty-day screens reproduce; R12 ISA FOIL30 is +47.344558 kg, and installed service remains unqualified.",
+    "report": "rpt-ref-02edbc8231269239b47f",
+    "source_report_body": "CHECK-054 complete: main numerical conclusions reproduce; QUESTIONABLE/PROJECTION throughout. No owner executable opened, hashed, imported or run.\n\nR10 ISA SiOx/3A dry beads for 1/7/30 days: 4.414369/17.164891/60.355531 kg. Seven-day capture system 27.233891 kg plus barrier 2.513274 leaves +1.115544 kg; thirty days leaves −55.428312 kg. At 333 K the source isotherm supports 6.09854 wt% after stated reserves, hence the conditional 6% screen. Peak heat 16.539181 W and effective water conductance 277.02258 m³/h reproduce.\n\nSeven-/thirty-day WVTR budgets are 0.085508511/0.016136312 g/m²/day against the 0.08 coupon. Aramid SF and UHMWPE creep screens reproduce. A source-conditioned 3.5% aramid-moisture sensitivity changes no payload or 1/7/30-day pressure pass.\n\n61,318 primary value checks; all 2,816 tiny cold-input precision differences reconcile exactly within tolerance. 54,857 supplemental checks cover CSVs, 275 displayed card values, decimal isotherms and balances. One report-only rounding fix: R12 ISA FOIL30 +47.35 → +47.34 kg (exact 47.34455788658644); card already correct. Hardware-volume conventions need documentation.\n\nAll 16 owner and 15 inherited NFIs retained; three checker records filed. 87 owner non-code input pins verified; one executable entry excluded. 192 delivery checks pass. No installed qualification gained. No successor; ending turn.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q5",
+    "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+    "sources": [
+      {
+        "report": "rpt-ref-02edbc8231269239b47f",
+        "artifact": "evidence/b01c909635efef65-CARD.md",
+        "snapshot": "evidence/b01c909635efef65-CARD.md",
+        "sha256": "b01c909635efef65eb623d499ab48c376736453afc6e5e08709d9f8f6c9cf7c3",
+        "bytes": 6227,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check055",
+    "kind": "filed_change",
+    "label": "check055",
+    "claim": "5052-O rig reach is .575038/.856084; direct elastic/core/face limits are 5.7754/2.2998/1.2220 mm, with tooling and statistics gaps.",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "source_report_body": "CHECK-055 complete under the untimed replacement order; revise, nonblocking. No foreign owner/predecessor code read or run. Independent Q8 FE covers all 23 records (20 distinct models); sampled pressure maxima agree within 0.001127%. The 5m Be cap/sphere difference remains +1.385% after refinement. Pre-test gammas .469277/.510830 are corroborated.\n\nCorrect the rig denominator: proposed 5052-O reaches gamma .575038 at sea level and .856084 with 5m water, versus .592911/.882692. The 3.103mm gauge/.985993 yield-ratio match reproduces but does not preserve all similarity groups.\n\nDirect dimple limits are 5.7754mm (elastic), 2.2998mm (typical core), 1.2220mm (face yield), versus interpolated 5.8233/2.3773/1.2711. Finer edge diagnostics cross yield/crush near 52.67/53.79kPa; reinforcement remains unmodeled.\n\nB's USD 420000–1558000 build-up matches. D's 6m cap cannot reuse B's 5.4m mould/5m tank unchanged; its price omits that upgrade. Correct SR200 elongation from 2–3% to 10% minimum over one inch, and the C365 crush reference to D7336. The n=3/CV=10% planning mean is finite, 1.467374; different seeded amplitudes are not iid replicates. The primary DIC award is USD 530000, with separate rental scope.\n\n735 scalar, 207 FE summary and 3985 path comparisons; 17 headline differences and 14 nonblocking NFIs. Qualified gamma, tolerances and installed-hull SF remain unknown. Stop and file; no successor.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-ref-886d25bd397d38c2f48f",
+        "artifact": "evidence/852027a5302b254c-CARD.md",
+        "snapshot": "evidence/852027a5302b254c-CARD.md",
+        "sha256": "852027a5302b254cc31f5389d306d077a51ddfe4d05e68cfd9e516bcde54f9f6",
+        "bytes": 8313,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check057",
+    "kind": "filed_change",
+    "label": "check057",
+    "claim": "Direct 048 puts P2 R12 ISA at +1.256483 kg under the earlier TRL7 table; coating increment is divided by 1.1.",
+    "report": "rpt-ref-22285eadc9122df1c8b7",
+    "source_report_body": "CHECK-057 complete, QUESTIONABLE/PROJECTION. Independently reconstructed 1,232 subset bills across 77 configurations; 82,034 final comparisons. Under the declared conventions, every concept-stage payload remains negative. R10 MGA reproduces 707.388727 kg for P2 and 680.594681 kg for P3.\n\nOne correction changes maturity: the card specifies direct 048 bills at R10–15 but its tables use 040 transfers. Direct 048 gives P2 R12 ISA +1.256483 kg at TRL 7, versus transfer −0.839968 kg. The first floating row changes from TRL 8 to TRL 7.\n\nThe finish allowance uses the wrong denominator; corrected P2 R10 MGA is 707.293535 kg. The 0.2–9.2 kg transfer-error range applies only to masks 11/15; all 96 comparisons reach 160.754744 kg. Four printed cells have one-kilogram rounding errors. Exact 3,193 correction entries are pinned.\n\nR10 growth tolerances 2.8/0.7% and R30 ISA 9.9/7.5% reproduce. All 28 item classes and zero-growth allocations were audited. Sixteen NFI dispositions retain maturity, reserves, classification, transfer and domain limitations. Qualified hull SF, failure probability and maturity remain null.\n\nAll 173 package checks pass; 36 input pins and the 137-file manifest verify. Six one-core/1 GiB simjob invocations admitted and released; no refusals. No owner code or out-of-band contact.\n\nResubmitted under the untimed replacement order. The scientific package is unchanged; refused envelopes are preserved. Next none.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-ref-22285eadc9122df1c8b7",
+        "artifact": "evidence/c34bf29324b228ac-CHECK.md",
+        "snapshot": "evidence/c34bf29324b228ac-CHECK.md",
+        "sha256": "c34bf29324b228ac71a2c7c9aa7a35de79970ae36f4ad8fea5f41bbb1a5fa701",
+        "bytes": 6284,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check059",
+    "kind": "filed_change",
+    "label": "check059",
+    "claim": "99% removal takes .310–5.346 h under held weather; node/bay surrogate ponds differ, and two coats cost/mass twice the one-coat assumption.",
+    "report": "rpt-ref-3bba4f0f54c6a95070dd",
+    "source_report_body": "CHECK-059 complete. QUESTIONABLE/PROJECTION.\n\n7,094 drop/film/evaporation fields and 185 capacity comparisons reproduce; all 37 least-set choices agree. P2 capacities are 0.194454/1.126815 kg/m² at R10/R30 ISA; P3 R10 is 0.124560.\n\nCorrections:\n• The 0.2–1.0 h midday values are mass/full-wet-rate equivalents, not complete drying. Local inventories retain 11.707–13.562 kg at those times; 99% removal takes 0.310–5.346 h under held weather. The low-convection morning case still condenses over 36.5% of area.\n• Ultra-Ever Dry requires bottom and top coats. The same assumed density gives 32.67–94.25 kg at R10; applying the bottom-coat price to both gives $16,861.93, twice the filed cost.\n• P3's named 55.150/171.424 kg node/bay ponds are not reproduced. An explicit independently tiled surrogate gives 110.766/117.094 kg; neither establishes the real frame. Directional retention persists above 14°. Published placement coordinates and the actual bay geometry are needed.\n\nRain/dew retention and the 0.1 kg/m² allowance remain provisional. Pond drying must track shrinking area; heater-film exclusion does not extend to R30 ISA.\n\nExact differences, independent code/data, primary-source checks and the figure are filed. 98 validation checks pass; 12 new NFI rows preserve all 12 owner rows and inherited registers. Owner executables were neither read nor run. All admitted jobs have returned. No successor is named.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q5",
+    "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+    "sources": [
+      {
+        "report": "rpt-ref-3bba4f0f54c6a95070dd",
+        "artifact": "evidence/af7ce4067a35e5c5-CARD.md",
+        "snapshot": "evidence/af7ce4067a35e5c5-CARD.md",
+        "sha256": "af7ce4067a35e5c5816c8a569ba6a29e65a4cfe0ac2405f2cc464a1281ef6e09",
+        "bytes": 8691,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check060",
+    "kind": "filed_change",
+    "label": "check060",
+    "claim": "701 kN axial load and FE-normalized reliability walls correct the carbon table; the no-float screen survives.",
+    "report": "rpt-check060-opus-1020",
+    "source_report_body": "CHECK MAINLINE-060 filed, QUESTIONABLE/PROJECTION. Owner code not read or run; rebuilt from 051, 052, 054 and the primary PDFs. The answer stands: no carbon frame floats on sourced compression; not a better lead than SiC. 216 of 237 checked numbers reproduce. Confirmed: DIALEAD K13D2U 340 MPa and the 340-380 MPa pitch set, GRANOC, M55J 890, NCAMP CV 5.198 and CMH-17's 6%; the 0 deg ratio 1.7875 and 0.190 GPa first ply (my lamination theory on 051's plies); every whole-bill row within 1 kg (M55J -469.9 at R10); the CV 6% Pf walls; hail 28.5-32.3 J against Kim's 254 J (Pernas-Sanchez's scaling gives 250 J at 1.45 mm). Mismatches: the member load is 701 kN axial (158 klb, 1.30x NG-2), not 775 kN (1.43x); the Pf walls multiply 051's FE-normalized k(m) by a 0.5-0.8% lower peak (M55J 70/10/10/10 x1.326 not x1.316, R10 -2,092 not -2,044 kg); every CV 5.2% column runs about 1% high (conservative); M55J hail stress 98.9 not 100 MPa. m = 1.2/CV is conservative by 3-4% in m. Objections: Montagnier and Hochard blame their 15% gap on premature Celanese ruptures, so it is not an independent shortfall; Messinger's 110K strut fittings (27.8%, nearer the 158 klb load) leave even the strength-ignored light frame sinking (R10 -730, R30 -11,661 kg). Nine NFI. Next: none.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-check060-opus-1020",
+        "artifact": "evidence/4a6c30a727a5eed2-CHECK.md",
+        "snapshot": "evidence/4a6c30a727a5eed2-CHECK.md",
+        "sha256": "4a6c30a727a5eed208cb08d0ecdad80712354841e3e91929ec2a165f455e6020",
+        "bytes": 7223,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-check047",
+    "kind": "filed_change",
+    "label": "check047",
+    "claim": "Independent direct estimates are 1.2179/.7469 mm; core regularization and compression allowables remain physical gaps.",
+    "report": "rpt-ref-a18ff970381ef39185d1",
+    "source_report_body": "QUESTIONABLE/PROJECTION. CHECK-047 complete, behind rpt-ref-e23aa05d834f8e89bb2c. Owner code neither read nor run.\n\nEverything the order names re-derives: 72/72 arithmetic rows, and 43/44 rows of an independent CalculiX model (own mesh, 4 mm at the dimple).\n\nCriterion: 95.4608 kPa is ISA 500 m; SF 1.05 = 100.2339.\n\nPerfect sphere: membrane statics put first yield at 80.95/95.24/109.52 kPa, inside all three brackets. Own FE gives 80.977/95.283/109.594 (card 80.974/95.280/109.590); endpoints within 0.003 kPa.\n\n345 MPa brackets: same pass/fail at every tested pair. SF 1: 1.209/1.227 mm carry 344.646/345.358 MPa (card 344.597/345.309). SF 1.05: 344.619/345.380 (card 344.585/345.345). Estimates 1.2179/0.7469 mm (card 1.2192/0.7478). Own 345 MPa runs yield where the card's do; L332, W402 and cure-debit pairs reproduce.\n\nCore law: own exact minimisation puts ellipticity loss at 0.0877 MPa shear for the inherited law (CHECK-029: 0.088) and 2.65 MPa for the regularized one. At the governing state: +0.498 MPa regularized, -0.005444 inherited (card -0.005455). Regularization from 0.01 to 10 MPa moves the answer at most 0.004 mm.\n\nEndpoint division: own endpoints 105.0765/104.9167 kPa (card 105.0759/104.9204), same 0.521-0.539 mm; transfer factors match CHECK-029.\n\nOne mismatch: the 11.8 mm face-yield estimate, 61.910 against 63.596 kPa (coarse sweep mesh; diagnostic only). Two NFI: unsourced E = 290 GPa (298.7 GPa adds 0.015 mm); unstated sweep mesh.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-ref-a18ff970381ef39185d1",
+        "artifact": "evidence/ed8fbe522708eccf-CHECK.md",
+        "snapshot": "evidence/ed8fbe522708eccf-CHECK.md",
+        "sha256": "ed8fbe522708eccf17a2f828cbc8cb66a4c04b26d746e8841516ef749348d577",
+        "bytes": 8568,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-061",
+    "kind": "filed_change",
+    "label": "061",
+    "claim": "Density witnesses and fixed-family P3 bound reproduce; all-density best-product ranking remains unresolved after REVIEW-A2.",
+    "report": "rpt-ref-23efd7d4ece46db2d839",
+    "source_report_body": "MAINLINE-061 complete; closes ord-admiral-rr2-mainline061-dispatch-1020. CARD, RESULTS, INPUTS, NFI, method, numerical records and manifest are pinned below.\n\nPROJECTION: favorable P2 endpoint density factors at R12/20/30 are 1.1222/1.0766/1.0593 ISA and 1.1664/1.1183/1.1001 optimistic. The best feasible product puts all improvement into density; handbook R30 factors are 2.1435/2.2480. R30 requires least improvement. These are replacement-face targets retaining Be properties, not demonstrated lower-density Be.\n\nP3 has no finite combination of the named strength/retention/film/node levers within the inherited constant-g/R family: local tube-shell compression binds, even after free film/joints/cavity and generous relief credit. All sizes include seven-day SIOX/3A service. Broader geometry optimization and gamma-to-047 physical tolerances remain explicit NFI.\n\nNASA Table VI-1 corrects TRL7 hardware from 6% to 5%; battery remains separate. Large-R cure demand is shown alongside frozen CHECK-057 bills. R30 reference faces use 23.77–24.38% of estimated 2025 world mined Be. No finite historical closing-year forecast survives.\n\nFifteen author checks passed across 240 accounts; independent REVIEW-A remains pending under dispatch-pinned PROCESS-v2. Its later source drift was resolved by recovering original bytes with the declared hash. All scientific claims remain QUESTIONABLE/PROJECTION. No further action requested; stopping.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-ref-23efd7d4ece46db2d839",
+        "artifact": "evidence/4dec37167ccb479e-REVIEW.md",
+        "snapshot": "evidence/4dec37167ccb479e-REVIEW.md",
+        "sha256": "4dec37167ccb479ed191bd828d24e32e838d2b0bf9a6e1787ccc536da1512ddb",
+        "bytes": 1426,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-062",
+    "kind": "filed_change",
+    "label": "062",
+    "claim": "Model-only SF1.05 amplitudes .793/1.628/2.486 mm and unquoted costs reproduce; six coating corrections remain UNREVIEWED.",
+    "report": "rpt-1228-mainline062-buildable-shape-1020",
+    "source_report_body": "MAINLINE062 complete; QUESTIONABLE/PROJECTION. 047 is not admissible as a physical hull tolerance: finished-sheet compression, directional CR III crushing/unloading/mixed loading, processed bond and manufactured residual state remain unqualified. SR-200’s 290 GPa and light 2U film identity are sourced, with limits. Closed-form transfer of 057 bills gives cure-debited SF1.05 amplitudes 0.793/1.628/2.486 mm at R10/20/30; no FE sweep. Seven precedent records distinguish RMS, fit and maximum local defects. Candidate passive panel/jig/closure route has unquoted first-shell costs $66.5–477.4M/$522.8M–3.814B/$1.835–13.448B; full qualification costs remain open. Whole mass bills retain concept growth: all six cases have negative payload. Pins, arithmetic, stock takeoff and cost closure verified. Sixteen NFIs and REVIEW-A handoff included. No qualified cheapest route or P2 capacity released; no successor.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-1228-mainline062-buildable-shape-1020",
+        "artifact": "evidence/99444f4ab94b0224-REVIEW.md",
+        "snapshot": "evidence/99444f4ab94b0224-REVIEW.md",
+        "sha256": "99444f4ab94b02241728946e716630137403c842e5b18917953696d9870ec96f",
+        "bytes": 3558,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-admit061",
+    "kind": "filed_change",
+    "label": "admit061",
+    "claim": "Sciences admits attributed targets; the original 061 process release is verified and later source replacement is not an owner fault.",
+    "report": "rpt-sciences-g5-mainline061-admitted-1020",
+    "source_report_body": "MAINLINE-061 ADMITTED to the Sciences map as attributed QUESTIONABLE/PROJECTION targets; REVIEW-A pending, nothing independently cleared. All 12 artifact pins match (sha256 and bytes).\n\nCarried: P2 needs least improvement at R30 (face density /1.0593 ISA, /1.1001 optimistic from the favorable endpoint; 2.1435/2.2480 from the handbook basis). P3 has no finite combination of the named levers in the constant-g/R family. TRL7 hardware is 5% (NASA Table VI-1), correcting CHECK-057's 6%. R30 faces need 23.8-24.4% of estimated 2025 world mined Be.\n\nOne input fact for REVIEW-A's dispatch: PROCESS-v2.md was rewritten in place at 08:54:50, after 061's 08:49 dispatch pinned be858ac1. The current file hashes 0ca073ec, which 062's dispatch pins. 061's lead recovered the declared bytes by hash (verified) at its outputs/vacuum-mainline061-improvement-targets-growth-1020/sources/brief--PROCESS-v2.md. A 061 checker handed the current file will see a pin mismatch.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q3",
+    "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+    "sources": [
+      {
+        "report": "rpt-sciences-g5-mainline061-admitted-1020",
+        "artifact": "evidence/f21eb165742dbefd-rpt-sciences-g5-mainline061-admitted-1020.json",
+        "snapshot": "evidence/f21eb165742dbefd-rpt-sciences-g5-mainline061-admitted-1020.json",
+        "sha256": "f21eb165742dbefdb46d606f47cd41dff9c161bbaf226ded534bacd8aa6487b9",
+        "bytes": 1760,
+        "selector": "/body"
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-admit062",
+    "kind": "filed_change",
+    "label": "admit062",
+    "claim": "Sciences admits the conditional shape/cost account; no buildable floating P2 or qualified cheapest route is established.",
+    "report": "rpt-sciences-g5-mainline062-admitted-1020",
+    "source_report_body": "MAINLINE-062 ADMITTED to the Sciences map as attributed QUESTIONABLE/PROJECTION; REVIEW-A pending, nothing independently cleared. All 14 artifact pins match (sha256 and bytes).\n\nCarried: a buildable, floating P2 at a defensible price is not established. 047 is not admissible as a physical hull tolerance. Closed-form SF 1.05 dimple limits with the cure debit are 0.793/1.628/2.486 mm at R10/20/30 (no FE); the 0.6/1.2/1.8 mm shop caps are proposals, not capability. Unquoted first-shell projections run $66.5-477.4M, $0.52-3.81B and $1.84-13.45B, excluding full qualification. With concept growth all six payloads are negative (ISA -611/-2,554/-6,704 kg).\n\nProgramme state, from the 061 and 062 tables: no P2 or P3 case floats under concept mass growth; some do at the TRL7 allowance.\n\nFor REVIEW-A's brief: Piece A spans two PROCESS-v2 versions, 061 under be858ac1 and 062 under 0ca073ec.\n\nThis also receipts the REVIEW-A mint creator copy.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q4",
+    "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+    "sources": [
+      {
+        "report": "rpt-sciences-g5-mainline062-admitted-1020",
+        "artifact": "evidence/58cc18e96765d113-rpt-sciences-g5-mainline062-admitted-1020.json",
+        "snapshot": "evidence/58cc18e96765d113-rpt-sciences-g5-mainline062-admitted-1020.json",
+        "sha256": "58cc18e96765d113bcb170150ca9eb2639239f29d3df75b2e45ee83493b249e0",
+        "bytes": 1929,
+        "selector": "/body"
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-reviewA1",
+    "kind": "filed_change",
+    "label": "reviewA1",
+    "claim": "16/17 claims reproduce conditionally; six unreviewed coating field corrections preserve all negative payload signs.",
+    "report": "rpt-ref-3692687111eb9cac0c5d",
+    "source_report_body": "REVIEW-A1 complete for MAINLINE-056 and 062; closes ord-admiral-rr2-review-a1-dispatch-1020. Seventeen load-bearing claims were listed first: sixteen reproduce within their stated conditional scope; one differs. No owners’ code was read or run.\n\n056: independent frozen-state force equilibrium gives 6.159020624266 MPa, within 9.16e-11 MPa of the saved value. Raw-path maxima and fresh elastic/prestress eigenproblems reproduce the peak range and both radius-reading gaps. This does not independently recreate plastic/contact history or establish physical instability. The paper’s 6.03 MPa is simulated, not measured.\n\n062: all three cure-debited SF1.05 amplitudes and six conditional cost totals reproduce. Source checks retain the tensile/compressive, adhesive/process, and RMS/local-defect distinctions. One inherited coating-growth denominator error produces six UNREVIEWED correction rows: payload rises 0.095–0.857 kg, with all six cases still negative. No float/no-float decision changes.\n\nEleven NFIs preserve physical/source gaps, including installed constitutive behavior, tolerance transfer, thin-stock layout, supplier prices and undocumented facility scaling. Numerical status remains separate from physical qualification; all scientific claims remain QUESTIONABLE/PROJECTION.\n\nTen package checks passed; all final numerical checks passed and reservations were released. An initial reviewer comparison-adapter failure and its corrected run are retained in EXECUTION. Evidence, inputs, methods, corrections and manifest are pinned. No further action requested; stopping.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-ref-3692687111eb9cac0c5d",
+        "artifact": "evidence/2f669714b5e7ca5b-REVIEW.md",
+        "snapshot": "evidence/2f669714b5e7ca5b-REVIEW.md",
+        "sha256": "2f669714b5e7ca5b2f88ba56075850e9619dd847daa784b02de8a2ef23b45e3b",
+        "bytes": 11454,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-reviewA2",
+    "kind": "filed_change",
+    "label": "reviewA2",
+    "claim": "13/17 reproduce, two differ, two need evidence; two hardware-fix groups are UNREVIEWED and radius/product rankings remain open.",
+    "report": "rpt-1228-review-a-058-061-1020",
+    "source_report_body": "REVIEW-A2 complete: 17 load-bearing claims; 13 reproduce, two differ, two need further evidence. Two 058 hardware-accounting fixes are recorded, unreviewed. Its original sampled weather counts reproduce exactly at hull-only mass. Adding its declared valve/bladder changes P2 R10 MLCCAg 63.979% to 61.253%, R10 AlAOC 83.647% to 79.854%, R12 AlAOC 95.785% to 94.156%, and R20 AlAOC 99.269% to 98.960%. P3 standard-pressure R10 falls from 77.747% to at most 76.482% with only its 5 kg valve; matched bladder mass remains missing. Do not infer new minimum radii from these spot checks. No numerical correction was demonstrated in the selected 061 arithmetic: density factors, fixed-family P3 bound, NASA TRL7 column and Be comparison reproduce. The all-density witness closes mass; best-product ranking remains unresolved. Original dispatched 061 PROCESS-v2 bytes verified; later replacement is not an owner fault. No owner code read/run, no fresh FE, no active jobs. QUESTIONABLE/PROJECTION limits remain. Files pin all findings and evidence; this review round is complete.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-1228-review-a-058-061-1020",
+        "artifact": "evidence/887001b91192287a-REVIEW.md",
+        "snapshot": "evidence/887001b91192287a-REVIEW.md",
+        "sha256": "887001b91192287acd5381748ede9f6e11b9cce65790da90393b4d681c5bc559",
+        "bytes": 5697,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  },
+  {
+    "id": "CHANGE-processreview",
+    "kind": "filed_change",
+    "label": "processreview",
+    "claim": "Sciences' six-row confidence table is carried as qualification; numerical reproduction does not establish installed performance.",
+    "report": "rpt-sciences-g4-night-process-review-1020",
+    "source_report_body": "Review complete; detail in REVIEW.md. Common accounts, weather arithmetic, growth and carbon screens bought useful conditional results; installed safety and availability remain unqualified.\n\nThe supplied ledger contains 147 distinct units: 72 cards, 71 checks, four registers. First-report timings mix retry requests, partials, owner clarifications and check-ins; CHECK050 also names the wrong seat. CHECK029/040 are labelled clean despite consequential findings. Pool quota divided by jobs is not measured marginal cost; 40% fewer jobs and halved coordination cost remain hypotheses.\n\nI disagree with ranking checks as the largest waste. Early checks caught product-form errors, invalid formula ranges and mutable pins. The clearer targets are repeated intake, register reconstruction, rerouting and routine coordination, including Sciences receipts.\n\nRecommend immutable complete input releases; early source/admissibility checks; focused independent checks at consequential milestones; one incremental claim register separating numerical fixes from physical qualifications; validated event types and batched receipts. Robotics retains progress. Compare context turnover by coherent work-piece before mandating a fresh seat per card; measure accepted completions and attributed costs.\n\nNext ground thin-sheet/bond/core behavior, full-member compression and scatter, assembled barrier/desiccant performance, and retention/drying. MAINLINE047's regularized core remains unsourced; 056's 6.03 MPa target is a simulation, not a physical benchmark. The seven-day cavity margin is only 1.1155 kg; weather coverage is not availability. No scientific recomputation or simjob was performed.",
+    "numerical_status": "unreviewed",
+    "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+    "physical_qualification": "open",
+    "qualification_id": "Q1",
+    "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+    "sources": [
+      {
+        "report": "rpt-sciences-g4-night-process-review-1020",
+        "artifact": "evidence/de76a95f28d91662-REVIEW.md",
+        "snapshot": "evidence/de76a95f28d91662-REVIEW.md",
+        "sha256": "de76a95f28d91662330c2f0b4b4ef68815dcd2e362fbeb0652c720336cdbf77c",
+        "bytes": 17789,
+        "selector": ""
+      }
+    ],
+    "tag": "QUESTIONABLE / PROJECTION"
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "id": "NFI-NU",
+      "note": "Every face uses nu 0.33. MAINLINE-008 published no Poisson ratio."
+    },
+    {
+      "id": "NFI-KD-01407",
+      "note": "0.1407 replaces handbook gamma 0.20 on the stiff branch only. It is the brief's figure, not a fresh SP-8032 knockdown."
+    },
+    {
+      "id": "NFI-SCALE",
+      "note": "The 014 projections at 16, 8 and 4 kg/m3 stay in the set. Moduli scale as rho^2 and crush as rho^1.5. The scaled aramid keeps the parent 4.8 mm cell."
+    },
+    {
+      "id": "NFI-013",
+      "note": "MAINLINE-013 has not filed. Its cores are not used."
+    },
+    {
+      "id": "NFI-W-SHEAR",
+      "note": "Gc is the W plate-shear modulus, the lower of L and W on every sheet row scored here. Crimping and honeycomb wrinkling use that Gc."
+    },
+    {
+      "id": "NFI-W-13-3",
+      "note": "The attributes brochure text shows 13.3 ksi for CR-III 5052 3/16-2.0 W modulus. The CR-III data sheet prints 14.3 ksi. This card uses 14.3. The brochure's 1/4-3.4 L modulus glyph 50..0 is 50.0 on the data sheet."
+    },
+    {
+      "id": "NFI-PLASCORE-EC",
+      "note": "Plascore PAMG-XR1 5052 prints bare compression and L/W plate shear. It prints no stabilised compressive modulus and no crush column. Ec is the Hexcel CR-III 5052 stabilised modulus at the same cell and nominal pcf. Crush is Plascore's bare compressive typical, which is the 1.29 MPa the brief names at 3/16-2.0. That bare value is not the Hexcel crush-column test."
+    },
+    {
+      "id": "NFI-DENSITY",
+      "note": "Hexcel pcf converts at 0.45359237/0.3048^3. Plascore uses the kg/m3 printed on its sheet, so 2.0 pcf is 32 there and 32.037 on the Hexcel conversion. Rows above 4.0 pcf, and Plascore rows printed above 64 kg/m3, are outside the band and were not scored. HFT at 4.0 pcf converts to 64.074 kg/m3 and is kept."
+    },
+    {
+      "id": "NFI-CARBON",
+      "note": "No carbon-fiber honeycomb sheet located here lists stabilised Ec and both shear moduli in this density band. Hexcel's product list has no carbon honeycomb table. Ultracor UCF-51-3/8-2.0 on MatWeb lists density 0.032 g/cc, compressive yield 1.41 MPa and L shear modulus 0.331 GPa, and omits Ec and W shear, so it is not scored. HFT is fiberglass phenolic. HRH-49 is Kevlar 49 fabric. Neither is carbon."
+    },
+    {
+      "id": "NFI-HRH36",
+      "note": "HRH-36 para-aramid in the attributes brochure has no stabilised compressive modulus. It is not scored. HDC has strengths only. HFT 3/8-4.0 has no stabilised modulus. Preliminary and beam-shear rows were not scored."
+    },
+    {
+      "id": "NFI-CRUSH-COLUMN",
+      "note": "Hexcel CR-III crush is the crush column. HFT and HRH-49 have no crush column, so the stabilised compressive strength is used. Thickness does not enter the crush safety factor. The target is p/2."
+    },
+    {
+      "id": "NFI-SHEAR-STRENGTH",
+      "note": "L and W plate-shear strengths are stored from the sheets. The scored crimp mode uses shear modulus. Shear strength is not a separate mode."
+    },
+    {
+      "id": "NFI-DIMPLE",
+      "note": "Intracell dimpling uses the brief's stress 2*E_f/(1-nu^2)*(tf/s_cell)^2, divided by the same membrane stress as wrinkling. No equibiaxial factor is applied. Cell size is the sheet nominal. Foam is not dimpled. The coefficient 2 is the brief's expression."
+    },
+    {
+      "id": "NFI-WRINKLE-Q",
+      "note": "Honeycomb design coefficient 0.33 is CR-1457 eq 2.2-14. Theoretical 0.82 is Hemp's symmetric anti-plane value, quoted as purely theoretical for honeycomb in NASA/CR-1999-208994. Foam design 0.50 and theoretical 0.82 are the 014 column, kept for the foam cores that remain in the set. The theoretical column is the same geometry, not a new grid."
+    },
+    {
+      "id": "NFI-HEMISPHERE",
+      "note": "Handbook gamma 0.20 is the CR-1457 hemisphere value. A complete sphere has no edge."
+    },
+    {
+      "id": "NFI-FACTOR",
+      "note": "1/least SF is the safety-factor gap. It is the property multiple only when that mode scales in proportion. Wrinkling scales as a square root or a cube root. Dimpling scales as tf cubed."
+    },
+    {
+      "id": "NFI-014-REGRESSION",
+      "note": "With dimpling turned off, Be S-200F on HRH-10-4.8-32 at kd 0.20 recovers the filed 014 least SF, thicknesses and modes. The 014 tree was not rewritten."
+    },
+    {
+      "id": "NFI-STIFF-BRANCH",
+      "note": "A high shear modulus leaves the crimp branch. Gamma then becomes the knockdown 0.20, and global buckling is scored with that factor. For Be S-200F the best aluminium row is CR-III 5056 at 1.6 pcf, least SF 0.668649769509 by global buckling, below the HRH-10 crimp balance 0.685338231171. The 1/4 and 3/8 cells tie. Plascore 3/16-2.0, W shear 20 ksi and transferred Ec 34 ksi, reaches 0.641722323466 by the same mode. The higher W shear does not raise the leading safety factors. 6061-T6 does move, to 0.145930331406 on CR-III 5056 3/8-1.0."
+    }
+  ]
+}

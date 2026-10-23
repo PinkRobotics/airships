@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline030-check-1020",
+  "card": "CHECK-030",
+  "rows": [
+    {
+      "id": "NFI-030-COEFF-106",
+      "issue": "REGISTER.md writes the smeared half-wave as pi*sqrt(1.06*rg*R). The stored waves match pi*sqrt((3/4)*rg_section*R), which is pi*sqrt(1.06066*rg_thin*R). Using the printed 1.06 with the stored thin-ring rg shortens the 022b wave by 1.094 mm, from 3.514184 m to 3.513090 m.",
+      "consequence": "The ratio stays 0.571 at s 6.15 m and 1.481 at s 2.04 m. The half-wave is still shorter than the 6.15 m member, so 022b's continuum optimum stays outside the band. This does not stop the card.",
+      "next": "Write 1.06066, or 3/4 on the section radius of gyration, in the sentence that cites CONTINUUM.json."
+    },
+    {
+      "id": "NFI-030-DOUBLE-CITE",
+      "issue": "Unique source ids are 362 and source pointers are 363. N023, row NFI-CHK011B-TEXT, is cited on R057 and on R079. The source note contains the two-way shear objection and the documentation defects together.",
+      "consequence": "No source row is missing. The same note was filed under both subjects.",
+      "next": "None."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "rpt-mainline032-grok-wrinkle-waviness-1020",
+  "unit": "vacuum-mainline032-wrinkle-waviness-1020",
+  "at": "2026-10-20T01:38:24-07:00",
+  "body": "QUESTIONABLE. CR-1457 eq 2.2-12, page 2-33, eta 1: Q is 0.82 over 1 plus 0.64 K, and K is delta E_c over t_c F_c. A perfect facing is Q 0.82. An unknown wave uses Q 0.33. Hexcel CR-III 5056 3/8-1.0 Table II: stabilised modulus 15 ksi typical; stabilised compression 60 psi typical and 35 psi minimum. Crush 35 psi is not F_c. Tension and the beryllium bond are unprinted. At 60 psi, S-200F on the 20.21 mm core meets Q 0.371 at 0.152868766846 mm, 0.181252984167 of the face and 0.0160492143671 of the 9.525 mm cell. SR-200 on the 30.12 mm core meets Q 0.609 at 0.0652229064039 mm, 0.0942936336619 of the face and 0.00684754922876 of the cell. At 35 psi those amplitudes are 0.089173447327 mm and 0.0380466954023 mm. Filed dimpling margins are 9.0 and 4.98. Eq 2.2-12 does not fold a one-cell dimple into Q. FPL 1810-A says cell size changes the wrinkle wavelength. Eq 2.2-15, R_x cubed plus R_y equals 1, gives 0.682327803828 in equal compression. The cards round it to 0.6823. Waviness stays in the uniaxial stress, so b does not count it again. The interaction is a flat-plate rule on a 10 m hull. Flatiron holds 0.008 inch per foot on thicker faces. AMS7902H has three flatness classes; the numbers were not read. Hexcel names telegraphing with no depth. Those bows are not this amplitude. Inverting Q 0.33 is a projection. Elapsed 0.000276322010905 s, a measurement. Not a certification. The caps-open order stays open.",
+  "artifacts": [
+    {
+      "path": "evidence/15471156f3d87da5-waviness.py",
+      "sha256": "15471156f3d87da56ceeb03a57263ba94577132c7089d2f9158db5a320eed003",
+      "bytes": 24925
+    },
+    {
+      "path": "evidence/a723be906beee76e-CARD.md",
+      "sha256": "a723be906beee76e39f118054c1d636d69a20e013f74d4b0134b05abc5724823",
+      "bytes": 4885
+    },
+    {
+      "path": "evidence/df495d84c70779f3-RESULTS.json",
+      "sha256": "df495d84c70779f38264682266a37b847a0072c739844f5ee197833d956b1c4f",
+      "bytes": 10601
+    },
+    {
+      "path": "evidence/67baa3ffd91fb5bb-INPUTS.json",
+      "sha256": "67baa3ffd91fb5bb031034dc3f9fdc9a55e2b69eba970a1968b90382d6175582",
+      "bytes": 4823
+    },
+    {
+      "path": "evidence/df2ac0989ca4f688-NFI.json",
+      "sha256": "df2ac0989ca4f6881edb237eff0e367cb5ffb96d9613dc21b27efc6e3bf9bfca",
+      "bytes": 2284
+    },
+    {
+      "path": "evidence/bd7a9d1ecabc32dd-ORIGIN.json",
+      "sha256": "bd7a9d1ecabc32ddb27d0fce7fde0dfffbbca40148505c0d101424907f1d6157",
+      "bytes": 96
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline032-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline032-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

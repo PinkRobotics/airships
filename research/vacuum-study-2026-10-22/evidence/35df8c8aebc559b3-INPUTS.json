@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-005",
+  "unit": "vacuum-mainline005-strength-limits-1019",
+  "brief": "CARD-005-STRENGTH-LIMITS.md with COMMON.md, pinned in ord-admiral-rr2-mainline005-dispatch-1019",
+  "case": {
+    "R_m": 10.0,
+    "p_external_Pa": 95460.8379139,
+    "rho_air_kg_m3": 1.16726833075,
+    "lift_kg": 4889.44215019,
+    "kd": 0.2,
+    "material_6061T6_QUESTIONABLE": {
+      "E_Pa": 68900000000.0,
+      "nu": 0.33,
+      "sigma_Pa": 276000000.0,
+      "rho_kg_m3": 2700.0,
+      "sigma_note": "typical tensile yield transferred to compression, QUESTIONABLE"
+    }
+  },
+  "formulas": {
+    "P1_buckling": "kd*2*(t/R)^2*E/sqrt(3(1-nu^2))",
+    "P1_yield": "2*sigma*t/R",
+    "P2_buckling": "kd*4*tf*(d+tf separation)*E/(R^2*sqrt(1-nu^2)), separation as in 002/003 RESULTS",
+    "P2_yield": "4*sigma*tf/R",
+    "P3_euler": "2*pi^2*E*I/(R*s^3)",
+    "P3_yield": "2*sigma*A/(R*s)",
+    "P3_film": "2*sigma_film*t_film/s, sigma_film 1.5 GPa inherited QUESTIONABLE, t_film 8e-5 m, s 1 m",
+    "required": "required property = baseline property x p_external / limit pressure at kd 0.2; buckling requirement scales 1/kd"
+  },
+  "pins": [
+    {
+      "path": "evidence/33ee112c1cb1a4b5-CARD.md",
+      "sha256": "33ee112c1cb1a4b5fe2460554b46bd68963cb980f49b06964fe672199132c4d8",
+      "bytes": 5667
+    },
+    {
+      "path": "evidence/69d9ef27cb5c86f2-INPUTS.json",
+      "sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "bytes": 15384
+    },
+    {
+      "path": "evidence/e7b2e4a33ab68eb0-RESULTS.json",
+      "sha256": "e7b2e4a33ab68eb0e195b83cb91faa86a77d7bc5b8970dfa3dd3cbae07a9cde5",
+      "bytes": 30175
+    },
+    {
+      "path": "evidence/63c812f02bde7cf4-CARD.md",
+      "sha256": "63c812f02bde7cf43d029e423b360014f9bb73c233bf33b46e525005378a0f07",
+      "bytes": 6977
+    },
+    {
+      "path": "evidence/f7365a5dbdda8ddd-INPUTS.json",
+      "sha256": "f7365a5dbdda8dddb18217e3a352457b372b3d0e2d94d7e692d78e62b48c7928",
+      "bytes": 1643
+    },
+    {
+      "path": "evidence/d728af6ca61595e1-RESULTS.json",
+      "sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "bytes": 13071
+    },
+    {
+      "path": "evidence/b155c07e690eaa66-NFI.json",
+      "sha256": "b155c07e690eaa665db0f27994bcf36986d5ffe168aa7a45cc0ae403ddcd87a8",
+      "bytes": 2449
+    },
+    {
+      "path": "evidence/17dc1e39680f79f6-CARD.md",
+      "sha256": "17dc1e39680f79f6ba2fd9d3ac0ac4fba28dfc4e4c95824e55e544bbcd3f1a3e",
+      "bytes": 3907
+    },
+    {
+      "path": "evidence/a697a764919c3211-INPUTS.json",
+      "sha256": "a697a764919c3211bb47caf3b032d3ace7637e85971078a66ef3264beb6abbe9",
+      "bytes": 851
+    },
+    {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    {
+      "path": "evidence/2090c6e1f4ca8afb-NFI.json",
+      "sha256": "2090c6e1f4ca8afb62ff5a7a0e2efbe8757aa60a79a773be2fae359cdd446e97",
+      "bytes": 2978
+    },
+    {
+      "path": "evidence/dcfa7ae3942a9e4f-UNA600-MAINLINE003-REVIEW.md",
+      "sha256": "dcfa7ae3942a9e4f8a43ac06ff5ba62d2249d69414228ea756661cb1f020925b",
+      "bytes": 3351
+    }
+  ],
+  "pins_verified": "12 of 12 sha256 recomputed and matched COMMON.md before use"
+}

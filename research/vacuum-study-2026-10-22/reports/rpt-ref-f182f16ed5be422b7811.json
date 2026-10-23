@@ -1,0 +1,213 @@
+{
+  "id": "rpt-ref-f182f16ed5be422b7811",
+  "unit": "vacuum-mainline036-check-1020",
+  "at": "2026-10-20T02:44:30-07:00",
+  "body": "CHECK-036 complete; owner code unread and unexecuted. All 4,945 independent numerical comparisons pass. All 15 strength thresholds and 135 sensitivity optima were independently searched across 47 R10 / 37 R20 cores. Held R10 requirements reproduce at 300.333333 MPa (scarf) and 321.580391 MPa (ideal weld); held R20 requires 376.381907 MPa including eta=0.9. Reoptimized R20 needs 375.839188 MPa with inherited elasticity, 381.612173–381.639359 MPa with sheet scalar elasticity.\n\nNASA Table 3 confirms historical 379.2 MPa at 1.96 mm, not a qualified finished thin-sheet minimum. Three added documents supply context but no matched thin-sheet biaxial allowable. Original Fenn PDF retrieval remains open. All 15 owner qualification NFIs are retained.\n\nOne minor metadata mismatch: legacy R20 film label 0.015 lb/ft2 conflicts with governing 0.1464728290914915 kg/m2 (=0.030 lb/ft2); calculations correctly reproduce the latter. Exact deltas include a +0.000020898193 kg payload optimization difference, within tolerance. No material numerical correction. Added film-label NFI; installed SF remains unknown. Full data, source pins, independent code and 107-file manifest accompany the card. Work closed; stop and file as ordered.",
+  "artifacts": [
+    {
+      "path": "evidence/a9cf4b92fb1a57e8-CARD.md",
+      "sha256": "a9cf4b92fb1a57e8ddf6732610307367bfa466c081ef31bc9741288923c489de",
+      "bytes": 8558,
+      "observed_sha256": "a9cf4b92fb1a57e8ddf6732610307367bfa466c081ef31bc9741288923c489de",
+      "observed_bytes": 8558,
+      "matches": true,
+      "snapshot": "evidence/a9cf4b92fb1a57e8-CARD.md"
+    },
+    {
+      "path": "evidence/39a48ffbaa28d703-METHOD.md",
+      "sha256": "39a48ffbaa28d703a40d27d1927436bc2bfb3f36f03fcbaab17f5827aa69b61c",
+      "bytes": 5840,
+      "observed_sha256": "39a48ffbaa28d703a40d27d1927436bc2bfb3f36f03fcbaab17f5827aa69b61c",
+      "observed_bytes": 5840,
+      "matches": true,
+      "snapshot": "evidence/39a48ffbaa28d703-METHOD.md"
+    },
+    {
+      "path": "evidence/213025ee7238efaf-THRESHOLDS.md",
+      "sha256": "213025ee7238efaf636c0216a7cc9c4f226c039f75ce02deb6564f642cf87b18",
+      "bytes": 2008,
+      "observed_sha256": "213025ee7238efaf636c0216a7cc9c4f226c039f75ce02deb6564f642cf87b18",
+      "observed_bytes": 2008,
+      "matches": true,
+      "snapshot": "evidence/213025ee7238efaf-THRESHOLDS.md"
+    },
+    {
+      "path": "evidence/fa713da6bced166a-MISMATCHES.json",
+      "sha256": "fa713da6bced166adb76f5cdd410b65dec1f071f2ccc91da748b7552da03cc9b",
+      "bytes": 1243,
+      "observed_sha256": "fa713da6bced166adb76f5cdd410b65dec1f071f2ccc91da748b7552da03cc9b",
+      "observed_bytes": 1243,
+      "matches": true,
+      "snapshot": "evidence/fa713da6bced166a-MISMATCHES.json"
+    },
+    {
+      "path": "evidence/e75191e8ee51f581-NUMERICAL-CHECKS.json",
+      "sha256": "e75191e8ee51f5814d64b06020c2678658048b65eb57abf640a9a19f2161689f",
+      "bytes": 1206760,
+      "observed_sha256": "e75191e8ee51f5814d64b06020c2678658048b65eb57abf640a9a19f2161689f",
+      "observed_bytes": 1206760,
+      "matches": true,
+      "snapshot": "evidence/e75191e8ee51f581-NUMERICAL-CHECKS.json"
+    },
+    {
+      "path": "evidence/904601a654a9bf99-NUMERICAL-CHECKS.csv",
+      "sha256": "904601a654a9bf99f691a50340806081c98b7e7dce095482f0cb506dc24b37d9",
+      "bytes": 603314,
+      "observed_sha256": "904601a654a9bf99f691a50340806081c98b7e7dce095482f0cb506dc24b37d9",
+      "observed_bytes": 603314,
+      "matches": true,
+      "snapshot": "evidence/904601a654a9bf99-NUMERICAL-CHECKS.csv"
+    },
+    {
+      "path": "evidence/a84d873eb6fc5c15-RECOMPUTED.json",
+      "sha256": "a84d873eb6fc5c152c2d8ab57adcba1da263429ac726400ce6b16bb735d5aa77",
+      "bytes": 443975,
+      "observed_sha256": "a84d873eb6fc5c152c2d8ab57adcba1da263429ac726400ce6b16bb735d5aa77",
+      "observed_bytes": 443975,
+      "matches": true,
+      "snapshot": "evidence/a84d873eb6fc5c15-RECOMPUTED.json"
+    },
+    {
+      "path": "evidence/fc1feb92105a280e-PAYLOAD-CERTIFICATE.json",
+      "sha256": "fc1feb92105a280e1669f7bd13e0ee74dea0ba13006bb87f82f7b8b30a770271",
+      "bytes": 312,
+      "observed_sha256": "fc1feb92105a280e1669f7bd13e0ee74dea0ba13006bb87f82f7b8b30a770271",
+      "observed_bytes": 312,
+      "matches": true,
+      "snapshot": "evidence/fc1feb92105a280e-PAYLOAD-CERTIFICATE.json"
+    },
+    {
+      "path": "evidence/5ca6aa774fe6a2a8-UNIT-CONVERSIONS.json",
+      "sha256": "5ca6aa774fe6a2a89181ef9c613694411e8e8e8646d36044b21d58f6fe8558d6",
+      "bytes": 1677,
+      "observed_sha256": "5ca6aa774fe6a2a89181ef9c613694411e8e8e8646d36044b21d58f6fe8558d6",
+      "observed_bytes": 1677,
+      "matches": true,
+      "snapshot": "evidence/5ca6aa774fe6a2a8-UNIT-CONVERSIONS.json"
+    },
+    {
+      "path": "evidence/4b0e541f707f3658-NFI.json",
+      "sha256": "4b0e541f707f3658d6cca9590c762d91c7df932b2e13be9befe0a2e6e464db9d",
+      "bytes": 13710,
+      "observed_sha256": "4b0e541f707f3658d6cca9590c762d91c7df932b2e13be9befe0a2e6e464db9d",
+      "observed_bytes": 13710,
+      "matches": true,
+      "snapshot": "evidence/4b0e541f707f3658-NFI.json"
+    },
+    {
+      "path": "evidence/c0d658bc214c8610-EVIDENCE.json",
+      "sha256": "c0d658bc214c8610aa12ce6e2ae0e3d95fb8bff3270b9fe0c49debda53aafc0d",
+      "bytes": 10386,
+      "observed_sha256": "c0d658bc214c8610aa12ce6e2ae0e3d95fb8bff3270b9fe0c49debda53aafc0d",
+      "observed_bytes": 10386,
+      "matches": true,
+      "snapshot": "evidence/c0d658bc214c8610-EVIDENCE.json"
+    },
+    {
+      "path": "evidence/ae1fd493d7596a58-SEARCH-LOG.json",
+      "sha256": "ae1fd493d7596a587d904ff0ae93db42f88c0066675cc828774b4f27120b6d22",
+      "bytes": 2252,
+      "observed_sha256": "ae1fd493d7596a587d904ff0ae93db42f88c0066675cc828774b4f27120b6d22",
+      "observed_bytes": 2252,
+      "matches": true,
+      "snapshot": "evidence/ae1fd493d7596a58-SEARCH-LOG.json"
+    },
+    {
+      "path": "evidence/bb60ff0cd061c185-VALIDATION.json",
+      "sha256": "bb60ff0cd061c185c709299ed7a3f4ee159f6006f096f3bf4f3f1fa0a71dcd4b",
+      "bytes": 6779,
+      "observed_sha256": "bb60ff0cd061c185c709299ed7a3f4ee159f6006f096f3bf4f3f1fa0a71dcd4b",
+      "observed_bytes": 6779,
+      "matches": true,
+      "snapshot": "evidence/bb60ff0cd061c185-VALIDATION.json"
+    },
+    {
+      "path": "evidence/3c3d138d53020ab2-TIMING.json",
+      "sha256": "3c3d138d53020ab2cd1a7f573d361ca6862bc8c887667fee61baf38c393bcc9c",
+      "bytes": 402,
+      "observed_sha256": "3c3d138d53020ab2cd1a7f573d361ca6862bc8c887667fee61baf38c393bcc9c",
+      "observed_bytes": 402,
+      "matches": true,
+      "snapshot": "evidence/3c3d138d53020ab2-TIMING.json"
+    },
+    {
+      "path": "evidence/5601ef88ff9742be-INPUT-PINS.json",
+      "sha256": "5601ef88ff9742be2571f7eef2f9c7078dcce11cf13d4151214ace88e37be7fe",
+      "bytes": 6921,
+      "observed_sha256": "5601ef88ff9742be2571f7eef2f9c7078dcce11cf13d4151214ace88e37be7fe",
+      "observed_bytes": 6921,
+      "matches": true,
+      "snapshot": "evidence/5601ef88ff9742be-INPUT-PINS.json"
+    },
+    {
+      "path": "evidence/d88c55475af81ba0-SOURCE-AND-UPSTREAM-PINS.json",
+      "sha256": "d88c55475af81ba0eddb47b5c71f1cc12d7d99fb81b08c721e81add3e96b0a00",
+      "bytes": 11490,
+      "observed_sha256": "d88c55475af81ba0eddb47b5c71f1cc12d7d99fb81b08c721e81add3e96b0a00",
+      "observed_bytes": 11490,
+      "matches": true,
+      "snapshot": "evidence/d88c55475af81ba0-SOURCE-AND-UPSTREAM-PINS.json"
+    },
+    {
+      "path": "evidence/aeb9e9b1216f7ae3-NEW-SOURCE-PINS.json",
+      "sha256": "aeb9e9b1216f7ae36d21da1a1f8ee0bb435ae7d5e363a92bb4e546178311e708",
+      "bytes": 1278,
+      "observed_sha256": "aeb9e9b1216f7ae36d21da1a1f8ee0bb435ae7d5e363a92bb4e546178311e708",
+      "observed_bytes": 1278,
+      "matches": true,
+      "snapshot": "evidence/aeb9e9b1216f7ae3-NEW-SOURCE-PINS.json"
+    },
+    {
+      "path": "evidence/7a71352dcdd2a640-FENN-RETRIEVAL.json",
+      "sha256": "7a71352dcdd2a64080335ab1d609e62505b0510d706d161b5b603e8988140b2c",
+      "bytes": 354,
+      "observed_sha256": "7a71352dcdd2a64080335ab1d609e62505b0510d706d161b5b603e8988140b2c",
+      "observed_bytes": 354,
+      "matches": true,
+      "snapshot": "evidence/7a71352dcdd2a640-FENN-RETRIEVAL.json"
+    },
+    {
+      "path": "evidence/ea3768153db44419-UNREAD-CODE.json",
+      "sha256": "ea3768153db4441930e33de334abaff52237ab9c7d9bbf352d216982269ba694",
+      "bytes": 1329,
+      "observed_sha256": "ea3768153db4441930e33de334abaff52237ab9c7d9bbf352d216982269ba694",
+      "observed_bytes": 1329,
+      "matches": true,
+      "snapshot": "evidence/ea3768153db44419-UNREAD-CODE.json"
+    },
+    {
+      "path": "evidence/d011e46a11f0892a-ROUTING.json",
+      "sha256": "d011e46a11f0892ad02726e1d052d4e3251ba9bc8b06ea658a2bcf8477991d38",
+      "bytes": 677,
+      "observed_sha256": "d011e46a11f0892ad02726e1d052d4e3251ba9bc8b06ea658a2bcf8477991d38",
+      "observed_bytes": 677,
+      "matches": true,
+      "snapshot": "evidence/d011e46a11f0892a-ROUTING.json"
+    },
+    {
+      "path": "evidence/d3ec65340d71a632-independent_check.py",
+      "sha256": "d3ec65340d71a632ab64325abddeaf6265582f97b244d249c46f3f4b44292c80",
+      "bytes": 16525,
+      "observed_sha256": "d3ec65340d71a632ab64325abddeaf6265582f97b244d249c46f3f4b44292c80",
+      "observed_bytes": 16525,
+      "matches": true
+    },
+    {
+      "path": "unpublished-local-ref:75b57b34a9b3799a",
+      "sha256": "43a1f6441e61b23a5e68dbd0bb261a98868b5a812aaee5ee0b1fe3a8eeceb13f",
+      "bytes": 883,
+      "observed_sha256": "43a1f6441e61b23a5e68dbd0bb261a98868b5a812aaee5ee0b1fe3a8eeceb13f",
+      "observed_bytes": 883,
+      "matches": true
+    },
+    {
+      "path": "evidence/9de64f08710574e7-MANIFEST.json",
+      "sha256": "9de64f08710574e744740447f85f0c4d7509b30553bb1a3273eeb14f92b30794",
+      "bytes": 35366,
+      "observed_sha256": "9de64f08710574e744740447f85f0c4d7509b30553bb1a3273eeb14f92b30794",
+      "observed_bytes": 35366,
+      "matches": true,
+      "snapshot": "evidence/9de64f08710574e7-MANIFEST.json"
+    }
+  ]
+}

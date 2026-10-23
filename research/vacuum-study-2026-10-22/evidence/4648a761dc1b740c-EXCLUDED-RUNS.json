@@ -1,0 +1,16 @@
+[
+  {
+    "run": "eigen-W",
+    "reason": "Initial eigen control returned SIGSEGV (139), with plastic face definition and no NODE FILE request. No buckling factor exists. Exact cause not isolated; repeat with original 029 eigen output and pure elastic tangent.",
+    "replacement": "eigen-W-elastic",
+    "observed_returncode": 139,
+    "excluded_from_physical_results": true
+  },
+  {
+    "run": "eigen-L",
+    "reason": "Initial eigen control with plastic face definition returned SIGSEGV (139) even with NODE FILE restored. No buckling factor exists. Use the separate pure-elastic-tangent rerun.",
+    "replacement": "eigen-L-elastic",
+    "observed_returncode": 139,
+    "excluded_from_physical_results": true
+  }
+]

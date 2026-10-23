@@ -1,0 +1,330 @@
+{
+  "parameters": {
+    "ntheta": 384,
+    "ncore": 8,
+    "nface": 2,
+    "radius": "outer",
+    "radius_outer_mm": 42.8,
+    "amplitude_mu": 0.75,
+    "amplitude_mm": 2.955,
+    "alpha": 2.1213203435596424,
+    "foam_scale": 1.0,
+    "steel_scale": 1.0,
+    "inner_face_mm": 0.42,
+    "width_mm": 4.28,
+    "grading": 1.0
+  },
+  "elements": 4608,
+  "nodes": 14617,
+  "free_dofs": 29159,
+  "peak": {
+    "step": 389,
+    "outer_pole_mm": -2.053605826208922,
+    "inner_pole_mm": -0.5910386492979333,
+    "pressure_MPa": 6.9255784726813765,
+    "iterations": 7,
+    "increment_mm": 0.04,
+    "relative_residual": 9.220069675071916e-09,
+    "elapsed_s": 1035.6855060402304,
+    "core_equivalent_plastic_strain": 0.8177775044567391,
+    "face_equivalent_plastic_strain": 0.029827855498810518,
+    "core_shear_MPa": 4.3166635291022075,
+    "core_compression_MPa": 28.788899219510657,
+    "face_von_mises_MPa": 803.0745858474639,
+    "core_initial_yield_index": 20.6153683963347,
+    "face_initial_yield_index": 1.0707661144632852,
+    "minimum_J": 0.2078632141600694,
+    "maximum_J": 1.5109300648887811,
+    "core_extrapolated_points": 2956,
+    "core_shear_location": {
+      "element": 32,
+      "gp": 2,
+      "reference_r_mm": 0.3371795146290692
+    },
+    "face_yield_location": {
+      "element": 455,
+      "gp": 2,
+      "reference_r_mm": 6.424528343768249
+    },
+    "core_shear_initial_strength_MPa": 0.9899494936611666,
+    "core_shear_initial_strength_index": 4.360488647898321
+  },
+  "first_events": {
+    "core_yield": {
+      "first_above": {
+        "step": 5,
+        "outer_pole_mm": -0.1553125,
+        "inner_pole_mm": -0.056161935256757875,
+        "pressure_MPa": 3.359214479822231,
+        "iterations": 21,
+        "increment_mm": 0.04,
+        "relative_residual": 3.982157630686747e-11,
+        "elapsed_s": 12.602227334864438,
+        "core_equivalent_plastic_strain": 0.13329724543564767,
+        "face_equivalent_plastic_strain": 0.0,
+        "core_shear_MPa": 0.4070444679236239,
+        "core_compression_MPa": 1.4136943701841675,
+        "face_von_mises_MPa": 549.7315505524234,
+        "core_initial_yield_index": 1.0098057782391459,
+        "face_initial_yield_index": 0.7329754007365645,
+        "minimum_J": 0.8456632666205547,
+        "maximum_J": 1.0011523670413123,
+        "core_extrapolated_points": 0,
+        "core_shear_location": {
+          "element": 506,
+          "gp": 3,
+          "reference_r_mm": 6.777195803250863
+        },
+        "face_yield_location": {
+          "element": 431,
+          "gp": 5,
+          "reference_r_mm": 6.1381296453184335
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 0.41117700501894944
+      },
+      "last_below": {
+        "step": 4,
+        "outer_pole_mm": -0.1153125,
+        "inner_pole_mm": -0.044300883550578714,
+        "pressure_MPa": 2.592302080996474,
+        "iterations": 3,
+        "increment_mm": 0.0390625,
+        "relative_residual": 7.000699718859847e-10,
+        "elapsed_s": 5.310448647942394,
+        "core_equivalent_plastic_strain": 0.0,
+        "face_equivalent_plastic_strain": 0.0,
+        "core_shear_MPa": 0.3661224016050781,
+        "core_compression_MPa": 1.3597967524318137,
+        "face_von_mises_MPa": 412.63061437701106,
+        "core_initial_yield_index": 0.9713044054158624,
+        "face_initial_yield_index": 0.5501741525026814,
+        "minimum_J": 0.9666814677272438,
+        "maximum_J": 1.0008457309729573,
+        "core_extrapolated_points": 0,
+        "core_shear_location": {
+          "element": 165,
+          "gp": 2,
+          "reference_r_mm": 2.1509737899501618
+        },
+        "face_yield_location": {
+          "element": 419,
+          "gp": 5,
+          "reference_r_mm": 5.960121166474993
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 0.36983947559893604
+      }
+    },
+    "core_shear_screen": {
+      "first_above": {
+        "step": 6,
+        "outer_pole_mm": -0.1833125,
+        "inner_pole_mm": -0.06092413151682504,
+        "pressure_MPa": 3.8006325207225644,
+        "iterations": 24,
+        "increment_mm": 0.027999999999999997,
+        "relative_residual": 2.6980136695162204e-09,
+        "elapsed_s": 20.106295820791274,
+        "core_equivalent_plastic_strain": 0.6977312346605402,
+        "face_equivalent_plastic_strain": 0.0,
+        "core_shear_MPa": 2.826381012812142,
+        "core_compression_MPa": 18.554845517001215,
+        "face_von_mises_MPa": 642.1387270244358,
+        "core_initial_yield_index": 13.491743595241172,
+        "face_initial_yield_index": 0.8561849693659144,
+        "minimum_J": 0.346576070161826,
+        "maximum_J": 1.999115421055997,
+        "core_extrapolated_points": 20,
+        "core_shear_location": {
+          "element": 9,
+          "gp": 8,
+          "reference_r_mm": 0.14295289123854243
+        },
+        "face_yield_location": {
+          "element": 431,
+          "gp": 5,
+          "reference_r_mm": 6.1381296453184335
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 2.8550759719662397
+      },
+      "last_below": {
+        "step": 5,
+        "outer_pole_mm": -0.1553125,
+        "inner_pole_mm": -0.056161935256757875,
+        "pressure_MPa": 3.359214479822231,
+        "iterations": 21,
+        "increment_mm": 0.04,
+        "relative_residual": 3.982157630686747e-11,
+        "elapsed_s": 12.602227334864438,
+        "core_equivalent_plastic_strain": 0.13329724543564767,
+        "face_equivalent_plastic_strain": 0.0,
+        "core_shear_MPa": 0.4070444679236239,
+        "core_compression_MPa": 1.4136943701841675,
+        "face_von_mises_MPa": 549.7315505524234,
+        "core_initial_yield_index": 1.0098057782391459,
+        "face_initial_yield_index": 0.7329754007365645,
+        "minimum_J": 0.8456632666205547,
+        "maximum_J": 1.0011523670413123,
+        "core_extrapolated_points": 0,
+        "core_shear_location": {
+          "element": 506,
+          "gp": 3,
+          "reference_r_mm": 6.777195803250863
+        },
+        "face_yield_location": {
+          "element": 431,
+          "gp": 5,
+          "reference_r_mm": 6.1381296453184335
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 0.41117700501894944
+      }
+    },
+    "foam_extrapolation": {
+      "first_above": {
+        "step": 6,
+        "outer_pole_mm": -0.1833125,
+        "inner_pole_mm": -0.06092413151682504,
+        "pressure_MPa": 3.8006325207225644,
+        "iterations": 24,
+        "increment_mm": 0.027999999999999997,
+        "relative_residual": 2.6980136695162204e-09,
+        "elapsed_s": 20.106295820791274,
+        "core_equivalent_plastic_strain": 0.6977312346605402,
+        "face_equivalent_plastic_strain": 0.0,
+        "core_shear_MPa": 2.826381012812142,
+        "core_compression_MPa": 18.554845517001215,
+        "face_von_mises_MPa": 642.1387270244358,
+        "core_initial_yield_index": 13.491743595241172,
+        "face_initial_yield_index": 0.8561849693659144,
+        "minimum_J": 0.346576070161826,
+        "maximum_J": 1.999115421055997,
+        "core_extrapolated_points": 20,
+        "core_shear_location": {
+          "element": 9,
+          "gp": 8,
+          "reference_r_mm": 0.14295289123854243
+        },
+        "face_yield_location": {
+          "element": 431,
+          "gp": 5,
+          "reference_r_mm": 6.1381296453184335
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 2.8550759719662397
+      },
+      "last_below": {
+        "step": 5,
+        "outer_pole_mm": -0.1553125,
+        "inner_pole_mm": -0.056161935256757875,
+        "pressure_MPa": 3.359214479822231,
+        "iterations": 21,
+        "increment_mm": 0.04,
+        "relative_residual": 3.982157630686747e-11,
+        "elapsed_s": 12.602227334864438,
+        "core_equivalent_plastic_strain": 0.13329724543564767,
+        "face_equivalent_plastic_strain": 0.0,
+        "core_shear_MPa": 0.4070444679236239,
+        "core_compression_MPa": 1.4136943701841675,
+        "face_von_mises_MPa": 549.7315505524234,
+        "core_initial_yield_index": 1.0098057782391459,
+        "face_initial_yield_index": 0.7329754007365645,
+        "minimum_J": 0.8456632666205547,
+        "maximum_J": 1.0011523670413123,
+        "core_extrapolated_points": 0,
+        "core_shear_location": {
+          "element": 506,
+          "gp": 3,
+          "reference_r_mm": 6.777195803250863
+        },
+        "face_yield_location": {
+          "element": 431,
+          "gp": 5,
+          "reference_r_mm": 6.1381296453184335
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 0.41117700501894944
+      }
+    },
+    "face_yield": {
+      "first_above": {
+        "step": 9,
+        "outer_pole_mm": -0.23035250000000002,
+        "inner_pole_mm": -0.06747249475001801,
+        "pressure_MPa": 4.462794747832016,
+        "iterations": 17,
+        "increment_mm": 0.013719999999999996,
+        "relative_residual": 1.6575561621932277e-11,
+        "elapsed_s": 33.639624738134444,
+        "core_equivalent_plastic_strain": 0.6977312346605402,
+        "face_equivalent_plastic_strain": 0.00021553549908673067,
+        "core_shear_MPa": 2.5986945290888928,
+        "core_compression_MPa": 17.308992808288107,
+        "face_von_mises_MPa": 750.4264295877135,
+        "core_initial_yield_index": 12.438575778487875,
+        "face_initial_yield_index": 1.000568572783618,
+        "minimum_J": 0.33683637182662046,
+        "maximum_J": 1.9295112654741742,
+        "core_extrapolated_points": 21,
+        "core_shear_location": {
+          "element": 33,
+          "gp": 3,
+          "reference_r_mm": 0.39997253478922834
+        },
+        "face_yield_location": {
+          "element": 431,
+          "gp": 5,
+          "reference_r_mm": 6.1381296453184335
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 2.625077891073054
+      },
+      "last_below": {
+        "step": 8,
+        "outer_pole_mm": -0.2166325,
+        "inner_pole_mm": -0.0658234079291707,
+        "pressure_MPa": 4.285741646271972,
+        "iterations": 8,
+        "increment_mm": 0.013719999999999996,
+        "relative_residual": 8.897022711747106e-10,
+        "elapsed_s": 28.620953453239053,
+        "core_equivalent_plastic_strain": 0.6977312346605402,
+        "face_equivalent_plastic_strain": 0.0,
+        "core_shear_MPa": 2.642791320765743,
+        "core_compression_MPa": 17.209014494843828,
+        "face_von_mises_MPa": 749.90562640327,
+        "core_initial_yield_index": 12.492794550064124,
+        "face_initial_yield_index": 0.9998741685376934,
+        "minimum_J": 0.3431695139459718,
+        "maximum_J": 1.949888691981078,
+        "core_extrapolated_points": 21,
+        "core_shear_location": {
+          "element": 9,
+          "gp": 8,
+          "reference_r_mm": 0.14295289123854243
+        },
+        "face_yield_location": {
+          "element": 431,
+          "gp": 5,
+          "reference_r_mm": 6.1381296453184335
+        },
+        "core_shear_initial_strength_MPa": 0.9899494936611666,
+        "core_shear_initial_strength_index": 2.669622377392013
+      }
+    }
+  },
+  "reason": "pressure peak passed and postpeak fall resolved",
+  "steps": 499,
+  "attempts": 523,
+  "cutbacks": 24,
+  "elapsed_s": 1237.0760883241892,
+  "tag": "QUESTIONABLE / PROJECTION",
+  "capacity_validated": false,
+  "limit_point_bracketed": true,
+  "requested_step_mm": 0.02,
+  "maximum_step_mm": 0.04,
+  "end_displacement_mm": 10.0,
+  "tolerance": 2e-08
+}

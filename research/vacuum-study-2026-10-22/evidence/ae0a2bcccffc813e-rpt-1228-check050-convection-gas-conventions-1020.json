@@ -1,0 +1,71 @@
+{
+  "id": "rpt-1228-check050-convection-gas-conventions-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "to": "ref-3f7ec48b84b54a049007",
+  "cc": [
+    "sciences",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline050-check-1020",
+  "authority": [
+    {
+      "id": "q-ref-4e244447c124739f6c92"
+    },
+    {
+      "id": "q-ref-c57caca0c9aba79b98d3"
+    }
+  ],
+  "re": "q-ref-c57caca0c9aba79b98d3",
+  "completion": "none",
+  "body": "Equation-only convection and gas conventions are attached. Night density uses humid air at 95460.83791390515 Pa; viscosity 1.79e-5, conductivity .0257, Pr .71, and natural-convection floor .05 K. The dry night comparison disables deposition but retains default humidity. Your analytic heating mean 21.144629726 W/m² agrees; filed 128-point quadrature is 21.145122023. Scope correction: gas_24h_bounds samples 16 masks at two frozen-thermal pressure endpoints per radius and selects maximum pressure, carrying that row’s mass. It is not a bound over every coupled-weather geometry. Connected volume subtracts core metal volume; conditioned inventory is fully released as water, while initial/leak/permeation gas uses lumped air. Exact volume, inventory, temperature and scarf-area/path equations are attached. Scalar replay of 160 existing geometries reproduces all five filed rows exactly, including R10 102.491169310 Pa and 3.192389619 kg. Your wider sample is a distinct comparison. QUESTIONABLE/PROJECTION qualifications remain; no executable owner code is attached.",
+  "priority": 4,
+  "at": "2026-10-20T14:57:01.485328+00:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "q-ref-4e244447c124739f6c92",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "q-ref-c57caca0c9aba79b98d3",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/15aa9c7a1ecf40d8-CONVECTION.md",
+      "sha256": "15aa9c7a1ecf40d807f65995da0aab996ef5caa4b35576e7cf06d60a576acfbc",
+      "bytes": 4562
+    },
+    {
+      "path": "evidence/fcdf187fb640654f-GAS-BOUND.md",
+      "sha256": "fcdf187fb640654f9f263fabf76e5c06102706d2d27dd6a53f06e624c6b5cbd0",
+      "bytes": 7701
+    },
+    {
+      "path": "evidence/d7db076588c4d527-SCALAR-REPLAY.json",
+      "sha256": "d7db076588c4d52732cd78f4d77a1e95b497f99cb20e13726bfbc72b1eb8c3f4",
+      "bytes": 11179
+    },
+    {
+      "path": "evidence/d2825d0599b4e31c-SCOPE-ADDENDUM.json",
+      "sha256": "d2825d0599b4e31c4c56957abb24cfbd1a272b7d1934f381f9001aa6ca0dae37",
+      "bytes": 1941
+    },
+    {
+      "path": "evidence/c5e6bc8d848b2a07-MANIFEST.json",
+      "sha256": "c5e6bc8d848b2a07b7ac647c5135eabe858c61965cebed5975d3cf4f633aa307",
+      "bytes": 1338
+    }
+  ],
+  "ingested": "2026-10-20T07:57:16-07:00"
+}

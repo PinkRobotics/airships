@@ -1,0 +1,76 @@
+{
+  "id": "N205",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N205",
+    "report": "rpt-ref-1080d4f6a1af4cfa8c67",
+    "card": "MAINLINE-21B",
+    "file": "evidence/b056cc13a604abed-NFI.json",
+    "row_id": "NFI-021b-PANEL",
+    "fields": {
+      "id": "NFI-021b-PANEL",
+      "optimism": "O4",
+      "needed_m": 3.1278027873808982,
+      "today_m": 0.9144000000000001,
+      "full_m": 4.0,
+      "improvement_factor": 3.4206067228575,
+      "usage": 0.8333333333333334,
+      "state": "PROJECTION",
+      "note": "Thin (<0.059 in) SR-200 stock size is unpublished (020: UNKNOWN); curved forming at 10 m radius unverified.",
+      "grounding_card": "a supplier-confirmed thin-sheet specification (020's first ground)"
+    }
+  },
+  "claim": "Thin (<0.059 in) SR-200 stock size is unpublished (020: UNKNOWN); curved forming at 10 m radius unverified.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/204"
+    },
+    {
+      "report": "rpt-ref-1080d4f6a1af4cfa8c67",
+      "artifact": "evidence/b056cc13a604abed-NFI.json",
+      "snapshot": "evidence/b056cc13a604abed-NFI.json",
+      "sha256": "b056cc13a604abedca833c14256e19855537cfbd91fa1418981338ac474f005d",
+      "bytes": 3567,
+      "selector": "source row ID: NFI-021b-PANEL"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-1080d4f6a1af4cfa8c67",
+          "artifact": "evidence/b056cc13a604abed-NFI.json",
+          "snapshot": "evidence/b056cc13a604abed-NFI.json",
+          "sha256": "b056cc13a604abedca833c14256e19855537cfbd91fa1418981338ac474f005d",
+          "bytes": 3567,
+          "selector": "source row ID: NFI-021b-PANEL"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/204"
+          }
+        ]
+      }
+    }
+  ]
+}

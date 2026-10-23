@@ -1,0 +1,94 @@
+{
+  "id": "rpt-ref-f4daf73c940b6f527d37",
+  "unit": "vacuum-mainline023-check-1020",
+  "at": "2026-10-20T01:19:38-07:00",
+  "body": "MAINLINE-023 checked independently, covering both filings. The load fix passes: 665 numeric fields and 196 display/report comparisons reproduce, including all 43 engineering quantities preserved in the first report. Its five original artifact paths were overwritten; original full tables cannot be checked against their pins. Corrected pins match.\n\nEquilateral equilibrium gives 562166.272760 N at s=2.04 m. The superseded 973700.546722 N explains the original figures. Corrected re-closed masses: titanium 157.685365 kg, Invar 858.578420 kg, brazed wall extension 130.611003 kg, CFRP 31.038987 kg. The sleeve totals are independent of spacing at held radius. Searches reproduce the wrap's shell-only factors 1.465814527 at k 0.2 and 2.060754083 at k 0.4; the corrected five-percent search gives 1.406143581 at s 1.78 m.\n\nThe joint-inclusive interpretation needs qualification: bonds/end sections are sized to nominal SF 1, while the reported least factor covers six shell modes. Central node mass and rotational stiffness, adhesive and braze-receiver mass, and coupon transfer remain unresolved. The braze coefficient's units are kg/(N*m), not 1/N. The reference pin's 3d length cannot span the tube diameter.\n\nPrimary material sources checked. The wrap remains the lightest partial end-material estimate and a PROJECTION. Eleven nonblocking NFI records include the resolved force error. CHECK.md gives derivations, exact comparisons and source limits. No successor job is named.",
+  "artifacts": [
+    {
+      "path": "evidence/705715e8d4110e44-CHECK.md",
+      "sha256": "705715e8d4110e44a1d3a07dd3a7b3b7148be5eb558e87672fbf5c75c3f9f009",
+      "bytes": 12510
+    },
+    {
+      "path": "evidence/603696fb9fef78cf-CARD.md",
+      "sha256": "603696fb9fef78cf1b8fc335401fc65a4e56af4fe7b3cae512b150b30acab023",
+      "bytes": 1256
+    },
+    {
+      "path": "evidence/35acf868d9c84e92-RESULTS.json",
+      "sha256": "35acf868d9c84e921485701a3d6e1265ce6ec4d8924c1e0597732d35b957afec",
+      "bytes": 215079
+    },
+    {
+      "path": "evidence/4c36d424b78faa23-INPUTS.json",
+      "sha256": "4c36d424b78faa23f1bb04b42c717dfbe684d86fad09104a44083f2561e85624",
+      "bytes": 19713
+    },
+    {
+      "path": "evidence/6e377349147b3b13-NFI.json",
+      "sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+      "bytes": 8399
+    },
+    {
+      "path": "evidence/fbaa9253ac6efeaa-check.py",
+      "sha256": "fbaa9253ac6efeaad25b83e065022bd287df04ce0880299eecb841ea1e74c6c8",
+      "bytes": 15336
+    },
+    {
+      "path": "evidence/0de084d62c911c60-audit_report.py",
+      "sha256": "0de084d62c911c60e8dca5d01e0639bcafacf3dc546a55fb16c9d34d609a4a40",
+      "bytes": 6704
+    },
+    {
+      "path": "evidence/6f3c89b75d339556-NUMERIC-CHECK.csv",
+      "sha256": "6f3c89b75d339556aa6bbc1b609a737ba0860de6aa792e689ddaf27aa69eaba3",
+      "bytes": 66762
+    },
+    {
+      "path": "evidence/5e8238890494be16-REPORT-CHECK.csv",
+      "sha256": "5e8238890494be1686062aff40136d0ce49bad15f41c72d3c956d3d947902698",
+      "bytes": 17126
+    },
+    {
+      "path": "evidence/2d1af7088d880bfc-REPORT-AUDIT.json",
+      "sha256": "2d1af7088d880bfcf719db6464a87526bdae82f0480906fd49107930650a0129",
+      "bytes": 219
+    },
+    {
+      "path": "unpublished-local-ref:1b200b8e26ede56a",
+      "sha256": "ec3e39d7af86ded66ce144054f318f1cf883d51330295adbebeafcb28d01ed2c",
+      "bytes": 2360
+    },
+    {
+      "path": "evidence/c2bc2dc23ed00a30-WORK.json",
+      "sha256": "c2bc2dc23ed00a302a003c60b64dc0fb08f5e536d4308dbf0013f8f8085e6609",
+      "bytes": 304
+    },
+    {
+      "path": "evidence/a9578b21cd7a5ef2-pin-audit.json",
+      "sha256": "a9578b21cd7a5ef21720b2473d55364411e2215d9681c52c1dc9af5520ca0f0a",
+      "bytes": 6289
+    },
+    {
+      "path": "evidence/38494a34dc0100f1-upstream-pins.json",
+      "sha256": "38494a34dc0100f1430cb3a034d07dd9bdb50e8b2f921faa8537e479c3ef6f28",
+      "bytes": 1936
+    },
+    {
+      "path": "evidence/c10f299c99626d19-manifest.json",
+      "sha256": "c10f299c99626d19f65263fe9c1c0f3ad09ba636c4270231ed081f26ab78cf3f",
+      "bytes": 4121
+    }
+  ],
+  "from": "ref-fd33765b99866c31a369",
+  "from_seat": "ref-fd33765b99866c31a369",
+  "re": "ord-admiral-rr2-check023-codex-575b-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check023-codex-575b-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

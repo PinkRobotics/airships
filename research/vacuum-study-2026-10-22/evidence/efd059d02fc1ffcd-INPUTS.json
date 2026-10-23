@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline028-check-1020",
+  "card": "CHECK-028",
+  "note": "Own arithmetic in check028.py. The owner's calculate.py was not executed. Stored RESULTS.json was read as published numbers. Display rounding is half-up.",
+  "equations": {
+    "film": "0.015*0.45359237/0.3048^2",
+    "seam": "A*(1/(a-30*tf)+1/(b-30*tf))",
+    "scarf_mass": "2*tf*sqrt(1+30^2)*0.07",
+    "shear": "sigma*30/(1+30^2)",
+    "normal": "sigma/(1+30^2)",
+    "splice": "0.0005*tc*500",
+    "legacy_mass": "2*rho*tf*0.06 + 2*0.06*w_bond + 1100*0.001*tc + 1100*1e-5",
+    "legacy_screen_unstated": "0.9*sigma_allow/stress, absent from METHOD.md"
+  },
+  "pins": [
+    {
+      "role": "CHECK brief",
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799
+    },
+    {
+      "role": "COMMON",
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "role": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021
+    },
+    {
+      "role": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063
+    },
+    {
+      "role": "owner CARD",
+      "path": "evidence/dedf8cb306f22467-CARD.md",
+      "sha256": "dedf8cb306f224675795ea7887d32b807a5e94f7f96eee6ce8e4fc8d926175db",
+      "bytes": 12913
+    },
+    {
+      "role": "owner METHOD",
+      "path": "evidence/579bff2ee5f7661a-METHOD.md",
+      "sha256": "579bff2ee5f7661aaae807ce102d3abf1ee787e58211aa9c67fd7d785ec10d61",
+      "bytes": 6841
+    },
+    {
+      "role": "owner RESULTS, read, not regenerated",
+      "path": "evidence/266652aa5589e0de-RESULTS.json",
+      "sha256": "266652aa5589e0deb73d6020f7da16d0df478fcc3213d680039853efdac734c1",
+      "bytes": 173338
+    },
+    {
+      "role": "owner INPUTS",
+      "path": "evidence/527a0f9fbf0b0809-INPUTS.json",
+      "sha256": "527a0f9fbf0b0809c41dc1906a7107ecda3e20cd3bbbf16b75b14ccfdad6144f",
+      "bytes": 29431
+    },
+    {
+      "role": "AF 163-2 extract, weight column (± .005) and 0.015 U film",
+      "path": "unpublished-local-ref:5309ffdc2b14dc97",
+      "sha256": "f3367a62eedefff04aa759f35880efb3e12abf3f7abf239fe86a6ed40d7b56bc",
+      "bytes": 86026
+    }
+  ]
+}

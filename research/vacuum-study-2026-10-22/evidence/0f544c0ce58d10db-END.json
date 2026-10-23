@@ -1,0 +1,91 @@
+{
+  "started_utc": "2026-10-20T09:08:02.107708+00:00",
+  "ended_utc": "2026-10-20T09:08:02.261116+00:00",
+  "elapsed_seconds": 0.15341387083753943,
+  "returncode": 75,
+  "command": [
+    "ref-81e2f24e4e80426e80f0",
+    "unpublished-local-ref:6b66f99ebd630954",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "6G",
+    "--timeout",
+    "3600",
+    "--",
+    "ref-d9af09a16f3a81bf2ded",
+    "-i",
+    "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+    "LANG=C.UTF-8",
+    "TMPDIR=unpublished-local-ref:2f4bfd764b71e02c",
+    "MPLCONFIGDIR=unpublished-local-ref:ca717173482a8159",
+    "XDG_CACHE_HOME=unpublished-local-ref:4d7aceb95b435113",
+    "CUDA_VISIBLE_DEVICES=",
+    "OPENBLAS_NUM_THREADS=1",
+    "OMP_NUM_THREADS=1",
+    "MKL_NUM_THREADS=1",
+    "NUMEXPR_NUM_THREADS=1",
+    "BLIS_NUM_THREADS=1",
+    "VECLIB_MAXIMUM_THREADS=1",
+    "ref-81e2f24e4e80426e80f0",
+    "-I",
+    "-B",
+    "unpublished-local-ref:6a7d40238d68e348",
+    "--frequency",
+    "6",
+    "--segments",
+    "24",
+    "--rise",
+    "1"
+  ],
+  "source_pins": [
+    {
+      "path": "unpublished-local-ref:1dcb91e43dcc331a",
+      "sha256": "886d9c0bfb4ece446dd64eac75c6e7449c6dc40621810643877375cfa3f910cf",
+      "bytes": 16730
+    },
+    {
+      "path": "unpublished-local-ref:e94dcc7f9bc69ef0",
+      "sha256": "aa4d30b7b2a8122091d7a9637f3c84e890fa9df34d83a6047a7e466948083129",
+      "bytes": 3751
+    },
+    {
+      "path": "unpublished-local-ref:faa2450e89aff046",
+      "sha256": "b8f8a9a472aef164815d89ec4547caeadfa738b34869f3b6c432e6becd4904ad",
+      "bytes": 2245
+    },
+    {
+      "path": "unpublished-local-ref:842fe3bb4f2c9daf",
+      "sha256": "54f3568b088d1ace3887b5f31eebe528f970b7247209fe9893f2717752b2e08a",
+      "bytes": 3008
+    },
+    {
+      "path": "unpublished-local-ref:2c7f832deb3e915e",
+      "sha256": "05598e12b5930178f0cc1505437cf073a0eab96ec29d054c85c2be782185b1da",
+      "bytes": 2648
+    },
+    {
+      "path": "unpublished-local-ref:f3a14fc7a337842a",
+      "sha256": "84fa2c077c2e31660fc325131cb29ddaa6f9b8cc027ba7472b479a7349f4951d",
+      "bytes": 3240
+    },
+    {
+      "path": "unpublished-local-ref:8f502bef053f544f",
+      "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+      "bytes": 2450
+    },
+    {
+      "path": "unpublished-local-ref:cf378f72a8555172",
+      "sha256": "c5c1e4d36510ae40a53c806cdd939e9e4ed2174caf0e257c627703f1e5fb7457",
+      "bytes": 12679
+    },
+    {
+      "path": "unpublished-local-ref:6a7d40238d68e348",
+      "sha256": "a5b21a065b9f020f5b229752c615664e5d18911c9492a44bac2fdbeec43b0b54",
+      "bytes": 1859
+    }
+  ],
+  "time_budget": null,
+  "timeout_is_technical_watchdog": true
+}

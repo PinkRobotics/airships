@@ -1,0 +1,40 @@
+{
+  "id": "E-055f612bfbbf6b5940ee",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-055f612bfbbf6b5940ee",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/4",
+    "row_id": "NFI-043-05",
+    "fields": {
+      "id": "NFI-043-05",
+      "status": "open",
+      "topic": "Flexure reference sizes and statistical meanings",
+      "finding": "SA sources report m=10 and m=8; catalogue 380 MPa is typical rather than explicitly a fitted mean. Bend spans are absent. Commercial CVD reports m=11, scale 424 MPa and mean 415 MPa but no specimen dimensions.",
+      "needed": "Applicable product revision, specimen spans and orientation, sample sizes, raw data, finish, fit definition and uncertainty. Clarify the CVD mean/scale relationship without replacing the reported scale.",
+      "effect": "SA 40/20 mm spans and mean-to-scale conversions remain PROJECTION. Commercial CVD has no justified full-size probability here.",
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "SA sources report m=10 and m=8; catalogue 380 MPa is typical rather than explicitly a fitted mean. Bend spans are absent. Commercial CVD reports m=11, scale 424 MPa and mean 415 MPa but no specimen dimensions.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

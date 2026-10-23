@@ -1,0 +1,79 @@
+{
+  "id": "D027",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D027",
+    "report": "rpt-ref-57c98dcce7960aca042a",
+    "file": "evidence/e256d521caccca80-NFI.json",
+    "snapshot": "evidence/e256d521caccca80-NFI.json",
+    "source_sha256": "e256d521caccca802473d82d87bf6b9c6226efaa1bda652c58c139fb924d7c7c",
+    "source_json_pointer": "/items/0",
+    "row_id": "NFI-045-DENT-GROWTH",
+    "fields": {
+      "id": "NFI-045-DENT-GROWTH",
+      "tag": "QUESTIONABLE",
+      "claim": "The dent-growth criterion is this seat's derivation: the face's fixed membrane force pR/4 on a paraboloid dent's curvature, against the core's crush strength less its share of the pressure, with the patch's plate buckling force taken off. No opened page prints it. Castanie, the CAI literature on face wrinkling over crushed core, and McGowan and Ambur's preload threshold support the mechanism, not the numbers.",
+      "needed_to_ground": "Compression-after-impact tests on beryllium-faced CR-III coupons at 300 MPa, dented at 0.25-2 mm over 30-100 mm."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/items",
+    "blocks_progress": false
+  },
+  "claim": "The dent-growth criterion is this seat's derivation: the face's fixed membrane force pR/4 on a paraboloid dent's curvature, against the core's crush strength less its share of the pressure, with the patch's plate buckling force taken off. No opened page prints it. Castanie, the CAI literature on face wrinkling over crushed core, and McGowan and Ambur's preload threshold support the mechanism, not the numbers.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/987"
+    },
+    {
+      "report": "rpt-ref-57c98dcce7960aca042a",
+      "artifact": "evidence/e256d521caccca80-NFI.json",
+      "snapshot": "evidence/e256d521caccca80-NFI.json",
+      "sha256": "e256d521caccca802473d82d87bf6b9c6226efaa1bda652c58c139fb924d7c7c",
+      "bytes": 6488,
+      "selector": "/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-57c98dcce7960aca042a",
+          "artifact": "evidence/e256d521caccca80-NFI.json",
+          "snapshot": "evidence/e256d521caccca80-NFI.json",
+          "sha256": "e256d521caccca802473d82d87bf6b9c6226efaa1bda652c58c139fb924d7c7c",
+          "bytes": 6488,
+          "selector": "/items/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/987"
+          }
+        ]
+      }
+    }
+  ]
+}

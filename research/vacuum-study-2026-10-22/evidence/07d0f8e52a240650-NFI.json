@@ -1,0 +1,44 @@
+[
+  {
+    "NFI_id": "NFI-SHEAR",
+    "gap": "Advisory crimp is replaced by NASA CR-1457 equations 6.2-3 through 6.2-6. Sourced cores stay on the moderate branch. Kc trims the buckling safety factor to between 0.863720643326 and 0.991105457684 of the MAINLINE-007 value.",
+    "direction": "A core shear modulus below about 2.45 MPa would enter the crimping branch. None of the sourced moduli do.",
+    "effect": "P2-E with Plascore at 16 kg/m3 falls from 0.233885578993 to 0.227959198328. Yield is unchanged and still larger."
+  },
+  {
+    "NFI_id": "NFI-WRINKLE",
+    "gap": "Foam wrinkling uses equation 2.2-5 with Q 0.50 and the flat-plate equibiaxial interaction 2.2-6. The stress safety factor becomes 0.709062069568 of the advisory uniaxial stress factor. Honeycomb uses equation 2.2-14.",
+    "direction": "Plascore has no Ec, so its wrinkling stress is still open. The Hexcel stabilised modulus is QUESTIONABLE as Ec.",
+    "effect": "Foam wrinkling stays above the trimmed general-instability factor. Hexcel equibiaxial wrinkling safety factors are 0.0565286364026 and 0.0415196459641, below general instability, so that local mode would govern if it is admitted."
+  },
+  {
+    "NFI_id": "NFI-SAND",
+    "gap": "General instability now includes transverse shear and matches the kd 0.2 pressure when shear stiffness is infinite. The 007 splits were not searched again.",
+    "direction": "A new split search would matter only for a named core whose Kc moves the equal-factor point.",
+    "effect": "On the reported rows, buckling still governs after the trim except where honeycomb wrinkling is admitted."
+  },
+  {
+    "NFI_id": "NFI-KD",
+    "gap": "gamma_d is 0.20 on the moderate branch, the handbook hemisphere value, and the same number as kd. The handbook sets gamma_d to 1 on the crimping branch, so gamma_d times Kc jumps at Vc = 2.",
+    "direction": "MAINLINE-004 still multiplies the moderate-branch buckling pressure by kd/0.2. Do not apply that multiplication on the crimping branch.",
+    "effect": "No sourced row reached the jump."
+  },
+  {
+    "NFI_id": "NFI-GEOM",
+    "gap": "The handbook radius is the middle surface. These ratios use the external 10 m in both the classical pressure and the handbook pressure, so the ratio is unchanged.",
+    "direction": "An absolute pressure on the thick low-density rows still needs an inner mould line.",
+    "effect": "The reported safety-factor ratios do not move with that choice."
+  },
+  {
+    "NFI_id": "NFI-CORE-FLOOR",
+    "gap": "Densities 8 through 1 still have no sourced Gc and Ec. The Schaedler microlattice still has no modulus.",
+    "direction": "Do not extrapolate a catalog modulus down to those densities.",
+    "effect": "Those MAINLINE-007 safety factors are not revised."
+  },
+  {
+    "NFI_id": "NFI-BIAX",
+    "gap": "Equation 2.2-6 is a flat-plate interaction applied here to equibiaxial membrane stress. The handbook cites it for biaxial compression of facings.",
+    "direction": "A sphere-specific wrinkling interaction could replace it.",
+    "effect": "The equibiaxial factor solved from R^3 + R = 1 is 0.682327803828."
+  }
+]

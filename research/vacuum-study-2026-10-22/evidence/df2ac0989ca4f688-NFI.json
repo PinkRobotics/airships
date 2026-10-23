@@ -1,0 +1,44 @@
+{
+  "open": [
+    {
+      "id": "fc-is-the-lower-of-three",
+      "tag": "QUESTIONABLE",
+      "note": "Fc is the lower of flatwise compression, flatwise tension and the face-to-core bond. The sheet prints stabilised compression, 60 psi typical and 35 psi minimum. It does not print flatwise tension or a beryllium bond. A weaker bond lowers the allowed amplitude in proportion. The crush column, 35 psi, is not that peak."
+    },
+    {
+      "id": "sheet-thickness",
+      "tag": "QUESTIONABLE",
+      "note": "Table II says the test thickness is 0.625 inch. The lead cores are 20.21 mm and 30.12 mm. Ec is typical only. No minimum modulus is printed."
+    },
+    {
+      "id": "eta",
+      "tag": "QUESTIONABLE",
+      "note": "The page says elastic cases use eta = 1, and inelastic cases use section 9. The map uses eta = 1. The 021 faces sit at compression safety factor about 1, so a plasticity factor may apply. It is not in this Q map."
+    },
+    {
+      "id": "wavelength-versus-cell",
+      "tag": "QUESTIONABLE",
+      "note": "Section 2.2.2 does not print the critical half-wavelength. FPL 1810-A says cell size changes that wavelength. Delta over the 9.525 mm cell is an amplitude ratio, not a separation of modes."
+    },
+    {
+      "id": "shop-flatness-is-not-delta",
+      "tag": "QUESTIONABLE",
+      "note": "AMS7902H defines three flatness classes. The class numbers were not read. Bonded-panel numbers found here are long-wave bows or an architectural wave. Hexcel's design note that a large cell telegraphs into a thin face gives no depth. None of those is the Fourier component in equation 2.2-13."
+    },
+    {
+      "id": "biaxial-on-a-shell",
+      "tag": "QUESTIONABLE",
+      "note": "Equation 2.2-15 is recommended for biaxial compression. The foam section bases its interaction on flat plates of large aspect ratio. The honeycomb page does not show a biaxial waviness test. The hull radius is 10 m."
+    },
+    {
+      "id": "design-0-33-is-not-a-measured-wave",
+      "tag": "PROJECTION",
+      "note": "Inverting equation 2.2-12 at Q 0.33 is stored so the design value can be seen as an amplitude. The handbook selected 0.33 from a test plot."
+    },
+    {
+      "id": "kommers",
+      "tag": "QUESTIONABLE",
+      "note": "The card names Norris, Ericksen and Kommers. FPL Report 1810 is Norris, Ericksen and March. Kommers was not found on it."
+    }
+  ]
+}

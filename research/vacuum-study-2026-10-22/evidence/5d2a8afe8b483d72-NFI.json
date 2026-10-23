@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "card": "014b",
+  "blocking": false,
+  "rows": [
+    {
+      "id": "NFI-S200F-MODULUS",
+      "type": "source_mismatch",
+      "row": "Beryllium S-200F",
+      "field": "E_Pa",
+      "reported": 303000000000,
+      "source_value": 290000000000,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4",
+      "page": 2,
+      "proposed_fix": "Use grade-specific E=290 GPa or explicitly source a 303 GPa S200F scenario; retain QUESTIONABLE.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-STRENGTH-EDITION",
+      "type": "source_version_conflict",
+      "row": "Beryllium S-200F",
+      "field": "compressive_yield_MPa",
+      "reported": 283,
+      "current_guide_value_approx": 255,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74",
+      "page": 4,
+      "proposed_fix": "Pin the exact older MB-001 edition supporting 283 MPa and reconcile the newer guide. Current computations retain the frozen strength; 37/41 sensitivity is arithmetically correct.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-WRINKLE-GC-TEXT",
+      "type": "text_mismatch",
+      "row": "NFI-W-SHEAR",
+      "field": "note",
+      "reported": "Crimping and honeycomb wrinkling use that Gc.",
+      "independent": "The selected honeycomb wrinkling equation has no Gc; crimping and global buckling do.",
+      "proposed_fix": "Correct the explanatory sentence; numerical values already use the stated honeycomb formula.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-LAMINATE-BENDING",
+      "type": "model_assumption",
+      "row": "composite faces",
+      "field": "wrinkling_modulus",
+      "reported": "Inherited scalar quasi-isotropic face modulus",
+      "independent": "Laminate bending stiffness is not supplied; NASA/CR-1999-208994 after Eq.17 calls for bending stiffness.",
+      "source_url": "https://ntrs.nasa.gov/api/citations/19990017863/downloads/19990017863.pdf",
+      "proposed_fix": "Retain QUESTIONABLE and supply a layup/bending-stiffness sensitivity in a later fix card.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-BRANCH-EQUALITY",
+      "type": "convention_clarification",
+      "row": "Vc=2 boundary",
+      "field": "gamma",
+      "reported": "No scored 014b row is exactly on the boundary; owner code was not inspected.",
+      "independent": "CR-1457 p.6-7 includes Vc=2 in weak-core region with unity knockdown.",
+      "proposed_fix": "State equality handling explicitly when carrying 009c-5 branch wording; all current values unaffected.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-GRID-RESOLUTION",
+      "type": "estimate_resolution",
+      "row": "all optima",
+      "field": "optimality",
+      "reported": "best",
+      "independent": "Reproduced on j/8000 finite grid, not a continuous optimality proof.",
+      "proposed_fix": "Label grid optima and retain the reported precision as computational precision.",
+      "stops_owner": false
+    }
+  ]
+}

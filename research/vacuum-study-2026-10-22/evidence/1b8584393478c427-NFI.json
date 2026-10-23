@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-024 independent check",
+  "blocking_for_filing": false,
+  "arithmetic_mismatches": [],
+  "open": [
+    {
+      "id": "NFI-CHK024-SAG-NOT-CHARGED",
+      "kind": "missing physical accounting",
+      "tag": "QUESTIONABLE",
+      "finding": "The original filed card gives cap rise 0.374346974907 m but keeps full-sphere lift. All three closures spend the original 4889.44215019 kg. No sag-volume integral or lift deduction appears.",
+      "proposed_next": "Integrate a boundary-compatible inward pillow, reduce displaced volume/lift, then re-run the mass-constrained scan in the separately assigned amendment. Cap rise alone does not uniquely determine volume.",
+      "charged_volume_loss_m3": 0,
+      "charged_lift_loss_kg": 0,
+      "air_density_kg_m3": 1.1672683307469056,
+      "linear_lift_loss_kg_per_mean_radial_mm": 1.4668326450569997
+    },
+    {
+      "id": "NFI-CHK024-COMPLETE-SYSTEM",
+      "kind": "unclosed system mass",
+      "tag": "PROJECTION",
+      "finding": "The lightest Zylon row is 109.701010474 kg of ideal two-direction fibre only. Resin, barrier substrate/coating, attachments and installation losses are unbooked. No complete gas-tight film system mass is supplied. Fibre alone exceeds the 97.515 kg pin.",
+      "proposed_next": "Retain a structural lower bound and separately book the full assembly before claiming a lightest system."
+    },
+    {
+      "id": "NFI-CHK024-PUMP-MASS",
+      "kind": "unclosed operations mass",
+      "tag": "QUESTIONABLE",
+      "finding": "The scan has 50 kg for all systems. The inherited pump alone is 150-400 kg, not debited from tube mass. Reallocating all 50 kg leaves 100-350 kg unbooked; keeping the original systems adds the full pump. No getter capacity is sourced.",
+      "proposed_next": "Book a selected pumping system, power supply and operating internal-pressure allowance, then re-optimize. The inherited class is not a new product qualification.",
+      "minimum_reallocation_gap_kg": [
+        100,
+        350
+      ]
+    },
+    {
+      "id": "NFI-CHK024-PILLOW-AREA-BOUNDARY",
+      "kind": "geometric model substitution",
+      "tag": "QUESTIONABLE",
+      "finding": "Curvature equals bay side to preserve the 011b film equation. Circumscribed circular-cap rise does not establish compatibility with all three actual edge arcs. Film masses and gas rates use 4*pi*R^2 without pillow-area correction. Triangular tributary and scored arc line loads differ; the stated 011b load path is retained.",
+      "proposed_next": "Specify boundary, shape, true area and load transfer consistently with the sag amendment."
+    },
+    {
+      "id": "NFI-CHK024-ALLOWABLES-AND-GAUGE",
+      "kind": "material design qualification gap",
+      "tag": "QUESTIONABLE",
+      "finding": "Half-ultimate Kapton/PEN/Vectran values are assumptions, not creep-rupture allowables. Kapton design gauge 843 um exceeds opened 12.7-125 um rows; PEN 927 um exceeds the 250 um strength row and transfers 25 um modulus/permeability. Kapton 115.5 MPa exceeds its 69 MPa stress at 3% yield and 90 MPa at 5% strain. Long-term shape is unqualified.",
+      "proposed_next": "Retain gauge and sustained-load transfer assumptions; qualify the fabricated membrane and joints."
+    },
+    {
+      "id": "NFI-CHK024-CREEP-TRANSFER",
+      "kind": "filament and rope transfer",
+      "tag": "PROJECTION",
+      "finding": "Toyobo 19 years at 60% break is extrapolated HM filament performance. DSM 15/250 years at 20% break is an indicative 16 C rope comparison. Neither qualifies a resin-free 0/90 pressure membrane, joints or weather exposure. Toyobo calls for light protection outdoors.",
+      "proposed_next": "Tag proposed membranes PROJECTION, while retaining sourced fibre inputs as QUESTIONABLE."
+    },
+    {
+      "id": "NFI-CHK024-GAS-COVERAGE",
+      "kind": "incomplete service gas balance",
+      "tag": "QUESTIONABLE",
+      "finding": "N2 is available only for Kapton. Water retains source conditions, with no hull RH. Seams, defects, outgassing, thickness scaling and stressed/coated permeability are unqualified. Kapton source-condition sum is below the inherited allowance; it is not a complete service leak test.",
+      "proposed_next": "Keep source and service rates distinct and close all gas paths before selecting the vacuum system."
+    },
+    {
+      "id": "NFI-CHK024-ALD-AND-UNSOURCED",
+      "kind": "scale/form uncertainty",
+      "tag": "PROJECTION",
+      "finding": "ALD bound is a supported lab coupon, not a bare film, fibre coating or hull-scale result; substrate and fabrication mass remain necessary. CNT/graphene production allowables remain uncomputed.",
+      "proposed_next": "Retain coupon bounds and absent allowables; do not use them to close hull mass."
+    },
+    {
+      "id": "NFI-CHK024-LATTICE-MODEL",
+      "kind": "inherited structural assumptions",
+      "tag": "PROJECTION",
+      "finding": "Retains 011b continuum coefficient, k=0.2, 3900 MPa SiC crush, local gamma=1, s as arc length, five-percent joints and steel-column Perry formula on ceramic arcs. They are not newly validated by this film check.",
+      "proposed_next": "Carry the 011b NFI with the re-sized lattice."
+    },
+    {
+      "id": "NFI-CHK024-INPUT-RECORD",
+      "kind": "reproducibility gap repaired locally",
+      "tag": "QUESTIONABLE",
+      "finding": "Owner INPUTS primarily pins sources and upstream scripts; explicit gas constants and complete material/frame values are missing. This check supplies them and a fresh standalone calculation.",
+      "proposed_next": "Carry explicit constants and non-code formula records with the next filing."
+    }
+  ],
+  "numerical_resolution": {
+    "finding": "All three prescribed bay-grid maxima occur at the filed bay sizes. Continuous radius/bay refinement produces small increases, not arithmetic mismatches at filed geometries.",
+    "refined": {
+      "pin": {
+        "s_m": 2.0484726647231866,
+        "least_SF": 1.2273143909954065
+      },
+      "zylon_hm_crossply": {
+        "s_m": 1.756676241751262,
+        "least_SF": 1.161283992755708
+      },
+      "kapton_hn": {
+        "s_m": 2.489804138286331,
+        "least_SF": 0.819341557285738
+      }
+    }
+  }
+}

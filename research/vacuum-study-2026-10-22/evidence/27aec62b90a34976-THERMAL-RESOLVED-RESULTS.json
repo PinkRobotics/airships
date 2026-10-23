@@ -1,0 +1,1752 @@
+{
+  "independent_method": "Coupled local Newton plus simultaneous first/fourth enclosure moments",
+  "boundary_source": "intake/addendum048/9-THERMAL-BOUNDARY.md",
+  "comparisons": 103714,
+  "mismatches": [
+    {
+      "row": "reference040",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.585175170883171,
+      "independent": 227.033315518569,
+      "delta": 224.44814034768584,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "reference040",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 216.8380776012378,
+      "independent": 227.033315518569,
+      "delta": 10.195237917331184,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AZ93",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.5717627410104935,
+      "independent": 227.042107096738,
+      "delta": 224.4703443557275,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AZ93",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 218.60377461220634,
+      "independent": 227.042107096738,
+      "delta": 8.438332484531657,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "Z93",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.5582163816462575,
+      "independent": 227.05106651861726,
+      "delta": 224.49285013697101,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "Z93",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 217.6381364958106,
+      "independent": 227.05106651861726,
+      "delta": 9.412930022806648,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "SolarWhite",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.5717627410104935,
+      "independent": 227.042107096738,
+      "delta": 224.4703443557275,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "SolarWhite",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 217.96631700411587,
+      "independent": 227.042107096738,
+      "delta": 9.075790092622128,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AgFEP05",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.0044298937923197,
+      "independent": 227.42595487853967,
+      "delta": 225.42152498474735,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AgFEP05",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 221.82787876728608,
+      "independent": 227.42595487853967,
+      "delta": 5.59807611125359,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AgFEP1",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.1604447363681962,
+      "independent": 227.38802757817297,
+      "delta": 225.22758284180478,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AgFEP1",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 222.51844190037195,
+      "independent": 227.38802757817297,
+      "delta": 4.8695856778010125,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AlFEP05",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.0044298937923197,
+      "independent": 227.42595487853967,
+      "delta": 225.42152498474735,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AlFEP05",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 217.41091600560978,
+      "independent": 227.42595487853967,
+      "delta": 10.015038872929892,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AlFEP2",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.24541297284333,
+      "independent": 227.31789764055367,
+      "delta": 225.07248466771034,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AlFEP2",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 218.745438858468,
+      "independent": 227.31789764055367,
+      "delta": 8.572458782085675,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AlKapton05",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.1972108888336708,
+      "independent": 227.37017789779765,
+      "delta": 225.17296700896398,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "AlKapton05",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 206.69000320144806,
+      "independent": 227.37017789779765,
+      "delta": 20.68017469634958,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "SiOxAlKapton",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 1.155755887546302,
+      "independent": 228.0471549575772,
+      "delta": 226.8913990700309,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "SiOxAlKapton",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 217.5632652976733,
+      "independent": 228.0471549575772,
+      "delta": 10.483889659903895,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "CCAg",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.287239095847125,
+      "independent": 227.27544946260116,
+      "delta": 224.98821036675403,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "CCAg",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 223.28911413067857,
+      "independent": 227.27544946260116,
+      "delta": 3.9863353319225894,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "MLCCAg",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 2.482617922223453,
+      "independent": 227.12935094696317,
+      "delta": 224.64673302473972,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "MLCCAg",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 222.6772528227253,
+      "independent": 227.12935094696317,
+      "delta": 4.452098124237864,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "BareBe",
+      "field": "legacy.night_curvature_temperature_K[0]",
+      "owner": 0.5807480022087772,
+      "independent": 229.3212873456116,
+      "delta": 228.74053934340284,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    },
+    {
+      "row": "BareBe",
+      "field": "legacy.curvature_temperature_K[0]",
+      "owner": 202.89875829309796,
+      "independent": 229.3212873456116,
+      "delta": 26.422529052513653,
+      "agrees": false,
+      "rtol": 2e-06,
+      "atol": 3e-08
+    }
+  ],
+  "screens": [
+    {
+      "id": "reference040",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.3991964987347387
+        ],
+        "night_gradient_K": [
+          0.1693719117728847
+        ],
+        "day_curvature_temperature_K": [
+          216.83807760123702
+        ],
+        "night_curvature_temperature_K": [
+          227.033315518569
+        ],
+        "gradient_K": [
+          0.3991964987347387
+        ],
+        "rise_K": [
+          16.669001463748884
+        ],
+        "swing_K": [
+          30.493339712295096
+        ],
+        "curvature_temperature_K": [
+          227.033315518569
+        ],
+        "exact_curvature_temperature_K": [
+          227.033315518569
+        ],
+        "max_outer_K": [
+          301.56900146374886
+        ],
+        "min_outer_K": [
+          271.07566175145377
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.192024339819909e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.3755946330645135e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.66717386764199
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 1.9384494009955233e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 3.221305291247206e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.5452768005708917
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.42276113957922234
+        ],
+        "night_gradient_K": [
+          0.1780836681463711
+        ],
+        "day_curvature_temperature_K": [
+          55.77743433319098
+        ],
+        "night_curvature_temperature_K": [
+          0.8066049556079788
+        ],
+        "gradient_K": [
+          0.42276113957922234
+        ],
+        "rise_K": [
+          17.124817534274996
+        ],
+        "swing_K": [
+          31.11962391840848
+        ],
+        "curvature_temperature_K": [
+          55.77743433319098
+        ],
+        "exact_curvature_temperature_K": [
+          55.777646030193104
+        ],
+        "max_outer_K": [
+          302.024817534275
+        ],
+        "min_outer_K": [
+          270.9051936158665
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.8971491044794675e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.685223376930658
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 1.9977353105105067e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.5530872385100323
+        }
+      },
+      "legacy_037_day_SF": 1.6782826446663364,
+      "legacy_037_full_swing_SF": 0.9174231528745178,
+      "current_200F_minimum_edge_SF": 1.0718837620685158
+    },
+    {
+      "id": "AZ93",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.3350029652679609
+        ],
+        "night_gradient_K": [
+          0.1686168980835987
+        ],
+        "day_curvature_temperature_K": [
+          218.60377461220625
+        ],
+        "night_curvature_temperature_K": [
+          227.042107096738
+        ],
+        "gradient_K": [
+          0.3350029652679609
+        ],
+        "rise_K": [
+          13.85822168848972
+        ],
+        "swing_K": [
+          27.62315404227911
+        ],
+        "curvature_temperature_K": [
+          227.042107096738
+        ],
+        "exact_curvature_temperature_K": [
+          227.042107096738
+        ],
+        "max_outer_K": [
+          298.7582216884897
+        ],
+        "min_outer_K": [
+          271.1350676462106
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0108359422010835e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.546834986890252
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 2.0179413695586845e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 1.6100320730359345e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.542537994672932
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.3548506752381968
+        ],
+        "night_gradient_K": [
+          0.17729030553221037
+        ],
+        "day_curvature_temperature_K": [
+          48.57542243580535
+        ],
+        "night_curvature_temperature_K": [
+          0.8090719492251299
+        ],
+        "gradient_K": [
+          0.3548506752381968
+        ],
+        "rise_K": [
+          14.253028526282435
+        ],
+        "swing_K": [
+          28.187483364510115
+        ],
+        "curvature_temperature_K": [
+          48.57542243580535
+        ],
+        "exact_curvature_temperature_K": [
+          48.57559657464962
+        ],
+        "max_outer_K": [
+          299.1530285262824
+        ],
+        "min_outer_K": [
+          270.9655451617723
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.1187496201946487e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.564783551473814
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 1.9770851622524788e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.6100317343894477e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.5503302770615917
+        }
+      },
+      "legacy_037_day_SF": 2.0186786219304795,
+      "legacy_037_full_swing_SF": 1.0127480669915327,
+      "current_200F_minimum_edge_SF": 1.0725610164659478
+    },
+    {
+      "id": "Z93",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.36946423036283704
+        ],
+        "night_gradient_K": [
+          0.16785257470758097
+        ],
+        "day_curvature_temperature_K": [
+          217.6381364958086
+        ],
+        "night_curvature_temperature_K": [
+          227.05106651861726
+        ],
+        "gradient_K": [
+          0.36946423036283704
+        ],
+        "rise_K": [
+          15.39624013136438
+        ],
+        "swing_K": [
+          29.10105267020549
+        ],
+        "curvature_temperature_K": [
+          227.05106651861726
+        ],
+        "exact_curvature_temperature_K": [
+          227.05106651861726
+        ],
+        "max_outer_K": [
+          300.29624013136436
+        ],
+        "min_outer_K": [
+          271.19518746115887
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0525803279269894e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 2.766532345796799e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.6147345181639876
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 2.0596857552845904e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 1.609403248464073e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.5397572343561508
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.3913014908458763
+        ],
+        "night_gradient_K": [
+          0.17648713120917137
+        ],
+        "day_curvature_temperature_K": [
+          52.43360858615547
+        ],
+        "night_curvature_temperature_K": [
+          0.8115693726680622
+        ],
+        "gradient_K": [
+          0.3913014908458763
+        ],
+        "rise_K": [
+          15.823740179877746
+        ],
+        "swing_K": [
+          29.69712040275573
+        ],
+        "curvature_temperature_K": [
+          52.43360858615547
+        ],
+        "exact_curvature_temperature_K": [
+          52.433663444912455
+        ],
+        "max_outer_K": [
+          300.7237401798777
+        ],
+        "min_outer_K": [
+          271.026619777122
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.8705037518884637e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.3831792988667498e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.6326990519452136
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 2.000399845769607e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.609402993350231e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.547531152331443
+        }
+      },
+      "legacy_037_day_SF": 1.817021274144573,
+      "legacy_037_full_swing_SF": 0.9613155983587302,
+      "current_200F_minimum_edge_SF": 1.0732472568473659
+    },
+    {
+      "id": "SolarWhite",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.35750174388147116
+        ],
+        "night_gradient_K": [
+          0.1686168980835987
+        ],
+        "day_curvature_temperature_K": [
+          217.96631700411555
+        ],
+        "night_curvature_temperature_K": [
+          227.042107096738
+        ],
+        "gradient_K": [
+          0.35750174388147116
+        ],
+        "rise_K": [
+          14.856809793497746
+        ],
+        "swing_K": [
+          28.621742147287137
+        ],
+        "curvature_temperature_K": [
+          227.042107096738
+        ],
+        "exact_curvature_temperature_K": [
+          227.042107096738
+        ],
+        "max_outer_K": [
+          299.7568097934977
+        ],
+        "min_outer_K": [
+          271.1350676462106
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.163158541179655e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.3868732729434032e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.591524518227548
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 2.0179413695586845e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 1.6100320730359345e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.542537994672932
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.3786470617583859
+        ],
+        "night_gradient_K": [
+          0.17729030553221037
+        ],
+        "day_curvature_temperature_K": [
+          51.12963772850901
+        ],
+        "night_curvature_temperature_K": [
+          0.8090719492251299
+        ],
+        "gradient_K": [
+          0.3786470617583859
+        ],
+        "rise_K": [
+          15.27321121028615
+        ],
+        "swing_K": [
+          29.20766604851383
+        ],
+        "curvature_temperature_K": [
+          51.12963772850901
+        ],
+        "exact_curvature_temperature_K": [
+          51.12969544553858
+        ],
+        "max_outer_K": [
+          300.1732112102861
+        ],
+        "min_outer_K": [
+          270.9655451617723
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.1662671656486054e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.3867840088449718e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.609495309740103
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 1.9770851622524788e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.6100317343894477e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.5503302770615917
+        }
+      },
+      "legacy_037_day_SF": 1.8829948184953693,
+      "legacy_037_full_swing_SF": 0.9774141530786974,
+      "current_200F_minimum_edge_SF": 1.0725610164659478
+    },
+    {
+      "id": "AgFEP05",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.2713941649885214
+        ],
+        "night_gradient_K": [
+          0.11488874415255168
+        ],
+        "day_curvature_temperature_K": [
+          221.82787876728622
+        ],
+        "night_curvature_temperature_K": [
+          227.42595487853967
+        ],
+        "gradient_K": [
+          0.2713941649885214
+        ],
+        "rise_K": [
+          11.857409430742678
+        ],
+        "swing_K": [
+          21.42339099612093
+        ],
+        "curvature_temperature_K": [
+          227.42595487853967
+        ],
+        "exact_curvature_temperature_K": [
+          227.42595487853967
+        ],
+        "max_outer_K": [
+          296.75740943074265
+        ],
+        "min_outer_K": [
+          275.3340184346217
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9753088054130785e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.4494658288600317
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.6679990721968352e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.3214338675820296
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.28718252975079395
+        ],
+        "night_gradient_K": [
+          0.12076401090951094
+        ],
+        "day_curvature_temperature_K": [
+          38.74600483258603
+        ],
+        "night_curvature_temperature_K": [
+          1.0340681095479405
+        ],
+        "gradient_K": [
+          0.28718252975079395
+        ],
+        "rise_K": [
+          12.174444200052335
+        ],
+        "swing_K": [
+          21.84822973642713
+        ],
+        "curvature_temperature_K": [
+          38.74600483258603
+        ],
+        "exact_curvature_temperature_K": [
+          38.74635934156506
+        ],
+        "max_outer_K": [
+          297.0744442000523
+        ],
+        "min_outer_K": [
+          275.2262144636252
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0681234502717416e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.4656771874727417
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9908519277578307e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.3279467662309408
+        }
+      },
+      "legacy_037_day_SF": 2.3593092592380276,
+      "legacy_037_full_swing_SF": 1.3058294956943517,
+      "current_200F_minimum_edge_SF": 1.1226374143823135
+    },
+    {
+      "id": "AgFEP1",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.24584329681556483
+        ],
+        "night_gradient_K": [
+          0.12677529376520624
+        ],
+        "day_curvature_temperature_K": [
+          222.51844190037139
+        ],
+        "night_curvature_temperature_K": [
+          227.38802757817297
+        ],
+        "gradient_K": [
+          0.24584329681556483
+        ],
+        "rise_K": [
+          10.445894793646119
+        ],
+        "swing_K": [
+          20.938458133909933
+        ],
+        "curvature_temperature_K": [
+          227.38802757817297
+        ],
+        "exact_curvature_temperature_K": [
+          227.38802757817297
+        ],
+        "max_outer_K": [
+          295.3458947936461
+        ],
+        "min_outer_K": [
+          274.40743665973616
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.8749446439869644e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.373068874413551
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9590995492535512e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.375714952530122
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.26024973070087754
+        ],
+        "night_gradient_K": [
+          0.13327686400816674
+        ],
+        "day_curvature_temperature_K": [
+          36.127733235254325
+        ],
+        "night_curvature_temperature_K": [
+          0.9848185353327507
+        ],
+        "gradient_K": [
+          0.26024973070087754
+        ],
+        "rise_K": [
+          10.74031678215971
+        ],
+        "swing_K": [
+          21.353460604733925
+        ],
+        "curvature_temperature_K": [
+          36.127733235254325
+        ],
+        "exact_curvature_temperature_K": [
+          36.127912209668985
+        ],
+        "max_outer_K": [
+          295.6403167821597
+        ],
+        "min_outer_K": [
+          274.28685617742576
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.135180920959101e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.3896164756948814
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0172752357439094e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.382511159920391
+        }
+      },
+      "legacy_037_day_SF": 2.6781138823592148,
+      "legacy_037_full_swing_SF": 1.3360723928005658,
+      "current_200F_minimum_edge_SF": 1.111199246784931
+    },
+    {
+      "id": "AlFEP05",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.4313190155265829
+        ],
+        "night_gradient_K": [
+          0.11488874415255168
+        ],
+        "day_curvature_temperature_K": [
+          217.4109160056084
+        ],
+        "night_curvature_temperature_K": [
+          227.42595487853967
+        ],
+        "gradient_K": [
+          0.4313190155265829
+        ],
+        "rise_K": [
+          19.070820633613323
+        ],
+        "swing_K": [
+          28.636802198991575
+        ],
+        "curvature_temperature_K": [
+          227.42595487853967
+        ],
+        "exact_curvature_temperature_K": [
+          227.42595487853967
+        ],
+        "max_outer_K": [
+          303.9708206336133
+        ],
+        "min_outer_K": [
+          275.3340184346217
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.8669510382096632e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 1.3451009056666953e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.758457369683858
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.6679990721968352e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.3214338675820296
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.4563478815709914
+        ],
+        "night_gradient_K": [
+          0.12076401090951094
+        ],
+        "day_curvature_temperature_K": [
+          56.21003470184449
+        ],
+        "night_curvature_temperature_K": [
+          1.0340681095479405
+        ],
+        "gradient_K": [
+          0.4563478815709914
+        ],
+        "rise_K": [
+          19.54031212099818
+        ],
+        "swing_K": [
+          29.214097657372974
+        ],
+        "curvature_temperature_K": [
+          56.21003470184449
+        ],
+        "exact_curvature_temperature_K": [
+          56.21036266282929
+        ],
+        "max_outer_K": [
+          304.44031212099816
+        ],
+        "min_outer_K": [
+          275.2262144636252
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9824142327706795e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 1.344997319074222e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.775279996033158
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9908519277578307e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.3279467662309408
+        }
+      },
+      "legacy_037_day_SF": 1.4669162065957235,
+      "legacy_037_full_swing_SF": 0.9769001324286355,
+      "current_200F_minimum_edge_SF": 1.1226374143823135
+    },
+    {
+      "id": "AlFEP2",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.3507125483703817
+        ],
+        "night_gradient_K": [
+          0.14176165605221058
+        ],
+        "day_curvature_temperature_K": [
+          218.74543885846765
+        ],
+        "night_curvature_temperature_K": [
+          227.31789764055367
+        ],
+        "gradient_K": [
+          0.3507125483703817
+        ],
+        "rise_K": [
+          15.004847410592959
+        ],
+        "swing_K": [
+          26.66644034305085
+        ],
+        "curvature_temperature_K": [
+          227.31789764055367
+        ],
+        "exact_curvature_temperature_K": [
+          227.31789764055367
+        ],
+        "max_outer_K": [
+          299.90484741059294
+        ],
+        "min_outer_K": [
+          273.2384070675421
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.8891554987021664e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.3791516392245228e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.597956213029266
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.04025685235365e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.439289804673642
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.371258226254497
+        ],
+        "night_gradient_K": [
+          0.14904981148237084
+        ],
+        "day_curvature_temperature_K": [
+          49.139807653526034
+        ],
+        "night_curvature_temperature_K": [
+          0.8947577572105292
+        ],
+        "gradient_K": [
+          0.371258226254497
+        ],
+        "rise_K": [
+          15.406841458061194
+        ],
+        "swing_K": [
+          27.2058081215867
+        ],
+        "curvature_temperature_K": [
+          49.139807653526034
+        ],
+        "exact_curvature_temperature_K": [
+          49.139902429578115
+        ],
+        "max_outer_K": [
+          300.3068414580612
+        ],
+        "min_outer_K": [
+          273.1010333364745
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0374812947920873e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.615184506276924
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0241586184965854e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.587534187476331e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.4464420040528316
+        }
+      },
+      "legacy_037_day_SF": 1.8644172176504654,
+      "legacy_037_full_swing_SF": 1.0490824984751945,
+      "current_200F_minimum_edge_SF": 1.0970885914709179
+    },
+    {
+      "id": "AlKapton05",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          1.0120800965011085
+        ],
+        "night_gradient_K": [
+          0.1321061135298578
+        ],
+        "day_curvature_temperature_K": [
+          206.6900032014476
+        ],
+        "night_curvature_temperature_K": [
+          227.37017789779765
+        ],
+        "gradient_K": [
+          1.0120800965011085
+        ],
+        "rise_K": [
+          41.2246734242197
+        ],
+        "swing_K": [
+          52.1329440577382
+        ],
+        "curvature_temperature_K": [
+          227.37017789779765
+        ],
+        "exact_curvature_temperature_K": [
+          227.37017789779765
+        ],
+        "max_outer_K": [
+          326.1246734242197
+        ],
+        "min_outer_K": [
+          273.9917293664815
+        ],
+        "day_diagnostics": {
+          "iterations": 6,
+          "max_energy_residual_W_m2": 1.943334382303874e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 3.3447467250994642
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.114752817305998e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.3989042135559893
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          1.071561599985273
+        ],
+        "night_gradient_K": [
+          0.1388888783454263
+        ],
+        "day_curvature_temperature_K": [
+          111.81925361379199
+        ],
+        "night_curvature_temperature_K": [
+          0.9504745235885081
+        ],
+        "gradient_K": [
+          1.071561599985273
+        ],
+        "rise_K": [
+          42.15094798725033
+        ],
+        "swing_K": [
+          53.185689640765986
+        ],
+        "curvature_temperature_K": [
+          111.81925361379199
+        ],
+        "exact_curvature_temperature_K": [
+          111.81956996123748
+        ],
+        "max_outer_K": [
+          327.0509479872503
+        ],
+        "min_outer_K": [
+          273.8652583464843
+        ],
+        "day_diagnostics": {
+          "iterations": 6,
+          "max_energy_residual_W_m2": 1.950439809661475e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 3.3633786870112456
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.970867913314578e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.4058274382836307
+        }
+      },
+      "legacy_037_day_SF": 0.6786056392163409,
+      "legacy_037_full_swing_SF": 0.5366145412686526,
+      "current_200F_minimum_edge_SF": 1.1061410635711815
+    },
+    {
+      "id": "SiOxAlKapton",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.4693955930105176
+        ],
+        "night_gradient_K": [
+          0.08875351986029045
+        ],
+        "day_curvature_temperature_K": [
+          217.56326529767193
+        ],
+        "night_curvature_temperature_K": [
+          228.0471549575772
+        ],
+        "gradient_K": [
+          0.4693955930105176
+        ],
+        "rise_K": [
+          21.28210360525037
+        ],
+        "swing_K": [
+          28.811148214278717
+        ],
+        "curvature_temperature_K": [
+          228.0471549575772
+        ],
+        "exact_curvature_temperature_K": [
+          228.0471549575772
+        ],
+        "max_outer_K": [
+          306.18210360525035
+        ],
+        "min_outer_K": [
+          277.37095539097163
+        ],
+        "day_diagnostics": {
+          "iterations": 6,
+          "max_energy_residual_W_m2": 1.9699797348948778e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.3224107141494797e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.8351599771083684
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.7124079931818414e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.1865474118807855
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.4964964545941939
+        ],
+        "night_gradient_K": [
+          0.09324587012827124
+        ],
+        "day_curvature_temperature_K": [
+          58.1978357471418
+        ],
+        "night_curvature_temperature_K": [
+          0.7359863011349916
+        ],
+        "gradient_K": [
+          0.4964964545941939
+        ],
+        "rise_K": [
+          21.779202341275777
+        ],
+        "swing_K": [
+          29.389504499537793
+        ],
+        "curvature_temperature_K": [
+          58.1978357471418
+        ],
+        "exact_curvature_temperature_K": [
+          58.1978968105521
+        ],
+        "max_outer_K": [
+          306.67920234127575
+        ],
+        "min_outer_K": [
+          277.28969784173796
+        ],
+        "day_diagnostics": {
+          "iterations": 6,
+          "max_energy_residual_W_m2": 2.05702122002549e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.3222994035810439e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.8515725383207764
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.1387336346379016e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.192423286777692
+        }
+      },
+      "legacy_037_day_SF": 1.3144986219137618,
+      "legacy_037_full_swing_SF": 0.9709885788815261,
+      "current_200F_minimum_edge_SF": 1.1486094877422306
+    },
+    {
+      "id": "CCAg",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.20053675187926956
+        ],
+        "night_gradient_K": [
+          0.14720917237940512
+        ],
+        "day_curvature_temperature_K": [
+          223.28911413067848
+        ],
+        "night_curvature_temperature_K": [
+          227.27544946260116
+        ],
+        "gradient_K": [
+          0.20053675187926956
+        ],
+        "rise_K": [
+          7.964198662737488
+        ],
+        "swing_K": [
+          20.051239713313123
+        ],
+        "curvature_temperature_K": [
+          227.27544946260116
+        ],
+        "exact_curvature_temperature_K": [
+          227.27544946260116
+        ],
+        "max_outer_K": [
+          292.86419866273746
+        ],
+        "min_outer_K": [
+          272.81295894942434
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0321522242738865e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.217478676939993
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.8067769502749798e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.4612398065316796
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.21250927019383425
+        ],
+        "night_gradient_K": [
+          0.15478072787669817
+        ],
+        "day_curvature_temperature_K": [
+          31.067854406034204
+        ],
+        "night_curvature_temperature_K": [
+          0.871939062496212
+        ],
+        "gradient_K": [
+          0.21250927019383425
+        ],
+        "rise_K": [
+          8.217280058874792
+        ],
+        "swing_K": [
+          20.447990226558034
+        ],
+        "curvature_temperature_K": [
+          31.067854406034204
+        ],
+        "exact_curvature_temperature_K": [
+          31.067854416426133
+        ],
+        "max_outer_K": [
+          293.11728005887477
+        ],
+        "min_outer_K": [
+          272.66928983231674
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9975132659055816e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.4261920192304972e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.2348889765405673
+        },
+        "night_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9531043449205754e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.5921696725160536e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.4685211349034564
+        }
+      },
+      "legacy_037_day_SF": 3.5126315961224055,
+      "legacy_037_full_swing_SF": 1.395190335386254,
+      "current_200F_minimum_edge_SF": 1.0920396579085565
+    },
+    {
+      "id": "MLCCAg",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.1682888149558721
+        ],
+        "night_gradient_K": [
+          0.16138034648463417
+        ],
+        "day_curvature_temperature_K": [
+          222.67725282272474
+        ],
+        "night_curvature_temperature_K": [
+          227.12935094696317
+        ],
+        "gradient_K": [
+          0.1682888149558721
+        ],
+        "rise_K": [
+          6.210620301833956
+        ],
+        "swing_K": [
+          19.40701646077804
+        ],
+        "curvature_temperature_K": [
+          227.12935094696317
+        ],
+        "exact_curvature_temperature_K": [
+          227.12935094696317
+        ],
+        "max_outer_K": [
+          291.11062030183393
+        ],
+        "min_outer_K": [
+          271.7036038410559
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 2.0112800314109336e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.0838078793524915
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 2.1445067943659524e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.515867514132793
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          0.1785338785172712
+        ],
+        "night_gradient_K": [
+          0.1696838062889583
+        ],
+        "day_curvature_temperature_K": [
+          27.635017963707746
+        ],
+        "night_curvature_temperature_K": [
+          0.8313905780897943
+        ],
+        "gradient_K": [
+          0.1785338785172712
+        ],
+        "rise_K": [
+          6.433230336171221
+        ],
+        "swing_K": [
+          19.790202730268504
+        ],
+        "curvature_temperature_K": [
+          27.635017963707746
+        ],
+        "exact_curvature_temperature_K": [
+          27.63523800689947
+        ],
+        "max_outer_K": [
+          291.3332303361712
+        ],
+        "min_outer_K": [
+          271.5430276059027
+        ],
+        "day_diagnostics": {
+          "iterations": 5,
+          "max_energy_residual_W_m2": 1.9975132659055816e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.440522950373365e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.102234729659717
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 2.133404564119701e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 1.6040530841979565e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.523486224515468
+        }
+      },
+      "legacy_037_day_SF": 4.5044286240243325,
+      "legacy_037_full_swing_SF": 1.4415042063300216,
+      "current_200F_minimum_edge_SF": 1.0790849596165626
+    },
+    {
+      "id": "BareBe",
+      "legacy": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          2.2526601160802784
+        ],
+        "night_gradient_K": [
+          0.04320008228887673
+        ],
+        "day_curvature_temperature_K": [
+          202.89875829309744
+        ],
+        "night_curvature_temperature_K": [
+          229.3212873456116
+        ],
+        "gradient_K": [
+          2.2526601160802784
+        ],
+        "rise_K": [
+          80.74365314377263
+        ],
+        "swing_K": [
+          84.6073477431724
+        ],
+        "curvature_temperature_K": [
+          229.3212873456116
+        ],
+        "exact_curvature_temperature_K": [
+          229.3212873456116
+        ],
+        "max_outer_K": [
+          365.6436531437726
+        ],
+        "min_outer_K": [
+          281.0363054006002
+        ],
+        "day_diagnostics": {
+          "iterations": 6,
+          "max_energy_residual_W_m2": 2.2666313270747196e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.2962504473586884,
+          "max_convection_W_m2K": 3.9568631465092943
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 2.002342736062701e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 1.4945796834798198e-16,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.0003531525224467
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.022106790073497733
+        ],
+        "day_gradient_K": [
+          2.389863364996245
+        ],
+        "night_gradient_K": [
+          0.0453602348302411
+        ],
+        "day_curvature_temperature_K": [
+          188.86611412225994
+        ],
+        "night_curvature_temperature_K": [
+          0.011962848930169252
+        ],
+        "gradient_K": [
+          2.389863364996245
+        ],
+        "rise_K": [
+          82.35086890304882
+        ],
+        "swing_K": [
+          86.25894554839164
+        ],
+        "curvature_temperature_K": [
+          188.86611412225994
+        ],
+        "exact_curvature_temperature_K": [
+          188.86612498055382
+        ],
+        "max_outer_K": [
+          367.2508689030488
+        ],
+        "min_outer_K": [
+          280.99192335465716
+        ],
+        "day_diagnostics": {
+          "iterations": 6,
+          "max_energy_residual_W_m2": 1.8545165403338615e-12,
+          "mean_constraint_K": 5.684341886080802e-14,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.2967403617801208,
+          "max_convection_W_m2K": 3.9764083553001024
+        },
+        "night_diagnostics": {
+          "iterations": 4,
+          "max_energy_residual_W_m2": 1.9273471707492718e-12,
+          "mean_constraint_K": 0.0,
+          "fourth_moment_constraint_relative": 0.0,
+          "min_convection_W_m2K": 2.0003531525224467,
+          "max_convection_W_m2K": 2.0003531525224467
+        }
+      },
+      "legacy_037_day_SF": 0.3464705245713187,
+      "legacy_037_full_swing_SF": 0.3306485382977278,
+      "current_200F_minimum_edge_SF": 1.1983502903674417
+    }
+  ],
+  "owner_code_accessed": false
+}

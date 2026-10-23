@@ -1,0 +1,241 @@
+{
+  "endpoint_checks": [
+    {
+      "segments": 6,
+      "side": "lower",
+      "pressure_multiplier": 5.5248194811915905,
+      "owner": 1.5113252579190598e-06,
+      "checker": -6.577949684135472e-06,
+      "error": -8.089274942054533e-06,
+      "eigenvalues": [
+        -6.577949684135472e-06,
+        -6.577939156408559e-06,
+        -6.5779070448742726e-06,
+        -6.577901167669538e-06,
+        -6.577881472523473e-06,
+        0.006602444217511534,
+        0.006602444225591062,
+        0.006602444239738928
+      ],
+      "sign_matches": false,
+      "equilibrium_residual": 3.6070505274320616e-12,
+      "tangent_FD_error": 1.0681033695364341e-09,
+      "max_eigen_residual": 2.0565733882283768e-13,
+      "path": "nonlinear/m6-lower-radial-equilibrated/RESULTS.json"
+    },
+    {
+      "segments": 6,
+      "side": "upper",
+      "pressure_multiplier": 5.5248639425630035,
+      "owner": -1.3931729420221058e-05,
+      "checker": -2.2022078165239828e-05,
+      "error": -8.09034874501877e-06,
+      "eigenvalues": [
+        -2.2022078165239828e-05,
+        -2.2022074506804372e-05,
+        -2.202206313258491e-05,
+        -2.2022060936292176e-05,
+        -2.2022054069277088e-05,
+        0.006586084454423397,
+        0.00658608445641634,
+        0.006586084462112689
+      ],
+      "sign_matches": true,
+      "equilibrium_residual": 3.676352562871168e-12,
+      "tangent_FD_error": 1.0664724551302592e-09,
+      "max_eigen_residual": 2.1938398478763287e-13,
+      "path": "nonlinear/m6-upper-radial-reconstructed-equilibrated/RESULTS.json"
+    },
+    {
+      "segments": 12,
+      "side": "lower",
+      "pressure_multiplier": 5.449855089401254,
+      "owner": 1.0748885912462023e-05,
+      "checker": 8.742641615093851e-06,
+      "error": -2.0062442973681718e-06,
+      "eigenvalues": [
+        8.742641615093851e-06,
+        8.742655988649426e-06,
+        8.74266597575634e-06,
+        8.742689238893503e-06,
+        8.742699130865581e-06,
+        0.006190501767382347,
+        0.006190501797009686,
+        0.006190501810342028
+      ],
+      "sign_matches": true,
+      "equilibrium_residual": 4.64488690739519e-11,
+      "tangent_FD_error": 1.989477663215173e-09,
+      "max_eigen_residual": 1.1372490741819358e-12,
+      "path": "nonlinear/m12-lower-radial-equilibrated/RESULTS.json"
+    },
+    {
+      "segments": 12,
+      "side": "upper",
+      "pressure_multiplier": 5.449899186548328,
+      "owner": -4.378213525722263e-06,
+      "checker": -6.385753673929876e-06,
+      "error": -2.007540148207613e-06,
+      "eigenvalues": [
+        -6.385753673929876e-06,
+        -6.385740392458699e-06,
+        -6.3857135663578706e-06,
+        -6.38569772131822e-06,
+        -6.385680834242848e-06,
+        0.006174475957595437,
+        0.0061744759664445256,
+        0.006174475980725672
+      ],
+      "sign_matches": true,
+      "equilibrium_residual": 4.3567827936787695e-11,
+      "tangent_FD_error": 1.9458612493858462e-09,
+      "max_eigen_residual": 5.818779938392463e-12,
+      "path": "nonlinear/m12-upper-radial-reconstructed-equilibrated/RESULTS.json"
+    },
+    {
+      "segments": 24,
+      "side": "lower",
+      "pressure_multiplier": 5.43088020921317,
+      "owner": 1.029507038983201e-05,
+      "checker": 9.851944038621123e-06,
+      "error": -4.431263512108871e-07,
+      "eigenvalues": [
+        9.851944038621123e-06,
+        9.851954275975088e-06,
+        9.85195937873925e-06,
+        9.851976064499598e-06,
+        9.851982131909714e-06,
+        0.00535598765231798,
+        0.00535598767220895,
+        0.005355987681979854
+      ],
+      "sign_matches": true,
+      "equilibrium_residual": 7.071693096304719e-10,
+      "tangent_FD_error": 2.972708242252427e-09,
+      "max_eigen_residual": 6.346187530214554e-12,
+      "path": "nonlinear/lower-radial-equilibrated/RESULTS.json"
+    },
+    {
+      "segments": 24,
+      "side": "upper",
+      "pressure_multiplier": 5.430924214120142,
+      "owner": -3.0377094915858067e-06,
+      "checker": -3.4819826610271893e-06,
+      "error": -4.442731694413826e-07,
+      "eigenvalues": [
+        -3.4819826610271893e-06,
+        -3.4819597302288184e-06,
+        -3.481923571600423e-06,
+        -3.481891501094603e-06,
+        -3.4818685894026663e-06,
+        0.0053418879251424896,
+        0.005341887942424885,
+        0.005341887964535288
+      ],
+      "sign_matches": true,
+      "equilibrium_residual": 7.149619729037846e-10,
+      "tangent_FD_error": 2.995375524312404e-09,
+      "max_eigen_residual": 4.940007652836628e-12,
+      "path": "nonlinear/upper-radial-reconstructed-equilibrated/RESULTS.json"
+    }
+  ],
+  "continuations": [
+    {
+      "segments": 6,
+      "owner_midpoint": 5.524841711877297,
+      "checker_midpoint": 5.524791779355343,
+      "midpoint_difference": -4.9932521953621745e-05,
+      "owner_bracket": [
+        5.5248194811915905,
+        5.5248639425630035
+      ],
+      "checker_bracket": [
+        5.5247807468467585,
+        5.524802811863928
+      ],
+      "brackets_overlap": false,
+      "checker_zero_start": true,
+      "checker_uses_supplied_state_or_mode": false,
+      "independent_first_negative_sample": 13,
+      "independent_pre_crossing_points": 13,
+      "independent_sample_count": 25,
+      "all_independent_pre_crossing_points_positive": true,
+      "max_independent_equilibrium_residual": 1.92966682019849e-09,
+      "max_independent_eigen_residual": 1.113117360486522e-09,
+      "owner_trace_audit": {
+        "first_negative_index": 13,
+        "prior_positive": true,
+        "sample_count": 24,
+        "max_equilibrium_residual": 1.827508232205689e-08
+      },
+      "path": "continuation/m6/RESULTS.json"
+    },
+    {
+      "segments": 12,
+      "owner_midpoint": 5.4498771379747915,
+      "checker_midpoint": 5.449871395253925,
+      "midpoint_difference": -5.7427208668414664e-06,
+      "owner_bracket": [
+        5.449855089401254,
+        5.449899186548328
+      ],
+      "checker_bracket": [
+        5.4498605512028515,
+        5.449882239304998
+      ],
+      "brackets_overlap": true,
+      "checker_zero_start": true,
+      "checker_uses_supplied_state_or_mode": false,
+      "independent_first_negative_sample": 13,
+      "independent_pre_crossing_points": 13,
+      "independent_sample_count": 25,
+      "all_independent_pre_crossing_points_positive": true,
+      "max_independent_equilibrium_residual": 1.068349186042469e-09,
+      "max_independent_eigen_residual": 7.580713186589632e-10,
+      "owner_trace_audit": {
+        "first_negative_index": 13,
+        "prior_positive": true,
+        "sample_count": 24,
+        "max_equilibrium_residual": 1.651077976211503e-08
+      },
+      "path": "continuation/m12/RESULTS.json"
+    },
+    {
+      "segments": 24,
+      "owner_midpoint": 5.430902211666655,
+      "checker_midpoint": 5.430911824412611,
+      "midpoint_difference": 9.612745955678292e-06,
+      "owner_bracket": [
+        5.43088020921317,
+        5.430924214120142
+      ],
+      "checker_bracket": [
+        5.430900815498009,
+        5.430922833327212
+      ],
+      "brackets_overlap": true,
+      "checker_zero_start": true,
+      "checker_uses_supplied_state_or_mode": false,
+      "independent_first_negative_sample": 13,
+      "independent_pre_crossing_points": 13,
+      "independent_sample_count": 25,
+      "all_independent_pre_crossing_points_positive": true,
+      "max_independent_equilibrium_residual": 7.583010925934997e-09,
+      "max_independent_eigen_residual": 7.094280922548693e-10,
+      "owner_trace_audit": {
+        "first_negative_index": 13,
+        "prior_positive": true,
+        "sample_count": 24,
+        "max_equilibrium_residual": 1.3212598296586867e-08
+      },
+      "path": "continuation/m24/RESULTS.json"
+    }
+  ],
+  "owner_nonlinear_mesh_change": -0.0034817163447444788,
+  "checker_nonlinear_mesh_change": -0.00347890243021598,
+  "exact_replay_of_owner_midpoint_mesh_change": -0.0034817163447444788,
+  "checker_m24_k0p2_arithmetic": 1.0861823648825222,
+  "owner_m24_k0p2_arithmetic": 1.0861804423333312,
+  "conclusion": "m12/m24 supplied endpoint signs and independently continued intervals corroborated; m6 independent energy model loses stability earlier",
+  "caution": "Zero-strain/reference-tangent tests do not establish equivalence of two finite-rotation discretizations. No owner implementation was executed."
+}

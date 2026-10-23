@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-057",
+  "unit": "vacuum-mainline057-mass-growth-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "rows": [
+    {
+      "id": "N057-01-MGA-SOURCE",
+      "state": "open",
+      "note": "AIAA S-120A and SAWE RP 7 tables are paywalled and were not opened. The allowances are NASA GSFC IDC Table VI-1 (NTRS 20120013284), adapted from AIAA S-120-2006 Table 1. My map from maturity to its TRL rows is estimated to TRL 0-2, calculated to TRL 3-5 and measured to TRL 8. Different tables shift the numbers; no plausible table brings the concept-stage allowance below the 2.8-9.9% that the bills tolerate."
+    },
+    {
+      "id": "N057-02-CLASSIFICATION",
+      "state": "judgement",
+      "note": "Faces, core, SiC, PBO and pads are classed calculated, because they are sized by analysis and none are built. Joints, films, seams, sleeves, nodes and primer are classed estimated (rules and catalog areal masses). The finish carries its own +10%; P3's joint allowance above the actual sleeves is its own margin. The 100 kg systems allowance, the vacuum-service charge, gas, contamination, retained water, weather headroom and the sag lift debit get none."
+    },
+    {
+      "id": "N057-03-P2-R20-R30",
+      "state": "PROJECTION",
+      "note": "P2 bills at R20 and R30 are 040's (200 F fix) with 048's finish transferred: the 0.2 kg/m2 coating is replaced by 8.33 g/m2 plus 10 g/m2 primer plus absorbed water. Checked against 048 at R10-15 for the same subsets: differences of 0.2-9.2 kg. 048's cure-in-global and drying folds are not re-optimized at R20 or R30."
+    },
+    {
+      "id": "N057-04-NO-REOPTIMIZATION",
+      "state": "limitation",
+      "note": "Geometry stays at the owners' optima. Re-optimizing with allowance-weighted masses could shift face/core splits slightly; it cannot close gaps of 579-6,410 kg."
+    },
+    {
+      "id": "N057-05-OPTIMISM-COST",
+      "state": "PROJECTION",
+      "note": "The optimism the allowance would need is a linear extrapolation of payload in the least set's usage, from its zero-payload point to its endpoint. P2 would need usage 1.78-2.13 and P3 4.6-30. Payload is not linear in usage; the point is that every value exceeds 1."
+    },
+    {
+      "id": "N057-06-SEPARATE-UNCERTAINTIES",
+      "state": "open",
+      "note": "Environmental allowances and debits carry no allowance here but have their own uncertainties. At 1 mm retained water, every R10-15 case already fails (048 fold). Weather cases are separate rows."
+    },
+    {
+      "id": "N057-07-SYSTEM-MARGIN",
+      "state": "not applied",
+      "note": "The same GSFC source adds a system-level margin, typically 30% for Pre-Phase-A concepts, above the itemized allowance. Applying it would only deepen every deficit."
+    },
+    {
+      "id": "N057-08-THERMAL-AND-SERVICE-VARIANTS",
+      "state": "noted",
+      "note": "053's most conservative thermal reading lowers P2 R10 by 0.6 kg. 054's week aloft leaves P3 +1.1 kg. P3's onboard-service rows are worse than ground. None changes a sign."
+    }
+  ]
+}

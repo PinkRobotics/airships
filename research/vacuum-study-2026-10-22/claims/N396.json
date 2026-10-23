@@ -1,0 +1,84 @@
+{
+  "id": "N396",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N396",
+    "report": "rpt-ref-f4daf73c940b6f527d37",
+    "card": "rpt-ref-f4daf73c940b6f527d37",
+    "file": "evidence/6e377349147b3b13-NFI.json",
+    "snapshot": "evidence/6e377349147b3b13-NFI.json",
+    "source_sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+    "source_json_pointer": "/findings/6",
+    "row_id": "NFI-023-CHECK-BRAZE-UNITS",
+    "fields": {
+      "id": "NFI-023-CHECK-BRAZE-UNITS",
+      "status": "open",
+      "non_blocking": true,
+      "field": "mass_coefficients.sic_braze.C_end_per_area_1_per_N",
+      "reported": "Coefficient labelled1/N in JSON and CARD.",
+      "check": {
+        "value": 1.9735212943395024e-05,
+        "correct_units": "kg/(N*m), equivalently s^2/m^2",
+        "equation": "m_end=C*A*N/r"
+      },
+      "evidence": [
+        "dimensional derivation CHECK.md"
+      ],
+      "next": "Correct units and field label. Numeric coefficient itself is reproduced."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "{\"id\": \"NFI-023-CHECK-BRAZE-UNITS\", \"status\": \"open\", \"non_blocking\": true, \"field\": \"mass_coefficients.sic_braze.C_end_per_area_1_per_N\", \"reported\": \"Coefficient labelled1/N in JSON and CARD.\", \"check\": {\"value\": 1.9735212943395024e-05, \"correct_units\": \"kg/(N*m), equivalently s^2/m^2\", \"equation\": \"m_end=C*A*N/r\"}, \"evidence\": [\"dimensional derivation CHECK.md\"], \"next\": \"Correct units and field label. Numeric coefficient itself is reproduced.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/395"
+    },
+    {
+      "report": "rpt-ref-f4daf73c940b6f527d37",
+      "artifact": "evidence/6e377349147b3b13-NFI.json",
+      "snapshot": "evidence/6e377349147b3b13-NFI.json",
+      "sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+      "bytes": 8399,
+      "selector": "/findings/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f4daf73c940b6f527d37",
+          "artifact": "evidence/6e377349147b3b13-NFI.json",
+          "snapshot": "evidence/6e377349147b3b13-NFI.json",
+          "sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+          "bytes": 8399,
+          "selector": "/findings/6"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/395"
+          }
+        ]
+      }
+    }
+  ]
+}

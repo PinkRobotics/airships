@@ -1,0 +1,36 @@
+{
+  "id": "E-bcea0323a80676dd5497",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-bcea0323a80676dd5497",
+    "report": "rpt-mainline055-opus-gamma-test-1020",
+    "file": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "source_sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+    "source_json_pointer": "/rows/7",
+    "row_id": "N055-08-ARTICLE-COUNT",
+    "fields": {
+      "id": "N055-08-ARTICLE-COUNT",
+      "state": "PROJECTION",
+      "note": "Under 90/95 normal tolerance statistics, three articles at 5% scatter need a mean of 0.815 to bound 0.564, and at 10% scatter it is impossible. Ten articles at 10% need 0.738. So a result counts under a validated-analysis rule: at least three articles per configuration, measured as-built shape, identified failure mode, and an elastic-plastic FE that predicts each within 10%. Precedent: NASA SBKF used 8 subscale and 2 full-scale cylinders."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Under 90/95 normal tolerance statistics, three articles at 5% scatter need a mean of 0.815 to bound 0.564, and at 10% scatter it is impossible. Ten articles at 10% need 0.738. So a result counts under a validated-analysis rule: at least three articles per configuration, measured as-built shape, identified failure mode, and an elastic-plastic FE that predicts each within 10%. Precedent: NASA SBKF used 8 subscale and 2 full-scale cylinders.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-mainline055-opus-gamma-test-1020",
+      "artifact": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+      "bytes": 5596,
+      "selector": "/rows/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

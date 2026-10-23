@@ -1,0 +1,3043 @@
+{
+  "schema": 4,
+  "baseline_rows": 88,
+  "rows": [
+    {
+      "correction": "S-200F E is 290 GPa, not 303 (S-200FH's)",
+      "by": [
+        "rpt-1228-mainline009c5-independent-check-1019",
+        "rpt-1228-mainline014b-independent-check-1019",
+        "rpt-ref-e92af61311c9bf4a89cd",
+        "ord-admiral-rr2-mainline021-be-modulus-290-1020"
+      ],
+      "effect_on_lead": "P2: 021 rev1 keeps its least set; gamma usage 0.910 to 0.958; Be/aramid 0.650 to 0.643; the SR-200 route now needs gamma plus wrinkling, not gamma alone. 014b's Be point 0.685 to 0.671 at fixed geometry.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-1228-mainline009c5-independent-check-1019": true,
+        "rpt-1228-mainline014b-independent-check-1019": true,
+        "rpt-ref-e92af61311c9bf4a89cd": true,
+        "ord-admiral-rr2-mainline021-be-modulus-290-1020": true
+      }
+    },
+    {
+      "correction": "Equilateral member force is pRs/(2*sqrt3), not pRs/2 (FIX-A)",
+      "by": [
+        "rpt-check011b-opus-1020",
+        "ord-admiral-rr2-mainline022b-equilibrium-1020",
+        "ord-admiral-rr2-mainline023-load-562kn-1020",
+        "ord-admiral-rr2-mainline025-demand-082gpa-1020"
+      ],
+      "effect_on_lead": "P3: member modes rise by sqrt3; joint load 974 to 562 kN (023: CFRP wrap 31 kg, Ti sleeve 158 kg); SiC demand 1.43 to 0.82 GPa; 011b SiC 1.226 to 1.408 with FIX-A alone.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-check011b-opus-1020": true,
+        "ord-admiral-rr2-mainline022b-equilibrium-1020": true,
+        "ord-admiral-rr2-mainline023-load-562kn-1020": true,
+        "ord-admiral-rr2-mainline025-demand-082gpa-1020": true
+      }
+    },
+    {
+      "correction": "015's tolerance map mixed conventions (lambda 1 amplitude with lambda 2.625 width; nu 0.33 declared, 0.30 used)",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b",
+        "ord-admiral-rr2-mainline015b-tolerance-fix-1020"
+      ],
+      "effect_on_lead": "P2: kd 0.9 single-dimple RMS 0.456 to 0.174 mm (P2-E) and 0.103 to 0.039 mm (Be), 0.70 and 0.16 of the 0.25 mm assembled-surface figure; the gamma-to-shape reading of 021 (one 11.8 mm dimple) is restated by 015b. kd for SF 1 at the 014b point 0.519 to 0.5183.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-ref-88e650e7f8b713866e0b": true,
+        "ord-admiral-rr2-mainline015b-tolerance-fix-1020": true
+      }
+    },
+    {
+      "correction": "019's step rule pairs aramid's optimistic gamma 1 with aluminium's conservative 0.2",
+      "by": [
+        "rpt-check019-opus-1020"
+      ],
+      "effect_on_lead": "P2 family choice: with one 018 curve for both, aluminium leads (0.847 against 0.609 on the optimistic line; 0.557 against 0.253 conservative). 021 rev1's lead is already on aluminium honeycomb.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-check019-opus-1020": true
+      }
+    },
+    {
+      "correction": "S-200F compression is about 255 MPa (Materion guide), not 283",
+      "by": [
+        "rpt-ref-e92af61311c9bf4a89cd",
+        "ord-admiral-rr2-mainline028b-joining-into-021b-1020"
+      ],
+      "effect_on_lead": "P2: at 255 MPa 021's least set moves to wrinkling plus strength on aramid, which rests on the crimp-branch gamma 1; 028b runs it as a sensitivity. 021b uses SR-200 sheet at its own 345 MPa instead.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-ref-e92af61311c9bf4a89cd": true,
+        "ord-admiral-rr2-mainline028b-joining-into-021b-1020": true
+      }
+    },
+    {
+      "correction": "SP-8007's gamma applies to tube local buckling: 0.529 at r/t 140, not 1 (FIX-B)",
+      "by": [
+        "rpt-check011b-opus-1020",
+        "ord-admiral-rr2-mainline022b-local-gamma-1020"
+      ],
+      "effect_on_lead": "P3: SiC 1.226 to 1.075 alone; 1.205 with FIX-A; 1.130 at 100 kg and 5%. Carried by 022b.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-check011b-opus-1020": true,
+        "ord-admiral-rr2-mainline022b-local-gamma-1020": true
+      }
+    },
+    {
+      "correction": "A rise above the sagitta does not cut N; it adds a crown moment",
+      "by": [
+        "ord-admiral-rr2-mainline022b-equilibrium-1020",
+        "rpt-mainline022b-grok-equilibrium-1020"
+      ],
+      "effect_on_lead": "P3: 022's least set 'rise 8' (1.354) is withdrawn; at that geometry yield is 0.159 with the crown moment.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "ord-admiral-rr2-mainline022b-equilibrium-1020": true,
+        "rpt-mainline022b-grok-equilibrium-1020": true
+      }
+    },
+    {
+      "correction": "A two-way grid has 2V-4 members, not the triangulated 3V-6; its C = 4 assumes isotropy",
+      "by": [
+        "rpt-check011b-opus-1020",
+        "ord-admiral-rr2-mainline022b-equilibrium-1020"
+      ],
+      "effect_on_lead": "P3: 022b re-counts; the C = 4 isotropy caveat stays open (R057), so 022b's two-way rows are not floating points.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-check011b-opus-1020": true,
+        "ord-admiral-rr2-mainline022b-equilibrium-1020": true
+      }
+    },
+    {
+      "correction": "The film rule implies a sag of about s/24 that costs lift (about 31.45 kg per metre of s)",
+      "by": [
+        "ord-admiral-rr2-mainline024-sag-lift-1020",
+        "rpt-ref-2bb3c2b520a8e5f8c750",
+        "ord-admiral-rr2-mainline022c-sag-in-scan-1020"
+      ],
+      "effect_on_lead": "P3: 62.9 kg at s 2 m, 170-195 kg at 022b's s 5.5-6.15 m; 022c re-optimises with it in the scan.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "ord-admiral-rr2-mainline024-sag-lift-1020": true,
+        "rpt-ref-2bb3c2b520a8e5f8c750": true,
+        "ord-admiral-rr2-mainline022c-sag-in-scan-1020": true
+      }
+    },
+    {
+      "correction": "019's optimistic reserve embeds 4 m panels and 0.015 lb/ft2 film",
+      "by": [
+        "rpt-ref-1080d4f6a1af4cfa8c67"
+      ],
+      "effect_on_lead": "P2: at today's 0.914 m stock and 0.030 film the reserve is 1229 kg at 021b's point (1154 kg on 019's aluminium family, which this checker reproduced); 021b names panel size as its third optimism.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-ref-1080d4f6a1af4cfa8c67": true
+      }
+    },
+    {
+      "correction": "The 020 brief's 2,100 kg of faces is 3,498.47 kg",
+      "by": [
+        "rpt-ref-3e02218a03708a878faa"
+      ],
+      "effect_on_lead": "P2: supply and cost rows use the real face mass (0.81% of world mine output; $39.5m to $167.9m sheet stock).",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-ref-3e02218a03708a878faa": true
+      }
+    },
+    {
+      "correction": "Intracell dimpling takes CR-1457's biaxial rule, which halves the uniaxial SF",
+      "by": [
+        "rpt-ref-444cea756201354c34c3",
+        "rpt-ref-0d85ae067b41baf8d095"
+      ],
+      "effect_on_lead": "P2: none; dimpling stays far above 1 (9.0 at 021 rev1, 4.98 at 021b).",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-ref-444cea756201354c34c3": true,
+        "rpt-ref-0d85ae067b41baf8d095": true
+      }
+    },
+    {
+      "correction": "Ceramic arcs take lattice k 0.2; Wright's 0.4 is an optimism of factor 2",
+      "by": [
+        "rpt-mainline022-grok-p3-optimistic-floating-point-1020"
+      ],
+      "effect_on_lead": "P3: every P3 row scores k 0.2; k 0.4 rows are sensitivities only.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-mainline022-grok-p3-optimistic-floating-point-1020": true
+      }
+    },
+    {
+      "correction": "Tensile yield used as the compressive allowable is a source objection, carried as a qualification",
+      "by": [
+        "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019",
+        "rpt-admiral-rr2-co-mainline002-strength-questionable-not-objection-1019"
+      ],
+      "effect_on_lead": "Both: every sigma-dependent output carries the qualification; the leads use Be grade data instead.",
+      "lead_relevant": true,
+      "ids_in_store": {
+        "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019": true,
+        "rpt-admiral-rr2-co-mainline002-strength-questionable-not-objection-1019": true
+      }
+    },
+    {
+      "correction": "Opening sentence on mass split of the 5% float point",
+      "old": null,
+      "new": "total mass 95% of lift, payload reserve 5%",
+      "by": [
+        "rpt-1228-mainline009c5-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-009c-5"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Beryllium S200F modulus (303 GPa belongs to S200FH); E-only fixed-geometry SF 0.636308391376, rebalanced 0.643084807693",
+      "old": "303 GPa",
+      "new": "290 GPa",
+      "by": [
+        "rpt-1228-mainline009c5-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-009c-5"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Endpoint wording at Vc=2 in the weak-core branch",
+      "old": null,
+      "new": null,
+      "by": [
+        "rpt-1228-mainline009c5-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-009c-5"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "S200F modulus",
+      "old": "303 GPa",
+      "new": "290 GPa",
+      "by": [
+        "rpt-1228-mainline013-independent-check-1020"
+      ],
+      "cards": [
+        "MAINLINE-013",
+        "MAINLINE-007",
+        "MAINLINE-007b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Ideal Q design crossing density",
+      "old": "4.81751557814 kg/m3",
+      "new": "5.29333338323 kg/m3",
+      "by": [
+        "rpt-1228-mainline013-independent-check-1020"
+      ],
+      "cards": [
+        "MAINLINE-013",
+        "MAINLINE-007",
+        "MAINLINE-007b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Ideal B crossing density",
+      "old": "8.82396627456 kg/m3",
+      "new": "9.21851132666 kg/m3",
+      "by": [
+        "rpt-1228-mainline013-independent-check-1020"
+      ],
+      "cards": [
+        "MAINLINE-013",
+        "MAINLINE-007",
+        "MAINLINE-007b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Required ideal fraction at 5 kg/m3",
+      "old": "0.982088063907",
+      "new": "1.02611270125",
+      "by": [
+        "rpt-1228-mainline013-independent-check-1020"
+      ],
+      "cards": [
+        "MAINLINE-013",
+        "MAINLINE-007",
+        "MAINLINE-007b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Basotect and EPS12 strength treated as exact values",
+      "old": "exactly 9 kPa (Basotect)",
+      "new": "greater than 9 kPa bound",
+      "by": [
+        "rpt-1228-mainline013-independent-check-1020"
+      ],
+      "cards": [
+        "MAINLINE-013",
+        "MAINLINE-007",
+        "MAINLINE-007b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Densest Meza 2015 notes field",
+      "old": "lightest specimen: 12 um, N=20, 0.000104",
+      "new": "octets, 8 um, N=10, 0.00182",
+      "by": [
+        "rpt-1228-mainline013-independent-check-1020"
+      ],
+      "cards": [
+        "MAINLINE-013",
+        "MAINLINE-007",
+        "MAINLINE-007b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "S200F modulus",
+      "old": "303 GPa",
+      "new": "290 GPa",
+      "by": [
+        "rpt-1228-mainline014b-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-014b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Beryllium fixed-geometry least SF with E-only substitution",
+      "old": "0.685338231171",
+      "new": "0.670589282589",
+      "by": [
+        "rpt-1228-mainline014b-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-014b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Beryllium reoptimized grid SF (continuous balance 0.677676080411)",
+      "old": null,
+      "new": "0.677588686611",
+      "by": [
+        "rpt-1228-mainline014b-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-014b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Overall face ordering",
+      "old": "CNT, beryllium, graphene",
+      "new": "CNT, graphene, beryllium",
+      "by": [
+        "rpt-1228-mainline014b-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-014b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Sentence that honeycomb wrinkling uses Gc",
+      "old": null,
+      "new": null,
+      "by": [
+        "rpt-1228-mainline014b-independent-check-1019"
+      ],
+      "cards": [
+        "MAINLINE-014b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Recommends Una's correction be carried as a qualification, not an objection; strength factors P2-A x2.30, P3-A x4.31, P1-A x1.38 kept as QUESTIONABLE directions",
+      "old": "SOURCE OBJECTION",
+      "new": "QUALIFICATION",
+      "by": [
+        "rpt-admiral-rr2-co-mainline002-strength-questionable-not-objection-1019"
+      ],
+      "cards": [
+        "MAINLINE-002"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Each point should state collapse as the lesser of buckling and yield; yield strength must also rise at the same geometry",
+      "old": "modulus factors 1156, 8.16, 30.1 only",
+      "new": "plus strength x2.5, x4.3, x14",
+      "by": [
+        "rpt-admiral-rr2-sciences-mainline-card-yield-missing-1019"
+      ],
+      "cards": [
+        "MAINLINE-001"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "P1 modulus factor when float margin is spent on thickness (1.26 mm)",
+      "old": "1156",
+      "new": "359",
+      "by": [
+        "rpt-admiral-rr2-sciences-mainline-card-yield-missing-1019"
+      ],
+      "cards": [
+        "MAINLINE-001"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Omitted core limits as property targets: crimping needs Gc about 1 MPa at 0.49 m; wrinkling needs Ec*Gc near 4e16 Pa^2",
+      "old": null,
+      "new": "Gc >= ~1 MPa; Ec*Gc ~ 4e16 Pa^2",
+      "by": [
+        "rpt-admiral-rr2-sciences-mainline003-feasibility-core-limits-1019"
+      ],
+      "cards": [
+        "MAINLINE-002"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Report body says k 0.4 and 0.5 are in the card; the CARD.md table carries k 1, 0.4 and 0.2 only",
+      "old": "k 0.4 and 0.5 in card",
+      "new": "k 1, 0.4, 0.2 in card; k 0.5 only in RESULTS.json",
+      "by": [
+        "rpt-check011b-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-011b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "INPUTS.json material rows carry no source (COMMON.md asks for one); sources are in 011's INPUTS.json",
+      "old": null,
+      "new": "pin 011 INPUTS.json or copy sources",
+      "by": [
+        "rpt-check011b-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-011b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Card says no coefficient was taken from Buchert; Buchert 1968 prints the card's Et and D, so it can cite it",
+      "old": "no Buchert coefficient",
+      "new": "cite Buchert 1968",
+      "by": [
+        "rpt-check011b-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-011b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "The 'two_way' rows are the triangulated frame scored with C=4, not a true two-way frame",
+      "old": null,
+      "new": null,
+      "by": [
+        "rpt-check011b-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-011b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "FIX-A (equilibrium member force) SiC equilateral k 0.2 least SF",
+      "old": "1.22552794688",
+      "new": "1.408",
+      "by": [
+        "rpt-check011b-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-011b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "FIX-B (SP-8007 gamma on local mode) SiC equilateral k 0.2 least SF; both fixes give 1.205",
+      "old": "1.22552794688",
+      "new": "1.075",
+      "by": [
+        "rpt-check011b-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-011b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Ranking of aluminium versus aramid when one gamma curve is applied to both (optimistic line, optimistic curve)",
+      "old": "aramid 0.609 ahead of aluminium (mixed pairing)",
+      "new": "aluminium 0.847 vs aramid 0.609",
+      "by": [
+        "rpt-check019-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-019"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Same ranking under the conservative curve (optimistic line)",
+      "old": "aramid ahead",
+      "new": "aluminium 0.557 vs aramid 0.253",
+      "by": [
+        "rpt-check019-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-019"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Order cites the owner report id with the wrong prefix",
+      "old": "rpt-ref-ea73d14ec4d4d8963f76",
+      "new": "rpt-ref-d7f99cd71e977826da48",
+      "by": [
+        "rpt-check019-opus-1020"
+      ],
+      "cards": [
+        "MAINLINE-019"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Aluminium dimpling safety factors (1/4 and 3/8 inch cells) under equal-biaxial interaction",
+      "old": "19.4949 and 8.6644",
+      "new": "9.7475 and 4.3322",
+      "by": [
+        "rpt-ref-444cea756201354c34c3"
+      ],
+      "cards": [
+        "MAINLINE-009d"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Aluminium intracell dimpling SF (1/4 and 3/8 inch) under equal-biaxial interaction",
+      "old": "33.4499 and 14.8666",
+      "new": "16.7250 and 7.4333",
+      "by": [
+        "rpt-ref-0d85ae067b41baf8d095"
+      ],
+      "cards": [
+        "MAINLINE-009e"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Sim dimple sigma_0",
+      "old": "19119540732.73865 Pa",
+      "new": "19113852932.30557 Pa",
+      "by": [
+        "rpt-ref-62323cf6831eb964377f"
+      ],
+      "cards": [
+        "MAINLINE-018"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Sim dimple Vc",
+      "old": "197.24625832023136",
+      "new": "197.18758027094242",
+      "by": [
+        "rpt-ref-62323cf6831eb964377f"
+      ],
+      "cards": [
+        "MAINLINE-018"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Sim dimple Gc for Vc=2",
+      "old": "1972462583.2023137 Pa",
+      "new": "1971875802.7094243 Pa",
+      "by": [
+        "rpt-ref-62323cf6831eb964377f"
+      ],
+      "cards": [
+        "MAINLINE-018"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Dimple sigma_0",
+      "old": "19119540732.739 Pa",
+      "new": "19113852932.306 Pa",
+      "by": [
+        "rpt-ref-d458cd5a32d90025482b"
+      ],
+      "cards": [
+        "MAINLINE-018b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Dimple Vc",
+      "old": "197.24625832023",
+      "new": "197.18758027094",
+      "by": [
+        "rpt-ref-d458cd5a32d90025482b"
+      ],
+      "cards": [
+        "MAINLINE-018b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Dimple classical pressure",
+      "old": "767777835.49685 Pa",
+      "new": "767549432.14939 Pa",
+      "by": [
+        "rpt-ref-d458cd5a32d90025482b"
+      ],
+      "cards": [
+        "MAINLINE-018b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Threshold kd for SF 1 (continuous, not first 0.001 grid point)",
+      "old": "0.519",
+      "new": "0.518304076929753",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Hydrostatic pressure difference across 20 m (uses sea-level density)",
+      "old": "240.262925 Pa",
+      "new": "228.939839514 Pa",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Frozen Be core-shear reduction",
+      "old": "11.39981%",
+      "new": "15.11569%",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "P2-E pressure loss from one 10% thin face",
+      "old": "10.0%",
+      "new": "5.14568%",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "P2-E kd 0.9 RMS against the 0.25 mm criterion",
+      "old": "1.82224",
+      "new": "0.697838",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Be kd 0.9 RMS against the 0.25 mm criterion",
+      "old": "0.412293",
+      "new": "0.157890",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Matched-width ask replacing the 0.10 mm panel ask",
+      "old": "0.10 mm",
+      "new": "0.03947 mm",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Hutchinson-Thompson DOI",
+      "old": "10.1016/j.ijsolstr.2018.08.020",
+      "new": "10.1016/j.ijsolstr.2018.01.030",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Gerasimidis/Virot/Hutchinson/Rubinstein DOI",
+      "old": "10.1115/1.4039193",
+      "new": "10.1115/1.4040455",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Lower-kd envelope supplied from Lee 2016 Eq. 23: delta/t = 0.25/(kd-0.068) - 0.28",
+      "old": null,
+      "new": "Lee 2016 Eq. 23",
+      "by": [
+        "rpt-ref-88e650e7f8b713866e0b"
+      ],
+      "cards": [
+        "MAINLINE-015"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "S-200F/SR-200 modulus",
+      "old": "303 GPa",
+      "new": "290 GPa",
+      "by": [
+        "rpt-ref-e92af61311c9bf4a89cd"
+      ],
+      "cards": [
+        "MAINLINE-021"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Required gamma / C in the headline tuple at E290",
+      "old": "0.579149449 / 0.362641644",
+      "new": "0.595317964 / 0.370680714",
+      "by": [
+        "rpt-ref-e92af61311c9bf4a89cd"
+      ],
+      "cards": [
+        "MAINLINE-021"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Fewest optimisms for the sheet claim at E290",
+      "old": "gamma alone",
+      "new": "two optimisms needed",
+      "by": [
+        "rpt-ref-e92af61311c9bf4a89cd"
+      ],
+      "cards": [
+        "MAINLINE-021"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Be Poisson ratio (orthotropic sheet)",
+      "old": "0.33",
+      "new": "0.0768 / 0.0752",
+      "by": [
+        "rpt-ref-e92af61311c9bf4a89cd"
+      ],
+      "cards": [
+        "MAINLINE-021"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "S-200F compression starting strength per the guide",
+      "old": "283 MPa",
+      "new": "about 255 MPa",
+      "by": [
+        "rpt-ref-e92af61311c9bf4a89cd"
+      ],
+      "cards": [
+        "MAINLINE-021"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Scaling of required buckling moduli with kd",
+      "old": "every modulus scales as E(0.2)*0.2/kd",
+      "new": "P1 and P2 only; P3, P3-A unchanged (2.0747e12, 7.175e11 Pa)",
+      "by": [
+        "rpt-ref-78794352b6bc0d9b9309"
+      ],
+      "cards": [
+        "MAINLINE-005"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Lowest density on the 1% strain definition",
+      "old": "18-22 kg/m3",
+      "new": "27.49 (linear) or 19.90 (squared) kg/m3",
+      "by": [
+        "rpt-ref-40cc094053ddae09d5ac"
+      ],
+      "cards": [
+        "MAINLINE-005b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Quasi-isotropic modulus basis sentences (T700, M55J, K13D2U, boron, CNT-yarn)",
+      "old": "54, 135, 210, 86, 180 GPa",
+      "new": "53.6, 136.5, 211.15, 85.68, 179.2 GPa",
+      "by": [
+        "rpt-ref-f08b92e3e640a19fb4ea"
+      ],
+      "cards": [
+        "MAINLINE-008"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Beryllium buckling at kd 0.1407 in the close and report",
+      "old": "no candidate passes buckling",
+      "new": "beryllium 1.0562 passes buckling",
+      "by": [
+        "rpt-ref-c49d322288a0b11e4381"
+      ],
+      "cards": [
+        "MAINLINE-008b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "SiC P3 yield SF",
+      "old": "0.8720",
+      "new": "0.8719",
+      "by": [
+        "rpt-ref-c49d322288a0b11e4381"
+      ],
+      "cards": [
+        "MAINLINE-008b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Graphene QI P3 yield SF",
+      "old": "0.4159",
+      "new": "0.4158",
+      "by": [
+        "rpt-ref-c49d322288a0b11e4381"
+      ],
+      "cards": [
+        "MAINLINE-008b"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Lever 3 prose that the SF gain cancels to the last digit after rescaling (only the fixed-structure product SF*(1-f) equals baseline)",
+      "old": "returns to baseline SF",
+      "new": "P2-E buckling 0.112110, yield 0.380577",
+      "by": [
+        "rpt-ref-7d4d494ebf14f37f5ea0"
+      ],
+      "cards": [
+        "MAINLINE-010"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "K13D2U binding mode at r_o 0.02 m, s 1",
+      "old": "Euler",
+      "new": "yield 0.2852 (Euler 0.4050)",
+      "by": [
+        "rpt-ref-3484d24f707ffbfe30ee"
+      ],
+      "cards": [
+        "MAINLINE-011"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "First spacing at which SiC film is the least limit",
+      "old": "s 1.0, SF 2.514",
+      "new": "s 0.90, SF 2.793",
+      "by": [
+        "rpt-ref-3484d24f707ffbfe30ee"
+      ],
+      "cards": [
+        "MAINLINE-011"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Vacuum mass rate at stated R_air 287.05",
+      "old": "0.00056590766 kg/s",
+      "new": "0.00056591357 kg/s",
+      "by": [
+        "rpt-ref-e5b19d75c664308465ef"
+      ],
+      "cards": [
+        "MAINLINE-016"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "No-convection temperature bound stored in RESULTS (card's 313.5 K stands)",
+      "old": "313.526 K",
+      "new": "313.538 K",
+      "by": [
+        "rpt-ref-e5b19d75c664308465ef"
+      ],
+      "cards": [
+        "MAINLINE-016"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Storm margin for a 10 percent low (whole-lift scaling)",
+      "old": "+220 kg",
+      "new": "-244.5 kg",
+      "by": [
+        "rpt-ref-e5b19d75c664308465ef"
+      ],
+      "cards": [
+        "MAINLINE-016"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Display roundings: lambda, synoptic upper factor, retained water",
+      "old": "1.526, 0.2425, 125.6 kg",
+      "new": "1.525, 0.2424, 125.7 kg",
+      "by": [
+        "rpt-ref-e5b19d75c664308465ef"
+      ],
+      "cards": [
+        "MAINLINE-016"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "CNT wrinkling factor",
+      "old": "0.750642",
+      "new": "0.750492",
+      "by": [
+        "rpt-ref-6936f2b720197d97b0f2"
+      ],
+      "cards": [
+        "MAINLINE-017"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Beryllium wrinkling factor",
+      "old": "0.685455",
+      "new": "0.685398",
+      "by": [
+        "rpt-ref-6936f2b720197d97b0f2"
+      ],
+      "cards": [
+        "MAINLINE-017"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Beryllium yield factor",
+      "old": "0.940266",
+      "new": "0.940245",
+      "by": [
+        "rpt-ref-6936f2b720197d97b0f2"
+      ],
+      "cards": [
+        "MAINLINE-017"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Graphene crimping factor",
+      "old": "0.677970",
+      "new": "0.677924",
+      "by": [
+        "rpt-ref-6936f2b720197d97b0f2"
+      ],
+      "cards": [
+        "MAINLINE-017"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Beryllium density at factor 1.637323",
+      "old": "1129.7 kg/m3",
+      "new": "1129.9 kg/m3",
+      "by": [
+        "rpt-ref-6936f2b720197d97b0f2"
+      ],
+      "cards": [
+        "MAINLINE-017"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Least factors at the recorded combination (CNT, beryllium, graphene)",
+      "old": "1.0010, 1.0004, 1.0009",
+      "new": "0.9954, 0.9891, 0.9977",
+      "by": [
+        "rpt-ref-6936f2b720197d97b0f2"
+      ],
+      "cards": [
+        "MAINLINE-017"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Provenance label of the P2-E baseline",
+      "old": "each family's sealed 002 baseline",
+      "new": "equal-split row at the 002 P2 mass (3636.17669088 kg)",
+      "by": [
+        "rpt-mainline006-check-lead4f19-1019"
+      ],
+      "cards": [
+        "MAINLINE-006"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Reading of the modulus improvement factors (qualification, not a gate)",
+      "old": "requirement for SF 1",
+      "new": "conditional buckling/Euler factors within the stated models",
+      "by": [
+        "rpt-xo-h1-mainline-estimates-review-600-sci-1019"
+      ],
+      "cards": [
+        "MAINLINE-001"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "Verdict on MAINLINE-002 amended to apply the CO's source condition: aluminium yield limits and stiffness-only remaining SF checked as arithmetic of a tensile premise only",
+      "old": "ADMITTED for scope",
+      "new": "ADMITTED with SOURCE OBJECTION on every sigma-dependent output",
+      "by": [
+        "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019"
+      ],
+      "cards": [
+        "MAINLINE-002"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "NFI-AL-YIELD-CARRY effect sentence on required compressive strength",
+      "old": "scales linearly with sigma",
+      "new": "independent of sigma; only strength pressure and SF scale",
+      "by": [
+        "rpt-xo-mainline003-review-600-sci-1019"
+      ],
+      "cards": [
+        "MAINLINE-003"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "NFI-KD effect sentence on required modulus",
+      "old": "scales directly with knockdown",
+      "new": "scales inversely with knockdown",
+      "by": [
+        "rpt-xo-mainline003-review-600-sci-1019"
+      ],
+      "cards": [
+        "MAINLINE-003"
+      ],
+      "effect_on_lead": null,
+      "lead_relevant": false
+    },
+    {
+      "correction": "CHECK-036 reproduces thresholds and corrects a legacy film label",
+      "by": [
+        "rpt-ref-5f14d083ceae03234596",
+        "rpt-ref-f182f16ed5be422b7811"
+      ],
+      "effect_on_lead": "4945 comparisons and150 threshold/sensitivity points pass. R20 sheet-scalar threshold381.612–381.639MPa. OldR20 .015lb/ft2 label conflicts with governing.146472829kg/m2=.030; calculations use.030. Historical379.2MPa at1.96mm confirmed, still not matched finished thin-sheet qualification.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-035 revises graph readings and narrows absence claims",
+      "by": [
+        "rpt-mainline035-opus-knockdown-tests-1020",
+        "rpt-ref-d3afcdc3514000cb6fc2"
+      ],
+      "effect_on_lead": "S-II centers .209242/.221511 (about +/- .01), not .22/.24. Add eleventh cylinder point; use analytic CR1457 curve. CTA8.3 printed .864 versus load ratio .865305 unresolved. Other marine/foam-core tests exist; no compatible elastic sphere at recoverable moderateVc is established, and unprecedented control is not proven.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "026b global transfer moves the current P3 screen",
+      "by": [
+        "rpt-ref-8befdd4c89803adc44a8",
+        "rpt-ref-6c81b0b188ad134a3ea2"
+      ],
+      "effect_on_lead": "Ordered .848 times1.258252476558=1.066998100121; exact frequency4 ratio gives1.067537780749. Global alone moves; mass and other modes held. QUESTIONABLE cross-geometry sensitivity.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "026b new nonlinear first-loss fields remain null",
+      "by": [
+        "rpt-ref-8befdd4c89803adc44a8"
+      ],
+      "effect_on_lead": "Raw nearest-zero crossings5.082444/2.218113 can skip an unstable family. No verified first-instability claim, no retry or new numerical work performed here.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "026b rise and mass conventions remain explicit",
+      "by": [
+        "rpt-ref-8befdd4c89803adc44a8"
+      ],
+      "effect_on_lead": "Rise8 retains538.899kN mean compression and4.248GPa elastic bending. Frequency4 sag uncharged; frequency2 carries187.938kg. No uniform mass-budget comparison.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "017b P3 numerical leads superseded by022d",
+      "by": [
+        "rpt-ref-6ba73ec8a89453b26832",
+        "rpt-ref-6c81b0b188ad134a3ea2"
+      ],
+      "effect_on_lead": "Retain trends/directions and all15NFIs, not old1.441 Zylon optimum or its14–25year closure as current predictions. P2 comparisons use variable scarf and piecewise gamma.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Combined032/032b check repairs metrology attribution",
+      "by": [
+        "rpt-ref-7427b639691bfaf71f29"
+      ],
+      "effect_on_lead": "533 comparisons pass; Woody3micrometres is template adjustment, .008in coupon faces identified, Rion near-wavelength measured evidence added for carbon/Nomex. Be modal gap remains.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "038 turns ground-first list into physical test sequence",
+      "by": [
+        "rpt-ref-536c47263ffe5f46fd19"
+      ],
+      "effect_on_lead": "First compression/specification, weighed sealed scarf, same-batch wrinkle screens; nine test families. Prices projected, no quotes; newest P3 target must use selected022d reserve, not frozen022c.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "028b replaces panel enlargement with stock scarf and fixed thin film",
+      "by": [
+        "rpt-ref-d907de1e97319ecc3f9a",
+        "rpt-ref-aae116a5fcd787ed9abc"
+      ],
+      "effect_on_lead": "Two remaining adjustable factors; fixed O5 is still consumed. Nominal gamma/Q=2.820818×/1.317054× at p0.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "P2 R10 results must keep pressure and accounting bases",
+      "by": [
+        "rpt-ref-d907de1e97319ecc3f9a",
+        "rpt-ref-5b1ba7a48fcb57c8e35e"
+      ],
+      "effect_on_lead": "028b passes at p0; 033 includes +1% pressure and fails at R10 with the scarf screen. Threshold actual bill10.350852m; floor10.358194m.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Thin-sheet compression remains unqualified",
+      "by": [
+        "rpt-ref-5f14d083ceae03234596"
+      ],
+      "effect_on_lead": "Current maker345MPa is tensile. Current scarf demand about300MPa; 036 older027 R20 needs about382MPa under its own different joint/elastic assumptions.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Zylon 0/90 source contract halves old film factors",
+      "by": [
+        "rpt-ref-f6de390e1555b4ca8e78",
+        "rpt-ref-6c81b0b188ad134a3ea2"
+      ],
+      "effect_on_lead": "Old022c cap5%/019 fixed-geometry factors .746876/.708523. 022d charges both plies and reoptimizes; selected screened1.258252.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Joint capacities and mass must use claimed multiplier",
+      "by": [
+        "rpt-ref-f4daf73c940b6f527d37",
+        "rpt-ref-f6de390e1555b4ca8e78",
+        "rpt-ref-6c81b0b188ad134a3ea2"
+      ],
+      "effect_on_lead": "Old joint sized at lambda1 had no pressure reserve. New sleeve/wrap mass scales lambda²; its own capacity equals target, still unqualified.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "P3 tensile bending and local/column interaction",
+      "by": [
+        "rpt-ref-f6de390e1555b4ca8e78",
+        "rpt-ref-6c81b0b188ad134a3ea2"
+      ],
+      "effect_on_lead": "022d includes Ft15.586MPa projection; current screened lead has no tensile stress at target. Coupled instability stays open.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "P3 screened lead replaces out-of-band maxima",
+      "by": [
+        "rpt-ref-6c81b0b188ad134a3ea2",
+        "rpt-ref-490f8e9228d526b69dc8"
+      ],
+      "effect_on_lead": "Half-wave/member=1 at3.170759m spacing; not validated continuum. Two-way C4 remains unqualified.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Discrete frame result is not an installed safety factor",
+      "by": [
+        "rpt-ref-7ce5b278fa083d87105b"
+      ],
+      "effect_on_lead": "6.465222 elastic eigenvalue versus6.127640; mechanisms for free pins;61.40kg overrun; local/material screens precede elastic limits.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Altitude benefit requires weather/terrain choice",
+      "by": [
+        "rpt-ref-9a0319231d2fe686eb92",
+        "rpt-ref-be337d7d2ce1259d0aff"
+      ],
+      "effect_on_lead": "Optimistic100m floor55.341kg headroom, nominalSF1.036553. P3 altitude passes remain out of half-wave band; do not adopt them as the current P3 lead.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Thermal, wind and mooring screens add required mass and choices",
+      "by": [
+        "rpt-ref-8c5de04c9c33dbcf7447"
+      ],
+      "effect_on_lead": "Coated/bond-reference shear can be1.678 or.917; bare.388.70-knot screen.998442, nominal pads8.65/33.14kg. No uncharged pad fixes.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Vacuum service differs from gas-only life",
+      "by": [
+        "rpt-ref-244f32e2449e729d312f"
+      ],
+      "effect_on_lead": "Ground-evacuated sealed24h at30–50kg estimated; preserve100kg. Outgassing is phase transfer, ingress adds mass. Zylon complete bill91.624–111.624kg at older geometry.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Frame material names refer to fittings",
+      "by": [
+        "rpt-ref-244f32e2449e729d312f"
+      ],
+      "effect_on_lead": "Both Kapton/Ti and Zylon/CFRP P3 frames are SiC tubes. Titanium and CFRP designate end fittings, not tube material.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "035 arithmetic is separate from physical comparability",
+      "by": [
+        "rpt-mainline035-opus-knockdown-tests-1020",
+        "rpt-ref-d3afcdc3514000cb6fc2"
+      ],
+      "effect_on_lead": "112 comparable derived fields reproduce. Corrected S-II readings, unknownVc/plasticity, anisotropic SBKF denominator and extra experimental leads prevent universal absence or transferable sphere-penalty claims.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "032 lead-only amplitude/cell prose corrected",
+      "by": [
+        "rpt-ref-a30a669ed3e245f1473b"
+      ],
+      "effect_on_lead": "Lead-only range .00684754923–.01604921437; .0046–.024 spans four cases. Fc is weakest of core compression/tension/bond;35psi is minimum average.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "032b compares distinct measurement quantities",
+      "by": [
+        "rpt-mainline032b-grok-measured-flatness-1020"
+      ],
+      "effect_on_lead": ".001651mm aluminium cell depth is precedent; .024mm reflector RMS and .2032mm whole-panel RMS are not the critical wrinkle component.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "015b tolerance correction retains extra source qualifications",
+      "by": [
+        "rpt-ref-a5374575ee8867fc8d2e"
+      ],
+      "effect_on_lead": "Old/live RMS2.6112627; actual-gamma RMS .139344/.654416mm. Rounded021b gamma changes amplitude.379%, not only fourth digit; k-span is conditional.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "028 legacy reoptimization contained unstated eta=.9",
+      "by": [
+        "rpt-ref-68dff0680696fe9b4cb4"
+      ],
+      "effect_on_lead": "Without hidden screen, legacy stock/four-metre SF .792549/.914222 rather than .750851/.844536. Nominal scarf result stands.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "020 grade, modulus and doubler supply corrections",
+      "by": [
+        "rpt-ref-35706d7a2ae7e951590b"
+      ],
+      "effect_on_lead": "Use product-specific SR200 strength/290GPa basis; doubling material changes historical supply/cost. Do not treat a source transfer as compression admission.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "024 original sag and pump accounts incomplete",
+      "by": [
+        "rpt-ref-7d6892c4e55be16ad523",
+        "rpt-ref-244f32e2449e729d312f"
+      ],
+      "effect_on_lead": "Original cap rise alone charged no sag volume.022c/d charge sag;034 separates systems choices and extra membrane mass.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "027 P3 member-force convention flagged",
+      "by": [
+        "rpt-ref-7b45cb6b4d7f92067f8b"
+      ],
+      "effect_on_lead": "Inherited pRs/2 is not triangular pRs/(2sqrt3); global/film unchanged, member scores conditional.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "025 property edition and missing sag carried",
+      "by": [
+        "rpt-ref-a8b77f7de2ffc56af7b4"
+      ],
+      "effect_on_lead": "CurrentSA table430GPa versus carried410GPa has negligible reported governing effect; no qualified compression; original025 excludes sag.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "030 half-wave coefficient and duplicate source pointer confirmed",
+      "by": [
+        "rpt-ref-490f8e9228d526b69dc8"
+      ],
+      "effect_on_lead": "Printed1.06 rounds1.06066 under thin-radius convention; no conclusion changes.362 unique rows,363 pointers because N023 has two subjects.",
+      "lead_relevant": true,
+      "register_version": "030b",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Selected P2 lead includes cure",
+      "by": [
+        "rpt-ref-d6eac96dde8db1968e86"
+      ],
+      "old": "028b no-residual gamma .564164/Q .434628",
+      "new": "200 F + 30.341397:1 scarf, gamma .564287956/Q .439513308, usage .972190149; +.120150655 kg source allowance",
+      "effect_on_lead": "200 F + 30.341397:1 scarf, gamma .564287956/Q .439513308, usage .972190149; +.120150655 kg source allowance",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Keep as-designed 250 F case",
+      "by": [
+        "rpt-ref-d6eac96dde8db1968e86"
+      ],
+      "old": "Nominal 028b called current without cure",
+      "new": "30:1 case gamma .618429128, usage 1.052281584; minimum-strength edge SF .833325314; not within named stretch",
+      "effect_on_lead": "30:1 case gamma .618429128, usage 1.052281584; minimum-strength edge SF .833325314; not within named stretch",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Gamma evidence state",
+      "by": [
+        "rpt-1228-mainline029-crimp-gamma-fe-1020"
+      ],
+      "old": "029 pending; 015 amplitudes used as tolerance map",
+      "new": "Benchmark not reproduced; 78.627395/90.722275 kPa endpoints below 95.460838 kPa. Not collapse limits or current-hull SF",
+      "effect_on_lead": "Benchmark not reproduced; 78.627395/90.722275 kPa endpoints below 95.460838 kPa. Not collapse limits or current-hull SF",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Gamma denominator",
+      "by": [
+        "rpt-1228-mainline029-crimp-gamma-fe-1020"
+      ],
+      "old": "Handbook and crimp ratios conflated",
+      "new": "Both lead points Vc<2; required handbook .595318/.468229 versus W crimp .464110/.323009",
+      "effect_on_lead": "Both lead points Vc<2; required handbook .595318/.468229 versus W crimp .464110/.323009",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Optimism label collision",
+      "by": [
+        "rpt-mainline039-opus-stiffened-sandwich-1020"
+      ],
+      "old": "039 calls frame-bay cap transfer O5",
+      "new": "Rename to P2-O6 (source alias 039/O5); preserve P2-O5 as .015/.030 bond-film mass reduction",
+      "effect_on_lead": "Rename to P2-O6 (source alias 039/O5); preserve P2-O5 as .015/.030 bond-film mass reduction",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Stiffened constructive improvement",
+      "by": [
+        "rpt-ref-20ab4b33b504a00ad3b6"
+      ],
+      "old": "Grid .689107645 / +1329.818726 kg claimed best",
+      "new": "Attained .699691806 at fixed mass; +1127.071353 kg at SF 1.000001080. Finite-search scope, not global proof",
+      "effect_on_lead": "Attained .699691806 at fixed mass; +1127.071353 kg at SF 1.000001080. Finite-search scope, not global proof",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Stiffened source gates and point distinctions",
+      "by": [
+        "rpt-ref-20ab4b33b504a00ad3b6"
+      ],
+      "old": "psi>=28 handbook gate; mass-added Q/scarf/tubes said to require change",
+      "new": "psi>=28 and gamma_s>=10 are unvalidated gates; at owner's mass-added point Q/scarf/local already pass. Cap factor .601013192, not .603",
+      "effect_on_lead": "psi>=28 and gamma_s>=10 are unvalidated gates; at owner's mass-added point Q/scarf/local already pass. Cap factor .601013192, not .603",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Stiffened source ratios",
+      "by": [
+        "rpt-ref-20ab4b33b504a00ad3b6"
+      ],
+      "old": "Ti ratio .33 and STA8.1 predictions conflated",
+      "new": "317/917=.345692475 while printed 33% remains a source inconsistency; 759000 and 754000 lb are sequential model levels",
+      "effect_on_lead": "317/917=.345692475 while printed 33% remains a source inconsistency; 759000 and 754000 lb are sequential model levels",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "P3 checked continuum point",
+      "by": [
+        "rpt-ref-4b8e7b08241bb7a45536"
+      ],
+      "old": "Primary 022d not yet checked in 030b",
+      "new": "All primary witnesses reproduce; 50 sensitivity-field differences from coefficient precision, maximum SF change 3.98e-9",
+      "effect_on_lead": "All primary witnesses reproduce; 50 sensitivity-field differences from coefficient precision, maximum SF change 3.98e-9",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "P3 rise/nonlinear verification",
+      "by": [
+        "rpt-ref-b92330879d6ba35bd62c"
+      ],
+      "old": "Rise8 and raw first-loss labels potentially read as checked",
+      "new": "Rise8 independent solve refused; first-loss null/verified_first_loss=false overrides raw labels. Linear/mass/baseline forces reproduce",
+      "effect_on_lead": "Rise8 independent solve refused; first-loss null/verified_first_loss=false overrides raw labels. Linear/mass/baseline forces reproduce",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "033 crossing precision",
+      "by": [
+        "rpt-ref-d2ffe81a7858ecabf149"
+      ],
+      "old": "103.892275563 and 40.470112218 m",
+      "new": "Active roots 103.892078332461 and 40.470082164560 m; retain 241 exact path findings and basis distinctions",
+      "effect_on_lead": "Active roots 103.892078332461 and 40.470082164560 m; retain 241 exact path findings and basis distinctions",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Vacuum mission distinction",
+      "by": [
+        "rpt-ref-025def9d3634f5e320d7"
+      ],
+      "old": "30–50 kg generalized to continuous installation",
+      "new": "Daily ground-serviced sealed estimate; Edwards continuous 24 h 292.333 kg, 2.307% speed shortfall for stated Kapton envelope",
+      "effect_on_lead": "Daily ground-serviced sealed estimate; Edwards continuous 24 h 292.333 kg, 2.307% speed shortfall for stated Kapton envelope",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Vacuum area and reconstruction",
+      "by": [
+        "rpt-ref-025def9d3634f5e320d7"
+      ],
+      "old": "10% transmission sensitivity treated as complete area increase",
+      "new": "Charge gauge/mass/release consistently; +10% Zylon vacuum/barrier/bond subtotal 96.878937–116.878937 kg plus structural fiber",
+      "effect_on_lead": "Charge gauge/mass/release consistently; +10% Zylon vacuum/barrier/bond subtotal 96.878937–116.878937 kg plus structural fiber",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Thermal inputs remain missing",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": "Filed temperatures and projection coefficients treated as independently recovered",
+      "new": "84 fields unrecovered: 60 P3 temperatures, 10 P2 temperatures/swings, 14 coefficients. 037b does not supply missing inputs",
+      "effect_on_lead": "84 fields unrecovered: 60 P3 temperatures, 10 P2 temperatures/swings, 14 coefficients. 037b does not supply missing inputs",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "Thermal polynomial and total flight",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": "Residual maxima 5.788444/17.145083 K; increment-only flight",
+      "new": "Filed-polynomial maxima 8.292853/14.851720 K. Include steady pressure: 479.847608 Pa, conditional minimum 1.001324769",
+      "effect_on_lead": "Filed-polynomial maxima 8.292853/14.851720 K. Include steady pressure: 479.847608 Pa, conditional minimum 1.001324769",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "038 test plan and procurement",
+      "by": [
+        "rpt-ref-2beb70a569266cf0297d"
+      ],
+      "old": "Historical end-mass precision and full-envelope thin sheet assumed",
+      "new": "Two coefficient-rounding differences retained; current targets and first-three ordering survive. Thin stock and prices unqualified; cited F1249-20 superseded by -25",
+      "effect_on_lead": "Two coefficient-rounding differences retained; current targets and first-three ordering survive. Thin stock and prices unqualified; cited F1249-20 superseded by -25",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "042 build-map applicability",
+      "by": [
+        "rpt-mainline042-opus-build-route-1020",
+        "rpt-1228-mainline029-crimp-gamma-fe-1020"
+      ],
+      "old": "Plausible process precision interpreted as gamma support",
+      "new": "Conditional map only; retain adverse 029 evidence. No matched Be process, full-scale gamma or inspection qualification",
+      "effect_on_lead": "Conditional map only; retain adverse 029 evidence. No matched Be process, full-scale gamma or inspection qualification",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "041 direct P3 replaces transferred shortcut",
+      "by": [
+        "rpt-ref-c7dfc45babe1b96007db"
+      ],
+      "old": "1.067 cross-geometry sensitivity used as current estimate",
+      "new": "Selected-section f4 directly gives1.133451 but +174.444kg closure deficit. Resized f5 gives1.143285/1.083205, local sensitivities1.033223/.978132 at5%/019 reserve.",
+      "effect_on_lead": "Selected-section f4 directly gives1.133451 but +174.444kg closure deficit. Resized f5 gives1.143285/1.083205, local sensitivities1.033223/.978132 at5%/019 reserve.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "041 nonlinear evidence scope",
+      "by": [
+        "rpt-ref-c7dfc45babe1b96007db"
+      ],
+      "old": "Earlier nearest-zero first-loss ambiguity",
+      "new": "New selected f4 smallest-algebraic sampled first loss5.430902 is source-audited; old026b paths remain unverified. Resized witnesses keep k=.2 times linear; no calibrated nonlinear knockdown.",
+      "effect_on_lead": "New selected f4 smallest-algebraic sampled first loss5.430902 is source-audited; old026b paths remain unverified. Resized witnesses keep k=.2 times linear; no calibrated nonlinear knockdown.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "040 common bill supersedes R10 float interpretation",
+      "by": [
+        "rpt-ref-b10363665c6202d8ef75"
+      ],
+      "old": "028b+037b conditional structural point treated as installed R10float",
+      "new": "No R10float within named ranges; full gamma/Q endpoint ISA deficit109.649kg. R30ISA/optimistic minimum sets gamma+Q, usage.601233/.789568; both-weather no float.",
+      "effect_on_lead": "No R10float within named ranges; full gamma/Q endpoint ISA deficit109.649kg. R30ISA/optimistic minimum sets gamma+Q, usage.601233/.789568; both-weather no float.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "040 film and favorable tuple definitions",
+      "by": [
+        "rpt-ref-b10363665c6202d8ef75"
+      ],
+      "old": "Same film multiplier or compression-only improvement assumed across all points",
+      "new": "R30minimum uses.030film (O5factor1), endpoint payload uses.015(factor2). Face tuple couples E/Fcy; Fcy alone is nonbinding and does not recover marginal tuple-dependent floats.",
+      "effect_on_lead": "R30minimum uses.030film (O5factor1), endpoint payload uses.015(factor2). Face tuple couples E/Fcy; Fcy alone is nonbinding and does not recover marginal tuple-dependent floats.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK037b HexBond support mass",
+      "by": [
+        "rpt-ref-4bf25e71ae0c2ca315e2"
+      ],
+      "old": "Rejected HexBond679 increment444.255345188kg",
+      "new": "Add30g/m2support at both interfaces:519.653568874kg, +75.398223686kg; rejection stands.16 L-precision path differences retained.",
+      "effect_on_lead": "Add30g/m2support at both interfaces:519.653568874kg, +75.398223686kg; rejection stands.16 L-precision path differences retained.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK037b product/cure scope",
+      "by": [
+        "rpt-ref-4bf25e71ae0c2ca315e2"
+      ],
+      "old": "200F family/2K evidence treated as qualification of light2UBe/core",
+      "new": "Principal numbers reproduce; light2U substrate/core/cure,50psi tooling and residual-state transfer remain open.",
+      "effect_on_lead": "Principal numbers reproduce; light2U substrate/core/cure,50psi tooling and residual-state transfer remain open.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "043 reliability evidence",
+      "by": [
+        "rpt-ref-8cb22d2e233e57207cf6"
+      ],
+      "old": "Typical3.9GPa divided by stress treated as survival probability",
+      "new": "No matched compression Weibull distribution/reference size; qualified framePf/lifetime null.Conditional433-member m10 requirements4.38651/8.75267GPa are hypotheses, not demonstrated factors.",
+      "effect_on_lead": "No matched compression Weibull distribution/reference size; qualified framePf/lifetime null.Conditional433-member m10 requirements4.38651/8.75267GPa are hypotheses, not demonstrated factors.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "044 life and combined loads",
+      "by": [
+        "rpt-ref-29830021a6e140ff7411"
+      ],
+      "old": "Small037bfix taken to establish ten-year service",
+      "new": "Original pad core static.7143; plate-only949.846day index not hull life. Fix combined-load scarf.9891.Conditional pad+60:1scarf addition36.661kg does not float or qualify Be/scarf life.",
+      "effect_on_lead": "Original pad core static.7143; plate-only949.846day index not hull life. Fix combined-load scarf.9891.Conditional pad+60:1scarf addition36.661kg does not float or qualify Be/scarf life.",
+      "lead_relevant": true,
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/0/tube_mass_kg (projection_5)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 3733.1853334618195,
+      "new": 3794.671994894594,
+      "delta_kg": 61.486661432774326,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/0,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/1/tube_mass_kg (projection_5)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 3733.1853334618195,
+      "new": 3794.671994894594,
+      "delta_kg": 61.486661432774326,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/1,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/2/tube_mass_kg (projection_019)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 3581.5126092693927,
+      "new": 3640.5011762956547,
+      "delta_kg": 58.98856702626199,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/2,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/3/tube_mass_kg (projection_019)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 3581.5126092693927,
+      "new": 3640.5011762956547,
+      "delta_kg": 58.98856702626199,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/3,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/4/tube_mass_kg (mylar_5)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 4082.490566662958,
+      "new": 4083.0053057749465,
+      "delta_kg": 0.5147391119885469,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/4,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/5/tube_mass_kg (mylar_019)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 3925.4252327975605,
+      "new": 3925.920168386683,
+      "delta_kg": 0.49493558912263325,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/5,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/6/tube_mass_kg (ti_kapton_5)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 4681.445574594023,
+      "new": 3280.644870479246,
+      "delta_kg": -1400.800704114777,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/6,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/7/tube_mass_kg (ti_kapton_019)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 4478.93999775417,
+      "new": 3138.733815147143,
+      "delta_kg": -1340.2061826070267,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/7,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/8/tube_mass_kg (cfrp_zylon_5)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 2102.6112155993883,
+      "new": 4126.9865492776535,
+      "delta_kg": 2024.3753336782652,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/8,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "CHECK-037 /p3/9/tube_mass_kg (cfrp_zylon_019)",
+      "by": [
+        "rpt-ref-bba592d71d65b13cc2e5"
+      ],
+      "old": 2014.309964427877,
+      "new": 3957.5886775659837,
+      "delta_kg": 1943.2787131381067,
+      "effect_on_lead": "Historical 022c material/arc correction; current 022d not replaced",
+      "source": {
+        "report": "rpt-ref-bba592d71d65b13cc2e5",
+        "file": "evidence/17d9e138610b8036-AUDIT.json",
+        "original_file": "evidence/17d9e138610b8036-AUDIT.json",
+        "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+        "selector": "row=/p3/9,field=tube_mass_kg"
+      },
+      "register_version": "030c",
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "correction": "040/037b fold confirmed",
+      "by": "rpt-ref-378f34abc5a6eea5b053",
+      "effect_on_lead": "All as-designed 250°F rows fail the minimum-strength free-edge screen. Geometry-specific 200°F/scarf repair is distinct from the original +0.120151 kg allowance; positive conditional payload is not an assembly qualification.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "043 uses the direct 041 f5 frames",
+      "by": "rpt-ref-14993e3c2e5e64177c8f",
+      "effect_on_lead": "At their own screens, m=10 and assumed 3.9 GPa complete-member scale give Pf .002524/.002143; interpreting 3.9 GPa at 1 cm³ instead gives .991133/.979046. These are different uncalibrated populations.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Build-route values corrected by CHECK-042",
+      "by": "rpt-ref-049190971618f3ca1e72",
+      "effect_on_lead": "S-II .254 mm is a core-face matching gap, not spherical error. Simply supported critical disbond is 27.127598 mm. Two-skin seams total 5683.037–5685.225 m with at least 1190 panels per skin at 30.34:1. The 200°F data do not qualify the specified bond.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Damage requirement added for both leads",
+      "by": "rpt-ref-57c98dcce7960aca042a",
+      "effect_on_lead": "028b/022d damage models find no priced damage-tolerant float on their original budgets. Local crushed-core growth and member-loss/film-tear screens consume the intact margins. Transfer to 048/041 geometry requires reclosure; no operating protocol is qualified.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "P3 film life and protection charged",
+      "by": "rpt-ref-b6da4592385c83f4db2a",
+      "effect_on_lead": "No installed film life is demonstrated. At 041, OD4/white protection is 95.751 kg; hot-film corrections plus equipment leave 31.465–51.465 / 39.916–59.916 kg closure deficits. Ten-year SF depends on the unselected ageing law.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Common-account sensitivities and thermal limit retained",
+      "by": "rpt-ref-593068c3ed82fd458128",
+      "effect_on_lead": "Arithmetic matches conditional on the owner temperature table; independent thermal reproduction remains open. One millimetre of water removes every original primary float. Cure in global/crimp demand gives R15 optimistic actual −1.821 kg; edge/scarf coincidence removes four of thirteen primary floats.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Light coating recovers conditional R10 ISA float",
+      "by": "rpt-ref-2092a3e39c7141afde61",
+      "effect_on_lead": "Multilayer CCAg/ITO at 7.5752 g/m² plus 10%, separate 10 g/m² structural primer, .1 kg/m² exterior water and a distinct material-water inventory give +124.262 kg at the original R10 ISA bake endpoint. Optics and process transfer remain unqualified.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Film label and pad credit corrected",
+      "by": "rpt-1228-mainline044-independent-check-1020",
+      "effect_on_lead": "The .060 fatigue-test film is AF163-2K. The +36.661200 kg strict-pad/60:1-scarf scenario requires 3.414034 kg old-plate credit; without documented credit the addition is +40.075234 kg. Installed life stays null.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Proof and mass labels corrected",
+      "by": "rpt-ref-a53ddf165139979127c4",
+      "effect_on_lead": "At 1.25× target force the member Euler ratio is .375, not buckling. Exceeding the combined screen does not establish Euler failure; fixtures and stress coverage remain open. Required Pf10⁻⁶ member scales are 8.53751/8.39866 GPa. Rise8 is 5446.291 kg total, 5039.558 kg tubes.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Direct-frame computation corroborated with exact limits",
+      "by": "rpt-ref-52963d63a80d69bb90bd",
+      "effect_on_lead": "Fixed f5 screens 1.143285/1.083205 and local sensitivities 1.033223/.978132 reproduce. Independent nonlinear continuation corroborates the m24 bracket. Nine printed cells differ, including film-direction and midpoint values; prior postprocessor exposure is disclosed.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Film-life audit adds quantitative limits",
+      "by": "rpt-ref-982a0ff761f72abce96c",
+      "effect_on_lead": "Required retention and ten-year scenarios reproduce. Coupon-only 458.672527 kg/year becomes 459.261468 with weighted leakage. Warehouse reading uncertainty crosses SF1 at both f5 points; hot 041-5 annual loss ceiling is .457%, below the .5% requirement.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "CHECK-040 folded into 048",
+      "by": "rpt-ref-9a9a131b4ca724b68cc2",
+      "effect_on_lead": "648 new rows include cure compression and both water scenarios. All 432 1 mm R10–15 cases fail to float; best all-four is −998.333 kg. Cure-included R10 ISA bake is +118.695 kg, least G+Q+film usage .842794; two marginal floats are lost. Exact 2U .015 bond qualification stays open.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "050 operational exception retained as history",
+      "by": "rpt-1228-mainline050-simjob-refusal-retry-request-1020",
+      "effect_on_lead": "A canonical exception report records refusal before execution and a request for retry authority. The subsequently filed050 card reports authorized unchanged retries and completion. The exception itself supplies no numerical result.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Partial CHECK-048: supplied bill matches; full check remains open",
+      "by": "rpt-ref-29ebe6d900e7cbd982ea",
+      "effect_on_lead": "At7149 stored points, compared bills/modes/payloads match conditional on owner thermal tables. The+124.261910kg R10 bill reproduces. Three vacuum bookkeeping fields differ; proposed corrections are unverified. Thermal297/325 comparisons differ and independent searches are unfinished. The classical optical citation gives alpha.08/normal epsilon.72 on Kapton, not the model's.09/.65.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "Partial 051: load-specific member targets complete, candidate frames pending",
+      "by": "rpt-ref-8d5027d15bbe034522e3",
+      "effect_on_lead": "All288 reliability target rows are filed. Under assumed member-scale3.9GPa/m10, q1 Pf=.000643916/.000947308 meets1e-3, while own-screen Pf does not. Own-screen Pf1e-3 scales are4.278678/4.209090GPa; candidate masses/SFs and041damage remain null. Old f5 stress amplification2.427/2.480 differs from f4's3.27.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "CHECK-045 corrects damage arithmetic and limits categorical claims",
+      "by": "rpt-ref-e0fc07c506c86dae19c1",
+      "effect_on_lead": "Main danger screens reproduce;1358 comparisons include71 differences and88 exact findings. The55mm growth threshold is19.176311mm within the core; Pach calibration does not agree. PerrySF is3.454499, not4.095818. Better wall/tear witnesses remain below1. All-edge stress ratios1.959485–3.270739 and trajectory/inspection corrections do not establish universal cascade or a safe vent protocol.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "052 closes a conditional P3 whole bill with additional strength assumptions",
+      "by": "rpt-ref-d7b2450119f373b2d1db",
+      "effect_on_lead": "Resized f5-019 first closes at tested R10 ISA/R12 optimistic with ground service; full endpoints +30.863/+46.259kg. R10 least S+F+J usage.839340 requires5.343GPa effective ply strength and planned15.552h ground service. No combined-weather or24h onboard-dry case closes throughR30. Its original048 comparison is supplemented with the cure-included account and the same extra50kg service debit.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "050 separates weather design families from one fixed hull",
+      "by": "rpt-1228-mainline050-flyable-weather-1020",
+      "effect_on_lead": "The2,027,245-point map extends the original048 finish account throughR30. No sampled radius closes the declared MIL10% hot profile, even at all four endpoints. At100m the full-range fixed R10/R30 upper ISA offsets are−6.5/+3.3K, versus family+5.8/+15.8K; cold limit about−10.5K. R10 saturated-clear dew gives−82.280kg. The cure-included alternate and operational probabilities remain unqualified.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "correction": "R30 beryllium supply scale",
+      "by": "rpt-ref-3e02218a03708a878faa",
+      "effect_on_lead": "102.230791t faces at original040 named endpoint; 23.609882% of revised2024 output433t; distinct from103.146t least-usage point.",
+      "lead_relevant": true,
+      "register_version": "030d",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "ids_in_store": []
+    },
+    {
+      "id": "CHANGE-check030d",
+      "correction": "550 checked numbers stand; all ten wording items and 22 joined/broken-token occurrences are corrected in the annotated historical card.",
+      "by": [
+        "rpt-ref-158a1f387003d2ecc887"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check030d",
+      "sources": [
+        {
+          "report": "rpt-ref-158a1f387003d2ecc887",
+          "artifact": "evidence/ea4a6d3de41d3163-CHECK.md",
+          "snapshot": "evidence/ea4a6d3de41d3163-CHECK.md",
+          "sha256": "ea4a6d3de41d31633abc4c94ee428fef8ed67f5be4042b24231bb69c5e404a68",
+          "bytes": 9972,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-047",
+      "correction": "Regularized-core model gives SF1/SF1.05 pass–fail dimples 1.209–1.227/0.738–0.756 mm; no physical tolerance is qualified.",
+      "by": [
+        "rpt-ref-e23aa05d834f8e89bb2c"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-047",
+      "sources": [
+        {
+          "report": "rpt-ref-e23aa05d834f8e89bb2c",
+          "artifact": "evidence/ad003407cf8ed499-CARD.md",
+          "snapshot": "evidence/ad003407cf8ed499-CARD.md",
+          "sha256": "ad003407cf8ed499f22a51e10ce00562d2ccf5bc1cafa37cad744e4377ba2f17",
+          "bytes": 12909,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-049",
+      "correction": "Sourced Be-free faces do not float; the 60% Vf projection needs CHECK-049's consistent mixture and reoptimization.",
+      "by": [
+        "rpt-ref-06643b916584f58fd9e4"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-049",
+      "sources": [
+        {
+          "report": "rpt-ref-06643b916584f58fd9e4",
+          "artifact": "evidence/e092afb908ded8b8-CARD.md",
+          "snapshot": "evidence/e092afb908ded8b8-CARD.md",
+          "sha256": "e092afb908ded8b8d4215ccb1d8acfa9658492edeb2c5b8db49a460a6d2ee741",
+          "bytes": 36037,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-051",
+      "correction": "Completed member/material, reliability, hail and damage tables replace the partial filing; hypothetical distributions remain unqualified.",
+      "by": [
+        "rpt-ref-17635c55001d23054259"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-051",
+      "sources": [
+        {
+          "report": "rpt-ref-17635c55001d23054259",
+          "artifact": "evidence/ddcb7f00a136d59c-CARD.md",
+          "snapshot": "evidence/ddcb7f00a136d59c-CARD.md",
+          "sha256": "ddcb7f00a136d59c7378f568a319e131c0b6dd398c30a3173c57dc6c33874fb2",
+          "bytes": 19545,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-053",
+      "correction": "Four thermal alternatives reproduce; maximum resized payload loss 4.388925 kg changes no endpoint float sign or least/tied set.",
+      "by": [
+        "rpt-ref-3fb9907ba4e1c52825f0"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-053",
+      "sources": [
+        {
+          "report": "rpt-ref-3fb9907ba4e1c52825f0",
+          "artifact": "evidence/8b817facdc012a8d-CARD.md",
+          "snapshot": "evidence/8b817facdc012a8d-CARD.md",
+          "sha256": "8b817facdc012a8dbf7bbf0bc4962ce1744a6086301a29629ed9b2f7a9fdb08a",
+          "bytes": 18881,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-053fold",
+      "correction": "Completed CHECK-048 is folded; convection/core-radiation conventions and finish-source corrections remain explicit.",
+      "by": [
+        "rpt-ref-a1657be60b663f493887"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-053fold",
+      "sources": [
+        {
+          "report": "rpt-ref-a1657be60b663f493887",
+          "artifact": "evidence/a0cad7c8a29508b2-CARD.md",
+          "snapshot": "evidence/a0cad7c8a29508b2-CARD.md",
+          "sha256": "a0cad7c8a29508b217cf632b7bb9de4d3eb077c4bc99e7daed1141996d786fb5",
+          "bytes": 8925,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-054",
+      "correction": "R10 ISA MET one-day payload is +30.710562 kg; SIOX/3A seven/thirty-day payload is +1.115544/−55.428312 kg before concept growth.",
+      "by": [
+        "rpt-ref-71723c1ae93445240630"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-054",
+      "sources": [
+        {
+          "report": "rpt-ref-71723c1ae93445240630",
+          "artifact": "evidence/d63503565eee22e5-CARD.md",
+          "snapshot": "evidence/d63503565eee22e5-CARD.md",
+          "sha256": "d63503565eee22e5224f5567597a3340698c06d9775504ebc89019d8311e3b12",
+          "bytes": 13530,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-055",
+      "correction": "Three full-section 5 m cap tests cost an unquoted $0.420–1.558M; use corrected rig reach and direct limits from CHECK-055.",
+      "by": [
+        "rpt-mainline055-opus-gamma-test-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-055",
+      "sources": [
+        {
+          "report": "rpt-mainline055-opus-gamma-test-1020",
+          "artifact": "evidence/ae502f99e70cfeb1-CARD.md",
+          "snapshot": "evidence/ae502f99e70cfeb1-CARD.md",
+          "sha256": "ae502f99e70cfeb17b60f9c94d8038c0572b2a297d6e2b8e2b64c03b57afb321",
+          "bytes": 12723,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-056",
+      "correction": "6.03 MPa is a published simulation, not a measured collapse; refined 6.159021 MPa releases no P2 gamma.",
+      "by": [
+        "rpt-1228-mainline056-crushable-benchmark-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-056",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+          "artifact": "evidence/f5b564329a854cb1-CARD.md",
+          "snapshot": "evidence/f5b564329a854cb1-CARD.md",
+          "sha256": "f5b564329a854cb169e29eef96ad49ef290b29ac1bbd5b1a6a11bec2bf5a1e5c",
+          "bytes": 10449,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-057",
+      "correction": "Concept growth defeats every evaluated P2/P3 case; corrected direct-048 and coating-denominator values are carried by size.",
+      "by": [
+        "rpt-mainline057-opus-mass-growth-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-057",
+      "sources": [
+        {
+          "report": "rpt-mainline057-opus-mass-growth-1020",
+          "artifact": "evidence/72231da907e3d985-CARD.md",
+          "snapshot": "evidence/72231da907e3d985-CARD.md",
+          "sha256": "72231da907e3d985b3357e88105923f5d9ffc679333f27ecd18dce0ad9b40c93",
+          "bytes": 9653,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-058",
+      "correction": "Relief and low-emittance finish widen conditional bands; REVIEW-A2's valve/bladder corrections lower the sampled day fractions.",
+      "by": [
+        "rpt-mainline058-opus-flyable-band-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-058",
+      "sources": [
+        {
+          "report": "rpt-mainline058-opus-flyable-band-1020",
+          "artifact": "evidence/4f1328c26181ad6a-CARD.md",
+          "snapshot": "evidence/4f1328c26181ad6a-CARD.md",
+          "sha256": "4f1328c26181ad6a5a652197b098e67e00ccbaeed34fe7734e98959dce8d3d15",
+          "bytes": 13029,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-059",
+      "correction": "Carry CHECK-059's 99%-removal times, two-coat Ultra-Ever Dry bill and unreproduced P3 ponding; 0.1 kg/m² stays provisional.",
+      "by": [
+        "rpt-ref-4fb99766fa9a4406a85a"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-059",
+      "sources": [
+        {
+          "report": "rpt-ref-4fb99766fa9a4406a85a",
+          "artifact": "evidence/82221133565eca1f-CARD.md",
+          "snapshot": "evidence/82221133565eca1f-CARD.md",
+          "sha256": "82221133565eca1fce497df228592eba7d2536e8a2519c96328b521edc5ddcf9",
+          "bytes": 16620,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-060",
+      "correction": "Carbon remains an alternative beside SiC, with no sourced-compression float; corrected axial load is about 701 kN.",
+      "by": [
+        "rpt-ref-93808d41af02a0580060"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-060",
+      "sources": [
+        {
+          "report": "rpt-ref-93808d41af02a0580060",
+          "artifact": "evidence/faa6a21f6713c8f1-CARD.md",
+          "snapshot": "evidence/faa6a21f6713c8f1-CARD.md",
+          "sha256": "faa6a21f6713c8f1e08d6815a9cbe6055f1bcebbcf13fb90dd367cc2151b92fc",
+          "bytes": 18386,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-050notes",
+      "correction": "Dew uses actual night density; frozen geometry, thermal and gas conventions are explicitly separated.",
+      "by": [
+        "rpt-1228-mainline050-dew-conventions-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-050notes",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline050-dew-conventions-1020",
+          "artifact": "evidence/42ef056cf970ccf1-CONVENTIONS.md",
+          "snapshot": "evidence/42ef056cf970ccf1-CONVENTIONS.md",
+          "sha256": "42ef056cf970ccf1ffd8049932177711365e3565d5d3fdca758b218d2f68c170",
+          "bytes": 7377,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-050gas",
+      "correction": "Convection and the 32-geometries-per-radius gas supplement are explicit; this is not an all-weather gas maximum.",
+      "by": [
+        "rpt-1228-check050-convection-gas-conventions-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-050gas",
+      "sources": [
+        {
+          "report": "rpt-1228-check050-convection-gas-conventions-1020",
+          "artifact": "evidence/15aa9c7a1ecf40d8-CONVECTION.md",
+          "snapshot": "evidence/15aa9c7a1ecf40d8-CONVECTION.md",
+          "sha256": "15aa9c7a1ecf40d807f65995da0aab996ef5caa4b35576e7cf06d60a576acfbc",
+          "bytes": 4562,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check029",
+      "correction": "Elastic endpoints reproduce but exceed core/face admissibility; inherited core loses ellipticity and the foam-law comparison is not empirical gamma.",
+      "by": [
+        "rpt-check029-opus-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check029",
+      "sources": [
+        {
+          "report": "rpt-check029-opus-1020",
+          "artifact": "evidence/002b20b3c78cb099-CHECK.md",
+          "snapshot": "evidence/002b20b3c78cb099-CHECK.md",
+          "sha256": "002b20b3c78cb099103e32e4360bf6fa5d963c6c4c58e4eba4b30d222a8e6964",
+          "bytes": 18094,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check048",
+      "correction": "Complete independent accounts/searches replace partial status; SolarWhite 285 g/m²/.18/.89 and twelve null-field witnesses are carried.",
+      "by": [
+        "rpt-ref-5c8405d45d6cb50633f1"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check048",
+      "sources": [
+        {
+          "report": "rpt-ref-5c8405d45d6cb50633f1",
+          "artifact": "evidence/f7d4b6611fb3bd32-CHECK.md",
+          "snapshot": "evidence/f7d4b6611fb3bd32-CHECK.md",
+          "sha256": "f7d4b6611fb3bd32feb0ab266af90062b5ac26efbe5e6ff408661c9f90d2a9d8",
+          "bytes": 12058,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check048boundary",
+      "correction": "Owner boundary equations identify the natural-convection floor and core-radiation term; 053 resolves numerical, not physical, selection.",
+      "by": [
+        "rpt-ref-0faaf1787ac688f46f7f"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check048boundary",
+      "sources": [
+        {
+          "report": "rpt-ref-0faaf1787ac688f46f7f",
+          "artifact": "evidence/5a506bbbb0a1042d-rpt-ref-0faaf1787ac688f46f7f.json",
+          "snapshot": "evidence/5a506bbbb0a1042d-rpt-ref-0faaf1787ac688f46f7f.json",
+          "sha256": "5a506bbbb0a1042d60cf35b158723ce23bf6dc9de1d4dee94c82228706f9a6f2",
+          "bytes": 3238,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check049",
+      "correction": "60% Vf requires 1800 kg/m³ and fibre fraction .733333; R30 ISA reoptimized usage .783530/endpoint +12.444 t remains a projection.",
+      "by": [
+        "rpt-ref-9a28294ab892bcd529f5"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check049",
+      "sources": [
+        {
+          "report": "rpt-ref-9a28294ab892bcd529f5",
+          "artifact": "evidence/8c16207f5ecc987c-CARD.md",
+          "snapshot": "evidence/8c16207f5ecc987c-CARD.md",
+          "sha256": "8c16207f5ecc987c8182ff0d9b031b9cc80f340aa05069ec1bc1ccbc0d78a1d6",
+          "bytes": 6902,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check050",
+      "correction": "Displayed quantities and weather classifications reproduce; 680 marginal-cold knots are excluded and availability remains unknown.",
+      "by": [
+        "rpt-ref-3eaf9fd65c0d3223ee65"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check050",
+      "sources": [
+        {
+          "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+          "artifact": "evidence/97926e05973aab9b-CHECK.md",
+          "snapshot": "evidence/97926e05973aab9b-CHECK.md",
+          "sha256": "97926e05973aab9b08f85c7f064ab711ec3540b90ddd3dd266f7749621053745",
+          "bytes": 6429,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check050add",
+      "correction": "160 frozen-thermal endpoints reproduce; R10 gas 102.491169 Pa/3.192390 kg and heater quadrature conventions resolve computational questions.",
+      "by": [
+        "rpt-ref-a7ed312f50c1bd796c58"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check050add",
+      "sources": [
+        {
+          "report": "rpt-ref-a7ed312f50c1bd796c58",
+          "artifact": "evidence/1d43f24f0ab2c0ea-ADDENDUM.md",
+          "snapshot": "evidence/1d43f24f0ab2c0ea-ADDENDUM.md",
+          "sha256": "1d43f24f0ab2c0ead93ddc6f6cadca118d5133331a76573165d3e592817a29ff",
+          "bytes": 4925,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check051",
+      "correction": "Main frame/reliability numbers reproduce; 336 shear labels and two Weibull inversions remain exact attributed corrections.",
+      "by": [
+        "rpt-ref-43804748980d8ca4b5f6"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check051",
+      "sources": [
+        {
+          "report": "rpt-ref-43804748980d8ca4b5f6",
+          "artifact": "evidence/4512285d11dbe992-CHECK.md",
+          "snapshot": "evidence/4512285d11dbe992-CHECK.md",
+          "sha256": "4512285d11dbe992392883b4ddb0cba607a61e65a51bfea217019fd878948c23",
+          "bytes": 4716,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check052",
+      "correction": "88,750 fields and 326 table cells reproduce; 288 f5-5 labels and 52.426 kg family difference are corrected.",
+      "by": [
+        "rpt-1228-mainline052-independent-check-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check052",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline052-independent-check-1020",
+          "artifact": "evidence/754a25a154ccf2b5-CARD.md",
+          "snapshot": "evidence/754a25a154ccf2b5-CARD.md",
+          "sha256": "754a25a154ccf2b55e52cff934ed362edfa859b3f6f2cb2bea89b47213ad3dfa",
+          "bytes": 7196,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check053",
+      "correction": "Four boundaries, all 5,760 endpoint grids and frozen scarf/global crossings reproduce; no installed boundary is selected.",
+      "by": [
+        "rpt-ref-b71dd9842c7ae7b18ee8"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check053",
+      "sources": [
+        {
+          "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+          "artifact": "evidence/af548217596299b5-CARD.md",
+          "snapshot": "evidence/af548217596299b5-CARD.md",
+          "sha256": "af548217596299b50995d17547ba7303dd019b96d6e055cc59698f5bc9259952",
+          "bytes": 6049,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check054",
+      "correction": "One/seven/thirty-day screens reproduce; R12 ISA FOIL30 is +47.344558 kg, and installed service remains unqualified.",
+      "by": [
+        "rpt-ref-02edbc8231269239b47f"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check054",
+      "sources": [
+        {
+          "report": "rpt-ref-02edbc8231269239b47f",
+          "artifact": "evidence/b01c909635efef65-CARD.md",
+          "snapshot": "evidence/b01c909635efef65-CARD.md",
+          "sha256": "b01c909635efef65eb623d499ab48c376736453afc6e5e08709d9f8f6c9cf7c3",
+          "bytes": 6227,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check055",
+      "correction": "5052-O rig reach is .575038/.856084; direct elastic/core/face limits are 5.7754/2.2998/1.2220 mm, with tooling and statistics gaps.",
+      "by": [
+        "rpt-ref-886d25bd397d38c2f48f"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check055",
+      "sources": [
+        {
+          "report": "rpt-ref-886d25bd397d38c2f48f",
+          "artifact": "evidence/852027a5302b254c-CARD.md",
+          "snapshot": "evidence/852027a5302b254c-CARD.md",
+          "sha256": "852027a5302b254cc31f5389d306d077a51ddfe4d05e68cfd9e516bcde54f9f6",
+          "bytes": 8313,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check057",
+      "correction": "Direct 048 puts P2 R12 ISA at +1.256483 kg under the earlier TRL7 table; coating increment is divided by 1.1.",
+      "by": [
+        "rpt-ref-22285eadc9122df1c8b7"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check057",
+      "sources": [
+        {
+          "report": "rpt-ref-22285eadc9122df1c8b7",
+          "artifact": "evidence/c34bf29324b228ac-CHECK.md",
+          "snapshot": "evidence/c34bf29324b228ac-CHECK.md",
+          "sha256": "c34bf29324b228ac71a2c7c9aa7a35de79970ae36f4ad8fea5f41bbb1a5fa701",
+          "bytes": 6284,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check059",
+      "correction": "99% removal takes .310–5.346 h under held weather; node/bay surrogate ponds differ, and two coats cost/mass twice the one-coat assumption.",
+      "by": [
+        "rpt-ref-3bba4f0f54c6a95070dd"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check059",
+      "sources": [
+        {
+          "report": "rpt-ref-3bba4f0f54c6a95070dd",
+          "artifact": "evidence/af7ce4067a35e5c5-CARD.md",
+          "snapshot": "evidence/af7ce4067a35e5c5-CARD.md",
+          "sha256": "af7ce4067a35e5c5816c8a569ba6a29e65a4cfe0ac2405f2cc464a1281ef6e09",
+          "bytes": 8691,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check060",
+      "correction": "701 kN axial load and FE-normalized reliability walls correct the carbon table; the no-float screen survives.",
+      "by": [
+        "rpt-check060-opus-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check060",
+      "sources": [
+        {
+          "report": "rpt-check060-opus-1020",
+          "artifact": "evidence/4a6c30a727a5eed2-CHECK.md",
+          "snapshot": "evidence/4a6c30a727a5eed2-CHECK.md",
+          "sha256": "4a6c30a727a5eed208cb08d0ecdad80712354841e3e91929ec2a165f455e6020",
+          "bytes": 7223,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-check047",
+      "correction": "Independent direct estimates are 1.2179/.7469 mm; core regularization and compression allowables remain physical gaps.",
+      "by": [
+        "rpt-ref-a18ff970381ef39185d1"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-check047",
+      "sources": [
+        {
+          "report": "rpt-ref-a18ff970381ef39185d1",
+          "artifact": "evidence/ed8fbe522708eccf-CHECK.md",
+          "snapshot": "evidence/ed8fbe522708eccf-CHECK.md",
+          "sha256": "ed8fbe522708eccf17a2f828cbc8cb66a4c04b26d746e8841516ef749348d577",
+          "bytes": 8568,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-061",
+      "correction": "Density witnesses and fixed-family P3 bound reproduce; all-density best-product ranking remains unresolved after REVIEW-A2.",
+      "by": [
+        "rpt-ref-23efd7d4ece46db2d839"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-061",
+      "sources": [
+        {
+          "report": "rpt-ref-23efd7d4ece46db2d839",
+          "artifact": "evidence/4dec37167ccb479e-REVIEW.md",
+          "snapshot": "evidence/4dec37167ccb479e-REVIEW.md",
+          "sha256": "4dec37167ccb479ed191bd828d24e32e838d2b0bf9a6e1787ccc536da1512ddb",
+          "bytes": 1426,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-062",
+      "correction": "Model-only SF1.05 amplitudes .793/1.628/2.486 mm and unquoted costs reproduce; six coating corrections remain UNREVIEWED.",
+      "by": [
+        "rpt-1228-mainline062-buildable-shape-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-062",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline062-buildable-shape-1020",
+          "artifact": "evidence/99444f4ab94b0224-REVIEW.md",
+          "snapshot": "evidence/99444f4ab94b0224-REVIEW.md",
+          "sha256": "99444f4ab94b02241728946e716630137403c842e5b18917953696d9870ec96f",
+          "bytes": 3558,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-admit061",
+      "correction": "Sciences admits attributed targets; the original 061 process release is verified and later source replacement is not an owner fault.",
+      "by": [
+        "rpt-sciences-g5-mainline061-admitted-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-admit061",
+      "sources": [
+        {
+          "report": "rpt-sciences-g5-mainline061-admitted-1020",
+          "artifact": "evidence/f21eb165742dbefd-rpt-sciences-g5-mainline061-admitted-1020.json",
+          "snapshot": "evidence/f21eb165742dbefd-rpt-sciences-g5-mainline061-admitted-1020.json",
+          "sha256": "f21eb165742dbefdb46d606f47cd41dff9c161bbaf226ded534bacd8aa6487b9",
+          "bytes": 1760,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-admit062",
+      "correction": "Sciences admits the conditional shape/cost account; no buildable floating P2 or qualified cheapest route is established.",
+      "by": [
+        "rpt-sciences-g5-mainline062-admitted-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-admit062",
+      "sources": [
+        {
+          "report": "rpt-sciences-g5-mainline062-admitted-1020",
+          "artifact": "evidence/58cc18e96765d113-rpt-sciences-g5-mainline062-admitted-1020.json",
+          "snapshot": "evidence/58cc18e96765d113-rpt-sciences-g5-mainline062-admitted-1020.json",
+          "sha256": "58cc18e96765d113bcb170150ca9eb2639239f29d3df75b2e45ee83493b249e0",
+          "bytes": 1929,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-reviewA1",
+      "correction": "16/17 claims reproduce conditionally; six unreviewed coating field corrections preserve all negative payload signs.",
+      "by": [
+        "rpt-ref-3692687111eb9cac0c5d"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-reviewA1",
+      "sources": [
+        {
+          "report": "rpt-ref-3692687111eb9cac0c5d",
+          "artifact": "evidence/2f669714b5e7ca5b-REVIEW.md",
+          "snapshot": "evidence/2f669714b5e7ca5b-REVIEW.md",
+          "sha256": "2f669714b5e7ca5b2f88ba56075850e9619dd847daa784b02de8a2ef23b45e3b",
+          "bytes": 11454,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-reviewA2",
+      "correction": "13/17 reproduce, two differ, two need evidence; two hardware-fix groups are UNREVIEWED and radius/product rankings remain open.",
+      "by": [
+        "rpt-1228-review-a-058-061-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-reviewA2",
+      "sources": [
+        {
+          "report": "rpt-1228-review-a-058-061-1020",
+          "artifact": "evidence/887001b91192287a-REVIEW.md",
+          "snapshot": "evidence/887001b91192287a-REVIEW.md",
+          "sha256": "887001b91192287acd5381748ede9f6e11b9cce65790da90393b4d681c5bc559",
+          "bytes": 5697,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "CHANGE-processreview",
+      "correction": "Sciences' six-row confidence table is carried as qualification; numerical reproduction does not establish installed performance.",
+      "by": [
+        "rpt-sciences-g4-night-process-review-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "CHANGE-processreview",
+      "sources": [
+        {
+          "report": "rpt-sciences-g4-night-process-review-1020",
+          "artifact": "evidence/de76a95f28d91662-REVIEW.md",
+          "snapshot": "evidence/de76a95f28d91662-REVIEW.md",
+          "sha256": "de76a95f28d91662330c2f0b4b4ef68815dcd2e362fbeb0652c720336cdbf77c",
+          "bytes": 17789,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "FIX-A1-062-COATING-R10-ISA",
+      "correction": "{\"id\": \"FIX-A1-062-COATING-R10-ISA\", \"card\": \"062\", \"row\": {\"R_m\": 10, \"weather\": \"ISA\"}, \"field\": \"payload_with_concept_MGA_kg\", \"card_value\": -611.4843476149994, \"reviewer_value\": -611.3891548443215, \"difference_kg\": 0.0951927706778406, \"cause\": \"Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.\", \"decision_effect\": \"All six signs remain negative; no float/no-float decision changes.\", \"review_status\": \"unreviewed correction; one review round\"}",
+      "by": [
+        "rpt-ref-3692687111eb9cac0c5d"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "FIX-A1-062-COATING-R10-ISA",
+      "sources": [
+        {
+          "report": "rpt-ref-3692687111eb9cac0c5d",
+          "artifact": "evidence/0063cb5be8f2809e-FIXES.json",
+          "snapshot": "evidence/0063cb5be8f2809e-FIXES.json",
+          "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+          "bytes": 4105,
+          "selector": "/items/0"
+        }
+      ]
+    },
+    {
+      "id": "FIX-A1-062-COATING-R10-optimistic",
+      "correction": "{\"id\": \"FIX-A1-062-COATING-R10-optimistic\", \"card\": \"062\", \"row\": {\"R_m\": 10, \"weather\": \"optimistic\"}, \"field\": \"payload_with_concept_MGA_kg\", \"card_value\": -773.4650880628418, \"reviewer_value\": -773.369895292164, \"difference_kg\": 0.0951927706778406, \"cause\": \"Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.\", \"decision_effect\": \"All six signs remain negative; no float/no-float decision changes.\", \"review_status\": \"unreviewed correction; one review round\"}",
+      "by": [
+        "rpt-ref-3692687111eb9cac0c5d"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "FIX-A1-062-COATING-R10-optimistic",
+      "sources": [
+        {
+          "report": "rpt-ref-3692687111eb9cac0c5d",
+          "artifact": "evidence/0063cb5be8f2809e-FIXES.json",
+          "snapshot": "evidence/0063cb5be8f2809e-FIXES.json",
+          "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+          "bytes": 4105,
+          "selector": "/items/1"
+        }
+      ]
+    },
+    {
+      "id": "FIX-A1-062-COATING-R20-ISA",
+      "correction": "{\"id\": \"FIX-A1-062-COATING-R20-ISA\", \"card\": \"062\", \"row\": {\"R_m\": 20, \"weather\": \"ISA\"}, \"field\": \"payload_with_concept_MGA_kg\", \"card_value\": -2553.524789533839, \"reviewer_value\": -2553.1440184511275, \"difference_kg\": 0.3807710827113624, \"cause\": \"Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.\", \"decision_effect\": \"All six signs remain negative; no float/no-float decision changes.\", \"review_status\": \"unreviewed correction; one review round\"}",
+      "by": [
+        "rpt-ref-3692687111eb9cac0c5d"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "FIX-A1-062-COATING-R20-ISA",
+      "sources": [
+        {
+          "report": "rpt-ref-3692687111eb9cac0c5d",
+          "artifact": "evidence/0063cb5be8f2809e-FIXES.json",
+          "snapshot": "evidence/0063cb5be8f2809e-FIXES.json",
+          "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+          "bytes": 4105,
+          "selector": "/items/2"
+        }
+      ]
+    },
+    {
+      "id": "FIX-A1-062-COATING-R20-optimistic",
+      "correction": "{\"id\": \"FIX-A1-062-COATING-R20-optimistic\", \"card\": \"062\", \"row\": {\"R_m\": 20, \"weather\": \"optimistic\"}, \"field\": \"payload_with_concept_MGA_kg\", \"card_value\": -3854.681842846453, \"reviewer_value\": -3854.3010717637417, \"difference_kg\": 0.3807710827113624, \"cause\": \"Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.\", \"decision_effect\": \"All six signs remain negative; no float/no-float decision changes.\", \"review_status\": \"unreviewed correction; one review round\"}",
+      "by": [
+        "rpt-ref-3692687111eb9cac0c5d"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "FIX-A1-062-COATING-R20-optimistic",
+      "sources": [
+        {
+          "report": "rpt-ref-3692687111eb9cac0c5d",
+          "artifact": "evidence/0063cb5be8f2809e-FIXES.json",
+          "snapshot": "evidence/0063cb5be8f2809e-FIXES.json",
+          "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+          "bytes": 4105,
+          "selector": "/items/3"
+        }
+      ]
+    },
+    {
+      "id": "FIX-A1-062-COATING-R30-ISA",
+      "correction": "{\"id\": \"FIX-A1-062-COATING-R30-ISA\", \"card\": \"062\", \"row\": {\"R_m\": 30, \"weather\": \"ISA\"}, \"field\": \"payload_with_concept_MGA_kg\", \"card_value\": -6703.783775575847, \"reviewer_value\": -6702.927040639747, \"difference_kg\": 0.8567349361001106, \"cause\": \"Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.\", \"decision_effect\": \"All six signs remain negative; no float/no-float decision changes.\", \"review_status\": \"unreviewed correction; one review round\"}",
+      "by": [
+        "rpt-ref-3692687111eb9cac0c5d"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "FIX-A1-062-COATING-R30-ISA",
+      "sources": [
+        {
+          "report": "rpt-ref-3692687111eb9cac0c5d",
+          "artifact": "evidence/0063cb5be8f2809e-FIXES.json",
+          "snapshot": "evidence/0063cb5be8f2809e-FIXES.json",
+          "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+          "bytes": 4105,
+          "selector": "/items/4"
+        }
+      ]
+    },
+    {
+      "id": "FIX-A1-062-COATING-R30-optimistic",
+      "correction": "{\"id\": \"FIX-A1-062-COATING-R30-optimistic\", \"card\": \"062\", \"row\": {\"R_m\": 30, \"weather\": \"optimistic\"}, \"field\": \"payload_with_concept_MGA_kg\", \"card_value\": -11101.632034369179, \"reviewer_value\": -11100.775299433075, \"difference_kg\": 0.8567349361037486, \"cause\": \"Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.\", \"decision_effect\": \"All six signs remain negative; no float/no-float decision changes.\", \"review_status\": \"unreviewed correction; one review round\"}",
+      "by": [
+        "rpt-ref-3692687111eb9cac0c5d"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "FIX-A1-062-COATING-R30-optimistic",
+      "sources": [
+        {
+          "report": "rpt-ref-3692687111eb9cac0c5d",
+          "artifact": "evidence/0063cb5be8f2809e-FIXES.json",
+          "snapshot": "evidence/0063cb5be8f2809e-FIXES.json",
+          "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+          "bytes": 4105,
+          "selector": "/items/5"
+        }
+      ]
+    },
+    {
+      "id": "F-A2-058-P2-HARDWARE",
+      "correction": "The site-coverage configurations include relief and ballast operationally but use hull mass without the separately declared valve/bladder hardware. | Demonstrated accounting omission; proposed corrected rows have not undergone a fix-review round.",
+      "by": [
+        "rpt-1228-review-a-058-061-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "F-A2-058-P2-HARDWARE",
+      "sources": [
+        {
+          "report": "rpt-1228-review-a-058-061-1020",
+          "artifact": "evidence/93f07ada6e604aa5-FIXES.json",
+          "snapshot": "evidence/93f07ada6e604aa5-FIXES.json",
+          "sha256": "93f07ada6e604aa5a3deef1dc48ebc49f4c37c2c4c695f4f1764608d5985a1f0",
+          "bytes": 5191,
+          "selector": "/rows/0"
+        }
+      ]
+    },
+    {
+      "id": "F-A2-058-P3-HARDWARE",
+      "correction": "The standard-pressure P3 coverage likewise uses hull mass. It omits at least the declared common 5 kg valve, and no matched bladder mass is present in the coverage row. | The valve-only recount is an upper bound, not a complete repaired P3 bill.",
+      "by": [
+        "rpt-1228-review-a-058-061-1020"
+      ],
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "finding_id": "F-A2-058-P3-HARDWARE",
+      "sources": [
+        {
+          "report": "rpt-1228-review-a-058-061-1020",
+          "artifact": "evidence/93f07ada6e604aa5-FIXES.json",
+          "snapshot": "evidence/93f07ada6e604aa5-FIXES.json",
+          "sha256": "93f07ada6e604aa5a3deef1dc48ebc49f4c37c2c4c695f4f1764608d5985a1f0",
+          "bytes": 5191,
+          "selector": "/rows/1"
+        }
+      ]
+    }
+  ],
+  "previous_rows": 118,
+  "previous_030c_rows": 153,
+  "previous_030d_rows": 172
+}

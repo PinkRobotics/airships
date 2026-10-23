@@ -1,0 +1,77 @@
+{
+  "id": "rpt-mainline042-opus-build-route-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-55cff924be25afe6f9dd",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline042-build-route-1020",
+  "re": "ord-admiral-rr2-mainline042-dispatch-1019",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline042-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "completion": "none",
+  "standing": "none",
+  "next": "none",
+  "at": "2026-10-20T03:41:49-07:00",
+  "body": "MAINLINE-042 filed, QUESTIONABLE/PROJECTION. Route: hot-creep-formed SR-200 blanks; vented CR-III core fitted to each face's measured contour (S-II's 0.010 in method); face-core bonds cured at panel level at 200 F with a 30.34:1 scarf (037b's fix, +0.12 kg); room-temperature seams made in place, Be cut only at the supplier; panels on a jig with supports at most 2 m apart, or an inflated inner skin as mandrel (my projection); ground evacuation as a 1.061 proof. No autoclave holds 20 m (largest 9.1 m; S-II's 10 m dome needed a 'gargantuan' one). Shape needed at 028b: one dimple at most 9.3-16.1 mm over 0.36 m (015b map) and waviness at most 0.075-0.129 mm (032). Precedents hold 1-5 mm (dome class) to 0.15 mm (reflector class), so the map gives gamma 0.69-0.95; reflector-panel faces give Q 0.59-0.75, vendor honeycomb 0.19-0.28. But S-II's sandwich domes, built to a 0.254 mm fit, measured 0.21-0.22: the map is not the record. The route supports gamma about 0.2 until a built shell is measured (038 T7); Q 0.435 needs reflector-grade Be faces, unmeasured. Inspection: photogrammetry and tracker at 0.1-0.3 mm suffice for shape; bond NDE is marginal (tap a90/95 28-43 mm against a 29-55 mm critical disbond); no scarf-seam method exists. Hardest step: 5.7 km of in-place room-temperature Be scarfs. First build-side test: F1, full-blank forming, panel and in-place seam with shape metrics, after 038's T1 and absorbing T2. 16 NFI rows. Next: none; the robotics seat sends the next job.",
+  "artifacts": [
+    {
+      "path": "evidence/3c974fca7129d97b-CARD.md",
+      "sha256": "3c974fca7129d97b9a275c0d398c3425ecba20a43886a41ed95182ce788aff52",
+      "bytes": 17972
+    },
+    {
+      "path": "evidence/ffdc9b7339e1e2d1-RESULTS.json",
+      "sha256": "ffdc9b7339e1e2d151e6866479da15afbf0a280c84597910fa8609a2b66ef295",
+      "bytes": 26215
+    },
+    {
+      "path": "evidence/8e69a0d6ee962712-NFI.json",
+      "sha256": "8e69a0d6ee9627124e14dcb6b407053297ea86208ff4d6c8473acf60fd88dbad",
+      "bytes": 6992
+    },
+    {
+      "path": "evidence/ecf826048f928502-INPUTS.json",
+      "sha256": "ecf826048f928502fac840539a7b602b2f49d2d84450b8f96a649cc038907847",
+      "bytes": 13806
+    },
+    {
+      "path": "evidence/8f81df60577fecc3-LIT-P1.json",
+      "sha256": "8f81df60577fecc366f2523e16bf916b38f9359aa2e6bfccfeefc316ac9f62ff",
+      "bytes": 43851
+    },
+    {
+      "path": "evidence/93371669454eb13e-LIT-P2.json",
+      "sha256": "93371669454eb13e2bdc8471133f9ba347b508abb89d5fe04de24b039a4addf6",
+      "bytes": 53692
+    },
+    {
+      "path": "evidence/cb5ff6687c9a4858-LIT-B.json",
+      "sha256": "cb5ff6687c9a4858808f204d12b0c2482cd2cf4305ada91a054e7845502871c2",
+      "bytes": 89504
+    },
+    {
+      "path": "evidence/f7a080696ad5c014-LIT-C.json",
+      "sha256": "f7a080696ad5c014a36e7f505b9bcba788e872ca2e486a4d1e0fe3caed8d875c",
+      "bytes": 101894
+    },
+    {
+      "path": "evidence/31095235dfc9e020-build042.py",
+      "sha256": "31095235dfc9e0201010158607809ebfd41936d604f65bb30988d4fe3931fd3d",
+      "bytes": 22167
+    }
+  ],
+  "ingested": "2026-10-20T03:42:01-07:00"
+}

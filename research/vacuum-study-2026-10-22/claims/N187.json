@@ -1,0 +1,105 @@
+{
+  "id": "N187",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N187",
+    "report": "rpt-ref-3e02218a03708a878faa",
+    "card": "MAINLINE-020",
+    "file": "evidence/72e91c4df6df4236-NFI.json",
+    "row_id": "NFI-020-GRADE-ORIENTATION-COMPRESSION",
+    "fields": {
+      "id": "NFI-020-GRADE-ORIENTATION-COMPRESSION",
+      "rank": 3,
+      "tag": "QUESTIONABLE",
+      "claim": "S200F bulk properties are not an established rolled SR200, formed and joined, biaxial compression basis.",
+      "optimistic": {
+        "inherited_E_GPa": 303,
+        "inherited_compression_MPa": 283,
+        "orientation_retention": 1.0,
+        "SR200_tensile_elongation_percent_in_1inch": 10
+      },
+      "conservative": {
+        "current_E_GPa": 290,
+        "assumed_compression_proxy_MPa": 241,
+        "bulk_tensile_elongation_percent": 2,
+        "assumed_E_retention": 0.8,
+        "assumed_strength_retention": 0.7,
+        "least_SF_with_retention": 0.5318828249382828
+      },
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c2eca2d0f75e11ee9aa0f6c265376dea"
+        },
+        {
+          "id": "S03",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+        },
+        {
+          "id": "S04",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74"
+        },
+        {
+          "id": "S07",
+          "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf"
+        }
+      ],
+      "needed_to_ground": "Measure rolled-direction/transverse compression, biaxial behavior, through-thickness/peel response and post-form/post-join properties. Resolve grade, heat treatment, gauge length and guide/datasheet discrepancies.",
+      "effect_on_lead": "Current E alone gives SF 0.63631. Neither 241 MPa tensile floor nor 283 MPa inherited value is a guaranteed current SR200 compression minimum.",
+      "closed_by_this_card": false
+    }
+  },
+  "claim": "S200F bulk properties are not an established rolled SR200, formed and joined, biaxial compression basis.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/186"
+    },
+    {
+      "report": "rpt-ref-3e02218a03708a878faa",
+      "artifact": "evidence/72e91c4df6df4236-NFI.json",
+      "snapshot": "evidence/72e91c4df6df4236-NFI.json",
+      "sha256": "72e91c4df6df423644151b05eede28320435690d46ff64a0ae2e2b7459d26aba",
+      "bytes": 12646,
+      "selector": "source row ID: NFI-020-GRADE-ORIENTATION-COMPRESSION"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-3e02218a03708a878faa",
+          "artifact": "evidence/72e91c4df6df4236-NFI.json",
+          "snapshot": "evidence/72e91c4df6df4236-NFI.json",
+          "sha256": "72e91c4df6df423644151b05eede28320435690d46ff64a0ae2e2b7459d26aba",
+          "bytes": 12646,
+          "selector": "source row ID: NFI-020-GRADE-ORIENTATION-COMPRESSION"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/186"
+          }
+        ]
+      }
+    }
+  ]
+}

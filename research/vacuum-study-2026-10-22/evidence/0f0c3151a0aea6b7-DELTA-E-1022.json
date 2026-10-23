@@ -1,0 +1,1511 @@
+{
+  "id": "DELTA-E-1022",
+  "expected_version": 8,
+  "at": "2026-10-22T10:12:21-07:00",
+  "meaning": "Append Piece E on admitted version 8. Re-append DELTA-069-GRAPHITE-071 first, then 068 through 073, both review halves, 072b, and Sciences' limits. Do not rebuild version 8. The live file that labels itself version 9 is not this record.",
+  "append_findings": [
+    {
+      "id": "PD069-GRAPHITE-071",
+      "kind": "reconciliation",
+      "claim": "069's filed graphite-film variant described 070's gamma-held-0.20 cases. None float. R 30 optimistic still needs density factor 1.659, to 1357 kg/m3. 071 carries the thermal result this variant was missing. Above Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1, so 070's gamma = 1 branch matches the handbook, with the named limit that the rule is not this film on CR-III and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern that step. On the aluminum core every gamma-step case is thermally infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, and the core thickness is the search floor. On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is unchanged. This delta reconciles it. Provenance: this append is DELTA-069-GRAPHITE-071, written 2026-10-20T19:07:56-07:00 on ord-admiral-rr2-mainline069-graphite-variant-amendment-1020, never filed or admitted until DELTA-E-1022. The dispatch card names that writing at 19:07:58.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. 071 was not re-run.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/5ffdd692853839ce-CARD.md",
+          "snapshot": "evidence/5ffdd692853839ce-CARD.md",
+          "sha256": "5ffdd692853839ce9db784dcbd75515075f1f3b06556cca3f0df248e24cc89ca",
+          "bytes": 3308,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/da3f907b048d4338-RESULTS.json",
+          "snapshot": "evidence/da3f907b048d4338-RESULTS.json",
+          "sha256": "da3f907b048d4338c48df995a9cd07cde6faf695d03ac07d3eb56deb0a4101cc",
+          "bytes": 9018,
+          "selector": "/rows"
+        },
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "snapshot": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "sha256": "f9eaf5d4ec250ed2f363fef98479993948ea0f63e067b4796350ed608a8385f2",
+          "bytes": 3404,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-aa9fcf4d7d90bf834644",
+          "artifact": "evidence/eae96f3c61e1c964-CARD.md",
+          "snapshot": "evidence/eae96f3c61e1c964-CARD.md",
+          "sha256": "eae96f3c61e1c964b938e3fdf49dfd3f472f1ea3ae4413d0d04cfa3d4b6c494e",
+          "bytes": 6241,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-mainline069-graphite-variant-amendment-1020",
+          "artifact": "evidence/f2a9a70a11e9e755-GRAPHITE-VARIANT.md",
+          "snapshot": "evidence/f2a9a70a11e9e755-GRAPHITE-VARIANT.md",
+          "sha256": "f2a9a70a11e9e755352f5f74b1282ff0f26fd27f0e80c1ffadfcc5abc63f5455",
+          "bytes": 1938,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-mainline069-graphite-variant-amendment-1020",
+          "artifact": "withheld-source:f01d0586fc742617",
+          "snapshot": "withheld-source:f01d0586fc742617",
+          "sha256": "9bc219f1c11ba4766357436e5135dd3edc0db60d6d1a4a9a990d5d2785ec4eca",
+          "bytes": 1747,
+          "selector": "/body"
+        },
+        {
+          "report": "DELTA-069-GRAPHITE-071",
+          "artifact": "evidence/6106cc6103c6e360-DELTA-069-GRAPHITE-071.json",
+          "snapshot": "evidence/6106cc6103c6e360-DELTA-069-GRAPHITE-071.json",
+          "sha256": "6106cc6103c6e360da5734f23e6c896218819e99fbcdd8dbec85446156d0816f",
+          "bytes": 10223,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PE-071-LIMITS",
+      "kind": "piece_e",
+      "claim": "Beside the graphite re-append, Sciences holds three limits. The expansion is an HOPG catalogue proxy, not the graphite film. The 12.2e-6 per K release is at fixed stiffness. The thermal law is the copied model law, distinct from the E1 cure-data note.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-review-e1-custody-and-limits-1022",
+          "artifact": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "snapshot": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "sha256": "0e23989bcb269a49948e2cd1f86e00d4c8a807ffac9d73970f10cfd16c67e40c",
+          "bytes": 1557,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "snapshot": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "sha256": "f9eaf5d4ec250ed2f363fef98479993948ea0f63e067b4796350ed608a8385f2",
+          "bytes": 3404,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-KC-SOURCED",
+      "kind": "piece_e",
+      "claim": "kc = 1 - Vc/4 is CR-1457 (4.2-4), used on domes in (6.2-1). It is SOURCED and leaves the optimism ledger. The 19 t that 069 reported from removing it, and the factor 1.459147 without it, are struck. PD066-NO-KC remains a historical sensitivity only.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        },
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/662b8cd8dcf6570e-rpt-ref-3d309c9998ff4bbe5e81.json",
+          "snapshot": "evidence/662b8cd8dcf6570e-rpt-ref-3d309c9998ff4bbe5e81.json",
+          "sha256": "662b8cd8dcf6570eba65faf2b3802c8dd51f05581bd4117232d2ca51384a3e5f",
+          "bytes": 3274,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-aa9fcf4d7d90bf834644",
+          "artifact": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+          "snapshot": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+          "sha256": "1de87d6027bbe88739d06f40bc4d6163532a1b74238f733b79865cd1d8e02417",
+          "bytes": 4896,
+          "selector": "/body"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-e-dispatch-1022",
+          "artifact": "withheld-source:d905d27416dcb39c",
+          "snapshot": "withheld-source:d905d27416dcb39c",
+          "sha256": "106684d9eabed29aa49567e10dbd8ec70ba93ec05d334ac58a77b055dd377cf1",
+          "bytes": 4132,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PE-FIX-BIAX",
+      "kind": "piece_e",
+      "claim": "Demonstrated fix, UNREVIEWED. Equation 2.2-15 puts 069's filed full-demand wrinkling margin at 0.793700544. The face stress must fall by 1.259921. Sciences holds this as a fixed-geometry correction, not by itself the reoptimized density target. Other modes on that geometry were unchanged.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        },
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/662b8cd8dcf6570e-rpt-ref-3d309c9998ff4bbe5e81.json",
+          "snapshot": "evidence/662b8cd8dcf6570e-rpt-ref-3d309c9998ff4bbe5e81.json",
+          "sha256": "662b8cd8dcf6570eba65faf2b3802c8dd51f05581bd4117232d2ca51384a3e5f",
+          "bytes": 3274,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-sciences-g6-review-e1-custody-and-limits-1022",
+          "artifact": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "snapshot": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "sha256": "0e23989bcb269a49948e2cd1f86e00d4c8a807ffac9d73970f10cfd16c67e40c",
+          "bytes": 1557,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE073",
+      "kind": "piece_e",
+      "claim": "UNREVIEWED. Under 2.2-15, with BETA 1 and kc kept, face-density factors in order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic are concept 1.968795546378443, 2.0628486187667696, 1.9320040871374877, 2.0234598518275413 beside 1.779, 1.863, 1.743, 1.825, and TRL 7 1.7158053450450115, 1.7946424557687226, 1.6891161125502747, 1.7661563938364964 beside 1.544, 1.614, 1.519, 1.587. Densities 939.661, 896.818, 957.555, 914.276 and 1078.211, 1030.846, 1095.247, 1047.472 kg/m3. The rise is 1.107 to 1.113, not 1.260, because the face thickened. R30 optimistic concept closes at 914.276 kg/m3, tf 3.668148 mm, tc 167.033 mm, payload +0.009001 kg, wrinkling and buckling co-bound. The 993 and 1146 kg/m3 targets become 896.818 and 1030.846. TRL 7 at 1850 kg/m3 needs gamma factor 3.2035729948565477, realized gamma 0.6407145989713096, beside filed 2.7669873295303313 and 0.5533974659060663. Gram-scale residuals are not physical reserves. simjob-20261022t095337-eb517fa6490c exited 0.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-e883782db8adaf6f6cf4",
+          "artifact": "evidence/763bcab1187f80a2-RESULTS.json",
+          "snapshot": "evidence/763bcab1187f80a2-RESULTS.json",
+          "sha256": "763bcab1187f80a2dd82631056d53b49756ed7dc649cc716236ff7206d2434c6",
+          "bytes": 44517,
+          "selector": "/face_density_closures"
+        },
+        {
+          "report": "rpt-ref-e883782db8adaf6f6cf4",
+          "artifact": "evidence/fd333b21004d7c89-rpt-ref-e883782db8adaf6f6cf4.json",
+          "snapshot": "evidence/fd333b21004d7c89-rpt-ref-e883782db8adaf6f6cf4.json",
+          "sha256": "fd333b21004d7c893b61795f3c71e4aabec83ef819bbdb60b5b433dc126240fe",
+          "bytes": 3512,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+          "artifact": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+          "bytes": 1409,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-TERMS",
+      "kind": "piece_e",
+      "claim": "Cure, the gradient and bending stresses, and the pressure adder stay QUESTIONABLE. They are absent from CR-1457 and from DOI 10.2514/3.5568 and DOI 10.2514/3.1932. DELTA-D factors without them, uniaxial, are 1.7694119150252845, 1.8092731638452857 and 1.7397410734805205 at R30 optimistic concept. Sciences: those factors are not biaxial sensitivities and were not recomputed under 2.2-15.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+          "artifact": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+          "bytes": 1409,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE068",
+      "kind": "piece_e",
+      "claim": "068, literature arithmetic. The index is density over modulus to the power 0.514. Graphite film still needs concept multiplier 1.219 and TRL 7 multiplier 1.056. The review reproduced the film improvement as 1.5286 against filed 1.529. No beryllium sheet at 993 or 1146 kg/m3 was opened. T3 and T7 stayed on SR-200 bonded to CR-III. No purchase.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-464c160a6eeb5a095aa2",
+          "artifact": "evidence/38e1f131ff3ea0cb-rpt-ref-464c160a6eeb5a095aa2.json",
+          "snapshot": "evidence/38e1f131ff3ea0cb-rpt-ref-464c160a6eeb5a095aa2.json",
+          "sha256": "38e1f131ff3ea0cb3f2fd3342ce268d900dd2fdc6a9b3624f7d46bc970bd2cce",
+          "bytes": 3319,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "snapshot": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "sha256": "a71e87eb2e42f39557ed23b088842a797145505322e23b751a1c7704abfee89f",
+          "bytes": 3209,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE069",
+      "kind": "piece_e",
+      "claim": "069 design point, bill arithmetic reproduced, physical float not independently closed. R30 optimistic concept: face 3.216 mm at 1013.825 kg/m3, core 178.708 mm, payload +5.031 kg, buckling and wrinkling at 1.000, thermal 1.071, gamma 0.20, Q 0.33, Vc filed 1.322817. The same hull is +1499 kg in ISA and +11607 / +13101 kg at TRL 7. The graphite paragraph on this page does not stand on CR-III. simjob-20261020t185846-4e60751d4d81 exited 0.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-aa9fcf4d7d90bf834644",
+          "artifact": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+          "snapshot": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+          "sha256": "1de87d6027bbe88739d06f40bc4d6163532a1b74238f733b79865cd1d8e02417",
+          "bytes": 4896,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE070",
+      "kind": "piece_e",
+      "claim": "070: a graphite-film P2 floats in no case. At gamma 0.20 the face still needs factor 1.693 at concept and 1.478 at TRL 7, set by R20 optimistic, to 1329 and 1522 kg/m3, at 969 GPa. The review reproduced Vc on all 56 rows, the mass bills, and those factors. Vc is above 2, so the gamma 0.20 step is outside the named CR-1457 support.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-21b4b4edec3e8d7895fe",
+          "artifact": "evidence/f77103245740e68c-rpt-ref-21b4b4edec3e8d7895fe.json",
+          "snapshot": "evidence/f77103245740e68c-rpt-ref-21b4b4edec3e8d7895fe.json",
+          "sha256": "f77103245740e68c4bcdd4f8c9c9315674acd79125991e277aacc8e927c842bb",
+          "bytes": 3732,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "snapshot": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "sha256": "a71e87eb2e42f39557ed23b088842a797145505322e23b751a1c7704abfee89f",
+          "bytes": 3209,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE071",
+      "kind": "piece_e",
+      "claim": "071: on an aluminum core every gamma-step case is thermally infeasible. Thermal margin 0.535943 at 070's geometry. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary R20 optimistic still needs factor 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, on the search floor. The review reproduced those figures. The limits are PE-071-LIMITS.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "snapshot": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "sha256": "f9eaf5d4ec250ed2f363fef98479993948ea0f63e067b4796350ed608a8385f2",
+          "bytes": 3404,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "snapshot": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "sha256": "a71e87eb2e42f39557ed23b088842a797145505322e23b751a1c7704abfee89f",
+          "bytes": 3209,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-sciences-g6-review-e1-custody-and-limits-1022",
+          "artifact": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "snapshot": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "sha256": "0e23989bcb269a49948e2cd1f86e00d4c8a807ffac9d73970f10cfd16c67e40c",
+          "bytes": 1557,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-REVIEW-G",
+      "kind": "piece_e",
+      "claim": "Graphite review half is a pass. No demonstrated mismatch and no fix. Twenty-eight load-bearing numbers were re-derived and the owner code was not run. Unity knockdown at Vc at or above 2 is admissible with the named limit that it is not this film on CR-III and not a closed 20 to 30 m sphere. Five NFI rows are carried.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "snapshot": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "sha256": "a71e87eb2e42f39557ed23b088842a797145505322e23b751a1c7704abfee89f",
+          "bytes": 3209,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE072B",
+      "kind": "piece_e",
+      "claim": "072b, UNREVIEWED. No tested core gives a positive payload. That is the headline. HRH-49 has feasible geometry in all eight cases, so a blanket claim that no core is feasible is not admitted. Kevlar payloads are -27250 to -97399 kg, and the face-density factor to float is 2.67 to 3.04 at concept and 2.16 to 2.41 at TRL 7. Carbon UCF-355 has no feasible geometry in the eight cases. The model keeps equation 2.2-14. The RESULTS completion stamp is future-dated and is excluded.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-835787ddc4b56d034c73",
+          "artifact": "evidence/6782ee42c3bd6b62-rpt-ref-835787ddc4b56d034c73.json",
+          "snapshot": "evidence/6782ee42c3bd6b62-rpt-ref-835787ddc4b56d034c73.json",
+          "sha256": "6782ee42c3bd6b622c199166ac29cf0e948638ad1cb10d1126993e2dc0ba5469",
+          "bytes": 3649,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline072b-admission-limits-1022",
+          "artifact": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+          "snapshot": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+          "sha256": "de44ea8fb2e6c7f8c88f7671ed32eb4f4023a59abe8ac0ad3ef9b02019ad7a43",
+          "bytes": 1542,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-STATE",
+      "kind": "piece_e",
+      "claim": "Programme state, UNREVIEWED as a restatement. After 2.2-15 the floating design is a hypothetical face, concept R30 optimistic 914.276 kg/m3, factor 2.0234598518275413, with wrinkling and buckling co-bound and the QUESTIONABLE cure, gradient, bending and pressure adder still in the margin. The 993 and 1146 kg/m3 targets are now 896.818 and 1030.846. kc stands. The graphite route needs a matched core; 072b found no tested core with a positive payload, while HRH-49 is geometrically feasible and still heavy. T3 has to be equibiaxial, or a pressurized sphere or dome of this sandwich, before 2.2-15 is a measured allowable. T7 still has to measure this shell before any gamma above 0.20. Neither test is authorized work.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-e883782db8adaf6f6cf4",
+          "artifact": "evidence/763bcab1187f80a2-RESULTS.json",
+          "snapshot": "evidence/763bcab1187f80a2-RESULTS.json",
+          "sha256": "763bcab1187f80a2dd82631056d53b49756ed7dc649cc716236ff7206d2434c6",
+          "bytes": 44517,
+          "selector": "/face_density_closures"
+        },
+        {
+          "report": "rpt-ref-835787ddc4b56d034c73",
+          "artifact": "evidence/6782ee42c3bd6b62-rpt-ref-835787ddc4b56d034c73.json",
+          "snapshot": "evidence/6782ee42c3bd6b62-rpt-ref-835787ddc4b56d034c73.json",
+          "sha256": "6782ee42c3bd6b622c199166ac29cf0e948638ad1cb10d1126993e2dc0ba5469",
+          "bytes": 3649,
+          "selector": "/body"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-e-dispatch-1022",
+          "artifact": "withheld-source:d905d27416dcb39c",
+          "snapshot": "withheld-source:d905d27416dcb39c",
+          "sha256": "106684d9eabed29aa49567e10dbd8ec70ba93ec05d334ac58a77b055dd377cf1",
+          "bytes": 4132,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-VC",
+      "kind": "piece_e",
+      "claim": "Independent Vc on the handbook (4.2-3) is 1.3208622451020047 against filed 1.322817147615744. The model power was not fitted to close that gap.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-BUCKLING",
+      "kind": "piece_e",
+      "claim": "Handbook global buckling with cure removed is 1.0272329728699576 against the filed margin 1.000. Cure stays in the model and is unsourced.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-MEMBRANE",
+      "kind": "piece_e",
+      "claim": "Equation 2.2-14 on membrane stress at the filed pressure is 1.0491194341443413. The filed margin 1.000 includes gradient, bending and cure.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-THERMAL",
+      "kind": "piece_e",
+      "claim": "The thermal interface margin near 1.071 cannot be checked. kb and the cure-temperature increment are not a closed law in the admitted record.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-JOINTS",
+      "kind": "piece_e",
+      "claim": "Scarf, splice, mooring and weather headroom were not re-derived. Their mass exceeds the +5.031 kg residual, so the physical float is not independently closed.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-SIG0",
+      "kind": "piece_e",
+      "claim": "The copied model uses sig0 = E*h/(R*sqrt(1-nu^2)). Handbook (4.2-3) uses the one-quarter power. The discrepancy is disclosed and uncorrected. Buckling in 073 still uses the model power.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+          "artifact": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+          "bytes": 1409,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-073-LIMITS",
+      "kind": "piece_e",
+      "claim": "073 limits that remain open: the wrinkle wavelength was not compared with R; 2.2-14 and 2.2-15 are not a measured SR-200 on CR-III allowable; gamma for both weathers uses separate geometries, optimistic tf/tc 2.561/60.538 mm and ISA 2.508/59.855 mm, so the +3963.234 kg ISA payload is not a same-hull result; gram-scale residuals are not physical reserves; DELTA-D's term-removal factors were uniaxial.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+          "artifact": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+          "bytes": 1409,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-SIGMA",
+      "kind": "piece_e",
+      "claim": "Graphite review NFI-1. The applied face stress 303.7436 MPa is constant across rows and is not carried by a pinned input.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-BLEND",
+      "kind": "piece_e",
+      "claim": "Graphite review NFI-2. Global buckling sits within 0.4 percent, their side higher. CR-1457 gives no blending rule between the Kc branches.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-GROWTH",
+      "kind": "piece_e",
+      "claim": "Graphite review NFI-3. Growth plus joining is 4160 to 28235 kg per row and 070's outputs do not decompose it.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-GAMMA",
+      "kind": "piece_e",
+      "claim": "Graphite review NFI-4. gamma_d = 0.20 for hemispheres rests on CR-1457 figure 6.2-3, which the review could not re-read.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-SCARF",
+      "kind": "piece_e",
+      "claim": "Graphite review NFI-5. The wrinkling level rides the unpinned applied stress, and the 10 MPa scarf screen is an owner assumption.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-072B",
+      "kind": "piece_e",
+      "claim": "072b limits. The carbon outcome rests on unmeasured wall modulus and in-plane expansion. The Kevlar values are typical, not lot minima. The model keeps 2.2-14, so no corrected-law closure follows. The future-dated RESULTS completion stamp is excluded.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-mainline072b-admission-limits-1022",
+          "artifact": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+          "snapshot": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+          "sha256": "de44ea8fb2e6c7f8c88f7671ed32eb4f4023a59abe8ac0ad3ef9b02019ad7a43",
+          "bytes": 1542,
+          "selector": "/body"
+        }
+      ]
+    }
+  ],
+  "append_changes": [
+    {
+      "id": "PD069-GRAPHITE-071",
+      "kind": "filed_change",
+      "label": "graphite-variant-thermal",
+      "claim": "069's filed graphite-film variant described 070's gamma-held-0.20 cases. None float. R 30 optimistic still needs density factor 1.659, to 1357 kg/m3. 071 carries the thermal result this variant was missing. Above Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1, so 070's gamma = 1 branch matches the handbook, with the named limit that the rule is not this film on CR-III and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern that step. On the aluminum core every gamma-step case is thermally infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, and the core thickness is the search floor. On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is unchanged. This delta reconciles it. Provenance: this append is DELTA-069-GRAPHITE-071, written 2026-10-20T19:07:56-07:00 on ord-admiral-rr2-mainline069-graphite-variant-amendment-1020, never filed or admitted until DELTA-E-1022. The dispatch card names that writing at 19:07:58.",
+      "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+      "sources": [
+        {
+          "report": "DELTA-069-GRAPHITE-071",
+          "artifact": "evidence/6106cc6103c6e360-DELTA-069-GRAPHITE-071.json",
+          "snapshot": "evidence/6106cc6103c6e360-DELTA-069-GRAPHITE-071.json",
+          "sha256": "6106cc6103c6e360da5734f23e6c896218819e99fbcdd8dbec85446156d0816f",
+          "bytes": 10223,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PE-071-LIMITS",
+      "kind": "filed_change",
+      "label": "071-limits",
+      "claim": "Beside the graphite re-append, Sciences holds three limits. The expansion is an HOPG catalogue proxy, not the graphite film. The 12.2e-6 per K release is at fixed stiffness. The thermal law is the copied model law, distinct from the E1 cure-data note.",
+      "report": "rpt-sciences-g6-review-e1-custody-and-limits-1022",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-review-e1-custody-and-limits-1022",
+          "artifact": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "snapshot": "evidence/0e23989bcb269a49-rpt-sciences-g6-review-e1-custody-and-limits-1022.json",
+          "sha256": "0e23989bcb269a49948e2cd1f86e00d4c8a807ffac9d73970f10cfd16c67e40c",
+          "bytes": 1557,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-KC-SOURCED",
+      "kind": "filed_change",
+      "label": "kc-sourced",
+      "claim": "kc = 1 - Vc/4 is CR-1457 (4.2-4), used on domes in (6.2-1). It is SOURCED and leaves the optimism ledger. The 19 t that 069 reported from removing it, and the factor 1.459147 without it, are struck. PD066-NO-KC remains a historical sensitivity only.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-FIX-BIAX",
+      "kind": "filed_change",
+      "label": "fix-2.2-15",
+      "claim": "Demonstrated fix, UNREVIEWED. Equation 2.2-15 puts 069's filed full-demand wrinkling margin at 0.793700544. The face stress must fall by 1.259921. Sciences holds this as a fixed-geometry correction, not by itself the reoptimized density target. Other modes on that geometry were unchanged.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE073",
+      "kind": "filed_change",
+      "label": "mainline-073",
+      "claim": "UNREVIEWED. Under 2.2-15, with BETA 1 and kc kept, face-density factors in order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic are concept 1.968795546378443, 2.0628486187667696, 1.9320040871374877, 2.0234598518275413 beside 1.779, 1.863, 1.743, 1.825, and TRL 7 1.7158053450450115, 1.7946424557687226, 1.6891161125502747, 1.7661563938364964 beside 1.544, 1.614, 1.519, 1.587. Densities 939.661, 896.818, 957.555, 914.276 and 1078.211, 1030.846, 1095.247, 1047.472 kg/m3. The rise is 1.107 to 1.113, not 1.260, because the face thickened. R30 optimistic concept closes at 914.276 kg/m3, tf 3.668148 mm, tc 167.033 mm, payload +0.009001 kg, wrinkling and buckling co-bound. The 993 and 1146 kg/m3 targets become 896.818 and 1030.846. TRL 7 at 1850 kg/m3 needs gamma factor 3.2035729948565477, realized gamma 0.6407145989713096, beside filed 2.7669873295303313 and 0.5533974659060663. Gram-scale residuals are not physical reserves. simjob-20261022t095337-eb517fa6490c exited 0.",
+      "report": "rpt-ref-e883782db8adaf6f6cf4",
+      "sources": [
+        {
+          "report": "rpt-ref-e883782db8adaf6f6cf4",
+          "artifact": "evidence/763bcab1187f80a2-RESULTS.json",
+          "snapshot": "evidence/763bcab1187f80a2-RESULTS.json",
+          "sha256": "763bcab1187f80a2dd82631056d53b49756ed7dc649cc716236ff7206d2434c6",
+          "bytes": 44517,
+          "selector": "/face_density_closures"
+        }
+      ]
+    },
+    {
+      "id": "PE-TERMS",
+      "kind": "filed_change",
+      "label": "questionable-terms",
+      "claim": "Cure, the gradient and bending stresses, and the pressure adder stay QUESTIONABLE. They are absent from CR-1457 and from DOI 10.2514/3.5568 and DOI 10.2514/3.1932. DELTA-D factors without them, uniaxial, are 1.7694119150252845, 1.8092731638452857 and 1.7397410734805205 at R30 optimistic concept. Sciences: those factors are not biaxial sensitivities and were not recomputed under 2.2-15.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE068",
+      "kind": "filed_change",
+      "label": "mainline-068",
+      "claim": "068, literature arithmetic. The index is density over modulus to the power 0.514. Graphite film still needs concept multiplier 1.219 and TRL 7 multiplier 1.056. The review reproduced the film improvement as 1.5286 against filed 1.529. No beryllium sheet at 993 or 1146 kg/m3 was opened. T3 and T7 stayed on SR-200 bonded to CR-III. No purchase.",
+      "report": "rpt-ref-464c160a6eeb5a095aa2",
+      "sources": [
+        {
+          "report": "rpt-ref-464c160a6eeb5a095aa2",
+          "artifact": "evidence/38e1f131ff3ea0cb-rpt-ref-464c160a6eeb5a095aa2.json",
+          "snapshot": "evidence/38e1f131ff3ea0cb-rpt-ref-464c160a6eeb5a095aa2.json",
+          "sha256": "38e1f131ff3ea0cb3f2fd3342ce268d900dd2fdc6a9b3624f7d46bc970bd2cce",
+          "bytes": 3319,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE069",
+      "kind": "filed_change",
+      "label": "mainline-069",
+      "claim": "069 design point, bill arithmetic reproduced, physical float not independently closed. R30 optimistic concept: face 3.216 mm at 1013.825 kg/m3, core 178.708 mm, payload +5.031 kg, buckling and wrinkling at 1.000, thermal 1.071, gamma 0.20, Q 0.33, Vc filed 1.322817. The same hull is +1499 kg in ISA and +11607 / +13101 kg at TRL 7. The graphite paragraph on this page does not stand on CR-III. simjob-20261020t185846-4e60751d4d81 exited 0.",
+      "report": "rpt-ref-aa9fcf4d7d90bf834644",
+      "sources": [
+        {
+          "report": "rpt-ref-aa9fcf4d7d90bf834644",
+          "artifact": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+          "snapshot": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+          "sha256": "1de87d6027bbe88739d06f40bc4d6163532a1b74238f733b79865cd1d8e02417",
+          "bytes": 4896,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE070",
+      "kind": "filed_change",
+      "label": "mainline-070",
+      "claim": "070: a graphite-film P2 floats in no case. At gamma 0.20 the face still needs factor 1.693 at concept and 1.478 at TRL 7, set by R20 optimistic, to 1329 and 1522 kg/m3, at 969 GPa. The review reproduced Vc on all 56 rows, the mass bills, and those factors. Vc is above 2, so the gamma 0.20 step is outside the named CR-1457 support.",
+      "report": "rpt-ref-21b4b4edec3e8d7895fe",
+      "sources": [
+        {
+          "report": "rpt-ref-21b4b4edec3e8d7895fe",
+          "artifact": "evidence/f77103245740e68c-rpt-ref-21b4b4edec3e8d7895fe.json",
+          "snapshot": "evidence/f77103245740e68c-rpt-ref-21b4b4edec3e8d7895fe.json",
+          "sha256": "f77103245740e68c4bcdd4f8c9c9315674acd79125991e277aacc8e927c842bb",
+          "bytes": 3732,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE071",
+      "kind": "filed_change",
+      "label": "mainline-071",
+      "claim": "071: on an aluminum core every gamma-step case is thermally infeasible. Thermal margin 0.535943 at 070's geometry. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary R20 optimistic still needs factor 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, on the search floor. The review reproduced those figures. The limits are PE-071-LIMITS.",
+      "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+      "sources": [
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "snapshot": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "sha256": "f9eaf5d4ec250ed2f363fef98479993948ea0f63e067b4796350ed608a8385f2",
+          "bytes": 3404,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-REVIEW-G",
+      "kind": "filed_change",
+      "label": "review-graphite",
+      "claim": "Graphite review half is a pass. No demonstrated mismatch and no fix. Twenty-eight load-bearing numbers were re-derived and the owner code was not run. Unity knockdown at Vc at or above 2 is admissible with the named limit that it is not this film on CR-III and not a closed 20 to 30 m sphere. Five NFI rows are carried.",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "snapshot": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+          "sha256": "a71e87eb2e42f39557ed23b088842a797145505322e23b751a1c7704abfee89f",
+          "bytes": 3209,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE072B",
+      "kind": "filed_change",
+      "label": "mainline-072b",
+      "claim": "072b, UNREVIEWED. No tested core gives a positive payload. That is the headline. HRH-49 has feasible geometry in all eight cases, so a blanket claim that no core is feasible is not admitted. Kevlar payloads are -27250 to -97399 kg, and the face-density factor to float is 2.67 to 3.04 at concept and 2.16 to 2.41 at TRL 7. Carbon UCF-355 has no feasible geometry in the eight cases. The model keeps equation 2.2-14. The RESULTS completion stamp is future-dated and is excluded.",
+      "report": "rpt-ref-835787ddc4b56d034c73",
+      "sources": [
+        {
+          "report": "rpt-ref-835787ddc4b56d034c73",
+          "artifact": "evidence/6782ee42c3bd6b62-rpt-ref-835787ddc4b56d034c73.json",
+          "snapshot": "evidence/6782ee42c3bd6b62-rpt-ref-835787ddc4b56d034c73.json",
+          "sha256": "6782ee42c3bd6b622c199166ac29cf0e948638ad1cb10d1126993e2dc0ba5469",
+          "bytes": 3649,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-STATE",
+      "kind": "filed_change",
+      "label": "programme-state",
+      "claim": "Programme state, UNREVIEWED as a restatement. After 2.2-15 the floating design is a hypothetical face, concept R30 optimistic 914.276 kg/m3, factor 2.0234598518275413, with wrinkling and buckling co-bound and the QUESTIONABLE cure, gradient, bending and pressure adder still in the margin. The 993 and 1146 kg/m3 targets are now 896.818 and 1030.846. kc stands. The graphite route needs a matched core; 072b found no tested core with a positive payload, while HRH-49 is geometrically feasible and still heavy. T3 has to be equibiaxial, or a pressurized sphere or dome of this sandwich, before 2.2-15 is a measured allowable. T7 still has to measure this shell before any gamma above 0.20. Neither test is authorized work.",
+      "report": "rpt-ref-e883782db8adaf6f6cf4",
+      "sources": [
+        {
+          "report": "rpt-ref-e883782db8adaf6f6cf4",
+          "artifact": "evidence/763bcab1187f80a2-RESULTS.json",
+          "snapshot": "evidence/763bcab1187f80a2-RESULTS.json",
+          "sha256": "763bcab1187f80a2dd82631056d53b49756ed7dc649cc716236ff7206d2434c6",
+          "bytes": 44517,
+          "selector": "/face_density_closures"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-VC",
+      "kind": "filed_change",
+      "label": "nfi-e-vc",
+      "claim": "Independent Vc on the handbook (4.2-3) is 1.3208622451020047 against filed 1.322817147615744. The model power was not fitted to close that gap.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-BUCKLING",
+      "kind": "filed_change",
+      "label": "nfi-e-buckling",
+      "claim": "Handbook global buckling with cure removed is 1.0272329728699576 against the filed margin 1.000. Cure stays in the model and is unsourced.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-MEMBRANE",
+      "kind": "filed_change",
+      "label": "nfi-e-membrane",
+      "claim": "Equation 2.2-14 on membrane stress at the filed pressure is 1.0491194341443413. The filed margin 1.000 includes gradient, bending and cure.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-THERMAL",
+      "kind": "filed_change",
+      "label": "nfi-e-thermal",
+      "claim": "The thermal interface margin near 1.071 cannot be checked. kb and the cure-temperature increment are not a closed law in the admitted record.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-JOINTS",
+      "kind": "filed_change",
+      "label": "nfi-e-joints",
+      "claim": "Scarf, splice, mooring and weather headroom were not re-derived. Their mass exceeds the +5.031 kg residual, so the physical float is not independently closed.",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-SIG0",
+      "kind": "filed_change",
+      "label": "nfi-e-sig0",
+      "claim": "The copied model uses sig0 = E*h/(R*sqrt(1-nu^2)). Handbook (4.2-3) uses the one-quarter power. The discrepancy is disclosed and uncorrected. Buckling in 073 still uses the model power.",
+      "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+          "artifact": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+          "bytes": 1409,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-073-LIMITS",
+      "kind": "filed_change",
+      "label": "nfi-e-073-limits",
+      "claim": "073 limits that remain open: the wrinkle wavelength was not compared with R; 2.2-14 and 2.2-15 are not a measured SR-200 on CR-III allowable; gamma for both weathers uses separate geometries, optimistic tf/tc 2.561/60.538 mm and ISA 2.508/59.855 mm, so the +3963.234 kg ISA payload is not a same-hull result; gram-scale residuals are not physical reserves; DELTA-D's term-removal factors were uniaxial.",
+      "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+          "artifact": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+          "sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+          "bytes": 1409,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-SIGMA",
+      "kind": "filed_change",
+      "label": "nfi-g-sigma",
+      "claim": "Graphite review NFI-1. The applied face stress 303.7436 MPa is constant across rows and is not carried by a pinned input.",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-BLEND",
+      "kind": "filed_change",
+      "label": "nfi-g-blend",
+      "claim": "Graphite review NFI-2. Global buckling sits within 0.4 percent, their side higher. CR-1457 gives no blending rule between the Kc branches.",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-GROWTH",
+      "kind": "filed_change",
+      "label": "nfi-g-growth",
+      "claim": "Graphite review NFI-3. Growth plus joining is 4160 to 28235 kg per row and 070's outputs do not decompose it.",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-GAMMA",
+      "kind": "filed_change",
+      "label": "nfi-g-gamma",
+      "claim": "Graphite review NFI-4. gamma_d = 0.20 for hemispheres rests on CR-1457 figure 6.2-3, which the review could not re-read.",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-G-SCARF",
+      "kind": "filed_change",
+      "label": "nfi-g-scarf",
+      "claim": "Graphite review NFI-5. The wrinkling level rides the unpinned applied stress, and the 10 MPa scarf screen is an owner assumption.",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "sources": [
+        {
+          "report": "rpt-ref-0ab5b482cbff0900b309",
+          "artifact": "evidence/8336422a6798a57c-NFI.json",
+          "snapshot": "evidence/8336422a6798a57c-NFI.json",
+          "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+          "bytes": 1792,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PE-NFI-072B",
+      "kind": "filed_change",
+      "label": "nfi-e-072b",
+      "claim": "072b limits. The carbon outcome rests on unmeasured wall modulus and in-plane expansion. The Kevlar values are typical, not lot minima. The model keeps 2.2-14, so no corrected-law closure follows. The future-dated RESULTS completion stamp is excluded.",
+      "report": "rpt-sciences-g6-mainline072b-admission-limits-1022",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-mainline072b-admission-limits-1022",
+          "artifact": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+          "snapshot": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+          "sha256": "de44ea8fb2e6c7f8c88f7671ed32eb4f4023a59abe8ac0ad3ef9b02019ad7a43",
+          "bytes": 1542,
+          "selector": "/body"
+        }
+      ]
+    }
+  ],
+  "append_register_rows": [
+    {
+      "rid": "R122",
+      "topic": "Graphite variant",
+      "topic_name": "071 thermal result carried onto 069",
+      "gap": "Whether the graphite-film variant filed in 069 can exist on CR-III",
+      "unknown": "072 has not yet reported a real core at or below 12.2e-6 per K.",
+      "today": [
+        "069's filed graphite-film variant described 070's gamma-held-0.20 cases. None float. R 30 optimistic still needs density factor 1.659, to 1357 kg/m3. 071 carries the thermal result this variant was missing. Above Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1, so 070's gamma = 1 branch matches the handbook, with the named limit that the rule is not this film on CR-III and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern that step. On the aluminum core every gamma-step case is thermally infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, and the core thickness is the search floor. On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is unchanged. This delta reconciles it."
+      ],
+      "needed": [
+        "A core whose expansion is at or below 12.2e-6 per K. 072 tests real cores of that kind.",
+        "Do not read 069's gamma-0.20 graphite factors as a feasible shell on CR-III."
+      ],
+      "owners": [
+        "rpt-ref-aa9fcf4d7d90bf834644",
+        "rpt-ref-9851d55bdb5d2ec1f91b"
+      ],
+      "states": [
+        "QUESTIONABLE",
+        "PROJECTION"
+      ],
+      "directions": [
+        "On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion."
+      ],
+      "check_outcome": "071's thermal result is on the record. No qualified hull safety factor.",
+      "sources": [],
+      "finding_ids": [
+        "PD069-GRAPHITE-071"
+      ]
+    },
+    {
+      "rid": "R123",
+      "topic": "Piece E",
+      "topic_name": "Equibiaxial wrinkling, the graphite condition, and what the tests must show",
+      "gap": "Whether the sphere may use the uniaxial wrinkling law, and whether a matched core makes the graphite film a hull",
+      "unknown": "2.2-15 is not a measured allowable for SR-200 on CR-III. No tested core has a positive graphite payload. T3 and T7 are not authorized.",
+      "today": [
+        "069's filed graphite-film variant described 070's gamma-held-0.20 cases. None float. R 30 optimistic still needs density factor 1.659, to 1357 kg/m3. 071 carries the thermal result this variant was missing. Above Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1, so 070's gamma = 1 branch matches the handbook, with the named limit that the rule is not this film on CR-III and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern that step. On the aluminum core every gamma-step case is thermally infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, and the core thickness is the search floor. On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is unchanged. This delta reconciles it. Provenance: this append is DELTA-069-GRAPHITE-071, written 2026-10-20T19:07:56-07:00 on ord-admiral-rr2-mainline069-graphite-variant-amendment-1020, never filed or admitted until DELTA-E-1022. The dispatch card names that writing at 19:07:58.",
+        "Demonstrated fix, UNREVIEWED. Equation 2.2-15 puts 069's filed full-demand wrinkling margin at 0.793700544. The face stress must fall by 1.259921. Sciences holds this as a fixed-geometry correction, not by itself the reoptimized density target. Other modes on that geometry were unchanged.",
+        "072b, UNREVIEWED. No tested core gives a positive payload. That is the headline. HRH-49 has feasible geometry in all eight cases, so a blanket claim that no core is feasible is not admitted. Kevlar payloads are -27250 to -97399 kg, and the face-density factor to float is 2.67 to 3.04 at concept and 2.16 to 2.41 at TRL 7. Carbon UCF-355 has no feasible geometry in the eight cases. The model keeps equation 2.2-14. The RESULTS completion stamp is future-dated and is excluded.",
+        "Programme state, UNREVIEWED as a restatement. After 2.2-15 the floating design is a hypothetical face, concept R30 optimistic 914.276 kg/m3, factor 2.0234598518275413, with wrinkling and buckling co-bound and the QUESTIONABLE cure, gradient, bending and pressure adder still in the margin. The 993 and 1146 kg/m3 targets are now 896.818 and 1030.846. kc stands. The graphite route needs a matched core; 072b found no tested core with a positive payload, while HRH-49 is geometrically feasible and still heavy. T3 has to be equibiaxial, or a pressurized sphere or dome of this sandwich, before 2.2-15 is a measured allowable. T7 still has to measure this shell before any gamma above 0.20. Neither test is authorized work."
+      ],
+      "needed": [
+        "An equibiaxial coupon, or a pressurized sphere or dome, of SR-200 on CR-III.",
+        "A matched core whose expansion, stiffness and lot minimum are measured, before the graphite film is a hull.",
+        "A sourced cure, gradient, bending and pressure adder, or a design that does not use them."
+      ],
+      "owners": [
+        "rpt-ref-e883782db8adaf6f6cf4",
+        "rpt-ref-835787ddc4b56d034c73",
+        "rpt-ref-3d309c9998ff4bbe5e81",
+        "rpt-ref-0ab5b482cbff0900b309"
+      ],
+      "states": [
+        "QUESTIONABLE",
+        "PROJECTION"
+      ],
+      "directions": [
+        "The floating design is the 073 face density, UNREVIEWED, under 2.2-15.",
+        "kc stands. The 19 t and the factor 1.459 are struck."
+      ],
+      "check_outcome": "Version 9 appended. No qualified hull safety factor.",
+      "sources": [],
+      "finding_ids": [
+        "PD069-GRAPHITE-071",
+        "PE-071-LIMITS",
+        "PE-KC-SOURCED",
+        "PE-FIX-BIAX",
+        "PE073",
+        "PE-TERMS",
+        "PE068",
+        "PE069",
+        "PE070",
+        "PE071",
+        "PE-REVIEW-G",
+        "PE072B",
+        "PE-STATE",
+        "PE-NFI-VC",
+        "PE-NFI-BUCKLING",
+        "PE-NFI-MEMBRANE",
+        "PE-NFI-THERMAL",
+        "PE-NFI-JOINTS",
+        "PE-NFI-SIG0",
+        "PE-NFI-073-LIMITS",
+        "PE-NFI-G-SIGMA",
+        "PE-NFI-G-BLEND",
+        "PE-NFI-G-GROWTH",
+        "PE-NFI-G-GAMMA",
+        "PE-NFI-G-SCARF",
+        "PE-NFI-072B"
+      ]
+    }
+  ],
+  "append_nfi_rows": [
+    {
+      "uid": "PD069-GRAPHITE-071",
+      "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+      "file": "evidence/84523fc62d9e2242-NFI.json",
+      "snapshot": "evidence/84523fc62d9e2242-NFI.json",
+      "source_sha256": "84523fc62d9e2242b435fe50428f7fb823581f2aaf021f1855d843dfddd46e04",
+      "source_json_pointer": "/open",
+      "row_id": "NFI-071-CORE",
+      "fields": {
+        "id": "NFI-071-CORE",
+        "status": "open",
+        "statement": "On CR-III the graphite variant is thermally infeasible. Face density does not release the interface. The condition is a core expansion at or below 12.2e-6 per K. 072 tests real cores of that kind."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-VC",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "file": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "source_sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+      "source_json_pointer": "/independent",
+      "row_id": "NFI-E-VC",
+      "fields": {
+        "id": "NFI-E-VC",
+        "status": "open",
+        "statement": "Independent Vc on the handbook (4.2-3) is 1.3208622451020047 against filed 1.322817147615744. The model power was not fitted to close that gap."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-BUCKLING",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "file": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "source_sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+      "source_json_pointer": "/independent",
+      "row_id": "NFI-E-BUCKLING",
+      "fields": {
+        "id": "NFI-E-BUCKLING",
+        "status": "open",
+        "statement": "Handbook global buckling with cure removed is 1.0272329728699576 against the filed margin 1.000. Cure stays in the model and is unsourced."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-MEMBRANE",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "file": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "source_sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+      "source_json_pointer": "/independent",
+      "row_id": "NFI-E-MEMBRANE",
+      "fields": {
+        "id": "NFI-E-MEMBRANE",
+        "status": "open",
+        "statement": "Equation 2.2-14 on membrane stress at the filed pressure is 1.0491194341443413. The filed margin 1.000 includes gradient, bending and cure."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-THERMAL",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "file": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "source_sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+      "source_json_pointer": "/independent",
+      "row_id": "NFI-E-THERMAL",
+      "fields": {
+        "id": "NFI-E-THERMAL",
+        "status": "open",
+        "statement": "The thermal interface margin near 1.071 cannot be checked. kb and the cure-temperature increment are not a closed law in the admitted record."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-JOINTS",
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "file": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "source_sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+      "source_json_pointer": "/rows",
+      "row_id": "NFI-E-JOINTS",
+      "fields": {
+        "id": "NFI-E-JOINTS",
+        "status": "open",
+        "statement": "Scarf, splice, mooring and weather headroom were not re-derived. Their mass exceeds the +5.031 kg residual, so the physical float is not independently closed."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-SIG0",
+      "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+      "file": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+      "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+      "source_sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+      "source_json_pointer": "/body",
+      "row_id": "NFI-E-SIG0",
+      "fields": {
+        "id": "NFI-E-SIG0",
+        "status": "open",
+        "statement": "The copied model uses sig0 = E*h/(R*sqrt(1-nu^2)). Handbook (4.2-3) uses the one-quarter power. The discrepancy is disclosed and uncorrected. Buckling in 073 still uses the model power."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-073-LIMITS",
+      "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+      "file": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+      "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+      "source_sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+      "source_json_pointer": "/body",
+      "row_id": "NFI-E-073-LIMITS",
+      "fields": {
+        "id": "NFI-E-073-LIMITS",
+        "status": "open",
+        "statement": "073 limits that remain open: the wrinkle wavelength was not compared with R; 2.2-14 and 2.2-15 are not a measured SR-200 on CR-III allowable; gamma for both weathers uses separate geometries, optimistic tf/tc 2.561/60.538 mm and ISA 2.508/59.855 mm, so the +3963.234 kg ISA payload is not a same-hull result; gram-scale residuals are not physical reserves; DELTA-D's term-removal factors were uniaxial."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-G-SIGMA",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "file": "evidence/8336422a6798a57c-NFI.json",
+      "snapshot": "evidence/8336422a6798a57c-NFI.json",
+      "source_sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+      "source_json_pointer": "/rows/0",
+      "row_id": "NFI-G-SIGMA",
+      "fields": {
+        "id": "NFI-G-SIGMA",
+        "status": "open",
+        "statement": "Graphite review NFI-1. The applied face stress 303.7436 MPa is constant across rows and is not carried by a pinned input."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-G-BLEND",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "file": "evidence/8336422a6798a57c-NFI.json",
+      "snapshot": "evidence/8336422a6798a57c-NFI.json",
+      "source_sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+      "source_json_pointer": "/rows/1",
+      "row_id": "NFI-G-BLEND",
+      "fields": {
+        "id": "NFI-G-BLEND",
+        "status": "open",
+        "statement": "Graphite review NFI-2. Global buckling sits within 0.4 percent, their side higher. CR-1457 gives no blending rule between the Kc branches."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-G-GROWTH",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "file": "evidence/8336422a6798a57c-NFI.json",
+      "snapshot": "evidence/8336422a6798a57c-NFI.json",
+      "source_sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+      "source_json_pointer": "/rows/2",
+      "row_id": "NFI-G-GROWTH",
+      "fields": {
+        "id": "NFI-G-GROWTH",
+        "status": "open",
+        "statement": "Graphite review NFI-3. Growth plus joining is 4160 to 28235 kg per row and 070's outputs do not decompose it."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-G-GAMMA",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "file": "evidence/8336422a6798a57c-NFI.json",
+      "snapshot": "evidence/8336422a6798a57c-NFI.json",
+      "source_sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+      "source_json_pointer": "/rows/3",
+      "row_id": "NFI-G-GAMMA",
+      "fields": {
+        "id": "NFI-G-GAMMA",
+        "status": "open",
+        "statement": "Graphite review NFI-4. gamma_d = 0.20 for hemispheres rests on CR-1457 figure 6.2-3, which the review could not re-read."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-G-SCARF",
+      "report": "rpt-ref-0ab5b482cbff0900b309",
+      "file": "evidence/8336422a6798a57c-NFI.json",
+      "snapshot": "evidence/8336422a6798a57c-NFI.json",
+      "source_sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+      "source_json_pointer": "/rows/4",
+      "row_id": "NFI-G-SCARF",
+      "fields": {
+        "id": "NFI-G-SCARF",
+        "status": "open",
+        "statement": "Graphite review NFI-5. The wrinkling level rides the unpinned applied stress, and the 10 MPa scarf screen is an owner assumption."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PE-NFI-072B",
+      "report": "rpt-sciences-g6-mainline072b-admission-limits-1022",
+      "file": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+      "snapshot": "evidence/de44ea8fb2e6c7f8-rpt-sciences-g6-mainline072b-admission-limits-1022.json",
+      "source_sha256": "de44ea8fb2e6c7f8c88f7671ed32eb4f4023a59abe8ac0ad3ef9b02019ad7a43",
+      "source_json_pointer": "/body",
+      "row_id": "NFI-E-072B",
+      "fields": {
+        "id": "NFI-E-072B",
+        "status": "open",
+        "statement": "072b limits. The carbon outcome rests on unmeasured wall modulus and in-plane expansion. The Kevlar values are typical, not lot minima. The model keeps 2.2-14, so no corrected-law closure follows. The future-dated RESULTS completion stamp is excluded."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    }
+  ],
+  "append_grounding_routes": [
+    {
+      "id": "PE-T3-T7",
+      "statement": "T3 has to be equibiaxial, or a pressurized sphere or dome of SR-200 on CR-III, before 2.2-15 is a measured allowable. T7 still has to measure this sandwich shell before any gamma above 0.20. Neither is authorized work.",
+      "status": "open"
+    }
+  ],
+  "amend_findings": [
+    {
+      "id": "PD066-NO-KC",
+      "reason": "kc is sourced from CR-1457 (4.2-4). The factor without it is struck as an optimism credit and kept only as a historical sensitivity.",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-e-dispatch-1022",
+          "artifact": "withheld-source:d905d27416dcb39c",
+          "snapshot": "withheld-source:d905d27416dcb39c",
+          "sha256": "106684d9eabed29aa49567e10dbd8ec70ba93ec05d334ac58a77b055dd377cf1",
+          "bytes": 4132,
+          "selector": ""
+        }
+      ],
+      "changes": {
+        "claim": "STRUCK as an optimism credit. UNREVIEWED. Face-density factors with kc set to 1. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.433694, 1.487481, 1.406875, 1.459147 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.262668, 1.308957, 1.242631, 1.287813 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+        "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. Struck by DELTA-E-1022. Not an improvement target."
+      }
+    },
+    {
+      "id": "PD-STATE",
+      "reason": "Piece E replaces the programme line. kc is no longer an unsourced term.",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-e-dispatch-1022",
+          "artifact": "withheld-source:d905d27416dcb39c",
+          "snapshot": "withheld-source:d905d27416dcb39c",
+          "sha256": "106684d9eabed29aa49567e10dbd8ec70ba93ec05d334ac58a77b055dd377cf1",
+          "bytes": 4132,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-e883782db8adaf6f6cf4",
+          "artifact": "evidence/fd333b21004d7c89-rpt-ref-e883782db8adaf6f6cf4.json",
+          "snapshot": "evidence/fd333b21004d7c89-rpt-ref-e883782db8adaf6f6cf4.json",
+          "sha256": "fd333b21004d7c893b61795f3c71e4aabec83ef819bbdb60b5b433dc126240fe",
+          "bytes": 3512,
+          "selector": "/body"
+        }
+      ],
+      "changes": {
+        "claim": "Programme state, UNREVIEWED as a restatement. Today's admissible line is gamma 0.20 and Q 0.33. The improvement vector is 066's density-only joint witness, concept 1.862738 and TRL7 1.614325, with Sciences' limit that the L1 search is not a global-minimum proof. No real hull-face sheet in 067 meets that vector. Of the unsourced terms, kc moves the concept R20 optimistic witness the most. Cure, the grad and bend stress, and the pressure adder move it less, and every recomputed row stays at gamma 0.20 with Vc below 2. T3 has to measure wrinkling of this coupon before any Q above 0.33. T7 has to measure this sandwich shell before any gamma above 0.20. A sourced equation for kc, cure, the thermal stress, or the pressure adder would let that term stand. Superseded for the programme line by PE-STATE in DELTA-E-1022. kc is sourced and is not an optimism credit."
+      }
+    }
+  ],
+  "append_administration": [
+    {
+      "id": "ADMIN-DELTA-E-1022",
+      "at": "2026-10-22T10:12:21-07:00",
+      "note": "Version 9 written on the admitted version 8 bytes in ref-54f4f7dcfd67e7445c6b. The live file on ref-08887151c61d86c0cd02 was not used and was not written."
+    }
+  ]
+}

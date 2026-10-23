@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "case": "optimistic",
+      "family": "aramid",
+      "dense_grid_best": 0.608696995079041,
+      "refined_best": 0.6087013381388227,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "optimistic",
+      "family": "aluminium",
+      "dense_grid_best": 0.5566673946868022,
+      "refined_best": 0.5566691976265783,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative",
+      "family": "aramid",
+      "dense_grid_best": 0.009665364242272722,
+      "refined_best": 0.009665364242418957,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative",
+      "family": "aluminium",
+      "dense_grid_best": 0.012716417532965913,
+      "refined_best": 0.012716417533091313,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_passive_service",
+      "family": "aramid",
+      "dense_grid_best": 0.06672667212340966,
+      "refined_best": 0.06672686715436413,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_passive_service",
+      "family": "aluminium",
+      "dense_grid_best": 0.09806396548863591,
+      "refined_best": 0.0980639661600213,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_8h_active",
+      "family": "aramid",
+      "dense_grid_best": 0.038827009176031026,
+      "refined_best": 0.038827009176061515,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_8h_active",
+      "family": "aluminium",
+      "dense_grid_best": 0.05426524763766435,
+      "refined_best": 0.0542652476378344,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "optimistic_plus_100kg_payload",
+      "family": "aramid",
+      "dense_grid_best": 0.5941136319579471,
+      "refined_best": 0.5941178709652715,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "optimistic_plus_100kg_payload",
+      "family": "aluminium",
+      "dense_grid_best": 0.53588875499467,
+      "refined_best": 0.5358946339846377,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    }
+  ],
+  "reproduction": {
+    "aramid009c5_direct": 0.6504118436805308,
+    "filed_aramid009c5": 0.6504118436805308,
+    "metal014b_original_grid": 0.668649769508548,
+    "filed_metal014b": 0.668649769508548,
+    "note": "Continuous refinement slightly improves grid-filed values; pinned material properties remain unchanged."
+  },
+  "numerical_scope": "Arithmetic and mass closure, not structural, environmental or manufacturing qualification.",
+  "independent_decimal_checks": [
+    {
+      "scenario": "optimistic",
+      "family": "aramid",
+      "decimal_pressure_max_absolute_error": 7.105427357601002e-15,
+      "day_mass_slack_kg": 6.030509264640012,
+      "scalar_mass_and_pressure": "PASS"
+    },
+    {
+      "scenario": "optimistic",
+      "family": "aluminium",
+      "decimal_pressure_max_absolute_error": 3.552713678800501e-15,
+      "day_mass_slack_kg": 3.4391585706337233e-13,
+      "scalar_mass_and_pressure": "PASS"
+    },
+    {
+      "scenario": "conservative",
+      "family": "aramid",
+      "decimal_pressure_max_absolute_error": 2.7755575615628914e-17,
+      "day_mass_slack_kg": 23.187167766978003,
+      "scalar_mass_and_pressure": "PASS"
+    },
+    {
+      "scenario": "conservative",
+      "family": "aluminium",
+      "decimal_pressure_max_absolute_error": 2.220446049250313e-16,
+      "day_mass_slack_kg": 1.7030712212028824e-07,
+      "scalar_mass_and_pressure": "PASS"
+    }
+  ],
+  "input_pins_reverified": 34
+}

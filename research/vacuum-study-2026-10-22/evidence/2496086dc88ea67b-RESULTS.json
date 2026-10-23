@@ -1,0 +1,2768 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-019",
+  "unit": "vacuum-mainline019-margin-budget-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "started_at": "2026-10-20T00:09:45-07:00",
+  "time_measurement_scope": "From work-record initialization after initial brief and predecessor reading; no work cap.",
+  "area_m2": 1256.6370614359173,
+  "volume_m3": 4188.790204786391,
+  "biaxial_factor": 0.6823278038280194,
+  "reproduction": {
+    "aramid009c5_direct": 0.6504118436805308,
+    "filed_aramid009c5": 0.6504118436805308,
+    "metal014b_original_grid": 0.668649769508548,
+    "filed_metal014b": 0.668649769508548,
+    "note": "Continuous refinement slightly improves grid-filed values; pinned material properties remain unchanged."
+  },
+  "baseline_margin_sweep": {
+    "aramid": {
+      "0.0": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aramid",
+        "core": "Hexcel HRH-10-4.8-32",
+        "margin_kg": 0.0,
+        "margin_fraction": 0.0,
+        "tf_m": 0.0007929025914914341,
+        "core_m": 0.02175269036697713,
+        "core_mass_fraction": 0.19176846302247397,
+        "Vc": 3.507942936100392,
+        "Kc": 0.2850673509277921,
+        "gamma_d": 1.0,
+        "branch": "shear_crimping",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.6853984769677026,
+          "face_compression": 0.9402449770845358,
+          "core_crush": 20.950999841461407,
+          "core_shear_crimping": 0.6853984769677027,
+          "face_wrinkling": 0.685398476731107,
+          "intracell_dimpling": 61.65353276367648
+        },
+        "least_SF": 0.685398476731107,
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.4590052851726958,
+        "masses_kg": {
+          "faces": 3686.6458955338617,
+          "core": 874.7275808346728,
+          "structural": 4561.373476368534,
+          "joint_allowance": 228.06867381842673,
+          "system_allowance": 100.0,
+          "base_hull": 4889.442150186961
+        }
+      },
+      "0.05": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aramid",
+        "core": "Hexcel HRH-10-4.8-32",
+        "margin_kg": 244.47210750934806,
+        "margin_fraction": 0.05,
+        "tf_m": 0.0007524297010142063,
+        "core_m": 0.020642346846530674,
+        "core_mass_fraction": 0.19176846302247394,
+        "Vc": 3.3288836269536004,
+        "Kc": 0.3004010088857151,
+        "gamma_d": 1.0,
+        "branch": "shear_crimping",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.6504130225256961,
+          "face_compression": 0.8922511473409271,
+          "core_crush": 20.950999841461407,
+          "core_shear_crimping": 0.6504130225256961,
+          "face_wrinkling": 0.6504130223011773,
+          "intracell_dimpling": 52.68612354972161
+        },
+        "least_SF": 0.6504130223011773,
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.5374845916552768,
+        "masses_kg": {
+          "faces": 3498.464879152513,
+          "core": 830.078018635689,
+          "structural": 4328.542897788202,
+          "joint_allowance": 216.4271448894101,
+          "system_allowance": 100.0,
+          "base_hull": 4644.970042677613
+        }
+      },
+      "0.1": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aramid",
+        "core": "Hexcel HRH-10-4.8-32",
+        "margin_kg": 488.9442150186961,
+        "margin_fraction": 0.1,
+        "tf_m": 0.0007119568105369788,
+        "core_m": 0.019532003326084235,
+        "core_mass_fraction": 0.191768463022474,
+        "Vc": 3.1498243178068126,
+        "Kc": 0.3174780238842936,
+        "gamma_d": 1.0,
+        "branch": "shear_crimping",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.6154275680836896,
+          "face_compression": 0.8442573175973189,
+          "core_crush": 20.950999841461407,
+          "core_shear_crimping": 0.6154275680836896,
+          "face_wrinkling": 0.6154275678712477,
+          "intracell_dimpling": 44.633341465356025
+        },
+        "least_SF": 0.6154275678712477,
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.6248865865059978,
+        "masses_kg": {
+          "faces": 3310.2838627711653,
+          "core": 785.4284564367058,
+          "structural": 4095.712319207871,
+          "joint_allowance": 204.78561596039356,
+          "system_allowance": 100.0,
+          "base_hull": 4400.497935168265
+        }
+      },
+      "0.2": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aramid",
+        "core": "Hexcel HRH-10-4.8-32",
+        "margin_kg": 977.8884300373923,
+        "margin_fraction": 0.2,
+        "tf_m": 0.0006310110295825236,
+        "core_m": 0.01731131628519134,
+        "core_mass_fraction": 0.19176846302247397,
+        "Vc": 2.791705699513233,
+        "Kc": 0.3582039468466758,
+        "gamma_d": 1.0,
+        "branch": "shear_crimping",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.5454566591996768,
+          "face_compression": 0.7482696581101019,
+          "core_crush": 20.950999841461407,
+          "core_shear_crimping": 0.5454566591996768,
+          "face_wrinkling": 0.5454566590113883,
+          "intracell_dimpling": 31.07486898613701
+        },
+        "least_SF": 0.5454566590113883,
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.8333262294614714,
+        "masses_kg": {
+          "faces": 2933.92183000847,
+          "core": 696.1293320387388,
+          "structural": 3630.0511620472084,
+          "joint_allowance": 181.50255810236044,
+          "system_allowance": 100.0,
+          "base_hull": 3911.553720149569
+        }
+      },
+      "0.3": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aramid",
+        "core": "Hexcel HRH-10-4.8-32",
+        "margin_kg": 1466.8326450560883,
+        "margin_fraction": 0.3,
+        "tf_m": 0.0005500652486280683,
+        "core_m": 0.015090629244298444,
+        "core_mass_fraction": 0.19176846302247394,
+        "Vc": 2.4335870812196534,
+        "Kc": 0.4109160538026956,
+        "gamma_d": 1.0,
+        "branch": "shear_crimping",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.4754857503156636,
+          "face_compression": 0.652281998622885,
+          "core_crush": 20.950999841461407,
+          "core_shear_crimping": 0.47548575031566354,
+          "face_wrinkling": 0.47548575015152883,
+          "intracell_dimpling": 20.584535927508497
+        },
+        "least_SF": 0.47548575015152883,
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 2.103112448020404,
+        "masses_kg": {
+          "faces": 2557.559797245774,
+          "core": 606.8302076407716,
+          "structural": 3164.3900048865457,
+          "joint_allowance": 158.2195002443273,
+          "system_allowance": 100.0,
+          "base_hull": 3422.609505130873
+        }
+      }
+    },
+    "aluminium": {
+      "0.0": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aluminium",
+        "core": "Hexcel CR-III 5056 1/4-1.6",
+        "margin_kg": 0.0,
+        "margin_fraction": 0.0,
+        "tf_m": 0.0006931815537351295,
+        "core_m": 0.04155571552718984,
+        "core_mass_fraction": 0.2934173773779805,
+        "Vc": 0.6045935450226556,
+        "Kc": 0.848851613744336,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.6687107478088018,
+          "face_compression": 0.8219931188283307,
+          "core_crush": 7.222602947804261,
+          "core_shear_crimping": 6.51497904301508,
+          "face_wrinkling": 0.66871074887507,
+          "intracell_dimpling": 23.538266232462764
+        },
+        "least_SF": 0.6687107478088018,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.495414875978516,
+        "masses_kg": {
+          "faces": 3222.9872336909975,
+          "core": 1338.3862426775372,
+          "structural": 4561.373476368534,
+          "joint_allowance": 228.06867381842673,
+          "system_allowance": 100.0,
+          "base_hull": 4889.442150186961
+        }
+      },
+      "0.05": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aluminium",
+        "core": "Hexcel CR-III 5056 1/4-1.6",
+        "margin_kg": 244.47210750934806,
+        "margin_fraction": 0.05,
+        "tf_m": 0.0006509680268276224,
+        "core_m": 0.04042067228119007,
+        "core_mass_fraction": 0.30075475737210045,
+        "Vc": 0.5680966954367592,
+        "Kc": 0.8579758261408101,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.6170507850824493,
+          "face_compression": 0.771935196120387,
+          "core_crush": 7.222602947804261,
+          "core_shear_crimping": 6.32985262897922,
+          "face_wrinkling": 0.6170507885047083,
+          "intracell_dimpling": 19.494515835335182
+        },
+        "least_SF": 0.6170507850824493,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.6206121508562408,
+        "masses_kg": {
+          "faces": 3026.7130287891828,
+          "core": 1301.8298689990193,
+          "structural": 4328.542897788202,
+          "joint_allowance": 216.4271448894101,
+          "system_allowance": 100.0,
+          "base_hull": 4644.970042677613
+        }
+      },
+      "0.1": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aluminium",
+        "core": "Hexcel CR-III 5056 1/4-1.6",
+        "margin_kg": 488.9442150186961,
+        "margin_fraction": 0.1,
+        "tf_m": 0.000608875320398735,
+        "core_m": 0.03926818682801444,
+        "core_mass_fraction": 0.30878920076291183,
+        "Vc": 0.5316761570898725,
+        "Kc": 0.8670809607275318,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.5663114310294797,
+          "face_compression": 0.7220205455487313,
+          "core_crush": 7.222602947804261,
+          "core_shear_crimping": 6.142122830989781,
+          "face_wrinkling": 0.5663114245792225,
+          "intracell_dimpling": 15.952126777507777
+        },
+        "least_SF": 0.5663114245792225,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.7658128665566202,
+        "masses_kg": {
+          "faces": 2831.0005856048606,
+          "core": 1264.7117336030105,
+          "structural": 4095.712319207871,
+          "joint_allowance": 204.78561596039356,
+          "system_allowance": 100.0,
+          "base_hull": 4400.497935168265
+        }
+      },
+      "0.2": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aluminium",
+        "core": "Hexcel CR-III 5056 1/4-1.6",
+        "margin_kg": 977.8884300373923,
+        "margin_fraction": 0.2,
+        "tf_m": 0.0005251462034145442,
+        "core_m": 0.03689734292354664,
+        "core_mass_fraction": 0.3273656034119426,
+        "Vc": 0.45913856457025376,
+        "Kc": 0.8852153588574365,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.46795704838265656,
+          "face_compression": 0.6227323321856911,
+          "core_crush": 7.222602947804261,
+          "core_shear_crimping": 5.7568284072486495,
+          "face_wrinkling": 0.4679570445560827,
+          "intracell_dimpling": 10.23467766438737
+        },
+        "least_SF": 0.4679570445560827,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 2.136948276841581,
+        "masses_kg": {
+          "faces": 2441.6972729674007,
+          "core": 1188.353889079808,
+          "structural": 3630.0511620472084,
+          "joint_allowance": 181.50255810236044,
+          "system_allowance": 100.0,
+          "base_hull": 3911.553720149569
+        }
+      },
+      "0.3": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aluminium",
+        "core": "Hexcel CR-III 5056 1/4-1.6",
+        "margin_kg": 1466.8326450560883,
+        "margin_fraction": 0.3,
+        "tf_m": 0.0004422242400061349,
+        "core_m": 0.034409974568485824,
+        "core_mass_fraction": 0.35022330881595237,
+        "Vc": 0.38716655443286674,
+        "Kc": 0.9032083613917833,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.3744594783169704,
+          "face_compression": 0.524401262995855,
+          "core_crush": 7.222602947804261,
+          "core_shear_crimping": 5.35413169588827,
+          "face_wrinkling": 0.3744594811380864,
+          "intracell_dimpling": 6.11168710427332
+        },
+        "least_SF": 0.3744594783169704,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 2.670515924699135,
+        "masses_kg": {
+          "faces": 2056.1468669910523,
+          "core": 1108.2431378954936,
+          "structural": 3164.3900048865457,
+          "joint_allowance": 158.2195002443273,
+          "system_allowance": 100.0,
+          "base_hull": 3422.609505130873
+        }
+      }
+    }
+  },
+  "scenarios": {
+    "optimistic": {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "margin_kg": 535.9459071525378,
+      "margin_pct": 10.961289461867228,
+      "surplus_over_5pct_kg": 291.4737996431897,
+      "controlling_residual_kg": 0.0,
+      "controlling_family": "aluminium",
+      "points": {
+        "aramid": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aramid",
+          "core": "Hexcel HRH-10-4.8-32",
+          "margin_kg": 535.9459071525378,
+          "margin_fraction": 0.10961289461867228,
+          "tf_m": 0.0007041755779155658,
+          "core_m": 0.019318531021032665,
+          "core_mass_fraction": 0.19176846302247375,
+          "Vc": 3.1153987524204054,
+          "Kc": 0.32098619774533943,
+          "gamma_d": 1.0,
+          "branch": "shear_crimping",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.6087013383489418,
+            "face_compression": 0.8350301250438827,
+            "core_crush": 20.950999841461407,
+            "core_shear_crimping": 0.6087013383489418,
+            "face_wrinkling": 0.6087013381388227,
+            "intracell_dimpling": 43.18583604311617
+          },
+          "least_SF": 0.6087013381388227,
+          "governing": [
+            "global_buckling",
+            "core_shear_crimping",
+            "face_wrinkling"
+          ],
+          "factor_to_1_on_governing_only": 1.642841796697244,
+          "masses_kg": {
+            "faces": 3274.104577176995,
+            "core": 776.8442257129311,
+            "structural": 4050.9488028899264,
+            "joint_allowance": 202.54744014449633,
+            "system_allowance": 100.0,
+            "base_hull": 4353.496243034423
+          },
+          "worst_pressure_least_SF": 0.6026745922166561,
+          "budget_slack_kg": 6.030509264639363
+        },
+        "aluminium": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aluminium",
+          "core": "Hexcel CR-III 5056 1/4-1.6",
+          "margin_kg": 535.9459071525378,
+          "margin_fraction": 0.10961289461867228,
+          "tf_m": 0.0006007983495196872,
+          "core_m": 0.039044348167804416,
+          "core_mass_fraction": 0.310421734756496,
+          "Vc": 0.5246842175950898,
+          "Kc": 0.8688289456012276,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.5566691976265783,
+            "face_compression": 0.7124426587054079,
+            "core_crush": 7.222602947804261,
+            "core_shear_crimping": 6.105692288293691,
+            "face_wrinkling": 0.5566692074094574,
+            "intracell_dimpling": 15.32567713023798
+          },
+          "least_SF": 0.5566691976265783,
+          "governing": [
+            "global_buckling",
+            "face_wrinkling"
+          ],
+          "factor_to_1_on_governing_only": 1.7963990180588623,
+          "masses_kg": {
+            "faces": 2793.4462480870848,
+            "core": 1257.5025548028416,
+            "structural": 4050.9488028899264,
+            "joint_allowance": 202.54744014449633,
+            "system_allowance": 100.0,
+            "base_hull": 4353.496243034423
+          },
+          "worst_pressure_least_SF": 0.5511576214124537,
+          "budget_slack_kg": 0.0
+        }
+      },
+      "budgets": {
+        "aramid": {
+          "lines": {
+            "systems_excess_kg": 0.0,
+            "joints_and_bondfilm_excess_kg": 118.61645381625104,
+            "retained_water_kg": 125.66370614359174,
+            "contamination_kg": 5.0,
+            "temperature_pressure_loss_kg": 213.036426543752,
+            "humidity_loss_kg": 18.704389882434043,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 529.9153978878984,
+          "systems": {
+            "vacuum_hardware_kg": 15.0,
+            "power_package_kg": 10.0,
+            "controls_kg": 5.0,
+            "total_kg": 30.0
+          },
+          "joints": {
+            "length_m": 628.3185307179587,
+            "strip_kg_m": 0.15632697829725561,
+            "adhesive_kg_m": 0.030000000000000002,
+            "core_splice_kg_m": 0.0318755761847039,
+            "seam_kg": 137.10070843101013,
+            "full_area_bondfilm_kg": 184.0631855297372,
+            "total_kg": 321.1638939607474,
+            "allowance_kg": 202.54744014449633,
+            "excess_kg": 118.61645381625104
+          },
+          "climate": {
+            "dry_lift_kg": 4676.405723643209,
+            "moist_lift_kg": 4657.701333760775,
+            "dry_loss_kg": 213.036426543752,
+            "additional_humidity_loss_kg": 18.704389882434043,
+            "total_loss_kg": 231.74081642618603,
+            "low_pressure_Pa": 94506.2295347661,
+            "high_pressure_Pa": 96415.44629304421,
+            "hot_temperature_K": 294.9
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        },
+        "aluminium": {
+          "lines": {
+            "systems_excess_kg": 0.0,
+            "joints_and_bondfilm_excess_kg": 124.6469630808904,
+            "retained_water_kg": 125.66370614359174,
+            "contamination_kg": 5.0,
+            "temperature_pressure_loss_kg": 213.036426543752,
+            "humidity_loss_kg": 18.704389882434043,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 535.9459071525378,
+          "systems": {
+            "vacuum_hardware_kg": 15.0,
+            "power_package_kg": 10.0,
+            "controls_kg": 5.0,
+            "total_kg": 30.0
+          },
+          "joints": {
+            "length_m": 628.3185307179587,
+            "strip_kg_m": 0.13337723359337056,
+            "adhesive_kg_m": 0.030000000000000002,
+            "core_splice_kg_m": 0.06442317447687729,
+            "seam_kg": 143.13121769564953,
+            "full_area_bondfilm_kg": 184.0631855297372,
+            "total_kg": 327.19440322538674,
+            "allowance_kg": 202.54744014449633,
+            "excess_kg": 124.6469630808904
+          },
+          "climate": {
+            "dry_lift_kg": 4676.405723643209,
+            "moist_lift_kg": 4657.701333760775,
+            "dry_loss_kg": 213.036426543752,
+            "additional_humidity_loss_kg": 18.704389882434043,
+            "total_loss_kg": 231.74081642618603,
+            "low_pressure_Pa": 94506.2295347661,
+            "high_pressure_Pa": 96415.44629304421,
+            "hot_temperature_K": 294.9
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        }
+      }
+    },
+    "conservative": {
+      "feasible": true,
+      "tag": "QUESTIONABLE",
+      "margin_kg": 4229.074690171647,
+      "margin_pct": 86.49401220566514,
+      "surplus_over_5pct_kg": 3984.6025826622986,
+      "controlling_residual_kg": 1.7030743038048968e-07,
+      "controlling_family": "aluminium",
+      "points": {
+        "aramid": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aramid",
+          "core": "Hexcel HRH-10-4.8-32",
+          "margin_kg": 4229.074690171647,
+          "margin_fraction": 0.8649401220566515,
+          "tf_m": 5.58914946717401e-05,
+          "core_m": 0.006809160691866852,
+          "core_mass_fraction": 0.5130619606819057,
+          "Vc": 0.2542007519335684,
+          "Kc": 0.9364498120166079,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.009665364242418957,
+            "face_compression": 0.0662776205939774,
+            "core_crush": 20.950999841461407,
+            "core_shear_crimping": 0.20301442240961629,
+            "face_wrinkling": 0.022926706011233866,
+            "intracell_dimpling": 0.02159412577043419
+          },
+          "least_SF": 0.009665364242418957,
+          "governing": [
+            "global_buckling"
+          ],
+          "factor_to_1_on_governing_only": 103.4622156929421,
+          "masses_kg": {
+            "faces": 259.8706974071598,
+            "core": 273.8125978455206,
+            "structural": 533.6832952526804,
+            "joint_allowance": 26.684164762634023,
+            "system_allowance": 100.0,
+            "base_hull": 660.3674600153145
+          },
+          "worst_pressure_least_SF": 0.009475847296489174,
+          "budget_slack_kg": 23.187167766978746
+        },
+        "aluminium": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aluminium",
+          "core": "Hexcel CR-III 5056 1/4-1.6",
+          "margin_kg": 4229.074690171647,
+          "margin_fraction": 0.8649401220566515,
+          "tf_m": 5.742387252627527e-05,
+          "core_m": 0.008280419098397754,
+          "core_mass_fraction": 0.49971157396628435,
+          "Vc": 0.050569912708523866,
+          "Kc": 0.9873575218228691,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.012716417533091313,
+            "face_compression": 0.06809475500138568,
+            "core_crush": 7.222602947804261,
+            "core_shear_crimping": 1.273409661287735,
+            "face_wrinkling": 0.03571870844655321,
+            "intracell_dimpling": 0.013381688307763045
+          },
+          "least_SF": 0.012716417533091313,
+          "governing": [
+            "global_buckling"
+          ],
+          "factor_to_1_on_governing_only": 78.63849998615953,
+          "masses_kg": {
+            "faces": 266.99557578245026,
+            "core": 266.68771947023015,
+            "structural": 533.6832952526804,
+            "joint_allowance": 26.684164762634023,
+            "system_allowance": 100.0,
+            "base_hull": 660.3674600153145
+          },
+          "worst_pressure_least_SF": 0.012467076012834621,
+          "budget_slack_kg": 1.7030743038048968e-07
+        }
+      },
+      "budgets": {
+        "aramid": {
+          "lines": {
+            "systems_excess_kg": 1366.3333333333333,
+            "joints_and_bondfilm_excess_kg": 916.504684199877,
+            "retained_water_kg": 1256.6370614359175,
+            "contamination_kg": 25.0,
+            "temperature_pressure_loss_kg": 485.75819142405817,
+            "humidity_loss_kg": 106.75983050961258,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 4205.887522404668,
+          "systems": {
+            "vacuum_hardware_kg": 223.0,
+            "power_package_kg": 1223.3333333333333,
+            "controls_kg": 20.0,
+            "total_kg": 1466.3333333333333
+          },
+          "joints": {
+            "length_m": 4188.790204786391,
+            "strip_kg_m": 0.024815823634252603,
+            "adhesive_kg_m": 0.08999999999999998,
+            "core_splice_kg_m": 0.02247023028316061,
+            "seam_kg": 575.0624779030367,
+            "full_area_bondfilm_kg": 368.1263710594744,
+            "total_kg": 943.1888489625111,
+            "allowance_kg": 26.684164762634023,
+            "excess_kg": 916.504684199877
+          },
+          "climate": {
+            "dry_lift_kg": 4403.683958762903,
+            "moist_lift_kg": 4296.92412825329,
+            "dry_loss_kg": 485.75819142405817,
+            "additional_humidity_loss_kg": 106.75983050961258,
+            "total_loss_kg": 592.5180219336708,
+            "low_pressure_Pa": 93551.62115562704,
+            "high_pressure_Pa": 97370.05467218327,
+            "hot_temperature_K": 310.0
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        },
+        "aluminium": {
+          "lines": {
+            "systems_excess_kg": 1366.3333333333333,
+            "joints_and_bondfilm_excess_kg": 939.691851796548,
+            "retained_water_kg": 1256.6370614359175,
+            "contamination_kg": 25.0,
+            "temperature_pressure_loss_kg": 485.75819142405817,
+            "humidity_loss_kg": 106.75983050961258,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 4229.074690001339,
+          "systems": {
+            "vacuum_hardware_kg": 223.0,
+            "power_package_kg": 1223.3333333333333,
+            "controls_kg": 20.0,
+            "total_kg": 1466.3333333333333
+          },
+          "joints": {
+            "length_m": 4188.790204786391,
+            "strip_kg_m": 0.025496199401666222,
+            "adhesive_kg_m": 0.08999999999999998,
+            "core_splice_kg_m": 0.02732538302471259,
+            "seam_kg": 598.2496454997076,
+            "full_area_bondfilm_kg": 368.1263710594744,
+            "total_kg": 966.3760165591821,
+            "allowance_kg": 26.684164762634023,
+            "excess_kg": 939.691851796548
+          },
+          "climate": {
+            "dry_lift_kg": 4403.683958762903,
+            "moist_lift_kg": 4296.92412825329,
+            "dry_loss_kg": 485.75819142405817,
+            "additional_humidity_loss_kg": 106.75983050961258,
+            "total_loss_kg": 592.5180219336708,
+            "low_pressure_Pa": 93551.62115562704,
+            "high_pressure_Pa": 97370.05467218327,
+            "hot_temperature_K": 310.0
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        }
+      }
+    }
+  },
+  "variants": {
+    "conservative_environment_passive_service": {
+      "feasible": true,
+      "tag": "QUESTIONABLE",
+      "margin_kg": 3215.0791251085966,
+      "margin_pct": 65.75554074171139,
+      "surplus_over_5pct_kg": 2970.6070175992486,
+      "controlling_residual_kg": 0.0,
+      "controlling_family": "aluminium",
+      "points": {
+        "aramid": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aramid",
+          "core": "Hexcel HRH-10-4.8-32",
+          "margin_kg": 3215.0791251085966,
+          "margin_fraction": 0.6575554074171139,
+          "tf_m": 0.00015984802441860275,
+          "core_m": 0.018804425995398354,
+          "core_mass_fraction": 0.5043178511864022,
+          "Vc": 0.7267959507066715,
+          "Kc": 0.8183010123233321,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.06672686715436413,
+            "face_compression": 0.1895520378786669,
+            "core_crush": 20.950999841461407,
+            "core_shear_crimping": 0.5609771244911592,
+            "face_wrinkling": 0.06672686747001887,
+            "intracell_dimpling": 0.5051499035513985
+          },
+          "least_SF": 0.06672686715436413,
+          "governing": [
+            "global_buckling",
+            "face_wrinkling"
+          ],
+          "factor_to_1_on_governing_only": 14.98646711056623,
+          "masses_kg": {
+            "faces": 743.2225212223999,
+            "core": 756.17083599509,
+            "structural": 1499.39335721749,
+            "joint_allowance": 74.9696678608745,
+            "system_allowance": 100.0,
+            "base_hull": 1674.3630250783644
+          },
+          "worst_pressure_least_SF": 0.06541849721016091,
+          "budget_slack_kg": 64.65906524549155
+        },
+        "aluminium": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aluminium",
+          "core": "Hexcel CR-III 5056 1/4-1.6",
+          "margin_kg": 3215.0791251085966,
+          "margin_fraction": 0.6575554074171139,
+          "tf_m": 0.0001594785910074283,
+          "core_m": 0.023531772422320612,
+          "core_mass_fraction": 0.5054634489988276,
+          "Vc": 0.14046565731487037,
+          "Kc": 0.9648835856712824,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.0980639661600213,
+            "face_compression": 0.18911395391608254,
+            "core_crush": 7.222602947804261,
+            "core_shear_crimping": 3.6177152806867405,
+            "face_wrinkling": 0.09806396654865439,
+            "intracell_dimpling": 0.28664254372873854
+          },
+          "least_SF": 0.0980639661600213,
+          "governing": [
+            "global_buckling",
+            "face_wrinkling"
+          ],
+          "factor_to_1_on_governing_only": 10.19742561062842,
+          "masses_kg": {
+            "faces": 741.5048194724063,
+            "core": 757.8885377450836,
+            "structural": 1499.39335721749,
+            "joint_allowance": 74.9696678608745,
+            "system_allowance": 100.0,
+            "base_hull": 1674.3630250783644
+          },
+          "worst_pressure_least_SF": 0.09614114329413853,
+          "budget_slack_kg": 0.0
+        }
+      },
+      "budgets": {
+        "aramid": {
+          "lines": {
+            "systems_excess_kg": 0.0,
+            "joints_and_bondfilm_excess_kg": 1227.370554991647,
+            "retained_water_kg": 1256.6370614359175,
+            "contamination_kg": 25.0,
+            "temperature_pressure_loss_kg": 485.75819142405817,
+            "humidity_loss_kg": 106.75983050961258,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 3150.420059863105,
+          "systems": {
+            "vacuum_hardware_kg": 25.0,
+            "power_package_kg": 10.0,
+            "controls_kg": 15.0,
+            "total_kg": 50.0
+          },
+          "joints": {
+            "length_m": 4188.790204786391,
+            "strip_kg_m": 0.07097252284185962,
+            "adhesive_kg_m": 0.08999999999999998,
+            "core_splice_kg_m": 0.062054605784814566,
+            "seam_kg": 934.2138517930472,
+            "full_area_bondfilm_kg": 368.1263710594744,
+            "total_kg": 1302.3402228525215,
+            "allowance_kg": 74.9696678608745,
+            "excess_kg": 1227.370554991647
+          },
+          "climate": {
+            "dry_lift_kg": 4403.683958762903,
+            "moist_lift_kg": 4296.92412825329,
+            "dry_loss_kg": 485.75819142405817,
+            "additional_humidity_loss_kg": 106.75983050961258,
+            "total_loss_kg": 592.5180219336708,
+            "low_pressure_Pa": 93551.62115562704,
+            "high_pressure_Pa": 97370.05467218327,
+            "hot_temperature_K": 310.0
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        },
+        "aluminium": {
+          "lines": {
+            "systems_excess_kg": 0.0,
+            "joints_and_bondfilm_excess_kg": 1292.0296202371385,
+            "retained_water_kg": 1256.6370614359175,
+            "contamination_kg": 25.0,
+            "temperature_pressure_loss_kg": 485.75819142405817,
+            "humidity_loss_kg": 106.75983050961258,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 3215.0791251085966,
+          "systems": {
+            "vacuum_hardware_kg": 25.0,
+            "power_package_kg": 10.0,
+            "controls_kg": 15.0,
+            "total_kg": 50.0
+          },
+          "joints": {
+            "length_m": 4188.790204786391,
+            "strip_kg_m": 0.07080849440729817,
+            "adhesive_kg_m": 0.08999999999999998,
+            "core_splice_kg_m": 0.07765484899365802,
+            "seam_kg": 998.8729170385387,
+            "full_area_bondfilm_kg": 368.1263710594744,
+            "total_kg": 1366.999288098013,
+            "allowance_kg": 74.9696678608745,
+            "excess_kg": 1292.0296202371385
+          },
+          "climate": {
+            "dry_lift_kg": 4403.683958762903,
+            "moist_lift_kg": 4296.92412825329,
+            "dry_loss_kg": 485.75819142405817,
+            "additional_humidity_loss_kg": 106.75983050961258,
+            "total_loss_kg": 592.5180219336708,
+            "low_pressure_Pa": 93551.62115562704,
+            "high_pressure_Pa": 97370.05467218327,
+            "hot_temperature_K": 310.0
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        }
+      }
+    },
+    "conservative_environment_8h_active": {
+      "feasible": true,
+      "tag": "QUESTIONABLE",
+      "margin_kg": 3623.8011098631277,
+      "margin_pct": 74.11481716221067,
+      "surplus_over_5pct_kg": 3379.3290023537797,
+      "controlling_residual_kg": 1.6808553482405841e-07,
+      "controlling_family": "aluminium",
+      "points": {
+        "aramid": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aramid",
+          "core": "Hexcel HRH-10-4.8-32",
+          "margin_kg": 3623.8011098631277,
+          "margin_fraction": 0.7411481716221066,
+          "tf_m": 0.00011116498217036863,
+          "core_m": 0.014753324745824541,
+          "core_mass_fraction": 0.5344095539352604,
+          "Vc": 0.5059286413906958,
+          "Kc": 0.873517839652326,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.038827009176061515,
+            "face_compression": 0.13182239184863387,
+            "core_crush": 20.950999841461407,
+            "core_shear_crimping": 0.4392814837560078,
+            "face_wrinkling": 0.04368948455270577,
+            "intracell_dimpling": 0.1699035538244518
+          },
+          "least_SF": 0.038827009176061515,
+          "governing": [
+            "global_buckling"
+          ],
+          "factor_to_1_on_governing_only": 25.75526730543392,
+          "masses_kg": {
+            "faces": 516.8679351578483,
+            "core": 593.2663889600881,
+            "structural": 1110.1343241179363,
+            "joint_allowance": 55.50671620589682,
+            "system_allowance": 100.0,
+            "base_hull": 1265.6410403238333
+          },
+          "worst_pressure_least_SF": 0.03806569527064854,
+          "budget_slack_kg": 49.68055866136956
+        },
+        "aluminium": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aluminium",
+          "core": "Hexcel CR-III 5056 1/4-1.6",
+          "margin_kg": 3623.8011098631277,
+          "margin_fraction": 0.7411481716221066,
+          "tf_m": 0.0001186020792328404,
+          "core_m": 0.017346745531861173,
+          "core_mass_fraction": 0.5032608839931716,
+          "Vc": 0.10445619383731723,
+          "Kc": 0.9738859515406707,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.0542652476378344,
+            "face_compression": 0.14064149930535957,
+            "core_crush": 7.222602947804261,
+            "core_shear_crimping": 2.6671626169997165,
+            "face_wrinkling": 0.07325084534733563,
+            "intracell_dimpling": 0.11789907221236676
+          },
+          "least_SF": 0.0542652476378344,
+          "governing": [
+            "global_buckling"
+          ],
+          "factor_to_1_on_governing_only": 18.428000304614617,
+          "masses_kg": {
+            "faces": 551.4471428111816,
+            "core": 558.6871813067547,
+            "structural": 1110.1343241179363,
+            "joint_allowance": 55.50671620589682,
+            "system_allowance": 100.0,
+            "base_hull": 1265.6410403238333
+          },
+          "worst_pressure_least_SF": 0.05320122317434745,
+          "budget_slack_kg": 1.6808553482405841e-07
+        }
+      },
+      "budgets": {
+        "aramid": {
+          "lines": {
+            "systems_excess_kg": 550.7777777777778,
+            "joints_and_bondfilm_excess_kg": 1100.2932685525225,
+            "retained_water_kg": 1256.6370614359175,
+            "contamination_kg": 25.0,
+            "temperature_pressure_loss_kg": 485.75819142405817,
+            "humidity_loss_kg": 106.75983050961258,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 3574.120551201758,
+          "systems": {
+            "vacuum_hardware_kg": 223.0,
+            "power_package_kg": 407.77777777777777,
+            "controls_kg": 20.0,
+            "total_kg": 650.7777777777778
+          },
+          "joints": {
+            "length_m": 4188.790204786391,
+            "strip_kg_m": 0.04935725208364367,
+            "adhesive_kg_m": 0.08999999999999998,
+            "core_splice_kg_m": 0.04868597166122099,
+            "seam_kg": 787.6736136989447,
+            "full_area_bondfilm_kg": 368.1263710594744,
+            "total_kg": 1155.7999847584192,
+            "allowance_kg": 55.50671620589682,
+            "excess_kg": 1100.2932685525225
+          },
+          "climate": {
+            "dry_lift_kg": 4403.683958762903,
+            "moist_lift_kg": 4296.92412825329,
+            "dry_loss_kg": 485.75819142405817,
+            "additional_humidity_loss_kg": 106.75983050961258,
+            "total_loss_kg": 592.5180219336708,
+            "low_pressure_Pa": 93551.62115562704,
+            "high_pressure_Pa": 97370.05467218327,
+            "hot_temperature_K": 310.0
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        },
+        "aluminium": {
+          "lines": {
+            "systems_excess_kg": 550.7777777777778,
+            "joints_and_bondfilm_excess_kg": 1149.9738270458065,
+            "retained_water_kg": 1256.6370614359175,
+            "contamination_kg": 25.0,
+            "temperature_pressure_loss_kg": 485.75819142405817,
+            "humidity_loss_kg": 106.75983050961258,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 0.0
+          },
+          "total_margin_kg": 3623.801109695042,
+          "systems": {
+            "vacuum_hardware_kg": 223.0,
+            "power_package_kg": 407.77777777777777,
+            "controls_kg": 20.0,
+            "total_kg": 650.7777777777778
+          },
+          "joints": {
+            "length_m": 4188.790204786391,
+            "strip_kg_m": 0.052659323179381136,
+            "adhesive_kg_m": 0.08999999999999998,
+            "core_splice_kg_m": 0.05724426025514187,
+            "seam_kg": 837.3541721922289,
+            "full_area_bondfilm_kg": 368.1263710594744,
+            "total_kg": 1205.4805432517032,
+            "allowance_kg": 55.50671620589682,
+            "excess_kg": 1149.9738270458065
+          },
+          "climate": {
+            "dry_lift_kg": 4403.683958762903,
+            "moist_lift_kg": 4296.92412825329,
+            "dry_loss_kg": 485.75819142405817,
+            "additional_humidity_loss_kg": 106.75983050961258,
+            "total_loss_kg": 592.5180219336708,
+            "low_pressure_Pa": 93551.62115562704,
+            "high_pressure_Pa": 97370.05467218327,
+            "hot_temperature_K": 310.0
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        }
+      }
+    },
+    "optimistic_plus_100kg_payload": {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "margin_kg": 637.8525713021207,
+      "margin_pct": 13.045508090891937,
+      "surplus_over_5pct_kg": 393.3804637927727,
+      "controlling_residual_kg": 3.410605131648481e-13,
+      "controlling_family": "aluminium",
+      "points": {
+        "aramid": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aramid",
+          "core": "Hexcel HRH-10-4.8-32",
+          "margin_kg": 637.8525713021207,
+          "margin_fraction": 0.13045508090891939,
+          "tf_m": 0.0006873047074549428,
+          "core_m": 0.018855691291046407,
+          "core_mass_fraction": 0.1917684630224739,
+          "Vc": 3.040759002855599,
+          "Kc": 0.32886525997650345,
+          "gamma_d": 1.0,
+          "branch": "shear_crimping",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.5941178711703569,
+            "face_compression": 0.8150241982379091,
+            "core_crush": 20.950999841461407,
+            "core_shear_crimping": 0.5941178711703569,
+            "face_wrinkling": 0.5941178709652715,
+            "intracell_dimpling": 40.15562689890195
+          },
+          "least_SF": 0.5941178709652715,
+          "governing": [
+            "global_buckling",
+            "core_shear_crimping",
+            "face_wrinkling"
+          ],
+          "factor_to_1_on_governing_only": 1.68316768249251,
+          "masses_kg": {
+            "faces": 3195.6625011828332,
+            "core": 758.232335850348,
+            "structural": 3953.894837033181,
+            "joint_allowance": 197.69474185165905,
+            "system_allowance": 100.0,
+            "base_hull": 4251.58957888484
+          },
+          "worst_pressure_least_SF": 0.5882355158071995,
+          "budget_slack_kg": 5.917575186729664
+        },
+        "aluminium": {
+          "feasible": true,
+          "tag": "QUESTIONABLE",
+          "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+          "family": "aluminium",
+          "core": "Hexcel CR-III 5056 1/4-1.6",
+          "margin_kg": 637.8525713021207,
+          "margin_fraction": 0.13045508090891939,
+          "tf_m": 0.0005833052653477736,
+          "core_m": 0.03855629102962258,
+          "core_mass_fraction": 0.31406593607534555,
+          "Vc": 0.5095372337638661,
+          "Kc": 0.8726156915590335,
+          "gamma_d": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "near_branch_switch": false,
+          "modes": {
+            "global_buckling": 0.5358946339846377,
+            "face_compression": 0.6916988943352842,
+            "core_crush": 7.222602947804261,
+            "core_shear_crimping": 6.026296136892716,
+            "face_wrinkling": 0.5358946370229002,
+            "intracell_dimpling": 14.025590967444812
+          },
+          "least_SF": 0.5358946339846377,
+          "governing": [
+            "global_buckling",
+            "face_wrinkling"
+          ],
+          "factor_to_1_on_governing_only": 1.8660384646222576,
+          "masses_kg": {
+            "faces": 2712.1111538968794,
+            "core": 1241.7836831363018,
+            "structural": 3953.894837033181,
+            "joint_allowance": 197.69474185165905,
+            "system_allowance": 100.0,
+            "base_hull": 4251.58957888484
+          },
+          "worst_pressure_least_SF": 0.5305887465194432,
+          "budget_slack_kg": 3.410605131648481e-13
+        }
+      },
+      "budgets": {
+        "aramid": {
+          "lines": {
+            "systems_excess_kg": 0.0,
+            "joints_and_bondfilm_excess_kg": 120.63605204374369,
+            "retained_water_kg": 125.66370614359174,
+            "contamination_kg": 5.0,
+            "temperature_pressure_loss_kg": 213.036426543752,
+            "humidity_loss_kg": 18.704389882434043,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 100.0
+          },
+          "total_margin_kg": 631.9349961153911,
+          "systems": {
+            "vacuum_hardware_kg": 15.0,
+            "power_package_kg": 10.0,
+            "controls_kg": 5.0,
+            "total_kg": 30.0
+          },
+          "joints": {
+            "length_m": 628.3185307179587,
+            "strip_kg_m": 0.1525816450549973,
+            "adhesive_kg_m": 0.030000000000000002,
+            "core_splice_kg_m": 0.031111890630226572,
+            "seam_kg": 134.26760836566552,
+            "full_area_bondfilm_kg": 184.0631855297372,
+            "total_kg": 318.33079389540273,
+            "allowance_kg": 197.69474185165905,
+            "excess_kg": 120.63605204374369
+          },
+          "climate": {
+            "dry_lift_kg": 4676.405723643209,
+            "moist_lift_kg": 4657.701333760775,
+            "dry_loss_kg": 213.036426543752,
+            "additional_humidity_loss_kg": 18.704389882434043,
+            "total_loss_kg": 231.74081642618603,
+            "low_pressure_Pa": 94506.2295347661,
+            "high_pressure_Pa": 96415.44629304421,
+            "hot_temperature_K": 294.9
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        },
+        "aluminium": {
+          "lines": {
+            "systems_excess_kg": 0.0,
+            "joints_and_bondfilm_excess_kg": 126.55362723047301,
+            "retained_water_kg": 125.66370614359174,
+            "contamination_kg": 5.0,
+            "temperature_pressure_loss_kg": 213.036426543752,
+            "humidity_loss_kg": 18.704389882434043,
+            "internal_gas_kg": 48.89442150186961,
+            "payload_kg": 100.0
+          },
+          "total_margin_kg": 637.8525713021204,
+          "systems": {
+            "vacuum_hardware_kg": 15.0,
+            "power_package_kg": 10.0,
+            "controls_kg": 5.0,
+            "total_kg": 30.0
+          },
+          "joints": {
+            "length_m": 628.3185307179587,
+            "strip_kg_m": 0.12949376890720574,
+            "adhesive_kg_m": 0.030000000000000002,
+            "core_splice_kg_m": 0.06361788019887726,
+            "seam_kg": 140.18518355239482,
+            "full_area_bondfilm_kg": 184.0631855297372,
+            "total_kg": 324.24836908213206,
+            "allowance_kg": 197.69474185165905,
+            "excess_kg": 126.55362723047301
+          },
+          "climate": {
+            "dry_lift_kg": 4676.405723643209,
+            "moist_lift_kg": 4657.701333760775,
+            "dry_loss_kg": 213.036426543752,
+            "additional_humidity_loss_kg": 18.704389882434043,
+            "total_loss_kg": 231.74081642618603,
+            "low_pressure_Pa": 94506.2295347661,
+            "high_pressure_Pa": 96415.44629304421,
+            "hot_temperature_K": 294.9
+          },
+          "allowance_credit_rule": "Only excess is charged; unused 100 kg / 5% allowances are retained, not refunded."
+        }
+      }
+    }
+  },
+  "scenario_definitions": {
+    "optimistic": {
+      "mission_hours": 24.0,
+      "payload_kg": 0.0,
+      "pressure_internal_fraction_of_p0": 0.01,
+      "rho_water_kg_m3": 1000.0,
+      "rho_adhesive_kg_m3": 1250.0,
+      "rho_splice_kg_m3": 1100.0,
+      "remaining_system_allowance_reserved": true,
+      "tag": "PROJECTION",
+      "systems_route": "ground_evacuated_sealed",
+      "vacuum_hardware_kg": 15.0,
+      "power_package_kg": 10.0,
+      "controls_kg": 5.0,
+      "pumping_W": 0.0,
+      "monitoring_W": 5.0,
+      "panel_width_m": 4.0,
+      "panel_size_tag": "PROJECTION",
+      "strip_width_m": 0.06,
+      "seam_adhesive_m": 0.0002,
+      "core_splice_width_m": 0.0015,
+      "bondfilm_lb_ft2": 0.015,
+      "water_film_m": 0.0001,
+      "contamination_kg": 5.0,
+      "temperature_rise_K": 10.0,
+      "pressure_swing_fraction": 0.01,
+      "water_vapour_Pa": 1000.0
+    },
+    "conservative": {
+      "mission_hours": 24.0,
+      "payload_kg": 0.0,
+      "pressure_internal_fraction_of_p0": 0.01,
+      "rho_water_kg_m3": 1000.0,
+      "rho_adhesive_kg_m3": 1250.0,
+      "rho_splice_kg_m3": 1100.0,
+      "remaining_system_allowance_reserved": true,
+      "tag": "QUESTIONABLE",
+      "systems_route": "onboard_pump_24h_battery",
+      "vacuum_hardware_kg": 223.0,
+      "controls_kg": 20.0,
+      "pumping_W": 5500.0,
+      "monitoring_W": 5.0,
+      "battery_pack_Wh_kg": 150.0,
+      "usable_fraction": 0.8,
+      "electrical_efficiency": 0.9,
+      "panel_width_m": 0.6,
+      "panel_size_tag": "PROJECTION: procurement and shaping unverified",
+      "strip_width_m": 0.12,
+      "seam_adhesive_m": 0.0003,
+      "core_splice_width_m": 0.003,
+      "bondfilm_lb_ft2": 0.03,
+      "water_film_m": 0.001,
+      "contamination_kg": 25.0,
+      "temperature_rise_K": 25.1,
+      "pressure_swing_fraction": 0.02,
+      "water_vapour_Pa": 6000.0
+    }
+  },
+  "slope_check": {
+    "this_card": {
+      "aramid": {
+        "loss_per_100kg_0_to_5": 0.014310611867487569,
+        "loss_per_100kg_0_to_30": 0.014310611867487553
+      },
+      "aluminium": {
+        "loss_per_100kg_0_to_5": 0.021131229755679666,
+        "loss_per_100kg_0_to_30": 0.020060316388757486
+      }
+    },
+    "card006": {
+      "P2_A_0_5_per100kg": 0.00864634690260653,
+      "P2_E_0_5_per100kg": 0.009517448940190472,
+      "P2_A_0_30_per100kg": 0.008631619226656272
+    }
+  },
+  "panel_limits_at_common_5pct": {
+    "aramid": {
+      "optimistic": {
+        "tag": "PROJECTION",
+        "seam_only_min_square_width_m": 2.6836550708694475,
+        "all_joint_min_square_width_m": 17.946376659340004,
+        "all_joint_feasible": true,
+        "allowance_kg": 216.4271448894101,
+        "bondfilm_kg": 184.0631855297372,
+        "seam_kg_m": 0.23109926592192942,
+        "reason": "No finite panel width can fit if continuous bond film alone exceeds the allowance.",
+        "widths": {
+          "0.6": {
+            "seam_kg": 968.0263414271035,
+            "total_joint_kg": 1152.0895269568407
+          },
+          "1.2": {
+            "seam_kg": 484.01317071355174,
+            "total_joint_kg": 668.076356243289
+          },
+          "2.0": {
+            "seam_kg": 290.407902428131,
+            "total_joint_kg": 474.47108795786824
+          },
+          "4.0": {
+            "seam_kg": 145.2039512140655,
+            "total_joint_kg": 329.2671367438027
+          },
+          "10.0": {
+            "seam_kg": 58.081580485626205,
+            "total_joint_kg": 242.14476601536342
+          },
+          "20.0": {
+            "seam_kg": 29.040790242813102,
+            "total_joint_kg": 213.1039757725503
+          }
+        }
+      },
+      "conservative": {
+        "tag": "PROJECTION",
+        "seam_only_min_square_width_m": 5.7156870688784265,
+        "all_joint_min_square_width_m": null,
+        "all_joint_feasible": false,
+        "allowance_kg": 216.4271448894101,
+        "bondfilm_kg": 368.1263710594744,
+        "seam_kg_m": 0.49219853184385876,
+        "reason": "No finite panel width can fit if continuous bond film alone exceeds the allowance.",
+        "widths": {
+          "0.6": {
+            "seam_kg": 2061.7163889977983,
+            "total_joint_kg": 2429.8427600572727
+          },
+          "1.2": {
+            "seam_kg": 1030.8581944988991,
+            "total_joint_kg": 1398.9845655583736
+          },
+          "2.0": {
+            "seam_kg": 618.5149166993394,
+            "total_joint_kg": 986.6412877588139
+          },
+          "4.0": {
+            "seam_kg": 309.2574583496697,
+            "total_joint_kg": 677.3838294091441
+          },
+          "10.0": {
+            "seam_kg": 123.70298333986788,
+            "total_joint_kg": 491.8293543993423
+          },
+          "20.0": {
+            "seam_kg": 61.85149166993394,
+            "total_joint_kg": 429.97786272940834
+          }
+        }
+      }
+    },
+    "aluminium": {
+      "optimistic": {
+        "tag": "PROJECTION",
+        "seam_only_min_square_width_m": 2.80105513756942,
+        "all_joint_min_square_width_m": 18.73146481753865,
+        "all_joint_feasible": true,
+        "allowance_kg": 216.4271448894101,
+        "bondfilm_kg": 184.0631855297372,
+        "seam_kg_m": 0.2412090112196958,
+        "reason": "No finite panel width can fit if continuous bond film alone exceeds the allowance.",
+        "widths": {
+          "0.6": {
+            "seam_kg": 1010.3739435032725,
+            "total_joint_kg": 1194.4371290330096
+          },
+          "1.2": {
+            "seam_kg": 505.18697175163624,
+            "total_joint_kg": 689.2501572813735
+          },
+          "2.0": {
+            "seam_kg": 303.11218305098174,
+            "total_joint_kg": 487.17536858071895
+          },
+          "4.0": {
+            "seam_kg": 151.55609152549087,
+            "total_joint_kg": 335.61927705522805
+          },
+          "10.0": {
+            "seam_kg": 60.622436610196345,
+            "total_joint_kg": 244.68562213993357
+          },
+          "20.0": {
+            "seam_kg": 30.311218305098173,
+            "total_joint_kg": 214.3744038348354
+          }
+        }
+      },
+      "conservative": {
+        "tag": "PROJECTION",
+        "seam_only_min_square_width_m": 5.950487202278372,
+        "all_joint_min_square_width_m": null,
+        "all_joint_feasible": false,
+        "allowance_kg": 216.4271448894101,
+        "bondfilm_kg": 368.1263710594744,
+        "seam_kg_m": 0.5124180224393915,
+        "reason": "No finite panel width can fit if continuous bond film alone exceeds the allowance.",
+        "widths": {
+          "0.6": {
+            "seam_kg": 2146.4115931501365,
+            "total_joint_kg": 2514.537964209611
+          },
+          "1.2": {
+            "seam_kg": 1073.2057965750682,
+            "total_joint_kg": 1441.3321676345427
+          },
+          "2.0": {
+            "seam_kg": 643.9234779450409,
+            "total_joint_kg": 1012.0498490045153
+          },
+          "4.0": {
+            "seam_kg": 321.96173897252044,
+            "total_joint_kg": 690.0881100319948
+          },
+          "10.0": {
+            "seam_kg": 128.78469558900818,
+            "total_joint_kg": 496.9110666484826
+          },
+          "20.0": {
+            "seam_kg": 64.39234779450409,
+            "total_joint_kg": 432.5187188539785
+          }
+        }
+      }
+    }
+  },
+  "systems_routes": {
+    "lightest_candidate": "ground-evacuated sealed service, conditional on measured whole-hull leak/outgassing",
+    "passive": {
+      "onboard_estimate_kg": [
+        30,
+        50
+      ],
+      "pumping_W": 0.0,
+      "monitoring_W": 5.0,
+      "held_pressure": "<=1% of reference external pressure for 24h if internal gas stays <=320 K and the specified normalized gas-load limit is measured",
+      "start_pressure_Pa": 10.0,
+      "maximum_pressure_Pa": 954.6083791390515,
+      "maximum_gas_temperature_K": 320.0,
+      "maximum_total_gas_throughput_at_T0_Pa_m3_s": 40.71949004941119,
+      "isothermal_T0_only_limit_Pa_m3_s": 45.795906549731576,
+      "air_mass_reserve_kg": 48.89442150186961,
+      "capacity_mbar_L_per_day": 35181639.40269127,
+      "measurement_required": "leak + outgassing + desorption through all panels, bonds, valves and core vents"
+    },
+    "inherited_one_percent_day": {
+      "Q_Pa_m3_s": 46.28072023084111,
+      "Q_mbar_L_per_s": 462.8072023084111,
+      "Q_mbar_L_per_day": 39986542.27944672,
+      "gas_kg_per_day": 48.89442150186961,
+      "required_pumping_m3_h_at_cap": 174.53292519943295
+    },
+    "active_catalog": {
+      "model": "SV 300 B, 50 Hz",
+      "pump_kg": 223.0,
+      "maximum_motor_W": 5500.0,
+      "catalog_speed_m3_h": 240.0,
+      "required_m3_h_at_320K": 196.03557761958072,
+      "ideal_compression_W_at_T0": 213.13059299312542,
+      "rated_speed_headroom_fraction_at_320K": 0.22426756874578646,
+      "rejected_smaller_reference": "SV220B 180 m3/h has only 3.13% headroom at T0 and cannot meet the 320 K gas duty at this cap.",
+      "actual_installed_power_and_speed": "UNMEASURED; the catalog rating is not a performance guarantee"
+    },
+    "getters": {
+      "status": "UNSIZED",
+      "tag": "QUESTIONABLE",
+      "note": "Room-temperature nitrogen getters exist. No capacity/rate data justify a kg estimate for this leak. Getter-only all-air pumping is not established; noble gases require another mechanism. Passive sealing does not require getters."
+    },
+    "commissioning": {
+      "reversible_minimum_to_one_percent_kWh": 104.84785703664348,
+      "inherited_formula_kWh": 511.51342318350095,
+      "note": "Variable-pressure reversible integral; actual ground energy is larger and unmeasured."
+    }
+  },
+  "climate_correction": {
+    "hot_only_delta_T_K": 25.1,
+    "exact_loss_kg": 395.8870902248156,
+    "linearized_loss_kg": 430.76517363879515,
+    "margin_remaining_on_old_5pct_kg": -151.41498271546754
+  },
+  "material_modulus_sensitivity_290GPa_same_margins": {
+    "optimistic": {
+      "aramid": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aramid",
+        "core": "Hexcel HRH-10-4.8-32",
+        "margin_kg": 535.9459071525378,
+        "margin_fraction": 0.10961289461867228,
+        "tf_m": 0.0007062375576467169,
+        "core_m": 0.01908011461461833,
+        "core_mass_fraction": 0.18940178473996663,
+        "Vc": 2.9888408486396165,
+        "Kc": 0.3345778683582815,
+        "gamma_d": 1.0,
+        "branch": "shear_crimping",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.6018430912279933,
+          "face_compression": 0.8374752754392399,
+          "core_crush": 20.950999841461407,
+          "core_shear_crimping": 0.6018430912279932,
+          "face_wrinkling": 0.6018430884429792,
+          "intracell_dimpling": 41.69713858963404
+        },
+        "least_SF": 0.6018430884429792,
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.6615626551217655,
+        "masses_kg": {
+          "faces": 3283.691869732343,
+          "core": 767.2569331575834,
+          "structural": 4050.9488028899264,
+          "joint_allowance": 202.54744014449633,
+          "system_allowance": 100.0,
+          "base_hull": 4353.496243034423
+        }
+      },
+      "aluminium": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aluminium",
+        "core": "Hexcel CR-III 5056 1/4-1.6",
+        "margin_kg": 535.9459071525378,
+        "margin_fraction": 0.10961289461867228,
+        "tf_m": 0.0005984194082825011,
+        "core_m": 0.03938778320789294,
+        "core_mass_fraction": 0.3131522119170382,
+        "Vc": 0.5002804556412385,
+        "Kc": 0.8749298860896904,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.5389998013922748,
+          "face_compression": 0.7096216469278627,
+          "core_crush": 7.222602947804261,
+          "core_shear_crimping": 6.157037819520087,
+          "face_wrinkling": 0.5389998092289623,
+          "intracell_dimpling": 14.494587477935521
+        },
+        "least_SF": 0.5389998013922748,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "factor_to_1_on_governing_only": 1.8552882531995911,
+        "masses_kg": {
+          "faces": 2782.385224902268,
+          "core": 1268.5635779876584,
+          "structural": 4050.9488028899264,
+          "joint_allowance": 202.54744014449633,
+          "system_allowance": 100.0,
+          "base_hull": 4353.496243034423
+        }
+      }
+    },
+    "conservative": {
+      "aramid": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aramid",
+        "core": "Hexcel HRH-10-4.8-32",
+        "margin_kg": 4229.074690171647,
+        "margin_fraction": 0.8649401220566515,
+        "tf_m": 5.598265170967511e-05,
+        "core_m": 0.006798620659355617,
+        "core_mass_fraction": 0.512267782075969,
+        "Vc": 0.24368493710797498,
+        "Kc": 0.9390787657230063,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.00927763608911038,
+          "face_compression": 0.06638571703351998,
+          "core_crush": 20.950999841461407,
+          "core_shear_crimping": 0.202710680889098,
+          "face_wrinkling": 0.022501804461406073,
+          "intracell_dimpling": 0.020768934727222063
+        },
+        "least_SF": 0.00927763608911038,
+        "governing": [
+          "global_buckling"
+        ],
+        "factor_to_1_on_governing_only": 107.78607722863256,
+        "masses_kg": {
+          "faces": 260.29453726259527,
+          "core": 273.38875799008514,
+          "structural": 533.6832952526804,
+          "joint_allowance": 26.684164762634023,
+          "system_allowance": 100.0,
+          "base_hull": 660.3674600153145
+        }
+      },
+      "aluminium": {
+        "feasible": true,
+        "tag": "QUESTIONABLE",
+        "geometry_tag": "PROJECTION: fabrication of these thin curved Be sandwich faces is unqualified",
+        "family": "aluminium",
+        "core": "Hexcel CR-III 5056 1/4-1.6",
+        "margin_kg": 4229.074690171647,
+        "margin_fraction": 0.8649401220566515,
+        "tf_m": 5.743982169831185e-05,
+        "core_m": 0.008278116601618037,
+        "core_mass_fraction": 0.49957262154416987,
+        "Vc": 0.048413504019604404,
+        "Kc": 0.9878966239950989,
+        "gamma_d": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "near_branch_switch": false,
+        "modes": {
+          "global_buckling": 0.012177515778443275,
+          "face_compression": 0.06811366795369152,
+          "core_crush": 7.222602947804261,
+          "core_shear_crimping": 1.2730653194040573,
+          "face_wrinkling": 0.034963486267646574,
+          "intracell_dimpling": 0.01281823112042245
+        },
+        "least_SF": 0.012177515778443275,
+        "governing": [
+          "global_buckling"
+        ],
+        "factor_to_1_on_governing_only": 82.11855506442514,
+        "masses_kg": {
+          "faces": 267.06973236896766,
+          "core": 266.6135628837128,
+          "structural": 533.6832952526804,
+          "joint_allowance": 26.684164762634023,
+          "system_allowance": 100.0,
+          "base_hull": 660.3674600153145
+        }
+      }
+    }
+  },
+  "curve": [
+    {
+      "margin_kg": 0.0,
+      "aramid": 0.685398476731107,
+      "aluminium": 0.6687107478088018
+    },
+    {
+      "margin_kg": 24.447210750934804,
+      "aramid": 0.6818999312881144,
+      "aluminium": 0.6635057075532698
+    },
+    {
+      "margin_kg": 48.89442150186961,
+      "aramid": 0.6784013858451214,
+      "aluminium": 0.6583091292074159
+    },
+    {
+      "margin_kg": 73.34163225280442,
+      "aramid": 0.6749028404021281,
+      "aluminium": 0.6531210914886357
+    },
+    {
+      "margin_kg": 97.78884300373922,
+      "aramid": 0.6714042949591352,
+      "aluminium": 0.6479416743559714
+    },
+    {
+      "margin_kg": 122.23605375467402,
+      "aramid": 0.6679057495161427,
+      "aluminium": 0.6427709594548869
+    },
+    {
+      "margin_kg": 146.68326450560883,
+      "aramid": 0.6644072040731492,
+      "aluminium": 0.6376090271494829
+    },
+    {
+      "margin_kg": 171.13047525654363,
+      "aramid": 0.6609086586301561,
+      "aluminium": 0.6324559607637332
+    },
+    {
+      "margin_kg": 195.57768600747843,
+      "aramid": 0.6574101131871632,
+      "aluminium": 0.6273118433673122
+    },
+    {
+      "margin_kg": 220.02489675841323,
+      "aramid": 0.6539115677441708,
+      "aluminium": 0.6221767544056828
+    },
+    {
+      "margin_kg": 244.47210750934804,
+      "aramid": 0.6504130223011773,
+      "aluminium": 0.6170507850824493
+    },
+    {
+      "margin_kg": 268.91931826028286,
+      "aramid": 0.6469144768581845,
+      "aluminium": 0.6119340114732335
+    },
+    {
+      "margin_kg": 293.36652901121766,
+      "aramid": 0.6434159314151918,
+      "aluminium": 0.6068265295854659
+    },
+    {
+      "margin_kg": 317.81373976215247,
+      "aramid": 0.6399173859721985,
+      "aluminium": 0.6017284169008154
+    },
+    {
+      "margin_kg": 342.26095051308727,
+      "aramid": 0.6364188405292054,
+      "aluminium": 0.5966397626040404
+    },
+    {
+      "margin_kg": 366.70816126402207,
+      "aramid": 0.6329202950862123,
+      "aluminium": 0.5915606572514104
+    },
+    {
+      "margin_kg": 391.15537201495687,
+      "aramid": 0.6294217496432198,
+      "aluminium": 0.5864911829841347
+    },
+    {
+      "margin_kg": 415.60258276589167,
+      "aramid": 0.6259232042002267,
+      "aluminium": 0.5814314354723833
+    },
+    {
+      "margin_kg": 440.04979351682647,
+      "aramid": 0.6224246587572335,
+      "aluminium": 0.5763814955637654
+    },
+    {
+      "margin_kg": 464.49700426776127,
+      "aramid": 0.6189261133142409,
+      "aluminium": 0.5713414668050434
+    },
+    {
+      "margin_kg": 488.94421501869607,
+      "aramid": 0.6154275678712477,
+      "aluminium": 0.5663114245792225
+    },
+    {
+      "margin_kg": 513.3914257696309,
+      "aramid": 0.6119290224282549,
+      "aluminium": 0.5612914759085061
+    },
+    {
+      "margin_kg": 537.8386365205657,
+      "aramid": 0.6084304769852615,
+      "aluminium": 0.5562817034161919
+    },
+    {
+      "margin_kg": 562.2858472715005,
+      "aramid": 0.604931931542269,
+      "aluminium": 0.5512822021534663
+    },
+    {
+      "margin_kg": 586.7330580224353,
+      "aramid": 0.601433386099276,
+      "aluminium": 0.546293068579016
+    },
+    {
+      "margin_kg": 611.1802687733701,
+      "aramid": 0.5979348406562832,
+      "aluminium": 0.5413143964233752
+    },
+    {
+      "margin_kg": 635.6274795243049,
+      "aramid": 0.5944362952132898,
+      "aluminium": 0.5363462825408043
+    },
+    {
+      "margin_kg": 660.0746902752397,
+      "aramid": 0.5909377497702967,
+      "aluminium": 0.5313888242685142
+    },
+    {
+      "margin_kg": 684.5219010261745,
+      "aramid": 0.587439204327304,
+      "aluminium": 0.5264421153160792
+    },
+    {
+      "margin_kg": 708.9691117771093,
+      "aramid": 0.5839406588843107,
+      "aluminium": 0.521506261732364
+    },
+    {
+      "margin_kg": 733.4163225280441,
+      "aramid": 0.5804421134413178,
+      "aluminium": 0.5165813544960871
+    },
+    {
+      "margin_kg": 757.8635332789789,
+      "aramid": 0.5769435679983246,
+      "aluminium": 0.5116674951112009
+    },
+    {
+      "margin_kg": 782.3107440299137,
+      "aramid": 0.5734450225553321,
+      "aluminium": 0.5067647908235232
+    },
+    {
+      "margin_kg": 806.7579547808485,
+      "aramid": 0.5699464771123393,
+      "aluminium": 0.5018733399684306
+    },
+    {
+      "margin_kg": 831.2051655317833,
+      "aramid": 0.5664479316693458,
+      "aluminium": 0.49699324429106645
+    },
+    {
+      "margin_kg": 855.6523762827181,
+      "aramid": 0.5629493862263533,
+      "aluminium": 0.49212460591471613
+    },
+    {
+      "margin_kg": 880.0995870336529,
+      "aramid": 0.55945084078336,
+      "aluminium": 0.4872675391399934
+    },
+    {
+      "margin_kg": 904.5467977845877,
+      "aramid": 0.5559522953403674,
+      "aluminium": 0.4824221380105464
+    },
+    {
+      "margin_kg": 928.9940085355225,
+      "aramid": 0.5524537498973743,
+      "aluminium": 0.4775885191702256
+    },
+    {
+      "margin_kg": 953.4412192864573,
+      "aramid": 0.5489552044543812,
+      "aluminium": 0.4727667859749943
+    },
+    {
+      "margin_kg": 977.8884300373921,
+      "aramid": 0.5454566590113883,
+      "aluminium": 0.4679570445560827
+    },
+    {
+      "margin_kg": 1002.3356407883269,
+      "aramid": 0.5419581135683954,
+      "aluminium": 0.46315941303060243
+    },
+    {
+      "margin_kg": 1026.7828515392619,
+      "aramid": 0.5384595681254023,
+      "aluminium": 0.4583739947554815
+    },
+    {
+      "margin_kg": 1051.2300622901967,
+      "aramid": 0.5349610226824093,
+      "aluminium": 0.4536009070067219
+    },
+    {
+      "margin_kg": 1075.6772730411315,
+      "aramid": 0.5314624772394162,
+      "aluminium": 0.4488402629967753
+    },
+    {
+      "margin_kg": 1100.1244837920663,
+      "aramid": 0.527963931796423,
+      "aluminium": 0.44409217375372534
+    },
+    {
+      "margin_kg": 1124.571694543001,
+      "aramid": 0.5244653863534305,
+      "aluminium": 0.43935676076131364
+    },
+    {
+      "margin_kg": 1149.0189052939359,
+      "aramid": 0.5209668409104371,
+      "aluminium": 0.4346341357322985
+    },
+    {
+      "margin_kg": 1173.4661160448707,
+      "aramid": 0.5174682954674449,
+      "aluminium": 0.4299244211333758
+    },
+    {
+      "margin_kg": 1197.9133267958055,
+      "aramid": 0.5139697500244516,
+      "aluminium": 0.4252277324430874
+    },
+    {
+      "margin_kg": 1222.3605375467403,
+      "aramid": 0.5104712045814582,
+      "aluminium": 0.42054419224050277
+    },
+    {
+      "margin_kg": 1246.807748297675,
+      "aramid": 0.5069726591384659,
+      "aluminium": 0.415873923283646
+    },
+    {
+      "margin_kg": 1271.2549590486099,
+      "aramid": 0.5034741136954729,
+      "aluminium": 0.4112170476831256
+    },
+    {
+      "margin_kg": 1295.7021697995447,
+      "aramid": 0.4999755682524794,
+      "aluminium": 0.4065736924494209
+    },
+    {
+      "margin_kg": 1320.1493805504795,
+      "aramid": 0.49647702280948663,
+      "aluminium": 0.4019439791133842
+    },
+    {
+      "margin_kg": 1344.5965913014143,
+      "aramid": 0.49297847736649364,
+      "aluminium": 0.39732803780709647
+    },
+    {
+      "margin_kg": 1369.043802052349,
+      "aramid": 0.4894799319235008,
+      "aluminium": 0.39272599983500933
+    },
+    {
+      "margin_kg": 1393.4910128032839,
+      "aramid": 0.4859813864805075,
+      "aluminium": 0.38813798978231534
+    },
+    {
+      "margin_kg": 1417.9382235542187,
+      "aramid": 0.4824828410375149,
+      "aluminium": 0.3835641443752842
+    },
+    {
+      "margin_kg": 1442.3854343051535,
+      "aramid": 0.47898429559452166,
+      "aluminium": 0.3790045960485177
+    },
+    {
+      "margin_kg": 1466.8326450560883,
+      "aramid": 0.47548575015152883,
+      "aluminium": 0.3744594783169704
+    },
+    {
+      "margin_kg": 1491.279855807023,
+      "aramid": 0.47198720470853606,
+      "aluminium": 0.3699289272638534
+    },
+    {
+      "margin_kg": 1515.7270665579579,
+      "aramid": 0.46848865926554295,
+      "aluminium": 0.36541308107348425
+    },
+    {
+      "margin_kg": 1540.1742773088927,
+      "aramid": 0.46499011382254973,
+      "aluminium": 0.3609120811152938
+    },
+    {
+      "margin_kg": 1564.6214880598275,
+      "aramid": 0.461491568379557,
+      "aluminium": 0.35642606587011405
+    },
+    {
+      "margin_kg": 1589.0686988107623,
+      "aramid": 0.45799302293656396,
+      "aluminium": 0.3519551818442095
+    },
+    {
+      "margin_kg": 1613.515909561697,
+      "aramid": 0.45449447749357097,
+      "aluminium": 0.3474995726424234
+    },
+    {
+      "margin_kg": 1637.9631203126319,
+      "aramid": 0.45099593205057786,
+      "aluminium": 0.34305937962780886
+    },
+    {
+      "margin_kg": 1662.4103310635667,
+      "aramid": 0.4474973866075852,
+      "aluminium": 0.3386347601885206
+    },
+    {
+      "margin_kg": 1686.8575418145015,
+      "aramid": 0.4439988411645923,
+      "aluminium": 0.3342258586414063
+    },
+    {
+      "margin_kg": 1711.3047525654363,
+      "aramid": 0.4405002957215989,
+      "aluminium": 0.3298328273921623
+    },
+    {
+      "margin_kg": 1735.751963316371,
+      "aramid": 0.43700175027860594,
+      "aluminium": 0.32545582075207985
+    },
+    {
+      "margin_kg": 1760.1991740673059,
+      "aramid": 0.43350320483561294,
+      "aluminium": 0.3210949956720741
+    },
+    {
+      "margin_kg": 1784.6463848182407,
+      "aramid": 0.4300046593926199,
+      "aluminium": 0.3167505097310328
+    },
+    {
+      "margin_kg": 1809.0935955691755,
+      "aramid": 0.4265061139496272,
+      "aluminium": 0.31242252305604723
+    },
+    {
+      "margin_kg": 1833.5408063201103,
+      "aramid": 0.42300756850663396,
+      "aluminium": 0.30811119810657495
+    },
+    {
+      "margin_kg": 1857.988017071045,
+      "aramid": 0.4195090230636411,
+      "aluminium": 0.3038166981651809
+    },
+    {
+      "margin_kg": 1882.4352278219799,
+      "aramid": 0.4160104776206483,
+      "aluminium": 0.2995391908945731
+    },
+    {
+      "margin_kg": 1906.8824385729147,
+      "aramid": 0.41251193217765547,
+      "aluminium": 0.29527884480312927
+    },
+    {
+      "margin_kg": 1931.3296493238495,
+      "aramid": 0.4090133867346624,
+      "aluminium": 0.2910358300309203
+    },
+    {
+      "margin_kg": 1955.7768600747843,
+      "aramid": 0.4055148412916691,
+      "aluminium": 0.2868103227370712
+    },
+    {
+      "margin_kg": 1980.224070825719,
+      "aramid": 0.40201629584867626,
+      "aluminium": 0.28260249557746675
+    },
+    {
+      "margin_kg": 2004.6712815766539,
+      "aramid": 0.3985177504056833,
+      "aluminium": 0.2784125279560165
+    },
+    {
+      "margin_kg": 2029.1184923275887,
+      "aramid": 0.39501920496269033,
+      "aluminium": 0.27424060269161626
+    },
+    {
+      "margin_kg": 2053.5657030785237,
+      "aramid": 0.3915206595196974,
+      "aluminium": 0.2700869016862007
+    },
+    {
+      "margin_kg": 2078.0129138294583,
+      "aramid": 0.37494353379378953,
+      "aluminium": 0.265951610080746
+    },
+    {
+      "margin_kg": 2102.4601245803933,
+      "aramid": 0.3543406259512503,
+      "aluminium": 0.2618349186436271
+    },
+    {
+      "margin_kg": 2126.907335331328,
+      "aramid": 0.3330836815800435,
+      "aluminium": 0.2577370188262236
+    },
+    {
+      "margin_kg": 2151.354546082263,
+      "aramid": 0.31092130724441575,
+      "aluminium": 0.2536581028642773
+    },
+    {
+      "margin_kg": 2175.8017568331975,
+      "aramid": 0.2874143870901643,
+      "aluminium": 0.24959837387863232
+    },
+    {
+      "margin_kg": 2200.2489675841325,
+      "aramid": 0.26166390826968167,
+      "aluminium": 0.24555802549684538
+    },
+    {
+      "margin_kg": 2224.696178335067,
+      "aramid": 0.231142191971418,
+      "aluminium": 0.24153726657302602
+    },
+    {
+      "margin_kg": 2249.143389086002,
+      "aramid": 0.13993801992718813,
+      "aluminium": 0.2375363003691394
+    },
+    {
+      "margin_kg": 2273.5905998369367,
+      "aramid": 0.13808718893766642,
+      "aluminium": 0.23355533923178767
+    },
+    {
+      "margin_kg": 2298.0378105878717,
+      "aramid": 0.136232780001173,
+      "aluminium": 0.22959459646902028
+    },
+    {
+      "margin_kg": 2322.4850213388063,
+      "aramid": 0.13437503487715793,
+      "aluminium": 0.22565428729433307
+    },
+    {
+      "margin_kg": 2346.9322320897413,
+      "aramid": 0.1325142033341405,
+      "aluminium": 0.22173463214784334
+    },
+    {
+      "margin_kg": 2371.379442840676,
+      "aramid": 0.1306505297157019,
+      "aluminium": 0.2178358554693889
+    },
+    {
+      "margin_kg": 2395.826653591611,
+      "aramid": 0.12878427088089422,
+      "aluminium": 0.21395818552225282
+    },
+    {
+      "margin_kg": 2420.2738643425455,
+      "aramid": 0.12691568123815847,
+      "aluminium": 0.21010185249167782
+    },
+    {
+      "margin_kg": 2444.7210750934805,
+      "aramid": 0.12504501971955448,
+      "aluminium": 0.2062670918742621
+    },
+    {
+      "margin_kg": 2469.168285844415,
+      "aramid": 0.12317255053695972,
+      "aluminium": 0.20245414244683307
+    },
+    {
+      "margin_kg": 2493.61549659535,
+      "aramid": 0.12129854113639778,
+      "aluminium": 0.19866324987116643
+    },
+    {
+      "margin_kg": 2518.0627073462847,
+      "aramid": 0.11942326029672612,
+      "aluminium": 0.1948946590364051
+    },
+    {
+      "margin_kg": 2542.5099180972197,
+      "aramid": 0.11754698427429916,
+      "aluminium": 0.19114862296651403
+    },
+    {
+      "margin_kg": 2566.9571288481543,
+      "aramid": 0.11566998968984081,
+      "aluminium": 0.18742539786307805
+    },
+    {
+      "margin_kg": 2591.4043395990893,
+      "aramid": 0.11379255957573128,
+      "aluminium": 0.18372524479091204
+    },
+    {
+      "margin_kg": 2615.851550350024,
+      "aramid": 0.11191498001271499,
+      "aluminium": 0.18004843066006035
+    },
+    {
+      "margin_kg": 2640.298761100959,
+      "aramid": 0.11003754080554408,
+      "aluminium": 0.17639522426172782
+    },
+    {
+      "margin_kg": 2664.7459718518935,
+      "aramid": 0.10816053763678658,
+      "aluminium": 0.17276590191155378
+    },
+    {
+      "margin_kg": 2689.1931826028285,
+      "aramid": 0.10628426807124425,
+      "aluminium": 0.16916074440043674
+    },
+    {
+      "margin_kg": 2713.640393353763,
+      "aramid": 0.10440903617642884,
+      "aluminium": 0.16558003802706114
+    },
+    {
+      "margin_kg": 2738.087604104698,
+      "aramid": 0.10253514976532525,
+      "aluminium": 0.16202407463860935
+    },
+    {
+      "margin_kg": 2762.5348148556327,
+      "aramid": 0.10066292084732381,
+      "aluminium": 0.15849315023868552
+    },
+    {
+      "margin_kg": 2786.9820256065677,
+      "aramid": 0.09879266756696133,
+      "aluminium": 0.15498756987562834
+    },
+    {
+      "margin_kg": 2811.4292363575023,
+      "aramid": 0.09692471253675887,
+      "aluminium": 0.15150764055025065
+    },
+    {
+      "margin_kg": 2835.8764471084373,
+      "aramid": 0.09505938264920256,
+      "aluminium": 0.14805367867073352
+    },
+    {
+      "margin_kg": 2860.323657859372,
+      "aramid": 0.0931970108482644,
+      "aluminium": 0.14462600535922204
+    },
+    {
+      "margin_kg": 2884.770868610307,
+      "aramid": 0.09133793484899602,
+      "aluminium": 0.14122494870776744
+    },
+    {
+      "margin_kg": 2909.2180793612415,
+      "aramid": 0.08948249831586223,
+      "aluminium": 0.13785084364654468
+    },
+    {
+      "margin_kg": 2933.6652901121765,
+      "aramid": 0.08763105032120283,
+      "aluminium": 0.1345040323675703
+    },
+    {
+      "margin_kg": 2958.112500863111,
+      "aramid": 0.08578394723933283,
+      "aluminium": 0.13118486362630552
+    },
+    {
+      "margin_kg": 2982.559711614046,
+      "aramid": 0.08394154931248936,
+      "aluminium": 0.1278936943834857
+    },
+    {
+      "margin_kg": 3007.0069223649807,
+      "aramid": 0.08210422449586505,
+      "aluminium": 0.12463088846130047
+    },
+    {
+      "margin_kg": 3031.4541331159157,
+      "aramid": 0.08027234669596355,
+      "aluminium": 0.12139681861271455
+    },
+    {
+      "margin_kg": 3055.9013438668503,
+      "aramid": 0.07844629743654856,
+      "aluminium": 0.11819186483768504
+    },
+    {
+      "margin_kg": 3080.3485546177853,
+      "aramid": 0.07662646398504085,
+      "aluminium": 0.11501641638835826
+    },
+    {
+      "margin_kg": 3104.79576536872,
+      "aramid": 0.07481324161636489,
+      "aluminium": 0.11187087065262719
+    },
+    {
+      "margin_kg": 3129.242976119655,
+      "aramid": 0.07300703216199068,
+      "aluminium": 0.10875563484635463
+    },
+    {
+      "margin_kg": 3153.69018687059,
+      "aramid": 0.07120824667856701,
+      "aluminium": 0.10567112476409533
+    },
+    {
+      "margin_kg": 3178.1373976215245,
+      "aramid": 0.06941730276850179,
+      "aluminium": 0.10261776653924938
+    },
+    {
+      "margin_kg": 3202.5846083724596,
+      "aramid": 0.06763462673050118,
+      "aluminium": 0.09959599594705523
+    },
+    {
+      "margin_kg": 3227.031819123394,
+      "aramid": 0.06586065395603818,
+      "aluminium": 0.09660729723527921
+    },
+    {
+      "margin_kg": 3251.479029874329,
+      "aramid": 0.06409582823553182,
+      "aluminium": 0.09366057522943978
+    },
+    {
+      "margin_kg": 3275.9262406252637,
+      "aramid": 0.062340602971913045,
+      "aluminium": 0.09075783869328409
+    },
+    {
+      "margin_kg": 3300.373451376199,
+      "aramid": 0.06059544072261661,
+      "aluminium": 0.08789916626205382
+    },
+    {
+      "margin_kg": 3324.8206621271333,
+      "aramid": 0.05886081463440453,
+      "aluminium": 0.08508463662321812
+    },
+    {
+      "margin_kg": 3349.2678728780684,
+      "aramid": 0.05713720783588253,
+      "aluminium": 0.08231432851633505
+    },
+    {
+      "margin_kg": 3373.715083629003,
+      "aramid": 0.0554251145387548,
+      "aluminium": 0.0795883207329148
+    },
+    {
+      "margin_kg": 3398.162294379938,
+      "aramid": 0.05372504012120128,
+      "aluminium": 0.07690669211628134
+    },
+    {
+      "margin_kg": 3422.6095051308725,
+      "aramid": 0.052037501698698474,
+      "aluminium": 0.0742695215614358
+    },
+    {
+      "margin_kg": 3447.0567158818076,
+      "aramid": 0.050363028821123965,
+      "aluminium": 0.07167688801491874
+    },
+    {
+      "margin_kg": 3471.503926632742,
+      "aramid": 0.048702163483250197,
+      "aluminium": 0.06912887047467368
+    },
+    {
+      "margin_kg": 3495.951137383677,
+      "aramid": 0.04705649051957672,
+      "aluminium": 0.0666255479899099
+    },
+    {
+      "margin_kg": 3520.3983481346118,
+      "aramid": 0.045432819380747294,
+      "aluminium": 0.064166999660966
+    },
+    {
+      "margin_kg": 3544.845558885547,
+      "aramid": 0.04383252103242533,
+      "aluminium": 0.06175330463917332
+    },
+    {
+      "margin_kg": 3569.2927696364814,
+      "aramid": 0.042255865671807134,
+      "aluminium": 0.05938454212671966
+    },
+    {
+      "margin_kg": 3593.7399803874164,
+      "aramid": 0.040703125217646706,
+      "aluminium": 0.057060791376513174
+    },
+    {
+      "margin_kg": 3618.187191138351,
+      "aramid": 0.039174573296282086,
+      "aluminium": 0.054782131692046473
+    },
+    {
+      "margin_kg": 3642.634401889286,
+      "aramid": 0.03767048522745992,
+      "aluminium": 0.05254864242726067
+    },
+    {
+      "margin_kg": 3667.0816126402206,
+      "aramid": 0.0361911380099695,
+      "aluminium": 0.050360402986409966
+    },
+    {
+      "margin_kg": 3691.5288233911556,
+      "aramid": 0.03473681030709523,
+      "aluminium": 0.048217492823926095
+    },
+    {
+      "margin_kg": 3715.97603414209,
+      "aramid": 0.03330778243189875,
+      "aluminium": 0.04611999144428327
+    },
+    {
+      "margin_kg": 3740.423244893025,
+      "aramid": 0.03190433633233983,
+      "aluminium": 0.0440679784018628
+    },
+    {
+      "margin_kg": 3764.8704556439598,
+      "aramid": 0.030526755576247015,
+      "aluminium": 0.04206153330081865
+    },
+    {
+      "margin_kg": 3789.317666394895,
+      "aramid": 0.029175325336147032,
+      "aluminium": 0.040100735794942326
+    },
+    {
+      "margin_kg": 3813.7648771458294,
+      "aramid": 0.027850332373963706,
+      "aluminium": 0.038185665587528686
+    },
+    {
+      "margin_kg": 3838.2120878967644,
+      "aramid": 0.026552065025595407,
+      "aluminium": 0.036316402431241415
+    },
+    {
+      "margin_kg": 3862.659298647699,
+      "aramid": 0.025280813185381376,
+      "aluminium": 0.03449302612797911
+    },
+    {
+      "margin_kg": 3887.106509398634,
+      "aramid": 0.02403686829046596,
+      "aluminium": 0.03271561652874107
+    },
+    {
+      "margin_kg": 3911.5537201495686,
+      "aramid": 0.022820523305070672,
+      "aluminium": 0.030984253533493808
+    },
+    {
+      "margin_kg": 3936.0009309005036,
+      "aramid": 0.021632072704682932,
+      "aluminium": 0.02929901709103729
+    },
+    {
+      "margin_kg": 3960.448141651438,
+      "aramid": 0.02047181246017117,
+      "aluminium": 0.027659987198871736
+    },
+    {
+      "margin_kg": 3984.895352402373,
+      "aramid": 0.01934004002183483,
+      "aluminium": 0.0260672439030643
+    },
+    {
+      "margin_kg": 4009.3425631533078,
+      "aramid": 0.018237054303398628,
+      "aluminium": 0.024520867298116228
+    },
+    {
+      "margin_kg": 4033.789773904243,
+      "aramid": 0.017163155665959315,
+      "aluminium": 0.023020937526829943
+    },
+    {
+      "margin_kg": 4058.2369846551774,
+      "aramid": 0.016118645901894,
+      "aluminium": 0.021567534780176634
+    },
+    {
+      "margin_kg": 4082.6841954061124,
+      "aramid": 0.015103828218737845,
+      "aluminium": 0.020160739297163652
+    },
+    {
+      "margin_kg": 4107.131406157047,
+      "aramid": 0.014119007223039938,
+      "aluminium": 0.01880063136470253
+    },
+    {
+      "margin_kg": 4131.578616907982,
+      "aramid": 0.013164488904204815,
+      "aluminium": 0.01748729131747691
+    },
+    {
+      "margin_kg": 4156.025827658917,
+      "aramid": 0.01224058061832773,
+      "aluminium": 0.01622079953781071
+    },
+    {
+      "margin_kg": 4180.473038409851,
+      "aramid": 0.011347591072031366,
+      "aluminium": 0.015001236455536623
+    },
+    {
+      "margin_kg": 4204.920249160787,
+      "aramid": 0.010485830306311148,
+      "aluminium": 0.013828682547864653
+    },
+    {
+      "margin_kg": 4229.367459911721,
+      "aramid": 0.009655609680396785,
+      "aluminium": 0.012703218339251147
+    },
+    {
+      "margin_kg": 4253.814670662656,
+      "aramid": 0.008857241855636497,
+      "aluminium": 0.011624924401267531
+    },
+    {
+      "margin_kg": 4278.26188141359,
+      "aramid": 0.008091040779411408,
+      "aluminium": 0.010591984076687771
+    },
+    {
+      "margin_kg": 4302.709092164526,
+      "aramid": 0.007357321669086207,
+      "aluminium": 0.009601724974571405
+    },
+    {
+      "margin_kg": 4327.15630291546,
+      "aramid": 0.0066564009960028885,
+      "aluminium": 0.008654843244257436
+    },
+    {
+      "margin_kg": 4351.603513666395,
+      "aramid": 0.005988596469523275,
+      "aluminium": 0.007752115069726428
+    },
+    {
+      "margin_kg": 4376.05072441733,
+      "aramid": 0.00535422702112686,
+      "aluminium": 0.00689435023557576
+    },
+    {
+      "margin_kg": 4400.497935168265,
+      "aramid": 0.00475361278856939,
+      "aluminium": 0.006082393428979505
+    }
+  ],
+  "verification": [
+    {
+      "case": "optimistic",
+      "family": "aramid",
+      "dense_grid_best": 0.608696995079041,
+      "refined_best": 0.6087013381388227,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "optimistic",
+      "family": "aluminium",
+      "dense_grid_best": 0.5566673946868022,
+      "refined_best": 0.5566691976265783,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative",
+      "family": "aramid",
+      "dense_grid_best": 0.009665364242272722,
+      "refined_best": 0.009665364242418957,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative",
+      "family": "aluminium",
+      "dense_grid_best": 0.012716417532965913,
+      "refined_best": 0.012716417533091313,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_passive_service",
+      "family": "aramid",
+      "dense_grid_best": 0.06672667212340966,
+      "refined_best": 0.06672686715436413,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_passive_service",
+      "family": "aluminium",
+      "dense_grid_best": 0.09806396548863591,
+      "refined_best": 0.0980639661600213,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_8h_active",
+      "family": "aramid",
+      "dense_grid_best": 0.038827009176031026,
+      "refined_best": 0.038827009176061515,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "conservative_environment_8h_active",
+      "family": "aluminium",
+      "dense_grid_best": 0.05426524763766435,
+      "refined_best": 0.0542652476378344,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "optimistic_plus_100kg_payload",
+      "family": "aramid",
+      "dense_grid_best": 0.5941136319579471,
+      "refined_best": 0.5941178709652715,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    },
+    {
+      "case": "optimistic_plus_100kg_payload",
+      "family": "aluminium",
+      "dense_grid_best": 0.53588875499467,
+      "refined_best": 0.5358946339846377,
+      "mass_identity": "PASS",
+      "budget_sufficiency": "PASS",
+      "dense_grid_100001": "PASS"
+    }
+  ],
+  "formulas": {
+    "mass_line": "S=(L0-100-M)/1.05; tf=(1-f)S/(2*A*rho_f); tc=f*S/(A*rho_c)",
+    "climate": "Lday=L0*[1-dp-0.378*e/p0]*T0/(T0+dT); dry component sets e=0",
+    "joints": "(2A/w)*[2*b*tf*rho_f + 2*b*tadh*rho_adh + tc*wsplice*rho_splice] + 2A*film_areal_mass",
+    "budget": "M >= max(0,systems-100)+max(0,joints-0.05*S)+water+contamination+climate_loss+internal_gas+payload, for each core",
+    "sigma0": "E*(tc+tf)/(R*sqrt(1-nu^2))",
+    "sigma_crimp": "(tc+tf)^2*Gc/(2*tf*tc)",
+    "branch": "Vc=sigma0/sigma_crimp; Vc<=2: Kc=1-Vc/4,gamma=kd; Vc>2: Kc=1/Vc,gamma=1",
+    "global_buckling": "4*gamma*Kc*sigma0*tf/(R*p0)",
+    "compression": "4*sigma_y*tf/(R*p0)",
+    "crush": "core_crush/(p0/2)",
+    "crimp": "4*sigma_crimp*tf/(R*p0)",
+    "wrinkle": "b*0.33*sqrt(E*Ec*tf/tc)/(p0*R/(4tf)); b^3+b=1",
+    "dimple": "[2E/(1-nu^2)*(tf/cell)^2]/[p0*R/(4tf)]",
+    "pressure_check": "Each fixed-geometry SF divided by 1+dp for max external pressure at p_inside=0",
+    "passive": "Q <= V*(pmax-pstart)/duration; internal retained air is charged once as mass",
+    "battery": "mass=(Ppump+Pmonitor)*hours/(Wh_per_kg*usable_fraction*conversion_efficiency)"
+  },
+  "ended_at": "2026-10-20T00:28:31-07:00",
+  "computed_at": "2026-10-20T00:24:04-07:00",
+  "completion_scope": "Card, input record, issues, calculations and numerical verification completed; independent ship checker follows filing."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "rpt-ops-g30-codex-checker-ready-daybreak-cleared-1020",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-20T00:12:41.500416-07:00",
+  "body": "READY 00:12:22: the checker relief, ref-baa4584cf36c531365e7 (ref-8a590cbdc9eb38b274a8, GPT-6-Astra max). It replaces the walled Muse checker ref-9af2822b3fe57c40be31 and can take job 018 back from GLM 73a2544.\nThe 008 relief ref-a7e30432389a4638aaa5 was REJECTED at 00:09 on the same Codex Daybreak security notice as 006. It is refiled as ref-3f7ec48b84b54a049007.\nFIX IN USE: ship/harness/codex.md makes that notice a command desk's to clear, by one Escape through bridge_up.press, never 1 or Enter. Ops now does that for each Codex seat it mints, with a last-instant check that the notice is on the screen. On the checker relief it cleared at 00:11:31 and the seat read idle within 5 s; the press is in bridge/events.jsonl.\nREADY so far: 005 ref-4bc9297546b34b47e7f1 and the checker ref-baa4584cf36c531365e7.\nStill coming, in mint order: the Opus seat ref-55cff924be25afe6f9dd (Pike's to use), the GLM reliefs ref-fd33765b99866c31a369 and ref-12b2327f63d80a6d5cdd, 006 r2 ref-dbd2fa05cc3e88be3cdc, and 008 r2 ref-3f7ec48b84b54a049007.\nCorrection to my 00:0x report: the 496f door refusal was at about 00:02, not 00:05.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-co28-ops-codex-first-mints-muse-glm-rotation-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ref-5f681b33beaee9ce8b2f-seatwall-lead-sci-91f21ebb-2610200650",
+      "outcome": "done",
+      "extent": "work",
+      "what": "the walled muse checker's relief ref-baa4584cf36c531365e7 is READY on ref-8a590cbdc9eb38b274a8"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-7e531647c93a1a2422142b09",
+      "outcome": "done",
+      "extent": "work",
+      "what": "checker relief READY, named here"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-24169e43373534cfcaf5d4cc",
+      "outcome": "failed",
+      "extent": "work",
+      "what": "008 relief rejected on the Daybreak notice; refiled as seat-mint-ops-g30-codex-relief-008-r2-1019"
+    }
+  ]
+}

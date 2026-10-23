@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-031",
+  "status": "OPEN_EVIDENCE_NEEDS",
+  "certification": false,
+  "rows": [
+    {
+      "id": "NFI-031-REQUIREMENT",
+      "tag": "QUESTIONABLE",
+      "issue": "No site elevation, terrain, minimum hull clearance, altitude ceiling or required 500m condition has been authorised. Centre 10m is ground tangency at sea level; 100m is only an illustrative 90m clearance.",
+      "next_evidence": "Specify centre-height range relative to surveyed terrain, weather set, clearance and whether 500m means ISA free float or a minimum on every design day."
+    },
+    {
+      "id": "NFI-031-PROFILE",
+      "tag": "PROJECTION",
+      "issue": "019 specifies conditions at one altitude, not a vertical profile. A 6.5K/km lapse and constant e/p were imposed. At the 100m floor, isothermal optimistic climate mass is 11.73kg versus 55.34kg with the chosen lapse; both-weather values are 403.66 versus 441.77kg.",
+      "next_evidence": "Supply measured or approved temperature, pressure, humidity and inversion profiles, including joint extremes and occurrence probabilities."
+    },
+    {
+      "id": "NFI-031-SATURATION",
+      "tag": "QUESTIONABLE",
+      "issue": "The conservative high-pressure humid day becomes supersaturated in the all-weather 500m-floor diagnostic. The 0/10/100m-floor main cases are unsaturated in the stated model. Continuing an unsaturated lapse through cloud is not a physical forecast.",
+      "next_evidence": "Use a moist atmospheric profile with cloud/condensate treatment; do not treat that diagnostic height as an operational guarantee."
+    },
+    {
+      "id": "NFI-031-CONTROL",
+      "tag": "PROJECTION",
+      "issue": "A fixed evacuated hull has one passive equilibrium per weather profile and carried load. Positive C raises its ISA float altitude; C=0 cannot float at 500m ISA and satisfy the illustrative sea-level-ground clearance on both 019 hot-day extremes. Static equilibrium does not provide station keeping.",
+      "next_evidence": "Resolve the mission requirement; size active altitude control, tethering, launch, landing, descent-rate and gust response if needed."
+    },
+    {
+      "id": "NFI-031-RESERVE-MEANING",
+      "tag": "QUESTIONABLE",
+      "issue": "Climate is absent mass; water, contamination and gas are carried mass. 021 rev1 has a 5% placeholder, no separate climate rows or explicit seam budget. Recasting that placeholder is a new budget assumption.",
+      "next_evidence": "Approve one common itemised gross mass ledger, including payload status, before treating cross-card points as the same vehicle."
+    },
+    {
+      "id": "NFI-031-BE-PROPERTIES",
+      "tag": "QUESTIONABLE",
+      "issue": "SR-200 345MPa is a tensile minimum transferred to compression. The 379.2MPa endpoint is a historical lot result; continuous interpolated strength is not a procureable design allowable. 021 rev1 inherits 283MPa at E290GPa.",
+      "next_evidence": "Obtain gauge-, direction-, lot-, temperature- and post-form compression and modulus allowables."
+    },
+    {
+      "id": "NFI-031-PANELS",
+      "tag": "PROJECTION",
+      "issue": "The least-set P2 points need multi-metre square-equivalent panels at roughly 0.65–0.72mm face gauge. The nominal today 0.9144m seam-equivalent stock size is itself not established at those gauges.",
+      "next_evidence": "Supplier-confirm formed sheet sizes, gauges, thickness distribution, yield and joining geometry."
+    },
+    {
+      "id": "NFI-031-P2-GAMMA",
+      "tag": "PROJECTION",
+      "issue": "The hemisphere-derived 0.2/1 branch rule and 018 interpolation to 0.2+0.4min(Vc,2) have not been validated for the complete sphere. Numerical least-set membership is conditional on these bounds.",
+      "next_evidence": "Correlate full-shell imperfection-sensitive nonlinear analysis and representative structural testing."
+    },
+    {
+      "id": "NFI-031-WRINKLE-CORE",
+      "tag": "QUESTIONABLE",
+      "issue": "Wrinkle coefficients between 0.33 and 0.82 and published typical core properties are used for a curved sandwich. The catalogue includes transferred moduli and scaled cores; the winner is the sourced light 5056 core, but no assembly allowable exists.",
+      "next_evidence": "Test curvature, cell depth, orthotropy, face/core bond and biaxial wrinkling/crimp/crush/dimpling at service temperature."
+    },
+    {
+      "id": "NFI-031-JOINTS",
+      "tag": "PROJECTION",
+      "issue": "P2 seams and bond films are a mass recipe, not checked structural joints. P3 percent joints are an allowance, not strength or rotational stiffness. Folded source joints sized at p0 cannot automatically take a larger float pressure.",
+      "next_evidence": "Size and qualify seal, splice, node and load-introduction details at the maximum service pressure, including stiffness, eccentricity, fatigue and leakage."
+    },
+    {
+      "id": "NFI-031-P3-MATERIAL-FILM",
+      "tag": "PROJECTION",
+      "issue": "The passing P3 keeps a 3900MPa SiC tube compression value, 410GPa modulus, 1.5GPa/970kg/m3 film and metre-scale thin curved tubes. These are not a demonstrated assembly or a safe tensile/bending allowable.",
+      "next_evidence": "Carry tube-scale brittle reliability, post-form flaw statistics, film biaxial/creep/UV/seam/barrier properties and manufacture into the model."
+    },
+    {
+      "id": "NFI-031-P3-LOCAL",
+      "tag": "QUESTIONABLE",
+      "issue": "FIX-A triangular load sharing is used. FIX-B SP-8007 axial-cylinder knockdown is transferred to curved ceramic members; Perry and k=0.2 global continuum equations remain inherited idealisations.",
+      "next_evidence": "Validate curved member local buckling, imperfections, ceramic tension/compression interaction and discrete-frame modes with actual node stiffness."
+    },
+    {
+      "id": "NFI-031-P3-SAG",
+      "tag": "PROJECTION",
+      "issue": "022b's s/(16R) displacement loss is applied as reduced volume at every altitude. Film shape may change with pressure, and the spherical arc/member model is approximate for 6m bays on R10m.",
+      "next_evidence": "Solve coupled membrane shape, true enclosed volume, pressure and frame load path; verify the global continuum approximation and spacing bounds."
+    },
+    {
+      "id": "NFI-031-ENVIRONMENT-LOADS",
+      "tag": "QUESTIONABLE",
+      "issue": "Mode scores use uniform centre pressure, no internal-pressure relief and fixed material properties. Local bottom pressure is about a further 0.1% higher, while gradients, thermal mismatch, wind, attached loads and descent transients are unscored.",
+      "next_evidence": "Set structural design factors and loads independently of the SF=1 screening threshold; include nonuniform pressure and thermal/wind/handling loads."
+    },
+    {
+      "id": "NFI-031-SYSTEMS-GAS",
+      "tag": "PROJECTION",
+      "issue": "The calculation retains optimistic 019 nonclimate loads and the full 100kg system floor even on conservative weather. This isolates weather; it does not qualify the conservative pump/battery/rain/contamination hardware package.",
+      "next_evidence": "Qualify 24h sealed service and internal gas inventory, or recalculate with measured leakage, pumping, rain/ice retention and all installed systems."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "rpt-ref-af391e597aed690513ec",
+  "unit": "vacuum-review-b-1020",
+  "body": "REVIEW-B of 063 is complete. QUESTIONABLE inputs. PROJECTION targets. No qualified hull safety factor. 063's code was not read or run.\n\nReproduced against 061, within 0.01 kg: the R 20 and R 30 endpoint and handbook density factors and the concept and TRL 7 payloads. Handbook closure is face density divided by 2.1435 in ISA, 863 kg/m3, or by 2.2480 in optimistic weather, 823 kg/m3. Modulus alone matches 061 at factor 2.1573938565221473, which is 625.64 GPa, past 306.9 GPa. The card's 626 GPa is that figure rounded. R 30 TRL 7 at the endpoint stays positive in both weathers. R 20 optimistic TRL 7 is -29.9 kg.\n\nLog shares, the R 30 pair share of 95.7 percent, and interaction ratios 1.532 to 1.553 reproduce from the stored factors. One-at-a-time, both sequential orders of gamma and Q, and the Shapley split rank gamma, then Q, then film, then modulus, then strength. After the pair, 4.3 percent of the R 30 log-spread remains, so film cannot pass Q. Strength's factor equals the endpoint.\n\nThe gamma, Q, film and modulus swap magnitudes were not re-optimized. No mismatch was demonstrated. They stay unreviewed. The complement was not run.\n\nAdmissibility matches 017b, and 293.6 GPa and 379.2 MPa are 040's full values. Prices match ground-first: T3 6-18 kUSD, biaxial 18-45, T7 30-90, T2 12-35, T1 5-15.\n\nRecord version 6 is appended in this seat's outputs. The 030e copy of version 5 was not overwritten. No fix. Stopping.",
+  "artifacts": [
+    {
+      "path": "evidence/57bd99088326aba1-REVIEW.md",
+      "sha256": "57bd99088326aba1b924b6c403d4712343755d261dd98b590e31813238e39d5f",
+      "bytes": 4738
+    },
+    {
+      "path": "evidence/7652ed95209aff33-RESULTS.json",
+      "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+      "bytes": 12943
+    },
+    {
+      "path": "evidence/3d15212f5b548372-NFI.json",
+      "sha256": "3d15212f5b54837283ba7c9b4ca3c9102ea648af3afc06b5734e26b5760e3c05",
+      "bytes": 714
+    },
+    {
+      "path": "evidence/699ec100c876e101-INPUTS.json",
+      "sha256": "699ec100c876e101ce06971c09af0422de19a67ce8dea827ab13e8025aa6a7d6",
+      "bytes": 2942
+    },
+    {
+      "path": "evidence/1f76af7cc44f953b-CARD.md",
+      "sha256": "1f76af7cc44f953b2c8ee48a6d2005cb38d8367a6c856abc4c398de77d6970d5",
+      "bytes": 44097
+    },
+    {
+      "path": "evidence/6703e88e9d897b7e-DELTA-REVIEW-B-063.json",
+      "sha256": "6703e88e9d897b7e7c1011a2bac864c96ce556c05de52cf2451a0c913a926e19",
+      "bytes": 207172
+    },
+    {
+      "path": "evidence/6fbed1dae9140018-CLAIM-RECORD.json",
+      "sha256": "6fbed1dae9140018f7a788787f4ce5f259d9ec431a76613eef88a56e569f0735",
+      "bytes": 21667290
+    }
+  ],
+  "from": "ref-ce1f0d48827818dfeb7e",
+  "from_seat": "ref-ce1f0d48827818dfeb7e",
+  "re": "ord-admiral-rr2-review-b-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-b-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

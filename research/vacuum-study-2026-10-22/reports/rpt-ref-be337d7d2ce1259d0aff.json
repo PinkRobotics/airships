@@ -1,0 +1,52 @@
+{
+  "id": "rpt-ref-be337d7d2ce1259d0aff",
+  "unit": "vacuum-mainline031-check-1020",
+  "at": "2026-10-20T02:11:58-07:00",
+  "body": "CHECK MAINLINE-031. QUESTIONABLE. Not a certification. The owner's card is not rewritten. The arithmetic is independent of the owner's scripts.\n\nNo mismatch at the printed precision. On the +10 K day a hull that spends the whole nominal lift floats at 130.743168802 m. The descent is 369.256831198 m and the pressure ratio is 1.04352463813, and the printed rise is 4.352464 percent. The optimistic hot, low and humid root is -23.1899446984 m, ratio 1.05124131370. The conservative root is -1015.87666729 m, ratio 1.15057969742. Both are below sea-level ground.\n\nThe optimistic 100 m floor leaves 55.340908918 kg absent. The nominal factor is 1.03655296198. The least set is gamma, wrinkling and panel. The reserve is 616.42770583 kg against the filed 021b reserve of 775.729373623 kg. The reoptimised 500 m reserve is 775.564514536 kg. The card already calls the 0.165 kg difference search refinement.\n\nThe P3 source row is 022b's 019-reserve point at s 6.15 m. Half-wave over bay side is 0.56789497714, the out-of-band result under 030's test. Every reoptimised SiC row runs from s 6.05484150028 m to 6.21294354919 m, ratio 0.567666840223 to 0.568829578353. The optimistic 100 m ratio is 0.568723983864 and its least factor is global. The Ti and Kapton rows are inside the band and remain 0.719959139001 and 0.648078133464. The objection is NFI-CHECK-031-HALF-WAVE. The 3900 MPa value and the 1.5 GPa film remain NFI-CHECK-031-PASS-CONDITIONS. This check names no next job.",
+  "artifacts": [
+    {
+      "path": "evidence/20e1639d4bae5fef-check031.py",
+      "sha256": "20e1639d4bae5fefe322c82f09a39d79b91953dbf9aa338f081268467ab9fe02",
+      "bytes": 33452,
+      "observed_sha256": "20e1639d4bae5fefe322c82f09a39d79b91953dbf9aa338f081268467ab9fe02",
+      "observed_bytes": 33452,
+      "matches": true
+    },
+    {
+      "path": "evidence/dd12b6c4dbe82781-CHECK-CARD.md",
+      "sha256": "dd12b6c4dbe82781a5f85e5f9ca853cf54597754e0a0481aaa692439111fe1b8",
+      "bytes": 485,
+      "observed_sha256": "dd12b6c4dbe82781a5f85e5f9ca853cf54597754e0a0481aaa692439111fe1b8",
+      "observed_bytes": 485,
+      "matches": true,
+      "snapshot": "evidence/dd12b6c4dbe82781-CHECK-CARD.md"
+    },
+    {
+      "path": "evidence/22423ea81c343454-CHECK-RESULTS.json",
+      "sha256": "22423ea81c343454bd8d663aa4a7e7c643bd36d466b17871d2d2123ce19d674c",
+      "bytes": 4500,
+      "observed_sha256": "22423ea81c343454bd8d663aa4a7e7c643bd36d466b17871d2d2123ce19d674c",
+      "observed_bytes": 4500,
+      "matches": true,
+      "snapshot": "evidence/22423ea81c343454-CHECK-RESULTS.json"
+    },
+    {
+      "path": "evidence/68d5541c02f9b231-CHECK-NFI.json",
+      "sha256": "68d5541c02f9b2314d7a0fffd7ee7a01f4210cf545488a381a38485a57809217",
+      "bytes": 1002,
+      "observed_sha256": "68d5541c02f9b2314d7a0fffd7ee7a01f4210cf545488a381a38485a57809217",
+      "observed_bytes": 1002,
+      "matches": true,
+      "snapshot": "evidence/68d5541c02f9b231-CHECK-NFI.json"
+    },
+    {
+      "path": "evidence/52ed337443dd9d89-CHECK-INPUTS.json",
+      "sha256": "52ed337443dd9d89b49ab90b35241305dcecc67ae79fcf1663a4de39a7283d71",
+      "bytes": 2188,
+      "observed_sha256": "52ed337443dd9d89b49ab90b35241305dcecc67ae79fcf1663a4de39a7283d71",
+      "observed_bytes": 2188,
+      "matches": true,
+      "snapshot": "evidence/52ed337443dd9d89-CHECK-INPUTS.json"
+    }
+  ]
+}

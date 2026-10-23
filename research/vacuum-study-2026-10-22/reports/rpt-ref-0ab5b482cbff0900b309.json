@@ -1,0 +1,46 @@
+{
+  "id": "rpt-ref-0ab5b482cbff0900b309",
+  "unit": "vacuum-review-e-graphite-1020",
+  "body": "REVIEW-E graphite half (068, 070, 071): PASS. No demonstrated mismatch, zero fixes demanded; 5 NFI rows landed in the card. 28 load-bearing numbers re-derived with own arithmetic; owner code never read or run.\n\n068: film improvement 1.529 vs mine 1.5286 (-0.03%); all six comparison improvements, multipliers 1.219/1.056, constant-E densities 1846/2130, line densities and areas reproduce.\n\n070: Vc law reproduces exactly (0.0 rel diff) on all 56 rows; crimping+scarf co-bind at 1.0+/-1e-6 on every gamma1 row against a solved constant applied stress 303.7436 MPa = strength/face_compression on every row; mass bills to machine epsilon; closure exact (closed payload <=2.8e-5 lift, rho=2250/factor); no case floats; density factors gamma1 1.067-1.248, gamma0.20 worst 1.693/1.478 match.\n\n071: thermal 0.535943 exact; release identity delta-alpha 24.6e-6*0.536 = core_release+1.0e-6 exact; bond 1.866, screen 0.322 MPa; 3.467/3.137 -> 649/717 kg/m3; scarf case 2.89, payload -87877 = released row. Nuance: R30 releases at 15.9 mm core (physics); R20 sits on the admitted 2.4 mm floor.\n\nCR-1457 2.3/6.2: Kc branches verbatim, unity knockdown at Vc>=2 admissible; global buckling within 0.4% (their side higher, non-binding). Join: graphite needs 1329-2109 kg/m3 vs 069's 1013.8 @290 GPa float, thermal 0.536 - 069's point stands as the only modeled float.\n\nNFI: sigma_appl level; Kc blend; growth+joining decomposition; gamma_d figure; wrinkling level/scarf screen. Artifacts pinned.",
+  "artifacts": {
+    "root": "unpublished-local-ref:ce8a1da16ccd31f2",
+    "files": [
+      {
+        "path": ".ship/work/outputs/vacuum-review-e-graphite-1020/CARD.md",
+        "sha256": "a38a2bc95e67206c42a062af5eb305dce00fc7e837e608a6645f6bafa5e1ede6",
+        "bytes": 3371
+      },
+      {
+        "path": ".ship/work/outputs/vacuum-review-e-graphite-1020/RESULTS.json",
+        "sha256": "a69b5719bb00ac6b5c5a8452906f87d56942866d580520421bf9d96675040ed1",
+        "bytes": 6925
+      },
+      {
+        "path": ".ship/work/outputs/vacuum-review-e-graphite-1020/NFI.json",
+        "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+        "bytes": 1792
+      },
+      {
+        "path": ".ship/work/outputs/vacuum-review-e-graphite-1020/INPUTS.json",
+        "sha256": "63a7d9ea31f5fa6e77289d6b6f77c902a48dd831c08814de0fb8147c2ff0e21d",
+        "bytes": 6701
+      },
+      {
+        "path": ".ship/work/outputs/vacuum-review-e-graphite-1020/review_graphite.py",
+        "sha256": "c60f078590ee6a7e51aedeba2b83dff710c11d6a677ed78dca65fbf725c88e64",
+        "bytes": 9101
+      }
+    ]
+  },
+  "from": "ref-789877acd571ad3953a4",
+  "from_seat": "ref-789877acd571ad3953a4",
+  "re": "ord-admiral-rr2-review-e2-dispatch-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-e2-dispatch-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "at": "2026-10-18T17:16:01-07:00",
+  "status": "PREPARED_FOR_INTERNAL_DECISION_ONLY; NOT_SENT; NO_OUTWARD_AUTHORITY",
+  "reference_disposition": {
+    "path": "unpublished-local-ref:3a887ecf2d034e1d",
+    "sha256": "97778e08deacdee0ea5fb68d123faccd8d4f43e81a59036870cdc8952d098f46",
+    "bytes": 10515
+  },
+  "source": {
+    "source_id": "S03",
+    "slot": "boron/boron-epoxy",
+    "requested_url": "https://www.specmaterials.com/s/Hy-Bor-PDS-104HP-T800-G83.pdf",
+    "final_url": "https://static1.squarespace.com/static/5eadc71745076c408aa17d6f/t/6900bc062a9a0f0d0a78e7a8/1761655814571/Hy-Bor+-+PDS+-+104HP+T800+G83.pdf",
+    "route": "EXACT_CARD_URL",
+    "captured_utc": "2026-10-18T23:57:23.562560+00:00",
+    "http_status": 200,
+    "http_status_lines": [
+      "HTTP/2 302 ",
+      "HTTP/2 200 "
+    ],
+    "http_date_headers": [
+      "Sun, 18 Oct 2026 23:57:23 GMT",
+      "Sun, 18 Oct 2026 23:57:23 GMT"
+    ],
+    "redirect_count": 1,
+    "capture_seconds": 0.503923705,
+    "curl_exit": 0,
+    "content_type": "application/pdf",
+    "capture_status": "ARCHIVED_DOCUMENT",
+    "title": "Hy-Bor Product Data Sheet: 104HP / T800 / G83",
+    "authors_or_manufacturer": "Specialty Materials",
+    "date_version": "Last Updated 2025-10-28, p.1",
+    "classification": "PRIMARY_MANUFACTURER_REFERENCE",
+    "reviewed_locator": "p.1; 0-degree, open-hole, density and architecture tables; representative-value qualification",
+    "retained_discovery_label": "Specialty Materials boron monofilament + Hy-Bor prepreg sheets (discovery)",
+    "retained_label_is_verified_metadata": false,
+    "body": {
+      "path": "unpublished-local-ref:b9ece3d6647c56dc",
+      "bytes": 26546,
+      "sha256": "330c1e1a897886dd4912bdb87077bec9e28ee53d8652851e064734c221bb6607"
+    },
+    "receipt": {
+      "path": "unpublished-local-ref:8956396ef60c07e4",
+      "bytes": 1729,
+      "sha256": "5940c8f498e1f9c51162ef031ff0d9c26d82952594c3d3b99bf4bcfcdbb3e44d"
+    },
+    "headers": {
+      "path": "unpublished-local-ref:e858bf471c4e93f8",
+      "bytes": 1146,
+      "sha256": "203b9e0a3e61a265c8ecff1639fdcd9887f36aaf24a7a65f5595758fc57dcefb"
+    },
+    "curl_metadata": {
+      "path": "unpublished-local-ref:8b04a2fa93427d18",
+      "bytes": 13773,
+      "sha256": "3611ef2393a73849f9938b34389c8d5accdf6a3019147f408f326b2d001e5b57"
+    },
+    "excerpts": [
+      {
+        "path": "unpublished-local-ref:2f9b9a094e224963",
+        "bytes": 6449,
+        "sha256": "c4b2e27769b7ce4c936a3a8e9748bb5e6c54773e3c5f7c20d5b9c42ca9742836"
+      }
+    ],
+    "pdf_metadata": {
+      "path": "unpublished-local-ref:ea442f59e4c55da5",
+      "bytes": 597,
+      "sha256": "911a40de5e1fe9b12d631c0f79fe568d611f4e0dcf7308f82a9d99aab52e8896"
+    },
+    "caution": "Full bytes archived; claims are limited to the named excerpts. An HTTP success alone does not verify legacy card values. No Y adoption."
+  },
+  "programme_question": "What exact, matched material basis can populate workingY? The strongest captured starting point is the specified Hy-Bor hybrid reference, not a claim it is the best material or that it floats.",
+  "head_disposition": "Source pass closed and reference evidence retained. WorkingY remains UNKNOWN. No further broad hunt, numeric sensitivity, source rerun or material adoption authorized. A focused supplier/source clarification is the next useful evidence step; external contact requires the Admiral authorization routed through CO/Desk, not this internal queue report.",
+  "decision_requested": "CO to dispose of this focused evidence route: retain the workingY hold, or seek the required Admiral authority for the concrete supplier inquiry below (or name already authorized existing matched evidence). Recipient address/channel and outward sender remain unverified; Operations would validate those only within any eventual authority. This is not an instruction to send.",
+  "draft_inquiry": {
+    "recipient_organization": "Specialty Materials technical/product support; exact contact address not selected or verified",
+    "source_URL": "https://www.specmaterials.com/s/Hy-Bor-PDS-104HP-T800-G83.pdf",
+    "source_version": "104HP / T800 / G83, last updated2025-10-28, archivedS03",
+    "subject": "Clarification of the Hy-Bor 104HP / T800 / G83 reference property basis",
+    "body": "We are reviewing the2025-10-28 Hy-Bor104HP/T800/G83 sheet and would appreciate any existing public technical report or corrected sheet that resolves the following. The description names a250F cure, while the cure-temperature row gives290F/143C: which cure cycle applies to the reported mechanical and density results? For the0degree ASTM D6641 compression andD3039 tension results, what are the complete ply schedule, coupon dimensions, test conditioning/temperature, lot/sample count and uncertainty? Does the ASTM D792 density1.799g/cm3 refer to the same cured material/state as those coupons, and what are the separate boron/carbon fractions within the listed62percent total fiber volume? Please distinguish the open-hole specimen layup from the0degree data. Are same-state transverse modulus, shear properties and compression data available for any explicitly identified multidirectional working layup? Finally, are all values representative only, or is there a separately documented statistical/design-allowable basis? We are treating the existing values as references, not as a working-wall qualification, and are not requesting new tests or a purchase.",
+    "signature": "UNASSIGNED; draft only"
+  },
+  "acceptance_of_future_evidence": "Any reply or newly located source must be archived with origin/version/bytes, retain exact architecture/state and per-property test basis, and undergo normal independent verification before workingY or physical claims. A source clarification is not itself a validated point. No proprietary-data upload, credentials, external message, spending or testing is requested by the current internal handoff."
+}

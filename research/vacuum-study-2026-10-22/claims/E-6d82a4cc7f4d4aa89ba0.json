@@ -1,0 +1,43 @@
+{
+  "id": "E-6d82a4cc7f4d4aa89ba0",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-6d82a4cc7f4d4aa89ba0",
+    "report": "rpt-ref-9a28294ab892bcd529f5",
+    "file": "evidence/105e2c83175a7607-NFI.json",
+    "snapshot": "evidence/105e2c83175a7607-NFI.json",
+    "source_sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+    "source_json_pointer": "/items/3",
+    "row_id": "NFI-CHECK049-BE-SCREEN-E",
+    "fields": {
+      "id": "NFI-CHECK049-BE-SCREEN-E",
+      "kind": "screen reference clarification",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "Be own endpoint thermal screen; R15 ISA",
+      "field": "full_cycle_SF",
+      "owner": 1.399191044592521,
+      "checker": 1.3905864399946701,
+      "evidence": "Owner retains 290 GPa in the rigid-face screen at a 293.6 GPa endpoint geometry. The ratio is sqrt(290/293.6); both pass.",
+      "fix": "State that the comparison uses baseline E, or consistently use the endpoint E. No change in float decision."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-CHECK049-BE-SCREEN-E\", \"kind\": \"screen reference clarification\", \"blocking\": false, \"tag\": \"PROJECTION\", \"row\": \"Be own endpoint thermal screen; R15 ISA\", \"field\": \"full_cycle_SF\", \"owner\": 1.399191044592521, \"checker\": 1.3905864399946701, \"evidence\": \"Owner retains 290 GPa in the rigid-face screen at a 293.6 GPa endpoint geometry. The ratio is sqrt(290/293.6); both pass.\", \"fix\": \"State that the comparison uses baseline E, or consistently use the endpoint E. No change in float decision.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-9a28294ab892bcd529f5",
+      "artifact": "evidence/105e2c83175a7607-NFI.json",
+      "snapshot": "evidence/105e2c83175a7607-NFI.json",
+      "sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+      "bytes": 8601,
+      "selector": "/items/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

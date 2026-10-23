@@ -1,0 +1,40 @@
+{
+  "id": "E-a4b290a849702cc46d6b",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-a4b290a849702cc46d6b",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/11",
+    "row_id": "C055-12",
+    "fields": {
+      "id": "C055-12",
+      "title": "Core crush, compression and cure qualifications remain distinct",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "Hexcel lists W shear 35/25psi typical/minimum and crush 35psi; these reproduce. Its bare and stabilized compression strengths differ from the crush plateau. ASTM C365 explicitly excludes core crush, referring to D7336. CHECK042 also already found that the cited 200F evidence does not qualify the specified adhesive variant and weight.",
+      "proposed_fix": "Witness shear, flatwise compression and crush as separate quantities; specify D7336 where crush is intended. Qualify the actual face/core/bond/cure stack and retain the unresolved Be compression allowable."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Core crush, compression and cure qualifications remain distinct",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/11"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

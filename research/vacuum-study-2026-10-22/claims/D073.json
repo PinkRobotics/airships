@@ -1,0 +1,81 @@
+{
+  "id": "D073",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D073",
+    "report": "rpt-ref-593068c3ed82fd458128",
+    "file": "evidence/a103f3bba0744beb-NFI.json",
+    "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+    "source_sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+    "source_json_pointer": "/items/8",
+    "row_id": "NFI-CHECK040-MOORING-SERVICE-SCALE",
+    "fields": {
+      "id": "NFI-CHECK040-MOORING-SERVICE-SCALE",
+      "tag": "PROJECTION",
+      "status": "OPEN",
+      "finding": "The resized heavy pad and retained 100 kg systems inventory are mathematical bills. The light pad only carries 0.431832 of the 70 kn force. Thirty to fifty kg service nesting, seam leakage and conditioning are assumed; size-independent hardware is unqualified.",
+      "grounding": "Establish the attachment load path, full service inventory, leakage/conditioning acceptance and scaling at each radius. Preserve the high-leak, late-vent and no-conditioning sensitivities.",
+      "evidence": "SERVICE-INDEPENDENT.json; owner/NFI.json",
+      "blocking": false
+    },
+    "inherited_document_tag": {
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/items",
+    "blocks_progress": false
+  },
+  "claim": "The resized heavy pad and retained 100 kg systems inventory are mathematical bills. The light pad only carries 0.431832 of the 70 kn force. Thirty to fifty kg service nesting, seam leakage and conditioning are assumed; size-independent hardware is unqualified.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1033"
+    },
+    {
+      "report": "rpt-ref-593068c3ed82fd458128",
+      "artifact": "evidence/a103f3bba0744beb-NFI.json",
+      "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+      "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+      "bytes": 30702,
+      "selector": "/items/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-593068c3ed82fd458128",
+          "artifact": "evidence/a103f3bba0744beb-NFI.json",
+          "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+          "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+          "bytes": 30702,
+          "selector": "/items/8"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1033"
+          }
+        ]
+      }
+    }
+  ]
+}

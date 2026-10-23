@@ -1,0 +1,3238 @@
+{
+  "days": [
+    {
+      "id": "ISA",
+      "group": "baseline",
+      "dT_K": 0.0,
+      "dp_fraction": 0.0,
+      "e500_Pa": 0.0,
+      "T500_K": 284.9,
+      "p500_Pa": 95460.83791390515,
+      "k": 1.0,
+      "rho500_kg_m3": 1.1672683307461802,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "optimistic_heat_only",
+      "group": "optimistic",
+      "dT_K": 10.0,
+      "dp_fraction": 0.0,
+      "e500_Pa": 0.0,
+      "T500_K": 294.9,
+      "p500_Pa": 95460.83791390515,
+      "k": 1.0,
+      "rho500_kg_m3": 1.1276864951834071,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "optimistic_hot_low_dry",
+      "group": "optimistic",
+      "dT_K": 10.0,
+      "dp_fraction": -0.01,
+      "e500_Pa": 0.0,
+      "T500_K": 294.9,
+      "p500_Pa": 94506.2295347661,
+      "k": 1.0,
+      "rho500_kg_m3": 1.116409630231573,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "optimistic_hot_low_wet",
+      "group": "optimistic",
+      "dT_K": 10.0,
+      "dp_fraction": -0.01,
+      "e500_Pa": 1000.0,
+      "T500_K": 294.9,
+      "p500_Pa": 94506.2295347661,
+      "k": 0.9960002636666301,
+      "rho500_kg_m3": 1.1119442860706117,
+      "n": 5.234855308513843
+    },
+    {
+      "id": "optimistic_pressure_only_low",
+      "group": "optimistic",
+      "dT_K": 0.0,
+      "dp_fraction": -0.01,
+      "e500_Pa": 0.0,
+      "T500_K": 284.9,
+      "p500_Pa": 94506.2295347661,
+      "k": 1.0,
+      "rho500_kg_m3": 1.1555956474387183,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "optimistic_hot_high_dry",
+      "group": "optimistic",
+      "dT_K": 10.0,
+      "dp_fraction": 0.01,
+      "e500_Pa": 0.0,
+      "T500_K": 294.9,
+      "p500_Pa": 96415.44629304421,
+      "k": 1.0,
+      "rho500_kg_m3": 1.1389633601352411,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "optimistic_hot_high_wet",
+      "group": "optimistic",
+      "dT_K": 10.0,
+      "dp_fraction": 0.01,
+      "e500_Pa": 1000.0,
+      "T500_K": 294.9,
+      "p500_Pa": 96415.44629304421,
+      "k": 0.9960794663663007,
+      "rho500_kg_m3": 1.13449801597428,
+      "n": 5.235271588195632
+    },
+    {
+      "id": "optimistic_pressure_only_high",
+      "group": "optimistic",
+      "dT_K": 0.0,
+      "dp_fraction": 0.01,
+      "e500_Pa": 0.0,
+      "T500_K": 284.9,
+      "p500_Pa": 96415.44629304421,
+      "k": 1.0,
+      "rho500_kg_m3": 1.178941014053642,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "conservative_heat_only",
+      "group": "conservative",
+      "dT_K": 25.1,
+      "dp_fraction": 0.0,
+      "e500_Pa": 0.0,
+      "T500_K": 310.0,
+      "p500_Pa": 95460.83791390515,
+      "k": 1.0,
+      "rho500_kg_m3": 1.0727572497728604,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "conservative_hot_low_dry",
+      "group": "conservative",
+      "dT_K": 25.1,
+      "dp_fraction": -0.02,
+      "e500_Pa": 0.0,
+      "T500_K": 310.0,
+      "p500_Pa": 93551.62115562704,
+      "k": 1.0,
+      "rho500_kg_m3": 1.0513021047774032,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "conservative_hot_low_wet",
+      "group": "conservative",
+      "dT_K": 25.1,
+      "dp_fraction": -0.02,
+      "e500_Pa": 6000.0,
+      "T500_K": 310.0,
+      "p500_Pa": 93551.62115562704,
+      "k": 0.9757567001834518,
+      "rho500_kg_m3": 1.0258150726535165,
+      "n": 5.128457620050356
+    },
+    {
+      "id": "conservative_pressure_only_low",
+      "group": "conservative",
+      "dT_K": 0.0,
+      "dp_fraction": -0.02,
+      "e500_Pa": 0.0,
+      "T500_K": 284.9,
+      "p500_Pa": 93551.62115562704,
+      "k": 1.0,
+      "rho500_kg_m3": 1.1439229641312565,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "conservative_hot_high_dry",
+      "group": "conservative",
+      "dT_K": 25.1,
+      "dp_fraction": 0.02,
+      "e500_Pa": 0.0,
+      "T500_K": 310.0,
+      "p500_Pa": 97370.05467218327,
+      "k": 1.0,
+      "rho500_kg_m3": 1.0942123947683178,
+      "n": 5.255877432444129
+    },
+    {
+      "id": "conservative_hot_high_wet",
+      "group": "conservative",
+      "dT_K": 25.1,
+      "dp_fraction": 0.02,
+      "e500_Pa": 6000.0,
+      "T500_K": 310.0,
+      "p500_Pa": 97370.05467218327,
+      "k": 0.9767074178233164,
+      "rho500_kg_m3": 1.068725362644431,
+      "n": 5.133454475438348
+    },
+    {
+      "id": "conservative_pressure_only_high",
+      "group": "conservative",
+      "dT_K": 0.0,
+      "dp_fraction": 0.02,
+      "e500_Pa": 0.0,
+      "T500_K": 284.9,
+      "p500_Pa": 97370.05467218327,
+      "k": 1.0,
+      "rho500_kg_m3": 1.190613697361104,
+      "n": 5.255877432444129
+    }
+  ],
+  "floors": [
+    {
+      "envelope": "optimistic",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.0512413137024763,
+      "minimum_float_m": -23.1899446984454,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 0.0,
+      "C_kg": 10.454461635219559,
+      "C_fraction": 0.0021381706366686033,
+      "nominal_required_SF": 1.0484635124053323,
+      "minimum_float_m": 0.0,
+      "ISA_float_m": 522.0387950340987
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 10.0,
+      "C_kg": 14.957376125557857,
+      "C_fraction": 0.0030591171070478707,
+      "nominal_required_SF": 1.047267498945777,
+      "minimum_float_m": 9.999999999999602,
+      "ISA_float_m": 531.5424116670504
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 100.0,
+      "C_kg": 55.340908917961315,
+      "C_fraction": 0.011318450493548677,
+      "nominal_required_SF": 1.0365529619839071,
+      "minimum_float_m": 99.99999999999648,
+      "ISA_float_m": 617.0754222737725
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 500.0,
+      "C_kg": 231.74081642618603,
+      "C_fraction": 0.047396166946637217,
+      "nominal_required_SF": 0.99,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 997.2322105499923
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "constant_e",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.0509370662087905,
+      "minimum_float_m": -20.590850818647482,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "constant_e",
+      "altitude_floor_m": 0.0,
+      "C_kg": 9.330160258823526,
+      "C_fraction": 0.0019082259227602809,
+      "nominal_required_SF": 1.0484703126489727,
+      "minimum_float_m": 0.0,
+      "ISA_float_m": 519.6669500694497
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "constant_e",
+      "altitude_floor_m": 10.0,
+      "C_kg": 13.856459957267361,
+      "C_fraction": 0.0028339551899059737,
+      "nominal_required_SF": 1.0472740263242548,
+      "minimum_float_m": 9.999999999999602,
+      "ISA_float_m": 529.2182552790599
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "constant_e",
+      "altitude_floor_m": 100.0,
+      "C_kg": 54.448788484123725,
+      "C_fraction": 0.011135991962199967,
+      "nominal_required_SF": 1.0365572903608595,
+      "minimum_float_m": 99.99999999999648,
+      "ISA_float_m": 615.1800021655513
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "constant_e",
+      "altitude_floor_m": 500.0,
+      "C_kg": 231.74081642618603,
+      "C_fraction": 0.047396166946637217,
+      "nominal_required_SF": 0.99,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 997.2322105499923
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "isothermal",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.0392567882356425,
+      "minimum_float_m": 79.1753909258062,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "isothermal",
+      "altitude_floor_m": 0.0,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.0392567882356425,
+      "minimum_float_m": 79.1753909258062,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "isothermal",
+      "altitude_floor_m": 10.0,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.0392567882356425,
+      "minimum_float_m": 79.1753909258062,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "isothermal",
+      "altitude_floor_m": 100.0,
+      "C_kg": 11.734315908205645,
+      "C_fraction": 0.00239992938821394,
+      "nominal_required_SF": 1.036762645327655,
+      "minimum_float_m": 100.00000000000131,
+      "ISA_float_m": 520.037982248399
+    },
+    {
+      "envelope": "optimistic",
+      "profile": "isothermal",
+      "altitude_floor_m": 500.0,
+      "C_kg": 231.74081642618603,
+      "C_fraction": 0.047396166946637217,
+      "nominal_required_SF": 0.99,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 904.928419845716
+    },
+    {
+      "envelope": "conservative",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.1505796974172864,
+      "minimum_float_m": -1015.8766672854322,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "conservative",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 0.0,
+      "C_kg": 403.46494171422637,
+      "C_fraction": 0.0825175816220259,
+      "nominal_required_SF": 1.033843588995975,
+      "minimum_float_m": 0.0,
+      "ISA_float_m": 1378.0446734188254
+    },
+    {
+      "envelope": "conservative",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 10.0,
+      "C_kg": 407.30666610434764,
+      "C_fraction": 0.083303299966188,
+      "nominal_required_SF": 1.0327438797782433,
+      "minimum_float_m": 9.999999999990905,
+      "ISA_float_m": 1386.6906302329812
+    },
+    {
+      "envelope": "conservative",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 100.0,
+      "C_kg": 441.77010544583845,
+      "C_fraction": 0.09035184216852758,
+      "nominal_required_SF": 1.0228888077609428,
+      "minimum_float_m": 99.99999999999648,
+      "ISA_float_m": 1464.5066605550464
+    },
+    {
+      "envelope": "conservative",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 500.0,
+      "C_kg": 592.5180219336717,
+      "C_fraction": 0.12118315417864492,
+      "nominal_required_SF": 0.9799999999999999,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 1810.4085532438078
+    },
+    {
+      "envelope": "conservative",
+      "profile": "constant_e",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.1453930326893638,
+      "minimum_float_m": -969.7995719723167,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "conservative",
+      "profile": "constant_e",
+      "altitude_floor_m": 0.0,
+      "C_kg": 397.49956837715126,
+      "C_fraction": 0.08129752969097953,
+      "nominal_required_SF": 1.0338797003147793,
+      "minimum_float_m": 0.0,
+      "ISA_float_m": 1364.6305783987864
+    },
+    {
+      "envelope": "conservative",
+      "profile": "constant_e",
+      "altitude_floor_m": 10.0,
+      "C_kg": 401.46507681586536,
+      "C_fraction": 0.0821085646346208,
+      "nominal_required_SF": 1.0327785432793481,
+      "minimum_float_m": 9.999999999990905,
+      "ISA_float_m": 1373.546137895687
+    },
+    {
+      "envelope": "conservative",
+      "profile": "constant_e",
+      "altitude_floor_m": 100.0,
+      "C_kg": 437.0342593123678,
+      "C_fraction": 0.0893832559805737,
+      "nominal_required_SF": 1.0229118005470432,
+      "minimum_float_m": 99.99999999999648,
+      "ISA_float_m": 1453.7861733677855
+    },
+    {
+      "envelope": "conservative",
+      "profile": "constant_e",
+      "altitude_floor_m": 500.0,
+      "C_kg": 592.5180219336717,
+      "C_fraction": 0.12118315417864492,
+      "nominal_required_SF": 0.9799999999999999,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 1810.4085532438078
+    },
+    {
+      "envelope": "conservative",
+      "profile": "isothermal",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.1151356561492372,
+      "minimum_float_m": -701.3034094267193,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "conservative",
+      "profile": "isothermal",
+      "altitude_floor_m": 0.0,
+      "C_kg": 355.16564214632217,
+      "C_fraction": 0.07263929733430663,
+      "nominal_required_SF": 1.0341329856541257,
+      "minimum_float_m": -5.115907697472721e-13,
+      "ISA_float_m": 1128.8951533021968
+    },
+    {
+      "envelope": "conservative",
+      "profile": "isothermal",
+      "altitude_floor_m": 10.0,
+      "C_kg": 360.03882774610065,
+      "C_fraction": 0.07363597250707499,
+      "nominal_required_SF": 1.0330215576313728,
+      "minimum_float_m": 10.00000000000125,
+      "ISA_float_m": 1137.8626721371088
+    },
+    {
+      "envelope": "conservative",
+      "profile": "isothermal",
+      "altitude_floor_m": 100.0,
+      "C_kg": 403.66248817013,
+      "C_fraction": 0.08255798427939165,
+      "nominal_required_SF": 1.0230723041794796,
+      "minimum_float_m": 100.0000000000004,
+      "ISA_float_m": 1218.570341651315
+    },
+    {
+      "envelope": "conservative",
+      "profile": "isothermal",
+      "altitude_floor_m": 500.0,
+      "C_kg": 592.5180219336717,
+      "C_fraction": 0.12118315417864492,
+      "nominal_required_SF": 0.9799999999999999,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 1577.2710950477851
+    },
+    {
+      "envelope": "all_019",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.1505796974172864,
+      "minimum_float_m": -1015.8766672854322,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "all_019",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 0.0,
+      "C_kg": 403.46494171422637,
+      "C_fraction": 0.0825175816220259,
+      "nominal_required_SF": 1.033843588995975,
+      "minimum_float_m": 0.0,
+      "ISA_float_m": 1378.0446734188254
+    },
+    {
+      "envelope": "all_019",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 10.0,
+      "C_kg": 407.30666610434764,
+      "C_fraction": 0.083303299966188,
+      "nominal_required_SF": 1.0327438797782433,
+      "minimum_float_m": 9.999999999990905,
+      "ISA_float_m": 1386.6906302329812
+    },
+    {
+      "envelope": "all_019",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 100.0,
+      "C_kg": 441.77010544583845,
+      "C_fraction": 0.09035184216852758,
+      "nominal_required_SF": 1.0228888077609428,
+      "minimum_float_m": 99.99999999999648,
+      "ISA_float_m": 1464.5066605550464
+    },
+    {
+      "envelope": "all_019",
+      "profile": "lapse_mixing",
+      "altitude_floor_m": 500.0,
+      "C_kg": 592.5180219336717,
+      "C_fraction": 0.12118315417864492,
+      "nominal_required_SF": 0.9799999999999999,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 1810.4085532438078
+    },
+    {
+      "envelope": "all_019",
+      "profile": "constant_e",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.1453930326893638,
+      "minimum_float_m": -969.7995719723167,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "all_019",
+      "profile": "constant_e",
+      "altitude_floor_m": 0.0,
+      "C_kg": 397.49956837715126,
+      "C_fraction": 0.08129752969097953,
+      "nominal_required_SF": 1.0338797003147793,
+      "minimum_float_m": 0.0,
+      "ISA_float_m": 1364.6305783987864
+    },
+    {
+      "envelope": "all_019",
+      "profile": "constant_e",
+      "altitude_floor_m": 10.0,
+      "C_kg": 401.46507681586536,
+      "C_fraction": 0.0821085646346208,
+      "nominal_required_SF": 1.0327785432793481,
+      "minimum_float_m": 9.999999999990905,
+      "ISA_float_m": 1373.546137895687
+    },
+    {
+      "envelope": "all_019",
+      "profile": "constant_e",
+      "altitude_floor_m": 100.0,
+      "C_kg": 437.0342593123678,
+      "C_fraction": 0.0893832559805737,
+      "nominal_required_SF": 1.0229118005470432,
+      "minimum_float_m": 99.99999999999648,
+      "ISA_float_m": 1453.7861733677855
+    },
+    {
+      "envelope": "all_019",
+      "profile": "constant_e",
+      "altitude_floor_m": 500.0,
+      "C_kg": 592.5180219336717,
+      "C_fraction": 0.12118315417864492,
+      "nominal_required_SF": 0.9799999999999999,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 1810.4085532438078
+    },
+    {
+      "envelope": "all_019",
+      "profile": "isothermal",
+      "altitude_floor_m": null,
+      "C_kg": 0.0,
+      "C_fraction": 0.0,
+      "nominal_required_SF": 1.1151356561492372,
+      "minimum_float_m": -701.3034094267193,
+      "ISA_float_m": 500.0
+    },
+    {
+      "envelope": "all_019",
+      "profile": "isothermal",
+      "altitude_floor_m": 0.0,
+      "C_kg": 355.16564214632217,
+      "C_fraction": 0.07263929733430663,
+      "nominal_required_SF": 1.0341329856541257,
+      "minimum_float_m": -5.115907697472721e-13,
+      "ISA_float_m": 1128.8951533021968
+    },
+    {
+      "envelope": "all_019",
+      "profile": "isothermal",
+      "altitude_floor_m": 10.0,
+      "C_kg": 360.03882774610065,
+      "C_fraction": 0.07363597250707499,
+      "nominal_required_SF": 1.0330215576313728,
+      "minimum_float_m": 10.00000000000125,
+      "ISA_float_m": 1137.8626721371088
+    },
+    {
+      "envelope": "all_019",
+      "profile": "isothermal",
+      "altitude_floor_m": 100.0,
+      "C_kg": 403.66248817013,
+      "C_fraction": 0.08255798427939165,
+      "nominal_required_SF": 1.0230723041794796,
+      "minimum_float_m": 100.0000000000004,
+      "ISA_float_m": 1218.570341651315
+    },
+    {
+      "envelope": "all_019",
+      "profile": "isothermal",
+      "altitude_floor_m": 500.0,
+      "C_kg": 592.5180219336717,
+      "C_fraction": 0.12118315417864492,
+      "nominal_required_SF": 0.9799999999999999,
+      "minimum_float_m": 500.0,
+      "ISA_float_m": 1577.2710950477851
+    }
+  ],
+  "frontier": [
+    {
+      "envelope": "optimistic",
+      "C_kg": 0.0,
+      "nominal_required_SF": 1.0512413137024763,
+      "minimum_float_m": -23.1899446984454
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 5.0,
+      "nominal_required_SF": 1.0499126142198991,
+      "minimum_float_m": -12.103743079872174
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 10.0,
+      "nominal_required_SF": 1.0485842358746609,
+      "minimum_float_m": -1.0088693668159863
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 15.0,
+      "nominal_required_SF": 1.0472561789180943,
+      "minimum_float_m": 10.094692121216326
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 20.0,
+      "nominal_required_SF": 1.045928443601992,
+      "minimum_float_m": 21.20695710915203
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 25.0,
+      "nominal_required_SF": 1.0446010301786,
+      "minimum_float_m": 32.327941366588675
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 30.0,
+      "nominal_required_SF": 1.0432739389006227,
+      "minimum_float_m": 43.45766070792496
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 35.0,
+      "nominal_required_SF": 1.041947170021222,
+      "minimum_float_m": 54.59613099257098
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 40.0,
+      "nominal_required_SF": 1.0406207237940197,
+      "minimum_float_m": 65.74336812508801
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 45.0,
+      "nominal_required_SF": 1.0392946004730996,
+      "minimum_float_m": 76.89938805538077
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 50.0,
+      "nominal_required_SF": 1.0379688003130083,
+      "minimum_float_m": 88.06420677886376
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 55.0,
+      "nominal_required_SF": 1.0366433235687549,
+      "minimum_float_m": 99.23784033666237
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 60.0,
+      "nominal_required_SF": 1.035318170495814,
+      "minimum_float_m": 110.42030481575273
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 65.0,
+      "nominal_required_SF": 1.0339933413501277,
+      "minimum_float_m": 121.61161634918909
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 70.0,
+      "nominal_required_SF": 1.032668836388106,
+      "minimum_float_m": 132.81179111620878
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 75.0,
+      "nominal_required_SF": 1.031344655866626,
+      "minimum_float_m": 144.02084534252094
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 80.0,
+      "nominal_required_SF": 1.0300208000430364,
+      "minimum_float_m": 155.23879530038494
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 85.0,
+      "nominal_required_SF": 1.0286972691751595,
+      "minimum_float_m": 166.46565730883805
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 90.0,
+      "nominal_required_SF": 1.0273740635212885,
+      "minimum_float_m": 177.701447733905
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 95.0,
+      "nominal_required_SF": 1.0260511833401915,
+      "minimum_float_m": 188.9461829887208
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 100.0,
+      "nominal_required_SF": 1.0247286288911128,
+      "minimum_float_m": 200.19987953376653
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 105.0,
+      "nominal_required_SF": 1.023406400433776,
+      "minimum_float_m": 211.46255387700944
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 110.0,
+      "nominal_required_SF": 1.0220844982283805,
+      "minimum_float_m": 222.73422257416524
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 115.0,
+      "nominal_required_SF": 1.020762922535606,
+      "minimum_float_m": 234.014902228803
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 120.0,
+      "nominal_required_SF": 1.0194416736166148,
+      "minimum_float_m": 245.30460949258142
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 125.0,
+      "nominal_required_SF": 1.0181207517330537,
+      "minimum_float_m": 256.60336106539734
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 130.0,
+      "nominal_required_SF": 1.0168001571470504,
+      "minimum_float_m": 267.91117369564813
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 135.0,
+      "nominal_required_SF": 1.0154798901212192,
+      "minimum_float_m": 279.22806418038044
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 140.0,
+      "nominal_required_SF": 1.0141599509186632,
+      "minimum_float_m": 290.5540493654301
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 145.0,
+      "nominal_required_SF": 1.0128403398029728,
+      "minimum_float_m": 301.889146145728
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 150.0,
+      "nominal_required_SF": 1.011521057038227,
+      "minimum_float_m": 313.23337146540536
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 155.0,
+      "nominal_required_SF": 1.0102021028889996,
+      "minimum_float_m": 324.5867423180033
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 160.0,
+      "nominal_required_SF": 1.008883477620353,
+      "minimum_float_m": 335.9492757467443
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 165.0,
+      "nominal_required_SF": 1.0075651814978477,
+      "minimum_float_m": 347.32098884461055
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 170.0,
+      "nominal_required_SF": 1.0062472147875368,
+      "minimum_float_m": 358.7018987546239
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 175.0,
+      "nominal_required_SF": 1.0049295777559721,
+      "minimum_float_m": 370.0920226700383
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 180.0,
+      "nominal_required_SF": 1.0036122706702044,
+      "minimum_float_m": 381.4913778345062
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 185.0,
+      "nominal_required_SF": 1.0022952937977818,
+      "minimum_float_m": 392.8999815423052
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 190.0,
+      "nominal_required_SF": 1.00097864740676,
+      "minimum_float_m": 404.3178511385314
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 195.0,
+      "nominal_required_SF": 0.9996623317656887,
+      "minimum_float_m": 415.7450040193435
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 200.0,
+      "nominal_required_SF": 0.9983463471436308,
+      "minimum_float_m": 427.1814576320594
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 205.0,
+      "nominal_required_SF": 0.9970306938101489,
+      "minimum_float_m": 438.6272294755057
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 210.0,
+      "nominal_required_SF": 0.9957153720353156,
+      "minimum_float_m": 450.0823371001231
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 215.0,
+      "nominal_required_SF": 0.9944003820897142,
+      "minimum_float_m": 461.54679810819323
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 220.0,
+      "nominal_required_SF": 0.993085724244436,
+      "minimum_float_m": 473.020630154049
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 225.0,
+      "nominal_required_SF": 0.9917713987710829,
+      "minimum_float_m": 484.5038509443454
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 230.0,
+      "nominal_required_SF": 0.990457405941774,
+      "minimum_float_m": 495.99647823816457
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 235.0,
+      "nominal_required_SF": 0.9891437460291417,
+      "minimum_float_m": 507.49852984729563
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 240.0,
+      "nominal_required_SF": 0.9878304193063325,
+      "minimum_float_m": 519.0100236364619
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 245.0,
+      "nominal_required_SF": 0.9865174260470162,
+      "minimum_float_m": 530.5309775234614
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 250.0,
+      "nominal_required_SF": 0.9852047665253778,
+      "minimum_float_m": 542.061409479463
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 255.0,
+      "nominal_required_SF": 0.9838924410161245,
+      "minimum_float_m": 553.6013375291742
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 260.0,
+      "nominal_required_SF": 0.9825804497944876,
+      "minimum_float_m": 565.1507797510668
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 265.0,
+      "nominal_required_SF": 0.981268793136222,
+      "minimum_float_m": 576.7097542776057
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 270.0,
+      "nominal_required_SF": 0.9799574713176052,
+      "minimum_float_m": 588.2782792954843
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 275.0,
+      "nominal_required_SF": 0.9786464846154488,
+      "minimum_float_m": 599.8563730457818
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 280.0,
+      "nominal_required_SF": 0.9773358333070878,
+      "minimum_float_m": 611.4440538242609
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 285.0,
+      "nominal_required_SF": 0.9760255176703887,
+      "minimum_float_m": 623.0413399815601
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 290.0,
+      "nominal_required_SF": 0.9747155379837527,
+      "minimum_float_m": 634.6482499233948
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 295.0,
+      "nominal_required_SF": 0.973405894526111,
+      "minimum_float_m": 646.2648021108284
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 300.0,
+      "nominal_required_SF": 0.9720965875769346,
+      "minimum_float_m": 657.8910150604472
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 305.0,
+      "nominal_required_SF": 0.970787617416227,
+      "minimum_float_m": 669.526907344649
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 310.0,
+      "nominal_required_SF": 0.9694789843245339,
+      "minimum_float_m": 681.1724975918091
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 315.0,
+      "nominal_required_SF": 0.9681706885829394,
+      "minimum_float_m": 692.8278044865605
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 320.0,
+      "nominal_required_SF": 0.9668627304730689,
+      "minimum_float_m": 704.4928467700034
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 325.0,
+      "nominal_required_SF": 0.9655551102770926,
+      "minimum_float_m": 716.167643239933
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 330.0,
+      "nominal_required_SF": 0.9642478282777257,
+      "minimum_float_m": 727.8522127510839
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 335.0,
+      "nominal_required_SF": 0.9629408847582293,
+      "minimum_float_m": 739.5465742153665
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 340.0,
+      "nominal_required_SF": 0.9616342800024146,
+      "minimum_float_m": 751.2507466020854
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 345.0,
+      "nominal_required_SF": 0.9603280142946403,
+      "minimum_float_m": 762.9647489382111
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 350.0,
+      "nominal_required_SF": 0.959022087919818,
+      "minimum_float_m": 774.688600308589
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 355.0,
+      "nominal_required_SF": 0.957716501163416,
+      "minimum_float_m": 786.4223198561674
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 360.0,
+      "nominal_required_SF": 0.9564112543114514,
+      "minimum_float_m": 798.1659267823034
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 365.0,
+      "nominal_required_SF": 0.9551063476505037,
+      "minimum_float_m": 809.9194403469203
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 370.0,
+      "nominal_required_SF": 0.9538017814677088,
+      "minimum_float_m": 821.6828798688136
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 375.0,
+      "nominal_required_SF": 0.9524975560507621,
+      "minimum_float_m": 833.4562647258788
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 380.0,
+      "nominal_required_SF": 0.951193671687923,
+      "minimum_float_m": 845.2396143553381
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 385.0,
+      "nominal_required_SF": 0.9498901286680131,
+      "minimum_float_m": 857.0329482540203
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 390.0,
+      "nominal_required_SF": 0.9485869272804179,
+      "minimum_float_m": 868.8362859785982
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 395.0,
+      "nominal_required_SF": 0.9472840678150931,
+      "minimum_float_m": 880.6496471458227
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 400.0,
+      "nominal_required_SF": 0.9459815505625625,
+      "minimum_float_m": 892.4730514327866
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 405.0,
+      "nominal_required_SF": 0.9446793758139193,
+      "minimum_float_m": 904.3065185771866
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 410.0,
+      "nominal_required_SF": 0.9433775438608301,
+      "minimum_float_m": 916.150068377568
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 415.0,
+      "nominal_required_SF": 0.9420760549955374,
+      "minimum_float_m": 928.0037206935608
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 420.0,
+      "nominal_required_SF": 0.9407749095108533,
+      "minimum_float_m": 939.8674954462124
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 425.0,
+      "nominal_required_SF": 0.9394741077001771,
+      "minimum_float_m": 951.7414126181184
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 430.0,
+      "nominal_required_SF": 0.9381736498574778,
+      "minimum_float_m": 963.6254922538246
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 435.0,
+      "nominal_required_SF": 0.9368735362773145,
+      "minimum_float_m": 975.5197544599591
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 440.0,
+      "nominal_required_SF": 0.9355737672548221,
+      "minimum_float_m": 987.4242194056076
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 445.0,
+      "nominal_required_SF": 0.9342743430857262,
+      "minimum_float_m": 999.3389073224797
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 450.0,
+      "nominal_required_SF": 0.9329752640663347,
+      "minimum_float_m": 1011.2638385052588
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 455.0,
+      "nominal_required_SF": 0.9316765304935465,
+      "minimum_float_m": 1023.1990333118032
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 460.0,
+      "nominal_required_SF": 0.9303781426648512,
+      "minimum_float_m": 1035.1445121634433
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 465.0,
+      "nominal_required_SF": 0.9290801008783298,
+      "minimum_float_m": 1047.1002955452623
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 470.0,
+      "nominal_required_SF": 0.9277824054326561,
+      "minimum_float_m": 1059.0664040063477
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 475.0,
+      "nominal_required_SF": 0.9264850566271028,
+      "minimum_float_m": 1071.0428581600652
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 480.0,
+      "nominal_required_SF": 0.9251880547615375,
+      "minimum_float_m": 1083.029678684345
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 485.0,
+      "nominal_required_SF": 0.9238914001364292,
+      "minimum_float_m": 1095.0268863219453
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 490.0,
+      "nominal_required_SF": 0.9225950930528487,
+      "minimum_float_m": 1107.0345018807407
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 495.0,
+      "nominal_required_SF": 0.9212991338124673,
+      "minimum_float_m": 1119.052546234002
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 500.0,
+      "nominal_required_SF": 0.9200035227175671,
+      "minimum_float_m": 1131.0810403206408
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 505.0,
+      "nominal_required_SF": 0.9187082600710315,
+      "minimum_float_m": 1143.1200051455598
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 510.0,
+      "nominal_required_SF": 0.917413346176359,
+      "minimum_float_m": 1155.1694617798446
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 515.0,
+      "nominal_required_SF": 0.9161187813376533,
+      "minimum_float_m": 1167.2294313611578
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 520.0,
+      "nominal_required_SF": 0.9148245658596342,
+      "minimum_float_m": 1179.2999350939313
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 525.0,
+      "nominal_required_SF": 0.9135307000476374,
+      "minimum_float_m": 1191.3809942496896
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 530.0,
+      "nominal_required_SF": 0.9122371842076138,
+      "minimum_float_m": 1203.4726301673554
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 535.0,
+      "nominal_required_SF": 0.9109440186461334,
+      "minimum_float_m": 1215.5748642535139
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 540.0,
+      "nominal_required_SF": 0.909651203670388,
+      "minimum_float_m": 1227.687717982716
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 545.0,
+      "nominal_required_SF": 0.9083587395881899,
+      "minimum_float_m": 1239.811212897787
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 550.0,
+      "nominal_required_SF": 0.9070666267079803,
+      "minimum_float_m": 1251.9453706100876
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 555.0,
+      "nominal_required_SF": 0.9057748653388229,
+      "minimum_float_m": 1264.0902127998463
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 560.0,
+      "nominal_required_SF": 0.9044834557904111,
+      "minimum_float_m": 1276.2457612164485
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 565.0,
+      "nominal_required_SF": 0.9031923983730714,
+      "minimum_float_m": 1288.4120376787155
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 570.0,
+      "nominal_required_SF": 0.9019016933977619,
+      "minimum_float_m": 1300.5890640752289
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 575.0,
+      "nominal_required_SF": 0.9006113411760733,
+      "minimum_float_m": 1312.776862364654
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 580.0,
+      "nominal_required_SF": 0.8993213420202373,
+      "minimum_float_m": 1324.9754545759847
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 585.0,
+      "nominal_required_SF": 0.8980316962431212,
+      "minimum_float_m": 1337.18486280891
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 590.0,
+      "nominal_required_SF": 0.8967424041582344,
+      "minimum_float_m": 1349.4051092341037
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 595.0,
+      "nominal_required_SF": 0.8954534660797285,
+      "minimum_float_m": 1361.636216093521
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 600.0,
+      "nominal_required_SF": 0.8941648823224029,
+      "minimum_float_m": 1373.8782057007222
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 605.0,
+      "nominal_required_SF": 0.8928766532017001,
+      "minimum_float_m": 1386.1311004411968
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 610.0,
+      "nominal_required_SF": 0.8915887790337148,
+      "minimum_float_m": 1398.3949227726691
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 615.0,
+      "nominal_required_SF": 0.8903012601351908,
+      "minimum_float_m": 1410.6696952254215
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 620.0,
+      "nominal_required_SF": 0.8890140968235292,
+      "minimum_float_m": 1422.9554404025835
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 625.0,
+      "nominal_required_SF": 0.8877272894167826,
+      "minimum_float_m": 1435.2521809804994
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 630.0,
+      "nominal_required_SF": 0.8864408382336622,
+      "minimum_float_m": 1447.559939709051
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 635.0,
+      "nominal_required_SF": 0.8851547435935404,
+      "minimum_float_m": 1459.87873941192
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 640.0,
+      "nominal_required_SF": 0.8838690058164504,
+      "minimum_float_m": 1472.2086029869913
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 645.0,
+      "nominal_required_SF": 0.8825836252230909,
+      "minimum_float_m": 1484.549553406623
+    },
+    {
+      "envelope": "optimistic",
+      "C_kg": 650.0,
+      "nominal_required_SF": 0.8812986021348242,
+      "minimum_float_m": 1496.9016137180233
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 0.0,
+      "nominal_required_SF": 1.1505796974172864,
+      "minimum_float_m": -1015.8766672854322
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 5.0,
+      "nominal_required_SF": 1.149118285869838,
+      "minimum_float_m": -1003.6831628349757
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 10.0,
+      "nominal_required_SF": 1.1476572366370978,
+      "minimum_float_m": -991.4801961310263
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 15.0,
+      "nominal_required_SF": 1.1461965500003684,
+      "minimum_float_m": -979.2677501234705
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 20.0,
+      "nominal_required_SF": 1.144736226241458,
+      "minimum_float_m": -967.0458077139301
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 25.0,
+      "nominal_required_SF": 1.1432762656426876,
+      "minimum_float_m": -954.814351755597
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 30.0,
+      "nominal_required_SF": 1.1418166684868862,
+      "minimum_float_m": -942.5733650530569
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 35.0,
+      "nominal_required_SF": 1.1403574350573935,
+      "minimum_float_m": -930.3228303620631
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 40.0,
+      "nominal_required_SF": 1.1388985656380624,
+      "minimum_float_m": -918.0627303893691
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 45.0,
+      "nominal_required_SF": 1.1374400605132595,
+      "minimum_float_m": -905.7930477925295
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 50.0,
+      "nominal_required_SF": 1.1359819199678705,
+      "minimum_float_m": -893.5137651797575
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 55.0,
+      "nominal_required_SF": 1.1345241442872953,
+      "minimum_float_m": -881.2248651096472
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 60.0,
+      "nominal_required_SF": 1.1330667337574531,
+      "minimum_float_m": -868.9263300910502
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 65.0,
+      "nominal_required_SF": 1.131609688664783,
+      "minimum_float_m": -856.6181425828395
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 70.0,
+      "nominal_required_SF": 1.1301530092962486,
+      "minimum_float_m": -844.3002849937609
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 75.0,
+      "nominal_required_SF": 1.1286966959393323,
+      "minimum_float_m": -831.9727396821884
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 80.0,
+      "nominal_required_SF": 1.1272407488820453,
+      "minimum_float_m": -819.6354889559573
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 85.0,
+      "nominal_required_SF": 1.1257851684129223,
+      "minimum_float_m": -807.288515072147
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 90.0,
+      "nominal_required_SF": 1.1243299548210273,
+      "minimum_float_m": -794.9318002369218
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 95.0,
+      "nominal_required_SF": 1.122875108395955,
+      "minimum_float_m": -782.5653266052961
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 100.0,
+      "nominal_required_SF": 1.1214206294278248,
+      "minimum_float_m": -770.1890762808891
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 105.0,
+      "nominal_required_SF": 1.1199665182072969,
+      "minimum_float_m": -757.8030313158636
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 110.0,
+      "nominal_required_SF": 1.1185127750255595,
+      "minimum_float_m": -745.4071737105762
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 115.0,
+      "nominal_required_SF": 1.1170594001743368,
+      "minimum_float_m": -733.001485413437
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 120.0,
+      "nominal_required_SF": 1.1156063939458924,
+      "minimum_float_m": -720.5859483207178
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 125.0,
+      "nominal_required_SF": 1.114153756633026,
+      "minimum_float_m": -708.1605442763248
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 130.0,
+      "nominal_required_SF": 1.1127014885290798,
+      "minimum_float_m": -695.7252550716057
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 135.0,
+      "nominal_required_SF": 1.1112495899279338,
+      "minimum_float_m": -683.2800624451047
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 140.0,
+      "nominal_required_SF": 1.1097980611240157,
+      "minimum_float_m": -670.8249480824145
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 145.0,
+      "nominal_required_SF": 1.1083469024122934,
+      "minimum_float_m": -658.3598936159135
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 150.0,
+      "nominal_required_SF": 1.1068961140882865,
+      "minimum_float_m": -645.884880624609
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 155.0,
+      "nominal_required_SF": 1.1054456964480575,
+      "minimum_float_m": -633.399890633847
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 160.0,
+      "nominal_required_SF": 1.1039956497882222,
+      "minimum_float_m": -620.9049051151835
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 165.0,
+      "nominal_required_SF": 1.1025459744059436,
+      "minimum_float_m": -608.3999054861019
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 170.0,
+      "nominal_required_SF": 1.1010966705989416,
+      "minimum_float_m": -595.8848731098583
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 175.0,
+      "nominal_required_SF": 1.0996477386654864,
+      "minimum_float_m": -583.3597892951905
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 180.0,
+      "nominal_required_SF": 1.0981991789044097,
+      "minimum_float_m": -570.8246352962235
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 185.0,
+      "nominal_required_SF": 1.0967509916150946,
+      "minimum_float_m": -558.279392312093
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 190.0,
+      "nominal_required_SF": 1.0953031770974886,
+      "minimum_float_m": -545.7240414868484
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 195.0,
+      "nominal_required_SF": 1.0938557356520953,
+      "minimum_float_m": -533.1585639091741
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 200.0,
+      "nominal_required_SF": 1.092408667579985,
+      "minimum_float_m": -520.5829406122051
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 205.0,
+      "nominal_required_SF": 1.0909619731827893,
+      "minimum_float_m": -507.99715257325647
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 210.0,
+      "nominal_required_SF": 1.0895156527627092,
+      "minimum_float_m": -495.4011807136567
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 215.0,
+      "nominal_required_SF": 1.088069706622508,
+      "minimum_float_m": -482.7950058984593
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 220.0,
+      "nominal_required_SF": 1.0866241350655237,
+      "minimum_float_m": -470.17860893627665
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 225.0,
+      "nominal_required_SF": 1.0851789383956603,
+      "minimum_float_m": -457.551970579
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 230.0,
+      "nominal_required_SF": 1.0837341169173977,
+      "minimum_float_m": -444.915071521625
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 235.0,
+      "nominal_required_SF": 1.0822896709357892,
+      "minimum_float_m": -432.2678924019889
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 240.0,
+      "nominal_required_SF": 1.080845600756462,
+      "minimum_float_m": -419.61041380050824
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 245.0,
+      "nominal_required_SF": 1.0794019066856255,
+      "minimum_float_m": -406.94261624003923
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 250.0,
+      "nominal_required_SF": 1.077958589030064,
+      "minimum_float_m": -394.264480185554
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 255.0,
+      "nominal_required_SF": 1.0765156480971443,
+      "minimum_float_m": -381.57598604393047
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 260.0,
+      "nominal_required_SF": 1.0750730841948177,
+      "minimum_float_m": -368.8771141637692
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 265.0,
+      "nominal_required_SF": 1.0736308976316173,
+      "minimum_float_m": -356.1678448350782
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 270.0,
+      "nominal_required_SF": 1.072189088716666,
+      "minimum_float_m": -343.4481582890892
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 275.0,
+      "nominal_required_SF": 1.0707476577596697,
+      "minimum_float_m": -330.7180346979784
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 280.0,
+      "nominal_required_SF": 1.0693066050709297,
+      "minimum_float_m": -317.97745417468207
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 285.0,
+      "nominal_required_SF": 1.0678659309613348,
+      "minimum_float_m": -305.2263967725909
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 290.0,
+      "nominal_required_SF": 1.0664256357423696,
+      "minimum_float_m": -292.4648424853576
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 295.0,
+      "nominal_required_SF": 1.064985719726111,
+      "minimum_float_m": -279.69277124661687
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 300.0,
+      "nominal_required_SF": 1.0635461832252366,
+      "minimum_float_m": -266.9101629297669
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 305.0,
+      "nominal_required_SF": 1.0621070265530206,
+      "minimum_float_m": -254.11699734770718
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 310.0,
+      "nominal_required_SF": 1.0606682500233362,
+      "minimum_float_m": -241.31325425258433
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 315.0,
+      "nominal_required_SF": 1.059229853950661,
+      "minimum_float_m": -228.4989133355566
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 320.0,
+      "nominal_required_SF": 1.057791838650078,
+      "minimum_float_m": -215.67395422656637
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 325.0,
+      "nominal_required_SF": 1.0563542044372722,
+      "minimum_float_m": -202.83835649401612
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 330.0,
+      "nominal_required_SF": 1.05491695162854,
+      "minimum_float_m": -189.99209964458544
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 335.0,
+      "nominal_required_SF": 1.0534800805407858,
+      "minimum_float_m": -177.1351631229594
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 340.0,
+      "nominal_required_SF": 1.0520435914915252,
+      "minimum_float_m": -164.26752631154898
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 345.0,
+      "nominal_required_SF": 1.050607484798888,
+      "minimum_float_m": -151.38916853024614
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 350.0,
+      "nominal_required_SF": 1.0491717607816182,
+      "minimum_float_m": -138.50006903617918
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 355.0,
+      "nominal_required_SF": 1.0477364197590786,
+      "minimum_float_m": -125.60020702344093
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 360.0,
+      "nominal_required_SF": 1.0463014620512494,
+      "minimum_float_m": -112.68956162283621
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 365.0,
+      "nominal_required_SF": 1.0448668879787306,
+      "minimum_float_m": -99.76811190158344
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 370.0,
+      "nominal_required_SF": 1.0434326978627473,
+      "minimum_float_m": -86.83583686309669
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 375.0,
+      "nominal_required_SF": 1.0419988920251473,
+      "minimum_float_m": -73.89271544670567
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 380.0,
+      "nominal_required_SF": 1.0405654707884078,
+      "minimum_float_m": -60.93872652740208
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 385.0,
+      "nominal_required_SF": 1.0391324344756308,
+      "minimum_float_m": -47.97384891551599
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 390.0,
+      "nominal_required_SF": 1.0376997834105492,
+      "minimum_float_m": -34.99806135649726
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 395.0,
+      "nominal_required_SF": 1.0362675179175314,
+      "minimum_float_m": -22.011342530644356
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 400.0,
+      "nominal_required_SF": 1.0348356383215773,
+      "minimum_float_m": -9.013671052833615
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 405.0,
+      "nominal_required_SF": 1.0334041449483224,
+      "minimum_float_m": 3.9949745278223077
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 410.0,
+      "nominal_required_SF": 1.0319730381240413,
+      "minimum_float_m": 17.014615728149124
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 415.0,
+      "nominal_required_SF": 1.0305423181756488,
+      "minimum_float_m": 30.0452741312518
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 420.0,
+      "nominal_required_SF": 1.0291119854307038,
+      "minimum_float_m": 43.08697138675103
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 425.0,
+      "nominal_required_SF": 1.027682040217405,
+      "minimum_float_m": 56.13972921114157
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 430.0,
+      "nominal_required_SF": 1.0262524828645996,
+      "minimum_float_m": 69.20356938797585
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 435.0,
+      "nominal_required_SF": 1.0248233137017837,
+      "minimum_float_m": 82.27851376818762
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 440.0,
+      "nominal_required_SF": 1.0233945330590999,
+      "minimum_float_m": 95.36458427043306
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 445.0,
+      "nominal_required_SF": 1.0219661412673469,
+      "minimum_float_m": 108.46180288126561
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 450.0,
+      "nominal_required_SF": 1.0205381386579748,
+      "minimum_float_m": 121.57019165551202
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 455.0,
+      "nominal_required_SF": 1.0191105255630915,
+      "minimum_float_m": 134.68977271650846
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 460.0,
+      "nominal_required_SF": 1.0176833023154621,
+      "minimum_float_m": 147.82056825643286
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 465.0,
+      "nominal_required_SF": 1.0162564692485125,
+      "minimum_float_m": 160.96260053656732
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 470.0,
+      "nominal_required_SF": 1.014830026696329,
+      "minimum_float_m": 174.1158918876128
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 475.0,
+      "nominal_required_SF": 1.0134039749936643,
+      "minimum_float_m": 187.2804647099603
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 480.0,
+      "nominal_required_SF": 1.0119783144759362,
+      "minimum_float_m": 200.45634147400574
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 485.0,
+      "nominal_required_SF": 1.0105530454792326,
+      "minimum_float_m": 213.64354472043834
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 490.0,
+      "nominal_required_SF": 1.009128168340311,
+      "minimum_float_m": 226.84209706054702
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 495.0,
+      "nominal_required_SF": 1.0077036833965995,
+      "minimum_float_m": 240.05202117653494
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 500.0,
+      "nominal_required_SF": 1.0062795909862048,
+      "minimum_float_m": 253.27333982179076
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 505.0,
+      "nominal_required_SF": 1.0048558914479078,
+      "minimum_float_m": 266.5060758212121
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 510.0,
+      "nominal_required_SF": 1.0034325851211683,
+      "minimum_float_m": 279.75025207152925
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 515.0,
+      "nominal_required_SF": 1.0020096723461298,
+      "minimum_float_m": 293.0058915415674
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 520.0,
+      "nominal_required_SF": 1.0005871534636175,
+      "minimum_float_m": 306.2730172725878
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 525.0,
+      "nominal_required_SF": 0.9991650288151402,
+      "minimum_float_m": 319.5516523786374
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 530.0,
+      "nominal_required_SF": 0.9977432987428974,
+      "minimum_float_m": 332.84182004676774
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 535.0,
+      "nominal_required_SF": 0.9963219635897781,
+      "minimum_float_m": 346.1435435374194
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 540.0,
+      "nominal_required_SF": 0.9949010236993596,
+      "minimum_float_m": 359.4568461847547
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 545.0,
+      "nominal_required_SF": 0.9934804794159192,
+      "minimum_float_m": 372.7817513968848
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 550.0,
+      "nominal_required_SF": 0.9920603310844249,
+      "minimum_float_m": 386.11828265630686
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 555.0,
+      "nominal_required_SF": 0.9906405790505465,
+      "minimum_float_m": 399.4664635201406
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 560.0,
+      "nominal_required_SF": 0.9892212236606552,
+      "minimum_float_m": 412.8263176204515
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 565.0,
+      "nominal_required_SF": 0.9878022652618221,
+      "minimum_float_m": 426.1978686646619
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 570.0,
+      "nominal_required_SF": 0.9863837042018273,
+      "minimum_float_m": 439.58114043578706
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 575.0,
+      "nominal_required_SF": 0.9849655408291557,
+      "minimum_float_m": 452.9761567927853
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 580.0,
+      "nominal_required_SF": 0.9835477754930023,
+      "minimum_float_m": 466.38294167095097
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 585.0,
+      "nominal_required_SF": 0.9821304085432765,
+      "minimum_float_m": 479.80151908212486
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 590.0,
+      "nominal_required_SF": 0.9807134403305995,
+      "minimum_float_m": 493.23191311516615
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 595.0,
+      "nominal_required_SF": 0.9792968712063091,
+      "minimum_float_m": 506.67414793620605
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 600.0,
+      "nominal_required_SF": 0.9778807015224634,
+      "minimum_float_m": 520.128247788989
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 605.0,
+      "nominal_required_SF": 0.9764649316318423,
+      "minimum_float_m": 533.5942369952311
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 610.0,
+      "nominal_required_SF": 0.9750495618879471,
+      "minimum_float_m": 547.0721399549785
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 615.0,
+      "nominal_required_SF": 0.9736345926450066,
+      "minimum_float_m": 560.5619811469139
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 620.0,
+      "nominal_required_SF": 0.9722200242579769,
+      "minimum_float_m": 574.0637851287235
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 625.0,
+      "nominal_required_SF": 0.9708058570825463,
+      "minimum_float_m": 587.5775765374468
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 630.0,
+      "nominal_required_SF": 0.9693920914751343,
+      "minimum_float_m": 601.1033800898181
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 635.0,
+      "nominal_required_SF": 0.9679787277928953,
+      "minimum_float_m": 614.6412205826332
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 640.0,
+      "nominal_required_SF": 0.9665657663937238,
+      "minimum_float_m": 628.1911228930644
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 645.0,
+      "nominal_required_SF": 0.9651532076362528,
+      "minimum_float_m": 641.7531119790721
+    },
+    {
+      "envelope": "conservative",
+      "C_kg": 650.0,
+      "nominal_required_SF": 0.9637410518798579,
+      "minimum_float_m": 655.3272128797272
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 0.0,
+      "nominal_required_SF": 1.1505796974172864,
+      "minimum_float_m": -1015.8766672854322
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 5.0,
+      "nominal_required_SF": 1.149118285869838,
+      "minimum_float_m": -1003.6831628349757
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 10.0,
+      "nominal_required_SF": 1.1476572366370978,
+      "minimum_float_m": -991.4801961310263
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 15.0,
+      "nominal_required_SF": 1.1461965500003684,
+      "minimum_float_m": -979.2677501234705
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 20.0,
+      "nominal_required_SF": 1.144736226241458,
+      "minimum_float_m": -967.0458077139301
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 25.0,
+      "nominal_required_SF": 1.1432762656426876,
+      "minimum_float_m": -954.814351755597
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 30.0,
+      "nominal_required_SF": 1.1418166684868862,
+      "minimum_float_m": -942.5733650530569
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 35.0,
+      "nominal_required_SF": 1.1403574350573935,
+      "minimum_float_m": -930.3228303620631
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 40.0,
+      "nominal_required_SF": 1.1388985656380624,
+      "minimum_float_m": -918.0627303893691
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 45.0,
+      "nominal_required_SF": 1.1374400605132595,
+      "minimum_float_m": -905.7930477925295
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 50.0,
+      "nominal_required_SF": 1.1359819199678705,
+      "minimum_float_m": -893.5137651797575
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 55.0,
+      "nominal_required_SF": 1.1345241442872953,
+      "minimum_float_m": -881.2248651096472
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 60.0,
+      "nominal_required_SF": 1.1330667337574531,
+      "minimum_float_m": -868.9263300910502
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 65.0,
+      "nominal_required_SF": 1.131609688664783,
+      "minimum_float_m": -856.6181425828395
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 70.0,
+      "nominal_required_SF": 1.1301530092962486,
+      "minimum_float_m": -844.3002849937609
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 75.0,
+      "nominal_required_SF": 1.1286966959393323,
+      "minimum_float_m": -831.9727396821884
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 80.0,
+      "nominal_required_SF": 1.1272407488820453,
+      "minimum_float_m": -819.6354889559573
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 85.0,
+      "nominal_required_SF": 1.1257851684129223,
+      "minimum_float_m": -807.288515072147
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 90.0,
+      "nominal_required_SF": 1.1243299548210273,
+      "minimum_float_m": -794.9318002369218
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 95.0,
+      "nominal_required_SF": 1.122875108395955,
+      "minimum_float_m": -782.5653266052961
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 100.0,
+      "nominal_required_SF": 1.1214206294278248,
+      "minimum_float_m": -770.1890762808891
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 105.0,
+      "nominal_required_SF": 1.1199665182072969,
+      "minimum_float_m": -757.8030313158636
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 110.0,
+      "nominal_required_SF": 1.1185127750255595,
+      "minimum_float_m": -745.4071737105762
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 115.0,
+      "nominal_required_SF": 1.1170594001743368,
+      "minimum_float_m": -733.001485413437
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 120.0,
+      "nominal_required_SF": 1.1156063939458924,
+      "minimum_float_m": -720.5859483207178
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 125.0,
+      "nominal_required_SF": 1.114153756633026,
+      "minimum_float_m": -708.1605442763248
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 130.0,
+      "nominal_required_SF": 1.1127014885290798,
+      "minimum_float_m": -695.7252550716057
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 135.0,
+      "nominal_required_SF": 1.1112495899279338,
+      "minimum_float_m": -683.2800624451047
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 140.0,
+      "nominal_required_SF": 1.1097980611240157,
+      "minimum_float_m": -670.8249480824145
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 145.0,
+      "nominal_required_SF": 1.1083469024122934,
+      "minimum_float_m": -658.3598936159135
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 150.0,
+      "nominal_required_SF": 1.1068961140882865,
+      "minimum_float_m": -645.884880624609
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 155.0,
+      "nominal_required_SF": 1.1054456964480575,
+      "minimum_float_m": -633.399890633847
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 160.0,
+      "nominal_required_SF": 1.1039956497882222,
+      "minimum_float_m": -620.9049051151835
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 165.0,
+      "nominal_required_SF": 1.1025459744059436,
+      "minimum_float_m": -608.3999054861019
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 170.0,
+      "nominal_required_SF": 1.1010966705989416,
+      "minimum_float_m": -595.8848731098583
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 175.0,
+      "nominal_required_SF": 1.0996477386654864,
+      "minimum_float_m": -583.3597892951905
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 180.0,
+      "nominal_required_SF": 1.0981991789044097,
+      "minimum_float_m": -570.8246352962235
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 185.0,
+      "nominal_required_SF": 1.0967509916150946,
+      "minimum_float_m": -558.279392312093
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 190.0,
+      "nominal_required_SF": 1.0953031770974886,
+      "minimum_float_m": -545.7240414868484
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 195.0,
+      "nominal_required_SF": 1.0938557356520953,
+      "minimum_float_m": -533.1585639091741
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 200.0,
+      "nominal_required_SF": 1.092408667579985,
+      "minimum_float_m": -520.5829406122051
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 205.0,
+      "nominal_required_SF": 1.0909619731827893,
+      "minimum_float_m": -507.99715257325647
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 210.0,
+      "nominal_required_SF": 1.0895156527627092,
+      "minimum_float_m": -495.4011807136567
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 215.0,
+      "nominal_required_SF": 1.088069706622508,
+      "minimum_float_m": -482.7950058984593
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 220.0,
+      "nominal_required_SF": 1.0866241350655237,
+      "minimum_float_m": -470.17860893627665
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 225.0,
+      "nominal_required_SF": 1.0851789383956603,
+      "minimum_float_m": -457.551970579
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 230.0,
+      "nominal_required_SF": 1.0837341169173977,
+      "minimum_float_m": -444.915071521625
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 235.0,
+      "nominal_required_SF": 1.0822896709357892,
+      "minimum_float_m": -432.2678924019889
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 240.0,
+      "nominal_required_SF": 1.080845600756462,
+      "minimum_float_m": -419.61041380050824
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 245.0,
+      "nominal_required_SF": 1.0794019066856255,
+      "minimum_float_m": -406.94261624003923
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 250.0,
+      "nominal_required_SF": 1.077958589030064,
+      "minimum_float_m": -394.264480185554
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 255.0,
+      "nominal_required_SF": 1.0765156480971443,
+      "minimum_float_m": -381.57598604393047
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 260.0,
+      "nominal_required_SF": 1.0750730841948177,
+      "minimum_float_m": -368.8771141637692
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 265.0,
+      "nominal_required_SF": 1.0736308976316173,
+      "minimum_float_m": -356.1678448350782
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 270.0,
+      "nominal_required_SF": 1.072189088716666,
+      "minimum_float_m": -343.4481582890892
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 275.0,
+      "nominal_required_SF": 1.0707476577596697,
+      "minimum_float_m": -330.7180346979784
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 280.0,
+      "nominal_required_SF": 1.0693066050709297,
+      "minimum_float_m": -317.97745417468207
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 285.0,
+      "nominal_required_SF": 1.0678659309613348,
+      "minimum_float_m": -305.2263967725909
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 290.0,
+      "nominal_required_SF": 1.0664256357423696,
+      "minimum_float_m": -292.4648424853576
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 295.0,
+      "nominal_required_SF": 1.064985719726111,
+      "minimum_float_m": -279.69277124661687
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 300.0,
+      "nominal_required_SF": 1.0635461832252366,
+      "minimum_float_m": -266.9101629297669
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 305.0,
+      "nominal_required_SF": 1.0621070265530206,
+      "minimum_float_m": -254.11699734770718
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 310.0,
+      "nominal_required_SF": 1.0606682500233362,
+      "minimum_float_m": -241.31325425258433
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 315.0,
+      "nominal_required_SF": 1.059229853950661,
+      "minimum_float_m": -228.4989133355566
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 320.0,
+      "nominal_required_SF": 1.057791838650078,
+      "minimum_float_m": -215.67395422656637
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 325.0,
+      "nominal_required_SF": 1.0563542044372722,
+      "minimum_float_m": -202.83835649401612
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 330.0,
+      "nominal_required_SF": 1.05491695162854,
+      "minimum_float_m": -189.99209964458544
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 335.0,
+      "nominal_required_SF": 1.0534800805407858,
+      "minimum_float_m": -177.1351631229594
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 340.0,
+      "nominal_required_SF": 1.0520435914915252,
+      "minimum_float_m": -164.26752631154898
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 345.0,
+      "nominal_required_SF": 1.050607484798888,
+      "minimum_float_m": -151.38916853024614
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 350.0,
+      "nominal_required_SF": 1.0491717607816182,
+      "minimum_float_m": -138.50006903617918
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 355.0,
+      "nominal_required_SF": 1.0477364197590786,
+      "minimum_float_m": -125.60020702344093
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 360.0,
+      "nominal_required_SF": 1.0463014620512494,
+      "minimum_float_m": -112.68956162283621
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 365.0,
+      "nominal_required_SF": 1.0448668879787306,
+      "minimum_float_m": -99.76811190158344
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 370.0,
+      "nominal_required_SF": 1.0434326978627473,
+      "minimum_float_m": -86.83583686309669
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 375.0,
+      "nominal_required_SF": 1.0419988920251473,
+      "minimum_float_m": -73.89271544670567
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 380.0,
+      "nominal_required_SF": 1.0405654707884078,
+      "minimum_float_m": -60.93872652740208
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 385.0,
+      "nominal_required_SF": 1.0391324344756308,
+      "minimum_float_m": -47.97384891551599
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 390.0,
+      "nominal_required_SF": 1.0376997834105492,
+      "minimum_float_m": -34.99806135649726
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 395.0,
+      "nominal_required_SF": 1.0362675179175314,
+      "minimum_float_m": -22.011342530644356
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 400.0,
+      "nominal_required_SF": 1.0348356383215773,
+      "minimum_float_m": -9.013671052833615
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 405.0,
+      "nominal_required_SF": 1.0334041449483224,
+      "minimum_float_m": 3.9949745278223077
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 410.0,
+      "nominal_required_SF": 1.0319730381240413,
+      "minimum_float_m": 17.014615728149124
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 415.0,
+      "nominal_required_SF": 1.0305423181756488,
+      "minimum_float_m": 30.0452741312518
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 420.0,
+      "nominal_required_SF": 1.0291119854307038,
+      "minimum_float_m": 43.08697138675103
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 425.0,
+      "nominal_required_SF": 1.027682040217405,
+      "minimum_float_m": 56.13972921114157
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 430.0,
+      "nominal_required_SF": 1.0262524828645996,
+      "minimum_float_m": 69.20356938797585
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 435.0,
+      "nominal_required_SF": 1.0248233137017837,
+      "minimum_float_m": 82.27851376818762
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 440.0,
+      "nominal_required_SF": 1.0233945330590999,
+      "minimum_float_m": 95.36458427043306
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 445.0,
+      "nominal_required_SF": 1.0219661412673469,
+      "minimum_float_m": 108.46180288126561
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 450.0,
+      "nominal_required_SF": 1.0205381386579748,
+      "minimum_float_m": 121.57019165551202
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 455.0,
+      "nominal_required_SF": 1.0191105255630915,
+      "minimum_float_m": 134.68977271650846
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 460.0,
+      "nominal_required_SF": 1.0176833023154621,
+      "minimum_float_m": 147.82056825643286
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 465.0,
+      "nominal_required_SF": 1.0162564692485125,
+      "minimum_float_m": 160.96260053656732
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 470.0,
+      "nominal_required_SF": 1.014830026696329,
+      "minimum_float_m": 174.1158918876128
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 475.0,
+      "nominal_required_SF": 1.0134039749936643,
+      "minimum_float_m": 187.2804647099603
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 480.0,
+      "nominal_required_SF": 1.0119783144759362,
+      "minimum_float_m": 200.45634147400574
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 485.0,
+      "nominal_required_SF": 1.0105530454792326,
+      "minimum_float_m": 213.64354472043834
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 490.0,
+      "nominal_required_SF": 1.009128168340311,
+      "minimum_float_m": 226.84209706054702
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 495.0,
+      "nominal_required_SF": 1.0077036833965995,
+      "minimum_float_m": 240.05202117653494
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 500.0,
+      "nominal_required_SF": 1.0062795909862048,
+      "minimum_float_m": 253.27333982179076
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 505.0,
+      "nominal_required_SF": 1.0048558914479078,
+      "minimum_float_m": 266.5060758212121
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 510.0,
+      "nominal_required_SF": 1.0034325851211683,
+      "minimum_float_m": 279.75025207152925
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 515.0,
+      "nominal_required_SF": 1.0020096723461298,
+      "minimum_float_m": 293.0058915415674
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 520.0,
+      "nominal_required_SF": 1.0005871534636175,
+      "minimum_float_m": 306.2730172725878
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 525.0,
+      "nominal_required_SF": 0.9991650288151402,
+      "minimum_float_m": 319.5516523786374
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 530.0,
+      "nominal_required_SF": 0.9977432987428974,
+      "minimum_float_m": 332.84182004676774
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 535.0,
+      "nominal_required_SF": 0.9963219635897781,
+      "minimum_float_m": 346.1435435374194
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 540.0,
+      "nominal_required_SF": 0.9949010236993596,
+      "minimum_float_m": 359.4568461847547
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 545.0,
+      "nominal_required_SF": 0.9934804794159192,
+      "minimum_float_m": 372.7817513968848
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 550.0,
+      "nominal_required_SF": 0.9920603310844249,
+      "minimum_float_m": 386.11828265630686
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 555.0,
+      "nominal_required_SF": 0.9906405790505465,
+      "minimum_float_m": 399.4664635201406
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 560.0,
+      "nominal_required_SF": 0.9892212236606552,
+      "minimum_float_m": 412.8263176204515
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 565.0,
+      "nominal_required_SF": 0.9878022652618221,
+      "minimum_float_m": 426.1978686646619
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 570.0,
+      "nominal_required_SF": 0.9863837042018273,
+      "minimum_float_m": 439.58114043578706
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 575.0,
+      "nominal_required_SF": 0.9849655408291557,
+      "minimum_float_m": 452.9761567927853
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 580.0,
+      "nominal_required_SF": 0.9835477754930023,
+      "minimum_float_m": 466.38294167095097
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 585.0,
+      "nominal_required_SF": 0.9821304085432765,
+      "minimum_float_m": 479.80151908212486
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 590.0,
+      "nominal_required_SF": 0.9807134403305995,
+      "minimum_float_m": 493.23191311516615
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 595.0,
+      "nominal_required_SF": 0.9792968712063091,
+      "minimum_float_m": 506.67414793620605
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 600.0,
+      "nominal_required_SF": 0.9778807015224634,
+      "minimum_float_m": 520.128247788989
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 605.0,
+      "nominal_required_SF": 0.9764649316318423,
+      "minimum_float_m": 533.5942369952311
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 610.0,
+      "nominal_required_SF": 0.9750495618879471,
+      "minimum_float_m": 547.0721399549785
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 615.0,
+      "nominal_required_SF": 0.9736345926450066,
+      "minimum_float_m": 560.5619811469139
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 620.0,
+      "nominal_required_SF": 0.9722200242579769,
+      "minimum_float_m": 574.0637851287235
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 625.0,
+      "nominal_required_SF": 0.9708058570825463,
+      "minimum_float_m": 587.5775765374468
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 630.0,
+      "nominal_required_SF": 0.9693920914751343,
+      "minimum_float_m": 601.1033800898181
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 635.0,
+      "nominal_required_SF": 0.9679787277928953,
+      "minimum_float_m": 614.6412205826332
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 640.0,
+      "nominal_required_SF": 0.9665657663937238,
+      "minimum_float_m": 628.1911228930644
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 645.0,
+      "nominal_required_SF": 0.9651532076362528,
+      "minimum_float_m": 641.7531119790721
+    },
+    {
+      "envelope": "all_019",
+      "C_kg": 650.0,
+      "nominal_required_SF": 0.9637410518798579,
+      "minimum_float_m": 655.3272128797272
+    }
+  ],
+  "full_gross_mass_days": [
+    {
+      "day": "ISA",
+      "model": "lapse_mixing",
+      "z_m": 500.0,
+      "p_Pa": 95460.83791390515,
+      "p_over_p0": 1.0,
+      "T_K": 284.9,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 490.0,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "optimistic_heat_only",
+      "model": "lapse_mixing",
+      "z_m": 130.74316880238257,
+      "p_Pa": 99615.73633954281,
+      "p_over_p0": 1.0435246381284113,
+      "T_K": 297.3001694027845,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 120.74316880238257,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "optimistic_hot_low_dry",
+      "model": "lapse_mixing",
+      "z_m": 22.603219604591743,
+      "p_Pa": 99851.2587897202,
+      "p_over_p0": 1.0459918535365749,
+      "T_K": 298.00307907257013,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 12.603219604591743,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "optimistic_hot_low_wet",
+      "model": "lapse_mixing",
+      "z_m": -23.1899446984454,
+      "p_Pa": 100352.37665575281,
+      "p_over_p0": 1.0512413137024763,
+      "T_K": 298.3007346405399,
+      "vapour_Pa": 1061.8599128307842,
+      "relative_humidity": 0.3321228134023221,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": -33.1899446984454,
+      "below_sea_level": true,
+      "touches_or_below_ground": true,
+      "supersaturated": false
+    },
+    {
+      "day": "optimistic_pressure_only_low",
+      "model": "lapse_mixing",
+      "z_m": 396.37048781930145,
+      "p_Pa": 95686.53689749578,
+      "p_over_p0": 1.0023643096847126,
+      "T_K": 285.5735918291745,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 386.37048781930145,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "optimistic_hot_high_dry",
+      "model": "lapse_mixing",
+      "z_m": 237.5558000350111,
+      "p_Pa": 99383.10470984067,
+      "p_over_p0": 1.0410877055099073,
+      "T_K": 296.6058872997724,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 227.5558000350111,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "optimistic_hot_high_wet",
+      "model": "lapse_mixing",
+      "z_m": 193.93076124971196,
+      "p_Pa": 99869.65983932842,
+      "p_over_p0": 1.0461846137302873,
+      "T_K": 296.88945005187685,
+      "vapour_Pa": 1035.8263502280072,
+      "relative_humidity": 0.3525175421683199,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 183.93076124971196,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "optimistic_pressure_only_high",
+      "model": "lapse_mixing",
+      "z_m": 602.3575556627065,
+      "p_Pa": 95237.90917681331,
+      "p_over_p0": 0.9976647100322658,
+      "T_K": 284.2346758881924,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 592.3575556627065,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "conservative_heat_only",
+      "model": "lapse_mixing",
+      "z_m": -455.6350515425021,
+      "p_Pa": 105952.3585512515,
+      "p_over_p0": 1.1099039236048662,
+      "T_K": 316.21162783502626,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": -465.6350515425021,
+      "below_sea_level": true,
+      "touches_or_below_ground": true,
+      "supersaturated": false
+    },
+    {
+      "day": "conservative_hot_low_dry",
+      "model": "lapse_mixing",
+      "z_m": -687.1164769982252,
+      "p_Pa": 106456.51148361647,
+      "p_over_p0": 1.1151851776078916,
+      "T_K": 317.71625710048846,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": -697.1164769982252,
+      "below_sea_level": true,
+      "touches_or_below_ground": true,
+      "supersaturated": false
+    },
+    {
+      "day": "conservative_hot_low_wet",
+      "model": "lapse_mixing",
+      "z_m": -1015.8766672854322,
+      "p_Pa": 109835.3020021816,
+      "p_over_p0": 1.1505796974172864,
+      "T_K": 319.8531983373553,
+      "vapour_Pa": 7044.36549439155,
+      "relative_humidity": 0.6736827845917392,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": -1025.8766672854322,
+      "below_sea_level": true,
+      "touches_or_below_ground": true,
+      "supersaturated": false
+    },
+    {
+      "day": "conservative_pressure_only_low",
+      "model": "lapse_mixing",
+      "z_m": 291.44012330012765,
+      "p_Pa": 95915.06906098287,
+      "p_over_p0": 1.0047582983452061,
+      "T_K": 286.25563919854915,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 281.44012330012765,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    },
+    {
+      "day": "conservative_hot_high_dry",
+      "model": "lapse_mixing",
+      "z_m": -229.80164522527082,
+      "p_Pa": 105460.50667243796,
+      "p_over_p0": 1.1047515292873438,
+      "T_K": 314.74371069396426,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": -239.80164522527082,
+      "below_sea_level": true,
+      "touches_or_below_ground": true,
+      "supersaturated": false
+    },
+    {
+      "day": "conservative_hot_high_wet",
+      "model": "lapse_mixing",
+      "z_m": -528.5925420222034,
+      "p_Pa": 108641.80381851298,
+      "p_over_p0": 1.1380772072888734,
+      "T_K": 316.6858515231443,
+      "vapour_Pa": 6694.571807581608,
+      "relative_humidity": 0.7533789684947747,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": -538.5925420222034,
+      "below_sea_level": true,
+      "touches_or_below_ground": true,
+      "supersaturated": false
+    },
+    {
+      "day": "conservative_pressure_only_high",
+      "model": "lapse_mixing",
+      "z_m": 703.4711307116962,
+      "p_Pa": 95017.6897563457,
+      "p_over_p0": 0.995357801510614,
+      "T_K": 283.57743765037395,
+      "vapour_Pa": 0.0,
+      "relative_humidity": 0.0,
+      "mass_kg": 4889.442150186961,
+      "volume_m3": 4188.790204786391,
+      "ground_clearance_m_at_sea_level": 693.4711307116962,
+      "below_sea_level": false,
+      "touches_or_below_ground": false,
+      "supersaturated": false
+    }
+  ]
+}

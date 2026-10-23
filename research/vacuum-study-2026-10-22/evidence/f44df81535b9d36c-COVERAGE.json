@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "card_rows": "Linear factors f6/f4/f2 and f4/f2 refinements",
+      "status": "independently solved",
+      "record": "SUMMARY.json"
+    },
+    {
+      "card_rows": "Continuum factors, half-wave ratios, topology, lengths, DOFs, sections and masses",
+      "status": "independently rederived",
+      "record": "NUMERIC-COMPARISON.json"
+    },
+    {
+      "card_rows": "Payload and headroom including carried sag and differing joint/system rules",
+      "status": "independently rederived under inherited allowances",
+      "record": "SUMMARY.json"
+    },
+    {
+      "card_rows": "All baseline member-force summaries, member populations and five-valent-node means",
+      "status": "independently solved; endpoint sampling aligned and separately qualified",
+      "record": "NUMERIC-COMPARISON.json; ENDPOINT-AUDIT.json"
+    },
+    {
+      "card_rows": "Pin mechanisms and rigid rolls",
+      "status": "rank and geometric invariance independently checked",
+      "record": "runs/validation-f2-m12/VALIDATION.json"
+    },
+    {
+      "card_rows": "Owner's finite-roll numerical energy/residual noise and mode amplitudes",
+      "status": "not reproduced as exact diagnostics; physical mechanism established independently",
+      "record": "METHOD.md"
+    },
+    {
+      "card_rows": "Rise8 full forces, shape and frozen-load sensitivity",
+      "status": "not independently solved; resource refusal",
+      "record": "RISE-AUDIT.json"
+    },
+    {
+      "card_rows": "Rise8 moment-to-stress, mass charge and reported refinement arithmetic",
+      "status": "conditional on owner-supplied forces and raised length",
+      "record": "RISE-AUDIT.json"
+    },
+    {
+      "card_rows": "New nonlinear crossings and first loss",
+      "status": "only bracket arithmetic/data labels checked; first loss remains null",
+      "record": "NONLINEAR-AUDIT.json"
+    },
+    {
+      "card_rows": "Owner execution 16 success / 1 refusal",
+      "status": "pinned END receipts counted; timestamps are historical measurements",
+      "record": "EXECUTION.json"
+    },
+    {
+      "card_rows": "Physical material, film and joint qualification",
+      "status": "not established by the model; source/projection labels preserved",
+      "record": "NFI.json"
+    }
+  ]
+}

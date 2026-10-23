@@ -1,0 +1,2843 @@
+{
+  "unit": "vacuum-mainline072-graphite-matched-core-1020",
+  "started": "2026-10-22T09:46:12.475475-07:00",
+  "completed": "2026-10-22T09:48:16.910174-07:00",
+  "beta": 1.0,
+  "face_alpha_signed_1_per_K": -1e-06,
+  "reproduction_071_baseline_abs_max_kg": 0.0009861975195235573,
+  "reproduction_071_baseline": [
+    {
+      "maturity": "concept",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_kg": -19594.20835059777,
+      "expected_kg": -19594.208679278785,
+      "abs_diff_kg": 0.00032868101334315725
+    },
+    {
+      "maturity": "concept",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_kg": -21184.23488144713,
+      "expected_kg": -21184.234559666944,
+      "abs_diff_kg": 0.0003217801859136671
+    },
+    {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_kg": -64564.8233748659,
+      "expected_kg": -64564.8225562039,
+      "abs_diff_kg": 0.0008186619961634278
+    },
+    {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_kg": -69947.21632010934,
+      "expected_kg": -69947.21729081307,
+      "abs_diff_kg": 0.000970703738857992
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_kg": -14403.015010026833,
+      "expected_kg": -14403.014676574076,
+      "abs_diff_kg": 0.00033345275733154267
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_kg": -15892.121447241156,
+      "expected_kg": -15892.121571510135,
+      "abs_diff_kg": 0.00012426897956174798
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_kg": -47222.28625826334,
+      "expected_kg": -47222.286343434724,
+      "abs_diff_kg": 8.517138485331088e-05
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_kg": -52262.177372697544,
+      "expected_kg": -52262.178358895064,
+      "abs_diff_kg": 0.0009861975195235573
+    }
+  ],
+  "reproduction_071_graphite_abs_max_kg": 0.0,
+  "reproduction_071_graphite": [
+    {
+      "maturity": "concept",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_kg": -6939.837364112906,
+      "expected_kg": -6939.837364112906,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.5359433623081272
+    },
+    {
+      "maturity": "concept",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_kg": -8521.060863092567,
+      "expected_kg": -8521.060863092567,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.5359412827543248
+    },
+    {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_kg": -21491.274160988847,
+      "expected_kg": -21491.274160988847,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.5359035146766868
+    },
+    {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_kg": -26831.221882604408,
+      "expected_kg": -26831.221882604408,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.53590051268571
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_kg": -2894.2975829039806,
+      "expected_kg": -2894.2975829039806,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.5359433623081272
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_kg": -4376.0078374834175,
+      "expected_kg": -4376.0078374834175,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.5359412827543248
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_kg": -8055.716338737139,
+      "expected_kg": -8055.716338737139,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.5359035146766868
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_kg": -13059.37967618299,
+      "expected_kg": -13059.37967618299,
+      "abs_diff_kg": 0.0,
+      "thermal_interface": 0.53590051268571
+    }
+  ],
+  "CR-III_at_published_family_CTE": [
+    {
+      "maturity": "concept",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_kg": -6939.837364112906,
+      "thermal_interface": 0.5324800772528244,
+      "binding": [
+        [
+          "thermal_interface",
+          0.5324800772528244
+        ],
+        [
+          "scarf_average_shear",
+          0.9957761981477786
+        ],
+        [
+          "core_shear_crimping",
+          0.9957762230881407
+        ]
+      ]
+    },
+    {
+      "maturity": "concept",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_kg": -8521.060863092567,
+      "thermal_interface": 0.5324780111371724,
+      "binding": [
+        [
+          "thermal_interface",
+          0.5324780111371724
+        ],
+        [
+          "scarf_average_shear",
+          0.9957761815220287
+        ],
+        [
+          "core_shear_crimping",
+          0.9957762654846398
+        ]
+      ]
+    },
+    {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_kg": -21491.274160988847,
+      "thermal_interface": 0.5324404871181946,
+      "binding": [
+        [
+          "thermal_interface",
+          0.5324404871181946
+        ],
+        [
+          "scarf_average_shear",
+          0.9957758854048303
+        ],
+        [
+          "core_shear_crimping",
+          0.9957759058057475
+        ]
+      ]
+    },
+    {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_kg": -26831.221882604408,
+      "thermal_interface": 0.53243750452619,
+      "binding": [
+        [
+          "thermal_interface",
+          0.53243750452619
+        ],
+        [
+          "scarf_average_shear",
+          0.9957758617096346
+        ],
+        [
+          "core_shear_crimping",
+          0.9957759071717037
+        ]
+      ]
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_kg": -2894.2975829039806,
+      "thermal_interface": 0.5324800772528244,
+      "binding": [
+        [
+          "thermal_interface",
+          0.5324800772528244
+        ],
+        [
+          "scarf_average_shear",
+          0.9957761981477786
+        ],
+        [
+          "core_shear_crimping",
+          0.9957762230881407
+        ]
+      ]
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_kg": -4376.0078374834175,
+      "thermal_interface": 0.5324780111371724,
+      "binding": [
+        [
+          "thermal_interface",
+          0.5324780111371724
+        ],
+        [
+          "scarf_average_shear",
+          0.9957761815220287
+        ],
+        [
+          "core_shear_crimping",
+          0.9957762654846398
+        ]
+      ]
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_kg": -8055.716338737139,
+      "thermal_interface": 0.5324404871181946,
+      "binding": [
+        [
+          "thermal_interface",
+          0.5324404871181946
+        ],
+        [
+          "scarf_average_shear",
+          0.9957758854048303
+        ],
+        [
+          "core_shear_crimping",
+          0.9957759058057475
+        ]
+      ]
+    },
+    {
+      "maturity": "TRL7",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_kg": -13059.37967618299,
+      "thermal_interface": 0.53243750452619,
+      "binding": [
+        [
+          "thermal_interface",
+          0.53243750452619
+        ],
+        [
+          "scarf_average_shear",
+          0.9957758617096346
+        ],
+        [
+          "core_shear_crimping",
+          0.9957759071717037
+        ]
+      ]
+    }
+  ],
+  "sweep": {
+    "UCF-355-3/8-3.5-carbon": {
+      "spec": {
+        "rho": 56.0,
+        "Ec_Pa": 73100000.0,
+        "Gc_Pa": 161000000.0,
+        "crush_Pa": 2830000.0,
+        "s_cell_m": 0.009524999999999999,
+        "alpha": 4.5e-06,
+        "wall_E": 35000000000.0,
+        "wall_rho": 1550.0,
+        "wall_yield": 200000000.0
+      },
+      "kb_Pa": 632258064.516129,
+      "rows": [
+        {
+          "maturity": "concept",
+          "R_m": 20,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -151018.46723969592,
+            "tf_m": 0.007172166087175452,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.085510013278482,
+            "core_kg": 675.5680842279492,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003464
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.478552030489759
+              ],
+              [
+                "core_shear_crimping",
+                6.318082648862124
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003464,
+              "face_wrinkling": 70.79207076776358,
+              "face_compression": 19.020426959038016,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.478552030489759,
+              "core_shear_crimping": 6.318082648862124
+            }
+          },
+          "released_density_factor_to_float": 5.248505722486063,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 0.3553628910503903,
+            "tf_m": 0.007172166087175452,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 428.69344513817947,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.085510013278482,
+            "core_kg": 675.5680842279492,
+            "density_factor": 5.248505722486063,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003464
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.478552030489759
+              ],
+              [
+                "core_shear_crimping",
+                6.318082648862124
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003464,
+              "face_wrinkling": 70.79207076776358,
+              "face_compression": 19.020426959038016,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.478552030489759,
+              "core_shear_crimping": 6.318082648862124
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 20,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -154395.4094798056,
+            "tf_m": 0.007284386678861147,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191707155292,
+            "core_kg": 675.5680842279492,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.000000000364629
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.43307350543755
+              ],
+              [
+                "core_shear_crimping",
+                6.302803246467211
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.000000000364629,
+              "face_wrinkling": 70.6192744626139,
+              "face_compression": 18.827279495734853,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.43307350543755,
+              "core_shear_crimping": 6.302803246467211
+            }
+          },
+          "released_density_factor_to_float": 5.4002040297815705,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 0.5201694094703271,
+            "tf_m": 0.007284386678861147,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 416.6509242227666,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191707155292,
+            "core_kg": 675.5680842279492,
+            "density_factor": 5.4002040297815705,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.000000000364629
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.43307350543755
+              ],
+              [
+                "core_shear_crimping",
+                6.302803246467211
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.000000000364629,
+              "face_wrinkling": 70.6192744626139,
+              "face_compression": 18.827279495734853,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.43307350543755,
+              "core_shear_crimping": 6.302803246467211
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 30,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -508353.68054327514,
+            "tf_m": 0.010758249177658368,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0855100144648555,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003462748
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.477721654344772
+              ],
+              [
+                "core_shear_crimping",
+                6.316911215863718
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003462748,
+              "face_wrinkling": 70.77894524068559,
+              "face_compression": 19.016900348493646,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.477721654344772,
+              "core_shear_crimping": 6.316911215863718
+            }
+          },
+          "released_density_factor_to_float": 5.190870738069784,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 2.8160876897964044,
+            "tf_m": 0.010758249177658368,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 433.45329011923315,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0855100144648555,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 5.190870738069784,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003462748
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.477721654344772
+              ],
+              [
+                "core_shear_crimping",
+                6.316911215863718
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003462748,
+              "face_wrinkling": 70.77894524068559,
+              "face_compression": 19.016900348493646,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.477721654344772,
+              "core_shear_crimping": 6.316911215863718
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 30,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -519792.8630264378,
+            "tf_m": 0.010926580064657654,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191718614863,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003713254
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.4322599472539865
+              ],
+              [
+                "core_shear_crimping",
+                6.3016465687431475
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003713254,
+              "face_wrinkling": 70.606314554666,
+              "face_compression": 18.82382431113455,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.4322599472539865,
+              "core_shear_crimping": 6.3016465687431475
+            }
+          },
+          "released_density_factor_to_float": 5.341920103466421,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 1.3252628628797538,
+            "tf_m": 0.010926580064657654,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 421.19686487634925,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191718614863,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 5.341920103466421,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003713254
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.4322599472539865
+              ],
+              [
+                "core_shear_crimping",
+                6.3016465687431475
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003713254,
+              "face_wrinkling": 70.606314554666,
+              "face_compression": 18.82382431113455,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.4322599472539865,
+              "core_shear_crimping": 6.3016465687431475
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 20,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -134393.40595687626,
+            "tf_m": 0.007172166087175452,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.085510013278482,
+            "core_kg": 675.5680842279492,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003464
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.478552030489759
+              ],
+              [
+                "core_shear_crimping",
+                6.318082648862124
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003464,
+              "face_wrinkling": 70.79207076776358,
+              "face_compression": 19.020426959038016,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.478552030489759,
+              "core_shear_crimping": 6.318082648862124
+            }
+          },
+          "released_density_factor_to_float": 4.7386005775761895,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 0.9319059747124356,
+            "tf_m": 0.007172166087175452,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 474.82372974151,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.085510013278482,
+            "core_kg": 675.5680842279492,
+            "density_factor": 4.7386005775761895,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003464
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.478552030489759
+              ],
+              [
+                "core_shear_crimping",
+                6.318082648862124
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003464,
+              "face_wrinkling": 70.79207076776358,
+              "face_compression": 19.020426959038016,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.478552030489759,
+              "core_shear_crimping": 6.318082648862124
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 20,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -137513.61031056495,
+            "tf_m": 0.007284386678861147,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191707155292,
+            "core_kg": 675.5680842279492,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.000000000364629
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.43307350543755
+              ],
+              [
+                "core_shear_crimping",
+                6.302803246467211
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.000000000364629,
+              "face_wrinkling": 70.6192744626139,
+              "face_compression": 18.827279495734853,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.43307350543755,
+              "core_shear_crimping": 6.302803246467211
+            }
+          },
+          "released_density_factor_to_float": 4.874323577972549,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 0.16112901161591253,
+            "tf_m": 0.007284386678861147,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 461.6025103807074,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191707155292,
+            "core_kg": 675.5680842279492,
+            "density_factor": 4.874323577972549,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.000000000364629
+              ],
+              [
+                "thermal_interface",
+                1.0000255773717612
+              ],
+              [
+                "scarf_average_shear",
+                4.43307350543755
+              ],
+              [
+                "core_shear_crimping",
+                6.302803246467211
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.000000000364629,
+              "face_wrinkling": 70.6192744626139,
+              "face_compression": 18.827279495734853,
+              "thermal_interface": 1.0000255773717612,
+              "core_wall_yield": 12.4654495756525,
+              "scarf_average_shear": 4.43307350543755,
+              "core_shear_crimping": 6.302803246467211
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 30,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -452336.97423155466,
+            "tf_m": 0.010758249177658368,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0855100144648555,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003462748
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.477721654344772
+              ],
+              [
+                "core_shear_crimping",
+                6.316911215863718
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003462748,
+              "face_wrinkling": 70.77894524068559,
+              "face_compression": 19.016900348493646,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.477721654344772,
+              "core_shear_crimping": 6.316911215863718
+            }
+          },
+          "released_density_factor_to_float": 4.690581689621127,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 1.8909192282681033,
+            "tf_m": 0.010758249177658368,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 479.6846423074959,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0855100144648555,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 4.690581689621127,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003462748
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.477721654344772
+              ],
+              [
+                "core_shear_crimping",
+                6.316911215863718
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003462748,
+              "face_wrinkling": 70.77894524068559,
+              "face_compression": 19.016900348493646,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.477721654344772,
+              "core_shear_crimping": 6.316911215863718
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 30,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.5e-06,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.725341796875,
+          "core_alpha_at_release_1_per_K": 2.9893798828125005e-06,
+          "released_scale_point": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": -462901.5915629977,
+            "tf_m": 0.010926580064657654,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191718614863,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 1.0,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003713254
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.4322599472539865
+              ],
+              [
+                "core_shear_crimping",
+                6.3016465687431475
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003713254,
+              "face_wrinkling": 70.606314554666,
+              "face_compression": 18.82382431113455,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.4322599472539865,
+              "core_shear_crimping": 6.3016465687431475
+            }
+          },
+          "released_density_factor_to_float": 4.825694862970592,
+          "released_closed": {
+            "core": "UCF-355-3/8-3.5-carbon",
+            "payload_kg": 0.2507439315550073,
+            "tf_m": 0.010926580064657654,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 466.2540968483343,
+            "strength_MPa": 1290.0,
+            "gamma": 0.2,
+            "Q": 0.33,
+            "Vc": 1.0897191718614863,
+            "core_kg": 2280.0422842693283,
+            "density_factor": 4.825694862970592,
+            "co_binding": [
+              "global_buckling",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "global_buckling",
+                1.0000000003713254
+              ],
+              [
+                "thermal_interface",
+                1.0000134698725784
+              ],
+              [
+                "scarf_average_shear",
+                4.4322599472539865
+              ],
+              [
+                "core_shear_crimping",
+                6.3016465687431475
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0000000003713254,
+              "face_wrinkling": 70.606314554666,
+              "face_compression": 18.82382431113455,
+              "thermal_interface": 1.0000134698725784,
+              "core_wall_yield": 12.465298654092123,
+              "scarf_average_shear": 4.4322599472539865,
+              "core_shear_crimping": 6.3016465687431475
+            }
+          }
+        }
+      ]
+    },
+    "HRH-327-1/8-3.2-glass": {
+      "spec": {
+        "rho": 51.259082796672445,
+        "Ec_Pa": 186158446.91554573,
+        "Gc_Pa": 51710679.6987627,
+        "crush_Pa": 2137374.760882192,
+        "s_cell_m": 0.003175,
+        "alpha": 1.476e-05,
+        "wall_E": 25000000000.0,
+        "wall_rho": 1950.0,
+        "wall_yield": 150000000.0
+      },
+      "kb_Pa": 328583864.0812336,
+      "rows": [
+        {
+          "maturity": "concept",
+          "R_m": 20,
+          "weather": "ISA",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -76430.02999686054,
+            "tf_m": 0.00431921578322802,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.8995170321047894,
+            "core_kg": 618.375006504104,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003090073
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003092094823338
+              ],
+              [
+                "scarf_average_shear",
+                2.6973405962883903
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003092094823338,
+              "face_wrinkling": 52.80107294252841,
+              "face_compression": 11.455615441346318,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6973405962883903,
+              "core_shear_crimping": 1.0000000003090073
+            }
+          },
+          "released_density_factor_to_float": 3.127620149764305,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 0.20646206572109804,
+            "tf_m": 0.00431921578322802,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 719.3968232266179,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.8995170321047894,
+            "core_kg": 618.375006504104,
+            "density_factor": 3.127620149764305,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003090073
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003092094823338
+              ],
+              [
+                "scarf_average_shear",
+                2.6973405962883903
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003092094823338,
+              "face_wrinkling": 52.80107294252841,
+              "face_compression": 11.455615441346318,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6973405962883903,
+              "core_shear_crimping": 1.0000000003090073
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 20,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -79144.16588337281,
+            "tf_m": 0.004406219922925908,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920112228776103,
+            "core_kg": 618.375006504104,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.000000000285913
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003084899722312
+              ],
+              [
+                "scarf_average_shear",
+                2.6817746306231127
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003084899722312,
+              "face_wrinkling": 53.02245975846849,
+              "face_compression": 11.389506727867568,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6817746306231127,
+              "core_shear_crimping": 1.000000000285913
+            }
+          },
+          "released_density_factor_to_float": 3.231216989413379,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 0.575412380774651,
+            "tf_m": 0.004406219922925908,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 696.3320654019225,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920112228776103,
+            "core_kg": 618.375006504104,
+            "density_factor": 3.231216989413379,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.000000000285913
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003084899722312
+              ],
+              [
+                "scarf_average_shear",
+                2.6817746306231127
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003084899722312,
+              "face_wrinkling": 53.02245975846849,
+              "face_compression": 11.389506727867568,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6817746306231127,
+              "core_shear_crimping": 1.000000000285913
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 30,
+          "weather": "ISA",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -256085.61872474628,
+            "tf_m": 0.006479387469879207,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.899607151675135,
+            "core_kg": 2087.015646951351,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000002958416
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004211151725733
+              ],
+              [
+                "scarf_average_shear",
+                2.6972735503600016
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004211151725733,
+              "face_wrinkling": 52.802057802191136,
+              "face_compression": 11.455330697041653,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6972735503600016,
+              "core_shear_crimping": 1.0000000002958416
+            }
+          },
+          "released_density_factor_to_float": 3.079662419018613,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 0.719250012847624,
+            "tf_m": 0.006479387469879207,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 730.5995573102462,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.899607151675135,
+            "core_kg": 2087.015646951351,
+            "density_factor": 3.079662419018613,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000002958416
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004211151725733
+              ],
+              [
+                "scarf_average_shear",
+                2.6972735503600016
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004211151725733,
+              "face_wrinkling": 52.802057802191136,
+              "face_compression": 11.455330697041653,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6972735503600016,
+              "core_shear_crimping": 1.0000000002958416
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 30,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -265254.44263607473,
+            "tf_m": 0.00660989765980496,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920200679177931,
+            "core_kg": 2087.015646951351,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003096527
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004197452021812
+              ],
+              [
+                "scarf_average_shear",
+                2.6817067230318448
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004197452021812,
+              "face_wrinkling": 53.023394474156646,
+              "face_compression": 11.389218324077486,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6817067230318448,
+              "core_shear_crimping": 1.0000000003096527
+            }
+          },
+          "released_density_factor_to_float": 3.1812669553949746,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 2.1391398863379436,
+            "tf_m": 0.00660989765980496,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 707.2653856301878,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920200679177931,
+            "core_kg": 2087.015646951351,
+            "density_factor": 3.1812669553949746,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003096527
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004197452021812
+              ],
+              [
+                "scarf_average_shear",
+                2.6817067230318448
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004197452021812,
+              "face_wrinkling": 53.023394474156646,
+              "face_compression": 11.389218324077486,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6817067230318448,
+              "core_shear_crimping": 1.0000000003096527
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 20,
+          "weather": "ISA",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -66324.52108675863,
+            "tf_m": 0.00431921578322802,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.8995170321047894,
+            "core_kg": 618.375006504104,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003090073
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003092094823338
+              ],
+              [
+                "scarf_average_shear",
+                2.6973405962883903
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003092094823338,
+              "face_wrinkling": 52.80107294252841,
+              "face_compression": 11.455615441346318,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6973405962883903,
+              "core_shear_crimping": 1.0000000003090073
+            }
+          },
+          "released_density_factor_to_float": 2.829234947905708,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 0.44639032605323337,
+            "tf_m": 0.00431921578322802,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 795.2679934430766,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.8995170321047894,
+            "core_kg": 618.375006504104,
+            "density_factor": 2.829234947905708,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003090073
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003092094823338
+              ],
+              [
+                "scarf_average_shear",
+                2.6973405962883903
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003092094823338,
+              "face_wrinkling": 52.80107294252841,
+              "face_compression": 11.455615441346318,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6973405962883903,
+              "core_shear_crimping": 1.0000000003090073
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 20,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -68840.27736230615,
+            "tf_m": 0.004406219922925908,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920112228776103,
+            "core_kg": 618.375006504104,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.000000000285913
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003084899722312
+              ],
+              [
+                "scarf_average_shear",
+                2.6817746306231127
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003084899722312,
+              "face_wrinkling": 53.02245975846849,
+              "face_compression": 11.389506727867568,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6817746306231127,
+              "core_shear_crimping": 1.000000000285913
+            }
+          },
+          "released_density_factor_to_float": 2.9224846244276064,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 0.9299415598165979,
+            "tf_m": 0.004406219922925908,
+            "tc_m": 0.0024,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 769.8928443261465,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920112228776103,
+            "core_kg": 618.375006504104,
+            "density_factor": 2.9224846244276064,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.000000000285913
+              ],
+              [
+                "thermal_interface",
+                1.0000421083435216
+              ],
+              [
+                "global_buckling",
+                1.0003084899722312
+              ],
+              [
+                "scarf_average_shear",
+                2.6817746306231127
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0003084899722312,
+              "face_wrinkling": 53.02245975846849,
+              "face_compression": 11.389506727867568,
+              "thermal_interface": 1.0000421083435216,
+              "core_wall_yield": 5.347583037516675,
+              "scarf_average_shear": 2.6817746306231127,
+              "core_shear_crimping": 1.000000000285913
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 30,
+          "weather": "ISA",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -222178.37701167812,
+            "tf_m": 0.006479387469879207,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.899607151675135,
+            "core_kg": 2087.015646951351,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000002958416
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004211151725733
+              ],
+              [
+                "scarf_average_shear",
+                2.6972735503600016
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004211151725733,
+              "face_wrinkling": 52.802057802191136,
+              "face_compression": 11.455330697041653,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6972735503600016,
+              "core_shear_crimping": 1.0000000002958416
+            }
+          },
+          "released_density_factor_to_float": 2.7908070303111985,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 2.726944608836675,
+            "tf_m": 0.006479387469879207,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 806.2184076371293,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.899607151675135,
+            "core_kg": 2087.015646951351,
+            "density_factor": 2.7908070303111985,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000002958416
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004211151725733
+              ],
+              [
+                "scarf_average_shear",
+                2.6972735503600016
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004211151725733,
+              "face_wrinkling": 52.802057802191136,
+              "face_compression": 11.455330697041653,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6972735503600016,
+              "core_shear_crimping": 1.0000000002958416
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 30,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 1.5759999999999998e-05,
+          "feasible": false,
+          "at_stated_density": null,
+          "floats": false,
+          "max_feasible_mismatch_scale": 0.61956787109375,
+          "core_alpha_at_release_1_per_K": 8.764389648437498e-06,
+          "released_scale_point": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": -230676.0380118768,
+            "tf_m": 0.00660989765980496,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920200679177931,
+            "core_kg": 2087.015646951351,
+            "density_factor": 1.0,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003096527
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004197452021812
+              ],
+              [
+                "scarf_average_shear",
+                2.6817067230318448
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004197452021812,
+              "face_wrinkling": 53.023394474156646,
+              "face_compression": 11.389218324077486,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6817067230318448,
+              "core_shear_crimping": 1.0000000003096527
+            }
+          },
+          "released_density_factor_to_float": 2.882424290836973,
+          "released_closed": {
+            "core": "HRH-327-1/8-3.2-glass",
+            "payload_kg": 3.212150733766066,
+            "tf_m": 0.00660989765980496,
+            "tc_m": 0.0036,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 780.5929221289849,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 2.920200679177931,
+            "core_kg": 2087.015646951351,
+            "density_factor": 2.882424290836973,
+            "co_binding": [
+              "core_shear_crimping",
+              "thermal_interface"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000003096527
+              ],
+              [
+                "thermal_interface",
+                1.0000300006441953
+              ],
+              [
+                "global_buckling",
+                1.0004197452021812
+              ],
+              [
+                "scarf_average_shear",
+                2.6817067230318448
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0004197452021812,
+              "face_wrinkling": 53.023394474156646,
+              "face_compression": 11.389218324077486,
+              "thermal_interface": 1.0000300006441953,
+              "core_wall_yield": 5.347518293315405,
+              "scarf_average_shear": 2.6817067230318448,
+              "core_shear_crimping": 1.0000000003096527
+            }
+          }
+        }
+      ]
+    },
+    "HRH-49-1/4-2.1-kevlar": {
+      "spec": {
+        "rho": 33.638773085316295,
+        "Ec_Pa": 172368932.329209,
+        "Gc_Pa": 8963184.481118869,
+        "crush_Pa": 896318.4481118869,
+        "s_cell_m": 0.00635,
+        "alpha": 4.86e-06,
+        "wall_E": 29000000000.0,
+        "wall_rho": 1380.0,
+        "wall_yield": 150000000.0
+      },
+      "kb_Pa": 353450876.62107706,
+      "rows": [
+        {
+          "maturity": "concept",
+          "R_m": 20,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -27250.337467161433,
+            "tf_m": 0.0016404000998208135,
+            "tc_m": 0.10787370575547998,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.520292164149314,
+            "core_kg": 18240.032206529973,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000003061875
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000111584695
+              ],
+              [
+                "global_buckling",
+                1.003410847613253
+              ],
+              [
+                "face_wrinkling",
+                1.7314714935984852
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.003410847613253,
+              "face_wrinkling": 1.7314714935984852,
+              "face_compression": 4.24700368229993,
+              "thermal_interface": 3.85608428035216,
+              "core_wall_yield": 7.675562952935749,
+              "scarf_average_shear": 1.0000000003061875,
+              "core_shear_crimping": 1.0000000111584695
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 2.767175808969427,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 0.07014104451627645,
+            "tf_m": 0.0016404000995879973,
+            "tc_m": 0.10787370550852247,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 813.1033787975916,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.52029216109917,
+            "core_kg": 18240.03216477269,
+            "density_factor": 2.767175808969427,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.000000000220119
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000089893377
+              ],
+              [
+                "global_buckling",
+                1.0034108454302306
+              ],
+              [
+                "face_wrinkling",
+                1.731471495308536
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0034108454302306,
+              "face_wrinkling": 1.731471495308536,
+              "face_compression": 4.247003681934396,
+              "thermal_interface": 3.856084280357761,
+              "core_wall_yield": 7.6755629529468985,
+              "scarf_average_shear": 1.000000000220119,
+              "core_shear_crimping": 1.0000000089893377
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 20,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -29372.856032605865,
+            "tf_m": 0.0016833128333332027,
+            "tc_m": 0.11069567490817955,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.978621589889034,
+            "core_kg": 18717.190267158287,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002886917
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000265886644
+              ],
+              [
+                "global_buckling",
+                1.0034819060694484
+              ],
+              [
+                "face_wrinkling",
+                1.731471479781557
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0034819060694484,
+              "face_wrinkling": 1.731471479781557,
+              "face_compression": 4.247003682225626,
+              "thermal_interface": 3.856020117559188,
+              "core_wall_yield": 7.6754352364438665,
+              "scarf_average_shear": 1.0000000002886917,
+              "core_shear_crimping": 1.0000000265886644
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 3.0378330849986304,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 0.24184270801924868,
+            "tf_m": 0.0016833128324019384,
+            "tc_m": 0.1106956724592377,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 740.659521785745,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.978621574133875,
+            "core_kg": 18717.189853074262,
+            "density_factor": 3.0378330849986304,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002735778
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000056497778
+              ],
+              [
+                "global_buckling",
+                1.0034818849966387
+              ],
+              [
+                "face_wrinkling",
+                1.7314714984292738
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0034818849966387,
+              "face_wrinkling": 1.7314714984292738,
+              "face_compression": 4.247003682161437,
+              "thermal_interface": 3.85602011761431,
+              "core_wall_yield": 7.675435236553586,
+              "scarf_average_shear": 1.0000000002735778,
+              "core_shear_crimping": 1.0000000056497778
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 30,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -90223.13976058911,
+            "tf_m": 0.002463149290605292,
+            "tc_m": 0.1619781932510722,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.53844289828691,
+            "core_kg": 61623.884543210486,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000003003071
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000205397348
+              ],
+              [
+                "global_buckling",
+                1.004421595673901
+              ],
+              [
+                "face_wrinkling",
+                1.7314714852105364
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.004421595673901,
+              "face_wrinkling": 1.7314714852105364,
+              "face_compression": 4.247003682274955,
+              "thermal_interface": 3.8549560821887794,
+              "core_wall_yield": 7.673317266535549,
+              "scarf_average_shear": 1.0000000003003071,
+              "core_shear_crimping": 1.0000000205397348
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 2.67268383580251,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 0.37468060502578737,
+            "tf_m": 0.002463149289754049,
+            "tc_m": 0.16197819126986804,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 841.8504163716045,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.53844288910332,
+            "core_kg": 61623.88378947015,
+            "density_factor": 2.67268383580251,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002577756
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000089675625
+              ],
+              [
+                "global_buckling",
+                1.0044215840115815
+              ],
+              [
+                "face_wrinkling",
+                1.7314714954267787
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0044215840115815,
+              "face_wrinkling": 1.7314714954267787,
+              "face_compression": 4.247003682094324,
+              "thermal_interface": 3.8549560822259554,
+              "core_wall_yield": 7.673317266609547,
+              "scarf_average_shear": 1.0000000002577756,
+              "core_shear_crimping": 1.0000000089675625
+            }
+          }
+        },
+        {
+          "maturity": "concept",
+          "R_m": 30,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -97399.2823117815,
+            "tf_m": 0.0025276158433519057,
+            "tc_m": 0.1662175543802723,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.99746621627165,
+            "core_kg": 63236.73066477365,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002920106
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000291059639
+              ],
+              [
+                "global_buckling",
+                1.0045045933377634
+              ],
+              [
+                "face_wrinkling",
+                1.7314714775436455
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0045045933377634,
+              "face_wrinkling": 1.7314714775436455,
+              "face_compression": 4.247003682239721,
+              "thermal_interface": 3.8548765875015767,
+              "core_wall_yield": 7.673159031800079,
+              "scarf_average_shear": 1.0000000002920106,
+              "core_shear_crimping": 1.0000000291059639
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 2.9273105508312915,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 0.21093787034260458,
+            "tf_m": 0.0025276158433519057,
+            "tc_m": 0.1662175543802723,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 768.6236089167409,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.99746621627165,
+            "core_kg": 63236.73066477365,
+            "density_factor": 2.9273105508312915,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002920106
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000291059639
+              ],
+              [
+                "global_buckling",
+                1.0045045933377634
+              ],
+              [
+                "face_wrinkling",
+                1.7314714775436455
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0045045933377634,
+              "face_wrinkling": 1.7314714775436455,
+              "face_compression": 4.247003682239721,
+              "thermal_interface": 3.8548765875015767,
+              "core_wall_yield": 7.673159031800079,
+              "scarf_average_shear": 1.0000000002920106,
+              "core_shear_crimping": 1.0000000291059639
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 20,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -21401.779203756705,
+            "tf_m": 0.0016404000998208135,
+            "tc_m": 0.10787370575547998,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.520292164149314,
+            "core_kg": 18240.032206529973,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000003061875
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000111584695
+              ],
+              [
+                "global_buckling",
+                1.003410847613253
+              ],
+              [
+                "face_wrinkling",
+                1.7314714935984852
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.003410847613253,
+              "face_wrinkling": 1.7314714935984852,
+              "face_compression": 4.24700368229993,
+              "thermal_interface": 3.85608428035216,
+              "core_wall_yield": 7.675562952935749,
+              "scarf_average_shear": 1.0000000003061875,
+              "core_shear_crimping": 1.0000000111584695
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 2.2189183284992327,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 0.23979207915294865,
+            "tf_m": 0.0016404000998208135,
+            "tc_m": 0.10787370575613629,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 1014.007577972367,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.52029216415091,
+            "core_kg": 18240.032206640946,
+            "density_factor": 2.2189183284992327,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000003060405
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000111642242
+              ],
+              [
+                "global_buckling",
+                1.0034108476190433
+              ],
+              [
+                "face_wrinkling",
+                1.7314714935929632
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0034108476190433,
+              "face_wrinkling": 1.7314714935929632,
+              "face_compression": 4.247003682299305,
+              "thermal_interface": 3.8560842803521447,
+              "core_wall_yield": 7.675562952935717,
+              "scarf_average_shear": 1.0000000003060405,
+              "core_shear_crimping": 1.0000000111642242
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 20,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -23376.674745217115,
+            "tf_m": 0.0016833128331003866,
+            "tc_m": 0.11069567429971112,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.97862158595941,
+            "core_kg": 18717.190164274238,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002840885
+              ],
+              [
+                "core_shear_crimping",
+                1.000000021386129
+              ],
+              [
+                "global_buckling",
+                1.0034819008336353
+              ],
+              [
+                "face_wrinkling",
+                1.7314714844125967
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0034819008336353,
+              "face_wrinkling": 1.7314714844125967,
+              "face_compression": 4.247003682206075,
+              "thermal_interface": 3.856020117572884,
+              "core_wall_yield": 7.675435236471127,
+              "scarf_average_shear": 1.0000000002840885,
+              "core_shear_crimping": 1.000000021386129
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 2.4080544965038007,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 0.3724333959778505,
+            "tf_m": 0.0016833128333332027,
+            "tc_m": 0.1106956748455255,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 934.3642360530974,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.978621589736612,
+            "core_kg": 18717.190256564307,
+            "density_factor": 2.4080544965038007,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000003024097
+              ],
+              [
+                "core_shear_crimping",
+                1.000000026053336
+              ],
+              [
+                "global_buckling",
+                1.0034819055307447
+              ],
+              [
+                "face_wrinkling",
+                1.7314714802953184
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0034819055307447,
+              "face_wrinkling": 1.7314714802953184,
+              "face_compression": 4.247003682283887,
+              "thermal_interface": 3.8560201175606004,
+              "core_wall_yield": 7.675435236446676,
+              "scarf_average_shear": 1.0000000003024097,
+              "core_shear_crimping": 1.000000026053336
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 30,
+          "weather": "ISA",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -70681.32349181671,
+            "tf_m": 0.002463149290605292,
+            "tc_m": 0.1619781932510722,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.53844289828691,
+            "core_kg": 61623.884543210486,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000003003071
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000205397348
+              ],
+              [
+                "global_buckling",
+                1.004421595673901
+              ],
+              [
+                "face_wrinkling",
+                1.7314714852105364
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.004421595673901,
+              "face_wrinkling": 1.7314714852105364,
+              "face_compression": 4.247003682274955,
+              "thermal_interface": 3.8549560821887794,
+              "core_wall_yield": 7.673317266535549,
+              "scarf_average_shear": 1.0000000003003071,
+              "core_shear_crimping": 1.0000000205397348
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 2.1598047240901566,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 1.7309860113173272,
+            "tf_m": 0.002463149344801121,
+            "tc_m": 0.16197818963662128,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 1041.7608475913669,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.538443272536867,
+            "core_kg": 61623.883168108674,
+            "density_factor": 2.1598047240901566,
+            "co_binding": [
+              "core_shear_crimping",
+              "scarf_average_shear"
+            ],
+            "binding": [
+              [
+                "core_shear_crimping",
+                1.0000000000060478
+              ],
+              [
+                "scarf_average_shear",
+                1.0000000227560648
+              ],
+              [
+                "global_buckling",
+                1.0044215750785435
+              ],
+              [
+                "face_wrinkling",
+                1.7314715624589274
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0044215750785435,
+              "face_wrinkling": 1.7314715624589274,
+              "face_compression": 4.247003777644641,
+              "thermal_interface": 3.8549560822566002,
+              "core_wall_yield": 7.673317266670545,
+              "scarf_average_shear": 1.0000000227560648,
+              "core_shear_crimping": 1.0000000000060478
+            }
+          }
+        },
+        {
+          "maturity": "TRL7",
+          "R_m": 30,
+          "weather": "optimistic",
+          "mismatch_1_per_K": 5.86e-06,
+          "feasible": true,
+          "at_stated_density": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": -77357.70399650538,
+            "tf_m": 0.0025276158433519057,
+            "tc_m": 0.1662175543802723,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 2250.0,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.99746621627165,
+            "core_kg": 63236.73066477365,
+            "density_factor": 1.0,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002920106
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000291059639
+              ],
+              [
+                "global_buckling",
+                1.0045045933377634
+              ],
+              [
+                "face_wrinkling",
+                1.7314714775436455
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0045045933377634,
+              "face_wrinkling": 1.7314714775436455,
+              "face_compression": 4.247003682239721,
+              "thermal_interface": 3.8548765875015767,
+              "core_wall_yield": 7.673159031800079,
+              "scarf_average_shear": 1.0000000002920106,
+              "core_shear_crimping": 1.0000000291059639
+            }
+          },
+          "floats": false,
+          "density_factor_to_float": 2.340409313288429,
+          "closed": {
+            "core": "HRH-49-1/4-2.1-kevlar",
+            "payload_kg": 1.30084053653718,
+            "tf_m": 0.0025276158433519057,
+            "tc_m": 0.1662175543802723,
+            "E_GPa": 969.0,
+            "rho_kg_m3": 961.3702984451903,
+            "strength_MPa": 1290.0,
+            "gamma": 1.0,
+            "Q": 0.33,
+            "Vc": 17.99746621627165,
+            "core_kg": 63236.73066477365,
+            "density_factor": 2.340409313288429,
+            "co_binding": [
+              "scarf_average_shear",
+              "core_shear_crimping"
+            ],
+            "binding": [
+              [
+                "scarf_average_shear",
+                1.0000000002920106
+              ],
+              [
+                "core_shear_crimping",
+                1.0000000291059639
+              ],
+              [
+                "global_buckling",
+                1.0045045933377634
+              ],
+              [
+                "face_wrinkling",
+                1.7314714775436455
+              ]
+            ],
+            "modes": {
+              "global_buckling": 1.0045045933377634,
+              "face_wrinkling": 1.7314714775436455,
+              "face_compression": 4.247003682239721,
+              "thermal_interface": 3.8548765875015767,
+              "core_wall_yield": 7.673159031800079,
+              "scarf_average_shear": 1.0000000002920106,
+              "core_shear_crimping": 1.0000000291059639
+            }
+          }
+        }
+      ]
+    }
+  },
+  "kb_sensitivity": {
+    "UCF-355-3/8-3.5-carbon": {
+      "half": {
+        "feasible": true,
+        "payload_kg": -19511.58719576704,
+        "thermal_interface": 1.025495169746984
+      },
+      "base": {
+        "feasible": false,
+        "max_feasible_mismatch_scale": 0.725341796875
+      },
+      "double": {
+        "feasible": false,
+        "max_feasible_mismatch_scale": 0.51287841796875
+      }
+    },
+    "HRH-327-1/8-3.2-glass": {
+      "half": {
+        "feasible": false,
+        "max_feasible_mismatch_scale": 0.876220703125
+      },
+      "base": {
+        "feasible": false,
+        "max_feasible_mismatch_scale": 0.61956787109375
+      },
+      "double": {
+        "feasible": false,
+        "max_feasible_mismatch_scale": 0.4381103515625
+      }
+    },
+    "HRH-49-1/4-2.1-kevlar": {
+      "half": {
+        "feasible": true,
+        "payload_kg": -28652.747353122388,
+        "thermal_interface": 5.4532746674276575
+      },
+      "base": {
+        "feasible": true,
+        "payload_kg": -29372.856712664594,
+        "thermal_interface": 3.856020117485454
+      },
+      "double": {
+        "feasible": true,
+        "payload_kg": -30862.078447174983,
+        "thermal_interface": 2.7265781606024357
+      }
+    }
+  },
+  "qualified_hull_SF": null,
+  "tag": "QUESTIONABLE / PROJECTION"
+}

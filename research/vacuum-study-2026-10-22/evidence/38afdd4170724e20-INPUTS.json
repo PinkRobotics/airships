@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-030",
+  "unit": "vacuum-mainline030-design-register-1020",
+  "seat": "ref-55cff924be25afe6f9dd",
+  "questionable": true,
+  "certification": false,
+  "pins": [
+    {
+      "path": "unpublished-local-ref:7775b27b98a8ff95",
+      "sha256": "3f92a653fcf7002d9011ad9d222b008d3d7fba2b3d3ceb3e4760909a74fb626c",
+      "bytes": 2366,
+      "expected_sha256": "3f92a653fcf7002d9011ad9d222b008d3d7fba2b3d3ceb3e4760909a74fb626c",
+      "match": true,
+      "used_for": "the card's brief"
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "expected_sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "match": true,
+      "used_for": "common rules"
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021,
+      "expected_sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "match": true,
+      "used_for": "authority"
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063,
+      "expected_sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "match": true,
+      "used_for": "authority"
+    },
+    {
+      "path": "evidence/74176cf445147edf-CARD.md",
+      "sha256": "74176cf445147edfdb96d8e83e44ffa442a690517a64cc8450a89c24101e337d",
+      "bytes": 12407,
+      "used_for": "P2 lead (021 rev1)"
+    },
+    {
+      "path": "evidence/e7d08a00c2895456-CARD.md",
+      "sha256": "e7d08a00c28954565e3619ebb3619d7d0759669dd41430b8b10f66aae4bf788a",
+      "bytes": 10057,
+      "used_for": "P2 lead on 019's budget (021b)"
+    },
+    {
+      "path": "evidence/6181c24cf9c5c06e-GAMMA.md",
+      "sha256": "6181c24cf9c5c06e2b4332670e7403a829937f8e709b011008be448c2e4e58e7",
+      "bytes": 8020,
+      "used_for": "P3 lead as filed (022b)"
+    },
+    {
+      "path": "evidence/94eec70aedfc25f6-EQUILIBRIUM.md",
+      "sha256": "94eec70aedfc25f678ff6ca20cec7b72993a8581a7f77577225289dfa8a30324",
+      "bytes": 5314,
+      "used_for": "P3 masses (022b)"
+    },
+    {
+      "path": "evidence/19f9155c2f9e2e53-FOLD.md",
+      "sha256": "19f9155c2f9e2e53f390e36d769a6d0bbdcc965382a93d54dd390cf35c53f5a5",
+      "bytes": 3131,
+      "used_for": "P3 today's materials (022b)"
+    },
+    {
+      "path": "evidence/f45bb0029233264b-CARD.md",
+      "sha256": "f45bb0029233264bc366f54a9497789c22626f7bab0746d5d3379fa838b02f5c",
+      "bytes": 6997,
+      "used_for": "022 optimisms and k judgment"
+    },
+    {
+      "path": "evidence/af8c48d030b0630d-RESULTS-EXTRA.json",
+      "sha256": "af8c48d030b0630d8361780f23a706d679c460219090a68b4aa6571cb00fee1b",
+      "bytes": 41043,
+      "used_for": "P3 in-band restatement (this seat's 011b check)"
+    },
+    {
+      "path": "evidence/eded887cc0446812-INDEX.json",
+      "sha256": "eded887cc0446812a781d33d1ddc55550380a4853fa886232501dc39d306e639",
+      "bytes": 335589,
+      "used_for": "every filed report with its artifacts' pin status"
+    },
+    {
+      "path": "evidence/6d13c9fba69e154a-CHECK-VERDICTS.json",
+      "sha256": "6d13c9fba69e154a48ffddbbf41d4f1e29d77935f96d219745907c2b7d22b8f4",
+      "bytes": 63969,
+      "used_for": "sub-worker extraction of the 35 checks"
+    },
+    {
+      "path": "evidence/af73a01186a73bc7-TOPICS-JOINED.json",
+      "sha256": "af73a01186a73bc74127dd2876c9b926cc1e22cc1e7076c8a2af3a44ff39b30c",
+      "bytes": 265285,
+      "used_for": "sub-worker topic rows joined to the verbatim rows"
+    }
+  ],
+  "reports_indexed": "INDEX.json lists 95 reports read by id from unpublished-local-ref:ab52dba26d6cc3a7 (one listing, no walk) and every artifact's sha256 against its filing; 12 changed artifacts are 021's and 023's first files, rewritten in place by their later filings",
+  "sub_workers": "four worker-sonnet-high sub-agents: three normalised NFI-CHUNK-1..3 into TOPIC-CHUNK-1..3 (362 rows, completeness-checked by merge030.py); one extracted CHECK-VERDICTS.json from the 35 check reports. The merge map CANON.json and every check outcome in REGISTER are this seat's.",
+  "sources_by_identifier_only": [
+    "NASA CR-1457 (Sullins, Smith, Spier, 1969)",
+    "NASA SP-8032 (Weingarten, Seide, 1969)",
+    "the 1963 Hexcel cylinder summary cited by MAINLINE-018"
+  ]
+}

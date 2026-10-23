@@ -1,0 +1,146 @@
+{
+  "independent.global_buckling": {
+    "row": "folded|M55J QI | CR-III 5056 3/8-1.0 | room-temperature cure (PROJECTION)|MLCCAg|cure_in_global|R30|ISA|floorFalse",
+    "field": "global_buckling",
+    "owner": 1.0000000000043483,
+    "checker": 0.9981598981821762,
+    "delta": -0.001840101822172091,
+    "basis": "independent"
+  },
+  "independent.face_compression": {
+    "row": "040|M55J QI | HRH-10-3/8-1.5 | AF163-2U 200 F|reference040|primary|R30|optimistic|floorFalse",
+    "field": "face_compression",
+    "owner": 2.2667197715974856,
+    "checker": 2.260043338879793,
+    "delta": -0.006676432717692471,
+    "basis": "independent"
+  },
+  "independent.core_shear_crimping": {
+    "row": "040|AlBeMet AM162 | CR-III 5056 3/8-1.0 | 040's Be scarf and stock|reference040|primary|R30|ISA|floorTrue",
+    "field": "core_shear_crimping",
+    "owner": 3.7870202468156036,
+    "checker": 3.7739294091362465,
+    "delta": -0.013090837679357037,
+    "basis": "independent"
+  },
+  "independent.core_crush": {
+    "row": "folded|M55J QI | HRH-49-1/4-2.1 | AF163-2U 200 F|MLCCAg|primary|R15|optimistic|floorFalse",
+    "field": "core_crush",
+    "owner": 17.972647068221704,
+    "checker": 17.972647068220105,
+    "delta": -1.5987211554602254e-12,
+    "basis": "independent"
+  },
+  "independent.face_wrinkling": {
+    "row": "040|AlBeMet AM162 | CR-III 5056 3/8-1.0 | 040's Be scarf and stock|reference040|primary|R30|optimistic|floorFalse",
+    "field": "face_wrinkling",
+    "owner": 1.2297343803861378,
+    "checker": 1.225049422781294,
+    "delta": -0.004684957604843776,
+    "basis": "independent"
+  },
+  "independent.intracell_dimpling": {
+    "row": "040|K13D2U QI | HRH-10-3/8-1.5 | AF163-2U 200 F|reference040|primary|R30|optimistic|floorFalse",
+    "field": "intracell_dimpling",
+    "owner": 101.77966011760202,
+    "checker": 101.44335802308706,
+    "delta": -0.33630209451496285,
+    "basis": "independent"
+  },
+  "independent.scarf_average_shear_screen": {
+    "row": "folded|M55J QI | HRH-10-3/8-1.5 | AF163-2U 200 F|MLCCAg|edge_scarf|R30|optimistic|floorFalse",
+    "field": "scarf_average_shear_screen",
+    "owner": 2.5710834898028163,
+    "checker": 2.562912639521392,
+    "delta": -0.008170850281424169,
+    "basis": "independent"
+  },
+  "independent.core_cell_wall_yield_screen": {
+    "row": "folded|K13D2U QI | HRH-49-1/4-2.1 | AF163-2U 200 F|CCAg|primary|R30|optimistic|floorFalse",
+    "field": "core_cell_wall_yield_screen",
+    "owner": 18.041910334723894,
+    "checker": 17.270264890572015,
+    "delta": -0.7716454441518792,
+    "basis": "independent"
+  },
+  "independent.thermal_core_interface_screen": {
+    "row": "folded|M55J QI | CR-III 5056 3/8-1.0 | room-temperature cure (PROJECTION)|CCAg|primary|R30|optimistic|floorFalse",
+    "field": "thermal_core_interface_screen",
+    "owner": 2.0554466779544027,
+    "checker": 1.83025183416907,
+    "delta": -0.22519484378533283,
+    "basis": "independent"
+  },
+  "pinned.global_buckling": {
+    "row": "folded|Be | CR-III 5056 3/8-1.0 | AF163-2U 200 F|MLCCAg|primary|R15|optimistic|floorTrue",
+    "field": "global_buckling",
+    "owner": 1.000000008388827,
+    "checker": 1.000000008388738,
+    "delta": -8.903988657493755e-14,
+    "basis": "pinned"
+  },
+  "pinned.face_compression": {
+    "row": "folded|M55J QI | CR-III 5056 3/8-1.0 | room-temperature cure (PROJECTION)|MLCCAg|cure_in_global|R15|optimistic|floorFalse",
+    "field": "face_compression",
+    "owner": 1.8434107973053906,
+    "checker": 1.8434107973052294,
+    "delta": -1.6120438317557273e-13,
+    "basis": "pinned"
+  },
+  "pinned.core_shear_crimping": {
+    "row": "folded|M55J QI | CR-III 5056 3/8-1.0 | room-temperature cure (PROJECTION)|MLCCAg|primary|R15|optimistic|floorFalse",
+    "field": "core_shear_crimping",
+    "owner": 5.816991063885668,
+    "checker": 5.816991063885151,
+    "delta": -5.169198402654729e-13,
+    "basis": "pinned"
+  },
+  "pinned.core_crush": {
+    "row": "folded|Be | CR-III 5056 3/8-1.0 | AF163-2U 200 F|MLCCAg|primary|R15|optimistic|floorFalse",
+    "field": "core_crush",
+    "owner": 4.840509353561036,
+    "checker": 4.8405093535606065,
+    "delta": -4.298783551348606e-13,
+    "basis": "pinned"
+  },
+  "pinned.face_wrinkling": {
+    "row": "folded|Be | CR-III 5056 3/8-1.0 | AF163-2U 200 F|MLCCAg|edge_scarf|R15|optimistic|floorFalse",
+    "field": "face_wrinkling",
+    "owner": 2.0529082300726205,
+    "checker": 2.0529082300722514,
+    "delta": -3.6903813338540203e-13,
+    "basis": "pinned"
+  },
+  "pinned.intracell_dimpling": {
+    "row": "040|Be | CR-III 5056 3/8-1.0 | AF163-2U 200 F|reference040|primary|R30|optimistic|floorFalse",
+    "field": "intracell_dimpling",
+    "owner": 67.26522901129411,
+    "checker": 67.26522901128823,
+    "delta": -5.8832938520936295e-12,
+    "basis": "pinned"
+  },
+  "pinned.scarf_average_shear_screen": {
+    "row": "folded|M55J QI | CR-III 5056 3/8-1.0 | room-temperature cure (PROJECTION)|MLCCAg|cure_in_global|R15|optimistic|floorFalse",
+    "field": "scarf_average_shear_screen",
+    "owner": 2.141593597727356,
+    "checker": 2.1415935977271685,
+    "delta": -1.8740564655672642e-13,
+    "basis": "pinned"
+  },
+  "pinned.core_cell_wall_yield_screen": {
+    "row": "folded|M55J QI | CR-III 5056 3/8-1.0 | room-temperature cure (PROJECTION)|MLCCAg|primary|R15|optimistic|floorFalse",
+    "field": "core_cell_wall_yield_screen",
+    "owner": 4.42087848484029,
+    "checker": 4.420878484840291,
+    "delta": 8.881784197001252e-16,
+    "basis": "pinned"
+  },
+  "pinned.thermal_core_interface_screen": {
+    "row": "folded|M55J QI | CR-III 5056 3/8-1.0 | room-temperature cure (PROJECTION)|MLCCAg|primary|R15|ISA|floorFalse",
+    "field": "thermal_core_interface_screen",
+    "owner": 1.9724531562665564,
+    "checker": 1.9724531562665568,
+    "delta": 4.440892098500626e-16,
+    "basis": "pinned"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "E-049c3937fc5953aff12b",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-049c3937fc5953aff12b",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1034~1NFI.json/open/5",
+    "row_id": "NFI-034-P2-PERMEATION-PATH",
+    "fields": {
+      "id": "NFI-034-P2-PERMEATION-PATH",
+      "tag": "PROJECTION",
+      "finding": "Intact Be bulk ambient-gas permeation is set to zero in the screen, not measured. AF full-area bonds are behind Be and do not see the full exterior-to-interior gradient. The outer 30:1 scarf is screened at an assumed 10 Barrer; its adhesive is the 028 70 g/m2 route, not silently replaced with AF163.",
+      "proposed_next": "Measure scarf and metal/adhesive assembly permeance, pinholes and surface defects. Validate the actual panel boundary path."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Intact Be bulk ambient-gas permeation is set to zero in the screen, not measured. AF full-area bonds are behind Be and do not see the full exterior-to-interior gradient. The outer 30:1 scarf is screened at an assumed 10 Barrer; its adhesive is the 028 70 g/m2 route, not silently replaced with AF163.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1034~1NFI.json/open/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

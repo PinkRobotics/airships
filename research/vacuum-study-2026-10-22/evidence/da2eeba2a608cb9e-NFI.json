@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-011b",
+  "unit": "vacuum-mainline011b-p3-global-arcs-1019",
+  "rows": [
+    {
+      "id": "NFI-011B-GRID",
+      "note": "011 counts nodes with the equilateral continuum. The scored global pressure uses that grid: Et=(2/sqrt(3))*E*A/s, nu=1/3, D=(3*sqrt(3)/4)*E*I/s, and the classical sphere 4*sqrt(D*Et)/R^2. The product is 4*sqrt(3/2)*E*sqrt(I*A)/(s*R^2). The brief's two-way pressure, coefficient 4, is the robotics arithmetic and is re-optimised beside it. A geodesic coefficient was not invented."
+    },
+    {
+      "id": "NFI-011B-WRIGHT",
+      "note": "Wright 1965, ASCE Journal of the Structural Division 91(ST1):173-201, is the cited paper. The extract shows a modified k of 0.4 used for his Table 2. The thickness equation in the extract is not legible. k=0.4 here multiplies the classical pressure derived in this card, which may not be the expression in that table. Buchert, Gioncu 1995 and Makowski contributed no number. A secondary E' and t' pair that cancels back to the two-way pressure was not scored."
+    },
+    {
+      "id": "NFI-011B-KNOCKDOWN",
+      "note": "Perfect is k=1. Design level is k=0.2, the floor of the brief's 0.2 to 0.5 lattice-dome band. k=0.5 is the top of that band. This is not the SP-8032 curve and it does not rescale 004's P2-E knockdown. P2-E stays the pinned pair 0.233885578993 and 0.164568553708."
+    },
+    {
+      "id": "NFI-011B-ARC",
+      "note": "Scored members are spherical arcs. N=p*R*s/2 is the 011 arch resultant. Straight chords are the alternative: at the rounded point the sag is 0.1125 m and the bending stress is 2.1065 to 3.1598 GPa. Those stresses are reported and are outside the least-SF minimiser."
+    },
+    {
+      "id": "NFI-011B-PERRY",
+      "note": "Geometric Perry-Robertson with a0=s/1000 and eta=a0*r_o/rg^2. This is not a code eta table. SF is sigma_cr divided by the arch stress at p_ext. When N exceeds Ne the pole of 1/(1-N/Ne) is passed and that factor is not the score. The formula is a steel-column interaction. On CFRP, CNT and SiC it is a projection. It is scored beside Euler and yield and can bind below both."
+    },
+    {
+      "id": "NFI-011B-JOINT",
+      "note": "011 had no separate joint mass. This card sets joint mass to 5 percent of tube mass and reduces the tube budget so film, nodes, joints, systems and tube still equal the lift mass. The 5 percent is the P2 sandwich fraction applied to tubes, not a measured fitting. RESULTS carries a 6061 scan with the joint term removed. Node mass remains 0.02 kg times V(s)."
+    },
+    {
+      "id": "NFI-011B-SIC",
+      "note": "The primary SiC row uses 011's 3900 MPa crush. A second scan uses 380 MPa, the flexural figure 011 carried from 008. Flexural strength, brittle fracture, joining and a sintered tube of this size remain open. Perry and yield at 3900 MPa are not a bending allowable."
+    },
+    {
+      "id": "NFI-011B-LENGTH",
+      "note": "Mass, Euler and Perry use the spacing s, as 011 did. The spherical arc is longer than the chord. That extra length was not substituted."
+    },
+    {
+      "id": "NFI-011B-LOCAL-FILM",
+      "note": "Local buckling remains 0.6*E*t_w/r_o with gamma=1. The film allowable remains 1.5 GPa with no datasheet. Both are open, carried from 011."
+    },
+    {
+      "id": "NFI-011B-BAND",
+      "note": "The reported optima stay inside s<=3 m, where 011 judged the equal-triangle continuum defensible. The unconstrained ride to s=6.4 m was not repeated."
+    },
+    {
+      "id": "NFI-011B-REGRESSION",
+      "note": "With joints off and only yield, Euler, local and film, the 6061 banded optimum recovers the filed 011 point. The 011 tree was not rewritten."
+    },
+    {
+      "id": "NFI-011B-SKIP",
+      "note": "The brief's last line names checks 006, 007 and 007b. The rotating order says those checks are already filed and are skipped here."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "rows": [
+    {
+      "id": "NFI-CHECK-031-HALF-WAVE",
+      "status": "open",
+      "issue": "030's half-wave is pi*sqrt((3/4)*rg*R), rg=sqrt((ro^2+ri^2)/2), divided by bay side. Below 1, or a bay longer than 3 m, is outside the smeared band. The 019-reserve 022b point is s 6.15 m at ratio 0.567895. Every reoptimised SiC row is outside that band. The optimistic 100 m row is ratio 0.568724. The least factor on those rows is global.",
+      "effect": "The passing P3 factors use a global formula the register says does not describe these bays. The Ti/Kapton rows are inside the band and remain below 1. This objection does not change the printed arithmetic."
+    },
+    {
+      "id": "NFI-CHECK-031-PASS-CONDITIONS",
+      "status": "open",
+      "issue": "The P3 pass uses 3900 MPa, a typical property, and a 1.5 GPa film. The lapse with constant vapour fraction is a projection. The C=0 roots at -23.190 m and -1015.877 m are below sea-level ground.",
+      "effect": "The card already tags these. They stay open."
+    }
+  ]
+}

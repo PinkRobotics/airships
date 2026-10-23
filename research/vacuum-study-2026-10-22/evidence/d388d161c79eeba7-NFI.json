@@ -1,0 +1,252 @@
+{
+  "unit": "vacuum-mainline040-common-account-1020",
+  "overall_installed_hull_SF": null,
+  "inherited_register": "inputs/030b/SOURCE-INDEX.json",
+  "findings": [
+    {
+      "id": "040-01-coating_inventory",
+      "tag": "PROJECTION",
+      "open_issue": "0.20 kg/m² paint+primer remains assumed; the marginal R12/R15 results are sensitive to installed coating mass.",
+      "grounding": "Weigh prepared, coated Be witnesses at the required optical performance, including primer, repairs and coverage variation."
+    },
+    {
+      "id": "040-02-cure_reference",
+      "tag": "PROJECTION",
+      "open_issue": "Filed 037b's 200 F stress-free state, compliant-core/free-edge model and balanced-force argument are adopted conditionally.",
+      "grounding": "Measure actual stress-free state and layer-wise residual strains; validate the free-edge and global/crimp assumptions on a curved matched panel."
+    },
+    {
+      "id": "040-03-combined_weather_thermal",
+      "tag": "PROJECTION",
+      "open_issue": "031 buoyancy/pressure and 037 solar temperatures are separate environments.",
+      "grounding": "Define the combined mission and compute/test its complete thermal cycle with the Admiral's chosen weather envelope."
+    },
+    {
+      "id": "040-04-face_compression",
+      "tag": "QUESTIONABLE",
+      "open_issue": "Compression strength is nonbinding under the scarf cap. Marginal face-tuple floats receive elasticity credit from 033's coupled historical E/Fcy tuple.",
+      "grounding": "Measure lot, orientation and formed-condition elastic modulus and compression, and state whether the design credits the coupled historical tuple."
+    },
+    {
+      "id": "040-05-bond_strength",
+      "tag": "QUESTIONABLE",
+      "open_issue": "Film weights do not establish adhesive shear, peel, flatwise tension, fatigue or leakage on Be/5056.",
+      "grounding": "Test the exact film, primer, surface treatment, cure and honeycomb geometry."
+    },
+    {
+      "id": "040-06-gamma",
+      "tag": "PROJECTION",
+      "open_issue": "The effective global coefficient and Vc branch convention lack whole-hull imperfection validation.",
+      "grounding": "Use measured imperfections, orthotropic shell analysis and correlated physical buckling tests."
+    },
+    {
+      "id": "040-07-wrinkling_Q",
+      "tag": "PROJECTION",
+      "open_issue": "Q=.33–.82 is a selectable model factor rather than a qualified lower-bound allowable.",
+      "grounding": "Correlate matched sandwich wrinkle specimens across relevant wavelengths and defects."
+    },
+    {
+      "id": "040-08-thermal_model",
+      "tag": "PROJECTION",
+      "open_issue": "Corrected thermal quadrature does not qualify the 037b homogenized free-edge model, local hardpoint restraint or joint coincidence.",
+      "grounding": "Compare thermal maps, strain and interface damage on curved instrumented panels."
+    },
+    {
+      "id": "040-09-scarf",
+      "tag": "PROJECTION",
+      "open_issue": "The 10 MPa mean-shear screen and worst-direction thermal addition do not resolve scarf peel, voids or intersections.",
+      "grounding": "Weigh and load/leak-test full process scarf intersections under thermal cycling."
+    },
+    {
+      "id": "040-10-stock_and_mouldline",
+      "tag": "PROJECTION",
+      "open_issue": "Low-radius face gauges are outside the cited standard sheet gauge envelope; spherical coverage and rejection rates are unresolved.",
+      "grounding": "Confirm formed stock supply and make a dimensioned panel/seam/mouldline manufacturing account."
+    },
+    {
+      "id": "040-11-core_properties",
+      "tag": "QUESTIONABLE",
+      "open_issue": "Typical CR-III properties, weak shear direction and scalar elasticity are transferred to a formed shell.",
+      "grounding": "Measure density, orthotropic stiffness, compression, shear and crushed/formed condition for the selected lot."
+    },
+    {
+      "id": "040-12-pad_load_path",
+      "tag": "PROJECTION",
+      "open_issue": "Heavy pad is sized to mean crush and a plate formula; punching, peel and hull load distribution remain open.",
+      "grounding": "Resolve the complete mooring attachment and validate with combined pressure/tether tests."
+    },
+    {
+      "id": "040-13-light_pad",
+      "tag": "PROJECTION",
+      "open_issue": "The 20 m/s pad supplies only about 0.432 of the 70 kn capacity.",
+      "grounding": "Resize the attachment for the actual required load; a mass-only lighter-pad result is not an assembly pass."
+    },
+    {
+      "id": "040-14-aerodynamic_pressure",
+      "tag": "PROJECTION",
+      "open_issue": "Uniform Cp=1 and aligned gust velocity are load surrogates; 70 kn is the governing modeled pressure.",
+      "grounding": "Resolve pressure distribution and transient tether/flight loads for the chosen configuration."
+    },
+    {
+      "id": "040-15-unvented_cells",
+      "tag": "PROJECTION",
+      "open_issue": "Ambient trapped gas consumes lift and changes inner/outer face load paths; late venting is a separate transient.",
+      "grounding": "Specify and demonstrate cell venting or analyze/test the sealed-cell pressure distribution and failure transient."
+    },
+    {
+      "id": "040-16-service_hardware",
+      "tag": "PROJECTION",
+      "open_issue": "30–50 kg service is nested in 100 kg systems and held fixed with radius; there is no installed bill of materials.",
+      "grounding": "Provide a weighed scalable hardware, support, controls and wiring bill with the remaining systems allocation."
+    },
+    {
+      "id": "040-17-leak_and_permeation",
+      "tag": "PROJECTION",
+      "open_issue": "Reference .001 mbar L/(s m) seam leakage and 10 Barrer scarf permeability are scenarios, not measured acceptances.",
+      "grounding": "Measure conditioned full-seam/port leakage and species permeation under mission pressure and temperature."
+    },
+    {
+      "id": "040-18-conditioning",
+      "tag": "PROJECTION",
+      "open_issue": "90% inventory removal, one-day release kinetics and water-only desorption composition are unverified.",
+      "grounding": "Measure finite species inventories and desorption rates after a validated conditioning process."
+    },
+    {
+      "id": "040-19-weather_requirement",
+      "tag": "PROJECTION",
+      "open_issue": "100 m centre altitude and both weather sets are choices for comparison, not an approved terrain/operations requirement.",
+      "grounding": "Have the Admiral choose the mission envelope and reserve policy; retain all three current accounts."
+    },
+    {
+      "id": "040-20-joint_floor",
+      "tag": "PROJECTION",
+      "open_issue": "Actual joining and the retained 5% floor produce different margins and least sets; neither closes an unmeasured installed joining bill.",
+      "grounding": "Close unlisted joining/edge/repair costs with a weighed assembly bill before releasing any retained allowance."
+    },
+    {
+      "id": "040-21-additional_installation",
+      "tag": "PROJECTION",
+      "open_issue": "Local hardpoints, tolerances, penetrations, rejected parts and repairs are not independently itemized beyond retained allowances.",
+      "grounding": "Reconcile the complete installed bill and load-path drawing; do not assign an installed-hull SF from the scored scalar screens."
+    },
+    {
+      "id": "040-22-film_interpolation",
+      "tag": "PROJECTION",
+      "open_issue": "Intermediate film weights rank optimism but are not necessarily available or qualified resin systems.",
+      "grounding": "Choose an available process and demonstrate both installed weight and bond/leak performance."
+    },
+    {
+      "id": "040-23-radius_scope",
+      "tag": "PROJECTION",
+      "open_issue": "The least-optimism ranking holds over R10/12/15/20/30 for the selected 3/8–1.0 core only.",
+      "grounding": "Treat other radii/core grades and pressure/weather reserve policies as separate design choices requiring recomputation."
+    }
+  ],
+  "primary_bond_model": "filed037b_200F_30.341397_scarf",
+  "inherited_037b": [
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-SCREEN-PREMISE",
+      "tag": "QUESTIONABLE",
+      "claim": "037's shear-lag screen holds each face at the core's expansion (0.227 after the 250 F cure). That needs the core to carry 47 times the in-plane force at which its walls yield. CR-1457, Hexcel AGU 075b and NASA TM-4585 treat the core's in-plane stiffness and thermal force as negligible; on that premise the continuous core carries no mismatch shear and a free core edge reads 1.17 / 0.83.",
+      "needed_to_ground": "A curved Be/CR-III panel cured with AF 163-2U, cycled over 271-302 K, strain-gauged at a core splice, at a face scarf and in the field, then sectioned."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-EDGE-MODEL",
+      "tag": "QUESTIONABLE",
+      "claim": "The free-edge shear uses this seat's homogenised model: K_biax from wall stretching (uniform cell 0.5 E rho*/rho_s; doubled ribbon walls 0.45), a linear shear profile over half the core depth, and a 16 mm transfer length, about 1.7 cells. Homogenisation is marginal there and cell-scale peaks are not modelled. The W direction governs over L on both strengths.",
+      "needed_to_ground": "A cell-resolved finite-element model of a free core edge, or the panel test above."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-BALANCED-COMPRESSION",
+      "tag": "QUESTIONABLE",
+      "claim": "The cure leaves the faces in compression balanced by core tension. This card takes it as not driving global buckling or crimping, because the wall's net membrane force is unchanged (this seat's argument). It adds it in full to yield, wrinkling, dimpling and the scarf; for wrinkling that is conservative, since the core's tension near the face resists the wrinkle.",
+      "needed_to_ground": "A sandwich-shell buckling analysis with the layer-wise residual state."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-SCARF",
+      "tag": "PROJECTION",
+      "claim": "028b's fixed 30:1 scarf binds at its projected 10 MPa screen, so the cure compression costs usage (0.972 to 1.052); 028's sizing rule restores it at 30.44:1 for 0.16 kg. The 10 MPa screen is not a measured Be scarf allowable, and a filled core splice at the scarf may change the local face stress.",
+      "needed_to_ground": "A measured Be scarf allowable and the splice-at-scarf detail."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-028B-SCARF-LEVER",
+      "tag": "QUESTIONABLE",
+      "claim": "028b's faces are pinned by its fixed 30:1 scarf. Without any cure compression a 30.44:1 scarf would let them thin, to usage 0.894. 028b gives no reason for fixing 30:1, such as machining, overlap, peel or panel-edge limits. This card notes the lever and does not take it.",
+      "needed_to_ground": "028b's owner states why the scarf is fixed at 30:1, or re-runs the least set with the scarf ratio free."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-SPLICE",
+      "tag": "PROJECTION",
+      "claim": "Whether 028's filled 0.5 mm core splice carries the core's in-plane force (no free edge) is not shown; the fill's modulus and its bond to the cut cell walls are unsourced.",
+      "needed_to_ground": "Splice-fill properties and a splice coupon in in-plane tension."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-SUSTAINED-SHEAR",
+      "tag": "QUESTIONABLE",
+      "claim": "The residual is a sustained shear on the core. On the minimum-average W strength (25 psi) it reads 0.83 at a free edge after the 250 F cure. Honeycomb creep and day-night fatigue under sustained shear are not sourced.",
+      "needed_to_ground": "Sustained-load and cyclic shear data for CR-III 5056 3/8-1.0."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-STRESS-FREE-T",
+      "tag": "QUESTIONABLE",
+      "claim": "The cure-or-Tg rule (108-121 C for AF 163-2U) is sourced qualitatively; no measured stress-free temperature or relaxed fraction for AF 163 was found.",
+      "needed_to_ground": "A bimaterial-strip or panel-curvature measurement with the actual cure cycle."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-RT-PASTE",
+      "tag": "PROJECTION",
+      "claim": "Room-temperature pastes (EA 9394 class) carry no sourced honeycomb bond data, fillet mass or flatwise strength; they are priced at AF's areal weight.",
+      "needed_to_ground": "Honeycomb flatwise and climbing-drum data for a room-temperature system at a weighed areal mass."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-NONMETAL-CTE",
+      "tag": "PROJECTION",
+      "claim": "Hexcel prints only thickness-direction expansion for glass and aramid cores; their in-plane values are proxies here. The carbon core UCF-145 (12.8 kg/m3, second-hand shear data, W strength 97 kPa) has no sourced in-plane expansion or compressive modulus and is not priced.",
+      "needed_to_ground": "In-plane expansion and compressive data for candidate non-metallic cores."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-WAVINESS",
+      "tag": "QUESTIONABLE",
+      "claim": "NASA/SDSU co-cured-panel studies report the face/core cure mismatch as cell-wall distortion and face waviness. That is a source of the wrinkle coefficient's waviness (MAINLINE-032), not of bond shear.",
+      "needed_to_ground": "Measured face waviness after an AF 163-2U cure on CR-III."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-FOIL",
+      "tag": "QUESTIONABLE",
+      "claim": "5056-H39 foil properties were not sourced: the wall stiffness uses 5056-H14 bulk (67 GPa, 2700 kg/m3) and the wall allowable the measured 5052-H39 foil yield (227.5 MPa).",
+      "needed_to_ground": "5056-H39 foil modulus and yield."
+    },
+    {
+      "source_report": "rpt-ref-d6eac96dde8db1968e86",
+      "source_snapshot": "inputs/037b/NFI.json",
+      "id": "NFI-037b-HARDPOINTS",
+      "tag": "QUESTIONABLE",
+      "claim": "Inserts, closeouts and 037's mooring pads constrain the mismatch locally; they are not scored here.",
+      "needed_to_ground": "The hard-point design."
+    }
+  ]
+}

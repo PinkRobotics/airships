@@ -1,0 +1,15 @@
+{
+  "reference": "mesh512g2-f2c6-a1-cap",
+  "comparison": "thread8-mesh512g2-f2c6-a1-cap",
+  "four_core_elapsed_s": 38.05587553186342,
+  "eight_core_elapsed_s": 31.701851257123053,
+  "stress_difference_SF1_MPa": 0.0,
+  "stress_difference_SF105_MPa": 5.0019399793654884e-05,
+  "passed": true,
+  "initial_exactness_threshold_MPa": 1e-05,
+  "initial_exactness_check": false,
+  "comparison_tolerance_MPa": 0.0002,
+  "reason": "Native Cauchy stress components near 300 MPa are printed in 0.0001 MPa increments; a 1e-5 equivalent-stress equality check is below output quantization.",
+  "adopted_cores": 4,
+  "resource_choice": "Four cores retained: the eight-core trial was only 16.7 percent faster while reserving twice as many cores."
+}

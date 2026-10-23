@@ -1,0 +1,891 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-007",
+  "unit": "vacuum-mainline007-core-trade-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "started_at": "2026-10-19T22:45:53-07:00",
+  "ended_at": "2026-10-19T22:52:16.272157-07:00",
+  "certification": "none",
+  "atmosphere": {
+    "p_ext_Pa": 95460.83791390515,
+    "rho_air_kg_m3": 1.1672683307461802,
+    "volume_m3": 4188.790204786391,
+    "lift_kg": 4889.442150186961,
+    "R_m": 10.0,
+    "p_int_Pa": 0.0
+  },
+  "inherited": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_Pa": 276000000.0,
+    "sigma_tag": "QUESTIONABLE",
+    "sigma_transfer": "TRANSFERRED_FROM_TENSILE_YIELD",
+    "sigma_source": "MAINLINE-002 INPUTS.json, ASM MatWeb 6061-T6 sheet, AA typical tensile yield",
+    "rho_face_kg_m3": 2700.0,
+    "kd": 0.2,
+    "joint_fraction_of_sandwich": 0.05,
+    "systems_kg": 100.0
+  },
+  "formulas": {
+    "area_m2": "4*pi*R^2, used for both faces and the core",
+    "structural_mass_kg": "(lift - systems) / 1.05",
+    "face_mass_kg": "2 * area * tf * 2700",
+    "core_mass_kg": "area * core_thickness * rho_core",
+    "separation_m": "core_thickness + tf",
+    "p_buckling_Pa": "kd*4*tf*separation*E/(R^2*sqrt(1-nu^2))",
+    "p_yield_Pa": "4*sigma*tf/R",
+    "SF": "limit pressure / external pressure",
+    "membrane_Pa": "p*R/(4*tf)",
+    "Gc_crimp_Pa": "p*R/(2*separation), from p = 2*Gc*d/R with d = separation",
+    "Ec_Gc_Pa2": "(2*membrane)^3 / E_face, from sigma_wr = 0.5*(E_face*Ec*Gc)^(1/3) set equal to membrane stress",
+    "crush_Pa": "p/2, the brief's 'about p/2', not an equilibrium solution",
+    "buckling_tf_m": "M_struct / (2*area*(2*rho_face - rho_core))",
+    "equal_SF_separation_m": "sigma*R*sqrt(1-nu^2)/(kd*E)",
+    "kd_scaling": "p_buckling and SF_b scale in direct proportion to kd. E_factor scales as 1/kd. Yield, membrane stress, the crimp modulus, the wrinkling product and the crush target do not depend on kd."
+  },
+  "checks": {
+    "baseline_buckling_Pa": 11701.558395327302,
+    "baseline_match": "PASS",
+    "P2A_buckling_SF": 0.23078902511015878,
+    "P2A_match": "PASS",
+    "P2E_buckling_SF": 0.2338855789925097,
+    "P2E_match": "PASS",
+    "grid_match": "PASS",
+    "inherited_face_mass_implies_rho_al": 2700.0
+  },
+  "equal_SF_separation_m": 0.1890702011864905,
+  "tf_max_all_faces_m": 0.0006721899407891804,
+  "all_face_membrane_Pa": 355036694.6946199,
+  "all_face_SF_y": 0.7773844341284152,
+  "yield_cannot_reach_1_on_the_ceiling": true,
+  "sf_b_reaches_1": {
+    "rho_core_kg_m3": 3.7336956819672293,
+    "at_split": "max_buckling_SF",
+    "tf_m": 0.00033632751568960076,
+    "core_m": 0.4857538615954209,
+    "separation_m": 0.4860901891111105,
+    "SF_b": 1.0,
+    "SF_y": 0.3889611545796348,
+    "least_SF": 0.3889611545796348,
+    "governing": "aluminum_yield",
+    "membrane_stress_Pa": 709582426.8063061,
+    "E_factor": 1.0,
+    "strength_factor": 2.5709508217619788
+  },
+  "least_SF_peak": {
+    "on_named_set_peak_rho_kg_m3": 1.0,
+    "on_named_set": [
+      {
+        "rho": 32.0,
+        "least_SF": 0.11729238193448153
+      },
+      {
+        "rho": 16.0,
+        "least_SF": 0.23388763232700485
+      },
+      {
+        "rho": 8.0,
+        "least_SF": 0.45411827085472617
+      },
+      {
+        "rho": 6.0,
+        "least_SF": 0.5350247077141033
+      },
+      {
+        "rho": 4.0,
+        "least_SF": 0.6158711694534956
+      },
+      {
+        "rho": 3.0,
+        "least_SF": 0.6562719304894677
+      },
+      {
+        "rho": 2.0,
+        "least_SF": 0.6966577227366159
+      },
+      {
+        "rho": 1.0,
+        "least_SF": 0.7370285545124737
+      }
+    ],
+    "continuous_peak_rho_kg_m3": 0.25,
+    "continuous_peak_least_SF": 0.7672968655351241,
+    "continuous_samples": 114,
+    "samples_where_next_is_higher": 0,
+    "reading": "On the sampled range 0.25 to 64 kg/m3 the maximised lesser safety factor falls as density rises. There is no interior peak. On the named densities it is highest at 1 kg/m3. It remains below 1."
+  },
+  "rows": {
+    "32.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.00033809851716296333,
+        "core_m": 0.05637792773692413,
+        "separation_m": 0.05671602625408709,
+        "rho_core_kg_m3": 32.0,
+        "masses_kg": {
+          "faces": 2294.2824862509397,
+          "core": 2267.0909901175946,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 11196.8290603834,
+        "p_yield_Pa": 37326.07629479115,
+        "SF_b": 0.11729238193448153,
+        "SF_y": 0.3910093092672729,
+        "least_SF": 0.11729238193448153,
+        "governing": "knocked_down_buckling",
+        "membrane_stress_Pa": 705865547.081748,
+        "E_factor": 8.52570289312217,
+        "strength_factor": 2.5574838662382176,
+        "Gc_crimp_Pa": 8415684.614983585,
+        "Ec_times_Gc_Pa2": 4.083539108988257e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "same_as_buckling_peak_because_separation_below_equal_SF",
+        "tf_m": 0.00033809851716296333,
+        "core_m": 0.05637792773692413,
+        "separation_m": 0.05671602625408709,
+        "rho_core_kg_m3": 32.0,
+        "masses_kg": {
+          "faces": 2294.2824862509397,
+          "core": 2267.0909901175946,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 11196.8290603834,
+        "p_yield_Pa": 37326.07629479115,
+        "SF_b": 0.11729238193448153,
+        "SF_y": 0.3910093092672729,
+        "least_SF": 0.11729238193448153,
+        "governing": "knocked_down_buckling",
+        "membrane_stress_Pa": 705865547.081748,
+        "E_factor": 8.52570289312217,
+        "strength_factor": 2.5574838662382176,
+        "Gc_crimp_Pa": 8415684.614983585,
+        "Ec_times_Gc_Pa2": 4.083539108988257e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": true
+    },
+    "16.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.00033709376674048795,
+        "core_m": 0.11309495874143372,
+        "separation_m": 0.1134320525081742,
+        "rho_core_kg_m3": 16.0,
+        "masses_kg": {
+          "faces": 2287.464410511709,
+          "core": 2273.9090658568252,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 22327.109359635255,
+        "p_yield_Pa": 37215.15184814987,
+        "SF_b": 0.23388763232700485,
+        "SF_y": 0.3898473202352751,
+        "least_SF": 0.23388763232700485,
+        "governing": "knocked_down_buckling",
+        "membrane_stress_Pa": 707969468.2354939,
+        "E_factor": 4.275557412124605,
+        "strength_factor": 2.565106768969181,
+        "Gc_crimp_Pa": 4207842.307491791,
+        "Ec_times_Gc_Pa2": 4.120162560890915e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "same_as_buckling_peak_because_separation_below_equal_SF",
+        "tf_m": 0.00033709376674048795,
+        "core_m": 0.11309495874143372,
+        "separation_m": 0.1134320525081742,
+        "rho_core_kg_m3": 16.0,
+        "masses_kg": {
+          "faces": 2287.464410511709,
+          "core": 2273.9090658568252,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 22327.109359635255,
+        "p_yield_Pa": 37215.15184814987,
+        "SF_b": 0.23388763232700485,
+        "SF_y": 0.3898473202352751,
+        "least_SF": 0.23388763232700485,
+        "governing": "knocked_down_buckling",
+        "membrane_stress_Pa": 707969468.2354939,
+        "E_factor": 4.275557412124605,
+        "strength_factor": 2.565106768969181,
+        "Gc_crimp_Pa": 4207842.307491791,
+        "Ec_times_Gc_Pa2": 4.120162560890915e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": true
+    },
+    "8.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.00033659362762069494,
+        "core_m": 0.2265275113887277,
+        "separation_m": 0.2268641050163484,
+        "rho_core_kg_m3": 8.0,
+        "masses_kg": {
+          "faces": 2284.0705464011576,
+          "core": 2277.3029299673767,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 44587.96616924191,
+        "p_yield_Pa": 37159.93648932472,
+        "SF_b": 0.4670812360714369,
+        "SF_y": 0.3892689117482791,
+        "least_SF": 0.3892689117482791,
+        "governing": "aluminum_yield",
+        "membrane_stress_Pa": 709021428.8123668,
+        "E_factor": 2.140955197453183,
+        "strength_factor": 2.5689182203346625,
+        "Gc_crimp_Pa": 2103921.1537458957,
+        "Ec_times_Gc_Pa2": 4.138556116658387e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "SF_b_equals_SF_y",
+        "tf_m": 0.0003926676689112853,
+        "core_m": 0.18867753351757924,
+        "separation_m": 0.1890702011864905,
+        "rho_core_kg_m3": 8.0,
+        "masses_kg": {
+          "faces": 2664.580026140474,
+          "core": 1896.7934502280605,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 43350.510647805895,
+        "p_yield_Pa": 43350.510647805895,
+        "SF_b": 0.45411827085472617,
+        "SF_y": 0.45411827085472617,
+        "least_SF": 0.45411827085472617,
+        "governing": "both_equal",
+        "membrane_stress_Pa": 607771185.8642509,
+        "E_factor": 2.202069514000909,
+        "strength_factor": 2.2020695140009092,
+        "Gc_crimp_Pa": 2524481.3120959974,
+        "Ec_times_Gc_Pa2": 2.6067001966811616e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": false
+    },
+    "6.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.00033646882464419487,
+        "core_m": 0.30214900453048704,
+        "separation_m": 0.30248547335513126,
+        "rho_core_kg_m3": 6.0,
+        "masses_kg": {
+          "faces": 2283.223653354661,
+          "core": 2278.149823013873,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 59428.578317773434,
+        "p_yield_Pa": 37146.15824071911,
+        "SF_b": 0.622544067456974,
+        "SF_y": 0.3891245777061032,
+        "least_SF": 0.3891245777061032,
+        "governing": "aluminum_yield",
+        "membrane_stress_Pa": 709284418.9565852,
+        "E_factor": 1.6063119902256768,
+        "strength_factor": 2.569871083176033,
+        "Gc_crimp_Pa": 1577940.8653094214,
+        "Ec_times_Gc_Pa2": 4.143163043267289e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "SF_b_equals_SF_y",
+        "tf_m": 0.00046262596832455155,
+        "core_m": 0.18860757521816596,
+        "separation_m": 0.1890702011864905,
+        "rho_core_kg_m3": 6.0,
+        "masses_kg": {
+          "faces": 3139.3058618482755,
+          "core": 1422.0676145202588,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 51073.906903030496,
+        "p_yield_Pa": 51073.90690303049,
+        "SF_b": 0.5350247077141033,
+        "SF_y": 0.5350247077141033,
+        "least_SF": 0.5350247077141033,
+        "governing": "both_equal",
+        "membrane_stress_Pa": 515864026.50302243,
+        "E_factor": 1.8690725597935594,
+        "strength_factor": 1.8690725597935596,
+        "Gc_crimp_Pa": 2524481.3120959974,
+        "Ec_times_Gc_Pa2": 1.5939566135257134e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": false
+    },
+    "4.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.00033634411418287385,
+        "core_m": 0.4533918659185139,
+        "separation_m": 0.45372821003269675,
+        "rho_core_kg_m3": 4.0,
+        "masses_kg": {
+          "faces": 2282.3773881013794,
+          "core": 2278.996088267155,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 89109.82712548273,
+        "p_yield_Pa": 37132.39020578928,
+        "SF_b": 0.933469986989321,
+        "SF_y": 0.38898035065728714,
+        "least_SF": 0.38898035065728714,
+        "governing": "aluminum_yield",
+        "membrane_stress_Pa": 709547409.1008033,
+        "E_factor": 1.0712717215743115,
+        "strength_factor": 2.570823946017403,
+        "Gc_crimp_Pa": 1051960.5768729479,
+        "Ec_times_Gc_Pa2": 4.147773387477372e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "SF_b_equals_SF_y",
+        "tf_m": 0.0005325324083609364,
+        "core_m": 0.1885376687781295,
+        "separation_m": 0.18907020118649043,
+        "rho_core_kg_m3": 4.0,
+        "masses_kg": {
+          "faces": 3613.6797881152265,
+          "core": 947.6936882533078,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 58791.57788304736,
+        "p_yield_Pa": 58791.57788304738,
+        "SF_b": 0.6158711694534956,
+        "SF_y": 0.6158711694534958,
+        "least_SF": 0.6158711694534956,
+        "governing": "both_equal",
+        "membrane_stress_Pa": 448145673.4610803,
+        "E_factor": 1.6237162081923207,
+        "strength_factor": 1.62371620819232,
+        "Gc_crimp_Pa": 2524481.3120959983,
+        "Ec_times_Gc_Pa2": 1.0450291119046392e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": false
+    },
+    "3.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.00033628179361326426,
+        "core_m": 0.6046346649166492,
+        "separation_m": 0.6049709467102624,
+        "rho_core_kg_m3": 3.0,
+        "masses_kg": {
+          "faces": 2281.954490679089,
+          "core": 2279.4189856894454,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 118791.08817716133,
+        "p_yield_Pa": 37125.51001490437,
+        "SF_b": 1.2443960347833676,
+        "SF_y": 0.3889082772182177,
+        "least_SF": 0.3889082772182177,
+        "governing": "aluminum_yield",
+        "membrane_stress_Pa": 709678904.1729125,
+        "E_factor": 0.803602689214681,
+        "strength_factor": 2.5713003774380887,
+        "Gc_crimp_Pa": 788970.4326547108,
+        "Ec_times_Gc_Pa2": 4.150079841578856e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "SF_b_equals_SF_y",
+        "tf_m": 0.0005674661991295354,
+        "core_m": 0.188502734987361,
+        "separation_m": 0.18907020118649054,
+        "rho_core_kg_m3": 3.0,
+        "masses_kg": {
+          "faces": 3850.734907467082,
+          "core": 710.6385689014523,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 62648.26838390072,
+        "p_yield_Pa": 62648.268383900715,
+        "SF_b": 0.6562719304894679,
+        "SF_y": 0.6562719304894677,
+        "least_SF": 0.6562719304894677,
+        "governing": "both_equal",
+        "membrane_stress_Pa": 420557374.43189245,
+        "E_factor": 1.5237586030141028,
+        "strength_factor": 1.523758603014103,
+        "Gc_crimp_Pa": 2524481.312095997,
+        "Ec_times_Gc_Pa2": 8636673923018769.0,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": false
+    },
+    "2.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.00033621949613389906,
+        "core_m": 0.9071202005692597,
+        "separation_m": 0.9074564200653936,
+        "rho_core_kg_m3": 2.0,
+        "masses_kg": {
+          "faces": 2281.5317499435055,
+          "core": 2279.841726425029,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 178153.6225154149,
+        "p_yield_Pa": 37118.63237318246,
+        "SF_b": 1.8662482585381166,
+        "SF_y": 0.388836230482905,
+        "least_SF": 0.388836230482905,
+        "governing": "aluminum_yield",
+        "membrane_stress_Pa": 709810399.2450216,
+        "E_factor": 0.5358343914990857,
+        "strength_factor": 2.571776808858774,
+        "Gc_crimp_Pa": 525980.2884364739,
+        "Ec_times_Gc_Pa2": 4.1523871505558296e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "SF_b_equals_SF_y",
+        "tf_m": 0.0006023870466633185,
+        "core_m": 0.18846781413982722,
+        "separation_m": 0.18907020118649054,
+        "rho_core_kg_m3": 2.0,
+        "masses_kg": {
+          "faces": 4087.702196096688,
+          "core": 473.6712802718462,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 66503.52995163036,
+        "p_yield_Pa": 66503.52995163036,
+        "SF_b": 0.6966577227366159,
+        "SF_y": 0.6966577227366159,
+        "least_SF": 0.6966577227366159,
+        "governing": "both_equal",
+        "membrane_stress_Pa": 396177334.99862003,
+        "E_factor": 1.4354251268065943,
+        "strength_factor": 1.4354251268065943,
+        "Gc_crimp_Pa": 2524481.312095997,
+        "Ec_times_Gc_Pa2": 7220040668897212.0,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": false
+    },
+    "1.0": {
+      "max_buckling_SF": {
+        "rule": "max_buckling_SF",
+        "solver": "closed_form",
+        "tf_m": 0.000336157221731948,
+        "core_m": 1.8145766829090553,
+        "separation_m": 1.8149128401307872,
+        "rho_core_kg_m3": 1.0,
+        "masses_kg": {
+          "faces": 2281.1091658075648,
+          "core": 2280.2643105609695,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 356241.2499863714,
+        "p_yield_Pa": 37111.75727920706,
+        "SF_b": 3.73180518599324,
+        "SF_y": 0.38876421043651066,
+        "least_SF": 0.38876421043651066,
+        "governing": "aluminum_yield",
+        "membrane_stress_Pa": 709941894.3171307,
+        "E_factor": 0.2679668284275254,
+        "strength_factor": 2.572253240279459,
+        "Gc_crimp_Pa": 262990.14421823696,
+        "Ec_times_Gc_Pa2": 4.1546953145666936e+16,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "max_least_SF": {
+        "rule": "max_least_SF",
+        "solver": "SF_b_equals_SF_y",
+        "tf_m": 0.0006372949581543033,
+        "core_m": 0.18843290622833614,
+        "separation_m": 0.18907020118649046,
+        "rho_core_kg_m3": 1.0,
+        "masses_kg": {
+          "faces": 4324.581702807928,
+          "core": 236.7917735606061,
+          "joints": 228.06867381842673,
+          "systems_payload": 100.0,
+          "residual_gas": 0.0
+        },
+        "all_mass_kg": 4889.442150186961,
+        "float_margin_kg": 0.0,
+        "p_buckling_Pa": 70357.36338023507,
+        "p_yield_Pa": 70357.36338023508,
+        "SF_b": 0.7370285545124737,
+        "SF_y": 0.737028554512474,
+        "least_SF": 0.7370285545124737,
+        "governing": "both_equal",
+        "membrane_stress_Pa": 374476671.6434306,
+        "E_factor": 1.3567995349399662,
+        "strength_factor": 1.356799534939966,
+        "Gc_crimp_Pa": 2524481.3120959983,
+        "Ec_times_Gc_Pa2": 6097405377403412.0,
+        "crush_target_Pa": 47730.41895695258
+      },
+      "splits_coincide": false
+    }
+  },
+  "materials": [
+    {
+      "name": "ROHACELL 31 IG-F",
+      "family": "PMI_foam",
+      "density_kg_m3": 32.0,
+      "compressive_strength_Pa": 400000.0,
+      "Ec_Pa": 17000000.0,
+      "Ec_column": "compressive modulus ISO 844, 17 MPa",
+      "Gc_Pa": 13000000.0,
+      "Gc_used_for_compare_Pa": 13000000.0,
+      "shear_strength_Pa": 400000.0,
+      "tag": "QUESTIONABLE",
+      "source": "Evonik ROHACELL IG-F product information, April 2022, https://cdn.sanity.io/files/dorbplvp/production/ed045b3e26f3de6b4faf1533d03ca5c1b66f8ae0.pdf",
+      "note": "Nominal density 32 kg/m3 with a printed tolerance of plus or minus 7. Typical values, not a design allowable."
+    },
+    {
+      "name": "Divinycell H35",
+      "family": "PVC_foam",
+      "density_kg_m3": 38.0,
+      "compressive_strength_Pa": 500000.0,
+      "Ec_Pa": 40000000.0,
+      "Gc_Pa": 12000000.0,
+      "Gc_used_for_compare_Pa": 12000000.0,
+      "shear_strength_Pa": 400000.0,
+      "tag": "QUESTIONABLE",
+      "source": "DIAB Divinycell H, H Oct 2012 rev9 SI, nominal column, via https://www.castrocompositesshop.com/en/index.php?controller=attachment&id_attachment=1020",
+      "note": "Nearest listed PVC to 32 kg/m3, not a 32 kg/m3 product. An October 2012 rev7 sheet prints compressive strength 0.45 MPa for the same grade. Nominal is used. Minimum printed compressive strength on rev9 is 0.3 MPa."
+    },
+    {
+      "name": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "family": "aluminium_honeycomb",
+      "density_kg_m3": 32.0,
+      "compressive_strength_Pa": 1289319.6138224835,
+      "compressive_strength_source_column": "187.0 psi typical bare",
+      "Ec_Pa": null,
+      "Gc_L_Pa": 234421747.9677243,
+      "Gc_W_Pa": 137895145.86336723,
+      "Gc_used_for_compare_Pa": 137895145.86336723,
+      "tag": "QUESTIONABLE",
+      "source": "Plascore PAMG-XR1 5052 datasheet rev 4.6.2021, http://plascore.com/wp-content/uploads/dlm_uploads/2025/08/PLA_PAMG-XR1-5052_2023-06-02.pdf",
+      "note": "The sheet's MPa cell beside the 100 psi bare-compression minimum prints 0.55, which is not 100 psi. Typical 187 psi converts to 1.289 MPa and the sheet prints 1.29. No compressive modulus column. Plate shear, not an isotropic G."
+    },
+    {
+      "name": "Hexcel HRH-10-4.8-32",
+      "family": "aramid_honeycomb",
+      "density_kg_m3": 32.0,
+      "compressive_strength_Pa": 1000000.0,
+      "compressive_strength_column": "bare typical 1.00 MPa; stabilised typical 1.05 MPa",
+      "Ec_Pa": 76000000.0,
+      "Ec_column": "stabilised compressive modulus 76 MPa",
+      "Gc_L_Pa": 30000000.0,
+      "Gc_W_Pa": 14000000.0,
+      "Gc_used_for_compare_Pa": 14000000.0,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+      "note": "Aramid/phenolic honeycomb, 4.8 mm cell, 32 kg/m3. Stabilised modulus is not the continuum Ec of the wrinkling formula. W modulus is the smaller plate-shear modulus."
+    },
+    {
+      "name": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "family": "aluminium_honeycomb",
+      "density_kg_m3": 16.0,
+      "compressive_strength_Pa": 358527.3792447548,
+      "compressive_strength_source_column": "52.0 psi typical bare",
+      "Ec_Pa": null,
+      "Gc_L_Pa": 68947572.93168361,
+      "Gc_W_Pa": 48263301.05217853,
+      "Gc_used_for_compare_Pa": 48263301.05217853,
+      "tag": "QUESTIONABLE",
+      "source": "Plascore PAMG-XR1 5052 datasheet rev 4.6.2021, http://plascore.com/wp-content/uploads/dlm_uploads/2025/08/PLA_PAMG-XR1-5052_2023-06-02.pdf",
+      "note": "Lightest 5052 row on that sheet, 1.0 pcf. No compressive modulus column. Bare typical compression 52 psi."
+    },
+    {
+      "name": "Hexcel HRH-10-6.4-24",
+      "family": "aramid_honeycomb",
+      "density_kg_m3": 24.0,
+      "compressive_strength_Pa": 550000.0,
+      "Ec_Pa": 41000000.0,
+      "Gc_L_Pa": 21000000.0,
+      "Gc_W_Pa": 9000000.0,
+      "Gc_used_for_compare_Pa": 9000000.0,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+      "note": "Nearest listed aramid honeycomb below 32 kg/m3. 24 kg/m3, not 16. Bare typical compression 0.55 MPa. Stabilised modulus 41 MPa."
+    },
+    {
+      "name": "Schaedler nickel microlattice",
+      "family": "microlattice",
+      "density_kg_m3": 0.9,
+      "compressive_strength_Pa": null,
+      "Ec_Pa": null,
+      "Gc_Pa": null,
+      "tag": "QUESTIONABLE",
+      "exists": "PROJECTION of a usable core is not claimed. The solid exists at this density in the paper.",
+      "source": "T. A. Schaedler et al., Science 334, 962-965 (2011), doi:10.1126/science.1211649",
+      "note": "Open abstract: density at or above 0.9 mg/cm3, recovery after compression beyond 50 percent strain, Young's modulus scales as density squared. No numeric modulus, shear modulus or compressive strength was in the abstract. Those values are not invented here."
+    }
+  ],
+  "material_comparison": [
+    {
+      "material": "ROHACELL 31 IG-F",
+      "material_density_kg_m3": 32.0,
+      "compared_with_named_density_kg_m3": 32.0,
+      "split": "max_buckling_SF",
+      "density_offset_kg_m3": 0.0,
+      "crush_target_Pa": 47730.41895695258,
+      "compressive_strength_Pa": 400000.0,
+      "crush_margin": 8.380399936584563,
+      "Gc_target_Pa": 8415684.614983585,
+      "Gc_Pa": 13000000.0,
+      "crimp_margin": 1.5447346941750095,
+      "Ec_Gc_target_Pa2": 4.083539108988257e+16,
+      "Ec_Gc_Pa2": 221000000000000.0,
+      "wrinkle_margin": 0.005411972166828476
+    },
+    {
+      "material": "Divinycell H35",
+      "material_density_kg_m3": 38.0,
+      "compared_with_named_density_kg_m3": 32.0,
+      "split": "max_buckling_SF",
+      "density_offset_kg_m3": 6.0,
+      "crush_target_Pa": 47730.41895695258,
+      "compressive_strength_Pa": 500000.0,
+      "crush_margin": 10.475499920730703,
+      "Gc_target_Pa": 8415684.614983585,
+      "Gc_Pa": 12000000.0,
+      "crimp_margin": 1.4259089484692395,
+      "Ec_Gc_target_Pa2": 4.083539108988257e+16,
+      "Ec_Gc_Pa2": 480000000000000.0,
+      "wrinkle_margin": 0.01175450968360936
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "material_density_kg_m3": 32.0,
+      "compared_with_named_density_kg_m3": 32.0,
+      "split": "max_buckling_SF",
+      "density_offset_kg_m3": 0.0,
+      "crush_target_Pa": 47730.41895695258,
+      "compressive_strength_Pa": 1289319.6138224835,
+      "crush_margin": 27.012535024787933,
+      "Gc_target_Pa": 8415684.614983585,
+      "Gc_Pa": 137895145.86336723,
+      "crimp_margin": 16.38549353642053,
+      "Ec_Gc_target_Pa2": 4.083539108988257e+16,
+      "Ec_Gc_Pa2": null,
+      "wrinkle_margin": null
+    },
+    {
+      "material": "Hexcel HRH-10-4.8-32",
+      "material_density_kg_m3": 32.0,
+      "compared_with_named_density_kg_m3": 32.0,
+      "split": "max_buckling_SF",
+      "density_offset_kg_m3": 0.0,
+      "crush_target_Pa": 47730.41895695258,
+      "compressive_strength_Pa": 1000000.0,
+      "crush_margin": 20.950999841461407,
+      "Gc_target_Pa": 8415684.614983585,
+      "Gc_Pa": 14000000.0,
+      "crimp_margin": 1.6635604398807795,
+      "Ec_Gc_target_Pa2": 4.083539108988257e+16,
+      "Ec_Gc_Pa2": 1064000000000000.0,
+      "wrinkle_margin": 0.026055829798667413
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "material_density_kg_m3": 16.0,
+      "compared_with_named_density_kg_m3": 16.0,
+      "split": "max_buckling_SF",
+      "density_offset_kg_m3": 0.0,
+      "crush_target_Pa": 47730.41895695258,
+      "compressive_strength_Pa": 358527.3792447548,
+      "crush_margin": 7.511507065716431,
+      "Gc_target_Pa": 4207842.307491791,
+      "Gc_Pa": 48263301.05217853,
+      "crimp_margin": 11.469845475494374,
+      "Ec_Gc_target_Pa2": 4.120162560890915e+16,
+      "Ec_Gc_Pa2": null,
+      "wrinkle_margin": null
+    },
+    {
+      "material": "Hexcel HRH-10-6.4-24",
+      "material_density_kg_m3": 24.0,
+      "compared_with_named_density_kg_m3": 32.0,
+      "split": "max_buckling_SF",
+      "density_offset_kg_m3": -8.0,
+      "crush_target_Pa": 47730.41895695258,
+      "compressive_strength_Pa": 550000.0,
+      "crush_margin": 11.523049912803774,
+      "Gc_target_Pa": 8415684.614983585,
+      "Gc_Pa": 9000000.0,
+      "crimp_margin": 1.0694317113519296,
+      "Ec_Gc_target_Pa2": 4.083539108988257e+16,
+      "Ec_Gc_Pa2": 369000000000000.0,
+      "wrinkle_margin": 0.009036279319274695
+    },
+    {
+      "material": "Schaedler nickel microlattice",
+      "material_density_kg_m3": 0.9,
+      "compared_with_named_density_kg_m3": 1.0,
+      "split": "max_buckling_SF",
+      "density_offset_kg_m3": -0.09999999999999998,
+      "crush_target_Pa": 47730.41895695258,
+      "compressive_strength_Pa": null,
+      "crush_margin": null,
+      "Gc_target_Pa": 262990.14421823696,
+      "Gc_Pa": null,
+      "crimp_margin": null,
+      "Ec_Gc_target_Pa2": 4.1546953145666936e+16,
+      "Ec_Gc_Pa2": null,
+      "wrinkle_margin": null
+    }
+  ],
+  "pins": {
+    "mainline001_card": {
+      "path": "evidence/33ee112c1cb1a4b5-CARD.md",
+      "sha256": "33ee112c1cb1a4b5fe2460554b46bd68963cb980f49b06964fe672199132c4d8",
+      "bytes": 5667
+    },
+    "mainline001_inputs": {
+      "path": "evidence/69d9ef27cb5c86f2-INPUTS.json",
+      "sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "bytes": 15384
+    },
+    "mainline001_results": {
+      "path": "evidence/e7b2e4a33ab68eb0-RESULTS.json",
+      "sha256": "e7b2e4a33ab68eb0e195b83cb91faa86a77d7bc5b8970dfa3dd3cbae07a9cde5",
+      "bytes": 30175
+    },
+    "mainline002_card": {
+      "path": "evidence/63c812f02bde7cf4-CARD.md",
+      "sha256": "63c812f02bde7cf43d029e423b360014f9bb73c233bf33b46e525005378a0f07",
+      "bytes": 6977
+    },
+    "mainline002_inputs": {
+      "path": "evidence/f7365a5dbdda8ddd-INPUTS.json",
+      "sha256": "f7365a5dbdda8dddb18217e3a352457b372b3d0e2d94d7e692d78e62b48c7928",
+      "bytes": 1643
+    },
+    "mainline002_results": {
+      "path": "evidence/d728af6ca61595e1-RESULTS.json",
+      "sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "bytes": 13071
+    },
+    "mainline002_nfi": {
+      "path": "evidence/b155c07e690eaa66-NFI.json",
+      "sha256": "b155c07e690eaa665db0f27994bcf36986d5ffe168aa7a45cc0ae403ddcd87a8",
+      "bytes": 2449
+    },
+    "mainline003_card": {
+      "path": "evidence/17dc1e39680f79f6-CARD.md",
+      "sha256": "17dc1e39680f79f6ba2fd9d3ac0ac4fba28dfc4e4c95824e55e544bbcd3f1a3e",
+      "bytes": 3907
+    },
+    "mainline003_inputs": {
+      "path": "evidence/a697a764919c3211-INPUTS.json",
+      "sha256": "a697a764919c3211bb47caf3b032d3ace7637e85971078a66ef3264beb6abbe9",
+      "bytes": 851
+    },
+    "mainline003_results": {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    "mainline003_nfi": {
+      "path": "evidence/2090c6e1f4ca8afb-NFI.json",
+      "sha256": "2090c6e1f4ca8afb62ff5a7a0e2efbe8757aa60a79a773be2fae359cdd446e97",
+      "bytes": 2978
+    },
+    "una003": {
+      "path": "evidence/dcfa7ae3942a9e4f-UNA600-MAINLINE003-REVIEW.md",
+      "sha256": "dcfa7ae3942a9e4f8a43ac06ff5ba62d2249d69414228ea756661cb1f020925b",
+      "bytes": 3351
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    "card007": {
+      "path": "unpublished-local-ref:eee4da47983eaf06",
+      "sha256": "05791cd102b446c15ddf1b266b08263652ed4f24d54ac2f1206d79f010533b53",
+      "bytes": 1640
+    }
+  }
+}

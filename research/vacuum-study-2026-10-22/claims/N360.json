@@ -1,0 +1,72 @@
+{
+  "id": "N360",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N360",
+    "report": "rpt-mainline022-grok-p3-optimistic-floating-point-1020",
+    "card": "MAINLINE-022",
+    "file": "evidence/307ab133da904ca4-NFI.json",
+    "row_id": "NFI-022-KNOCKDOWN",
+    "fields": {
+      "id": "NFI-022-KNOCKDOWN",
+      "scored_design": 0.2,
+      "wright": 0.4,
+      "factor": 2.0,
+      "recommendation": "Use k 0.2 for ceramic arcs. A brittle member does not shed load after first crack. Wright 1965 used a modified k of 0.4 for a reticulated-shell table. That factor is an optimism here.",
+      "state": "Both values are in the catalog. k 0.2 is the brief's band floor."
+    }
+  },
+  "claim": "{\"id\": \"NFI-022-KNOCKDOWN\", \"scored_design\": 0.2, \"wright\": 0.4, \"factor\": 2.0, \"recommendation\": \"Use k 0.2 for ceramic arcs. A brittle member does not shed load after first crack. Wright 1965 used a modified k of 0.4 for a reticulated-shell table. That factor is an optimism here.\", \"state\": \"Both values are in the catalog. k 0.2 is the brief's band floor.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/359"
+    },
+    {
+      "report": "rpt-mainline022-grok-p3-optimistic-floating-point-1020",
+      "artifact": "evidence/307ab133da904ca4-NFI.json",
+      "snapshot": "evidence/307ab133da904ca4-NFI.json",
+      "sha256": "307ab133da904ca44dd03c791fda8d566e3b88830ef452b09e8e5838eb6d021d",
+      "bytes": 5529,
+      "selector": "source row ID: NFI-022-KNOCKDOWN"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline022-grok-p3-optimistic-floating-point-1020",
+          "artifact": "evidence/307ab133da904ca4-NFI.json",
+          "snapshot": "evidence/307ab133da904ca4-NFI.json",
+          "sha256": "307ab133da904ca44dd03c791fda8d566e3b88830ef452b09e8e5838eb6d021d",
+          "bytes": 5529,
+          "selector": "source row ID: NFI-022-KNOCKDOWN"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/359"
+          }
+        ]
+      }
+    }
+  ]
+}

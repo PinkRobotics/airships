@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check053",
+  "kind": "filed_change",
+  "label": "check053",
+  "claim": "Four boundaries, all 5,760 endpoint grids and frozen scarf/global crossings reproduce; no installed boundary is selected.",
+  "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+  "source_report_body": "CHECK-053 complete: numerical PASS; QUESTIONABLE/PROJECTION.\n\nOwn equations reproduce 653,001 scalar comparisons, including all 9,640 settled thermal rows. All 7,310 search checks and 6,342 final cross-checks pass. No owner executable was accessed.\n\nR10 gradients 0.464608894/0.426155555/0.451215439/0.413901181 K and swings 33.640781944/31.120115857/33.638308050/31.118178070 K reproduce the four boundaries. Core-gap and inner-enclosure radiation are distinct paths, so simultaneous inclusion is not inherently double counting. Effective gap emissivity .20 remains unqualified; two .20 gray plates give 1/9.\n\nMaximum resized loss is 4.388925039 kg. Independent reoptimization gives 4.388889843 kg; largest individual endpoint discrepancy is 0.000103912 kg. All 5,760 endpoint grids, 360 reoptimized endpoints and 60 primary least-set rows pass. No endpoint float sign or minimum-set choice changes.\n\nAll 288 frozen scarf crossings and 85 global crossings reproduce. Largest scarf deficit is 0.0366%; resizing restores the declared scalar constraints. This is not installed qualification.\n\nExact differences and corrected checker conventions are retained. Four checker NFI clarifications extend nine owner groups and six inherited registers. All 206 input pins verify. Ten one-core/1-GiB admitted runs ended; one disclosed schema failure was corrected.\n\nOne report filed. No successor, pending job or out-of-band contact. End turn.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+      "artifact": "evidence/af548217596299b5-CARD.md",
+      "snapshot": "evidence/af548217596299b5-CARD.md",
+      "sha256": "af548217596299b50995d17547ba7303dd019b96d6e055cc59698f5bc9259952",
+      "bytes": 6049,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

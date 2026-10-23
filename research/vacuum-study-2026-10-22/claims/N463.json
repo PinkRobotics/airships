@@ -1,0 +1,137 @@
+{
+  "id": "N463",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N463",
+    "report": "rpt-ref-f6de390e1555b4ca8e78",
+    "card": "rpt-ref-f6de390e1555b4ca8e78",
+    "file": "evidence/c6fe867af95c0749-NFI.json",
+    "snapshot": "evidence/c6fe867af95c0749-NFI.json",
+    "source_sha256": "c6fe867af95c0749ef0f3668929c8bb986dd42bcc9ecbcf39baae14684a8eb2e",
+    "source_json_pointer": "/rows/6",
+    "row_id": "NFI-C022-DISCRETE-JOINTS",
+    "fields": {
+      "id": "NFI-C022-DISCRETE-JOINTS",
+      "kind": "OPEN structural qualification",
+      "issue": "Uniform lattice equilibrium is correct, but smeared global stiffness and approximately40 continuum vertices at long spacing do not establish a real spherical frame.",
+      "evidence": {
+        "equilateral022c_projection5": {
+          "nodes": 40.36445214851938,
+          "members": 115.09335644555816,
+          "n_coef": 17.753520777580995,
+          "m_nodes": 0.8072890429703877,
+          "m_film": 348.8563570154232,
+          "m_joint": 207.21678204764845,
+          "m_tube": 3794.671994894575,
+          "m_end": 0.9002117430890411,
+          "reserve": 437.88972718938203,
+          "sag_kg": 193.417619679882,
+          "vehicle": 4451.552423000618,
+          "s_m": 6.15,
+          "r_o_m": 0.16764011960487946,
+          "t_film_m": 0.00028619697756719387,
+          "t_w_m": 0.001623088408707305,
+          "rt": 103.28465085792524,
+          "A_m2": 0.0017013453789958654,
+          "I_m4": 2.3676289932865346e-05,
+          "length_m": 6.25129231047749,
+          "N_N": 1694765.9693497152,
+          "sigma_axial_Pa": 996132819.5160271,
+          "k": 0.2,
+          "gamma": 0.5763851730392059,
+          "SF_local_gamma1": 2.3910137429040064,
+          "SF_least": 1.3733213857843127,
+          "eta": 0.07530548419597233,
+          "Euler_stress_Pa": 1441003885.5529516,
+          "mass_closure_kg": 4889.442150189999,
+          "radius_cap_fraction": 0.6705604784195178,
+          "NASA_L_over_midradius": 37.471352227693885,
+          "SF_yield": 3.9151405551468748,
+          "SF_euler": 1.4465981416545093,
+          "SF_local": 1.3781448699428451,
+          "SF_film": 1.4624665443017892,
+          "SF_perry": 1.3868432138641869,
+          "SF_global": 1.3733213857843127,
+          "governing": "global",
+          "k04_governing": "local",
+          "k04_SF_least": 1.3781448699428451,
+          "k04_SF_global": 2.7466427715686255,
+          "on_ro_cap_0_25": false,
+          "full_pressure": {
+            "pressure_multiplier": 1.0,
+            "mean_compression_Pa": 996132819.5160271,
+            "bending_Pa": 242982415.75261784,
+            "maximum_compression_Pa": 1239115235.2686448,
+            "opposite_signed_compression_Pa": 753150403.7634093,
+            "maximum_tension_Pa": 0.0
+          },
+          "reported_limit": {
+            "pressure_multiplier": 1.3733213857843127,
+            "mean_compression_Pa": 1368010504.1229851,
+            "bending_Pa": 2033750657.4313748,
+            "maximum_compression_Pa": 3401761161.55436,
+            "opposite_signed_compression_Pa": -665740153.3083897,
+            "maximum_tension_Pa": 665740153.3083897
+          }
+        }
+      },
+      "next": "Resolve discrete geometry, node stiffness, membrane load introduction, member curvature and coupled global/local modes.",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION"
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "Uniform lattice equilibrium is correct, but smeared global stiffness and approximately40 continuum vertices at long spacing do not establish a real spherical frame.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/462"
+    },
+    {
+      "report": "rpt-ref-f6de390e1555b4ca8e78",
+      "artifact": "evidence/c6fe867af95c0749-NFI.json",
+      "snapshot": "evidence/c6fe867af95c0749-NFI.json",
+      "sha256": "c6fe867af95c0749ef0f3668929c8bb986dd42bcc9ecbcf39baae14684a8eb2e",
+      "bytes": 202959,
+      "selector": "/rows/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f6de390e1555b4ca8e78",
+          "artifact": "evidence/c6fe867af95c0749-NFI.json",
+          "snapshot": "evidence/c6fe867af95c0749-NFI.json",
+          "sha256": "c6fe867af95c0749ef0f3668929c8bb986dd42bcc9ecbcf39baae14684a8eb2e",
+          "bytes": 202959,
+          "selector": "/rows/6"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/462"
+          }
+        ]
+      }
+    }
+  ]
+}

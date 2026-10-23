@@ -1,0 +1,70 @@
+{
+  "id": "N351",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N351",
+    "report": "rpt-mainline017-improvement-directions-lead4f19-1019",
+    "card": "MAINLINE-017",
+    "file": "evidence/9f3c760a855408f0-NFI.json",
+    "row_id": "NFI-017-WRINKLE-COEFF",
+    "fields": {
+      "NFI_id": "NFI-017-WRINKLE-COEFF",
+      "gap": "The CNT wrinkling-coefficient requirement (0.600) lies inside the sourced theoretical band 0.78-0.91, above the design 0.33. It is a coefficient the card is scored with, not a measured property of this sphere.",
+      "direction": "A sphere-specific wrinkling test or interaction to replace the flat-plate equibiaxial factor.",
+      "effect": "First direction by availability, seventh by factor."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-017-WRINKLE-COEFF\", \"gap\": \"The CNT wrinkling-coefficient requirement (0.600) lies inside the sourced theoretical band 0.78-0.91, above the design 0.33. It is a coefficient the card is scored with, not a measured property of this sphere.\", \"direction\": \"A sphere-specific wrinkling test or interaction to replace the flat-plate equibiaxial factor.\", \"effect\": \"First direction by availability, seventh by factor.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/350"
+    },
+    {
+      "report": "rpt-mainline017-improvement-directions-lead4f19-1019",
+      "artifact": "evidence/9f3c760a855408f0-NFI.json",
+      "snapshot": "evidence/9f3c760a855408f0-NFI.json",
+      "sha256": "9f3c760a855408f024f091f11cfec79aea7683015f2e96013ff9fcd2eb6bf0f5",
+      "bytes": 3282,
+      "selector": "source row ID: NFI-017-WRINKLE-COEFF"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline017-improvement-directions-lead4f19-1019",
+          "artifact": "evidence/9f3c760a855408f0-NFI.json",
+          "snapshot": "evidence/9f3c760a855408f0-NFI.json",
+          "sha256": "9f3c760a855408f024f091f11cfec79aea7683015f2e96013ff9fcd2eb6bf0f5",
+          "bytes": 3282,
+          "selector": "source row ID: NFI-017-WRINKLE-COEFF"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/350"
+          }
+        ]
+      }
+    }
+  ]
+}

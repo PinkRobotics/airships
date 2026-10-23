@@ -1,0 +1,39 @@
+{
+  "id": "E-31604ad00e5e2260b6df",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-31604ad00e5e2260b6df",
+    "report": "rpt-ref-02edbc8231269239b47f",
+    "file": "evidence/7420c6e334e87c11-NFI.json",
+    "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+    "source_sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+    "source_json_pointer": "/owner_054_rows_retained/8",
+    "row_id": "NFI054-09",
+    "fields": {
+      "id": "NFI054-09",
+      "title": "Conditioning and regeneration",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Initial90%conditioning and1day release time constant are inherited proxies. Ground350C regeneration energy assumes cp1kJ/kg/K and2xloss factor.",
+      "proposed_fix": "Measure drydown, repeat-cycle residual moisture, vacuum pumping work, cooldown and handling. Regenerate outside the PBO enclosure."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Initial90%conditioning and1day release time constant are inherited proxies. Ground350C regeneration energy assumes cp1kJ/kg/K and2xloss factor. | Conditioning and regeneration",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q5",
+  "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+  "sources": [
+    {
+      "report": "rpt-ref-02edbc8231269239b47f",
+      "artifact": "evidence/7420c6e334e87c11-NFI.json",
+      "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+      "sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+      "bytes": 17209,
+      "selector": "/owner_054_rows_retained/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

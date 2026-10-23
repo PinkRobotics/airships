@@ -1,0 +1,851 @@
+{
+  "unit": "vacuum-mainline067-materials-pathway-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "started": "2026-10-20T17:42:44-07:00",
+  "ended": "2026-10-20T17:56:47-07:00",
+  "simjob": null,
+  "why_no_simjob": "Literature ranking and one arithmetic script. One core, seconds. No sweep.",
+  "baseline": {
+    "face": "SR-200",
+    "density_kg_m3": 1850,
+    "E_today_Pa": 290000000000.0,
+    "strength_today_Pa": 345000000.0,
+    "specific_modulus_Pa_per_kg_m3": 156756756.75675675,
+    "wrinkling_index_rho_over_E_cbrt": 0.27949393989556215,
+    "strength_index_rho_over_sigma": 5.36231884057971e-06,
+    "core": "Hexcel CR-III 5056 3/8-1.0",
+    "core_density_kg_m3": 16.018463373960138,
+    "Ec_Pa": 103421359.3975254,
+    "Gc_W_Pa": 46884349.59354485
+  },
+  "face_area_m2": {
+    "formula": "2 * 4 * pi * R^2, both faces at the outer radius",
+    "R20": 10053.096491487338,
+    "R30": 22619.46710584651,
+    "limit": "The inner face is smaller. This area is slightly high."
+  },
+  "handbook_cases": [
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "concept_binding": "face_wrinkling",
+      "TRL7_binding": "global_buckling",
+      "density_factor": 1.778610232219045,
+      "target_density_kg_m3": 1040.1379495562032,
+      "admissible": true,
+      "note": "Keeps the programme SR-200 modulus and strength. Handbook gamma 0.20 and Q 0.33."
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "concept_binding": "global_buckling",
+      "TRL7_binding": "face_wrinkling",
+      "density_factor": 1.8626237670124857,
+      "target_density_kg_m3": 993.2225888899005,
+      "admissible": true,
+      "note": "Keeps the programme SR-200 modulus and strength. Handbook gamma 0.20 and Q 0.33."
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "concept_binding": "face_wrinkling",
+      "TRL7_binding": "face_wrinkling",
+      "density_factor": 1.743190092978529,
+      "target_density_kg_m3": 1061.2726675373474,
+      "admissible": true,
+      "note": "Keeps the programme SR-200 modulus and strength. Handbook gamma 0.20 and Q 0.33."
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "concept_binding": "global_buckling",
+      "TRL7_binding": "face_wrinkling",
+      "density_factor": 1.8246635685863137,
+      "target_density_kg_m3": 1013.8855358598057,
+      "admissible": true,
+      "note": "Keeps the programme SR-200 modulus and strength. Handbook gamma 0.20 and Q 0.33."
+    }
+  ],
+  "ramp_not_used": "063's ramp at Q 0.33 has density factors 1.06 to 1.12 and is not admissible. It is not a clear criterion.",
+  "faces": [
+    {
+      "id": "sr200-programme",
+      "name": "SR-200 rolled sheet, programme tuple",
+      "form": "cross-rolled sheet",
+      "density_kg_m3": 1850,
+      "E_Pa": 290000000000.0,
+      "compressive_strength_Pa": 345000000.0,
+      "strength_kind": "programme tensile yield transferred to compression",
+      "readiness": "production",
+      "admissibility": "admissible with a named limit",
+      "limit": "The programme tuple is the hull model's face. It is not a new compression test of a formed shell on CR-III. A partial SAE AMS 7902 extract gives a lower minimum yield.",
+      "source": "040 INPUTS face block, copied under MAINLINE-064; Materion product page via environmental-expert; NTRS 19940006718 for the Fenn 1967 in-plane moduli",
+      "gauge": "Materion page: made to order 0.020 to 0.250 in, maximum 24 by 72 in",
+      "tag": "QUESTIONABLE",
+      "piece_m2": 1.1148364800000001,
+      "pieces_for_two_faces": {
+        "20": 9017.552503742376,
+        "30": 20289.493133420343
+      },
+      "specific_modulus_Pa_per_kg_m3": 156756756.75675675,
+      "specific_modulus_over_beryllium": 1.0,
+      "wrinkling_index_rho_over_E_cbrt": 0.27949393989556215,
+      "wrinkling_index_improvement_over_beryllium": 1.0,
+      "strength_index_rho_over_sigma": 5.36231884057971e-06,
+      "strength_index_improvement_over_beryllium": 1.0,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        }
+      ]
+    },
+    {
+      "id": "sr200-sae-minimum",
+      "name": "SAE SR200 minimum, sheet specification floor",
+      "form": "sheet",
+      "density_kg_m3": 1850.0,
+      "E_Pa": 293000000000.0,
+      "compressive_strength_Pa": 206800000.0,
+      "strength_kind": "minimum tensile yield, not compression",
+      "readiness": "production",
+      "admissibility": "admissible with a named limit",
+      "limit": "Total Materia extract of SAE AMS 7902H: compression modulus 293 GPa, tensile yield at least 206.8 MPa. Density is the 1.85 g/cm3 figure, not printed on that extract.",
+      "source": "https://www.totalmateria.com/en-us/material/3304540",
+      "gauge": "same SR-200 product page, 0.020 to 0.250 in",
+      "tag": "QUESTIONABLE",
+      "piece_m2": 1.1148364800000001,
+      "pieces_for_two_faces": {
+        "20": 9017.552503742376,
+        "30": 20289.493133420343
+      },
+      "specific_modulus_Pa_per_kg_m3": 158378378.3783784,
+      "specific_modulus_over_beryllium": 1.010344827586207,
+      "wrinkling_index_rho_over_E_cbrt": 0.278536761371596,
+      "wrinkling_index_improvement_over_beryllium": 1.0034364531247248,
+      "strength_index_rho_over_sigma": 8.945841392649904e-06,
+      "strength_index_improvement_over_beryllium": 0.5994202898550725,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        }
+      ]
+    },
+    {
+      "id": "i220h-block",
+      "name": "Materion I-220-H",
+      "form": "block, rod or bar, not sheet",
+      "density_kg_m3": 1844.0,
+      "E_Pa": 303000000000.0,
+      "compressive_strength_Pa": 345000000.0,
+      "strength_kind": "minimum tensile yield",
+      "readiness": "production, instrument blanks",
+      "admissibility": "not admissible",
+      "limit": "Not the sheet product form the hull face uses.",
+      "source": "MatWeb archive of Materion I-220-H Grade 2 minimums",
+      "gauge": "not a rolled face sheet",
+      "tag": "QUESTIONABLE",
+      "specific_modulus_Pa_per_kg_m3": 164316702.81995663,
+      "specific_modulus_over_beryllium": 1.0482272421273096,
+      "wrinkling_index_rho_over_E_cbrt": 0.2745448957662783,
+      "wrinkling_index_improvement_over_beryllium": 1.0180263563650334,
+      "strength_index_rho_over_sigma": 5.344927536231884e-06,
+      "strength_index_improvement_over_beryllium": 1.0032537960954446,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        }
+      ]
+    },
+    {
+      "id": "albemet-162-sheet",
+      "name": "AlBeMet AM162 rolled sheet",
+      "form": "rolled sheet",
+      "density_kg_m3": 2071.0,
+      "E_Pa": 193000000000.0,
+      "compressive_strength_Pa": 276000000.0,
+      "strength_kind": "minimum tensile yield",
+      "readiness": "production",
+      "admissibility": "admissible with a named limit",
+      "limit": "Rolled-sheet minimums. Not a compression allowables of a bonded sandwich face. Gauge and yearly area were not on the pages read.",
+      "source": "https://www.lookpolymers.com/pdf/Materion-AlBeMet-AM-162-Rolled-Sheet-Annealed.pdf",
+      "gauge": "not stated on the pages read",
+      "tag": "QUESTIONABLE",
+      "specific_modulus_Pa_per_kg_m3": 93191694.83341381,
+      "specific_modulus_over_beryllium": 0.5944987429028122,
+      "wrinkling_index_rho_over_E_cbrt": 0.3583667123957674,
+      "wrinkling_index_improvement_over_beryllium": 0.7799104387432587,
+      "strength_index_rho_over_sigma": 7.503623188405797e-06,
+      "strength_index_improvement_over_beryllium": 0.7146306132303235,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        }
+      ]
+    },
+    {
+      "id": "cvd-diamond",
+      "name": "CVD diamond window",
+      "form": "flat or spherical disk, not a hull sheet",
+      "density_kg_m3": 3515.0,
+      "E_Pa": 1050000000000.0,
+      "compressive_strength_Pa": 750000000.0,
+      "strength_kind": "tensile, 500 µm, nucleation side",
+      "readiness": "production for small optics",
+      "admissibility": "not admissible",
+      "limit": "Disks up to 100 mm. The strength is tensile at one thickness, not biaxial compression of a sandwich face.",
+      "source": "https://www.diamond-materials.com/en/cvd-diamond/mechanical and the Diamond Materials CVD booklet",
+      "gauge": "10 to 2000 µm, diameter up to 100 mm",
+      "tag": "QUESTIONABLE",
+      "piece_m2": 0.007853981633974483,
+      "pieces_for_two_faces": {
+        "20": 1280000.0,
+        "30": 2879999.9999999995
+      },
+      "specific_modulus_Pa_per_kg_m3": 298719772.40398294,
+      "specific_modulus_over_beryllium": 1.9056261343012706,
+      "wrinkling_index_rho_over_E_cbrt": 0.34582965360237844,
+      "wrinkling_index_improvement_over_beryllium": 0.8081838471171517,
+      "strength_index_rho_over_sigma": 4.686666666666667e-06,
+      "strength_index_improvement_over_beryllium": 1.1441647597254003,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": true,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": true,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": true,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": true,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        }
+      ]
+    },
+    {
+      "id": "boron-epoxy-qi",
+      "name": "boron/epoxy quasi-isotropic, textbook typical",
+      "form": "quasi-isotropic laminate",
+      "density_kg_m3": 2143.5395785897285,
+      "E_Pa": 80300000000.0,
+      "compressive_strength_Pa": null,
+      "strength_kind": "not given for the quasi-isotropic laminate",
+      "readiness": "coupon; boron/epoxy has been a production laminate",
+      "admissibility": "not admissible",
+      "limit": "Vasiliev table of typical quasi-isotropic laminates. The extract prints specific modulus 3820. Read as 3820e3 m, which is E over rho g, the density is 2144 kg/m3. Read as 3820 m, the density is a thousand times a composite and the row is unusable. Not a lot certificate.",
+      "source": "https://www.sciencedirect.com/topics/engineering/quasi-isotropic-laminate",
+      "gauge": "a ply stack, not a stated hull gauge",
+      "tag": "QUESTIONABLE",
+      "specific_modulus_Pa_per_kg_m3": 37461403.0,
+      "specific_modulus_over_beryllium": 0.23897791568965518,
+      "wrinkling_index_rho_over_E_cbrt": 0.49685117936190004,
+      "wrinkling_index_improvement_over_beryllium": 0.5625304950559096,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        }
+      ]
+    },
+    {
+      "id": "carbon-epoxy-qi",
+      "name": "carbon/epoxy quasi-isotropic, textbook typical",
+      "form": "quasi-isotropic laminate",
+      "density_kg_m3": 1583.015537427492,
+      "E_Pa": 54800000000.0,
+      "compressive_strength_Pa": null,
+      "strength_kind": "not given for the quasi-isotropic laminate",
+      "readiness": "production laminate family, this row is a textbook typical",
+      "admissibility": "not admissible",
+      "limit": "Same Vasiliev table. Printed specific modulus 3530 is read as 3530e3 m. Ordinary carbon/epoxy, not a high-modulus lot.",
+      "source": "https://www.sciencedirect.com/topics/engineering/quasi-isotropic-laminate",
+      "gauge": "a ply stack, not a stated hull gauge",
+      "tag": "QUESTIONABLE",
+      "specific_modulus_Pa_per_kg_m3": 34617474.5,
+      "specific_modulus_over_beryllium": 0.22083561318965517,
+      "wrinkling_index_rho_over_E_cbrt": 0.41676540144575513,
+      "wrinkling_index_improvement_over_beryllium": 0.6706265417570662,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        }
+      ]
+    },
+    {
+      "id": "m60j-ud",
+      "name": "Toray M60J / epoxy, unidirectional, 60% fiber volume",
+      "form": "unidirectional coupon, not the biaxial membrane",
+      "density_kg_m3": 1638.0,
+      "E_Pa": 360000000000.0,
+      "compressive_strength_Pa": 790000000.0,
+      "strength_kind": "unidirectional compressive strength",
+      "readiness": "production fiber, coupon laminate",
+      "admissibility": "not admissible",
+      "limit": "The sphere's membrane is biaxial, so a laminate counts at its quasi-isotropic value. This row is the unidirectional upper bound. Composite density uses an assumed resin density of 1200 kg/m3, which is not on the Toray sheet. A quasi-isotropic modulus was not measured here and would be lower.",
+      "source": "Toray M60J technical data sheet, composite properties normalized to 60% fiber volume",
+      "gauge": "coupon; fiber filament 5 µm",
+      "tag": "QUESTIONABLE",
+      "specific_modulus_Pa_per_kg_m3": 219780219.7802198,
+      "specific_modulus_over_beryllium": 1.4020462296324367,
+      "wrinkling_index_rho_over_E_cbrt": 0.23025711762737766,
+      "wrinkling_index_improvement_over_beryllium": 1.213834094578843,
+      "strength_index_rho_over_sigma": 2.0734177215189874e-06,
+      "strength_index_improvement_over_beryllium": 2.586222151439543,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": true
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": true
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": true
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": true
+        }
+      ]
+    },
+    {
+      "id": "cnt-yarn-ud",
+      "name": "Miralon CNT yarn / cyanate, unidirectional laminate",
+      "form": "unidirectional laboratory laminate",
+      "density_kg_m3": 1380.0,
+      "E_Pa": 329000000000.0,
+      "compressive_strength_Pa": null,
+      "strength_kind": "tensile only in the paper; compressive strength not used",
+      "readiness": "lab",
+      "admissibility": "not admissible",
+      "limit": "ACS Appl. Nano Mater. 2023, 6, 11260. The paper's best specific modulus is 256 GPa per g/cm3, unidirectional. Not quasi-isotropic and not a compressive face sheet.",
+      "source": "https://doi.org/10.1021/acsanm.3c01282",
+      "gauge": "about 0.19 mm coupons",
+      "tag": "QUESTIONABLE",
+      "specific_modulus_Pa_per_kg_m3": 238405797.10144928,
+      "specific_modulus_over_beryllium": 1.520864567716142,
+      "wrinkling_index_rho_over_E_cbrt": 0.19990045704983803,
+      "wrinkling_index_improvement_over_beryllium": 1.3981655871145924,
+      "paper_specific_modulus_claim_Pa_per_kg_m3": 256000000.0,
+      "paper_specific_modulus_over_beryllium": 1.6331034482758622,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false
+        }
+      ]
+    },
+    {
+      "id": "miralon-sheet",
+      "name": "Miralon CNT nonwoven sheet",
+      "form": "nonwoven sheet",
+      "density_kg_m3": 650.0,
+      "E_Pa": null,
+      "compressive_strength_Pa": null,
+      "strength_kind": "specific strength cited as 50 to 200 MPa per g/cm3; modulus column was ambiguous and is not used",
+      "readiness": "commercial sheet, not a structural face",
+      "admissibility": "not admissible",
+      "limit": "Secondary table of manufacturer figures. No compressive biaxial modulus was read cleanly.",
+      "source": "TechConnect Briefs 2022, table citing Huntsman Miralon",
+      "gauge": "sheet, thickness not taken from that table",
+      "tag": "QUESTIONABLE",
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false
+        }
+      ]
+    },
+    {
+      "id": "al-6061-common",
+      "name": "aluminium 6061-T6, common brief",
+      "form": "sheet or plate",
+      "density_kg_m3": 2700.0,
+      "E_Pa": 68900000000.0,
+      "compressive_strength_Pa": 276000000.0,
+      "strength_kind": "typical tensile yield transferred to compression",
+      "readiness": "production",
+      "admissibility": "admissible with a named limit",
+      "limit": "COMMON.md's pinned comparison metal. Not a candidate anyone expects to beat beryllium. Included so the ranking has a floor.",
+      "source": "COMMON.md aluminium 6061-T6 block",
+      "gauge": "ordinary mill product",
+      "tag": "QUESTIONABLE",
+      "specific_modulus_Pa_per_kg_m3": 25518518.51851852,
+      "specific_modulus_over_beryllium": 0.16279054916985952,
+      "wrinkling_index_rho_over_E_cbrt": 0.658603483592874,
+      "wrinkling_index_improvement_over_beryllium": 0.4243736130438321,
+      "strength_index_rho_over_sigma": 9.782608695652175e-06,
+      "strength_index_improvement_over_beryllium": 0.5481481481481482,
+      "against_handbook_factors": [
+        {
+          "R_m": 20,
+          "weather": "ISA",
+          "factor": 1.778610232219045,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 20,
+          "weather": "optimistic",
+          "factor": 1.8626237670124857,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "ISA",
+          "factor": 1.743190092978529,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        },
+        {
+          "R_m": 30,
+          "weather": "optimistic",
+          "factor": 1.8246635685863137,
+          "keeps_beryllium_properties_and_clears_density": false,
+          "clears_specific_modulus_index": false,
+          "clears_wrinkling_index": false,
+          "clears_strength_index": false
+        }
+      ]
+    }
+  ],
+  "face_rank": {
+    "specific_modulus_high_better": [
+      "cvd-diamond",
+      "cnt-yarn-ud",
+      "m60j-ud",
+      "i220h-block",
+      "sr200-sae-minimum",
+      "sr200-programme",
+      "albemet-162-sheet",
+      "boron-epoxy-qi",
+      "carbon-epoxy-qi",
+      "al-6061-common"
+    ],
+    "wrinkling_index_high_improvement_better": [
+      "cnt-yarn-ud",
+      "m60j-ud",
+      "i220h-block",
+      "sr200-sae-minimum",
+      "sr200-programme",
+      "cvd-diamond",
+      "albemet-162-sheet",
+      "carbon-epoxy-qi",
+      "boron-epoxy-qi",
+      "al-6061-common"
+    ],
+    "strength_index_high_improvement_better": [
+      "m60j-ud",
+      "cvd-diamond",
+      "i220h-block",
+      "sr200-programme",
+      "albemet-162-sheet",
+      "sr200-sae-minimum",
+      "al-6061-common"
+    ],
+    "membrane_ids": [
+      "sr200-programme",
+      "sr200-sae-minimum",
+      "albemet-162-sheet",
+      "boron-epoxy-qi",
+      "carbon-epoxy-qi",
+      "al-6061-common"
+    ],
+    "excluded_from_membrane_rank": {
+      "i220h-block": "not sheet",
+      "cvd-diamond": "100 mm disks",
+      "m60j-ud": "unidirectional upper bound",
+      "cnt-yarn-ud": "unidirectional upper bound",
+      "miralon-sheet": "no modulus read"
+    }
+  },
+  "cores": [
+    {
+      "id": "criii-5056-3/8-1.0",
+      "name": "Hexcel CR-III 5056 3/8-1.0",
+      "density_kg_m3": 16.018463373960138,
+      "Ec_Pa": 103421359.3975254,
+      "Gc_Pa": 46884349.59354485,
+      "Gc_direction": "W",
+      "readiness": "production",
+      "screen": "baseline",
+      "admissibility": "admissible with a named limit",
+      "limit": "Datasheet typicals for flat honeycomb. Not an installed core on a 20 to 30 m beryllium sphere.",
+      "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "tag": "QUESTIONABLE",
+      "wrinkling_support_Pa": 169256.76885578255,
+      "support_over_baseline": 1.0
+    },
+    {
+      "id": "hrh10-6.4-24",
+      "name": "Hexcel HRH-10 6.4 mm cell, 24 kg/m3",
+      "density_kg_m3": 24.0,
+      "Ec_Pa": 41000000.0,
+      "Gc_Pa": 9000000.0,
+      "Gc_direction": "W",
+      "readiness": "production",
+      "screen": "heavier and softer than the baseline",
+      "admissibility": "admissible with a named limit",
+      "limit": "EU datasheet typicals. Lightest hexagonal grade in the table read. Aramid paper, not the hull bond.",
+      "source": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+      "tag": "QUESTIONABLE",
+      "wrinkling_support_Pa": 71725.80900088792,
+      "support_over_baseline": 0.42376922049128113
+    },
+    {
+      "id": "ucf-51-3/8-2.0",
+      "name": "Ultracor UCF-51-3/8-2.0 carbon honeycomb",
+      "density_kg_m3": 32.0,
+      "Ec_Pa": null,
+      "Gc_Pa": null,
+      "Gc_direction": "ribbon shear only; W and Ec not on the sheet read",
+      "readiness": "production, satellite panels, about 36 by 24 in",
+      "screen": "heavier; support index not computed",
+      "admissibility": "not admissible",
+      "limit": "Ribbon shear modulus and compressive strength are published. Through-thickness modulus is not on the sheet read, so wrinkling support is not ranked.",
+      "source": "https://www.lookpolymers.com/pdf/Ultracor-UCF-51-38-20-Honeycomb-Core-Material.pdf",
+      "tag": "QUESTIONABLE",
+      "Gc_L_Pa": 331000000.0,
+      "compressive_strength_Pa": 1410000.0
+    }
+  ],
+  "core_rank": {
+    "density_low_better": [
+      "criii-5056-3/8-1.0",
+      "hrh10-6.4-24",
+      "ucf-51-3/8-2.0"
+    ],
+    "wrinkling_support_high_better": [
+      "criii-5056-3/8-1.0",
+      "hrh10-6.4-24"
+    ]
+  },
+  "bonds": [
+    {
+      "id": "af163-2u-0.030",
+      "name": "3M AF 163-2U, 0.030 lb/ft2",
+      "areal_mass_kg_m2": 0.1464728290914915,
+      "two_interfaces_kg_m2": 0.292945658182983,
+      "flatwise_Pa": 5515805.8319999995,
+      "over_baseline_0.030": 1.0,
+      "readiness": "production",
+      "admissibility": "admissible with a named limit",
+      "limit": "Flatwise tensile 800 psi at 75 F is on aluminium skins and 5052 honeycomb, not beryllium on CR-III 5056.",
+      "source": "3M Scotch-Weld AF 163-2 technical data sheet, November 2009",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "af163-2u-0.015",
+      "name": "3M AF 163-2U, 0.015 lb/ft2",
+      "areal_mass_kg_m2": 0.07323641454574575,
+      "two_interfaces_kg_m2": 0.1464728290914915,
+      "flatwise_Pa": null,
+      "over_baseline_0.030": 0.5,
+      "readiness": "production",
+      "admissibility": "admissible with a named limit",
+      "limit": "Catalog weight of the unsupported film. Flatwise strength at 0.015 lb/ft2 was not in the rows read. This weight matches the programme's favorable film.",
+      "source": "3M Scotch-Weld AF 163-2 technical data sheet, product table",
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "answer": {
+    "clears_today_keeping_beryllium_properties": [],
+    "statement": "No candidate keeps SR-200's modulus and strength and divides the density by 1.74 to 1.86. SR-200 leads the wrinkling index. Diamond leads specific modulus and still fails wrinkling. No core read is lighter than CR-III 3/8-1.0 and stiffer. AF 163-2U at 0.015 lb/ft2 is half the baseline film and does not clear the face factors. T3 and T7 stay on SR-200 bonded to CR-III."
+  },
+  "projection": {
+    "tag": "PROJECTION",
+    "build_time_density_at_beryllium_stiffness_kg_m3": "993 to 1061, the four handbook targets",
+    "credible_trend": "No published metal trend reaches that density at 290 GPa. The closest measured specific modulus, a unidirectional CNT yarn laminate at 256 GPa per g/cm3, is still short of 1.74 times SR-200 and is not quasi-isotropic. Diamond already exceeds the specific-modulus factor as 100 mm disks. That is not a hull-sheet trend."
+  }
+}

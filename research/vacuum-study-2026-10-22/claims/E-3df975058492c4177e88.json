@@ -1,0 +1,47 @@
+{
+  "id": "E-3df975058492c4177e88",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-3df975058492c4177e88",
+    "report": "rpt-ref-02edbc8231269239b47f",
+    "file": "evidence/7420c6e334e87c11-NFI.json",
+    "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+    "source_sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+    "source_json_pointer": "/new_rows/2",
+    "row_id": "CHK054-03",
+    "fields": {
+      "id": "CHK054-03",
+      "status": "OPEN_EVIDENCE",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "row": "aramid wet-cavity mission initial water",
+      "owner_value_fraction": 0.01,
+      "source_point_fraction": 0.035,
+      "source_condition": "Kevlar49 bone-dry yarn equilibrated at 24 C/55% RH; also typical as-shipped moisture",
+      "source": "https://www.r-g.de/wiki/images/e/ec/Td_en_Kevlar_guide.pdf",
+      "finding": "One percent is an engineering allowance, not the manufacturer's moisture datum. The 84-case 3.5% finite-release sensitivity changes no payloads and has no pressure failure through 30 days; maximum 776.2574324310921 Pa.",
+      "action": "Measure initial moisture, sorption/release kinetics and pressure rise on the installed aramid stack; preserve both sensitivities.",
+      "evidence": [
+        "ARAMID-MOISTURE-SENSITIVITY.json",
+        "SOURCE-EVIDENCE.md"
+      ]
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "One percent is an engineering allowance, not the manufacturer's moisture datum. The 84-case 3.5% finite-release sensitivity changes no payloads and has no pressure failure through 30 days; maximum 776.2574324310921 Pa.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q5",
+  "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+  "sources": [
+    {
+      "report": "rpt-ref-02edbc8231269239b47f",
+      "artifact": "evidence/7420c6e334e87c11-NFI.json",
+      "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+      "sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+      "bytes": 17209,
+      "selector": "/new_rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

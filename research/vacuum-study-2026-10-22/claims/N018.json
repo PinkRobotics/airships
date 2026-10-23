@@ -1,0 +1,72 @@
+{
+  "id": "N018",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N018",
+    "report": "rpt-check011b-opus-1020",
+    "card": "CHECK-011b",
+    "file": "evidence/610aec93220adcc1-NFI.json",
+    "row_id": "NFI-CHK011B-FORCE",
+    "fields": {
+      "id": "NFI-CHK011B-FORCE",
+      "state": "demonstrated",
+      "direction": "conservative",
+      "proposed_fix": "FIX-A",
+      "note": "The card's member force N = pRs/2 is the two-way arch resultant, but the frame it counts has M = 3V-6 members of length s. Statics fix their mean compression at 4*pi*R^3*p/(M*s) = pRs/(2*sqrt3) exactly (virial identity). The card's own Et=(2/sqrt3)EA/s with nu=1/3 gives the same strain. Geodesic trusses of 162 and 362 nodes solved by statics (rank complete, residual 6e-15) give mean C/(pRl/(2*sqrt3)) = 1.017 and 1.007, with a maximum of 600 kN at mean l 2.0 m. Each member carries 0.289*s^2 of film, not s^2/2. The force is inherited from MAINLINE-002's P3 rule (COMMON.md). Yield, Euler, local and Perry are sqrt3-conservative at a given tube. Re-optimised, SiC on the equilateral grid at k 0.2 is 1.408 and 6061 is 0.339. The member-end load at s 2.04 m is 562 kN, not 974 kN (022, 023).",
+      "fix": "FIX-A: score the P3 members with N = pRs/(2*sqrt3) on the equilateral frame, or count a true two-way frame (M = 2V, V = 4*pi*R^2/s^2), then re-optimise."
+    }
+  },
+  "claim": "The card's member force N = pRs/2 is the two-way arch resultant, but the frame it counts has M = 3V-6 members of length s. Statics fix their mean compression at 4*pi*R^3*p/(M*s) = pRs/(2*sqrt3) exactly (virial identity). The card's own Et=(2/sqrt3)EA/s with nu=1/3 gives the same strain. Geodesic trusses of 162 and 362 nodes solved by statics (rank complete, residual 6e-15) give mean C/(pRl/(2*sqrt3)) = 1.017 and 1.007, with a maximum of 600 kN at mean l 2.0 m. Each member carries 0.289*s^2 of film, not s^2/2. The force is inherited from MAINLINE-002's P3 rule (COMMON.md). Yield, Euler, local and Perry are sqrt3-conservative at a given tube. Re-optimised, SiC on the equilateral grid at k 0.2 is 1.408 and 6061 is 0.339. The member-end load at s 2.04 m is 562 kN, not 974 kN (022, 023).",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/17"
+    },
+    {
+      "report": "rpt-check011b-opus-1020",
+      "artifact": "evidence/610aec93220adcc1-NFI.json",
+      "snapshot": "evidence/610aec93220adcc1-NFI.json",
+      "sha256": "610aec93220adcc1926f33247285ea1d4377669a749f7a577002fa6719b14973",
+      "bytes": 4266,
+      "selector": "source row ID: NFI-CHK011B-FORCE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-check011b-opus-1020",
+          "artifact": "evidence/610aec93220adcc1-NFI.json",
+          "snapshot": "evidence/610aec93220adcc1-NFI.json",
+          "sha256": "610aec93220adcc1926f33247285ea1d4377669a749f7a577002fa6719b14973",
+          "bytes": 4266,
+          "selector": "source row ID: NFI-CHK011B-FORCE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/17"
+          }
+        ]
+      }
+    }
+  ]
+}

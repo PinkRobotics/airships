@@ -1,0 +1,31 @@
+{
+  "unit": "vacuum-mainline070-graphite-face-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "open": [
+    {
+      "id": "NFI-070-CTE-SOURCE",
+      "fact": "DOI 10.1038/s41467-025-62227-6 does not state a thermal expansion in the text opened for 068 and reused here. The magnitude 1.0e-6 per K is the Mateck HOPG in-plane catalogue value, a different product. The negative sign was not credited in the additive self-stress terms."
+    },
+    {
+      "id": "NFI-070-INTERFACE-LAW",
+      "fact": "Version 7's thermal interface, cure and core-wall terms stay on 12.3e-6. They do not take the face expansion. The interface margin therefore stays near 1.07. A graphite-to-core mismatch was not substituted."
+    },
+    {
+      "id": "NFI-070-COMPRESSION",
+      "fact": "No compressive strength of the mirror film was opened. The tensile mean 1.29 GPa and the programme 379.2 MPa give the same payloads, so that range does not bind. A strength below 379.2 MPa was not run."
+    },
+    {
+      "id": "NFI-070-GAMMA-ABOVE-VC2",
+      "fact": "The optima sit at Vc 3.02 to 3.45. The CR-1457 support for gamma 0.20 is the named limit below Vc 2. Holding 0.20 there is what the card asks. Version 7's handbook step sets gamma to 1 above Vc 2, and that run is separate."
+    },
+    {
+      "id": "NFI-070-BINDER",
+      "fact": "The ten percent adhesive thickness, zero adhesive modulus and 1200 kg/m3 adhesive density are a projection. The dogbone thickness was not separated from the process gauges of about 2, 25 and 145 micrometres."
+    },
+    {
+      "id": "NFI-070-FOLLOWUP",
+      "fact": "simjob-20261020t183738-e805ab35990e ran the copied step and reproduced the 066 baselines within 0.001 kg. simjob-20261020t183910-56b3157beb42 then held gamma at 0.20, because that step had raised gamma to 1. Both exited 0. No third run is hidden. Poisson stayed at 0.0768."
+    }
+  ]
+}

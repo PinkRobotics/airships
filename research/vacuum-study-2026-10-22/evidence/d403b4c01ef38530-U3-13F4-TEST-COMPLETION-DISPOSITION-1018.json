@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "at": "2026-10-18T04:44:01-07:00",
+  "incoming": {
+    "path": "unpublished-local-ref:e2a3c15162164d3d",
+    "sha256": "d5068ae507f212a6d2b5ab7aef76d4353f55967b9916b1d8088011ff6f97c580",
+    "bytes": 7669
+  },
+  "ingested": "2026-10-18T04:36:28-07:00",
+  "authored_at": "ABSENT",
+  "prior_disposition": {
+    "path": "evidence/b7dcb34ad211cfed-U3-CC69-REBUILT-SOURCE-DISPOSITION-1018.json",
+    "sha256": "b7dcb34ad211cfedd6e2a1e7c21237be419ade0e6ebe1180bf5c49db2e7a51b3",
+    "bytes": 13907
+  },
+  "status": "TEST_SCOPE_COMPLETE_WITH_CUSTODY_QUALIFICATIONS; READY_FOR_CONDITIONALLY_ALLOCATED_FULLPLANTS",
+  "source": {
+    "commit": "13f4b15f7c7f0720f84516d866ffd6595d3f3eff",
+    "tree": "0d82ce5d613350c7b4da92233d0dd0caf4e97094",
+    "parent": "cc69f2e1d00191b2705efee4a848ab95f5e8de8f",
+    "programme_base": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "worktree": "unpublished-local-ref:22a3a820db0fc30e",
+    "clean": true,
+    "main_observed": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "fetch": false,
+    "two_changed_paths": [
+      "tools/tests/test_float_post.py",
+      "tools/tests/test_float_progress.py"
+    ],
+    "sixteen_source_pins": [
+      {
+        "path": "dist.manifest",
+        "sha256": "f7d738f6b36afd9afb8a82047bf7aae97b629d763dc7f50b700532a6d61ad66c",
+        "bytes": 5147,
+        "blob_oid": "269cf0e530c12b390ae5e90bf5ba61bd7b527787"
+      },
+      {
+        "path": "ops/systemd/user/vacuum-float-heartbeat.service",
+        "sha256": "82cac607f384dd7696df5ef9a22f2d23858d79fc6cf8925e54ce118335e87ac2",
+        "bytes": 2394,
+        "blob_oid": "da871b69ab4e89030b44d839c2f3f7f830a6cd6e"
+      },
+      {
+        "path": "ops/systemd/user/vacuum-float-heartbeat.timer",
+        "sha256": "480eefab1f8ba2184091a92c7fbac2e1656f967d324a270f4fa3c99aee88b0ea",
+        "bytes": 492,
+        "blob_oid": "f32a9276faf8f7cf9c98dc00dc15ec20957038ef"
+      },
+      {
+        "path": "research/analysis/float-claims/programme-navigation.json",
+        "sha256": "ee35d9572afa346a523028eb4bd55d693ede9c5c4b9005695b9b0fab59c1be9a",
+        "bytes": 4847,
+        "blob_oid": "947d3f9fa1db4714dcf94e1d649780b4dce5e440"
+      },
+      {
+        "path": "research/analysis/float-claims/vacuum-float-machinery-1017.json",
+        "sha256": "4d5646913f148013d5c6f2d4b303d7ab3dbcd88c58132cbdb853b76845eec5aa",
+        "bytes": 2998,
+        "blob_oid": "0c293bd6791cb45e344f793f75d8077b4a39ca7c"
+      },
+      {
+        "path": "research/program/POINTS.md",
+        "sha256": "239ab8870f6c0c420e77bf4143d61781d9f4c845deac308afe505f8cc8780115",
+        "bytes": 5035,
+        "blob_oid": "2207b4f75dbc0a94af0144271fe6f86455966404"
+      },
+      {
+        "path": "research/program/PROGRAM.md",
+        "sha256": "77530f92b81addf52212d90dafc19ee658148f1b848f55edc00acb8171adaf38",
+        "bytes": 11100,
+        "blob_oid": "cf8477e506d42f2b581af38d21400822e1900cd9"
+      },
+      {
+        "path": "research/program/vacuum-float/HEARTBEAT.md",
+        "sha256": "6921caa0566cb6b03395fae0b61f4ab320300e0f873fde54cee0c26799d0e2b4",
+        "bytes": 6245,
+        "blob_oid": "344ad8c8bfcb9ece4a343a7235fd104aa3d9fbaa"
+      },
+      {
+        "path": "research/program/vacuum-float/OPERATIONS.md",
+        "sha256": "724d6c4d678bba1f5d50280326e87bfb7336e0f873944387301ccad93dd04fb0",
+        "bytes": 6122,
+        "blob_oid": "ac242381e1a2623b764c8755f99a3f446a39eee2"
+      },
+      {
+        "path": "research/program/vacuum-float/SCHEMA.md",
+        "sha256": "3dd075541667b0574ec1b4d3df121939d76c96ba61936ec339aa646f283abfb2",
+        "bytes": 12319,
+        "blob_oid": "b18f9e3c2f68f65a782ecf882616b2e69e3e5ca2"
+      },
+      {
+        "path": "research/program/vacuum-float/schema.json",
+        "sha256": "6de9a9fa6a97697196c3f94fda65ee425f85704ae5f31e1931d96801dd3166f9",
+        "bytes": 10108,
+        "blob_oid": "ca67cab08a7ddbfbe06fe559cafa9eb481cf8230"
+      },
+      {
+        "path": "research/program/vacuum-float/state-initial.json",
+        "sha256": "05a6d3544742fa060afd105f34302be0ace4a6c37cf427290a8f8f1f6e7f2f8b",
+        "bytes": 2446,
+        "blob_oid": "b75dac1810fdf6da96a372e9baec7118a08100ea"
+      },
+      {
+        "path": "tools/float_post.py",
+        "sha256": "a58ac313d1592a32f8cc79bb251119f96e1d50b5510a5e41614f5aca436c9836",
+        "bytes": 17870,
+        "blob_oid": "b86a795068a67fc88411627c87920b715f05a176"
+      },
+      {
+        "path": "tools/float_progress.py",
+        "sha256": "db9c79744261b4cce5613ed7d64e44221eb30fee61cd567ed5adb63e82fd8bb3",
+        "bytes": 85384,
+        "blob_oid": "966141a9d153066c547d64dcf17781e5c2d658c0"
+      },
+      {
+        "path": "tools/tests/test_float_post.py",
+        "sha256": "c8fc32e49c3e6c57078512f51c61f39fb221445148f40aef2434af1fec89e37a",
+        "bytes": 26253,
+        "blob_oid": "7c357120c30f39c916f9ce805e8600a37d17b942"
+      },
+      {
+        "path": "tools/tests/test_float_progress.py",
+        "sha256": "4e91621adb3023cd0c0372bb6b5e728ca1d6d77242caa690ea16996cda9d6f04",
+        "bytes": 79291,
+        "blob_oid": "dea7ce068deeac5fcadf239474122cd57fe8ed36"
+      }
+    ],
+    "stale_plants_receipt": {
+      "path": "unpublished-local-ref:88cb2aea4b8d3b27",
+      "sha256": "ff1e5f8c964344bd32daf90a2fdc7a046c58be0da3e463ff586b19c772773302",
+      "bytes": 6028
+    }
+  },
+  "test_review": [
+    "Independent valid snapshots and exact missing-field assertions prevent inherited malformed cases masking one another.",
+    "Omitted card_deadline now goes through fail-closed harness: zero synthetic calls and unchanged delivery/cursor bytes.",
+    "Absent attempts uses a pending item and proves one extra fake post, same item ID, admission success and attempts1.",
+    "D2 distinguishes links_none True/1, retains 5/5.0 and positive equality, and deep-copies authored nested links before mutating 1/True. Nested case is comparator coverage, not door-schema integration.",
+    "Only the two permitted test files changed. All fourteen other source paths and the old receipt match. No remaining concrete technical blocker found by static review; no root tests or project execution."
+  ],
+  "execution": {
+    "logs": {
+      "budget-cc69tests-1018.txt": {
+        "path": "unpublished-local-ref:23f7fa4208ca4c7b",
+        "sha256": "fe8cb932b903cb4dfdb554785bcd4d60cb2be30fb6e21fb94540f39d05f4d9c7",
+        "bytes": 756
+      },
+      "ledger-cc69tests-1018.txt": {
+        "path": "unpublished-local-ref:6790291174c220ce",
+        "sha256": "05f5c76a05b7ea57c25e7b7ce92d8f16236326381df37d268e04c317dd97516e",
+        "bytes": 882
+      },
+      "cc69tests-inv1-focused.log": {
+        "path": "unpublished-local-ref:2cf96122a6a6e8af",
+        "sha256": "d2d19c94fe07f0fcd009ec51b68008bd408932e45efb30c6474a5a1dd4f47a7c",
+        "bytes": 4220
+      },
+      "cc69tests-inv2-full.log": {
+        "path": "unpublished-local-ref:f0106d8cb68a6b5e",
+        "sha256": "50cfd0568ab67b016c36fed377f3f20a7f44933dbcdaf2f75198f9017d054dda",
+        "bytes": 78395
+      },
+      "cc69tests-lint.log": {
+        "path": "unpublished-local-ref:8706f678ebceee7d",
+        "sha256": "67e24393ef56af47524ed34a4d017979b35b54ce1a02621c7768cd41a4854942",
+        "bytes": 1752
+      },
+      "cc69tests-governance.log": {
+        "path": "unpublished-local-ref:fa4986a17e5461d3",
+        "sha256": "fb5d848b3d73199a8c3f9917bde74a0a8de30112ecf31c65c8213a1233a3705d",
+        "bytes": 2454
+      }
+    },
+    "focused": {
+      "tests": 4,
+      "seconds": "0.989",
+      "rc": 0
+    },
+    "full": {
+      "tests": 101,
+      "seconds": "3.394",
+      "rc": 0
+    },
+    "governance": {
+      "audit": {
+        "path": "unpublished-local-ref:0acc9d660f54dd99",
+        "sha256": "d1b1c4f3a956055d38302efbd859b2a3045bb02029308783954f59e389849264",
+        "bytes": 4311
+      },
+      "pending": "pc-a31423e347d9",
+      "analyze_rc": 0,
+      "approve_rc": 0,
+      "hooked_commit_rc": 0,
+      "model_calls": 1,
+      "analysis_seconds": "3.831",
+      "confidence": "low",
+      "findings": 0,
+      "qualification": "Ordinary output reports fallback-only coverage0/2 mapped and3 retrieved; audit metrics instead report unmapped0/retrieved0/fallbackfalse. Preserve contradiction and empty completed_at. No UNPARSED in this lifecycle; parent annotation unchanged. No reanalysis demanded."
+    },
+    "lint": "Postcommit make lint buildercheck RC0; exact child HEAD,102modules/29linter checks,1128commits/97exemptions/12Python Builder tests. Node fixture shows pass0/skipped1. This is the actual successful Python-target evidence.",
+    "controls": "All four logs show actual named membership and cpu.max100000 100000/memory8589934592/swap0/pids512 before payload. This establishes the recorded per-payload limits, including governance. No retained FD0 observation, full timeout/start/end record, stop result or empty/inactive-scope result; complete descendant containment/closure remains UNVERIFIED.",
+    "node": "Lint prints NODE= and ref-b65d903e553259fd32ae:8:node:not found before proceeding. Report characterizes an ambient-path probe, but no subsequent successful resolution/version/hash demonstrates use of private Node. Private binary exists and hashes correctly; actual use is UNVERIFIED. Blanket no-failure wording is unsupported; the nonzero lookup followed by continued lint is a stop-boundary exception, not a qualified private-Node pass. No source rerun is ordered merely to repeat Python-only lint.",
+    "title": "Commit first line is U3 acceptance tests: isolated coverage for the delivery admission contract. Digit3 violates the specific figure-free instruction. Preserve history and record the exception; do not rewrite or repeat governance for the title. Future titles must meet the instruction.",
+    "closure": "Scope stopped/scratch removed/final-after-state are owner assertions; no independent observed cleanup results. No new retrospective control proof is invented. New heavy run requires fresh observed known-unit closure and controls before launch."
+  },
+  "closed_budget": {
+    "order": "ord-sciences-g1-u3-cc69-test-completion-once-1018",
+    "allocation_seconds": 1800,
+    "start_utc": "2026-10-18T11:30:42.285981+00:00",
+    "start_monotonic": "1938567.466300716",
+    "final_utc": "2026-10-18T11:34:30.774260+00:00",
+    "final_monotonic": "1938795.954579684",
+    "elapsed_seconds": "228.488278968",
+    "opening_seconds": 10,
+    "tail_seconds": 25,
+    "charged_seconds": "263.488278968",
+    "retired_seconds": "1536.511721032",
+    "qualification": "Aggregate/cumulative cutoffs fit; exact subphase durations lack paired timestamps. Approximate GOV/LINT offsets coincide, not proof of overlap or durations. No phase overrun established. Later canonical admission alone does not establish extra active work. Allowance CLOSED; no transfer."
+  },
+  "next_gate_corrections": "CO Route1 settled. Full make check already includes ledgercheck-selftest and energydoccheck: do not double-price or rerun them separately by default. Split make-check recipe is not granted. Only the separately conditioned plants/receipt unit below is released, not downstream checks/signature/landing/activation.",
+  "standing": "Old cc69/f164/285 breaches and unknowns retained. A45/map0; Q0 deferred until U3LAND; heartbeat inactive and CO exact clocks/Sciences diagnosis unchanged."
+}

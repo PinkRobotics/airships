@@ -1,0 +1,39 @@
+{
+  "id": "E-e2bc741ecfb1022c276e",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-e2bc741ecfb1022c276e",
+    "report": "rpt-ref-3bba4f0f54c6a95070dd",
+    "file": "evidence/5f42c0a3a68df880-NFI.json",
+    "snapshot": "evidence/5f42c0a3a68df880-NFI.json",
+    "source_sha256": "5f42c0a3a68df880d2d90c00dd542c3a291c91c897f17077300cd2c4aa818242",
+    "source_json_pointer": "/new/9",
+    "row_id": "NFI-CHECK059-10",
+    "fields": {
+      "id": "NFI-CHECK059-10",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "topic": "Capacity scope",
+      "evidence": "P2 capacities are for the mirror, actual joining, bake, cure in global/crimp, no 5% joining floor. They are reused for other finishes without changing their thermal/coating bill.",
+      "needed_to_ground": "Recompute capacity after any actual coating, heater, weather or joining change. Add pond hydrostatic loading and installed failure qualifications when resolving the structural model."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-CHECK059-10\", \"status\": \"OPEN\", \"tag\": \"QUESTIONABLE / PROJECTION\", \"topic\": \"Capacity scope\", \"evidence\": \"P2 capacities are for the mirror, actual joining, bake, cure in global/crimp, no 5% joining floor. They are reused for other finishes without changing their thermal/coating bill.\", \"needed_to_ground\": \"Recompute capacity after any actual coating, heater, weather or joining change. Add pond hydrostatic loading and installed failure qualifications when resolving the structural model.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q5",
+  "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+  "sources": [
+    {
+      "report": "rpt-ref-3bba4f0f54c6a95070dd",
+      "artifact": "evidence/5f42c0a3a68df880-NFI.json",
+      "snapshot": "evidence/5f42c0a3a68df880-NFI.json",
+      "sha256": "5f42c0a3a68df880d2d90c00dd542c3a291c91c897f17077300cd2c4aa818242",
+      "bytes": 10167,
+      "selector": "/new/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

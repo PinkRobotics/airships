@@ -1,0 +1,1011 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-020",
+  "unit": "vacuum-mainline020-beryllium-reality-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "scope": "Materials/manufacturing reality and own sensitivity calculations; no physical validation.",
+  "baseline": {
+    "radius_m": 10.0,
+    "area_one_skin_m2": 1256.6370614359173,
+    "pressure_Pa": 95460.8379139,
+    "lift_kg": 4889.442150186961,
+    "face_mass_kg": 3498.466527043067,
+    "core_mass_kg": 830.076370745136,
+    "structural_mass_kg": 4328.542897788203,
+    "joint_allowance_kg": 216.42714488941016,
+    "total_kg": 4644.9700426776135,
+    "payload_kg": 244.47210750934755,
+    "modes": {
+      "least_SF": 0.6504118436805659,
+      "sfs": {
+        "global_buckling": 0.6504118436805659,
+        "core_shear_crimping": 0.6504118436805659,
+        "face_compression_or_joint_net_section": 0.8922515676202372,
+        "face_wrinkling": 0.650414127458835,
+        "core_crush": 20.950999841462536,
+        "intracell_dimpling": 52.68619800038427
+      },
+      "governing": [
+        "global_buckling",
+        "core_shear_crimping"
+      ],
+      "Vc": 3.328884907403892,
+      "Kc": 0.3004008933369442,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "membrane_compression_Pa": 317175122.2077441,
+      "tf_m": 0.000752430055433027,
+      "core_m": 0.020642305866854553,
+      "tag": "QUESTIONABLE",
+      "certification": "none"
+    },
+    "capacity_gap_to_SF1_fraction": 0.3495881563194341,
+    "capacity_factor_needed_for_SF1": 1.5374873777531115,
+    "brief_face_mass_kg": 2100.0,
+    "brief_mass_error_kg": 1398.466527043067,
+    "brief_mass_understatement_percent_of_reference": 66.59364414490794
+  },
+  "annual_supply": [
+    {
+      "scenario": "optimistic_budget",
+      "mass_basis": "brief_reference_2100kg",
+      "finished_face_mass_kg": 2100.0,
+      "mine_output_year": 2024,
+      "world_mine_Be_content_kg": 433000,
+      "finished_share_percent": 0.48498845265588914,
+      "assumed_fabrication_yield": 0.85,
+      "purchased_stock_kg": 2470.5882352941176,
+      "purchased_share_percent": 0.570574650183399,
+      "tag": "QUESTIONABLE",
+      "note": "Mine-content comparison, not measured finished-sheet capacity; no supply reservation."
+    },
+    {
+      "scenario": "optimistic_budget",
+      "mass_basis": "pinned_lead_faces",
+      "finished_face_mass_kg": 3498.466527043067,
+      "mine_output_year": 2024,
+      "world_mine_Be_content_kg": 433000,
+      "finished_share_percent": 0.8079599369614473,
+      "assumed_fabrication_yield": 0.85,
+      "purchased_stock_kg": 4115.842972991843,
+      "purchased_share_percent": 0.9505411023075852,
+      "tag": "QUESTIONABLE",
+      "note": "Mine-content comparison, not measured finished-sheet capacity; no supply reservation."
+    },
+    {
+      "scenario": "conservative_budget",
+      "mass_basis": "brief_reference_2100kg",
+      "finished_face_mass_kg": 2100.0,
+      "mine_output_year": 2025,
+      "world_mine_Be_content_kg": 430000,
+      "finished_share_percent": 0.4883720930232558,
+      "assumed_fabrication_yield": 0.5,
+      "purchased_stock_kg": 4200.0,
+      "purchased_share_percent": 0.9767441860465116,
+      "tag": "QUESTIONABLE",
+      "note": "Mine-content comparison, not measured finished-sheet capacity; no supply reservation."
+    },
+    {
+      "scenario": "conservative_budget",
+      "mass_basis": "pinned_lead_faces",
+      "finished_face_mass_kg": 3498.466527043067,
+      "mine_output_year": 2025,
+      "world_mine_Be_content_kg": 430000,
+      "finished_share_percent": 0.8135968667542016,
+      "assumed_fabrication_yield": 0.5,
+      "purchased_stock_kg": 6996.933054086134,
+      "purchased_share_percent": 1.6271937335084032,
+      "tag": "QUESTIONABLE",
+      "note": "Mine-content comparison, not measured finished-sheet capacity; no supply reservation."
+    }
+  ],
+  "cost_scenarios": [
+    {
+      "scenario": "optimistic_budget",
+      "mass_basis": "brief_reference_2100kg",
+      "grade": "S200F",
+      "assumed_USD_per_kg": 4800,
+      "finished_mass_times_unit_price_USD": 10080000.0,
+      "purchased_stock_cost_USD": 11858823.529411765,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    },
+    {
+      "scenario": "optimistic_budget",
+      "mass_basis": "brief_reference_2100kg",
+      "grade": "SR200",
+      "assumed_USD_per_kg": 9600,
+      "finished_mass_times_unit_price_USD": 20160000.0,
+      "purchased_stock_cost_USD": 23717647.05882353,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    },
+    {
+      "scenario": "optimistic_budget",
+      "mass_basis": "pinned_lead_faces",
+      "grade": "S200F",
+      "assumed_USD_per_kg": 4800,
+      "finished_mass_times_unit_price_USD": 16792639.329806723,
+      "purchased_stock_cost_USD": 19756046.27036085,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    },
+    {
+      "scenario": "optimistic_budget",
+      "mass_basis": "pinned_lead_faces",
+      "grade": "SR200",
+      "assumed_USD_per_kg": 9600,
+      "finished_mass_times_unit_price_USD": 33585278.659613445,
+      "purchased_stock_cost_USD": 39512092.5407217,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    },
+    {
+      "scenario": "conservative_budget",
+      "mass_basis": "brief_reference_2100kg",
+      "grade": "S200F",
+      "assumed_USD_per_kg": 9600,
+      "finished_mass_times_unit_price_USD": 20160000.0,
+      "purchased_stock_cost_USD": 40320000.0,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    },
+    {
+      "scenario": "conservative_budget",
+      "mass_basis": "brief_reference_2100kg",
+      "grade": "SR200",
+      "assumed_USD_per_kg": 24000,
+      "finished_mass_times_unit_price_USD": 50400000.0,
+      "purchased_stock_cost_USD": 100800000.0,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    },
+    {
+      "scenario": "conservative_budget",
+      "mass_basis": "pinned_lead_faces",
+      "grade": "S200F",
+      "assumed_USD_per_kg": 9600,
+      "finished_mass_times_unit_price_USD": 33585278.659613445,
+      "purchased_stock_cost_USD": 67170557.31922689,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    },
+    {
+      "scenario": "conservative_budget",
+      "mass_basis": "pinned_lead_faces",
+      "grade": "SR200",
+      "assumed_USD_per_kg": 24000,
+      "finished_mass_times_unit_price_USD": 83963196.6490336,
+      "purchased_stock_cost_USD": 167926393.2980672,
+      "tag": "QUESTIONABLE",
+      "basis": "Owner budget sensitivity, NOT a supplier price or market interval.",
+      "exclusions": "Forming, tooling, assembly, quality assurance, exposure controls, freight, tax; no scrap credit."
+    }
+  ],
+  "panel_scenarios": [
+    {
+      "name": "large_panel_optimistic",
+      "width_m": 0.6096,
+      "length_m": 1.8288,
+      "tag": "PROJECTION",
+      "source": "S03 dimensions transferred from thicker stock; NOT demonstrated at 0.75 mm.",
+      "panels_per_skin_area_lower_bound": 1128,
+      "panel_pieces_both_skins_lower_bound": 2256,
+      "mean_field_edge_joints_per_skin": 2256,
+      "mean_field_edge_joints_both_skins": 4512,
+      "coincident_hull_seam_m": 2748.5500031406764,
+      "skin_seam_m_both_skins": 5497.100006281353,
+      "corner_sag_from_tangent_plane_m": 0.046559911266859544,
+      "through_thickness_bending_strain": 3.762150277165135e-05,
+      "double_curvature_metric_strain_scale": 0.0015483839999999999,
+      "note": "Flat rectangular area approximation, zero trim/lap allowance; sphere topology and final layout unresolved."
+    },
+    {
+      "name": "small_panel_conservative",
+      "width_m": 0.3048,
+      "length_m": 0.6096,
+      "tag": "PROJECTION",
+      "source": "Owner planning size; NOT a supplier availability claim.",
+      "panels_per_skin_area_lower_bound": 6764,
+      "panel_pieces_both_skins_lower_bound": 13528,
+      "mean_field_edge_joints_per_skin": 13528,
+      "mean_field_edge_joints_both_skins": 27056,
+      "coincident_hull_seam_m": 6184.237507066521,
+      "skin_seam_m_both_skins": 12368.475014133042,
+      "corner_sag_from_tangent_plane_m": 0.005808126716797091,
+      "through_thickness_bending_strain": 3.762150277165135e-05,
+      "double_curvature_metric_strain_scale": 0.00019354799999999998,
+      "note": "Flat rectangular area approximation, zero trim/lap allowance; sphere topology and final layout unresolved."
+    }
+  ],
+  "joining_scenarios": [
+    {
+      "panel": "large_panel_optimistic",
+      "joint": "optimistic_bonded_splice",
+      "tag": "PROJECTION",
+      "input_material_tag": "QUESTIONABLE",
+      "film_kg_m2_per_interface": 0.1464728290914915,
+      "full_area_face_core_film_kg": 368.1263710594745,
+      "per_hull_seam_m_kg_breakdown": {
+        "Be_doublers": 0.167039472306132,
+        "doubler_adhesive": 0.01757673949097898,
+        "core_gap_paste": 0.022706536453540007,
+        "sealant": 0.011000000000000001
+      },
+      "kg_per_hull_seam_m": 0.21832274825065098,
+      "seam_mass_kg": 600.0709903900079,
+      "total_joining_mass_kg": 968.1973614494823,
+      "replaces_joint_allowance_kg": 216.42714488941016,
+      "additional_mass_over_allowance_kg": 751.7702165600722,
+      "total_with_replacement_joining_kg": 5396.740259237686,
+      "remaining_payload_kg": -507.29810905072463,
+      "payload_fraction": -0.1037537807930352,
+      "assumed_joint_efficiency": 0.9,
+      "joint_efficiency_only_SF": 0.6504118436805659,
+      "note": "No seam stiffness/buckling, peel, flaws, core node or leak qualification. No reoptimization after mass added."
+    },
+    {
+      "panel": "large_panel_optimistic",
+      "joint": "conservative_bonded_splice",
+      "tag": "PROJECTION",
+      "input_material_tag": "QUESTIONABLE",
+      "film_kg_m2_per_interface": 0.292945658182983,
+      "full_area_face_core_film_kg": 736.252742118949,
+      "per_hull_seam_m_kg_breakdown": {
+        "Be_doublers": 0.334078944612264,
+        "doubler_adhesive": 0.07030695796391592,
+        "core_gap_paste": 0.045413072907080014,
+        "sealant": 0.033
+      },
+      "kg_per_hull_seam_m": 0.48279897548325995,
+      "seam_mass_kg": 1326.9971255808296,
+      "total_joining_mass_kg": 2063.2498676997784,
+      "replaces_joint_allowance_kg": 216.42714488941016,
+      "additional_mass_over_allowance_kg": 1846.8227228103683,
+      "total_with_replacement_joining_kg": 6491.792765487981,
+      "remaining_payload_kg": -1602.3506153010203,
+      "payload_fraction": -0.32771644823321,
+      "assumed_joint_efficiency": 0.6,
+      "joint_efficiency_only_SF": 0.5353509405721423,
+      "note": "No seam stiffness/buckling, peel, flaws, core node or leak qualification. No reoptimization after mass added."
+    },
+    {
+      "panel": "small_panel_conservative",
+      "joint": "optimistic_bonded_splice",
+      "tag": "PROJECTION",
+      "input_material_tag": "QUESTIONABLE",
+      "film_kg_m2_per_interface": 0.1464728290914915,
+      "full_area_face_core_film_kg": 368.1263710594745,
+      "per_hull_seam_m_kg_breakdown": {
+        "Be_doublers": 0.167039472306132,
+        "doubler_adhesive": 0.01757673949097898,
+        "core_gap_paste": 0.022706536453540007,
+        "sealant": 0.011000000000000001
+      },
+      "kg_per_hull_seam_m": 0.21832274825065098,
+      "seam_mass_kg": 1350.1597283775175,
+      "total_joining_mass_kg": 1718.286099436992,
+      "replaces_joint_allowance_kg": 216.42714488941016,
+      "additional_mass_over_allowance_kg": 1501.8589545475818,
+      "total_with_replacement_joining_kg": 6146.828997225195,
+      "remaining_payload_kg": -1257.386847038234,
+      "payload_fraction": -0.2571636617052836,
+      "assumed_joint_efficiency": 0.9,
+      "joint_efficiency_only_SF": 0.6504118436805659,
+      "note": "No seam stiffness/buckling, peel, flaws, core node or leak qualification. No reoptimization after mass added."
+    },
+    {
+      "panel": "small_panel_conservative",
+      "joint": "conservative_bonded_splice",
+      "tag": "PROJECTION",
+      "input_material_tag": "QUESTIONABLE",
+      "film_kg_m2_per_interface": 0.292945658182983,
+      "full_area_face_core_film_kg": 736.252742118949,
+      "per_hull_seam_m_kg_breakdown": {
+        "Be_doublers": 0.334078944612264,
+        "doubler_adhesive": 0.07030695796391592,
+        "core_gap_paste": 0.045413072907080014,
+        "sealant": 0.033
+      },
+      "kg_per_hull_seam_m": 0.48279897548325995,
+      "seam_mass_kg": 2985.743532556866,
+      "total_joining_mass_kg": 3721.9962746758147,
+      "replaces_joint_allowance_kg": 216.42714488941016,
+      "additional_mass_over_allowance_kg": 3505.5691297864046,
+      "total_with_replacement_joining_kg": 8150.539172464018,
+      "remaining_payload_kg": -3261.0970222770566,
+      "payload_fraction": -0.6669670940175373,
+      "assumed_joint_efficiency": 0.6,
+      "joint_efficiency_only_SF": 0.5353509405721423,
+      "note": "No seam stiffness/buckling, peel, flaws, core node or leak qualification. No reoptimization after mass added."
+    }
+  ],
+  "film_only_scenarios": [
+    {
+      "nominal_lb_ft2": 0.015,
+      "both_interfaces_kg": 184.0631855297372,
+      "film_weight_tolerance_lb_ft2": 0.005,
+      "mass_plus_minus_kg": 61.354395176579075,
+      "remaining_payload_if_only_film_replaces_5pct_joints_kg": 276.8360668690211,
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "nominal_lb_ft2": 0.03,
+      "both_interfaces_kg": 368.1263710594744,
+      "film_weight_tolerance_lb_ft2": 0.005,
+      "mass_plus_minus_kg": 61.354395176579075,
+      "remaining_payload_if_only_film_replaces_5pct_joints_kg": 92.77288133928323,
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "nominal_lb_ft2": 0.045,
+      "both_interfaces_kg": 552.1895565892116,
+      "film_weight_tolerance_lb_ft2": 0.005,
+      "mass_plus_minus_kg": 61.354395176579075,
+      "remaining_payload_if_only_film_replaces_5pct_joints_kg": -91.29030419045375,
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "nominal_lb_ft2": 0.06,
+      "both_interfaces_kg": 736.2527421189488,
+      "film_weight_tolerance_lb_ft2": 0.005,
+      "mass_plus_minus_kg": 61.354395176579075,
+      "remaining_payload_if_only_film_replaces_5pct_joints_kg": -275.35348972019074,
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "braze_scenarios": [
+    {
+      "name": "optimistic_braze_screen",
+      "added_area_per_skin_m2": 3e-07,
+      "filler_rho_kg_m3": 9000,
+      "joint_efficiency": 0.9,
+      "tag": "PROJECTION",
+      "kg_per_hull_seam_m_filler_only": 0.005399999999999999,
+      "filler_mass_large_panel_kg": 14.84217001695965,
+      "joint_efficiency_only_SF": 0.6504118436805659,
+      "note": "Filler-only floor: no straps, lands, repairs or fixtures; no proven thin-shell butt joint. Braze before adding organic core/adhesive."
+    },
+    {
+      "name": "conservative_braze_screen",
+      "added_area_per_skin_m2": 1e-06,
+      "filler_rho_kg_m3": 10000,
+      "joint_efficiency": 0.6,
+      "tag": "PROJECTION",
+      "kg_per_hull_seam_m_filler_only": 0.02,
+      "filler_mass_large_panel_kg": 54.97100006281353,
+      "joint_efficiency_only_SF": 0.5353509405721423,
+      "note": "Filler-only floor: no straps, lands, repairs or fixtures; no proven thin-shell butt joint. Braze before adding organic core/adhesive."
+    }
+  ],
+  "thickness_tolerance": [
+    {
+      "uniform_offset_m": -0.0001016,
+      "face_mass_kg": 3026.071522908077,
+      "face_mass_change_kg": -472.3950041349899,
+      "remaining_payload_if_uniform_kg": 740.4868618510873,
+      "modes_at_local_gauge": {
+        "least_SF": 0.5232294307341869,
+        "sfs": {
+          "global_buckling": 0.6442491186269375,
+          "core_shear_crimping": 0.6442491186269375,
+          "face_compression_or_joint_net_section": 0.7717715859719163,
+          "face_wrinkling": 0.5232294307341869,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 34.09582917696715
+        },
+        "governing": [
+          "face_wrinkling"
+        ],
+        "Vc": 2.893127342106048,
+        "Kc": 0.3456467281775614,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 366688804.2316421,
+        "tf_m": 0.000650830055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "tag": "QUESTIONABLE",
+      "note": "Uniform gauge mass sensitivity; a local low spot does not imply whole-shell mass savings."
+    },
+    {
+      "uniform_offset_m": 0,
+      "face_mass_kg": 3498.466527043067,
+      "face_mass_change_kg": 0.0,
+      "remaining_payload_if_uniform_kg": 244.47210750934755,
+      "modes_at_local_gauge": {
+        "least_SF": 0.6504118436805659,
+        "sfs": {
+          "global_buckling": 0.6504118436805659,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.8922515676202372,
+          "face_wrinkling": 0.650414127458835,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 52.68619800038427
+        },
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping"
+        ],
+        "Vc": 3.328884907403892,
+        "Kc": 0.3004008933369442,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "tag": "QUESTIONABLE",
+      "note": "Uniform gauge mass sensitivity; a local low spot does not imply whole-shell mass savings."
+    },
+    {
+      "uniform_offset_m": 0.0001016,
+      "face_mass_kg": 3970.861531178057,
+      "face_mass_change_kg": 472.3950041349899,
+      "remaining_payload_if_uniform_kg": -251.54264683239126,
+      "modes_at_local_gauge": {
+        "least_SF": 0.6566039041326761,
+        "sfs": {
+          "global_buckling": 0.6566039041326761,
+          "core_shear_crimping": 0.6566039041326761,
+          "face_compression_or_joint_net_section": 1.0127315492685578,
+          "face_wrinkling": 0.7865032033764024,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 77.04029188568673
+        },
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping"
+        ],
+        "Vc": 3.760523355025652,
+        "Kc": 0.26592043329915144,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 279442267.0098466,
+        "tf_m": 0.000854030055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "tag": "QUESTIONABLE",
+      "note": "Uniform gauge mass sensitivity; a local low spot does not imply whole-shell mass savings."
+    }
+  ],
+  "mechanical_sensitivities": [
+    {
+      "name": "inherited_optimistic",
+      "E_Pa": 303000000000.0,
+      "compression_proxy_Pa": 283000000.0,
+      "nu": 0.33,
+      "tag": "QUESTIONABLE",
+      "source": "I009c5, retained for traceability, not reconciled supplier minimum.",
+      "modes": {
+        "least_SF": 0.6504118436805659,
+        "sfs": {
+          "global_buckling": 0.6504118436805659,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.8922515676202372,
+          "face_wrinkling": 0.650414127458835,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 52.68619800038427
+        },
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping"
+        ],
+        "Vc": 3.328884907403892,
+        "Kc": 0.3004008933369442,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "note": "Sensitivity only; compression proxies and scalar anisotropy are not SR200 allowables."
+    },
+    {
+      "name": "current_modulus_and_VHP_nu",
+      "E_Pa": 290000000000.0,
+      "compression_proxy_Pa": 283000000.0,
+      "nu": 0.08,
+      "tag": "QUESTIONABLE",
+      "source": "S02/S03 E; S07 VHP nu proxy; inherited compression retained.",
+      "modes": {
+        "least_SF": 0.6363083913759237,
+        "sfs": {
+          "global_buckling": 0.6504118436805658,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.8922515676202372,
+          "face_wrinkling": 0.6363083913759237,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 45.223803966047065
+        },
+        "governing": [
+          "face_wrinkling"
+        ],
+        "Vc": 3.0172519731218532,
+        "Kc": 0.331427407756513,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "note": "Sensitivity only; compression proxies and scalar anisotropy are not SR200 allowables."
+    },
+    {
+      "name": "conservative_compression_proxy",
+      "E_Pa": 290000000000.0,
+      "compression_proxy_Pa": 241000000.0,
+      "nu": 0.08,
+      "tag": "QUESTIONABLE",
+      "source": "S02 tensile minimum used as explicit compression sensitivity, NOT a compression guarantee.",
+      "modes": {
+        "least_SF": 0.6363083913759237,
+        "sfs": {
+          "global_buckling": 0.6504118436805658,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.7598326070546896,
+          "face_wrinkling": 0.6363083913759237,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 45.223803966047065
+        },
+        "governing": [
+          "face_wrinkling"
+        ],
+        "Vc": 3.0172519731218532,
+        "Kc": 0.331427407756513,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "note": "Sensitivity only; compression proxies and scalar anisotropy are not SR200 allowables."
+    },
+    {
+      "name": "anisotropy_postform_retention_screen",
+      "E_Pa": 232000000000.0,
+      "compression_proxy_Pa": 168700000.0,
+      "nu": 0.08,
+      "tag": "QUESTIONABLE",
+      "source": "Owner assumptions: 0.8 of current E and 0.7 of 241 MPa. No measured directional ratio is claimed.",
+      "modes": {
+        "least_SF": 0.5318828249382828,
+        "sfs": {
+          "global_buckling": 0.6504118436805659,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.5318828249382828,
+          "face_wrinkling": 0.5691315271080425,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 36.17904317283765
+        },
+        "governing": [
+          "face_compression_or_joint_net_section"
+        ],
+        "Vc": 2.4138015784974822,
+        "Kc": 0.41428425969564137,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "note": "Sensitivity only; compression proxies and scalar anisotropy are not SR200 allowables."
+    }
+  ],
+  "thermal_sensitivities": [
+    {
+      "name": "optimistic_HRH10_mismatch",
+      "delta_alpha_per_K": 5e-06,
+      "delta_T_K": 30,
+      "tag": "QUESTIONABLE",
+      "source": "Owner assumed effective mismatch; I016 equation, not its SiC/PVC properties.",
+      "shear_lag_lambda_per_m": 1.7630021705422085,
+      "transfer_length_m": 0.5672142761415044,
+      "long_joint_peak_shear_Pa": 57704.30820956852,
+      "fully_restrained_uniaxial_thermal_stress_Pa": 43500000.00000001,
+      "fully_restrained_biaxial_proxy_Pa": 47282608.69565218,
+      "qualified_daily_thermal_life_cycles": null,
+      "note": "016 scalar long-joint screen rederived for Be/HRH10; actual effective core CTE, restraint and shear strength are unknown."
+    },
+    {
+      "name": "conservative_HRH10_mismatch",
+      "delta_alpha_per_K": 2e-05,
+      "delta_T_K": 60,
+      "tag": "QUESTIONABLE",
+      "source": "Owner assumed effective mismatch; I016 equation.",
+      "shear_lag_lambda_per_m": 1.7630021705422085,
+      "transfer_length_m": 0.5672142761415044,
+      "long_joint_peak_shear_Pa": 461634.46567654813,
+      "fully_restrained_uniaxial_thermal_stress_Pa": 348000000.00000006,
+      "fully_restrained_biaxial_proxy_Pa": 378260869.56521744,
+      "qualified_daily_thermal_life_cycles": null,
+      "note": "016 scalar long-joint screen rederived for Be/HRH10; actual effective core CTE, restraint and shear strength are unknown."
+    }
+  ],
+  "daily_cycles_assumed_30_years": 10958,
+  "fatigue_benchmark": {
+    "S200F_smooth_R_minus_1_stress_amplitude_MPa": [
+      262,
+      266
+    ],
+    "cycles": 10000000,
+    "source": "S07",
+    "tag": "QUESTIONABLE",
+    "transfer": "Not an SR200 bonded-joint thermal-cycle allowable. Life at the hull's compressive mean stress is unknown."
+  },
+  "fixed_geometry_alternatives": [
+    {
+      "face": "Beryllium S-200F",
+      "tag": "QUESTIONABLE",
+      "Be_free": false,
+      "geometry": "Exact 009c5 tf and core; same 5%-of-structure joint formula",
+      "modes": {
+        "least_SF": 0.6504118436805659,
+        "sfs": {
+          "global_buckling": 0.6504118436805659,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.8922515676202372,
+          "face_wrinkling": 0.650414127458835,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 52.68619800038427
+        },
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping"
+        ],
+        "Vc": 3.328884907403892,
+        "Kc": 0.3004008933369442,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "face_mass_kg": 3498.466527043067,
+      "remaining_payload_kg": 244.47210750934755,
+      "SF_lost_absolute_vs_lead": 0.0,
+      "SF_lost_percent_vs_lead": 0.0
+    },
+    {
+      "face": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "tag": "QUESTIONABLE",
+      "Be_free": true,
+      "geometry": "Exact 009c5 tf and core; same 5%-of-structure joint formula",
+      "modes": {
+        "least_SF": 0.5414748616333155,
+        "sfs": {
+          "global_buckling": 0.6504118436805659,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.6936231267719158,
+          "face_wrinkling": 0.5414748616333155,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 36.5151867329396
+        },
+        "governing": [
+          "face_wrinkling"
+        ],
+        "Vc": 2.30714795562646,
+        "Kc": 0.43343557467187666,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "face_mass_kg": 3309.360228283982,
+      "remaining_payload_kg": 443.0337212063869,
+      "SF_lost_absolute_vs_lead": 0.10893698204725044,
+      "SF_lost_percent_vs_lead": 16.74892348681649
+    },
+    {
+      "face": "CFRP quasi-isotropic M55J/epoxy",
+      "tag": "QUESTIONABLE",
+      "Be_free": true,
+      "geometry": "Exact 009c5 tf and core; same 5%-of-structure joint formula",
+      "modes": {
+        "least_SF": 0.12139557149015832,
+        "sfs": {
+          "global_buckling": 0.12139557149015832,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 1.1034913380462297,
+          "face_wrinkling": 0.43414573195343414,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 23.474048614032593
+        },
+        "governing": [
+          "global_buckling"
+        ],
+        "Vc": 1.4831665429027239,
+        "Kc": 0.629208364274319,
+        "gamma": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "face_mass_kg": 3101.3432996489887,
+      "remaining_payload_kg": 661.45149627313,
+      "SF_lost_absolute_vs_lead": 0.5290162721904076,
+      "SF_lost_percent_vs_lead": 81.3355841118756
+    },
+    {
+      "face": "AlBeMet 162 (AM162, HIP)",
+      "tag": "QUESTIONABLE",
+      "Be_free": false,
+      "geometry": "Exact 009c5 tf and core; same 5%-of-structure joint formula",
+      "modes": {
+        "least_SF": 0.5190955503184999,
+        "sfs": {
+          "global_buckling": 0.6504118436805659,
+          "core_shear_crimping": 0.6504118436805659,
+          "face_compression_or_joint_net_section": 0.6084966521226353,
+          "face_wrinkling": 0.5190955503184999,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 33.55919542598733
+        },
+        "governing": [
+          "face_wrinkling"
+        ],
+        "Vc": 2.1203788354090793,
+        "Kc": 0.47161383772587623,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317175122.2077441,
+        "tf_m": 0.000752430055433027,
+        "core_m": 0.020642305866854553,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "face_mass_kg": 3916.391447300644,
+      "remaining_payload_kg": -194.3490587611077,
+      "SF_lost_absolute_vs_lead": 0.13131629336206607,
+      "SF_lost_percent_vs_lead": 20.189714353750134
+    }
+  ],
+  "published_equal_ceiling_alternatives": [
+    {
+      "face": "Beryllium S-200F",
+      "core": "Hexcel HRH-10-4.8-32",
+      "tag": "QUESTIONABLE",
+      "Be_free": false,
+      "reported_SF": 0.6853382311714157,
+      "recomputed_SF": 0.6853382311714526,
+      "loss_absolute_vs_014b_Be": -3.697042672001771e-14,
+      "loss_percent_vs_014b_Be": -5.395683899678261e-12,
+      "tf_m": 0.0007929207043436264,
+      "core_m": 0.021750596068442405,
+      "basis": "Same P2 zero-payload float ceiling; each has its own geometry and possibly core."
+    },
+    {
+      "face": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "core": "Hexcel HRH-10-4.8-32",
+      "tag": "QUESTIONABLE",
+      "Be_free": true,
+      "reported_SF": 0.6519321738941608,
+      "recomputed_SF": 0.6519321738941961,
+      "loss_absolute_vs_014b_Be": 0.03340605727721957,
+      "loss_percent_vs_014b_Be": 4.874389864420692,
+      "tf_m": 0.0008496384824440842,
+      "core_m": 0.020502843490852483,
+      "basis": "Same P2 zero-payload float ceiling; each has its own geometry and possibly core."
+    },
+    {
+      "face": "CFRP quasi-isotropic M55J/epoxy",
+      "core": "Hexcel HRH-49 Kevlar 1/4-2.1",
+      "tag": "QUESTIONABLE",
+      "Be_free": true,
+      "reported_SF": 0.5934943829166272,
+      "recomputed_SF": 0.5934943829166591,
+      "loss_absolute_vs_014b_Be": 0.09184384825475655,
+      "loss_percent_vs_014b_Be": 13.401243951876474,
+      "tf_m": 0.000799004311325871,
+      "core_m": 0.029997869914976105,
+      "basis": "Same P2 zero-payload float ceiling; each has its own geometry and possibly core."
+    },
+    {
+      "face": "AlBeMet 162 (AM162, HIP)",
+      "core": "Hexcel HRH-10-4.8-32",
+      "tag": "QUESTIONABLE",
+      "Be_free": false,
+      "reported_SF": 0.5539944205083944,
+      "recomputed_SF": 0.5539944205084244,
+      "loss_absolute_vs_014b_Be": 0.13134381066299128,
+      "loss_percent_vs_014b_Be": 19.16481595350249,
+      "tf_m": 0.0007420460875812382,
+      "core_m": 0.017383462046877695,
+      "basis": "Same P2 zero-payload float ceiling; each has its own geometry and possibly core."
+    }
+  ],
+  "resized_5pct_margin_alternatives": [
+    {
+      "face": "Beryllium S-200F",
+      "core": "Hexcel HRH-10-4.8-32",
+      "tag": "QUESTIONABLE",
+      "Be_free": false,
+      "modes": {
+        "least_SF": 0.650355851913636,
+        "sfs": {
+          "global_buckling": 0.650355851913636,
+          "core_shear_crimping": 0.650355851913636,
+          "face_compression_or_joint_net_section": 0.8922715296846877,
+          "face_wrinkling": 0.6504666226790277,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 52.68973427484454
+        },
+        "governing": [
+          "global_buckling",
+          "core_shear_crimping"
+        ],
+        "Vc": 3.32894572356527,
+        "Kc": 0.30039540534443115,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 317168026.3069774,
+        "tf_m": 0.0007524468893146431,
+        "core_m": 0.020640359449292704,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "scale": 0.948956037082564,
+      "basis": "Uniformly resized published geometry onto 009c5 structural budget; no reoptimization."
+    },
+    {
+      "face": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "core": "Hexcel HRH-10-4.8-32",
+      "tag": "QUESTIONABLE",
+      "Be_free": true,
+      "modes": {
+        "least_SF": 0.6186549721852572,
+        "sfs": {
+          "global_buckling": 0.6189584746167545,
+          "core_shear_crimping": 0.6189584746167545,
+          "face_compression_or_joint_net_section": 0.7432547573305047,
+          "face_wrinkling": 0.6186549721852572,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 44.92787978261744
+        },
+        "governing": [
+          "face_wrinkling"
+        ],
+        "Vc": 2.460390452667345,
+        "Kc": 0.40643955471209275,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 295995414.5334479,
+        "tf_m": 0.0008062695672529819,
+        "core_m": 0.019456297108003416,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "scale": 0.948956037082564,
+      "basis": "Uniformly resized published geometry onto 009c5 structural budget; no reoptimization."
+    },
+    {
+      "face": "CFRP quasi-isotropic M55J/epoxy",
+      "core": "Hexcel HRH-49 Kevlar 1/4-2.1",
+      "tag": "QUESTIONABLE",
+      "Be_free": true,
+      "modes": {
+        "least_SF": 0.5632000776433546,
+        "sfs": {
+          "global_buckling": 0.5634249088446376,
+          "core_shear_crimping": 0.5634249088446376,
+          "face_compression_or_joint_net_section": 1.1119826454908885,
+          "face_wrinkling": 0.5632000776433546,
+          "core_crush": 18.77876766429209,
+          "intracell_dimpling": 13.724934054342109
+        },
+        "governing": [
+          "face_wrinkling"
+        ],
+        "Vc": 2.3567699984137898,
+        "Kc": 0.4243095425828758,
+        "gamma": 1.0,
+        "branch": "shear_crimping",
+        "membrane_compression_Pa": 314753113.6562759,
+        "tf_m": 0.0007582199648876818,
+        "core_m": 0.028466659755434,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "scale": 0.948956037082564,
+      "basis": "Uniformly resized published geometry onto 009c5 structural budget; no reoptimization."
+    },
+    {
+      "face": "AlBeMet 162 (AM162, HIP)",
+      "core": "Hexcel HRH-10-4.8-32",
+      "tag": "QUESTIONABLE",
+      "Be_free": false,
+      "modes": {
+        "least_SF": 0.10518914508046318,
+        "sfs": {
+          "global_buckling": 0.10518914508046318,
+          "core_shear_crimping": 0.5260451121200311,
+          "face_compression_or_joint_net_section": 0.5694676145252129,
+          "face_wrinkling": 0.5257163498515259,
+          "core_crush": 20.950999841462536,
+          "intracell_dimpling": 27.507052318239182
+        },
+        "governing": [
+          "global_buckling"
+        ],
+        "Vc": 1.9725094977209554,
+        "Kc": 0.5068726255697611,
+        "gamma": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "membrane_compression_Pa": 338913039.2619632,
+        "tf_m": 0.000704169114603713,
+        "core_m": 0.016496141254780213,
+        "tag": "QUESTIONABLE",
+        "certification": "none"
+      },
+      "scale": 0.948956037082564,
+      "basis": "Uniformly resized published geometry onto 009c5 structural budget; no reoptimization."
+    }
+  ],
+  "ranking_by_effect_on_lead": [
+    "1: Installed face-core bonds plus seams: mass and actual joint capacity.",
+    "2: Purchasable gauge, panel size and formed geometry: local strength and mass.",
+    "3: Grade/orientation/post-form compression and elastic basis.",
+    "4: Thermal mismatch and joint fatigue at nonzero mean load.",
+    "5: Beryllium-free K13D2U laminate feasibility and honest SF trade.",
+    "6: Procurement price, finished-sheet capacity and controlled-process cost."
+  ],
+  "first_two_to_ground": [
+    "A weighed, sealed, representative two-skin joint/core panel with measured load transfer, flaws and curvature.",
+    "A supplier-confirmed 0.75-0.79 mm SR200 panel specification with gauge map and post-form biaxial/compression coupon basis."
+  ],
+  "limitations": [
+    "All sourced, inherited and assumed real-material values remain QUESTIONABLE.",
+    "Unverified panel availability and engineered joining configurations are PROJECTION.",
+    "No change to the inherited crimp-branch gamma=1 or wrinkling core-modulus assumption.",
+    "No material/joint qualification, supplier quotation, fabrication or flight-readiness claim.",
+    "Published alternatives are QI laminate estimates, not single-fiber properties or manufactured-shell allowables."
+  ],
+  "checks": [
+    "All pinned input copies matched SHA-256 and size before arithmetic.",
+    "Independently reproduced 009c5 face mass, least SF and 5% payload margin.",
+    "Reproduced all four selected 014b mode minima at their published geometries.",
+    "Joining totals replace the 5% allowance; both skins and both core interfaces are counted.",
+    "Panel/skin counting and joining mass closure assertions passed."
+  ],
+  "measurement": {
+    "started_utc": "2026-10-20T07:16:47.891653+00:00",
+    "ended_utc": "2026-10-20T07:16:47.908349+00:00",
+    "elapsed_seconds": 0.01669135713018477,
+    "pid": 878352,
+    "cgroup": "0::/user.slice/user-1000.slice/[address]/app.slice/simjob-20261020t001647-6686f2da3b84.scope\n",
+    "budget": null,
+    "phase_cap": null,
+    "note": "Measurement only. simjob timeout is a technical watchdog, not a task budget."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "rpt-ref-85490221d499751d581d",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline057-check-1020",
+  "re": "ntc-ingest-refused-rpt-ref-85490221d499751d581d-e48daffb-722004b188",
+  "at": "2026-10-20T07:25:13.665477-07:00",
+  "body": "Administrative correction of the historical 07:00 check-in. The original receipt was prepared at 07:02:38 but was refused and never delivered. CHECK-057 is now complete; the completed report is rpt-ref-22285eadc9122df1c8b7. The replacement order ord-admiral-rr2-chk057-untimed-1020 removes the deadline and requires no new time. This receipt introduces no pending work.",
+  "asks": "none",
+  "links_schema": 1,
+  "next": "none",
+  "standing": "none",
+  "artifacts": [
+    {
+      "path": "evidence/ae91eff558611d24-START.json",
+      "sha256": "ae91eff558611d24a683233b97533a1adeb0e23764dee6f85a0c8e991270089c",
+      "bytes": 425
+    },
+    {
+      "path": "evidence/828e7979730279e0-INPUTS.json",
+      "sha256": "828e7979730279e0f79829df1022572b50ecc9c308bfd75afee77053bd492308",
+      "bytes": 4839
+    },
+    {
+      "path": "evidence/f68528de46bd2271-DISPOSITION.md",
+      "sha256": "f68528de46bd2271876fcae446593da1ed5d6d7662432b0c1b4c42c1bec6585f",
+      "bytes": 1460
+    }
+  ],
+  "completion": "none",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-chk057-untimed-1020"
+    },
+    {
+      "id": "ntc-ingest-refused-rpt-ref-85490221d499751d581d-e48daffb-722004b188"
+    }
+  ],
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ntc-ingest-refused-rpt-ref-85490221d499751d581d-e48daffb-722004b188",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "ingested": "2026-10-20T07:26:12-07:00"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "rpt-co27-ops-u3-group-b-rebound-one-readmission-1018",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T17:15:52.504838-07:00",
+  "body": "RULING on U3 Group B: ONE re-admission on a re-bounded card. The kill was a card bound, not a gate verdict. Five suites finished OK, and the sixth (test_float_hardening, multiprocessing) was still computing at about 1.85 cores. No source or gate change. Card v9 is v8 with only the bounds changed: 4 CPU (C's proven allowance), MemoryMax 16 GiB, RuntimeMaxSec 3600, inner make timeout 3570 s with kill-after 5 s, and the whole-command bound raised by the same amount. State the diff against v8 0e566440 in the card report. The cap is a ceiling, not a reservation, and it sits within the Desk's per-job caps of 8 cores and 2 h. B reuses B/src at 5f96f32e after re-verifying it is clean, its HEAD, tree a8843701 and the parent/patch/manifest block. Issue a fresh grant on B's request, measured at issue as before. One attempt. Any failure stops and comes to me. If it times out again, the report gives the suite reached and the CPU consumed, and nothing relaunches. B records ledgercheck-selftest's measured wall and CPU time at 4 CPU. That figure sizes the landing gate's timeout and any future card. Fit lesson for both of you: a fit proof is measured on the same target at the same CPU allowance. The whole runtimes of two other groups at 4 CPU did not bound one target at 2.",
+  "from": "co",
+  "from_seat": "ref-a33a5f7a663e03c6e242",
+  "re": "rpt-ops-g29-u3-group-b-timeout-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-ops-g29-u3-group-b-timeout-1018",
+      "outcome": "done",
+      "extent": "obligation",
+      "unit": "vacuum-u3-group-a-relaunch-1018"
+    }
+  ]
+}

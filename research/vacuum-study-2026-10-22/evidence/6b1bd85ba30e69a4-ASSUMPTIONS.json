@@ -1,0 +1,78 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "measured_intake_at": "2026-10-20T16:01:29.748181+00:00",
+  "assumed_face_compressive_yield_MPa": 345.0,
+  "Be_density_kg_m3": 1850.0,
+  "core_density_kg_m3": 16.018463373960138,
+  "scarf_ratio": 30.34139731914874,
+  "blank_width_m": 0.6096,
+  "blank_length_m": 1.8288,
+  "blank_size_scope": "Inherited 057/042 nominal blank plan. This size at R10 finished thin gauge is not confirmed by the SR-200 catalog; smaller blanks require a revised joining bill.",
+  "retained_shape_hardware_kg_m2": 0.02,
+  "shape_hardware_MGA_fraction": 0.3,
+  "retained_shape_hardware_scope": "PROJECTION: 0.004 kg/m2 retained targets plus 0.016 kg/m2 local shims/filler. Temporary adjusters and jig removed. No distributed flight back structure is credited.",
+  "conditional_shop_caps_mm": {
+    "10": 0.6,
+    "20": 1.2,
+    "30": 1.8
+  },
+  "shape_budget_fractions": {
+    "forming": 0.3,
+    "panel_cure": 0.2,
+    "seam_closure": 0.2,
+    "release_and_thermal_change": 0.2,
+    "measurement_uncertainty": 0.1
+  },
+  "cost_scope": "First completed shell and its listed systems/allocations, panel manufacturing, seams, temporary jig/hall/handling, metrology/NDE and coupon/process/subscale qualification, with explicit cost contingency. All rates are unquoted 2026 USD planning assumptions. Full-scale destructive qualification or replacement hull, land, financing, taxes and operations are not priced; their costs are unknown, not zero. This is not a qualified-flight procurement total.",
+  "cost_rates": {
+    "low": {
+      "Be_USD_kg": 10000,
+      "purchased_stock_yield": 0.9,
+      "temporary_jig_kg_m2": 25,
+      "jig_USD_kg": 15,
+      "labor_USD_hour": 150,
+      "forming_hours_per_face": 8,
+      "core_USD_m3": 2500,
+      "joining_USD_kg": 100,
+      "bond_hours_per_panel": 2,
+      "seam_hours_per_m": 0.5,
+      "shape_hardware_USD_kg": 500,
+      "metrology_fixed_USD": 250000,
+      "metrology_USD_m2": 30,
+      "finish_USD_m2": 50,
+      "pad_USD_kg": 500,
+      "systems_and_service_USD": 150000,
+      "hall_R10_USD": 1000000,
+      "handling_R10_USD": 250000,
+      "qualification_USD": 1000000,
+      "cost_contingency_fraction": 0.3
+    },
+    "high": {
+      "Be_USD_kg": 50000,
+      "purchased_stock_yield": 0.7,
+      "temporary_jig_kg_m2": 75,
+      "jig_USD_kg": 35,
+      "labor_USD_hour": 250,
+      "forming_hours_per_face": 24,
+      "core_USD_m3": 10000,
+      "joining_USD_kg": 400,
+      "bond_hours_per_panel": 8,
+      "seam_hours_per_m": 2,
+      "shape_hardware_USD_kg": 2000,
+      "metrology_fixed_USD": 750000,
+      "metrology_USD_m2": 150,
+      "finish_USD_m2": 200,
+      "pad_USD_kg": 2000,
+      "systems_and_service_USD": 750000,
+      "hall_R10_USD": 3000000,
+      "handling_R10_USD": 1000000,
+      "qualification_USD": 5000000,
+      "cost_contingency_fraction": 0.5
+    }
+  },
+  "pricing_basis": {
+    "Be_USD_kg": "Inherited 042 planning range 10-50k USD/kg, explicitly PROJECTION, not sourced vendor quotation. Takeoff is the full rectangular blank count at nominal gauge before scarf trimming, divided by additional purchased_stock_yield (0.90/0.70) for process/procurement loss. Forming/preparation separate. No scrap recovery credited.",
+    "other_rates": "Owner-selected transparent planning assumptions for route comparison, not published price or performance guarantees.",
+    "inflation": "No historical cost index assumed. Historical telescope contracts remain in their stated dollar year and are comparisons only."
+  }
+}

@@ -1,0 +1,1042 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-022",
+  "unit": "vacuum-mainline022-p3-optimistic-floating-point-1020",
+  "seat": "ref-2543c559b19ffce7dfdd",
+  "questionable": true,
+  "certification": false,
+  "origin": {
+    "origin_local": "2026-10-20T00:35:54.973857-07:00",
+    "origin_monotonic_s": 2097280.154161015
+  },
+  "elapsed_s": 23.495890178717673,
+  "mass_rules": {
+    "payload_margin": 0.05,
+    "vehicle_kg": 4644.970042680499,
+    "payload_kg": 244.4721075095,
+    "systems_kg": 100.0,
+    "joints": "5 percent of film+nodes+tubes, PENDING-023",
+    "joint_allowance_kg": 216.4271448895476
+  },
+  "cross_checks": [
+    {
+      "name": "pins",
+      "pass": true,
+      "pins": [
+        {
+          "path": "unpublished-local-ref:bd9fce59fab05f7f",
+          "sha256": "0cc874af6424e3db79a364b2fb9b444a22e9a2f365d897d44680b685c6f48306",
+          "bytes": 2897,
+          "match": true
+        },
+        {
+          "path": "withheld-source:b528d6a62c81ce0b",
+          "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+          "bytes": 5874,
+          "match": true
+        },
+        {
+          "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+          "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+          "bytes": 2021,
+          "match": true
+        },
+        {
+          "path": "unpublished-local-ref:2bf170d37c993460",
+          "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+          "bytes": 2063,
+          "match": true
+        }
+      ]
+    },
+    {
+      "name": "5 percent vehicle mass vs 006",
+      "computed": 4644.970042680499,
+      "expected": 4644.97004268,
+      "tol": 0.0001,
+      "pass": true
+    },
+    {
+      "name": "joint allowance vs 016 216.427 kg",
+      "computed": 216.4271448895479,
+      "expected": 216.427144889,
+      "tol": 0.001,
+      "pass": true
+    },
+    {
+      "name": "weibull factor",
+      "computed": 0.5011872336272722,
+      "expected": 0.5011872336272722,
+      "tol": 1e-15,
+      "pass": true
+    },
+    {
+      "name": "011b tube mass",
+      "computed": 4509.441566595474,
+      "expected": 4509.44160085,
+      "tol": 0.001,
+      "pass": true
+    },
+    {
+      "name": "011b joint mass",
+      "computed": 225.47207832977347,
+      "expected": 225.472080043,
+      "tol": 0.001,
+      "pass": true
+    },
+    {
+      "name": "011b node mass",
+      "computed": 7.013469297324945,
+      "expected": 7.01346929732,
+      "tol": 1e-06,
+      "pass": true
+    },
+    {
+      "name": "011b wall",
+      "computed": 0.000880299086972014,
+      "expected": 0.000880299093685,
+      "tol": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "011b global SF",
+      "computed": 1.2255279376075454,
+      "expected": 1.22552794688,
+      "tol": 1e-06,
+      "pass": true
+    },
+    {
+      "name": "admiral p_global Pa",
+      "computed": 116989.92381091004,
+      "expected": 116989.0,
+      "tol": 30.0,
+      "pass": true
+    },
+    {
+      "name": "admiral N kN",
+      "computed": 973.7005467217801,
+      "expected": 974.0,
+      "tol": 1.0,
+      "pass": true
+    },
+    {
+      "name": "admiral axial GPa",
+      "computed": 1.4283500805253289,
+      "expected": 1.43,
+      "tol": 0.02,
+      "pass": true
+    },
+    {
+      "name": "admiral r/t",
+      "computed": 140.50720284108647,
+      "expected": 140.0,
+      "tol": 1.0,
+      "pass": true
+    },
+    {
+      "name": "arch recovers 011 lever",
+      "computed": 10.200000000000003,
+      "expected": 10.2,
+      "tol": 1e-09,
+      "pass": true
+    },
+    {
+      "name": "regression s",
+      "computed": 2.04,
+      "expected": 2.04,
+      "tol": 0.0,
+      "pass": true
+    },
+    {
+      "name": "regression SF",
+      "computed": 1.2255279373046317,
+      "expected": 1.22552794688,
+      "tol": 0.002,
+      "pass": true
+    },
+    {
+      "name": "regression governing",
+      "computed": 1.0,
+      "expected": 1.0,
+      "tol": 0.0,
+      "pass": true
+    },
+    {
+      "name": "regression r_o",
+      "computed": 0.12368836234364525,
+      "expected": 0.123688362374,
+      "tol": 0.002,
+      "pass": true
+    }
+  ],
+  "parallel": {
+    "023": "PENDING-023",
+    "024": "PENDING-024",
+    "025": "PENDING-025",
+    "note": "No report for MAINLINE-023, 024 or 025 was in queue/submissions when this run started. Joints stay at 5 percent. The film stays the 011b film. The allowable stays the 011b crush."
+  },
+  "baseline_today": {
+    "grid": "equilateral_triangular",
+    "k": 0.2,
+    "sigma_name": "flexural_380",
+    "sigma_Pa": 380000000.0,
+    "film": "Mylar-850H",
+    "film_tag": "QUESTIONABLE",
+    "s_m": 0.62,
+    "h_m": 0.0048061549562739,
+    "h_over_sagitta": 1.0,
+    "arc_length_m": 0.6200993463016408,
+    "t_film_m": 4.793113556654862e-05,
+    "r_o_m": 0.14094947252497123,
+    "t_w_m": 0.0002163958093517604,
+    "rt": 651.350286991242,
+    "A_m2": 0.00019149553899808612,
+    "I_m4": 1.8992792150525328e-06,
+    "nodes": 3776.816574889112,
+    "members": 11324.449724667336,
+    "m_film_kg": 84.32485788948793,
+    "m_nodes_kg": 75.53633149778224,
+    "m_joint_kg": 216.4271448895479,
+    "m_tube_kg": 4168.681708403681,
+    "m_systems_kg": 100.0,
+    "m_payload_kg": 244.47210750950035,
+    "m_vehicle_kg": 4644.970042680499,
+    "SF_yield": 0.24595728975402165,
+    "SF_euler": 67.55652647338955,
+    "SF_local": 0.2444536918068273,
+    "SF_film": 0.24568149492810878,
+    "SF_perry": 0.2438010340863489,
+    "SF_global": 1.2944231756460653,
+    "SF_least": 0.2438010340863489,
+    "governing": "perry",
+    "N_N": 295857.48359825916,
+    "sigma_axial_Pa": 1544983685.500977,
+    "eta": 0.008812407556837704,
+    "N_over_Ne": 0.01480241883652646,
+    "questionable": true,
+    "second": "local",
+    "SF_second": 0.2444536918068273,
+    "fittings": {
+      "A_bearing_for_380_m2": 0.0007785723252585767,
+      "tube_area_m2": 0.00019149553899808612,
+      "area_ratio_tube_over_need": 0.24595728975402162,
+      "lower_bound_one_per_node_kg": 1937.6527363866064,
+      "upper_bound_per_member_end_kg": 11619.759954966023,
+      "allowance_kg": 216.4271448895479
+    },
+    "permeation": {
+      "kg_per_day": 0.03619834160684392,
+      "pct_of_1pct_budget": 0.07403368420145287
+    },
+    "manufacture": {
+      "hexoloy_process_OD_max_mm": 381.0,
+      "hexoloy_single_length_m": 1.4,
+      "hexoloy_bonded_length_m": 4.9,
+      "seal_tube_length_m": 0.3048,
+      "silit_OD_max_mm": 300.0,
+      "silit_length_m": 3.5,
+      "silit_wall_min_mm": 4.0,
+      "amasic_wall_min_mm": 2.0,
+      "this_OD_mm": 281.8989450499424,
+      "this_length_m": 0.62,
+      "this_wall_mm": 0.2163958093517604,
+      "length_over_hexoloy_single": 0.4428571428571429,
+      "wall_over_amasic_min": 0.1081979046758802
+    }
+  },
+  "baseline_two_way": {
+    "grid": "two_way",
+    "k": 0.2,
+    "sigma_name": "flexural_380",
+    "sigma_Pa": 380000000.0,
+    "film": "Mylar-850H",
+    "film_tag": "QUESTIONABLE",
+    "s_m": 0.62,
+    "h_m": 0.0048061549562739,
+    "h_over_sagitta": 1.0,
+    "arc_length_m": 0.6200993463016408,
+    "t_film_m": 4.793113556654862e-05,
+    "r_o_m": 0.14094947252497123,
+    "t_w_m": 0.0002163958093517604,
+    "rt": 651.350286991242,
+    "A_m2": 0.00019149553899808612,
+    "I_m4": 1.8992792150525328e-06,
+    "nodes": 3776.816574889112,
+    "members": 11324.449724667336,
+    "m_film_kg": 84.32485788948793,
+    "m_nodes_kg": 75.53633149778224,
+    "m_joint_kg": 216.4271448895479,
+    "m_tube_kg": 4168.681708403681,
+    "m_systems_kg": 100.0,
+    "m_payload_kg": 244.47210750950035,
+    "m_vehicle_kg": 4644.970042680499,
+    "SF_yield": 0.24595728975402165,
+    "SF_euler": 67.55652647338955,
+    "SF_local": 0.2444536918068273,
+    "SF_film": 0.24568149492810878,
+    "SF_perry": 0.2438010340863489,
+    "SF_global": 1.0568920971886218,
+    "SF_least": 0.2438010340863489,
+    "governing": "perry",
+    "N_N": 295857.48359825916,
+    "sigma_axial_Pa": 1544983685.500977,
+    "eta": 0.008812407556837704,
+    "N_over_Ne": 0.01480241883652646,
+    "questionable": true,
+    "second": "local",
+    "SF_second": 0.2444536918068273,
+    "fittings": {
+      "A_bearing_for_380_m2": 0.0007785723252585767,
+      "tube_area_m2": 0.00019149553899808612,
+      "area_ratio_tube_over_need": 0.24595728975402162,
+      "lower_bound_one_per_node_kg": 1937.6527363866064,
+      "upper_bound_per_member_end_kg": 11619.759954966023,
+      "allowance_kg": 216.4271448895479
+    },
+    "permeation": {
+      "kg_per_day": 0.03619834160684392,
+      "pct_of_1pct_budget": 0.07403368420145287
+    },
+    "manufacture": {
+      "hexoloy_process_OD_max_mm": 381.0,
+      "hexoloy_single_length_m": 1.4,
+      "hexoloy_bonded_length_m": 4.9,
+      "seal_tube_length_m": 0.3048,
+      "silit_OD_max_mm": 300.0,
+      "silit_length_m": 3.5,
+      "silit_wall_min_mm": 4.0,
+      "amasic_wall_min_mm": 2.0,
+      "this_OD_mm": 281.8989450499424,
+      "this_length_m": 0.62,
+      "this_wall_mm": 0.2163958093517604,
+      "length_over_hexoloy_single": 0.4428571428571429,
+      "wall_over_amasic_min": 0.1081979046758802
+    }
+  },
+  "carried_011b_k02": {
+    "flags": [
+      "crush_3900_MPa",
+      "film_1.5_GPa"
+    ],
+    "equilateral": {
+      "grid": "equilateral_triangular",
+      "k": 0.2,
+      "sigma_name": "crush_3900",
+      "sigma_Pa": 3900000000.0,
+      "film": "011-film",
+      "film_tag": "PROJECTION",
+      "s_m": 3.0,
+      "h_m": 0.1131400333574053,
+      "h_over_sagitta": 1.0,
+      "arc_length_m": 3.0113654555337206,
+      "t_film_m": 0.00015131344357120262,
+      "r_o_m": 0.13670908289556455,
+      "t_w_m": 0.0010718489471981119,
+      "rt": 127.54510162363052,
+      "A_m2": 0.0009170752328248388,
+      "I_m4": 8.502853905601809e-06,
+      "nodes": 163.2266101541527,
+      "members": 483.6798304624581,
+      "m_film_kg": 184.4416986525136,
+      "m_nodes_kg": 3.264532203083054,
+      "m_joint_kg": 216.4271448895479,
+      "m_tube_kg": 4140.8366669353545,
+      "m_systems_kg": 100.0,
+      "m_payload_kg": 244.47210750950035,
+      "m_vehicle_kg": 4644.970042680499,
+      "SF_yield": 2.5119838945590884,
+      "SF_euler": 2.6648248516209634,
+      "SF_local": 1.242291651114395,
+      "SF_film": 1.5850839661357081,
+      "SF_perry": 2.0857756343725398,
+      "SF_global": 1.2386762692223106,
+      "SF_least": 1.2386762692223106,
+      "governing": "global",
+      "N_N": 1423812.236919077,
+      "sigma_axial_Pa": 1552557724.7717745,
+      "eta": 0.044401851660857014,
+      "N_over_Ne": 0.37525918425434923,
+      "questionable": true,
+      "second": "local",
+      "SF_second": 1.242291651114395,
+      "fittings": {
+        "A_bearing_for_380_m2": 0.003746874307681782,
+        "tube_area_m2": 0.0009170752328248388,
+        "area_ratio_tube_over_need": 0.24475740511088556,
+        "lower_bound_one_per_node_kg": 391.50347484049337,
+        "upper_bound_per_member_end_kg": 2320.2385218620607,
+        "allowance_kg": 216.4271448895479
+      },
+      "permeation": {
+        "note": "011 film has no measured permeance. Monolithic SiC on the 016 method is a barrier. This polymer allowable is a PROJECTION."
+      },
+      "manufacture": {
+        "hexoloy_process_OD_max_mm": 381.0,
+        "hexoloy_single_length_m": 1.4,
+        "hexoloy_bonded_length_m": 4.9,
+        "seal_tube_length_m": 0.3048,
+        "silit_OD_max_mm": 300.0,
+        "silit_length_m": 3.5,
+        "silit_wall_min_mm": 4.0,
+        "amasic_wall_min_mm": 2.0,
+        "this_OD_mm": 273.41816579112907,
+        "this_length_m": 3.0,
+        "this_wall_mm": 1.0718489471981119,
+        "length_over_hexoloy_single": 2.142857142857143,
+        "wall_over_amasic_min": 0.5359244735990559
+      }
+    },
+    "two_way": {
+      "grid": "two_way",
+      "k": 0.2,
+      "sigma_name": "crush_3900",
+      "sigma_Pa": 3900000000.0,
+      "film": "011-film",
+      "film_tag": "PROJECTION",
+      "s_m": 3.0,
+      "h_m": 0.1131400333574053,
+      "h_over_sagitta": 1.0,
+      "arc_length_m": 3.0113654555337206,
+      "t_film_m": 0.00011002306797074969,
+      "r_o_m": 0.14675125523842647,
+      "t_w_m": 0.0010101536636519526,
+      "rt": 145.27616987289318,
+      "A_m2": 0.0009282219580652701,
+      "I_m4": 9.926498349453205e-06,
+      "nodes": 163.2266101541527,
+      "members": 483.6798304624581,
+      "m_film_kg": 134.11129288017926,
+      "m_nodes_kg": 3.264532203083054,
+      "m_joint_kg": 216.4271448895479,
+      "m_tube_kg": 4191.167072707689,
+      "m_systems_kg": 100.0,
+      "m_payload_kg": 244.47210750950035,
+      "m_vehicle_kg": 4644.970042680499,
+      "SF_yield": 2.5425161707331925,
+      "SF_euler": 3.111000116533831,
+      "SF_local": 1.1039256958900217,
+      "SF_film": 1.1525466398061994,
+      "SF_perry": 2.221463429110245,
+      "SF_global": 1.0993887871203536,
+      "SF_least": 1.0993887871203536,
+      "governing": "global",
+      "N_N": 1423812.236919077,
+      "sigma_axial_Pa": 1533913547.8832946,
+      "eta": 0.04132387622053466,
+      "N_over_Ne": 0.3214400393897012,
+      "questionable": true,
+      "second": "local",
+      "SF_second": 1.1039256958900217,
+      "fittings": {
+        "A_bearing_for_380_m2": 0.003746874307681782,
+        "tube_area_m2": 0.0009282219580652701,
+        "area_ratio_tube_over_need": 0.24773234484067008,
+        "lower_bound_one_per_node_kg": 418.6065207852606,
+        "upper_bound_per_member_end_kg": 2480.8642513947734,
+        "allowance_kg": 216.4271448895479
+      },
+      "permeation": {
+        "note": "011 film has no measured permeance. Monolithic SiC on the 016 method is a barrier. This polymer allowable is a PROJECTION."
+      },
+      "manufacture": {
+        "hexoloy_process_OD_max_mm": 381.0,
+        "hexoloy_single_length_m": 1.4,
+        "hexoloy_bonded_length_m": 4.9,
+        "seal_tube_length_m": 0.3048,
+        "silit_OD_max_mm": 300.0,
+        "silit_length_m": 3.5,
+        "silit_wall_min_mm": 4.0,
+        "amasic_wall_min_mm": 2.0,
+        "this_OD_mm": 293.50251047685293,
+        "this_length_m": 3.0,
+        "this_wall_mm": 1.0101536636519526,
+        "length_over_hexoloy_single": 2.142857142857143,
+        "wall_over_amasic_min": 0.5050768318259763
+      }
+    },
+    "pending": [
+      "PENDING-023",
+      "PENDING-024",
+      "PENDING-025"
+    ]
+  },
+  "carried_011b_k04": {
+    "flags": [
+      "crush_3900_MPa",
+      "k_0.4",
+      "film_1.5_GPa"
+    ],
+    "equilateral": {
+      "grid": "equilateral_triangular",
+      "k": 0.4,
+      "sigma_name": "crush_3900",
+      "sigma_Pa": 3900000000.0,
+      "film": "011-film",
+      "film_tag": "PROJECTION",
+      "s_m": 2.5,
+      "h_m": 0.07843258350778548,
+      "h_over_sagitta": 1.0,
+      "arc_length_m": 2.5065566233613077,
+      "t_film_m": 0.00015131344357120262,
+      "r_o_m": 0.10245509760694975,
+      "t_w_m": 0.0011951062469423707,
+      "rt": 85.72886123646063,
+      "A_m2": 0.0007648558401364123,
+      "I_m4": 3.967810685410594e-06,
+      "nodes": 234.16631862197994,
+      "members": 696.4989558659398,
+      "m_film_kg": 184.4416986525136,
+      "m_nodes_kg": 4.683326372439599,
+      "m_joint_kg": 216.4271448895479,
+      "m_tube_kg": 4139.417872765998,
+      "m_systems_kg": 100.0,
+      "m_payload_kg": 244.47210750950035,
+      "m_vehicle_kg": 4644.970042680499,
+      "SF_yield": 2.50966312345393,
+      "SF_euler": 2.1500607953266604,
+      "SF_local": 1.846540657415942,
+      "SF_film": 1.90210075936285,
+      "SF_perry": 1.8509684319471669,
+      "SF_global": 1.85459670149887,
+      "SF_least": 1.846540657415942,
+      "governing": "local",
+      "N_N": 1188580.948835369,
+      "sigma_axial_Pa": 1553993427.8639817,
+      "eta": 0.04950393658640751,
+      "N_over_Ne": 0.4651031273969484,
+      "questionable": true,
+      "second": "perry",
+      "SF_second": 1.8509684319471669,
+      "fittings": {
+        "A_bearing_for_380_m2": 0.0031278446021983392,
+        "tube_area_m2": 0.0007648558401364123,
+        "area_ratio_tube_over_need": 0.24453127869551117,
+        "lower_bound_one_per_node_kg": 351.4886822039605,
+        "upper_bound_per_member_end_kg": 2090.9198350507313,
+        "allowance_kg": 216.4271448895479
+      },
+      "permeation": {
+        "note": "011 film has no measured permeance. Monolithic SiC on the 016 method is a barrier. This polymer allowable is a PROJECTION."
+      },
+      "manufacture": {
+        "hexoloy_process_OD_max_mm": 381.0,
+        "hexoloy_single_length_m": 1.4,
+        "hexoloy_bonded_length_m": 4.9,
+        "seal_tube_length_m": 0.3048,
+        "silit_OD_max_mm": 300.0,
+        "silit_length_m": 3.5,
+        "silit_wall_min_mm": 4.0,
+        "amasic_wall_min_mm": 2.0,
+        "this_OD_mm": 204.9101952138995,
+        "this_length_m": 2.5,
+        "this_wall_mm": 1.1951062469423706,
+        "length_over_hexoloy_single": 1.7857142857142858,
+        "wall_over_amasic_min": 0.5975531234711853
+      }
+    },
+    "two_way": {
+      "grid": "two_way",
+      "k": 0.4,
+      "sigma_name": "crush_3900",
+      "sigma_Pa": 3900000000.0,
+      "film": "011-film",
+      "film_tag": "PROJECTION",
+      "s_m": 2.82,
+      "h_m": 0.09990404086909876,
+      "h_over_sagitta": 1.0,
+      "arc_length_m": 2.82942866911116,
+      "t_film_m": 0.00015131344357120262,
+      "r_o_m": 0.11374870998364664,
+      "t_w_m": 0.0012130435433719278,
+      "rt": 93.77133294610059,
+      "A_m2": 0.0008623445695572554,
+      "I_m4": 5.519661757594723e-06,
+      "nodes": 184.46560678378535,
+      "members": 547.396820351356,
+      "m_film_kg": 184.4416986525136,
+      "m_nodes_kg": 3.689312135675707,
+      "m_joint_kg": 216.4271448895479,
+      "m_tube_kg": 4140.411887002761,
+      "m_systems_kg": 100.0,
+      "m_payload_kg": 244.47210750950035,
+      "m_vehicle_kg": 4644.970042680499,
+      "SF_yield": 2.511168819245461,
+      "SF_euler": 2.0831907486215946,
+      "SF_local": 1.689181517082194,
+      "SF_film": 1.6862595384422427,
+      "SF_perry": 1.8118196723889903,
+      "SF_global": 1.6812261558239856,
+      "SF_least": 1.6812261558239856,
+      "governing": "global",
+      "N_N": 1339274.2835520837,
+      "sigma_axial_Pa": 1553061654.0435724,
+      "eta": 0.05028212199504648,
+      "N_over_Ne": 0.48003285376611826,
+      "questionable": true,
+      "second": "film",
+      "SF_second": 1.6862595384422427,
+      "fittings": {
+        "A_bearing_for_380_m2": 0.0035244060093475886,
+        "tube_area_m2": 0.0008623445695572554,
+        "area_ratio_tube_over_need": 0.24467798751622438,
+        "lower_bound_one_per_node_kg": 346.315276201377,
+        "upper_bound_per_member_end_kg": 2055.362886740564,
+        "allowance_kg": 216.4271448895479
+      },
+      "permeation": {
+        "note": "011 film has no measured permeance. Monolithic SiC on the 016 method is a barrier. This polymer allowable is a PROJECTION."
+      },
+      "manufacture": {
+        "hexoloy_process_OD_max_mm": 381.0,
+        "hexoloy_single_length_m": 1.4,
+        "hexoloy_bonded_length_m": 4.9,
+        "seal_tube_length_m": 0.3048,
+        "silit_OD_max_mm": 300.0,
+        "silit_length_m": 3.5,
+        "silit_wall_min_mm": 4.0,
+        "amasic_wall_min_mm": 2.0,
+        "this_OD_mm": 227.49741996729327,
+        "this_length_m": 2.82,
+        "this_wall_mm": 1.2130435433719278,
+        "length_over_hexoloy_single": 2.0142857142857142,
+        "wall_over_amasic_min": 0.6065217716859639
+      }
+    }
+  },
+  "weibull_equilateral_k02": {
+    "grid": "equilateral_triangular",
+    "k": 0.2,
+    "sigma_name": "weibull_Pf1e-3_m10",
+    "sigma_Pa": 190451148.77836347,
+    "film": "Mylar-850H",
+    "film_tag": "QUESTIONABLE",
+    "s_m": 0.76,
+    "h_m": 0.007222608303536049,
+    "h_over_sagitta": 1.0,
+    "arc_length_m": 0.7601830256216761,
+    "t_film_m": 3.0369440912965643e-05,
+    "r_o_m": 0.22169328918211048,
+    "t_w_m": 0.00017084059425942488,
+    "rt": 1297.6616602343631,
+    "A_m2": 0.00023787900820028884,
+    "I_m4": 5.841125569996366e-06,
+    "nodes": 2514.187485088945,
+    "members": 7536.562455266834,
+    "m_film_kg": 53.42871098084922,
+    "m_nodes_kg": 50.2837497017789,
+    "m_joint_kg": 216.4271448895479,
+    "m_tube_kg": 4224.830437108323,
+    "m_systems_kg": 100.0,
+    "m_payload_kg": 244.47210750950035,
+    "m_vehicle_kg": 4644.970042680499,
+    "SF_yield": 0.12493604171132462,
+    "SF_euler": 112.79551605573758,
+    "SF_local": 0.12435915983168769,
+    "SF_film": 0.12699002884611507,
+    "SF_perry": 0.12408348691924517,
+    "SF_global": 2.0639870577885318,
+    "SF_least": 0.12408348691924517,
+    "governing": "perry",
+    "N_N": 362620.18358707306,
+    "sigma_axial_Pa": 1524389168.8070052,
+    "eta": 0.006863257467368173,
+    "N_over_Ne": 0.008865600645914441,
+    "questionable": true,
+    "second": "local",
+    "SF_second": 0.12435915983168769,
+    "fittings": {
+      "A_bearing_for_380_m2": 0.0009542636410186133,
+      "tube_area_m2": 0.00023787900820028884,
+      "area_ratio_tube_over_need": 0.2492801758079861,
+      "lower_bound_one_per_node_kg": 2475.6438005448517,
+      "upper_bound_per_member_end_kg": 14842.046768950773,
+      "allowance_kg": 216.4271448895479
+    },
+    "permeation": {
+      "kg_per_day": 0.05713070661439596,
+      "pct_of_1pct_budget": 0.11684504051689396
+    },
+    "manufacture": {
+      "hexoloy_process_OD_max_mm": 381.0,
+      "hexoloy_single_length_m": 1.4,
+      "hexoloy_bonded_length_m": 4.9,
+      "seal_tube_length_m": 0.3048,
+      "silit_OD_max_mm": 300.0,
+      "silit_length_m": 3.5,
+      "silit_wall_min_mm": 4.0,
+      "amasic_wall_min_mm": 2.0,
+      "this_OD_mm": 443.38657836422095,
+      "this_length_m": 0.76,
+      "this_wall_mm": 0.17084059425942488,
+      "length_over_hexoloy_single": 0.5428571428571429,
+      "wall_over_amasic_min": 0.08542029712971244
+    }
+  },
+  "least_optimism_set": {
+    "flags": [
+      "arc_rise_above_sphere"
+    ],
+    "equilateral": {
+      "grid": "equilateral_triangular",
+      "k": 0.2,
+      "sigma_name": "flexural_380",
+      "sigma_Pa": 380000000.0,
+      "film": "Mylar-850H",
+      "film_tag": "QUESTIONABLE",
+      "s_m": 1.1,
+      "h_m": 0.12109164491542401,
+      "h_over_sagitta": 8.0,
+      "arc_length_m": 1.1352094733154146,
+      "t_film_m": 0.000469377562536451,
+      "r_o_m": 0.1825224588756725,
+      "t_w_m": 0.0002397502827729825,
+      "rt": 761.3023716368313,
+      "A_m2": 0.0002747704229555191,
+      "I_m4": 4.570904480481573e-06,
+      "nodes": 1201.2061912292347,
+      "members": 3597.618573687704,
+      "m_film_kg": 825.772137245663,
+      "m_nodes_kg": 24.024123824584695,
+      "m_joint_kg": 216.4271448895479,
+      "m_tube_kg": 3478.7466367207035,
+      "m_systems_kg": 100.0,
+      "m_payload_kg": 244.47210750950035,
+      "m_vehicle_kg": 4644.970042680499,
+      "SF_yield": 1.5921516918389091,
+      "SF_euler": 218.85909468192264,
+      "SF_local": 1.3538756284260152,
+      "SF_film": 1.3560511067255487,
+      "SF_perry": 1.5724246703776301,
+      "SF_global": 1.3557749644096495,
+      "SF_least": 1.3538756284260152,
+      "governing": "local",
+      "N_N": 65579.65629675791,
+      "sigma_axial_Pa": 238670725.878579,
+      "eta": 0.012455470970949511,
+      "N_over_Ne": 0.004569149851658408,
+      "questionable": true,
+      "second": "global",
+      "SF_second": 1.3557749644096495,
+      "fittings": {
+        "A_bearing_for_380_m2": 0.00017257804288620503,
+        "tube_area_m2": 0.0002747704229555191,
+        "area_ratio_tube_over_need": 1.592151691838909,
+        "lower_bound_one_per_node_kg": 0.0,
+        "upper_bound_per_member_end_kg": 0.0,
+        "allowance_kg": 216.4271448895479
+      },
+      "permeation": {
+        "kg_per_day": 0.0036964434547446744,
+        "pct_of_1pct_budget": 0.0075600515175356636
+      },
+      "manufacture": {
+        "hexoloy_process_OD_max_mm": 381.0,
+        "hexoloy_single_length_m": 1.4,
+        "hexoloy_bonded_length_m": 4.9,
+        "seal_tube_length_m": 0.3048,
+        "silit_OD_max_mm": 300.0,
+        "silit_length_m": 3.5,
+        "silit_wall_min_mm": 4.0,
+        "amasic_wall_min_mm": 2.0,
+        "this_OD_mm": 365.044917751345,
+        "this_length_m": 1.1,
+        "this_wall_mm": 0.2397502827729825,
+        "length_over_hexoloy_single": 0.7857142857142858,
+        "wall_over_amasic_min": 0.11987514138649125
+      }
+    },
+    "two_way": {
+      "grid": "two_way",
+      "k": 0.2,
+      "sigma_name": "flexural_380",
+      "sigma_Pa": 380000000.0,
+      "film": "Mylar-850H",
+      "film_tag": "QUESTIONABLE",
+      "s_m": 1.22,
+      "h_m": 0.14897871661251827,
+      "h_over_sagitta": 8.0,
+      "arc_length_m": 1.2679485051967152,
+      "t_film_m": 0.000469377562536451,
+      "r_o_m": 0.20155202133693007,
+      "t_w_m": 0.00023940286348153594,
+      "rt": 841.8947810641992,
+      "A_m2": 0.0003029970244479927,
+      "I_m4": 6.147051198866705e-06,
+      "nodes": 976.8988789219123,
+      "members": 2924.696636765737,
+      "m_film_kg": 825.772137245663,
+      "m_nodes_kg": 19.537977578438248,
+      "m_joint_kg": 216.4271448895479,
+      "m_tube_kg": 3483.23278296685,
+      "m_systems_kg": 100.0,
+      "m_payload_kg": 244.47210750950035,
+      "m_vehicle_kg": 4644.970042680499,
+      "SF_yield": 1.5832935313228451,
+      "SF_euler": 212.75838138262753,
+      "SF_local": 1.217461203571893,
+      "SF_film": 1.2226690306541834,
+      "SF_perry": 1.5634532240982242,
+      "SF_global": 1.2154619502898867,
+      "SF_least": 1.2154619502898867,
+      "governing": "global",
+      "N_N": 72721.11393901701,
+      "sigma_axial_Pa": 240006033.2985187,
+      "eta": 0.012596802120986891,
+      "N_over_Ne": 0.004700167361217072,
+      "questionable": true,
+      "second": "local",
+      "SF_second": 1.217461203571893,
+      "fittings": {
+        "A_bearing_for_380_m2": 0.00019137135247109742,
+        "tube_area_m2": 0.0003029970244479927,
+        "area_ratio_tube_over_need": 1.583293531322845,
+        "lower_bound_one_per_node_kg": 0.0,
+        "upper_bound_per_member_end_kg": 0.0,
+        "allowance_kg": 216.4271448895479
+      },
+      "permeation": {
+        "kg_per_day": 0.0036964434547446744,
+        "pct_of_1pct_budget": 0.0075600515175356636
+      },
+      "manufacture": {
+        "hexoloy_process_OD_max_mm": 381.0,
+        "hexoloy_single_length_m": 1.4,
+        "hexoloy_bonded_length_m": 4.9,
+        "seal_tube_length_m": 0.3048,
+        "silit_OD_max_mm": 300.0,
+        "silit_length_m": 3.5,
+        "silit_wall_min_mm": 4.0,
+        "amasic_wall_min_mm": 2.0,
+        "this_OD_mm": 403.10404267386014,
+        "this_length_m": 1.22,
+        "this_wall_mm": 0.23940286348153594,
+        "length_over_hexoloy_single": 0.8714285714285714,
+        "wall_over_amasic_min": 0.11970143174076797
+      }
+    }
+  },
+  "catalog": [
+    {
+      "flags": [],
+      "n_flags": 0,
+      "reaches_SF_1": false,
+      "equilateral_SF": 0.2438010340863489,
+      "equilateral_governing": "perry",
+      "equilateral_s_m": 0.62,
+      "two_way_SF": 0.2438010340863489,
+      "two_way_governing": "perry"
+    },
+    {
+      "flags": [
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 1,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.3538756284260152,
+      "equilateral_governing": "local",
+      "equilateral_s_m": 1.1,
+      "two_way_SF": 1.2154619502898867,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "film_1.5_GPa"
+      ],
+      "n_flags": 1,
+      "reaches_SF_1": false,
+      "equilateral_SF": 0.24560179369070737,
+      "equilateral_governing": "perry",
+      "equilateral_s_m": 1.54,
+      "two_way_SF": 0.24560179369070737,
+      "two_way_governing": "perry"
+    },
+    {
+      "flags": [
+        "film_1.5_GPa",
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 2,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.8437746995217505,
+      "equilateral_governing": "perry",
+      "equilateral_s_m": 1.46,
+      "two_way_SF": 1.6905990140240474,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "k_0.4"
+      ],
+      "n_flags": 1,
+      "reaches_SF_1": false,
+      "equilateral_SF": 0.2438010340863489,
+      "equilateral_governing": "perry",
+      "equilateral_s_m": 0.62,
+      "two_way_SF": 0.2438010340863489,
+      "two_way_governing": "perry"
+    },
+    {
+      "flags": [
+        "k_0.4",
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 2,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.720625337940865,
+      "equilateral_governing": "perry",
+      "equilateral_s_m": 0.54,
+      "two_way_SF": 1.6862951332095475,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "k_0.4",
+        "film_1.5_GPa"
+      ],
+      "n_flags": 2,
+      "reaches_SF_1": false,
+      "equilateral_SF": 0.24560179369070737,
+      "equilateral_governing": "perry",
+      "equilateral_s_m": 1.54,
+      "two_way_SF": 0.24560179369070737,
+      "two_way_governing": "perry"
+    },
+    {
+      "flags": [
+        "k_0.4",
+        "film_1.5_GPa",
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 3,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.9258136772715237,
+      "equilateral_governing": "perry",
+      "equilateral_s_m": 0.68,
+      "two_way_SF": 1.9258136772715237,
+      "two_way_governing": "perry"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa"
+      ],
+      "n_flags": 1,
+      "reaches_SF_1": false,
+      "equilateral_SF": 0.8315014732380568,
+      "equilateral_governing": "global",
+      "equilateral_s_m": 1.78,
+      "two_way_SF": 0.7533617259586383,
+      "two_way_governing": "film"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa",
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 2,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.3538756284260152,
+      "equilateral_governing": "local",
+      "equilateral_s_m": 1.1,
+      "two_way_SF": 1.2154619502898867,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa",
+        "film_1.5_GPa"
+      ],
+      "n_flags": 2,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.2386762692223106,
+      "equilateral_governing": "global",
+      "equilateral_s_m": 3.0,
+      "two_way_SF": 1.0993887871203536,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa",
+        "film_1.5_GPa",
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 3,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.9120503269381375,
+      "equilateral_governing": "global",
+      "equilateral_s_m": 1.8,
+      "two_way_SF": 1.6905990140240474,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa",
+        "k_0.4"
+      ],
+      "n_flags": 2,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.1731992305022778,
+      "equilateral_governing": "global",
+      "equilateral_s_m": 1.26,
+      "two_way_SF": 1.0625331662988833,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa",
+        "k_0.4",
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 3,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.9234308765818704,
+      "equilateral_governing": "global",
+      "equilateral_s_m": 0.76,
+      "two_way_SF": 1.7344839737187252,
+      "two_way_governing": "film"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa",
+        "k_0.4",
+        "film_1.5_GPa"
+      ],
+      "n_flags": 3,
+      "reaches_SF_1": true,
+      "equilateral_SF": 1.846540657415942,
+      "equilateral_governing": "local",
+      "equilateral_s_m": 2.5,
+      "two_way_SF": 1.6812261558239856,
+      "two_way_governing": "global"
+    },
+    {
+      "flags": [
+        "crush_3900_MPa",
+        "k_0.4",
+        "film_1.5_GPa",
+        "arc_rise_above_sphere"
+      ],
+      "n_flags": 4,
+      "reaches_SF_1": true,
+      "equilateral_SF": 2.956760958511233,
+      "equilateral_governing": "global",
+      "equilateral_s_m": 2.2,
+      "two_way_SF": 2.6127757683555632,
+      "two_way_governing": "film"
+    }
+  ],
+  "recommendation_k": 0.2,
+  "mainline_021": {
+    "report": "rpt-ref-fe49179fb6a8ad8c986e",
+    "ingested": "2026-10-20T00:31:15-07:00",
+    "family": "P2 Be faces on aluminium honeycomb",
+    "named_optimisms": 2,
+    "gamma": 0.579,
+    "gamma_factor_over_0.20": 2.9,
+    "wrinkling_coefficient": 0.363,
+    "wrinkling_factor_over_0.33": 1.1,
+    "face_allowable_MPa": 283.0,
+    "least_SF": 1.0,
+    "full_set_least_SF": 1.111
+  },
+  "ended_local": "2026-10-20T00:36:18.469738-07:00"
+}

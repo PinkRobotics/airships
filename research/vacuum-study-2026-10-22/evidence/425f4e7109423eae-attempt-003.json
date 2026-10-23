@@ -1,0 +1,51 @@
+{
+  "started": "2026-10-20T12:46:57.498655+00:00",
+  "finished": "2026-10-20T12:46:57.559375+00:00",
+  "elapsed_seconds": 0.06072715623304248,
+  "returncode": 75,
+  "argv": [
+    "ref-81e2f24e4e80426e80f0",
+    "unpublished-local-ref:980d4c4fabc274c6",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "1G",
+    "--timeout",
+    "7200",
+    "--",
+    "ref-81e2f24e4e80426e80f0",
+    ".ship/work/outputs/vacuum-mainline053-thermal-table-settled-1020/settle_thermal53.py"
+  ],
+  "argv_sha256": "65802502a5c6cb47ba4a47381a4dfa7e7b077cdb02877c84f9532a8cf55b7489",
+  "resources": {
+    "cores": 1,
+    "memory": "1G",
+    "timeout_seconds": 7200
+  },
+  "source_pins": [
+    {
+      "path": "evidence/eb8916d027903915-account53.py",
+      "sha256": "72368812d574c75d2d1848715ea99f5c508caf026e5194dc2d05de02b835f6d4",
+      "bytes": 15939
+    },
+    {
+      "path": "evidence/670c39ca04e5efa1-run_job53.py",
+      "sha256": "670c39ca04e5efa1da0b5949cf6680eb43a890c75ede3c59afa7fa17df8a41a2",
+      "bytes": 2160
+    },
+    {
+      "path": "evidence/95b98064f2037049-settle_thermal53.py",
+      "sha256": "f9633f2c15176fda0a26b9013d8534d770396e8d955e51ccad29990e4dc83b10",
+      "bytes": 9149
+    },
+    {
+      "path": "evidence/36ab3598ffacd578-thermal53.py",
+      "sha256": "36ab3598ffacd5789728616323e25b276cf0ddce7a50e16c6845d801d1d54fff",
+      "bytes": 10181
+    }
+  ],
+  "stdout": "unpublished-local-ref:b41a70fac381d43e",
+  "stderr": "unpublished-local-ref:e78ff6a14464550f",
+  "no_time_budget": true
+}

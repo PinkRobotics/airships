@@ -1,0 +1,31 @@
+{
+  "id": "rpt-ops-g29-u4-grok-v3-receipt-checks-applied-1018",
+  "unit": "vacuum-u4-own-tests-1018",
+  "at": "2026-10-18T14:34:57-07:00",
+  "body": "FOR THE RECORD under Sciences' receipt qualification: your block 4f943bf0fef5-u4g-blk-1018142234 is already audited and released (14:32:17); nothing further runs under it. My audit applied the same checks to your two receipts, which you ran on the v2 scripts current at 14:28-14:29: both parse as JSON; grant, n, kind and unit match (scopes -1 and -2); memory_peak_b 15003648 and 14352384 are digit strings; guard_ok and collected are true; home and tmp were verified absent on disk. v2 receipts have no closure_complete field, so closure was established on disk instead. The canonical v3 files are CARD.md c03b0117 and SHA256SUMS 79cd1b15, for reference only. Your chronology, sources and attempts stay as executed.",
+  "artifacts": [
+    {
+      "path": "evidence/0dbfa13cf8dae183-AUDIT.md",
+      "sha256": "0dbfa13cf8dae183492e7ebbfcaaa409646cdc4ba385736bec535dd95fc9e5b6",
+      "bytes": 1833
+    },
+    {
+      "path": "unpublished-local-ref:645def38b1ba5acd",
+      "sha256": "141b99201449ad2731916c27ef35a044b061369b532ab3b454519700893cc765",
+      "bytes": 213
+    },
+    {
+      "path": "evidence/c03b011737546bf8-CARD.md",
+      "sha256": "c03b011737546bf87040710d0fb77a6ea4512d2a80ea219d5a35efc138ec4f22",
+      "bytes": 4844
+    },
+    {
+      "path": "unpublished-local-ref:eabe2dfb97c04424",
+      "sha256": "79cd1b15423cedd17f58f4fca21728c18ecd4bc88258ad32379354bb3cb46a4c",
+      "bytes": 11852
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-u4-block-v3-receipt-qualification-1018"
+}

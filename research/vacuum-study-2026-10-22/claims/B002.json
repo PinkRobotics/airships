@@ -1,0 +1,72 @@
+{
+  "id": "B002",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "B002",
+    "report": "rpt-ref-39745602983887568501",
+    "card": "MAINLINE-030b",
+    "file": "evidence/02744dbf85113cc4-legacy--02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1--AUTHORED-NFI.json",
+    "row_id": "NFI-030B-FIXED-ASSUMPTIONS",
+    "fields": {
+      "id": "NFI-030B-FIXED-ASSUMPTIONS",
+      "title": "Two adjustable optimisms do not mean two unresolved assumptions.",
+      "finding": "The R10 nominal scarf already fixes .015 lb/ft2 film, assumes thin stock, transfers 345 MPa tensile yield to compression and uses an unqualified 10 MPa scarf screen. Neither zero strength-slider usage nor stock panel factor one qualifies those inputs.",
+      "status": "OPEN",
+      "blocks_progress": false
+    },
+    "source_sha256": "02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1"
+  },
+  "claim": "The R10 nominal scarf already fixes .015 lb/ft2 film, assumes thin stock, transfers 345 MPa tensile yield to compression and uses an unqualified 10 MPa scarf screen. Neither zero strength-slider usage nor stock panel factor one qualifies those inputs. | Two adjustable optimisms do not mean two unresolved assumptions.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/705"
+    },
+    {
+      "report": "rpt-ref-39745602983887568501",
+      "artifact": "evidence/02744dbf85113cc4-legacy--02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1--AUTHORED-NFI.json",
+      "snapshot": "evidence/02744dbf85113cc4-legacy--02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1--AUTHORED-NFI.json",
+      "sha256": "02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1",
+      "bytes": 3470,
+      "selector": "source row ID: NFI-030B-FIXED-ASSUMPTIONS"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-39745602983887568501",
+          "artifact": "evidence/02744dbf85113cc4-legacy--02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1--AUTHORED-NFI.json",
+          "snapshot": "evidence/02744dbf85113cc4-legacy--02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1--AUTHORED-NFI.json",
+          "sha256": "02744dbf85113cc4de64187c76ed79779e558031dadf21e6ad2f8aea21188dc1",
+          "bytes": 3470,
+          "selector": "source row ID: NFI-030B-FIXED-ASSUMPTIONS"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/705"
+          }
+        ]
+      }
+    }
+  ]
+}

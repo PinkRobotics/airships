@@ -1,0 +1,221 @@
+{
+  "cases": [
+    {
+      "case": "frames/baseline-f4-m24",
+      "score": {
+        "frequency": 4,
+        "section": {
+          "area_m2": 0.0009788447832927507,
+          "gyration_m": 0.09685519212409979,
+          "r_o_m": 0.13754142819010323,
+          "wall_m": 0.0011373648451580842,
+          "inertia_m4": 9.182472671534389e-06
+        },
+        "film_total_m": 0.00010944022237810727,
+        "modes": {
+          "compression_axial": 4.455477844109547,
+          "euler": 4.087034805617741,
+          "local_axial": 1.2831618484974212,
+          "perry_with_FE_bending": 3.128942717968899,
+          "tension_with_FE_bending": 3.681993771646338,
+          "film": 1.2278771857790438,
+          "global_perfect_linear": 5.66725307961362,
+          "global_k0p2": 1.133450615922724,
+          "joint_axial_bending": 1.2183148090122975,
+          "joint_bond_axial_bending_torsion": 1.2183136053490442
+        },
+        "least_screened_SF": 1.133450615922724,
+        "least_without_global_knockdown": 1.2183136053490442,
+        "binding_modes": [
+          "global_k0p2"
+        ],
+        "required_SiC_extreme_compression_at_screened_limit_Pa": 1124801617.9144232,
+        "max_tension_at_screened_limit_Pa": 0.0,
+        "operating_FE_extreme_compression_Pa": 922305654.6107459,
+        "operating_FE_peak_bending_moment_Nm": 3356.558523283245,
+        "joint_end_peak_moment_Nm": 3356.558523283245,
+        "joint_end_peak_torsion_Nm": 1118.6565862214484,
+        "joint_end_peak_compression_N": 856809.2555748477,
+        "mass_kg": {
+          "tube": 4361.908696541518,
+          "film": 214.54155754530413,
+          "joint": 48.98978474983017,
+          "nodes": 3.24,
+          "systems": 100.0,
+          "sag_lift_loss": 90.73389245516228,
+          "reserve": 244.4721075095,
+          "total_with_reserve_and_sag": 5063.8860388013145,
+          "headroom": -174.44388861131483
+        },
+        "joint": {
+          "original_area_m2": 0.0007479081280226595,
+          "original_overlap_m": 0.04402043674327406,
+          "max_axial_bending_stress_at_1_Pa": 1206584693.1563993,
+          "max_bond_shear_at_1_Pa": 23721314.3423119,
+          "area_minmax_m2": [
+            0.0007479081280226595,
+            0.0007479081280226595
+          ],
+          "overlap_minmax_m": [
+            0.04402043674327406,
+            0.04402043674327406
+          ]
+        },
+        "reserve": "5",
+        "qualified_structural_SF": null,
+        "qualified_joint_capacity": null,
+        "tag": "QUESTIONABLE / PROJECTION"
+      },
+      "local_peak_compression_sensitivity_SF": 1.131896887260336,
+      "least_including_local_sensitivity": 1.131896887260336,
+      "qualification": "QUESTIONABLE: inherited axial-local convention",
+      "joint_rotational_stiffness": "ideal rigid",
+      "full_membrane_qualified": false
+    },
+    {
+      "case": "film/rigid",
+      "score": {
+        "frequency": 4,
+        "section": {
+          "area_m2": 0.0009788447832927507,
+          "gyration_m": 0.09685519212409979,
+          "r_o_m": 0.13754142819010323,
+          "wall_m": 0.0011373648451580842,
+          "inertia_m4": 9.182472671534389e-06
+        },
+        "film_total_m": 0.00010944022237810727,
+        "modes": {
+          "compression_axial": 4.722024847297573,
+          "euler": 4.371078472497768,
+          "local_axial": 1.3599264419459949,
+          "perry_with_FE_bending": 3.2136674583707006,
+          "tension_with_FE_bending": 3.8090149583626274,
+          "film": 1.2278771857790438,
+          "global_perfect_linear": 7.155002496828368,
+          "global_k0p2": 1.4310004993656738,
+          "joint_axial_bending": 1.21800846266563,
+          "joint_bond_axial_bending_torsion": 1.2180059022729846
+        },
+        "least_screened_SF": 1.2180059022729846,
+        "least_without_global_knockdown": 1.2180059022729846,
+        "binding_modes": [
+          "joint_bond_axial_bending_torsion"
+        ],
+        "required_SiC_extreme_compression_at_screened_limit_Pa": 1219803097.2333062,
+        "max_tension_at_screened_limit_Pa": 0.0,
+        "operating_FE_extreme_compression_Pa": 922975037.6516206,
+        "operating_FE_peak_bending_moment_Nm": 6679.2376026155025,
+        "joint_end_peak_moment_Nm": 6679.2376026155025,
+        "joint_end_peak_torsion_Nm": 687.9423727773446,
+        "joint_end_peak_compression_N": 808444.4233762323,
+        "mass_kg": {
+          "tube": 4361.908696541518,
+          "film": 214.54155754530413,
+          "joint": 48.98978474983017,
+          "nodes": 3.24,
+          "systems": 100.0,
+          "sag_lift_loss": 90.73389245516228,
+          "reserve": 244.4721075095,
+          "total_with_reserve_and_sag": 5063.8860388013145,
+          "headroom": -174.44388861131483
+        },
+        "joint": {
+          "original_area_m2": 0.0007479081280226595,
+          "original_overlap_m": 0.04402043674327406,
+          "max_axial_bending_stress_at_1_Pa": 1206888166.2635436,
+          "max_bond_shear_at_1_Pa": 23727307.02377402,
+          "area_minmax_m2": [
+            0.0007479081280226595,
+            0.0007479081280226595
+          ],
+          "overlap_minmax_m": [
+            0.04402043674327406,
+            0.04402043674327406
+          ]
+        },
+        "reserve": "5",
+        "qualified_structural_SF": null,
+        "qualified_joint_capacity": null,
+        "tag": "QUESTIONABLE / PROJECTION"
+      },
+      "local_peak_compression_sensitivity_SF": 1.1261310046872637,
+      "least_including_local_sensitivity": 1.1261310046872637,
+      "qualification": "PROJECTION: perfect attachment and taut biaxial tangent from axial fibers; shear, preload, wrinkling and coupled equilibrium unvalidated",
+      "joint_rotational_stiffness": "ideal rigid",
+      "full_membrane_qualified": false
+    },
+    {
+      "case": "film/pinned",
+      "score": {
+        "frequency": 4,
+        "section": {
+          "area_m2": 0.0009788447832927507,
+          "gyration_m": 0.09685519212409979,
+          "r_o_m": 0.13754142819010323,
+          "wall_m": 0.0011373648451580842,
+          "inertia_m4": 9.182472671534389e-06
+        },
+        "film_total_m": 0.00010944022237810727,
+        "modes": {
+          "compression_axial": 4.697962393436108,
+          "euler": 4.324473045410588,
+          "local_axial": 1.352996540405337,
+          "perry_with_FE_bending": 3.235176366802241,
+          "tension_with_FE_bending": 3.826573697366808,
+          "film": 1.2278771857790438,
+          "global_perfect_linear": 2.0471334034237882,
+          "global_k0p2": 0.4094266806847577,
+          "joint_axial_bending": 1.3529965404043838,
+          "joint_bond_axial_bending_torsion": 1.3529965404043838
+        },
+        "least_screened_SF": 0.4094266806847577,
+        "least_without_global_knockdown": 1.2278771857790438,
+        "binding_modes": [
+          "global_k0p2"
+        ],
+        "required_SiC_extreme_compression_at_screened_limit_Pa": 397811269.07131135,
+        "max_tension_at_screened_limit_Pa": 0.0,
+        "operating_FE_extreme_compression_Pa": 924456630.3459938,
+        "operating_FE_peak_bending_moment_Nm": 6692.441721260311,
+        "joint_end_peak_moment_Nm": 3.3466372588819946e-07,
+        "joint_end_peak_torsion_Nm": 2.625217803142732e-07,
+        "joint_end_peak_compression_N": 812585.1880328903,
+        "mass_kg": {
+          "tube": 4361.908696541518,
+          "film": 214.54155754530413,
+          "joint": 48.98978474983017,
+          "nodes": 3.24,
+          "systems": 100.0,
+          "sag_lift_loss": 90.73389245516228,
+          "reserve": 244.4721075095,
+          "total_with_reserve_and_sag": 5063.8860388013145,
+          "headroom": -174.44388861131483
+        },
+        "joint": {
+          "original_area_m2": 0.0007479081280226595,
+          "original_overlap_m": 0.04402043674327406,
+          "max_axial_bending_stress_at_1_Pa": 1086477279.210667,
+          "max_bond_shear_at_1_Pa": 21359995.489243723,
+          "area_minmax_m2": [
+            0.0007479081280226595,
+            0.0007479081280226595
+          ],
+          "overlap_minmax_m": [
+            0.04402043674327406,
+            0.04402043674327406
+          ]
+        },
+        "reserve": "5",
+        "qualified_structural_SF": null,
+        "qualified_joint_capacity": null,
+        "tag": "QUESTIONABLE / PROJECTION"
+      },
+      "local_peak_compression_sensitivity_SF": 1.1264167399330658,
+      "least_including_local_sensitivity": 0.4094266806847577,
+      "qualification": "PROJECTION: perfect attachment and taut biaxial tangent from axial fibers; shear, preload, wrinkling and coupled equilibrium unvalidated",
+      "joint_rotational_stiffness": "ideal pinned",
+      "full_membrane_qualified": false
+    }
+  ],
+  "film_results_are_tangent_only_sensitivities": true
+}

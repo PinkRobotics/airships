@@ -1,0 +1,77 @@
+{
+  "id": "C137",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C137",
+    "report": "rpt-mainline042-opus-build-route-1020",
+    "file": "evidence/8e69a0d6ee962712-NFI.json",
+    "snapshot": "evidence/8e69a0d6ee962712-NFI.json",
+    "source_sha256": "8e69a0d6ee9627124e14dcb6b407053297ea86208ff4d6c8473acf60fd88dbad",
+    "source_json_pointer": "/rows/0",
+    "row_id": "N042-01",
+    "fields": {
+      "id": "N042-01",
+      "issue": "The single-dimple map is not the record",
+      "detail": "By 015b's map, the dimples a dome-class build holds (1-5 mm) imply gamma 0.69-0.90, and a reflector-class build (0.15 mm) about 0.95. The only measured large sandwich domes, S-II's, were built with a 0.254 mm core-to-face fit and inflation-faired skins, and reached about 0.21-0.22 (035, CHECK-035). The map transfers to a sandwich at Vc 0.95 only through t_eq (015b NFI-015B-SANDWICH).",
+      "to_close": "A built sandwich shell with measured shape and measured knockdown: 038 T7, or a subscale shell built by this route.",
+      "tag": "PROJECTION"
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "The single-dimple map is not the record",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/847"
+    },
+    {
+      "report": "rpt-mainline042-opus-build-route-1020",
+      "artifact": "evidence/8e69a0d6ee962712-NFI.json",
+      "snapshot": "evidence/8e69a0d6ee962712-NFI.json",
+      "sha256": "8e69a0d6ee9627124e14dcb6b407053297ea86208ff4d6c8473acf60fd88dbad",
+      "bytes": 6992,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline042-opus-build-route-1020",
+          "artifact": "evidence/8e69a0d6ee962712-NFI.json",
+          "snapshot": "evidence/8e69a0d6ee962712-NFI.json",
+          "sha256": "8e69a0d6ee9627124e14dcb6b407053297ea86208ff4d6c8473acf60fd88dbad",
+          "bytes": 6992,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/847"
+          }
+        ]
+      }
+    }
+  ]
+}

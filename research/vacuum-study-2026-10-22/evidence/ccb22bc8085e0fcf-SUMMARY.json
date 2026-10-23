@@ -1,0 +1,60 @@
+{
+  "name": "sens-nu0.33-L-a1",
+  "analysis": "static",
+  "amplitude_mm": 1.0,
+  "width_mm": 347.1529189444301,
+  "meridian": "L",
+  "yield_MPa": 345.0,
+  "nu": 0.33,
+  "ntheta": 128,
+  "nface": 1,
+  "ncore": 4,
+  "grading": 2.0,
+  "increments": 32,
+  "endpoint_kPa": 103.971096,
+  "endpoint_kind": "last_converged_static_increment",
+  "first_yield_bracket_kPa": [
+    97.2,
+    100.80000000000001
+  ],
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 75.03564205650173,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        72.0,
+        75.6
+      ]
+    },
+    "300.0": {
+      "p_kPa": 87.78551332349754,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        86.39999999999999,
+        90.0
+      ]
+    },
+    "345.0": {
+      "p_kPa": 100.32040535741122,
+      "kind": "last_two_elastic_points_extrapolation",
+      "bracket_kPa": [
+        97.2,
+        100.80000000000001
+      ],
+      "inside_native_bracket": true
+    }
+  },
+  "endpoint_max_mises_MPa": 345.0000496915075,
+  "endpoint_max_peeq": 0.000689939,
+  "endpoint_pole_uy_mm": -17.04064,
+  "solver": {
+    "returncode": 201,
+    "elapsed_s": 19.75208287127316,
+    "ended_at": "2026-10-20T11:39:29.249976+00:00"
+  },
+  "errors": [
+    " *ERROR: increment size smaller than minimum"
+  ],
+  "eigen_kPa": [],
+  "peeq_detection_threshold": 1e-10
+}

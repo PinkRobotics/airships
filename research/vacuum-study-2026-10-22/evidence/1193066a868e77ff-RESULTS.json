@@ -1,0 +1,698 @@
+{
+  "unit": "vacuum-mainline041-check-1020",
+  "owner_report": "rpt-ref-c7dfc45babe1b96007db",
+  "status": "QUALIFIED COMPUTATIONAL CORROBORATION; numerical differences and open qualification work remain",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_structural_SF": null,
+  "qualified_compression_allowable_Pa": null,
+  "qualified_failure_probability": null,
+  "primary_checks": 203,
+  "primary_mismatches": 0,
+  "film_checks": 58,
+  "film_mismatches": 35,
+  "supplemental_checks": 53,
+  "supplemental_mismatches": 3,
+  "card_table_cells": 98,
+  "card_table_display_mismatches": 9,
+  "exact_difference_records": 57,
+  "independent_witnesses": {
+    "selected-m24": {
+      "modes": {
+        "compression_axial": 4.455477844117971,
+        "euler": 4.08703480561999,
+        "local_axial": 1.2831618484998475,
+        "perry_with_FE_bending": 3.128942718042074,
+        "tension_with_FE_bending": 3.681993771712046,
+        "film": 1.2278771857790443,
+        "global_perfect_linear": 5.6672530796115055,
+        "global_k0p2": 1.1334506159223012,
+        "joint_axial_bending": 1.2183148089182687,
+        "joint_bond_axial_bending_torsion": 1.218313605255014
+      },
+      "least_screened_SF": 1.1334506159223012,
+      "least_without_global_knockdown": 1.218313605255014,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1124801617.8921895,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 922305654.6824642,
+      "operating_FE_peak_bending_moment_Nm": 3356.558522017049,
+      "joint_end_peak_moment_Nm": 3356.558522017049,
+      "joint_end_peak_torsion_Nm": 1118.6565870486957,
+      "joint_end_peak_compression_N": 856809.2555732289,
+      "mass_kg": {
+        "tube": 4361.9086965415245,
+        "film": 214.54155754530413,
+        "joint": 48.98978474983017,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 5063.886038801321,
+        "headroom": -174.4438886113212
+      },
+      "joint": {
+        "original_area_m2": 0.0007479081280226595,
+        "original_overlap_m": 0.04402043674327406,
+        "max_axial_bending_stress_at_1_Pa": 1206584693.2495227,
+        "max_bond_shear_at_1_Pa": 23721314.344142724
+      },
+      "local_peak_sensitivity": 1.1318968872812607
+    },
+    "f4-5-m24": {
+      "modes": {
+        "compression_axial": 4.305459078614929,
+        "euler": 4.10810029400134,
+        "local_axial": 1.1297872122705925,
+        "perry_with_FE_bending": 3.088706331299655,
+        "tension_with_FE_bending": 3.706856310091376,
+        "film": 1.1297872122752044,
+        "global_perfect_linear": 5.669615429819137,
+        "global_k0p2": 1.1339230859638274,
+        "joint_axial_bending": 1.129787212275201,
+        "joint_bond_axial_bending_torsion": 1.1297872122752035
+      },
+      "least_screened_SF": 1.1297872122705925,
+      "least_without_global_knockdown": 1.1297872122705925,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1157053335.743286,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 954589304.3031814,
+      "operating_FE_peak_bending_moment_Nm": 3415.6280768450742,
+      "joint_end_peak_moment_Nm": 3415.6280768450742,
+      "joint_end_peak_torsion_Nm": 1133.843314807833,
+      "joint_end_peak_compression_N": 857183.496221015,
+      "mass_kg": {
+        "tube": 4216.8815261937125,
+        "film": 197.4027297058248,
+        "joint": 36.71189432568185,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 4889.442150189881,
+        "headroom": 1.1823431123048067e-10
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0005760788813593698,
+          0.0006939915316605201
+        ],
+        "overlap_minmax_m": [
+          0.03326509003595835,
+          0.04007386054080952
+        ]
+      },
+      "local_peak_sensitivity": 1.0042587516074093
+    },
+    "f4-019-m24": {
+      "modes": {
+        "compression_axial": 4.150669467778642,
+        "euler": 3.8729916776053126,
+        "local_axial": 1.0685075859105782,
+        "perry_with_FE_bending": 2.9424533020228774,
+        "tension_with_FE_bending": 3.491667096709251,
+        "film": 1.0685075859058637,
+        "global_perfect_linear": 5.3597269356504835,
+        "global_k0p2": 1.0719453871300968,
+        "joint_axial_bending": 1.0685075859058608,
+        "joint_bond_axial_bending_torsion": 1.0685075859058628
+      },
+      "least_screened_SF": 1.0685075859058608,
+      "least_without_global_knockdown": 1.0685075859058608,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1136748321.441635,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 990091640.3949256,
+      "operating_FE_peak_bending_moment_Nm": 3382.2579567261814,
+      "joint_end_peak_moment_Nm": 3382.2579567261814,
+      "joint_end_peak_torsion_Nm": 1125.207273451495,
+      "joint_end_peak_compression_N": 856971.0645131412,
+      "mass_kg": {
+        "tube": 4064.2689721749252,
+        "film": 186.69561124207445,
+        "joint": 33.20473024604675,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 411.2989440716474,
+        "total_with_reserve_and_sag": 4889.442150189856,
+        "headroom": 1.4370016288012266e-10
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0005447935102982778,
+          0.0006561268619296095
+        ],
+        "overlap_minmax_m": [
+          0.03180801741089883,
+          0.03830828740557558
+        ]
+      },
+      "local_peak_sensitivity": 0.9485201704148807
+    },
+    "f5-5-m24": {
+      "modes": {
+        "compression_axial": 4.249977977499354,
+        "euler": 4.955475535270383,
+        "local_axial": 1.1432846186827044,
+        "perry_with_FE_bending": 3.356917221003482,
+        "tension_with_FE_bending": 4.5335597272884725,
+        "film": 1.1432846186728536,
+        "global_perfect_linear": 5.717453707872484,
+        "global_k0p2": 1.1434907415744968,
+        "joint_axial_bending": 1.143284618672847,
+        "joint_bond_axial_bending_torsion": 1.1432846186728536
+      },
+      "least_screened_SF": 1.143284618672847,
+      "least_without_global_knockdown": 1.143284618672847,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1164234798.3547878,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 958411558.4498912,
+      "operating_FE_peak_bending_moment_Nm": 3079.0053192543833,
+      "joint_end_peak_moment_Nm": 3079.0053192543833,
+      "joint_end_peak_torsion_Nm": 778.9601687892427,
+      "joint_end_peak_compression_N": 701228.044794025,
+      "mass_kg": {
+        "tube": 4263.217784337429,
+        "film": 160.8308667208401,
+        "joint": 42.7806585069622,
+        "nodes": 5.04,
+        "systems": 100.0,
+        "sag_lift_loss": 73.10073311528532,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 4889.442150190017,
+        "headroom": -1.7280399333685637e-11
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0004412259321461365,
+          0.0005694109519040441
+        ],
+        "overlap_minmax_m": [
+          0.028625816567329643,
+          0.03694334887925364
+        ]
+      },
+      "local_peak_sensitivity": 1.0332229353980462
+    },
+    "f5-019-m24": {
+      "modes": {
+        "compression_axial": 4.095224057346923,
+        "euler": 4.662902612678426,
+        "local_axial": 1.0832053544245932,
+        "perry_with_FE_bending": 3.207415047400617,
+        "tension_with_FE_bending": 4.263297053452065,
+        "film": 1.0832053544272737,
+        "global_perfect_linear": 5.417034002723027,
+        "global_k0p2": 1.0834068005446056,
+        "joint_axial_bending": 1.0832053544272682,
+        "joint_bond_axial_bending_torsion": 1.0832053544272737
+      },
+      "least_screened_SF": 1.0832053544245932,
+      "least_without_global_knockdown": 1.0832053544245932,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1145747560.8127284,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 994249644.959793,
+      "operating_FE_peak_bending_moment_Nm": 3051.787345564843,
+      "joint_end_peak_moment_Nm": 3051.787345564843,
+      "joint_end_peak_torsion_Nm": 776.1712818955439,
+      "joint_end_peak_compression_N": 701361.7449625769,
+      "mass_kg": {
+        "tube": 4108.7650161526235,
+        "film": 152.37925285081053,
+        "joint": 38.85820399962773,
+        "nodes": 5.04,
+        "systems": 100.0,
+        "sag_lift_loss": 73.10073311528532,
+        "reserve": 411.2989440716474,
+        "total_with_reserve_and_sag": 4889.442150189994,
+        "headroom": 5.4569682106375694e-12
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0004179400707006193,
+          0.0005393895829498602
+        ],
+        "overlap_minmax_m": [
+          0.02744044112469571,
+          0.035415479655223035
+        ]
+      },
+      "local_peak_sensitivity": 0.9781320168028794
+    }
+  },
+  "nonlinear": {
+    "endpoint_checks": [
+      {
+        "segments": 6,
+        "side": "lower",
+        "pressure_multiplier": 5.5248194811915905,
+        "owner": 1.5113252579190598e-06,
+        "checker": -6.577949684135472e-06,
+        "error": -8.089274942054533e-06,
+        "eigenvalues": [
+          -6.577949684135472e-06,
+          -6.577939156408559e-06,
+          -6.5779070448742726e-06,
+          -6.577901167669538e-06,
+          -6.577881472523473e-06,
+          0.006602444217511534,
+          0.006602444225591062,
+          0.006602444239738928
+        ],
+        "sign_matches": false,
+        "equilibrium_residual": 3.6070505274320616e-12,
+        "tangent_FD_error": 1.0681033695364341e-09,
+        "max_eigen_residual": 2.0565733882283768e-13,
+        "path": "nonlinear/m6-lower-radial-equilibrated/RESULTS.json"
+      },
+      {
+        "segments": 6,
+        "side": "upper",
+        "pressure_multiplier": 5.5248639425630035,
+        "owner": -1.3931729420221058e-05,
+        "checker": -2.2022078165239828e-05,
+        "error": -8.09034874501877e-06,
+        "eigenvalues": [
+          -2.2022078165239828e-05,
+          -2.2022074506804372e-05,
+          -2.202206313258491e-05,
+          -2.2022060936292176e-05,
+          -2.2022054069277088e-05,
+          0.006586084454423397,
+          0.00658608445641634,
+          0.006586084462112689
+        ],
+        "sign_matches": true,
+        "equilibrium_residual": 3.676352562871168e-12,
+        "tangent_FD_error": 1.0664724551302592e-09,
+        "max_eigen_residual": 2.1938398478763287e-13,
+        "path": "nonlinear/m6-upper-radial-reconstructed-equilibrated/RESULTS.json"
+      },
+      {
+        "segments": 12,
+        "side": "lower",
+        "pressure_multiplier": 5.449855089401254,
+        "owner": 1.0748885912462023e-05,
+        "checker": 8.742641615093851e-06,
+        "error": -2.0062442973681718e-06,
+        "eigenvalues": [
+          8.742641615093851e-06,
+          8.742655988649426e-06,
+          8.74266597575634e-06,
+          8.742689238893503e-06,
+          8.742699130865581e-06,
+          0.006190501767382347,
+          0.006190501797009686,
+          0.006190501810342028
+        ],
+        "sign_matches": true,
+        "equilibrium_residual": 4.64488690739519e-11,
+        "tangent_FD_error": 1.989477663215173e-09,
+        "max_eigen_residual": 1.1372490741819358e-12,
+        "path": "nonlinear/m12-lower-radial-equilibrated/RESULTS.json"
+      },
+      {
+        "segments": 12,
+        "side": "upper",
+        "pressure_multiplier": 5.449899186548328,
+        "owner": -4.378213525722263e-06,
+        "checker": -6.385753673929876e-06,
+        "error": -2.007540148207613e-06,
+        "eigenvalues": [
+          -6.385753673929876e-06,
+          -6.385740392458699e-06,
+          -6.3857135663578706e-06,
+          -6.38569772131822e-06,
+          -6.385680834242848e-06,
+          0.006174475957595437,
+          0.0061744759664445256,
+          0.006174475980725672
+        ],
+        "sign_matches": true,
+        "equilibrium_residual": 4.3567827936787695e-11,
+        "tangent_FD_error": 1.9458612493858462e-09,
+        "max_eigen_residual": 5.818779938392463e-12,
+        "path": "nonlinear/m12-upper-radial-reconstructed-equilibrated/RESULTS.json"
+      },
+      {
+        "segments": 24,
+        "side": "lower",
+        "pressure_multiplier": 5.43088020921317,
+        "owner": 1.029507038983201e-05,
+        "checker": 9.851944038621123e-06,
+        "error": -4.431263512108871e-07,
+        "eigenvalues": [
+          9.851944038621123e-06,
+          9.851954275975088e-06,
+          9.85195937873925e-06,
+          9.851976064499598e-06,
+          9.851982131909714e-06,
+          0.00535598765231798,
+          0.00535598767220895,
+          0.005355987681979854
+        ],
+        "sign_matches": true,
+        "equilibrium_residual": 7.071693096304719e-10,
+        "tangent_FD_error": 2.972708242252427e-09,
+        "max_eigen_residual": 6.346187530214554e-12,
+        "path": "nonlinear/lower-radial-equilibrated/RESULTS.json"
+      },
+      {
+        "segments": 24,
+        "side": "upper",
+        "pressure_multiplier": 5.430924214120142,
+        "owner": -3.0377094915858067e-06,
+        "checker": -3.4819826610271893e-06,
+        "error": -4.442731694413826e-07,
+        "eigenvalues": [
+          -3.4819826610271893e-06,
+          -3.4819597302288184e-06,
+          -3.481923571600423e-06,
+          -3.481891501094603e-06,
+          -3.4818685894026663e-06,
+          0.0053418879251424896,
+          0.005341887942424885,
+          0.005341887964535288
+        ],
+        "sign_matches": true,
+        "equilibrium_residual": 7.149619729037846e-10,
+        "tangent_FD_error": 2.995375524312404e-09,
+        "max_eigen_residual": 4.940007652836628e-12,
+        "path": "nonlinear/upper-radial-reconstructed-equilibrated/RESULTS.json"
+      }
+    ],
+    "continuations": [
+      {
+        "segments": 6,
+        "owner_midpoint": 5.524841711877297,
+        "checker_midpoint": 5.524791779355343,
+        "midpoint_difference": -4.9932521953621745e-05,
+        "owner_bracket": [
+          5.5248194811915905,
+          5.5248639425630035
+        ],
+        "checker_bracket": [
+          5.5247807468467585,
+          5.524802811863928
+        ],
+        "brackets_overlap": false,
+        "checker_zero_start": true,
+        "checker_uses_supplied_state_or_mode": false,
+        "independent_first_negative_sample": 13,
+        "independent_pre_crossing_points": 13,
+        "independent_sample_count": 25,
+        "all_independent_pre_crossing_points_positive": true,
+        "max_independent_equilibrium_residual": 1.92966682019849e-09,
+        "max_independent_eigen_residual": 1.113117360486522e-09,
+        "owner_trace_audit": {
+          "first_negative_index": 13,
+          "prior_positive": true,
+          "sample_count": 24,
+          "max_equilibrium_residual": 1.827508232205689e-08
+        },
+        "path": "continuation/m6/RESULTS.json"
+      },
+      {
+        "segments": 12,
+        "owner_midpoint": 5.4498771379747915,
+        "checker_midpoint": 5.449871395253925,
+        "midpoint_difference": -5.7427208668414664e-06,
+        "owner_bracket": [
+          5.449855089401254,
+          5.449899186548328
+        ],
+        "checker_bracket": [
+          5.4498605512028515,
+          5.449882239304998
+        ],
+        "brackets_overlap": true,
+        "checker_zero_start": true,
+        "checker_uses_supplied_state_or_mode": false,
+        "independent_first_negative_sample": 13,
+        "independent_pre_crossing_points": 13,
+        "independent_sample_count": 25,
+        "all_independent_pre_crossing_points_positive": true,
+        "max_independent_equilibrium_residual": 1.068349186042469e-09,
+        "max_independent_eigen_residual": 7.580713186589632e-10,
+        "owner_trace_audit": {
+          "first_negative_index": 13,
+          "prior_positive": true,
+          "sample_count": 24,
+          "max_equilibrium_residual": 1.651077976211503e-08
+        },
+        "path": "continuation/m12/RESULTS.json"
+      },
+      {
+        "segments": 24,
+        "owner_midpoint": 5.430902211666655,
+        "checker_midpoint": 5.430911824412611,
+        "midpoint_difference": 9.612745955678292e-06,
+        "owner_bracket": [
+          5.43088020921317,
+          5.430924214120142
+        ],
+        "checker_bracket": [
+          5.430900815498009,
+          5.430922833327212
+        ],
+        "brackets_overlap": true,
+        "checker_zero_start": true,
+        "checker_uses_supplied_state_or_mode": false,
+        "independent_first_negative_sample": 13,
+        "independent_pre_crossing_points": 13,
+        "independent_sample_count": 25,
+        "all_independent_pre_crossing_points_positive": true,
+        "max_independent_equilibrium_residual": 7.583010925934997e-09,
+        "max_independent_eigen_residual": 7.094280922548693e-10,
+        "owner_trace_audit": {
+          "first_negative_index": 13,
+          "prior_positive": true,
+          "sample_count": 24,
+          "max_equilibrium_residual": 1.3212598296586867e-08
+        },
+        "path": "continuation/m24/RESULTS.json"
+      }
+    ],
+    "owner_nonlinear_mesh_change": -0.0034817163447444788,
+    "checker_nonlinear_mesh_change": -0.00347890243021598,
+    "exact_replay_of_owner_midpoint_mesh_change": -0.0034817163447444788,
+    "checker_m24_k0p2_arithmetic": 1.0861823648825222,
+    "owner_m24_k0p2_arithmetic": 1.0861804423333312,
+    "conclusion": "m12/m24 supplied endpoint signs and independently continued intervals corroborated; m6 independent energy model loses stability earlier",
+    "caution": "Zero-strain/reference-tangent tests do not establish equivalence of two finite-rotation discretizations. No owner implementation was executed."
+  },
+  "film": {
+    "film-rigid-m6": {
+      "modes": {
+        "compression_axial": 4.723574948355745,
+        "euler": 4.371039181130254,
+        "local_axial": 1.3603728655640117,
+        "perry_with_FE_bending": 3.2141803373134232,
+        "tension_with_FE_bending": 3.8095368705754464,
+        "film": 1.2278771857790443,
+        "global_perfect_linear": 7.151119777416943,
+        "global_k0p2": 1.4302239554833887,
+        "joint_axial_bending": 1.2180486463627387,
+        "joint_bond_axial_bending_torsion": 1.21804608480372
+      },
+      "least_screened_SF": 1.21804608480372,
+      "least_without_global_knockdown": 1.21804608480372,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1219795548.4029229,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 922944326.4856434,
+      "operating_FE_peak_bending_moment_Nm": 6672.562964294968,
+      "joint_end_peak_moment_Nm": 6672.562964294968,
+      "joint_end_peak_torsion_Nm": 687.660501788966,
+      "joint_end_peak_compression_N": 808179.1220801072,
+      "mass_kg": {
+        "tube": 4361.9086965415245,
+        "film": 214.54155754530413,
+        "joint": 48.98978474983017,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 5063.886038801321,
+        "headroom": -174.4438886113212
+      },
+      "joint": {
+        "original_area_m2": 0.0007479081280226595,
+        "original_overlap_m": 0.04402043674327406,
+        "max_axial_bending_stress_at_1_Pa": 1206848350.753168,
+        "max_bond_shear_at_1_Pa": 23726524.275686204
+      },
+      "local_peak_sensitivity": 1.1261741129119704
+    },
+    "film-pinned-m6": {
+      "modes": {
+        "compression_axial": 4.698063953394766,
+        "euler": 4.32451519806209,
+        "local_axial": 1.3530257893139488,
+        "perry_with_FE_bending": 3.235307080088968,
+        "tension_with_FE_bending": 3.8267230143833513,
+        "film": 1.2278771857790443,
+        "global_perfect_linear": 2.0461935353568275,
+        "global_k0p2": 0.4092387070713655,
+        "joint_axial_bending": 1.3530257893133506,
+        "joint_bond_axial_bending_torsion": 1.3530257893133506
+      },
+      "least_screened_SF": 0.4092387070713655,
+      "least_without_global_knockdown": 1.2278771857790443,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 397606112.9345753,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 924410605.3951554,
+      "operating_FE_peak_bending_moment_Nm": 6689.835157683103,
+      "joint_end_peak_moment_Nm": 2.53743122515248e-07,
+      "joint_end_peak_torsion_Nm": 1.5962427823978942e-07,
+      "joint_end_peak_compression_N": 812567.6220484944,
+      "mass_kg": {
+        "tube": 4361.9086965415245,
+        "film": 214.54155754530413,
+        "joint": 48.98978474983017,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 5063.886038801321,
+        "headroom": -174.4438886113212
+      },
+      "joint": {
+        "original_area_m2": 0.0007479081280226595,
+        "original_overlap_m": 0.04402043674327406,
+        "max_axial_bending_stress_at_1_Pa": 1086453792.3892884,
+        "max_bond_shear_at_1_Pa": 21359533.741530906
+      },
+      "local_peak_sensitivity": 1.1264753682334439
+    }
+  },
+  "pin_check": {
+    "frequency": 4,
+    "segments": 6,
+    "main_nodes": 162,
+    "members": 480,
+    "chord_rigidity_rank": 480,
+    "chord_rigidity_minimum_singular_value": 0.21168472285979037,
+    "chord_node_nullity": 6,
+    "internal_roll_mechanisms": 480,
+    "counting_argument": "Endpoint framework has only six rigid motions; each otherwise rigid curved member has one independent rotation about its fixed endpoint chord.",
+    "finite_rolls": [
+      {
+        "member": 1,
+        "angle_rad": -0.1,
+        "elastic_energy_J": 1.29926003777481e-21,
+        "endpoint_translation_error_m": 2.220446049250313e-16,
+        "pressure_volume_change_m3": -0.0005296981526043965,
+        "pressure_potential_change_J": -50.565429489060556
+      },
+      {
+        "member": 1,
+        "angle_rad": -0.03,
+        "elastic_energy_J": 1.0088749035221663e-21,
+        "endpoint_translation_error_m": 2.220446049250313e-16,
+        "pressure_volume_change_m3": -4.7709003411000594e-05,
+        "pressure_potential_change_J": -4.55434144165123
+      },
+      {
+        "member": 1,
+        "angle_rad": 0.03,
+        "elastic_energy_J": 6.195803945159604e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -4.7709003411000594e-05,
+        "pressure_potential_change_J": -4.55434144165123
+      },
+      {
+        "member": 1,
+        "angle_rad": 0.1,
+        "elastic_energy_J": 5.590290055440901e-22,
+        "endpoint_translation_error_m": 2.220446049250313e-16,
+        "pressure_volume_change_m3": -0.0005296981526043965,
+        "pressure_potential_change_J": -50.565429489060556
+      },
+      {
+        "member": 26,
+        "angle_rad": -0.1,
+        "elastic_energy_J": 1.3497331969990477e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -0.0005351333302314742,
+        "pressure_potential_change_J": -51.084276099552284
+      },
+      {
+        "member": 26,
+        "angle_rad": -0.03,
+        "elastic_energy_J": 3.1904338707237986e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": 9.434156709176023e-06,
+        "pressure_potential_change_J": 0.9005925044689845
+      },
+      {
+        "member": 26,
+        "angle_rad": 0.03,
+        "elastic_energy_J": 4.675131434099965e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -0.00015517717838520184,
+        "pressure_potential_change_J": -14.8133434737661
+      },
+      {
+        "member": 26,
+        "angle_rad": 0.1,
+        "elastic_energy_J": 1.3824473424934384e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -0.0010830059072759468,
+        "pressure_potential_change_J": -103.38465137426537
+      },
+      {
+        "member": 124,
+        "angle_rad": -0.1,
+        "elastic_energy_J": 4.023908437967221e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -0.001413186990248505,
+        "pressure_potential_change_J": -134.9040142181447
+      },
+      {
+        "member": 124,
+        "angle_rad": -0.03,
+        "elastic_energy_J": 1.8186828734588306e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -0.00015356886979134288,
+        "pressure_potential_change_J": -14.659812987772197
+      },
+      {
+        "member": 124,
+        "angle_rad": 0.03,
+        "elastic_energy_J": 1.0893466922283177e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -7.849171834095614e-05,
+        "pressure_potential_change_J": -7.492885202129506
+      },
+      {
+        "member": 124,
+        "angle_rad": 0.1,
+        "elastic_energy_J": 2.658071929760163e-22,
+        "endpoint_translation_error_m": 0.0,
+        "pressure_volume_change_m3": -0.0011633092262854916,
+        "pressure_potential_change_J": -111.05047349418373
+      }
+    ],
+    "max_absolute_pressure_torque_Nm": 261.9382219542147,
+    "as_prescribed_stable_positive_pressure_margin": 0,
+    "interpretation": "At least one finite strain-free pressure-descending path exists. This does not classify all rearranged configurations.",
+    "pass_": true
+  },
+  "energy_validation": {
+    "passed": true,
+    "undeformed_tangent_relative_error": 1.2483179975919316e-15,
+    "rigid_rotation_max_energy_J": 8.019456044651186e-22,
+    "directional_tangent_relative_error": 2.5045021451266626e-09,
+    "reference": "Vetter et al. corotational triad/EB energy; independent implementation with average transverse triad"
+  },
+  "independence": {
+    "prior_task": "MAINLINE-043 fold-041",
+    "owner_files_read_before_this_check": [
+      "force_stats.py",
+      "score.py"
+    ],
+    "owner_code_executed": false,
+    "new_owner_code_reads": false,
+    "method": "Use pre-existing independent 026b operators and newly written checker arithmetic; disclose prior postprocessor exposure, no claim of blind review."
+  },
+  "optimization": "Fixed witnesses checked; owner frequency/search coverage inspected as metadata, not independently rerun",
+  "successor": null
+}

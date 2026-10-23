@@ -1,0 +1,146 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-019 CHECK",
+  "unit": "vacuum-mainline019-check-1020",
+  "seat": "ref-55cff924be25afe6f9dd",
+  "questionable": true,
+  "certification": false,
+  "pins": [
+    {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799,
+      "expected_sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "match": true,
+      "used_for": "checker brief"
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "expected_sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "match": true,
+      "used_for": "case and rules"
+    },
+    {
+      "path": "unpublished-local-ref:dfddd7f3d373b5a4",
+      "sha256": "ec560ddd37d251eb6ff7ac08b40b894b56cb2d93f4f51e9754d395c930a4ab16",
+      "bytes": 1751,
+      "expected_sha256": "ec560ddd37d251eb6ff7ac08b40b894b56cb2d93f4f51e9754d395c930a4ab16",
+      "match": true,
+      "used_for": "the card's brief"
+    },
+    {
+      "path": "evidence/dfa974f48c56afb7-CARD.md",
+      "sha256": "dfa974f48c56afb7993da0580b70a6ac1e369fd429d8c4ee26409368fba0c146",
+      "bytes": 10804,
+      "expected_sha256": "dfa974f48c56afb7993da0580b70a6ac1e369fd429d8c4ee26409368fba0c146",
+      "match": true,
+      "used_for": "checked card (compare only)"
+    },
+    {
+      "path": "evidence/2496086dc88ea67b-RESULTS.json",
+      "sha256": "2496086dc88ea67bb12f440355074cd8a2e771d105f60c78a8379ae3a3b36415",
+      "bytes": 93158,
+      "expected_sha256": "2496086dc88ea67bb12f440355074cd8a2e771d105f60c78a8379ae3a3b36415",
+      "match": true,
+      "used_for": "checked results (compare only)"
+    },
+    {
+      "path": "evidence/5c5b71c7cae2671f-INPUTS.json",
+      "sha256": "5c5b71c7cae2671ffd06c2f2808930c0555a8c02454afb1e3edc98e9e0008c21",
+      "bytes": 28902,
+      "expected_sha256": "5c5b71c7cae2671ffd06c2f2808930c0555a8c02454afb1e3edc98e9e0008c21",
+      "match": true,
+      "used_for": "case, face, cores, sources; its 34 pins re-verified"
+    },
+    {
+      "path": "evidence/fec518f4f7e18a36-NFI.json",
+      "sha256": "fec518f4f7e18a36358537fb81b179a325deb431ca2e2a02d74338a4896ea7f0",
+      "bytes": 7294,
+      "expected_sha256": "fec518f4f7e18a36358537fb81b179a325deb431ca2e2a02d74338a4896ea7f0",
+      "match": true,
+      "used_for": "owner's open issues"
+    },
+    {
+      "path": "evidence/e6d6ace13f2b17a5-compute.py",
+      "sha256": "e6d6ace13f2b17a5043b32fa2cd288ce031cc87c875b3087f6325df5d867faf8",
+      "bytes": 19588,
+      "expected_sha256": "e6d6ace13f2b17a5043b32fa2cd288ce031cc87c875b3087f6325df5d867faf8",
+      "match": true,
+      "used_for": "NOT run or imported"
+    },
+    {
+      "path": "unpublished-local-ref:bd15b6fe074cef0b",
+      "sha256": "add03653afb6a61ab68ce40d4f26bbb32884c09a70deabdff77d98f44edf0c65",
+      "bytes": 4850,
+      "used_for": "the checked filing"
+    },
+    {
+      "path": "unpublished-local-ref:c6b73b1cf966619d",
+      "sha256": "a13f8fe293067082192718934f2131826e4b22127210490e44bd80d22aa46c6b",
+      "bytes": 3690,
+      "used_for": "018's two gamma curves"
+    },
+    {
+      "path": "evidence/f62190ad5542457d-RESULTS.json",
+      "sha256": "f62190ad5542457d5578473ff4bb2f96420ec75872f0da10a31ee318a89a2ab5",
+      "bytes": 396846,
+      "expected_sha256": "f62190ad5542457d5578473ff4bb2f96420ec75872f0da10a31ee318a89a2ab5",
+      "match": true,
+      "used_for": "014b's filed value 0.668649769508548 (optima[8].per_density[26])"
+    }
+  ],
+  "case": {
+    "R_m": 10.0,
+    "p0_Pa": 95460.83791390515,
+    "L0_kg": 4889.442150186961,
+    "T0_K": 284.9,
+    "nu": 0.33,
+    "kd": 0.2,
+    "joint_fraction": 0.05,
+    "systems_allowance_kg": 100.0,
+    "source": "COMMON.md; 019 INPUTS case",
+    "tag": "QUESTIONABLE"
+  },
+  "face": {
+    "name": "Beryllium S-200F",
+    "rho": 1850.0,
+    "E_Pa": 303000000000.0,
+    "sigma_Pa": 283000000.0,
+    "tag": "QUESTIONABLE",
+    "source": "Materion sheet via 009c/014b (the same sheet lists S200F at 290 GPa; the card flags it)"
+  },
+  "cores": {
+    "aramid": {
+      "name": "Hexcel HRH-10-4.8-32",
+      "rho": 32.0,
+      "Ec_Pa": 76000000.0,
+      "Gc_Pa": 14000000.0,
+      "crush_Pa": 1000000.0,
+      "cell_m": 0.0048,
+      "source": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf (via 014/009c)",
+      "tag": "QUESTIONABLE"
+    },
+    "aluminium": {
+      "name": "Hexcel CR-III 5056 1/4-1.6",
+      "datasheet_units": {
+        "pcf": 1.6,
+        "Ec_ksi": 30.0,
+        "Gc_W_ksi": 10.5,
+        "crush_psi": 50.0,
+        "cell_in": 0.25
+      },
+      "SI_converted_by_checker": "1 pcf = 16.018463373960138 kg/m3, 1 psi = 6894.757293168361 Pa; equals the 019 INPUTS SI values",
+      "source": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "scenarios": "as declared in the 019 card (RESULTS.json scenario_definitions): owner choices, tagged PROJECTION/QUESTIONABLE there",
+  "formulas": "as stated in the 019 RESULTS.json 'formulas' block; re-implemented independently in check019.py",
+  "gamma_curves_018": {
+    "optimistic": "gamma = 0.20 + 0.40*min(Vc, 2), PROJECTION",
+    "conservative": "gamma = 0.20 at every Vc, crimp knocked down with it",
+    "source": "rpt-ref-089ed1faaaf72118b83f"
+  }
+}

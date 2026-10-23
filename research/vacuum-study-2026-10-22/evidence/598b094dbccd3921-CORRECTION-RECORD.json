@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "at": "2026-10-19T20:59:42-07:00",
+  "status": "SCOPED_ADMISSION_RETAINED_WITH_EXPLICIT_SOURCE_OBJECTION_CORRECTION_ACCOUNTING_PENDING_CO",
+  "correction": {
+    "path": "unpublished-local-ref:bd088132b5c5bdb5",
+    "sha256": "314ddcb02e6ca3cec41049b023a77438acf9121eb27e0d8b4a0a76fba73054a1",
+    "bytes": 6203
+  },
+  "prior_admission_record": {
+    "path": "evidence/c31fdf607c5051ca-ADMISSION-RECORD.json",
+    "sha256": "c31fdf607c5051ca35cf2038289cbbce1b8b5cba3894370719f394b71cdbc2cc",
+    "bytes": 5227
+  },
+  "prior_accounting_snapshot": {
+    "path": "evidence/d4e7d3d23bf15063-CLOSED-1800-ACCOUNTING.json",
+    "sha256": "d4e7d3d23bf1506310f98ccabe50bb1e2861a363e5f621131367e1a95ed1e3e2",
+    "bytes": 4360
+  },
+  "superseded_claims": [
+    "Original NEW1800 ledger closes all work: correction work is explicitly outside its final/publication samples.",
+    "Reviewer applied the superseding source condition in the first verdict: reviewer now states it missed the already-ingested carry at origin."
+  ],
+  "unchanged_historical_records": true,
+  "scope": {
+    "verdict_as_corrected": "ADMITTED for scope with SOURCE OBJECTION on every sigma-dependent output.",
+    "unaffected_admitted_scope": [
+      "atmosphere, volume and lift",
+      "masses, totals and float margins",
+      "allocation thicknesses and numerical-zero residuals",
+      "stiffness limits and stiffness factors",
+      "film limit and factor",
+      "tag, source and NFI presence"
+    ],
+    "source_objected_outputs_all_six_rows": [
+      "aluminum_yield pressure limit",
+      "aluminum_yield improvement factor",
+      "stiffness-only remaining safety factor"
+    ],
+    "dependent_claims": "Governing least limit, collapse pressure and crush SF are conditional on a sufficiently large actual compressive allowable. The independently stated stiffness limit itself does not include sigma.",
+    "compression_source_admitted": false,
+    "compression_value_admitted": false,
+    "276MPa": "QUESTIONABLE owner-reported typical tensile search-snippet premise, not for design, no raw capture/direct fetch failed; no retrieved compressive yield/design allowable.",
+    "thresholds_as_reviewer_reported_MPa": {
+      "P1": "0.59",
+      "P2": "146.3",
+      "P3": "129.4",
+      "P1-A": "1.059",
+      "P2-A": "146.5",
+      "P3-A": "114.3"
+    },
+    "threshold_status": "Reported reviewer ratios/conditional bounds, not independently recomputed or admitted material properties by head; this work is in the post-final correction under CO accounting disposition.",
+    "source_log": {
+      "path": "unpublished-local-ref:441aeb8ed85d8332",
+      "sha256": "88188277bf314c9f1e445d479fffc12b43c47ac9c0a28915166343a37cb54e74",
+      "bytes": 1580
+    }
+  },
+  "chronology": {
+    "carry_ingested": "2026-10-19T20:38:08-07:00",
+    "reviewer_stale_view_read_as_reported": "2026-10-19T20:37:44-07:00",
+    "review_origin": "2026-10-19T20:45:12.229308-07:00",
+    "original_final": "2026-10-19T20:47:22.945121-07:00",
+    "original_publication": "2026-10-19T20:47:22.948824-07:00",
+    "correction_work_start_approx_as_reported": "2026-10-19T20:48:30-07:00",
+    "correction_authored_at": "2026-10-19T20:50:24-07:00",
+    "correction_ingested": "2026-10-19T20:51:30-07:00",
+    "first_head_CO_return_authored_at": "2026-10-19T20:53:55-07:00",
+    "first_head_CO_return_ingested": "2026-10-19T20:54:09-07:00",
+    "fact": "Correction existed before head CO return; this wake supplies it and head now corrects that return. No delayed-correction excuse asserted."
+  },
+  "accounting": {
+    "status": "PENDING_CO_POST_FINAL_CORRECTION_DISPOSITION_NOT_FINAL_COMBINED_CLOSURE",
+    "original_review_actual_s": "130.715817151824",
+    "original_review_charge_s": "165.715817151824",
+    "original_review_retired_s": "434.284182848176",
+    "original_combined_charge_s": "959.3101812337991",
+    "original_combined_retired_s": "840.6898187662009",
+    "original_totals_cover_correction": false,
+    "correction_paired_measurement_available": false,
+    "correction_actual_s": null,
+    "correction_charge_s": null,
+    "correction_publication_duration_s": null,
+    "correction_phase_or_whole_compliance": "NOT_ESTABLISHED",
+    "owner_CO_disposition": "Unchanged:793.5943640819751 charged/406.4056359180249 retired; phase4 breach remains; retirement nonreusable/not compliant savings.",
+    "retirement_reusable": false,
+    "no_new_origin_reset_grant_or_retrospective_authorization_by_head": true,
+    "requested_CO_decision": "Whether correction stands within the original Una600 and the explicit accounting/phase disposition for work outside its unchanged ledger. No head charge is invented from approximate wall timestamps."
+  },
+  "map": {
+    "card": "MAINLINE-002",
+    "count": 2,
+    "recorded_epoch": "2026-10-19T20:47:22.948824-07:00",
+    "status": "RETAINED_PROVISIONALLY_WITH_CORRECTED_SCOPE_PENDING_CO_CORRECTION_DISPOSITION",
+    "new_map_point": false,
+    "new_epoch_reset": false,
+    "reason": "Reviewer explicitly preserves scoped admission as filed and does not withdraw it. If CO changes admission standing, update by its ruling; do not infer a new event from correction ingestion."
+  },
+  "next_card": "Existing MAINLINE-003 NEW1800 proposal remains unfunded/unassigned; targets avoid276MPa compression adoption. No extra owner/reviewer execution authorized.",
+  "programme": "No pause; H1 parked/unfunded underCO; nativeOctober21noon parallel/non-gating and proposed execution unfunded.",
+  "mechanical_checks": [
+    {
+      "path": "evidence/02966cee8516860c-CORRECTION-CUSTODY-CHECK.json",
+      "sha256": "02966cee8516860c32bbf5752a51a052c921578f1ea97a224582a3dd5a7a68bf",
+      "bytes": 15969
+    },
+    {
+      "path": "evidence/61a2030e859e594a-CORRECTION-SCOPE-CHECK.json",
+      "sha256": "61a2030e859e594aeb0f868f9960b07cb83608a989f7f80db8f5d94c4a8cdb39",
+      "bytes": 13848
+    }
+  ]
+}

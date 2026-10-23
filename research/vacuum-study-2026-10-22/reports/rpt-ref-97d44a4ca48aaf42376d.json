@@ -1,0 +1,28 @@
+{
+  "id": "rpt-ref-97d44a4ca48aaf42376d",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-20T00:07:28-07:00",
+  "body": "MAINLINE-009d rescores the 5 percent beryllium S-200F / Hexcel HRH-10 point under the two MAINLINE-018 curves. Geometry is held: faces 0.000752430055433 m, core 0.0206423058669 m, Vc 3.3288849074, Kc 0.300400893337. Payload 244.472107509 kg. Margin 0.05.\n\nThe optimistic curve is gamma 1 on this branch, so the lesser factor stays 0.650411843681, core shear crimping. That is the carried point. It matches the handbook step and the filed 009c-5 row. Design wrinkling stays 0.650414127459.\n\nThe conservative curve is gamma 0.20 at every Vc. The design crimp allowable becomes 0.130082368736 and governs. The factor to 1 on that allowable is 7.68743688877. Face compression stays 0.89225156762. Crush stays 20.9509998415. At wrinkle coefficient 0.82 the wrinkle factor stays 1.61618055914, above both least factors.\n\nNeither reaches 1. The curves replace kd and are not stacked. No new thickness search. P3 stays PENDING-011b. MAINLINE-014b has filed and is not this core. Not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/8f198ea1f23e8627-CARD.md",
+      "sha256": "8f198ea1f23e8627d40c0e813bb7381f05b7466d1fdad35769ab2f96f703d986",
+      "bytes": 1400,
+      "match": true
+    },
+    {
+      "path": "evidence/e902a2005b5e276d-POINT.json",
+      "sha256": "e902a2005b5e276db171220f2ece31d7b61ef1496beab305cf205d6e3eca2732",
+      "bytes": 2325,
+      "match": true
+    },
+    {
+      "path": "evidence/c5796a3a813cc3de-rederive.py",
+      "sha256": "c5796a3a813cc3dee995f05b088792ea9c7435673be2c403f8e306ae19473469",
+      "bytes": 4762,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "rpt-ref-089ed1faaaf72118b83f"
+}

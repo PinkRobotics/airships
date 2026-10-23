@@ -1,0 +1,37 @@
+{
+  "id": "E-fd846ba83b58d4c48622",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-fd846ba83b58d4c48622",
+    "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+    "file": "evidence/298ddfd71d18cdeb-NFI.json",
+    "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+    "source_sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+    "source_json_pointer": "/issues/4",
+    "row_id": "NFI056-GEOMETRY",
+    "fields": {
+      "id": "NFI056-GEOMETRY",
+      "status": "open",
+      "finding": "The radius arrow is ambiguous. The inherited outer-radius model and a 42.8 mm midsurface interpretation are separate cases. Baseline Gaussian offsets and reconstructed indentation-generated shapes are both evaluated; the original mesh and precise plastic-state import convention are unavailable.",
+      "consequence": "Remaining numerical differences cannot be assigned to the constitutive law alone."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The radius arrow is ambiguous. The inherited outer-radius model and a 42.8 mm midsurface interpretation are separate cases. Baseline Gaussian offsets and reconstructed indentation-generated shapes are both evaluated; the original mesh and precise plastic-state import convention are unavailable.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+      "artifact": "evidence/298ddfd71d18cdeb-NFI.json",
+      "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+      "sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+      "bytes": 5002,
+      "selector": "/issues/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,70 @@
+{
+  "id": "N138",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N138",
+    "report": "rpt-ref-cc9cef5e55adca018a8f",
+    "card": "MAINLINE-08B",
+    "file": "evidence/cbad32790fc5fde1-NFI.json",
+    "row_id": "NFI-008B-CORE-NONE-LIGHT",
+    "fields": {
+      "id": "NFI-008B-CORE-NONE-LIGHT",
+      "issue": "The re-rank rows at 4 and 1 kg/m3 presume a structural core that does not exist today. MAINLINE-007 retrieved no catalog core with sourced shear modulus, compressive modulus and strength below 16 kg/m3 (Plascore lightest 16, ROHACELL IG-F starts 31, HexWeb lightest retrieved 24; Schaedler nickel microlattice 0.9 kg/m3 has no retrieved modulus or strength).",
+      "consequence": "Every light-core row in this card is PROJECTION on the core side regardless of face material. The wrinkling comparison on those rows uses Ec*Gc products belonging to 24-38 kg/m3 cores, which cannot ride on a 1-4 kg/m3 row at any thickness near the mass ceiling (a 32 kg/m3 core at the 1 kg/m3 row's 0.1884 m thickness would alone mass about 7576 kg against a 4889 kg ceiling).",
+      "next": "Source or project an ultra-light core with a stated Ec*Gc product and strength; until then the light-core readings measure the core gap, not a build."
+    }
+  },
+  "claim": "The re-rank rows at 4 and 1 kg/m3 presume a structural core that does not exist today. MAINLINE-007 retrieved no catalog core with sourced shear modulus, compressive modulus and strength below 16 kg/m3 (Plascore lightest 16, ROHACELL IG-F starts 31, HexWeb lightest retrieved 24; Schaedler nickel microlattice 0.9 kg/m3 has no retrieved modulus or strength).",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/137"
+    },
+    {
+      "report": "rpt-ref-cc9cef5e55adca018a8f",
+      "artifact": "evidence/cbad32790fc5fde1-NFI.json",
+      "snapshot": "evidence/cbad32790fc5fde1-NFI.json",
+      "sha256": "cbad32790fc5fde107037f6ef7d378a5031794b2834f96ad6e4c94f73f94722b",
+      "bytes": 3823,
+      "selector": "source row ID: NFI-008B-CORE-NONE-LIGHT"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-cc9cef5e55adca018a8f",
+          "artifact": "evidence/cbad32790fc5fde1-NFI.json",
+          "snapshot": "evidence/cbad32790fc5fde1-NFI.json",
+          "sha256": "cbad32790fc5fde107037f6ef7d378a5031794b2834f96ad6e4c94f73f94722b",
+          "bytes": 3823,
+          "selector": "source row ID: NFI-008B-CORE-NONE-LIGHT"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/137"
+          }
+        ]
+      }
+    }
+  ]
+}

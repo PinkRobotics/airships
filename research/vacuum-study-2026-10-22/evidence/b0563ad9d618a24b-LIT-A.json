@@ -1,0 +1,1083 @@
+[
+  {
+    "id": "CTA8.1",
+    "record_type": "test_article",
+    "citation": {
+      "title": "Test and Analysis of a Buckling-Critical Large-Scale Sandwich Composite Cylinder",
+      "authors": "M. R. Schultz, D. W. Sleight, N. W. Gardner, M. T. Rudd, M. W. Hilburger, T. E. Palm, N. J. Oldfield",
+      "year": 2018,
+      "venue": "2018 AIAA SciTech Forum, Kissimmee FL (AIAA paper); NTRS report number NF1676L-27252",
+      "doi": "10.2514/6.2018-1693 (not on the paper's own NTRS page; seen in the reference list of NASA/TM-20205008667 p.60, ref 12)",
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20180002092",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/api/citations/20180002092/downloads/20180002092.pdf",
+        "https://ntrs.nasa.gov/citations/20180002092"
+      ]
+    },
+    "what_i_could_read": "full text (PDF via pdftotext, 18 pp, incl. Table 1, Table 2 rendered and checked as image)",
+    "shell": {
+      "type": "cylinder, honeycomb-core sandwich, composite faces",
+      "loading": "pure axial compression to failure (final load case); earlier subcritical cases included compression plus bending",
+      "boundary": "aluminum pi-section end rings, potted in epoxy grout; ring settling observed in test, not modeled"
+    },
+    "geometry": {
+      "diameter": "8 ft (stated)",
+      "R_in": 48,
+      "R_note": "derived by halving the stated 8-ft diameter (unit conversion only); R not printed",
+      "L_in_as_built": 120,
+      "L_in_as_tested": 100,
+      "L_note": "barrel shortened by 20 in. after FWD padup repair; test section 80.4 in (DIC)"
+    },
+    "faces": {
+      "material": "Cytec IM7/MTM45 unidirectional prepreg, 145 gsm, out-of-autoclave",
+      "layup_acreage": "[45/-45/0/90/0/-45/45]T, 7 plies, 'axially stiff'",
+      "t_f_each_face_in": null,
+      "t_f_note": "face thickness not stated as one number. Nominal ply 0.0052 in; posttest measured average ply 0.005679 in (9.2% thicker than nominal) x 7 plies. Not multiplied here.",
+      "ply_properties_psi": {
+        "assumed_generic_IM7_8552": {
+          "E1": 20000000.0,
+          "E2": 1250000.0,
+          "nu12": 0.36,
+          "G12": 770000.0,
+          "G13": 770000.0,
+          "G23": 385000.0
+        },
+        "pretest_modified": {
+          "E1": 21743400.0,
+          "E2": 1358960.0,
+          "note": "E1,E2 raised 8.71% to match subcritical axial stiffness"
+        },
+        "posttest_nonlinear": "E1 = 20.662e6 + 6.3150e8*eps1 psi (second-order fiber-direction stress-strain)"
+      },
+      "E_f_laminate": null,
+      "E_f_note": "laminate stiffness not tabulated; lamina values above. IM7/MTM45 properties were NOT available; IM7/8552 used as generic.",
+      "nu_f": "lamina nu12 = 0.36 (assumed)"
+    },
+    "core": {
+      "type": "honeycomb (Hexcel KOREX, designation KOREX-1/8-4.5), ribbon direction axially aligned",
+      "density": "designation '4.5'; Table 1 mass density 6.729e-6 lb-s^2/in^4 (as printed, not converted)",
+      "t_c_in": 0.25,
+      "G_c_psi": {
+        "G13": 29500.0,
+        "G23": 12000.0,
+        "G12": 17.5,
+        "direction_note": "text does not say which of G13/G23 is axial-transverse; ribbon axial. Pretest material tests failed, so core values are 'assumed and vendor-provided'.",
+        "E1": 50,
+        "E2": 38,
+        "E3": 60000.0
+      }
+    },
+    "measured": {
+      "value": "856,900 lbf",
+      "kN_stated_elsewhere": "3811 kN in Uriol Balbin 2025 thesis Table 6.4 (same test; unit check only)",
+      "mode": "sudden global buckling; strength failure followed (stability failure first: ~5,200 microstrain at initiation vs 8,400 average failure strain in coupons)"
+    },
+    "predicted": [
+      {
+        "what": "pretest nonlinear FE (Abaqus S4R shell elements, measured radial imperfection + core-thickness variation, E1/E2 recalibrated, entire test assembly)",
+        "value": "864,600 lbf",
+        "ratio_stated": "within 1% (+0.90% in Table 2)"
+      },
+      {
+        "what": "posttest nonlinear FE with nonlinear fiber-direction stiffness",
+        "value": "845,000 lbf",
+        "ratio_stated": "-1.4% vs test"
+      },
+      {
+        "what": "perfect-shell linear eigenvalue load",
+        "value": null,
+        "note": "value not stated in this paper; only the ratio 0.87 is given (test / perfect eigenvalue)"
+      },
+      {
+        "what": "closed-form Reese-Bert type (includes core transverse shear compliance, no padups), from NASA/TM-20205008667 Table 2",
+        "value": "0.999e6 lbf",
+        "note": "cross-source; for the idealized CTA8.1 design, not for as-tested 100 in barrel; ratio to test not stated in either source"
+      }
+    ],
+    "transverse_shear_in_prediction": "not stated for the S4R model in this paper (core modeled as a layer with G13, G23 per Table 1); closed-form in TM-20205008667 does include it",
+    "ratio_as_stated": "normalized buckling load (test / perfect eigenvalue) = 0.87",
+    "recommended_kdf": "none recommended; authors say 0.87 is 'not to be used as a design recommendation'. SP-8007 orthotropic KDF calculated for this article = 0.61",
+    "quotes": [
+      {
+        "claim": "geometry",
+        "location": "p.3, Sec. II.B",
+        "quote": "8-ft-diameter, 120-in.-long honeycomb-core sandwich composite cylinder",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "layup and core thickness",
+        "location": "p.3, Sec. II.B",
+        "quote": "the axially stiff 7-ply facesheets had a total layup of [45/-45/0/90/0/-45/45]T",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "predicted vs measured load",
+        "location": "p.5, Sec. III.B.1",
+        "quote": "predicted buckling load of 864,600 lb and measured buckling load of 856,900",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "SP-8007 KDF",
+        "location": "p.7, Sec. IV",
+        "quote": "The orthotropic SP-8007 KDF calculated for CTA8.1 is 0.61",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "normalized load",
+        "location": "p.7, Sec. IV",
+        "quote": "normalized buckling load (test buckling load divided by predicted perfect eigenvalue bucking load) was 0.87",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "core G13 (Table 1 row, last column)",
+        "location": "Table 1, p.9",
+        "quote": "G13 (psi) 770x103 770x103 770x103 770x103 29.5x103",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "R, t_f (single value), laminate E_f and perfect eigenvalue load not stated",
+      "G13 vs G23 direction mapping not stated",
+      "SP-8007 does not cover sandwich composite cylinders (stated p.7); 0.61 is the orthotropic-cylinder KDF"
+    ]
+  },
+  {
+    "id": "CTA8.2",
+    "record_type": "test_article",
+    "citation": {
+      "title": "Buckling Test and Analysis of the 8-Foot-Diameter Sandwich Composite Cylinder Test Article CTA8.2 as Part of the Shell Buckling Knockdown Factor Project: Test Dates 5-7 December 2017",
+      "authors": "A. Przekop, M. R. Schultz, C. J. R. Kosztowny, N. W. Gardner, K. Song, M. T. Rudd",
+      "year": 2022,
+      "venue": "NASA/TM-20210024095 (Technical Memorandum, May 2022 per cover)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20210024095",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/citations/20210024095",
+        "https://ntrs.nasa.gov/api/citations/20210024095/downloads/NASA-TM-20210024095.pdf"
+      ]
+    },
+    "what_i_could_read": "full text (PDF via pdftotext; figures not viewed)",
+    "shell": {
+      "type": "cylinder, honeycomb-core sandwich, composite faces",
+      "loading": "uniform axial compression (LS8); one planned load-to-failure sequence",
+      "boundary": "aluminum pi-section attachment rings, potted, release agent applied (sliding-type axial condition modeled)"
+    },
+    "geometry": {
+      "diameter": "8 ft (stated)",
+      "R_in": 48,
+      "R_note": "derived from stated 8-ft diameter",
+      "L_in": 100,
+      "acreage_L_in": 60
+    },
+    "faces": {
+      "material": "Hexcel IM7/8552-1, 190 gsm, autoclave, automated fiber placement",
+      "layup_acreage": "[60/-60/0]s (6 plies, 'quasi-isotropic')",
+      "t_f_each_face_in": null,
+      "t_f_note": "TM-20210024095 gives no ply thickness. TM-20205008667 Table 4 lists 0.00694 in cured ply for the 190 gsm material (that report says it applied to CTA8.2B; same 190 gsm material is named here).",
+      "E_f_laminate": null,
+      "lamina_psi_from_TM-20205008667_Table4": {
+        "E11": 20400000.0,
+        "E22": 1330000.0,
+        "nu12": 0.345
+      },
+      "nu_f": "lamina nu12 = 0.345 (cross-source)"
+    },
+    "core": {
+      "type": "aluminum honeycomb Hexcel 3.1-1/8-0.0007N-5056 (3.1 pcf); heavier 8.1 pcf core NOT used in CTA8.2",
+      "density": "3.1 pcf (from designation and TM-20205008667 Table 5)",
+      "t_c_in": 0.2,
+      "G_c_psi": {
+        "G13_axial": 45000,
+        "G23_circumferential": 20000,
+        "source": "TM-20205008667 Table 5 (not in TM-20210024095; this report only says properties came from its Ref 11)",
+        "direction_note": "TM-20205008667 nomenclature defines G13, G23 as axial and circumferential transverse shear moduli"
+      }
+    },
+    "measured": {
+      "value": "708.1 kips (708 kips) at failure",
+      "mode": "NOT global buckling: core damage (transverse shear + through-thickness crush) in padup region near the FWD attachment ring initiated failure; article failed before developing global buckling"
+    },
+    "predicted": [
+      {
+        "what": "linear eigenvalue (Lanczos), perfect geometry, with attachment rings, nominal properties",
+        "value": "913,920 lbf",
+        "ratio_stated": "test = 77.5% Pcr"
+      },
+      {
+        "what": "nonlinear transient FE with as-manufactured radial+thickness imperfections, entire apparatus (Abaqus S4R)",
+        "value": "864,159 lbf (864 kips)",
+        "ratio_stated": "test = 81.9% of predicted global buckling load"
+      },
+      {
+        "what": "nonlinear FE, perfect geometry",
+        "value": "984 kips"
+      },
+      {
+        "what": "closed form, Reese and Bert (transverse shear compliance in core included, in-plane core stiffness neglected), no padups",
+        "value": "973 kips",
+        "ratio_stated": "FEA imperfect 864 kips = 88.8% of closed-form"
+      }
+    ],
+    "transverse_shear_in_prediction": "closed form: yes (Appendix B, Eq. B1). Shell FE: core modeled as layer in S4R; transverse-shear treatment not stated in text.",
+    "ratio_as_stated": "708.1 kips = 77.5% Pcr (linear eigenvalue); 81.9% of nonlinear imperfect prediction",
+    "recommended_kdf": null,
+    "recommended_kdf_note": "no KDF recommended and no SP-8007 KDF stated in this report",
+    "quotes": [
+      {
+        "claim": "layup and core",
+        "location": "p.2, Sec. 2.2",
+        "quote": "layup of [±60/0]s and the core was 0.20 in. thick",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "linear Pcr",
+        "location": "p.17, Sec. 2.6",
+        "quote": "was 913,920 lbf and was obtained using a Lanczos eigenanalysis",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "test load",
+        "location": "p.22, Sec. 2.6",
+        "quote": "the test article failed at a load of 708.1 kips",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "failure not global buckling",
+        "location": "p.30, Sec. 3.2",
+        "quote": "The test article failed at 708 kips, before developing global buckling",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "failure mode",
+        "location": "p.23, Sec. 2.6",
+        "quote": "significant core damage consistent with both transverse shearing",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "closed-form Pcr = 973 kips",
+        "location": "p.27, Table 13",
+        "quote": "The predicted buckling load using the perfect-geometry transient nonlinear FEA was 984 kips",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "closed-form basis",
+        "location": "p.71, App. B",
+        "quote": "which considers transverse shear compliance in the core, but neglects the in-plane core stiffness",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "closed-form value",
+        "location": "p.29-30, Sec. 3.2",
+        "quote": "slightly higher than 973 kips predicted by the closed-form solution",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "t_f and G_c not in this report (taken from TM-20205008667, flagged)",
+      "NOT a clean buckling datum: collapse by core failure at end-ring region at 77.5% of linear Pcr; 8.2 was designed for 8.2B/8.3 changes (8.1 pcf end core) after this test per TM-20210024768 p.12"
+    ]
+  },
+  {
+    "id": "CTA8.2B",
+    "record_type": "test_article",
+    "citation": {
+      "title": "Test and Analysis of the 8-foot Diameter Cylindrical Sandwich Composite Test Article CTA8.2B (As part of the NESC Shell Buckling Knockdown Factor Project)",
+      "authors": "C. J. R. Kosztowny, K. Song, M. R. Schultz, N. W. Gardner, A. Przekop, M. T. Rudd",
+      "year": 2024,
+      "venue": "NASA/TM-20210024081 (July 2024 per cover)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20210024081",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/api/citations/20210024081/downloads/NASA-TM-20210024081.pdf"
+      ]
+    },
+    "what_i_could_read": "full text (PDF via pdftotext; figures not viewed). Opened the PDF; the NTRS citation page itself was only seen as a search hit.",
+    "shell": {
+      "type": "cylinder, honeycomb-core sandwich, composite faces",
+      "loading": "combined axial compression 90% of Pcr plus bending 10% of Mcr, maximum compression toward 0 deg (LS12). NOT pure axial.",
+      "boundary": "aluminum pi-section rings, potted with release film, bearing contact"
+    },
+    "geometry": {
+      "diameter": "8 ft",
+      "R_in": 48,
+      "R_note": "derived from stated 8-ft diameter",
+      "L_in": 100,
+      "acreage_L_in": 60
+    },
+    "faces": {
+      "material": "Hexcel IM7/8552-1 unidirectional towpreg, 190 gsm, AFP, autoclave",
+      "layup_acreage": "[60/-60/0]s, 6 plies ([60/-60/0/0/-60/60] per Table 1)",
+      "t_f_each_face_in": null,
+      "t_f_note": "not stated in TM-20210024081; TM-20205008667 Table 1/4 lists 0.00694 in ply for CTA8.2B (190 gsm)",
+      "E_f_laminate": null,
+      "lamina_psi_from_TM-20205008667_Table4": {
+        "E11": 20400000.0,
+        "E22": 1330000.0,
+        "nu12": 0.345
+      }
+    },
+    "core": {
+      "type": "aluminum honeycomb Hexcel 3.1-1/8-0.0007N-5056 in acreage; Hexcel 8.1-1/8-0.002N-5056 in first 10 in. at each end",
+      "density": "3.1 pcf acreage, 8.1 pcf ends",
+      "t_c_in": 0.2,
+      "G_c_psi": {
+        "3.1pcf": {
+          "G13_axial": 45000,
+          "G23_circumferential": 20000
+        },
+        "8.1pcf": {
+          "G13": 143000,
+          "G23": 51000
+        },
+        "source": "TM-20205008667 Table 5 (not stated in TM-20210024081)"
+      }
+    },
+    "measured": {
+      "value": "704.9 kips (combined-load total at failure)",
+      "mode": "global buckling initiating near 27.5 in axial, 331 deg; buckling initiation ~13 deg (~10.4 in) from the location predicted"
+    },
+    "predicted": [
+      {
+        "what": "linear eigenvalue, perfect, uniform axial compression, with rings",
+        "value": "979,643 lbf (Pcr)"
+      },
+      {
+        "what": "linear eigenvalue, perfect, for the LS12 combined load",
+        "value": "977,283 lbf (PcrCL)",
+        "ratio_stated": "test = 72.1% of linear buckling combined load (27.9% reduction)"
+      },
+      {
+        "what": "nonlinear FE, as-manufactured imperfections, LS12",
+        "value": "761,600 lbf"
+      },
+      {
+        "what": "nonlinear FE, as-installed radial midsurface + as-manufactured thickness imperfections, LS12",
+        "value": "751.3 kips",
+        "ratio_stated": "test = 93.8% of predicted nonlinear maximum; 6.2% difference"
+      },
+      {
+        "what": "closed form Reese-Bert with transverse shear (TM-20205008667 Table 2/7 for CTA8.2B)",
+        "value": "0.973e6 lbf (axial)",
+        "note": "cross-source; ratio to test not stated"
+      }
+    ],
+    "transverse_shear_in_prediction": "not stated for the Abaqus S4R shell model in this report",
+    "ratio_as_stated": "704.9 kips = 72.1% of linear critical combined load; 93.8% of nonlinear as-installed prediction",
+    "recommended_kdf": "SP-8007 orthotropic-class KDF = 0.562 (43.8% reduction); authors say methods 'indicate there is conservatism' in SP-8007; no new KDF recommended",
+    "quotes": [
+      {
+        "claim": "geometry",
+        "location": "p.2, Sec. 2.2",
+        "quote": "The 8-ft diameter, 100-in. long test article CTA8.2B",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "layup and core",
+        "location": "p.2, Sec. 2.2.1",
+        "quote": "quasi-isotropic 6-ply facesheets had a total layup of [60/-60/0]s and the core was 0.20-in. thick",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "linear Pcr",
+        "location": "p.17, Sec. 2.6",
+        "quote": "was 979,643 lbf and was obtained using an eigenanalysis",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "SP-8007 KDF",
+        "location": "p.47, Sec. 4.1",
+        "quote": "the calculated knockdown factor is 0.562, or a 43.8% reduction",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "measured vs linear",
+        "location": "p.47, Sec. 4.1",
+        "quote": "CTA8.2B failed at 704.9 kips which is 72.1% of, or a 27.9% reduction",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "ratio to nonlinear",
+        "location": "p.48, Sec. 4.1/5.0",
+        "quote": "The test article failed at 93.8% of the predicted nonlinear maximum load",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "t_f, E_f, G_c not stated in this report",
+      "load case is combined compression+bending, not axial; linear load for LS12 differs from axial Pcr by 0.2%",
+      "a second set of pretest predictions used as-installed (post-fit-up DIC) geometry; agreement is with that second set, not the first (761,600 lbf)"
+    ]
+  },
+  {
+    "id": "CTA8.3",
+    "record_type": "test_article",
+    "citation": {
+      "title": "Buckling Test and Analysis of the 8-foot-diameter Sandwich Composite Cylinder Test Article CTA8.3 as Part of the Shell Buckling Knockdown Factor Project: Test Dates 16-19 December 2019",
+      "authors": "K. Song, M. R. Schultz, C. J. R. Kosztowny, A. Przekop, N. W. Gardner, M. T. Rudd",
+      "year": 2022,
+      "venue": "NASA/TM-20210024768 (January 2022 per cover)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20210024768",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/citations/20210024768",
+        "https://ntrs.nasa.gov/api/citations/20210024768/downloads/NASA-TM-20210024768.pdf"
+      ]
+    },
+    "what_i_could_read": "full text (PDF via pdftotext; figures not viewed)",
+    "shell": {
+      "type": "cylinder, honeycomb-core sandwich, composite faces",
+      "loading": "combined 90% axial compression + 10% bending, max compression toward 180 deg (LS12)",
+      "boundary": "aluminum rings, potted; test article slipped/settled in AFT ring near 135 deg"
+    },
+    "geometry": {
+      "diameter": "8 ft",
+      "R_in": 48,
+      "R_note": "derived from stated 8-ft diameter",
+      "L_in": 100,
+      "acreage_L_in": 60
+    },
+    "faces": {
+      "material": "Hexcel IM7/8552-1, 145 gsm prepreg",
+      "layup_acreage": "[30/-30/90]s as printed; text calls it 'five-ply' although the layup shown has six plies (inconsistency in source)",
+      "t_f_each_face_in": null,
+      "t_f_note": "ply thickness 0.0054 in for 145 gsm (Table 1); face thickness not stated as one number",
+      "E_f_laminate": null,
+      "lamina_psi": {
+        "E11": 20400000.0,
+        "E22": 1330000.0,
+        "nu12": 0.345,
+        "source": "TM-20210024768 Table 1"
+      }
+    },
+    "core": {
+      "type": "aluminum honeycomb Hexcel 3.1-1/8-0.0007N-5056 acreage; 8.1-1/8-0.002N-5056 first 10 in. each end",
+      "density": "3.1 pcf acreage / 8.1 pcf ends",
+      "t_c_in": 0.2,
+      "G_c_psi": {
+        "3.1pcf": {
+          "G13": 45000,
+          "G23": 20000
+        },
+        "8.1pcf": {
+          "G13": 143000,
+          "G23": 51000
+        },
+        "source": "TM-20210024768 Table 2 (G13, G23 columns; axial/circumferential mapping defined in TM-20205008667)"
+      }
+    },
+    "measured": {
+      "value": "432.0 kips total applied load at failure (load step 8)",
+      "mode": "global buckling then material failure around circumference; initiated ~27 in from midline near 240 deg"
+    },
+    "predicted": [
+      {
+        "what": "linear eigenvalue, perfect, uniform axial compression",
+        "value": "554,716 lbf (Pcr)"
+      },
+      {
+        "what": "linear eigenvalue, perfect, combined LS12",
+        "value": "499,246 lbf (PcrCL)",
+        "ratio_stated": "test = 86.4% of PcrCL"
+      },
+      {
+        "what": "nonlinear FE, perfect geometry",
+        "value": "494.0 kips",
+        "ratio_stated": "14% higher than test"
+      },
+      {
+        "what": "nonlinear FE, as-manufactured radial+thickness imperfections",
+        "value": "462.4 kips",
+        "ratio_stated": "7% higher than test"
+      },
+      {
+        "what": "nonlinear FE, as-installed radial imperfection at tare + as-manufactured thickness",
+        "value": "431.6 kips",
+        "ratio_stated": "0.1% lower than test"
+      }
+    ],
+    "transverse_shear_in_prediction": "not stated in this report for the shell FE; core modeled as layer with G13, G23 in Table 2",
+    "ratio_as_stated": "432.0 kips = 86.4% of PcrCL (reviewer note, not in source: 432.0/499.246 would round to 86.5%; the source's 86.4% is quoted as printed)",
+    "recommended_kdf": null,
+    "recommended_kdf_note": "no KDF recommended; no SP-8007 KDF stated in this report",
+    "quotes": [
+      {
+        "claim": "layup and core",
+        "location": "p.12, Sec. 2.2",
+        "quote": "quasi-isotropic five-ply faces had the acreage layup of [30/-30/90]s",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "combined linear load",
+        "location": "p.27, Sec. 2.6",
+        "quote": "buckling load for LS12, 𝑃crCL , was 499,246 lbf",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "test vs linear",
+        "location": "p.33",
+        "quote": "at 86.4% of 𝑃crCL . The failure occurred approximately 27 in. from the midline",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "best agreement",
+        "location": "p.62, Sec. 4.0",
+        "quote": "the experimental and predicted buckling loads were within 0.1%",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "perfect nonlinear",
+        "location": "p.59, Sec. 3.6",
+        "quote": "geometrically perfect mesh was 494.0 kips, 14% higher than the test results",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "t_f single value, E_f laminate not stated",
+      "five-ply vs six-ply wording inconsistent in source",
+      "the best agreement (0.1%) used as-installed geometry measured after fit-up (post hoc)"
+    ]
+  },
+  {
+    "id": "GRC-arc-panels",
+    "record_type": "test_article",
+    "citation": {
+      "title": "Buckling Testing and Analysis of Honeycomb Sandwich Panel Arc Segments of a Full-Scale Fairing Barrel: Comparison of In- and Out-of-Autoclave Facesheet Configurations",
+      "authors": "E. J. Pineda, D. E. Myers, D. N. Kosareo, B. F. Zalewski, S. Kellas, G. D. Dixon, T. M. Krivanek, T. G. Gyekenyesi",
+      "year": 2014,
+      "venue": "AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics, and Materials Conference, National Harbor MD, Jan 2014 (per NTRS page)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20140006743",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/citations/20140006743",
+        "https://ntrs.nasa.gov/api/citations/20140006743/downloads/20140006743.pdf"
+      ]
+    },
+    "what_i_could_read": "full text (PDF via pdftotext; Tables 1, 2, 5, 6, 7 read as text)",
+    "shell": {
+      "type": "CURVED PANELS (3 ft x 5 ft) cut from 1/16 arc segments of a 10 m diameter barrel; NOT full cylinders. Authors state the eigenmode 'does not correspond to cylindrical buckling'.",
+      "loading": "edgewise axial compression between potted aluminum end plates, servo-hydraulic frame, displacement control",
+      "boundary": "1 in. aluminum end plates, potted with Unisorb V-100"
+    },
+    "geometry": {
+      "R": "5 m outside radius (stated for the barrel, 'of a 5 m outside radius cylinder'); FE imperfection model uses 198.0 in. radius",
+      "R_in_unit_conversion": "5 m = 196.9 in, differs from the 198.0 in. FE value; both as stated",
+      "panel_size_in": "36.0 wide x 62.0 long cut; 60.00 tall between plates; 35.60 in. along arc (FE)",
+      "L_in": 60
+    },
+    "faces": {
+      "material": "IM7/977-3 (in-autoclave) or T40-800b/5320-1 (out-of-autoclave), ATL tape",
+      "layups": {
+        "Panel A": "IM7/977-3 [45/90/-45/0]S 8-ply",
+        "Panel B-1, B-2": "IM7/977-3 [60/-60/0]S 6-ply",
+        "Panel C": "T40-800b/5320-1 [45/90/-45/0]S 8-ply",
+        "Panel D": "T40-800b/5320-1 [60/-60/0]S 6-ply"
+      },
+      "t_f_each_face_in": null,
+      "E_f_laminate": null,
+      "E_f_note": "ply thickness and lamina moduli not printed (ITAR restricted per paper)",
+      "nu_f": null
+    },
+    "core": {
+      "type": "aluminum honeycomb 5052, 0.0007 in. foil, 1/8 in. cell, 3.1 pcf; Panels A and C curved-machined, others flat",
+      "density": "3.1 pcf",
+      "t_c_in": {
+        "A,C": 1.0,
+        "B-1,B-2,D": 1.125
+      },
+      "G_c_psi": {
+        "G13": 45000,
+        "G23": 22000,
+        "note": "Table 2 3-D model values ('45.0 ksi', '22.0 ksi'); 2-D shell model values listed N.A."
+      }
+    },
+    "measured": {
+      "unit": "lbf",
+      "avg_buckling_load": {
+        "A": 73213,
+        "B-1": 70907,
+        "B-2": 69172,
+        "C": 73468,
+        "D": 64848
+      },
+      "std_dev": {
+        "A": 750,
+        "B-1": 421,
+        "B-2": 724,
+        "C": 1198,
+        "D": 582
+      },
+      "definition": "load at strain-gage reversal (local), averaged over gages; authors call it somewhat subjective"
+    },
+    "predicted": [
+      {
+        "what": "2-D shell linear eigenvalue (MSC/NASTRAN Sol 105)",
+        "values_lbf": {
+          "A": 80912,
+          "B-1": 74245,
+          "B-2": 75248,
+          "C": 82318,
+          "D": 80283
+        },
+        "error_pct_as_stated": {
+          "A": 10.5,
+          "B-1": 4.7,
+          "B-2": 8.8,
+          "C": 12.0,
+          "D": 23.8
+        }
+      },
+      {
+        "what": "3-D ANSYS linear eigenvalue (honeycomb as solid-shell elements)",
+        "values_lbf": {
+          "A": 79471,
+          "B-1": 72928,
+          "B-2": 72884,
+          "C": 82319,
+          "D": 79471
+        },
+        "error_pct_as_stated": {
+          "A": 8.6,
+          "B-1": 2.8,
+          "B-2": 5.4,
+          "C": 12.0,
+          "D": 22.5
+        }
+      },
+      {
+        "what": "2-D nonlinear (NASTRAN Sol 106) with approximated bow imperfection",
+        "values_lbf": {
+          "A": 76524,
+          "B-1": 67238,
+          "B-2": 74336,
+          "C": 75661,
+          "D": 76660
+        }
+      },
+      {
+        "what": "3-D nonlinear ANSYS",
+        "values_lbf": {
+          "A": 70582,
+          "B-1": 63087,
+          "B-2": 66107,
+          "C": 70216,
+          "D": 63795
+        }
+      }
+    ],
+    "transverse_shear_in_prediction": "3-D model resolves core shear explicitly (solid-shell core); whether the 2-D shell model includes transverse shear is not stated",
+    "ratio_as_stated": "eigenvalue predictions 3-24% above experiment (Table 6 'Error' column)",
+    "recommended_kdf": "none; authors only note all predictions are 'well within the 0.65 shell buckling knockdown factor'",
+    "quotes": [
+      {
+        "claim": "measured A",
+        "location": "p.9, Table 5",
+        "quote": "A (IA) 73,213 750",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "eigen error range",
+        "location": "p.9, Sec. IV.A",
+        "quote": "All eigenvalue buckling load predictions were 3-24% above the experimental buckling loads",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "not cylinder",
+        "location": "p.9, Sec. IV.A",
+        "quote": "The exhibited eigenmode does not correspond to cylindrical buckling",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "core thickness Panel A",
+        "location": "p.4, Table 1",
+        "quote": "IM7/977-3 (IA) [45°/90°/-45°/0°]S 1.000 (curved)",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "radius",
+        "location": "p.3, Sec. II.A",
+        "quote": "of a 5 m outside radius cylinder",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "curved panels, not cylinders; imperfect-panel eigenmode is not cylindrical",
+      "t_f, E_f null (ITAR); Poisson null",
+      "tests at LaRC, one panel per type except B (two)"
+    ]
+  },
+  {
+    "id": "NDL-1",
+    "record_type": "related_not_sandwich",
+    "citation": {
+      "title": "A scaling methodology for axial buckling of sandwich composite cylindrical shells (PhD dissertation, TU Delft) - NDL-1 data as reported in Sec. 6.2; underlying test paper: Rudd, Eberlein, Waters, Gardner, Schultz, Bisagni, 'Analysis and validation of a scaled, launch-vehicle-like composite cylinder under axial compression', Composite Structures vol. 304, 116393, 2023 (NOT opened)",
+      "authors": "Ines Uriol Balbin (thesis)",
+      "year": 2025,
+      "venue": "TU Delft dissertation",
+      "doi": "10.4233/uuid:63254d10-9a39-44b0-bfe3-4e4bbc455c74",
+      "ntrs_url": null,
+      "fetched_urls": [
+        "https://repository.tudelft.nl/file/File_4dfed198-7fa9-44a9-be36-6827a8c7d6eb",
+        "https://research.tudelft.nl/en/publications/a-scaling-methodology-for-axial-buckling-of-sandwich-composite-cy/ (search hit only)"
+      ]
+    },
+    "what_i_could_read": "thesis full text; the NDL-1 test paper itself was NOT opened (second-hand data only)",
+    "shell": {
+      "type": "cylinder, scaled; per thesis the scaled structure is a laminate with NO core (scaling strategy 2), so NOT a sandwich data point",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R_L": "not stated in the excerpt I read; thesis baseline structures have R = 1.2 m [47 in] and L = 2.3 m [91 in] (baseline CTA8.x designs, not NDL-1)"
+    },
+    "faces": null,
+    "core": null,
+    "measured": {
+      "value": "2077 kN (NDL-1); 3811 kN (CTA8.1)"
+    },
+    "predicted": [
+      {
+        "what": "SP-8007-based KDF as tabulated in thesis",
+        "value": "0.79 for NDL-1; 0.61 for CTA-8.1"
+      }
+    ],
+    "ratio_as_stated": "'KDF real' 0.95 (NDL-1) and 0.87 (CTA-8.1)",
+    "recommended_kdf": null,
+    "quotes": [
+      {
+        "claim": "KDF table CTA8.1",
+        "location": "p.107, Table 6.4",
+        "quote": "CTA-8.1 3811 0.87 0.61",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "KDF table NDL-1",
+        "location": "p.107, Table 6.4",
+        "quote": "NDL-1 2077 0.95 0.79",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "strategy 2",
+        "location": "p.107, Sec. 6.2",
+        "quote": "a sandwich composite cylinder with composite facesheets to a composite structure with no core",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "excluded from sandwich knockdown set (no core); listed for completeness",
+      "the thesis's own validation shows a 22% nondimensional-load deviation for the scaling, which is a scaling statement, not a sandwich KDF"
+    ]
+  },
+  {
+    "id": "SBKF-design-TM-20205008667",
+    "record_type": "design_source_properties_and_closed_form",
+    "citation": {
+      "title": "Design and Analysis of Buckling-Critical Large-Scale Sandwich Composite Cylindrical Test Articles",
+      "authors": "A. Przekop, M. R. Schultz, C. J. R. Kosztowny, K. Song, M. C. Lindell, M. W. Hilburger, M. T. Rudd",
+      "year": 2020,
+      "venue": "NASA/TM-20205008667 (November 2020)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20205008667",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/citations/20205008667",
+        "https://ntrs.nasa.gov/api/citations/20205008667/downloads/NASA-TM-20205008667_final_201203.pdf"
+      ]
+    },
+    "what_i_could_read": "full text (PDF via pdftotext). Pretest design report: NO test results; used here for lamina and core properties and closed-form predictions that the test reports reference.",
+    "shell": {
+      "type": "cylinder designs CTA8.1, 8.2B, 8.3, 8.4, 8.5 (8 ft diameter)",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R_in": 48,
+      "R_note": "derived from 8-ft diameter"
+    },
+    "faces": {
+      "lamina_psi": {
+        "IM7/8552-1 E11": 20400000.0,
+        "E22": 1330000.0,
+        "nu12": 0.345
+      },
+      "ply_thickness_in": {
+        "145 gsm": 0.0054,
+        "190 gsm": 0.00694
+      },
+      "layups_Table1": {
+        "CTA8.1": "[±45/0/90]s, ply 0.0052 in, core 0.25 in",
+        "CTA8.2B": "[±60/0]s, ply 0.00694 in, core 0.20 in",
+        "CTA8.3": "[±30/90]s, ply 0.0054 in, core 0.20 in",
+        "CTA8.4": "[±30/90/0]s, core 0.30 in",
+        "CTA8.5": "[90/0/90/0/-/+30/90/90/0]T, core 0.30 in"
+      }
+    },
+    "core": {
+      "type": "aluminum honeycomb 5056, 1/8 in cell",
+      "table5_psi": {
+        "3.1pcf": {
+          "E11": 5.8,
+          "E22": 2.9,
+          "G12": 1.45,
+          "G13": 45000,
+          "G23": 20000,
+          "unit_note": "E11, E22, G12 values printed as 5.8, 2.9, 1.45 under 'psi' heading (likely a unit slip in source; not corrected)"
+        },
+        "8.1pcf": {
+          "G13": 143000,
+          "G23": 51000
+        }
+      },
+      "G_direction": "G13, G23 = transverse shear moduli in the axial and circumferential directions (nomenclature, p.xi)"
+    },
+    "measured": null,
+    "predicted": [
+      {
+        "what": "closed form (Reese-Bert with core shear compliance), perfect, Table 2 / Table 7",
+        "values_lbf": {
+          "CTA8.1": 999000.0,
+          "CTA8.2B": 973000.0,
+          "CTA8.3": 541000.0,
+          "CTA8.4": 1270000.0,
+          "CTA8.5": 1150000.0
+        }
+      },
+      {
+        "what": "eigenvalue FE, perfect (Table 7)",
+        "values_lbf": {
+          "CTA8.2B": 980000.0,
+          "CTA8.3": 555000.0,
+          "CTA8.4": 1310000.0,
+          "CTA8.5": 1200000.0
+        }
+      },
+      {
+        "what": "nonlinear transient FE, imperfect (Table 7)",
+        "values_lbf": {
+          "CTA8.2B": 863000.0,
+          "CTA8.3": 530000.0,
+          "CTA8.4": 1240000.0,
+          "CTA8.5": 1160000.0
+        }
+      }
+    ],
+    "ratio_as_stated": "closed-form vs eigenvalue FE differ by at most 4.3% (CTA8.5), average 2.7%",
+    "recommended_kdf": null,
+    "note_not_a_buckling_kdf": "Appendix E defines a CO-CURE knockdown factor of 0.71 on sandwich facesheet properties (literature range 0.50-0.75); it is a material strength factor, not a shell-buckling KDF.",
+    "quotes": [
+      {
+        "claim": "3.1 pcf core row",
+        "location": "p.15, Table 5",
+        "quote": "3.1 5.8 2.9 1.45 45,000 20,000",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "closed form/eigen/NL 8.2B",
+        "location": "p.24, Table 7",
+        "quote": "CTA8.2B 0.973 x106 0.980 x106 0.948 x106 0.863 x106",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "co-cure factor",
+        "location": "p.54, App. E",
+        "quote": "typical knockdown factor for comparable sandwich composites was determined to be between 0.50 and 0.75",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "CTA8.4 and CTA8.5 appear only as designs; TM-20210024081 calls CTA8.2B 'the fourth and final composite test article' so I found no test for 8.4/8.5"
+    ]
+  },
+  {
+    "id": "KDF-SP8007-2020-sandwich",
+    "record_type": "kdf_statement",
+    "citation": {
+      "title": "Buckling of Thin-Walled Circular Cylinders (NASA/SP-8007-2020/REV 2)",
+      "authors": "Mark W. Hilburger (ed.)",
+      "year": 2020,
+      "venue": "NASA Special Publication, December 2020",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20205011530",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/citations/20205011530",
+        "https://ntrs.nasa.gov/api/citations/20205011530/downloads/20205011530%20Rev%202FINALa%201-2023.pdf"
+      ]
+    },
+    "what_i_could_read": "full text; the relevant pages (46, 48, 50) were also rendered and viewed as images; Figure 4-13 is a curve with no table, so its values are only visual",
+    "statement": {
+      "scope": "isotropic sandwich cylinders only; no recommendations for sandwich composite cylinders",
+      "axial_compression": "KDF gamma uses the orthotropic Eq. 60 form, gamma = 1 - 0.901(1 - exp(-phi)), with phi = (sqrt(2)/29.8)*sqrt(r/h) where r is radius and h the depth between facesheet centroids (nomenclature: h = depth between centroids); plotted as Figure 4-13 vs r/h (curve starts near 0.87 at r/h=10 and falls to near 0.3 at r/h=1000, by eye). Transverse shear enters only the classical buckling load (Figs 4-11, 4-12), not gamma.",
+      "bending": "gamma from Figure 4-14",
+      "lateral_pressure": "no experimental data substantiate the pressure coefficients; gamma = 0.56 suggested from isotropic-cylinder experience (p.50)",
+      "core_limit": "designs limited to honeycomb density ratio delta > 0.03 unless substantiated by tests (axial, bending, pressure, torsion)",
+      "empirical_basis": "for isotropic sandwich the KDF is a modified isotropic-cylinder lower bound, based on 'two analytical investigations' not sandwich tests",
+      "modern_test_remark": "it is not uncommon to obtain experimental buckling loads of 70-90% of theoretical for uniform composite cylinders (stated for layered/unstiffened orthotropic cylinders)"
+    },
+    "quotes": [
+      {
+        "claim": "KDF from Eq. 60",
+        "location": "p.46, Sec. 4.1.3.1",
+        "quote": "This knockdown factor is based Eq. 60,",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "KDF form",
+        "location": "p.36, Eq. 60",
+        "quote": "𝛾 = 1 − 0.901(1 − 𝑒 −𝜙 ) 60",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "empirical basis",
+        "location": "p.16, Sec. 2.5",
+        "quote": "recommendation is to use a modified version of the empirical knockdown factors",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "pressure",
+        "location": "p.50, Lateral Pressure",
+        "quote": "There are no experimental data to substantiate Figure 4-15",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "pressure KDF",
+        "location": "p.50, Lateral Pressure",
+        "quote": "suggests that a knockdown factor 𝛾 = 0.56 should be used with this configuration",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "70-90%",
+        "location": "p.36",
+        "quote": "buckling loads for uniform cylinders of 70−90% of the theoretical predictions",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "density ratio",
+        "location": "p.50",
+        "quote": "𝛿 > 0.03, unless the design is substantiated by tests",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "Figure 4-13 numeric values not tabulated; only Eq. 115 + Eq. 60 are exact",
+      "density-ratio definition (delta) not checked beyond nomenclature line 'ratio of honeycomb core density to facesheet density'"
+    ]
+  },
+  {
+    "id": "KDF-NESC-TB-16-01",
+    "record_type": "kdf_statement",
+    "citation": {
+      "title": "Buckling Knockdown Factors for Composite Cylinders (NESC Technical Bulletin No. 16-01)",
+      "authors": "Clinton H. Cragg (per NTRS page)",
+      "year": 2016,
+      "venue": "NASA Engineering and Safety Center Technical Bulletin; NTRS id 20240000391 (acquired Jan 2024)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20240000391",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/citations/20240000391",
+        "https://ntrs.nasa.gov/api/citations/20240000391/downloads/TB%2016%2001%20Buckling%20Knockdown%20Factors.pdf"
+      ]
+    },
+    "what_i_could_read": "full text (1-page bulletin)",
+    "statement": {
+      "universal_0.65": "universal KDF 0.65 for all composite shells has unclear justification and is thought unconservative for certain designs; not recommended",
+      "sandwich_composite": "SP-8007 KDFs (orthotropic and isotropic-sandwich classes) can be significantly below 0.65 for anisotropic composite sandwich shells; nonlinear FE to date suggests these SP-8007 KDFs are conservative for all sandwich composite cylinders considered",
+      "transverse_shear": "extra caution for cylinders with low transverse shear stiffness (some sandwich shells): predicted buckling loads significantly lower than for high-shear-stiffness shells",
+      "basis": "nonlinear FE (analysis), no test numbers in the bulletin"
+    },
+    "quotes": [
+      {
+        "claim": "0.65",
+        "location": "p.1",
+        "quote": "the universal KDF of 0.65 is thought to be unconservative for certain designs",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "sandwich conservative",
+        "location": "p.1",
+        "quote": "suggests that these SP-8007 KDFs are conservative for all the sandwich composite cylinders considered",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "low shear",
+        "location": "p.1",
+        "quote": "cylindrical shells with low transverse shear stiffness (such as some sandwich shells)",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "no numeric KDF given; no test data inside the bulletin"
+    ]
+  },
+  {
+    "id": "KDF-Schultz-2016-analysis",
+    "record_type": "kdf_statement_analysis_only",
+    "citation": {
+      "title": "Buckling Design and Imperfection Sensitivity of Sandwich Composite Launch-Vehicle Shell Structures",
+      "authors": "M. R. Schultz, D. W. Sleight, D. E. Myers, W. A. Waters Jr., P. B. Chunchu, A. E. Lovejoy, M. W. Hilburger",
+      "year": 2016,
+      "venue": "conference paper (NTRS date 19 Sep 2016; the PDF's own cover template points to the ASC2016 conference; venue not named on the NTRS page)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20160012029",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/citations/20160012029",
+        "https://ntrs.nasa.gov/api/citations/20160012029/downloads/20160012029.pdf"
+      ]
+    },
+    "what_i_could_read": "full text",
+    "statement": {
+      "type": "numerical study, NO buckling test; optimized honeycomb sandwich designs (Ares V Intertank, Interstage, SLS Upper Stage Skirt, SLS Interstage) with the measured imperfection shape of a 13-ft fluted-core composite barrel scaled in",
+      "finding": "normalized buckling load Pcr/Pbif (nonlinear imperfect over linear bifurcation) >0.8 for imperfection amplitudes <=1.5 in. in all cases; SP-8007 KDF was the lowest normalized load in nearly every case",
+      "suggested": "if 0.8 were used as design KDF, estimated acreage areal-mass reduction 4% to 19%; authors say 'more work needs to be completed before actual recommendations can be made'"
+    },
+    "quotes": [
+      {
+        "claim": "0.8",
+        "location": "p.11 (PDF), Buckling Imperfection Sensitivity",
+        "quote": "the normalized buckling loads are greater than 0.8 for all cases",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "caveat",
+        "location": "p.11 (PDF)",
+        "quote": "More work needs to be completed before actual recommendations can be made",
+        "quote_verified_in_extracted_text": true
+      },
+      {
+        "claim": "SP-8007 lowest",
+        "location": "p.11 (PDF)",
+        "quote": "the SP-8007 knockdown factor recommendation is the lowest normalized buckling load",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "analysis only, not measured; transverse-shear treatment of its FE models not checked"
+    ]
+  },
+  {
+    "id": "KDF-Sleight-2018-cones-analysis",
+    "record_type": "kdf_statement_analysis_only",
+    "citation": {
+      "title": "Buckling Imperfection Sensitivity of Conical Sandwich Composite Structures for Launch-Vehicles",
+      "authors": "D. W. Sleight, A. Satyanarayana, Y. Li, M. R. Schultz",
+      "year": 2018,
+      "venue": "AIAA SciTech 2018 (NASA NTRS paper; venue line not verified on NTRS page)",
+      "doi": null,
+      "ntrs_url": "https://ntrs.nasa.gov/citations/20180006171",
+      "fetched_urls": [
+        "https://ntrs.nasa.gov/api/citations/20180006171/downloads/20180006171.pdf"
+      ]
+    },
+    "what_i_could_read": "full text; CONES, not cylinders",
+    "statement": {
+      "finding": "analysis-only study of SLS-like conical sandwich shells; normalized buckling loads all >0.60 (all >0.50 except two noted at 0.50-0.60) vs SP-8019 KDF 0.33",
+      "type": "analysis, no test"
+    },
+    "quotes": [
+      {
+        "claim": "normalized loads",
+        "location": "p.4",
+        "quote": "significantly higher than the current SP-8019 recommendation of 0.33",
+        "quote_verified_in_extracted_text": true
+      }
+    ],
+    "gaps": [
+      "cones; no measured data"
+    ]
+  }
+]

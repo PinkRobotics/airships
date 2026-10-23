@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "card": "009c5",
+  "blocking": false,
+  "rows": [
+    {
+      "id": "NFI-S200F-MODULUS",
+      "type": "source_mismatch",
+      "row": "Beryllium S-200F",
+      "field": "E_Pa",
+      "reported": 303000000000,
+      "source_value": 290000000000,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4",
+      "page": 2,
+      "proposed_fix": "Use grade-specific E=290 GPa or explicitly source a 303 GPa S200F scenario; retain QUESTIONABLE.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-STRENGTH-EDITION",
+      "type": "source_version_conflict",
+      "row": "Beryllium S-200F",
+      "field": "compressive_yield_MPa",
+      "reported": 283,
+      "current_guide_value_approx": 255,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74",
+      "page": 4,
+      "proposed_fix": "Pin the exact older MB-001 edition supporting 283 MPa and reconcile the newer guide. Current computations retain the frozen strength; 37/41 sensitivity is arithmetically correct.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-PAYLOAD-SENTENCE",
+      "type": "text_mismatch",
+      "row": "CARD.md opening",
+      "field": "mass_fraction",
+      "reported": "The mass is 5 percent of lift",
+      "reported_fraction": 0.05,
+      "independent_total_mass_fraction": 0.95,
+      "independent_payload_fraction": 0.05,
+      "proposed_fix": "Say payload reserve is 5% of lift and total mass is 95%.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-BRANCH-EQUALITY",
+      "type": "source_endpoint_mismatch",
+      "row": "Vc=2, kd=.20",
+      "field": "gamma_d",
+      "reported": 0.2,
+      "independent": 1.0,
+      "source_url": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "page": "6-7",
+      "proposed_fix": "Use gamma=1 for Vc>=2 to follow the cited convention. Neither published point lies exactly at 2.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-OPTIMUM-RESOLUTION",
+      "type": "estimate_resolution",
+      "row": "optimum",
+      "field": "least_SF",
+      "reported": 0.6504118436805308,
+      "independent_continuous_balance": 0.6504130224098148,
+      "independent_fraction": 0.19176846298505057,
+      "proposed_fix": "Label the filed point as a finite search result; optional refinement only.",
+      "stops_owner": false
+    },
+    {
+      "id": "NFI-OTHER-BRANCH-RESOLUTION",
+      "type": "estimate_resolution",
+      "row": "other_branch",
+      "field": "least_SF",
+      "reported": 0.175022781624177,
+      "independent_boundary_limit": 0.17502890484090416,
+      "proposed_fix": "Label grid resolution; the small refinement changes no decision.",
+      "stops_owner": false
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "N041",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N041",
+    "report": "rpt-ref-3dd5ab5528276031581d",
+    "card": "MAINLINE-07B",
+    "file": "evidence/07d0f8e52a240650-NFI.json",
+    "row_id": "NFI-SHEAR",
+    "fields": {
+      "NFI_id": "NFI-SHEAR",
+      "gap": "Advisory crimp is replaced by NASA CR-1457 equations 6.2-3 through 6.2-6. Sourced cores stay on the moderate branch. Kc trims the buckling safety factor to between 0.863720643326 and 0.991105457684 of the MAINLINE-007 value.",
+      "direction": "A core shear modulus below about 2.45 MPa would enter the crimping branch. None of the sourced moduli do.",
+      "effect": "P2-E with Plascore at 16 kg/m3 falls from 0.233885578993 to 0.227959198328. Yield is unchanged and still larger."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-SHEAR\", \"gap\": \"Advisory crimp is replaced by NASA CR-1457 equations 6.2-3 through 6.2-6. Sourced cores stay on the moderate branch. Kc trims the buckling safety factor to between 0.863720643326 and 0.991105457684 of the MAINLINE-007 value.\", \"direction\": \"A core shear modulus below about 2.45 MPa would enter the crimping branch. None of the sourced moduli do.\", \"effect\": \"P2-E with Plascore at 16 kg/m3 falls from 0.233885578993 to 0.227959198328. Yield is unchanged and still larger.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/40"
+    },
+    {
+      "report": "rpt-ref-3dd5ab5528276031581d",
+      "artifact": "evidence/07d0f8e52a240650-NFI.json",
+      "snapshot": "evidence/07d0f8e52a240650-NFI.json",
+      "sha256": "07d0f8e52a240650a5322607cd0be6d7f603344bdcc852619c2437e5056ecd77",
+      "bytes": 3051,
+      "selector": "source row ID: NFI-SHEAR"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-3dd5ab5528276031581d",
+          "artifact": "evidence/07d0f8e52a240650-NFI.json",
+          "snapshot": "evidence/07d0f8e52a240650-NFI.json",
+          "sha256": "07d0f8e52a240650a5322607cd0be6d7f603344bdcc852619c2437e5056ecd77",
+          "bytes": 3051,
+          "selector": "source row ID: NFI-SHEAR"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/40"
+          }
+        ]
+      }
+    }
+  ]
+}

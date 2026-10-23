@@ -1,0 +1,170 @@
+{
+  "grant": "ations-smoke-u4s-blk-1018142209",
+  "status_with_hold": {
+    "running_cores": 2,
+    "running_mem_gib": 4.0,
+    "live": [
+      {
+        "grant": "ations-smoke-u4s-blk-1018142209",
+        "seat": "operations-smoke",
+        "unit": "simjob-u4s-blk-1018-hold.service",
+        "cores": 2,
+        "mem_gib": 4.0,
+        "state": "running"
+      }
+    ]
+  },
+  "pass:n1-test": {
+    "rc": 0,
+    "status": "STATUS DONE rc=0 payload_rc=0 collected",
+    "receipt": {
+      "grant": "ations-smoke-u4s-blk-1018142209",
+      "n": 1,
+      "kind": "test",
+      "unit": "simjob-ations-smoke-u4s-blk-1018142209-1.scope",
+      "start_utc": "2026-10-18T21:22:09.729764331Z",
+      "end_utc": "2026-10-18T21:22:10.35424218Z",
+      "start_mono": "1974054.91",
+      "end_mono": "1974055.21",
+      "rc": 0,
+      "precheck": {
+        "mem_available_b": "59788042240",
+        "psi_some_avg10": "0.00"
+      },
+      "memory_peak_b": "28971008",
+      "guard_ok": true,
+      "collected": true
+    }
+  },
+  "pass:n2-test": {
+    "rc": 16,
+    "status": "STATUS REFUSED rc=16 sequence: tests-001 rc 0 does not allow invocation n=2 test",
+    "receipt": null
+  },
+  "pass:n2-x": {
+    "rc": 0,
+    "status": "STATUS DONE rc=0 payload_rc=0 collected",
+    "receipt": {
+      "grant": "ations-smoke-u4s-blk-1018142209",
+      "n": 2,
+      "kind": "x",
+      "unit": "simjob-ations-smoke-u4s-blk-1018142209-2.scope",
+      "start_utc": "2026-10-18T21:22:11.30604602Z",
+      "end_utc": "2026-10-18T21:22:11.234960715Z",
+      "start_mono": "1974056.21",
+      "end_mono": "1974056.41",
+      "rc": 0,
+      "precheck": {
+        "mem_available_b": "59841458176",
+        "psi_some_avg10": "0.00"
+      },
+      "memory_peak_b": "9052160",
+      "guard_ok": true,
+      "collected": true
+    }
+  },
+  "pass:n3-x": {
+    "rc": 10,
+    "status": "STATUS DONE rc=0 payload_rc=0 collected",
+    "receipt": {
+      "grant": "ations-smoke-u4s-blk-1018142209",
+      "n": 2,
+      "kind": "x",
+      "unit": "simjob-ations-smoke-u4s-blk-1018142209-2.scope",
+      "start_utc": "2026-10-18T21:22:11.30604602Z",
+      "end_utc": "2026-10-18T21:22:11.234960715Z",
+      "start_mono": "1974056.21",
+      "end_mono": "1974056.41",
+      "rc": 0,
+      "precheck": {
+        "mem_available_b": "59841458176",
+        "psi_some_avg10": "0.00"
+      },
+      "memory_peak_b": "9052160",
+      "guard_ok": true,
+      "collected": true
+    }
+  },
+  "fail:n1-test": {
+    "rc": 1,
+    "status": "STATUS DONE rc=1 payload_rc=1 collected",
+    "receipt": {
+      "grant": "ations-smoke-u4s-blk-1018142209",
+      "n": 1,
+      "kind": "test",
+      "unit": "simjob-ations-smoke-u4s-blk-1018142209-1.scope",
+      "start_utc": "2026-10-18T21:22:12.78503355Z",
+      "end_utc": "2026-10-18T21:22:12.383067224Z",
+      "start_mono": "1974057.26",
+      "end_mono": "1974057.56",
+      "rc": 1,
+      "precheck": {
+        "mem_available_b": "59930935296",
+        "psi_some_avg10": "0.00"
+      },
+      "memory_peak_b": "28516352",
+      "guard_ok": true,
+      "collected": true
+    }
+  },
+  "fail:n2-x": {
+    "rc": 16,
+    "status": "STATUS REFUSED rc=16 sequence: tests-001 rc 1 does not allow invocation n=2 x",
+    "receipt": null
+  },
+  "fail:n2-test": {
+    "rc": 0,
+    "status": "STATUS DONE rc=0 payload_rc=0 collected",
+    "receipt": {
+      "grant": "ations-smoke-u4s-blk-1018142209",
+      "n": 2,
+      "kind": "test",
+      "unit": "simjob-ations-smoke-u4s-blk-1018142209-2.scope",
+      "start_utc": "2026-10-18T21:22:13.369956418Z",
+      "end_utc": "2026-10-18T21:22:13.674639138Z",
+      "start_mono": "1974058.55",
+      "end_mono": "1974058.85",
+      "rc": 0,
+      "precheck": {
+        "mem_available_b": "59889950720",
+        "psi_some_avg10": "0.00"
+      },
+      "memory_peak_b": "28880896",
+      "guard_ok": true,
+      "collected": true
+    }
+  },
+  "fail:n3-x": {
+    "rc": 0,
+    "status": "STATUS DONE rc=0 payload_rc=0 collected",
+    "receipt": {
+      "grant": "ations-smoke-u4s-blk-1018142209",
+      "n": 3,
+      "kind": "x",
+      "unit": "simjob-ations-smoke-u4s-blk-1018142209-3.scope",
+      "start_utc": "2026-10-18T21:22:14.548629242Z",
+      "end_utc": "2026-10-18T21:22:14.753120586Z",
+      "start_mono": "1974059.73",
+      "end_mono": "1974059.93",
+      "rc": 0,
+      "precheck": {
+        "mem_available_b": "59921358848",
+        "psi_some_avg10": "0.00"
+      },
+      "memory_peak_b": "9641984",
+      "guard_ok": true,
+      "collected": true
+    }
+  },
+  "held:n1-test": {
+    "rc": 15,
+    "status": "STATUS REFUSED rc=15 block reservation simjob-u4s-blk-1018-hold.service is [inactive]: window closed or released",
+    "receipt": null
+  },
+  "status_after_release": {
+    "running_cores": 0,
+    "running_mem_gib": 0,
+    "live": []
+  },
+  "units_left": ""
+}

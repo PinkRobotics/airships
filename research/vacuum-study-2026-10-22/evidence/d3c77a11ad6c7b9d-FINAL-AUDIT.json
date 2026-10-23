@@ -1,0 +1,74 @@
+{
+  "schema": "public-research-text-chunks-v1",
+  "publication_status": "Lossless packaging of publication R2; reconstruct before reading the scientific JSON. Not a new scientific record version.",
+  "source_sha256": "d3c77a11ad6c7b9d1d727d380f3530be5eb3903d975902340f4d6650692dc861",
+  "reconstructed_r2": {
+    "path": "evidence/d3c77a11ad6c7b9d-FINAL-AUDIT.json",
+    "sha256": "d3c77a11ad6c7b9d1d727d380f3530be5eb3903d975902340f4d6650692dc861",
+    "bytes": 33584309
+  },
+  "reconstruction": "In listed order, JSON-decode each chunk and concatenate its text field encoded as UTF-8, adding no separator. Chunk paths are relative to this manifest. Verify every chunk and the reconstructed byte count and SHA256.",
+  "chunks": [
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0000.json",
+      "sha256": "fbaf4affd172c076460c52add9e1f44cbc7c0cd85efc2eaa9c2209856dfc4e6b",
+      "bytes": 4157488,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0001.json",
+      "sha256": "50b4091917f1dc089ae1aa75328ab752b2cb5e178b1c7d5b6fb789f1152944f9",
+      "bytes": 4140013,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0002.json",
+      "sha256": "0b32ec88b3bc7a891cfbb2d7eb10fdefa5478af1ef10a551f4511415f9bbbb3e",
+      "bytes": 4137492,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0003.json",
+      "sha256": "9685367db10d871e527ecb81d0fa555de0dc34a878c0409f833db78355b41c45",
+      "bytes": 4134485,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0004.json",
+      "sha256": "459f0bab4ff10fa956af3ac545c82f87bd0d21ae7bc514aa3356ad4666573d1e",
+      "bytes": 4146072,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0005.json",
+      "sha256": "7eaef2082bc4e9641893a4615f46497fc66f7990166a7b60a3bef394349a2b7f",
+      "bytes": 4154528,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0006.json",
+      "sha256": "e2db0aae53e27ec6cb46079e92b67b7c2db21df06e217234228461ce76e5fad1",
+      "bytes": 4142136,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0007.json",
+      "sha256": "ae2b865b7f6b6069c1c3e5ce64f6e51c27bbad82a3b34daeb28f3ae0b72210b1",
+      "bytes": 4140335,
+      "decoded_bytes": 3731590
+    },
+    {
+      "path": "d3c77a11ad6c7b9d-FINAL-AUDIT.json.chunks/0008.json",
+      "sha256": "df50742af7abbb4b3e00e873fef1ac5fbd2a0de5bb792ebb4c907b3901949eae",
+      "bytes": 4174131,
+      "decoded_bytes": 3731589
+    }
+  ],
+  "reconstructed_r3": {
+    "path": "evidence/d3c77a11ad6c7b9d-FINAL-AUDIT.json",
+    "sha256": "d3c77a11ad6c7b9d1d727d380f3530be5eb3903d975902340f4d6650692dc861",
+    "bytes": 33584309
+  },
+  "publication_revision": 3,
+  "packaging_note": "publication_status and reconstructed_r2 retain baseline provenance. Reconstruct the current privacy projection using reconstructed_r3."
+}

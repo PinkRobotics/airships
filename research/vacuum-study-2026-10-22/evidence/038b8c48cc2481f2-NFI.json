@@ -1,0 +1,132 @@
+{
+  "unit": "vacuum-review-a-056-062-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "items": [
+    {
+      "id": "NFI-A1-056-PRESSURE-VALIDATION",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "The pressure target is a simulation and the field check conditions on saved plastic strain and imported geometry. It does not independently reproduce the full plastic/contact history, a three-dimensional stability loss or a measured pressure failure.",
+      "evidence_needed": "A declared constitutive/history/import deck and independent continuation/stability check, followed by a relevant pressure-shell experiment.",
+      "claims": [
+        "A1-01",
+        "A1-02"
+      ]
+    },
+    {
+      "id": "NFI-A1-056-MATERIAL",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "Foam hydrostatic/flow calibration and the steel-axis interpretation are unresolved. At the refined peak, 1543 core points exceed the retained hardening knots; minimum J≈0.398. Agreement at one pressure does not establish those properties.",
+      "evidence_needed": "Matched foam multiaxial, unloading and densification data; confirmed steel curve units and compressive response.",
+      "claims": [
+        "A1-02",
+        "A1-05"
+      ]
+    },
+    {
+      "id": "NFI-A1-CORE-TRANSFER",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "CR III catalog direction/thickness/strength anchors do not identify its installed finite-strain tensor, postpeak crushing, unloading, shear failure or mixed loading.",
+      "evidence_needed": "Matched directional core and bonded assembly tests at the proposed thickness, ribbon layout and temperature.",
+      "claims": [
+        "A1-05",
+        "A1-06"
+      ]
+    },
+    {
+      "id": "NFI-A1-BE-PROCESS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "SR-200's scalar modulus and tensile minimums do not establish a processed, minimum-gauge biaxial compressive allowable.",
+      "evidence_needed": "Purchased/forming/cure lot data and thin-sheet compression/fracture qualification for the actual gauges.",
+      "claims": [
+        "A1-06",
+        "A1-07"
+      ]
+    },
+    {
+      "id": "NFI-A1-BOND-PROCESS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "Light 2U identity is established, but exact Be/CR III preparation, cure, residual stress and seam behavior are not.",
+      "evidence_needed": "Exact-process bond and scarf strength/fracture/aging measurements and a released residual-state measurement.",
+      "claims": [
+        "A1-06",
+        "A1-08"
+      ]
+    },
+    {
+      "id": "NFI-A1-TOLERANCE-TRANSFER",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The amplitudes use a calibrated Gaussian family at reference pressure 95.4608379 kPa and a tensile proxy. Holding C across changed thickness/shear ratios and carrying a scalar cure debit do not model a complete thermal/weather/seam field.",
+      "evidence_needed": "Measured defect spectra and residual fields, a specified combined load case, and independent prediction of a manufactured curved article before release as shop acceptance.",
+      "claims": [
+        "A1-09",
+        "A1-10",
+        "A1-11",
+        "A1-12"
+      ]
+    },
+    {
+      "id": "NFI-A1-PRECEDENT-METRIC",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "Supported reflector RMS, masked maps, optical segment figure and core-to-face fit do not bound a free pressure shell's local inward defect. ALMA captions mask faulty areas for both prototypes.",
+      "evidence_needed": "Full signed contour data with local amplitude/span, support condition and acceptance masks for a comparable manufactured shell.",
+      "claims": [
+        "A1-17"
+      ]
+    },
+    {
+      "id": "NFI-A1-STOCK-YIELD",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The R10 thin-sheet class does not establish the inherited 24×72 inch blank layout; forming yield, usable gauge, core fit and purchased Be capacity remain unknown.",
+      "evidence_needed": "Usable blank/gauge quotes, actual nesting and process-yield measurements; reprice seams and flight mass if they change.",
+      "claims": [
+        "A1-07",
+        "A1-13",
+        "A1-14",
+        "A1-15"
+      ]
+    },
+    {
+      "id": "NFI-A1-COST-VALIDITY",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The cost ranges reproduce only the stated planning assumptions. They are not quotes, measured confidence intervals or complete qualified-flight program totals.",
+      "evidence_needed": "Supplier quotations, measured labor/yield, required article count and full-scale qualification/facility/program scope.",
+      "claims": [
+        "A1-13",
+        "A1-14",
+        "A1-15"
+      ]
+    },
+    {
+      "id": "NFI-A1-FACILITY-SCALING",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "ASSUMPTIONS.json names R10 hall and handling rates without explicit radius exponents. Delivered cost lines imply R^2.5 and R^2. The review retains these lines as supplied allowances, not independently sourced predictions.",
+      "evidence_needed": "Document those assumed scaling laws and obtain facility/handling scope and prices.",
+      "claims": [
+        "A1-14",
+        "A1-15"
+      ]
+    },
+    {
+      "id": "NFI-A1-PASSIVE-SHAPE",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The retained 0.020 kg/m² hardware/filler allowance and passive shape retention after support removal are not demonstrated. Additional structure, repair or growth-driven local loads would need a new bill.",
+      "evidence_needed": "A released joined/closed process article demonstrating retained contour, mass and thermal/pressure response.",
+      "claims": [
+        "A1-06",
+        "A1-16"
+      ]
+    }
+  ],
+  "scope": "Unresolved source/physical questions, not demonstrated arithmetic mismatches."
+}

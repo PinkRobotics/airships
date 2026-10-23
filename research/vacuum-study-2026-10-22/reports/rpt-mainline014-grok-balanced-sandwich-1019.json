@@ -1,0 +1,55 @@
+{
+  "id": "rpt-mainline014-grok-balanced-sandwich-1019",
+  "unit": "vacuum-mainline014-balanced-sandwich-1019",
+  "at": "2026-10-19T23:28:12-07:00",
+  "body": "ESTIMATE_PENDING_UNA. MAINLINE-014 optimises thickness and core depth at the float ceiling for the fifteen MAINLINE-008 faces. Modes are shear-trimmed global buckling, yield, wrinkling, shear crimping and crush at p/2. Best three at the design coefficients: CNT-yarn PROJECTION 0.750340630448, Be S-200F 0.685338231171, graphene PROJECTION 0.677880583214. Best QUESTIONABLE faces: Be S-200F, K13D2U 0.651932173894, AlBeMet 162 0.553994420508. Those leaders use sourced 32 kg/m3 aramid honeycomb. Crimp and wrinkling meet, so knockdown 0.1407 does not enter. Be's gain versus the 008 P2-E factor is 1.1782290476, below the rough 1.7 estimate. Foam wrinkling coefficients are design 0.50 and theoretical 0.82. The core product Ec*Gc must rise by 4.410944 to cover that gap. Honeycomb coefficients are design 0.33 and theoretical 0.82. On these geometries the theoretical coefficient leaves the least safety factor unchanged for CNT-yarn and Be, and moves graphene, K13D2U and AlBeMet only onto the adjacent crimp value. 6061-T6 stays at 0.130543953166. Nothing is a certification. Start 2026-10-19T23:23:35.294565-07:00. End 2026-10-19T23:24:47.830573-07:00. Elapsed 72.53601943398826 s, a measurement. The deadline 2026-10-20T07:00:00-07:00 is a door check-in. This report leaves the caps-open order open.",
+  "artifacts": [
+    {
+      "path": "evidence/df9e014f7450625b-CARD.md",
+      "sha256": "df9e014f7450625b98c18d5a3b2d182b105fff7755e6758baea5424dd85aed14",
+      "bytes": 5045
+    },
+    {
+      "path": "evidence/0e2d7bf61d20e6ee-mainline014.json",
+      "sha256": "0e2d7bf61d20e6ee2316d545ba53d8a850378379ff126a95ce8cae8181df0eb8",
+      "bytes": 85107
+    },
+    {
+      "path": "evidence/e0fba238a74bd426-NFI.json",
+      "sha256": "e0fba238a74bd42688b0a331e81d7162ac28afdee1e076646621982b39c92e22",
+      "bytes": 1944
+    },
+    {
+      "path": "evidence/4d22ff53856afea6-INPUTS.json",
+      "sha256": "4d22ff53856afea6f5f8094b7e439e6eecca8ea50e5271a64e74c11c6d38b061",
+      "bytes": 7030
+    },
+    {
+      "path": "evidence/66242da8f5a31b62-balanced.py",
+      "sha256": "66242da8f5a31b620241fda1a40d84dacdc739e7e8acf852c6f10b3591dc5ee0",
+      "bytes": 24151
+    },
+    {
+      "path": "evidence/f8a3f0a069b9bb18-ORIGIN.json",
+      "sha256": "f8a3f0a069b9bb18bba387d82f46081d77dab5035839798bfedf9c5353a13166",
+      "bytes": 96
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline014-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline014-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline014-wrinkle-coefficient-two-levels-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

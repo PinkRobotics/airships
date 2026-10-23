@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009c",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-19T23:40:12-07:00",
+  "ended_at": "2026-10-19T23:40:12-07:00",
+  "point": {
+    "family": "P2",
+    "face": "Beryllium S-200F",
+    "face_tag": "QUESTIONABLE",
+    "face_source": "Materion beryllium data sheet https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4 (S-200F density 1.85 g/cc, E 303 GPa); Brush/Materion Beryllium Guide MB-001 compressive-yield note",
+    "core": "Hexcel HRH-10-4.8-32",
+    "core_tag": "QUESTIONABLE",
+    "core_source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+    "taken_from": "rpt-mainline014-grok-balanced-sandwich-1019",
+    "why_this_row": "The order names this QUESTIONABLE row. CNT-yarn is higher and is PROJECTION.",
+    "cnt_not_the_point": {
+      "face": "CNT-yarn composite quasi-isotropic",
+      "tag": "PROJECTION",
+      "least_SF": 0.7503406304475981,
+      "core": "Hexcel HRH-10-4.8-32"
+    }
+  },
+  "branch": {
+    "name": "shear_crimping",
+    "Vc": 3.5080083728637845,
+    "Kc": 0.2850620334134618,
+    "gamma_d": 1.0,
+    "rule": "Vc>2 gives Kc=1/Vc and gamma_d=1. Stated global equals crimp at every knockdown. Do not scale it by kd/0.20.",
+    "sigma_0_Pa": 723604190.5638765,
+    "sigma_crimp_Pa": 206272081.94864076
+  },
+  "geometry": {
+    "tf_m": 0.0007929207043436264,
+    "core_m": 0.021750596068442405,
+    "separation_m": 0.022543516772786033,
+    "R_m": 10.0
+  },
+  "float": {
+    "lift_kg": 4889.442150186961,
+    "faces_kg": 3686.730112274868,
+    "core_kg": 874.6433640936666,
+    "joints_kg": 228.06867381842676,
+    "systems_kg": 100.0,
+    "total_kg": 4889.442150186962,
+    "payload_kg": -9.094947017729282e-13,
+    "float_margin": -1.8601195675014813e-16,
+    "ceiling": "014's structural mass is (lift-100)/1.05. This row spends that ceiling. MAINLINE-009's 5 percent margin is not this point."
+  },
+  "stated_modes_every_knockdown": {
+    "0.2": {
+      "gamma_d": 1.0,
+      "Kc": 0.2850620334134618,
+      "modes": {
+        "global_buckling": 0.6853382311714157,
+        "face_compression": 0.940266455786305,
+        "core_crush": 20.950999841461407,
+        "core_shear_crimping": 0.6853382311714157,
+        "face_wrinkling": 0.6854549602516505
+      },
+      "least_SF": 0.6853382311714157,
+      "governing": "core_shear_crimping",
+      "tied_with": "global_buckling",
+      "note": "Vc>2 sets gamma_d to 1. The knockdown does not enter."
+    },
+    "0.9": {
+      "gamma_d": 1.0,
+      "Kc": 0.2850620334134618,
+      "modes": {
+        "global_buckling": 0.6853382311714157,
+        "face_compression": 0.940266455786305,
+        "core_crush": 20.950999841461407,
+        "core_shear_crimping": 0.6853382311714157,
+        "face_wrinkling": 0.6854549602516505
+      },
+      "least_SF": 0.6853382311714157,
+      "governing": "core_shear_crimping",
+      "tied_with": "global_buckling",
+      "note": "Vc>2 sets gamma_d to 1. The knockdown does not enter."
+    },
+    "0.1407": {
+      "gamma_d": 1.0,
+      "Kc": 0.2850620334134618,
+      "modes": {
+        "global_buckling": 0.6853382311714157,
+        "face_compression": 0.940266455786305,
+        "core_crush": 20.950999841461407,
+        "core_shear_crimping": 0.6853382311714157,
+        "face_wrinkling": 0.6854549602516505
+      },
+      "least_SF": 0.6853382311714157,
+      "governing": "core_shear_crimping",
+      "tied_with": "global_buckling",
+      "note": "Vc>2 sets gamma_d to 1. The knockdown does not enter."
+    }
+  },
+  "honeycomb_coefficient": {
+    "design": 0.33,
+    "design_source": "NASA CR-1457 equation 2.2-14",
+    "theoretical": 0.82,
+    "theoretical_source": "MAINLINE-014 names 0.82 from Hemp, as quoted for anti-plane cores in NASA/CR-1999-208994. Those works were not opened here.",
+    "SF_wrinkle_design": 0.6854549602516505,
+    "SF_wrinkle_theoretical": 1.7032517194131922,
+    "least_SF_design": 0.6853382311714157,
+    "least_SF_theoretical": 0.6853382311714157,
+    "governing_theoretical": "core_shear_crimping",
+    "Ec_scale_factor": 6.1744719926538085
+  },
+  "reaches_SF_1_in_every_mode": false,
+  "factor_to_SF_1": 1.459133540953564,
+  "nfi": [
+    {
+      "id": "NFI-CRIMP-BRANCH",
+      "note": "Vc is above 2, so Kc is 1/Vc and gamma_d is 1 at every knockdown. Stated global equals crimp. The factor does not scale with kd."
+    },
+    {
+      "id": "NFI-NU",
+      "note": "nu is the aluminium case value 0.33. MAINLINE-008 published no beryllium Poisson ratio."
+    },
+    {
+      "id": "NFI-FACE-STRENGTH",
+      "note": "The stated face mode uses compressive yield 283 MPa, which MAINLINE-008 takes from 41 ksi. The same line prints tensile yield 37 ksi. Scaling the face factor by 37/41 leaves it above the crimp pair. QUESTIONABLE."
+    },
+    {
+      "id": "NFI-STABILISED-EC",
+      "note": "Hexcel Ec of 76 MPa is the stabilised compressive modulus. MAINLINE-007 says that column is not the continuum modulus of the wrinkling formula. Equation 2.2-14 uses it here because 014 did."
+    },
+    {
+      "id": "NFI-WRINKLE-Q",
+      "optimistic": 0.82,
+      "design": 0.33,
+      "factor_on_Ec": 6.1744719926538085,
+      "note": "Honeycomb design coefficient 0.33 is CR-1457 equation 2.2-14. The theoretical 0.82 is the value 014 names from Hemp via NASA/CR-1999-208994. Those works were not opened. The least factor does not move, because crimp governs."
+    },
+    {
+      "id": "NFI-CRUSH",
+      "note": "Core crush is compressive strength over p/2. Thickness does not enter."
+    },
+    {
+      "id": "NFI-MASS",
+      "note": "This row uses 014's ceiling, (lift-100)/1.05. Float margin is 0. MAINLINE-009's 5 percent margin is a different point."
+    },
+    {
+      "id": "NFI-CNT",
+      "note": "CNT-yarn's least factor is higher and the face tag is PROJECTION. It is not this point."
+    },
+    {
+      "id": "NFI-013",
+      "note": "MAINLINE-013 has not filed. Scaled cores are not this row."
+    },
+    {
+      "id": "NFI-ALHC",
+      "note": "Plascore aluminium honeycomb has no Ec. Wrinkling is unscored, so those rows stay out."
+    }
+  ],
+  "sic_divinycell_009b_least_SF": 0.23515931324953654,
+  "p3": {
+    "mark": "PENDING-011b",
+    "scored": false,
+    "rows": [
+      {
+        "id": "NFI-P3-LATTICE",
+        "mode": "global lattice buckling",
+        "optimistic": "about 0.70, perfect, equivalent-continuum, at 011's 6061 optimum",
+        "with_knockdown_0.2_to_0.5": "about 0.14 to 0.35",
+        "source": "ord-admiral-rr2-mainline009-p3-pending-011b-1019, reporting the robotics seat's estimate. Not recomputed here.",
+        "tag": "QUESTIONABLE",
+        "direction": "MAINLINE-011b, the 011 owner."
+      },
+      {
+        "id": "NFI-P3-BENDING",
+        "mode": "member bending from the film line load",
+        "optimistic": null,
+        "conservative": null,
+        "factor": null,
+        "condition": "The mode is absent unless every member is an arc of the sphere.",
+        "source": "ord-admiral-rr2-mainline009-p3-pending-011b-1019",
+        "tag": "QUESTIONABLE",
+        "direction": "MAINLINE-011b."
+      }
+    ]
+  },
+  "later": {
+    "014b_report": null,
+    "009d": "when 014b files"
+  },
+  "sources": {
+    "RESULTS.json": {
+      "path": "evidence/cd02e4ec651bc748-RESULTS.json",
+      "sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "bytes": 31544
+    },
+    "P3-PENDING.json": {
+      "path": "evidence/c92aa0157acbd698-P3-PENDING.json",
+      "sha256": "c92aa0157acbd69812e1a62ec9cf6fa40d39fe82fbfc9074344e94e8f212b695",
+      "bytes": 1308
+    }
+  }
+}

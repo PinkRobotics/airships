@@ -1,0 +1,37 @@
+{
+  "id": "E-daeae473852466ec75bf",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-daeae473852466ec75bf",
+    "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+    "file": "evidence/298ddfd71d18cdeb-NFI.json",
+    "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+    "source_sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+    "source_json_pointer": "/issues/3",
+    "row_id": "NFI056-STEEL-AXIS",
+    "fields": {
+      "id": "NFI056-STEEL-AXIS",
+      "status": "open",
+      "finding": "Figure 5 starts near 7500 MPa as labeled. The base uses the declared factor-of-ten interpretation (750 MPa) and J2 plasticity; the literal axis is a separate sensitivity.",
+      "consequence": "No unique sourced steel plasticity curve was recovered. The axis correction is not an established erratum. The plotted tensile curve is also transferred symmetrically to compression through the J2 assumption."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Figure 5 starts near 7500 MPa as labeled. The base uses the declared factor-of-ten interpretation (750 MPa) and J2 plasticity; the literal axis is a separate sensitivity.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+      "artifact": "evidence/298ddfd71d18cdeb-NFI.json",
+      "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+      "sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+      "bytes": 5002,
+      "selector": "/issues/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

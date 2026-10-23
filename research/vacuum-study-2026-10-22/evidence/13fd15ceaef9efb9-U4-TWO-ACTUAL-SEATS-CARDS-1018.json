@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "at": "2026-10-18T13:20:23-07:00",
+  "assignment": "ord-co27-sci-u4-now-saturate-rotate-u3-1018",
+  "primary": {
+    "seat": "ref-2af91acaf72c2b948e11",
+    "pool": "ref-c8588213c6d5d26480af",
+    "harness": "Muse1.4.10",
+    "model": "muse-wonder-1.0",
+    "effort": "max",
+    "custody": "ADMITTED",
+    "firstcard_status": "ACCEPTED",
+    "firstcard": "ref-16bc7b8d79b6d9db478f-first-card-1018",
+    "binding": {
+      "path": "withheld-source:8ac5d275fe0fec39",
+      "sha256": "77413624448cb7ffa5e8ccad5f89b1992cebfd0c79d720ee4c51fb35fce75453",
+      "bytes": 5731
+    }
+  },
+  "independent": {
+    "seat": "ref-2543c559b19ffce7dfdd",
+    "pool": "ref-3e199f7e15cdec86a8ae",
+    "harness": "Grok1.0.62",
+    "model": "grok-4.7",
+    "effort": "high",
+    "custody": "ADMITTED",
+    "firstcard_status": "FILED_ADMISSION_NOT_YET_SAMPLED",
+    "firstcard": "ord-sciences-g1-u4-grok-independent-first-card-1018",
+    "binding": {
+      "path": "withheld-source:1eae952c26650f27",
+      "sha256": "6137d460cf1bc892cdba2f2b3b45aa833eba85e378e9d0f5f985b27aa65a784f",
+      "bytes": 5652
+    }
+  },
+  "U3_rotation": "Sciences retains task/lifecycle custody under CO; Ops owns runtime placement. At actual GLM wall use ref-8a590cbdc9eb38b274a8 by default; Grok/Muse alternative only if Ops establishes headroom/suitability. No waiting for reset, no preemptive third mint,90% usage alone is not a wall.",
+  "completion_scope": "Both builders requested, actual READY seats/pools reported, both prepared cards filed and bound after custody, rotation plan named. Specific CO administrative assignment complete; neither scientific work nor U4 programme complete.",
+  "retained_limits": "Both receipts identity_verified=false/loaded_inputs_verified=false; null measured metadata; native corroboration limits. No preparation-start claim from filing. Nativeprojectprj-helm; artifact-only source preparation; no project/native/runtime/map authority inferred.",
+  "host": "Ops admits exact jobs later under <=8cores/16GiBdefault/<=2h, aggregate24cores36GiB, headroom20GB,PSIavg10<5,swap0,threadvars=coreshare. No current job started; later tests/sweeps require separate run orders."
+}

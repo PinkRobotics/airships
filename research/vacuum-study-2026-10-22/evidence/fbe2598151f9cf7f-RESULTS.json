@@ -1,0 +1,244 @@
+{
+  "unit": "vacuum-record-delta-c-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "record_version": 7,
+  "parent_record": {
+    "path": "evidence/6fbed1dae9140018-CLAIM-RECORD.json",
+    "version": 6,
+    "sha256": "6fbed1dae9140018f7a788787f4ce5f259d9ec431a76613eef88a56e569f0735",
+    "bytes": 21667290,
+    "unchanged": true
+  },
+  "beta": {
+    "definition": "real root of b^3+b=1",
+    "natural": 0.682327803828082,
+    "run": 1.0,
+    "sites": [
+      "model61.py:33",
+      "model61.py:123",
+      "model63.py:33",
+      "model63.py:130"
+    ],
+    "handbook_citation_in_model": null,
+    "admissible_coefficient": "CR-1457 equation 2.2-14, 0.33",
+    "model_line_product": 0.22516817526326707,
+    "which_stands": "Equation 2.2-14's 0.33 stands for the admissible published Q. BETA times 0.33 stands only as the model line. Both are kept."
+  },
+  "simjob": {
+    "scope": "simjob-20261020t172906-48ca69d580a3",
+    "exit": 0,
+    "started": "2026-10-20T17:29:06.872558-07:00",
+    "completed": "2026-10-20T17:29:54.065487-07:00",
+    "elapsed_s": 47.192935422062874,
+    "cores": 1,
+    "mem": "4G",
+    "reservation": "released"
+  },
+  "programme_state": {
+    "numerical_status": "unreviewed",
+    "statement": "With today's admissible gamma 0.20 and Q 0.33 taken as equation 2.2-14, every recomputed concept and TRL 7 payload is still negative. The favorable ramp and Q 0.82 are not admissible. T7 and T3 remain the tests that could show better."
+  },
+  "rows": [
+    {
+      "law": "ramp",
+      "R_m": 20,
+      "weather": "ISA",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.5938845100207362,
+      "Vc": 0.9847112750518405,
+      "concept_binding": "scarf_average_shear",
+      "TRL7_binding": "scarf_average_shear",
+      "recomputed_concept_kg": -2473.5500140724216,
+      "recomputed_TRL7_kg": 1194.5724318951852,
+      "density_factor": 1.0765996765403547,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.006430458176510001,
+      "filed_065": {
+        "concept": -5925.833037420652,
+        "trl7": -1958.5057713483156,
+        "factor": 1.1801825417385003,
+        "gamma": 0.6350723039930783
+      },
+      "cap_anchor_difference": {
+        "concept_kg": 0.0,
+        "TRL7_kg": 0.0,
+        "concept_gamma": 0.0,
+        "TRL7_gamma": -7.134188795276941e-10
+      }
+    },
+    {
+      "law": "ramp",
+      "R_m": 20,
+      "weather": "optimistic",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.6034907402317844,
+      "Vc": 1.0087268505794609,
+      "concept_binding": "scarf_average_shear",
+      "TRL7_binding": "scarf_average_shear",
+      "recomputed_concept_kg": -3772.657517898937,
+      "recomputed_TRL7_kg": -29.884121324033003,
+      "density_factor": 1.1183202024790495,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.006748971984961827,
+      "filed_065": {
+        "concept": -7069.309613386611,
+        "trl7": -3040.7469815062304,
+        "factor": 1.2179491112563663,
+        "gamma": 0.642498555381245
+      },
+      "cap_anchor_difference": {
+        "concept_kg": 0.0,
+        "TRL7_kg": 0.0,
+        "concept_gamma": 0.0,
+        "TRL7_gamma": -1.9400370199207373e-10
+      }
+    },
+    {
+      "law": "ramp",
+      "R_m": 30,
+      "weather": "ISA",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.5945923299780864,
+      "Vc": 0.986480824945216,
+      "concept_binding": "global_buckling",
+      "TRL7_binding": "scarf_average_shear",
+      "recomputed_concept_kg": -6582.656950982218,
+      "recomputed_TRL7_kg": 5594.8307618927365,
+      "density_factor": 1.0593131195279497,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.014394302495929878,
+      "filed_065": {
+        "concept": -18148.42594870122,
+        "trl7": -4968.150052446039,
+        "factor": 1.1606542642018385,
+        "gamma": 0.6354201168166034
+      },
+      "cap_anchor_difference": {
+        "concept_kg": 0.0,
+        "TRL7_kg": 0.0,
+        "concept_gamma": 0.0,
+        "TRL7_gamma": -1.2614717048720081e-09
+      }
+    },
+    {
+      "law": "ramp",
+      "R_m": 30,
+      "weather": "optimistic",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.6042090706436843,
+      "Vc": 1.0105226766092108,
+      "concept_binding": "global_buckling",
+      "TRL7_binding": "scarf_average_shear",
+      "recomputed_concept_kg": -10973.593483521443,
+      "recomputed_TRL7_kg": 1456.5429574464424,
+      "density_factor": 1.1001181192524239,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.02809065976543934,
+      "filed_065": {
+        "concept": -22010.464486428173,
+        "trl7": -8623.144576046321,
+        "factor": 1.1975137479372135,
+        "gamma": 0.6428498380608656
+      },
+      "cap_anchor_difference": {
+        "concept_kg": 0.0,
+        "TRL7_kg": 0.0,
+        "concept_gamma": 0.0,
+        "TRL7_gamma": 3.691302818964459e-11
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 20,
+      "weather": "ISA",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.2914389989366684,
+      "concept_binding": "face_wrinkling",
+      "TRL7_binding": "global_buckling",
+      "recomputed_concept_kg": -19594.208605672735,
+      "recomputed_TRL7_kg": -14403.015003408918,
+      "density_factor": 1.778610232219045,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.0028571551229106262,
+      "filed_065": {
+        "concept": -29388.76159348207,
+        "trl7": -23345.704763314785,
+        "factor": 2.118037110392169,
+        "gamma": 0.2
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 20,
+      "weather": "optimistic",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.3196038871127238,
+      "concept_binding": "global_buckling",
+      "TRL7_binding": "face_wrinkling",
+      "recomputed_concept_kg": -21184.23455564135,
+      "recomputed_TRL7_kg": -15892.121478656387,
+      "density_factor": 1.8626237670124857,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.00451528575104021,
+      "filed_065": {
+        "concept": -31324.20860105718,
+        "trl7": -25149.90874625808,
+        "factor": 2.2210491118125706,
+        "gamma": 0.2
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 30,
+      "weather": "ISA",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.2945618007246342,
+      "concept_binding": "face_wrinkling",
+      "TRL7_binding": "face_wrinkling",
+      "recomputed_concept_kg": -64564.821981282366,
+      "recomputed_TRL7_kg": -47222.28610855001,
+      "density_factor": 1.743190092978529,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.016157381960510975,
+      "filed_065": {
+        "concept": -97877.74545950821,
+        "trl7": -77634.3080381391,
+        "factor": 2.0801961550040193,
+        "gamma": 0.2
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 30,
+      "weather": "optimistic",
+      "numerical_status": "unreviewed",
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.3228171361535983,
+      "concept_binding": "global_buckling",
+      "TRL7_binding": "face_wrinkling",
+      "recomputed_concept_kg": -69947.21520463409,
+      "recomputed_TRL7_kg": -52262.178107306456,
+      "density_factor": 1.8246635685863137,
+      "density_status": "conditional closure",
+      "closure_concept_kg": 0.01054416999249952,
+      "filed_065": {
+        "concept": -104441.2304443153,
+        "trl7": -83751.33536831073,
+        "factor": 2.1805615255806963,
+        "gamma": 0.2
+      }
+    }
+  ]
+}

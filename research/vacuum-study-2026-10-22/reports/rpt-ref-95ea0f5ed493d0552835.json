@@ -1,0 +1,29 @@
+{
+  "id": "rpt-ref-95ea0f5ed493d0552835",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-19T23:27:29-07:00",
+  "body": "P2 stays the main point. P3 is carried as PENDING-011b, not as a replacement. MAINLINE-011 reports least safety factor 0.233 in 6061 and 2.8485 with SiC tubes, at margin 0, on the modes it scored. Two modes are absent. Global lattice buckling is the robotics seat's equivalent-continuum estimate, about 0.70 perfect at the 6061 optimum, and about 0.14 to 0.35 under a knockdown of 0.2 to 0.5. Member bending from the film line load is the other, unless every member is an arc of the sphere. Both are in the NFI ledger. QUESTIONABLE. Not recomputed here. MAINLINE-009b waits until 011b files.",
+  "artifacts": [
+    {
+      "path": "evidence/367cb0dd7ebd215f-P3-PENDING.md",
+      "sha256": "367cb0dd7ebd215fe773366312457cd0e0d0931f6fe24c94f26e1a024371c4e4",
+      "bytes": 760
+    },
+    {
+      "path": "evidence/c92aa0157acbd698-P3-PENDING.json",
+      "sha256": "c92aa0157acbd69812e1a62ec9cf6fa40d39fe82fbfc9074344e94e8f212b695",
+      "bytes": 1308
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009-p3-pending-011b-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline009-p3-pending-011b-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

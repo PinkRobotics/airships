@@ -1,0 +1,70 @@
+{
+  "id": "N151",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N151",
+    "report": "rpt-ref-f21d4bd21d2026511818",
+    "card": "MAINLINE-011",
+    "file": "evidence/0f1373271ca0676e-NFI.json",
+    "row_id": "NFI-011-SIC",
+    "fields": {
+      "NFI_id": "NFI-011-SIC",
+      "gap": "SiC's 3900 MPa is a crushing value; 008's own NFI carries that flexural ~380 MPa governs any bending or tension path, with brittle fracture, joining and handling unresolved. A 0.04 m radius sintered SiC tube of 1.3 mm wall is undemonstrated.",
+      "direction": "Treat the SiC row as a material-boundary statement (sigma/rho headroom), not a buildable tube.",
+      "effect": "The P3 sigma/rho-bound conclusion stands; the SiC design point does not."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-011-SIC\", \"gap\": \"SiC's 3900 MPa is a crushing value; 008's own NFI carries that flexural ~380 MPa governs any bending or tension path, with brittle fracture, joining and handling unresolved. A 0.04 m radius sintered SiC tube of 1.3 mm wall is undemonstrated.\", \"direction\": \"Treat the SiC row as a material-boundary statement (sigma/rho headroom), not a buildable tube.\", \"effect\": \"The P3 sigma/rho-bound conclusion stands; the SiC design point does not.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/150"
+    },
+    {
+      "report": "rpt-ref-f21d4bd21d2026511818",
+      "artifact": "evidence/0f1373271ca0676e-NFI.json",
+      "snapshot": "evidence/0f1373271ca0676e-NFI.json",
+      "sha256": "0f1373271ca0676e10b2226955ec043374b1eb803a154ba6b2fe8820f46a0811",
+      "bytes": 3866,
+      "selector": "source row ID: NFI-011-SIC"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f21d4bd21d2026511818",
+          "artifact": "evidence/0f1373271ca0676e-NFI.json",
+          "snapshot": "evidence/0f1373271ca0676e-NFI.json",
+          "sha256": "0f1373271ca0676e10b2226955ec043374b1eb803a154ba6b2fe8820f46a0811",
+          "bytes": 3866,
+          "selector": "source row ID: NFI-011-SIC"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/150"
+          }
+        ]
+      }
+    }
+  ]
+}

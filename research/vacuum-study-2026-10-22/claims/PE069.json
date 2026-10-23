@@ -1,0 +1,88 @@
+{
+  "id": "PE069",
+  "kind": "piece_e",
+  "claim": "069 design point, bill arithmetic reproduced, physical float not independently closed. R30 optimistic concept: face 3.216 mm at 1013.825 kg/m3, core 178.708 mm, payload +5.031 kg, buckling and wrinkling at 1.000, thermal 1.071, gamma 0.20, Q 0.33, Vc filed 1.322817. The same hull is +1499 kg in ISA and +11607 / +13101 kg at TRL 7. The graphite paragraph on this page does not stand on CR-III. simjob-20261020t185846-4e60751d4d81 exited 0. Modulus on this design point is 293.6 GPa. A join figure of 290 GPa is rejected. 073's equibiaxial result supersedes any claim that this float survives.",
+  "numerical_status": "reproduced",
+  "physical_qualification": "open",
+  "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "rpt-ref-aa9fcf4d7d90bf834644",
+      "artifact": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+      "snapshot": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+      "sha256": "1de87d6027bbe88739d06f40bc4d6163532a1b74238f733b79865cd1d8e02417",
+      "bytes": 4896,
+      "selector": "/body"
+    },
+    {
+      "report": "rpt-ref-3d309c9998ff4bbe5e81",
+      "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+      "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+      "bytes": 6467,
+      "selector": "/independent"
+    },
+    {
+      "report": "rpt-sciences-g6-review-e2-admission-limits-1022",
+      "artifact": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+      "snapshot": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+      "sha256": "dc8a39879661dd0fe1da1dc5bf4c41a040f64e0f0c313446759529132bd1d478",
+      "bytes": 1546,
+      "selector": "/body"
+    },
+    {
+      "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+      "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+      "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+      "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+      "bytes": 1276,
+      "selector": "/body"
+    }
+  ],
+  "amendments": [
+    {
+      "delta": "DELTA-E2-1022",
+      "reason": "The graphite join gave this design point 290 GPa. 069's modulus is 293.6 GPa. The float does not survive 073.",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-review-e2-admission-limits-1022",
+          "artifact": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+          "snapshot": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+          "sha256": "dc8a39879661dd0fe1da1dc5bf4c41a040f64e0f0c313446759529132bd1d478",
+          "bytes": 1546,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+          "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+          "bytes": 1276,
+          "selector": "/body"
+        }
+      ],
+      "previous": {
+        "claim": "069 design point, bill arithmetic reproduced, physical float not independently closed. R30 optimistic concept: face 3.216 mm at 1013.825 kg/m3, core 178.708 mm, payload +5.031 kg, buckling and wrinkling at 1.000, thermal 1.071, gamma 0.20, Q 0.33, Vc filed 1.322817. The same hull is +1499 kg in ISA and +11607 / +13101 kg at TRL 7. The graphite paragraph on this page does not stand on CR-III. simjob-20261020t185846-4e60751d4d81 exited 0.",
+        "sources": [
+          {
+            "report": "rpt-ref-aa9fcf4d7d90bf834644",
+            "artifact": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+            "snapshot": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+            "sha256": "1de87d6027bbe88739d06f40bc4d6163532a1b74238f733b79865cd1d8e02417",
+            "bytes": 4896,
+            "selector": "/body"
+          },
+          {
+            "report": "rpt-ref-3d309c9998ff4bbe5e81",
+            "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+            "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+            "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+            "bytes": 6467,
+            "selector": "/independent"
+          }
+        ]
+      }
+    }
+  ]
+}

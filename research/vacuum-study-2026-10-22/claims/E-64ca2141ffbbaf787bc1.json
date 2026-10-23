@@ -1,0 +1,40 @@
+{
+  "id": "E-64ca2141ffbbaf787bc1",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-64ca2141ffbbaf787bc1",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/6",
+    "row_id": "C055-07",
+    "fields": {
+      "id": "C055-07",
+      "title": "DIC price evidence should use the actual primary award",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The cited 180–350k purchase indicator was an AI estimate from an aggregator. The related NIST award 1333ND26PNB30149, dated 2026-09-22, lists total value USD 530000. This is a different procurement scope from a rented or partner-supplied experiment.",
+      "proposed_fix": "Replace the weak purchase-price reference with the primary award and scope distinction. Do not convert it directly into a revised rental or total test cost."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "DIC price evidence should use the actual primary award",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

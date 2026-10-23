@@ -1,0 +1,356 @@
+{
+  "schema": 1,
+  "checked_at": "2026-10-20T03:40:29.916839-07:00",
+  "status": "PASS computational checks; REVISE interpretation and optimization claims",
+  "numeric_field_comparisons": 13176,
+  "headline_comparisons": 39,
+  "checks": [
+    {
+      "check": "Owner/upstream/assignment pin integrity",
+      "passed": true,
+      "evidence": "31 comparisons"
+    },
+    {
+      "check": "Detailed arithmetic",
+      "passed": true,
+      "evidence": 5392
+    },
+    {
+      "check": "Extended arithmetic",
+      "passed": true,
+      "evidence": 7768
+    },
+    {
+      "check": "Compact-record missing shapes disclosed",
+      "passed": true,
+      "evidence": [
+        {
+          "path": "RUNS-gs5.json/concepts/5/sets_six_modes/1/psi",
+          "value": 8.016724619617161
+        },
+        {
+          "path": "RUNS-gs5.json/concepts/5/sets_six_modes/4/psi",
+          "value": 10.263221997291977
+        },
+        {
+          "path": "RUNS-gs5.json/concepts/5/sets_six_modes/5/psi",
+          "value": 8.016724619617161
+        },
+        {
+          "path": "RUNS-gs5.json/concepts/5/sets_six_modes/6/psi",
+          "value": 7.771386955454643
+        }
+      ]
+    },
+    {
+      "check": "Nominal 028b reconstructed from seam and mass equalities",
+      "passed": true,
+      "evidence": 16
+    },
+    {
+      "check": "Record-dome psi arithmetic",
+      "passed": true,
+      "evidence": "Four ratios; nu choices explicitly inferred"
+    },
+    {
+      "check": "Optimization convergence from two starts",
+      "passed": true,
+      "evidence": [
+        {
+          "mode": "mass",
+          "start": 0,
+          "iterations": 8,
+          "min_constraint": -1.0325074129013956e-14
+        },
+        {
+          "mode": "mass",
+          "start": 1,
+          "iterations": 6,
+          "min_constraint": -9.303668946358812e-14
+        },
+        {
+          "mode": "float",
+          "start": 0,
+          "iterations": 8,
+          "min_constraint": -4.18367562815547e-14
+        },
+        {
+          "mode": "float",
+          "start": 1,
+          "iterations": 6,
+          "min_constraint": 5.820766091346741e-14
+        }
+      ]
+    },
+    {
+      "check": "mass agreement between starts",
+      "passed": true,
+      "evidence": "Independent initial points"
+    },
+    {
+      "check": "float agreement between starts",
+      "passed": true,
+      "evidence": "Independent initial points"
+    },
+    {
+      "check": "mass original branch rules",
+      "passed": true,
+      "evidence": {
+        "gamma_s": 10.000009547445822,
+        "lambda_p": 2.5204024817143864,
+        "psi": 13.990393459262515
+      }
+    },
+    {
+      "check": "Constructive unity point",
+      "passed": true,
+      "evidence": {
+        "least_SF": 1.0000010796871852,
+        "extra_mass_kg": 1127.0713529240693
+      }
+    },
+    {
+      "check": "float original branch rules",
+      "passed": true,
+      "evidence": {
+        "gamma_s": 10.000024911429927,
+        "lambda_p": 2.647664329867919,
+        "psi": 13.990413417663321
+      }
+    },
+    {
+      "check": "Constructive fixed-mass point",
+      "passed": true,
+      "evidence": {
+        "least_SF": 0.6996918064850461,
+        "mass_kg": 4889.44215018696
+      }
+    },
+    {
+      "check": "headline least_SF_today baseline@None",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline mass baseline@None today",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass baseline@None at_028b_values",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass baseline@None today_six_modes",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline least_SF_today [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline least_SF_today_O5 [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] at_028b_values",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_six_modes",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_O5",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline reserve delta [address]",
+      "passed": true,
+      "evidence": "baseline-subtracted difference"
+    },
+    {
+      "check": "headline least_SF_today [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline least_SF_today_O5 [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] at_028b_values",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_six_modes",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_O5",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline reserve delta [address]",
+      "passed": true,
+      "evidence": "baseline-subtracted difference"
+    },
+    {
+      "check": "headline least_SF_today [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline least_SF_today_O5 [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] at_028b_values",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_six_modes",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_O5",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline reserve delta [address]",
+      "passed": true,
+      "evidence": "baseline-subtracted difference"
+    },
+    {
+      "check": "headline least_SF_today [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline least_SF_today_O5 [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] at_028b_values",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_six_modes",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_O5",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline reserve delta [address]",
+      "passed": true,
+      "evidence": "baseline-subtracted difference"
+    },
+    {
+      "check": "headline least_SF_today [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline least_SF_today_O5 [address]",
+      "passed": true,
+      "evidence": "four-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] at_028b_values",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_six_modes",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline mass [address] today_O5",
+      "passed": true,
+      "evidence": "one-decimal presentation"
+    },
+    {
+      "check": "headline reserve delta [address]",
+      "passed": true,
+      "evidence": "baseline-subtracted difference"
+    },
+    {
+      "check": "Recorded elapsed times",
+      "passed": true,
+      "evidence": [
+        {
+          "file": "RUNS.json",
+          "measured_timestamp_delta_s": 277.798049,
+          "filed_s": 277.7980464408174,
+          "difference_s": 2.559182576078456e-06
+        },
+        {
+          "file": "RUNS-gs5.json",
+          "measured_timestamp_delta_s": 277.892893,
+          "filed_s": 277.8928893771954,
+          "difference_s": 3.622804626957077e-06
+        }
+      ]
+    },
+    {
+      "check": "026 member mass using its reported arc length",
+      "passed": true,
+      "evidence": "Geometry length is source input; annular area and mass recomputed"
+    }
+  ],
+  "limitations": [
+    "No owner source code read or executed; independent equations only.",
+    "No independent global optimality or impossibility proof.",
+    "The new unity point uses the same unvalidated cap, adequacy and material assumptions.",
+    "Experimental metadata and material inputs are provenance, not new measurements.",
+    "Four compact psi fields were used to recover missing shape and are not independent checks.",
+    "Pineda and S-II measurement extraction inherited from pinned CHECK-035."
+  ]
+}

@@ -1,0 +1,1184 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-025",
+  "unit": "vacuum-mainline025-sic-arc-reality-1020",
+  "order": "ord-admiral-rr2-mainline025-dispatch-1019",
+  "status": "QUESTIONABLE",
+  "certification": false,
+  "pins": [
+    {
+      "path": "unpublished-local-ref:1240ced76bf5d379",
+      "sha256": "a00fe827c4d0476537840ff4d4fb59c296867345b6cad5bfa08f365904bfe14d",
+      "bytes": 1903,
+      "verified": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "verified": true
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021,
+      "verified": true
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063,
+      "verified": true
+    },
+    {
+      "path": "evidence/8d1c42afdeb216fd-CARD.md",
+      "sha256": "8d1c42afdeb216fd59701f50cfdf0d8301f5feb92ce443bf64a4e9253814a0d6",
+      "bytes": 8843,
+      "verified": true
+    },
+    {
+      "path": "evidence/e922d008b9c113ef-RESULTS.json",
+      "sha256": "e922d008b9c113efe498dfdde867a403730a236a3bdcf3cac4d437c790358f10",
+      "bytes": 137746,
+      "verified": true
+    },
+    {
+      "path": "evidence/da2eeba2a608cb9e-NFI.json",
+      "sha256": "da2eeba2a608cb9ec74b8446af1d71f10c5c4565bb7c1e7d390252600bb05147",
+      "bytes": 3769,
+      "verified": true
+    },
+    {
+      "path": "evidence/b89b24ce6d204323-INPUTS.json",
+      "sha256": "b89b24ce6d204323fdbebdda08e89b47d88f62edb63602f7db63f3586272fa27",
+      "bytes": 3342,
+      "verified": true
+    },
+    {
+      "path": "evidence/3386d33e97dda171-arcs.py",
+      "sha256": "3386d33e97dda171acfeb6739a566d07ec8fe5c5ac76cf673e9400dc4ac2d4d5",
+      "bytes": 37023,
+      "verified": true
+    },
+    {
+      "path": "evidence/ae2ee36a468ab926-ORIGIN.json",
+      "sha256": "ae2ee36a468ab92659abf98bdc6298ab9b9f6a29a5c9619643c9bd1ab7391c5a",
+      "bytes": 98,
+      "verified": true
+    },
+    {
+      "path": "unpublished-local-ref:f1ad809d1efc520a",
+      "sha256": "dc65f9c0d7585fbf3e57e3423fe48896a96425fd9f3abdcf49ce3b7cadaf7d8e",
+      "bytes": 3618,
+      "verified": true
+    }
+  ],
+  "pin_policy": "Every named artifact was SHA-256 verified before use; source files are read-only.",
+  "case": {
+    "R_m": 10.0,
+    "p_ext_Pa": 95460.8379139,
+    "rho_air_kg_m3": 1.16726833075,
+    "lift_mass_kg": 4889.44215019,
+    "provenance": "Pinned COMMON.md / MAINLINE-011b INPUTS.json",
+    "status": "QUESTIONABLE"
+  },
+  "mass_model": {
+    "film_kg": 97.515,
+    "systems_kg": 50.0,
+    "node_kg_each": 0.02,
+    "joint_mass_fraction_of_tubes": 0.05,
+    "provenance": "Pinned MAINLINE-011b INPUTS.json; node count changes with spacing; these are optimistic inherited estimates.",
+    "status": "QUESTIONABLE"
+  },
+  "baseline_SiC": {
+    "E_Pa": 410000000000.0,
+    "rho_kg_m3": 3100.0,
+    "compression_typical_Pa": 3900000000.0,
+    "flexural_typical_Pa": 380000000.0,
+    "s_m": 2.04,
+    "r_o_m": 0.12368836237368608,
+    "wall_m": 0.0008802990936851718,
+    "provenance": "Pinned MAINLINE-011b INPUTS.json and RESULTS.json",
+    "status": "QUESTIONABLE",
+    "allowable_status": "Neither listed strength is a qualified full-size tube design allowable."
+  },
+  "reliability_target": {
+    "system_failure_probability": 1e-06,
+    "sensitivity_system_failure_probability": 0.001,
+    "exposure": "one specified short-term load application; not lifetime reliability",
+    "system_failure_definition": "first critical member brittle failure (no redistribution credit)",
+    "member_count_for_integer_allocation": 1047,
+    "status": "QUESTIONABLE",
+    "source": "Explicit analyst-selected target, not a regulatory requirement"
+  },
+  "geometry_bounds": {
+    "s_min_m": 0.4,
+    "s_max_m": 3.0,
+    "r_o_max_m": 0.25,
+    "a0_over_s": 0.001,
+    "status": "QUESTIONABLE",
+    "source": "Inherited MAINLINE-011b scan bounds and imperfection",
+    "r_o_additional_cap": "s/3, inherited from 011b"
+  },
+  "assumptions": [
+    "Global lattice knockdown k=0.2 is separate from member-wall knockdown gamma.",
+    "Spherical arc centerlines are assumed formed to R=10 m; catalog straight tubes do not prove these arcs.",
+    "Thin tube material data, joint load introduction and reliability parameters must be qualified at full member scale.",
+    "Assigned task is estimates and traceable factor gaps, not certification or external publication.",
+    "No next job is named: CARD-025 says stop and file, then robotics dispatches the next job."
+  ],
+  "external_sources": [
+    "https://en.sanzer.com/products_detail/26.html",
+    "https://info.ornl.gov/sites/publications/Files/Pub216010.pdf",
+    "https://nite.co.jpunpublished-local-ref:8dc9b861aef000ca",
+    "https://ntrs.nasa.gov/api/citations/20010067226/downloads/20010067226.pdf#page=870",
+    "https://ntrs.nasa.gov/api/citations/20050051727/downloads/20050051727.pdf",
+    "https://ntrs.nasa.gov/api/citations/20050237907/downloads/20050237907.pdf",
+    "https://ntrs.nasa.gov/api/citations/20060008932/downloads/20060008932.pdf",
+    "https://ntrs.nasa.gov/api/citations/20200004346/downloads/20200004346.pdf#page=16",
+    "https://ntrs.nasa.gov/api/citations/20205011530/downloads/20205011530%20Rev%202FINALa%201-2023.pdf",
+    "https://ntrs.nasa.gov/api/citations/20210021598/downloads/TM-20210021598.pdf#page=13",
+    "https://ntrs.nasa.gov/citations/20030014949",
+    "https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.960-16e3.pdf",
+    "https://patents.google.com/patent/JP3897393B2/en",
+    "https://patents.google.com/patent/US6228297B1/en",
+    "https://sialon.com/product/sintered-silicon-carbide-thermocouple-tubes/",
+    "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00297",
+    "https://store.astm.org/c1239-13r24e01.html",
+    "https://store.astm.org/c1322-25.html",
+    "https://store.astm.org/c1683-10r24.html",
+    "https://store.astm.org/standards/c1424",
+    "https://www.ceramicsrefractories.saint-gobain.com/equipment/shell-tube-heat-exchangers",
+    "https://www.ceramicsrefractories.saint-gobain.com/files/4731/download",
+    "https://www.ceramicsrefractories.saint-gobain.com/files/6061/view",
+    "https://www.ceramicsrefractories.saint-gobain.com/materials/silicon-carbide-sic/hexoloy-silicon-carbide-material/hexoloy-sa-sic-material",
+    "https://www.ceramicsrefractories.saint-gobain.com/products/products-application/heating-systems/ceramic-radiant-tube",
+    "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-sic-process-tubes",
+    "https://www.energy.gov/ne/articles/new-fuel-cladding-could-transform-nuclear-fuels",
+    "https://www.euronuclear.org/archiv/topfuel2018/fullpapers/TopFuel2018-A0105-fullpaper.pdf#page=2",
+    "https://www.itl.nist.gov/div898/handbook/apr/section1/apr162.htm",
+    "https://www.morgantechnicalceramics.com/en-gb/materials/cvd-silicon-carbide/",
+    "https://www.prematechac.com/wp-content/uploads/2019/05/18437-CVD-Silicon-Carbide-Data-Sheet.pdf",
+    "https://www.researchgate.net/publication/250012990_Evaluation_methods_for_the_hoop_strength_of_small-sized_tubular_ceramic_components",
+    "https://www.saint-gobain.co.jp/jp/download-documents/kataroku/ceramics-systems-kilns-furnaces-en-a4-web.pdf",
+    "https://www.schunk-group.com/technical-ceramics/en/products/burner-components/radiant-tubes~p14387",
+    "https://www.sciencedirect.com/science/article/abs/pii/S0272884218320224",
+    "https://www2.coorstek.com/en/materials/silicon-carbide/"
+  ],
+  "source_catalogues": {
+    "reliability": [
+      {
+        "id": "SG_CURRENT",
+        "url": "https://www.ceramicsrefractories.saint-gobain.com/materials/silicon-carbide-sic/hexoloy-silicon-carbide-material/hexoloy-sa-sic-material",
+        "title": "Hexoloy SA SiC material",
+        "provenance": "Saint-Gobain manufacturer technical webpage",
+        "locator": "Hexoloy Grade Specifications",
+        "publication_date": null,
+        "notes": "Current page has malformed grain-size and elastic-modulus unit entries; those are not adopted.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "SG_2012",
+        "url": "https://www.ceramicsrefractories.saint-gobain.com/files/4731/download",
+        "title": "Hexoloy SA Silicon Carbide Technical Data, Form B-1045",
+        "provenance": "Manufacturer-hosted datasheet",
+        "publication_date": "2012-05",
+        "locator": "PDF page 4, properties and flexure footnote",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "NIST_SA",
+        "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00297",
+        "title": "NIST SRD 30, Z00297, material 9: Hexoloy SA",
+        "provenance": "Official evaluated dataset citing Graves and Hecht, UDR-TR-94-136 (1995)",
+        "publication_date": "1995 underlying report; database last data update 2002",
+        "locator": "Strength test methods; material 9 tensile/flexural and Weibull tables",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "PREMATECH_CVD",
+        "url": "https://www.prematechac.com/wp-content/uploads/2019/05/18437-CVD-Silicon-Carbide-Data-Sheet.pdf",
+        "title": "CVD Silicon Carbide",
+        "provenance": "Supplier/ceramic processor technical datasheet hosted by PremaTech",
+        "publication_date": null,
+        "locator": "Single-page table and footnotes 1 and 3",
+        "notes": "2019/05 in URL is not asserted as document publication date.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "COORSTEK_CVD",
+        "url": "https://www2.coorstek.com/en/materials/silicon-carbide/",
+        "title": "Silicon Carbide material table",
+        "provenance": "Manufacturer webpage retrieved through search extraction",
+        "publication_date": null,
+        "locator": "PureSiC HR and LR CVD columns",
+        "retrieval_limit": "Direct-page open timed out; official-page search extraction provided the table.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "HONG_2009",
+        "url": "https://www.researchgate.net/publication/250012990_Evaluation_methods_for_the_hoop_strength_of_small-sized_tubular_ceramic_components",
+        "doi": "10.1557/jmr.2009.0158",
+        "doi_url": "https://doi.org/10.1557/jmr.2009.0158",
+        "title": "Evaluation methods for the hoop strength of small-sized tubular ceramic components",
+        "provenance": "Original paper by Hong, Byun, Snead and Lee; author-uploaded full text",
+        "publication_date": "2009-04",
+        "locator": "J. Mater. Res. 24,1422-1434; Tables II/IV, equations 1-5, sections III and V",
+        "retrieval_limit": "Publisher DOI open failed; full text read from identified author upload.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "NASA_CARES_2003",
+        "url": "https://ntrs.nasa.gov/citations/20030014949",
+        "title": "CARES/LIFE Ceramics Analysis and Reliability Evaluation of Structures Life Prediction Program",
+        "provenance": "NASA original technical memorandum and program manual",
+        "publication_date": "2003-02-01",
+        "locator": "NASA/TM-2003-106316, official abstract",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "NASA_CARES_2005",
+        "url": "https://ntrs.nasa.gov/api/citations/20050237907/downloads/20050237907.pdf",
+        "title": "Lifetime Reliability Prediction of Ceramic Structures Under Transient Thermomechanical Loads",
+        "provenance": "NASA original technical publication",
+        "publication_date": "2005-09; errata 2011-08",
+        "locator": "NASA/TP-2005-212505, printed pp95,97 and appendix D",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "ASTM_COMPRESSION",
+        "url": "https://store.astm.org/standards/c1424",
+        "title": "ASTM C1424-26: Monotonic Compressive Strength of Advanced Ceramics at Ambient Temperature",
+        "provenance": "Official standards-body public scope/significance",
+        "publication_date": "2026",
+        "locator": "Sections4.2-4.4",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "ASTM_SCALING",
+        "url": "https://store.astm.org/c1683-10r24.html",
+        "title": "ASTM C1683-10(2024): Size Scaling of Tensile Strengths Using Weibull Statistics for Advanced Ceramics",
+        "provenance": "Official standards-body public scope/significance",
+        "publication_date": "2024",
+        "locator": "Sections5.3-5.8",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "ASTM_WEIBULL",
+        "url": "https://store.astm.org/c1239-13r24e01.html",
+        "title": "ASTM C1239-13(2024)e1: Reporting Uniaxial Strength Data and Estimating Weibull Distribution Parameters",
+        "provenance": "Official public historical revision",
+        "publication_date": "2024 revision, e1",
+        "locator": "Sections1.3-1.4 and5.2-5.4",
+        "retrieval_limit": "Catalog identifies C1239-26a active; its substantive page timed out. This source is not claimed as latest text.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "ASTM_FRACTOGRAPHY",
+        "url": "https://store.astm.org/c1322-25.html",
+        "title": "ASTM C1322-25: Fractography and Characterization of Fracture Origins in Advanced Ceramics",
+        "provenance": "Official standards-body public scope/significance",
+        "publication_date": "2025",
+        "locator": "Sections5.8-5.9",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "NIST_COMPRESSION",
+        "url": "https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.960-16e3.pdf",
+        "title": "Fractography of Ceramics and Glasses, Third Edition",
+        "provenance": "NIST official recommended practice guide",
+        "publication_date": null,
+        "locator": "Compression fracture discussion and Figure4.37",
+        "retrieval_limit": "Relevant indexed passage retrieved; full PDF exceeded web tool size limit.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "ASME_ORNL_2024",
+        "url": "https://info.ornl.gov/sites/publications/Files/Pub216010.pdf",
+        "title": "Analysis of the ASME Code Rules for Subsection III-5-HHB (Composite Materials) for Current HTR Design Requirements",
+        "provenance": "ORNL original ASME working-group review, ORNL/TM-2024/3438",
+        "publication_date": "2024-06",
+        "locator": "Scope, executive summary, section5.16; reviews2023 code",
+        "notes": "C/C and SiC/SiC composite nuclear core-component guidance, not a monolithic SiC tube allowable or current-code compliance finding.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "NASA_BEAM_GEOMETRY",
+        "url": "https://ntrs.nasa.gov/api/citations/20060008932/downloads/20060008932.pdf",
+        "title": "NASA/TM-2006-214089",
+        "provenance": "NASA original experiment on silicon nitrides",
+        "publication_date": "2006",
+        "locator": "Table1 footnote4: 3x4x45mm bars,20/40mm spans",
+        "notes": "Evidence for a standard fixture example only; it does not establish Saint-Gobain spans.",
+        "retrieved_on": "2026-10-20"
+      },
+      {
+        "id": "NIST_WEIBULL_FORMULA",
+        "url": "https://www.itl.nist.gov/div898/handbook/apr/section1/apr162.htm",
+        "title": "NIST/SEMATECH e-Handbook: Weibull distribution",
+        "provenance": "Official statistical handbook",
+        "publication_date": null,
+        "locator": "CDF and mean formulas",
+        "retrieved_on": "2026-10-20"
+      }
+    ],
+    "manufacturing": [
+      {
+        "id": "sg_sa",
+        "title": "Hexoloy SiC Process Tubes",
+        "url": "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-sic-process-tubes",
+        "source_type": "manufacturer_catalogue",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Undated current family envelope; no matched dimensional drawing, wall minimum, curvature or numerical tolerances."
+      },
+      {
+        "id": "sg_se_web",
+        "title": "Shell and Tube Heat Exchangers",
+        "url": "https://www.ceramicsrefractories.saint-gobain.com/equipment/shell-tube-heat-exchangers",
+        "source_type": "manufacturer_catalogue",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Current length offering and small diameters; do not silently pair updated length with all dimensions from older brochure."
+      },
+      {
+        "id": "sg_se_pdf",
+        "title": "Hexoloy SE heat-exchanger dimensional brochure",
+        "url": "https://www.ceramicsrefractories.saint-gobain.com/files/6061/view",
+        "source_type": "manufacturer_brochure",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": "PDF p.3",
+        "limits": "Undated; explicitly paired small OD/ID sizes and length envelope, not a large-diameter arc."
+      },
+      {
+        "id": "xicar",
+        "title": "Sintered Silicon Carbide Thermocouple Tubes",
+        "url": "https://sialon.com/product/sintered-silicon-carbide-thermocouple-tubes/",
+        "source_type": "manufacturer_catalogue",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Advertised maximum OD and length; no delivered-part drawing, wall minimum, phase verification or tolerances."
+      },
+      {
+        "id": "coresic",
+        "title": "CORESIC SP silicon carbide furnace tubes",
+        "url": "https://en.sanzer.com/products_detail/26.html",
+        "source_type": "manufacturer_catalogue",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Undated family envelope; no wall minimum or numerical tolerances, no target arc."
+      },
+      {
+        "id": "sg_silit",
+        "title": "Ceramic Radiant Tube",
+        "url": "https://www.ceramicsrefractories.saint-gobain.com/products/products-application/heating-systems/ceramic-radiant-tube",
+        "source_type": "manufacturer_catalogue",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": "Single-ended radiant tube description and FAQ",
+        "limits": "Diameter/length paired for largest available single-ended product; FAQ minimum walls are family-wide and not established at maximum tube dimensions."
+      },
+      {
+        "id": "schunk",
+        "title": "Radiant tubes: CarSIK and IntrinSiC",
+        "url": "https://www.schunk-group.com/technical-ceramics/en/products/burner-components/radiant-tubes~p14387",
+        "source_type": "manufacturer_catalogue",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Sizes use greater-than-or-equal language, not maxima; U/P shapes do not prove a specified large thin shallow arc."
+      },
+      {
+        "id": "sg_silit_tolerance",
+        "title": "Ceramics Systems for Kilns and Furnaces",
+        "url": "https://www.saint-gobain.co.jp/jp/download-documents/kataroku/ceramics-systems-kilns-furnaces-en-a4-web.pdf",
+        "source_type": "manufacturer_brochure",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": "p.23, SILIT SK tubes and rollers",
+        "limits": "Smaller thick straight tubes; do not transfer to largest SKD radiant tube or proposed arc. Page image inspected."
+      },
+      {
+        "id": "cvd_toshiba",
+        "title": "Silicon carbide member and manufacturing method, JP3897393B2",
+        "url": "https://patents.google.com/patent/JP3897393B2/en",
+        "source_type": "primary_patent_example",
+        "publication_date": "2007-03-22",
+        "accessed_on": "2026-10-20",
+        "locator": "Example 15, paragraphs 0056-0059",
+        "limits": "Original application 1997-04-14. Historical reported example, not current commercial availability. English diameter label for carbon form is ambiguous; inferred final OD is not an explicit measured patent dimension."
+      },
+      {
+        "id": "cvd_rohm",
+        "title": "Chemical vapor deposition process for producing silicon carbide, US6228297B1",
+        "url": "https://patents.google.com/patent/US6228297B1/en",
+        "source_type": "primary_patent_example",
+        "publication_date": "2001-05-08",
+        "accessed_on": "2026-10-20",
+        "locator": "Example",
+        "limits": "Historical reported example; machined final dimensions, no final numerical straightness or wall tolerance and no production qualification."
+      },
+      {
+        "id": "morgan_cvd",
+        "title": "CVD Silicon Carbide",
+        "url": "https://www.morgantechnicalceramics.com/en-gb/materials/cvd-silicon-carbide/",
+        "source_type": "manufacturer_material_page",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Current CVD material availability claim; no inspected tube dimensional envelope."
+      },
+      {
+        "id": "nasa_2021",
+        "title": "In-Plane Tensile Properties, Creep Behavior and Failure Mechanisms of CVI and PIP SiC/SiC Composites at Temperatures to 1,650 °C in Air, NASA/TM-20210021598",
+        "url": "https://ntrs.nasa.gov/api/citations/20210021598/downloads/TM-20210021598.pdf#page=13",
+        "source_type": "primary_engineering_report",
+        "publication_date": "2021-10",
+        "accessed_on": "2026-10-20",
+        "locator": "Section 2 and Table I, printed p.9 / PDF p.13",
+        "limits": "Room-temperature small-panel/coupon tensile properties, no compression. Bulk physical density differs from separately reported Archimedes density. Table image inspected."
+      },
+      {
+        "id": "nasa_2020",
+        "title": "Challenges of Testing EB Coated CMC under SPLCF Conditions in Steam Environment at High Temperatures",
+        "url": "https://ntrs.nasa.gov/api/citations/20200004346/downloads/20200004346.pdf#page=16",
+        "source_type": "primary_engineering_presentation",
+        "publication_date": "2020-01",
+        "accessed_on": "2026-10-20",
+        "locator": "PDF p.16",
+        "limits": "Room-temperature material summary; no matched compression or full-size arc data."
+      },
+      {
+        "id": "honeywell_2001",
+        "title": "Advanced Ceramic Matrix Composites for Aerospace Applications, Patterson et al., in NASA/CP-2001-210427",
+        "url": "https://ntrs.nasa.gov/api/citations/20010067226/downloads/20010067226.pdf#page=870",
+        "source_type": "manufacturer_engineering_presentation_in_government_proceedings",
+        "publication_date": "2001-02",
+        "accessed_on": "2026-10-20",
+        "locator": "PDF p.870 table; authors/title at PDF p.866; conference September 2000",
+        "limits": "No density, E, tensile PLS, compression test orientation, geometry or scatter. Nearby C/SiC density is a different material. Table image inspected."
+      },
+      {
+        "id": "cmc_compression_2018",
+        "title": "In-plane mechanical behavior and failure mode of a 2D-SiC/SiC composite under uniaxial dynamic compression",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0272884218320224",
+        "source_type": "primary_engineering_paper",
+        "publication_date": "2018-11",
+        "accessed_on": "2026-10-20",
+        "locator": "Ceramics International 44(16), 20058-20068; DOI 10.1016/j.ceramint.2018.07.280",
+        "limits": "Accessed abstract/indexed text; complete processing details not verified. Do not assume this material matches NASA CVI. Rate-dependent compression, not a structural reliability allowable."
+      },
+      {
+        "id": "nasa_cylinders",
+        "title": "Hoop Tensile Properties of Ceramic Matrix Composite Cylinders",
+        "url": "https://ntrs.nasa.gov/api/citations/20050051727/downloads/20050051727.pdf",
+        "source_type": "primary_engineering_preprint",
+        "publication_date": "2004",
+        "accessed_on": "2026-10-20",
+        "locator": "Experimental methods",
+        "limits": "Mixed fiber/process cylinders, hoop tests; no single scalar property set transfers from flat coupons to target."
+      },
+      {
+        "id": "topfuel_2018",
+        "title": "Demonstration of Engineered Multi-Layered SiC-SiC Cladding with Enhanced Accident Tolerance, Deck et al.",
+        "url": "https://www.euronuclear.org/archiv/topfuel2018/fullpapers/TopFuel2018-A0105-fullpaper.pdf#page=2",
+        "source_type": "primary_developer_engineering_paper",
+        "publication_date": "2018",
+        "accessed_on": "2026-10-20",
+        "locator": "PDF p.2 geometry and fabrication",
+        "limits": "Small-diameter multilayer CVI/CVD cladding, not pure homogeneous CMC or target-size arc."
+      },
+      {
+        "id": "doe_2024",
+        "title": "New Fuel Cladding Could Transform Nuclear Fuels",
+        "url": "https://www.energy.gov/ne/articles/new-fuel-cladding-could-transform-nuclear-fuels",
+        "source_type": "primary_program_report",
+        "publication_date": "2024-07-09",
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Full-length fabrication statement with no simultaneous OD, wall or numerical tolerance; not full qualification."
+      },
+      {
+        "id": "nite",
+        "title": "NITE Corporation Products",
+        "url": "https://nite.co.jpunpublished-local-ref:8dc9b861aef000ca",
+        "source_type": "manufacturer_catalogue",
+        "publication_date": null,
+        "accessed_on": "2026-10-20",
+        "locator": null,
+        "limits": "Finished tube/ring examples and separately prepreg sheets. The 2000 mm maximum is sheet length, not finished tube length."
+      }
+    ],
+    "local_buckling": [
+      {
+        "id": "NASA_SP8007_REV2",
+        "url": "https://ntrs.nasa.gov/api/citations/20205011530/downloads/20205011530%20Rev%202FINALa%201-2023.pdf",
+        "title": "NASA SP-8007 Rev.2, Buckling of Thin-Walled Circular Cylinders",
+        "locator": "printed pp.23–25, Eqs.9–10 and length-range caution",
+        "retrieved_on": "2026-10-20",
+        "scope": "QUESTIONABLE transfer to long curved ceramic and CMC struts"
+      }
+    ]
+  },
+  "material_datasets": [
+    {
+      "id": "SA_CURRENT",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "SG_CURRENT"
+      ],
+      "material": "Hexoloy SA",
+      "flexure_4pt_mpa": 380,
+      "flexure_3pt_mpa": 550,
+      "strength_statistic": "typical; not expressly mean or characteristic",
+      "weibull_m": 8,
+      "compression_mpa": null,
+      "coupon_dimensions_mm": null,
+      "reference_effective_size": null,
+      "sample_count": null,
+      "confidence_bounds": null,
+      "fit_flaw_population": null
+    },
+    {
+      "id": "SA_2012",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "SG_2012"
+      ],
+      "material": "Hexoloy SA",
+      "flexure_4pt_mpa": 380,
+      "flexure_3pt_mpa": 550,
+      "compression_mpa": 3900,
+      "strength_statistic": "typical; not expressly mean or characteristic",
+      "weibull_m": 10,
+      "coupon_dimensions_mm": [
+        3,
+        4,
+        45
+      ],
+      "coupon_dimension_scope": "flexure footnote only",
+      "four_point_spans_mm": null,
+      "compression_specimen": null,
+      "characteristic_strength_mpa": null,
+      "reference_effective_size": null,
+      "sample_count": null,
+      "confidence_bounds": null,
+      "fit_flaw_population": null
+    },
+    {
+      "id": "SA_NIST_20C",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "NIST_SA"
+      ],
+      "material": "Carborundum Hexoloy SA",
+      "temperature_C": 20,
+      "crosshead_speed_cm_s": 0.004,
+      "tension_reported_mpa": 234,
+      "tension_reported_plus_minus_mpa": 50,
+      "tension_weibull_m": 5,
+      "flexure_reported_mpa": 395,
+      "flexure_reported_plus_minus_mpa": 19,
+      "flexure_weibull_m": 9,
+      "reported_error_definition": null,
+      "strength_statistic": "reported central value with +/-; no reinterpretation as characteristic strength",
+      "tension_specimen_overall_length_mm": 165,
+      "tension_gauge_dimensions_mm": null,
+      "flexure_bar_dimensions_mm": [
+        3,
+        4,
+        50
+      ],
+      "flexure_test": "four-point, MIL-STD-1942 specimen B / ASTM C1161",
+      "sample_count": null,
+      "reference_effective_size": null
+    },
+    {
+      "id": "CVD_PREMATECH",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "PREMATECH_CVD"
+      ],
+      "material": "Commercial monolithic CVD SiC; exact deposition grade/lot unspecified",
+      "temperature": "room",
+      "flexure_4pt_average_mpa": 415,
+      "weibull_m": 11,
+      "reported_scale_beta_mpa": 424,
+      "scale_type": "reported Weibull scale factor; coupon/reference size unspecified",
+      "same_dataset_for_average_and_fit_established": false,
+      "beam_surface_RMS_um": 0.5,
+      "coupon_dimensions_mm": null,
+      "four_point_spans_mm": null,
+      "reference_effective_size": null,
+      "sample_count": null,
+      "confidence_bounds": null,
+      "tensile_strength_mpa": null,
+      "compressive_strength_mpa": null
+    },
+    {
+      "id": "CVD_COORSTEK",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "COORSTEK_CVD"
+      ],
+      "material": "PureSiC CVD",
+      "temperature_C": 20,
+      "high_resistivity_typical_MOR_mpa": 468,
+      "low_resistivity_typical_MOR_mpa": 517,
+      "strength_statistic": "typical flexural MOR",
+      "weibull_m": null,
+      "reference_effective_size": null,
+      "tensile_strength_mpa": null,
+      "compressive_strength_mpa": null
+    },
+    {
+      "id": "CVD_HONG_A_IP",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "HONG_2009"
+      ],
+      "material": "ORNL TRISO-process CVD SiC-A miniature tubular shell",
+      "test": "internal pressurization by axially compressed elastomer insert",
+      "strength_mode": "hoop tension",
+      "mean_strength_mpa": 263,
+      "coefficient_of_variation_percent": 20.5,
+      "weibull_m": 5.0,
+      "sample_count": 21,
+      "ID_mm": 1.022,
+      "OD_mm": 1.222,
+      "tube_length_mm": 5.83,
+      "insert_length_mm": 3,
+      "crosshead_speed_mm_s_approx": 0.01,
+      "effective_inner_area_mm2": 9.64,
+      "reported_effective_volume_mm3": 0.65,
+      "reported_surface_scale_mpa": 448,
+      "reported_volume_scale_mpa": 262,
+      "scale_caution": "Normalized-size parameters; not coupon characteristic strengths. Only mean/m/effective-area are used in scenarios.",
+      "confidence_bounds_for_parameters": null,
+      "transfer_to_commercial_tubes_validated": false
+    },
+    {
+      "id": "CVD_HONG_B_IP",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "HONG_2009"
+      ],
+      "material": "ORNL TRISO-process CVD SiC-B miniature tubular shell",
+      "test": "internal pressurization by axially compressed elastomer insert",
+      "strength_mode": "hoop tension",
+      "mean_strength_mpa": 239,
+      "coefficient_of_variation_percent": 10.4,
+      "weibull_m": 9.7,
+      "sample_count": 17,
+      "ID_mm": 0.894,
+      "OD_mm": 1.084,
+      "tube_length_mm": 5.27,
+      "insert_length_mm": 3,
+      "crosshead_speed_mm_s_approx": 0.01,
+      "effective_inner_area_mm2": 8.42,
+      "reported_effective_volume_mm3": 0.35,
+      "reported_surface_scale_mpa": 312,
+      "reported_volume_scale_mpa": 224,
+      "scale_caution": "Normalized-size parameters; not coupon characteristic strengths. Only mean/m/effective-area are used in scenarios.",
+      "confidence_bounds_for_parameters": null,
+      "transfer_to_commercial_tubes_validated": false
+    }
+  ],
+  "CMC_measured_sets": [
+    {
+      "id": "nasa_2021_cvi_i",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "CVI (I), Hyper-Therm",
+      "layup": "Balanced 0/90, 5-harness satin Sylramic-iBN",
+      "plies": 8,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2450,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 60
+      },
+      "initial_longitudinal_E": {
+        "value": 258,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 19
+      },
+      "tensile_proportional_limit": {
+        "value": 110,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 13
+      },
+      "ultimate_tensile_strength": {
+        "value": 440,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 10
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2021"
+      ],
+      "fiber_volume_fraction": {
+        "value": 0.37,
+        "unit": "fraction",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.01
+      },
+      "ultimate_tensile_strain": {
+        "value": 0.49,
+        "unit": "percent",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.1
+      }
+    },
+    {
+      "id": "nasa_2021_cvi_ii",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "CVI (II), GE Energy Ceramic Composites Products",
+      "layup": "Balanced 0/90, 5-harness satin Sylramic-iBN",
+      "plies": 8,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2440,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 50
+      },
+      "initial_longitudinal_E": {
+        "value": 272,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 22
+      },
+      "tensile_proportional_limit": {
+        "value": 128,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 24
+      },
+      "ultimate_tensile_strength": {
+        "value": 357,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 75
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2021"
+      ],
+      "fiber_volume_fraction": {
+        "value": 0.35,
+        "unit": "fraction",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.02
+      },
+      "ultimate_tensile_strain": {
+        "value": 0.41,
+        "unit": "percent",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.11
+      },
+      "density_warning": "Use physical bulk density2440 for structural mass; separate Archimedes density2840 is not the bulk density."
+    },
+    {
+      "id": "nasa_2021_pip",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "PIP, COIC/ATK",
+      "layup": "Balanced 0/90, 5-harness satin Sylramic-iBN",
+      "plies": 10,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2470,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 10
+      },
+      "initial_longitudinal_E": {
+        "value": 169,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 19
+      },
+      "tensile_proportional_limit": {
+        "value": 109,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 12
+      },
+      "ultimate_tensile_strength": {
+        "value": 349,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 84
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2021"
+      ],
+      "fiber_volume_fraction": {
+        "value": 0.5,
+        "unit": "fraction",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.02
+      },
+      "ultimate_tensile_strain": {
+        "value": 0.28,
+        "unit": "percent",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.09
+      },
+      "pls_interpretation": "Pseudo-limit in initially microcracked PIP material; not a directly interchangeable first matrix-crack limit."
+    },
+    {
+      "id": "nasa_2020_mi",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "MI",
+      "layup": "Balanced 0/90 woven Sylramic-iBN",
+      "plies": 8,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2810,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 60
+      },
+      "initial_longitudinal_E": {
+        "value": 240,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 25
+      },
+      "tensile_proportional_limit": {
+        "value": 128,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 31
+      },
+      "ultimate_tensile_strength": {
+        "value": 333,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 90
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2020"
+      ]
+    },
+    {
+      "id": "nasa_2020_cvi_pip",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "CVI + PIP",
+      "layup": "Biased 3D woven Sylramic-iBN",
+      "plies": 4,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2560,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 110
+      },
+      "initial_longitudinal_E": {
+        "value": 110,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ]
+      },
+      "tensile_proportional_limit": {
+        "value": 94,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ]
+      },
+      "ultimate_tensile_strength": {
+        "value": 250,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ]
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2020"
+      ]
+    }
+  ],
+  "CMC_screening": {
+    "evidence_state": "PROJECTION",
+    "status": "QUESTIONABLE",
+    "name": "NASA CVI(II) tensile/density/stiffness base plus optional cross-material compression scenario",
+    "coherent_base_set": "nasa_2021_cvi_ii",
+    "bulk_density": {
+      "value": 2440,
+      "unit": "kg/m^3",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "initial_E": {
+      "value": 272,
+      "unit": "GPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "tensile_PLS": {
+      "value": 128,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "tensile_UTS": {
+      "value": 357,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "optimistic_compression": {
+      "value": 580,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "honeywell_2001"
+      ],
+      "evidence_state": "PROJECTION",
+      "basis": "Rounded enhanced Hi-Nicalon CVI compression579.16MPa from different material; no demonstrated joint property distribution"
+    },
+    "compression_sensitivity": {
+      "value": 367,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "cmc_compression_2018"
+      ],
+      "evidence_state": "PROJECTION",
+      "basis": "Different 2D CMC quasistatic test, not matched material"
+    },
+    "optional_poisson_ratio": {
+      "value": 0.2,
+      "unit": "dimensionless",
+      "status": "QUESTIONABLE",
+      "evidence_state": "PROJECTION",
+      "basis": "ASSUMED UNSOURCED only if isotropic scalar solver requires it"
+    },
+    "qualified_compressive_allowable": null,
+    "qualified_reliability_allowable": null,
+    "warnings": [
+      "Tensile PLS128 is not a tested compression limit.",
+      "No single located measured material supplies all five selected properties together.",
+      "UTS permits matrix damage and nonlinear stiffness loss; initial E cannot be assumed unchanged to ultimate.",
+      "Using scalar E or assumed nu for local CMC shell buckling projects an isotropic model onto an anisotropic laminate.",
+      "Longitudinal, hoop, through-wall, shear and bending/coupling properties require actual tube architecture.",
+      "Panel8-ply data have not been demonstrated in target0.8803mm wall."
+    ]
+  },
+  "computational_assumptions": {
+    "status": "QUESTIONABLE / PROJECTION",
+    "SiC_Fc_assumed_Pa": [
+      100000000.0,
+      200000000.0,
+      380000000.0,
+      1000000000.0,
+      3900000000.0
+    ],
+    "CMC_Fc_assumed_Pa": [
+      128000000.0,
+      300000000.0,
+      580000000.0
+    ],
+    "CMC_Ft_assumed_Pa": 128000000.0,
+    "local_gamma_sensitivities": [
+      0.3,
+      0.5,
+      0.7,
+      1,
+      "NASA SP-8007 axial curve"
+    ],
+    "global_k": 0.2,
+    "local_stress_coefficient": 0.6,
+    "force_factors": [
+      1,
+      0.5773502691896258
+    ],
+    "force_factor_scope": "amendment-corrected equilateral equilibrium and inherited two-way comparison, both fully scored",
+    "equilibrium_amendment": "ord-admiral-rr2-mainline025-demand-082gpa-1020",
+    "film_sag_lift_charge": "not included; pinned note assigns changed film geometry and lift accounting to MAINLINE-024/022b",
+    "qualified_compression_size_law": null,
+    "tensile_size_interface": "allowable.py and ALLOWABLE-INTERFACE.md; supplied calibration hypotheses are PROJECTION",
+    "contact_model": "unknown; hypothetical sigma_t=Ct*N/A",
+    "assumed_bend_spans_m": [
+      0.04,
+      0.02
+    ],
+    "assumed_380MPa_mean": true,
+    "target_exposure": "one specified short-term load application; not lifetime reliability",
+    "film_strength_Pa": 1500000000.0,
+    "film_wall_m": 8e-05,
+    "film_property_source": "inherited 011b; no qualifying datasheet supplied",
+    "borrowed_wall_constraints_m": [
+      0.002,
+      0.004
+    ],
+    "borrowed_wall_scope": "SiSiC catalogue geometric sensitivities; not SA product limits"
+  },
+  "own_evidence_pins": [
+    {
+      "path": "evidence/125151ef865f1a3b-model.py",
+      "sha256": "125151ef865f1a3b6f162673c273001f61d81d4cb5a3fc37ab34e9351867641c",
+      "bytes": 47443
+    },
+    {
+      "path": "evidence/3603da742583a55d-model-results.json",
+      "sha256": "3603da742583a55db88eb65229ec1b074f5f473a812eb165bb355d66a1a5d80c",
+      "bytes": 1112214
+    },
+    {
+      "path": "evidence/4ce82023bec94520-model-notes.md",
+      "sha256": "4ce82023bec94520f41330751cb439afec6dcf922c2f4a74dce617641937fb53",
+      "bytes": 16332
+    },
+    {
+      "path": "evidence/2cf3e907709996f8-reliability.json",
+      "sha256": "2cf3e907709996f81455c59816ce197a9bd39cc0f8fedfca49b28f79feb9714c",
+      "bytes": 29471
+    },
+    {
+      "path": "evidence/9e050e56221457e3-reliability.md",
+      "sha256": "9e050e56221457e3cecb5fd9f09138612dfd7bef417f5781e70ae09fd7f55109",
+      "bytes": 13425
+    },
+    {
+      "path": "evidence/369fd241d70ddc8a-manufacturing.json",
+      "sha256": "369fd241d70ddc8aa33af593d571734109fd41bfab72198c78d78dcfe62c5723",
+      "bytes": 53863
+    },
+    {
+      "path": "evidence/3e5cb388e165e00a-manufacturing.md",
+      "sha256": "3e5cb388e165e00aad0d8d676b8935d33d540a5f10639c8e842f32fc3b2b8575",
+      "bytes": 17388
+    },
+    {
+      "path": "evidence/55f1433f55c66463-supplement.py",
+      "sha256": "55f1433f55c66463a7d43caa6bc277c5dd59548bd1af380ff31800c845bf934c",
+      "bytes": 8257
+    },
+    {
+      "path": "evidence/5385cf6004660639-SUPPLEMENT.json",
+      "sha256": "5385cf6004660639f6b6f309e407e8e04053e3bd5880908bf6dfa10d2e78d603",
+      "bytes": 7986
+    },
+    {
+      "path": "evidence/0193bb618073a050-allowable.py",
+      "sha256": "0193bb618073a05099f5fbce5b9b0f897ca5d50af4b8dc5ba452455364ca8ced",
+      "bytes": 12070
+    },
+    {
+      "path": "evidence/421dbc4011640ef7-ALLOWABLE-DEMANDS.json",
+      "sha256": "421dbc4011640ef7ff7fc47a23f0154d453104eb3fc165f8b81599e613637646",
+      "bytes": 14502
+    },
+    {
+      "path": "evidence/9a5d4d5fc10c1d4f-ALLOWABLE-INTERFACE.md",
+      "sha256": "9a5d4d5fc10c1d4fc5ef47ea2987ef9be708b88b984ac674a7148f2711501161",
+      "bytes": 6096
+    },
+    {
+      "path": "evidence/2919cff75d63a055-assemble.py",
+      "sha256": "2919cff75d63a055cbcaa25dd2c5d3d06e5cfb97f6b6afc93c07edf293c77b6a",
+      "bytes": 12330
+    }
+  ],
+  "amendment_order": "ord-admiral-rr2-mainline025-demand-082gpa-1020"
+}

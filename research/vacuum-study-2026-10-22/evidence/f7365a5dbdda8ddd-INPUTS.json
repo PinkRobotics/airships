@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-002",
+  "status": "ESTIMATE_PENDING_UNA",
+  "sigma_Pa": 276000000.0,
+  "sigma_kind": "tensile_yield_typical",
+  "sigma_transfer": "TRANSFERRED_FROM_TENSILE_YIELD",
+  "admitted": false,
+  "tag": "QUESTIONABLE",
+  "source": "ASM MatWeb 6061-T6 sheet https://asm.matweb.com/search/specificmaterial.asp?bassnum=ma6061t6 retrieved as a search snippet this phase: Tensile Yield Strength 276 MPa, AA Typical. The same snippet gives ultimate tensile 310 MPa and modulus 68.9 GPa, and says AA typical values are not for design. Direct page fetch failed this phase.",
+  "sealed_geometry": "vacuum-mainline-estimates-owner3000-1019 INPUTS.json and POINTS.json, read only",
+  "alternatives": {
+    "rule": "One closed-form thickness per family spends the baseline float margin. Other allowances stay fixed. Residual margin is the computed remainder, targeted at zero. This is an allocation, not an optimum and not a search.",
+    "P1-A": "Increase shell thickness. Joints remain 10 percent of shell mass. Systems stay 200 kg.",
+    "P2-A": "Increase each face thickness. Core thickness and density stay fixed. Joints remain 5 percent of sandwich mass. Systems stay 100 kg.",
+    "P3-A": "Increase tube wall at fixed outer radius. Film, nodes and systems stay fixed."
+  },
+  "strength_models": {
+    "P1": "p_yield = 2*sigma*t/R",
+    "P2": "p_yield = 4*sigma*tf/R with both faces carrying membrane force",
+    "P3_member": "p_yield = 2*sigma*A/(R*s)",
+    "P3_film": "retained p_film = 2*sigma_film*t_film/s, distinct from aluminum",
+    "collapse": "minimum of the stated stiffness, aluminum-strength and film pressures that apply to the row"
+  }
+}

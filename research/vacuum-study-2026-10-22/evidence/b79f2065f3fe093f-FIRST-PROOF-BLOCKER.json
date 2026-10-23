@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "at": {
+    "captured_monotonic": 2049153.965122922,
+    "captured_utc": "2026-10-19T18:13:48.784818+00:00"
+  },
+  "status": "PRECISE_PROOF_OR_FIT_BLOCKER",
+  "code": "BRANCH_COEFFICIENT_AND_MODE_TAIL_UNBOUND",
+  "first_missing_gate": "Uniform certified base branch, inverse and coefficient bounds on the entire actual precritical branch within frozenlambda[0,5/4].",
+  "attempted_proof": {
+    "path": "unpublished-local-ref:04000b26e08e86cf",
+    "sha256": "e4fd0720f85638dfb4386ccd85cf3a824a0b9a948a2d558ee8cae615aca38729",
+    "bytes": 14571
+  },
+  "derived_available": "For every fixedlambda_b<1, <z,B_lambda z> >=(1-lambda_b)(||zsecond||2^2+12Z^2||z||2^2). Unique even base and Delta_prime(N)=L/A+<w_N,B_Nw_N> >0 on that restricted range.",
+  "exact_limit": "Atlambda_b=5/4 the sufficient prefactor1-lambda_b=-1/4 is nonpositive. It supplies no positive inverse/coercivity bound on the complete frozen domain. This does not prove actual base instability or nonexistence.",
+  "missing_lemma": "Either certify the earliest constrained event below a proved cutofflambda_b<1 together with complete preceding-event coverage, or supply validated branch/inverse/coefficient enclosures covering the remaining domain. Neither alternative has a certificate here.",
+  "required_tail_coefficients": {
+    "Nmax_R2_over_2D": "1250c <2500<129^2=16641, c=sqrt(273)/10; this contribution passes.",
+    "My_R2_over_D_upper": "750c+5460*M_W",
+    "M_W_definition": "sup over entire certified precritical branch of ||w0/t||infinity, not prescribedg/t",
+    "sufficient_M_W_requirement": "M_W <(16641-750c)/5460",
+    "M_W_value": null,
+    "Smax_definition": "sup_branch ||gprime+w0prime||infinity for full membrane/radial coercivity conversion",
+    "Smax_value": null,
+    "certified_N_tail": null,
+    "N_tail_cap": 128
+  },
+  "failure_class": "Missing method certificate; not physicalFAIL, source mismatch, observed native error or proof no stronger certificate exists.",
+  "no_bypass": "No plotted interval used as a certified event bound; no assumedzero coefficients, reduced favorable domain, tolerance/cap change, trial response, payload, retry or stoppedStVK continuation.",
+  "downstream": "Finite-mode/root/base/discretization/error/transfer/fit certificates remainUNBOUND. Scientific/native/mesh/build/test payloads remainNOT_RUN.",
+  "owner_stop": "No further scientific derivation or execution after this first blocker; retained existing derivations are filed for separate Una review after owner closure."
+}

@@ -1,0 +1,47 @@
+{
+  "name": "tol-old021-W-a0.636017",
+  "analysis": "static",
+  "amplitude_mm": 0.636017,
+  "width_mm": 332.2164186283597,
+  "meridian": "W",
+  "yield_MPa": 10000.0,
+  "nu": 0.0768,
+  "ntheta": 512,
+  "nface": 2,
+  "ncore": 6,
+  "grading": 2.0,
+  "increments": 21,
+  "endpoint_kPa": 100.23387980960041,
+  "endpoint_kind": "load_cap",
+  "first_yield_bracket_kPa": null,
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 76.42163087165262,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        76.36867414955765,
+        81.141711272211
+      ]
+    },
+    "300.0": {
+      "p_kPa": 89.17632758835282,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        85.91475841825235,
+        90.68779554090571
+      ]
+    }
+  },
+  "endpoint_max_mises_MPa": 340.334993131859,
+  "endpoint_max_peeq": 0.0,
+  "endpoint_pole_uy_mm": -20.76871,
+  "solver": {
+    "returncode": 0,
+    "elapsed_s": 37.90510393725708,
+    "ended_at": "2026-10-20T11:57:07.641627+00:00"
+  },
+  "errors": [],
+  "eigen_kPa": [],
+  "eigen_native_output_labels": [],
+  "peeq_detection_threshold": 1e-10
+}

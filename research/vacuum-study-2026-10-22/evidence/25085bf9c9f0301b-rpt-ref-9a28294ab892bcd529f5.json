@@ -1,0 +1,141 @@
+{
+  "id": "rpt-ref-9a28294ab892bcd529f5",
+  "kind": "report",
+  "from": "ref-70f7af6d0a8d64c42272",
+  "from_seat": "ref-70f7af6d0a8d64c42272",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline049-check-1020",
+  "re": "ord-admiral-rr2-check049-codex-fd4e-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check049-codex-fd4e-1020"
+    }
+  ],
+  "at": "2026-10-20T06:47:51.716176-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check049-codex-fd4e-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "CHECK-049 complete with nonblocking corrections. Owner/predecessor code was neither read nor run. All 648 accounts were independently searched; 14,604 ledger comparisons reproduce mass/joins within 1.1e-9 kg. The 208 configurations with pinned thermal tables reproduce endpoints within 0.000492 kg and least usage within 7.2e-8. K13's 1.0/1.9/4.8 t deficits stand.\n\nFix 1: the “60% Vf” projection retains a 52.549% Vf mixture. Consistent density is 1800 rather than 1725.490 kg/m3; fibre mass fraction is .733333 rather than .67. At the published R30/ISA least geometry, payload becomes -4354.509 kg and fibre demand 77.130 t, 5.509% of cited capacity. Independent-thermal reoptimization still floats at usage .783530, endpoint +12.444 t; its matching original-mixture baseline is .721257/+16.242 t.\n\nFix 2: AlBeMet R15/ISA/old-coating “none through x8” misses a positive modulus interval [3.155175,3.733361]; the x3.3 witness carries +10.529 kg. This is hypothetical modulus, not sourced AlBeMet.\n\nThermal closure remains conditional: the R30 50 C edge factor is 1.017581 with owner inputs, .959664 under the specified independent boundary. Source, service, reference-modulus and provenance limitations are exact NFI rows. The sourced Be-free no-float conclusion survives. Eight nonblocking NFIs; no successor selected.",
+  "artifacts": [
+    {
+      "path": "evidence/8c16207f5ecc987c-CARD.md",
+      "sha256": "8c16207f5ecc987c8182ff0d9b031b9cc80f340aa05069ec1bc1ccbc0d78a1d6",
+      "bytes": 6902
+    },
+    {
+      "path": "evidence/9387cafb1824f6ec-RESULTS.json",
+      "sha256": "9387cafb1824f6ec7662541ddd9f01aa6fee69f2a5d1bf50645120479151f300",
+      "bytes": 26863
+    },
+    {
+      "path": "evidence/105e2c83175a7607-NFI.json",
+      "sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+      "bytes": 8601
+    },
+    {
+      "path": "evidence/e9df45e2be5a83c0-METHOD.md",
+      "sha256": "e9df45e2be5a83c097a268d2fbd5d8bc2f69405f89b7b9b979d5992486e207c1",
+      "bytes": 6767
+    },
+    {
+      "path": "evidence/a25aa990e606ff70-SOURCE-AUDIT.md",
+      "sha256": "a25aa990e606ff70294851a1268ec9efa140fe1218afbf3e35643743dd5e03cb",
+      "bytes": 7674
+    },
+    {
+      "path": "evidence/977d2a8cf341c3d9-COVERAGE.md",
+      "sha256": "977d2a8cf341c3d9ea382c5438596b5861f3222ac44507dabd344341a167b7a9",
+      "bytes": 3863
+    },
+    {
+      "path": "evidence/cbed0651b56cd892-INPUTS.json",
+      "sha256": "cbed0651b56cd892b27cfe6601a3ebe140662382c96f97f8db15d4c8147e2e28",
+      "bytes": 30797
+    },
+    {
+      "path": "evidence/9ce95b340d689819-INDEPENDENCE.json",
+      "sha256": "9ce95b340d68981982d8fa551ad661d10d8d28576f1d41d598512bb3906deb2b",
+      "bytes": 5207
+    },
+    {
+      "path": "evidence/f04be004eb040bf1-MANIFEST.json",
+      "sha256": "f04be004eb040bf13bfeadce6764d9fc3ad18a7a0d4e1ee9ac9bb4e1be1eb58b",
+      "bytes": 77422
+    },
+    {
+      "path": "evidence/89551d7c81d555be-TIMING.json",
+      "sha256": "89551d7c81d555beb21415bd5e024e39a1f2605495881cd5681d1fb9f1c3fb33",
+      "bytes": 251
+    },
+    {
+      "path": "evidence/5623e90d08e7c568-EXECUTION-SUMMARY.json",
+      "sha256": "5623e90d08e7c568c978d22bca8fb84a7af49b8a7f2f401049ab17bfd67a8415",
+      "bytes": 4039
+    },
+    {
+      "path": "evidence/f866fbd2d67a425d-VALIDATION.json",
+      "sha256": "f866fbd2d67a425d78115bd5f68b3018315290ea9e4c8523fa164567fefcfcef",
+      "bytes": 45434
+    },
+    {
+      "path": "evidence/99b9868e392b152a-LEDGER-COMPARISONS.csv",
+      "sha256": "99b9868e392b152a8d5418c31f9854c4adf6de018bb9370d5407c06c8221f51b",
+      "bytes": 2557032
+    },
+    {
+      "path": "evidence/d0400fba85f605c4-MECHANICS-COMPARISONS.csv",
+      "sha256": "d0400fba85f605c4b94771513f4068b1081327e81847654c42a8543b3fdbb637",
+      "bytes": 1183592
+    },
+    {
+      "path": "unpublished-local-ref:966bd7938705a9ec",
+      "sha256": "82e1cab845f5f2e49b2e58c2a2fac850545a4dd8b041f07832c4c2c09494273b",
+      "bytes": 826439
+    },
+    {
+      "path": "unpublished-local-ref:ade11a68338fa24a",
+      "sha256": "baab983b2a00dec4a76137a6c7925085cbf3fdb27cbae4a53f314afc11c87778",
+      "bytes": 2195624
+    },
+    {
+      "path": "evidence/f1fe77afcd4eb395-CORRECTED-SEARCHES.json",
+      "sha256": "f1fe77afcd4eb3958212af03f14f344849e9a1db69ba6ddf961b6ad9e8fd1945",
+      "bytes": 110922
+    },
+    {
+      "path": "evidence/ea20f8b780308553-SUPPLEMENT-COMPARISONS.csv",
+      "sha256": "ea20f8b7803085530ca5d2f934094571608b6f784ed8fe7907244b392bca9034",
+      "bytes": 60253
+    },
+    {
+      "path": "evidence/13c9f1d9373bc5a9-MODULUS-TARGETS.json",
+      "sha256": "13c9f1d9373bc5a9bdc6dd75ecd5bc81a1613a0a7784324788574fc5e054ca9b",
+      "bytes": 71342
+    },
+    {
+      "path": "evidence/10b39ded3ac984f5-PROPERTY-PRECISION.json",
+      "sha256": "10b39ded3ac984f5124635abe09bfa5e2c62ab8ec5192722dd768901e28e3a1f",
+      "bytes": 1136
+    },
+    {
+      "path": "evidence/dce239ddaf5655a2-PERMEATION-GAP-AUDIT.json",
+      "sha256": "dce239ddaf5655a2f528cc78851049fa604c048505bee852584e52f339904554",
+      "bytes": 127790
+    }
+  ],
+  "ingested": "2026-10-20T06:48:07-07:00"
+}

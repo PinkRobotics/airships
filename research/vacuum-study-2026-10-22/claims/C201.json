@@ -1,0 +1,82 @@
+{
+  "id": "C201",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C201",
+    "report": "rpt-ref-8cb22d2e233e57207cf6",
+    "file": "evidence/02a2f53e8d94208a-NFI.json",
+    "snapshot": "evidence/02a2f53e8d94208a-NFI.json",
+    "source_sha256": "02a2f53e8d94208a4c447824fcf3c927c4cd28d00e83f4b2a4402a94c36b72aa",
+    "source_json_pointer": "/items/2",
+    "row_id": "NFI-043-03",
+    "fields": {
+      "id": "NFI-043-03",
+      "status": "open",
+      "topic": "Joint and end-interface reliability",
+      "finding": "The source's approximately 44.19 kg CFRP joining estimate and 44.02 mm overlap do not establish rotation, contact, adhesive peel, end damage or statistical reliability for roughly 866 end interfaces.",
+      "needed": "Joint geometry and stiffness, local contact and bond stresses, combined-load tests, processing variability, failure distributions, environmental durability and allocation of joint risk.",
+      "effect": "The tube-only risk budget omits an unresolved system contribution. The proxy moment is not a physical bound.",
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION",
+      "status": "open qualification questions retained; assigned analysis complete"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "items",
+    "blocks_progress": false
+  },
+  "claim": "The source's approximately 44.19 kg CFRP joining estimate and 44.02 mm overlap do not establish rotation, contact, adhesive peel, end damage or statistical reliability for roughly 866 end interfaces.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/911"
+    },
+    {
+      "report": "rpt-ref-8cb22d2e233e57207cf6",
+      "artifact": "evidence/02a2f53e8d94208a-NFI.json",
+      "snapshot": "evidence/02a2f53e8d94208a-NFI.json",
+      "sha256": "02a2f53e8d94208a4c447824fcf3c927c4cd28d00e83f4b2a4402a94c36b72aa",
+      "bytes": 11490,
+      "selector": "/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-8cb22d2e233e57207cf6",
+          "artifact": "evidence/02a2f53e8d94208a-NFI.json",
+          "snapshot": "evidence/02a2f53e8d94208a-NFI.json",
+          "sha256": "02a2f53e8d94208a4c447824fcf3c927c4cd28d00e83f4b2a4402a94c36b72aa",
+          "bytes": 11490,
+          "selector": "/items/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/911"
+          }
+        ]
+      }
+    }
+  ]
+}

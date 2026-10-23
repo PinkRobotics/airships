@@ -1,0 +1,2348 @@
+{
+  "schema": 1,
+  "tag": "PROJECTION",
+  "reproduction_max_error": 3.019806626980426e-14,
+  "similarity": [
+    {
+      "radius_m": 10.0,
+      "s_m": 2.04,
+      "ro_m": 0.12368836237368608,
+      "wall_m": 0.0008802990936851718,
+      "film_m": 8e-05,
+      "nodes": 350.67346486624723,
+      "node_mass_kg": 7.013469297324945,
+      "tube_mass_kg": 4509.441600850166,
+      "joint_mass_kg": 225.47208004250842,
+      "film_mass_kg": 97.51503596742718,
+      "modes": {
+        "compression": 2.730423082407544,
+        "Euler": 5.1704150978551215,
+        "local_tube_buckling": 1.2257498873214392,
+        "film": 1.2324117553800829,
+        "Perry": 2.5617430431122976,
+        "global_lattice": 1.2255279468804745
+      },
+      "least_SF": 1.2255279468804745,
+      "note": "Shape scaling demonstration only; not a closed environmental budget or an optimised payload."
+    },
+    {
+      "radius_m": 15.0,
+      "s_m": 3.06,
+      "ro_m": 0.18553254356052912,
+      "wall_m": 0.0013204486405277577,
+      "film_m": 8e-05,
+      "nodes": 350.67346486624723,
+      "node_mass_kg": 7.013469297324945,
+      "tube_mass_kg": 15219.365402869309,
+      "joint_mass_kg": 760.9682701434659,
+      "film_mass_kg": 219.40883092671115,
+      "modes": {
+        "compression": 2.730423082407544,
+        "Euler": 5.170415097855122,
+        "local_tube_buckling": 1.225749887321439,
+        "film": 0.8216078369200553,
+        "Perry": 2.561743043112298,
+        "global_lattice": 1.2255279468804743
+      },
+      "least_SF": 0.8216078369200553,
+      "note": "Shape scaling demonstration only; not a closed environmental budget or an optimised payload."
+    },
+    {
+      "radius_m": 20.0,
+      "s_m": 4.08,
+      "ro_m": 0.24737672474737216,
+      "wall_m": 0.0017605981873703436,
+      "film_m": 8e-05,
+      "nodes": 350.67346486624723,
+      "node_mass_kg": 7.013469297324945,
+      "tube_mass_kg": 36075.532806801326,
+      "joint_mass_kg": 1803.7766403400674,
+      "film_mass_kg": 390.0601438697087,
+      "modes": {
+        "compression": 2.730423082407544,
+        "Euler": 5.1704150978551215,
+        "local_tube_buckling": 1.2257498873214392,
+        "film": 0.6162058776900414,
+        "Perry": 2.5617430431122976,
+        "global_lattice": 1.2255279468804745
+      },
+      "least_SF": 0.6162058776900414,
+      "note": "Shape scaling demonstration only; not a closed environmental budget or an optimised payload."
+    },
+    {
+      "radius_m": 30.0,
+      "s_m": 6.12,
+      "ro_m": 0.37106508712105823,
+      "wall_m": 0.0026408972810555154,
+      "film_m": 8e-05,
+      "nodes": 350.67346486624723,
+      "node_mass_kg": 7.013469297324945,
+      "tube_mass_kg": 121754.92322295447,
+      "joint_mass_kg": 6087.746161147727,
+      "film_mass_kg": 877.6353237068446,
+      "modes": {
+        "compression": 2.730423082407544,
+        "Euler": 5.170415097855122,
+        "local_tube_buckling": 1.225749887321439,
+        "film": 0.4108039184600277,
+        "Perry": 2.561743043112298,
+        "global_lattice": 1.2255279468804743
+      },
+      "least_SF": 0.4108039184600277,
+      "note": "Shape scaling demonstration only; not a closed environmental budget or an optimised payload."
+    },
+    {
+      "radius_m": 50.0,
+      "s_m": 10.2,
+      "ro_m": 0.6184418118684304,
+      "wall_m": 0.004401495468425859,
+      "film_m": 8e-05,
+      "nodes": 350.67346486624723,
+      "node_mass_kg": 7.013469297324945,
+      "tube_mass_kg": 563680.2001062707,
+      "joint_mass_kg": 28184.010005313554,
+      "film_mass_kg": 2437.87589918568,
+      "modes": {
+        "compression": 2.730423082407544,
+        "Euler": 5.1704150978551215,
+        "local_tube_buckling": 1.2257498873214392,
+        "film": 0.24648235107601663,
+        "Perry": 2.5617430431122976,
+        "global_lattice": 1.2255279468804747
+      },
+      "least_SF": 0.24648235107601663,
+      "note": "Shape scaling demonstration only; not a closed environmental budget or an optimised payload."
+    }
+  ],
+  "P3": [
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 10.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 2.242743629144834,
+      "ro_m": 0.12386771335824857,
+      "wall_m": 0.0008826900278422169,
+      "A_m2": 0.0006845356003012266,
+      "I_m4": 5.214197748303346e-06,
+      "r_i_m": 0.12298502333040635,
+      "modes": {
+        "compression": 2.469246201387059,
+        "Euler": 3.8798557988606923,
+        "local_tube_buckling": 1.1099029205066058,
+        "film": 1.1099029205068616,
+        "Perry": 2.26976862754476,
+        "global_lattice": 1.1099029205070714
+      },
+      "least_SF": 1.1099029205066058,
+      "governs": [
+        "local_tube_buckling",
+        "film",
+        "global_lattice"
+      ],
+      "nodes": 290.48282945761235,
+      "members": 865.4484883728371,
+      "masses_kg": {
+        "film": 97.51503596742718,
+        "nodes": 5.809656589152247,
+        "tubes": 4118.874774817842,
+        "joints": 205.94373874089212,
+        "systems_floor": 50.0,
+        "design_envelope_total": 4889.442150186961
+      },
+      "reserve_kg": 411.2989440716474,
+      "reserve_fraction": 0.08411980987563586,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 10.0,
+        "area_m2": 1256.6370614359173,
+        "volume_m3": 4188.790204786391,
+        "lift_kg": 4889.442150186961,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 4657.701333760775,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 125.66370614359174,
+          "contamination_kg": 5.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 213.036426543752,
+          "humidity_loss_kg": 18.704389882434043,
+          "internal_gas_kg": 48.89442150186961
+        },
+        "other_reserve_kg": 411.2989440716474,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 196.03557761958072,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 40.71949004941119,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 46.28072023084111
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": true,
+        "maximum_payload_kg": 429.3308825595936,
+        "point": {
+          "feasible": true,
+          "tag": "PROJECTION",
+          "material": "SiC-alpha-Hexoloy-SA",
+          "radius_m": 10.0,
+          "scenario": "optimistic",
+          "pump_scaled": false,
+          "sigma_Pa": 3900000000.0,
+          "node_mass_law": "fixed 20g/node",
+          "s_m": 2.4892277038657133,
+          "ro_m": 0.12386771335827129,
+          "wall_m": 0.0008826900278422118,
+          "A_m2": 0.0006845356003013487,
+          "I_m4": 5.2141977483061955e-06,
+          "r_i_m": 0.12298502333042909,
+          "modes": {
+            "compression": 2.2247407010422093,
+            "Euler": 2.8376615931046496,
+            "local_tube_buckling": 1.0000000000279987,
+            "film": 1.0000000000282399,
+            "Perry": 1.9657652128046665,
+            "global_lattice": 1.0000000000287912
+          },
+          "least_SF": 1.0000000000279987,
+          "governs": [
+            "local_tube_buckling",
+            "film",
+            "global_lattice"
+          ],
+          "nodes": 236.18009653092884,
+          "members": 702.5402895927865,
+          "masses_kg": {
+            "film": 97.51503596742718,
+            "nodes": 4.723601930618577,
+            "tubes": 3711.022557769213,
+            "joints": 185.55112788846066,
+            "systems_floor": 50.0,
+            "design_envelope_total": 4889.442150186961
+          },
+          "reserve_kg": 411.2989440716474,
+          "reserve_fraction": 0.08411980987563586,
+          "payload_kg": 429.3308825595936,
+          "environment": {
+            "radius_m": 10.0,
+            "area_m2": 1256.6370614359173,
+            "volume_m3": 4188.790204786391,
+            "lift_kg": 4889.442150186961,
+            "high_pressure_Pa": 96415.44629304421,
+            "moist_lift_kg": 4657.701333760775,
+            "lines": {
+              "systems_excess_kg": 0.0,
+              "retained_water_kg": 125.66370614359174,
+              "contamination_kg": 5.0,
+              "coating_kg": 0.0,
+              "temperature_pressure_loss_kg": 213.036426543752,
+              "humidity_loss_kg": 18.704389882434043,
+              "internal_gas_kg": 48.89442150186961
+            },
+            "other_reserve_kg": 411.2989440716474,
+            "systems": {
+              "modules": 0,
+              "hardware_kg": 15.0,
+              "battery_or_power_kg": 10.0,
+              "controls_kg": 5.0,
+              "total_kg": 30.0,
+              "power_W": 5.0,
+              "system_floor_kg": 50.0,
+              "hot_required_speed_m3_h": 196.03557761958072,
+              "module_rated_speed_m3_h": 240.0,
+              "rated_speed_sufficient": true,
+              "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+            },
+            "passive_hot_normalized_gas_load_limit_Pa_m3_s": 40.71949004941119,
+            "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 46.28072023084111
+          },
+          "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+        },
+        "tag": "PROJECTION",
+        "condition": "011b's unrealised joints/nodes/curved ceramic tubes, film and brittle-member model."
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 15.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 2.4181978659241086,
+      "ro_m": 0.16784741385894875,
+      "wall_m": 0.001080883960902565,
+      "A_m2": 0.001136247602100731,
+      "I_m4": 1.5902873101146402e-05,
+      "r_i_m": 0.1667665298980462,
+      "modes": {
+        "compression": 2.5341824204412116,
+        "Euler": 6.293262043497105,
+        "local_tube_buckling": 1.0293730463557842,
+        "film": 1.0293730463552273,
+        "Perry": 2.420141812016156,
+        "global_lattice": 1.0293730463543218
+      },
+      "least_SF": 1.0293730463543218,
+      "governs": [
+        "local_tube_buckling",
+        "film",
+        "global_lattice"
+      ],
+      "nodes": 560.3134409997783,
+      "members": 1674.940322999335,
+      "masses_kg": {
+        "film": 219.40883092671115,
+        "nodes": 11.206268819995566,
+        "tubes": 14266.776086003825,
+        "joints": 713.3388043001913,
+        "systems_floor": 50.0,
+        "design_envelope_total": 16501.867256880992
+      },
+      "reserve_kg": 1241.1372668302686,
+      "reserve_fraction": 0.07521192889930295,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 15.0,
+        "area_m2": 2827.4333882308138,
+        "volume_m3": 14137.16694115407,
+        "lift_kg": 16501.867256880992,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 15719.742001442615,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 282.7433388230814,
+          "contamination_kg": 11.25,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 718.9979395851606,
+          "humidity_loss_kg": 63.127315853216714,
+          "internal_gas_kg": 165.01867256880993
+        },
+        "other_reserve_kg": 1241.1372668302686,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 661.6200744660849,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 137.42827891676276,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 156.19743077908876
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": true,
+        "maximum_payload_kg": 428.08408808572574,
+        "point": {
+          "feasible": true,
+          "tag": "PROJECTION",
+          "material": "SiC-alpha-Hexoloy-SA",
+          "radius_m": 15.0,
+          "scenario": "optimistic",
+          "pump_scaled": false,
+          "sigma_Pa": 3900000000.0,
+          "node_mass_law": "fixed 20g/node",
+          "s_m": 2.489227703471017,
+          "ro_m": 0.1678474138590552,
+          "wall_m": 0.0010808839609025378,
+          "A_m2": 0.0011362476021014255,
+          "I_m4": 1.590287310117636e-05,
+          "r_i_m": 0.16676652989815266,
+          "modes": {
+            "compression": 2.4618698050129697,
+            "Euler": 5.769755888186977,
+            "local_tube_buckling": 1.0000000001872944,
+            "film": 1.0000000001868017,
+            "Perry": 2.3440168296384103,
+            "global_lattice": 1.0000000001871694
+          },
+          "least_SF": 1.0000000001868017,
+          "governs": [
+            "local_tube_buckling",
+            "film",
+            "global_lattice"
+          ],
+          "nodes": 528.9052173616838,
+          "members": 1580.7156520850513,
+          "masses_kg": {
+            "film": 219.40883092671115,
+            "nodes": 10.578104347233674,
+            "tubes": 13859.67520637243,
+            "joints": 692.9837603186215,
+            "systems_floor": 50.0,
+            "design_envelope_total": 16501.867256880992
+          },
+          "reserve_kg": 1241.1372668302686,
+          "reserve_fraction": 0.07521192889930295,
+          "payload_kg": 428.08408808572574,
+          "environment": {
+            "radius_m": 15.0,
+            "area_m2": 2827.4333882308138,
+            "volume_m3": 14137.16694115407,
+            "lift_kg": 16501.867256880992,
+            "high_pressure_Pa": 96415.44629304421,
+            "moist_lift_kg": 15719.742001442615,
+            "lines": {
+              "systems_excess_kg": 0.0,
+              "retained_water_kg": 282.7433388230814,
+              "contamination_kg": 11.25,
+              "coating_kg": 0.0,
+              "temperature_pressure_loss_kg": 718.9979395851606,
+              "humidity_loss_kg": 63.127315853216714,
+              "internal_gas_kg": 165.01867256880993
+            },
+            "other_reserve_kg": 1241.1372668302686,
+            "systems": {
+              "modules": 0,
+              "hardware_kg": 15.0,
+              "battery_or_power_kg": 10.0,
+              "controls_kg": 5.0,
+              "total_kg": 30.0,
+              "power_W": 5.0,
+              "system_floor_kg": 50.0,
+              "hot_required_speed_m3_h": 661.6200744660849,
+              "module_rated_speed_m3_h": 240.0,
+              "rated_speed_sufficient": true,
+              "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+            },
+            "passive_hot_normalized_gas_load_limit_Pa_m3_s": 137.42827891676276,
+            "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 156.19743077908876
+          },
+          "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+        },
+        "tag": "PROJECTION",
+        "condition": "011b's unrealised joints/nodes/curved ceramic tubes, film and brittle-member model."
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 20.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 2.570742707541271,
+      "ro_m": 0.2082312502933939,
+      "wall_m": 0.001247957530771552,
+      "A_m2": 0.00162787942939804,
+      "I_m4": 3.508175282529617e-05,
+      "r_i_m": 0.20698329276262234,
+      "modes": {
+        "compression": 2.5614248224693816,
+        "Euler": 8.666473892047627,
+        "local_tube_buckling": 0.9682912633118662,
+        "film": 0.9682912633122958,
+        "Perry": 2.475353990154006,
+        "global_lattice": 0.9682912633119706
+      },
+      "least_SF": 0.9682912633118662,
+      "governs": [
+        "local_tube_buckling",
+        "film",
+        "global_lattice"
+      ],
+      "nodes": 880.2577658022624,
+      "members": 2634.773297406787,
+      "masses_kg": {
+        "film": 390.0601438697087,
+        "nodes": 17.60515531604525,
+        "tubes": 34181.08111839154,
+        "joints": 1709.0540559195772,
+        "systems_floor": 50.0,
+        "design_envelope_total": 39115.53720149569
+      },
+      "reserve_kg": 2767.736727998812,
+      "reserve_fraction": 0.07075798841113654,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 20.0,
+        "area_m2": 5026.548245743669,
+        "volume_m3": 33510.32163829113,
+        "lift_kg": 39115.53720149569,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 37261.6106700862,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 502.65482457436696,
+          "contamination_kg": 20.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 1704.291412350016,
+          "humidity_loss_kg": 149.63511905947234,
+          "internal_gas_kg": 391.15537201495687
+        },
+        "other_reserve_kg": 2767.736727998812,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 1568.2846209566458,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 325.75592039528954,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 370.2457618467289
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 30.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 1.9611902946265096,
+      "ro_m": 0.25,
+      "wall_m": 0.0011999299500044587,
+      "A_m2": 0.001880322192606126,
+      "I_m4": 5.8478713491582376e-05,
+      "r_i_m": 0.24880007004999555,
+      "modes": {
+        "compression": 2.5854686050782174,
+        "Euler": 21.691237563183353,
+        "local_tube_buckling": 0.782754644770546,
+        "film": 1.269243331846112,
+        "Perry": 2.540112352236132,
+        "global_lattice": 0.7827546447705245
+      },
+      "least_SF": 0.7827546447705245,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 3397.332191008849,
+      "members": 10185.996573026547,
+      "masses_kg": {
+        "film": 877.6353237068446,
+        "nodes": 67.94664382017697,
+        "tubes": 116444.02981730581,
+        "joints": 5822.201490865291,
+        "systems_floor": 50.0,
+        "design_envelope_total": 132014.93805504794
+      },
+      "reserve_kg": 8753.124779349822,
+      "reserve_fraction": 0.06630404792297005,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 30.0,
+        "area_m2": 11309.733552923255,
+        "volume_m3": 113097.33552923256,
+        "lift_kg": 132014.93805504794,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 125757.93601154092,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 1130.9733552923256,
+          "contamination_kg": 45.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 5751.9835166812845,
+          "humidity_loss_kg": 505.0185268257337,
+          "internal_gas_kg": 1320.1493805504795
+        },
+        "other_reserve_kg": 8753.124779349822,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 5292.960595728679,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 1099.426231334102,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 1249.57944623271
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 50.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 1.0730593170630764,
+      "ro_m": 0.25,
+      "wall_m": 0.0011011042666233155,
+      "A_m2": 0.0017258015743453704,
+      "I_m4": 5.3694286367347856e-05,
+      "r_i_m": 0.24889889573337667,
+      "modes": {
+        "compression": 2.6022266097782087,
+        "Euler": 72.95479861620623,
+        "local_tube_buckling": 0.7229429891239874,
+        "film": 2.319748465302862,
+        "Perry": 2.579173018146744,
+        "global_lattice": 0.47279033149378147
+      },
+      "least_SF": 0.47279033149378147,
+      "governs": [
+        "global_lattice"
+      ],
+      "nodes": 31506.441245154878,
+      "members": 94513.32373546463,
+      "masses_kg": {
+        "film": 2437.87589918568,
+        "nodes": 630.1288249030976,
+        "tubes": 542586.9206235091,
+        "joints": 27129.346031175457,
+        "systems_floor": 50.0,
+        "design_envelope_total": 611180.2687733702
+      },
+      "reserve_kg": 38345.997394596845,
+      "reserve_fraction": 0.06274089553243711,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 50.0,
+        "area_m2": 31415.926535897932,
+        "volume_m3": 523598.7755982989,
+        "lift_kg": 611180.2687733701,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 582212.6667200967,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 3141.5926535897934,
+          "contamination_kg": 125.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 26629.55331796885,
+          "humidity_loss_kg": 2338.0487353045028,
+          "internal_gas_kg": 6111.802687733701
+        },
+        "other_reserve_kg": 38345.997394596845,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 24504.447202447594,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 5089.936256176399,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 5785.090028855139
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 10.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 3.0,
+      "ro_m": 0.09364101159958411,
+      "wall_m": 0.0005048946338036259,
+      "A_m2": 0.0002962608892249502,
+      "I_m4": 1.2919178460065317e-06,
+      "r_i_m": 0.09313611696578049,
+      "modes": {
+        "compression": 0.7910833721704011,
+        "Euler": 0.39770341224252137,
+        "local_tube_buckling": 0.26904654192347377,
+        "film": 0.8216078369200551,
+        "Perry": 0.3746532749675517,
+        "global_lattice": 0.2690465419234072
+      },
+      "least_SF": 0.2690465419234072,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 163.2266101541527,
+      "members": 483.6798304624581,
+      "masses_kg": {
+        "film": 97.51503596742718,
+        "nodes": 3.264532203083054,
+        "tubes": 1332.6473750587234,
+        "joints": 66.63236875293617,
+        "systems_floor": 50.0,
+        "design_envelope_total": 4889.442150186961
+      },
+      "reserve_kg": 3339.3828382047914,
+      "reserve_fraction": 0.6829782898805953,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 10.0,
+        "area_m2": 1256.6370614359173,
+        "volume_m3": 4188.790204786391,
+        "lift_kg": 4889.442150186961,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 4296.92412825329,
+        "lines": {
+          "systems_excess_kg": 1416.3333333333333,
+          "retained_water_kg": 1256.6370614359175,
+          "contamination_kg": 25.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 485.75819142405817,
+          "humidity_loss_kg": 106.75983050961258,
+          "internal_gas_kg": 48.89442150186961
+        },
+        "other_reserve_kg": 3339.3828382047914,
+        "systems": {
+          "modules": 1,
+          "hardware_kg": 223.0,
+          "battery_or_power_kg": 1223.3333333333333,
+          "controls_kg": 20.0,
+          "total_kg": 1466.3333333333333,
+          "power_W": 5505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 196.03557761958072,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 40.71949004941119,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 46.28072023084111
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 15.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 3.0,
+      "ro_m": 0.1563307612104974,
+      "wall_m": 0.000937851996498447,
+      "A_m2": 0.0009184467066619348,
+      "I_m4": 1.1155973341255918e-05,
+      "r_i_m": 0.15539290921399898,
+      "modes": {
+        "compression": 1.634973192638198,
+        "Euler": 2.289499897855295,
+        "local_tube_buckling": 0.6186870148673804,
+        "film": 0.8216078369200551,
+        "Perry": 1.4749134329195033,
+        "global_lattice": 0.6186870148673025
+      },
+      "least_SF": 0.6186870148673025,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 364.75987284684356,
+      "members": 1088.2796185405307,
+      "masses_kg": {
+        "film": 219.40883092671115,
+        "nodes": 7.295197456936871,
+        "tubes": 9295.599533655472,
+        "joints": 464.7799766827736,
+        "systems_floor": 50.0,
+        "design_envelope_total": 16501.867256880992
+      },
+      "reserve_kg": 6464.783718159099,
+      "reserve_fraction": 0.39176073940743866,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 15.0,
+        "area_m2": 2827.4333882308138,
+        "volume_m3": 14137.16694115407,
+        "lift_kg": 16501.867256880992,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 14502.11893285485,
+        "lines": {
+          "systems_excess_kg": 1416.3333333333333,
+          "retained_water_kg": 2827.4333882308138,
+          "contamination_kg": 56.25,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 1639.4338960561981,
+          "humidity_loss_kg": 360.3144279699445,
+          "internal_gas_kg": 165.01867256880993
+        },
+        "other_reserve_kg": 6464.783718159099,
+        "systems": {
+          "modules": 1,
+          "hardware_kg": 223.0,
+          "battery_or_power_kg": 1223.3333333333333,
+          "controls_kg": 20.0,
+          "total_kg": 1466.3333333333333,
+          "power_W": 5505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 661.6200744660849,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": false,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 137.42827891676276,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 156.19743077908876
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 20.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 3.0,
+      "ro_m": 0.19934113218583965,
+      "wall_m": 0.0011438188114888499,
+      "A_m2": 0.0014285197289135821,
+      "I_m4": 2.8220072260362334e-05,
+      "r_i_m": 0.19819731337435081,
+      "modes": {
+        "compression": 1.9072348822642569,
+        "Euler": 4.343627215294261,
+        "local_tube_buckling": 0.6902954255502067,
+        "film": 0.8216078369200551,
+        "Perry": 1.8130285271507636,
+        "global_lattice": 0.6902954255509058
+      },
+      "least_SF": 0.6902954255502067,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 646.9064406166108,
+      "members": 1934.7193218498323,
+      "masses_kg": {
+        "film": 390.0601438697087,
+        "nodes": 12.938128812332216,
+        "tubes": 25703.197906906968,
+        "joints": 1285.1598953453486,
+        "systems_floor": 50.0,
+        "design_envelope_total": 39115.53720149569
+      },
+      "reserve_kg": 11674.181126561327,
+      "reserve_fraction": 0.29845381047495706,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 20.0,
+        "area_m2": 5026.548245743669,
+        "volume_m3": 33510.32163829113,
+        "lift_kg": 39115.53720149569,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 34375.39302602632,
+        "lines": {
+          "systems_excess_kg": 1416.3333333333333,
+          "retained_water_kg": 5026.54824574367,
+          "contamination_kg": 100.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 3886.0655313924653,
+          "humidity_loss_kg": 854.0786440769007,
+          "internal_gas_kg": 391.15537201495687
+        },
+        "other_reserve_kg": 11674.181126561327,
+        "systems": {
+          "modules": 1,
+          "hardware_kg": 223.0,
+          "battery_or_power_kg": 1223.3333333333333,
+          "controls_kg": 20.0,
+          "total_kg": 1466.3333333333333,
+          "power_W": 5505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 1568.2846209566458,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": false,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 325.75592039528954,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 370.2457618467289
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 30.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 2.3795053366676746,
+      "ro_m": 0.25,
+      "wall_m": 0.001199929950005369,
+      "A_m2": 0.0018803221926075486,
+      "I_m4": 5.8478713491626415e-05,
+      "r_i_m": 0.24880007004999463,
+      "modes": {
+        "compression": 2.1100537717304895,
+        "Euler": 12.02554283122425,
+        "local_tube_buckling": 0.6388220639364275,
+        "film": 1.035855424561465,
+        "Perry": 2.062437870101788,
+        "global_lattice": 0.6388220639359242
+      },
+      "least_SF": 0.6388220639359242,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 2308.473002187015,
+      "members": 6919.4190065610455,
+      "masses_kg": {
+        "film": 877.6353237068446,
+        "nodes": 46.1694600437403,
+        "tubes": 95973.26705931539,
+        "joints": 4798.663352965769,
+        "systems_floor": 50.0,
+        "design_envelope_total": 132014.93805504794
+      },
+      "reserve_kg": 30269.202859016208,
+      "reserve_fraction": 0.22928619522128985,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 30.0,
+        "area_m2": 11309.733552923255,
+        "volume_m3": 113097.33552923256,
+        "lift_kg": 132014.93805504794,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 116016.9514628388,
+        "lines": {
+          "systems_excess_kg": 1416.3333333333333,
+          "retained_water_kg": 11309.733552923255,
+          "contamination_kg": 225.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 13115.471168449585,
+          "humidity_loss_kg": 2882.515423759556,
+          "internal_gas_kg": 1320.1493805504795
+        },
+        "other_reserve_kg": 30269.202859016208,
+        "systems": {
+          "modules": 1,
+          "hardware_kg": 223.0,
+          "battery_or_power_kg": 1223.3333333333333,
+          "controls_kg": 20.0,
+          "total_kg": 1466.3333333333333,
+          "power_W": 5505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 5292.960595728679,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": false,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 1099.426231334102,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 1249.57944623271
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 50.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 1.1793456670828124,
+      "ro_m": 0.25,
+      "wall_m": 0.0010503686535298484,
+      "A_m2": 0.0016464491842832806,
+      "I_m4": 5.123581880352365e-05,
+      "r_i_m": 0.24894963134647016,
+      "modes": {
+        "compression": 2.236693110235878,
+        "Euler": 51.92404448402893,
+        "local_tube_buckling": 0.5927596649407745,
+        "film": 2.08999242508523,
+        "Perry": 2.214774329993517,
+        "global_lattice": 0.4064189421477363
+      },
+      "least_SF": 0.4064189421477363,
+      "governs": [
+        "global_lattice"
+      ],
+      "nodes": 26083.766914754044,
+      "members": 78245.30074426213,
+      "masses_kg": {
+        "film": 2437.87589918568,
+        "nodes": 521.6753382950809,
+        "tubes": 470987.5259402051,
+        "joints": 23549.376297010254,
+        "systems_floor": 50.0,
+        "design_envelope_total": 611180.2687733701
+      },
+      "reserve_kg": 113633.81529867397,
+      "reserve_fraction": 0.18592520260304768,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 50.0,
+        "area_m2": 31415.926535897932,
+        "volume_m3": 523598.7755982989,
+        "lift_kg": 611180.2687733701,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 537115.5160316611,
+        "lines": {
+          "systems_excess_kg": 1416.3333333333333,
+          "retained_water_kg": 31415.926535897932,
+          "contamination_kg": 625.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 60719.773928007344,
+          "humidity_loss_kg": 13344.978813701659,
+          "internal_gas_kg": 6111.802687733701
+        },
+        "other_reserve_kg": 113633.81529867397,
+        "systems": {
+          "modules": 1,
+          "hardware_kg": 223.0,
+          "battery_or_power_kg": 1223.3333333333333,
+          "controls_kg": 20.0,
+          "total_kg": 1466.3333333333333,
+          "power_W": 5505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 24504.447202447594,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": false,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 5089.936256176399,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 5785.090028855139
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 10.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 3.0,
+      "ro_m": 0.09364101159958411,
+      "wall_m": 0.0005048946338036259,
+      "A_m2": 0.0002962608892249502,
+      "I_m4": 1.2919178460065317e-06,
+      "r_i_m": 0.09313611696578049,
+      "modes": {
+        "compression": 0.7910833721704011,
+        "Euler": 0.39770341224252137,
+        "local_tube_buckling": 0.26904654192347377,
+        "film": 0.8216078369200551,
+        "Perry": 0.3746532749675517,
+        "global_lattice": 0.2690465419234072
+      },
+      "least_SF": 0.2690465419234072,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 163.2266101541527,
+      "members": 483.6798304624581,
+      "masses_kg": {
+        "film": 97.51503596742718,
+        "nodes": 3.264532203083054,
+        "tubes": 1332.6473750587234,
+        "joints": 66.63236875293617,
+        "systems_floor": 50.0,
+        "design_envelope_total": 4889.442150186961
+      },
+      "reserve_kg": 3339.3828382047914,
+      "reserve_fraction": 0.6829782898805953,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 10.0,
+        "area_m2": 1256.6370614359173,
+        "volume_m3": 4188.790204786391,
+        "lift_kg": 4889.442150186961,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 4296.92412825329,
+        "lines": {
+          "systems_excess_kg": 1416.3333333333333,
+          "retained_water_kg": 1256.6370614359175,
+          "contamination_kg": 25.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 485.75819142405817,
+          "humidity_loss_kg": 106.75983050961258,
+          "internal_gas_kg": 48.89442150186961
+        },
+        "other_reserve_kg": 3339.3828382047914,
+        "systems": {
+          "modules": 1,
+          "hardware_kg": 223.0,
+          "battery_or_power_kg": 1223.3333333333333,
+          "controls_kg": 20.0,
+          "total_kg": 1466.3333333333333,
+          "power_W": 5505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 196.03557761958072,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 40.71949004941119,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 46.28072023084111
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 15.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 3.0,
+      "ro_m": 0.13903061088289223,
+      "wall_m": 0.0007420105152080594,
+      "A_m2": 0.0006464573667005743,
+      "I_m4": 6.214596321053823e-06,
+      "r_i_m": 0.13828860036768417,
+      "modes": {
+        "compression": 1.1507912838844365,
+        "Euler": 1.2753990357476797,
+        "local_tube_buckling": 0.38740631233553213,
+        "film": 0.8216078369200551,
+        "Perry": 0.9728550605110291,
+        "global_lattice": 0.3874063123350534
+      },
+      "least_SF": 0.3874063123350534,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 364.75987284684356,
+      "members": 1088.2796185405307,
+      "masses_kg": {
+        "film": 219.40883092671115,
+        "nodes": 7.295197456936871,
+        "tubes": 6542.795300851239,
+        "joints": 327.139765042562,
+        "systems_floor": 50.0,
+        "design_envelope_total": 16501.867256880992
+      },
+      "reserve_kg": 9355.228162603544,
+      "reserve_fraction": 0.5669193683946631,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 15.0,
+        "area_m2": 2827.4333882308138,
+        "volume_m3": 14137.16694115407,
+        "lift_kg": 16501.867256880992,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 14502.11893285485,
+        "lines": {
+          "systems_excess_kg": 4306.777777777777,
+          "retained_water_kg": 2827.4333882308138,
+          "contamination_kg": 56.25,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 1639.4338960561981,
+          "humidity_loss_kg": 360.3144279699445,
+          "internal_gas_kg": 165.01867256880993
+        },
+        "other_reserve_kg": 9355.228162603544,
+        "systems": {
+          "modules": 3,
+          "hardware_kg": 669.0,
+          "battery_or_power_kg": 3667.777777777778,
+          "controls_kg": 20.0,
+          "total_kg": 4356.777777777777,
+          "power_W": 16505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 661.6200744660849,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 137.42827891676276,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 156.19743077908876
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 20.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 3.0,
+      "ro_m": 0.17514148207382835,
+      "wall_m": 0.0008832676263137243,
+      "A_m2": 0.0009695377177287866,
+      "I_m4": 1.479525804993367e-05,
+      "r_i_m": 0.1742582144475146,
+      "modes": {
+        "compression": 1.2944421539977775,
+        "Euler": 2.277282812392354,
+        "local_tube_buckling": 0.4117716474719601,
+        "film": 0.8216078369200551,
+        "Perry": 1.2061490686797138,
+        "global_lattice": 0.41177164747071554
+      },
+      "least_SF": 0.41177164747071554,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 646.9064406166108,
+      "members": 1934.7193218498323,
+      "masses_kg": {
+        "film": 390.0601438697087,
+        "nodes": 12.938128812332216,
+        "tubes": 17444.78520849427,
+        "joints": 872.2392604247136,
+        "systems_floor": 50.0,
+        "design_envelope_total": 39115.53720149569
+      },
+      "reserve_kg": 20345.51445989466,
+      "reserve_fraction": 0.5201389502869129,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 20.0,
+        "area_m2": 5026.548245743669,
+        "volume_m3": 33510.32163829113,
+        "lift_kg": 39115.53720149569,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 34375.39302602632,
+        "lines": {
+          "systems_excess_kg": 10087.666666666666,
+          "retained_water_kg": 5026.54824574367,
+          "contamination_kg": 100.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 3886.0655313924653,
+          "humidity_loss_kg": 854.0786440769007,
+          "internal_gas_kg": 391.15537201495687
+        },
+        "other_reserve_kg": 20345.51445989466,
+        "systems": {
+          "modules": 7,
+          "hardware_kg": 1561.0,
+          "battery_or_power_kg": 8556.666666666666,
+          "controls_kg": 20.0,
+          "total_kg": 10137.666666666666,
+          "power_W": 38505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 1568.2846209566458,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 325.75592039528954,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 370.2457618467289
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 30.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 3.0,
+      "ro_m": 0.23801765057155758,
+      "wall_m": 0.0010877874497832883,
+      "A_m2": 0.0016230785380102087,
+      "I_m4": 4.576601128008721e-05,
+      "r_i_m": 0.23692986312177428,
+      "modes": {
+        "compression": 1.4446618839964274,
+        "Euler": 4.696196151863871,
+        "local_tube_buckling": 0.4164583694692448,
+        "film": 0.8216078369200551,
+        "Perry": 1.3944361546570276,
+        "global_lattice": 0.41645836946919135
+      },
+      "least_SF": 0.41645836946919135,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 1453.0394913873743,
+      "members": 4353.118474162123,
+      "masses_kg": {
+        "film": 877.6353237068446,
+        "nodes": 29.060789827747485,
+        "tubes": 65708.71447010309,
+        "joints": 3285.435723505155,
+        "systems_floor": 50.0,
+        "design_envelope_total": 132014.93805504794
+      },
+      "reserve_kg": 62064.09174790509,
+      "reserve_fraction": 0.4701293100787234,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 30.0,
+        "area_m2": 11309.733552923255,
+        "volume_m3": 113097.33552923256,
+        "lift_kg": 132014.93805504794,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 116016.9514628388,
+        "lines": {
+          "systems_excess_kg": 33211.22222222222,
+          "retained_water_kg": 11309.733552923255,
+          "contamination_kg": 225.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 13115.471168449585,
+          "humidity_loss_kg": 2882.515423759556,
+          "internal_gas_kg": 1320.1493805504795
+        },
+        "other_reserve_kg": 62064.09174790509,
+        "systems": {
+          "modules": 23,
+          "hardware_kg": 5129.0,
+          "battery_or_power_kg": 28112.222222222223,
+          "controls_kg": 20.0,
+          "total_kg": 33261.22222222222,
+          "power_W": 126505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 5292.960595728679,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 1099.426231334102,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 1249.57944623271
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 50.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 1.4929832549463982,
+      "ro_m": 0.25,
+      "wall_m": 0.0009336531291025495,
+      "A_m2": 0.0014638403537260906,
+      "I_m4": 4.557449017349229e-05,
+      "r_i_m": 0.24906634687089746,
+      "modes": {
+        "compression": 1.5708617428502274,
+        "Euler": 22.765394904936255,
+        "local_tube_buckling": 0.3700445492035912,
+        "film": 1.650938483465214,
+        "Perry": 1.5509093068499589,
+        "global_lattice": 0.2855005051846868
+      },
+      "least_SF": 0.2855005051846868,
+      "governs": [
+        "global_lattice"
+      ],
+      "nodes": 16276.56418419315,
+      "members": 48823.69255257945,
+      "masses_kg": {
+        "film": 2437.87589918568,
+        "nodes": 325.531283683863,
+        "tubes": 330781.3139287237,
+        "joints": 16539.065696436184,
+        "systems_floor": 50.0,
+        "design_envelope_total": 611180.2687733701
+      },
+      "reserve_kg": 261046.48196534064,
+      "reserve_fraction": 0.42711863471845574,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 50.0,
+        "area_m2": 31415.926535897932,
+        "volume_m3": 523598.7755982989,
+        "lift_kg": 611180.2687733701,
+        "high_pressure_Pa": 97370.05467218327,
+        "moist_lift_kg": 537115.5160316611,
+        "lines": {
+          "systems_excess_kg": 148829.0,
+          "retained_water_kg": 31415.926535897932,
+          "contamination_kg": 625.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 60719.773928007344,
+          "humidity_loss_kg": 13344.978813701659,
+          "internal_gas_kg": 6111.802687733701
+        },
+        "other_reserve_kg": 261046.48196534064,
+        "systems": {
+          "modules": 103,
+          "hardware_kg": 22969.0,
+          "battery_or_power_kg": 125890.0,
+          "controls_kg": 20.0,
+          "total_kg": 148879.0,
+          "power_W": 566505.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 24504.447202447594,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 5089.936256176399,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 5785.090028855139
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members.",
+      "payload_at_SF1": {
+        "reaches_SF1": false,
+        "maximum_payload_kg": null
+      }
+    }
+  ],
+  "sensitivities": [
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 10.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 380000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 1.419480249067527,
+      "ro_m": 0.2125688085033567,
+      "wall_m": 0.0003239885310965084,
+      "A_m2": 0.00043239229899420497,
+      "I_m4": 9.754052705272669e-06,
+      "r_i_m": 0.21224481997226016,
+      "modes": {
+        "compression": 0.2401129441135011,
+        "Euler": 28.626220862114245,
+        "local_tube_buckling": 0.23691752220011456,
+        "film": 1.7536191190903936,
+        "Perry": 0.23691752220008572,
+        "global_lattice": 1.9062288034237695
+      },
+      "least_SF": 0.23691752220008572,
+      "governs": [
+        "local_tube_buckling",
+        "Perry"
+      ],
+      "nodes": 722.1459526843926,
+      "members": 2160.4378580531775,
+      "masses_kg": {
+        "film": 97.51503596742718,
+        "nodes": 14.442919053687852,
+        "tubes": 4110.652620089713,
+        "joints": 205.53263100448567,
+        "systems_floor": 50.0,
+        "design_envelope_total": 4889.442150186961
+      },
+      "reserve_kg": 411.2989440716474,
+      "reserve_fraction": 0.08411980987563586,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 10.0,
+        "area_m2": 1256.6370614359173,
+        "volume_m3": 4188.790204786391,
+        "lift_kg": 4889.442150186961,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 4657.701333760775,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 125.66370614359174,
+          "contamination_kg": 5.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 213.036426543752,
+          "humidity_loss_kg": 18.704389882434043,
+          "internal_gas_kg": 48.89442150186961
+        },
+        "other_reserve_kg": 411.2989440716474,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 196.03557761958072,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 40.71949004941119,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 46.28072023084111
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 10.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "20g scaled by R*s/(10*2.04)",
+      "s_m": 2.2430426524696685,
+      "ro_m": 0.12386771335822344,
+      "wall_m": 0.0008826900278423033,
+      "A_m2": 0.000684535600301154,
+      "I_m4": 5.214197748300665e-06,
+      "r_i_m": 0.12298502333038114,
+      "modes": {
+        "compression": 2.4689170225331716,
+        "Euler": 3.8783043178075145,
+        "local_tube_buckling": 1.1097549577112116,
+        "film": 1.1097549577112509,
+        "Perry": 2.2693821997447023,
+        "global_lattice": 1.1097549577111165
+      },
+      "least_SF": 1.1097549577111165,
+      "governs": [
+        "local_tube_buckling",
+        "film",
+        "global_lattice"
+      ],
+      "nodes": 290.4059184414113,
+      "members": 865.2177553242338,
+      "masses_kg": {
+        "film": 97.51503596742718,
+        "nodes": 6.386204525428564,
+        "tubes": 4118.325681545199,
+        "joints": 205.91628407725995,
+        "systems_floor": 50.0,
+        "design_envelope_total": 4889.442150186962
+      },
+      "reserve_kg": 411.2989440716474,
+      "reserve_fraction": 0.08411980987563586,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 10.0,
+        "area_m2": 1256.6370614359173,
+        "volume_m3": 4188.790204786391,
+        "lift_kg": 4889.442150186961,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 4657.701333760775,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 125.66370614359174,
+          "contamination_kg": 5.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 213.036426543752,
+          "humidity_loss_kg": 18.704389882434043,
+          "internal_gas_kg": 48.89442150186961
+        },
+        "other_reserve_kg": 411.2989440716474,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 196.03557761958072,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 40.71949004941119,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 46.28072023084111
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 15.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 380000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 1.2793173463863647,
+      "ro_m": 0.25,
+      "wall_m": 0.0003822416130936659,
+      "A_m2": 0.0005999647079317687,
+      "I_m4": 1.872025260315638e-05,
+      "r_i_m": 0.24961775838690634,
+      "modes": {
+        "compression": 0.24644677148529637,
+        "Euler": 50.03254121078673,
+        "local_tube_buckling": 0.24393414760704601,
+        "film": 1.945746855514176,
+        "Perry": 0.24393414760687077,
+        "global_lattice": 1.5340190581790456
+      },
+      "least_SF": 0.24393414760687077,
+      "governs": [
+        "local_tube_buckling",
+        "Perry"
+      ],
+      "nodes": 1996.8267039093005,
+      "members": 5984.480111727901,
+      "masses_kg": {
+        "film": 219.40883092671115,
+        "nodes": 39.93653407818601,
+        "tubes": 14239.413928615073,
+        "joints": 711.9706964307537,
+        "systems_floor": 50.0,
+        "design_envelope_total": 16501.867256880992
+      },
+      "reserve_kg": 1241.1372668302686,
+      "reserve_fraction": 0.07521192889930295,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 15.0,
+        "area_m2": 2827.4333882308138,
+        "volume_m3": 14137.16694115407,
+        "lift_kg": 16501.867256880992,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 15719.742001442615,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 282.7433388230814,
+          "contamination_kg": 11.25,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 718.9979395851606,
+          "humidity_loss_kg": 63.127315853216714,
+          "internal_gas_kg": 165.01867256880993
+        },
+        "other_reserve_kg": 1241.1372668302686,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 661.6200744660849,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 137.42827891676276,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 156.19743077908876
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 15.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "20g scaled by R*s/(10*2.04)",
+      "s_m": 2.4196043831537843,
+      "ro_m": 0.1678474138590169,
+      "wall_m": 0.001080883960901917,
+      "A_m2": 0.0011362476021005146,
+      "I_m4": 1.590287310115639e-05,
+      "r_i_m": 0.16676652989811497,
+      "modes": {
+        "compression": 2.53270929894107,
+        "Euler": 6.282293592883756,
+        "local_tube_buckling": 1.0287746712914467,
+        "film": 1.0287746712921206,
+        "Perry": 2.418596348045706,
+        "global_lattice": 1.028774671291441
+      },
+      "least_SF": 1.028774671291441,
+      "governs": [
+        "local_tube_buckling",
+        "film",
+        "global_lattice"
+      ],
+      "nodes": 559.6645338985195,
+      "members": 1672.9936016955585,
+      "masses_kg": {
+        "film": 219.40883092671115,
+        "nodes": 19.914217048773203,
+        "tubes": 14258.482801976417,
+        "joints": 712.9241400988209,
+        "systems_floor": 50.0,
+        "design_envelope_total": 16501.867256880992
+      },
+      "reserve_kg": 1241.1372668302686,
+      "reserve_fraction": 0.07521192889930295,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 15.0,
+        "area_m2": 2827.4333882308138,
+        "volume_m3": 14137.16694115407,
+        "lift_kg": 16501.867256880992,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 15719.742001442615,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 282.7433388230814,
+          "contamination_kg": 11.25,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 718.9979395851606,
+          "humidity_loss_kg": 63.127315853216714,
+          "internal_gas_kg": 165.01867256880993
+        },
+        "other_reserve_kg": 1241.1372668302686,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 661.6200744660849,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 137.42827891676276,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 156.19743077908876
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 20.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 380000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 0.9528756734587605,
+      "ro_m": 0.25,
+      "wall_m": 0.0003832449449745634,
+      "A_m2": 0.0006015383251052279,
+      "I_m4": 1.8769277682239442e-05,
+      "r_i_m": 0.24961675505502542,
+      "modes": {
+        "compression": 0.24880782986029346,
+        "Euler": 91.04913550363625,
+        "local_tube_buckling": 0.24691756203953666,
+        "film": 2.612332094595907,
+        "Perry": 0.2469175620391021,
+        "global_lattice": 1.1615343486828615
+      },
+      "least_SF": 0.2469175620391021,
+      "governs": [
+        "local_tube_buckling",
+        "Perry"
+      ],
+      "nodes": 6394.441233733738,
+      "members": 19177.323701201214,
+      "masses_kg": {
+        "film": 390.0601438697087,
+        "nodes": 127.88882467467477,
+        "tubes": 34076.04905233571,
+        "joints": 1703.8024526167856,
+        "systems_floor": 50.0,
+        "design_envelope_total": 39115.53720149569
+      },
+      "reserve_kg": 2767.736727998812,
+      "reserve_fraction": 0.07075798841113654,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 20.0,
+        "area_m2": 5026.548245743669,
+        "volume_m3": 33510.32163829113,
+        "lift_kg": 39115.53720149569,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 37261.6106700862,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 502.65482457436696,
+          "contamination_kg": 20.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 1704.291412350016,
+          "humidity_loss_kg": 149.63511905947234,
+          "internal_gas_kg": 391.15537201495687
+        },
+        "other_reserve_kg": 2767.736727998812,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 1568.2846209566458,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 325.75592039528954,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 370.2457618467289
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 20.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "20g scaled by R*s/(10*2.04)",
+      "s_m": 2.5726589586226547,
+      "ro_m": 0.20823125029346634,
+      "wall_m": 0.0012479575307714136,
+      "A_m2": 0.0016278794293984285,
+      "I_m4": 3.508175282532906e-05,
+      "r_i_m": 0.20698329276269495,
+      "modes": {
+        "compression": 2.5595169391613677,
+        "Euler": 8.647122582645975,
+        "local_tube_buckling": 0.9675700292848123,
+        "film": 0.9675700292854545,
+        "Perry": 2.473400122470073,
+        "global_lattice": 0.9675700292856987
+      },
+      "least_SF": 0.9675700292848123,
+      "governs": [
+        "local_tube_buckling",
+        "film",
+        "global_lattice"
+      ],
+      "nodes": 878.9499083355249,
+      "members": 2630.8497250065748,
+      "masses_kg": {
+        "film": 390.0601438697087,
+        "nodes": 44.33800697764607,
+        "tubes": 34155.62125966621,
+        "joints": 1707.7810629833104,
+        "systems_floor": 50.0,
+        "design_envelope_total": 39115.53720149568
+      },
+      "reserve_kg": 2767.736727998812,
+      "reserve_fraction": 0.07075798841113654,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 20.0,
+        "area_m2": 5026.548245743669,
+        "volume_m3": 33510.32163829113,
+        "lift_kg": 39115.53720149569,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 37261.6106700862,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 502.65482457436696,
+          "contamination_kg": 20.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 1704.291412350016,
+          "humidity_loss_kg": 149.63511905947234,
+          "internal_gas_kg": 391.15537201495687
+        },
+        "other_reserve_kg": 2767.736727998812,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 1568.2846209566458,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 325.75592039528954,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 370.2457618467289
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 30.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 380000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 0.8111447982740363,
+      "ro_m": 0.25,
+      "wall_m": 0.0004942539512253092,
+      "A_m2": 0.0007756048409435948,
+      "I_m4": 2.4189780427372905e-05,
+      "r_i_m": 0.24950574604877468,
+      "modes": {
+        "compression": 0.2512394565224586,
+        "Euler": 126.81846464322199,
+        "local_tube_buckling": 0.3215507278539096,
+        "film": 3.068783414789342,
+        "Perry": 0.249613270203066,
+        "global_lattice": 0.7817505205561776
+      },
+      "least_SF": 0.249613270203066,
+      "governs": [
+        "Perry"
+      ],
+      "nodes": 19850.37546814993,
+      "members": 59545.126404449795,
+      "masses_kg": {
+        "film": 877.6353237068446,
+        "nodes": 397.00750936299863,
+        "tubes": 116130.63851678884,
+        "joints": 5806.531925839442,
+        "systems_floor": 50.0,
+        "design_envelope_total": 132014.93805504794
+      },
+      "reserve_kg": 8753.124779349822,
+      "reserve_fraction": 0.06630404792297005,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 30.0,
+        "area_m2": 11309.733552923255,
+        "volume_m3": 113097.33552923256,
+        "lift_kg": 132014.93805504794,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 125757.93601154092,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 1130.9733552923256,
+          "contamination_kg": 45.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 5751.9835166812845,
+          "humidity_loss_kg": 505.0185268257337,
+          "internal_gas_kg": 1320.1493805504795
+        },
+        "other_reserve_kg": 8753.124779349822,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 5292.960595728679,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 1099.426231334102,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 1249.57944623271
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 30.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "20g scaled by R*s/(10*2.04)",
+      "s_m": 1.9632426165491177,
+      "ro_m": 0.25,
+      "wall_m": 0.001199929950004522,
+      "A_m2": 0.001880322192606225,
+      "I_m4": 5.8478713491585446e-05,
+      "r_i_m": 0.2488000700499955,
+      "modes": {
+        "compression": 2.582765824559182,
+        "Euler": 21.623282312663562,
+        "local_tube_buckling": 0.7819363737612566,
+        "film": 1.2679164984261801,
+        "Perry": 2.537398162450293,
+        "global_lattice": 0.7819363737611935
+      },
+      "least_SF": 0.7819363737611935,
+      "governs": [
+        "local_tube_buckling",
+        "global_lattice"
+      ],
+      "nodes": 3390.2371204501023,
+      "members": 10164.711361350306,
+      "masses_kg": {
+        "film": 877.6353237068446,
+        "nodes": 195.7605292668943,
+        "tubes": 116322.30230735656,
+        "joints": 5816.115115367828,
+        "systems_floor": 50.0,
+        "design_envelope_total": 132014.93805504797
+      },
+      "reserve_kg": 8753.124779349822,
+      "reserve_fraction": 0.06630404792297005,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 30.0,
+        "area_m2": 11309.733552923255,
+        "volume_m3": 113097.33552923256,
+        "lift_kg": 132014.93805504794,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 125757.93601154092,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 1130.9733552923256,
+          "contamination_kg": 45.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 5751.9835166812845,
+          "humidity_loss_kg": 505.0185268257337,
+          "internal_gas_kg": 1320.1493805504795
+        },
+        "other_reserve_kg": 8753.124779349822,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 5292.960595728679,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 1099.426231334102,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 1249.57944623271
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 50.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 380000000.0,
+      "node_mass_law": "fixed 20g/node",
+      "s_m": 0.7500000000000013,
+      "ro_m": 0.25,
+      "wall_m": 0.0007681978368577265,
+      "A_m2": 0.0012048283988605813,
+      "I_m4": 3.7535371893887687e-05,
+      "r_i_m": 0.24923180216314228,
+      "modes": {
+        "compression": 0.2532566771098655,
+        "Euler": 149.3667427873211,
+        "local_tube_buckling": 0.5037852942662241,
+        "film": 3.3189702719146723,
+        "Perry": 0.2517390367157912,
+        "global_lattice": 0.4725573742415581
+      },
+      "least_SF": 0.2517390367157912,
+      "governs": [
+        "Perry"
+      ],
+      "nodes": 64492.644061660845,
+      "members": 193471.93218498252,
+      "masses_kg": {
+        "film": 2437.87589918568,
+        "nodes": 1289.852881233217,
+        "tubes": 541958.6119984328,
+        "joints": 27097.93059992164,
+        "systems_floor": 50.0,
+        "design_envelope_total": 611180.2687733701
+      },
+      "reserve_kg": 38345.997394596845,
+      "reserve_fraction": 0.06274089553243711,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 50.0,
+        "area_m2": 31415.926535897932,
+        "volume_m3": 523598.7755982989,
+        "lift_kg": 611180.2687733701,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 582212.6667200967,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 3141.5926535897934,
+          "contamination_kg": 125.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 26629.55331796885,
+          "humidity_loss_kg": 2338.0487353045028,
+          "internal_gas_kg": 6111.802687733701
+        },
+        "other_reserve_kg": 38345.997394596845,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 24504.447202447594,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 5089.936256176399,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 5785.090028855139
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    },
+    {
+      "feasible": true,
+      "tag": "PROJECTION",
+      "material": "SiC-alpha-Hexoloy-SA",
+      "radius_m": 50.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "sigma_Pa": 3900000000.0,
+      "node_mass_law": "20g scaled by R*s/(10*2.04)",
+      "s_m": 1.2316360338393881,
+      "ro_m": 0.25,
+      "wall_m": 0.0012624284195663703,
+      "A_m2": 0.0019780110879280585,
+      "I_m4": 6.150149742298432e-05,
+      "r_i_m": 0.24873757158043364,
+      "modes": {
+        "compression": 2.598509552549666,
+        "Euler": 55.26313370094058,
+        "local_tube_buckling": 0.8276783053156248,
+        "film": 2.021074112435896,
+        "Perry": 2.5717980334546895,
+        "global_lattice": 0.47196269029066923
+      },
+      "least_SF": 0.47196269029066923,
+      "governs": [
+        "global_lattice"
+      ],
+      "nodes": 23916.123511357662,
+      "members": 71742.37053407298,
+      "masses_kg": {
+        "film": 2437.87589918568,
+        "nodes": 1443.9195836441909,
+        "tubes": 541811.8818056604,
+        "joints": 27090.594090283023,
+        "systems_floor": 50.0,
+        "design_envelope_total": 611180.2687733702
+      },
+      "reserve_kg": 38345.997394596845,
+      "reserve_fraction": 0.06274089553243711,
+      "payload_kg": 0.0,
+      "environment": {
+        "radius_m": 50.0,
+        "area_m2": 31415.926535897932,
+        "volume_m3": 523598.7755982989,
+        "lift_kg": 611180.2687733701,
+        "high_pressure_Pa": 96415.44629304421,
+        "moist_lift_kg": 582212.6667200967,
+        "lines": {
+          "systems_excess_kg": 0.0,
+          "retained_water_kg": 3141.5926535897934,
+          "contamination_kg": 125.0,
+          "coating_kg": 0.0,
+          "temperature_pressure_loss_kg": 26629.55331796885,
+          "humidity_loss_kg": 2338.0487353045028,
+          "internal_gas_kg": 6111.802687733701
+        },
+        "other_reserve_kg": 38345.997394596845,
+        "systems": {
+          "modules": 0,
+          "hardware_kg": 15.0,
+          "battery_or_power_kg": 10.0,
+          "controls_kg": 5.0,
+          "total_kg": 30.0,
+          "power_W": 5.0,
+          "system_floor_kg": 50.0,
+          "hot_required_speed_m3_h": 24504.447202447594,
+          "module_rated_speed_m3_h": 240.0,
+          "rated_speed_sufficient": true,
+          "fixed_systems_qualification": "Passive is conditional on leak/thermal acceptance; active installed speed is unverified."
+        },
+        "passive_hot_normalized_gas_load_limit_Pa_m3_s": 5089.936256176399,
+        "gas_load_at_one_percent_volume_per_day_Pa_m3_s": 5785.090028855139
+      },
+      "limits": "0.4<=s<=3m, ro<=min(0.25m,s/3), film80um, 1.5GPa film, k0.2, a0=s/1000; arc members."
+    }
+  ],
+  "dense_checks": [
+    {
+      "radius_m": 10.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "dense_best": 1.1090950903390846,
+      "refined_best": 1.1099029205066058
+    },
+    {
+      "radius_m": 15.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "dense_best": 1.0289020086865757,
+      "refined_best": 1.0293730463543218
+    },
+    {
+      "radius_m": 20.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "dense_best": 0.968093816505751,
+      "refined_best": 0.9682912633118662
+    },
+    {
+      "radius_m": 30.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "dense_best": 0.782753576695907,
+      "refined_best": 0.7827546447705245
+    },
+    {
+      "radius_m": 50.0,
+      "scenario": "optimistic",
+      "pump_scaled": false,
+      "dense_best": 0.47279033136333726,
+      "refined_best": 0.47279033149378147
+    },
+    {
+      "radius_m": 10.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "dense_best": 0.26884853943286674,
+      "refined_best": 0.2690465419234072
+    },
+    {
+      "radius_m": 15.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "dense_best": 0.6183423793167687,
+      "refined_best": 0.6186870148673025
+    },
+    {
+      "radius_m": 20.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "dense_best": 0.6899236831225151,
+      "refined_best": 0.6902954255502067
+    },
+    {
+      "radius_m": 30.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "dense_best": 0.6388208627767945,
+      "refined_best": 0.6388220639359242
+    },
+    {
+      "radius_m": 50.0,
+      "scenario": "conservative",
+      "pump_scaled": false,
+      "dense_best": 0.40641894175152965,
+      "refined_best": 0.4064189421477363
+    },
+    {
+      "radius_m": 10.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "dense_best": 0.26884853943286674,
+      "refined_best": 0.2690465419234072
+    },
+    {
+      "radius_m": 15.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "dense_best": 0.3873404053251137,
+      "refined_best": 0.3874063123350534
+    },
+    {
+      "radius_m": 20.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "dense_best": 0.4116972436897173,
+      "refined_best": 0.41177164747071554
+    },
+    {
+      "radius_m": 30.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "dense_best": 0.41634789227043,
+      "refined_best": 0.41645836946919135
+    },
+    {
+      "radius_m": 50.0,
+      "scenario": "conservative",
+      "pump_scaled": true,
+      "dense_best": 0.28550050483571626,
+      "refined_best": 0.2855005051846868
+    }
+  ],
+  "film_limited_similarity_radius_at_SF1_m": 12.324117553801495,
+  "scope": "No Be-face/core bond films charged to P3. Frame joints remain 5% of tubes; film seam/attachment qualification and extra mass are NFI."
+}

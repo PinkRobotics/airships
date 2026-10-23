@@ -1,0 +1,39 @@
+{
+  "id": "E-59977cd4cf8781aff1d6",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-59977cd4cf8781aff1d6",
+    "report": "rpt-ref-e23aa05d834f8e89bb2c",
+    "file": "evidence/e5f8a3dd183321bf-NFI.json",
+    "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+    "source_sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+    "source_json_pointer": "/rows/4",
+    "row_id": "047-05",
+    "fields": {
+      "id": "047-05",
+      "topic": "BENCHMARK-TRANSFER",
+      "status": "QUESTIONABLE",
+      "objection": "029 overpredicted a different steel/PVC hemisphere by about 10% linearly and 2.31–2.46 times at imperfect nonlinear endpoints. Adding face plasticity does not itself establish a matched benchmark. CHECK-029 independently identifies the nonlinear benchmark gap as a StVK foam-law/core-refinement artifact; its linear-radius explanation is still unestablished.",
+      "proposed_fix": "Reproduce the complete benchmark constitutive, geometric and solution definitions, then validate a relevant low-Vc Be/CR-III test. Treat transferred ratios as conditional scenarios.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"047-05\", \"topic\": \"BENCHMARK-TRANSFER\", \"status\": \"QUESTIONABLE\", \"objection\": \"029 overpredicted a different steel/PVC hemisphere by about 10% linearly and 2.31–2.46 times at imperfect nonlinear endpoints. Adding face plasticity does not itself establish a matched benchmark. CHECK-029 independently identifies the nonlinear benchmark gap as a StVK foam-law/core-refinement artifact; its linear-radius explanation is still unestablished.\", \"proposed_fix\": \"Reproduce the complete benchmark constitutive, geometric and solution definitions, then validate a relevant low-Vc Be/CR-III test. Treat transferred ratios as conditional scenarios.\", \"disposition\": \"Recorded; no qualification claimed\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-e23aa05d834f8e89bb2c",
+      "artifact": "evidence/e5f8a3dd183321bf-NFI.json",
+      "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+      "sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+      "bytes": 7955,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

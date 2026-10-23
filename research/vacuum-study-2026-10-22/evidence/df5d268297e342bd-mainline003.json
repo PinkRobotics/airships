@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "status": "ESTIMATE_PENDING_UNA",
+  "card": "MAINLINE-003",
+  "atmosphere": {
+    "T_K": 284.9,
+    "p_ext_Pa": 95460.83791390515,
+    "rho_kg_m3": 1.1672683307461802,
+    "volume_m3": 4188.790204786391,
+    "lift_kg": 4889.442150186961
+  },
+  "sigma_Pa": 276000000.0,
+  "sigma_tag": "QUESTIONABLE",
+  "sigma_transfer": "TRANSFERRED_FROM_TENSILE_YIELD",
+  "core_density_kg_m3": 16.0,
+  "comparison_P2A": {
+    "source": "sealed MAINLINE-002 RESULTS P2-A, recomputed here and not by executing its script",
+    "tf_m": 0.0003758936444928841,
+    "core_m": 0.1,
+    "buckling_SF": 0.23078902511015878,
+    "strength_SF_QUESTIONABLE": 0.43471919227695743,
+    "E_factor": 4.3329616714776025,
+    "strength_factor": 2.3003355217933534,
+    "match": "PASS"
+  },
+  "rows": [
+    {
+      "point_id": "P2-C",
+      "construction_family": "sandwich",
+      "rule": "core_thickness_takes_the_ceiling_faces_fixed",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0002,
+        "core_m": 0.1593641050163484,
+        "d_m": 0.1595641050163484,
+        "rho_core_kg_m3": 16.0,
+        "p_int_Pa": 0.0
+      },
+      "masses_kg": {
+        "faces": 1357.1680263507908,
+        "core": 3204.2054500177437,
+        "joints": 228.06867381842673,
+        "systems_payload": 100.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 4889.442150186961,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 0.0,
+      "on_float_mass_ceiling": true,
+      "limits_Pa": {
+        "knocked_down_buckling": 18634.218489490406,
+        "aluminum_yield": 22080.0
+      },
+      "governing_limit": "knocked_down_buckling",
+      "collapse_pressure_Pa": 18634.218489490406,
+      "external_pressure_Pa": 95460.83791390515,
+      "buckling_SF": 0.19520275430953535,
+      "strength_SF_QUESTIONABLE": 0.23129903824973394,
+      "least_stated_modeled_SF": 0.19520275430953535,
+      "E_required_Pa": 352966331052.60614,
+      "sigma_required_Pa": 1193260473.9238145,
+      "membrane_stress_at_external_Pa": 1193260473.9238143,
+      "factors": {
+        "knocked_down_buckling": {
+          "factor": 5.1228785348709165,
+          "property": "Young_modulus_of_6061-T6_faces",
+          "baseline_Pa": 68900000000.0,
+          "scaling": "p_stiff = kd*4*tf*d/(R^2*sqrt(1-nu^2))*E",
+          "held_fixed": "tf, core, d, R, nu, kd, sigma, masses"
+        },
+        "aluminum_yield": {
+          "factor": 4.3234075142167185,
+          "property": "transferred_aluminum_tensile_yield",
+          "baseline_Pa": 276000000.0,
+          "tag": "QUESTIONABLE",
+          "scaling": "p_yield = 4*sigma*tf/R",
+          "held_fixed": "tf, R, E, kd, core"
+        }
+      },
+      "omitted_targets_QUESTIONABLE": {
+        "provenance": "Pinned admiral advisory formulas, not a sourced material card. Not imported numeric results.",
+        "crimp_formula": "p_crimp = 2*Gc*d/R",
+        "Gc_for_crimp_at_external_Pa": 2991300.515367305,
+        "wrinkle_formula": "sigma_w = 0.5*(E_face*Ec*Gc)^(1/3)",
+        "wrinkle_match": "sigma_w set equal to membrane stress at external pressure",
+        "Ec_times_Gc_Pa2": 1.9727703426364826e+17,
+        "equal_Ec_Gc_assumption_Pa": 444158793.9731108,
+        "equal_split_note": "Square root is an explicit equal-modulus assumption, not a measurement.",
+        "core_crush": "NO_FORMULA_IN_BRIEF"
+      }
+    },
+    {
+      "point_id": "P2-K",
+      "construction_family": "sandwich",
+      "rule": "one_factor_scales_baseline_face_and_core",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0002708825134523563,
+        "core_m": 0.13544125672617813,
+        "d_m": 0.1357121392396305,
+        "rho_core_kg_m3": 16.0,
+        "p_int_Pa": 0.0
+      },
+      "masses_kg": {
+        "faces": 1838.1654307753793,
+        "core": 2723.2080455931546,
+        "joints": 228.06867381842667,
+        "systems_payload": 100.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 4889.44215018696,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 1.8601195675014813e-16,
+      "on_float_mass_ceiling": true,
+      "limits_Pa": {
+        "knocked_down_buckling": 21465.729580015275,
+        "aluminum_yield": 29905.429485140136
+      },
+      "governing_limit": "knocked_down_buckling",
+      "collapse_pressure_Pa": 21465.729580015275,
+      "external_pressure_Pa": 95460.83791390515,
+      "buckling_SF": 0.22486424851387674,
+      "strength_SF_QUESTIONABLE": 0.31327432420100315,
+      "least_stated_modeled_SF": 0.22486424851387674,
+      "E_required_Pa": 306407089856.919,
+      "sigma_required_Pa": 881016983.1310939,
+      "membrane_stress_at_external_Pa": 881016983.1310939,
+      "factors": {
+        "knocked_down_buckling": {
+          "factor": 4.44712757412074,
+          "property": "Young_modulus_of_6061-T6_faces",
+          "baseline_Pa": 68900000000.0,
+          "scaling": "p_stiff = kd*4*tf*d/(R^2*sqrt(1-nu^2))*E",
+          "held_fixed": "tf, core, d, R, nu, kd, sigma, masses"
+        },
+        "aluminum_yield": {
+          "factor": 3.19209051859092,
+          "property": "transferred_aluminum_tensile_yield",
+          "baseline_Pa": 276000000.0,
+          "tag": "QUESTIONABLE",
+          "scaling": "p_yield = 4*sigma*tf/R",
+          "held_fixed": "tf, R, E, kd, core"
+        }
+      },
+      "omitted_targets_QUESTIONABLE": {
+        "provenance": "Pinned admiral advisory formulas, not a sourced material card. Not imported numeric results.",
+        "crimp_formula": "p_crimp = 2*Gc*d/R",
+        "Gc_for_crimp_at_external_Pa": 3517033.864794786,
+        "wrinkle_formula": "sigma_w = 0.5*(E_face*Ec*Gc)^(1/3)",
+        "wrinkle_match": "sigma_w set equal to membrane stress at external pressure",
+        "Ec_times_Gc_Pa2": 7.940056739557104e+16,
+        "equal_Ec_Gc_assumption_Pa": 281781062.8760759,
+        "equal_split_note": "Square root is an explicit equal-modulus assumption, not a measurement.",
+        "core_crush": "NO_FORMULA_IN_BRIEF"
+      }
+    },
+    {
+      "point_id": "P2-E",
+      "construction_family": "sandwich",
+      "rule": "equal_face_mass_and_core_mass",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0003360949703945902,
+        "core_m": 0.1134320525081742,
+        "d_m": 0.1137681474785688,
+        "rho_core_kg_m3": 16.0,
+        "p_int_Pa": 0.0
+      },
+      "masses_kg": {
+        "faces": 2280.686738184267,
+        "core": 2280.686738184267,
+        "joints": 228.06867381842673,
+        "systems_payload": 100.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 4889.442150186961,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 0.0,
+      "on_float_mass_ceiling": true,
+      "limits_Pa": {
+        "knocked_down_buckling": 22326.913346603837,
+        "aluminum_yield": 37104.88473156276
+      },
+      "governing_limit": "knocked_down_buckling",
+      "collapse_pressure_Pa": 22326.913346603837,
+      "external_pressure_Pa": 95460.83791390515,
+      "buckling_SF": 0.23388557899250978,
+      "strength_SF_QUESTIONABLE": 0.3886922170642076,
+      "least_stated_modeled_SF": 0.23388557899250978,
+      "E_required_Pa": 294588491931.8028,
+      "sigma_required_Pa": 710073389.3892399,
+      "membrane_stress_at_external_Pa": 710073389.3892398,
+      "factors": {
+        "knocked_down_buckling": {
+          "factor": 4.275594948211943,
+          "property": "Young_modulus_of_6061-T6_faces",
+          "baseline_Pa": 68900000000.0,
+          "scaling": "p_stiff = kd*4*tf*d/(R^2*sqrt(1-nu^2))*E",
+          "held_fixed": "tf, core, d, R, nu, kd, sigma, masses"
+        },
+        "aluminum_yield": {
+          "factor": 2.572729671700144,
+          "property": "transferred_aluminum_tensile_yield",
+          "baseline_Pa": 276000000.0,
+          "tag": "QUESTIONABLE",
+          "scaling": "p_yield = 4*sigma*tf/R",
+          "held_fixed": "tf, R, E, kd, core"
+        }
+      },
+      "omitted_targets_QUESTIONABLE": {
+        "provenance": "Pinned admiral advisory formulas, not a sourced material card. Not imported numeric results.",
+        "crimp_formula": "p_crimp = 2*Gc*d/R",
+        "Gc_for_crimp_at_external_Pa": 4195411.458725198,
+        "wrinkle_formula": "sigma_w = 0.5*(E_face*Ec*Gc)^(1/3)",
+        "wrinkle_match": "sigma_w set equal to membrane stress at external pressure",
+        "Ec_times_Gc_Pa2": 4.157004333769845e+16,
+        "equal_Ec_Gc_assumption_Pa": 203887330.0077728,
+        "equal_split_note": "Square root is an explicit equal-modulus assumption, not a measurement.",
+        "core_crush": "NO_FORMULA_IN_BRIEF"
+      }
+    }
+  ],
+  "checks": {
+    "P2A_recompute": "PASS",
+    "ceiling_residual": "PASS",
+    "point_count": 3
+  }
+}

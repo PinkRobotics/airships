@@ -1,0 +1,279 @@
+{
+  "unit": "vacuum-mainline068-face-projections-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "started": "2026-10-20T18:26:44-07:00",
+  "arithmetic_closed": "2026-10-20T18:29:53-07:00",
+  "method": "direct python, one core, no simjob, no hull model",
+  "index": {
+    "definition": "(E/290 GPa)^0.514 * (1850/rho)",
+    "p": 0.514,
+    "baseline_E_GPa": 290.0,
+    "baseline_rho_kg_m3": 1850.0,
+    "hull_point_not_the_baseline": {
+      "E_GPa": 293.6,
+      "strength_MPa": 379.2
+    },
+    "concept_factor": 1.8627378852281273,
+    "trl7_factor": 1.614325129280978,
+    "threshold_tag": "PROJECTION local slope, not a re-optimised clear",
+    "review_d_abs_max": 2.220446049250313e-16
+  },
+  "gauges": {
+    "tf_R20_ISA_m": 0.0020927579209688942,
+    "tf_R30_ISA_m": 0.003146943220203237,
+    "area_R20_m2": 10053.096491487338,
+    "area_R30_m2": 22619.46710584651,
+    "thermal_interface_beryllium_case": 1.07
+  },
+  "rows": [
+    {
+      "id": "sr200-sheet",
+      "kind": "measured isotropic sheet",
+      "form": "programme face sheet",
+      "source": "REVIEW-D baseline tuple, 290 GPa and 1850 kg/m3",
+      "E_GPa": 290.0,
+      "rho_kg_m3": 1850.0,
+      "improvement": 1.0,
+      "still_concept": 1.8627378852281273,
+      "still_trl7": 1.614325129280978
+    },
+    {
+      "id": "albemet-am162-rolled",
+      "kind": "measured isotropic sheet",
+      "form": "rolled sheet",
+      "source": "Materion AM162 rolled sheet, 193 GPa, 2.071 g/cm3, yield 276 MPa",
+      "E_GPa": 193.0,
+      "rho_kg_m3": 2071.0,
+      "improvement": 0.7245953045224865,
+      "still_concept": 2.5707286172047232,
+      "still_trl7": 2.2278989654022525
+    },
+    {
+      "id": "cvd-diamond",
+      "kind": "measured isotropic disk",
+      "form": "disk up to 120 mm, thickness 0.01-2 mm",
+      "source": "REVIEW-D mechanical page",
+      "E_GPa": 1050.0,
+      "rho_kg_m3": 3515.0,
+      "improvement": 1.0196828802041031,
+      "still_concept": 1.8267815625729398,
+      "still_trl7": 1.5831639038186551
+    },
+    {
+      "id": "graphite-film-mean",
+      "kind": "measured in-plane film, uniaxial tension",
+      "form": "mirror-like graphite film",
+      "source": "10.1038/s41467-025-62227-6",
+      "E_GPa": 969.0,
+      "rho_kg_m3": 2250.0,
+      "improvement": 1.528576085464965,
+      "still_concept": 1.2186098572002166,
+      "still_trl7": 1.0560973343959712
+    },
+    {
+      "id": "graphite-film-low",
+      "kind": "sensitivity, mean minus 69",
+      "form": "same film",
+      "source": "10.1038/s41467-025-62227-6",
+      "E_GPa": 900.0,
+      "rho_kg_m3": 2250.0,
+      "improvement": 1.4716254479544615,
+      "still_concept": 1.2657690092389382,
+      "still_trl7": 1.0969673917537013
+    },
+    {
+      "id": "graphite-film-high",
+      "kind": "sensitivity, highest specimen",
+      "form": "same film",
+      "source": "10.1038/s41467-025-62227-6",
+      "E_GPa": 1020.0,
+      "rho_kg_m3": 2250.0,
+      "improvement": 1.5694125734204663,
+      "still_concept": 1.1869013392497367,
+      "still_trl7": 1.028617430891755
+    },
+    {
+      "id": "graphene-compilation",
+      "kind": "QUESTIONABLE pairing of different rows",
+      "form": "0.6 micrometre graphene film modulus with the graphite-film density",
+      "source": "supplementary table of 10.1038/s41467-025-62227-6",
+      "E_GPa": 98.7,
+      "rho_kg_m3": 2250.0,
+      "improvement": 0.47249330140559326,
+      "still_concept": 3.942358293094897,
+      "still_trl7": 3.4166095571696244
+    },
+    {
+      "id": "plate-nanolattice",
+      "kind": "measured architected coupon, not a face",
+      "form": "pyrolytic-carbon plate-nanolattice, high-density end",
+      "source": "10.1038/s41467-020-15434-2",
+      "E_GPa": 21.6,
+      "rho_kg_m3": 792.0,
+      "improvement": 0.6147282957015294,
+      "still_concept": 3.0301808103730874,
+      "still_trl7": 2.6260790996105134
+    },
+    {
+      "id": "pyrolytic-carbon-constituent",
+      "kind": "constituent cited for that lattice",
+      "form": "not a face sheet",
+      "source": "10.1038/s41467-020-15434-2",
+      "E_GPa": 62.0,
+      "rho_kg_m3": 1400.0,
+      "improvement": 0.5979439144172846,
+      "still_concept": 3.1152384702224536,
+      "still_trl7": 2.699793559826074
+    },
+    {
+      "id": "cnt-ud-arocy",
+      "kind": "measured unidirectional, not a membrane",
+      "form": "coupon about 0.19 mm",
+      "source": "10.1021/acsanm.3c01266 table mean, AroCy XU 371",
+      "E_GPa": 329.0,
+      "rho_kg_m3": 1380.0,
+      "improvement": 1.43040415383817,
+      "still_concept": 1.302245858437901,
+      "still_trl7": 1.1285797268899822
+    },
+    {
+      "id": "cnt-ud-benzoxazine",
+      "kind": "measured unidirectional, not a membrane",
+      "form": "coupon about 0.20 mm",
+      "source": "10.1021/acsanm.3c01266 table mean, Araldite MT 35610",
+      "E_GPa": 353.0,
+      "rho_kg_m3": 1420.0,
+      "improvement": 1.4413418995197949,
+      "still_concept": 1.2923636549029256,
+      "still_trl7": 1.1200154035755259
+    },
+    {
+      "id": "cnt-xply-arocy",
+      "kind": "PROJECTION",
+      "form": "cross-ply, transverse modulus neglected",
+      "source": "classical, not a measurement",
+      "E_GPa": 164.5,
+      "rho_kg_m3": 1380.0,
+      "improvement": 1.0016807895406812,
+      "still_concept": 1.8596122683777156,
+      "still_trl7": 1.6116163413907774
+    },
+    {
+      "id": "cnt-qi-arocy-third",
+      "kind": "PROJECTION",
+      "form": "quasi-isotropic, fiber-only engineering modulus E1/3",
+      "source": "classical, not a measurement",
+      "E_GPa": 109.66666666666667,
+      "rho_kg_m3": 1380.0,
+      "improvement": 0.8132394494962687,
+      "still_concept": 2.2905158946506248,
+      "still_trl7": 1.985055115416391
+    },
+    {
+      "id": "cnt-qi-arocy-three-eighths",
+      "kind": "PROJECTION",
+      "form": "quasi-isotropic, 3/8 shortcut",
+      "source": "classical, not a measurement",
+      "E_GPa": 123.375,
+      "rho_kg_m3": 1380.0,
+      "improvement": 0.8639942142715283,
+      "still_concept": 2.155961063696108,
+      "still_trl7": 1.868444374528696
+    },
+    {
+      "id": "cnt-xply-benzoxazine",
+      "kind": "PROJECTION",
+      "form": "cross-ply, transverse modulus neglected",
+      "source": "classical, not a measurement",
+      "E_GPa": 176.5,
+      "rho_kg_m3": 1420.0,
+      "improvement": 1.0093402539660092,
+      "still_concept": 1.845500442401713,
+      "still_trl7": 1.5993864536144244
+    },
+    {
+      "id": "cnt-qi-benzoxazine-third",
+      "kind": "PROJECTION",
+      "form": "quasi-isotropic, fiber-only",
+      "source": "classical, not a measurement",
+      "E_GPa": 117.66666666666667,
+      "rho_kg_m3": 1420.0,
+      "improvement": 0.819457976094494,
+      "still_concept": 2.273134119831094,
+      "still_trl7": 1.969991355718802
+    },
+    {
+      "id": "cnt-headline-256-at-1.38",
+      "kind": "abstract specific modulus placed on the AroCy density, not a separate table row",
+      "form": "unidirectional claim",
+      "source": "10.1021/acsanm.3c01266 abstract, 256 GPa per g/cm3 times 1.38 g/cm3",
+      "E_GPa": 353.28,
+      "rho_kg_m3": 1380.0,
+      "improvement": 1.4837244850650548,
+      "still_concept": 1.2554472909075531,
+      "still_trl7": 1.0880221668716323
+    },
+    {
+      "id": "m60j-ud-carried",
+      "kind": "carried unidirectional ratio, source not re-opened",
+      "form": "unidirectional",
+      "source": "REVIEW-D blend 1.2621900302304936",
+      "E_GPa": null,
+      "rho_kg_m3": null,
+      "improvement": 1.2621900302304936,
+      "still_concept": 1.4757982875906295,
+      "still_trl7": 1.2789873874904396
+    }
+  ],
+  "measured_membrane_rank_by_still_concept": [
+    "graphite-film-mean",
+    "cvd-diamond",
+    "sr200-sheet",
+    "albemet-am162-rolled",
+    "plate-nanolattice"
+  ],
+  "constant_modulus_density_kg_m3": {
+    "graphite_969_concept": 1846.366157885367,
+    "graphite_969_trl7": 2130.4854455360164,
+    "diamond_1050_concept": 1924.1490455209546,
+    "beryllium_290_concept": 993.1617403988284,
+    "beryllium_290_trl7": 1145.9897182075038
+  },
+  "cnt_ply_E_GPa_to_clear_concept_at_1380": {
+    "quasi_isotropic_fiber_only_E1": 1649.8910079720545,
+    "cross_ply_E1_if_E2_neglected": 1099.9273386480363,
+    "E_to_pass_graphite_film": 374.3536579306952
+  },
+  "stretch_dominated_PROJECTION": {
+    "graphite-film": {
+      "tag": "PROJECTION",
+      "assumption": "stretch-dominated, modulus falls in proportion to density",
+      "rho_kg_m3": 1497.9806653546145,
+      "E_GPa": 645.1303398793873,
+      "improvement_check": 1.8627378852281276
+    },
+    "diamond": {
+      "tag": "PROJECTION",
+      "assumption": "stretch-dominated, modulus falls in proportion to density",
+      "rho_kg_m3": 1017.3619591403717,
+      "E_GPa": 303.906132886882,
+      "improvement_check": 1.8627378852281276
+    },
+    "beryllium": {
+      "tag": "PROJECTION",
+      "assumption": "stretch-dominated, modulus falls in proportion to density",
+      "rho_kg_m3": 514.4035239848073,
+      "E_GPa": 80.63622808410493,
+      "improvement_check": 1.8627378852281278
+    }
+  },
+  "bending_dominated_note": "Exponent of relative density is 0.028, so lowering density does not raise the index.",
+  "answer": {
+    "installed_face": "SR-200 bonded to CR-III",
+    "research_direction": "mirror-like graphite film",
+    "first_coupon": "in-plane compression of a stack near 2.1 mm, reporting modulus, density and compressive strength",
+    "purchase": "none requested",
+    "ranking_changer": "that compression test"
+  }
+}

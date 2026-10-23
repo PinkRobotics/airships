@@ -1,0 +1,73 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "label": "Al6061T6-019-same_tube_mass-m6-lost585",
+  "material": "Al6061T6",
+  "reserve": "019",
+  "section_policy": "same_tube_mass",
+  "removed_member": 585,
+  "segments": 6,
+  "ndof": 23982,
+  "radius_m": 0.12329986013822045,
+  "wall_m": 0.0010963411562414926,
+  "frame_tubes_kg": 4108.765016152623,
+  "total_mass_including_reserve_sag_kg": 4889.4421501900415,
+  "modes": {
+    "euler": 0.6782153997096496,
+    "global_k0p2": 0.12315120469476333,
+    "local_peak": 0.09690115815950781,
+    "compression": 0.12513350934254394,
+    "joint_sleeve": 0.45942405147413334,
+    "joint_bond": 0.4591944749602901,
+    "film": 0.7326516005819772
+  },
+  "conditional_SF_or_ceiling": 0.09690115815950781,
+  "qualified_structural_SF": null,
+  "qualified_frame_Pf": null,
+  "qualified_hail_break_probability": null,
+  "all_composite_modes_complete": null,
+  "linear_multipliers": [
+    0.6157560234738166,
+    0.9605244160819674,
+    0.9711469534296311,
+    0.9956671381581306
+  ],
+  "eigen_relative_residuals": [
+    5.057927600517587e-13,
+    3.8450794086118285e-13,
+    2.2757550699090808e-11,
+    2.734920890453295e-08
+  ],
+  "equilibrium_relative_residual": 3.9398834591483943e-13,
+  "load_rigid_projection_ratio": 1.9622315367581615e-16,
+  "q1_peak_compression_Pa": null,
+  "q1_peak_tension_Pa": null,
+  "q1_whole_member_scale_needed_m10_Pf1e3_Pa": null,
+  "max_axial_N": 1015286.46986236,
+  "max_bending_Nm": 50322.5226040476,
+  "local_shell_limit_Pa": 209256475.08735418,
+  "secondary_failure_trigger_at_q1": true,
+  "individual_secondary_failure_members_at_q1": {},
+  "merged_bay": {
+    "incident_faces": [
+      341,
+      342
+    ],
+    "corner_nodes": [
+      185,
+      188,
+      189,
+      186
+    ],
+    "old_effective_inradii_m": [
+      0.7077519794617482,
+      0.7186160660504115
+    ],
+    "new_effective_inradius_m": 1.0624542004752946,
+    "tension_multiplier_same_rise_to_span": 1.4784726513486586,
+    "assumption": "045 equal rise/span, area/perimeter radius; not a membrane shape solution"
+  },
+  "pressure_fan_volume_m3": 4156.1373686854095,
+  "tube_loss_includes_pressure_bay_merge": true,
+  "dynamic_cascade_probability": null,
+  "elapsed_seconds": 1.1868908717297018
+}

@@ -1,0 +1,53 @@
+{
+  "unit": "vacuum-mainline037-loads-beyond-pressure-1020",
+  "rows": [
+    {
+      "id": "NFI-037-022D-UNFILED",
+      "tag": "QUESTIONABLE",
+      "finding": "022d had not filed. The P3 rows are 022c. Projection at 6.15 m and CFRP/Zylon at 5.5 m fail the half-wave test, ratios 0.571 and 0.636. Their global factors are not in-band leads.",
+      "next": "Use 022d's in-band points when that card is filed. Do not treat s 6.15 m as a continuum optimum."
+    },
+    {
+      "id": "NFI-037-BARE-BE",
+      "tag": "QUESTIONABLE",
+      "finding": "Bare beryllium, absorptance 0.40 and emittance 0.05, reaches 356.9 K. The day rise from the air temperature produces 621 kPa of face-core shear and factor 0.388 on the 241 kPa sheet. The optical pair is an engineering band, not a measured SR-200 coupon.",
+      "next": "A measured solar absorptance and infrared emittance for the bare sheet, or a required coating."
+    },
+    {
+      "id": "NFI-037-ASSEMBLY-TEMPERATURE",
+      "tag": "QUESTIONABLE",
+      "finding": "Coated shear-lag is 1.678 on the day rise from the air temperature and 0.917 on the 30.493 K day-night swing. Which one applies is the temperature at which the bond is stress-free.",
+      "next": "The Admiral names the assembly temperature or the coating that keeps the swing inside the 241 kPa sheet."
+    },
+    {
+      "id": "NFI-037-MOORING-WIND",
+      "tag": "QUESTIONABLE",
+      "finding": "FAA-P-8110-2 Table 4 lists 70 knots. Mapped as a uniform windward excess, the floated P2 lead falls from 1.006358 to 0.998442. The flight gust, 35 ft/s at 35 knots, leaves 1.003303. The change discussion names 78 knots.",
+      "next": "The Admiral picks the mooring wind and whether the windward excess is uniform or a patch."
+    },
+    {
+      "id": "NFI-037-PATTERN-BOUND",
+      "tag": "QUESTIONABLE",
+      "finding": "A through-thickness-uniform solar pattern has no membrane stress on a complete sphere. Bending is 0.818 MPa coated. The constrained upper bounds are 20.51 MPa coated and 60.75 MPa bare. The table uses the bending value.",
+      "next": "None, unless a later shell solution replaces the bending estimate."
+    },
+    {
+      "id": "NFI-037-PATCH-BUCKLING",
+      "tag": "QUESTIONABLE",
+      "finding": "No sourced sphere-buckling factor under a windward patch was applied. Potential-flow area-mean Cp is -0.5, so a uniform excess overstates the mean pressure.",
+      "next": "A sourced non-uniform critical pressure, if the Admiral wants the patch scored below the uniform bound."
+    },
+    {
+      "id": "NFI-037-FILM-CTE",
+      "tag": "PROJECTION",
+      "finding": "The projection film has no stated modulus or expansion. The two assumptions are 10 GPa with 4.5e-6 and with 17e-6. Neither moves the out-of-band global factor below 1.",
+      "next": "The film card names the modulus and the expansion."
+    },
+    {
+      "id": "NFI-037-P3-BASELINE",
+      "tag": "QUESTIONABLE",
+      "finding": "In-band Mylar stays at 0.4105 by Perry and titanium/Kapton at 0.7412 by global after the flight gust. A proportional tube-wall increase is 5863 kg and 1634 kg. The lift does not have that margin. Sun and wind are not the gap.",
+      "next": "None on this card. The baseline section is a different job."
+    }
+  ]
+}

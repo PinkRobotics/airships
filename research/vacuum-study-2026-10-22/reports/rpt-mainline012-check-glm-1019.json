@@ -1,0 +1,36 @@
+{
+  "id": "rpt-mainline012-check-glm-1019",
+  "unit": "vacuum-mainline012-check-1019",
+  "at": "2026-10-19T23:45:00-07:00",
+  "body": "INDEPENDENT CHECK PASS. MAINLINE-012, owner grok, checker glm (different provider), owner files read-only, owner script never read. My own ISA anchored to the sealed 500 m state reproduces the sealed pressure and density exactly (0.000000 Pa). All radius rows (P2-A and P2-E at R 5/10/20/40 m, margins 0 and 5 percent) agree on face, core, buckling SF, yield SF, least SF and the allowance-twin spread within 5e-9 relative. All altitude rows (0/500/2000/5000/11000 m) agree on temperature, pressure, lift, both safety factors, lift-per-pressure and SF ratios to 500 m, and the cold-air fraction. All four infeasibility calls reproduce: P2-A at 5 m in both margins and at 11 km in both margins, the fixed 0.1 m core alone exceeding the ceiling there. Zero mismatches. No objection, so no NFI row and no fix card. The card's QUESTIONABLE tags remain the honest state. Artifacts: my script, machine output and INPUTS pins, sha-pinned below.",
+  "artifacts": [
+    {
+      "path": "evidence/01c181608c33eb22-check012.py",
+      "sha256": "01c181608c33eb222fed6861ca59fa7153a4611b1d7bba58640cc5d57ecc7645",
+      "bytes": 9393
+    },
+    {
+      "path": "evidence/880f9f4d6806ca7f-CHECK-OUT-012.json",
+      "sha256": "880f9f4d6806ca7f203ed95afbb291ab1ef9c10721293f77199ab0cddedb631b",
+      "bytes": 597
+    },
+    {
+      "path": "evidence/7e140691c63d4f2a-RESULTS.json",
+      "sha256": "7e140691c63d4f2a7f2ba451c4eda5316c965f0f845a258f2acc6e60a5ea825b",
+      "bytes": 690
+    },
+    {
+      "path": "evidence/1db7b47cbbf14a1f-INPUTS.json",
+      "sha256": "1db7b47cbbf14a1f8efea90462519f6a6c7119b2774cf81d460b121d4a109f17",
+      "bytes": 2498
+    },
+    {
+      "path": "evidence/52aaf894862b5b46-CHECK.md",
+      "sha256": "52aaf894862b5b46987b8c464f399ea8c5a80d6a819de094f05a8a57f5bd164c",
+      "bytes": 1619
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-c713c40ee838487ac6d3",
+  "re": "ord-admiral-rr2-check012-004-004b-glm-1019"
+}

@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "numerical_checks": [
+    {
+      "check": "037 face pressure MPa",
+      "calculated": 298435856.7214987,
+      "reference": 298435856.7214987,
+      "pass_": true
+    },
+    {
+      "check": "028b face mass",
+      "calculated": 3718.1408442154907,
+      "reference": 3718.140844215491,
+      "pass_": true
+    },
+    {
+      "check": "028b core mass",
+      "calculated": 444.9963038894539,
+      "reference": 444.9963038894539,
+      "pass_": true
+    },
+    {
+      "check": "028b scarf mass",
+      "calculated": 9.551002629831903,
+      "reference": 9.551002629831904,
+      "pass_": true
+    },
+    {
+      "check": "028b seam length",
+      "calculated": 2842.1322629977562,
+      "reference": 2842.1322629977562,
+      "pass_": true
+    },
+    {
+      "check": "037 rigid swing shear",
+      "calculated": 263037.2958266724,
+      "reference": 263037.29582667246,
+      "pass_": true
+    },
+    {
+      "check": "037b free edge 200F cold",
+      "calculated": 160202.13582979506,
+      "reference": 160202.1358297951,
+      "pass_": true
+    },
+    {
+      "check": "037b biaxial core modulus",
+      "calculated": 198747601.12135726,
+      "reference": 198747601.12135726,
+      "pass_": true
+    },
+    {
+      "check": "037-check six pad plate corrected mass",
+      "calculated": 3.4140336388712877,
+      "reference": 3.414034,
+      "pass_": true
+    },
+    {
+      "check": "Yahr tabulated 2000-cycle ordinate inversion",
+      "calculated": 2000.0000000000002,
+      "reference": 2000,
+      "pass_": true
+    },
+    {
+      "check": "finite outgassing first+tail inventory",
+      "calculated": 1.0,
+      "reference": 1,
+      "pass_": true
+    },
+    {
+      "check": "core pcf conversion",
+      "calculated": 16.018463373960138,
+      "reference": 16.018463373960138,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=271.076 p=0.000",
+      "calculated": -1.0913936421275139e-11,
+      "reference": 0.0,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=271.076 p=47730.419",
+      "calculated": -238652.09478476283,
+      "reference": -238652.09478476288,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=271.076 p=95460.838",
+      "calculated": -477304.1895695258,
+      "reference": -477304.18956952577,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=286.322 p=0.000",
+      "calculated": 3.9108272176235914e-11,
+      "reference": 0.0,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=286.322 p=47730.419",
+      "calculated": -238652.09478476283,
+      "reference": -238652.09478476288,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=286.322 p=95460.838",
+      "calculated": -477304.1895695256,
+      "reference": -477304.18956952577,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=301.569 p=0.000",
+      "calculated": -1.8189894035458565e-11,
+      "reference": 0.0,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=301.569 p=47730.419",
+      "calculated": -238652.09478476286,
+      "reference": -238652.09478476288,
+      "pass_": true
+    },
+    {
+      "check": "coupled membrane force balance T=301.569 p=95460.838",
+      "calculated": -477304.18956952565,
+      "reference": -477304.18956952577,
+      "pass_": true
+    }
+  ],
+  "checks_passed": 21,
+  "physical_assertions": 5,
+  "note": "Verifies arithmetic and documented units/sources. Does not validate transferred fatigue laws or installed geometry."
+}

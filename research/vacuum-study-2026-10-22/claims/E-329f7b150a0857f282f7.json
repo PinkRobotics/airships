@@ -1,0 +1,37 @@
+{
+  "id": "E-329f7b150a0857f282f7",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-329f7b150a0857f282f7",
+    "report": "rpt-mainline055-opus-gamma-test-1020",
+    "file": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "source_sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+    "source_json_pointer": "/rows/0",
+    "row_id": "N055-01-TOLERANCE-MAP-VS-FE",
+    "fields": {
+      "id": "N055-01-TOLERANCE-MAP-VS-FE",
+      "state": "demonstrated in my elastic FE; unresolved against the 015b map",
+      "note": "042 took the dimple tolerance 9.318-16.057 mm (width 0.357 m) from the 015b map as the shape that delivers gamma 0.564. My elastic FE of the 028b section (the CHECK-029 model) gives 0.511 and 0.469 there. It reaches 0.564 only at a dimple of 5.82 mm or less. Keeping the core within its typical shear strength at operating needs 2.38 mm or less (1.80 mm at the minimum strength). Keeping the outer face below 345 MPa needs 1.27 mm or less. The article seeds several amplitudes so that the test settles which is right.",
+      "proposed_fix": "Seed 2, 6 and 16 mm dimples (one article each) and report gamma against amplitude, not one number."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "042 took the dimple tolerance 9.318-16.057 mm (width 0.357 m) from the 015b map as the shape that delivers gamma 0.564. My elastic FE of the 028b section (the CHECK-029 model) gives 0.511 and 0.469 there. It reaches 0.564 only at a dimple of 5.82 mm or less. Keeping the core within its typical shear strength at operating needs 2.38 mm or less (1.80 mm at the minimum strength). Keeping the outer face below 345 MPa needs 1.27 mm or less. The article seeds several amplitudes so that the test settles which is right.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-mainline055-opus-gamma-test-1020",
+      "artifact": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+      "bytes": 5596,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

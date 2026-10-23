@@ -1,0 +1,119 @@
+{
+  "id": "rpt-ref-d6eac96dde8db1968e86",
+  "kind": "report",
+  "from": "ref-4189c1615990eb515921",
+  "from_seat": "ref-4189c1615990eb515921",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline037b-bond-temperature-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline037b-dispatch-1019"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline037b-dispatch-1019",
+  "supersedes": null,
+  "completion": "none",
+  "priority": 4,
+  "at": "2026-10-20T03:23:51-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline037b-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "MAINLINE-037b filed. 037's rigid shear-lag screen gives AF 163-2U's 250 F cure 1063 kPa, factor 0.227, but it cannot hold: the core would carry 47 times the in-plane force at which its walls yield. CR-1457, Hexcel and NASA TM-4585 give the faces the in-plane rigidity. On that reading the continuous bond carries no mismatch shear and the walls sit at 102-122 MPa (factor 2.24/1.87). A free core edge (unfilled splice, closeout) reads 1.17 typical, 0.83 minimum; W governs. The cure's larger cost is in the faces: 4.4 MPa of balanced compression passes through 028b's fixed 30:1 scarf, which binds at its 10 MPa screen, so 028b's usage goes from 0.972 to 1.052 (gamma 0.618). 037's floated scarf falls to 0.9925; any bond stress-free above 54 C does that. Lightest sourced fix, +0.12 kg: AF 163-2U's own 200 F datasheet cure (free edge 1.51/1.08) plus a 30.34:1 scarf by 028's sizing rule (usage 0.972). Room-temperature or mid-swing cures need no scarf change (0.990/0.982) but rest on projections. If 037's screen is kept, only a bond stress-free at 0.4-25.9 C passes. Matched cores (32-85 kg/m3) and RTV interlayers cannot float on mass. Noted, not taken: 028b's 30:1 scarf pins its faces; 30.44:1 alone reads 0.894. Thirteen NFI rows; a checker runs behind. The brief names no next job; the robotics seat sends it.",
+  "artifacts": [
+    {
+      "path": "evidence/90709c240cb7fd1a-CARD.md",
+      "sha256": "90709c240cb7fd1a8d6902ada7d6acec2daf75b07943f5ee1b822ab38d0bce30",
+      "bytes": 14475
+    },
+    {
+      "path": "evidence/5a58ce385f7d08d8-RESULTS.json",
+      "sha256": "5a58ce385f7d08d818411b5a4b2aa6d0d6e96c7796d41497fb70d0aa10270fa0",
+      "bytes": 45269
+    },
+    {
+      "path": "evidence/af79eb00f6335ba5-NFI.json",
+      "sha256": "af79eb00f6335ba5a916c0b6ee71afdeebf79d7390305c7675680cdc493b8f36",
+      "bytes": 5629
+    },
+    {
+      "path": "evidence/59c320c78aa0fa12-INPUTS.json",
+      "sha256": "59c320c78aa0fa127a3062c0ba528dce00f4e26cfd56dc83a779dcf4b180302d",
+      "bytes": 12110
+    },
+    {
+      "path": "evidence/42c61714bef8eef2-COMPUTE.json",
+      "sha256": "42c61714bef8eef249c4721e059a79a6d0dbdd992d7ad877f8691ad62a431743",
+      "bytes": 41976
+    },
+    {
+      "path": "evidence/755e52e7cfbd7ffd-bond37b.py",
+      "sha256": "755e52e7cfbd7ffd0913251f12fc153fa1475899484315cb7a499e99167c4d21",
+      "bytes": 9752
+    },
+    {
+      "path": "evidence/c0f765e55735eae0-run37b.py",
+      "sha256": "c0f765e55735eae0bfffd3504d745ada720334dab63c96910ff1b22b459cc68e",
+      "bytes": 25668
+    },
+    {
+      "path": "evidence/c47dc38a0abd1ef9-card37b.py",
+      "sha256": "c47dc38a0abd1ef92e7c9fc66e5bf8adca9d2274c095342a50ec64bb8b844fc3",
+      "bytes": 29967
+    },
+    {
+      "path": "evidence/5e9f116cf38f1f7f-adhesive.json",
+      "sha256": "5e9f116cf38f1f7f1d5ccbce49b5201c15f5a18e87441fb2415de8a646447482",
+      "bytes": 99214
+    },
+    {
+      "path": "evidence/7fd103e58e9d0809-adhesive.md",
+      "sha256": "7fd103e58e9d0809868745a167a048ab583aef8c09877591ce0670f858a5322a",
+      "bytes": 2072
+    },
+    {
+      "path": "evidence/a003669fa58c1c30-core.json",
+      "sha256": "a003669fa58c1c30e37faa210bb4da2625cbe0d999254ca5272440f0054b6364",
+      "bytes": 129017
+    },
+    {
+      "path": "evidence/13c0fa94440b5da7-core.md",
+      "sha256": "13c0fa94440b5da7b418ab71727c2e4b03ced1493b7ca12ca329e0724e3a8540",
+      "bytes": 2483
+    },
+    {
+      "path": "evidence/60d66f65c34c858f-interlayer.json",
+      "sha256": "60d66f65c34c858f3cf5fbbb1e8d6cab32826d5eee5028eb12396f485f00ff48",
+      "bytes": 67023
+    },
+    {
+      "path": "evidence/8356d3f8d8f9358f-interlayer.md",
+      "sha256": "8356d3f8d8f9358fb28a15a45a48aeb07d688e0717beb7d3afdc4000523bef6c",
+      "bytes": 2216
+    },
+    {
+      "path": "evidence/c333c0c209347026-vacuum-mainline037b-bond-temperature-1020.md",
+      "sha256": "c333c0c209347026e1b5618d0fff07d11cfdb6290bf184cb26a900f57f32bc03",
+      "bytes": 3196
+    },
+    {
+      "path": "evidence/f96e8183525287e5-model17b.py",
+      "sha256": "f96e8183525287e5df89711d4d2e14fd4ae5652a49248289c8d733361ff31a5d",
+      "bytes": 15953
+    }
+  ],
+  "links_schema": 1,
+  "ingested": "2026-10-20T03:25:36-07:00"
+}

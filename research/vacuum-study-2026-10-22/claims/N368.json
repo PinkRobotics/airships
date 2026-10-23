@@ -1,0 +1,93 @@
+{
+  "id": "N368",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N368",
+    "report": "rpt-ref-58c781cbea9c220eb5b4",
+    "card": "MAINLINE-025",
+    "file": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "source_sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+    "source_json_pointer": "/rows/0",
+    "row_id": "NFI-025-COMPRESSION",
+    "fields": {
+      "id": "NFI-025-COMPRESSION",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE",
+      "target_transfer": "PROJECTION",
+      "evidence_state": "exists_today coupon/property data; target allowable PROJECTION",
+      "issue": "No probability-qualified compression allowable for full-size Hexoloy SA or CVD arcs.",
+      "factor": {
+        "qualified_Fc_Pa": null,
+        "required_extreme_compression_Pa_at_original_full_pressure": 1487180630.733,
+        "required_extreme_compression_Pa_at_optimistic_reoptimized_full_pressure": 1520385084.385,
+        "typical_coupon_compression_Pa": 3900000000.0,
+        "qualified_available_to_required_ratio": null,
+        "required_extreme_compression_Pa_at_original_full_pressure_by_force_rule": {
+          "equilateral_equilibrium": 855498631.1352932,
+          "legacy_pRs_over2": 1487180630.7109318
+        },
+        "required_equilateral_extreme_compression_Pa_at_optimistic_reoptimized_full_pressure": 856977622.5503811,
+        "size_dependent_compression_allowable_function": null
+      },
+      "required_next_evidence": "Production-representative axial compression and combined compression/bending/contact tests; failure mode and distribution model, lower confidence bounds, environment and loading history.",
+      "note": "ASTM C1424 separates compression from tensile weakest-link statistics; 380 MPa flexure is not a measured compression allowable. Zero continuum tensile hazard cannot establish compressive survival. Earlier unqualified required-stress keys denote the inherited force rule; explicitly named dual-demand fields distinguish the amendment. The requested tube-size interface is supplied in allowable.py with compression qualification null."
+    },
+    "inherited_document_tag": {
+      "classification": "QUESTIONABLE"
+    }
+  },
+  "claim": "No probability-qualified compression allowable for full-size Hexoloy SA or CVD arcs. | ASTM C1424 separates compression from tensile weakest-link statistics; 380 MPa flexure is not a measured compression allowable. Zero continuum tensile hazard cannot establish compressive survival. Earlier unqualified required-stress keys denote the inherited force rule; explicitly named dual-demand fields distinguish the amendment. The requested tube-size interface is supplied in allowable.py with compression qualification null.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/367"
+    },
+    {
+      "report": "rpt-ref-58c781cbea9c220eb5b4",
+      "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+      "bytes": 21434,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58c781cbea9c220eb5b4",
+          "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+          "bytes": 21434,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/367"
+          }
+        ]
+      }
+    }
+  ]
+}

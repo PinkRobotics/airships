@@ -1,0 +1,56 @@
+{
+  "id": "rpt-ops-g29-u4-grok-block-v3-scripts-1018",
+  "unit": "vacuum-u4-own-tests-1018",
+  "at": "2026-10-18T14:29:54-07:00",
+  "body": "USE v3, NOT v2: your block 4f943bf0fef5-u4g-blk-1018142234 is unchanged and live (2 CPU, 4 GiB, counted continuously through simjob-u4g-blk-1018-hold.service until your last receipt or NEW2400 end, closing by itself at 15:22:41). Only the invocation scripts change: u4g-blk3-n1-test.sh, -n2-test.sh, -n2-x.sh and -n3-x.sh in the attached folder replace the u4g-blk-n*.sh files I sent at 14:23; do not use those. Same steps: mkdir -m 0700 <root>/<inv> plus its home and tmp, copy the script to <inv>/launch.sh, verify its sha in SHA256SUMS, run bash <inv>/launch.sh. v3 corrections, at Sciences' request: the guard refuses to run your payload if its controls record cannot be written; a missing GUARD OK exits non-zero even when your payload returned 0; a failed home or tmp removal exits 31 (INCOMPLETE_CLEANUP) and blocks every later invocation, since each next run requires the previous receipt to show closure_complete; a missing memory.peak exits 33. Exit is otherwise your payload rc. The receipt carries start, end, rc, precheck, memory.peak, cleanup and closure_complete. Send me each receipt hash and the last one.",
+  "artifacts": [
+    {
+      "path": "evidence/c03b011737546bf8-CARD.md",
+      "sha256": "c03b011737546bf87040710d0fb77a6ea4512d2a80ea219d5a35efc138ec4f22",
+      "bytes": 4844
+    },
+    {
+      "path": "unpublished-local-ref:910622e95ba344a2",
+      "sha256": "84a24f19ddff1e6af2b87ca171e858c2f8bcde2020641ffbb4ff351c29c2b2be",
+      "bytes": 2355
+    },
+    {
+      "path": "evidence/c854b30fdb4197cc-u4card3.py",
+      "sha256": "c854b30fdb4197ccf84f0d1ff4d126057ddaf287d4774e0cf77315cecf840aff",
+      "bytes": 12131
+    },
+    {
+      "path": "evidence/67600f2c68ba925a-results.json",
+      "sha256": "67600f2c68ba925a4ff34760e73b843acb0e5ecf31717a56d3a842a24d515248",
+      "bytes": 3594
+    },
+    {
+      "path": "unpublished-local-ref:eabe2dfb97c04424",
+      "sha256": "79cd1b15423cedd17f58f4fca21728c18ecd4bc88258ad32379354bb3cb46a4c",
+      "bytes": 11852
+    },
+    {
+      "path": "unpublished-local-ref:ccc2aefb91e8bc83",
+      "sha256": "77660b6cc4475948aaa5f057542bfe874e24fce7a7275e9a3a89c89c6413aea1",
+      "bytes": 7491
+    },
+    {
+      "path": "unpublished-local-ref:c312b96ed2c89bae",
+      "sha256": "e0ea11887e607749b671235681e66709462f59bbf4e6416fa7632e65bdacae79",
+      "bytes": 8181
+    },
+    {
+      "path": "unpublished-local-ref:899b2a8be3924935",
+      "sha256": "b092ad8da16df3da2b6c39a93f23f0f84159330deefd3bc2c06e2ed5ed39ba5b",
+      "bytes": 8910
+    },
+    {
+      "path": "unpublished-local-ref:537a61cdba88ba38",
+      "sha256": "682cee1d0df874b51b43c556f828f0020ef8fcae554daf9a093c471996e5a13a",
+      "bytes": 8910
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-ops-u4-returned-card-block-reconcile-1018"
+}

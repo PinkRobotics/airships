@@ -1,0 +1,50 @@
+{
+  "id": "rpt-mainline006-grok-float-margin-1019",
+  "unit": "vacuum-mainline006-float-margin-1019",
+  "at": "2026-10-19T23:04:02-07:00",
+  "body": "ESTIMATE_PENDING_UNA. MAINLINE-006 gives the least safety factor against float margin for P1, P2-A, P2-E and P3. Margins are 0, 5, 10, 20 and 30 percent of lift, plus each family's sealed 002 baseline. Buckling uses knockdown 0.2 and scales linearly with it. Yield is the QUESTIONABLE 276 MPa transfer. Zero-margin least safety factors match the sealed rows: P1 0.00278766036714, P2-A 0.23078902511, P2-E 0.233885578993, P3 0.0960261390545. From 0 to 30 percent the least safety factor falls per 100 kg by P1 0.000100296691987, P2-A 0.00863161922666, P2-E 0.0082711193629, P3 0.00177112901765. The steepest step is P1 0 to 5pct at 0.000115791878783; P2-A 0 to 5pct at 0.00864634690261; P2-E 0 to 5pct at 0.00951744894019; P3 30pct to baseline at 0.0020397293075. P3 film safety factor stays 2.51411998098 and does not govern. P1 stays near 0.0028 when the whole lift is spent on the shell. Nothing is a certification. Start 2026-10-19T23:02:45.723264-07:00. End 2026-10-19T23:03:14.450564-07:00. Elapsed 28.72730285488069 s, a measurement. The deadline 2026-10-20T07:00:00-07:00 is a door check-in. This report leaves the caps-open order open.",
+  "artifacts": [
+    {
+      "path": "evidence/98606c5391fdfbdb-CARD.md",
+      "sha256": "98606c5391fdfbdb9c5b8923ebc15235ffa3db12183c3c97bbb44c16177edde2",
+      "bytes": 6766
+    },
+    {
+      "path": "evidence/9021bec10649eb48-RESULTS.json",
+      "sha256": "9021bec10649eb488b7f255fd5ebabec52e9c2da3f7708370a56e69098777b06",
+      "bytes": 30953
+    },
+    {
+      "path": "evidence/c433e7ad1bc469c3-NFI.json",
+      "sha256": "c433e7ad1bc469c34dd76336ec6f08e4d732b706f5227c9a9f96b5a01e52ed1a",
+      "bytes": 1148
+    },
+    {
+      "path": "evidence/5e129f11b0b93837-INPUTS.json",
+      "sha256": "5e129f11b0b93837c5d4737bf2e79588a8aa8bb134aad652a64bfcd5f9892870",
+      "bytes": 1626
+    },
+    {
+      "path": "evidence/70e356ac9105c4c0-margin.py",
+      "sha256": "70e356ac9105c4c0ac20b4a1b6f62ea98937d719f63e23cb31856ab1ce5d1648",
+      "bytes": 21257
+    },
+    {
+      "path": "evidence/2e4c658ea1666636-ORIGIN.json",
+      "sha256": "2e4c658ea1666636ff5f3413e88f13d767b23384aa00052589f3d2e43cba296d",
+      "bytes": 423
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline006-rotated-grok-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline006-rotated-grok-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "MAINLINE-006 float-margin card filed. Times are measurements. MAINLINE-012 is the next job."
+    }
+  ]
+}

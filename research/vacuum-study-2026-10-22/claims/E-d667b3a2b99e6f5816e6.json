@@ -1,0 +1,39 @@
+{
+  "id": "E-d667b3a2b99e6f5816e6",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-d667b3a2b99e6f5816e6",
+    "report": "rpt-ref-e23aa05d834f8e89bb2c",
+    "file": "evidence/e5f8a3dd183321bf-NFI.json",
+    "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+    "source_sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+    "source_json_pointer": "/rows/0",
+    "row_id": "047-01",
+    "fields": {
+      "id": "047-01",
+      "topic": "COMPRESSIVE-YIELD-BASIS",
+      "status": "QUESTIONABLE",
+      "objection": "The 255/300/345 MPa cases are assumed compressive sensitivities. The 345 MPa maker minimum is tensile; 036 found no matched finished-gauge biaxial compressive minimum. Catalog offset-yield strengths do not establish the first microscopic plastic onset; the model explicitly idealizes them as onset stresses.",
+      "proposed_fix": "Test the formed, etched, joined sheet in both in-plane directions and relevant stress states; establish an allowable and plastic curve.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"047-01\", \"topic\": \"COMPRESSIVE-YIELD-BASIS\", \"status\": \"QUESTIONABLE\", \"objection\": \"The 255/300/345 MPa cases are assumed compressive sensitivities. The 345 MPa maker minimum is tensile; 036 found no matched finished-gauge biaxial compressive minimum. Catalog offset-yield strengths do not establish the first microscopic plastic onset; the model explicitly idealizes them as onset stresses.\", \"proposed_fix\": \"Test the formed, etched, joined sheet in both in-plane directions and relevant stress states; establish an allowable and plastic curve.\", \"disposition\": \"Recorded; no qualification claimed\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-e23aa05d834f8e89bb2c",
+      "artifact": "evidence/e5f8a3dd183321bf-NFI.json",
+      "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+      "sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+      "bytes": 7955,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

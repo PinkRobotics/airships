@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009c-5",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-19T23:48:00-07:00",
+  "ended_at": "2026-10-19T23:48:01-07:00",
+  "point": {
+    "family": "P2",
+    "face": "Beryllium S-200F",
+    "core": "Hexcel HRH-10-4.8-32",
+    "payload_margin": 0.05,
+    "taken_from": "rpt-mainline014-grok-balanced-sandwich-1019",
+    "replaces_margin": "MAINLINE-009c spent the float ceiling. This row is the same face and core on the 5 percent line."
+  },
+  "branch": {
+    "name": "shear_crimping",
+    "Vc": 3.328884907403892,
+    "Kc": 0.3004008933369442,
+    "gamma_d": 1.0
+  },
+  "optimum": {
+    "core_mass_fraction": 0.1917680823191768,
+    "tf_m": 0.000752430055433027,
+    "core_m": 0.020642305866854553,
+    "h_m": 0.02139473592228758,
+    "Vc": 3.328884907403892,
+    "Kc": 0.3004008933369442,
+    "gamma_d": 1.0,
+    "branch": "shear_crimping",
+    "modes_at_0.20_design_wrinkle": {
+      "global_buckling": 0.6504118436805308,
+      "face_compression": 0.892251567620189,
+      "core_shear_crimping": 0.6504118436805308,
+      "core_crush": 20.950999841461407,
+      "face_wrinkling": 0.6504141274587998
+    },
+    "governing": "core_shear_crimping",
+    "least_SF": 0.6504118436805308,
+    "second_mode": "face_wrinkling",
+    "second_SF": 0.6504141274587998,
+    "masses_kg": {
+      "structural": 4328.542897788202,
+      "faces": 3498.466527043067,
+      "core": 830.076370745136,
+      "joints": 216.42714488941016,
+      "systems": 100.0,
+      "total": 4644.9700426776135,
+      "payload": 244.47210750934755,
+      "float_margin": 0.0499999999999999
+    }
+  },
+  "levels": {
+    "0.2": {
+      "gamma_d": 1.0,
+      "Kc": 0.3004008933369442,
+      "Vc": 3.328884907403892,
+      "modes": {
+        "global_buckling": 0.6504118436805308,
+        "face_compression": 0.892251567620189,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274587998
+      },
+      "least_SF": 0.6504118436805308,
+      "governing": "core_shear_crimping",
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6504141274587998
+    },
+    "0.9": {
+      "gamma_d": 1.0,
+      "Kc": 0.3004008933369442,
+      "Vc": 3.328884907403892,
+      "modes": {
+        "global_buckling": 0.6504118436805308,
+        "face_compression": 0.892251567620189,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274587998
+      },
+      "least_SF": 0.6504118436805308,
+      "governing": "core_shear_crimping",
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6504141274587998
+    },
+    "0.1407": {
+      "gamma_d": 1.0,
+      "Kc": 0.3004008933369442,
+      "Vc": 3.328884907403892,
+      "modes": {
+        "global_buckling": 0.6504118436805308,
+        "face_compression": 0.892251567620189,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274587998
+      },
+      "least_SF": 0.6504118436805308,
+      "governing": "core_shear_crimping",
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6504141274587998
+    }
+  },
+  "wrinkle_coefficient_0.82": {
+    "SF_wrinkle": 1.6161805591400482,
+    "least_SF": 0.6504118436805308,
+    "governing": "core_shear_crimping",
+    "source": "014's theoretical honeycomb coefficient. Hemp and NASA/CR-1999-208994 were not opened."
+  },
+  "other_branch": {
+    "core_mass_fraction": 0.5278747212527874,
+    "tf_m": 0.00043952885537908913,
+    "core_m": 0.0568215071230911,
+    "h_m": 0.05726103597847019,
+    "Vc": 1.9999645895869647,
+    "Kc": 0.5000088526032589,
+    "gamma_d": 0.2,
+    "branch": "stiff_or_moderate_core",
+    "modes_at_0.20_design_wrinkle": {
+      "global_buckling": 0.3385076113825892,
+      "face_compression": 0.5212050042320596,
+      "core_shear_crimping": 1.6925380574435132,
+      "core_crush": 20.950999841461407,
+      "face_wrinkling": 0.175022781624177
+    },
+    "governing": "face_wrinkling",
+    "least_SF": 0.175022781624177,
+    "second_mode": "global_buckling",
+    "second_SF": 0.3385076113825892,
+    "masses_kg": {
+      "structural": 4328.542897788202,
+      "faces": 2043.6145221875222,
+      "core": 2284.92837560068,
+      "joints": 216.4271448894101,
+      "systems": 100.0,
+      "total": 4644.970042677613,
+      "payload": 244.47210750934846,
+      "float_margin": 0.050000000000000086
+    }
+  },
+  "ceiling_check": {
+    "fraction": 0.19175,
+    "least_SF": 0.6853382311714157,
+    "matches_014": true
+  },
+  "nfi": [
+    {
+      "id": "NFI-CRIMP-STEP",
+      "first": true,
+      "note": "gamma_d = 1 on the crimp branch is the handbook's step at Vc = 2. At or below 2, gamma_d is the knockdown and Kc is 1 - Vc/4. Above 2, Kc is 1/Vc and gamma_d steps to 1. MAINLINE-018 is testing whether a knockdown applies on the crimp branch. This card does not move the step."
+    },
+    {
+      "id": "NFI-NU",
+      "note": "nu is the aluminium case value 0.33. MAINLINE-008 published no beryllium Poisson ratio."
+    },
+    {
+      "id": "NFI-FACE-STRENGTH",
+      "note": "Face compression uses compressive yield 283 MPa, from 41 ksi. The same 008 line prints tensile yield 37 ksi. Scaling the face factor by 37/41 is the tensile reading."
+    },
+    {
+      "id": "NFI-STABILISED-EC",
+      "note": "Hexcel Ec of 76 MPa is the stabilised compressive modulus. MAINLINE-007 says that column is not the continuum modulus of the wrinkling formula."
+    },
+    {
+      "id": "NFI-WRINKLE-Q",
+      "design": 0.33,
+      "theoretical": 0.82,
+      "factor_on_Ec": 6.1744719926538085,
+      "note": "Design coefficient 0.33 is CR-1457 equation 2.2-14. Theoretical 0.82 is 014's Hemp figure. Those works were not opened here."
+    },
+    {
+      "id": "NFI-P3",
+      "note": "P3 stays PENDING-011b. The SiC frame is not scored."
+    }
+  ],
+  "later": {
+    "014b_report": null,
+    "018_report": null,
+    "009d": "when 014b or 018 files"
+  },
+  "sources": {
+    "RESULTS.json": {
+      "path": "evidence/cd02e4ec651bc748-RESULTS.json",
+      "sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "bytes": 31544
+    }
+  }
+}

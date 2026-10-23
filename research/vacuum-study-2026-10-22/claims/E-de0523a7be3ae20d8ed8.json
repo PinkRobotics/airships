@@ -1,0 +1,44 @@
+{
+  "id": "E-de0523a7be3ae20d8ed8",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-de0523a7be3ae20d8ed8",
+    "report": "rpt-ref-3fb9907ba4e1c52825f0",
+    "file": "evidence/bfc76c0341f3dd34-NFI.json",
+    "snapshot": "evidence/bfc76c0341f3dd34-NFI.json",
+    "source_sha256": "bfc76c0341f3dd349a4ffd0b0ea9881cf8bdee9b963e0e8d83495e650a338cca",
+    "source_json_pointer": "/new/0",
+    "row_id": "NFI-053-CONVECTION",
+    "fields": {
+      "id": "NFI-053-CONVECTION",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Full-scale mixed convection is not qualified",
+      "finding": "Both reconstructions extrapolate the sphere forced-convection fit beyond its source Re interval. The inherited 1.32 floor lacks a documented sphere size/orientation validity range.",
+      "needed": "Measure local mixed convection or establish a validated full-size flow/thermal model; retain both explicit convection rows.",
+      "references": [
+        "SPECIFICATION.md",
+        "sources/whitaker1972.browser.json"
+      ]
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Both reconstructions extrapolate the sphere forced-convection fit beyond its source Re interval. The inherited 1.32 floor lacks a documented sphere size/orientation validity range. | Full-scale mixed convection is not qualified",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-3fb9907ba4e1c52825f0",
+      "artifact": "evidence/bfc76c0341f3dd34-NFI.json",
+      "snapshot": "evidence/bfc76c0341f3dd34-NFI.json",
+      "sha256": "bfc76c0341f3dd349a4ffd0b0ea9881cf8bdee9b963e0e8d83495e650a338cca",
+      "bytes": 7836,
+      "selector": "/new/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

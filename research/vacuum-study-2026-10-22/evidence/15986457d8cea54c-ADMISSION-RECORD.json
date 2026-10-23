@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "recorded_at": "2026-10-19T19:54:02-07:00",
+  "status": "ADMITTED_MAINLINE_ESTIMATE_CARD",
+  "card_map_id": "MAINLINE-001",
+  "mainline_map_count": 1,
+  "construction_family_rows": 3,
+  "admission_report": {
+    "path": "unpublished-local-ref:7f54611867428cb7",
+    "sha256": "4922d6b7f51b944a8961d06dc696c2a2f595b9ed841199ee176c49352e9c6bd9",
+    "bytes": 4876
+  },
+  "verdict": {
+    "path": "evidence/1dee95d57f532806-UNA600-MAINLINE-ESTIMATES-REVIEW.md",
+    "sha256": "1dee95d57f53280690338c1cf0234622b7ff48425a7e14d03ed7cc16bdf1c0c5",
+    "bytes": 3467
+  },
+  "card": {
+    "path": "evidence/33ee112c1cb1a4b5-CARD.md",
+    "sha256": "33ee112c1cb1a4b5fe2460554b46bd68963cb980f49b06964fe672199132c4d8",
+    "bytes": 5667
+  },
+  "authority": {
+    "path": "unpublished-local-ref:6458a13fe27f7bd0",
+    "sha256": "a6499fc233b30953835f1ed78b6d3fd69ceccd5b6412965a52f75735dd4ab171",
+    "bytes": 4644
+  },
+  "admitted_scope": "Arithmetic from stated inputs and presence of every QUESTIONABLE tag/source, with the yield/factor-scope qualification.",
+  "Una_findings": {
+    "arithmetic_numbers": 41,
+    "reported_relative_tolerance": 1e-12,
+    "sensitivities": 10,
+    "tagged_sourced_input_rows": 35,
+    "NFI_rows": 11,
+    "references_resolve": true
+  },
+  "clock": {
+    "admission_declared_at": "2026-10-19T19:47:15-07:00",
+    "filing_pair_local": "2026-10-19T19:47:15.465741-07:00",
+    "filing_pair_utc": "2026-10-20T02:47:15.465741+00:00",
+    "filing_monotonic_s": 2079960.64604802,
+    "queue_ingested": "2026-10-19T19:48:23-07:00",
+    "stall_epoch_previous": "2026-10-17T00:14:57-07:00",
+    "stall_epoch_new": "2026-10-19T19:47:15.465741-07:00",
+    "basis": "Una explicitly dates admission at filing; use paired publication after outbox rename, not final calculation sample or queue ingestion."
+  },
+  "not_certified": [
+    "material values",
+    "model validity",
+    "knockdowns",
+    "omitted physics",
+    "construction safety",
+    "strength-complete/all-mode SF1 sufficiency",
+    "advisory numerical yield factors"
+  ],
+  "qualification": "Aluminum yield absent from all three structural models; E factors conditional buckling/Euler factors only. P3 film limit is present; sandwich shear/wrinkling/core crush omitted. NFI-AL-YIELD-CARRY and NFI-FLOAT-ALLOCATION-CARRY remain.",
+  "conditional_20261022": "Specific no-admitted-mainline-card premise is now absent beforeOctober22 00:14:57. Not a claim that future report was filed; any later admission withdrawal/correction needs fresh disposition.",
+  "continuing_standing": "No pause or pause card at any stall; later thresholds produce report/diagnosis only, while work continues. H1 remains parked/unfunded, native parallel/non-gating. No new execution grant follows admission.",
+  "NFI_overlay": {
+    "path": "unpublished-local-ref:100493e47414d7a8",
+    "sha256": "0b5eb1893bbb7dd5724435907389485443fa2aaa1ad3cd30518a24747effad59",
+    "bytes": 5061
+  }
+}

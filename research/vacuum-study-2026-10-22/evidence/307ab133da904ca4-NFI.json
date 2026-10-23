@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-022",
+  "unit": "vacuum-mainline022-p3-optimistic-floating-point-1020",
+  "rows": [
+    {
+      "id": "NFI-022-SIC-ALLOWABLE",
+      "value_scored_today_Pa": 380000000.0,
+      "sourced_today": "Saint-Gobain Hexoloy SA 4-point flexural strength 380 MPa on a 3 x 4 x 45 mm bar. Compressive strength on the same sheets is 3900 MPa.",
+      "weibull_Pa": 190451148.77836347,
+      "weibull_note": "Two-parameter Weibull at P_f = 0.001, m = 10, sigma_0 taken as 380 MPa, same volume as the bar. m = 10 is the seal-tube and structural-tile page. Sheet B-1003-2 lists 8 for standard SA and 12 for enhanced SA. This is not a volume-scaled tube allowable, and it is not a compression test.",
+      "crush_Pa": 3900000000.0,
+      "factor_crush_over_flexural": 10.263157894736842,
+      "factor_flexural_over_weibull": 1.9952623149688795,
+      "state": "PENDING-025. 380 and 3900 exist on the datasheet. The 190 MPa figure is a calculation. This card carries 3900 MPa as 011b did. Using it as a tube allowable is an optimism. MAINLINE-025 owns the row.",
+      "scored_baseline_SF": 0.2438010340863489,
+      "weibull_case_SF": 0.12408348691924517,
+      "source": "https://www.ceramicsrefractories.saint-gobain.com/hexoloy-enhanced-sa-sic-technical-data-sheet and the Hexoloy seal-tube page"
+    },
+    {
+      "id": "NFI-022-BENDING-CONTACT",
+      "service_axial_Pa": 1544983685.500977,
+      "flexural_Pa": 380000000.0,
+      "SF_axial_over_flexural": 0.24595728975402162,
+      "bearing_area_for_380_m2": 0.0007785723252585767,
+      "tube_area_m2": 0.00019149553899808612,
+      "note": "PENDING-025. At the sourced-today point the axial stress is the contact stress if the tube section bears the member force. Perry is the scored bending-imperfection mode. MAINLINE-025 owns the allowable."
+    },
+    {
+      "id": "NFI-022-TUBE",
+      "design_OD_mm": 281.8989450499424,
+      "design_length_m": 0.62,
+      "design_wall_mm": 0.2163958093517604,
+      "exists": "Hexoloy SA process tubes: OD 25 to 381 mm, single piece to 1.4 m, bonded assemblies to 4.9 m. Seal tubes are about 0.30 m long. Silit SiSiC radiant tubes reach OD 300 mm, length 3.5 m, thinnest published wall about 4 mm, Amasic-3D about 2 mm.",
+      "factor_length_over_hexoloy_single": 0.4428571428571429,
+      "factor_wall_vs_2mm": 0.1081979046758802,
+      "state": "PENDING-025. A 250 mm class diameter exists. A 2 m single Hexoloy piece does not. A wall near 0.9 mm is below the 2 mm SiSiC floor and is a PROJECTION for alpha-SiC. MAINLINE-025 owns the manufacture row. These factors are context at the sourced-today geometry, not a closed finding.",
+      "source": "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-sic-process-tubes and the ceramic radiant tube page"
+    },
+    {
+      "id": "NFI-022-JOINTS",
+      "allowance_kg": 216.4271448895479,
+      "lower_bound_kg": 1937.6527363866064,
+      "upper_bound_kg": 11619.759954966023,
+      "member_force_N": 295857.48359825916,
+      "factor_lower_over_allowance": 8.9529099382403,
+      "state": "PENDING-023. This card carries joints at 5 percent of film, nodes and tubes, 216.427144889 kg. The bounds are context only: a SiC pad at 380 MPa over one tube diameter of engagement. MAINLINE-023 owns the joint mass. A 1 MN ceramic load introduction is not a catalog fitting.",
+      "tag": "PENDING-023"
+    },
+    {
+      "id": "NFI-022-FILM",
+      "today": "Mylar 850H, tensile MD 22 kpsi, density 1.40 g/cc, O2 transmission 6.0 cc/100 in2/day at 48 gauge and 1 atm.",
+      "scored_thickness_m": 4.793113556654862e-05,
+      "scored_sigma_Pa": 151684660.449916,
+      "permeation_kg_per_day": 0.03619834160684392,
+      "permeation_pct_of_1pct_budget": 0.07403368420145287,
+      "method": "MAINLINE-016: 1 percent of lift per day is 48.894 kg, and permeance is converted as scc to mol to kg at p_ext. Mylar transmission is scaled as 1/thickness from the 48-gauge line.",
+      "projection": "The 011 film, 1.5 GPa at 970 kg/m3, has no datasheet. It is the film optimism.",
+      "source": "https://polymerfilms.com/wp-content/uploads/2023/09/Mylar850H-Datasheets.pdf",
+      "state": "PENDING-024. This card carries the 011b film: 1.5 GPa, 970 kg/m3. Mylar exists and is the sourced-today comparison. The 1.5 GPa film is a PROJECTION. MAINLINE-024 owns the film, its thickness and the vacuum permeation. Seams are not in the Mylar figure."
+    },
+    {
+      "id": "NFI-022-KNOCKDOWN",
+      "scored_design": 0.2,
+      "wright": 0.4,
+      "factor": 2.0,
+      "recommendation": "Use k 0.2 for ceramic arcs. A brittle member does not shed load after first crack. Wright 1965 used a modified k of 0.4 for a reticulated-shell table. That factor is an optimism here.",
+      "state": "Both values are in the catalog. k 0.2 is the brief's band floor."
+    },
+    {
+      "id": "NFI-022-021",
+      "note": "MAINLINE-021 has filed (rpt-ref-fe49179fb6a8ad8c986e). Its P2 sandwich reaches SF 1 on gamma 2.90 times 0.20 and a wrinkling coefficient 1.10 times 0.33, at a face allowable of 283 MPa. Least mode 1.000. Full named set 1.111. This frame's least equilateral set is arc_rise_above_sphere, least SF 1.35387562843. The P2 sandwich needs less optimism. Its largest named factor is 2.90, and this frame's largest is 8 (arc rise over the spherical sagitta, factor 8). Both are QUESTIONABLE."
+    },
+    {
+      "id": "NFI-022-DATASHEET-SPREAD",
+      "note": "This card keeps 011b's E of 410 GPa and density 3100 kg/m3 so the regression is the same material. Hexoloy pages also print E 430 GPa, density 3.10 to 3.15 g/cm3, and Poisson's ratio 0.14. The local-buckling coefficient stays 0.6."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "D288",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D288",
+    "report": "rpt-ref-9a9a131b4ca724b68cc2",
+    "file": "evidence/8df81646550a6f8e-NFI.json",
+    "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+    "source_sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+    "source_json_pointer": "/inherited_048/findings/0",
+    "row_id": "048-01-matched_multilayer_optics",
+    "fields": {
+      "id": "048-01-matched_multilayer_optics",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "The 7.5752 g/m2 recipe and .09/.80 hemispherical optics are linked by a class-level transfer, not a matched Be coupon.",
+      "grounding": "Weigh and measure solar absorptance and hemispherical emittance on the exact stack, Be surface and process."
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/inherited_048/findings",
+    "blocks_progress": false
+  },
+  "claim": "The 7.5752 g/m2 recipe and .09/.80 hemispherical optics are linked by a class-level transfer, not a matched Be coupon.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1248"
+    },
+    {
+      "report": "rpt-ref-9a9a131b4ca724b68cc2",
+      "artifact": "evidence/8df81646550a6f8e-NFI.json",
+      "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+      "sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+      "bytes": 52773,
+      "selector": "/inherited_048/findings/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-9a9a131b4ca724b68cc2",
+          "artifact": "evidence/8df81646550a6f8e-NFI.json",
+          "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+          "sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+          "bytes": 52773,
+          "selector": "/inherited_048/findings/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1248"
+          }
+        ]
+      }
+    }
+  ]
+}

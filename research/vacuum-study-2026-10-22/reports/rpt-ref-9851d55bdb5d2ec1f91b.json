@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-9851d55bdb5d2ec1f91b",
+  "unit": "vacuum-mainline071-graphite-conditions-1020",
+  "at": "2026-10-20T18:59:42-07:00",
+  "body": "MAINLINE-071 is filed. On an aluminum core the graphite route has no feasible shell. QUESTIONABLE. PROJECTION. No qualified hull safety factor.\n\nAbove Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1. No further knockdown is on that stress. 070's step sits near Vc 3.1 with crimping active, so gamma 1 matches the handbook. It is admissible with a named limit: not this film on CR-III, and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern it.\n\nThe signed expansion is the HOPG catalogue value, -1.0e-6 per K, not the film. The interface coefficient becomes 24.6e-6. Every gamma-step case is infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion of 12.2e-6 per K would, at this stiffness. The 25 psi screen must rise by 1.866, to 0.322 MPa, above the core's own W shear. Cure temperature is not in the interface stress.\n\nThe scarf screen is 10 MPa, an owner assumption, not a measured allowable. At the thermal boundary its margin is 2.89, and doubling it does not change the payload.\n\nAt the largest mismatch that is just feasible, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3. That core thickness is the search floor. Those factors are worse than 070's 1.248 and 1.126.",
+  "artifacts": [
+    {
+      "path": "evidence/5ffdd692853839ce-CARD.md",
+      "sha256": "5ffdd692853839ce9db784dcbd75515075f1f3b06556cca3f0df248e24cc89ca",
+      "bytes": 3308
+    },
+    {
+      "path": "evidence/da3f907b048d4338-RESULTS.json",
+      "sha256": "da3f907b048d4338c48df995a9cd07cde6faf695d03ac07d3eb56deb0a4101cc",
+      "bytes": 9018
+    },
+    {
+      "path": "evidence/84523fc62d9e2242-NFI.json",
+      "sha256": "84523fc62d9e2242b435fe50428f7fb823581f2aaf021f1855d843dfddd46e04",
+      "bytes": 1695
+    },
+    {
+      "path": "evidence/8641648f23110e0f-INPUTS.json",
+      "sha256": "8641648f23110e0fe70e9d4f53a1900c38ea0d7d82e3f47ac95e4f7b9f56d05e",
+      "bytes": 5835
+    },
+    {
+      "path": "evidence/beab41052e6f000c-RUN.json",
+      "sha256": "beab41052e6f000c8e7d98c39a207e2566f1b3678d619269c6ed1f8a751d622b",
+      "bytes": 37474
+    }
+  ],
+  "from": "ref-5ad28e8f7a8e27ce8bc1",
+  "from_seat": "ref-5ad28e8f7a8e27ce8bc1",
+  "re": "ord-admiral-rr2-mainline071-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline071-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

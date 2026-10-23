@@ -1,0 +1,1715 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline037-check-1020",
+  "order": "ord-admiral-rr2-check037-codex-8497-1020",
+  "captured_at": "2026-10-20T03:04:24.835572-07:00",
+  "tag": "QUESTIONABLE; alternative models and transferred properties are PROJECTION",
+  "owner_code_policy": "loads037.py hashed as evidence only; never inspected, imported, or executed",
+  "owner_inputs": {
+    "unit": "vacuum-mainline037-loads-beyond-pressure-1020",
+    "tag": "QUESTIONABLE",
+    "equations": {
+      "gradient_stress": "E*alpha*dT/(2*(1-nu))",
+      "per_kelvin": "290e9*11.3e-6/(2*(1-0.0752)) = 1.771734429 MPa/K",
+      "face_stress": "p*R/(4*tf)",
+      "shear_lag": "tau = (alpha_al-alpha_be)*dT*E*tf*sqrt(Gc/(E*tf*tc))",
+      "half_wave": "pi*sqrt((3/4)*rg*R), rg = sqrt((ro^2+ri^2)/2), ratio = wave/s",
+      "member_force": "p*R*s/(2*sqrt(3))",
+      "film_stress": "p*s/(2*t)",
+      "gust_excess": "rho*VB*U + 0.5*rho*U^2, VB = 35 knots, U = 35 ft/s, Cp = +1",
+      "drag": "0.47*q*pi*R^2",
+      "pattern": "Legendre n=0 and n=1 dropped. Bending kappa = -d^2(w)/dphi^2/R^2 on the n=2..6 reconstruction, w = R*alpha*T.",
+      "honeycomb_conductance": "k_al*rho_core/rho_al/tc, cells evacuated"
+    },
+    "properties_QUESTIONABLE": {
+      "Be_E_Pa": 290000000000.0,
+      "Be_alpha_1_per_K": 1.13e-05,
+      "Be_nu": 0.0752,
+      "Be_yield_tension_as_compression_Pa": 345000000.0,
+      "Be_compression_endpoint_Pa": 379200000.0,
+      "Be_sources": "E, nu and the 345/379.2 MPa endpoints are the 028b SR-200 values. Alpha 11.3e-6 is the Materion S-200-F class reported in the OSTI grade survey, not a separate SR-200 coupon.",
+      "coated_alpha_epsilon": [
+        0.2,
+        0.9
+      ],
+      "bare_Be_alpha_epsilon": [
+        0.4,
+        0.05
+      ],
+      "optical_note": "Coated pair is the 016 white-coating band. Bare emittance is an engineering stand-in for a polished metal with high infrared reflectance. Materion quotes 98.5 percent reflectance at 8 to 12 micrometres for beryllium; 0.05 is broader than that band.",
+      "Al_5056_alpha": 2.36e-05,
+      "Al_k_W_per_mK": 130.0,
+      "Al_rho": 2640.0,
+      "core": "Hexcel CR-III 5056 3/8-1.0 as pinned in 028b",
+      "air": "T 284.9 K, mu 1.79e-5, k 0.0257, Pr 0.71, Whitaker sphere and Churchill-Bernstein cylinder",
+      "solar_W_per_m2": 970.0,
+      "sky_day_night_K": [
+        275.0,
+        260.0
+      ],
+      "frame_and_film": "SiC 410 GPa, 4.5e-6; Ti-6Al-4V 113.8 GPa, 8.6e-6; CFRP 150 GPa, 0.5e-6; Mylar 4.8 GPa, 17e-6; Kapton 2.5 GPa, 20e-6; Zylon 180 GPa, -6e-6. Projection film unstated."
+    },
+    "wind_source": "FAA-P-8110-2 CHG 2, paragraphs 3.6, 3.9 and 3.25 Table 4. Gusts 25 ft/s at VH and 35 ft/s at VB. VB at least 35 knots. Table 4 symmetrical mooring 70 knots. The change narrative says the requirement discussed was 78 knots.",
+    "inherited_points": {
+      "p2": "028b PROPERTY-CHECKS full_named_maxima, route af015_scarf, material SR200, nu 0.0752, least_SF 1.0063580718238068",
+      "p3": "022c SAG.md cap branch, eight rows"
+    },
+    "pins": [
+      {
+        "path": "unpublished-local-ref:f00282fb2a413f7c",
+        "sha256": "b53223690e875e316a47dbf5c2f50ea792eb2151b172db3912c486fc776c70f3",
+        "bytes": 3112
+      },
+      {
+        "path": "withheld-source:b528d6a62c81ce0b",
+        "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+        "bytes": 5874
+      },
+      {
+        "path": "evidence/0eb090401eeebaf4-PROPERTY-CHECKS.json",
+        "sha256": "0eb090401eeebaf4a9a4dbe5464c1a7b2cc51cbae1d89d766c58b3d4e3a13ef6",
+        "bytes": 117869
+      },
+      {
+        "path": "evidence/501ecbe6b0e11bab-CARD.md",
+        "sha256": "501ecbe6b0e11bab238809f5a61a63e487d364305015af559285faaec8d24c6f",
+        "bytes": 13125
+      },
+      {
+        "path": "evidence/2ef38293630a5e18-SAG.md",
+        "sha256": "2ef38293630a5e1859c9bced34d2c6143ea480bce5261d54c1528ada8e018fdf",
+        "bytes": 5302
+      },
+      {
+        "path": "unpublished-local-ref:9b3b6b276cd21868",
+        "sha256": "ffe8a00112726f6688a9f76e7b5ed208cef6fe4c30686569fd5a2f5af6d5018e",
+        "bytes": 2039
+      }
+    ]
+  },
+  "owner_results": {
+    "unit": "vacuum-mainline037-loads-beyond-pressure-1020",
+    "tag": "QUESTIONABLE",
+    "started_at": "2026-10-20T02:07:28-07:00",
+    "ended_at": "2026-10-20T02:07:30-07:00",
+    "per_kelvin_gradient_stress_Pa": 1771734.429065744,
+    "face_working_stress_Pa": 298435856.7214987,
+    "face_SF_on_345_uniform": 1.1560273078109213,
+    "p2_thermal": {
+      "coated_outer": {
+        "alpha": 0.2,
+        "epsilon_out": 0.9,
+        "epsilon_in": 0.2,
+        "k_eff_W_per_mK": 0.7887879691722796,
+        "U_conduction_W_per_m2K": 35.68080062957225,
+        "T_outer_subsolar_K": 301.56900146374886,
+        "T_inner_subsolar_K": 301.1698049650141,
+        "T_outer_antisolar_K": 285.3126580950526,
+        "T_inner_antisolar_K": 285.40450354383825,
+        "dT_through_at_max_K": 0.3991964987347387,
+        "gradient_stress_Pa": 707270.1807708364,
+        "day_night_outer_swing_K": 30.493339712295153,
+        "pattern": {
+          "legendre_K": [
+            288.37713274151133,
+            8.577689130729212,
+            6.262977505168337,
+            -0.5488550653860005,
+            -5.603838951887467,
+            -0.028396176263610216,
+            -8.374740360076036
+          ],
+          "T_rest_max_K": 5.788443758417429,
+          "kappa_max_1_per_m": 0.0002449488918050441,
+          "bending_stress_Pa": 818209.4740996854,
+          "constrained_upper_Pa": 20511170.194997746
+        },
+        "shear_lag_from_day_rise": {
+          "d_eps": 0.0002050287180041113,
+          "lambda_1_per_m": 3.024091871444132,
+          "tau_Pa": 143787.7618694373,
+          "SF_vs_shear_W": 1.6782826446663364
+        },
+        "shear_lag_from_swing": {
+          "d_eps": 0.0003750680784612304,
+          "lambda_1_per_m": 3.024091871444132,
+          "tau_Pa": 263037.29582667246,
+          "SF_vs_shear_W": 0.917423152874516
+        }
+      },
+      "bare_Be": {
+        "alpha": 0.4,
+        "epsilon_out": 0.05,
+        "epsilon_in": 0.2,
+        "k_eff_W_per_mK": 0.7887879691722796,
+        "U_conduction_W_per_m2K": 35.68080062957225,
+        "T_outer_subsolar_K": 356.94567861916755,
+        "T_inner_subsolar_K": 355.0382308573461,
+        "T_outer_antisolar_K": 294.1505352489576,
+        "T_inner_antisolar_K": 294.79494410869415,
+        "dT_through_at_max_K": 1.9074477618214587,
+        "gradient_stress_Pa": 3379490.8712634738,
+        "day_night_outer_swing_K": 74.16485740453288,
+        "pattern": {
+          "legendre_K": [
+            311.34200408077004,
+            33.2295052388543,
+            18.604675173557826,
+            -2.573963517010231,
+            -10.696390340527316,
+            0.22929158479840772,
+            -6.730827571629294
+          ],
+          "T_rest_max_K": 17.14508304824119,
+          "kappa_max_1_per_m": 0.0002310145369478525,
+          "bending_stress_Pa": 771664.1679519223,
+          "constrained_upper_Pa": 60753067.85152074
+        },
+        "shear_lag_from_day_rise": {
+          "d_eps": 0.0008861618470157612,
+          "lambda_1_per_m": 3.024091871444132,
+          "tau_Pa": 621470.1524589738,
+          "SF_vs_shear_W": 0.38829942887212604
+        },
+        "shear_lag_from_swing": {
+          "d_eps": 0.0009122277460757545,
+          "lambda_1_per_m": 3.024091871444132,
+          "tau_Pa": 639750.310104382,
+          "SF_vs_shear_W": 0.3772042020917806
+        }
+      }
+    },
+    "wind": {
+      "q_20_Pa": 233.45366614923603,
+      "q_20_over_p": 0.002445543861240614,
+      "drag_20_N": 34470.56715881808,
+      "mooring_016_N": 48258.794022345304,
+      "VB_m_s": 18.00554,
+      "Ugust_35fps_m_s": 10.668000000000001,
+      "q_flight_stagnation_Pa": 290.63372090048773,
+      "q_flight_over_p": 0.0030445335202547285,
+      "q_VB_only_Pa": 189.21388749148954,
+      "q_moor_70kn_Pa": 756.8555499659582,
+      "q_moor_70_over_p": 0.007928440253672987,
+      "drag_70_N": 111753.39627328068,
+      "q_moor_78kn_Pa": 939.7365644883448,
+      "drag_78_N": 138756.66590339586,
+      "potential_Cp": "1 - 2.25*sin^2(theta); area mean Cp = -0.5",
+      "potential_mean_dp_over_q": -0.5
+    },
+    "p2": {
+      "today_uniform_least": 0.33958237184408885,
+      "full_uniform": {},
+      "uniform": {
+        "modes": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.2706247974547864,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9648678490458737,
+          "intracell_dimpling": 6.973752041582777,
+          "scarf_mean_shear": 1.0063580718238068
+        },
+        "least_mode": "scarf_mean_shear",
+        "least_SF": 1.0063580718238068,
+        "face_SF_on_345": 1.1560273078109213,
+        "demand_Pa": 298435856.7214987
+      },
+      "sun_coated_gradient_and_bend": {
+        "modes": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.2641629237316372,
+          "core_shear_crimping": 2.319577476955646,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9548753414632705,
+          "intracell_dimpling": 6.938286414625448,
+          "scarf_mean_shear": 1.0063580718238068
+        },
+        "least_mode": "scarf_mean_shear",
+        "least_SF": 1.0063580718238068,
+        "face_SF_on_345": 1.150148229660904,
+        "demand_Pa": 299961336.37636924
+      },
+      "sun_bare_gradient_and_bend": {
+        "modes": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.253193247765279,
+          "core_shear_crimping": 2.2994495228578025,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9379120619303012,
+          "intracell_dimpling": 6.878079971056009,
+          "scarf_mean_shear": 1.0063580718238068
+        },
+        "least_mode": "scarf_mean_shear",
+        "least_SF": 1.0063580718238068,
+        "face_SF_on_345": 1.1401679073813853,
+        "demand_Pa": 302587011.7607141
+      },
+      "wind_flight_gust_uniform": {
+        "modes": {
+          "global_buckling": 1.0033034864031298,
+          "face_compression": 1.2667680795741345,
+          "core_shear_crimping": 2.3243576051359427,
+          "core_crush": 5.04047616482114,
+          "face_wrinkling": 1.958903900457972,
+          "intracell_dimpling": 6.95258466451924,
+          "scarf_mean_shear": 1.0033034807456882
+        },
+        "least_mode": "scarf_mean_shear",
+        "least_SF": 1.0033034807456882,
+        "face_SF_on_345": 1.152518426827733,
+        "demand_Pa": 299344454.6909332
+      },
+      "wind_moor_70kn_uniform": {
+        "modes": {
+          "global_buckling": 0.9984419898353051,
+          "face_compression": 1.2606299680709465,
+          "core_shear_crimping": 2.3130949546289896,
+          "core_crush": 5.016052590192361,
+          "face_wrinkling": 1.9494120520613158,
+          "intracell_dimpling": 6.918895988119594,
+          "scarf_mean_shear": 0.9984419842052765
+        },
+        "least_mode": "scarf_mean_shear",
+        "least_SF": 0.9984419842052765,
+        "face_SF_on_345": 1.1469339108240415,
+        "demand_Pa": 300801987.5810688
+      },
+      "combined_coated_gust": {
+        "modes": {
+          "global_buckling": 1.0033034864031298,
+          "face_compression": 1.2603452745270582,
+          "core_shear_crimping": 2.312572578343591,
+          "core_crush": 5.04047616482114,
+          "face_wrinkling": 1.9489718078662257,
+          "intracell_dimpling": 6.917333463771814,
+          "scarf_mean_shear": 1.0033034807456882
+        },
+        "least_mode": "scarf_mean_shear",
+        "least_SF": 1.0033034807456882,
+        "face_SF_on_345": 1.1466748937548394,
+        "demand_Pa": 300869934.34580374
+      },
+      "combined_bare_gust": {
+        "modes": {
+          "global_buckling": 1.0033034864031298,
+          "face_compression": 1.2494414674965595,
+          "core_shear_crimping": 2.2925654853287476,
+          "core_crush": 5.04047616482114,
+          "face_wrinkling": 1.9321103866903262,
+          "intracell_dimpling": 6.857488538116119,
+          "scarf_mean_shear": 1.0033034807456882
+        },
+        "least_mode": "scarf_mean_shear",
+        "least_SF": 1.0033034807456882,
+        "face_SF_on_345": 1.1367544997001926,
+        "demand_Pa": 303495609.7301486
+      },
+      "shear_lag_coated_swing_SF": 0.917423152874516,
+      "shear_lag_bare_day_SF": 0.38829942887212604,
+      "shear_lag_bare_swing_SF": 0.3772042020917806,
+      "scarf_pressure_stress_if_10MPa_Pa": 9936820.978518272,
+      "scarf_SF_if_10MPa_plus_coated_swing_shear": 0.9804057792795382
+    },
+    "pads": {
+      "mooring_016_one_pad_SF1": {
+        "area_one_m2": 0.19998132315968878,
+        "radius_m": 0.25230147089116306,
+        "thickness_m": 0.016021402498860755,
+        "mass_one_kg": 8.650749430609519,
+        "mass_total_kg": 8.650749430609519,
+        "share_N": 48258.794022345304
+      },
+      "mooring_016_six_pads_SF1": {
+        "area_one_m2": 0.0333302205266148,
+        "radius_m": 0.10300164417283542,
+        "thickness_m": 0.005118776125942365,
+        "mass_one_kg": 0.46064683018088104,
+        "mass_total_kg": 2.7638809810852862,
+        "share_N": 8043.132337057551
+      },
+      "mooring_70kn_one_pad_SF1": {
+        "area_one_m2": 0.46309885083269214,
+        "radius_m": 0.3839387223247982,
+        "thickness_m": 0.026502171335004106,
+        "mass_one_kg": 33.13743774249109,
+        "mass_total_kg": 33.13743774249109,
+        "share_N": 111753.39627328068
+      },
+      "systems_100kg_six_pads": {
+        "area_one_m2": 0.0006773020622437888,
+        "radius_m": 0.014683049490649655,
+        "thickness_m": 0.001,
+        "mass_one_kg": 0.0018287155680582299,
+        "mass_total_kg": 0.01097229340834938,
+        "share_N": 163.44416666666666
+      },
+      "reserve_411kg_one_pad": {
+        "area_one_m2": 0.016714417381105167,
+        "radius_m": 0.07294082734798091,
+        "thickness_m": 0.0031523160513926836,
+        "mass_one_kg": 0.14226064074036363,
+        "mass_total_kg": 0.14226064074036363,
+        "share_N": 4033.4647898802205
+      },
+      "bare_016_patch_0p0707_SF": 0.3535330143982733
+    },
+    "p3": [
+      {
+        "row": "projection_5",
+        "s_m": 6.15,
+        "half_wave_over_s": 0.5714038713421102,
+        "half_wave_m": 3.514133808753978,
+        "in_band": false,
+        "governing_filed": "global",
+        "uniform": {
+          "yield": 3.91514055515,
+          "euler": 1.44659814165,
+          "local": 1.37814486994,
+          "film": 1.4624665443,
+          "perry": 1.38684321386,
+          "global": 1.37332138578
+        },
+        "film_alpha": 4.5e-06,
+        "thermal_day": {
+          "T_film_subsolar_K": 315.3371019711377,
+          "T_film_antisolar_K": 289.5519075495471,
+          "T_tube_subsolar_K": 292.81127711742397,
+          "T_tube_antisolar_K": 284.86164779104513,
+          "shadow_fraction": 0.18885281596278597,
+          "film_alpha_used": 4.5e-06
+        },
+        "thermal_night_subsolar_film_K": 273.3052231914065,
+        "thermal_night_subsolar_tube_K": 278.33052047953834,
+        "mismatch": {
+          "eps_mechanical": -0.00010136621184171185,
+          "film_stress_Pa": -1512928.5349509232,
+          "member_force_N": -1537.4391838431798
+        },
+        "member_force_N": 1694765.9693498067,
+        "film_stress_Pa": 1025664488.425769,
+        "combined_flight_gust": {
+          "yield": 3.906790320210332,
+          "euler": 1.443512828574796,
+          "local": 1.375205554407698,
+          "film": 1.4601748554346607,
+          "perry": 1.3838853464483223,
+          "global": 1.3703923578032524
+        },
+        "combined_least_mode": "global",
+        "combined_least_SF": 1.3703923578032524,
+        "optimism_or_thickness_factor_to_SF1": 1.0,
+        "extra_mass_kg_if_that_part_scales": 0.0,
+        "film_mass_kg": 348.856357015187,
+        "tube_mass_kg": 3733.1853334618195,
+        "members_to_hold_mooring_add_to_5pct": 1
+      },
+      {
+        "row": "projection_5",
+        "s_m": 6.15,
+        "half_wave_over_s": 0.5714038713421102,
+        "half_wave_m": 3.514133808753978,
+        "in_band": false,
+        "governing_filed": "global",
+        "uniform": {
+          "yield": 3.91514055515,
+          "euler": 1.44659814165,
+          "local": 1.37814486994,
+          "film": 1.4624665443,
+          "perry": 1.38684321386,
+          "global": 1.37332138578
+        },
+        "film_alpha": 1.7e-05,
+        "thermal_day": {
+          "T_film_subsolar_K": 315.3371019711377,
+          "T_film_antisolar_K": 289.5519075495471,
+          "T_tube_subsolar_K": 292.81127711742397,
+          "T_tube_antisolar_K": 284.86164779104513,
+          "shadow_fraction": 0.18885281596278597,
+          "film_alpha_used": 1.7e-05
+        },
+        "thermal_night_subsolar_film_K": 273.3052231914065,
+        "thermal_night_subsolar_tube_K": 278.33052047953834,
+        "mismatch": {
+          "eps_mechanical": -0.00048182998648093353,
+          "film_stress_Pa": -7191492.335536322,
+          "member_force_N": -7308.000246898707
+        },
+        "member_force_N": 1694765.9693498067,
+        "film_stress_Pa": 1025664488.425769,
+        "combined_flight_gust": {
+          "yield": 3.9201095544110007,
+          "euler": 1.448434128122406,
+          "local": 1.3798939772182242,
+          "film": 1.4682912720880468,
+          "perry": 1.3886033608605282,
+          "global": 1.3750643712117954
+        },
+        "combined_least_mode": "global",
+        "combined_least_SF": 1.3750643712117954,
+        "optimism_or_thickness_factor_to_SF1": 1.0,
+        "extra_mass_kg_if_that_part_scales": 0.0,
+        "film_mass_kg": 348.856357015187,
+        "tube_mass_kg": 3733.1853334618195,
+        "members_to_hold_mooring_add_to_5pct": 1
+      },
+      {
+        "row": "projection_019",
+        "s_m": 6.15,
+        "half_wave_over_s": 0.5678864155055304,
+        "half_wave_m": 3.492501455359012,
+        "in_band": false,
+        "governing_filed": "local",
+        "uniform": {
+          "yield": 3.75607531179,
+          "euler": 1.35396688465,
+          "local": 1.29454034466,
+          "film": 1.44271351144,
+          "perry": 1.29937293637,
+          "global": 1.30135480413
+        },
+        "film_alpha": 4.5e-06,
+        "thermal_day": {
+          "T_film_subsolar_K": 315.4206461465036,
+          "T_film_antisolar_K": 289.56800962269097,
+          "T_tube_subsolar_K": 292.7856777865219,
+          "T_tube_antisolar_K": 284.86177510075254,
+          "shadow_fraction": 0.1865199352334435,
+          "film_alpha_used": 4.5e-06
+        },
+        "thermal_night_subsolar_film_K": 273.3052231914065,
+        "thermal_night_subsolar_tube_K": 278.35277727725156,
+        "mismatch": {
+          "eps_mechanical": -0.00010185735761991771,
+          "film_stress_Pa": -1520259.0689539958,
+          "member_force_N": -1524.0222007477862
+        },
+        "member_force_N": 1694765.9693498067,
+        "film_stress_Pa": 1039707459.666659,
+        "combined_flight_gust": {
+          "yield": 3.7480347232959725,
+          "euler": 1.3510684628532275,
+          "local": 1.2917691365940553,
+          "film": 1.4404342623900783,
+          "perry": 1.296591383228924,
+          "global": 1.298569008426732
+        },
+        "combined_least_mode": "local",
+        "combined_least_SF": 1.2917691365940553,
+        "optimism_or_thickness_factor_to_SF1": 1.0,
+        "extra_mass_kg_if_that_part_scales": 0.0,
+        "film_mass_kg": 344.1444741261899,
+        "tube_mass_kg": 3581.5126092693927,
+        "members_to_hold_mooring_add_to_5pct": 1
+      },
+      {
+        "row": "projection_019",
+        "s_m": 6.15,
+        "half_wave_over_s": 0.5678864155055304,
+        "half_wave_m": 3.492501455359012,
+        "in_band": false,
+        "governing_filed": "local",
+        "uniform": {
+          "yield": 3.75607531179,
+          "euler": 1.35396688465,
+          "local": 1.29454034466,
+          "film": 1.44271351144,
+          "perry": 1.29937293637,
+          "global": 1.30135480413
+        },
+        "film_alpha": 1.7e-05,
+        "thermal_day": {
+          "T_film_subsolar_K": 315.4206461465036,
+          "T_film_antisolar_K": 289.56800962269097,
+          "T_tube_subsolar_K": 292.7856777865219,
+          "T_tube_antisolar_K": 284.86177510075254,
+          "shadow_fraction": 0.1865199352334435,
+          "film_alpha_used": 1.7e-05
+        },
+        "thermal_night_subsolar_film_K": 273.3052231914065,
+        "thermal_night_subsolar_tube_K": 278.35277727725156,
+        "mismatch": {
+          "eps_mechanical": -0.000483365434451213,
+          "film_stress_Pa": -7214409.469421091,
+          "member_force_N": -7232.267460997803
+        },
+        "member_force_N": 1694765.9693498067,
+        "film_stress_Pa": 1039707459.666659,
+        "combined_flight_gust": {
+          "yield": 3.760674165567732,
+          "euler": 1.355624651123119,
+          "local": 1.2961253506197523,
+          "film": 1.448353909199044,
+          "perry": 1.300963859245894,
+          "global": 1.3029481535600171
+        },
+        "combined_least_mode": "local",
+        "combined_least_SF": 1.2961253506197523,
+        "optimism_or_thickness_factor_to_SF1": 1.0,
+        "extra_mass_kg_if_that_part_scales": 0.0,
+        "film_mass_kg": 344.1444741261899,
+        "tube_mass_kg": 3581.5126092693927,
+        "members_to_hold_mooring_add_to_5pct": 1
+      },
+      {
+        "row": "mylar_5",
+        "s_m": 0.55,
+        "half_wave_over_s": 4.561801840882998,
+        "half_wave_m": 2.508991012485649,
+        "in_band": true,
+        "governing_filed": "perry",
+        "uniform": {
+          "yield": 0.417168959855,
+          "euler": 53.091074319,
+          "local": 0.414010996767,
+          "film": 0.437101571069,
+          "perry": 0.411790451893,
+          "global": 0.765560371986
+        },
+        "film_alpha": 1.7e-05,
+        "thermal_day": {
+          "T_film_subsolar_K": 282.61623174935835,
+          "T_film_antisolar_K": 283.93184508847776,
+          "T_tube_subsolar_K": 291.42533250955705,
+          "T_tube_antisolar_K": 284.86849713328604,
+          "shadow_fraction": 0.85,
+          "film_alpha_used": 1.7e-05
+        },
+        "thermal_night_subsolar_film_K": 272.88408288264657,
+        "thermal_night_subsolar_tube_K": 279.5218648874966,
+        "mismatch": {
+          "eps_mechanical": 6.818805655391452e-05,
+          "film_stress_Pa": 527907.5346109512,
+          "member_force_N": 12.681147742863134
+        },
+        "member_force_N": 151564.43628331606,
+        "film_stress_Pa": 347023828.07526094,
+        "combined_flight_gust": {
+          "yield": 0.4158680406684497,
+          "euler": 52.92551263090086,
+          "local": 0.41271992552017417,
+          "film": 0.4351149335652014,
+          "perry": 0.41050630529711707,
+          "global": 0.7631730127329881
+        },
+        "combined_least_mode": "perry",
+        "combined_least_SF": 0.41050630529711707,
+        "optimism_or_thickness_factor_to_SF1": 2.4360161758690113,
+        "extra_mass_kg_if_that_part_scales": 5862.522491560654,
+        "film_mass_kg": 133.0872770003122,
+        "tube_mass_kg": 4082.490566662958,
+        "members_to_hold_mooring_add_to_5pct": 7
+      },
+      {
+        "row": "mylar_019",
+        "s_m": 0.55,
+        "half_wave_over_s": 4.520120860373176,
+        "half_wave_m": 2.486066473205247,
+        "in_band": true,
+        "governing_filed": "perry",
+        "uniform": {
+          "yield": 0.401119251744,
+          "euler": 49.2082089363,
+          "local": 0.396690072456,
+          "film": 0.43119779041,
+          "perry": 0.395851626757,
+          "global": 0.722716927636
+        },
+        "film_alpha": 1.7e-05,
+        "thermal_day": {
+          "T_film_subsolar_K": 282.61623174935835,
+          "T_film_antisolar_K": 283.93184508847776,
+          "T_tube_subsolar_K": 291.38841513082343,
+          "T_tube_antisolar_K": 284.8686784586911,
+          "shadow_fraction": 0.85,
+          "film_alpha_used": 1.7e-05
+        },
+        "thermal_night_subsolar_film_K": 272.88408288264657,
+        "thermal_night_subsolar_tube_K": 279.5532469768067,
+        "mismatch": {
+          "eps_mechanical": 6.802192834961324e-05,
+          "film_stress_Pa": 526621.3807711992,
+          "member_force_N": 12.479389747392137
+        },
+        "member_force_N": 151564.43628331606,
+        "film_stress_Pa": 351775133.8794784,
+        "combined_flight_gust": {
+          "yield": 0.39986891335100716,
+          "euler": 49.05482085378848,
+          "local": 0.3954535403634755,
+          "film": 0.4292483276516342,
+          "perry": 0.3946177082035748,
+          "global": 0.720464129452018
+        },
+        "combined_least_mode": "perry",
+        "combined_least_SF": 0.3946177082035748,
+        "optimism_or_thickness_factor_to_SF1": 2.5340981390630386,
+        "extra_mass_kg_if_that_part_scales": 6021.9875446658325,
+        "film_mass_kg": 131.28971290103811,
+        "tube_mass_kg": 3925.4252327975605,
+        "members_to_hold_mooring_add_to_5pct": 7
+      },
+      {
+        "row": "ti_kapton_5",
+        "s_m": 1.85,
+        "half_wave_over_s": 1.4902064990325892,
+        "half_wave_m": 2.75688202321029,
+        "in_band": true,
+        "governing_filed": "film",
+        "uniform": {
+          "yield": 3.43562499303,
+          "euler": 5.47468903403,
+          "local": 0.761765644494,
+          "film": 0.739113638303,
+          "perry": 3.16415609359,
+          "global": 0.741703542024
+        },
+        "film_alpha": 2e-05,
+        "thermal_day": {
+          "T_film_subsolar_K": 315.70889049211894,
+          "T_film_antisolar_K": 289.69033876102094,
+          "T_tube_subsolar_K": 294.26713316208634,
+          "T_tube_antisolar_K": 284.88725995984043,
+          "shadow_fraction": 0.38582600069220274,
+          "film_alpha_used": 2e-05
+        },
+        "thermal_night_subsolar_film_K": 273.08697089884936,
+        "thermal_night_subsolar_tube_K": 282.7375903175813,
+        "mismatch": {
+          "eps_mechanical": -0.0005356204646484366,
+          "film_stress_Pa": -2028865.3963955934,
+          "member_force_N": -1224.5049434236644
+        },
+        "member_force_N": 509807.6493166085,
+        "film_stress_Pa": 156268257.02352458,
+        "combined_flight_gust": {
+          "yield": 3.4334185493784717,
+          "euler": 5.471173052836554,
+          "local": 0.7612764196881333,
+          "film": 0.7465331988425643,
+          "perry": 3.162123994004245,
+          "global": 0.7412272015983322
+        },
+        "combined_least_mode": "global",
+        "combined_least_SF": 0.7412272015983322,
+        "optimism_or_thickness_factor_to_SF1": 1.3491140069383147,
+        "extra_mass_kg_if_that_part_scales": 1634.3582228101607,
+        "film_mass_kg": 1008.3107910292986,
+        "tube_mass_kg": 4681.445574594023,
+        "members_to_hold_mooring_add_to_5pct": 2
+      },
+      {
+        "row": "ti_kapton_019",
+        "s_m": 1.85,
+        "half_wave_over_s": 1.4819160066846597,
+        "half_wave_m": 2.7415446123666207,
+        "in_band": true,
+        "governing_filed": "global",
+        "uniform": {
+          "yield": 3.28700995308,
+          "euler": 5.12227941877,
+          "local": 0.708276178104,
+          "film": 0.719282566969,
+          "perry": 3.01803070154,
+          "global": 0.701745910728
+        },
+        "film_alpha": 2e-05,
+        "thermal_day": {
+          "T_film_subsolar_K": 315.91513258108796,
+          "T_film_antisolar_K": 289.73082979818776,
+          "T_tube_subsolar_K": 294.22891802356344,
+          "T_tube_antisolar_K": 284.8873124643378,
+          "shadow_fraction": 0.38151716055523577,
+          "film_alpha_used": 2e-05
+        },
+        "thermal_night_subsolar_film_K": 273.08697089884936,
+        "thermal_night_subsolar_tube_K": 282.7465220897568,
+        "mismatch": {
+          "eps_mechanical": -0.0005400739566191139,
+          "film_stress_Pa": -2045734.6841633103,
+          "member_force_N": -1201.5585403583598
+        },
+        "member_force_N": 509807.6493166085,
+        "film_stress_Pa": 160576670.84395644,
+        "combined_flight_gust": {
+          "yield": 3.2847512022479144,
+          "euler": 5.118759516772599,
+          "local": 0.707789468471393,
+          "film": 0.7263245677269734,
+          "perry": 3.015956786506072,
+          "global": 0.7012636885314154
+        },
+        "combined_least_mode": "global",
+        "combined_least_SF": 0.7012636885314154,
+        "optimism_or_thickness_factor_to_SF1": 1.4259971197057093,
+        "extra_mass_kg_if_that_part_scales": 1908.0155383779725,
+        "film_mass_kg": 981.2569224658957,
+        "tube_mass_kg": 4478.93999775417,
+        "members_to_hold_mooring_add_to_5pct": 2
+      },
+      {
+        "row": "cfrp_zylon_5",
+        "s_m": 5.5,
+        "half_wave_over_s": 0.6360469694105761,
+        "half_wave_m": 3.498258331758169,
+        "in_band": false,
+        "governing_filed": "global",
+        "uniform": {
+          "yield": 4.27236643954,
+          "euler": 1.95142954175,
+          "local": 1.49206896315,
+          "film": 1.49375231321,
+          "perry": 1.8504480324,
+          "global": 1.48511637206
+        },
+        "film_alpha": -6e-06,
+        "thermal_day": {
+          "T_film_subsolar_K": 317.4188083455216,
+          "T_film_antisolar_K": 289.9560362148562,
+          "T_tube_subsolar_K": 292.7925653479965,
+          "T_tube_antisolar_K": 284.861740850924,
+          "shadow_fraction": 0.20926180495741886,
+          "film_alpha_used": -6e-06
+        },
+        "thermal_night_subsolar_film_K": 273.3052231914065,
+        "thermal_night_subsolar_tube_K": 278.3467900339074,
+        "mismatch": {
+          "eps_mechanical": 0.00019905913274712798,
+          "film_stress_Pa": 51186634.13497577,
+          "member_force_N": 18315.37932533707
+        },
+        "member_force_N": 1515644.3628331604,
+        "film_stress_Pa": 2329703505.2102814,
+        "combined_flight_gust": {
+          "yield": 4.208694144838094,
+          "euler": 1.922346831118632,
+          "local": 1.469832234142391,
+          "film": 1.4572968066993481,
+          "perry": 1.822870277982891,
+          "global": 1.4629832594989411
+        },
+        "combined_least_mode": "film",
+        "combined_least_SF": 1.4572968066993481,
+        "optimism_or_thickness_factor_to_SF1": 1.0,
+        "extra_mass_kg_if_that_part_scales": 0.0,
+        "film_mass_kg": 220.89798035910516,
+        "tube_mass_kg": 2102.6112155993883,
+        "members_to_hold_mooring_add_to_5pct": 1
+      },
+      {
+        "row": "cfrp_zylon_019",
+        "s_m": 5.7,
+        "half_wave_over_s": 0.6127992362441627,
+        "half_wave_m": 3.4929556465917275,
+        "in_band": false,
+        "governing_filed": "film",
+        "uniform": {
+          "yield": 4.09294415772,
+          "euler": 1.72663320583,
+          "local": 1.42740041766,
+          "film": 1.41704657175,
+          "perry": 1.64487373383,
+          "global": 1.41843747897
+        },
+        "film_alpha": -6e-06,
+        "thermal_day": {
+          "T_film_subsolar_K": 317.72593803564996,
+          "T_film_antisolar_K": 290.01612192108325,
+          "T_tube_subsolar_K": 292.7863054832121,
+          "T_tube_antisolar_K": 284.86177197949655,
+          "shadow_fraction": 0.20130653165388426,
+          "film_alpha_used": -6e-06
+        },
+        "thermal_night_subsolar_film_K": 273.3052231914065,
+        "thermal_night_subsolar_tube_K": 278.35223166138985,
+        "mismatch": {
+          "eps_mechanical": 0.000200898780955506,
+          "film_stress_Pa": 51659686.53141583,
+          "member_force_N": 18833.93107624103
+        },
+        "member_force_N": 1570758.703299821,
+        "film_stress_Pa": 2455812017.3252554,
+        "combined_flight_gust": {
+          "yield": 4.032318754822479,
+          "euler": 1.7010580135659568,
+          "local": 1.4062575136568987,
+          "film": 1.3837261446509181,
+          "perry": 1.6205095771285454,
+          "global": 1.3974273355784022
+        },
+        "combined_least_mode": "film",
+        "combined_least_SF": 1.3837261446509181,
+        "optimism_or_thickness_factor_to_SF1": 1.0,
+        "extra_mass_kg_if_that_part_scales": 0.0,
+        "film_mass_kg": 217.1748070131799,
+        "tube_mass_kg": 2014.309964427877,
+        "members_to_hold_mooring_add_to_5pct": 1
+      }
+    ],
+    "restore": {
+      "coated_combined_least_SF": 1.0033034807456882,
+      "coated_combined_least_mode": "scarf_mean_shear",
+      "mass_to_restore_coated_combined_kg": 0.0,
+      "bare_swing_shear_SF": 0.3772042020917806,
+      "coated_swing_shear_SF": 0.917423152874516,
+      "note": "A coated flight gust leaves the floated global factor above 1. Bare beryllium shear-lag is a coating and assembly-temperature limit."
+    },
+    "assumptions": [
+      "Through-thickness stress is E*alpha*dT/(2*(1-nu)), equal compression and tension.",
+      "A through-thickness-uniform temperature on a complete single-material sphere has no membrane stress. Bending uses kappa = -d^2(w)/dphi^2/R^2 with w = R*alpha*T_rest.",
+      "The fully constrained pattern stress is an upper bound and is not the table value.",
+      "Windward excess is applied as a uniform pressure, the conservative global case. Potential-flow area-mean Cp is -0.5.",
+      "FAA-P-8110-2 paragraph 3.9: 35 ft/s at VB, and VB is at least 35 knots. Table 4 mooring wind is 70 knots. The change discussion says 78 knots.",
+      "016 mooring is Cd 0.47 times q at 20 m/s times 1.4.",
+      "Honeycomb conductance is aluminum conductivity times the core solidity. The cells are evacuated.",
+      "022d had not filed. Half-wave uses pi*sqrt((3/4)*rg*R) with rg = sqrt((ro^2+ri^2)/2)."
+    ]
+  },
+  "P2_028b_selected": {
+    "route": "af015_scarf",
+    "material": "SR200",
+    "least_SF": 1.0063580718238068,
+    "fraction": 0.10688965750071812,
+    "core": "Hexcel CR-III 5056 3/8-1.0",
+    "point": {
+      "core": {
+        "name": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium_honeycomb",
+        "form": "honeycomb",
+        "cell": "3/8",
+        "pcf": 1.0,
+        "rho": 16.018463373960138,
+        "s_cell_m": 0.009524999999999999,
+        "Ec_Pa": 103421359.3975254,
+        "Gc_Pa": 46884349.59354485,
+        "Gl_Pa": 103421359.3975254,
+        "crush_Pa": 241316.50526089262,
+        "shear_strength_L_Pa": 379211.65112425986,
+        "shear_strength_W_Pa": 241316.50526089262,
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "ec_source": "sheet",
+        "crush_basis": "CR-III crush column",
+        "Gc_direction": "W"
+      },
+      "fraction": 0.10688965750071812,
+      "tf_m": 0.0007996763438767137,
+      "tc_m": 0.022106790073497733,
+      "nu": 0.0752,
+      "Vc": 0.9574440313191945,
+      "Kc": 0.7606389921702014,
+      "face_demand_Pa": 298435856.7214987,
+      "masses_kg": {
+        "faces": 3718.140844215491,
+        "core": 444.9963038894539,
+        "structural": 4163.137148104945,
+        "physical_joining": 215.00605801036627,
+        "base_joint_allowance": 208.15685740524725,
+        "charged_joining": 215.00605801036627,
+        "joint_excess": 6.849200605119023,
+        "unused_joint_allowance": 0.0,
+        "systems": 100.0,
+        "fixed_reserve": 411.2989440716474,
+        "total_reserve": 418.1481446767664,
+        "charged_total": 4889.442150186958,
+        "physical_total_including_fixed_reserve": 4889.442150186958,
+        "lift": 4889.442150186961,
+        "residual": -2.7284841053187847e-12
+      },
+      "joining": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 0.0,
+        "scarf_film_kg": 9.551002629831904,
+        "core_splice_kg": 15.707605324801612,
+        "seal_kg": 5.684264525995513,
+        "seam_length_m": 2842.1322629977562,
+        "scarf_overlap_m": 0.02399029031630141,
+        "physical_total_kg": 215.00605801036627
+      },
+      "needed": {
+        "gamma": 0.5889587227803016,
+        "wrinkle": 0.4199132055513562,
+        "face_strength_Pa": 345000000.0
+      },
+      "factor_vs_today": {
+        "gamma": 2.9447936139015076,
+        "wrinkle": 1.2724642592465338,
+        "face": 1.0,
+        "panel": 1.0,
+        "film_mass_reduction_vs_003": 2.0
+      },
+      "log_usage": {
+        "O1_gamma": 1.0095410507703124,
+        "O2_wrinkle": 0.2647245533886766,
+        "O3_SR200_face_strength": 0.0
+      },
+      "needed_face_within_named": true,
+      "full_gamma_at_search_E": 0.5829776125276778,
+      "at_needed": {
+        "six_modes": {
+          "global_buckling": 1.0000000000000002,
+          "face_compression": 1.1560273078109213,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.0000000000000002,
+          "intracell_dimpling": 6.888242820364461
+        },
+        "least_six_mode_SF": 1.0000000000000002,
+        "projected_seam_mode": "scarf_mean_shear",
+        "projected_seam_SF": 1.0063580718238068,
+        "least_seven_screen_SF": 1.0000000000000002
+      },
+      "today": {
+        "six_modes": {
+          "global_buckling": 0.33958237184408885,
+          "face_compression": 1.1560273078109213,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 0.7858766898428499,
+          "intracell_dimpling": 6.888242820364461
+        },
+        "least_six_mode_SF": 0.33958237184408885,
+        "projected_seam_mode": "scarf_mean_shear",
+        "projected_seam_SF": 1.0063580718238068,
+        "least_seven_screen_SF": 0.33958237184408885
+      },
+      "at_full_named": {
+        "six_modes": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.2706247974547864,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9648678490458737,
+          "intracell_dimpling": 6.973752041582777
+        },
+        "least_six_mode_SF": 1.0063580774984726,
+        "projected_seam_mode": "scarf_mean_shear",
+        "projected_seam_SF": 1.0063580718238068,
+        "least_seven_screen_SF": 1.0063580718238068
+      },
+      "at_full_but_gamma_02": {
+        "six_modes": {
+          "global_buckling": 0.34245485704581247,
+          "face_compression": 1.2706247974547864,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9648678490458737,
+          "intracell_dimpling": 6.973752041582777
+        },
+        "least_six_mode_SF": 0.34245485704581247,
+        "projected_seam_mode": "scarf_mean_shear",
+        "projected_seam_SF": 1.0063580718238068,
+        "least_seven_screen_SF": 0.34245485704581247
+      },
+      "S200F255_at_same_geometry": {
+        "six_modes": {
+          "global_buckling": 1.0000000000000002,
+          "face_compression": 0.8544549666428548,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.0000000000000002,
+          "intracell_dimpling": 6.888242820364461
+        },
+        "least_six_mode_SF": 0.8544549666428548,
+        "projected_seam_mode": "scarf_mean_shear",
+        "projected_seam_SF": 1.0063580718238068,
+        "least_seven_screen_SF": 0.8544549666428548
+      },
+      "weld_retention_required_at_today_strength": null,
+      "overall_installed_SF": null,
+      "unquantified_modes": [
+        "face/core flatwise tension",
+        "face/core shear including imperfections",
+        "scarf peel or weld/HAZ and brittle seam failure",
+        "seam/local buckling",
+        "thermal and cyclic debonding",
+        "leak-tightness and defects"
+      ],
+      "joint_screen_enforced": true,
+      "frozen_joining_charge_sensitivity": null
+    }
+  },
+  "P2_028b_case": {
+    "R_m": 10.0,
+    "p0_Pa": 95460.83791390515,
+    "lift0_kg": 4889.442150186961,
+    "systems_allowance_kg": 100.0,
+    "joint_fraction": 0.05,
+    "reserve_019_optimistic_kg": 535.9459071525378,
+    "reserve_fixed_items_kg": 411.2989440716474,
+    "reserve_fixed_lines": {
+      "systems_excess_kg": 0.0,
+      "retained_water_kg": 125.66370614359174,
+      "contamination_kg": 5.0,
+      "temperature_pressure_loss_kg": 213.036426543752,
+      "humidity_loss_kg": 18.704389882434043,
+      "internal_gas_kg": 48.89442150186961,
+      "payload_kg": 0.0
+    },
+    "joint_parameters_019_optimistic": {
+      "strip_width_m": 0.06,
+      "seam_adhesive_m": 0.0002,
+      "core_splice_width_m": 0.0015,
+      "rho_adhesive_kg_m3": 1250.0,
+      "rho_splice_kg_m3": 1100.0
+    },
+    "face": {
+      "name": "SR-200 rolled beryllium sheet",
+      "rho": 1850,
+      "E_Pa": 290000000000.0,
+      "sigma_today_Pa": 345000000.0,
+      "sigma_full_Pa": 379200000.0,
+      "E_full_Pa": 293600000000.0
+    },
+    "biaxial_factor": 0.6823278038280194,
+    "cores_searched": 47
+  },
+  "P3_022c_inputs": {
+    "schema": 1,
+    "pins": [
+      {
+        "path": "unpublished-local-ref:bd9fce59fab05f7f",
+        "sha256": "0cc874af6424e3db79a364b2fb9b444a22e9a2f365d897d44680b685c6f48306",
+        "bytes": 2897,
+        "match": true
+      },
+      {
+        "path": "withheld-source:b528d6a62c81ce0b",
+        "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+        "bytes": 5874,
+        "match": true
+      },
+      {
+        "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+        "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+        "bytes": 2021,
+        "match": true
+      },
+      {
+        "path": "unpublished-local-ref:2bf170d37c993460",
+        "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+        "bytes": 2063,
+        "match": true
+      }
+    ],
+    "mass": "payload = 0.05*L, systems = 100 kg, joints = 0.05*(film+nodes+tubes)",
+    "sic": {
+      "rho": 3100.0,
+      "E_Pa": 410000000000.0,
+      "flexural_Pa": 380000000.0,
+      "crush_Pa": 3900000000.0,
+      "weibull_Pa": 190451148.77836347,
+      "m": 10.0
+    },
+    "films": [
+      {
+        "name": "Mylar-850H",
+        "rho": 1400.0,
+        "sigma": 151684660.449916,
+        "tag": "QUESTIONABLE",
+        "state": "exists today",
+        "t_catalog_m": 1.2192000000000001e-05,
+        "o2_cc_per_100in2_day": 6.0
+      },
+      {
+        "name": "011-film",
+        "rho": 970.0,
+        "sigma": 1500000000.0,
+        "tag": "PROJECTION",
+        "state": "PROJECTION",
+        "t_catalog_m": 8e-05,
+        "o2_cc_per_100in2_day": null
+      }
+    ],
+    "global": {
+      "C_triangular": 4.898979485566356,
+      "C_two_way": 4.0
+    },
+    "arch": "N = p*s^3/(16*h) with h the sagitta. At h = s^2/(8R) this is N = p*R*s/2.",
+    "sources": [
+      "https://www.ceramicsrefractories.saint-gobain.com/hexoloy-enhanced-sa-sic-technical-data-sheet",
+      "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-sic-process-tubes",
+      "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-seal-tubes",
+      "https://www.ceramicsrefractories.saint-gobain.com/products/products-application/heating-systems/ceramic-radiant-tube",
+      "https://polymerfilms.com/wp-content/uploads/2023/09/Mylar850H-Datasheets.pdf"
+    ]
+  },
+  "P3_022c_selected": {
+    "projection_5": {
+      "nodes": 40.364452148519376,
+      "members": 115.09335644555813,
+      "n_coef": 17.75352077758099,
+      "m_nodes": 0.8072890429703875,
+      "m_film": 348.8563570154232,
+      "m_joint": 207.21678204764885,
+      "m_tube": 3794.671994894575,
+      "reserve": 437.88972718938203,
+      "sag_kg": 193.41761967988205,
+      "vehicle": 4451.552423000618,
+      "s_m": 6.15,
+      "t_film_m": 0.00028619697756719387,
+      "r_o_m": 0.16764011960487946,
+      "t_w_m": 0.0016230884087073127,
+      "rt": 103.28465085792475,
+      "A_m2": 0.0017013453789958659,
+      "I_m4": 2.3676289932865475e-05,
+      "length_m": 6.251292310477491,
+      "N_N": 1694765.969349715,
+      "sigma_axial_Pa": 996132819.5160267,
+      "SF_least": 1.3733213857843165,
+      "governing": "global",
+      "k": 0.2,
+      "SF_yield": 3.9151405551468765,
+      "SF_euler": 1.446598141654517,
+      "SF_local": 1.378144869942854,
+      "SF_film": 1.4624665443017892,
+      "SF_perry": 1.3868432138641944,
+      "SF_global": 1.3733213857843165,
+      "k04_SF_least": 1.378144869942854,
+      "k04_governing": "local",
+      "k04_SF_global": 2.746642771568633,
+      "gamma": 0.5763851730392067,
+      "SF_local_gamma1": 2.391013742904019,
+      "on_ro_cap_0_25": false
+    },
+    "projection_019": {
+      "nodes": 40.364452148519376,
+      "members": 115.09335644555813,
+      "n_coef": 17.75352077758099,
+      "m_nodes": 0.8072890429703875,
+      "m_film": 344.14447412660274,
+      "m_joint": 199.27264697326063,
+      "m_tube": 3640.501176295637,
+      "reserve": 604.7165637515294,
+      "sag_kg": 193.41761967988205,
+      "vehicle": 4284.725586438471,
+      "s_m": 6.15,
+      "t_film_m": 0.00028233141337633867,
+      "r_o_m": 0.1655692772803688,
+      "t_w_m": 0.0015764940543974704,
+      "rt": 105.0237245224808,
+      "A_m2": 0.0016322227222412863,
+      "I_m4": 2.216020579405752e-05,
+      "length_m": 6.251292310477491,
+      "N_N": 1694765.969349715,
+      "sigma_axial_Pa": 1038317838.7705247,
+      "SF_least": 1.2945403446628159,
+      "governing": "local",
+      "k": 0.2,
+      "SF_yield": 3.7560753117927757,
+      "SF_euler": 1.3539668846454909,
+      "SF_local": 1.2945403446628159,
+      "SF_film": 1.4427135114359915,
+      "SF_perry": 1.2993729363738948,
+      "SF_global": 1.3013548041290857,
+      "k04_SF_least": 1.2945403446628159,
+      "k04_governing": "local",
+      "k04_SF_global": 2.6027096082581713,
+      "gamma": 0.5738497729022557,
+      "SF_local_gamma1": 2.255887177781137,
+      "on_ro_cap_0_25": false
+    },
+    "mylar_5": {
+      "nodes": 4798.824764916939,
+      "members": 14390.474294750817,
+      "n_coef": 1.5877132402714709,
+      "m_nodes": 95.97649529833878,
+      "m_film": 133.0872770003952,
+      "m_joint": 215.6034539036873,
+      "m_tube": 4083.005305774999,
+      "reserve": 261.7696182125789,
+      "sag_kg": 17.297510703078878,
+      "vehicle": 4627.6725319774205,
+      "s_m": 0.55,
+      "t_film_m": 7.564820713304718e-05,
+      "r_o_m": 0.08519828596204942,
+      "t_w_m": 0.00031139336565423614,
+      "rt": 273.6034076482271,
+      "A_m2": 0.00016638941640862286,
+      "I_m4": 6.016862788913191e-07,
+      "length_m": 0.550069346518747,
+      "N_N": 151564.43628330785,
+      "sigma_axial_Pa": 910901904.4281789,
+      "SF_least": 0.4117904518929678,
+      "governing": "perry",
+      "k": 0.2,
+      "SF_yield": 0.4171689598547343,
+      "SF_euler": 53.09107431902106,
+      "SF_local": 0.41401099676684927,
+      "SF_film": 0.43710157106883774,
+      "SF_perry": 0.4117904518929678,
+      "SF_global": 0.765560371986085,
+      "k04_SF_least": 0.4117904518929678,
+      "k04_governing": "perry",
+      "k04_SF_global": 1.53112074397217,
+      "gamma": 0.4194400358692776,
+      "SF_local_gamma1": 0.9870564594741731,
+      "on_ro_cap_0_25": false
+    },
+    "mylar_019": {
+      "nodes": 4798.824764916939,
+      "members": 14390.474294750817,
+      "n_coef": 1.5877132402714709,
+      "m_nodes": 95.97649529833878,
+      "m_film": 131.2897129009967,
+      "m_joint": 207.65931882929908,
+      "m_tube": 3925.920168386639,
+      "reserve": 428.5964547747263,
+      "sag_kg": 17.297510703078878,
+      "vehicle": 4460.845695415273,
+      "s_m": 0.55,
+      "t_film_m": 7.462645280467646e-05,
+      "r_o_m": 0.08364810921899689,
+      "t_w_m": 0.0003049605129959443,
+      "rt": 274.2916071239339,
+      "A_m2": 0.00015998792966562278,
+      "I_m4": 5.576813900563458e-07,
+      "length_m": 0.550069346518747,
+      "N_N": 151564.43628330785,
+      "sigma_axial_Pa": 947349194.405352,
+      "SF_least": 0.3958516267571809,
+      "governing": "perry",
+      "k": 0.2,
+      "SF_yield": 0.4011192517438354,
+      "SF_euler": 49.208208936345756,
+      "SF_local": 0.396690072455616,
+      "SF_film": 0.4311977904096115,
+      "SF_perry": 0.3958516267571809,
+      "SF_global": 0.722716927636238,
+      "k04_SF_least": 0.3958516267571809,
+      "k04_governing": "perry",
+      "k04_SF_global": 1.445433855272476,
+      "gamma": 0.4190239380716442,
+      "SF_local_gamma1": 0.9467002631906687,
+      "on_ro_cap_0_25": false
+    },
+    "ti_kapton_5": {
+      "nodes": 425.97063298389315,
+      "members": 1271.9118989516794,
+      "n_coef": 5.340489990004039,
+      "m_nodes": 8.519412659677863,
+      "m_film": 1008.3107910285114,
+      "m_joint": 189.31243251181044,
+      "m_tube": 3280.6448704792338,
+      "m_end": 0.07442041884655823,
+      "reserve": 302.6546435107653,
+      "sag_kg": 58.182536001265326,
+      "vehicle": 4586.787506679234,
+      "s_m": 1.85,
+      "t_film_m": 0.0005650621357925588,
+      "r_o_m": 0.10302499472904644,
+      "t_w_m": 0.0006961370791092047,
+      "rt": 147.99526963982427,
+      "A_m2": 0.00044910459016150953,
+      "I_m4": 2.367381266510696e-06,
+      "length_m": 1.8526483869264585,
+      "N_N": 509807.64931658097,
+      "sigma_axial_Pa": 1135164637.558572,
+      "k": 0.2,
+      "SF_yield": 3.435624993029937,
+      "SF_euler": 5.474689034033384,
+      "SF_local": 0.7617656444937385,
+      "SF_film": 0.739113638302939,
+      "SF_perry": 3.1641560935928332,
+      "SF_global": 0.7417035420242225,
+      "gamma": 0.5202270891681058,
+      "SF_local_gamma1": 1.464294459775012,
+      "SF_least": 0.739113638302939,
+      "governing": "film",
+      "k04_SF_least": 0.739113638302939,
+      "k04_governing": "film",
+      "k04_SF_global": 1.483407084048445,
+      "on_ro_cap_0_25": false
+    },
+    "ti_kapton_019": {
+      "nodes": 425.97063298389315,
+      "members": 1271.9118989516794,
+      "n_coef": 5.340489990004039,
+      "m_nodes": 8.519412659677863,
+      "m_film": 981.2569224663256,
+      "m_joint": 191.45051984393825,
+      "m_tube": 3138.733815147145,
+      "m_end": 0.07526092019491813,
+      "reserve": 469.4814800729127,
+      "sag_kg": 58.182536001265326,
+      "vehicle": 4419.960670117087,
+      "s_m": 1.85,
+      "t_film_m": 0.0005499010199072409,
+      "r_o_m": 0.10187442884757343,
+      "t_w_m": 0.0006734969813912556,
+      "rt": 151.26189376102246,
+      "A_m2": 0.00042967764550260926,
+      "I_m4": 2.214991255657777e-06,
+      "length_m": 1.8526483869264585,
+      "N_N": 509807.64931658097,
+      "sigma_axial_Pa": 1186488649.4624145,
+      "k": 0.2,
+      "SF_yield": 3.2870099530805024,
+      "SF_euler": 5.122279418770031,
+      "SF_local": 0.7082761781039622,
+      "SF_film": 0.7192825669694961,
+      "SF_perry": 3.018030701535017,
+      "SF_global": 0.7017459107278406,
+      "gamma": 0.5167263984505766,
+      "SF_local_gamma1": 1.3706986525707894,
+      "SF_least": 0.7017459107278406,
+      "governing": "global",
+      "k04_SF_least": 0.7082761781039622,
+      "k04_governing": "local",
+      "k04_SF_global": 1.4034918214556813,
+      "on_ro_cap_0_25": false
+    },
+    "cfrp_zylon_5": {
+      "nodes": 49.9682476491694,
+      "members": 143.9047429475082,
+      "n_coef": 15.87713240271471,
+      "m_nodes": 0.999364952983388,
+      "m_film": 220.89798035984268,
+      "m_joint": 23.111041059270214,
+      "m_tube": 4126.986549277614,
+      "m_end": 0.08029978924218076,
+      "reserve": 417.4472145402888,
+      "sag_kg": 172.97510703078882,
+      "vehicle": 4471.994935649711,
+      "s_m": 5.5,
+      "t_film_m": 0.00011268270991437619,
+      "r_o_m": 0.16612386920741104,
+      "t_w_m": 0.0015983933238201686,
+      "rt": 103.93178370538617,
+      "A_m2": 0.001660355925652298,
+      "I_m4": 2.2691159673744248e-05,
+      "length_m": 5.571794047833012,
+      "N_N": 1515644.3628330785,
+      "sigma_axial_Pa": 912843047.3349459,
+      "k": 0.2,
+      "SF_yield": 4.272366439538634,
+      "SF_euler": 1.951429541746115,
+      "SF_local": 1.492068963146463,
+      "SF_film": 1.493752313214508,
+      "SF_perry": 1.8504480324015162,
+      "SF_global": 1.485116372061561,
+      "gamma": 0.5754376615782726,
+      "SF_local_gamma1": 2.5929289352631426,
+      "SF_least": 1.485116372061561,
+      "governing": "global",
+      "k04_SF_least": 1.492068963146463,
+      "k04_governing": "local",
+      "k04_SF_global": 2.970232744123122,
+      "on_ro_cap_0_25": false
+    },
+    "cfrp_zylon_019": {
+      "nodes": 46.66111084602568,
+      "members": 133.98333253807704,
+      "n_coef": 16.454482671904334,
+      "m_nodes": 0.9332222169205135,
+      "m_film": 217.17480701365733,
+      "m_joint": 23.18138839899542,
+      "m_tube": 3957.588677565962,
+      "m_end": 0.08650847818107318,
+      "reserve": 590.5640549944649,
+      "sag_kg": 179.2651109228175,
+      "vehicle": 4298.878095195535,
+      "s_m": 5.7,
+      "t_film_m": 0.00011078347452324353,
+      "r_o_m": 0.16561974184185138,
+      "t_w_m": 0.00159177158769494,
+      "rt": 104.04742936873684,
+      "A_m2": 0.001648468630220589,
+      "I_m4": 2.239241621676398e-05,
+      "length_m": 5.7801285634700275,
+      "N_N": 1570758.703299736,
+      "sigma_axial_Pa": 952859323.1947311,
+      "k": 0.2,
+      "SF_yield": 4.092944157721146,
+      "SF_euler": 1.7266332058327198,
+      "SF_local": 1.4274004176577701,
+      "SF_film": 1.4170465717478142,
+      "SF_perry": 1.6448737338327826,
+      "SF_global": 1.4184374789671974,
+      "gamma": 0.5752688455983981,
+      "SF_local_gamma1": 2.4812753699063603,
+      "SF_least": 1.4170465717478142,
+      "governing": "film",
+      "k04_SF_least": 1.4170465717478142,
+      "k04_governing": "film",
+      "k04_SF_global": 2.836874957934395,
+      "on_ro_cap_0_25": false
+    }
+  },
+  "atmosphere_016": {
+    "R_m": 10.0,
+    "p_ext_Pa": 95460.83791390515,
+    "T_K": 284.9,
+    "rho_air": 1.1672683307461802,
+    "lift_kg": 4889.442150186961
+  },
+  "explicit_check_assumptions": {
+    "Be_E_thermal_Pa": 290000000000.0,
+    "Be_E_full_endpoint_Pa": 293600000000.0,
+    "Be_alpha_per_K": 1.13e-05,
+    "Al_alpha_per_K": 2.36e-05,
+    "Al_k_W_mK": 130.0,
+    "Al_rho_kg_m3": 2640.0,
+    "g_m_s2": 9.80665,
+    "knot_m_s_exact": 0.5144444444444445,
+    "owner_knot_m_s_for_replication": 0.514444,
+    "foot_m": 0.3048,
+    "drag_coefficient": 0.47,
+    "mooring_multiplier_016": 1.4,
+    "film_properties": {
+      "projection": {
+        "E_Pa": 10000000000.0,
+        "nu": 0.33,
+        "rho": 970,
+        "strength_Pa": 1500000000.0,
+        "tag": "PROJECTION; nu inferred from filed output"
+      },
+      "mylar": {
+        "E_Pa": 4800000000.0,
+        "nu": 0.38,
+        "rho": 1400,
+        "strength_Pa": 151684660.449916,
+        "tag": "QUESTIONABLE; nu inferred from filed output"
+      },
+      "ti_kapton": {
+        "E_Pa": 2500000000.0,
+        "nu": 0.34,
+        "rho": 1420,
+        "strength_Pa": 115500000.0,
+        "tag": "QUESTIONABLE; nu inferred; strength reproduces upstream"
+      },
+      "cfrp_zylon": {
+        "E_Pa": 180000000000.0,
+        "nu": 0.3,
+        "rho": 1560,
+        "strength_Pa": 3480000000.0,
+        "tag": "QUESTIONABLE; nu inferred; fiber-to-film transfer unqualified"
+      }
+    },
+    "frame": {
+      "E_Pa": 410000000000.0,
+      "rho": 3100,
+      "alpha_per_K": 4.5e-06,
+      "basis": "022c SiC; all eight rows verified by mass and Euler identities"
+    },
+    "pad_replication": {
+      "yield_Pa": 276000000.0,
+      "nu": 0.33,
+      "rho": 2700,
+      "boss_radius_m": 0.025,
+      "minimum_t_m": 0.001,
+      "tag": "PROJECTION; these unstated inputs reproduce the filed logarithmic sizing term"
+    },
+    "thermal_countermodel": {
+      "tag": "PROJECTION; a fully specified comparison, not recovery of missing owner inputs",
+      "solar_W_m2": 970,
+      "Tair_K": 284.9,
+      "Tsky_day_K": 275,
+      "Tsky_night_K": 260,
+      "sky_view_factor": 0.5,
+      "ground_K": 284.9,
+      "interior_emissivity": 0.2,
+      "h_cases_W_m2K": [
+        0.5,
+        2.0,
+        5.0,
+        10.0
+      ],
+      "interior": "closed diffuse-gray spherical cavity, constant inner emissivity, no internal source",
+      "neglected": "in-plane face conduction, convection in evacuated cells, contact resistance, radiation across cells",
+      "sigma_SB": 5.670374419e-08,
+      "quadrature": "Gauss-Legendre surface-area weights in mu=cos(theta)"
+    }
+  },
+  "pins": [
+    {
+      "path": "unpublished-local-ref:105f0fb94a589ea6",
+      "sha256": "d45d9a853bfb9e841e72686e3bc46c2fa4e653d95939395e5509da3dbc692230",
+      "bytes": 3427
+    },
+    {
+      "path": "evidence/8b7371f8f3a8810a-report.json",
+      "sha256": "8b7371f8f3a8810a693ef2d3268a9a78bedab020fe06445c1759827d90528c8d",
+      "bytes": 3808
+    },
+    {
+      "path": "evidence/418add214eccec9a-CARD.md",
+      "sha256": "418add214eccec9a4fc1a6631088dce20028cd9ccdbe22dbede6bbb23c8195c6",
+      "bytes": 6139,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "evidence/92c73a5b625da613-RESULTS.json",
+      "sha256": "92c73a5b625da613fadefc43059adb67160f0f3847729d23abe482db3ee8e3d2",
+      "bytes": 28085
+    },
+    {
+      "path": "evidence/f9ff7da1d21d1380-NFI.json",
+      "sha256": "f9ff7da1d21d1380a77ae7b7e6e5f2b1935bd729c4a9f2e3861fa1c625970e89",
+      "bytes": 3264,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "evidence/f09d922557568e87-INPUTS.json",
+      "sha256": "f09d922557568e87ddc4eef5a86d84a61db11d1ae39d6c69dc96a4108e89e0d2",
+      "bytes": 4136
+    },
+    {
+      "path": "evidence/a13cfcddd25d82f1-loads037.py",
+      "sha256": "a13cfcddd25d82f1b264f229c114d5ee9843403bb7914cf77da051c81058bc2d",
+      "bytes": 27162,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "evidence/a19cdec780f9bcd1-vacuum-mainline037-loads-beyond-pressure-1020.md",
+      "sha256": "a19cdec780f9bcd11d41553523f08c55e7cb8286ff8baee59a2790936fad1eb3",
+      "bytes": 1395,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:f00282fb2a413f7c",
+      "sha256": "b53223690e875e316a47dbf5c2f50ea792eb2151b172db3912c486fc776c70f3",
+      "bytes": 3112,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "evidence/0eb090401eeebaf4-PROPERTY-CHECKS.json",
+      "sha256": "0eb090401eeebaf4a9a4dbe5464c1a7b2cc51cbae1d89d766c58b3d4e3a13ef6",
+      "bytes": 117869
+    },
+    {
+      "path": "evidence/501ecbe6b0e11bab-CARD.md",
+      "sha256": "501ecbe6b0e11bab238809f5a61a63e487d364305015af559285faaec8d24c6f",
+      "bytes": 13125,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "evidence/2ef38293630a5e18-SAG.md",
+      "sha256": "2ef38293630a5e1859c9bced34d2c6143ea480bce5261d54c1528ada8e018fdf",
+      "bytes": 5302
+    },
+    {
+      "path": "unpublished-local-ref:9b3b6b276cd21868",
+      "sha256": "ffe8a00112726f6688a9f76e7b5ed208cef6fe4c30686569fd5a2f5af6d5018e",
+      "bytes": 2039,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "evidence/52566f98ee23246b-INPUTS.json",
+      "sha256": "52566f98ee23246b17b3cba274a0b9224bf0fef17e7f9193b6c4547072f77c96",
+      "bytes": 49455
+    },
+    {
+      "path": "evidence/d2102ac041ebbeba-METHOD.md",
+      "sha256": "d2102ac041ebbeba589712aeda20eb8fa6962324c65079eeeb0edc054fbe0810",
+      "bytes": 9462
+    },
+    {
+      "path": "unpublished-local-ref:40c942a584ef63d7",
+      "sha256": "6ecf4e420ebc92c0488e38e909fab7b3a1d661d473bc34079b661f467a6246d6",
+      "bytes": 179231,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:c9e085fb855500b9",
+      "sha256": "3c354f7126d8d69fe8381dd9d1ab756c3d7287164615768ea1b1ae4f9ab7b915",
+      "bytes": 11102482,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:376385ee2a658c6d",
+      "sha256": "793b3419c65159338d428ce73242e80bafffd911590c34058b74b96a79dbe3e1",
+      "bytes": 6505209,
+      "verified_against_filed_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:bb881d80980b0257",
+      "sha256": "5d191e3f9f44ea40b5ab238f21dced390bac8e1f5a286225b4bb283db4e21483",
+      "bytes": 10842
+    },
+    {
+      "path": "unpublished-local-ref:34cfe9f1b502f24f",
+      "sha256": "9e8b55940346fc93bf450ef122d2a3097a21698a3d79ffd9cf12ec5800d47eca",
+      "bytes": 876911
+    },
+    {
+      "path": "evidence/74369a1575aad867-INPUTS.json",
+      "sha256": "74369a1575aad8674edd06ccc7dc96f8bf61eafc9eb8bf995da4cb7ef5ebad0a",
+      "bytes": 2447
+    },
+    {
+      "path": "evidence/14a2669241c3ad27-SAG.json",
+      "sha256": "14a2669241c3ad2795770db8787b39ec72bb3a9dea8df11358caf6b7396da748",
+      "bytes": 39644
+    },
+    {
+      "path": "evidence/a3008485baf30647-CARD.md",
+      "sha256": "a3008485baf3064770dc957ac3fada35c271c1a75bf60c929580cfc919b98791",
+      "bytes": 15156
+    },
+    {
+      "path": "evidence/8b0ed4fc908b2128-P3-LATEST.md",
+      "sha256": "8b0ed4fc908b21289a74b5e7b4fe352ec22e86e77412465b94f3d42803aab0f3",
+      "bytes": 5142
+    },
+    {
+      "path": "evidence/899e402bac40e805-INPUTS.json",
+      "sha256": "899e402bac40e805803d9f9761af1f7237d72424cb83edb7de559d17ef4317e2",
+      "bytes": 9835
+    },
+    {
+      "path": "unpublished-local-ref:71d1fa0213791815",
+      "sha256": "1786f65dac62aca67250f7abc8417486f5d5f83a3216ada3a02c2eae10eb18b8",
+      "bytes": 8645722
+    },
+    {
+      "path": "unpublished-local-ref:19b9971a55f85dd1",
+      "sha256": "6c45d2e525483df95cfdbf39041522de1eb6ff25bc1402b713ccb0450bb82b1f",
+      "bytes": 209114
+    },
+    {
+      "path": "unpublished-local-ref:22c9c9a80547c375",
+      "sha256": "49479251594cf6abc78e41997a131abf69cff65328c476e557c3941047f6a9b2",
+      "bytes": 196709
+    },
+    {
+      "path": "unpublished-local-ref:02cdf37a5f5ce5ad",
+      "sha256": "1e1d2355bf80ac21c3dc378a544ba9ad9d88abd7151ef4a41c80a8ced5d6e5b5",
+      "bytes": 281092
+    },
+    {
+      "path": "unpublished-local-ref:e119845baf5d54ea",
+      "sha256": "ca6bbe5093bd141873f166658407fd14843cd319d5424973556de57fdb37f9bc",
+      "bytes": 308149
+    },
+    {
+      "path": "unpublished-local-ref:334cefc4f5d295a1",
+      "sha256": "bace32f70458ba5f683a2e4a71c68545349ceb1fcf37422ba737ee00d84269d1",
+      "bytes": 327029
+    }
+  ]
+}

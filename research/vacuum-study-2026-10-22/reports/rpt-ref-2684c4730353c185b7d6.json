@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-2684c4730353c185b7d6",
+  "unit": "vacuum-review-d-066-1020",
+  "at": "2026-10-20T18:20:50-07:00",
+  "body": "REVIEW-D on 066. QUESTIONABLE. No qualified hull safety factor. The owner's model was not run.\n\nTwo margins differ from 1. At the four concept geometries, COMMON buckling with gamma 0.20 and nu 0.33 gives allowable over ISA pressure of 1.63, 1.69, 1.63 and 1.69. Equation 2.2-14 as 065 states it gives 1.06, 1.09, 1.07 and 1.10. Yield is 1.66 to 1.70, so strength stays slack.\n\nPayloads match DELTA-C within 0.0021 kg on the shared model. Lift, the face and core bills, and L1 as ln of the factor reproduce. The witnesses are 993.2 kg/m3 at concept and 1146.0 kg/m3 at TRL 7. The slope ratio 0.514 reproduces. Realized gamma is 0.20 times the factor.\n\nUnder rho over E to the 0.514, 067's wrinkling order does not hold. Diamond is 1.013 against the 293.6 GPa base. CNT yarn is 1.421 and M60J is 1.254. None clears 1.74, and none clears TRL 7's 1.61. Among quasi-isotropic sheets, SR-200 still leads.\n\nThe 39 pairs, the modulus closures and the cap payloads were not re-derived. Optimistic lift equals the ISA lift. Deleting the concept R 30 core cannot cover the deficit. The R 30 films weigh 1.7 t.",
+  "artifacts": [
+    {
+      "path": "evidence/ede65286ba907f2a-CARD.md",
+      "sha256": "ede65286ba907f2abf1a8567c956201c8d599071a6cebc1fa072542f3ff96c3a",
+      "bytes": 2513
+    },
+    {
+      "path": "evidence/c534727e3db1116a-RESULTS.json",
+      "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+      "bytes": 18706
+    },
+    {
+      "path": "evidence/a72583b3ff196a53-NFI.json",
+      "sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+      "bytes": 1346
+    },
+    {
+      "path": "evidence/d64d4ce721bd287a-INPUTS.json",
+      "sha256": "d64d4ce721bd287a958a3c0b7a825540bcc6ecb8cfde930c375f68405ef1bc56",
+      "bytes": 5290
+    },
+    {
+      "path": "evidence/00120fd00945bafa-review_d066.py",
+      "sha256": "00120fd00945bafa745fc64364b542e5029e59f24d8116aa761287819ea7f897",
+      "bytes": 8606
+    }
+  ],
+  "from": "ref-08887151c61d86c0cd02",
+  "from_seat": "ref-08887151c61d86c0cd02",
+  "re": "ord-admiral-rr2-review-d1-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-d1-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "N452",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N452",
+    "report": "rpt-mainline032-grok-wrinkle-waviness-1020",
+    "card": "rpt-mainline032-grok-wrinkle-waviness-1020",
+    "file": "evidence/df2ac0989ca4f688-NFI.json",
+    "snapshot": "evidence/df2ac0989ca4f688-NFI.json",
+    "source_sha256": "df2ac0989ca4f6881edb237eff0e367cb5ffb96d9613dc21b27efc6e3bf9bfca",
+    "source_json_pointer": "/open/6",
+    "row_id": "design-0-33-is-not-a-measured-wave",
+    "fields": {
+      "id": "design-0-33-is-not-a-measured-wave",
+      "tag": "PROJECTION",
+      "note": "Inverting equation 2.2-12 at Q 0.33 is stored so the design value can be seen as an amplitude. The handbook selected 0.33 from a test plot."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "Inverting equation 2.2-12 at Q 0.33 is stored so the design value can be seen as an amplitude. The handbook selected 0.33 from a test plot.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/451"
+    },
+    {
+      "report": "rpt-mainline032-grok-wrinkle-waviness-1020",
+      "artifact": "evidence/df2ac0989ca4f688-NFI.json",
+      "snapshot": "evidence/df2ac0989ca4f688-NFI.json",
+      "sha256": "df2ac0989ca4f6881edb237eff0e367cb5ffb96d9613dc21b27efc6e3bf9bfca",
+      "bytes": 2284,
+      "selector": "/open/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline032-grok-wrinkle-waviness-1020",
+          "artifact": "evidence/df2ac0989ca4f688-NFI.json",
+          "snapshot": "evidence/df2ac0989ca4f688-NFI.json",
+          "sha256": "df2ac0989ca4f6881edb237eff0e367cb5ffb96d9613dc21b27efc6e3bf9bfca",
+          "bytes": 2284,
+          "selector": "/open/6"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/451"
+          }
+        ]
+      }
+    }
+  ]
+}

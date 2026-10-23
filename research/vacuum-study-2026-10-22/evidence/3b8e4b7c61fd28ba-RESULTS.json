@@ -1,0 +1,2791 @@
+{
+  "unit": "vacuum-mainline050-flyable-weather-1020",
+  "status": "COMPLETE",
+  "tag": "PROJECTION",
+  "qualified_installed_hull_SF": null,
+  "qualified_operational_availability": null,
+  "requested_grid_points": 2027245,
+  "radii_m": [
+    10,
+    12,
+    15,
+    20,
+    30
+  ],
+  "primary_mask": 11,
+  "subsets_computed": 16,
+  "design_family_boundaries": [
+    {
+      "R_m": 10,
+      "z_m": 100,
+      "no_core_possible_below_T_offset_K": -10.558500662446022,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.50850066244601,
+      "worst_P_RH_upper_offset_K": 5.811722965978568,
+      "any_P_RH_best_upper_offset_K": 12.654777365579521,
+      "P0_RH0_upper_offset_K": 10.783343111488799,
+      "P0_RH100_upper_offset_K": 7.736050037173907
+    },
+    {
+      "R_m": 10,
+      "z_m": 150,
+      "no_core_possible_below_T_offset_K": -10.233500662445977,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.183500662445965,
+      "worst_P_RH_upper_offset_K": 5.742854231798242,
+      "any_P_RH_best_upper_offset_K": 12.61919027021562,
+      "P0_RH0_upper_offset_K": 10.73578677684291,
+      "P0_RH100_upper_offset_K": 7.734813506812241
+    },
+    {
+      "R_m": 10,
+      "z_m": 200,
+      "no_core_possible_below_T_offset_K": -9.908500662445988,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.858500662445977,
+      "worst_P_RH_upper_offset_K": 4.994041706507383,
+      "any_P_RH_best_upper_offset_K": 12.581242662300651,
+      "P0_RH0_upper_offset_K": 10.659518451539014,
+      "P0_RH100_upper_offset_K": 7.7102326712889155
+    },
+    {
+      "R_m": 10,
+      "z_m": 250,
+      "no_core_possible_below_T_offset_K": -9.583500662446,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.533500662445988,
+      "worst_P_RH_upper_offset_K": 3.7768868989679993,
+      "any_P_RH_best_upper_offset_K": 12.540920805514551,
+      "P0_RH0_upper_offset_K": 10.550616736750323,
+      "P0_RH100_upper_offset_K": 7.6575347102825315
+    },
+    {
+      "R_m": 10,
+      "z_m": 300,
+      "no_core_possible_below_T_offset_K": -9.25850066244601,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.208500662446,
+      "worst_P_RH_upper_offset_K": 2.534227123944567,
+      "any_P_RH_best_upper_offset_K": 12.49820522253843,
+      "P0_RH0_upper_offset_K": 10.432142917097373,
+      "P0_RH100_upper_offset_K": 7.594893131902067
+    },
+    {
+      "R_m": 10,
+      "z_m": 350,
+      "no_core_possible_below_T_offset_K": -8.933500662446022,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.88350066244601,
+      "worst_P_RH_upper_offset_K": 1.264819009477078,
+      "any_P_RH_best_upper_offset_K": 12.45307622424266,
+      "P0_RH0_upper_offset_K": 10.310868517013626,
+      "P0_RH100_upper_offset_K": 7.529111920401894
+    },
+    {
+      "R_m": 10,
+      "z_m": 400,
+      "no_core_possible_below_T_offset_K": -8.608500662445977,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.558500662445965,
+      "worst_P_RH_upper_offset_K": -0.030698804322309082,
+      "any_P_RH_best_upper_offset_K": 12.405512357121141,
+      "P0_RH0_upper_offset_K": 10.186762028756904,
+      "P0_RH100_upper_offset_K": 7.460158226571682
+    },
+    {
+      "R_m": 10,
+      "z_m": 450,
+      "no_core_possible_below_T_offset_K": -8.283500662445988,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.233500662445977,
+      "worst_P_RH_upper_offset_K": -1.3502790444922423,
+      "any_P_RH_best_upper_offset_K": 12.334968111384587,
+      "P0_RH0_upper_offset_K": 9.557354647374433,
+      "P0_RH100_upper_offset_K": 6.958977641302226
+    },
+    {
+      "R_m": 10,
+      "z_m": 500,
+      "no_core_possible_below_T_offset_K": -7.958500662445999,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.908500662445988,
+      "worst_P_RH_upper_offset_K": -2.693551860203232,
+      "any_P_RH_best_upper_offset_K": 12.227176936821257,
+      "P0_RH0_upper_offset_K": 8.059942718887324,
+      "P0_RH100_upper_offset_K": 5.706852403497351
+    },
+    {
+      "R_m": 10,
+      "z_m": 550,
+      "no_core_possible_below_T_offset_K": -7.633500662446011,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.583500662445999,
+      "worst_P_RH_upper_offset_K": -4.060121471280166,
+      "any_P_RH_best_upper_offset_K": 12.1081287926451,
+      "P0_RH0_upper_offset_K": 6.552860786174085,
+      "P0_RH100_upper_offset_K": 4.427673254636344
+    },
+    {
+      "R_m": 10,
+      "z_m": 600,
+      "no_core_possible_below_T_offset_K": -7.308500662446022,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.258500662446011,
+      "worst_P_RH_upper_offset_K": -5.449585786015142,
+      "any_P_RH_best_upper_offset_K": 11.986250235526489,
+      "P0_RH0_upper_offset_K": 5.035490602861797,
+      "P0_RH100_upper_offset_K": 3.1204069896694913
+    },
+    {
+      "R_m": 10,
+      "z_m": 650,
+      "no_core_possible_below_T_offset_K": -6.983500662445977,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.933500662445965,
+      "worst_P_RH_upper_offset_K": -6.861540175963235,
+      "any_P_RH_best_upper_offset_K": 11.861510333249454,
+      "P0_RH0_upper_offset_K": 3.5058737138753675,
+      "P0_RH100_upper_offset_K": 1.7846723021571043
+    },
+    {
+      "R_m": 10,
+      "z_m": 700,
+      "no_core_possible_below_T_offset_K": -6.658500662445988,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.608500662445977,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 11.367747296662346,
+      "P0_RH0_upper_offset_K": 1.9624771456034797,
+      "P0_RH100_upper_offset_K": 0.4232040448692248
+    },
+    {
+      "R_m": 10,
+      "z_m": 750,
+      "no_core_possible_below_T_offset_K": -6.333500662445999,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.283500662445988,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 9.823259651220644,
+      "P0_RH0_upper_offset_K": 0.40853225164413276,
+      "P0_RH100_upper_offset_K": -0.9636123636302724
+    },
+    {
+      "R_m": 10,
+      "z_m": 800,
+      "no_core_possible_below_T_offset_K": -6.008500662446011,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.958500662445999,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 8.268276935878049,
+      "P0_RH0_upper_offset_K": -1.1562476527986008,
+      "P0_RH100_upper_offset_K": -2.375380367953152
+    },
+    {
+      "R_m": 10,
+      "z_m": 850,
+      "no_core_possible_below_T_offset_K": -5.683500662446022,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.633500662446011,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 6.702158032265249,
+      "P0_RH0_upper_offset_K": -2.7321407401528055,
+      "P0_RH100_upper_offset_K": -3.8116799416540363
+    },
+    {
+      "R_m": 10,
+      "z_m": 900,
+      "no_core_possible_below_T_offset_K": -5.358500662445977,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.308500662445965,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 5.12275910667446,
+      "P0_RH0_upper_offset_K": -4.319444822054422,
+      "P0_RH100_upper_offset_K": -5.272093539397385
+    },
+    {
+      "R_m": 10,
+      "z_m": 950,
+      "no_core_possible_below_T_offset_K": -5.033500662445988,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.983500662445977,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 3.528428082948159,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1000,
+      "no_core_possible_below_T_offset_K": -4.708500662445999,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.658500662445988,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 1.922590501649411,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1050,
+      "no_core_possible_below_T_offset_K": -4.383500662446011,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.333500662445999,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 0.3049173472093627,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1100,
+      "no_core_possible_below_T_offset_K": -4.058500662446022,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.008500662446011,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": -1.324911474214825,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1150,
+      "no_core_possible_below_T_offset_K": -3.7335006624459766,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.683500662445965,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": -2.9672437066849033,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1200,
+      "no_core_possible_below_T_offset_K": -3.408500662445988,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.3585006624459766,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1250,
+      "no_core_possible_below_T_offset_K": -3.0835006624459993,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.033500662445988,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1300,
+      "no_core_possible_below_T_offset_K": -2.7585006624460107,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.7085006624459993,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1350,
+      "no_core_possible_below_T_offset_K": -2.433500662446022,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.3835006624460107,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1400,
+      "no_core_possible_below_T_offset_K": -2.1085006624459766,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.058500662445965,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1450,
+      "no_core_possible_below_T_offset_K": -1.783500662445988,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.7335006624459766,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 10,
+      "z_m": 1500,
+      "no_core_possible_below_T_offset_K": -1.4585006624459993,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.408500662445988,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 100,
+      "no_core_possible_below_T_offset_K": -10.555746480822563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.505746480822552,
+      "worst_P_RH_upper_offset_K": 9.508733203346981,
+      "any_P_RH_best_upper_offset_K": 16.731206572530276,
+      "P0_RH0_upper_offset_K": 14.934782424727981,
+      "P0_RH100_upper_offset_K": 11.143261140806558
+    },
+    {
+      "R_m": 12,
+      "z_m": 150,
+      "no_core_possible_below_T_offset_K": -10.230746480822518,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.180746480822506,
+      "worst_P_RH_upper_offset_K": 9.51874348479403,
+      "any_P_RH_best_upper_offset_K": 16.714922539190773,
+      "P0_RH0_upper_offset_K": 14.9068260507734,
+      "P0_RH100_upper_offset_K": 11.165719266883716
+    },
+    {
+      "R_m": 12,
+      "z_m": 200,
+      "no_core_possible_below_T_offset_K": -9.905746480822529,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.855746480822518,
+      "worst_P_RH_upper_offset_K": 8.892002583368384,
+      "any_P_RH_best_upper_offset_K": 16.69638656483236,
+      "P0_RH0_upper_offset_K": 14.876537299300235,
+      "P0_RH100_upper_offset_K": 11.185860077407554
+    },
+    {
+      "R_m": 12,
+      "z_m": 250,
+      "no_core_possible_below_T_offset_K": -9.58074648082254,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.530746480822529,
+      "worst_P_RH_upper_offset_K": 7.724702886245804,
+      "any_P_RH_best_upper_offset_K": 16.675592366802107,
+      "P0_RH0_upper_offset_K": 14.843907373881223,
+      "P0_RH100_upper_offset_K": 11.203645346606429
+    },
+    {
+      "R_m": 12,
+      "z_m": 300,
+      "no_core_possible_below_T_offset_K": -9.255746480822552,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.20574648082254,
+      "worst_P_RH_upper_offset_K": 6.530980788798925,
+      "any_P_RH_best_upper_offset_K": 16.65252201422294,
+      "P0_RH0_upper_offset_K": 14.808921857931452,
+      "P0_RH100_upper_offset_K": 11.219057604996753
+    },
+    {
+      "R_m": 12,
+      "z_m": 350,
+      "no_core_possible_below_T_offset_K": -8.930746480822563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.880746480822552,
+      "worst_P_RH_upper_offset_K": 5.311003684864677,
+      "any_P_RH_best_upper_offset_K": 16.62715750347879,
+      "P0_RH0_upper_offset_K": 14.771561934869538,
+      "P0_RH100_upper_offset_K": 11.232070844819745
+    },
+    {
+      "R_m": 12,
+      "z_m": 400,
+      "no_core_possible_below_T_offset_K": -8.605746480822518,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.555746480822506,
+      "worst_P_RH_upper_offset_K": 4.064712958217719,
+      "any_P_RH_best_upper_offset_K": 16.599480482234327,
+      "P0_RH0_upper_offset_K": 14.731806487564945,
+      "P0_RH100_upper_offset_K": 11.242656329890991
+    },
+    {
+      "R_m": 12,
+      "z_m": 450,
+      "no_core_possible_below_T_offset_K": -8.280746480822529,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.230746480822518,
+      "worst_P_RH_upper_offset_K": 2.7917769154441494,
+      "any_P_RH_best_upper_offset_K": 16.569462224288706,
+      "P0_RH0_upper_offset_K": 14.348066321884826,
+      "P0_RH100_upper_offset_K": 10.969041010453182
+    },
+    {
+      "R_m": 12,
+      "z_m": 500,
+      "no_core_possible_below_T_offset_K": -7.95574648082254,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.905746480822529,
+      "worst_P_RH_upper_offset_K": 1.4887806030356656,
+      "any_P_RH_best_upper_offset_K": 16.53708672278288,
+      "P0_RH0_upper_offset_K": 12.850157002852178,
+      "P0_RH100_upper_offset_K": 9.770686500439318
+    },
+    {
+      "R_m": 12,
+      "z_m": 550,
+      "no_core_possible_below_T_offset_K": -7.630746480822552,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.58074648082254,
+      "worst_P_RH_upper_offset_K": 0.1604526501435466,
+      "any_P_RH_best_upper_offset_K": 16.50234269247464,
+      "P0_RH0_upper_offset_K": 11.342707611450322,
+      "P0_RH100_upper_offset_K": 8.54420617532104
+    },
+    {
+      "R_m": 12,
+      "z_m": 600,
+      "no_core_possible_below_T_offset_K": -7.305746480822563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.255746480822552,
+      "worst_P_RH_upper_offset_K": -1.1927519151358772,
+      "any_P_RH_best_upper_offset_K": 16.465210942390677,
+      "P0_RH0_upper_offset_K": 9.825491801020735,
+      "P0_RH100_upper_offset_K": 7.28973515920419
+    },
+    {
+      "R_m": 12,
+      "z_m": 650,
+      "no_core_possible_below_T_offset_K": -6.980746480822518,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.930746480822506,
+      "worst_P_RH_upper_offset_K": -2.570469858473963,
+      "any_P_RH_best_upper_offset_K": 16.42567119689086,
+      "P0_RH0_upper_offset_K": 8.298275266402435,
+      "P0_RH100_upper_offset_K": 6.007414592851135
+    },
+    {
+      "R_m": 12,
+      "z_m": 700,
+      "no_core_possible_below_T_offset_K": -6.655746480822529,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.605746480822518,
+      "worst_P_RH_upper_offset_K": -3.97227376549633,
+      "any_P_RH_best_upper_offset_K": 16.31152783521297,
+      "P0_RH0_upper_offset_K": 6.760822525060804,
+      "P0_RH100_upper_offset_K": 4.696402521602967
+    },
+    {
+      "R_m": 12,
+      "z_m": 750,
+      "no_core_possible_below_T_offset_K": -6.33074648082254,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.280746480822529,
+      "worst_P_RH_upper_offset_K": -5.3977391313884935,
+      "any_P_RH_best_upper_offset_K": 14.767338490313204,
+      "P0_RH0_upper_offset_K": 5.2116574387925025,
+      "P0_RH100_upper_offset_K": 3.3541220957218423
+    },
+    {
+      "R_m": 12,
+      "z_m": 800,
+      "no_core_possible_below_T_offset_K": -6.005746480822552,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.95574648082254,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 13.212809355499115,
+      "P0_RH0_upper_offset_K": 3.6468939264271,
+      "P0_RH100_upper_offset_K": 1.9839050196417114
+    },
+    {
+      "R_m": 12,
+      "z_m": 850,
+      "no_core_possible_below_T_offset_K": -5.680746480822563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.630746480822552,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 11.647692880693185,
+      "P0_RH0_upper_offset_K": 2.0696125937987455,
+      "P0_RH100_upper_offset_K": 0.5870455227325533
+    },
+    {
+      "R_m": 12,
+      "z_m": 900,
+      "no_core_possible_below_T_offset_K": -5.355746480822518,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.305746480822506,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 10.071723021570179,
+      "P0_RH0_upper_offset_K": 0.4812057381406841,
+      "P0_RH100_upper_offset_K": -0.8360916709537086
+    },
+    {
+      "R_m": 12,
+      "z_m": 950,
+      "no_core_possible_below_T_offset_K": -5.030746480822529,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.980746480822518,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 8.484626200326119,
+      "P0_RH0_upper_offset_K": -1.118659584786561,
+      "P0_RH100_upper_offset_K": -2.2850650606358087
+    },
+    {
+      "R_m": 12,
+      "z_m": 1000,
+      "no_core_possible_below_T_offset_K": -4.70574648082254,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.655746480822529,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 6.8848909596935295,
+      "P0_RH0_upper_offset_K": -2.730279789267721,
+      "P0_RH100_upper_offset_K": -3.7594368366800817
+    },
+    {
+      "R_m": 12,
+      "z_m": 1050,
+      "no_core_possible_below_T_offset_K": -4.380746480822552,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.33074648082254,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 5.268336609855946,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1100,
+      "no_core_possible_below_T_offset_K": -4.055746480822563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.005746480822552,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 3.638049694859939,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1150,
+      "no_core_possible_below_T_offset_K": -3.7307464808225177,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.6807464808225063,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 1.9956007025255675,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1200,
+      "no_core_possible_below_T_offset_K": -3.405746480822529,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.3557464808225177,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 0.34061391023590193,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1250,
+      "no_core_possible_below_T_offset_K": -3.0807464808225404,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.030746480822529,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": -1.3272551354125781,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1300,
+      "no_core_possible_below_T_offset_K": -2.755746480822552,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.7057464808225404,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1350,
+      "no_core_possible_below_T_offset_K": -2.430746480822563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.380746480822552,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1400,
+      "no_core_possible_below_T_offset_K": -2.1057464808225177,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.0557464808225063,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1450,
+      "no_core_possible_below_T_offset_K": -1.780746480822529,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.7307464808225177,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 12,
+      "z_m": 1500,
+      "no_core_possible_below_T_offset_K": -1.4557464808225404,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.405746480822529,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 100,
+      "no_core_possible_below_T_offset_K": -10.55400438606739,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.504004386067379,
+      "worst_P_RH_upper_offset_K": 12.228771940754044,
+      "any_P_RH_best_upper_offset_K": 19.985665523527828,
+      "P0_RH0_upper_offset_K": 18.252869477696585,
+      "P0_RH100_upper_offset_K": 13.779687047801175
+    },
+    {
+      "R_m": 15,
+      "z_m": 150,
+      "no_core_possible_below_T_offset_K": -10.229004386067345,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.179004386067334,
+      "worst_P_RH_upper_offset_K": 12.258147096748939,
+      "any_P_RH_best_upper_offset_K": 19.98511575562263,
+      "P0_RH0_upper_offset_K": 18.240896799373346,
+      "P0_RH100_upper_offset_K": 13.820796003918158
+    },
+    {
+      "R_m": 15,
+      "z_m": 200,
+      "no_core_possible_below_T_offset_K": -9.904004386067356,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.854004386067345,
+      "worst_P_RH_upper_offset_K": 11.707155939949985,
+      "any_P_RH_best_upper_offset_K": 19.982416759261483,
+      "P0_RH0_upper_offset_K": 18.22669968813171,
+      "P0_RH100_upper_offset_K": 13.859763291174744
+    },
+    {
+      "R_m": 15,
+      "z_m": 250,
+      "no_core_possible_below_T_offset_K": -9.579004386067368,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.529004386067356,
+      "worst_P_RH_upper_offset_K": 10.58149014696593,
+      "any_P_RH_best_upper_offset_K": 19.97755221938109,
+      "P0_RH0_upper_offset_K": 18.210261185690293,
+      "P0_RH100_upper_offset_K": 13.89656377343443
+    },
+    {
+      "R_m": 15,
+      "z_m": 300,
+      "no_core_possible_below_T_offset_K": -9.254004386067379,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.204004386067368,
+      "worst_P_RH_upper_offset_K": 9.428609407101014,
+      "any_P_RH_best_upper_offset_K": 19.970505409458177,
+      "P0_RH0_upper_offset_K": 18.191564057083994,
+      "P0_RH100_upper_offset_K": 13.93117201220539
+    },
+    {
+      "R_m": 15,
+      "z_m": 350,
+      "no_core_possible_below_T_offset_K": -8.92900438606739,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.879004386067379,
+      "worst_P_RH_upper_offset_K": 8.24855560654743,
+      "any_P_RH_best_upper_offset_K": 19.96124975360302,
+      "P0_RH0_upper_offset_K": 18.17059086839226,
+      "P0_RH100_upper_offset_K": 13.963555184110234
+    },
+    {
+      "R_m": 15,
+      "z_m": 400,
+      "no_core_possible_below_T_offset_K": -8.604004386067345,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.554004386067334,
+      "worst_P_RH_upper_offset_K": 7.041420930155288,
+      "any_P_RH_best_upper_offset_K": 19.949768028973345,
+      "P0_RH0_upper_offset_K": 18.147305585852024,
+      "P0_RH100_upper_offset_K": 13.993687939794945
+    },
+    {
+      "R_m": 15,
+      "z_m": 450,
+      "no_core_possible_below_T_offset_K": -8.279004386067356,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.229004386067345,
+      "worst_P_RH_upper_offset_K": 5.807373026093038,
+      "any_P_RH_best_upper_offset_K": 19.93605309884304,
+      "P0_RH0_upper_offset_K": 17.921681359001553,
+      "P0_RH100_upper_offset_K": 13.860624792827746
+    },
+    {
+      "R_m": 15,
+      "z_m": 500,
+      "no_core_possible_below_T_offset_K": -7.954004386067368,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.904004386067356,
+      "worst_P_RH_upper_offset_K": 4.54587281768386,
+      "any_P_RH_best_upper_offset_K": 19.920087795991755,
+      "P0_RH0_upper_offset_K": 16.425559381705902,
+      "P0_RH100_upper_offset_K": 12.707047538313514
+    },
+    {
+      "R_m": 15,
+      "z_m": 550,
+      "no_core_possible_below_T_offset_K": -7.629004386067379,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.579004386067368,
+      "worst_P_RH_upper_offset_K": 3.2559558257563648,
+      "any_P_RH_best_upper_offset_K": 19.901854558140563,
+      "P0_RH0_upper_offset_K": 14.920022191644598,
+      "P0_RH100_upper_offset_K": 11.524537513137556
+    },
+    {
+      "R_m": 15,
+      "z_m": 600,
+      "no_core_possible_below_T_offset_K": -7.30400438606739,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.254004386067379,
+      "worst_P_RH_upper_offset_K": 1.9353310978004887,
+      "any_P_RH_best_upper_offset_K": 19.881335665414944,
+      "P0_RH0_upper_offset_K": 13.40485306210893,
+      "P0_RH100_upper_offset_K": 10.313095259257487
+    },
+    {
+      "R_m": 15,
+      "z_m": 650,
+      "no_core_possible_below_T_offset_K": -6.979004386067345,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.929004386067334,
+      "worst_P_RH_upper_offset_K": 0.5887561530687406,
+      "any_P_RH_best_upper_offset_K": 19.8584745003592,
+      "P0_RH0_upper_offset_K": 11.8798256195448,
+      "P0_RH100_upper_offset_K": 9.072811638005888
+    },
+    {
+      "R_m": 15,
+      "z_m": 700,
+      "no_core_possible_below_T_offset_K": -6.654004386067356,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.604004386067345,
+      "worst_P_RH_upper_offset_K": -0.7833677423118672,
+      "any_P_RH_best_upper_offset_K": 19.833255429635514,
+      "P0_RH0_upper_offset_K": 10.34470589586039,
+      "P0_RH100_upper_offset_K": 7.803815228825477
+    },
+    {
+      "R_m": 15,
+      "z_m": 750,
+      "no_core_possible_below_T_offset_K": -6.329004386067368,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.279004386067356,
+      "worst_P_RH_upper_offset_K": -2.1806655579541614,
+      "any_P_RH_best_upper_offset_K": 18.457089494602577,
+      "P0_RH0_upper_offset_K": 8.79924849835502,
+      "P0_RH100_upper_offset_K": 6.505987980513149
+    },
+    {
+      "R_m": 15,
+      "z_m": 800,
+      "no_core_possible_below_T_offset_K": -6.004004386067379,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.954004386067368,
+      "worst_P_RH_upper_offset_K": -3.602702757238613,
+      "any_P_RH_best_upper_offset_K": 16.90520576699864,
+      "P0_RH0_upper_offset_K": 7.243198944415263,
+      "P0_RH100_upper_offset_K": 5.177854041951011
+    },
+    {
+      "R_m": 15,
+      "z_m": 850,
+      "no_core_possible_below_T_offset_K": -5.67900438606739,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.629004386067379,
+      "worst_P_RH_upper_offset_K": -5.049053661700196,
+      "any_P_RH_best_upper_offset_K": 15.342891801353371,
+      "P0_RH0_upper_offset_K": 5.67358846869787,
+      "P0_RH100_upper_offset_K": 3.8167844402417845
+    },
+    {
+      "R_m": 15,
+      "z_m": 900,
+      "no_core_possible_below_T_offset_K": -5.354004386067345,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.304004386067334,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 13.769886651495781,
+      "P0_RH0_upper_offset_K": 4.086887620049297,
+      "P0_RH100_upper_offset_K": 2.4274875469269306
+    },
+    {
+      "R_m": 15,
+      "z_m": 950,
+      "no_core_possible_below_T_offset_K": -5.029004386067356,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.979004386067345,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 12.185927570671886,
+      "P0_RH0_upper_offset_K": 2.4878605638336238,
+      "P0_RH100_upper_offset_K": 1.0108040609121307
+    },
+    {
+      "R_m": 15,
+      "z_m": 1000,
+      "no_core_possible_below_T_offset_K": -4.704004386067368,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.654004386067356,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 10.590741671102677,
+      "P0_RH0_upper_offset_K": 0.8773296608226449,
+      "P0_RH100_upper_offset_K": -0.43289571670868704
+    },
+    {
+      "R_m": 15,
+      "z_m": 1050,
+      "no_core_possible_below_T_offset_K": -4.379004386067379,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.329004386067368,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 8.98403739884802,
+      "P0_RH0_upper_offset_K": -0.7450536240615739,
+      "P0_RH100_upper_offset_K": -1.903161856293681
+    },
+    {
+      "R_m": 15,
+      "z_m": 1100,
+      "no_core_possible_below_T_offset_K": -4.05400438606739,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.004004386067379,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 7.362820322593253,
+      "P0_RH0_upper_offset_K": -2.379609378827287,
+      "P0_RH100_upper_offset_K": -3.39955579362256
+    },
+    {
+      "R_m": 15,
+      "z_m": 1150,
+      "no_core_possible_below_T_offset_K": -3.729004386067345,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.6790043860673336,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 5.723152275279884,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 1200,
+      "no_core_possible_below_T_offset_K": -3.4040043860673563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.354004386067345,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 4.06984256948016,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 1250,
+      "no_core_possible_below_T_offset_K": -3.0790043860673677,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.0290043860673563,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 2.403945267819058,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 1300,
+      "no_core_possible_below_T_offset_K": -2.754004386067379,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.7040043860673677,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 0.7250653438129744,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 1350,
+      "no_core_possible_below_T_offset_K": -2.4290043860673904,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.379004386067379,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": -0.9671691273654801,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 1400,
+      "no_core_possible_below_T_offset_K": -2.104004386067345,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.0540043860673336,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 1450,
+      "no_core_possible_below_T_offset_K": -1.7790043860673563,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.729004386067345,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 15,
+      "z_m": 1500,
+      "no_core_possible_below_T_offset_K": -1.4540043860673677,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.4040043860673563,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 20,
+      "z_m": 100,
+      "no_core_possible_below_T_offset_K": -10.55289976298809,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.50289976298808,
+      "worst_P_RH_upper_offset_K": 14.293644891749334,
+      "any_P_RH_best_upper_offset_K": 22.513741010579714,
+      "P0_RH0_upper_offset_K": 20.834826815605638,
+      "P0_RH100_upper_offset_K": 15.777781542215589
+    },
+    {
+      "R_m": 20,
+      "z_m": 150,
+      "no_core_possible_below_T_offset_K": -10.227899762988045,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.177899762988034,
+      "worst_P_RH_upper_offset_K": 14.338158199881402,
+      "any_P_RH_best_upper_offset_K": 22.526019229183404,
+      "P0_RH0_upper_offset_K": 20.835923994798527,
+      "P0_RH100_upper_offset_K": 15.833423822354831
+    },
+    {
+      "R_m": 20,
+      "z_m": 200,
+      "no_core_possible_below_T_offset_K": -9.902899762988056,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.852899762988045,
+      "worst_P_RH_upper_offset_K": 13.846093346181753,
+      "any_P_RH_best_upper_offset_K": 22.536220818578172,
+      "P0_RH0_upper_offset_K": 20.834851894225977,
+      "P0_RH100_upper_offset_K": 15.88706609580667
+    },
+    {
+      "R_m": 20,
+      "z_m": 250,
+      "no_core_possible_below_T_offset_K": -9.577899762988068,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.527899762988056,
+      "worst_P_RH_upper_offset_K": 12.755117311111363,
+      "any_P_RH_best_upper_offset_K": 22.54433122253866,
+      "P0_RH0_upper_offset_K": 20.831614597731793,
+      "P0_RH100_upper_offset_K": 15.938684885639354
+    },
+    {
+      "R_m": 20,
+      "z_m": 300,
+      "no_core_possible_below_T_offset_K": -9.25289976298808,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.202899762988068,
+      "worst_P_RH_upper_offset_K": 11.636495773723198,
+      "any_P_RH_best_upper_offset_K": 22.550334861560998,
+      "P0_RH0_upper_offset_K": 20.8261964858793,
+      "P0_RH100_upper_offset_K": 15.988256445374553
+    },
+    {
+      "R_m": 20,
+      "z_m": 350,
+      "no_core_possible_below_T_offset_K": -8.92789976298809,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.87789976298808,
+      "worst_P_RH_upper_offset_K": 10.490163123683516,
+      "any_P_RH_best_upper_offset_K": 22.554215910126615,
+      "P0_RH0_upper_offset_K": 20.81858119049145,
+      "P0_RH100_upper_offset_K": 16.035751972040813
+    },
+    {
+      "R_m": 20,
+      "z_m": 400,
+      "no_core_possible_below_T_offset_K": -8.602899762988045,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.552899762988034,
+      "worst_P_RH_upper_offset_K": 9.316141889519738,
+      "any_P_RH_best_upper_offset_K": 22.555958392968968,
+      "P0_RH0_upper_offset_K": 20.808751620322013,
+      "P0_RH100_upper_offset_K": 16.081141846183193
+    },
+    {
+      "R_m": 20,
+      "z_m": 450,
+      "no_core_possible_below_T_offset_K": -8.277899762988056,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.227899762988045,
+      "worst_P_RH_upper_offset_K": 8.114504005925621,
+      "any_P_RH_best_upper_offset_K": 22.55553164382262,
+      "P0_RH0_upper_offset_K": 20.709215170579917,
+      "P0_RH100_upper_offset_K": 16.054649125942504
+    },
+    {
+      "R_m": 20,
+      "z_m": 500,
+      "no_core_possible_below_T_offset_K": -7.952899762988068,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.902899762988056,
+      "worst_P_RH_upper_offset_K": 6.88536717987513,
+      "any_P_RH_best_upper_offset_K": 22.552927118490686,
+      "P0_RH0_upper_offset_K": 19.215833239812497,
+      "P0_RH100_upper_offset_K": 14.938269626627992
+    },
+    {
+      "R_m": 20,
+      "z_m": 550,
+      "no_core_possible_below_T_offset_K": -7.627899762988079,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.577899762988068,
+      "worst_P_RH_upper_offset_K": 5.628890493733669,
+      "any_P_RH_best_upper_offset_K": 22.54813032777782,
+      "P0_RH0_upper_offset_K": 17.71312379703896,
+      "P0_RH100_upper_offset_K": 13.792538393357223
+    },
+    {
+      "R_m": 20,
+      "z_m": 600,
+      "no_core_possible_below_T_offset_K": -7.3028997629880905,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.252899762988079,
+      "worst_P_RH_upper_offset_K": 4.34178131548148,
+      "any_P_RH_best_upper_offset_K": 22.54108736594462,
+      "P0_RH0_upper_offset_K": 16.20087708229498,
+      "P0_RH100_upper_offset_K": 12.617375837170734
+    },
+    {
+      "R_m": 20,
+      "z_m": 650,
+      "no_core_possible_below_T_offset_K": -6.977899762988045,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.927899762988034,
+      "worst_P_RH_upper_offset_K": 3.023784926505442,
+      "any_P_RH_best_upper_offset_K": 22.531819321797748,
+      "P0_RH0_upper_offset_K": 14.678874248760849,
+      "P0_RH100_upper_offset_K": 11.412760680294141
+    },
+    {
+      "R_m": 20,
+      "z_m": 700,
+      "no_core_possible_below_T_offset_K": -6.652899762988056,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.602899762988045,
+      "worst_P_RH_upper_offset_K": 1.67709580774469,
+      "any_P_RH_best_upper_offset_K": 22.52030540032191,
+      "P0_RH0_upper_offset_K": 13.146884750013957,
+      "P0_RH100_upper_offset_K": 10.178722855227075
+    },
+    {
+      "R_m": 20,
+      "z_m": 750,
+      "no_core_possible_below_T_offset_K": -6.327899762988068,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.277899762988056,
+      "worst_P_RH_upper_offset_K": 0.30410809995213794,
+      "any_P_RH_best_upper_offset_K": 21.336014871431374,
+      "P0_RH0_upper_offset_K": 11.604670711246609,
+      "P0_RH100_upper_offset_K": 8.915339757476389
+    },
+    {
+      "R_m": 20,
+      "z_m": 800,
+      "no_core_possible_below_T_offset_K": -6.002899762988079,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.952899762988068,
+      "worst_P_RH_upper_offset_K": -1.0948159527276502,
+      "any_P_RH_best_upper_offset_K": 19.787596647510753,
+      "P0_RH0_upper_offset_K": 10.051982422561998,
+      "P0_RH100_upper_offset_K": 7.622758892455574
+    },
+    {
+      "R_m": 20,
+      "z_m": 850,
+      "no_core_possible_below_T_offset_K": -5.6778997629880905,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.627899762988079,
+      "worst_P_RH_upper_offset_K": -2.5192338675692616,
+      "any_P_RH_best_upper_offset_K": 18.228863642530882,
+      "P0_RH0_upper_offset_K": 8.48855935013026,
+      "P0_RH100_upper_offset_K": 6.29842674325492
+    },
+    {
+      "R_m": 20,
+      "z_m": 900,
+      "no_core_possible_below_T_offset_K": -5.352899762988045,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.302899762988034,
+      "worst_P_RH_upper_offset_K": -3.9687000806024324,
+      "any_P_RH_best_upper_offset_K": 16.659566978053377,
+      "P0_RH0_upper_offset_K": 6.911802649014305,
+      "P0_RH100_upper_offset_K": 4.941211762835318
+    },
+    {
+      "R_m": 20,
+      "z_m": 950,
+      "no_core_possible_below_T_offset_K": -5.027899762988056,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.977899762988045,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 15.079446597302773,
+      "P0_RH0_upper_offset_K": 5.317759596992637,
+      "P0_RH100_upper_offset_K": 3.5521924660267805
+    },
+    {
+      "R_m": 20,
+      "z_m": 1000,
+      "no_core_possible_below_T_offset_K": -4.702899762988068,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.652899762988056,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 13.488231551114541,
+      "P0_RH0_upper_offset_K": 3.7075640008741484,
+      "P0_RH100_upper_offset_K": 2.134951332933137
+    },
+    {
+      "R_m": 20,
+      "z_m": 1050,
+      "no_core_possible_below_T_offset_K": -4.377899762988079,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.327899762988068,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 11.885638865554117,
+      "P0_RH0_upper_offset_K": 2.0857534731670118,
+      "P0_RH100_upper_offset_K": 0.6898767879399441
+    },
+    {
+      "R_m": 20,
+      "z_m": 1100,
+      "no_core_possible_below_T_offset_K": -4.0528997629880905,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.002899762988079,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 10.271371225813528,
+      "P0_RH0_upper_offset_K": 0.4519667552115746,
+      "P0_RH100_upper_offset_K": -0.7825788449269004
+    },
+    {
+      "R_m": 20,
+      "z_m": 1150,
+      "no_core_possible_below_T_offset_K": -3.727899762988045,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.6778997629880337,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 8.643037836226586,
+      "P0_RH0_upper_offset_K": -1.194125019718242,
+      "P0_RH100_upper_offset_K": -2.2819809511333293
+    },
+    {
+      "R_m": 20,
+      "z_m": 1200,
+      "no_core_possible_below_T_offset_K": -3.4028997629880564,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.352899762988045,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 6.995915494372136,
+      "P0_RH0_upper_offset_K": -2.8528912815351744,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 20,
+      "z_m": 1250,
+      "no_core_possible_below_T_offset_K": -3.0778997629880678,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.0278997629880564,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 5.330995573826611,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 20,
+      "z_m": 1300,
+      "no_core_possible_below_T_offset_K": -2.752899762988079,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.7028997629880678,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 3.653368110577401,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 20,
+      "z_m": 1350,
+      "no_core_possible_below_T_offset_K": -2.4278997629880905,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.377899762988079,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 1.9626209993645414,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 20,
+      "z_m": 1400,
+      "no_core_possible_below_T_offset_K": -2.102899762988045,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.0528997629880337,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 0.25837386654396044,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 20,
+      "z_m": 1450,
+      "no_core_possible_below_T_offset_K": -1.7778997629880564,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.727899762988045,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": -1.4598045594710964,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 20,
+      "z_m": 1500,
+      "no_core_possible_below_T_offset_K": -1.4528997629880678,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.4028997629880564,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": null,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 30,
+      "z_m": 100,
+      "no_core_possible_below_T_offset_K": -10.551939532160759,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.501939532160748,
+      "worst_P_RH_upper_offset_K": 15.801763676842079,
+      "any_P_RH_best_upper_offset_K": 24.37948170530464,
+      "P0_RH0_upper_offset_K": 22.747993169268227,
+      "P0_RH100_upper_offset_K": 17.23208533193307
+    },
+    {
+      "R_m": 30,
+      "z_m": 150,
+      "no_core_possible_below_T_offset_K": -10.226939532160713,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -10.176939532160702,
+      "worst_P_RH_upper_offset_K": 15.858175492246676,
+      "any_P_RH_best_upper_offset_K": 24.402520239681245,
+      "P0_RH0_upper_offset_K": 22.760046654415397,
+      "P0_RH100_upper_offset_K": 17.299124414795152
+    },
+    {
+      "R_m": 30,
+      "z_m": 200,
+      "no_core_possible_below_T_offset_K": -9.901939532160725,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.851939532160713,
+      "worst_P_RH_upper_offset_K": 15.410640879880013,
+      "any_P_RH_best_upper_offset_K": 24.423543749331515,
+      "P0_RH0_upper_offset_K": 22.7699943307787,
+      "P0_RH100_upper_offset_K": 17.364276883662356
+    },
+    {
+      "R_m": 30,
+      "z_m": 250,
+      "no_core_possible_below_T_offset_K": -9.576939532160736,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.526939532160725,
+      "worst_P_RH_upper_offset_K": 14.347712902444268,
+      "any_P_RH_best_upper_offset_K": 24.442537640522524,
+      "P0_RH0_upper_offset_K": 22.7778408140737,
+      "P0_RH100_upper_offset_K": 17.427517723253445
+    },
+    {
+      "R_m": 30,
+      "z_m": 300,
+      "no_core_possible_below_T_offset_K": -9.251939532160748,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -9.201939532160736,
+      "worst_P_RH_upper_offset_K": 13.256991294593071,
+      "any_P_RH_best_upper_offset_K": 24.459486910930984,
+      "P0_RH0_upper_offset_K": 22.783570840992752,
+      "P0_RH100_upper_offset_K": 17.488814327634948
+    },
+    {
+      "R_m": 30,
+      "z_m": 350,
+      "no_core_possible_below_T_offset_K": -8.926939532160759,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.876939532160748,
+      "worst_P_RH_upper_offset_K": 12.138358370198887,
+      "any_P_RH_best_upper_offset_K": 24.474376517588517,
+      "P0_RH0_upper_offset_K": 22.787168639094716,
+      "P0_RH100_upper_offset_K": 17.548157004018215
+    },
+    {
+      "R_m": 30,
+      "z_m": 400,
+      "no_core_possible_below_T_offset_K": -8.601939532160713,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.551939532160702,
+      "worst_P_RH_upper_offset_K": 10.991719864699466,
+      "any_P_RH_best_upper_offset_K": 24.487191427509778,
+      "P0_RH0_upper_offset_K": 22.78861871047129,
+      "P0_RH100_upper_offset_K": 17.60552284710227
+    },
+    {
+      "R_m": 30,
+      "z_m": 450,
+      "no_core_possible_below_T_offset_K": -8.276939532160725,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -8.226939532160713,
+      "worst_P_RH_upper_offset_K": 9.817100898197587,
+      "any_P_RH_best_upper_offset_K": 24.497894227942375,
+      "P0_RH0_upper_offset_K": 22.785386367715844,
+      "P0_RH100_upper_offset_K": 17.65718824159969
+    },
+    {
+      "R_m": 30,
+      "z_m": 500,
+      "no_core_possible_below_T_offset_K": -7.951939532160736,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.901939532160725,
+      "worst_P_RH_upper_offset_K": 8.614550837385785,
+      "any_P_RH_best_upper_offset_K": 24.506485249038718,
+      "P0_RH0_upper_offset_K": 21.296721560264345,
+      "P0_RH100_upper_offset_K": 16.570780053763265
+    },
+    {
+      "R_m": 30,
+      "z_m": 550,
+      "no_core_possible_below_T_offset_K": -7.626939532160748,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.576939532160736,
+      "worst_P_RH_upper_offset_K": 7.384174183689012,
+      "any_P_RH_best_upper_offset_K": 24.512910685945748,
+      "P0_RH0_upper_offset_K": 19.798805469866934,
+      "P0_RH100_upper_offset_K": 15.454928973259666
+    },
+    {
+      "R_m": 30,
+      "z_m": 600,
+      "no_core_possible_below_T_offset_K": -7.301939532160759,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -7.251939532160748,
+      "worst_P_RH_upper_offset_K": 6.126098627635928,
+      "any_P_RH_best_upper_offset_K": 24.517194767426282,
+      "P0_RH0_upper_offset_K": 18.291429048037116,
+      "P0_RH100_upper_offset_K": 14.309433241338162
+    },
+    {
+      "R_m": 30,
+      "z_m": 650,
+      "no_core_possible_below_T_offset_K": -6.9769395321607135,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.926939532160702,
+      "worst_P_RH_upper_offset_K": 4.835579452561722,
+      "any_P_RH_best_upper_offset_K": 24.519321620496093,
+      "P0_RH0_upper_offset_K": 16.77437348076642,
+      "P0_RH100_upper_offset_K": 13.134218270660277
+    },
+    {
+      "R_m": 30,
+      "z_m": 700,
+      "no_core_possible_below_T_offset_K": -6.651939532160725,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.6019395321607135,
+      "worst_P_RH_upper_offset_K": 3.512324246863275,
+      "any_P_RH_best_upper_offset_K": 24.51927514398772,
+      "P0_RH0_upper_offset_K": 15.247410975755816,
+      "P0_RH100_upper_offset_K": 11.929233166419966
+    },
+    {
+      "R_m": 30,
+      "z_m": 750,
+      "no_core_possible_below_T_offset_K": -6.326939532160736,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -6.276939532160725,
+      "worst_P_RH_upper_offset_K": 2.158518145739963,
+      "any_P_RH_best_upper_offset_K": 23.481978958545724,
+      "P0_RH0_upper_offset_K": 13.710307057794981,
+      "P0_RH100_upper_offset_K": 10.694487603579137
+    },
+    {
+      "R_m": 30,
+      "z_m": 800,
+      "no_core_possible_below_T_offset_K": -6.001939532160748,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.951939532160736,
+      "worst_P_RH_upper_offset_K": 0.7779375168377564,
+      "any_P_RH_best_upper_offset_K": 21.938979506176025,
+      "P0_RH0_upper_offset_K": 12.162814676647574,
+      "P0_RH100_upper_offset_K": 9.430028619936895
+    },
+    {
+      "R_m": 30,
+      "z_m": 850,
+      "no_core_possible_below_T_offset_K": -5.676939532160759,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.626939532160748,
+      "worst_P_RH_upper_offset_K": -0.6290612000730283,
+      "any_P_RH_best_upper_offset_K": 20.38575842238742,
+      "P0_RH0_upper_offset_K": 10.604677517131861,
+      "P0_RH100_upper_offset_K": 8.136012038141203
+    },
+    {
+      "R_m": 30,
+      "z_m": 900,
+      "no_core_possible_below_T_offset_K": -5.3519395321607135,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -5.301939532160702,
+      "worst_P_RH_upper_offset_K": -2.061992759448633,
+      "any_P_RH_best_upper_offset_K": 18.82206936288499,
+      "P0_RH0_upper_offset_K": 9.035630789204603,
+      "P0_RH100_upper_offset_K": 6.8089387144271445
+    },
+    {
+      "R_m": 30,
+      "z_m": 950,
+      "no_core_possible_below_T_offset_K": -5.026939532160725,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.9769395321607135,
+      "worst_P_RH_upper_offset_K": -3.520438901022662,
+      "any_P_RH_best_upper_offset_K": 17.247654728244065,
+      "P0_RH0_upper_offset_K": 7.4526680790488555,
+      "P0_RH100_upper_offset_K": 5.446790698333617
+    },
+    {
+      "R_m": 30,
+      "z_m": 1000,
+      "no_core_possible_below_T_offset_K": -4.701939532160736,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.651939532160725,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 15.662247778882389,
+      "P0_RH0_upper_offset_K": 5.849281276284826,
+      "P0_RH100_upper_offset_K": 4.050449461030853
+    },
+    {
+      "R_m": 30,
+      "z_m": 1050,
+      "no_core_possible_below_T_offset_K": -4.376939532160748,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.326939532160736,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 14.065569927525171,
+      "P0_RH0_upper_offset_K": 4.2269380500916505,
+      "P0_RH100_upper_offset_K": 2.6253586560261732
+    },
+    {
+      "R_m": 30,
+      "z_m": 1100,
+      "no_core_possible_below_T_offset_K": -4.051939532160759,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -4.001939532160748,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 12.457327848411015,
+      "P0_RH0_upper_offset_K": 2.5928476881640545,
+      "P0_RH100_upper_offset_K": 1.1719263544992797
+    },
+    {
+      "R_m": 30,
+      "z_m": 1150,
+      "no_core_possible_below_T_offset_K": -3.7269395321607135,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.676939532160702,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 10.837220856874833,
+      "P0_RH0_upper_offset_K": 0.946636121450991,
+      "P0_RH100_upper_offset_K": -0.3094126763779135
+    },
+    {
+      "R_m": 30,
+      "z_m": 1200,
+      "no_core_possible_below_T_offset_K": -3.401939532160725,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.3519395321607135,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 9.202726789194752,
+      "P0_RH0_upper_offset_K": -0.7120193208639519,
+      "P0_RH100_upper_offset_K": -1.8182002307547167
+    },
+    {
+      "R_m": 30,
+      "z_m": 1250,
+      "no_core_possible_below_T_offset_K": -3.0769395321607362,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -3.026939532160725,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 7.545955872286537,
+      "P0_RH0_upper_offset_K": -2.3834960999156616,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 30,
+      "z_m": 1300,
+      "no_core_possible_below_T_offset_K": -2.7519395321607476,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.7019395321607362,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 5.868233324921869,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 30,
+      "z_m": 1350,
+      "no_core_possible_below_T_offset_K": -2.426939532160759,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.3769395321607476,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 4.177652203483861,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 30,
+      "z_m": 1400,
+      "no_core_possible_below_T_offset_K": -2.1019395321607135,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -2.051939532160702,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 2.4737885146066168,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 30,
+      "z_m": 1450,
+      "no_core_possible_below_T_offset_K": -1.7769395321607249,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.7269395321607135,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": 0.7562665869659747,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    },
+    {
+      "R_m": 30,
+      "z_m": 1500,
+      "no_core_possible_below_T_offset_K": -1.4519395321607362,
+      "all_pressure_tabulated_geometry_safe_above_T_offset_K": -1.4019395321607249,
+      "worst_P_RH_upper_offset_K": null,
+      "any_P_RH_best_upper_offset_K": -0.9753611847594194,
+      "P0_RH0_upper_offset_K": null,
+      "P0_RH100_upper_offset_K": null
+    }
+  ],
+  "ISA_least_cardinality_usage": [
+    {
+      "R_m": 10,
+      "mask": 11,
+      "axes": [
+        "gamma",
+        "Q",
+        "film"
+      ],
+      "common_log_usage": 0.8330753296613693,
+      "endpoint_payload_kg": 124.26204960240375
+    },
+    {
+      "R_m": 12,
+      "mask": 3,
+      "axes": [
+        "gamma",
+        "Q"
+      ],
+      "common_log_usage": 0.8847051113843918,
+      "endpoint_payload_kg": 117.99861217030593
+    },
+    {
+      "R_m": 15,
+      "mask": 3,
+      "axes": [
+        "gamma",
+        "Q"
+      ],
+      "common_log_usage": 0.720756471157074,
+      "endpoint_payload_kg": 614.030417422673
+    },
+    {
+      "R_m": 20,
+      "mask": 3,
+      "axes": [
+        "gamma",
+        "Q"
+      ],
+      "common_log_usage": 0.5984259843826294,
+      "endpoint_payload_kg": 2267.640497214241
+    },
+    {
+      "R_m": 30,
+      "mask": 3,
+      "axes": [
+        "gamma",
+        "Q"
+      ],
+      "common_log_usage": 0.5665505081415176,
+      "endpoint_payload_kg": 8525.131333246827
+    }
+  ],
+  "fixed_builds": [
+    {
+      "R_m": 10,
+      "area_m2": 1256.6370614359173,
+      "volume_m3": 4188.790204786391,
+      "reference_lift_kg": 4889.442150186961,
+      "pad": {
+        "force_N": 111753.3962732807,
+        "area_m2": 0.4630988508326922,
+        "radius_m": 0.3839387223247982,
+        "thickness_m": 0.026502171335004106,
+        "mass_kg": 33.137437742491095
+      },
+      "modes": {
+        "global_buckling": 1.0000000000000153,
+        "face_compression": 1.1358265659819207,
+        "core_shear_crimping": 2.124572796073349,
+        "core_crush": 4.642791378230705,
+        "face_wrinkling": 2.009484585756427,
+        "intracell_dimpling": 7.9357928097624235,
+        "scarf_average_shear_screen": 1.0000000001172749,
+        "core_cell_wall_yield_screen": 2.242016116542959,
+        "thermal_core_interface_screen": 1.0003113817049536
+      },
+      "minimum_SF": 1.0000000000000153,
+      "mass_kg": 5024.055789461544,
+      "bill_kg": {
+        "faces": 4025.70263197785,
+        "core": 439.23748642562236,
+        "charged_joining": 223.24700592017362,
+        "coating": 10.471204774568298,
+        "mooring_pad": 33.137437742491095,
+        "gas": 48.89442150186961,
+        "systems": 100.0,
+        "water": 125.66370614359174,
+        "contamination": 5.0,
+        "absorbed_water": 0.1355243610191478,
+        "structural_primer": 12.566370614359172
+      },
+      "tf_m": 0.0008658249639153081,
+      "tc_m": 0.021820700127060465,
+      "pressure_Pa": 103953.19780784745,
+      "E_Pa": 290000000000.0,
+      "strength_Pa": 345000000.0,
+      "Q": 0.82,
+      "gamma": 0.6133095807475866,
+      "gamma_full": 0.6133095807475866,
+      "thermal": {
+        "gradient_K": 0.17758135062061012,
+        "curvature_temperature_K": 29.367421129781548,
+        "max_outer_K": 284.2245026014153,
+        "min_outer_K": 264.06656806844876
+      },
+      "edge_Pa": 172315.27650462146,
+      "gradient_Pa": 315802.6181519209,
+      "bending_Pa": 110031.52076282664,
+      "cure_Pa": 3161217.4110092246,
+      "joining": {
+        "film": 184.06318552973724,
+        "scarf": 10.492710279844081,
+        "splice": 15.554888658550944,
+        "seal": 5.702800943315614,
+        "length_m": 2851.400471657807
+      },
+      "grid_minimum_mass_kg": 5024.603427600365,
+      "local_minimum_count": 2.0,
+      "mask": 11,
+      "usage": 1,
+      "qualified_installed_hull_SF": null,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "design_temperature_K": 276.991499337554
+    },
+    {
+      "R_m": 12,
+      "area_m2": 1809.5573684677208,
+      "volume_m3": 7238.229473870883,
+      "reference_lift_kg": 8448.956035523068,
+      "pad": {
+        "force_N": 160924.8906335242,
+        "area_m2": 0.6668623451990767,
+        "radius_m": 0.46072646678975787,
+        "thickness_m": 0.032846798327706275,
+        "mass_kg": 59.14159100575736
+      },
+      "modes": {
+        "global_buckling": 1.0000000006933807,
+        "face_compression": 1.1358265658487745,
+        "core_shear_crimping": 2.1236074619656673,
+        "core_crush": 4.642791378230705,
+        "face_wrinkling": 2.00997376150642,
+        "intracell_dimpling": 11.432203612772755,
+        "scarf_average_shear_screen": 1.0000000000000506,
+        "core_cell_wall_yield_screen": 2.241954153536492,
+        "thermal_core_interface_screen": 1.000283735917684
+      },
+      "minimum_SF": 1.0000000000000506,
+      "mass_kg": 8567.628393087636,
+      "bill_kg": {
+        "faces": 6957.832969123004,
+        "core": 758.787707917214,
+        "charged_joining": 385.83103385201093,
+        "coating": 15.078534875378347,
+        "mooring_pad": 59.14159100575736,
+        "gas": 84.48956035523068,
+        "systems": 100.0,
+        "water": 180.95573684677208,
+        "contamination": 7.199999999999999,
+        "absorbed_water": 0.21568542759029904,
+        "structural_primer": 18.09557368467721
+      },
+      "tf_m": 0.0010392018677211757,
+      "tc_m": 0.026177434294680644,
+      "pressure_Pa": 103953.19780784745,
+      "E_Pa": 290000000000.0,
+      "strength_Pa": 345000000.0,
+      "Q": 0.82,
+      "gamma": 0.6133861966996859,
+      "gamma_full": 0.6133861966996859,
+      "thermal": {
+        "gradient_K": 0.21109669043472776,
+        "curvature_temperature_K": 30.191078133075163,
+        "max_outer_K": 284.230557907862,
+        "min_outer_K": 264.06373747948317
+      },
+      "edge_Pa": 172320.0389448237,
+      "gradient_Pa": 375404.77808909887,
+      "bending_Pa": 113087.6418831189,
+      "cure_Pa": 3159766.207045602,
+      "joining": {
+        "film": 265.05098716282157,
+        "scarf": 18.272761514905003,
+        "splice": 27.07521995454478,
+        "seal": 8.274369336507993,
+        "length_m": 4137.184668253996
+      },
+      "grid_minimum_mass_kg": 8568.826326043934,
+      "local_minimum_count": 2.0,
+      "mask": 11,
+      "usage": 1,
+      "qualified_installed_hull_SF": null,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "design_temperature_K": 276.99425351917745
+    },
+    {
+      "R_m": 15,
+      "area_m2": 2827.4333882308138,
+      "volume_m3": 14137.16694115407,
+      "reference_lift_kg": 16501.867256880992,
+      "pad": {
+        "force_N": 251445.14161488155,
+        "area_m2": 1.0419724143735574,
+        "radius_m": 0.5759080834871974,
+        "thickness_m": 0.04260159478918315,
+        "mass_kg": 119.85215376235264
+      },
+      "modes": {
+        "global_buckling": 1.0000000007680716,
+        "face_compression": 1.1358265658487243,
+        "core_shear_crimping": 2.1222141275946034,
+        "core_crush": 4.642791378230705,
+        "face_wrinkling": 2.0106804739098028,
+        "intracell_dimpling": 17.87334398240178,
+        "scarf_average_shear_screen": 1.0000000000000064,
+        "core_cell_wall_yield_screen": 2.2418625909826297,
+        "thermal_core_interface_screen": 1.0002428838184994
+      },
+      "minimum_SF": 1.0000000000000064,
+      "mass_kg": 16559.753021751054,
+      "bill_kg": {
+        "faces": 13593.520805130507,
+        "core": 1481.4019079767022,
+        "charged_joining": 753.7461356553605,
+        "coating": 23.560210742778665,
+        "mooring_pad": 119.85215376235264,
+        "gas": 165.01867256880993,
+        "systems": 100.0,
+        "water": 282.7433388230814,
+        "contamination": 11.25,
+        "absorbed_water": 0.3854632091548562,
+        "structural_primer": 28.274333882308138
+      },
+      "tf_m": 0.0012993850030985233,
+      "tc_m": 0.03270842747119934,
+      "pressure_Pa": 103953.19780784745,
+      "E_Pa": 290000000000.0,
+      "strength_Pa": 345000000.0,
+      "Q": 0.82,
+      "gamma": 0.6134968702270309,
+      "gamma_full": 0.6134968702270309,
+      "thermal": {
+        "gradient_K": 0.26040166662164993,
+        "curvature_temperature_K": 30.94721919364228,
+        "max_outer_K": 284.2366921349641,
+        "min_outer_K": 264.0595544399875
+      },
+      "edge_Pa": 172327.0768707478,
+      "gradient_Pa": 463086.51107137406,
+      "bending_Pa": 115875.70611826901,
+      "cure_Pa": 3157674.3741115155,
+      "joining": {
+        "film": 414.1421674419087,
+        "scarf": 36.11181699364521,
+        "splice": 53.470199384443035,
+        "seal": 13.078023865629126,
+        "length_m": 6539.011932814563
+      },
+      "grid_minimum_mass_kg": 16562.804777410107,
+      "local_minimum_count": 2.0,
+      "mask": 11,
+      "usage": 1,
+      "qualified_installed_hull_SF": null,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "design_temperature_K": 276.9959956139326
+    },
+    {
+      "R_m": 20,
+      "area_m2": 5026.548245743669,
+      "volume_m3": 33510.32163829113,
+      "reference_lift_kg": 39115.53720149569,
+      "pad": {
+        "force_N": 447013.5850931228,
+        "area_m2": 1.8523954033307688,
+        "radius_m": 0.7678774446495964,
+        "thickness_m": 0.05934949727063511,
+        "mass_kg": 296.83458702211453
+      },
+      "modes": {
+        "global_buckling": 1.0000000007222916,
+        "face_compression": 1.1358265658487612,
+        "core_shear_crimping": 2.1200490299400974,
+        "core_crush": 4.642791378230705,
+        "face_wrinkling": 2.01178016219277,
+        "intracell_dimpling": 31.803960854677918,
+        "scarf_average_shear_screen": 1.0000000000000389,
+        "core_cell_wall_yield_screen": 2.241714732539688,
+        "thermal_core_interface_screen": 1.0001769144071895
+      },
+      "minimum_SF": 1.0000000000000389,
+      "mass_kg": 38936.594388146696,
+      "bill_kg": {
+        "faces": 32236.44392199685,
+        "core": 3509.2406330804024,
+        "charged_joining": 1787.284227753863,
+        "coating": 41.88481909827319,
+        "mooring_pad": 296.83458702211453,
+        "gas": 391.15537201495687,
+        "systems": 100.0,
+        "water": 502.65482457436696,
+        "contamination": 20.0,
+        "absorbed_water": 0.8305201484211105,
+        "structural_primer": 50.26548245743669
+      },
+      "tf_m": 0.0017333072290170554,
+      "tc_m": 0.043583533905131436,
+      "pressure_Pa": 103953.19780784745,
+      "E_Pa": 290000000000.0,
+      "strength_Pa": 345000000.0,
+      "Q": 0.82,
+      "gamma": 0.613669053685174,
+      "gamma_full": 0.613669053685174,
+      "thermal": {
+        "gradient_K": 0.3393748743733791,
+        "curvature_temperature_K": 31.021797040757566,
+        "max_outer_K": 284.24611901970275,
+        "min_outer_K": 264.05279879876
+      },
+      "edge_Pa": 172338.44317569866,
+      "gradient_Pa": 603528.881200285,
+      "bending_Pa": 116086.01694532776,
+      "cure_Pa": 3154431.2388414633,
+      "joining": {
+        "film": 736.252742118949,
+        "scarf": 87.3260427362693,
+        "splice": 129.16097687589922,
+        "seal": 23.708215521402145,
+        "length_m": 11854.107760701072
+      },
+      "grid_minimum_mass_kg": 38946.465179379564,
+      "local_minimum_count": 2.0,
+      "mask": 11,
+      "usage": 1,
+      "qualified_installed_hull_SF": null,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "design_temperature_K": 276.9971002370119
+    },
+    {
+      "R_m": 30,
+      "area_m2": 11309.733552923255,
+      "volume_m3": 113097.33552923256,
+      "reference_lift_kg": 132014.93805504794,
+      "pad": {
+        "force_N": 1005780.5664595262,
+        "area_m2": 4.1678896574942295,
+        "radius_m": 1.1518161669743947,
+        "thickness_m": 0.09414676895263764,
+        "mass_kg": 1059.4620304313326
+      },
+      "modes": {
+        "global_buckling": 1.0000000003692002,
+        "face_compression": 1.135826565848766,
+        "core_shear_crimping": 2.1160603737537387,
+        "core_crush": 4.642791378230705,
+        "face_wrinkling": 2.013810889996252,
+        "intracell_dimpling": 71.67999912088895,
+        "scarf_average_shear_screen": 1.000000000000043,
+        "core_cell_wall_yield_screen": 2.2414376579327846,
+        "thermal_core_interface_screen": 1.0000532931357713
+      },
+      "minimum_SF": 1.000000000000043,
+      "mass_kg": 130621.27030695396,
+      "bill_kg": {
+        "faces": 108890.00967205127,
+        "core": 11829.808942215444,
+        "charged_joining": 6035.990930713336,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.4620304313326,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "absorbed_water": 2.5378171994226073,
+        "structural_primer": 113.09733552923255
+      },
+      "tf_m": 0.002602159653548236,
+      "tc_m": 0.06529869539473493,
+      "pressure_Pa": 103953.19780784745,
+      "E_Pa": 290000000000.0,
+      "strength_Pa": 345000000.0,
+      "Q": 0.82,
+      "gamma": 0.6139869140155536,
+      "gamma_full": 0.6139869140155536,
+      "thermal": {
+        "gradient_K": 0.4858585711291715,
+        "curvature_temperature_K": 30.750161953838614,
+        "max_outer_K": 284.2651408830491,
+        "min_outer_K": 264.04013688064214
+      },
+      "edge_Pa": 172359.74673782464,
+      "gradient_Pa": 864028.8424314751,
+      "bending_Pa": 114943.58028404751,
+      "cure_Pa": 3148461.734741062,
+      "joining": {
+        "film": 1656.568669767635,
+        "scarf": 307.19131021179055,
+        "splice": 453.4403248996095,
+        "seal": 55.55275763578832,
+        "length_m": 27776.378817894158
+      },
+      "grid_minimum_mass_kg": 130671.12083435194,
+      "local_minimum_count": 2.0,
+      "mask": 11,
+      "usage": 1,
+      "qualified_installed_hull_SF": null,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "design_temperature_K": 276.99806046783925
+    }
+  ],
+  "fixed_boundary_slices": [
+    {
+      "R_m": 10,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -10.50850066244601,
+      "RH0_upper_offset_K": -5.347696667017772,
+      "RH100_upper_offset_K": -6.512488870762354,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 10,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -10.50850066244601,
+      "RH0_upper_offset_K": 3.3663212868077608,
+      "RH100_upper_offset_K": 1.4016686896911779,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 10,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -10.50850066244601,
+      "RH0_upper_offset_K": 12.080309837833738,
+      "RH100_upper_offset_K": 8.94070823248967,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 10,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -7.908500662445988,
+      "RH0_upper_offset_K": -16.842727769030716,
+      "RH100_upper_offset_K": -17.28718657533591,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 10,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -7.908500662445988,
+      "RH0_upper_offset_K": -8.114953966601206,
+      "RH100_upper_offset_K": -8.935954525763918,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 10,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -7.908500662445988,
+      "RH0_upper_offset_K": 0.6119359926788093,
+      "RH100_upper_offset_K": -0.8217762145477536,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 10,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -4.658500662445988,
+      "RH0_upper_offset_K": -32.17625705349292,
+      "RH100_upper_offset_K": -32.27510818956489,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 10,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -4.658500662445988,
+      "RH0_upper_offset_K": -23.394678046765875,
+      "RH100_upper_offset_K": -23.60267007647508,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 10,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -4.658500662445988,
+      "RH0_upper_offset_K": -14.617724769154847,
+      "RH100_upper_offset_K": -15.02920806964994,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 10,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -1.408500662445988,
+      "RH0_upper_offset_K": -48.91107339971768,
+      "RH100_upper_offset_K": -48.925135320664594,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 10,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -1.408500662445988,
+      "RH0_upper_offset_K": -40.00832686670492,
+      "RH100_upper_offset_K": -40.04340486867022,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 10,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -1.408500662445988,
+      "RH0_upper_offset_K": -31.12004987461205,
+      "RH100_upper_offset_K": -31.201089992168818,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 12,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -10.505746480822552,
+      "RH0_upper_offset_K": -1.5495019981744917,
+      "RH100_upper_offset_K": -3.0400819752912867,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 12,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -10.505746480822552,
+      "RH0_upper_offset_K": 7.280389273178116,
+      "RH100_upper_offset_K": 4.811138580193983,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 12,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -10.505746480822552,
+      "RH0_upper_offset_K": 16.110251544073435,
+      "RH100_upper_offset_K": 12.237588843013327,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 12,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -7.905746480822529,
+      "RH0_upper_offset_K": -13.03842690017973,
+      "RH100_upper_offset_K": -13.630708960504307,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 12,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -7.905746480822529,
+      "RH0_upper_offset_K": -4.194990196879189,
+      "RH100_upper_offset_K": -5.270039590545821,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 12,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -7.905746480822529,
+      "RH0_upper_offset_K": 4.647577066639315,
+      "RH100_upper_offset_K": 2.8049005115690306,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 12,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -4.655746480822529,
+      "RH0_upper_offset_K": -28.348017379062185,
+      "RH100_upper_offset_K": -28.487609797016376,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 12,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -4.655746480822529,
+      "RH0_upper_offset_K": -19.451788333685727,
+      "RH100_upper_offset_K": -19.740171491935143,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 12,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -4.655746480822529,
+      "RH0_upper_offset_K": -10.56008917827512,
+      "RH100_upper_offset_K": -11.120117106415819,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 12,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -1.405746480822529,
+      "RH0_upper_offset_K": -45.02872672715512,
+      "RH100_upper_offset_K": -45.05016253085614,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 12,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -1.405746480822529,
+      "RH0_upper_offset_K": -36.014290400858044,
+      "RH100_upper_offset_K": -36.06653098418519,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 12,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -1.405746480822529,
+      "RH0_upper_offset_K": -27.01392852934532,
+      "RH100_upper_offset_K": -27.132012126962763,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 15,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -10.504004386067379,
+      "RH0_upper_offset_K": 1.4895262926665964,
+      "RH100_upper_offset_K": -0.31183404963030625,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 15,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -10.504004386067379,
+      "RH0_upper_offset_K": 10.412130894878828,
+      "RH100_upper_offset_K": 7.4717553932578085,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 15,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -10.504004386067379,
+      "RH0_upper_offset_K": 19.33470681079143,
+      "RH100_upper_offset_K": 14.792427145598595,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 15,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -7.904004386067356,
+      "RH0_upper_offset_K": -9.994636619944686,
+      "RH100_upper_offset_K": -10.73387104876474,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 15,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -7.904004386067356,
+      "RH0_upper_offset_K": -1.0586503717195228,
+      "RH100_upper_offset_K": -2.381223252118616,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 15,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -7.904004386067356,
+      "RH0_upper_offset_K": 7.876477629401961,
+      "RH100_upper_offset_K": 5.644004622195098,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 15,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -4.654004386067356,
+      "RH0_upper_offset_K": -25.28561889269895,
+      "RH100_upper_offset_K": -25.4679675845955,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 15,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -4.654004386067356,
+      "RH0_upper_offset_K": -16.29762394368754,
+      "RH100_upper_offset_K": -16.668836479343554,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 15,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -4.654004386067356,
+      "RH0_upper_offset_K": -7.314084956501574,
+      "RH100_upper_offset_K": -8.024154685840585,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 15,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -1.4040043860673563,
+      "RH0_upper_offset_K": -41.924488831832605,
+      "RH100_upper_offset_K": -41.95418605149371,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 15,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -1.4040043860673563,
+      "RH0_upper_offset_K": -32.820555829935074,
+      "RH100_upper_offset_K": -32.89162987146938,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 15,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -1.4040043860673563,
+      "RH0_upper_offset_K": -23.73039574262748,
+      "RH100_upper_offset_K": -23.888316307243258,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 20,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -10.50289976298808,
+      "RH0_upper_offset_K": 3.8640414162046,
+      "RH100_upper_offset_K": 1.7856319092743433,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 20,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -10.50289976298808,
+      "RH0_upper_offset_K": 12.859086831526838,
+      "RH100_upper_offset_K": 9.505927852983405,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 20,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -10.50289976298808,
+      "RH0_upper_offset_K": 21.854103801201745,
+      "RH100_upper_offset_K": 16.73515094239974,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 20,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -7.902899762988056,
+      "RH0_upper_offset_K": -7.616474715136974,
+      "RH100_upper_offset_K": -8.491094549431182,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 20,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -7.902899762988056,
+      "RH0_upper_offset_K": 1.3918271004831695,
+      "RH100_upper_offset_K": -0.1550392887156704,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 20,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -7.902899762988056,
+      "RH0_upper_offset_K": 10.399279216903778,
+      "RH100_upper_offset_K": 7.81985767653623,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 20,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -4.652899762988056,
+      "RH0_upper_offset_K": -22.893242405993988,
+      "RH100_upper_offset_K": -23.116711985062466,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 20,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -4.652899762988056,
+      "RH0_upper_offset_K": -13.833528339487202,
+      "RH100_upper_offset_K": -14.28321863270412,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 20,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -4.652899762988056,
+      "RH0_upper_offset_K": -4.7782140960271136,
+      "RH100_upper_offset_K": -5.628140170106235,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 20,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -1.4028997629880564,
+      "RH0_upper_offset_K": -39.50027964840501,
+      "RH100_upper_offset_K": -39.53833415796453,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 20,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -1.4028997629880564,
+      "RH0_upper_offset_K": -30.32634247676924,
+      "RH100_upper_offset_K": -30.416161545113027,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 20,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -1.4028997629880564,
+      "RH0_upper_offset_K": -21.1659510956315,
+      "RH100_upper_offset_K": -21.36288979620531,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 30,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -10.501939532160748,
+      "RH0_upper_offset_K": 5.646479853071469,
+      "RH100_upper_offset_K": 3.3389605258480515,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 30,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -10.501939532160748,
+      "RH0_upper_offset_K": 14.695903316564909,
+      "RH100_upper_offset_K": 11.00592988650078,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 30,
+      "z_m": 100,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -10.501939532160748,
+      "RH0_upper_offset_K": 23.745298512499176,
+      "RH100_upper_offset_K": 18.161920805337104,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 30,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -7.901939532160725,
+      "RH0_upper_offset_K": -5.831340315512534,
+      "RH100_upper_offset_K": -6.820795935987007,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 30,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -7.901939532160725,
+      "RH0_upper_offset_K": 3.231247059843554,
+      "RH100_upper_offset_K": 1.4966061753648319,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 30,
+      "z_m": 500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -7.901939532160725,
+      "RH0_upper_offset_K": 12.292991042099857,
+      "RH100_upper_offset_K": 9.427142024355817,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 30,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -4.651939532160725,
+      "RH0_upper_offset_K": -21.09761942550449,
+      "RH100_upper_offset_K": -21.35714277403622,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 30,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -4.651939532160725,
+      "RH0_upper_offset_K": -11.984058704906602,
+      "RH100_upper_offset_K": -12.501750566311784,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 30,
+      "z_m": 1000,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -4.651939532160725,
+      "RH0_upper_offset_K": -2.8748565685828,
+      "RH100_upper_offset_K": -3.8444118427605645,
+      "any_humidity_nonempty_conservative_window": true
+    },
+    {
+      "R_m": 30,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": -30,
+      "conservative_cold_offset_K": -1.4019395321607249,
+      "RH0_upper_offset_K": -37.68123862446828,
+      "RH100_upper_offset_K": -37.72690583455642,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 30,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 0,
+      "conservative_cold_offset_K": -1.4019395321607249,
+      "RH0_upper_offset_K": -28.454710063365383,
+      "RH100_upper_offset_K": -28.561393507629873,
+      "any_humidity_nonempty_conservative_window": false
+    },
+    {
+      "R_m": 30,
+      "z_m": 1500,
+      "sea_pressure_anomaly_hPa": 30,
+      "conservative_cold_offset_K": -1.4019395321607249,
+      "RH0_upper_offset_K": -19.24156146482801,
+      "RH100_upper_offset_K": -19.473170075339112,
+      "any_humidity_nonempty_conservative_window": false
+    }
+  ],
+  "ten_percent_hot_smallest_sampled_radius_m": null,
+  "design_day_summary": [
+    {
+      "name": "hot_1pct_z100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_1pct_z500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_1pct_z1500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_5pct_z100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_5pct_z500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_5pct_z1500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_10pct_z100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_10pct_z500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "hot_10pct_z1500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1013.25 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; not a measured coincident sounding"
+    },
+    {
+      "name": "joint_hot_humid_1pct_z100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_1pct_z500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_1pct_z1500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_5pct_z100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_5pct_z500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_5pct_z1500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_10pct_z100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_10pct_z500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "joint_hot_humid_10pct_z1500",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "1000 hPa sea pressure; 6.5 K/km lapse; constant vapor mole fraction; no joint pressure percentile"
+    },
+    {
+      "name": "absolute_humidity_1pct_T31",
+      "smallest_radius_m": 30,
+      "conditional_assumptions": "Marginal surface dewpoint applied locally at 100 m; local Ta=Td or 41 C; 1000 hPa sea pressure; not a sourced joint percentile"
+    },
+    {
+      "name": "absolute_humidity_1pct_T41",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Marginal surface dewpoint applied locally at 100 m; local Ta=Td or 41 C; 1000 hPa sea pressure; not a sourced joint percentile"
+    },
+    {
+      "name": "absolute_humidity_5pct_T30",
+      "smallest_radius_m": 30,
+      "conditional_assumptions": "Marginal surface dewpoint applied locally at 100 m; local Ta=Td or 41 C; 1000 hPa sea pressure; not a sourced joint percentile"
+    },
+    {
+      "name": "absolute_humidity_5pct_T41",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Marginal surface dewpoint applied locally at 100 m; local Ta=Td or 41 C; 1000 hPa sea pressure; not a sourced joint percentile"
+    },
+    {
+      "name": "absolute_humidity_10pct_T29",
+      "smallest_radius_m": 20,
+      "conditional_assumptions": "Marginal surface dewpoint applied locally at 100 m; local Ta=Td or 41 C; 1000 hPa sea pressure; not a sourced joint percentile"
+    },
+    {
+      "name": "absolute_humidity_10pct_T41",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Marginal surface dewpoint applied locally at 100 m; local Ta=Td or 41 C; 1000 hPa sea pressure; not a sourced joint percentile"
+    },
+    {
+      "name": "low_pressure_1pct_RH0",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Coincident temperature unspecified: ISA at 1 km; RH 0 and 100% brackets; not surface-pressure percentiles"
+    },
+    {
+      "name": "low_pressure_1pct_RH100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Coincident temperature unspecified: ISA at 1 km; RH 0 and 100% brackets; not surface-pressure percentiles"
+    },
+    {
+      "name": "low_pressure_5pct_RH0",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Coincident temperature unspecified: ISA at 1 km; RH 0 and 100% brackets; not surface-pressure percentiles"
+    },
+    {
+      "name": "low_pressure_5pct_RH100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Coincident temperature unspecified: ISA at 1 km; RH 0 and 100% brackets; not surface-pressure percentiles"
+    },
+    {
+      "name": "low_pressure_10pct_RH0",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Coincident temperature unspecified: ISA at 1 km; RH 0 and 100% brackets; not surface-pressure percentiles"
+    },
+    {
+      "name": "low_pressure_10pct_RH100",
+      "smallest_radius_m": null,
+      "conditional_assumptions": "Coincident temperature unspecified: ISA at 1 km; RH 0 and 100% brackets; not surface-pressure percentiles"
+    }
+  ],
+  "dew_account": [
+    {
+      "R_m": 10,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.0901981304012755,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.18360680349485375,
+      "fresh_dry_payload_after_night_kg": 117.38080046894241,
+      "preexisting_0p1_plus_night_payload_kg": -8.282905674649326,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 10,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0038284005569214296,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.17869406110116948,
+      "fresh_dry_payload_after_night_kg": 219.7426698123745,
+      "preexisting_0p1_plus_night_payload_kg": 94.07896366878275,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 10,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.24310792815785132,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.17763140130834934,
+      "fresh_dry_payload_after_night_kg": -82.2802302931881,
+      "preexisting_0p1_plus_night_payload_kg": -207.94393643677984,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 10,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08438576978317021,
+      "ice_kg_m2": 0.08438576978317021,
+      "threshold_at_night_density_kg_m2": 0.43571474227549156,
+      "fresh_dry_payload_after_night_kg": 441.4930075900509,
+      "preexisting_0p1_plus_night_payload_kg": 315.8293014464592,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 12,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08967483192433293,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.2678817373623481,
+      "fresh_dry_payload_after_night_kg": 322.47561884719073,
+      "preexisting_0p1_plus_night_payload_kg": 141.51988200041862,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 12,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0037957481559818805,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.2619864464899273,
+      "fresh_dry_payload_after_night_kg": 467.2108806400174,
+      "preexisting_0p1_plus_night_payload_kg": 286.25514379324534,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 12,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.24235110726071982,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.2607112547385425,
+      "fresh_dry_payload_after_night_kg": 33.22374015464809,
+      "preexisting_0p1_plus_night_payload_kg": -147.731996692124,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 12,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08400427337532254,
+      "ice_kg_m2": 0.08400427337532254,
+      "threshold_at_night_density_kg_m2": 0.5704112638991129,
+      "fresh_dry_payload_after_night_kg": 880.1813537765337,
+      "preexisting_0p1_plus_night_payload_kg": 699.2256169297616,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 15,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08888459137913504,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.37144752472858433,
+      "fresh_dry_payload_after_night_kg": 798.9278720286709,
+      "preexisting_0p1_plus_night_payload_kg": 516.1845332055897,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 15,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.003746024892145399,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.3640784111380575,
+      "fresh_dry_payload_after_night_kg": 1018.8158197325736,
+      "preexisting_0p1_plus_night_payload_kg": 736.0724809094922,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 15,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.24121571498519456,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.36248442144882775,
+      "fresh_dry_payload_after_night_kg": 342.8791896028384,
+      "preexisting_0p1_plus_night_payload_kg": 60.135850779757064,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 15,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08343214561202167,
+      "ice_kg_m2": 0.08343214561202167,
+      "threshold_at_night_density_kg_m2": 0.7496094328995405,
+      "fresh_dry_payload_after_night_kg": 1883.5719045577619,
+      "preexisting_0p1_plus_night_payload_kg": 1600.82856573468,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 20,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08755551629303072,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.5250322770388668,
+      "fresh_dry_payload_after_night_kg": 2198.9980442806054,
+      "preexisting_0p1_plus_night_payload_kg": 1696.3432197062384,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 20,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0036616507283782256,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.5152067922514981,
+      "fresh_dry_payload_after_night_kg": 2571.306333741735,
+      "preexisting_0p1_plus_night_payload_kg": 2068.6515091673687,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 20,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.2393231267257281,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.5130814726658579,
+      "fresh_dry_payload_after_night_kg": 1376.059533543048,
+      "preexisting_0p1_plus_night_payload_kg": 873.4047089686811,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 20,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08247900500926632,
+      "ice_kg_m2": 0.08247900500926632,
+      "threshold_at_night_density_kg_m2": 1.0292481546001424,
+      "fresh_dry_payload_after_night_kg": 4758.980808000244,
+      "preexisting_0p1_plus_night_payload_kg": 4256.325983425877,
+      "thermal_weather_cold_case_qualified": false
+    },
+    {
+      "R_m": 30,
+      "case": "clear_calm_reference",
+      "deposit_kg_m2": 0.08486382114050614,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.8079830203304409,
+      "fresh_dry_payload_after_night_kg": 8178.285469841399,
+      "preexisting_0p1_plus_night_payload_kg": 7047.312114549074,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 30,
+      "case": "overcast_humid",
+      "deposit_kg_m2": 0.0034880104025933685,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.793244793149387,
+      "fresh_dry_payload_after_night_kg": 8931.938784480133,
+      "preexisting_0p1_plus_night_payload_kg": 7800.965429187808,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 30,
+      "case": "clear_saturated",
+      "deposit_kg_m2": 0.2355369724746611,
+      "ice_kg_m2": 0.0,
+      "threshold_at_night_density_kg_m2": 0.7900568137709276,
+      "fresh_dry_payload_after_night_kg": 6271.4716548700635,
+      "preexisting_0p1_plus_night_payload_kg": 5140.498299577739,
+      "thermal_weather_cold_case_qualified": null
+    },
+    {
+      "R_m": 30,
+      "case": "clear_cold_frost",
+      "deposit_kg_m2": 0.08057418556285834,
+      "ice_kg_m2": 0.08057418556285834,
+      "threshold_at_night_density_kg_m2": 1.5643068366723534,
+      "fresh_dry_payload_after_night_kg": 16780.62094782083,
+      "preexisting_0p1_plus_night_payload_kg": 15649.647592528503,
+      "thermal_weather_cold_case_qualified": false
+    }
+  ],
+  "numerical_checks_pass": true,
+  "numerical_check_count": 15,
+  "artifact_index": {
+    "frozen_grid": "WEATHER-GRID.npz",
+    "coupled_grid": "COUPLED-WEATHER-GRID.npz",
+    "coupled_zero_surfaces": "COUPLED-ZERO-SURFACES.npz",
+    "fixed_grid": "FIXED-HULL-WEATHER-GRID.npz",
+    "least_sets": "LEAST-SET-TRANSITIONS.json",
+    "design_cases": "DESIGN-DAYS.json",
+    "night": "DEW-FROST.json",
+    "method": "METHOD.md",
+    "sources": "SOURCE-AUDIT.json",
+    "verification": "VERIFICATION.json"
+  },
+  "next_job": null
+}

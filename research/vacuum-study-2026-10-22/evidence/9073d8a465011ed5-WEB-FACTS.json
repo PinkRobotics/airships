@@ -1,0 +1,182 @@
+[
+  {
+    "source": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+    "access": "Web PDF parser; direct download denied 403. This is a selected fact record, not a PDF snapshot.",
+    "pages": [
+      51,
+      63,
+      65,
+      67,
+      89
+    ],
+    "tape_fact_rows": [
+      {
+        "type": "AgFEP",
+        "gauge_mil": 0.5,
+        "mass_g_m2": 88,
+        "alpha_max": 0.09,
+        "epsilon_hemi_min": 0.4,
+        "part": "TBD",
+        "spec": "G400600"
+      },
+      {
+        "type": "AgFEP",
+        "gauge_mil": 1,
+        "mass_g_m2": 115,
+        "alpha_max": 0.09,
+        "epsilon_hemi_min": 0.48,
+        "part": "146430"
+      },
+      {
+        "type": "AlFEP",
+        "gauge_mil": 0.5,
+        "mass_g_m2": 88,
+        "alpha_max": 0.14,
+        "epsilon_hemi_min": 0.4,
+        "part": "TBD"
+      },
+      {
+        "type": "AlFEP",
+        "gauge_mil": 2,
+        "mass_g_m2": 169,
+        "alpha_max": 0.14,
+        "epsilon_hemi_min": 0.6,
+        "part": "146372"
+      },
+      {
+        "type": "Al_polyimide_silicone",
+        "gauge_mil": 0.5,
+        "mass_g_m2": 54,
+        "alpha_max": 0.36,
+        "epsilon_hemi_min": 0.52,
+        "part": "146493"
+      }
+    ],
+    "note": "Tape mass includes adhesive. 0.5 mil bare Ag/FEP film is 28 g/m2; adhesion specification uses stainless steel, not Be."
+  },
+  {
+    "source": "https://patents.justia.com/patent/11391493",
+    "access": "Web text of NASA patent; direct download denied 403. Selected facts, not a full patent snapshot.",
+    "provenance": "US11391493, government-authored invention; description and claims.",
+    "classical": {
+      "alpha": 0.09,
+      "IR_emittance_band": [
+        0.65,
+        0.7
+      ],
+      "layers_um": [
+        [
+          "Al2O3",
+          0.08
+        ],
+        [
+          "Ag",
+          0.12
+        ],
+        [
+          "Al2O3",
+          [
+            1.6,
+            1.9
+          ]
+        ],
+        [
+          "SiO2",
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        [
+          "ITO",
+          0.01
+        ]
+      ]
+    },
+    "multilayer_example": {
+      "layers_um": [
+        [
+          "NiCr",
+          0.05
+        ],
+        [
+          "Ag",
+          0.12
+        ],
+        [
+          "Al2O3_total",
+          1.2
+        ],
+        [
+          "SiO2_total",
+          0.4
+        ],
+        [
+          "ITO",
+          0.01
+        ]
+      ],
+      "oxide_pairs": 80
+    },
+    "limitations": "Classical optics depend on substrate roughness. Exact multilayer example is not a measured optical tuple on Be; other reported film constructions differ in thickness and emittance."
+  },
+  {
+    "source": "https://enbio.eu/solar-white/",
+    "access": "Web page; direct download denied 406. Selected facts only.",
+    "coating_thickness_um": [
+      150,
+      220
+    ],
+    "IR_emittance": [
+      0.89,
+      0.9
+    ],
+    "ambiguous_optical_header": "Solar Reflectance",
+    "ambiguous_values": [
+      0.15,
+      0.18
+    ],
+    "listed_substrate": "Beryllium",
+    "areal_mass": null,
+    "limitation": "Do not silently certify the ambiguous quantity as solar absorptance."
+  },
+  {
+    "source": "https://www.3m.com/3M/en_US/p/dc/v000088346/",
+    "product": "EC-3917",
+    "source_claim_scope": "Humid-environment bond durability",
+    "matched_200F_Be_process": null,
+    "water_uptake": null
+  },
+  {
+    "source": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C7732185&Mask=4",
+    "model": "log10(P_bar)=A-B/(T_K+C)",
+    "A": 5.40221,
+    "B": 1838.675,
+    "C": -31.737,
+    "valid_temperature_K": [
+      273,
+      303
+    ],
+    "use": "Dew-point indication only; not a retained-water prediction."
+  },
+  {
+    "source": "https://de.lesker.com/newweb/deposition_materials/depositionmaterials_sputtertargets_1.cfm?pgid=ag1",
+    "material": "Ag",
+    "bulk_density_kg_m3": 10500,
+    "use": "Proxy for layer mass; deposited film density unmeasured."
+  },
+  {
+    "source": "https://ntrs.nasa.gov/api/citations/20140008875/downloads/20140008875.pdf",
+    "access": "NASA mechanism report read through web tool",
+    "use": "CCAg handling-damage caution; not a matched environmental lifetime."
+  },
+  {
+    "source": "https://chemical-catalysts-and-adsorbents.basf.com/dam/jcr%3A0b94531b-3ccc-4be2-af1a-3848a026fb45/basf/chemical-catalysts-and-adsorbents/Adsorbents/BASF_Sorbead_Air_Broschuere_screen_2023-04-13-092728_dcyv.pdf",
+    "local_snapshot": "sources/basf-sorbead-air.pdf",
+    "material": "4A molecular sieve",
+    "water_capacity_kg_kg": 0.21,
+    "temperature_C": 25,
+    "relative_humidity": 0.8,
+    "limitation": "Main model's .10 capacity at vacuum is assumed; not this catalog condition."
+  }
+]

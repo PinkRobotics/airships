@@ -1,0 +1,202 @@
+[
+  {
+    "id": "COAT-MASS-R10-minimum",
+    "kind": "source application",
+    "claim": "two-coat dry mass",
+    "independent": 32.67256359733385,
+    "filed": 16.336281798666924,
+    "delta": 16.336281798666924,
+    "units": "kg",
+    "explanation": "Supplier step 1 specifies 13–25 micrometres; step 2 follows the same application guidelines. Retain the assumed 1000–1500 kg/m³ density, count both layers."
+  },
+  {
+    "id": "COAT-MASS-R10-maximum",
+    "kind": "source application",
+    "claim": "two-coat dry mass",
+    "independent": 94.2477796076938,
+    "filed": 47.1238898038469,
+    "delta": 47.1238898038469,
+    "units": "kg",
+    "explanation": "Supplier step 1 specifies 13–25 micrometres; step 2 follows the same application guidelines. Retain the assumed 1000–1500 kg/m³ density, count both layers."
+  },
+  {
+    "id": "COAT-COST-R10",
+    "kind": "arithmetic/source application",
+    "claim": "bottom-coat unit price applied to both layers",
+    "independent": 16861.927428640167,
+    "filed": 8430.963714320082,
+    "delta": 8430.963714320085,
+    "units": "USD",
+    "explanation": "2*A/23*3.8/(50*3.785411784)*7685.90. Conditional equal top/bottom price, not a supplier quote for a full installed system."
+  },
+  {
+    "id": "COAT-MASS-R30-minimum",
+    "kind": "source application",
+    "claim": "two-coat dry mass",
+    "independent": 294.0530723760046,
+    "filed": 147.0265361880023,
+    "delta": 147.0265361880023,
+    "units": "kg",
+    "explanation": "Supplier step 1 specifies 13–25 micrometres; step 2 follows the same application guidelines. Retain the assumed 1000–1500 kg/m³ density, count both layers."
+  },
+  {
+    "id": "COAT-MASS-R30-maximum",
+    "kind": "source application",
+    "claim": "two-coat dry mass",
+    "independent": 848.2300164692442,
+    "filed": 424.11500823462205,
+    "delta": 424.11500823462217,
+    "units": "kg",
+    "explanation": "Supplier step 1 specifies 13–25 micrometres; step 2 follows the same application guidelines. Retain the assumed 1000–1500 kg/m³ density, count both layers."
+  },
+  {
+    "id": "COAT-COST-R30",
+    "kind": "arithmetic/source application",
+    "claim": "bottom-coat unit price applied to both layers",
+    "independent": 151757.3468577615,
+    "filed": 75878.67342888073,
+    "delta": 75878.67342888076,
+    "units": "USD",
+    "explanation": "2*A/23*3.8/(50*3.785411784)*7685.90. Conditional equal top/bottom price, not a supplier quote for a full installed system."
+  },
+  {
+    "id": "POND-K",
+    "kind": "continuum versus quadrature",
+    "claim": "shape normalization",
+    "independent": 1.007249804616,
+    "filed": 1.0173672190414051,
+    "delta": -0.010117414425405036,
+    "units": "dimensionless",
+    "explanation": "For uniform triangle area, t=3 min(lambda) has density 2(1-t), so mean[t(2-t)]=1/2. Filed k is reproduced by an equal-weight boundary-inclusive barycentric grid with 301 divisions; this is a resolved numerical convention with a finite-grid bias."
+  },
+  {
+    "id": "POND-orientation_integral",
+    "kind": "independent surrogate / non-reproduction",
+    "claim": "orientation_integral",
+    "independent": 35.59604553135928,
+    "filed": 36.62985885071348,
+    "delta": -1.033813319354202,
+    "units": "kg",
+    "explanation": "Independently tiled equilateral bays retain their azimuth and are counted once. 1024 deterministic placements replace an undisclosed 200-placement sample. These are explicit model/sampling differences, not asserted corrections to the real 500-bay frame."
+  },
+  {
+    "id": "POND-node_up",
+    "kind": "independent surrogate / non-reproduction",
+    "claim": "node_up",
+    "independent": 110.76600056826693,
+    "filed": 55.14960859574659,
+    "delta": 55.61639197252034,
+    "units": "kg",
+    "explanation": "Independently tiled equilateral bays retain their azimuth and are counted once. 1024 deterministic placements replace an undisclosed 200-placement sample. These are explicit model/sampling differences, not asserted corrections to the real 500-bay frame."
+  },
+  {
+    "id": "POND-bay_up",
+    "kind": "independent surrogate / non-reproduction",
+    "claim": "bay_up",
+    "independent": 117.09389129994747,
+    "filed": 171.42390249596139,
+    "delta": -54.33001119601391,
+    "units": "kg",
+    "explanation": "Independently tiled equilateral bays retain their azimuth and are counted once. 1024 deterministic placements replace an undisclosed 200-placement sample. These are explicit model/sampling differences, not asserted corrections to the real 500-bay frame."
+  },
+  {
+    "id": "POND-random_mean",
+    "kind": "independent surrogate / non-reproduction",
+    "claim": "random_mean",
+    "independent": 35.711427527677486,
+    "filed": 36.68329807651535,
+    "delta": -0.9718705488378632,
+    "units": "kg",
+    "explanation": "Independently tiled equilateral bays retain their azimuth and are counted once. 1024 deterministic placements replace an undisclosed 200-placement sample. These are explicit model/sampling differences, not asserted corrections to the real 500-bay frame."
+  },
+  {
+    "id": "POND-random_min",
+    "kind": "independent surrogate / non-reproduction",
+    "claim": "random_min",
+    "independent": 12.07962384313561,
+    "filed": 5.491922257487233,
+    "delta": 6.587701585648378,
+    "units": "kg",
+    "explanation": "Independently tiled equilateral bays retain their azimuth and are counted once. 1024 deterministic placements replace an undisclosed 200-placement sample. These are explicit model/sampling differences, not asserted corrections to the real 500-bay frame."
+  },
+  {
+    "id": "POND-random_p05",
+    "kind": "independent surrogate / non-reproduction",
+    "claim": "random_p05",
+    "independent": 13.220382018510724,
+    "filed": 7.68060639444494,
+    "delta": 5.5397756240657845,
+    "units": "kg",
+    "explanation": "Independently tiled equilateral bays retain their azimuth and are counted once. 1024 deterministic placements replace an undisclosed 200-placement sample. These are explicit model/sampling differences, not asserted corrections to the real 500-bay frame."
+  },
+  {
+    "id": "POND-random_p95",
+    "kind": "independent surrogate / non-reproduction",
+    "claim": "random_p95",
+    "independent": 78.86940419555145,
+    "filed": 87.10780479311083,
+    "delta": -8.238400597559377,
+    "units": "kg",
+    "explanation": "Independently tiled equilateral bays retain their azimuth and are counted once. 1024 deterministic placements replace an undisclosed 200-placement sample. These are explicit model/sampling differences, not asserted corrections to the real 500-bay frame."
+  },
+  {
+    "id": "POND-TILT",
+    "kind": "model/claim",
+    "claim": "largest directional spill angle",
+    "independent": 16.54626363477746,
+    "filed": 14.0,
+    "delta": 2.5462636347774605,
+    "units": "degrees",
+    "explanation": "The declared dish still contains water at 14 degrees for some azimuths; the owner numeric profile also remains positive above 14. Rotating the hull also moves other bays toward its top."
+  },
+  {
+    "id": "DRY-MIDDAY-sphere040",
+    "kind": "interpretation",
+    "claim": "water remaining at mass/fullwet-rate time",
+    "independent": 13.562236969746536,
+    "filed": 0.0,
+    "delta": 13.562236969746536,
+    "units": "kg",
+    "explanation": "Local inventory is max(m0-E*t,0); already dry patches cease evaporating. Model at 0.5 degree resolution, held weather, no redistribution or runoff."
+  },
+  {
+    "id": "DRY-MIDDAY-flatplate",
+    "kind": "interpretation",
+    "claim": "water remaining at mass/fullwet-rate time",
+    "independent": 11.707122923236044,
+    "filed": 0.0,
+    "delta": 11.707122923236044,
+    "units": "kg",
+    "explanation": "Local inventory is max(m0-E*t,0); already dry patches cease evaporating. Model at 0.5 degree resolution, held weather, no redistribution or runoff."
+  },
+  {
+    "id": "DRY-MORNING",
+    "kind": "interpretation",
+    "claim": "condensing area under held fair morning",
+    "independent": 0.36545263796413396,
+    "filed": 0.0,
+    "delta": 0.36545263796413396,
+    "units": "fraction",
+    "explanation": "Positive hull-average potential evaporation does not imply all locations dry. No finite complete-drying time in this held-weather model."
+  },
+  {
+    "id": "DRY-POND-AREA",
+    "kind": "interpretation",
+    "claim": "pond evaporation time method",
+    "independent": "integral of dV / (E*A(V))",
+    "filed": "V_initial / (E*A_initial)",
+    "delta": null,
+    "units": "method",
+    "explanation": "Shrinking free surface invalidates constant-area complete-drying time. Constant uniform flux implies maximum vertical depth divided by evaporation depth rate."
+  },
+  {
+    "id": "HEATER-R30",
+    "kind": "scope/claim",
+    "claim": "R30 P2 payload after film heater alone",
+    "independent": 7089.105723882817,
+    "filed": "excluded: heavier than either lead margin",
+    "delta": null,
+    "units": "kg",
+    "explanation": "Film alone is 4523.893 kg versus 11612.999 kg P2 and 8895.646 kg P3 margins. Power supply, wiring, controls and optics remain unaccounted, so this is not an endorsement of onboard heating."
+  }
+]

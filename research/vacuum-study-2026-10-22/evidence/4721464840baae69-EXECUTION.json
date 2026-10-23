@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "scientific_invocations": 5,
+  "admitted": 5,
+  "refused": 0,
+  "all_exit_zero": true,
+  "all_reservations_released": true,
+  "cores_each": 1,
+  "memory_cap_each": "2G",
+  "cpu_only": true,
+  "time_budget": null,
+  "timeout_role": "technical watchdog only",
+  "receipts": [
+    {
+      "started_utc": "2026-10-20T09:38:44.938591+00:00",
+      "ended_utc": "2026-10-20T09:38:45.568509+00:00",
+      "elapsed_seconds": 0.6299188169650733,
+      "returncode": 0,
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:6b66f99ebd630954",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "2G",
+        "--timeout",
+        "600",
+        "--",
+        "ref-d9af09a16f3a81bf2ded",
+        "-i",
+        "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+        "LANG=C.UTF-8",
+        "TMPDIR=unpublished-local-ref:48023f2c4b6e51d0",
+        "MPLCONFIGDIR=unpublished-local-ref:d0e72631e6e7ae7d",
+        "XDG_CACHE_HOME=unpublished-local-ref:9867b465044a5741",
+        "CUDA_VISIBLE_DEVICES=",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "NUMEXPR_NUM_THREADS=1",
+        "BLIS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "ref-81e2f24e4e80426e80f0",
+        "-I",
+        "-B",
+        "unpublished-local-ref:22b7603ae1a639d7"
+      ],
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:22b7603ae1a639d7",
+          "sha256": "af16d3ec2826ee887a5477e95dc036b4e1fcbdcd4bfc7b8f24779f03b90833ce",
+          "bytes": 10510
+        },
+        {
+          "path": "unpublished-local-ref:97082b59f1c9cf70",
+          "sha256": "7b3a8c0173f166c58ec490ca2376ed670172c9b213c814800101802c5d306c02",
+          "bytes": 7915
+        },
+        {
+          "path": "unpublished-local-ref:aa30a9e9711c032b",
+          "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+          "bytes": 2450
+        }
+      ],
+      "time_budget": null,
+      "timeout_is_technical_watchdog": true,
+      "receipt": "execution/arithmetic-01/END.json",
+      "stderr": "execution/arithmetic-01/stderr.log"
+    },
+    {
+      "started_utc": "2026-10-20T09:40:59.750588+00:00",
+      "ended_utc": "2026-10-20T09:41:00.439176+00:00",
+      "elapsed_seconds": 0.688590083271265,
+      "returncode": 0,
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:6b66f99ebd630954",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "2G",
+        "--timeout",
+        "600",
+        "--",
+        "ref-d9af09a16f3a81bf2ded",
+        "-i",
+        "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+        "LANG=C.UTF-8",
+        "TMPDIR=unpublished-local-ref:3f4924e0ea730c9e",
+        "MPLCONFIGDIR=unpublished-local-ref:635418d219c019ca",
+        "XDG_CACHE_HOME=unpublished-local-ref:13fbb2a59a69cf35",
+        "CUDA_VISIBLE_DEVICES=",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "NUMEXPR_NUM_THREADS=1",
+        "BLIS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "ref-81e2f24e4e80426e80f0",
+        "-I",
+        "-B",
+        "unpublished-local-ref:22b7603ae1a639d7"
+      ],
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:22b7603ae1a639d7",
+          "sha256": "9d0e258de4ff2e81ac8d46468e6857130b229720c719962732d2ba43b57d2634",
+          "bytes": 12705
+        },
+        {
+          "path": "unpublished-local-ref:97082b59f1c9cf70",
+          "sha256": "dca0313947fe143848486b3f503a92ece88c602989a9241bc2a28ce708861649",
+          "bytes": 7900
+        },
+        {
+          "path": "unpublished-local-ref:902d01abbcb79a77",
+          "sha256": "834a31cc7731d840ca2a1699f15d83c436ddcff92411d3c2d3e9dfa532c3f013",
+          "bytes": 5146
+        },
+        {
+          "path": "unpublished-local-ref:aa30a9e9711c032b",
+          "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+          "bytes": 2450
+        }
+      ],
+      "time_budget": null,
+      "timeout_is_technical_watchdog": true,
+      "receipt": "execution/arithmetic-02/END.json",
+      "stderr": "execution/arithmetic-02/stderr.log"
+    },
+    {
+      "started_utc": "2026-10-20T09:41:04.163876+00:00",
+      "ended_utc": "2026-10-20T09:41:05.730603+00:00",
+      "elapsed_seconds": 1.566719751805067,
+      "returncode": 0,
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:6b66f99ebd630954",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "2G",
+        "--timeout",
+        "1800",
+        "--",
+        "ref-d9af09a16f3a81bf2ded",
+        "-i",
+        "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+        "LANG=C.UTF-8",
+        "TMPDIR=unpublished-local-ref:faf60f9fbc020867",
+        "MPLCONFIGDIR=unpublished-local-ref:a0eabd5c318c4fac",
+        "XDG_CACHE_HOME=unpublished-local-ref:d55030b64d26706c",
+        "CUDA_VISIBLE_DEVICES=",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "NUMEXPR_NUM_THREADS=1",
+        "BLIS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "ref-81e2f24e4e80426e80f0",
+        "-I",
+        "-B",
+        "unpublished-local-ref:902d01abbcb79a77"
+      ],
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:22b7603ae1a639d7",
+          "sha256": "9d0e258de4ff2e81ac8d46468e6857130b229720c719962732d2ba43b57d2634",
+          "bytes": 12705
+        },
+        {
+          "path": "unpublished-local-ref:97082b59f1c9cf70",
+          "sha256": "dca0313947fe143848486b3f503a92ece88c602989a9241bc2a28ce708861649",
+          "bytes": 7900
+        },
+        {
+          "path": "unpublished-local-ref:902d01abbcb79a77",
+          "sha256": "834a31cc7731d840ca2a1699f15d83c436ddcff92411d3c2d3e9dfa532c3f013",
+          "bytes": 5146
+        },
+        {
+          "path": "unpublished-local-ref:aa30a9e9711c032b",
+          "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+          "bytes": 2450
+        }
+      ],
+      "time_budget": null,
+      "timeout_is_technical_watchdog": true,
+      "receipt": "execution/independent-optima/END.json",
+      "stderr": "execution/independent-optima/stderr.log"
+    },
+    {
+      "started_utc": "2026-10-20T09:43:47.898536+00:00",
+      "ended_utc": "2026-10-20T09:43:48.438810+00:00",
+      "elapsed_seconds": 0.5402783481404185,
+      "returncode": 0,
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:6b66f99ebd630954",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "2G",
+        "--timeout",
+        "600",
+        "--",
+        "ref-d9af09a16f3a81bf2ded",
+        "-i",
+        "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+        "LANG=C.UTF-8",
+        "TMPDIR=unpublished-local-ref:cce5610a9fc60fe0",
+        "MPLCONFIGDIR=unpublished-local-ref:204cf825cf15772c",
+        "XDG_CACHE_HOME=unpublished-local-ref:c0fcca4b4a7bdc98",
+        "CUDA_VISIBLE_DEVICES=",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "NUMEXPR_NUM_THREADS=1",
+        "BLIS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "ref-81e2f24e4e80426e80f0",
+        "-I",
+        "-B",
+        "unpublished-local-ref:d77af76483333c88"
+      ],
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:22b7603ae1a639d7",
+          "sha256": "9d0e258de4ff2e81ac8d46468e6857130b229720c719962732d2ba43b57d2634",
+          "bytes": 12705
+        },
+        {
+          "path": "unpublished-local-ref:97082b59f1c9cf70",
+          "sha256": "dca0313947fe143848486b3f503a92ece88c602989a9241bc2a28ce708861649",
+          "bytes": 7900
+        },
+        {
+          "path": "unpublished-local-ref:902d01abbcb79a77",
+          "sha256": "834a31cc7731d840ca2a1699f15d83c436ddcff92411d3c2d3e9dfa532c3f013",
+          "bytes": 5146
+        },
+        {
+          "path": "unpublished-local-ref:aa30a9e9711c032b",
+          "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+          "bytes": 2450
+        },
+        {
+          "path": "unpublished-local-ref:d77af76483333c88",
+          "sha256": "6d075fd2185758fc3c05c71e31a816d38d5e292788fdf21c93fbd1fe65d14164",
+          "bytes": 5173
+        }
+      ],
+      "time_budget": null,
+      "timeout_is_technical_watchdog": true,
+      "receipt": "execution/source-arithmetic/END.json",
+      "stderr": "execution/source-arithmetic/stderr.log"
+    },
+    {
+      "started_utc": "2026-10-20T09:45:46.227112+00:00",
+      "ended_utc": "2026-10-20T09:45:46.879915+00:00",
+      "elapsed_seconds": 0.6527902609668672,
+      "returncode": 0,
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:6b66f99ebd630954",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "2G",
+        "--timeout",
+        "600",
+        "--",
+        "ref-d9af09a16f3a81bf2ded",
+        "-i",
+        "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+        "LANG=C.UTF-8",
+        "TMPDIR=unpublished-local-ref:ef48fd9bfc38aa62",
+        "MPLCONFIGDIR=unpublished-local-ref:5d46bb0402709ec7",
+        "XDG_CACHE_HOME=unpublished-local-ref:1a6e0b0b9d9a44ca",
+        "CUDA_VISIBLE_DEVICES=",
+        "OPENBLAS_NUM_THREADS=1",
+        "OMP_NUM_THREADS=1",
+        "MKL_NUM_THREADS=1",
+        "NUMEXPR_NUM_THREADS=1",
+        "BLIS_NUM_THREADS=1",
+        "VECLIB_MAXIMUM_THREADS=1",
+        "ref-81e2f24e4e80426e80f0",
+        "-I",
+        "-B",
+        "unpublished-local-ref:d77af76483333c88"
+      ],
+      "source_pins": [
+        {
+          "path": "unpublished-local-ref:22b7603ae1a639d7",
+          "sha256": "9d0e258de4ff2e81ac8d46468e6857130b229720c719962732d2ba43b57d2634",
+          "bytes": 12705
+        },
+        {
+          "path": "unpublished-local-ref:97082b59f1c9cf70",
+          "sha256": "dca0313947fe143848486b3f503a92ece88c602989a9241bc2a28ce708861649",
+          "bytes": 7900
+        },
+        {
+          "path": "unpublished-local-ref:902d01abbcb79a77",
+          "sha256": "834a31cc7731d840ca2a1699f15d83c436ddcff92411d3c2d3e9dfa532c3f013",
+          "bytes": 5146
+        },
+        {
+          "path": "unpublished-local-ref:aa30a9e9711c032b",
+          "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+          "bytes": 2450
+        },
+        {
+          "path": "unpublished-local-ref:d77af76483333c88",
+          "sha256": "70c04fddb52b353c997c877e0de75e20c7252fbc1cbc97606aa286b905f1f5d6",
+          "bytes": 5441
+        }
+      ],
+      "time_budget": null,
+      "timeout_is_technical_watchdog": true,
+      "receipt": "execution/tensile-reference-resolution/END.json",
+      "stderr": "execution/tensile-reference-resolution/stderr.log"
+    }
+  ]
+}

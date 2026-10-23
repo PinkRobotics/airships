@@ -1,0 +1,742 @@
+{
+  "unit": "vacuum-mainline063-favorable-spread-1020",
+  "tag": "QUESTIONABLE inputs. PROJECTION targets.",
+  "qualified_hull_SF": null,
+  "source": "CALCULATIONS.json, produced by run63.py inside simjob-20261020t141536-2e6f2680cba4",
+  "formulas": {
+    "face_density_factor": "smallest divisor of 1850 kg/m3 such that the reoptimized concept payload is at least 0; stored value is the upper end of a 20-step geometric bisection (run63.density_factor)",
+    "log_share": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+    "interaction_ratio": "ln(F_pair/F_endpoint)/(ln(F_first/F_endpoint)+ln(F_second/F_endpoint))",
+    "projection_face_density_kg_m3": "1850/F",
+    "payload": "lift minus the resized bill minus 061 growth, at density factor 1, n=260. Concept growth 15% structure, 30% hardware, 20% thermal. TRL7 growth 5% hardware and 6% battery."
+  },
+  "reproduction_gate": {
+    "endpoint_payload_abs_kg": 1.0,
+    "factor_relative": 0.002,
+    "identity": {
+      "one_opt_pair_s": 0.21144609805196524,
+      "n80_payload_kg": -6582.657238517822
+    },
+    "passed": true
+  },
+  "simjob": {
+    "scope": "simjob-20261020t141536-2e6f2680cba4.scope",
+    "exit": 0,
+    "elapsed_s": 222,
+    "cores": 1,
+    "mem": "4G",
+    "timeout_s": 7200,
+    "started": "2026-10-20T14:15:36.388842-07:00",
+    "completed": "2026-10-20T14:19:17.797370-07:00",
+    "prior_attempt": {
+      "scope": "simjob-20261020t141503-afb3f7382a01.scope",
+      "exit": 1,
+      "elapsed_s": 15,
+      "cause": "payload gate compared handbook payloads with the endpoint table; fixed before the admitted rerun; command otherwise unchanged in substance after that one predicate"
+    }
+  },
+  "cases": [
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "endpoint": {
+        "density_factor": 1.0765996765403547,
+        "concept_payload_kg": -2473.5500140724216,
+        "TRL7_payload_kg": 1194.5724318951852,
+        "concept_binding": "scarf_average_shear",
+        "closure_properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1718.3729990937575,
+          "Q": 0.82,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.593884509343036,
+          "Vc": 0.98471127335759,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "projection_face_density_kg_m3": 1718.3731709310573
+      },
+      "swaps": [
+        {
+          "input": "gamma",
+          "density_factor": 1.5273642448897065,
+          "log_share": 0.485910196998031,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -12371.315755373835,
+          "TRL7_payload_kg": -7805.000104100436,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1211.2368226438416,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.0393560745325685,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "Q",
+          "density_factor": 1.1801825417385003,
+          "log_share": 0.1276289816868429,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -5925.833037420652,
+          "TRL7_payload_kg": -1958.5057713483156,
+          "concept_binding": "face_wrinkling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1567.553958453601,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.635072304478167,
+            "Vc": 1.0876807611954173,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "bond_film",
+          "density_factor": 1.1094909239090414,
+          "log_share": 0.041811018429113056,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -3430.8552794851876,
+          "TRL7_payload_kg": 421.3524395944537,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1667.4312291640574,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5938845096642109,
+            "Vc": 0.9847112741605272,
+            "film_kg_m2_interface": 0.1464728290914915
+          }
+        },
+        {
+          "input": "face_modulus",
+          "density_factor": 1.0792247133636217,
+          "log_share": 0.003383514318092494,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -2552.58775897778,
+          "TRL7_payload_kg": 1122.7130459696402,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 290000000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1714.1933390629283,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5893577944063166,
+            "Vc": 0.9733944860157915,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "face_strength",
+          "density_factor": 1.0765996765403547,
+          "log_share": 0.0,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -2473.5500140724216,
+          "TRL7_payload_kg": 1194.5724318951852,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 345000000.0,
+            "density_kg_m3": 1718.3729990937575,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.593884509343036,
+            "Vc": 0.98471127335759,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        }
+      ],
+      "pair": {
+        "inputs": [
+          "gamma",
+          "Q"
+        ],
+        "density_factor": 2.118037110392169,
+        "log_share": 0.9401572611845486,
+        "concept_payload_kg": -29388.76159348207,
+        "TRL7_payload_kg": -23345.704763314785,
+        "concept_binding": "face_wrinkling",
+        "sum_of_log_deltas": 0.4415974035683572,
+        "joint_log_delta": 0.676682141758179,
+        "interaction_ratio": 1.5323508161284554,
+        "interaction_formula": "ln(F_pair/F_endpoint)/(ln(F_a/F_endpoint)+ln(F_b/F_endpoint))",
+        "projection_face_density_kg_m3": 873.4502294237234
+      },
+      "handbook": {
+        "density_factor": 2.2112585461548657,
+        "concept_payload_kg": -30647.30330121031,
+        "TRL7_payload_kg": -24393.721042777877,
+        "concept_binding": "face_wrinkling",
+        "projection_face_density_kg_m3": 836.6276314531133
+      },
+      "log_residual_after_all_five_shares": 0.3412662885679205
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "endpoint": {
+        "density_factor": 1.1183202024790495,
+        "concept_payload_kg": -3772.657517898937,
+        "TRL7_payload_kg": -29.884121324033003,
+        "concept_binding": "scarf_average_shear",
+        "closure_properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1654.2666500158089,
+          "Q": 0.82,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.6034907411617423,
+          "Vc": 1.0087268529043558,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "projection_face_density_kg_m3": 1654.2668154424741
+      },
+      "swaps": [
+        {
+          "input": "gamma",
+          "density_factor": 1.6048774866276625,
+          "log_share": 0.4947816574801959,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -13850.462004487454,
+          "TRL7_payload_kg": -9193.110950466114,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1152.7358508140287,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.0657773817209695,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "Q",
+          "density_factor": 1.2179491112563663,
+          "log_share": 0.11689558813617464,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -7069.309613386611,
+          "TRL7_payload_kg": -3040.7469815062304,
+          "concept_binding": "face_wrinkling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1518.9467260185156,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6424985595225021,
+            "Vc": 1.1062463988062554,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "bond_film",
+          "density_factor": 1.1529354152228846,
+          "log_share": 0.04175483781232879,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -4729.9627833116765,
+          "TRL7_payload_kg": -803.1041136247802,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1604.5996944610968,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6034907402347779,
+            "Vc": 1.0087268505869447,
+            "film_kg_m2_interface": 0.1464728290914915
+          }
+        },
+        {
+          "input": "face_modulus",
+          "density_factor": 1.1210413123216352,
+          "log_share": 0.0033288502498484422,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -3850.7726297417157,
+          "TRL7_payload_kg": -100.90404877697347,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 290000000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1650.2512393309905,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5988582857959108,
+            "Vc": 0.9971457144897772,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "face_strength",
+          "density_factor": 1.1183202024790495,
+          "log_share": 0.0,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -3772.657517898937,
+          "TRL7_payload_kg": -29.884121324033003,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 345000000.0,
+            "density_kg_m3": 1654.2666500158089,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6034907411617423,
+            "Vc": 1.0087268529043558,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        }
+      ],
+      "pair": {
+        "inputs": [
+          "gamma",
+          "Q"
+        ],
+        "density_factor": 2.2210491118125706,
+        "log_share": 0.9398584863531902,
+        "concept_payload_kg": -31324.20860105718,
+        "TRL7_payload_kg": -25149.90874625808,
+        "concept_binding": "face_wrinkling",
+        "sum_of_log_deltas": 0.4465603287121428,
+        "joint_log_delta": 0.6861519169081626,
+        "interaction_ratio": 1.5365268090136661,
+        "interaction_formula": "ln(F_pair/F_endpoint)/(ln(F_a/F_endpoint)+ln(F_b/F_endpoint))",
+        "projection_face_density_kg_m3": 832.9397086092517
+      },
+      "handbook": {
+        "density_factor": 2.320740917658831,
+        "concept_payload_kg": -32583.903881233422,
+        "TRL7_payload_kg": -26198.980811291258,
+        "concept_binding": "face_wrinkling",
+        "projection_face_density_kg_m3": 797.1592114928039
+      },
+      "log_residual_after_all_five_shares": 0.3432390663214522
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "endpoint": {
+        "density_factor": 1.0593131195279497,
+        "concept_payload_kg": -6582.656950982218,
+        "TRL7_payload_kg": 5594.8307618927365,
+        "concept_binding": "global_buckling",
+        "closure_properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1746.414521727451,
+          "Q": 0.82,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.5945923287253532,
+          "Vc": 0.9864808218133829,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "projection_face_density_kg_m3": 1746.4146963689032
+      },
+      "swaps": [
+        {
+          "input": "gamma",
+          "density_factor": 1.494905722152194,
+          "log_share": 0.48869703109423507,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -40183.10020784788,
+          "TRL7_payload_kg": -24952.22305556733,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1237.5361118670417,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.0431436358441686,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "Q",
+          "density_factor": 1.1606542642018385,
+          "log_share": 0.12962661903141987,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -18148.42594870122,
+          "TRL7_payload_kg": -4968.150052446039,
+          "concept_binding": "face_wrinkling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1593.9284178413207,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6354201173577589,
+            "Vc": 1.0885502933943971,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "bond_film",
+          "density_factor": 1.080279261743314,
+          "log_share": 0.02780701804157909,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -8736.59379816088,
+          "TRL7_payload_kg": 3855.085779216055,
+          "concept_binding": "global_buckling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1712.5199756353359,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5945923290237802,
+            "Vc": 0.9864808225594507,
+            "film_kg_m2_interface": 0.1464728290914915
+          }
+        },
+        {
+          "input": "face_modulus",
+          "density_factor": 1.0618492948401672,
+          "log_share": 0.0033928025614881644,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -6849.048178139663,
+          "TRL7_payload_kg": 5352.673073496455,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 290000000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1742.2432957197434,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5900582084950892,
+            "Vc": 0.9751455212377227,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "face_strength",
+          "density_factor": 1.0593131195279497,
+          "log_share": 0.0,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -6582.656950982218,
+          "TRL7_payload_kg": 5594.8307618927365,
+          "concept_binding": "global_buckling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 345000000.0,
+            "density_kg_m3": 1746.414521727451,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5945923287253532,
+            "Vc": 0.9864808218133829,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        }
+      ],
+      "pair": {
+        "inputs": [
+          "gamma",
+          "Q"
+        ],
+        "density_factor": 2.0801961550040193,
+        "log_share": 0.9574692105572823,
+        "concept_payload_kg": -97877.74545950821,
+        "TRL7_payload_kg": -77634.3080381391,
+        "concept_binding": "face_wrinkling",
+        "sum_of_log_deltas": 0.43580561445931265,
+        "joint_log_delta": 0.674841496921543,
+        "interaction_ratio": 1.5484919756226478,
+        "interaction_formula": "ln(F_pair/F_endpoint)/(ln(F_a/F_endpoint)+ln(F_b/F_endpoint))",
+        "projection_face_density_kg_m3": 889.339207530852
+      },
+      "handbook": {
+        "density_factor": 2.143497110147263,
+        "concept_payload_kg": -101046.66713032723,
+        "TRL7_payload_kg": -80299.80903932585,
+        "concept_binding": "face_wrinkling",
+        "projection_face_density_kg_m3": 863.0755746028979
+      },
+      "log_residual_after_all_five_shares": 0.3504765292712778
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "endpoint": {
+        "density_factor": 1.1001181192524239,
+        "concept_payload_kg": -10973.593483521443,
+        "TRL7_payload_kg": 1456.5429574464424,
+        "concept_binding": "global_buckling",
+        "closure_properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1681.6374374936854,
+          "Q": 0.82,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.6042090711001116,
+          "Vc": 1.010522677750279,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "projection_face_density_kg_m3": 1681.637605657429
+      },
+      "swaps": [
+        {
+          "input": "gamma",
+          "density_factor": 1.5699249920600644,
+          "log_share": 0.4976126683321864,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -45192.98982354444,
+          "TRL7_payload_kg": -29652.92193426703,
+          "concept_binding": "global_buckling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1178.4001301695557,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.0696760479195948,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "Q",
+          "density_factor": 1.1975137479372135,
+          "log_share": 0.11870430079794986,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -22010.464486428173,
+          "TRL7_payload_kg": -8623.144576046321,
+          "concept_binding": "face_wrinkling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1544.8672870660148,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6428498361388445,
+            "Vc": 1.1071245903471112,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "bond_film",
+          "density_factor": 1.1221704760451459,
+          "log_share": 0.027772560186937505,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -13127.530286260826,
+          "TRL7_payload_kg": -283.20202523028274,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1648.5907039008496,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6042090708526493,
+            "Vc": 1.0105226771316234,
+            "film_kg_m2_interface": 0.1464728290914915
+          }
+        },
+        {
+          "input": "face_modulus",
+          "density_factor": 1.1027462364283964,
+          "log_share": 0.0033389066935794348,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -11236.920909051365,
+          "TRL7_payload_kg": 1217.173518873219,
+          "concept_binding": "scarf_average_shear",
+          "closure_properties": {
+            "E_Pa": 290000000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1677.6296793284434,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5995692666598798,
+            "Vc": 0.9989231666496993,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        },
+        {
+          "input": "face_strength",
+          "density_factor": 1.1001181192524239,
+          "log_share": 0.0,
+          "share_formula": "ln(F_swap/F_endpoint)/ln(F_handbook/F_endpoint)",
+          "concept_payload_kg": -10973.593483521443,
+          "TRL7_payload_kg": 1456.5429574464424,
+          "concept_binding": "global_buckling",
+          "closure_properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 345000000.0,
+            "density_kg_m3": 1681.6374374936854,
+            "Q": 0.82,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6042090711001116,
+            "Vc": 1.010522677750279,
+            "film_kg_m2_interface": 0.07323641454574575
+          }
+        }
+      ],
+      "pair": {
+        "inputs": [
+          "gamma",
+          "Q"
+        ],
+        "density_factor": 2.1805615255806963,
+        "log_share": 0.9573657405740301,
+        "concept_payload_kg": -104441.2304443153,
+        "TRL7_payload_kg": -83751.33536831073,
+        "concept_binding": "face_wrinkling",
+        "sum_of_log_deltas": 0.44044026287424987,
+        "joint_log_delta": 0.684164868996479,
+        "interaction_ratio": 1.5533658629020821,
+        "interaction_formula": "ln(F_pair/F_endpoint)/(ln(F_a/F_endpoint)+ln(F_b/F_endpoint))",
+        "projection_face_density_kg_m3": 848.4053205090529
+      },
+      "handbook": {
+        "density_factor": 2.248020970089865,
+        "concept_payload_kg": -107613.64886777682,
+        "TRL7_payload_kg": -86420.0375968184,
+        "concept_binding": "face_wrinkling",
+        "projection_face_density_kg_m3": 822.9460599409116
+      },
+      "log_residual_after_all_five_shares": 0.35257156398934675
+    }
+  ],
+  "handbook_alone_R30": [
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "property": "face_modulus",
+      "status": "conditional closure",
+      "factor": 2.1573938565221473,
+      "binding": "scarf_average_shear",
+      "best_binding": null,
+      "cap": null,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82",
+      "implied_modulus_GPa": 625.6442183914227,
+      "polycrystal_limit_GPa": 306.9,
+      "tag": "PROJECTION"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "property": "face_strength",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "global_buckling",
+      "cap": null,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "property": "Q",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "scarf_average_shear",
+      "cap": 2.4848484848484844,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "property": "gamma",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "scarf_average_shear",
+      "cap": 5.0,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "property": "bond_film",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "global_buckling",
+      "cap": null,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "property": "face_modulus",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "scarf_average_shear",
+      "cap": null,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "property": "face_strength",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "face_wrinkling",
+      "cap": null,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "property": "Q",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "scarf_average_shear",
+      "cap": 2.4848484848484844,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "property": "gamma",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "scarf_average_shear",
+      "cap": 5.0,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "property": "bond_film",
+      "status": "not alone in declared domain",
+      "factor": null,
+      "binding": null,
+      "best_binding": "face_wrinkling",
+      "cap": null,
+      "cap_source": "model63.single_p2 handbook cap: gamma multiplier 5 lifts the 0.20 step to 1; Q factor 0.82/0.33 lifts 0.33 to 0.82"
+    }
+  ],
+  "answer": {
+    "carriers": [
+      "gamma",
+      "Q"
+    ],
+    "rank_all_four_cases": [
+      "gamma",
+      "Q",
+      "bond_film",
+      "face_modulus",
+      "face_strength"
+    ],
+    "strength_share": 0.0,
+    "pair_is_superadditive": true,
+    "shares_are_not_a_partition": true,
+    "complement_not_run": "handbook basis with gamma and Q restored to the favorable laws was not computed",
+    "neither_carrier_closes_R30_alone_from_handbook": true,
+    "materials_direction": "Measure Q on Be/CR-III and run the named gamma shell. If those coefficients return at the handbook, the closing move in this model is a different face near 860 kg/m3. If they stay favorable, concept at R30 still needs the smaller endpoint density cut."
+  }
+}

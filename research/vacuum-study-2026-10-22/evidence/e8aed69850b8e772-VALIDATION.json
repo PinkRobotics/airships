@@ -1,0 +1,554 @@
+{
+  "tag": "Numerical verification of specified equations; no physical qualification",
+  "checks": [
+    {
+      "check": "gust increment plus baseline equals full dynamic pressure",
+      "actual": 479.84760839197725,
+      "expected": 479.8476083919774,
+      "passed": true
+    },
+    {
+      "check": "sun_coated_gradient_and_bend gradient+bending decomposition",
+      "actual": 299961336.37636924,
+      "expected": 299961336.37636924,
+      "passed": true
+    },
+    {
+      "check": "sun_bare_gradient_and_bend gradient+bending decomposition",
+      "actual": 302587011.7607141,
+      "expected": 302587011.7607141,
+      "passed": true
+    },
+    {
+      "check": "combined_coated_gust gradient+bending decomposition",
+      "actual": 300869934.3458038,
+      "expected": 300869934.3458038,
+      "passed": true
+    },
+    {
+      "check": "combined_bare_gust gradient+bending decomposition",
+      "actual": 303495609.7301487,
+      "expected": 303495609.7301487,
+      "passed": true
+    },
+    {
+      "check": "mooring_016_one_pad_SF1 force-area identity",
+      "actual": 48258.794022345304,
+      "expected": 48258.794022345304,
+      "passed": true
+    },
+    {
+      "check": "mooring_016_six_pads_SF1 force-area identity",
+      "actual": 8043.132337057552,
+      "expected": 8043.132337057551,
+      "passed": true
+    },
+    {
+      "check": "mooring_70kn_one_pad_SF1 force-area identity",
+      "actual": 111753.39627328068,
+      "expected": 111753.39627328068,
+      "passed": true
+    },
+    {
+      "check": "systems_100kg_six_pads force-area identity",
+      "actual": 163.44416666666666,
+      "expected": 163.44416666666666,
+      "passed": true
+    },
+    {
+      "check": "reserve_411kg_one_pad force-area identity",
+      "actual": 4033.46478988022,
+      "expected": 4033.4647898802205,
+      "passed": true
+    },
+    {
+      "check": "projection_5 arc mass equals upstream",
+      "actual": 3794.671994894594,
+      "expected": 3794.671994894575,
+      "passed": true
+    },
+    {
+      "check": "projection_5 Euler independently implies SiC modulus",
+      "actual": 410000000000.02216,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "projection_5 arc mass equals upstream",
+      "actual": 3794.671994894594,
+      "expected": 3794.671994894575,
+      "passed": true
+    },
+    {
+      "check": "projection_5 Euler independently implies SiC modulus",
+      "actual": 410000000000.02216,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "projection_019 arc mass equals upstream",
+      "actual": 3640.5011762956547,
+      "expected": 3640.501176295637,
+      "passed": true
+    },
+    {
+      "check": "projection_019 Euler independently implies SiC modulus",
+      "actual": 410000000000.0221,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "projection_019 arc mass equals upstream",
+      "actual": 3640.5011762956547,
+      "expected": 3640.501176295637,
+      "passed": true
+    },
+    {
+      "check": "projection_019 Euler independently implies SiC modulus",
+      "actual": 410000000000.0221,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "mylar_5 arc mass equals upstream",
+      "actual": 4083.0053057749465,
+      "expected": 4083.005305774999,
+      "passed": true
+    },
+    {
+      "check": "mylar_5 Euler independently implies SiC modulus",
+      "actual": 410000000000.02216,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "mylar_019 arc mass equals upstream",
+      "actual": 3925.920168386683,
+      "expected": 3925.920168386639,
+      "passed": true
+    },
+    {
+      "check": "mylar_019 Euler independently implies SiC modulus",
+      "actual": 410000000000.0222,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "ti_kapton_5 arc mass equals upstream",
+      "actual": 3280.644870479246,
+      "expected": 3280.6448704792338,
+      "passed": true
+    },
+    {
+      "check": "ti_kapton_5 Euler independently implies SiC modulus",
+      "actual": 410000000000.02216,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "ti_kapton_019 arc mass equals upstream",
+      "actual": 3138.733815147143,
+      "expected": 3138.733815147145,
+      "passed": true
+    },
+    {
+      "check": "ti_kapton_019 Euler independently implies SiC modulus",
+      "actual": 410000000000.0221,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "cfrp_zylon_5 arc mass equals upstream",
+      "actual": 4126.9865492776535,
+      "expected": 4126.986549277614,
+      "passed": true
+    },
+    {
+      "check": "cfrp_zylon_5 Euler independently implies SiC modulus",
+      "actual": 410000000000.02216,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "check": "cfrp_zylon_019 arc mass equals upstream",
+      "actual": 3957.5886775659837,
+      "expected": 3957.588677565962,
+      "passed": true
+    },
+    {
+      "check": "cfrp_zylon_019 Euler independently implies SiC modulus",
+      "actual": 410000000000.02216,
+      "expected": 410000000000.0,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=0.5 angular convergence",
+      "max_temperature_change_K": 0.0,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=0.5 whole-sphere energy",
+      "residual_W_m2": -6.231045453913842e-11,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=0.5 closed cavity radiation",
+      "residual_W_m2": 1.4279305602521442e-11,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=2.0 angular convergence",
+      "max_temperature_change_K": 0.0,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=2.0 whole-sphere energy",
+      "residual_W_m2": -2.576940271413475e-10,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=2.0 closed cavity radiation",
+      "residual_W_m2": 5.6707859328458676e-11,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=5.0 angular convergence",
+      "max_temperature_change_K": 0.0,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=5.0 whole-sphere energy",
+      "residual_W_m2": -9.949802331869761e-11,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=5.0 closed cavity radiation",
+      "residual_W_m2": 2.2254244237338017e-11,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=10.0 angular convergence",
+      "max_temperature_change_K": 5.684341886080802e-14,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=10.0 whole-sphere energy",
+      "residual_W_m2": -2.0934282215709366e-10,
+      "passed": true
+    },
+    {
+      "name": "coated_outer h=10.0 closed cavity radiation",
+      "residual_W_m2": 4.58708993098661e-11,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=0.5 angular convergence",
+      "max_temperature_change_K": 1.7053025658242404e-13,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=0.5 whole-sphere energy",
+      "residual_W_m2": 1.8042400906637113e-11,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=0.5 closed cavity radiation",
+      "residual_W_m2": -7.526355233489213e-11,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=2.0 angular convergence",
+      "max_temperature_change_K": 5.684341886080802e-14,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=2.0 whole-sphere energy",
+      "residual_W_m2": 9.141038620485986e-14,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=2.0 closed cavity radiation",
+      "residual_W_m2": -3.821092747768873e-13,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=5.0 angular convergence",
+      "max_temperature_change_K": 9.094947017729282e-13,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=5.0 whole-sphere energy",
+      "residual_W_m2": -2.3996087668981536e-11,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=5.0 closed cavity radiation",
+      "residual_W_m2": 1.0445481632426201e-10,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=10.0 angular convergence",
+      "max_temperature_change_K": 5.684341886080802e-14,
+      "limit_K": 0.002,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=10.0 whole-sphere energy",
+      "residual_W_m2": -2.1365337884299285e-12,
+      "passed": true
+    },
+    {
+      "name": "bare_Be h=10.0 closed cavity radiation",
+      "residual_W_m2": 8.837912823453364e-12,
+      "passed": true
+    },
+    {
+      "name": "constant-temperature coefficient n=1",
+      "actual_K": 9.8879238130678e-16,
+      "expected_K": 0,
+      "passed": true
+    },
+    {
+      "name": "constant-temperature coefficient n=2",
+      "actual_K": 9.598155603640635e-12,
+      "expected_K": 0,
+      "passed": true
+    },
+    {
+      "name": "constant-temperature coefficient n=3",
+      "actual_K": -1.457167719820518e-15,
+      "expected_K": 0,
+      "passed": true
+    },
+    {
+      "name": "constant-temperature coefficient n=4",
+      "actual_K": 1.7273182884025573e-11,
+      "expected_K": 0,
+      "passed": true
+    },
+    {
+      "name": "constant-temperature coefficient n=5",
+      "actual_K": -2.1371793224034263e-15,
+      "expected_K": 0,
+      "passed": true
+    },
+    {
+      "name": "constant-temperature coefficient n=6",
+      "actual_K": 2.4293456135637825e-11,
+      "expected_K": 0,
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:105f0fb94a589ea6",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/8b7371f8f3a8810a-report.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/418add214eccec9a-CARD.md",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/92c73a5b625da613-RESULTS.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/f9ff7da1d21d1380-NFI.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/f09d922557568e87-INPUTS.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/a13cfcddd25d82f1-loads037.py",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/a19cdec780f9bcd1-vacuum-mainline037-loads-beyond-pressure-1020.md",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:f00282fb2a413f7c",
+      "passed": true
+    },
+    {
+      "check": "source pin withheld-source:b528d6a62c81ce0b",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/0eb090401eeebaf4-PROPERTY-CHECKS.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/501ecbe6b0e11bab-CARD.md",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/2ef38293630a5e18-SAG.md",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:9b3b6b276cd21868",
+      "passed": true
+    },
+    {
+      "check": "source pin withheld-source:1577f21d44c55eff",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:b40693bc2fdb6bdf",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:2bf170d37c993460",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/52566f98ee23246b-INPUTS.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/d2102ac041ebbeba-METHOD.md",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:40c942a584ef63d7",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:c9e085fb855500b9",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:376385ee2a658c6d",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:bb881d80980b0257",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:34cfe9f1b502f24f",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/74369a1575aad867-INPUTS.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/14a2669241c3ad27-SAG.json",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/a3008485baf30647-CARD.md",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/8b0ed4fc908b2128-P3-LATEST.md",
+      "passed": true
+    },
+    {
+      "check": "source pin evidence/899e402bac40e805-INPUTS.json",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:71d1fa0213791815",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:19b9971a55f85dd1",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:22c9c9a80547c375",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:02cdf37a5f5ce5ad",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:e119845baf5d54ea",
+      "passed": true
+    },
+    {
+      "check": "source pin unpublished-local-ref:334cefc4f5d295a1",
+      "passed": true
+    },
+    {
+      "check": "all numeric leaves covered",
+      "passed": true
+    },
+    {
+      "check": "one audit row per path",
+      "passed": true
+    },
+    {
+      "check": "plate boundary-value solution b/a=0.065",
+      "moment_from_boundary_solution": 0.36881546047107355,
+      "proposed_moment": 0.3688154604710735,
+      "max_boundary_residual": 6.938893903907228e-18,
+      "passed": true
+    },
+    {
+      "check": "plate boundary-value solution b/a=0.1",
+      "moment_from_boundary_solution": 0.32314526590851794,
+      "proposed_moment": 0.32314526590851805,
+      "max_boundary_residual": 1.0408340855860843e-17,
+      "passed": true
+    },
+    {
+      "check": "plate boundary-value solution b/a=0.25",
+      "moment_from_boundary_solution": 0.22546706899221433,
+      "proposed_moment": 0.22546706899221436,
+      "max_boundary_residual": 1.3877787807814457e-17,
+      "passed": true
+    },
+    {
+      "check": "plate boundary-value solution b/a=0.5",
+      "moment_from_boundary_solution": 0.1496065019757178,
+      "proposed_moment": 0.14960650197571776,
+      "max_boundary_residual": 2.0816681711721685e-17,
+      "passed": true
+    },
+    {
+      "check": "plate boundary-value solution b/a=1.0",
+      "moment_from_boundary_solution": 0.06624824506200144,
+      "proposed_moment": 0.06624824506200144,
+      "max_boundary_residual": 6.938893903907228e-18,
+      "passed": true
+    }
+  ],
+  "total": 102,
+  "passed": 102,
+  "numeric_audit_summary": {
+    "numeric_fields": 541,
+    "numeric_fields_covered": 541,
+    "audit_rows_including_labels": 579,
+    "status_counts": {
+      "MATCH": 463,
+      "DECLARED_INPUT": 16,
+      "UNRESOLVED": 84,
+      "RECONSTRUCTION_MISMATCH": 2,
+      "DISCRETIZATION_DIFFERENCE": 4,
+      "MISMATCH": 10
+    },
+    "checks": 30,
+    "checks_passed": 30,
+    "rtol": 1e-08,
+    "atol": 1e-09,
+    "unknown_policy": "Unspecified inputs are UNRESOLVED, never invented to force a match."
+  },
+  "source_pins_checked": 35,
+  "owner_executable": "hash only; never inspected/imported/executed"
+}

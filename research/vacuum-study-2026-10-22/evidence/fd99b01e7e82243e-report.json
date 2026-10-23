@@ -1,0 +1,131 @@
+{
+  "id": "rpt-ref-536c47263ffe5f46fd19",
+  "kind": "report",
+  "from": "ref-4bc9297546b34b47e7f1",
+  "from_seat": "ref-4bc9297546b34b47e7f1",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline038-grounding-test-plan-1020",
+  "re": "ord-admiral-rr2-mainline038-dispatch-1019",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline038-dispatch-1019"
+    }
+  ],
+  "at": "2026-10-20T02:30:17.437135-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline038-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "MAINLINE-038 complete: QUESTIONABLE/PROJECTION. Nine physical test families cover the named P2/P3 assumptions, five register priorities and vacuum holding. First buys: finished SR-200 compression/specification, weighed sealed scarf panel, and wrinkle coupons from the same batch. Initial projected cost USD 23–68k plus shared stock/process allowance 20–90k; biaxial follow-on separate. No quotes, purchases or contacts.\n\nCurrent P2 thresholds are gamma 0.564164, wrinkle coefficient 0.434628 and compression 300.333 MPa. Newly filed 036, 034 and 022d are incorporated. Latest screened P3 uses both Zylon plies and a 1.035188 MN sized joint target on the 019 line; frozen 022c sensitivities are explicitly distinguished. Vacuum tests separate hot species pressure, trapped gas, desorption and external mass uptake.\n\nA 1 m diameter aluminum shell is a conditional model experiment. Assumed 25 micrometre face/1 mm core fabrication floors imply minimum radii 0.3614/0.4303 m for old/current geometries; no purchasable actual-Be miniature is established. Atmospheric evacuation gives only 6.14% overload at sea-level ambient against the R10 design pressure.\n\n189 source pins and 614 arithmetic/provenance checks pass. Nineteen artifacts include specimen/standard/provider/cost details, outcome-to-SF/reserve tables, scaling figure, calculations and 20 NFI items. Installed-hull SF remains unknown. STOP AND FILE; no successor named.",
+  "artifacts": [
+    {
+      "path": "evidence/1e9b09fba51147ce-CARD.md",
+      "sha256": "1e9b09fba51147cefd1618fb3c63253ea0064c42950bf80bd2643f618dbb51ce",
+      "bytes": 36694
+    },
+    {
+      "path": "evidence/45892ff5f2c72c4a-INPUTS.json",
+      "sha256": "45892ff5f2c72c4a36e6cf02a084bf664d04e9a81e5020a3959656ca7e117c11",
+      "bytes": 272226
+    },
+    {
+      "path": "evidence/4cee726b7ac1801f-METHOD.md",
+      "sha256": "4cee726b7ac1801f395a56c60184849a5fdfa6a5aabdf6931b9f3b8415ccb6e9",
+      "bytes": 13996
+    },
+    {
+      "path": "evidence/e3f1573de8237f38-NFI.json",
+      "sha256": "e3f1573de8237f38dc4e09e7cc1745482afee25e619fd72fb3988b99b7d72745",
+      "bytes": 9385
+    },
+    {
+      "path": "evidence/c65fa7365e83c039-OUTCOMES.csv",
+      "sha256": "c65fa7365e83c039503203cfe728014451b30973767135d427a12c20faaf3a1d",
+      "bytes": 5229
+    },
+    {
+      "path": "evidence/7d94dc5563b81aad-P3-LATEST.csv",
+      "sha256": "7d94dc5563b81aad2563712ab3e0428c52be444d0ecb6cbf59975ade9dbea7f6",
+      "bytes": 1754
+    },
+    {
+      "path": "evidence/8b0ed4fc908b2128-P3-LATEST.md",
+      "sha256": "8b0ed4fc908b21289a74b5e7b4fe352ec22e86e77412465b94f3d42803aab0f3",
+      "bytes": 5142
+    },
+    {
+      "path": "evidence/3cecea5476ebb3e5-RESULTS.json",
+      "sha256": "3cecea5476ebb3e5b75553b699e82d779ed63bb0b8e8e089640104c6d3d3b6af",
+      "bytes": 102686
+    },
+    {
+      "path": "evidence/13c128377060ddb9-RUN.json",
+      "sha256": "13c128377060ddb99fbb99952df7cd17f161636643a5872acd188693f6c4e60e",
+      "bytes": 450
+    },
+    {
+      "path": "evidence/7f2bf14296530eaf-SHELL-SCALING.csv",
+      "sha256": "7f2bf14296530eaf7d7c680dcdff76085aa8cad49adb1fe222b1485050bcee06",
+      "bytes": 10262
+    },
+    {
+      "path": "evidence/a034319fa3743b34-SOURCES.md",
+      "sha256": "a034319fa3743b3488422c038a409963b6301a4bfa17fad5586f76f518eb9d56",
+      "bytes": 6183
+    },
+    {
+      "path": "evidence/13a265abe3662ace-TEST-PLAN.json",
+      "sha256": "13a265abe3662aced905d4a233415b2b5cf0e7deea322a91ed241b3b01ea966a",
+      "bytes": 7074
+    },
+    {
+      "path": "evidence/5d6dc40a179336cf-VALIDATION.json",
+      "sha256": "5d6dc40a179336cff7ee111dbb0cad33275b3e59d6a433acaad4590984422e8c",
+      "bytes": 111406
+    },
+    {
+      "path": "evidence/65ae94e2a9af0f2d-calculate.py",
+      "sha256": "65ae94e2a9af0f2d1b9d70728103802575c9fcaf3284133376542bb29717f1c1",
+      "bytes": 13906
+    },
+    {
+      "path": "evidence/b5a4752b3a1e52fd-prepare_inputs.py",
+      "sha256": "b5a4752b3a1e52fdd68c54c3d6340031f9a4941e2aeb30f0bf7f41a96345aa46",
+      "bytes": 5485
+    },
+    {
+      "path": "evidence/789e17915fe743fd-publish_artifacts.py",
+      "sha256": "789e17915fe743fd4db7d2b6e823b7408b03ac848005ef93d04751aea00f9023",
+      "bytes": 19308
+    },
+    {
+      "path": "unpublished-local-ref:2c91cd1ce49a0c2e",
+      "sha256": "b4ba50c584179d177dabc62664641b8ea222af63fbb1c67c6a945648e09ca422",
+      "bytes": 169769
+    },
+    {
+      "path": "evidence/0971c7ee29afa7eb-shell-test-scaling.svg",
+      "sha256": "0971c7ee29afa7eb967eb564b3ca865b709b9041b08d8180c29b9bff00b1921b",
+      "bytes": 89991
+    },
+    {
+      "path": "evidence/af24ce59e840900d-validate.py",
+      "sha256": "af24ce59e840900d3859cc8379ef20ce185c55a69fa1fea6105379b2e301ec5a",
+      "bytes": 7504
+    }
+  ],
+  "ingested": "2026-10-20T02:31:28-07:00"
+}

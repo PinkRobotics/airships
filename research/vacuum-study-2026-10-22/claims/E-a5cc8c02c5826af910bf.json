@@ -1,0 +1,44 @@
+{
+  "id": "E-a5cc8c02c5826af910bf",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-a5cc8c02c5826af910bf",
+    "report": "rpt-ref-3fb9907ba4e1c52825f0",
+    "file": "evidence/bfc76c0341f3dd34-NFI.json",
+    "snapshot": "evidence/bfc76c0341f3dd34-NFI.json",
+    "source_sha256": "bfc76c0341f3dd349a4ffd0b0ea9881cf8bdee9b963e0e8d83495e650a338cca",
+    "source_json_pointer": "/new/5",
+    "row_id": "NFI-053-PATTERN",
+    "fields": {
+      "id": "NFI-053-PATTERN",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Lateral heat flow and structural temperature projection",
+      "finding": "The face/core solve omits lateral heat flow and keeps only temperature harmonics 2–6 for bending. Pole and mean-projection errors are corrected, but a physical truncation bound is absent.",
+      "needed": "Resolve lateral conduction, seams and required spatial/temporal load spectrum; validate structural response to the resulting field.",
+      "references": [
+        "METHOD.md",
+        "THERMAL-CONVERGENCE.json"
+      ]
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The face/core solve omits lateral heat flow and keeps only temperature harmonics 2–6 for bending. Pole and mean-projection errors are corrected, but a physical truncation bound is absent. | Lateral heat flow and structural temperature projection",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-3fb9907ba4e1c52825f0",
+      "artifact": "evidence/bfc76c0341f3dd34-NFI.json",
+      "snapshot": "evidence/bfc76c0341f3dd34-NFI.json",
+      "sha256": "bfc76c0341f3dd349a4ffd0b0ea9881cf8bdee9b963e0e8d83495e650a338cca",
+      "bytes": 7836,
+      "selector": "/new/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

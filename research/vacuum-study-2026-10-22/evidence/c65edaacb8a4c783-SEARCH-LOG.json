@@ -1,0 +1,49 @@
+{
+  "scope": "Public primary documents and primary documents hosted in public mirrors; no supplier or other seat contacted.",
+  "queries": [
+    "beryllium cross rolled sheet compressive yield 0.030 thin SR-200",
+    "MIL HDBK 5J pdf beryllium 7.2.1",
+    "site.materion.com PF-60 PS-200 sheet beryllium data sheet",
+    "\"beryllium\" \"compressive yield\" \"sheet\" \"0.030\"",
+    "\"beryllium\" \"compressive yield\" \"0.032\"",
+    "\"Fenn\" \"1967\" \"beryllium\" \"212\"",
+    "\"beryllium\" \"biaxial compression\" sheet"
+  ],
+  "inspected_primary_sources": [
+    "doe-ingot",
+    "doe-specs",
+    "historical-design",
+    "materion-design",
+    "mil5j",
+    "mmpds01",
+    "mmpds08",
+    "nasa4397",
+    "pf60",
+    "ps200",
+    "sr200",
+    "sr200_lot"
+  ],
+  "failed_retrievals": [
+    {
+      "id": "historical-design",
+      "url": "https://citeseerx.ist.psu.edu/document?doi=7aab804960e1a6d74d5e3c5210cf25968a95d15e&repid=rep1&type=pdf",
+      "retrieved_at": "2026-10-20T08:49:09.219977+00:00",
+      "status": "retrieval_failed",
+      "error": "<urlopen error timed out>"
+    }
+  ],
+  "exclusions": [
+    "Search snippets and aggregator property ranges were not used as design properties.",
+    "Fenn original report not obtained; attributed through NASA reproduction only.",
+    "Latest MMPDS controlled data not inspected; no claim about all newer editions.",
+    "HIP preforms, block, ingot-sheet tensile tests and tube properties do not qualify thin cross-rolled SR-200.",
+    "No matched 0.7-0.85 mm biaxial compression minimum found in the reviewed set."
+  ],
+  "visual_checks": [
+    "MIL5J Table7.2.1.0(c)",
+    "MMPDS01 Table7.2.1.0(c)",
+    "MMPDS08 Tables7.2.1.0(c),(d)",
+    "NASA4397 Tables7,8",
+    "Materion design guide pp4,8"
+  ]
+}

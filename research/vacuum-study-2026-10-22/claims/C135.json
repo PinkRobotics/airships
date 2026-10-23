@@ -1,0 +1,79 @@
+{
+  "id": "C135",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C135",
+    "report": "rpt-ref-20ab4b33b504a00ad3b6",
+    "file": "evidence/d16ce77b4ae2851c-NFI.json",
+    "snapshot": "evidence/d16ce77b4ae2851c-NFI.json",
+    "source_sha256": "d16ce77b4ae2851c00e83684fe5bf835531fe84ef15a1d5c82a3941a2b0804bf",
+    "source_json_pointer": "/rows/8",
+    "row_id": "C039-09",
+    "fields": {
+      "id": "C039-09",
+      "topic": "INPUT-COMPLETENESS",
+      "status": "REVISE",
+      "objection": "Several numeric choices are recoverable but missing from the supplied inputs or compact geometry.",
+      "evidence": "METHOD.md: fillet density 1250 kg/m3 inferred from mass. SUPPLEMENTARY.json: calibration nu=.33/.35. Four gs5 compact rows omit shape and required psi-based recovery.",
+      "proposed_fix": "Publish these inputs and each chosen section's shape with units and provenance. Keep all independent check limitations visible. Preserve measured elapsed values; their microsecond timestamp differences are harmless.",
+      "disposition": "Record for owner revision; check completed"
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "{\"id\": \"C039-09\", \"topic\": \"INPUT-COMPLETENESS\", \"status\": \"REVISE\", \"objection\": \"Several numeric choices are recoverable but missing from the supplied inputs or compact geometry.\", \"evidence\": \"METHOD.md: fillet density 1250 kg/m3 inferred from mass. SUPPLEMENTARY.json: calibration nu=.33/.35. Four gs5 compact rows omit shape and required psi-based recovery.\", \"proposed_fix\": \"Publish these inputs and each chosen section's shape with units and provenance. Keep all independent check limitations visible. Preserve measured elapsed values; their microsecond timestamp differences are harmless.\", \"disposition\": \"Record for owner revision; check completed\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/845"
+    },
+    {
+      "report": "rpt-ref-20ab4b33b504a00ad3b6",
+      "artifact": "evidence/d16ce77b4ae2851c-NFI.json",
+      "snapshot": "evidence/d16ce77b4ae2851c-NFI.json",
+      "sha256": "d16ce77b4ae2851c00e83684fe5bf835531fe84ef15a1d5c82a3941a2b0804bf",
+      "bytes": 7339,
+      "selector": "/rows/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-20ab4b33b504a00ad3b6",
+          "artifact": "evidence/d16ce77b4ae2851c-NFI.json",
+          "snapshot": "evidence/d16ce77b4ae2851c-NFI.json",
+          "sha256": "d16ce77b4ae2851c00e83684fe5bf835531fe84ef15a1d5c82a3941a2b0804bf",
+          "bytes": 7339,
+          "selector": "/rows/8"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/845"
+          }
+        ]
+      }
+    }
+  ]
+}

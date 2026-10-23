@@ -1,0 +1,65 @@
+{
+  "checked_at": "2026-10-20T03:15:06.371115-07:00",
+  "checks": [
+    {
+      "check": "all delivered JSON parses",
+      "pass": true
+    },
+    {
+      "check": "three independent scripts parse",
+      "pass": true,
+      "count": 3
+    },
+    {
+      "check": "local document links resolve",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "check": "no owner or predecessor code copied",
+      "pass": true,
+      "excluded_paths": 13
+    },
+    {
+      "check": "NUMERICAL-CHECKS.json all comparisons pass",
+      "pass": true,
+      "summary": {
+        "schema": 1,
+        "completed_at_utc": "2026-10-20T10:02:59.880280+00:00",
+        "owner_code_read": false,
+        "owner_code_run": false,
+        "method": "Independent geometry and source conversion; augmented 10-state matrix exponential; separately integrated external flux; bracketed threshold roots.",
+        "tolerance": "2e-8 + 2e-9*abs(owner), fixed before first run",
+        "numeric_comparisons": 7670,
+        "passed": 7670,
+        "failed": 0,
+        "uncovered_numeric_fields": {},
+        "categories": {
+          "inherited_or_declared_input": 95,
+          "scenario_definition": 341,
+          "independently_derived": 7234
+        },
+        "mass_conservation_comparisons": 434,
+        "maximum_mass_conservation_residual_kg": 2.7284841053187847e-11,
+        "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+        "numpy": "2.3.5",
+        "scipy": "1.17.1",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43"
+      }
+    },
+    {
+      "check": "EVIDENCE-CHECKS.json all comparisons pass",
+      "pass": true,
+      "summary": {
+        "completed_at_utc": "2026-10-20T10:07:29.545586+00:00",
+        "checks": 232,
+        "passed": 232,
+        "source_and_inheritance_checks": 124,
+        "display_and_validation_metadata_checks": 108,
+        "pinned_snapshot_checks": 83,
+        "owner_code_opened_or_executed": false
+      }
+    }
+  ],
+  "all_passed": true
+}

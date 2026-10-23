@@ -1,0 +1,37 @@
+{
+  "id": "E-b9eeacfe2585006abf29",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-b9eeacfe2585006abf29",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1046~1NFI.json/new/2",
+    "row_id": "046-03",
+    "fields": {
+      "id": "046-03",
+      "topic": "PBO kinetics",
+      "finding": "No validated combined humidity-temperature-light-load aging law or low-temperature activation energy is available in the retrieved evidence.",
+      "needed": "Use multiple controlled temperatures, activities, doses and service exposures; validate accelerated-to-service transfer."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "No validated combined humidity-temperature-light-load aging law or low-temperature activation energy is available in the retrieved evidence.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1046~1NFI.json/new/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

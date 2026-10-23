@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-050notes",
+  "kind": "filed_change",
+  "label": "050notes",
+  "claim": "Dew uses actual night density; frozen geometry, thermal and gas conventions are explicitly separated.",
+  "report": "rpt-1228-mainline050-dew-conventions-1020",
+  "source_report_body": "Equation-only clarification filed in CONVENTIONS.md; no executable code is attached. Each dry compartment contains one Be face plus half the core metal; coating/polymer storage is omitted. Outer enthalpy is referenced to ice at 273.15 K, with incoming vapor enthalpy Ls+cpv(Ta−273.15), added once. Lewis transfer and ambient density use 95460.83791390515 Pa throughout. Through-core conductance is 130*rho_core/(2700*tc)+0.8*sigmaSB*mean(Tinner)^3, with the area-weighted old inner temperature. Night geometries are the mask11, usage1 MASS-CURVES reference rows. All fluxes use the old state in forward Euler; phase is decoded from updated enthalpy and mass for output. The attached equations include constants, geometry, saturation, convection and update order. Original results and qualifications are unchanged.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline050-dew-conventions-1020",
+      "artifact": "evidence/42ef056cf970ccf1-CONVENTIONS.md",
+      "snapshot": "evidence/42ef056cf970ccf1-CONVENTIONS.md",
+      "sha256": "42ef056cf970ccf1ffd8049932177711365e3565d5d3fdca758b218d2f68c170",
+      "bytes": 7377,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

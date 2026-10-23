@@ -1,0 +1,52 @@
+{
+  "name": "sweep-current-W-y300-a46",
+  "analysis": "static",
+  "amplitude_mm": 46.0,
+  "width_mm": 347.1529189444301,
+  "meridian": "W",
+  "yield_MPa": 300.0,
+  "nu": 0.0768,
+  "ntheta": 128,
+  "nface": 1,
+  "ncore": 4,
+  "grading": 2.0,
+  "increments": 18,
+  "endpoint_kPa": 51.356682,
+  "endpoint_kind": "last_converged_static_increment",
+  "first_yield_bracket_kPa": [
+    36.0,
+    39.6
+  ],
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 33.788445230482196,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        32.4,
+        36.0
+      ]
+    },
+    "300.0": {
+      "p_kPa": 39.02679150451926,
+      "kind": "last_two_elastic_points_extrapolation",
+      "bracket_kPa": [
+        36.0,
+        39.6
+      ],
+      "inside_native_bracket": true
+    }
+  },
+  "endpoint_max_mises_MPa": 300.00004987655683,
+  "endpoint_max_peeq": 0.001780344,
+  "endpoint_pole_uy_mm": -41.19554,
+  "solver": {
+    "returncode": 201,
+    "elapsed_s": 13.404123438987881,
+    "ended_at": "2026-10-20T11:17:04.254068+00:00"
+  },
+  "errors": [
+    " *ERROR: increment size smaller than minimum"
+  ],
+  "eigen_kPa": [],
+  "peeq_detection_threshold": 1e-10
+}

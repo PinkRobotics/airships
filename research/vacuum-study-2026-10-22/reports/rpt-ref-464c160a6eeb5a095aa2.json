@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-464c160a6eeb5a095aa2",
+  "unit": "vacuum-mainline068-face-projections-1020",
+  "at": "2026-10-20T18:31:11-07:00",
+  "body": "MAINLINE-068 is filed. Literature arithmetic only. QUESTIONABLE. PROJECTION. No qualified hull safety factor.\n\nThe index is density over modulus to the power 0.514, on 290 GPa and 1850 kg/m3. The payloads behind 993 and 1146 kg/m3 sit at 293.6 GPa and 379.2 MPa. Concept still needs 1.863 and TRL 7 still needs 1.614. Both lines are the local slope, not a re-optimised clear.\n\nMeasured membranes, by the concept multiplier still needed: graphite film 1.219, CVD diamond 1.827, SR-200 1.863, AlBeMet AM162 sheet 2.571, plate-nanolattice 3.030. The film is 969 GPa at 2.25 g/cm3 (DOI 10.1038/s41467-025-62227-6), improvement 1.529, TRL 7 multiplier 1.056. Gauges opened are about 2 to 145 µm, against 2.09 and 3.15 mm, and the test is tension.\n\nCNT yarn does not pass it. Unidirectional means score 1.430 and 1.441 and are not a membrane. A cross-ply with transverse stiffness neglected projects to about 1.00, and a quasi-isotropic layup to about 0.81. Those moduli were not read. A cross-ply cannot lead unless it exceeds the opened unidirectional modulus.\n\nNo beryllium sheet at 993 or 1146 kg/m3 was opened. Pyrolytic-carbon lattices stay near 0.61. A stretch-dominated architecture that hits the concept line is not built.\n\nT3 and T7 stay on SR-200 bonded to CR-III. The research direction is the graphite film. Its first coupon is in-plane compression of a stack near 2.1 mm, reporting modulus, density and compressive strength. No purchase. Area, the bond and thermal expansion are unshown. The 1.07 interface is the beryllium case.",
+  "artifacts": [
+    {
+      "path": "evidence/9419b93645334968-CARD.md",
+      "sha256": "9419b93645334968768bac7a3023d2070c98dec6e07bcb5cabac7004a6aefc59",
+      "bytes": 7674
+    },
+    {
+      "path": "evidence/b9befa531528e82e-RESULTS.json",
+      "sha256": "b9befa531528e82e40899c3416a2bc0ac71a62a7a4446bb320e960bbbc140e89",
+      "bytes": 9510
+    },
+    {
+      "path": "evidence/6717a2e09ced082f-NFI.json",
+      "sha256": "6717a2e09ced082fc28038994bb225330213904f2e9de9abf10e69fd96ccac8e",
+      "bytes": 2245
+    },
+    {
+      "path": "evidence/d7bbd436c3a9181c-INPUTS.json",
+      "sha256": "d7bbd436c3a9181ceba0443562575fdc2478728b1a57ca115bba2c8ea4fc7a29",
+      "bytes": 4536
+    }
+  ],
+  "from": "ref-5ad28e8f7a8e27ce8bc1",
+  "from_seat": "ref-5ad28e8f7a8e27ce8bc1",
+  "re": "ord-admiral-rr2-mainline068-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline068-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

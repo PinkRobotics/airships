@@ -1,0 +1,81 @@
+{
+  "id": "N407",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N407",
+    "report": "rpt-ref-444ac46ffbede876f9cd",
+    "card": "CHECK MAINLINE-021b",
+    "file": "evidence/e22bbb97f4477a6d-NFI.json",
+    "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+    "source_sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+    "source_json_pointer": "/rows/3",
+    "row_id": "NFI-021B-CHECK-GRADE-COUPLING",
+    "fields": {
+      "id": "NFI-021B-CHECK-GRADE-COUPLING",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "field": "subsets versus optimisms.O3_face_strength.E_full_Pa",
+      "card_full_E_Pa": 293600000000,
+      "reproduced_search_E_Pa": 290000000000,
+      "card_all_five_usage": 0.7193182727147767,
+      "coupled_full_lot_E_grid_usage": 0.7088740221506279,
+      "issue": "The complete subset table reproduces with E=290 GPa even when O3 is selected. Full-named-set mode and family calculations instead use 293.6 GPa. Thus the subset table does not literally couple every O3 strength choice to the stated alternate lot modulus.",
+      "implication": "Using E=293.6 GPa whenever O3 is selected changes secondary scores, e.g. all five to 0.708874 on the same grid. No subset feasibility changes and no two-member set floats. The chosen three-member set has no O3, so its answer is unchanged.",
+      "needed_evidence": "Declare whether keeping 290 GPa is intentional conservatism; if grade and strength co-vary, specify interpolation and recompute the usage objective."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "The complete subset table reproduces with E=290 GPa even when O3 is selected. Full-named-set mode and family calculations instead use 293.6 GPa. Thus the subset table does not literally couple every O3 strength choice to the stated alternate lot modulus.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/406"
+    },
+    {
+      "report": "rpt-ref-444ac46ffbede876f9cd",
+      "artifact": "evidence/e22bbb97f4477a6d-NFI.json",
+      "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+      "sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+      "bytes": 9485,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-444ac46ffbede876f9cd",
+          "artifact": "evidence/e22bbb97f4477a6d-NFI.json",
+          "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+          "sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+          "bytes": 9485,
+          "selector": "/rows/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/406"
+          }
+        ]
+      }
+    }
+  ]
+}

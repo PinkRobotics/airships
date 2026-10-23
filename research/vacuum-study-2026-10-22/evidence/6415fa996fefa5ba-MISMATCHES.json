@@ -1,0 +1,576 @@
+{
+  "rows": [
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/compression_axial",
+      "owner": 4.722024847297573,
+      "checker": 4.723574948355745,
+      "error": 0.0015501010581724373,
+      "tolerance": 9.544049694595144e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/euler",
+      "owner": 4.371078472497768,
+      "checker": 4.371039181130254,
+      "error": -3.929136751423812e-05,
+      "tolerance": 8.842156944995536e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/local_axial",
+      "owner": 1.3599264419459949,
+      "checker": 1.3603728655640117,
+      "error": 0.0004464236180168335,
+      "tolerance": 2.81985288389199e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.2136674583707006,
+      "checker": 3.2141803373134232,
+      "error": 0.0005128789427226721,
+      "tolerance": 6.527334916741401e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.8090149583626274,
+      "checker": 3.8095368705754464,
+      "error": 0.0005219122128190534,
+      "tolerance": 7.718029916725254e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/global_perfect_linear",
+      "owner": 7.155002496828368,
+      "checker": 7.151119777416943,
+      "error": -0.0038827194114254837,
+      "tolerance": 1.4410004993656735e-06,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/global_k0p2",
+      "owner": 1.4310004993656738,
+      "checker": 1.4302239554833887,
+      "error": -0.0007765438822850967,
+      "tolerance": 2.9620009987313475e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.21800846266563,
+      "checker": 1.2180486463627387,
+      "error": 4.018369710867553e-05,
+      "tolerance": 2.53601692533126e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "least_screened_SF",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "least_without_global_knockdown",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1219803097.2333062,
+      "checker": 1219795548.4029229,
+      "error": -7548.830383300781,
+      "tolerance": 243.96061945666122,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 922975037.6516206,
+      "checker": 922944326.4856434,
+      "error": -30711.16597723961,
+      "tolerance": 184.59500754032413,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 6679.2376026155025,
+      "checker": 6672.562964294968,
+      "error": -6.674638320534541,
+      "tolerance": 0.0013358575205231003,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 6679.2376026155025,
+      "checker": 6672.562964294968,
+      "error": -6.674638320534541,
+      "tolerance": 0.0013358575205231003,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 687.9423727773446,
+      "checker": 687.660501788966,
+      "error": -0.28187098837861413,
+      "tolerance": 0.00013759847455546893,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_compression_N",
+      "owner": 808444.4233762323,
+      "checker": 808179.1220801072,
+      "error": -265.3012961250497,
+      "tolerance": 0.16168889467524644,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-rigid-m6",
+      "field": "local_peak_sensitivity",
+      "owner": 1.1261310046872637,
+      "checker": 1.1261741129119704,
+      "error": 4.310822470676712e-05,
+      "tolerance": 2.3522620093745274e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/compression_axial",
+      "owner": 4.697962393436108,
+      "checker": 4.698063953394766,
+      "error": 0.00010155995865801515,
+      "tolerance": 9.495924786872216e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/euler",
+      "owner": 4.324473045410588,
+      "checker": 4.32451519806209,
+      "error": 4.215265150175895e-05,
+      "tolerance": 8.748946090821176e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/local_axial",
+      "owner": 1.352996540405337,
+      "checker": 1.3530257893139488,
+      "error": 2.9248908611778646e-05,
+      "tolerance": 2.805993080810674e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.235176366802241,
+      "checker": 3.235307080088968,
+      "error": 0.00013071328672698002,
+      "tolerance": 6.570352733604482e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.826573697366808,
+      "checker": 3.8267230143833513,
+      "error": 0.0001493170165431934,
+      "tolerance": 7.753147394733616e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/global_perfect_linear",
+      "owner": 2.0471334034237882,
+      "checker": 2.0461935353568275,
+      "error": -0.0009398680669607806,
+      "tolerance": 4.1942668068475765e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/global_k0p2",
+      "owner": 0.4094266806847577,
+      "checker": 0.4092387070713655,
+      "error": -0.00018797361339217833,
+      "tolerance": 9.188533613695154e-08,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.3529965404043838,
+      "checker": 1.3530257893133506,
+      "error": 2.924890896682797e-05,
+      "tolerance": 2.8059930808087676e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.3529965404043838,
+      "checker": 1.3530257893133506,
+      "error": 2.924890896682797e-05,
+      "tolerance": 2.8059930808087676e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "least_screened_SF",
+      "owner": 0.4094266806847577,
+      "checker": 0.4092387070713655,
+      "error": -0.00018797361339217833,
+      "tolerance": 9.188533613695154e-08,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 397811269.07131135,
+      "checker": 397606112.9345753,
+      "error": -205156.13673603535,
+      "tolerance": 79.56225382426226,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 924456630.3459938,
+      "checker": 924410605.3951554,
+      "error": -46024.95083832741,
+      "tolerance": 184.89132607919876,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 6692.441721260311,
+      "checker": 6689.835157683103,
+      "error": -2.6065635772083624,
+      "tolerance": 0.0013384983442520622,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3.3466372588819946e-07,
+      "checker": 2.53743122515248e-07,
+      "error": -8.092060337295144e-08,
+      "tolerance": 1.0000066932745177e-08,
+      "interpretation": "Released-end numerical residue"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 2.625217803142732e-07,
+      "checker": 1.5962427823978942e-07,
+      "error": -1.0289750207448378e-07,
+      "tolerance": 1.0000052504356063e-08,
+      "interpretation": "Released-end numerical residue"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_compression_N",
+      "owner": 812585.1880328903,
+      "checker": 812567.6220484944,
+      "error": -17.56598439591471,
+      "tolerance": 0.16251704760657806,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SCALAR-CHECK",
+      "row": "film-pinned-m6",
+      "field": "local_peak_sensitivity",
+      "owner": 1.1264167399330658,
+      "checker": 1.1264753682334439,
+      "error": 5.862830037806077e-05,
+      "tolerance": 2.3528334798661317e-07,
+      "interpretation": "Film material-direction/model reproducibility unresolved"
+    },
+    {
+      "source": "SUPPLEMENT-CHECK",
+      "row": "nonlinear-m6",
+      "field": "critical_midpoint",
+      "owner": 5.524841711877297,
+      "checker": 5.524791779355343,
+      "error": -4.9932521953621745e-05,
+      "tolerance": 0.0,
+      "interpretation": "Independent nonlinear model midpoint; inspect bracket overlap"
+    },
+    {
+      "source": "SUPPLEMENT-CHECK",
+      "row": "nonlinear-m12",
+      "field": "critical_midpoint",
+      "owner": 5.4498771379747915,
+      "checker": 5.449871395253925,
+      "error": -5.7427208668414664e-06,
+      "tolerance": 0.0,
+      "interpretation": "Independent nonlinear model midpoint; inspect bracket overlap"
+    },
+    {
+      "source": "SUPPLEMENT-CHECK",
+      "row": "nonlinear-m24",
+      "field": "critical_midpoint",
+      "owner": 5.430902211666655,
+      "checker": 5.430911824412611,
+      "error": 9.612745955678292e-06,
+      "tolerance": 0.0,
+      "interpretation": "Independent nonlinear model midpoint; inspect bracket overlap"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "m6-lower",
+      "field": "normalized_tangent_minimum",
+      "owner": 1.5113252579190598e-06,
+      "checker": -6.577949684135472e-06,
+      "error": -8.089274942054533e-06,
+      "tolerance": null,
+      "interpretation": "Different finite-rotation formulation; sign differs"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "m6-upper",
+      "field": "normalized_tangent_minimum",
+      "owner": -1.3931729420221058e-05,
+      "checker": -2.2022078165239828e-05,
+      "error": -8.09034874501877e-06,
+      "tolerance": null,
+      "interpretation": "Different finite-rotation formulation; sign matches"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "m12-lower",
+      "field": "normalized_tangent_minimum",
+      "owner": 1.0748885912462023e-05,
+      "checker": 8.742641615093851e-06,
+      "error": -2.0062442973681718e-06,
+      "tolerance": null,
+      "interpretation": "Different finite-rotation formulation; sign matches"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "m12-upper",
+      "field": "normalized_tangent_minimum",
+      "owner": -4.378213525722263e-06,
+      "checker": -6.385753673929876e-06,
+      "error": -2.007540148207613e-06,
+      "tolerance": null,
+      "interpretation": "Different finite-rotation formulation; sign matches"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "m24-lower",
+      "field": "normalized_tangent_minimum",
+      "owner": 1.029507038983201e-05,
+      "checker": 9.851944038621123e-06,
+      "error": -4.431263512108871e-07,
+      "tolerance": null,
+      "interpretation": "Different finite-rotation formulation; sign matches"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "m24-upper",
+      "field": "normalized_tangent_minimum",
+      "owner": -3.0377094915858067e-06,
+      "checker": -3.4819826610271893e-06,
+      "error": -4.442731694413826e-07,
+      "tolerance": null,
+      "interpretation": "Different finite-rotation formulation; sign matches"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "derived nonlinear prose",
+      "field": "fine_nonlinear_mesh_change_fraction",
+      "owner": -0.0034817163447444788,
+      "checker": -0.00347890243021598,
+      "error": 2.8139145284988842e-06,
+      "tolerance": null,
+      "interpretation": "Arithmetic derived from different bracket midpoints; not an additional independent defect"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "derived nonlinear prose",
+      "field": "m24_k0p2_nonlinear_sensitivity",
+      "owner": 1.0861804423333312,
+      "checker": 1.0861823648825222,
+      "error": 1.922549190958023e-06,
+      "tolerance": null,
+      "interpretation": "Arithmetic derived from different bracket midpoints; not an additional independent defect"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "derived nonlinear prose",
+      "field": "printed_nonlinear_mesh_change_percent",
+      "owner": -0.3482,
+      "checker": -0.347890243021598,
+      "error": 0.00030975697840202043,
+      "tolerance": 5e-05,
+      "interpretation": "Arithmetic derived from different bracket midpoints; not an additional independent defect"
+    },
+    {
+      "source": "NONLINEAR-CHECK",
+      "row": "derived nonlinear prose",
+      "field": "printed_m24_k0p2_nonlinear_sensitivity",
+      "owner": 1.08618,
+      "checker": 1.0861823648825222,
+      "error": 2.364882522254419e-06,
+      "tolerance": 5e-07,
+      "interpretation": "Arithmetic derived from different bracket midpoints; not an additional independent defect"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "m6 / Perfect nonlinear first sampled loss",
+      "field": "table-3",
+      "owner": 5.524841712,
+      "checker": 5.524791779355343,
+      "error": -4.9932644656358605e-05,
+      "tolerance": 5.01e-10,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "m12 / Perfect nonlinear first sampled loss",
+      "field": "table-3",
+      "owner": 5.449877138,
+      "checker": 5.449871395253925,
+      "error": -5.742746075121374e-06,
+      "tolerance": 5.01e-10,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "m24 / Perfect nonlinear first sampled loss",
+      "field": "table-3",
+      "owner": 5.430902212,
+      "checker": 5.430911824412611,
+      "error": 9.61241261077106e-06,
+      "tolerance": 5.01e-10,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "ideal rigid / Perfect linear λ",
+      "field": "table-4",
+      "owner": 7.155002,
+      "checker": 7.151119777416943,
+      "error": -0.0038822225830568158,
+      "tolerance": 5.00001e-07,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "ideal rigid / Illustrative 0.2 × λ",
+      "field": "table-4",
+      "owner": 1.431,
+      "checker": 1.4302239554833887,
+      "error": -0.0007760445166113961,
+      "tolerance": 5.00001e-07,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "ideal rigid / Least declared screen",
+      "field": "table-4",
+      "owner": 1.218006,
+      "checker": 1.21804608480372,
+      "error": 4.008480372008627e-05,
+      "tolerance": 5.00001e-07,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "ideal pinned / Perfect linear λ",
+      "field": "table-4",
+      "owner": 2.047133,
+      "checker": 2.0461935353568275,
+      "error": -0.0009394646431726272,
+      "tolerance": 5.00001e-07,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "ideal pinned / Illustrative 0.2 × λ",
+      "field": "table-4",
+      "owner": 0.409427,
+      "checker": 0.4092387070713655,
+      "error": -0.00018829292863448144,
+      "tolerance": 5.00001e-07,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    },
+    {
+      "source": "CARD-TABLE-CHECK",
+      "row": "ideal pinned / Least declared screen",
+      "field": "table-4",
+      "owner": 0.409427,
+      "checker": 0.4092387070713655,
+      "error": -0.00018829292863448144,
+      "tolerance": 5.00001e-07,
+      "interpretation": "Printed-cell comparison duplicates the underlying physical difference; no independent error count"
+    }
+  ],
+  "count": 57,
+  "deduplication_note": "Table, source-field, and eigenvalue rows intentionally overlap; counts are comparison records, not distinct defects"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "sens-nu0.03-L-a1",
+  "started_at": "2026-10-20T11:38:24.715633+00:00",
+  "cores": 4,
+  "mem": "2G",
+  "argv": [
+    "ref-81e2f24e4e80426e80f0",
+    "unpublished-local-ref:6b66f99ebd630954",
+    "run",
+    "--cores",
+    "4",
+    "--mem",
+    "2G",
+    "--timeout",
+    "7200",
+    "--",
+    "ref-81e2f24e4e80426e80f0",
+    "evidence/f6ce7fa5c20c3376-run_job.py",
+    "sens-nu0.03-L-a1",
+    "--inside"
+  ],
+  "deck_sha256": "fb805c017ed8ea924f1f5e520eb4766b23cd5fb3a83d9a09675394c8c1ce2670",
+  "runner_sha256": "f6ce7fa5c20c3376f588db21abfd8b2698dbd3c10eefe4e31f2fb5a0432b98e5",
+  "available_before": "MemTotal:       94060460 kB\nMemFree:        24694968 kB\nMemAvailable:   43756848 kB\nBuffers:         1923584 kB\nCached:         16578200 kB\nSwapCached:        16772 kB\nActive:         22232432 kB\nInactive:       22366284 kB\nActive(anon):   21321744 kB\nInactive(anon): 13458072 kB\nActive(file):     910688 kB\nInactive(file):  8908212 kB\nUnevictable:         648 kB\nMlocked:             648 kB\nSwapTotal:      25165816 kB\nSwapFree:           1740 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:             14632 kB\nWriteback:             0 kB\nAnonPages:      26080976 kB\nMapped:          1416332 kB\nShmem:           8708548 kB\nKReclaimable:   10151872 kB\nSlab:           14102100 kB\nSReclaimable:   10151872 kB\nSUnreclaim:      3950228 kB\nKernelStack:       67488 kB\nPageTables:       247920 kB\nSecPageTables:     36076 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    72196044 kB\nCommitted_AS:   109677056 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      353572 kB\nVmallocChunk:          0 kB\nPercpu:           137856 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   1003520 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:    135168 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:          239020 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    77801032 kB\nDirectMap2M:     8853504 kB\nDirectMap1G:    11534336 kB\n",
+  "psi_before": "some avg10=0.08 avg60=0.32 avg300=0.19 total=3081690369\nfull avg10=0.08 avg60=0.32 avg300=0.19 total=3006661551\n",
+  "ended_at": "2026-10-20T11:38:39.278704+00:00",
+  "elapsed_s": 14.562813120894134,
+  "returncode": 201
+}

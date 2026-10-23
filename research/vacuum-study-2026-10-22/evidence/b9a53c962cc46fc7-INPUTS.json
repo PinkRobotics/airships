@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-004",
+  "status": "ESTIMATE_PENDING_UNA",
+  "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+  "curve": "rho = 0.14 + 3.2/lambda^2 for lambda > 2",
+  "mapping": "t_eq = (6*tf*d^2)^(1/3), matching inherited sandwich bending stiffness D=E*tf*d^2/(2*(1-nu^2)) to monocoque D=E*t^3/(12*(1-nu^2))",
+  "prior_knockdown": 0.2,
+  "source_003_results": "evidence/df5d268297e342bd-mainline003.json"
+}

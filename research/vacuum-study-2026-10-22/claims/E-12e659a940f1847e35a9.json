@@ -1,0 +1,40 @@
+{
+  "id": "E-12e659a940f1847e35a9",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-12e659a940f1847e35a9",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/3",
+    "row_id": "C055-04",
+    "fields": {
+      "id": "C055-04",
+      "title": "Stress diagnostics and cap-edge crossings are less reproducible than pressure maxima",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "All 23 named pressure maxima reproduce within 0.001127%; stress-crossing differences reach 1.139% for inner-face yield and 2.551% for core crush. Refining the 5m Be cap from 256x(1f,4c,1f) to 512x(2f,6c,2f) moves inner yield 58.245971 to 52.674434 kPa and crush 59.318692 to 53.785270 kPa, while the pressure maximum stays stable.",
+      "proposed_fix": "Pin stress sampling/rotation conventions; retain the edge as unresolved. Model a finite reinforced edge and check local convergence before using an edge allowable."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Stress diagnostics and cap-edge crossings are less reproducible than pressure maxima",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

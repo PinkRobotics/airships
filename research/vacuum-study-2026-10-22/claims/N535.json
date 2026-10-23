@@ -1,0 +1,86 @@
+{
+  "id": "N535",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N535",
+    "report": "rpt-ref-a30a669ed3e245f1473b",
+    "card": "rpt-ref-a30a669ed3e245f1473b",
+    "file": "evidence/f4fb2c3464ed42c3-NFI.json",
+    "snapshot": "evidence/f4fb2c3464ed42c3-NFI.json",
+    "source_sha256": "f4fb2c3464ed42c3055c0208cd4dd590f9e9333f20272191c2dd501a57539537",
+    "source_json_pointer": "/findings/7",
+    "row_id": "NFI-032-CHECK-DESIGN033",
+    "fields": {
+      "id": "NFI-032-CHECK-DESIGN033",
+      "status": "projection",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "PROJECTION",
+      "reported": "The 0.33 design coefficient is inverted as an illustrative wave amplitude.",
+      "checked": "The arithmetic is correct but this is not a measured defect distribution or proof of why the empirical knockdown has that value. The owner already tags these rows PROJECTION.",
+      "followup": "Keep the existing projection label and source-test limitations.",
+      "source_audit_ids": [
+        "NASA-DESIGN033"
+      ],
+      "owner_nfi_ids": [
+        "design-0-33-is-not-a-measured-wave"
+      ]
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "{\"id\": \"NFI-032-CHECK-DESIGN033\", \"status\": \"projection\", \"disposition\": \"non_blocking\", \"blocks_progress\": false, \"tag\": \"PROJECTION\", \"reported\": \"The 0.33 design coefficient is inverted as an illustrative wave amplitude.\", \"checked\": \"The arithmetic is correct but this is not a measured defect distribution or proof of why the empirical knockdown has that value. The owner already tags these rows PROJECTION.\", \"followup\": \"Keep the existing projection label and source-test limitations.\", \"source_audit_ids\": [\"NASA-DESIGN033\"], \"owner_nfi_ids\": [\"design-0-33-is-not-a-measured-wave\"]}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/534"
+    },
+    {
+      "report": "rpt-ref-a30a669ed3e245f1473b",
+      "artifact": "evidence/f4fb2c3464ed42c3-NFI.json",
+      "snapshot": "evidence/f4fb2c3464ed42c3-NFI.json",
+      "sha256": "f4fb2c3464ed42c3055c0208cd4dd590f9e9333f20272191c2dd501a57539537",
+      "bytes": 16686,
+      "selector": "/findings/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-a30a669ed3e245f1473b",
+          "artifact": "evidence/f4fb2c3464ed42c3-NFI.json",
+          "snapshot": "evidence/f4fb2c3464ed42c3-NFI.json",
+          "sha256": "f4fb2c3464ed42c3055c0208cd4dd590f9e9333f20272191c2dd501a57539537",
+          "bytes": 16686,
+          "selector": "/findings/7"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/534"
+          }
+        ]
+      }
+    }
+  ]
+}

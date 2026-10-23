@@ -1,0 +1,70 @@
+{
+  "id": "N157",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N157",
+    "report": "rpt-ref-44f9940325e236cb80b3",
+    "card": "MAINLINE-013",
+    "file": "evidence/fe5e5ec3daad9605-NFI.json",
+    "row_id": "NFI-013-CRIMP",
+    "fields": {
+      "id": "NFI-013-CRIMP",
+      "issue": "On the least-factor split no measured core at or below 10 kg/m3 reaches the crimp shear modulus.",
+      "numbers": "Need 2.52e+06 Pa at 1 to 9.6 kg/m3; best meza2014-hollow-alumina-octet-lightest-E margin 0.735 (gap 1.36) on the derived Gc. On the buckling split three alumina lattice points pass (0.3, 5.3, 5.5 kg/m3), the 0.3 point on a 6 m core.",
+      "closes_when": "a measured Gc above the need on the row the design uses."
+    }
+  },
+  "claim": "On the least-factor split no measured core at or below 10 kg/m3 reaches the crimp shear modulus.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/156"
+    },
+    {
+      "report": "rpt-ref-44f9940325e236cb80b3",
+      "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+      "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+      "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+      "bytes": 9230,
+      "selector": "source row ID: NFI-013-CRIMP"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-44f9940325e236cb80b3",
+          "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+          "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+          "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+          "bytes": 9230,
+          "selector": "source row ID: NFI-013-CRIMP"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/156"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "N630",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N630",
+    "report": "rpt-ref-7427b639691bfaf71f29",
+    "card": "rpt-ref-7427b639691bfaf71f29",
+    "file": "evidence/fcb27bf7e1383d15-NFI.json",
+    "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+    "source_sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+    "source_json_pointer": "/prior_032_findings_retained/5",
+    "row_id": "NFI-032-CHECK-SHOP-METRIC",
+    "fields": {
+      "id": "NFI-032-CHECK-SHOP-METRIC",
+      "status": "open",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "Commercial panel bows and core flatness are compared to the waviness amplitudes; Be class values were not read.",
+      "checked": "Quoted product numbers reproduce, but geometry, material, ± convention, hold-down, wavelength and load state differ. The primary SAE public record does not verify the three-class claim or give flatness numbers.",
+      "followup": "Obtain Be-specific finished/bonded-panel metrology near the relevant wavelengths; retain unverified SAE details as such.",
+      "source_audit_ids": [
+        "FLATIRON",
+        "HONYLITE",
+        "QC",
+        "INDY",
+        "SAE",
+        "HEXCEL-TELEGRAPH"
+      ],
+      "owner_nfi_ids": [
+        "shop-flatness-is-not-delta"
+      ]
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "{\"id\": \"NFI-032-CHECK-SHOP-METRIC\", \"status\": \"open\", \"disposition\": \"non_blocking\", \"blocks_progress\": false, \"tag\": \"QUESTIONABLE\", \"reported\": \"Commercial panel bows and core flatness are compared to the waviness amplitudes; Be class values were not read.\", \"checked\": \"Quoted product numbers reproduce, but geometry, material, ± convention, hold-down, wavelength and load state differ. The primary SAE public record does not verify the three-class claim or give flatness numbers.\", \"followup\": \"Obtain Be-specific finished/bonded-panel metrology near the relevant wavelengths; retain unverified SAE details as such.\", \"source_audit_ids\": [\"FLATIRON\", \"HONYLITE\", \"QC\", \"INDY\", \"SAE\", \"HEXCEL-TELEGRAPH\"], \"owner_nfi_ids\": [\"shop-flatness-is-not-delta\"]}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/629"
+    },
+    {
+      "report": "rpt-ref-7427b639691bfaf71f29",
+      "artifact": "evidence/fcb27bf7e1383d15-NFI.json",
+      "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+      "sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+      "bytes": 21459,
+      "selector": "/prior_032_findings_retained/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-7427b639691bfaf71f29",
+          "artifact": "evidence/fcb27bf7e1383d15-NFI.json",
+          "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+          "sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+          "bytes": 21459,
+          "selector": "/prior_032_findings_retained/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/629"
+          }
+        ]
+      }
+    }
+  ]
+}

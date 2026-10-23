@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "at": "2026-10-18T04:28:18-07:00",
+  "incoming": {
+    "path": "unpublished-local-ref:c97b7f7c8aa67bc1",
+    "sha256": "274fa471ee00f6cc78f11c6e0aa71e12808a84e2d59d6dc446dc94744eba0ab8",
+    "bytes": 9800
+  },
+  "receipt": {
+    "ingested": "2026-10-18T04:14:08-07:00",
+    "authored_at": "ABSENT"
+  },
+  "status": "COMPLETE_SOURCE_PRESENT; TEST_COVERAGE_COMPLETION_REQUIRED; HISTORICAL_STOP_BREACH_RETAINED",
+  "source": {
+    "commit": "cc69f2e1d00191b2705efee4a848ab95f5e8de8f",
+    "tree": "58eb05f7ad53fc9980646de77e53798dee8502d4",
+    "parent": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "worktree": "unpublished-local-ref:22a3a820db0fc30e",
+    "clean_at_intake": true,
+    "main_at_intake": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "fetch": false,
+    "sixteen_source_paths": [
+      {
+        "path": "dist.manifest",
+        "sha256": "f7d738f6b36afd9afb8a82047bf7aae97b629d763dc7f50b700532a6d61ad66c",
+        "bytes": 5147,
+        "blob_oid": "269cf0e530c12b390ae5e90bf5ba61bd7b527787"
+      },
+      {
+        "path": "ops/systemd/user/vacuum-float-heartbeat.service",
+        "sha256": "82cac607f384dd7696df5ef9a22f2d23858d79fc6cf8925e54ce118335e87ac2",
+        "bytes": 2394,
+        "blob_oid": "da871b69ab4e89030b44d839c2f3f7f830a6cd6e"
+      },
+      {
+        "path": "ops/systemd/user/vacuum-float-heartbeat.timer",
+        "sha256": "480eefab1f8ba2184091a92c7fbac2e1656f967d324a270f4fa3c99aee88b0ea",
+        "bytes": 492,
+        "blob_oid": "f32a9276faf8f7cf9c98dc00dc15ec20957038ef"
+      },
+      {
+        "path": "research/analysis/float-claims/programme-navigation.json",
+        "sha256": "ee35d9572afa346a523028eb4bd55d693ede9c5c4b9005695b9b0fab59c1be9a",
+        "bytes": 4847,
+        "blob_oid": "947d3f9fa1db4714dcf94e1d649780b4dce5e440"
+      },
+      {
+        "path": "research/analysis/float-claims/vacuum-float-machinery-1017.json",
+        "sha256": "4d5646913f148013d5c6f2d4b303d7ab3dbcd88c58132cbdb853b76845eec5aa",
+        "bytes": 2998,
+        "blob_oid": "0c293bd6791cb45e344f793f75d8077b4a39ca7c"
+      },
+      {
+        "path": "research/program/POINTS.md",
+        "sha256": "239ab8870f6c0c420e77bf4143d61781d9f4c845deac308afe505f8cc8780115",
+        "bytes": 5035,
+        "blob_oid": "2207b4f75dbc0a94af0144271fe6f86455966404"
+      },
+      {
+        "path": "research/program/PROGRAM.md",
+        "sha256": "77530f92b81addf52212d90dafc19ee658148f1b848f55edc00acb8171adaf38",
+        "bytes": 11100,
+        "blob_oid": "cf8477e506d42f2b581af38d21400822e1900cd9"
+      },
+      {
+        "path": "research/program/vacuum-float/HEARTBEAT.md",
+        "sha256": "6921caa0566cb6b03395fae0b61f4ab320300e0f873fde54cee0c26799d0e2b4",
+        "bytes": 6245,
+        "blob_oid": "344ad8c8bfcb9ece4a343a7235fd104aa3d9fbaa"
+      },
+      {
+        "path": "research/program/vacuum-float/OPERATIONS.md",
+        "sha256": "724d6c4d678bba1f5d50280326e87bfb7336e0f873944387301ccad93dd04fb0",
+        "bytes": 6122,
+        "blob_oid": "ac242381e1a2623b764c8755f99a3f446a39eee2"
+      },
+      {
+        "path": "research/program/vacuum-float/SCHEMA.md",
+        "sha256": "3dd075541667b0574ec1b4d3df121939d76c96ba61936ec339aa646f283abfb2",
+        "bytes": 12319,
+        "blob_oid": "b18f9e3c2f68f65a782ecf882616b2e69e3e5ca2"
+      },
+      {
+        "path": "research/program/vacuum-float/schema.json",
+        "sha256": "6de9a9fa6a97697196c3f94fda65ee425f85704ae5f31e1931d96801dd3166f9",
+        "bytes": 10108,
+        "blob_oid": "ca67cab08a7ddbfbe06fe559cafa9eb481cf8230"
+      },
+      {
+        "path": "research/program/vacuum-float/state-initial.json",
+        "sha256": "05a6d3544742fa060afd105f34302be0ace4a6c37cf427290a8f8f1f6e7f2f8b",
+        "bytes": 2446,
+        "blob_oid": "b75dac1810fdf6da96a372e9baec7118a08100ea"
+      },
+      {
+        "path": "tools/float_post.py",
+        "sha256": "a58ac313d1592a32f8cc79bb251119f96e1d50b5510a5e41614f5aca436c9836",
+        "bytes": 17870,
+        "blob_oid": "b86a795068a67fc88411627c87920b715f05a176"
+      },
+      {
+        "path": "tools/float_progress.py",
+        "sha256": "db9c79744261b4cce5613ed7d64e44221eb30fee61cd567ed5adb63e82fd8bb3",
+        "bytes": 85384,
+        "blob_oid": "966141a9d153066c547d64dcf17781e5c2d658c0"
+      },
+      {
+        "path": "tools/tests/test_float_post.py",
+        "sha256": "0eb0e6704f37f04c7b2de2b3041082a34ee295e4b94647819e844e062bdba556",
+        "bytes": 25567,
+        "blob_oid": "790eeee9ec0782ebaff3e5dfe9d76b93f0607ddf"
+      },
+      {
+        "path": "tools/tests/test_float_progress.py",
+        "sha256": "c610ce46a4d28f2e34f6c83989f1607f6f8cdf7ad5cb8f5ad4f8a9f17f105831",
+        "bytes": 77950,
+        "blob_oid": "4c8f4d1dc5a7d1e7bfdf847ccfa162a0ac0bedc4"
+      }
+    ],
+    "preserved_historical_stale_plants_receipt": {
+      "path": "unpublished-local-ref:88cb2aea4b8d3b27",
+      "sha256": "ff1e5f8c964344bd32daf90a2fdc7a046c58be0da3e463ff586b19c772773302",
+      "bytes": 6028
+    }
+  },
+  "technical": [
+    "Static review found no additional production D2/D4 blocker. Recursive exact JSON types/key presence/meaningful absence and D4 consumed-field validation are implemented. Schema restored and corrected. This is not landing or activation verification.",
+    "The inherited missing-field test accumulates corruptions; an earlier missing episode_key can mask later card_deadline/line assertions. Reset to a fresh valid document for every case and assert the named field.",
+    "The new D4 card_deadline test skips its missing-key case. Exercise omission through _fail_closed_case, preserving zero synthetic calls and byte-identical delivery/cursor evidence.",
+    "Absent-attempts positive currently uses an already admitted item. Use a pending item and assert exactly one extra fake post, the same item ID, admission success and attempts == 1.",
+    "D2 priority=True versus 5 does not isolate bool/int equality. Use links_none=True versus stored 1. Replace silently skipped seq_like_nested with a supported authored nested container such as links, deep-copying before mutation. Retain valid equality and 5/5.0 regressions.",
+    "Existing negatives prove zero adapter calls and delivery/cursor byte preservation, not separately snapshotted per-item adapter/admission records. Preserve this evidence limit; do not claim unmeasured snapshots."
+  ],
+  "execution": {
+    "logs": {
+      "u3rebuilt-inv1-counterexample.log": {
+        "path": "unpublished-local-ref:d127a248fdf61e96",
+        "sha256": "6b2ed1ea5b1444247ef0758c7240da2905a77930b9b58022324651bb61a3f44a",
+        "bytes": 20585
+      },
+      "u3rebuilt-inv2-fixed.log": {
+        "path": "unpublished-local-ref:85974bfcf0fa051d",
+        "sha256": "a72712c21311dbd0e4335198d205dcd8dda8b605bbbc3da92d9f9c185771e909",
+        "bytes": 18906
+      },
+      "u3rebuilt-inv3-final-suite.log": {
+        "path": "unpublished-local-ref:e009dabf3bfb040d",
+        "sha256": "2478c128d9f3713df351d10ec1a2639a138474d5fc5b72f86ae1fd260781bc4d",
+        "bytes": 78382
+      },
+      "u3rebuilt-lint.log": {
+        "path": "unpublished-local-ref:5685d421828e8008",
+        "sha256": "3f23817ada4f3e0bc4e6ad7cbc6c7b94e1bb3ac2dd1d16d68029751bc015dbbe",
+        "bytes": 1714
+      },
+      "u3rebuilt-governance.log": {
+        "path": "unpublished-local-ref:6c2bdd363c6e8ad7",
+        "sha256": "41c770c4478531fa2aa6419e6c90b82e3a0c71d99ff101f31dfa4009e82d6fcd",
+        "bytes": 334
+      },
+      "budget-u3rebuilt-1018.txt": {
+        "path": "unpublished-local-ref:85d4efc9600be001",
+        "sha256": "793cf827c27af0546c52ddb22994c39ca27fbea7b1bedd91002c05bb645284c3",
+        "bytes": 767
+      },
+      "ledger-u3rebuilt-1018.txt": {
+        "path": "unpublished-local-ref:b9432a68632e6082",
+        "sha256": "7d8c51bc286f9cceaaa833e84565e3e1aabb745093aea5c9cca5691f145c8cc2",
+        "bytes": 1449
+      }
+    },
+    "tests": [
+      {
+        "invocation": 1,
+        "tests": 12,
+        "failures": 8,
+        "positive_controls_passed": 4,
+        "seconds": "0.246",
+        "rc": 1
+      },
+      {
+        "invocation": 2,
+        "tests": 12,
+        "failures": 2,
+        "seconds": "0.290",
+        "rc": 1,
+        "disposition": "FIRST_BLOCKER. Harness defects do not create an exception to the explicit stop rule."
+      },
+      {
+        "invocation": 3,
+        "tests": 101,
+        "seconds": "3.330",
+        "rc": 0,
+        "disposition": "Retained useful successful evidence obtained after the stop boundary; no retrospective authorization."
+      }
+    ],
+    "lint": "RC0 on exact cc69; 102 modules/29 linter checks, 1127 commits/97 attestation exemptions/12 Builder tests. Synthetic missing-Builder messages are test fixtures.",
+    "stop_breach": "Prior brief explicitly required stopping on unexpected harness failure or fixed/final failure. Continuing inv3, governance and lint after inv2 was out of scope. Three is a count ceiling, not permission to continue after failure. No production-only exception.",
+    "controls": "Inv1/2/3 and lint ordinary logs record cgroup membership and cpu.max=100000 100000, memory.max=8589934592, memory.swap.max=0, pids.max=512 before payload. Governance log records a scope and sibling unit-run name but no actual values. Universal measured-control claim unsupported; actual governance descendant containment UNVERIFIED.",
+    "closure": "DEVNULL/thread settings/timeout and complete descendant closure not independently established by retained logs. Stop commands appear without results or empty-cgroup receipts. Home fixtures are evidenced; exhaustive cleanup is not.",
+    "node": "Pass used unpublished-local-ref:0ecf856128fb8282, outside B seat workspace/config home; its seat-private characterization is unsupported. No claim that B installed it. The previously authorized B-private Node exists and is pinned for future use.",
+    "node_private_binary": {
+      "path": "unpublished-local-ref:4a52f7a03e6a2e8b",
+      "sha256": "fde6a4bf8d0562f7751d1a2d6cb9b417c4cfe107bbcb0aa3e9a24e125e348f48",
+      "bytes": 124827920
+    },
+    "node_private_retained_receipt": {
+      "path": "unpublished-local-ref:706c88ca30abb1a3",
+      "sha256": "68bced6db6a358f470761168abcf34a557576e954b0cf4bf539c3f961c1fbfd7",
+      "bytes": 1521
+    }
+  },
+  "governance": {
+    "audit": {
+      "path": "unpublished-local-ref:5040612d5c9834a3",
+      "sha256": "8d7a9364f6f60d0332f41adb9fa3cb83ca9796e3908cd267032b120f5c6db212",
+      "bytes": 11832
+    },
+    "chain_rc": 0,
+    "judgment_disposition": "UNPARSED",
+    "judgment_reason": "JSONDecodeError: Invalid control character at: line 38 column 101 (char 3267)",
+    "human_decision": "approve",
+    "override_count": 0,
+    "snapshot_valid": true,
+    "snapshot_current": true,
+    "model_calls": 1,
+    "analysis_seconds": "33.744",
+    "derived_files_not_analysed": 2,
+    "completed_at": "",
+    "ruling": "UNPARSED is an intentional annotation, not a gate, under CO LAND815. Do not call this a governance refusal, bypass or tooling fault; do not seek a repeat analysis. Structural snapshot/provenance binds cc69. Zero parsed findings is not a usable content judgment; empty completed_at retained as a record limit.",
+    "authority": [
+      {
+        "path": "unpublished-local-ref:209035347d54ec79",
+        "sha256": "779fc6b9b12552024412cff15db96c70693d841d355ec3afc021937a0dee5134",
+        "bytes": 1377
+      },
+      {
+        "path": "unpublished-local-ref:a9496fcd9deb2da5",
+        "sha256": "bb769d8a9c9cc4f852264d001427c163f7e639bad5f8702056c382ae367faf28",
+        "bytes": 2149
+      }
+    ],
+    "principal_correction": "Preliminary commentary considered a parsed-judgment gate before checking LAND815. That proposal is withdrawn before any filing. No new parsed-judgment gate or full-source rebuild is imposed."
+  },
+  "closed_budget": {
+    "grant": "ord-sciences-g1-u3-complete-rebuilt-source-once-1018",
+    "allocation_seconds": 3600,
+    "start_utc": "2026-10-18T11:02:16.493583+00:00",
+    "start_monotonic": "1936861.673903564",
+    "final_utc": "2026-10-18T11:14:07.895757+00:00",
+    "final_monotonic": "1937573.076078182",
+    "elapsed_seconds": "711.402174618",
+    "opening_seconds": 10,
+    "tail_seconds": 25,
+    "charged_seconds": "746.402174618",
+    "retired_seconds": "2853.597825382",
+    "qualification": "Aggregate and cumulative endpoints fit. Phase durations UNVERIFIED: approximate offsets lack paired phase/stop/cleanup boundaries. Final-after-state is owner assertion. Old allowance CLOSED, no transfer, and later admission is not automatically active work."
+  },
+  "standing": "All older U3 breaches and unknowns remain. Old f164/285 evidence and stale main plants receipt preserved. Full gates/signature/landing/activation held; CO Route1 future only. No production service, native/scientific work or further Q0 granted. A45/map0 unchanged."
+}

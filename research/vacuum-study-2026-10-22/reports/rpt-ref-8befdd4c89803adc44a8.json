@@ -1,0 +1,106 @@
+{
+  "id": "rpt-ref-8befdd4c89803adc44a8",
+  "unit": "vacuum-mainline026b-p3-bays-1020",
+  "at": "2026-10-20T02:23:13.510664-07:00",
+  "body": "QUESTIONABLE. MAINLINE-026b rigid linear factors: frequency 4, 5.254644 versus continuum 6.193381 (15.16% lower); frequency 2, 2.183661 versus 6.876245 (68.24% lower). Last mesh changes are below 0.0161%. Frequency 6 inherited 6.465222 versus 6.127640. Discrete and continuum already depart at the 3 m bay, strongly at 6 m. Ball-pin internal mechanisms: 1080/480/120, excluding six rigid motions. Discrete vehicle masses: 4950.843/4588.051/4399.690 kg. Remaining payload: -61.401/301.391/301.814 kg, carrying each source allowance and the frequency-2 sag debit; frequency-4 sag remains uncharged. Open force/rise supplement: frequency-6 mean compression 550.519 kN, five-valent incident means 460.622 kN. Rise eightfold retains 538.899 kN and produces 4.248 GPa elastic bending; no eightfold thrust reduction. New nonlinear crossings 5.082444/2.218113 are NOT verified first-instability loads: nearest-zero selection can skip an unstable family, visibly ambiguous at frequency 4. Top-level first-loss fields are null; NFI-026B-04 requires an independently authorized check. Sixteen admitted jobs succeeded and released. One optional baseline static refinement was refused by host memory admission; nothing started, no retry or subsequent scientific launch. The paired m12 rise comparison is complete. Ten package checks pass; 164 manifest files. No certification; stop and await robotics.",
+  "artifacts": [
+    {
+      "path": "evidence/0aafebb6ce830b94-CARD.md",
+      "sha256": "0aafebb6ce830b94d4bbb82e0c3c019cc9953d9e3344652dab2c40f9b0b9e23d",
+      "bytes": 9795
+    },
+    {
+      "path": "evidence/18ef4273eaf5516c-RESULTS.json",
+      "sha256": "18ef4273eaf5516c00c21d9d98dc53ffbfe90d158539e1e8eacdcd568c56f387",
+      "bytes": 512895
+    },
+    {
+      "path": "evidence/32c8b5f76a7daa33-INPUTS.json",
+      "sha256": "32c8b5f76a7daa33ec17f265ce29c37c15ba3365e40660d88f7da8e94799972d",
+      "bytes": 11849
+    },
+    {
+      "path": "evidence/a9347de2cea46271-CASES.json",
+      "sha256": "a9347de2cea462712f1c5972a7c79f802086a6893b49abfe2c469fa215222bc5",
+      "bytes": 1198
+    },
+    {
+      "path": "evidence/d90bde67ada2ca77-NFI.json",
+      "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+      "bytes": 5415
+    },
+    {
+      "path": "evidence/0464535b02194307-METHODS.md",
+      "sha256": "0464535b0219430741eb1562f4ee851af03d5072df5a3f5bfc7916cbbe8eb92e",
+      "bytes": 6987
+    },
+    {
+      "path": "evidence/c234c56353d88203-CHECKS.json",
+      "sha256": "c234c56353d882032321852fbb6468d8a7d99137d9bf8bf479a80c435d7fedb6",
+      "bytes": 5254
+    },
+    {
+      "path": "evidence/b95d1ffec9a0a7ac-EXECUTION.json",
+      "sha256": "b95d1ffec9a0a7acd34aa44241819983456d4f10790b42d7e0739623cce4751a",
+      "bytes": 7482
+    },
+    {
+      "path": "evidence/14ff81ea91257bf7-MANIFEST.json",
+      "sha256": "14ff81ea91257bf767507ad0e9a94f20faa75c12ba59922f2ff27e964c108331",
+      "bytes": 28286
+    },
+    {
+      "path": "evidence/5a64b95d02e15a7d-PACKAGE-CHECK.json",
+      "sha256": "5a64b95d02e15a7da563246281e39a9145adc641b7f0b18d85101ff8193e8b7b",
+      "bytes": 1602
+    },
+    {
+      "path": "unpublished-local-ref:9b94d08f0b88b4ae",
+      "sha256": "34f0f5ac7e1ad35656592065f0064f0e8bd611ad0c4f57a016ac3ab64bcdcf8a",
+      "bytes": 25268
+    },
+    {
+      "path": "unpublished-local-ref:2e08238ed2847342",
+      "sha256": "70ffac09650affaa914b64fd0e4c1930cef7792637e7aa5fa97b743b750f360b",
+      "bytes": 394
+    },
+    {
+      "path": "unpublished-local-ref:300c6f0476fcc8e8",
+      "sha256": "1b8e59085192c9700ae7ff1a86865bc8f4f007f6ec7deea26785bb5f22041e80",
+      "bytes": 54307
+    },
+    {
+      "path": "unpublished-local-ref:8cf054a7991f142f",
+      "sha256": "ba7b6af7ace2eae11578f4e6262ec5b671b173d5f554de10ebe8d219830134eb",
+      "bytes": 62534
+    },
+    {
+      "path": "unpublished-local-ref:4222b0587c4b3b78",
+      "sha256": "96a975d95a9c45c8da5a0ce4549bd4b4c8e6a4ce4497704cd52aa1b9b8419877",
+      "bytes": 79707
+    }
+  ],
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "re": "ord-admiral-rr2-mainline026b-bays-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline026b-bays-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline026-continuum-bays-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline026-member-forces-rise-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

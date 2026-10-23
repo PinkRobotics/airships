@@ -1,0 +1,93 @@
+{
+  "id": "N383",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N383",
+    "report": "rpt-ref-58c781cbea9c220eb5b4",
+    "card": "MAINLINE-025",
+    "file": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "source_sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+    "source_json_pointer": "/rows/15",
+    "row_id": "NFI-025-FILM-MARGIN",
+    "fields": {
+      "id": "NFI-025-FILM-MARGIN",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE",
+      "target_transfer": "PROJECTION",
+      "evidence_state": "PROJECTION",
+      "issue": "Optimistic reoptimized SiC point is also limited by inherited film strength and has zero spare float mass.",
+      "factor": {
+        "inherited_film_strength_Pa": 1500000000.0,
+        "film_thickness_m": 8e-05,
+        "film_mass_kg": 97.515,
+        "systems_mass_kg": 50,
+        "payload_or_spare_mass_kg_at_all_mass_limited_optima": 0,
+        "estimated_film_sag_lift_loss_at_spacing_2p04m_fraction": 0.013,
+        "estimated_film_sag_lift_loss_at_spacing_2p04m_kg": 64,
+        "estimated_film_sag_lift_loss_at_spacing_3m_fraction": 0.019,
+        "estimated_film_sag_lift_loss_at_spacing_3m_kg": 94,
+        "sag_loss_source": "Pinned NOTE-P3-EQUILIBRIUM.md; approximate values",
+        "sag_loss_included_in_this_fixed_budget": false
+      },
+      "required_next_evidence": "Source-qualified membrane film strength, seams/creep/damage allowances, pressure-transfer span, gas tightness and an actual systems/payload mass budget.",
+      "note": "A surrogate SF above1 at exactly the float mass is not demonstrated practical levitation margin. MAINLINE-024/022b owns the film-sag/lift correction. This card preserves the inherited budget for reproducible comparison; zero spare mass cannot absorb the cited loss without changing tube mass and demands."
+    },
+    "inherited_document_tag": {
+      "classification": "QUESTIONABLE"
+    }
+  },
+  "claim": "Optimistic reoptimized SiC point is also limited by inherited film strength and has zero spare float mass. | A surrogate SF above1 at exactly the float mass is not demonstrated practical levitation margin. MAINLINE-024/022b owns the film-sag/lift correction. This card preserves the inherited budget for reproducible comparison; zero spare mass cannot absorb the cited loss without changing tube mass and demands.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/382"
+    },
+    {
+      "report": "rpt-ref-58c781cbea9c220eb5b4",
+      "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+      "bytes": 21434,
+      "selector": "/rows/15"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58c781cbea9c220eb5b4",
+          "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+          "bytes": 21434,
+          "selector": "/rows/15"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/382"
+          }
+        ]
+      }
+    }
+  ]
+}

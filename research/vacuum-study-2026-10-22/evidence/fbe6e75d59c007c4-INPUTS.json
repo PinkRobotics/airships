@@ -1,0 +1,306 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline034-holding-the-vacuum-1020",
+  "card": "MAINLINE-034",
+  "order": "ord-admiral-rr2-mainline034-dispatch-1019",
+  "started_at": "2026-10-20T01:32:22-07:00",
+  "tag": "QUESTIONABLE",
+  "scenario_tag": "PROJECTION",
+  "certification": false,
+  "scope": "Estimate gas inventory and vacuum maintenance on fixed 021b P2 and 022c equilateral 019-reserve P3 geometries. No structural reoptimization or certified sealed life.",
+  "environment": {
+    "R_m": 10.0,
+    "p_external_Pa": 95460.83791390515,
+    "T_K": 284.9,
+    "T_hot_K": 320.0,
+    "lift_reference_kg": 4889.442150186961,
+    "water_partial_external_Pa": 1000.0,
+    "initial_pressure_Pa": 10.0,
+    "pressure_ceiling_fraction": 0.01,
+    "gas_mass_fraction_limit": 0.01,
+    "water_basis": "019 optimistic 1 kPa humidity is an owner scenario. Film rate transfer from source temperature to 500 m is PROJECTION; no activation energy is known."
+  },
+  "constants": {
+    "R_universal_J_mol_K": 8.31446261815324,
+    "Vm_STP_cc_mol": 22414.0,
+    "seconds_per_day": 86400.0,
+    "atm_Pa": 101325.0,
+    "torr_Pa": 133.32236842105263,
+    "Barrer_mol_m_m2_s_Pa": 3.34645e-16
+  },
+  "species": {
+    "N2": {
+      "M_kg_mol": 0.028014,
+      "dry_x": 0.78084
+    },
+    "O2": {
+      "M_kg_mol": 0.031998,
+      "dry_x": 0.20946
+    },
+    "Ar": {
+      "M_kg_mol": 0.039948,
+      "dry_x": 0.00934
+    },
+    "CO2": {
+      "M_kg_mol": 0.04401,
+      "dry_x": 0.0004
+    },
+    "He": {
+      "M_kg_mol": 0.004002602,
+      "dry_x": 5.24e-06
+    },
+    "H2": {
+      "M_kg_mol": 0.002016,
+      "dry_x": 5e-07
+    },
+    "H2O": {
+      "M_kg_mol": 0.01801528,
+      "dry_x": 0
+    }
+  },
+  "mixture_note": "Dry fractions are a declared nominal mixture, normalized to unity; CO2 is a 400 ppm scenario, not a current atmospheric measurement. Other trace gases remain unmeasured NFI.",
+  "P2": {
+    "source": "021b floating_point plus 028 scarf method, re-sized to 021b",
+    "face_thickness_m": 0.0006917479988347394,
+    "core_thickness_m": 0.030118230884842855,
+    "face_mass_kg": 3216.321838286494,
+    "face_density_kg_m3": 1850,
+    "core_mass_kg": 606.2617584409768,
+    "core_cell_m": 0.009524999999999999,
+    "core_metal_density_kg_m3": 2700,
+    "panel_width_m": 3.1278027873808982,
+    "bond_film_kg_m2_per_face": 0.1464728290914915,
+    "scarf_run_ratio": 30,
+    "scarf_film_kg_m2": 0.07,
+    "scarf_density_assumed_kg_m3": 1250,
+    "core_splice_gap_m": 0.0005,
+    "core_splice_density_kg_m3": 500,
+    "seal_mass_kg_per_unique_m": 0.002,
+    "scarf_gas_Barrer_assumed": 10.0,
+    "metal_bulk_permeation_assumed_kg_day": 0.0,
+    "permeation_note": "Be faces and metal foil set to zero bulk ambient-gas permeation in the screen, not a measured upper bound. Only the outer scarf polymer path is charged with the core vented to the interior; no full-area adhesive flux is added through intact metal. AF and scarf coefficient unsourced.",
+    "systems_allowance_kg": 100.0,
+    "AF163_TML_low": 0.0259,
+    "AF163_TML_high": 0.0485,
+    "core_release_fraction_assumed": 0.001,
+    "other_polymers_release_fraction_assumed": 0.01,
+    "core_venting_required": true
+  },
+  "P3": {
+    "kapton": {
+      "nodes": 425.97063298389315,
+      "members": 1271.9118989516794,
+      "n_coef": 5.340489990004039,
+      "m_nodes": 8.519412659677863,
+      "m_film": 981.2569224663256,
+      "m_joint": 191.45051984393825,
+      "m_tube": 3138.733815147145,
+      "m_end": 0.07526092019491813,
+      "reserve": 469.4814800729127,
+      "sag_kg": 58.182536001265326,
+      "vehicle": 4419.960670117087,
+      "s_m": 1.85,
+      "t_film_m": 0.0005499010199072409,
+      "r_o_m": 0.10187442884757343,
+      "t_w_m": 0.0006734969813912556,
+      "rt": 151.26189376102246,
+      "A_m2": 0.00042967764550260926,
+      "I_m4": 2.214991255657777e-06,
+      "length_m": 1.8526483869264585,
+      "N_N": 509807.64931658097,
+      "sigma_axial_Pa": 1186488649.4624145,
+      "k": 0.2,
+      "SF_yield": 3.2870099530805024,
+      "SF_euler": 5.122279418770031,
+      "SF_local": 0.7082761781039622,
+      "SF_film": 0.7192825669694961,
+      "SF_perry": 3.018030701535017,
+      "SF_global": 0.7017459107278406,
+      "gamma": 0.5167263984505766,
+      "SF_local_gamma1": 1.3706986525707894,
+      "SF_least": 0.7017459107278406,
+      "governing": "global",
+      "k04_SF_least": 0.7082761781039622,
+      "k04_governing": "local",
+      "k04_SF_global": 1.4034918214556813,
+      "on_ro_cap_0_25": false
+    },
+    "zylon_barrier": {
+      "nodes": 46.66111084602568,
+      "members": 133.98333253807704,
+      "n_coef": 16.454482671904334,
+      "m_nodes": 0.9332222169205135,
+      "m_film": 217.17480701365733,
+      "m_joint": 23.18138839899542,
+      "m_tube": 3957.588677565962,
+      "m_end": 0.08650847818107318,
+      "reserve": 590.5640549944649,
+      "sag_kg": 179.2651109228175,
+      "vehicle": 4298.878095195535,
+      "s_m": 5.7,
+      "t_film_m": 0.00011078347452324353,
+      "r_o_m": 0.16561974184185138,
+      "t_w_m": 0.00159177158769494,
+      "rt": 104.04742936873684,
+      "A_m2": 0.001648468630220589,
+      "I_m4": 2.239241621676398e-05,
+      "length_m": 5.7801285634700275,
+      "N_N": 1570758.703299736,
+      "sigma_axial_Pa": 952859323.1947311,
+      "k": 0.2,
+      "SF_yield": 4.092944157721146,
+      "SF_euler": 1.7266332058327198,
+      "SF_local": 1.4274004176577701,
+      "SF_film": 1.4170465717478142,
+      "SF_perry": 1.6448737338327826,
+      "SF_global": 1.4184374789671974,
+      "gamma": 0.5752688455983981,
+      "SF_local_gamma1": 2.4812753699063603,
+      "SF_least": 1.4170465717478142,
+      "governing": "film",
+      "k04_SF_least": 1.4170465717478142,
+      "k04_governing": "film",
+      "k04_SF_global": 2.836874957934395,
+      "on_ro_cap_0_25": false
+    },
+    "systems_allowance_kg": 100.0,
+    "geometry_note": "Use cap sag from original 022c filing, not a new pillow validation. Surface area multiplier is a separate sensitivity; true pillow area and frame excluded volume remain unqualified.",
+    "material_mapping": "Both rows retain SiC tubes: 3100 kg/m3, 410 GPa. The ti and cfrp prefixes name the 023 end fittings, not tube materials. Verified from 022 INPUTS and 023 corrected filing; mass/(tube area*length) independently confirms 3100.",
+    "SiC_surface_release_kg_m2_assumed": 0.0001,
+    "SiC_surface_release_note": "0.1 g/m2 finite water-equivalent surface inventory across inner and outer tube surfaces; PROJECTION, no matched SiC desorption result.",
+    "joint_adhesive": {
+      "name": "EA 9394",
+      "tau_Pa_from_023": 28900000.0,
+      "gap_m_assumed": 0.0002,
+      "density_kg_m3_assumed": 1400.0,
+      "TML_proxy": 0.0263,
+      "source": "NASA GSFC35448 HYSOL EA9394, TML 2.63%; historical unmatched cure/lot. Joint bond area = 2*members*N/tau; 023 end-material bill excludes this adhesive.",
+      "note": "Gap and density are PROJECTION. The lap-shear transfer is inherited, not qualified. Adhesive is exposed to hull vacuum but is not an exterior gas-barrier layer."
+    }
+  },
+  "kapton": {
+    "reference_thickness_m": 2.5e-05,
+    "gas_ml_m2_day_MPa": {
+      "O2": 3800.0,
+      "N2": 910.0,
+      "CO2": 6840.0,
+      "H2": 38000.0,
+      "He": 63080.0,
+      "Ar": 910.0
+    },
+    "argon_note": "Ar coefficient set equal to N2 as PROJECTION; no measured value in opened source.",
+    "water_g_m2_day": 54.0,
+    "water_source_condition": "Table 10, water ASTM E96; gas test 23 C and 50% RH; separate water driving RH not specified. Mapping that water rate to 1 kPa service driving pressure is PROJECTION.",
+    "outgas_TML_proxy": 0.0097,
+    "outgas_source": "NASA GSFC10365 KAPTON FILM, TML 0.97%, CVCM 0, WVR 0.80%; not an HN/gauge-matched lot.",
+    "moisture_fraction_50RH": 0.018
+  },
+  "zylon": {
+    "moisture_fraction": 0.006,
+    "moisture_condition": "Toyobo HM equilibrium moisture at 20 C and 65% RH; finite water inventory proxy, not a measured desorption rate.",
+    "cfrp_TML_proxy": 0.0057,
+    "cfrp_proxy_source": "NASA GSFC12224 CYCOM 985-T300 graphite/epoxy TML 0.57%, unmatched to 023 wrap resin. Applied only to 022c m_joint (CFRP end wraps), not to the SiC tubes; PROJECTION.",
+    "barrier": "12 um OD3 aluminized Mylar, source coupon",
+    "barrier_PET_thickness_m": 1.2e-05,
+    "barrier_PET_density_kg_m3": 1390,
+    "barrier_Al_thickness_assumed_m": 5e-08,
+    "barrier_Al_density_kg_m3": 2700,
+    "attachment_assumed_kg_m2": 0.025,
+    "seam_installation_allowance_kg": 5.0,
+    "PET_TML_proxy": 0.0026,
+    "PET_TML_source": "NASA GSFC32902 aluminized Mylar, different grade/gauge; TML .26%, WVR .18%.",
+    "attachment_TML_assumed": 0.01
+  },
+  "mylar": {
+    "O2_cc_m2_day_pure_O2": 0.5,
+    "water_g_m2_day_upper": 1.0,
+    "water_source_condition": "12 um OD3, <1 g/m2/day at 38 C/90% RH. O2 test 25 C/45% RH, pure oxygen; one-atmosphere differential assumed.",
+    "permeance_ratios_to_O2_assumed": {
+      "O2": 1.0,
+      "N2": 1.0,
+      "Ar": 1.0,
+      "CO2": 10.0,
+      "He": 10.0,
+      "H2": 10.0
+    },
+    "note": "N2/Ar/CO2/He/H2 rates are assumed, not measured. A porous Zylon crossply supplies no independent air barrier."
+  },
+  "release_model": {
+    "law": "B*(1-exp(-t/tau)); finite outgassing inventories, not permanent daily TML. All release assigned to water for a high-pressure molecular-weight screen; composition/kinetics unmeasured.",
+    "tau_days": 1.0,
+    "conditioned_retained_fraction": 0.1,
+    "unconditioned_retained_fraction": 1.0,
+    "conditioned_note": "90% removal is a required demonstrated conditioning target, not an established bake recipe.",
+    "scarf_and_seals_proxy": "Unknown actual outgassing; 1 wt% inventory sensitivity, not NASA qualification."
+  },
+  "leak_model": {
+    "seam_rates_mbar_l_s_per_m": [
+      1e-05,
+      0.001,
+      0.1
+    ],
+    "node_rates_mbar_l_s_each": [
+      1e-05,
+      0.001,
+      0.1
+    ],
+    "ports_mbar_l_s": 0.01,
+    "reference_index": 1,
+    "tag": "PROJECTION",
+    "note": "Whole-hull leak acceptance scenarios, not measured seam specifications. P2 counts outer skin seams once, core vented; P3 assumes individually seamed bays with excess node leakage counted separately. Humid external-gas composition. Structural frame joints are not automatically pressure penetrations; continuous membranes could avoid these seams."
+  },
+  "systems": {
+    "retained_allowance_kg": 100,
+    "sealed_vacuum_hardware_kg": 15,
+    "sealed_controls_kg": 5,
+    "sealed_power_package_kg": 10,
+    "sealed_extra_installation_band_kg": [
+      0,
+      20
+    ],
+    "monitoring_W": 5,
+    "battery_Wh_kg": 150,
+    "battery_usable_fraction": 0.8,
+    "power_conversion_efficiency": 0.9,
+    "continuous_pump_plumbing_filters_oil_allowance_kg": 5,
+    "KNF_N920_APDCB": {
+      "pump_kg": 8.5,
+      "input_W": 100,
+      "speed_at_10mbar_m3_h_chart_read": 0.9,
+      "ultimate_Pa": 150,
+      "source": "KNF N920 datasheet pp1,3,4; curve approximate, not nominal 21 STP L/min used as inlet speed."
+    },
+    "Edwards_E2M28": {
+      "pump_kg": 44,
+      "nominal_speed_50Hz_m3_h": 27.5,
+      "max_water_kg_h": 0.7,
+      "motor_mechanical_W": 750,
+      "input_W_assumed": 1000,
+      "input_note": "Electrical planning assumption. Manual states mechanical 750 W and 230 V/4.5 A, not 750 W measured electrical consumption.",
+      "ultimate_with_ballast_Pa": 3.0,
+      "source": "Edwards A37310880_X pp14-18; web text verified, direct download returned 403."
+    },
+    "installed_speed_fraction_assumed": 0.75,
+    "base_hardware_note": "Same 019 owner estimates, no qualified bill. Ground pumping plant excluded only from flying mass. Existing 100 kg is retained; no allowance double-count."
+  },
+  "getters": {
+    "water_sieve_source": "BASF 4A water capacity 21 wt% at 25 C/80% RH; derated usable scenario .10 kg water/kg dry bed for hull vacuum. Capacity/rate at service pressure not qualified.",
+    "water_capacity_kg_kg_catalog": 0.21,
+    "water_capacity_kg_kg_assumed": 0.1,
+    "cartridge_kg": 2,
+    "NEXTorr_D100_5_getter_kg": 0.0135,
+    "NEXTorr_capacity_Torr_l_single_run": {
+      "N2": 0.3,
+      "O2": 5.0
+    },
+    "NEXTorr_temperature_K": 298.15,
+    "NEXTorr_note": "St172 room-temperature single-gas UHV capacities to 10% initial speed, after activation. Species capacities are not additive. UHV result not a rough-vacuum product recommendation; noble gases use powered ion section.",
+    "COMBO_note": "SAES documents RT N2/O2/H2O/H2/CO/CO2 uptake with no activation, but no public capacity/rate in opened page: no mass credit."
+  },
+  "prior_024_check": {
+    "mass_allowance_kg_day": 48.89442150186961,
+    "kapton_843um_mass_rate_kg_day": 2.0195361580782816,
+    "note": "Reproduce prior gas conversion at its old gauge; new 022c Kapton thickness is about 550 um."
+  },
+  "boundary_of_claim": "Seam leakage, moisture transfer, desorption time constants, actual resins, barrier fabrication and conditioning are not measured. Numeric lives are conditional scenarios. NFI is the missing evidence, not a reason to halt this calculation."
+}

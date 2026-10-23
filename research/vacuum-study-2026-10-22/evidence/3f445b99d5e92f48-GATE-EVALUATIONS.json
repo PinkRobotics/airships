@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "unit": "h1-native-packaged-evidence-acquisition-1019",
+  "gates": [
+    {
+      "gate": "E0",
+      "status": "ACQUISITION_PASS",
+      "evidence": "Authenticated .deb identity and target payload equalsha564ed098; no ccx invocation"
+    },
+    {
+      "gate": "E1",
+      "status": "PASS",
+      "evidence": "Retained signed metadata pins rechecked; all5 GETs HTTP200/exacthash,size; Sources and quilt relation match"
+    },
+    {
+      "gate": "E2",
+      "status": "FIRST_BLOCKER_PARTIAL",
+      "evidence": "All1176 unpatched files identical;4patches read; owner UTF8 helper fails on orifice.f before completed disposition"
+    },
+    {
+      "gate": "E3",
+      "status": "NOT_COMPLETED",
+      "evidence": "Paper path and flags read; no final feature acceptance or binary-diagnostic analysis"
+    },
+    {
+      "gate": "E4",
+      "status": "NOT_RUN",
+      "evidence": "No fresh32-source/package rehash, private snapshot or loader resolution"
+    },
+    {
+      "gate": "E5",
+      "status": "NOT_RUN_CURRENT_UNIT",
+      "evidence": "Reference provider evidence remains carried, no actual seal"
+    },
+    {
+      "gate": "E6",
+      "status": "PARTIAL",
+      "evidence": "Five GETs and acquisition phase cap passed; whole-unit storage measured/reserved; runtime scope never started"
+    },
+    {
+      "gate": "E7",
+      "status": "PRESERVED",
+      "evidence": "INITIALIZER_BEHAVIOR_UNSEALED; no zero-drift/native/energy/H1/material/map credit"
+    }
+  ]
+}

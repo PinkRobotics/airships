@@ -1,0 +1,68 @@
+{
+  "measured_start": "2026-10-20T17:13:45.993038+00:00",
+  "measured_end": "2026-10-20T17:13:46.031994+00:00",
+  "equations": "Outer: h(Ta-To)+eps*sigma(Fsky*Tsky^4+Fground*Ta^4-To^4)+K(Ti-To)=0. Inner: K(To-Ti)+eps_i*sigma(<Ti^4>-Ti^4)=0.",
+  "scope": "Inherited dry sphere with mixed forced/natural convection, no installation or wet-optics validation; independently solved, no source code imported.",
+  "rows": [
+    {
+      "R_m": 10,
+      "hull": "trim-30",
+      "core_thickness_input_m": 0.022267279017175158,
+      "epsilon": 0.8,
+      "independent_cold_air_K": 276.9585009068528,
+      "owner_cold_air_K": 276.9580625800046,
+      "difference_K": 0.00043832684821154544,
+      "minimum_outer_K": 264.03467736146484,
+      "max_balance_residual_W_m2": 2.4504842599526455e-12,
+      "h_forced_W_m2_K": 2.0003531525224467,
+      "h_min_W_m2_K": 2.0003531525224467,
+      "h_max_W_m2_K": 2.5027742966532824,
+      "Re": 2608420.8508294527
+    },
+    {
+      "R_m": 10,
+      "hull": "finish_AlAOC",
+      "core_thickness_input_m": 0.02217130178356955,
+      "epsilon": 0.05,
+      "independent_cold_air_K": 265.8353072446587,
+      "owner_cold_air_K": 265.83519078805296,
+      "difference_K": 0.00011645660572412453,
+      "minimum_outer_K": 264.0346773614649,
+      "max_balance_residual_W_m2": 2.0615453788508376e-12,
+      "h_forced_W_m2_K": 2.0003531525224467,
+      "h_min_W_m2_K": 2.0003531525224467,
+      "h_max_W_m2_K": 2.0003531525224467,
+      "Re": 2608420.8508294527
+    },
+    {
+      "R_m": 30,
+      "hull": "trim-30",
+      "core_thickness_input_m": 0.06663164625979141,
+      "epsilon": 0.8,
+      "independent_cold_air_K": 276.9965513666847,
+      "owner_cold_air_K": 276.99311040899204,
+      "difference_K": 0.003440957692646407,
+      "minimum_outer_K": 264.0346773614648,
+      "max_balance_residual_W_m2": 1.0227374502846942e-12,
+      "h_forced_W_m2_K": 1.3020662753882455,
+      "h_min_W_m2_K": 1.3196663980421,
+      "h_max_W_m2_K": 2.504614439962793,
+      "Re": 7825262.552488359
+    },
+    {
+      "R_m": 30,
+      "hull": "finish_AlAOC",
+      "core_thickness_input_m": 0.06595217029117866,
+      "epsilon": 0.05,
+      "independent_cold_air_K": 266.2273205310204,
+      "owner_cold_air_K": 266.22636231602144,
+      "difference_K": 0.0009582149989455502,
+      "minimum_outer_K": 264.03467736146484,
+      "max_balance_residual_W_m2": 7.65831842386433e-13,
+      "h_forced_W_m2_K": 1.3020662753882455,
+      "h_min_W_m2_K": 1.3020662753882455,
+      "h_max_W_m2_K": 1.6062602842746565,
+      "Re": 7825262.552488359
+    }
+  ]
+}

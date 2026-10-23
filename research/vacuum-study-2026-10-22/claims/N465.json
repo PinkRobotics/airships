@@ -1,0 +1,83 @@
+{
+  "id": "N465",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N465",
+    "report": "rpt-ref-f6de390e1555b4ca8e78",
+    "card": "rpt-ref-f6de390e1555b4ca8e78",
+    "file": "evidence/c6fe867af95c0749-NFI.json",
+    "snapshot": "evidence/c6fe867af95c0749-NFI.json",
+    "source_sha256": "c6fe867af95c0749ef0f3668929c8bb986dd42bcc9ecbcf39baae14684a8eb2e",
+    "source_json_pointer": "/rows/8",
+    "row_id": "NFI-C022-MANUFACTURE",
+    "fields": {
+      "id": "NFI-C022-MANUFACTURE",
+      "kind": "OPEN manufacturing projection",
+      "issue": "The long-span optimum increases the full-size manufacturing burden beyond025's original two-metre target.",
+      "evidence": {
+        "022c_projection5_arc_length_m": 6.25129231047749,
+        "OD_m": 0.3352802392097589,
+        "wall_m": 0.001623088408707305,
+        "length_factor_over_025_documented_SA_one_piece_1p4m": 4.465208793198207,
+        "status": "No combined curved-tube production qualification established; absence of evidence is not impossibility"
+      },
+      "next": "Carry the complete diameter/wall/length/curvature/tolerance specification into fabrication evidence and full-size compression/joint tests.",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION"
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "The long-span optimum increases the full-size manufacturing burden beyond025's original two-metre target.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/464"
+    },
+    {
+      "report": "rpt-ref-f6de390e1555b4ca8e78",
+      "artifact": "evidence/c6fe867af95c0749-NFI.json",
+      "snapshot": "evidence/c6fe867af95c0749-NFI.json",
+      "sha256": "c6fe867af95c0749ef0f3668929c8bb986dd42bcc9ecbcf39baae14684a8eb2e",
+      "bytes": 202959,
+      "selector": "/rows/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f6de390e1555b4ca8e78",
+          "artifact": "evidence/c6fe867af95c0749-NFI.json",
+          "snapshot": "evidence/c6fe867af95c0749-NFI.json",
+          "sha256": "c6fe867af95c0749ef0f3668929c8bb986dd42bcc9ecbcf39baae14684a8eb2e",
+          "bytes": 202959,
+          "selector": "/rows/8"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/464"
+          }
+        ]
+      }
+    }
+  ]
+}

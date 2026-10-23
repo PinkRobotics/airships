@@ -1,0 +1,354 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-035",
+  "unit": "vacuum-mainline035-sandwich-knockdown-tests-1020",
+  "questionable": true,
+  "certification": false,
+  "sbkf": [
+    {
+      "id": "CTA8.1",
+      "src": "NTRS 20180002092 (Schultz et al. 2018)",
+      "layup": [
+        45,
+        -45,
+        0,
+        90,
+        0,
+        -45,
+        45
+      ],
+      "tply": 0.0052,
+      "tc": 0.25,
+      "G13": 29500.0,
+      "G23": 12000.0,
+      "R": 48.0,
+      "gamma": 0.87,
+      "basis": "test / perfect-shell linear eigenvalue (stated 0.87)",
+      "mode": "global buckling",
+      "laminate": {
+        "t_in": 0.0364,
+        "Ex_psi": 8309156.059105966,
+        "Ey_psi": 5964764.30228006,
+        "nuxy": 0.42856987138385255,
+        "nuyx": 0.30765077123105694,
+        "Gxy_psi": 3260883.009519968
+      },
+      "h_in": 0.2864,
+      "Vc_iso": 0.5316590188888315,
+      "Vc_axial": 0.41272400203727116,
+      "Vc_soft": 0.8335920622418843,
+      "Vc_range": [
+        0.41272400203727116,
+        0.8335920622418843
+      ],
+      "R_over_rho": 335.195530726257,
+      "R_over_teq": 96.76261494798199,
+      "SP8007_at_teq": 0.5862149097663447,
+      "beat_SP8007": 1.4840973600394558,
+      "CR1457_cyl_curve": 0.4239284273430999,
+      "beat_CR1457_curve": 2.0522332164714188
+    },
+    {
+      "id": "CTA8.2",
+      "src": "NASA/TM-20210024095",
+      "layup": [
+        60,
+        -60,
+        0,
+        0,
+        -60,
+        60
+      ],
+      "tply": 0.00694,
+      "tc": 0.2,
+      "G13": 45000.0,
+      "G23": 20000.0,
+      "R": 48.0,
+      "gamma": 0.775,
+      "basis": "test / linear eigenvalue (stated 77.5%)",
+      "mode": "core crush and shear at a ring, before global buckling (not a buckling datum)",
+      "laminate": {
+        "t_in": 0.041639999999999996,
+        "Ex_psi": 7876836.115807875,
+        "Ey_psi": 7876836.11580787,
+        "nuxy": 0.30980080474937727,
+        "nuyx": 0.3098008047493771,
+        "Gxy_psi": 3006883.217374059
+      },
+      "h_in": 0.24164000000000002,
+      "Vc_iso": 0.39655310246182884,
+      "Vc_axial": 0.2643687349745526,
+      "Vc_soft": 0.5948296536927433,
+      "Vc_range": [
+        0.2643687349745526,
+        0.5948296536927433
+      ],
+      "R_over_rho": 397.28521767919216,
+      "R_over_teq": 114.68636368607034,
+      "SP8007_at_teq": 0.5603615510571673,
+      "beat_SP8007": 1.383035646428453,
+      "CR1457_cyl_curve": 0.4062154225642865,
+      "beat_CR1457_curve": 1.907854692241161
+    },
+    {
+      "id": "CTA8.2B",
+      "src": "NASA/TM-20210024081",
+      "layup": [
+        60,
+        -60,
+        0,
+        0,
+        -60,
+        60
+      ],
+      "tply": 0.00694,
+      "tc": 0.2,
+      "G13": 45000.0,
+      "G23": 20000.0,
+      "R": 48.0,
+      "gamma": 0.721,
+      "basis": "test / linear eigenvalue, combined load (stated 72.1%)",
+      "mode": "global buckling",
+      "laminate": {
+        "t_in": 0.041639999999999996,
+        "Ex_psi": 7876836.115807875,
+        "Ey_psi": 7876836.11580787,
+        "nuxy": 0.30980080474937727,
+        "nuyx": 0.3098008047493771,
+        "Gxy_psi": 3006883.217374059
+      },
+      "h_in": 0.24164000000000002,
+      "Vc_iso": 0.39655310246182884,
+      "Vc_axial": 0.2643687349745526,
+      "Vc_soft": 0.5948296536927433,
+      "Vc_range": [
+        0.2643687349745526,
+        0.5948296536927433
+      ],
+      "R_over_rho": 397.28521767919216,
+      "R_over_teq": 114.68636368607034,
+      "SP8007_at_teq": 0.5603615510571673,
+      "beat_SP8007": 1.2866692917095672,
+      "CR1457_cyl_curve": 0.4062154225642865,
+      "beat_CR1457_curve": 1.7749203007817769
+    },
+    {
+      "id": "CTA8.3",
+      "src": "NASA/TM-20210024768",
+      "layup": [
+        30,
+        -30,
+        90,
+        90,
+        -30,
+        30
+      ],
+      "tply": 0.0054,
+      "tc": 0.2,
+      "G13": 45000.0,
+      "G23": 20000.0,
+      "R": 48.0,
+      "gamma": 0.864,
+      "basis": "test / linear eigenvalue, combined load (stated 86.4%)",
+      "mode": "global buckling",
+      "laminate": {
+        "t_in": 0.0324,
+        "Ex_psi": 7876836.115807877,
+        "Ey_psi": 7876836.115807871,
+        "nuxy": 0.30980080474937705,
+        "nuyx": 0.3098008047493769,
+        "Gxy_psi": 3006883.2173740566
+      },
+      "h_in": 0.2324,
+      "Vc_iso": 0.3208251046999436,
+      "Vc_axial": 0.21388340313329582,
+      "Vc_soft": 0.4812376570499154,
+      "Vc_range": [
+        0.21388340313329582,
+        0.4812376570499154
+      ],
+      "R_over_rho": 413.08089500860586,
+      "R_over_teq": 119.24618296515507,
+      "SP8007_at_teq": 0.5543224633993766,
+      "beat_SP8007": 1.5586595475520317,
+      "CR1457_cyl_curve": 0.40215157376289395,
+      "beat_CR1457_curve": 2.1484436624619776
+    }
+  ],
+  "leads": [
+    {
+      "id": "021 rev1",
+      "Vc": 1.06106,
+      "gamma": 0.59532,
+      "h_m": 0.0210568,
+      "R_m": 10.0,
+      "R_over_rho": 949.8119372364272,
+      "R_over_teq": 274.1870888214856,
+      "SP8007_cyl": 0.4190870632737368,
+      "SP8032_sphere": 0.1417658819319909,
+      "CR1457_cyl_curve": 0.31536697036159655,
+      "CR1457_hemisphere_design": 0.2,
+      "old_sandwich_cylinders_interpolated": 0.42746468331278303,
+      "need_over_old_cylinders": 1.392676455482509,
+      "transfer": {
+        "direct_cylinder_record": [
+          0.721,
+          0.87
+        ],
+        "sbkf_beat_on_SP8007_at_lead_cylinder": [
+          0.5392264548670616,
+          0.6532140524271522
+        ],
+        "sbkf_beat_on_SP8032_at_lead_sphere": [
+          0.1824058068940169,
+          0.2209647453904317
+        ],
+        "measured_sandwich_hemisphere_SII": [
+          0.22,
+          0.24
+        ]
+      },
+      "need_over_SII_hemisphere": [
+        2.4804999999999997,
+        2.706
+      ],
+      "need_over_sphere_transfer": [
+        2.694185440976589,
+        3.2637118858057974
+      ]
+    },
+    {
+      "id": "021b",
+      "Vc": 0.886182,
+      "gamma": 0.46823,
+      "h_m": 0.03081,
+      "R_m": 10.0,
+      "R_over_rho": 649.1398896462188,
+      "R_over_teq": 187.3905450144842,
+      "SP8007_cyl": 0.481963082294269,
+      "SP8032_sphere": 0.14258381246555218,
+      "CR1457_cyl_curve": 0.3550388086367102,
+      "CR1457_hemisphere_design": 0.2,
+      "old_sandwich_cylinders_interpolated": 0.455796707400551,
+      "need_over_old_cylinders": 1.0272781536100977,
+      "transfer": {
+        "direct_cylinder_record": [
+          0.721,
+          0.87
+        ],
+        "sbkf_beat_on_SP8007_at_lead_cylinder": [
+          0.6201270977257269,
+          0.7512163597855679
+        ],
+        "sbkf_beat_on_SP8032_at_lead_sphere": [
+          0.1834582129943018,
+          0.2222396206258013
+        ],
+        "measured_sandwich_hemisphere_SII": [
+          0.22,
+          0.24
+        ]
+      },
+      "need_over_SII_hemisphere": [
+        1.9509583333333333,
+        2.1283181818181816
+      ],
+      "need_over_sphere_transfer": [
+        2.1068700472108346,
+        2.5522433275557046
+      ]
+    }
+  ],
+  "SII_hemispheres": {
+    "R_over_rho": 240.0,
+    "gamma": [
+      0.22,
+      0.24
+    ],
+    "src": "CR-1457 Fig. 6.2-3 (p. 6-9), eye-read by this seat"
+  },
+  "SII_ellipsoids_eye_read": [
+    [
+      240,
+      0.39
+    ],
+    [
+      240,
+      0.58
+    ],
+    [
+      245,
+      0.41
+    ],
+    [
+      245,
+      0.61
+    ],
+    [
+      480,
+      0.46
+    ],
+    [
+      480,
+      0.99
+    ]
+  ],
+  "CR1457_cylinder_points_eye_read": [
+    [
+      1050,
+      0.42,
+      "FPL 1830"
+    ],
+    [
+      1300,
+      0.44,
+      "FPL 1830"
+    ],
+    [
+      180,
+      0.545,
+      "Baker 1968"
+    ],
+    [
+      270,
+      0.69,
+      "Baker 1968"
+    ],
+    [
+      270,
+      0.58,
+      "Baker 1968"
+    ],
+    [
+      270,
+      0.57,
+      "Baker 1968"
+    ],
+    [
+      410,
+      0.49,
+      "Baker 1968"
+    ],
+    [
+      105,
+      0.76,
+      "FPL PE-227"
+    ],
+    [
+      105,
+      0.63,
+      "FPL PE-227"
+    ],
+    [
+      105,
+      0.61,
+      "FPL PE-227"
+    ]
+  ],
+  "curves": {
+    "018_optimistic": "0.20 + 0.40*min(Vc, 2), PROJECTION",
+    "018_conservative": "0.20",
+    "CR1457_step_sphere": "0.20 below Vc 2, 1 at and above",
+    "CR1457_cylinder_design": "0.68 @ R/rho 10, 0.55 @ 100, 0.31 @ 1000 (eye-read)"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "rpt-ref-aa9fcf4d7d90bf834644",
+  "unit": "vacuum-mainline069-design-point-1020",
+  "at": "2026-10-20T19:04:33-07:00",
+  "body": "R 30 floats on the optimistic face. QUESTIONABLE / PROJECTION. No qualified hull safety factor. No finite-element run.\n\nFace 3.216 mm at 1013.8 kg/m3, core 178.7 mm, joints 3384 kg. Lift 132015 kg. Concept payload is +5.0 kg in optimistic weather and +1499 kg in ISA. The same hull at TRL 7 is +11607 kg and +13101 kg. Buckling and wrinkling bind at 1.00. Thermal interface is 1.07. Gamma 0.20, Q 0.33, Vc 1.32, BETA 1.\n\nGraphite film does not float. R 30 optimistic still needs factor 1.659, to 1357 kg/m3. The family witness is 1.693 at R 20 optimistic. Vc is above 2, outside the CR-1457 step for gamma 0.20.\n\nTRL 7 on today's 1850 kg/m3 faces needs gamma 0.553 and clears by 34 kg. At gamma 0.20 that case is -52262 kg. T7 measures this shell before any gamma above 0.20.\n\nBy payload: the light face is 70 t (today -69947 kg). BETA 1 against the model root 0.682 is 17 t, and the root does not float. Unsourced kc stays; removing it frees 19 t, and the factor without it is 1.459. Then pressure 4.0 t, cure 2.6 t, halved film 2.2 t, weather headroom 1.5 t, gradient and bending 0.7 t. Modulus 290 GPa drops buckling to 0.994. Strength 345 MPa does not move payload. The opened sources do not state those four equations, and no named paper copy was opened. T3 gates any Q above 0.33.\n\nsimjob-20261020t185846-4e60751d4d81 exited 0.",
+  "artifacts": [
+    {
+      "path": "evidence/eae96f3c61e1c964-CARD.md",
+      "sha256": "eae96f3c61e1c964b938e3fdf49dfd3f472f1ea3ae4413d0d04cfa3d4b6c494e",
+      "bytes": 6241
+    },
+    {
+      "path": "evidence/d92ceb4c9d953053-RESULTS.json",
+      "sha256": "d92ceb4c9d95305328aed46abdc7d7157a07beb33679e8f6011a19284318c93f",
+      "bytes": 74935
+    },
+    {
+      "path": "evidence/db9bfff2cb256b4c-NFI.json",
+      "sha256": "db9bfff2cb256b4ca92e1231b04b5f4f4b975b3da2f4c61aafcc808e1d85815b",
+      "bytes": 5397
+    },
+    {
+      "path": "evidence/bddf0cbfcc370a81-INPUTS.json",
+      "sha256": "bddf0cbfcc370a81becf1baabb6855f6c68dc0444c80f0b0dadadd1aeea9fd71",
+      "bytes": 3964
+    },
+    {
+      "path": "evidence/5cc79eb046a543f7-RUN.json",
+      "sha256": "5cc79eb046a543f766a9ba0034d12da198ef43a6c374061635a8c5f755072336",
+      "bytes": 65016
+    },
+    {
+      "path": "evidence/f57fc47c53dcb752-PROBES.json",
+      "sha256": "f57fc47c53dcb75217ed8d1a52af46316291f4761bc29a24225dcdee1b4a2c17",
+      "bytes": 9202
+    },
+    {
+      "path": "evidence/0223426be7f533a8-run069.py",
+      "sha256": "0223426be7f533a87695d691dcb32c1811a23906353ee5be32c50b6b1199bdfa",
+      "bytes": 20009
+    },
+    {
+      "path": "evidence/ca921af9a84438a7-run069b.py",
+      "sha256": "ca921af9a84438a7cfa86d059278c717fc0578385838138e6a4e188568d29d8f",
+      "bytes": 5230
+    },
+    {
+      "path": "evidence/9f2a4c074accc3d1-run069c.py",
+      "sha256": "9f2a4c074accc3d1189a125556a080ad1cc46bb092617b7ea77357e9f0b83166",
+      "bytes": 1860
+    },
+    {
+      "path": "evidence/2c44efb4bb78a17d-model63.py",
+      "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+      "bytes": 19294
+    },
+    {
+      "path": "evidence/194954ccad05e1d1-model61.py",
+      "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+      "bytes": 18948
+    }
+  ],
+  "from": "ref-08887151c61d86c0cd02",
+  "from_seat": "ref-08887151c61d86c0cd02",
+  "re": "ord-admiral-rr2-mainline069-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline069-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

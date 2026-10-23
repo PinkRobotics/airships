@@ -1,0 +1,70 @@
+{
+  "id": "N284",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N284",
+    "report": "rpt-mainline006-check-lead4f19-1019",
+    "card": "CHECK-MAINLINE-006",
+    "file": "evidence/8060138631058409-NFI.json",
+    "row_id": "CHECK-NFI-1",
+    "fields": {
+      "NFI_id": "CHECK-NFI-1",
+      "gap": "Owner report body calls every baseline a sealed 002 baseline. P2-E/baseline (face 0.000248148148148 m, core 0.08375 m) is an equal-mass split constructed at the 002 P2 counted mass, not a sealed 002 geometry.",
+      "direction": "Relabel that one row as the equal-split row at the 002 P2 mass. No number changes.",
+      "effect": "Provenance only. All P2-E baseline numbers reproduce."
+    }
+  },
+  "claim": "{\"NFI_id\": \"CHECK-NFI-1\", \"gap\": \"Owner report body calls every baseline a sealed 002 baseline. P2-E/baseline (face 0.000248148148148 m, core 0.08375 m) is an equal-mass split constructed at the 002 P2 counted mass, not a sealed 002 geometry.\", \"direction\": \"Relabel that one row as the equal-split row at the 002 P2 mass. No number changes.\", \"effect\": \"Provenance only. All P2-E baseline numbers reproduce.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/283"
+    },
+    {
+      "report": "rpt-mainline006-check-lead4f19-1019",
+      "artifact": "evidence/8060138631058409-NFI.json",
+      "snapshot": "evidence/8060138631058409-NFI.json",
+      "sha256": "80601386310584096811fcecd8b67da59b49012e8dd5ea0841f17fdae8bd488d",
+      "bytes": 1400,
+      "selector": "source row ID: CHECK-NFI-1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline006-check-lead4f19-1019",
+          "artifact": "evidence/8060138631058409-NFI.json",
+          "snapshot": "evidence/8060138631058409-NFI.json",
+          "sha256": "80601386310584096811fcecd8b67da59b49012e8dd5ea0841f17fdae8bd488d",
+          "bytes": 1400,
+          "selector": "source row ID: CHECK-NFI-1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/283"
+          }
+        ]
+      }
+    }
+  ]
+}

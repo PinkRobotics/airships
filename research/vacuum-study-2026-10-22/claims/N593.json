@@ -1,0 +1,80 @@
+{
+  "id": "N593",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N593",
+    "report": "rpt-ref-6c81b0b188ad134a3ea2",
+    "card": "rpt-ref-6c81b0b188ad134a3ea2",
+    "file": "evidence/23377b822a4303a6-NFI.json",
+    "snapshot": "evidence/23377b822a4303a6-NFI.json",
+    "source_sha256": "23377b822a4303a65696deab8f22b3b1b0d8fe02f50bae42ed14f9039c389247",
+    "source_json_pointer": "/rows/4",
+    "row_id": "NFI-022D-TWO-WAY",
+    "fields": {
+      "id": "NFI-022D-TWO-WAY",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-030-TWO-WAY"
+      ],
+      "finding": "The unbraced two-way lattice has no demonstrated in-plane shear stiffness supporting inherited C=4. Primary half-wave and triangular-sag transfers are diagnostic only. Square-cell sensitivity does not repair shear.",
+      "next": "Supply bracing and its mass or solve the actual frame and identify its shear/global modes."
+    },
+    "inherited_document_tag": {
+      "status": "QUESTIONABLE"
+    }
+  },
+  "claim": "The unbraced two-way lattice has no demonstrated in-plane shear stiffness supporting inherited C=4. Primary half-wave and triangular-sag transfers are diagnostic only. Square-cell sensitivity does not repair shear.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/592"
+    },
+    {
+      "report": "rpt-ref-6c81b0b188ad134a3ea2",
+      "artifact": "evidence/23377b822a4303a6-NFI.json",
+      "snapshot": "evidence/23377b822a4303a6-NFI.json",
+      "sha256": "23377b822a4303a65696deab8f22b3b1b0d8fe02f50bae42ed14f9039c389247",
+      "bytes": 6492,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-6c81b0b188ad134a3ea2",
+          "artifact": "evidence/23377b822a4303a6-NFI.json",
+          "snapshot": "evidence/23377b822a4303a6-NFI.json",
+          "sha256": "23377b822a4303a65696deab8f22b3b1b0d8fe02f50bae42ed14f9039c389247",
+          "bytes": 6492,
+          "selector": "/rows/4"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/592"
+          }
+        ]
+      }
+    }
+  ]
+}

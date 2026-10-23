@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-047",
+  "kind": "filed_change",
+  "label": "047",
+  "claim": "Regularized-core model gives SF1/SF1.05 pass–fail dimples 1.209–1.227/0.738–0.756 mm; no physical tolerance is qualified.",
+  "report": "rpt-ref-e23aa05d834f8e89bb2c",
+  "source_report_body": "MAINLINE-047 filed with CHECK-029 folded in. QUESTIONABLE/PROJECTION.\n\nThe criterion is min(endpoint, first face yield, first core shear). The 255/300 MPa cases fail even at zero dimple. With assumed 345 MPa faces, the governing tested pass–fail brackets are 1.209–1.227 mm at SF1 and 0.738–0.756 mm at SF1.05; single-Gaussian RMS estimates 14.32/8.78 micrometres.\n\nThese results explicitly use orthotropic StVK core E_in=1 MPa, G_in=.5 MPa, inherited radial/transverse moduli, and catalog minimum-average/typical shear strengths. The inherited .01-MPa core is not accepted after CHECK-029's ellipticity finding. The stronger regularization is unsourced: no actual-hull tolerance is qualified.\n\nNew native core stress/strain fields check current-frame shear and local ellipticity on passing paths. Face yield governs the small-dimple limits; larger dimples encounter material limits before numerical endpoints. Both meridians and all four footprints are covered.\n\nConditional endpoint division by 1.10 gives a common SF1 bracket 0.521–0.539 mm; SF1.05 then fails even at zero. Transferring 2.31–2.46x permits none. CHECK-029 identifies a foam-law artifact behind that larger gap, so these are rejection scenarios, not empirical calibration.\n\nCure debit, controls, 015b/042 comparisons and inherited-law sensitivities are retained. 319 native records, 1892 checks, 14 NFIs. Retry and keep-turn-open orders observed. No successor; stop and file.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-e23aa05d834f8e89bb2c",
+      "artifact": "evidence/ad003407cf8ed499-CARD.md",
+      "snapshot": "evidence/ad003407cf8ed499-CARD.md",
+      "sha256": "ad003407cf8ed499f22a51e10ce00562d2ccf5bc1cafa37cad744e4377ba2f17",
+      "bytes": 12909,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

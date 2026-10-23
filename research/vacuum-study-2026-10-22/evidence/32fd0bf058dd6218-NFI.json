@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline015-kd-precision-1019",
+  "card": "MAINLINE-015",
+  "rows": [
+    {
+      "id": "NFI-015-KD03-AMPLITUDE",
+      "issue": "Eq 3 floors at 0.45, so kd 0.3 has no lambda_I = 1 amplitude. The worst-width curve is pinned only at its plateau 0.2338 and by the one-thickness statement, kd about 0.20-0.25 at delta equal to t. kd 0.3 sits on the unretrieved rising branch between those pins. No pair is interpolated. The aluminium-honeycomb beryllium point has R/t_eq 136.7, inside the fit range 100-1550, so the missing amplitude is the floor, not the range. P2-E at R/t_eq 50.75 remains outside that range.",
+      "consequence": "The kd 0.3 row is a ceiling: below 197.052 mm on P2-E, below 73.17 mm on the 014b beryllium point, below 39.05 mm on 014 beryllium with HRH-10. The true allowance is smaller, and the gap factor against manufacture is not known.",
+      "next": "Digitise the worst-width envelope (Lee et al. 2016, or a recomputation) at delta/t below 1."
+    },
+    {
+      "id": "NFI-015-BE-WRINKLING",
+      "issue": "The 014b beryllium point on CR-III 5056 at 1.6 pcf has least SF 0.668649769508548 by global buckling at kd 0.20. Face wrinkling on that same split is 0.6688 and does not contain kd. Raising kd to 0.2991 brings only the global mode to SF 1. The least factor stays 0.6688. Re-optimising the mass split on the same core and the same structural mass reaches least SF 0.8536 at kd 0.3 and crosses 1 at kd 0.519 by face yield.",
+      "consequence": "A shape tolerance bought at kd 0.3 does not put this point's least factor at 1. The global-only scaling is the order's 0.299, and it is not the least factor.",
+      "next": "If a later card chases SF 1 on this core, use the re-optimised split and kd 0.519, not the frozen split at kd 0.3."
+    },
+    {
+      "id": "NFI-015-GAP-DIRECTION",
+      "issue": "The gap factor is required tolerance divided by the achieved figure. Above 1, manufacture is already inside the allowance. The partial's sentence that kd 0.9 needs 1.8 times better than the GBT assembled surface reads the P2-E factor 1.82 the other way. On P2-E the 0.46 mm RMS allowance is looser than 0.25 mm. On the aluminium beryllium point the 0.10 mm RMS allowance is tighter than 0.25 mm and looser than 0.05 mm.",
+      "consequence": "The shell that the kd 0.3 question is about is not free at kd 0.9 on a single-dimple RMS basis, even though P2-E is.",
+      "next": "None. The arithmetic is in RESULTS.json."
+    },
+    {
+      "id": "NFI-015-PRESSURE-RATIO",
+      "issue": "The partial's prose says the gyration thickness and the bending thickness give classical pressures 3.42 times apart. On P2-E, Zoelly's pressure at t_eq divided by the COMMON sandwich pressure is 293.1. The 3.42 figure is not that ratio.",
+      "consequence": "Safety factors stay on the sandwich pressure. t_eq is used only to scale the dimple.",
+      "next": "None."
+    },
+    {
+      "id": "NFI-015-WORST-WIDTH-RISING-BRANCH",
+      "issue": "The kd-versus-amplitude relation is closed-form only at width lambda_I = 1. The worst-width curve is pinned at its plateau 0.2338 and by the one-thickness statement. Amplitudes at kd 0.5, 0.7 and 0.9 are lambda_I = 1 values. Worst-width amplitudes at those levels are smaller.",
+      "consequence": "The inverted table is optimistic in width. The kd 0.2 row is the conservative anchor.",
+      "next": "Retrieve the min-over-width envelope."
+    },
+    {
+      "id": "NFI-015-SANDWICH-TRANSFER",
+      "issue": "Every kd curve used here is a monocoque result transferred through t_eq = sqrt(3)(d+tf). No sandwich kd-versus-amplitude measurement was retrieved at this radius. The mapping preserves the radius of gyration by construction.",
+      "consequence": "The tolerance table carries this transfer as its central QUESTIONABLE. It is the sibling of 004b's NFI-KD-TRANSFER.",
+      "next": "A sandwich imperfection study at this geometry."
+    },
+    {
+      "id": "NFI-015-FIT-RANGE-FLOOR",
+      "issue": "Eq 3 was fit over R/t 100-1550 and nu near 0.5. P2-E sits at R/t_eq 50.75 with nu 0.33. The aluminium beryllium point sits at 136.7 and is inside the R/t window. The Poisson mismatch remains on both.",
+      "consequence": "P2-E amplitudes carry an unquantified range-floor error. The aluminium point does not carry that particular error.",
+      "next": "A fit at R/t near 50 if P2-E stays the reference shell."
+    },
+    {
+      "id": "NFI-015-HT-EQ32-UNRESOLVED",
+      "issue": "Hutchinson and Thompson 2018 Eq 3.2, the lower envelope over dimple width, was not resolved from the primary. It is not used. The rising branch is Baizhikova 2026 Eq 3, which meets Jimenez at the shared plateau (0.4470 against 0.45).",
+      "consequence": "No number in this card comes from that unresolved print.",
+      "next": "Resolve the print against the primary when it can be read."
+    },
+    {
+      "id": "NFI-015-CORE-SHEAR-SENSITIVITY",
+      "issue": "Core shear's cut to the classical pressure is derived: 10.3, 7.0 and 0.8 percent on P2-E at 9, 14 and 138 MPa, and 11.4 percent on the aluminium core at 72.4 MPa. The cut to imperfection sensitivity has no retrieved coefficient.",
+      "consequence": "The kd levels are applied with no shear-dependent correction.",
+      "next": "A shear-flexible imperfection study."
+    },
+    {
+      "id": "NFI-015-THICKNESS-WAVINESS-VALUES",
+      "issue": "The thickness sensitivity is derived. A locally 10 percent thin face costs 10.0 percent of P2-E classical pressure. No sourced cure tolerance for the faces or the core was retrieved.",
+      "consequence": "The driver is a sensitivity, not a gap factor.",
+      "next": "Source autoclave and core-machining tolerances when the build is chosen."
+    },
+    {
+      "id": "NFI-015-SEAM-DISCONTINUITY",
+      "issue": "A seam step is counted only as delta/t_eq. A real seam also breaks face continuity. On P2-E the geometric reading is kd 0.950, 0.931 and 0.869 at steps of 1, 3 and 10 mm.",
+      "consequence": "The geometric reading is not a joint failure mode.",
+      "next": "A joint model belongs with the sandwich failure cards."
+    },
+    {
+      "id": "NFI-015-PNAS-EXTRAPOLATION",
+      "issue": "The PNAS 2024 random-field design values are evaluated at R/t_eq 50.75 by scaling N with sqrt(R/t). Their fits span R/t 100-400. The reproduced anchors are 0.278 and 0.320 at R/t 100.",
+      "consequence": "The P2-E readings are a cross-check, not a design number.",
+      "next": "Recompute the chain at R/t 50 if that route is carried."
+    },
+    {
+      "id": "NFI-015-BOUNDARY-AND-TRANSIENT",
+      "issue": "Full-sphere curves are used. A clamped equator can cap kappa near 0.8 for a small dimple. The static hydrostatic column is 240 Pa, 0.25 percent of the case pressure. Pump-down transients are not modelled.",
+      "consequence": "The high-kd rows assume a complete sphere under uniform quasi-static pressure.",
+      "next": "An equator, if the design keeps one, needs its own card."
+    }
+  ]
+}

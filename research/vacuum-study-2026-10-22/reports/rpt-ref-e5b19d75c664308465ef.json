@@ -1,0 +1,26 @@
+{
+  "id": "rpt-ref-e5b19d75c664308465ef",
+  "unit": "vacuum-mainline016-check-1019",
+  "at": "2026-10-20T00:07:06-07:00",
+  "body": "MAINLINE-016 check. The stated formulas reproduce the tables. The 009 pin matches: five mode factors, both thicknesses, and the 244.472 kg margin. Leak, permeation, outgassing, moisture, pump work, all eight seam rows, the four face temperatures, shear-lag stress, climate margins, and the gust loads match RESULTS. Climbing from 500 m to 1500 m loses 9.36 percent of density, about 9.4 percent per km.\n\nThree fields differ. Mass rate 0.00056590766 kg/s is one percent of lift per day. Stated R_air 287.05 gives 0.00056591357 kg/s. Choked area 2.47585 mm2 uses the lift mass over the 287.05 flux. The card's 2.48 mm2 is unchanged. The no-convection bound is 313.538 K from the stated balance and 313.526 K in RESULTS. The card's 313.5 K stands.\n\nDisplay misses, half-up: lambda 1.526 versus 1.525; synoptic upper factor 0.2425 versus 0.2424; storm margin 219.9 kg versus 220.0 kg; water 125.6 kg versus 125.7 kg.\n\nThe storm margin scales the 244.472 kg margin by the pressure ratio. Section 5 scales the whole lift. A 10 percent storm low is then margin -244.5 kg, not +220 kg. Added air mass 2445 kg is half the displaced air. The hull is 4645 kg, so the sentence that they are equal is false.\n\nEvery register row has a tag and a source. Used and absent from the register: patch area 0.0707 m2, spreader target 1.5, cradle 250 kPa, pump ceiling 1000 Pa, water density 1000 kg/m3, and the Stefan-Boltzmann constant. NFI-CHECK-016-MARGIN, NFI-CHECK-016-ADDED, NFI-CHECK-016-SOURCE. None of these stop the card.",
+  "artifacts": [
+    {
+      "path": "evidence/2bc8991e359fc5aa-CHECK.md",
+      "sha256": "2bc8991e359fc5aa483fa3bc1e0f9653714dac0a3481b06bc8ee47e16f1f8053",
+      "bytes": 2529
+    },
+    {
+      "path": "evidence/802affdeba17b486-check016.py",
+      "sha256": "802affdeba17b486f70849e667f99081c70003d40514f8fd98c642f4b4617402",
+      "bytes": 19435
+    },
+    {
+      "path": "unpublished-local-ref:a999c2c02af30a33",
+      "sha256": "69c372e64eac0e9461c0037be9d61678f1445652ffbd52e2d056ad18f49d87a8",
+      "bytes": 6551
+    }
+  ],
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-check016-017-grok-1019"
+}

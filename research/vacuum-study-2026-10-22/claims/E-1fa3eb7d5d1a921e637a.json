@@ -1,0 +1,41 @@
+{
+  "id": "E-1fa3eb7d5d1a921e637a",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-1fa3eb7d5d1a921e637a",
+    "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+    "file": "evidence/8225ec6358048fa7-NFI.json",
+    "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+    "source_sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+    "source_json_pointer": "/checker_open/1",
+    "row_id": "NFI-C053-LOCAL-CONVECTION",
+    "fields": {
+      "id": "NFI-C053-LOCAL-CONVECTION",
+      "status": "OPEN",
+      "blocking": false,
+      "finding": "Re is outside Whitaker's sphere range; a spatially uniform local use of its average correlation and the 1.32 natural-convection floor are additional assumptions.",
+      "needed": "Validated local full-scale convection boundary with orientation and wind conditions.",
+      "source": "SOURCE-AUDIT.md",
+      "extends": "NFI-053-CONVECTION",
+      "classification": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Re is outside Whitaker's sphere range; a spatially uniform local use of its average correlation and the 1.32 natural-convection floor are additional assumptions.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+      "artifact": "evidence/8225ec6358048fa7-NFI.json",
+      "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+      "sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+      "bytes": 11519,
+      "selector": "/checker_open/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

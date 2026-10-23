@@ -1,0 +1,37 @@
+{
+  "id": "E-31c47907bbbb31b74018",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-31c47907bbbb31b74018",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1034~1NFI.json/open/4",
+    "row_id": "NFI-034-CORE-AND-TUBE-VENTING",
+    "fields": {
+      "id": "NFI-034-CORE-AND-TUBE-VENTING",
+      "tag": "PROJECTION",
+      "finding": "Unvented P2 honeycomb would retain about 43.388 kg of ambient air. P3 tube bores would retain about 88.153/76.110 kg. Base cases require these spaces to share the evacuation path. Trapped gas is onboard mass even before it leaks into the main cavity.",
+      "proposed_next": "Establish and qualify internal vent paths, pressure equalization and residual gas inventory. Any geometric vent change requires structural review."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Unvented P2 honeycomb would retain about 43.388 kg of ambient air. P3 tube bores would retain about 88.153/76.110 kg. Base cases require these spaces to share the evacuation path. Trapped gas is onboard mass even before it leaks into the main cavity.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1034~1NFI.json/open/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

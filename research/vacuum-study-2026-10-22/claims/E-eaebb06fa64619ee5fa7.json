@@ -1,0 +1,39 @@
+{
+  "id": "E-eaebb06fa64619ee5fa7",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-eaebb06fa64619ee5fa7",
+    "report": "rpt-ref-e23aa05d834f8e89bb2c",
+    "file": "evidence/e5f8a3dd183321bf-NFI.json",
+    "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+    "source_sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+    "source_json_pointer": "/rows/11",
+    "row_id": "047-12",
+    "fields": {
+      "id": "047-12",
+      "topic": "MODEL-ONLY-TOLERANCE",
+      "status": "PROJECTION",
+      "objection": "The reported amplitude boundary is on the tested Gaussian-defect branch, with fixed material and perfect interfaces. It is not a global optimum over all defects or installed-hull safety proof.",
+      "proposed_fix": "Validate the actual defect spectrum and coupled failure modes; test the built shell before assigning installed SF.",
+      "disposition": "Recorded; no qualification claimed"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"047-12\", \"topic\": \"MODEL-ONLY-TOLERANCE\", \"status\": \"PROJECTION\", \"objection\": \"The reported amplitude boundary is on the tested Gaussian-defect branch, with fixed material and perfect interfaces. It is not a global optimum over all defects or installed-hull safety proof.\", \"proposed_fix\": \"Validate the actual defect spectrum and coupled failure modes; test the built shell before assigning installed SF.\", \"disposition\": \"Recorded; no qualification claimed\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-e23aa05d834f8e89bb2c",
+      "artifact": "evidence/e5f8a3dd183321bf-NFI.json",
+      "snapshot": "evidence/e5f8a3dd183321bf-NFI.json",
+      "sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+      "bytes": 7955,
+      "selector": "/rows/11"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

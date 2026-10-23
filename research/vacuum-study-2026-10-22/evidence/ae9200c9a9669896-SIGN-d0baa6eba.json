@@ -1,0 +1,328 @@
+{
+  "schema": "ship.xo.exact-unit-signature.v1",
+  "decision": "SIGN",
+  "unit": "review-candidate-access-gap-0923",
+  "at": "2026-09-24T19:00:48.905821-07:00",
+  "signer": {
+    "seat": "ref-56bce058187e66b61e72",
+    "billet": "xo",
+    "generation": 24,
+    "ref-062f6d128ee415b82339": "ref-f1884e6d295a10348f09"
+  },
+  "object": {
+    "candidate": "d0baa6ebaa4356d04eb02bf028ce27e902e09d59",
+    "tree": "94718bdc551421e56eb572cd659c4f80b474c178",
+    "base": "44272a466784fb9989c4d75ffd9a804cc639ff5e",
+    "worktree": "unpublished-local-ref:627a9bd50e86cd14",
+    "branch": "review-candidate-access-gap-0923"
+  },
+  "previous_return": {
+    "path": "evidence/19bf28ffde449330-RETURN-57f98dd9f.json",
+    "bytes": 21271,
+    "sha256": "19bf28ffde449330f8d0b2d73cea2bfe4f7a6dbf44a7cb821948f91dc7b58b46"
+  },
+  "blocking_closed": [
+    {
+      "id": "B1",
+      "resolution": "All8 equal unsquashed patches on measured current primary main44272a466."
+    },
+    {
+      "id": "B2",
+      "resolution": "All8 exact mechanical acknowledgments verified. Original6cf9912/applied7ad41be/rebased1944c8a8f full-index patch bytes equal, original2800B retained beside2802B copy."
+    },
+    {
+      "id": "B3",
+      "resolution": "Six raw focused base/tip logs and named command/interpreter/object/size receipt now supplied. Poll2F9P->11P; pin1F->1F unchanged; sandbox18P->18P. Original684K claim replaced by measured748K on both, no size delta claimed."
+    },
+    {
+      "id": "B4",
+      "resolution": "CO one-time ruling already accepted both demonstrated false-refusal limits; exact ruling digest reconfirmed. No R4/correction required."
+    }
+  ],
+  "authority_brief": {
+    "path": "withheld-source:dc6ab2492f25e3f8",
+    "sha256": "7893799557dce9879e8bb5a1d4eaacb959fec2998e53791e5e5391e2594c9f96",
+    "bytes": 11727
+  },
+  "rounds": [
+    {
+      "artifact": {
+        "path": "unpublished-local-ref:b71189dc0825708e",
+        "sha256": "433a87c24e845e5c3c961d69dbb9754977c6feef14a6d233b40dc29174a8146e",
+        "bytes": 1441
+      },
+      "evidence": {
+        "schema": "helm.review-evidence.v1",
+        "candidate": "30eeb5042e8cc20096428233be5080f37bddcdee",
+        "round_id": "r1",
+        "required_lanes": [
+          "codex",
+          "claude"
+        ],
+        "exit_code": 0,
+        "lanes": [
+          {
+            "lane": "codex",
+            "candidate": "30eeb5042e8cc20096428233be5080f37bddcdee",
+            "round_id": "r1",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 4652,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "codex_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          },
+          {
+            "lane": "claude",
+            "candidate": "30eeb5042e8cc20096428233be5080f37bddcdee",
+            "round_id": "r1",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 7541,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "claude_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          }
+        ]
+      },
+      "validated": true
+    },
+    {
+      "artifact": {
+        "path": "unpublished-local-ref:9e812d71c33206b0",
+        "sha256": "402608469aebd44d5500c424b5148dceb42469d37b52d3e4efcd533f5908d4e6",
+        "bytes": 1442
+      },
+      "evidence": {
+        "schema": "helm.review-evidence.v1",
+        "candidate": "83ec4cc7a802a799a01df4087f7541097a9399db",
+        "round_id": "r2",
+        "required_lanes": [
+          "codex",
+          "claude"
+        ],
+        "exit_code": 0,
+        "lanes": [
+          {
+            "lane": "codex",
+            "candidate": "83ec4cc7a802a799a01df4087f7541097a9399db",
+            "round_id": "r2",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 3132,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "codex_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          },
+          {
+            "lane": "claude",
+            "candidate": "83ec4cc7a802a799a01df4087f7541097a9399db",
+            "round_id": "r2",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 11290,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "claude_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          }
+        ]
+      },
+      "validated": true
+    },
+    {
+      "artifact": {
+        "path": "unpublished-local-ref:573c15f50cb81b76",
+        "sha256": "8e0843ffc036d177cabdb05118e59142a7f268691206673e194b0b9241746d57",
+        "bytes": 1442
+      },
+      "evidence": {
+        "schema": "helm.review-evidence.v1",
+        "candidate": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+        "round_id": "r3",
+        "required_lanes": [
+          "codex",
+          "claude"
+        ],
+        "exit_code": 0,
+        "lanes": [
+          {
+            "lane": "codex",
+            "candidate": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+            "round_id": "r3",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 4582,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "codex_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          },
+          {
+            "lane": "claude",
+            "candidate": "3a71b0e2307e4a01270426e8acbe7b32b3b0d4f9",
+            "round_id": "r3",
+            "exit_code": 0,
+            "run_state": "Completed",
+            "run_reason": {
+              "code": "completed",
+              "source": "wrapper_completion",
+              "evidence": {
+                "exit_code": 0,
+                "body_bytes": 16428,
+                "body_has_text": true,
+                "timed_out": false,
+                "capture_contract": "claude_stream",
+                "capture_verdict": "ok",
+                "stop_kind": "completed",
+                "agent_dispatched": true,
+                "capture_complete": true
+              }
+            }
+          }
+        ]
+      },
+      "validated": true
+    }
+  ],
+  "findings_dispositions": [
+    "R1 executed marker-substring wrong-pin and absent-CLI incomplete-bound-round findings corrected by83ec. Both R2 lanes confirmed closure. Claude advisory severity did not erase executed counterexample.",
+    "R2 executed/traced stale installed candidate-clause HIGH corrected by3a71. R3 exposed mixed bound/stale clauses in either order; Codex executed, Claude traced but declined due no dispatch. Demonstrated by law regardless. Builder reproduced and corrected both mixed and headerless-stale siblings in2478; no R4.",
+    "R3 executed quoted-lifted no-shell false-refusal and traced unsupportedr0/candidate fail-closed combination explicitly accepted by CO once. The earlier pending-CO wording is superseded; both count as demonstrated underI.3g.0b.",
+    "Final mixed/headerless stale-candidate HIGH fix2478 maps toa505fe0b8; deferral57f98 mapsd0baa6. Both deliberately unreviewed at cap; noR4. All6 prior raw reviewer answers consumed and evidence validated, inherited only through equal patches."
+  ],
+  "acceptance_measurements": {
+    "A3": "Both committed wrapper fixtures equal original CO bytes:360R1 sha747c8a7464d67940c0a11850cee6d26156391c59c55ee722c0647c20fb271062/22421;361R3 sha0d308d06cde50c08d061e56ee6b249fee166137bebc10d831efb26a1e9585fa5/21747.",
+    "B1": "Six @kirk fixtures become @fo and Kirk expectation becomes Una; production aliases unchanged.",
+    "B2": "Outcome(iii), report-only, no registry/pin change. Preserved TUI mint receipts record both models on2.1.282, codeword replies; retire outputs BLIND then RETIRED. Four headless stderr/stdout artifacts show both2.1.280 and2.1.282 × glm-5.3 andglm-5.3[1m] turn/codeword with unrecognized_model marker. Binary/argv/rc provenance attributed to retained results/mint records. Two versions×two ids do not prove universally negative for all versions/models, and advisory1M text is not measured1M context. No XO lifecycle actions.",
+    "B3": "19-insertion test helper patch hunks identical to supplied original. Applied copy format differs only From SHA/index abbreviation. Eighteen passes and684K size currently only attributed.",
+    "B4": "Final full log shows sitemap/home, cache-root divergence and crew_oob/no-key classes present; hook-KeyError, AF_UNIX-length, detached-rename classes absent in retained output. Two component-page drift failures and glm pin-coupling failure also present. No extra fixes authorized.",
+    "test_root": "unpublished-local-ref:e162a1caf9b07f32 still exists at18:11 despite cleanup statement; existence alone does not establish ownership, live use or residual contents. XO did not clean it."
+  },
+  "full_wrappers": [
+    {
+      "tip": "7ad41be37",
+      "main": "13F/25980P/25S/22W",
+      "driver": 25,
+      "console": 68,
+      "note": "Recovered wiped-inode log; seven own Codex streaming double failures corrected in30eeb."
+    },
+    {
+      "tip": "30eeb5042",
+      "main": "6F/25986P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "83ec4cc7a",
+      "main": "6F/25989P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "3a71b0e23",
+      "main": "6F/25991P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "2478dc00b",
+      "main": "6F/25994P/26S/22W",
+      "driver": 25,
+      "console": 68
+    },
+    {
+      "tip": "57f98dd9f0e75fcdee0aa1ba2dad798199e076bf",
+      "main": "6F/25994P/26S/22W/558.77s",
+      "driver": "25P/2.28s",
+      "console": "68P/3deselected/10.54s",
+      "markers": "main1 driver0 console0 WRAPPER_EXIT1",
+      "artifact": {
+        "path": "unpublished-local-ref:812e17b801203834",
+        "sha256": "25ee18720458a7f1e6ed0534e3bcd9afec253d044266ac1640ebfa3ac8828ad7",
+        "bytes": 48096
+      }
+    }
+  ],
+  "final_failures": [
+    "test_crew_oob_verify.py::test_a_replaced_file_at_the_same_path_is_not_a_key",
+    "test_pinkai_console_component_pages.py::test_the_template_is_the_shad_draft_plus_the_mechanism_and_nothing_else",
+    "test_pinkai_console_component_pages.py::test_the_reconstruction_still_refuses_a_smuggled_statement_on_its_own",
+    "test_pinkai_console_sitemap.py::test_r2_issues_never_embed_values_and_the_index_is_validated_before_writing",
+    "test_ship_claude_2163.py::test_launch_plan_pins_claude_and_glm_to_the_same_live_pin",
+    "test_test_framework_cache_defaults.py::test_test_framework_routes_model_services_through_cache"
+  ],
+  "qualifications": [
+    "The previous B3 eighteen-pass/684K-attributed acceptance text is superseded by the six raw focused logs and size measurement here. Poll correction now directly demonstrated on current base/tip. Pin remains red at both; separate GLM unit owns its change.",
+    "18P at both:8.55s vs1.85s is a single observed timing, not causally isolated or general4.6x performance guarantee. Disk allocation748K at both; apparent bytes25119/25039 differ80B. No249MB-to-small or peak usage reduction proven by this post-run measurement.",
+    "All six full wrappers remain: final6F/25994P26S22W,driver25/console68; original13F included7 corrected branch regressions. No green full suite, universal no-new-reds or seventh wrapper claim.",
+    "GLM B2 remains bounded2versions x2ids and report-only outcomeiii; no universalmodel/version validity,1M context, live deployment/adoption or newmodel identity claim.",
+    "No XO test/review/lifecycle launched. Cleanup ownership and live use of53a007 are not certified. Earlier immutableRETURN, CO ruling and raw artifacts retained.",
+    "Current-base artifact totals merge updated manifest with earlier59 retained checks; every referenced byte was revalidated. Mechanical acknowledges may create bookkeeping debts; these remain follow-on custody, not an added signature gate."
+  ],
+  "evidence": [
+    {
+      "path": "unpublished-local-ref:a31f1dd55e015a0d",
+      "bytes": 42340,
+      "sha256": "5c76b218217a0756d1994c6fb82f34938b364aa052d05fec18eceb76e6a60420"
+    },
+    {
+      "path": "evidence/b6336e0ceb1f9733-R3-RULING-ACCEPTED-0924.json",
+      "bytes": 3512,
+      "sha256": "b6336e0ceb1f9733b1dc86075a5dbf1fb6fc2a3152a5f7f112f0f50f7c075e42"
+    }
+  ]
+}

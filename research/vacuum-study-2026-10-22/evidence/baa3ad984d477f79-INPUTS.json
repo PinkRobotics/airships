@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "checker_unit": "vacuum-mainline007b-check-1019",
+  "pins": [
+    {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799,
+      "role": "CHECK",
+      "expected_sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "expected_bytes": 799,
+      "match": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "role": "COMMON",
+      "expected_sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "expected_bytes": 5874,
+      "match": true
+    },
+    {
+      "path": "evidence/dcf8b3a3044026e0-CARD.md",
+      "sha256": "dcf8b3a3044026e0cb3e30c9b5b6f8ed0fd2453d0caa78d1ca1becd265929fa5",
+      "bytes": 8115,
+      "role": "owner 007b CARD.md",
+      "expected_sha256": "dcf8b3a3044026e0cb3e30c9b5b6f8ed0fd2453d0caa78d1ca1becd265929fa5",
+      "expected_bytes": 8115,
+      "match": true
+    },
+    {
+      "path": "evidence/72bc0aa54e44f008-RESULTS.json",
+      "sha256": "72bc0aa54e44f008ff2d81e709df7ec2f1932e284bc51475c94997c1f63f1001",
+      "bytes": 17581,
+      "role": "owner 007b RESULTS.json",
+      "expected_sha256": "72bc0aa54e44f008ff2d81e709df7ec2f1932e284bc51475c94997c1f63f1001",
+      "expected_bytes": 17581,
+      "match": true
+    },
+    {
+      "path": "evidence/07d0f8e52a240650-NFI.json",
+      "sha256": "07d0f8e52a240650a5322607cd0be6d7f603344bdcc852619c2437e5056ecd77",
+      "bytes": 3051,
+      "role": "owner 007b NFI.json",
+      "expected_sha256": "07d0f8e52a240650a5322607cd0be6d7f603344bdcc852619c2437e5056ecd77",
+      "expected_bytes": 3051,
+      "match": true
+    },
+    {
+      "path": "evidence/ce007b1debd4f759-INPUTS.json",
+      "sha256": "ce007b1debd4f75984dec28bf86d03d56a53174bb83857b2e5687734e3551174",
+      "bytes": 2143,
+      "role": "owner 007b INPUTS.json",
+      "expected_sha256": "ce007b1debd4f75984dec28bf86d03d56a53174bb83857b2e5687734e3551174",
+      "expected_bytes": 2143,
+      "match": true
+    },
+    {
+      "path": "evidence/9d80726e56a47a8d-compute.py",
+      "sha256": "9d80726e56a47a8d71c0fac51953302817b1d0cde00f80610c2fb3d9515ea4d7",
+      "bytes": 12864,
+      "role": "owner 007b compute.py",
+      "expected_sha256": "9d80726e56a47a8d71c0fac51953302817b1d0cde00f80610c2fb3d9515ea4d7",
+      "expected_bytes": 12864,
+      "match": true
+    },
+    {
+      "path": "evidence/cd02e4ec651bc748-RESULTS.json",
+      "sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "bytes": 31544,
+      "role": "007 RESULTS (geometries/materials)",
+      "expected_sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "expected_bytes": 31544,
+      "match": true
+    },
+    {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995,
+      "role": "003 RESULTS (P2-E)",
+      "expected_sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "expected_bytes": 7995,
+      "match": true
+    }
+  ],
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "R_m": 10.0,
+    "kd": 0.2,
+    "p_ext_Pa": 95460.83791390515,
+    "biaxial_factor_solved": 0.6823278038280193,
+    "biaxial_check_x3_plus_x": 0.9999999999999999
+  },
+  "geometries_used": {
+    "rho_32.0_max_buckling_SF": [
+      0.00033809851716296333,
+      0.05637792773692413
+    ],
+    "rho_32.0_max_least_SF": [
+      0.00033809851716296333,
+      0.05637792773692413
+    ],
+    "rho_16.0_max_buckling_SF": [
+      0.00033709376674048795,
+      0.11309495874143372
+    ],
+    "rho_16.0_max_least_SF": [
+      0.00033709376674048795,
+      0.11309495874143372
+    ],
+    "rho_8.0_max_buckling_SF": [
+      0.00033659362762069494,
+      0.2265275113887277
+    ],
+    "rho_8.0_max_least_SF": [
+      0.0003926676689112853,
+      0.18867753351757924
+    ],
+    "rho_6.0_max_buckling_SF": [
+      0.00033646882464419487,
+      0.30214900453048704
+    ],
+    "rho_6.0_max_least_SF": [
+      0.00046262596832455155,
+      0.18860757521816596
+    ],
+    "rho_4.0_max_buckling_SF": [
+      0.00033634411418287385,
+      0.4533918659185139
+    ],
+    "rho_4.0_max_least_SF": [
+      0.0005325324083609364,
+      0.1885376687781295
+    ],
+    "rho_3.0_max_buckling_SF": [
+      0.00033628179361326426,
+      0.6046346649166492
+    ],
+    "rho_3.0_max_least_SF": [
+      0.0005674661991295354,
+      0.188502734987361
+    ],
+    "rho_2.0_max_buckling_SF": [
+      0.00033621949613389906,
+      0.9071202005692597
+    ],
+    "rho_2.0_max_least_SF": [
+      0.0006023870466633185,
+      0.18846781413982722
+    ],
+    "rho_1.0_max_buckling_SF": [
+      0.000336157221731948,
+      1.8145766829090553
+    ],
+    "rho_1.0_max_least_SF": [
+      0.0006372949581543033,
+      0.18843290622833614
+    ],
+    "P2-E": [
+      0.0003360949703945902,
+      0.1134320525081742
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline015-kd-precision-1019",
+  "note": "Own arithmetic in kd.py. Inherited curve coefficients and the manufacture ladder are QUESTIONABLE and were not re-fetched. Sheet moduli for CR-III 5056 1.6 pcf are the typical columns in honeycomb.py: Ec 30 ksi, crush 50 psi, W shear 10.5 ksi. psi = 6894.757293168361.",
+  "case": {
+    "R_m": 10.0,
+    "p_Pa": 95460.83791390515,
+    "lift_kg": 4889.442150186961,
+    "E_6061_Pa": 68900000000.0,
+    "nu": 0.33,
+    "structural_mass_kg": 4561.373476368534
+  },
+  "eq3": {
+    "kappa0": 0.45,
+    "a": 0.51,
+    "b": 3.88,
+    "floor": 0.45
+  },
+  "jimenez_plateau": {
+    "a": -1.23,
+    "b": 0.036,
+    "k_worst": 2.625
+  },
+  "pins": [
+    {
+      "path": "unpublished-local-ref:e0a1835ad116c787",
+      "sha256": "cf246efb62b5ace5b01aaca540c3c9c9774bbfeddb584d57b44e77eee683b2d1",
+      "bytes": 2001,
+      "took": "the five-item job; stop and file"
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "took": "case constants, sandwich pressure, output contract"
+    },
+    {
+      "path": "unpublished-local-ref:82c1ccf95406bd80",
+      "sha256": "755c67a351b50d5c3ec4f82b1f89a6712e287c5c54ceb1fee543091aa45b61b1",
+      "bytes": 9715,
+      "took": "partial read and built on; not adopted as this card"
+    },
+    {
+      "path": "unpublished-local-ref:0016bb6ce3b6b35b",
+      "sha256": "26770929b9f1a069483ffb4fa43de8653951ccd975359012a816c230b62f0fcd",
+      "bytes": 7285,
+      "took": "fit coefficients, DOIs, manufacture ladder"
+    },
+    {
+      "path": "unpublished-local-ref:5bf6d07f0cb0e4bd",
+      "sha256": "66b8d68db866f478cd0b5bd79a5c0565527cac4815885c12351fce41db003ff0",
+      "bytes": 6288,
+      "took": "nine open rows carried forward"
+    },
+    {
+      "path": "unpublished-local-ref:0518bf8507aaa77e",
+      "sha256": "51cedecbbb1b66b7b8c936d16c8e72712af657b4f978fc85fc846e72c21fe0bc",
+      "bytes": 15371,
+      "took": "read, not executed"
+    },
+    {
+      "path": "evidence/f62190ad5542457d-RESULTS.json",
+      "sha256": "f62190ad5542457d5578473ff4bb2f96420ec75872f0da10a31ee318a89a2ab5",
+      "bytes": 396846,
+      "took": "Be least SF target; per_density rows have no thickness"
+    },
+    {
+      "path": "evidence/9e1a02f084e00729-honeycomb.py",
+      "sha256": "9e1a02f084e00729956e2c8678f6b8df96ed31e339271286fa7ddba3aec51d06",
+      "bytes": 42435,
+      "took": "CR-1457 modes and CR-III 5056 1.6 sheet columns; not executed"
+    },
+    {
+      "path": "evidence/0e2d7bf61d20e6ee-mainline014.json",
+      "sha256": "0e2d7bf61d20e6ee2316d545ba53d8a850378379ff126a95ce8cae8181df0eb8",
+      "bytes": 85107,
+      "took": "filed h for CNT, graphene, Be on HRH-10"
+    },
+    {
+      "path": "evidence/b84f229e5f0e7f47-RESULTS.json",
+      "sha256": "b84f229e5f0e7f47af4788c15f0a75794ddfe3bb0d9a64723031815a49dca88d",
+      "bytes": 42460,
+      "took": "Be S-200F E 303 GPa, sigma 283 MPa, rho 1850"
+    }
+  ]
+}

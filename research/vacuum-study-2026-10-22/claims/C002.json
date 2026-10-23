@@ -1,0 +1,80 @@
+{
+  "id": "C002",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C002",
+    "report": "rpt-ref-4b8e7b08241bb7a45536",
+    "file": "evidence/86e8a9642552d39e-NFI.json",
+    "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+    "source_sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+    "source_json_pointer": "/rows/1",
+    "row_id": "NFI-022D-CHECK-02",
+    "fields": {
+      "id": "NFI-022D-CHECK-02",
+      "owner": "MAINLINE-022d / MAINLINE-026",
+      "state": "open applicability check",
+      "kind": "discrete versus continuum evidence",
+      "evidence": "Frozen mainline026b RESULTS/CARD; ARITHMETIC-CHECK.continuum_NFI",
+      "note": "Frequency-4 ideal rigid-frame linear multiplier 5.254643802209333 is 15.1571087172215% below source continuum 6.1933813461115825 even though its nominal half-wave/spacing is 1.05829486. A one-member wavelength screen does not validate continuum capacity. The 022d section, spacing and joints differ, so this is not a universal 15.16% correction.",
+      "settle": "Under a new routed card, solve a matched discrete frame for the 022d candidate with explicit joint stiffness, imperfections and relevant instability modes. Do not reuse the unverified new 026b nonlinear crossing as first loss.",
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "Frequency-4 ideal rigid-frame linear multiplier 5.254643802209333 is 15.1571087172215% below source continuum 6.1933813461115825 even though its nominal half-wave/spacing is 1.05829486. A one-member wavelength screen does not validate continuum capacity. The 022d section, spacing and joints differ, so this is not a universal 15.16% correction.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/712"
+    },
+    {
+      "report": "rpt-ref-4b8e7b08241bb7a45536",
+      "artifact": "evidence/86e8a9642552d39e-NFI.json",
+      "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+      "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+      "bytes": 7666,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-4b8e7b08241bb7a45536",
+          "artifact": "evidence/86e8a9642552d39e-NFI.json",
+          "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+          "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+          "bytes": 7666,
+          "selector": "/rows/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/712"
+          }
+        ]
+      }
+    }
+  ]
+}

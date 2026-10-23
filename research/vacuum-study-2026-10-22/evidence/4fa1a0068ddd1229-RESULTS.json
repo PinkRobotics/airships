@@ -1,0 +1,112 @@
+{
+  "unit": "vacuum-review-c-065-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "reviewed": "rep-ref-1542e20f6aa5d09ff49e",
+  "owner_code": "not read and not run",
+  "times": {
+    "state_line": "2026-10-20T17:19:30-07:00",
+    "note": "The state line is the work clock. The wake-to-state interval was not separately stamped. End time is the seal.",
+    "sealed": "2026-10-20T17:25:14-07:00"
+  },
+  "checks": [
+    {
+      "number": "Q = 0.33, CR-1457 eq 2.2-14",
+      "why": "the only admissible installed coefficient",
+      "verdict": "reproduces",
+      "detail": "Unknown waviness, elastic eta = 1, coefficient 0.33 on sqrt(Ec*Ef*tf/tc). Text calls it a best-available guide and says the selected sandwich must be tested."
+    },
+    {
+      "number": "Q = 0.82, eq 2.2-8 at Kdelta = 0",
+      "why": "the comparison cap, and whether it may be installed",
+      "verdict": "reproduces",
+      "detail": "Perfect-face coefficient 0.82, about 5 percent under 0.86. Not admissible as an installed value."
+    },
+    {
+      "number": "0.33/0.82 = 0.402439",
+      "why": "the handbook knockdown of approximately 0.4",
+      "verdict": "reproduces"
+    },
+    {
+      "number": "FPL 1810-A product form and the 43,900 psi half-wave check",
+      "why": "the pedigree of the 0.33 floor",
+      "verdict": "reproduces",
+      "detail": "Spring steel 0.01 inch on resin paper. Core A: six thicknesses, five specimens, cell 0.24 inch, half-wave 0.249 inch. Not admissible for this hull."
+    },
+    {
+      "number": "NTRS 19730016169, 79.8 to 91.2 ksi",
+      "why": "the only beryllium edgewise numbers in the piece",
+      "verdict": "reproduces",
+      "detail": "Above a proportional limit of about 35 ksi. Failures after plastic deformation. Not an elastic Q."
+    },
+    {
+      "number": "favorable-ramp concept payloads -5925.833, -7069.310, -18148.426, -22010.464 kg",
+      "why": "the headline that a published Q closes no cell",
+      "verdict": "reproduces",
+      "detail": "Payload identity lift - mass_before_growth - growth differs by 0 on all eight rows. These four are the model's rows, not a new optimum."
+    },
+    {
+      "number": "favorable-ramp TRL 7 payloads -1958.506, -3040.747, -4968.150, -8623.145 kg",
+      "why": "whether any supported cell is positive",
+      "verdict": "reproduces",
+      "detail": "Same identity. All negative in the filed rows."
+    },
+    {
+      "number": "favorable-ramp factors 1.180183, 1.217949, 1.160654, 1.197514",
+      "why": "the face-density improvement",
+      "verdict": "reproduces",
+      "detail": "Factor times closure density returns 1850 within 0.0002 kg/m3."
+    },
+    {
+      "number": "realized gamma 0.635072 to 0.642850",
+      "why": "which knockdown the supported-Q optima actually used",
+      "verdict": "reproduces",
+      "detail": "Equals min(1, 0.2+0.4*min(Vc, 2)) at the stored Vc."
+    },
+    {
+      "number": "handbook-gamma factors 2.118037, 2.221049, 2.080196, 2.180562 and the eight payloads",
+      "why": "the gamma comparison, including R 30 ISA concept -97877.745 kg",
+      "verdict": "reproduces",
+      "detail": "Matches this seat's 064 run simjob-20261020t170832-d919922bc1af to 0 kg and 0 on the factor. Gamma is 0.20 because Vc is 1.596 to 1.638."
+    },
+    {
+      "number": "cap anchors, Q 0.82, R 30 ISA concept -6582.657 kg, TRL 7 +5594.831 kg",
+      "why": "whether the copy is 063's model",
+      "verdict": "reproduces",
+      "detail": "All four anchors match 063 endpoint concept, TRL 7, gamma and Vc to 0. The card's 0.1 kg gate is the same match."
+    },
+    {
+      "number": "wrinkling coefficient at the Q 0.33 optima",
+      "why": "whether those payloads are equation 2.2-14",
+      "verdict": "differs",
+      "card_value": "Q = 0.33, equation 2.2-14",
+      "review_value": "BETA*0.33 = 0.225168 on sqrt(E*Ec*tf/tc), BETA = 0.682327803828082",
+      "detail": "Membrane stress pR/(4 tf) is 0.650 to 0.673 of the handbook allowable and 0.953 to 0.986 of the BETA allowable. Ec taken as 103421359.3975254 Pa from the pinned 040 core. Pressures taken from this seat's 064 run at the same R and weather."
+    },
+    {
+      "number": "payloads of equation 2.2-14 with no BETA",
+      "why": "whether the handbook coefficient itself lifts a cell",
+      "verdict": "cannot be checked without a source or a test",
+      "needs": "a recomputation that sets the wrinkling allowable to equation 2.2-14. This review does not run the owner's code."
+    },
+    {
+      "number": "FPL 2171 specimen stresses",
+      "why": "the second pedigree of figure 2.2-5",
+      "verdict": "cannot be checked without a source or a test",
+      "needs": "FPL Report 2171, which was not opened"
+    }
+  ],
+  "fix": [
+    {
+      "id": "FIX-BETA-Q",
+      "status": "unreviewed",
+      "statement": "Recompute the four favorable-ramp rows at Q 0.33 with the wrinkling allowable equal to CR-1457 equation 2.2-14, not BETA times 0.33. The filed negative TRL 7 cells are the model rows. They are not that recomputation."
+    }
+  ],
+  "beta": {
+    "equation": "b^3 + b = 1",
+    "review": 0.6823278038280194,
+    "card_gate": 0.682327803828082,
+    "difference": -6.26e-14
+  }
+}

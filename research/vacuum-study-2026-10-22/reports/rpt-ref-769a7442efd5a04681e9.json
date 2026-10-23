@@ -1,0 +1,66 @@
+{
+  "id": "rpt-ref-769a7442efd5a04681e9",
+  "unit": "vacuum-mainline021-optimistic-floating-point-1020",
+  "at": "2026-10-20T00:38:09-07:00",
+  "body": "MAINLINE-021 revised. Replaces my 00:30 report; closes both amendments. S-200F now carries its own 290 GPa; 303 was S-200FH's. The stronger grade carries its own E. The least set is unchanged: gamma on the 018 curve plus the wrinkling coefficient. So is the point: Be faces 0.8434 mm on Hexcel CR-III 5056 3/8-1.0, 16 kg/m3, core 20.21 mm, R 10 m. Masses: faces 3921.7 kg, core 406.9, joints 216.4, systems 100, margin 244.5. Vc 1.061. It needs gamma 0.595, which is 2.98x CR-1457's 0.20 and 0.958 of the 018 stretch (the curve gives 0.624). Wrinkle needs 0.371, 1.12x 0.33. Face strength needs exactly 283 MPa. Global 1.000, face compression 1.0002, crimp 2.15, crush 5.06, wrinkling 1.000, dimpling 9.0. With the full named set the least is 1.066; with conservative gamma, 0.339. Gamma alone needs 1.093 of its stretch: as 009e found, the 1.6 pcf core is blocked by face strength. 009e is reproduced exactly on its own grid. The lighter 1.0 pcf core frees mass for the faces. On 015's map, gamma 0.595 at t_eq 36.5 mm allows one 11.8 mm dimple, RMS 0.36 mm. At 290 GPa the SR-200 sheet route no longer floats on gamma alone; it needs gamma 0.370 and wrinkle 0.550. With S-200F at Materion's 255 MPa, the least set is wrinkle 0.82 with Be at 369 MPa on aramid, which rests on the handbook's crimp-branch gamma 1. Under the full set: aluminium 1.298, aramid 1.001. Checker's aramid 0.643 reproduced (0.6428). QUESTIONABLE, not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/74176cf445147edf-CARD.md",
+      "sha256": "74176cf445147edfdb96d8e83e44ffa442a690517a64cc8450a89c24101e337d",
+      "bytes": 12407
+    },
+    {
+      "path": "evidence/83db70aa5f7d2d26-RESULTS.json",
+      "sha256": "83db70aa5f7d2d267dc1e2630c367c35a417739d8614bd9ecccad4908274805e",
+      "bytes": 67507
+    },
+    {
+      "path": "evidence/fae865c7f039491f-NFI.json",
+      "sha256": "fae865c7f039491f49a45abcd82644a2ef2b4fe5f2c615a6682f816bf3e3eb8c",
+      "bytes": 5437
+    },
+    {
+      "path": "evidence/bd74c703a8cd795d-INPUTS.json",
+      "sha256": "bd74c703a8cd795d973e5546f0ecef0872f872cd00a95f987ffb769d8639b049",
+      "bytes": 6570
+    },
+    {
+      "path": "evidence/9eda312036601a80-float021.py",
+      "sha256": "9eda312036601a80dcc5009c6411f68c1af2127b161d53c746a4d4ce55a0d07d",
+      "bytes": 36455
+    },
+    {
+      "path": "evidence/93a948717780379e-make_docs.py",
+      "sha256": "93a948717780379e1a49a2fe1c4ea52fb2738878d81215e1ee72e3680c460fc4",
+      "bytes": 21056
+    },
+    {
+      "path": "evidence/649d7a4bbc761f6b-beryllium.json",
+      "sha256": "649d7a4bbc761f6b42f86a1481dd55e114ae2e0ee670bd2c3344619f27fea27a",
+      "bytes": 36159
+    }
+  ],
+  "from": "ref-4189c1615990eb515921",
+  "from_seat": "ref-4189c1615990eb515921",
+  "re": "ord-admiral-rr2-mainline021-be-modulus-290-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline021-be-modulus-290-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline021-take-009e-015-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "replaces",
+      "id": "rpt-ref-fe49179fb6a8ad8c986e",
+      "outcome": "superseded",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "rpt-ref-a18ff970381ef39185d1",
+  "kind": "report",
+  "from": "ref-4189c1615990eb515921",
+  "from_seat": "ref-4189c1615990eb515921",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline047-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check047-opus-65d1-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-check047-opus-65d1-1020",
+  "supersedes": null,
+  "completion": "none",
+  "priority": 4,
+  "at": "2026-10-20T08:56:49-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check047-opus-65d1-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/ed8fbe522708eccf-CHECK.md",
+      "sha256": "ed8fbe522708eccf17a2f828cbc8cb66a4c04b26d746e8841516ef749348d577",
+      "bytes": 8568
+    },
+    {
+      "path": "evidence/098ba45eeb99dfd4-RESULTS.json",
+      "sha256": "098ba45eeb99dfd4ad139c0068a5a495482d4d24c853ee4b9e3288571ddd528c",
+      "bytes": 30506
+    },
+    {
+      "path": "evidence/48d60a95de565083-NFI.json",
+      "sha256": "48d60a95de565083127d781bca62f4df3f7771004b5f6b64ba933586828ec43e",
+      "bytes": 1284
+    },
+    {
+      "path": "evidence/9e16cf21c7b72351-INPUTS.json",
+      "sha256": "9e16cf21c7b723511288315697dc0936ef6a79c504881cc562770f481c73812e",
+      "bytes": 11954
+    },
+    {
+      "path": "evidence/e1462328c57ad964-A-ARITH.json",
+      "sha256": "e1462328c57ad9647b3eeb45b06c3020eb44a67ff7c0b37e3551608f147e45a8",
+      "bytes": 14922
+    },
+    {
+      "path": "evidence/7a87b7cf69c8cd2e-B-FE.json",
+      "sha256": "7a87b7cf69c8cd2ea95588b0a297c508d0e1f011e5f4d4d2101801796bb1615a",
+      "bytes": 17028
+    },
+    {
+      "path": "evidence/cc601245c89ff398-B-ACOUSTIC.json",
+      "sha256": "cc601245c89ff398219f6a93505d4c3f624bdf59c805eca82bc3babde12269b6",
+      "bytes": 690
+    },
+    {
+      "path": "evidence/da6daea86e974c63-FE-RUNS.json",
+      "sha256": "da6daea86e974c635c673dbce51e99688e48f38f7228b69c38d2bb59dab40c47",
+      "bytes": 86605
+    },
+    {
+      "path": "evidence/c2a69d4bcf1be1b2-chk047a.py",
+      "sha256": "c2a69d4bcf1be1b2ca522eafa73187a3ae380c07ce9678fc29f9bc3c0806cb74",
+      "bytes": 18483
+    },
+    {
+      "path": "evidence/f3d5a22956f18177-fe047.py",
+      "sha256": "f3d5a22956f181776022d71e3525856b43b59a6f601a77eed50e33e9c0bd53ed",
+      "bytes": 15554
+    },
+    {
+      "path": "evidence/58972371d655dcbe-runall.py",
+      "sha256": "58972371d655dcbe4e54bec7822a30b6d8ec91914535142511d44777a5d971e4",
+      "bytes": 5395
+    },
+    {
+      "path": "evidence/a0125c9108f27a1a-runall2.py",
+      "sha256": "a0125c9108f27a1a0181f2d17f5062b39c44dd3093d76e9f109257b84755c998",
+      "bytes": 1003
+    },
+    {
+      "path": "evidence/c603c67c939bfbbb-runall3.py",
+      "sha256": "c603c67c939bfbbbc2576bc88906387a9959f2efb9b86b9e63dd9905cb8957db",
+      "bytes": 966
+    },
+    {
+      "path": "evidence/089bfcdc4d2fbf1a-chk047b.py",
+      "sha256": "089bfcdc4d2fbf1af6323f9d9c3f9cd34a2377a6defa3b3b287be500a931653a",
+      "bytes": 11122
+    },
+    {
+      "path": "evidence/bd2dbe04d38784a5-card047.py",
+      "sha256": "bd2dbe04d38784a50d02f05bb656a1a200d9126e394dfe868c03850447f030b4",
+      "bytes": 20291
+    },
+    {
+      "path": "unpublished-local-ref:7cc60df05e05193a",
+      "sha256": "171498155eed7dee43857eadeee1c6d74e1ca164aa39da461d8403a645033e4f",
+      "bytes": 738
+    },
+    {
+      "path": "evidence/5891649c6819a62f-vacuum-mainline047-check-1020.md",
+      "sha256": "5891649c6819a62fe6f9b34094c158e77feca935c3a996681a8c69ebd87effca",
+      "bytes": 2858
+    }
+  ],
+  "body": "QUESTIONABLE/PROJECTION. CHECK-047 complete, behind rpt-ref-e23aa05d834f8e89bb2c. Owner code neither read nor run.\n\nEverything the order names re-derives: 72/72 arithmetic rows, and 43/44 rows of an independent CalculiX model (own mesh, 4 mm at the dimple).\n\nCriterion: 95.4608 kPa is ISA 500 m; SF 1.05 = 100.2339.\n\nPerfect sphere: membrane statics put first yield at 80.95/95.24/109.52 kPa, inside all three brackets. Own FE gives 80.977/95.283/109.594 (card 80.974/95.280/109.590); endpoints within 0.003 kPa.\n\n345 MPa brackets: same pass/fail at every tested pair. SF 1: 1.209/1.227 mm carry 344.646/345.358 MPa (card 344.597/345.309). SF 1.05: 344.619/345.380 (card 344.585/345.345). Estimates 1.2179/0.7469 mm (card 1.2192/0.7478). Own 345 MPa runs yield where the card's do; L332, W402 and cure-debit pairs reproduce.\n\nCore law: own exact minimisation puts ellipticity loss at 0.0877 MPa shear for the inherited law (CHECK-029: 0.088) and 2.65 MPa for the regularized one. At the governing state: +0.498 MPa regularized, -0.005444 inherited (card -0.005455). Regularization from 0.01 to 10 MPa moves the answer at most 0.004 mm.\n\nEndpoint division: own endpoints 105.0765/104.9167 kPa (card 105.0759/104.9204), same 0.521-0.539 mm; transfer factors match CHECK-029.\n\nOne mismatch: the 11.8 mm face-yield estimate, 61.910 against 63.596 kPa (coarse sweep mesh; diagnostic only). Two NFI: unsourced E = 290 GPa (298.7 GPa adds 0.015 mm); unstated sweep mesh.",
+  "links_schema": 1,
+  "ingested": "2026-10-20T08:58:09-07:00"
+}

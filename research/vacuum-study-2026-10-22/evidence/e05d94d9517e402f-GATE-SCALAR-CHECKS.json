@@ -1,0 +1,83 @@
+{
+  "scope": "Scalar rational identities in GATE-PROOF only; no coefficient array,field,mesh,matrix,eigen/native/projecttest",
+  "checks": [
+    {
+      "name": "eta_upper_squared",
+      "pass": true,
+      "detail": "sqrt(273)<81/4 gives eta<9/100"
+    },
+    {
+      "name": "eta_lower_squared",
+      "pass": true,
+      "detail": "sqrt(273)>16 gives eta>2/25"
+    },
+    {
+      "name": "Machin_width",
+      "pass": true,
+      "detail": "256 terms; outward alternating-series remainder"
+    },
+    {
+      "name": "eta_width",
+      "pass": true,
+      "detail": "outer interval width less than3*2^-256"
+    },
+    {
+      "name": "trig_remainder",
+      "pass": true,
+      "detail": "degree80 for both sin and cos on[-4,4]"
+    },
+    {
+      "name": "coefficient_selection_sum",
+      "pass": true,
+      "detail": "six coefficient errors below2^-76 each"
+    },
+    {
+      "name": "full_slope_radius",
+      "pass": true,
+      "detail": {
+        "spatial": "1771561/602362880000000000",
+        "selection": "1/1180591620717411303424",
+        "delta": "1/100000000000"
+      }
+    },
+    {
+      "name": "constitutive_factor",
+      "pass": true,
+      "detail": "A*t/sqrt(mD)<6"
+    },
+    {
+      "name": "G_error_constant",
+      "pass": true,
+      "detail": "126240"
+    },
+    {
+      "name": "G_error_bound",
+      "pass": true,
+      "detail": {
+        "raw": "78900000003/62500000000000000",
+        "epsilon": "1/500000"
+      }
+    },
+    {
+      "name": "exact_screen_identity",
+      "pass": true,
+      "detail": "125001/62500000000"
+    },
+    {
+      "name": "exact_screen",
+      "pass": true,
+      "detail": "125001/62500000000"
+    },
+    {
+      "name": "theta1_alpha_necessary_V_condition",
+      "pass": true,
+      "detail": "375001/31250000000"
+    },
+    {
+      "name": "advisory_scale_only",
+      "pass": true,
+      "detail": "Not a bound on combined event correction"
+    }
+  ],
+  "all_pass": true
+}

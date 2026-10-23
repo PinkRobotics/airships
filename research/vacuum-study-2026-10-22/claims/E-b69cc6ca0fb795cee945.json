@@ -1,0 +1,40 @@
+{
+  "id": "E-b69cc6ca0fb795cee945",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-b69cc6ca0fb795cee945",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/13",
+    "row_id": "NFI-043-14",
+    "fields": {
+      "id": "NFI-043-14",
+      "status": "open",
+      "topic": "System risk budget and dependence",
+      "finding": "Headline targets allocate the entire risk budget to tube fracture and use an independent series model. Joints, membrane, instability, shared batches and common-cause events are omitted.",
+      "needed": "A whole-frame failure definition and allocated risk budget; valid component marginals and dependence/common-cause model.",
+      "effect": "The conditional series probabilities are not whole-vehicle reliability claims. Union-bound allocations avoid independence but do not supply missing marginal probabilities.",
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Headline targets allocate the entire risk budget to tube fracture and use an independent series model. Joints, membrane, instability, shared batches and common-cause events are omitted.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/13"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

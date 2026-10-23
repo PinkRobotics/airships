@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "status": "QUESTIONABLE; analytical sensitivities are PROJECTION",
+  "formulas": {
+    "nodes": "V=8*pi*R^2/(sqrt(3)*s^2)+2",
+    "edges": "n=3V-6; total length=n*s=8*pi*sqrt(3)*R^2/s",
+    "section": "A=pi*(ro^2-ri^2); I=pi*(ro^4-ri^4)/4",
+    "inherited_force": "N=p*R*s/2",
+    "triangular_force": "Each of 3 edge families has line density2/(sqrt(3)*s); sum cos(theta)^2=3/2; membrane resultant=sqrt(3)*N/s=pR/2; N=pRs/(2sqrt(3))",
+    "mean_stress": "N/A=4*pi*sqrt(3)*rho*p*R^3/Mtube for inherited N",
+    "maximum_tube_mass": "(lift-film-systems)/(1+joint_fraction), neglecting positive node mass",
+    "cold_bend": "epsilon_max=ro/R; linear elastic sigma=E*ro/R (kinematic warning, not valid past fracture)",
+    "sag": "R-sqrt(R^2-(s/2)^2), if s is chord length",
+    "arc_length": "2R*asin(s/(2R)), if s is chord length",
+    "union_bound": "P(any failure)<=sum(P_i); uniform budget P_i<=P_system/n",
+    "independent_series": "P_i=1-(1-P_system)^(1/n)"
+  },
+  "baseline_geometry": {
+    "diameter_m": 0.24737672474737216,
+    "wall_m": 0.0008802990936851718,
+    "spacing_m": 2.04,
+    "radius_to_wall_outer": 140.50720176922243,
+    "vertices_continuum": 350.67346486624723,
+    "members_continuum": 1046.0203945987416,
+    "integer_budget_members": 1047,
+    "total_length_m": 2133.881604981433,
+    "volume_m3": 1.454658580919423,
+    "inside_plus_outside_surface_area_m2": 3304.918956192076,
+    "A_m2": 0.0006816960123390163,
+    "I_m4": 5.177588818283229e-06,
+    "tube_mass_kg": 4509.441600850211,
+    "node_mass_kg": 7.013469297324945,
+    "joint_mass_kg": 225.47208004251058,
+    "closed_mass_kg": 4889.442150190047,
+    "inherited_axial_force_N": 973700.5467217801,
+    "inherited_axial_stress_Pa": 1428350069.6752589,
+    "triangular_equilibrium_force_N": 562166.2727599056,
+    "triangular_equilibrium_mean_stress_Pa": 824658297.2240314,
+    "sag_from_chord_m": 0.05215601248190005,
+    "arc_length_from_chord_m": 2.043554024505062,
+    "arc_length_to_inherited_s_ratio": 1.0017421688750303,
+    "cold_elastic_bend_outer_fiber_strain": 0.012368836237368609,
+    "cold_elastic_bend_extreme_stress_Pa": 5071222857.321129,
+    "cold_bend_stress_to_typical_380MPa_ratio": 13.345323308739813,
+    "total_joint_budget_per_member_end_kg": 0.1077761395507985
+  },
+  "probability_budgets": [
+    {
+      "system_probability": 1e-06,
+      "members": 1047,
+      "union_bound_budget_per_member": 9.551098376313275e-10,
+      "equal_independent_series_probability_per_member": 9.55110314730447e-10,
+      "status": "QUESTIONABLE analyst-selected target; no qualified distribution"
+    },
+    {
+      "system_probability": 0.001,
+      "members": 1047,
+      "union_bound_budget_per_member": 9.551098376313277e-07,
+      "equal_independent_series_probability_per_member": 9.555872545852662e-07,
+      "status": "QUESTIONABLE analyst-selected target; no qualified distribution"
+    }
+  ],
+  "manufacturing_dimensional_comparisons": {
+    "SA_one_piece_1p4m_length_factor": 1.4571428571428573,
+    "CVD_202mm_OD_example_required_diameter_factor": 1.2246372512246146,
+    "CVD_1p5m_length_example_required_length_factor": 1.36,
+    "CVD_1mm_wall_example_to_required_wall_factor": 1.1359775412396798,
+    "wall_comparisons": [
+      {
+        "wall_m": 0.002,
+        "wall_ratio_to_proposal": 2.2719550824793595,
+        "annular_area_and_tube_mass_ratio_same_OD": 2.2616348104583164,
+        "assembly_mass_kg_same_OD_spacing_density": 10863.174074519624,
+        "mass_to_lift_ratio": 2.221761448613824,
+        "status": "PROJECTION: borrowed SiSiC wall envelope applied geometrically to inherited SA density"
+      },
+      {
+        "wall_m": 0.004,
+        "wall_ratio_to_proposal": 4.543910164958719,
+        "annular_area_and_tube_mass_ratio_same_OD": 4.486401661043306,
+        "assembly_mass_kg_same_OD_spacing_density": 21397.253072151114,
+        "mass_to_lift_ratio": 4.376215612106104,
+        "status": "PROJECTION: borrowed SiSiC wall envelope applied geometrically to inherited SA density"
+      }
+    ],
+    "status": "QUESTIONABLE public examples; not a proven simultaneous product envelope"
+  },
+  "geometry_free_strength_upper_bounds": [
+    {
+      "scenario": "SiC conditional compression",
+      "rho_kg_m3": 3100.0,
+      "assumed_Fc_Pa": 100000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1426237492.0159771,
+      "maximum_strength_only_SF_inherited_load_path": 0.07011455003798187,
+      "maximum_strength_only_SF_triangular_equilibrium": 0.12144196301561495,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    },
+    {
+      "scenario": "SiC conditional compression",
+      "rho_kg_m3": 3100.0,
+      "assumed_Fc_Pa": 200000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1426237492.0159771,
+      "maximum_strength_only_SF_inherited_load_path": 0.14022910007596373,
+      "maximum_strength_only_SF_triangular_equilibrium": 0.2428839260312299,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    },
+    {
+      "scenario": "SiC conditional compression",
+      "rho_kg_m3": 3100.0,
+      "assumed_Fc_Pa": 380000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1426237492.0159771,
+      "maximum_strength_only_SF_inherited_load_path": 0.2664352901443311,
+      "maximum_strength_only_SF_triangular_equilibrium": 0.4614794594593368,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    },
+    {
+      "scenario": "SiC conditional compression",
+      "rho_kg_m3": 3100.0,
+      "assumed_Fc_Pa": 1000000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1426237492.0159771,
+      "maximum_strength_only_SF_inherited_load_path": 0.7011455003798187,
+      "maximum_strength_only_SF_triangular_equilibrium": 1.2144196301561496,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    },
+    {
+      "scenario": "SiC conditional compression",
+      "rho_kg_m3": 3100.0,
+      "assumed_Fc_Pa": 3900000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1426237492.0159771,
+      "maximum_strength_only_SF_inherited_load_path": 2.734467451481293,
+      "maximum_strength_only_SF_triangular_equilibrium": 4.736236557608984,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    },
+    {
+      "scenario": "CVI CMC mixed scalar screening",
+      "rho_kg_m3": 2440.0,
+      "assumed_Fc_Pa": 128000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1122586929.1996722,
+      "maximum_strength_only_SF_inherited_load_path": 0.11402235022570167,
+      "maximum_strength_only_SF_triangular_equilibrium": 0.19749250378932795,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    },
+    {
+      "scenario": "CVI CMC mixed scalar screening",
+      "rho_kg_m3": 2440.0,
+      "assumed_Fc_Pa": 300000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1122586929.1996722,
+      "maximum_strength_only_SF_inherited_load_path": 0.2672398833414883,
+      "maximum_strength_only_SF_triangular_equilibrium": 0.46287305575623733,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    },
+    {
+      "scenario": "CVI CMC mixed scalar screening",
+      "rho_kg_m3": 2440.0,
+      "assumed_Fc_Pa": 580000000.0,
+      "minimum_mean_stress_Pa_inherited_load_path": 1122586929.1996722,
+      "maximum_strength_only_SF_inherited_load_path": 0.5166637744602107,
+      "maximum_strength_only_SF_triangular_equilibrium": 0.8948879077953922,
+      "status": "PROJECTION: excludes positive node mass, bending, contact and buckling"
+    }
+  ],
+  "numerical_checks": {
+    "mass_balance_absolute_error_kg": 4.729372449219227e-11,
+    "triangular_sum_cos_squared": 1.5,
+    "edge_length_identity_absolute_error_m": 4.547473508864641e-13,
+    "comment": "These are arithmetic identities, not validation of structural behavior."
+  }
+}

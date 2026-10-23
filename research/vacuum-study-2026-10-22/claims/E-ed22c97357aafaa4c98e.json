@@ -1,0 +1,37 @@
+{
+  "id": "E-ed22c97357aafaa4c98e",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-ed22c97357aafaa4c98e",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1048~1NFI.json/inherited_040_findings/7",
+    "row_id": "040-08-thermal_model",
+    "fields": {
+      "id": "040-08-thermal_model",
+      "tag": "PROJECTION",
+      "open_issue": "Corrected thermal quadrature does not qualify the 037b homogenized free-edge model, local hardpoint restraint or joint coincidence.",
+      "grounding": "Compare thermal maps, strain and interface damage on curved instrumented panels."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Corrected thermal quadrature does not qualify the 037b homogenized free-edge model, local hardpoint restraint or joint coincidence.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1048~1NFI.json/inherited_040_findings/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

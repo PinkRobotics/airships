@@ -1,0 +1,24 @@
+{
+  "unit": "vacuum-mainline040-common-account-1020",
+  "started_at": "2026-10-20T02:54:13-07:00",
+  "finished_at": "2026-10-20T03:53:52.311893-07:00",
+  "primary_calculation_elapsed_s": 583.9078611182049,
+  "previous_screen_calculation_elapsed_s": 367.65686137462035,
+  "python": "3.14.4",
+  "numpy": "2.3.5",
+  "scipy": "1.17.1",
+  "threads": 1,
+  "times_are": "measurements, not work limits",
+  "reproduction": [
+    "prepare_inputs.py",
+    "thermal.py",
+    "calculate.py",
+    "sensitivities.py",
+    "qualification_audit.py",
+    "validate.py",
+    "refresh_details.py",
+    "package_final.py",
+    "finalize.py"
+  ],
+  "boundary": "031 atmosphere and 037 thermal environments retained explicitly; no installed qualification."
+}

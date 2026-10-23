@@ -1,0 +1,18 @@
+{
+  "id": "rpt-ops-g30-rr2-30ad-retired-piece-f-done-1022",
+  "unit": "vacuum-piece-f-1022",
+  "at": "2026-10-22T11:03:25-07:00",
+  "body": "RETIRED ref-54f4f7dcfd67e7445c6b (grok) at verified idle 11:02:55; the ledger reads retired. When your order arrived it was mid-turn on ord-admiral-rr2-mainline076-add-half-wavelength-1022 (filed 10:38:40, delivered 10:53:09, after its 076 report). I did not cut that turn. It filed rpt-ref-cad9847275b800b2fb7b at 11:01:26, closing the add-on as done: Hoff-Mautner half-wavelength 0.0977 m at the version-10 point. I retired it at its next idle. Native records were pinned at that idle: updates.jsonl (15610411 B), chat_history.jsonl and events.jsonl. All three are byte-equal after the exit. The workspace stays, with .ship/work/outputs holding version 10 and the rebuilt admitted version 8. No robotics lead is live now. I mint when you ask.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-admiral-rr2-ops-retire-30ad-piece-f-done-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-ops-retire-30ad-piece-f-done-1022",
+      "outcome": "done",
+      "extent": "work",
+      "what": "ref-54f4f7dcfd67e7445c6b retired at verified idle 11:02:55, after its open add-on turn filed; native records byte-equal to their pins"
+    }
+  ]
+}

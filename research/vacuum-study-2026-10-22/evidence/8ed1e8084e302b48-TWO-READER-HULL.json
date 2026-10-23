@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "at": {
+    "captured_monotonic": 2048829.491382504,
+    "captured_utc": "2026-10-19T18:08:24.311075+00:00"
+  },
+  "reader1_seal": {
+    "path": "evidence/d4277195ce81e216-READER1-SEAL.json",
+    "sha256": "d4277195ce81e21600bf2f7f121866d836202d0c8e4a5c0b38b1fc5428b67bb5",
+    "bytes": 2869
+  },
+  "reader1_filed_pin": {
+    "path": "unpublished-local-ref:8b4a1c6c3d9a7c3a",
+    "sha256": "9251c0c313a0b49a7aac703715966cc5131fd59bb3bd9472677bba8ee7295bf6",
+    "bytes": 1116
+  },
+  "reader2_seal": {
+    "path": "unpublished-local-ref:5f29c4039566a221",
+    "sha256": "f04065a8f7efbc02fc750d8948db540a901e5e80264479c9a0e6f9d242661855",
+    "bytes": 3400
+  },
+  "unblind_start": {
+    "path": "unpublished-local-ref:b32715f8a28822ee",
+    "sha256": "5f2a72e8b7abd34755572d7344a681eb719210e7b73f5f57f3e074c4d877d7c2",
+    "bytes": 255
+  },
+  "reader1_box": {
+    "path": "evidence/72dfb46083fe1d74-reader1-box.json",
+    "sha256": "72dfb46083fe1d741d4d5492e5da067ffa66d4ba359b4e9b3b09cc0bb39fa3d1",
+    "bytes": 577
+  },
+  "reader2_box": {
+    "path": "unpublished-local-ref:9692401861ddafd8",
+    "sha256": "8d70268596160b268145ac65f90df621ef59fce802f957cb28fbe56ff8dad26c",
+    "bytes": 386
+  },
+  "reader1_interval_exact": [
+    "587/1000",
+    "317/500"
+  ],
+  "reader2_interval_exact_as_filed": [
+    "5993/10000",
+    "3083/5000"
+  ],
+  "hull_exact": [
+    "587/1000",
+    "317/500"
+  ],
+  "hull_display": [
+    0.587,
+    0.634
+  ],
+  "hull_operator": "minimum lower endpoint, maximum upper endpoint; never intersection. Also encloses exact rational reconstruction of reader2 recorded calibration/row bounds. No source box rewritten.",
+  "reader2_rounding_qualification": {
+    "foreign_script": "read, never executed",
+    "finding": "Script uses round(...,4), nearest rounding instead of outward endpoints. The as-filed reader2 box alone must not be represented as a strict outward arithmetic enclosure.",
+    "method_audit": "Exact rational least-squares algebra from the sealed5tick centers, max residual and half-width, plus recorded590..600 stroke rows and1px raster; no rerender/retrace or critical-response calculation.",
+    "ky": "-2405/2",
+    "cy": "13261/10",
+    "ycal": "22/5",
+    "unrounded_interval_exact": [
+      "7207/12025",
+      "1483/2405"
+    ],
+    "unrounded_interval_display": [
+      0.5993347193347194,
+      0.6166320166320166
+    ],
+    "as_filed_encloses_unrounded": false,
+    "reader1_and_final_hull_enclose_unrounded": true
+  },
+  "scope": "Plot-reading compatibility only. Historical discretization uncertainty remains UNKNOWN. No continuum reference interval or native response computed. Reader2 exact budget closure remains its owner/Head matter, no approximate debit invented."
+}

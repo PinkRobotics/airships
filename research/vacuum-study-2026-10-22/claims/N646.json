@@ -1,0 +1,79 @@
+{
+  "id": "N646",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N646",
+    "report": "rpt-ref-4a20323946ecafd56a6b",
+    "card": "rpt-ref-4a20323946ecafd56a6b",
+    "file": "evidence/d90bde67ada2ca77-NFI.json",
+    "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+    "source_sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+    "source_json_pointer": "/rows/5",
+    "row_id": "NFI-026B-06",
+    "fields": {
+      "id": "NFI-026B-06",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Actual thin curved SiC sections, film and joints ungrounded",
+      "evidence": "E410 GPa comparison input; nu0.14. Film masses184.442/348.856 kg use the source projection; joints5% of tube+film+node mass.",
+      "implication": "Fabrication, ceramic defects, residual stress, joint compliance, seals and film strength need separate evidence. No certification."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "Actual thin curved SiC sections, film and joints ungrounded",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/645"
+    },
+    {
+      "report": "rpt-ref-4a20323946ecafd56a6b",
+      "artifact": "evidence/d90bde67ada2ca77-NFI.json",
+      "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+      "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+      "bytes": 5415,
+      "selector": "/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-4a20323946ecafd56a6b",
+          "artifact": "evidence/d90bde67ada2ca77-NFI.json",
+          "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+          "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+          "bytes": 5415,
+          "selector": "/rows/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/645"
+          }
+        ]
+      }
+    }
+  ]
+}

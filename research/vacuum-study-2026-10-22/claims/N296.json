@@ -1,0 +1,70 @@
+{
+  "id": "N296",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N296",
+    "report": "rpt-mainline007-check-lead4f19-1019",
+    "card": "CHECK-MAINLINE-007",
+    "file": "evidence/a27128f0dc1713bc-NFI.json",
+    "row_id": "NFI-SAND/SHEAR/WRINKLE/CRUSH",
+    "fields": {
+      "NFI_id": "NFI-SAND/SHEAR/WRINKLE/CRUSH",
+      "gap": "Confirmed: stated SF omits core shear, face wrinkling and core crush; advisory crimp (Gc = pR/(2*sep)), wrinkling product ((2*membrane)^3/E) and crush (p/2, QUESTIONABLE, not an equilibrium solution) are beside the row. Catalog cores at 16-38 kg/m3 clear advisory crush and crimp; wrinkling products miss by roughly 40-180x; aluminium honeycomb Ec is open.",
+      "direction": "007b, checked separately.",
+      "effect": "Owner statement stands."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-SAND/SHEAR/WRINKLE/CRUSH\", \"gap\": \"Confirmed: stated SF omits core shear, face wrinkling and core crush; advisory crimp (Gc = pR/(2*sep)), wrinkling product ((2*membrane)^3/E) and crush (p/2, QUESTIONABLE, not an equilibrium solution) are beside the row. Catalog cores at 16-38 kg/m3 clear advisory crush and crimp; wrinkling products miss by roughly 40-180x; aluminium honeycomb Ec is open.\", \"direction\": \"007b, checked separately.\", \"effect\": \"Owner statement stands.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/295"
+    },
+    {
+      "report": "rpt-mainline007-check-lead4f19-1019",
+      "artifact": "evidence/a27128f0dc1713bc-NFI.json",
+      "snapshot": "evidence/a27128f0dc1713bc-NFI.json",
+      "sha256": "a27128f0dc1713bc8df4a04dae905f7c70f704dae827b780bc45ea675847da6a",
+      "bytes": 2465,
+      "selector": "source row ID: NFI-SAND/SHEAR/WRINKLE/CRUSH"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline007-check-lead4f19-1019",
+          "artifact": "evidence/a27128f0dc1713bc-NFI.json",
+          "snapshot": "evidence/a27128f0dc1713bc-NFI.json",
+          "sha256": "a27128f0dc1713bc8df4a04dae905f7c70f704dae827b780bc45ea675847da6a",
+          "bytes": 2465,
+          "selector": "source row ID: NFI-SAND/SHEAR/WRINKLE/CRUSH"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/295"
+          }
+        ]
+      }
+    }
+  ]
+}

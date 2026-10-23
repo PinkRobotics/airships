@@ -1,0 +1,590 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-030",
+  "unit": "vacuum-mainline030-design-register-1020",
+  "seat": "ref-55cff924be25afe6f9dd",
+  "questionable": true,
+  "certification": false,
+  "snapshot_local": "2026-10-20T01:15:00-07:00",
+  "lead_hulls": {
+    "P2_021rev1_5pct": {
+      "source": "rpt-ref-769a7442efd5a04681e9",
+      "R_m": 10.0,
+      "face": "Be S-200F, 290 GPa, 283 MPa",
+      "tf_mm": 0.843448,
+      "core": "Hexcel CR-III 5056 3/8-1.0, 16.02 kg/m3",
+      "core_mm": 20.2134,
+      "Vc": 1.06106,
+      "masses_kg": {
+        "faces": 3921.66,
+        "core": 406.883,
+        "joints": 216.4271,
+        "systems": 100.0,
+        "margin": 244.4721,
+        "total": 4889.44215
+      },
+      "modes_at_needed": {
+        "global": 1.0,
+        "face_compression": 1.0,
+        "crimp": 2.155,
+        "crush": 5.056,
+        "wrinkling": 1.0,
+        "dimpling": 9.019
+      },
+      "least_today": 0.336,
+      "least_conservative_gamma": 0.3386,
+      "least_full_named_set": 1.066,
+      "optimisms": [
+        {
+          "name": "gamma",
+          "today": 0.2,
+          "needed": 0.59532,
+          "factor": 2.977,
+          "curve_gives": 0.62443,
+          "state": "PROJECTION"
+        },
+        {
+          "name": "wrinkling coefficient",
+          "today": 0.33,
+          "needed": 0.37068,
+          "factor": 1.123,
+          "state": "handbook theory 0.82, untested"
+        },
+        {
+          "name": "face strength MPa",
+          "today": 283,
+          "needed": 283,
+          "factor": 1.0,
+          "state": "inherited; Materion guide about 255 fails the point"
+        }
+      ]
+    },
+    "P2_021b_019_reserve": {
+      "source": "rpt-ref-1080d4f6a1af4cfa8c67",
+      "R_m": 10.0,
+      "face": "Be SR-200 sheet, 290 GPa, 345 MPa",
+      "tf_mm": 0.691748,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "core_mm": 30.1182,
+      "Vc": 0.886182,
+      "panels_m": 3.128,
+      "film_lb_ft2": 0.03,
+      "masses_kg": {
+        "faces": 3216.322,
+        "core": 606.2618,
+        "joint_allowance": 191.1292,
+        "systems": 100.0,
+        "reserve": 775.7294,
+        "reserve_fixed_items": 411.2989,
+        "reserve_joint_excess": 364.4304,
+        "total": 4889.44215
+      },
+      "modes_at_needed": {
+        "global": 1.0,
+        "face_compression": 1.0,
+        "crimp": 3.096,
+        "crush": 5.056,
+        "wrinkling": 1.0,
+        "dimpling": 4.975
+      },
+      "least_today": 0.4271,
+      "least_conservative_gamma": 0.4309,
+      "least_full": 1.099,
+      "optimisms": [
+        {
+          "name": "gamma",
+          "today": 0.2,
+          "needed": 0.46823,
+          "factor": 2.341,
+          "curve_gives": 0.55447,
+          "state": "PROJECTION"
+        },
+        {
+          "name": "wrinkling coefficient",
+          "today": 0.33,
+          "needed": 0.6092,
+          "factor": 1.846,
+          "state": "handbook theory 0.82, untested"
+        },
+        {
+          "name": "panel size m",
+          "today": 0.9144,
+          "needed": 3.128,
+          "factor": 3.421,
+          "state": "PROJECTION"
+        },
+        {
+          "name": "face strength MPa",
+          "today": 345,
+          "needed": 345,
+          "factor": 1.0,
+          "state": "datasheet minimum tensile, as compressive"
+        },
+        {
+          "name": "bond film lb/ft2",
+          "today": 0.03,
+          "needed": 0.03,
+          "factor": 1.0,
+          "state": "not needed"
+        }
+      ]
+    },
+    "P3_022b_filed_5pct": {
+      "source": "rpt-mainline022b-grok-equilibrium-1020 (GAMMA.md, EQUILIBRIUM.md)",
+      "grid": "equilateral",
+      "k": 0.2,
+      "s_m": 6.15,
+      "nodes": 40.4,
+      "r_o_mm": 167.646,
+      "wall_mm": 1.6253,
+      "r_over_t": 103.15,
+      "gamma_local": 0.5766,
+      "film_mm": 0.2862,
+      "masses_kg": {
+        "tubes": 3799.89,
+        "joints": 207.48,
+        "film": 348.86,
+        "nodes": 0.81,
+        "systems": 100.0,
+        "payload": 244.47,
+        "sag_lift": 187.94
+      },
+      "modes": {
+        "yield": 3.9205,
+        "euler": 1.4487,
+        "local": 1.3823,
+        "film": 1.4625,
+        "perry": 1.3888,
+        "global": 1.3752
+      },
+      "member_force_N": 1694766,
+      "half_wave_over_s": 0.57,
+      "validity": "outside the smeared-continuum band (R055)"
+    },
+    "P3_inband_both_fixes_100kg_5pct": {
+      "source": "rpt-check011b-opus-1020 (RESULTS-EXTRA.json restatements)",
+      "s_m": 2.224,
+      "nodes": 295.4,
+      "r_o_mm": 121.7,
+      "wall_mm": 0.915,
+      "r_over_t": 132.9,
+      "gamma_local": 0.5373,
+      "masses_kg": {
+        "tubes": 4230.05,
+        "joints": 211.5,
+        "film": 97.515,
+        "nodes": 5.91,
+        "systems": 100.0,
+        "margin": 244.47
+      },
+      "modes": {
+        "yield": 4.4362,
+        "euler": 6.8357,
+        "local": 1.1313,
+        "film": 1.1304,
+        "perry": 4.0665,
+        "global": 1.1305
+      },
+      "member_force_N": 612871,
+      "half_wave_over_s": 1.35
+    },
+    "P3_today_materials": {
+      "source": "rpt-mainline022b-grok-equilibrium-1020",
+      "mylar_380MPa_5pct": 0.4118,
+      "ti_kapton_5pct_equilateral": 0.7391,
+      "ti_kapton_5pct_two_way_C4": 0.9856
+    },
+    "P3_optimisms": [
+      {
+        "name": "film specific strength MJ/kg",
+        "today": 0.0813,
+        "today_basis": "Kapton HN at half of 231 MPa, 1420 kg/m3 (024)",
+        "needed": 1.06,
+        "factor": 13.0,
+        "state": "PROJECTION"
+      },
+      {
+        "name": "SiC tube allowable GPa (compression)",
+        "today": 0.38,
+        "today_basis": "flexural bar; 3.9 GPa bulk crush carried",
+        "needed": 1.0,
+        "factor": 2.6,
+        "state": "025 running"
+      },
+      {
+        "name": "SiC tube manufacture",
+        "today": null,
+        "needed": "335 mm x 1.6 mm x 6 m (or 243 mm x 0.9 mm x 2.2 m)",
+        "state": "PROJECTION"
+      },
+      {
+        "name": "continuum validity",
+        "today": "half-wave/s 0.57 at s 6.15 m",
+        "needed": "several members per half-wave, or a discrete check",
+        "state": "unknown"
+      },
+      {
+        "name": "node moment rigidity",
+        "today": "assumed",
+        "needed": "moment-carrying member ends",
+        "state": "unknown"
+      },
+      {
+        "name": "joints at 562 kN to 1.7 MN",
+        "today": "Ti sleeve 158 kg (023)",
+        "needed": "within 5% (207.5 kg)",
+        "state": "bond to SiC PROJECTION"
+      }
+    ]
+  },
+  "register": {
+    "rows": 86,
+    "filed_rows": 363,
+    "source_reports": 41,
+    "rows_with_check_outcome": 19,
+    "lead_rows": [
+      "R007",
+      "R010",
+      "R013",
+      "R018",
+      "R033",
+      "R038",
+      "R055",
+      "R057",
+      "R059",
+      "R067"
+    ]
+  },
+  "ledger": {
+    "rows": 88,
+    "lead_relevant": [
+      {
+        "correction": "S-200F E is 290 GPa, not 303 (S-200FH's)",
+        "by": [
+          "rpt-1228-mainline009c5-independent-check-1019",
+          "rpt-1228-mainline014b-independent-check-1019",
+          "rpt-ref-e92af61311c9bf4a89cd",
+          "ord-admiral-rr2-mainline021-be-modulus-290-1020"
+        ],
+        "effect_on_lead": "P2: 021 rev1 keeps its least set; gamma usage 0.910 to 0.958; Be/aramid 0.650 to 0.643; the SR-200 route now needs gamma plus wrinkling, not gamma alone. 014b's Be point 0.685 to 0.671 at fixed geometry.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-1228-mainline009c5-independent-check-1019": true,
+          "rpt-1228-mainline014b-independent-check-1019": true,
+          "rpt-ref-e92af61311c9bf4a89cd": true,
+          "ord-admiral-rr2-mainline021-be-modulus-290-1020": true
+        }
+      },
+      {
+        "correction": "Equilateral member force is pRs/(2*sqrt3), not pRs/2 (FIX-A)",
+        "by": [
+          "rpt-check011b-opus-1020",
+          "ord-admiral-rr2-mainline022b-equilibrium-1020",
+          "ord-admiral-rr2-mainline023-load-562kn-1020",
+          "ord-admiral-rr2-mainline025-demand-082gpa-1020"
+        ],
+        "effect_on_lead": "P3: member modes rise by sqrt3; joint load 974 to 562 kN (023: CFRP wrap 31 kg, Ti sleeve 158 kg); SiC demand 1.43 to 0.82 GPa; 011b SiC 1.226 to 1.408 with FIX-A alone.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-check011b-opus-1020": true,
+          "ord-admiral-rr2-mainline022b-equilibrium-1020": true,
+          "ord-admiral-rr2-mainline023-load-562kn-1020": true,
+          "ord-admiral-rr2-mainline025-demand-082gpa-1020": true
+        }
+      },
+      {
+        "correction": "015's tolerance map mixed conventions (lambda 1 amplitude with lambda 2.625 width; nu 0.33 declared, 0.30 used)",
+        "by": [
+          "rpt-ref-88e650e7f8b713866e0b",
+          "ord-admiral-rr2-mainline015b-tolerance-fix-1020"
+        ],
+        "effect_on_lead": "P2: kd 0.9 single-dimple RMS 0.456 to 0.174 mm (P2-E) and 0.103 to 0.039 mm (Be), 0.70 and 0.16 of the 0.25 mm assembled-surface figure; the gamma-to-shape reading of 021 (one 11.8 mm dimple) is restated by 015b. kd for SF 1 at the 014b point 0.519 to 0.5183.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-ref-88e650e7f8b713866e0b": true,
+          "ord-admiral-rr2-mainline015b-tolerance-fix-1020": true
+        }
+      },
+      {
+        "correction": "019's step rule pairs aramid's optimistic gamma 1 with aluminium's conservative 0.2",
+        "by": [
+          "rpt-check019-opus-1020"
+        ],
+        "effect_on_lead": "P2 family choice: with one 018 curve for both, aluminium leads (0.847 against 0.609 on the optimistic line; 0.557 against 0.253 conservative). 021 rev1's lead is already on aluminium honeycomb.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-check019-opus-1020": true
+        }
+      },
+      {
+        "correction": "S-200F compression is about 255 MPa (Materion guide), not 283",
+        "by": [
+          "rpt-ref-e92af61311c9bf4a89cd",
+          "ord-admiral-rr2-mainline028b-joining-into-021b-1020"
+        ],
+        "effect_on_lead": "P2: at 255 MPa 021's least set moves to wrinkling plus strength on aramid, which rests on the crimp-branch gamma 1; 028b runs it as a sensitivity. 021b uses SR-200 sheet at its own 345 MPa instead.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-ref-e92af61311c9bf4a89cd": true,
+          "ord-admiral-rr2-mainline028b-joining-into-021b-1020": true
+        }
+      },
+      {
+        "correction": "SP-8007's gamma applies to tube local buckling: 0.529 at r/t 140, not 1 (FIX-B)",
+        "by": [
+          "rpt-check011b-opus-1020",
+          "ord-admiral-rr2-mainline022b-local-gamma-1020"
+        ],
+        "effect_on_lead": "P3: SiC 1.226 to 1.075 alone; 1.205 with FIX-A; 1.130 at 100 kg and 5%. Carried by 022b.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-check011b-opus-1020": true,
+          "ord-admiral-rr2-mainline022b-local-gamma-1020": true
+        }
+      },
+      {
+        "correction": "A rise above the sagitta does not cut N; it adds a crown moment",
+        "by": [
+          "ord-admiral-rr2-mainline022b-equilibrium-1020",
+          "rpt-mainline022b-grok-equilibrium-1020"
+        ],
+        "effect_on_lead": "P3: 022's least set 'rise 8' (1.354) is withdrawn; at that geometry yield is 0.159 with the crown moment.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "ord-admiral-rr2-mainline022b-equilibrium-1020": true,
+          "rpt-mainline022b-grok-equilibrium-1020": true
+        }
+      },
+      {
+        "correction": "A two-way grid has 2V-4 members, not the triangulated 3V-6; its C = 4 assumes isotropy",
+        "by": [
+          "rpt-check011b-opus-1020",
+          "ord-admiral-rr2-mainline022b-equilibrium-1020"
+        ],
+        "effect_on_lead": "P3: 022b re-counts; the C = 4 isotropy caveat stays open (R057), so 022b's two-way rows are not floating points.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-check011b-opus-1020": true,
+          "ord-admiral-rr2-mainline022b-equilibrium-1020": true
+        }
+      },
+      {
+        "correction": "The film rule implies a sag of about s/24 that costs lift (about 31.45 kg per metre of s)",
+        "by": [
+          "ord-admiral-rr2-mainline024-sag-lift-1020",
+          "rpt-ref-2bb3c2b520a8e5f8c750",
+          "ord-admiral-rr2-mainline022c-sag-in-scan-1020"
+        ],
+        "effect_on_lead": "P3: 62.9 kg at s 2 m, 170-195 kg at 022b's s 5.5-6.15 m; 022c re-optimises with it in the scan.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "ord-admiral-rr2-mainline024-sag-lift-1020": true,
+          "rpt-ref-2bb3c2b520a8e5f8c750": true,
+          "ord-admiral-rr2-mainline022c-sag-in-scan-1020": true
+        }
+      },
+      {
+        "correction": "019's optimistic reserve embeds 4 m panels and 0.015 lb/ft2 film",
+        "by": [
+          "rpt-ref-1080d4f6a1af4cfa8c67"
+        ],
+        "effect_on_lead": "P2: at today's 0.914 m stock and 0.030 film the reserve is 1229 kg at 021b's point (1154 kg on 019's aluminium family, which this checker reproduced); 021b names panel size as its third optimism.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-ref-1080d4f6a1af4cfa8c67": true
+        }
+      },
+      {
+        "correction": "The 020 brief's 2,100 kg of faces is 3,498.47 kg",
+        "by": [
+          "rpt-ref-3e02218a03708a878faa"
+        ],
+        "effect_on_lead": "P2: supply and cost rows use the real face mass (0.81% of world mine output; $39.5m to $167.9m sheet stock).",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-ref-3e02218a03708a878faa": true
+        }
+      },
+      {
+        "correction": "Intracell dimpling takes CR-1457's biaxial rule, which halves the uniaxial SF",
+        "by": [
+          "rpt-ref-444cea756201354c34c3",
+          "rpt-ref-0d85ae067b41baf8d095"
+        ],
+        "effect_on_lead": "P2: none; dimpling stays far above 1 (9.0 at 021 rev1, 4.98 at 021b).",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-ref-444cea756201354c34c3": true,
+          "rpt-ref-0d85ae067b41baf8d095": true
+        }
+      },
+      {
+        "correction": "Ceramic arcs take lattice k 0.2; Wright's 0.4 is an optimism of factor 2",
+        "by": [
+          "rpt-mainline022-grok-p3-optimistic-floating-point-1020"
+        ],
+        "effect_on_lead": "P3: every P3 row scores k 0.2; k 0.4 rows are sensitivities only.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-mainline022-grok-p3-optimistic-floating-point-1020": true
+        }
+      },
+      {
+        "correction": "Tensile yield used as the compressive allowable is a source objection, carried as a qualification",
+        "by": [
+          "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019",
+          "rpt-admiral-rr2-co-mainline002-strength-questionable-not-objection-1019"
+        ],
+        "effect_on_lead": "Both: every sigma-dependent output carries the qualification; the leads use Be grade data instead.",
+        "lead_relevant": true,
+        "ids_in_store": {
+          "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019": true,
+          "rpt-admiral-rr2-co-mainline002-strength-questionable-not-objection-1019": true
+        }
+      }
+    ]
+  },
+  "ground_first": [
+    {
+      "rank": 1,
+      "what": "sandwich-sphere gamma FE at Vc 1.06 (021) and 0.89 (021b), imperfect, geometrically nonlinear, CPU",
+      "retires": "O1 (factor 2.3-3.0), all of P2's margin",
+      "effort": "one FE series; 018b sized R/tc 40 at 12.6 GiB",
+      "owner": "MAINLINE-029 (pending)"
+    },
+    {
+      "rank": 2,
+      "what": "discrete geometrically nonlinear buckling of the P3 frame at s 2.2 m and 6.15 m (ccx/gmsh, installed)",
+      "retires": "R055 continuum validity, R057 two-way C = 4",
+      "effort": "two FE runs; 026 already set up",
+      "owner": "MAINLINE-026 / 022c"
+    },
+    {
+      "rank": 3,
+      "what": "020's weighed, curved, sealed two-skin joint/core panel with measured load transfer",
+      "retires": "seam/bond mass 214-968 kg, joint efficiency 0.6-0.9",
+      "effort": "one panel build and test",
+      "owner": "MAINLINE-020 / 028"
+    },
+    {
+      "rank": 4,
+      "what": "SR-200 thin-sheet specification: largest sheet at 0.7-0.85 mm, gauge map, post-form compression",
+      "retires": "O3 (255-379 MPa), O4 (0.914 vs 3.13 m)",
+      "effort": "a supplier enquiry; outward-facing, needs the Admiral's authorization",
+      "owner": "MAINLINE-020"
+    },
+    {
+      "rank": 5,
+      "what": "honeycomb wrinkling coupon, Be on CR-III 5056 3/8-1.0",
+      "retires": "O2 (0.37-0.61 vs 0.33)",
+      "effort": "coupon test",
+      "owner": "none pending"
+    }
+  ],
+  "continuum": [
+    {
+      "point": "011b SiC equilateral k0.2",
+      "source": "rpt-mainline011b-grok-p3-global-arcs-1019",
+      "s_m": 2.04,
+      "nodes": 350.67346486624723,
+      "r_o_m": 0.123688362374,
+      "wall_m": 0.000880299093685,
+      "rg_m": 0.0871502028015767,
+      "buckle_half_wave_m": 3.020453849150467,
+      "half_wave_over_s": 1.4806146319365034
+    },
+    {
+      "point": "022 carried, 5%",
+      "source": "rpt-mainline022-grok-p3-optimistic-floating-point-1020",
+      "s_m": 3.0,
+      "nodes": 163.22661015415272,
+      "r_o_m": 0.136709082896,
+      "wall_m": 0.0010718489472,
+      "rg_m": 0.09628970944439871,
+      "buckle_half_wave_m": 3.1748845790874283,
+      "half_wave_over_s": 1.0582948596958095
+    },
+    {
+      "point": "023 re-optimised 5%",
+      "source": "rpt-ref-a4768f77870336c8cdbb",
+      "s_m": 1.78,
+      "nodes": 459.9723176958005
+    },
+    {
+      "point": "022b carried, 5%, gamma",
+      "source": "rpt-mainline022b-grok-equilibrium-1020",
+      "s_m": 6.15,
+      "nodes": 40.36445214851938,
+      "r_o_m": 0.167645931148,
+      "wall_m": 0.00162527464757,
+      "rg_m": 0.11797035285964194,
+      "buckle_half_wave_m": 3.514183558504566,
+      "half_wave_over_s": 0.5714119607324497
+    },
+    {
+      "point": "022b carried, 019 reserve, gamma",
+      "source": "rpt-mainline022b-grok-equilibrium-1020",
+      "s_m": 6.15,
+      "nodes": 40.36445214851938,
+      "r_o_m": 0.165575346913,
+      "wall_m": 0.00157870644521,
+      "rg_m": 0.11652263040937785,
+      "buckle_half_wave_m": 3.4925541094128225,
+      "half_wave_over_s": 0.5678949771402964
+    },
+    {
+      "point": "022b CFRP + Zylon, 5%",
+      "source": "rpt-mainline022b-grok-equilibrium-1020",
+      "s_m": 5.5,
+      "nodes": 49.9682476491694,
+      "r_o_m": 0.166128907123,
+      "wall_m": 0.00160025181565,
+      "rg_m": 0.11690647137683091,
+      "buckle_half_wave_m": 3.4983018476066476,
+      "half_wave_over_s": 0.6360548813830268
+    },
+    {
+      "point": "022b Ti + Kapton, 5%",
+      "source": "rpt-mainline022b-grok-equilibrium-1020",
+      "s_m": 1.85,
+      "nodes": 425.97063298389315,
+      "r_o_m": 0.103026820155,
+      "wall_m": 0.000696476333589,
+      "rg_m": 0.07260513917392299,
+      "buckle_half_wave_m": 2.7569042597377846,
+      "half_wave_over_s": 1.4902185187771808
+    },
+    {
+      "point": "022b Mylar + 380 MPa, 5%",
+      "source": "rpt-mainline022b-grok-equilibrium-1020",
+      "s_m": 0.55,
+      "nodes": 4798.824764916939,
+      "r_o_m": 0.085198517829,
+      "wall_m": 0.000311428174832,
+      "rg_m": 0.060134444019657285,
+      "buckle_half_wave_m": 2.5089941765595265,
+      "half_wave_over_s": 4.561807593744593
+    }
+  ],
+  "pending_at_snapshot": {
+    "cards": [
+      "022c",
+      "025",
+      "026",
+      "028b",
+      "015b",
+      "029"
+    ],
+    "checks": [
+      "021b",
+      "022b",
+      "023",
+      "024",
+      "027",
+      "028"
+    ],
+    "note": "020's check moved to ref-4189c1615990eb515921; this seat's 020 check is held unfiled at .ship/held/rpt-check020-opus-1020.json"
+  },
+  "started_local": "2026-10-20T01:09:09-07:00",
+  "ended_local": "2026-10-20T01:28:10.680410-07:00"
+}

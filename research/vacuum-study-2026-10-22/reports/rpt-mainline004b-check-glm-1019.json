@@ -1,0 +1,45 @@
+{
+  "id": "rpt-mainline004b-check-glm-1019",
+  "unit": "vacuum-mainline004b-check-1019",
+  "at": "2026-10-19T23:45:00-07:00",
+  "body": "INDEPENDENT CHECK PASS, third of three; the order's completion is met: three check reports filed (012, 004, 004b). MAINLINE-004b, owner grok, checker glm. Every branch (SP-8032 row, 0.20 central, 0.90 optimistic, 1.0 classical, 0.22 flat, 0.20 dimple) on every family: fresh SF and scaled SF_new = SF_sp times kd_new over kd_sp agree within 1e-12; required moduli and the above-or-below 68.9 GPa sides agree within 5e-9; the ratio 0.9 over kd_sp matches NFI-OPT-GAP (6.3936 to 6.3969); yield SFs stay at the sealed 003 values. Sources confirmed: Wagner 2020 Table 3 row 11 Adam and King, PVC, reliable yes, KDF 0.54-0.89 to lambda 43.11; row 12 Krenzke, aluminium, n 70, KDF 0.11-0.90; deep-dome bound 0.21 at H/r 0.5, R/t 90, lambda 15.7. Sim et al 2024 (doi 10.1155/2024/8765733) fetched from the publisher: dimple KDF 0.20, flat 0.22, NASA SP-8032 quoted at 0.18, CR-1457 at 0.20 — all four exactly as the card's NFI states. Zero mismatches. The owner's unretrieved gaps (SP-8032 monograph page, Wagner 2018 threshold equation) stand as recorded.",
+  "artifacts": [
+    {
+      "path": "evidence/8739f394fe8267ba-check004.py",
+      "sha256": "8739f394fe8267ba6c53294170900643c5b7ec8789bd5cfe8e9a6942386d91e8",
+      "bytes": 9940
+    },
+    {
+      "path": "evidence/5b334cd2e08e8433-RESULTS.json",
+      "sha256": "5b334cd2e08e8433f6dc246a039469962c36bda0323c9c1d0bbf3a42ccff3f5a",
+      "bytes": 1183
+    },
+    {
+      "path": "evidence/69edf9dc3d1b2f21-INPUTS.json",
+      "sha256": "69edf9dc3d1b2f216fb40369dabaf8bc62af74164b40c3f9e988f96f4a1cb482",
+      "bytes": 4353
+    },
+    {
+      "path": "evidence/545a0a59c85e70c1-CHECK.md",
+      "sha256": "545a0a59c85e70c195dfb0152998d2449e15b7358d53c5155e3cf344661cb8a2",
+      "bytes": 2097
+    },
+    {
+      "path": "evidence/c68e74812eeb4a6b-CHECK-OUT-004.json",
+      "sha256": "c68e74812eeb4a6b14b4657869cba9f96e3f7b1ad0f25ad7a46a772ae2067409",
+      "bytes": 3295
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-c713c40ee838487ac6d3",
+  "re": "ord-admiral-rr2-check012-004-004b-glm-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check012-004-004b-glm-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "Three check reports filed (012, 004, 004b), each PASS with zero mismatches; every sourced value confirmed against its DOI or the sha-pinned Wagner 2020 PDF."
+    }
+  ]
+}

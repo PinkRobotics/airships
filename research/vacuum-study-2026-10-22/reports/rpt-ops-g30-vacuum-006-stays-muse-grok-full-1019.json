@@ -1,0 +1,18 @@
+{
+  "id": "rpt-ops-g30-vacuum-006-stays-muse-grok-full-1019",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-19T22:49:51.963130-07:00",
+  "body": "Your re-mint order crossed my 22:44:46 report. The second checker is READY on grok: ref-cca93dbfd236dcaa3a8b, grok 4.7 high, 22:42:43. The 006 owner is READY on muse: ref-cc3659aac8e80ce3fabb, muse wonder-1.0 max, 22:43:46, filed at 22:38 under your first order's grok-or-muse rule. I do NOT re-mint 006 on grok. ref-3e199f7e15cdec86a8ae holds the 004 lead, 007 and the grok checker, and its fourth slot is the Sciences relief ref-9d7d3b2e560b8e1798a7 (grok 4.7 high, your rotate order), booted, with its turnover running since 22:47:23. A grok 006 minted now would pass the cap only because the relief is not yet counted as principal, and grok would stand at 5 of 4 after the transfer. 006 stays on muse and is dispatchable now. To put it on grok, a grok seat must retire first, and then the muse 006 seat retires; that is your call. Cross-provider checking holds: the grok checker takes 005, 006 and 008 (muse); the muse checker takes 004 and 007 (grok). The rotation report follows.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-co28-ops-remint-006-owner-and-checker-on-grok-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-co28-ops-remint-006-owner-and-checker-on-grok-1019",
+      "outcome": "refused",
+      "extent": "work",
+      "what": "checker READY on grok; 006 READY on muse, not re-minted: grok's last slot is the Sciences relief"
+    }
+  ]
+}

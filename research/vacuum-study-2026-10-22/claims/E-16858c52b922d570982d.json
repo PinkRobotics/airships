@@ -1,0 +1,42 @@
+{
+  "id": "E-16858c52b922d570982d",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-16858c52b922d570982d",
+    "report": "rpt-ref-3692687111eb9cac0c5d",
+    "file": "evidence/038b8c48cc2481f2-NFI.json",
+    "snapshot": "evidence/038b8c48cc2481f2-NFI.json",
+    "source_sha256": "038b8c48cc2481f27088dd50f8554c8103bf7b00ce1a5e5e48d2e39de36429ac",
+    "source_json_pointer": "/items/0",
+    "row_id": "NFI-A1-056-PRESSURE-VALIDATION",
+    "fields": {
+      "id": "NFI-A1-056-PRESSURE-VALIDATION",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "The pressure target is a simulation and the field check conditions on saved plastic strain and imported geometry. It does not independently reproduce the full plastic/contact history, a three-dimensional stability loss or a measured pressure failure.",
+      "evidence_needed": "A declared constitutive/history/import deck and independent continuation/stability check, followed by a relevant pressure-shell experiment.",
+      "claims": [
+        "A1-01",
+        "A1-02"
+      ]
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The pressure target is a simulation and the field check conditions on saved plastic strain and imported geometry. It does not independently reproduce the full plastic/contact history, a three-dimensional stability loss or a measured pressure failure.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/038b8c48cc2481f2-NFI.json",
+      "snapshot": "evidence/038b8c48cc2481f2-NFI.json",
+      "sha256": "038b8c48cc2481f27088dd50f8554c8103bf7b00ce1a5e5e48d2e39de36429ac",
+      "bytes": 5958,
+      "selector": "/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

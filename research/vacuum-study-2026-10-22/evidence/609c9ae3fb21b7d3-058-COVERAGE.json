@@ -1,0 +1,530 @@
+{
+  "mapping": "050 sea-level surface convention retained: T100 = observed T - 0.65K; constant e/p; not a site-elevation correction.",
+  "coverage_scope": "Independent EOS, pressure-relief and all-24-hour reduction on pinned weather arrays; thermal thresholds supplied as data.",
+  "calendar_hours": 87648,
+  "complete_hours": 87354,
+  "calendar_days": 3652,
+  "complete_24h_UTC_days": 3559,
+  "excluded_days": 93,
+  "selected_cases": [
+    {
+      "lead": "P2",
+      "R_m": 10,
+      "finish": "MLCCAg",
+      "hull": "full",
+      "operation": "none",
+      "owner_mass_kg": 5024.055789461544,
+      "owner_day_fraction": 0.3380162967125597,
+      "owner_hour_fraction": 0.6967969411818578,
+      "independent_at_owner_mass": {
+        "hours_count": 61255,
+        "hours_fraction": 0.7012271905121689,
+        "days_count": 1209,
+        "full_day_fraction": 0.3397021635290812
+      },
+      "added_hardware_kg": 0,
+      "independent_with_hardware": {
+        "hours_count": 61255,
+        "hours_fraction": 0.7012271905121689,
+        "days_count": 1209,
+        "full_day_fraction": 0.3397021635290812
+      }
+    },
+    {
+      "lead": "P2",
+      "R_m": 10,
+      "finish": "MLCCAg",
+      "hull": "trim-30",
+      "operation": "best",
+      "owner_mass_kg": 4798.836358806305,
+      "owner_day_fraction": 0.6397864568699073,
+      "owner_hour_fraction": 0.887366348421366,
+      "independent_at_owner_mass": {
+        "hours_count": 77371,
+        "hours_fraction": 0.8857178835542734,
+        "days_count": 2270,
+        "full_day_fraction": 0.6378196122506322
+      },
+      "added_hardware_kg": 11.444984608707582,
+      "independent_with_hardware": {
+        "hours_count": 76505,
+        "hours_fraction": 0.875804199006342,
+        "days_count": 2158,
+        "full_day_fraction": 0.606350098342231
+      }
+    },
+    {
+      "lead": "P2",
+      "R_m": 10,
+      "finish": "AlAOC",
+      "hull": "trim-30",
+      "operation": "best",
+      "owner_mass_kg": 4808.659970504268,
+      "owner_day_fraction": 0.836470918797415,
+      "owner_hour_fraction": 0.9525036060168968,
+      "independent_at_owner_mass": {
+        "hours_count": 83458,
+        "hours_fraction": 0.9553998672069968,
+        "days_count": 2998,
+        "full_day_fraction": 0.8423714526552403
+      },
+      "added_hardware_kg": 15.531413794235286,
+      "independent_with_hardware": {
+        "hours_count": 82097,
+        "hours_fraction": 0.9398195846784348,
+        "days_count": 2868,
+        "full_day_fraction": 0.8058443382972745
+      }
+    },
+    {
+      "lead": "P2",
+      "R_m": 12,
+      "finish": "AlAOC",
+      "hull": "trim-30",
+      "operation": "best",
+      "owner_mass_kg": 8193.496171961313,
+      "owner_day_fraction": 0.9578533295869627,
+      "owner_hour_fraction": 0.9884950889484168,
+      "independent_at_owner_mass": {
+        "hours_count": 86405,
+        "hours_fraction": 0.9891361586189528,
+        "days_count": 3415,
+        "full_day_fraction": 0.9595391964034842
+      },
+      "added_hardware_kg": 25.469928886211818,
+      "independent_with_hardware": {
+        "hours_count": 86070,
+        "hours_fraction": 0.985301188268425,
+        "days_count": 3359,
+        "full_day_fraction": 0.9438044394492835
+      }
+    },
+    {
+      "lead": "P2",
+      "R_m": 20,
+      "finish": "AlAOC",
+      "hull": "trim-30",
+      "operation": "best",
+      "owner_mass_kg": 37250.915211831896,
+      "owner_day_fraction": 0.9926945771284068,
+      "owner_hour_fraction": 0.9985690409139822,
+      "independent_at_owner_mass": {
+        "hours_count": 87242,
+        "hours_fraction": 0.9987178606589281,
+        "days_count": 3535,
+        "full_day_fraction": 0.993256532733914
+      },
+      "added_hardware_kg": 112.74258553155218,
+      "independent_with_hardware": {
+        "hours_count": 87182,
+        "hours_fraction": 0.9980310002976395,
+        "days_count": 3523,
+        "full_day_fraction": 0.989884799100871
+      }
+    },
+    {
+      "lead": "P3",
+      "R_m": 10,
+      "hull": "design+0",
+      "operation": "climb",
+      "owner_mass_kg": 4864.628266284152,
+      "owner_day_fraction": 0.7774655802191627,
+      "owner_hour_fraction": 0.9290244293335165,
+      "independent_at_owner_mass": {
+        "hours_count": 81504,
+        "hours_fraction": 0.9330311147743664,
+        "days_count": 2795,
+        "full_day_fraction": 0.785332958696263
+      },
+      "independent_with_valve_only": {
+        "hours_count": 80918,
+        "hours_fraction": 0.9263227785791148,
+        "days_count": 2747,
+        "full_day_fraction": 0.771846024164091
+      },
+      "scope": "5 kg valve is a lower hardware bound; no matched standard-pressure bladder specification in the whole-band table."
+    },
+    {
+      "lead": "P3",
+      "R_m": 12,
+      "hull": "design+0",
+      "operation": "climb",
+      "owner_mass_kg": 8227.736667338426,
+      "owner_day_fraction": 0.9699353751053666,
+      "owner_hour_fraction": 0.9925246697346429,
+      "independent_at_owner_mass": {
+        "hours_count": 86742,
+        "hours_fraction": 0.9929940243148568,
+        "days_count": 3459,
+        "full_day_fraction": 0.9719022197246417
+      },
+      "independent_with_valve_only": {
+        "hours_count": 86701,
+        "hours_fraction": 0.9925246697346429,
+        "days_count": 3452,
+        "full_day_fraction": 0.9699353751053666
+      },
+      "scope": "5 kg valve is a lower hardware bound; no matched standard-pressure bladder specification in the whole-band table."
+    },
+    {
+      "lead": "P3",
+      "R_m": 15,
+      "hull": "design+0",
+      "operation": "climb",
+      "owner_mass_kg": 15794.636225928629,
+      "owner_day_fraction": 0.9963472885642034,
+      "owner_hour_fraction": 0.9991757675664538,
+      "independent_at_owner_mass": {
+        "hours_count": 87289,
+        "hours_fraction": 0.9992559012752708,
+        "days_count": 3547,
+        "full_day_fraction": 0.996628266366957
+      },
+      "independent_with_valve_only": {
+        "hours_count": 87284,
+        "hours_fraction": 0.99919866291183,
+        "days_count": 3547,
+        "full_day_fraction": 0.996628266366957
+      },
+      "scope": "5 kg valve is a lower hardware bound; no matched standard-pressure bladder specification in the whole-band table."
+    }
+  ],
+  "raw_NOAA_spot_checks": [
+    {
+      "UTC": "2014-01-01T00:00:00",
+      "parsed": {
+        "T_K": 280.84999999999997,
+        "Td_K": 278.65,
+        "SLP_hPa": 1002.1
+      },
+      "NPZ": {
+        "T_K": 280.84999999999997,
+        "Td_K": 278.65,
+        "SLP_hPa": 1002.1
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T01:00:00",
+      "parsed": {
+        "T_K": 279.95,
+        "Td_K": 277.45,
+        "SLP_hPa": 1002.0
+      },
+      "NPZ": {
+        "T_K": 279.95,
+        "Td_K": 277.45,
+        "SLP_hPa": 1002.0
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T02:00:00",
+      "parsed": {
+        "T_K": 279.45,
+        "Td_K": 277.75,
+        "SLP_hPa": 1001.9
+      },
+      "NPZ": {
+        "T_K": 279.45,
+        "Td_K": 277.75,
+        "SLP_hPa": 1001.9
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T03:00:00",
+      "parsed": {
+        "T_K": 279.45,
+        "Td_K": 278.04999999999995,
+        "SLP_hPa": 1001.7
+      },
+      "NPZ": {
+        "T_K": 279.45,
+        "Td_K": 278.04999999999995,
+        "SLP_hPa": 1001.7
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T04:00:00",
+      "parsed": {
+        "T_K": 279.65,
+        "Td_K": 278.45,
+        "SLP_hPa": 1001.1
+      },
+      "NPZ": {
+        "T_K": 279.65,
+        "Td_K": 278.45,
+        "SLP_hPa": 1001.1
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T05:00:00",
+      "parsed": {
+        "T_K": 280.15,
+        "Td_K": 278.34999999999997,
+        "SLP_hPa": 1000.7
+      },
+      "NPZ": {
+        "T_K": 280.15,
+        "Td_K": 278.34999999999997,
+        "SLP_hPa": 1000.7
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T06:00:00",
+      "parsed": {
+        "T_K": 280.84999999999997,
+        "Td_K": 279.04999999999995,
+        "SLP_hPa": 999.9
+      },
+      "NPZ": {
+        "T_K": 280.84999999999997,
+        "Td_K": 279.04999999999995,
+        "SLP_hPa": 999.9
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T07:00:00",
+      "parsed": {
+        "T_K": 281.45,
+        "Td_K": 279.34999999999997,
+        "SLP_hPa": 999.2
+      },
+      "NPZ": {
+        "T_K": 281.45,
+        "Td_K": 279.34999999999997,
+        "SLP_hPa": 999.2
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T08:00:00",
+      "parsed": {
+        "T_K": 281.95,
+        "Td_K": 279.34999999999997,
+        "SLP_hPa": 998.4
+      },
+      "NPZ": {
+        "T_K": 281.95,
+        "Td_K": 279.34999999999997,
+        "SLP_hPa": 998.4
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T09:00:00",
+      "parsed": {
+        "T_K": 282.04999999999995,
+        "Td_K": 279.15,
+        "SLP_hPa": 997.5
+      },
+      "NPZ": {
+        "T_K": 282.04999999999995,
+        "Td_K": 279.15,
+        "SLP_hPa": 997.5
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T10:00:00",
+      "parsed": {
+        "T_K": 281.75,
+        "Td_K": 279.25,
+        "SLP_hPa": 996.5
+      },
+      "NPZ": {
+        "T_K": 281.75,
+        "Td_K": 279.25,
+        "SLP_hPa": 996.5
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T11:00:00",
+      "parsed": {
+        "T_K": 281.15,
+        "Td_K": 278.95,
+        "SLP_hPa": 994.4
+      },
+      "NPZ": {
+        "T_K": 281.15,
+        "Td_K": 278.95,
+        "SLP_hPa": 994.4
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T12:00:00",
+      "parsed": {
+        "T_K": 281.45,
+        "Td_K": 279.84999999999997,
+        "SLP_hPa": 991.7
+      },
+      "NPZ": {
+        "T_K": 281.45,
+        "Td_K": 279.84999999999997,
+        "SLP_hPa": 991.7
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T13:00:00",
+      "parsed": {
+        "T_K": 282.15,
+        "Td_K": 280.75,
+        "SLP_hPa": 989.7
+      },
+      "NPZ": {
+        "T_K": 282.15,
+        "Td_K": 280.75,
+        "SLP_hPa": 989.7
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T14:00:00",
+      "parsed": {
+        "T_K": 282.95,
+        "Td_K": 281.65,
+        "SLP_hPa": 988.3
+      },
+      "NPZ": {
+        "T_K": 282.95,
+        "Td_K": 281.65,
+        "SLP_hPa": 988.3
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T15:00:00",
+      "parsed": {
+        "T_K": 283.45,
+        "Td_K": 282.25,
+        "SLP_hPa": 987.4
+      },
+      "NPZ": {
+        "T_K": 283.45,
+        "Td_K": 282.25,
+        "SLP_hPa": 987.4
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T16:00:00",
+      "parsed": {
+        "T_K": 283.65,
+        "Td_K": 281.95,
+        "SLP_hPa": 986.8
+      },
+      "NPZ": {
+        "T_K": 283.65,
+        "Td_K": 281.95,
+        "SLP_hPa": 986.8
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T17:00:00",
+      "parsed": {
+        "T_K": 283.65,
+        "Td_K": 281.84999999999997,
+        "SLP_hPa": 985.9
+      },
+      "NPZ": {
+        "T_K": 283.65,
+        "Td_K": 281.84999999999997,
+        "SLP_hPa": 985.9
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T18:00:00",
+      "parsed": {
+        "T_K": 283.65,
+        "Td_K": 281.84999999999997,
+        "SLP_hPa": 985.2
+      },
+      "NPZ": {
+        "T_K": 283.65,
+        "Td_K": 281.84999999999997,
+        "SLP_hPa": 985.2
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T19:00:00",
+      "parsed": {
+        "T_K": 283.65,
+        "Td_K": 282.25,
+        "SLP_hPa": 984.5
+      },
+      "NPZ": {
+        "T_K": 283.65,
+        "Td_K": 282.25,
+        "SLP_hPa": 984.5
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T20:00:00",
+      "parsed": {
+        "T_K": 283.75,
+        "Td_K": 282.34999999999997,
+        "SLP_hPa": 984.6
+      },
+      "NPZ": {
+        "T_K": 283.75,
+        "Td_K": 282.34999999999997,
+        "SLP_hPa": 984.6
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T21:00:00",
+      "parsed": {
+        "T_K": 284.25,
+        "Td_K": 281.34999999999997,
+        "SLP_hPa": 984.2
+      },
+      "NPZ": {
+        "T_K": 284.25,
+        "Td_K": 281.34999999999997,
+        "SLP_hPa": 984.2
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T22:00:00",
+      "parsed": {
+        "T_K": 283.45,
+        "Td_K": 280.34999999999997,
+        "SLP_hPa": 984.2
+      },
+      "NPZ": {
+        "T_K": 283.45,
+        "Td_K": 280.34999999999997,
+        "SLP_hPa": 984.2
+      },
+      "max_absolute_difference": 0.0
+    },
+    {
+      "UTC": "2014-01-01T23:00:00",
+      "parsed": {
+        "T_K": 283.34999999999997,
+        "Td_K": 281.34999999999997,
+        "SLP_hPa": 984.5
+      },
+      "NPZ": {
+        "T_K": 283.34999999999997,
+        "Td_K": 281.34999999999997,
+        "SLP_hPa": 984.5
+      },
+      "max_absolute_difference": 0.0
+    }
+  ]
+}

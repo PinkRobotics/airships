@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-0184452b13040b8967b4",
+  "unit": "vacuum-mainline074-test-specs-1022",
+  "at": "2026-10-22T10:27:21-07:00",
+  "body": "MAINLINE-074 is filed. QUESTIONABLE / PROJECTION. No qualified hull safety factor. Nothing is bought, and no supplier or test house was contacted. The figures are the version-9 closures, unchanged in version 10, sha256 526dfde3aaa26711cc116f160d8af2a3efe4e944a774e94c0be2754b0299a180. Every closure is UNREVIEWED.\n\nT7 closes 038 route G1. It measures gamma. Admissible today is 0.20. TRL 7 at R 30 m on the 1850 kg/m3 face needs 0.6407145989713096, on separate geometries. At 0.20 that face does not float at TRL 7. Concept float at 0.20 is the face near 896.818 to 914.276 kg/m3, not a gamma result. The 30 to 90 thousand dollar range is the thin surrogate and does not buy the design-gauge shell. The cheapest article that answers is one surveyed as-built shell at the TRL 7 gauges.\n\nT3 closes 038 route G5. It measures Q, admissible 0.33, and the equibiaxial factor 0.7937005259840998. If that factor holds, concept floats only on those densities. If the factor is 1, the filed pre-2.2-15 point returns. Uniaxial coupons do not answer it. The earlier biaxial range is 18 to 45 thousand dollars.\n\nT3 first: it can retire the allowable before the shell is priced. The robotics seat reports these specifications to him.\n",
+  "artifacts": [
+    {
+      "path": "evidence/81183da2dcc1e217-CARD.md",
+      "sha256": "81183da2dcc1e2171559c6b5bd891aa373a94fe20af5b8ffab9a945fd3a675fb",
+      "bytes": 11509
+    },
+    {
+      "path": "evidence/5e960407af0dea08-RESULTS.json",
+      "sha256": "5e960407af0dea08f54c8b4a24c0a655b6db845b5e22799490caf107f070e909",
+      "bytes": 1395
+    },
+    {
+      "path": "evidence/3e3e906bd22fb031-NFI.json",
+      "sha256": "3e3e906bd22fb0314660d767b8fe1fd50afca1ed9aae7073116043949be50644",
+      "bytes": 2077
+    },
+    {
+      "path": "evidence/8493d029b0fb0d1c-INPUTS.json",
+      "sha256": "8493d029b0fb0d1cd9b2edbb59e579e4c0242926abef79d3d800c703273c2a61",
+      "bytes": 2422
+    }
+  ],
+  "from": "ref-54f4f7dcfd67e7445c6b",
+  "from_seat": "ref-54f4f7dcfd67e7445c6b",
+  "re": "ord-admiral-rr2-mainline074-dispatch-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline074-dispatch-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

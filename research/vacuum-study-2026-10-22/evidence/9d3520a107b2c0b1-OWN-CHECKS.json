@@ -1,0 +1,243 @@
+{
+  "at": "2026-10-20T06:22:14.741085-07:00",
+  "basis": "CHECK-030d: this seat's own non-P2 checks of 030d (no 030d code read or run). Writes OWN-CHECKS.json.\n\n- R30 beryllium supply: faces at 040's R30 ISA named endpoint and least point, from this seat's own 040-account run\n  (MAINLINE-049's COMPUTE.json, which reproduces 040's 12 rows), against 433 t and 430 t.\n- Weibull scales: weakest link with m = 10, sigma_req = 3.9 GPa x (ln(1 - Pf_3.9) / ln(1 - Pf_target))^(1/m).\n- Intake: every mainline/check report the queue ingested between 030c's snapshot and 030d's intake, against 030d's\n  folded list; the 408 pins; 030d's snapshot copies against the sources' pinned sha256; the card's links.\n- Pending: 030d's PENDING list against the queue at 030d's filing and now.\n- Counts: rows in REGISTER.json and rows in NFI.json against 104 and 1553; 98 + 6 and 961 + 583 + 9.\n- Typography: tokens joined or broken in CARD.md.",
+  "items": [
+    {
+      "line": "15/120",
+      "item": "R30 named-endpoint Be faces, t",
+      "card": 102.230791,
+      "mine": 102.23079082508559,
+      "ok": true
+    },
+    {
+      "line": "15/120",
+      "item": "R30 least-point Be faces, t",
+      "card": 103.146242,
+      "mine": 103.1462418024614,
+      "ok": true
+    },
+    {
+      "line": "15/120",
+      "item": "share of 433 t, %",
+      "card": 23.61,
+      "mine": 23.609882407641013,
+      "ok": true
+    },
+    {
+      "line": "15/120",
+      "item": "share of 430 t, %",
+      "card": 23.775,
+      "mine": 23.774602517461766,
+      "ok": true
+    },
+    {
+      "line": "31/224/228",
+      "item": "043 f5 member scale for Pf 1e-6, GPa",
+      "card": 8.53751,
+      "mine": 8.537511757497048,
+      "ok": true
+    },
+    {
+      "line": "31/224/228",
+      "item": "043 019 member scale for Pf 1e-6, GPa",
+      "card": 8.39866,
+      "mine": 8.398657458408003,
+      "ok": true
+    },
+    {
+      "line": "31/224/228",
+      "item": "051 f5 member scale for Pf 1e-3, GPa",
+      "card": 4.278678,
+      "mine": 4.2786780852951365,
+      "ok": true
+    },
+    {
+      "line": "31/224/228",
+      "item": "051 019 member scale for Pf 1e-3, GPa",
+      "card": 4.20909,
+      "mine": 4.209089560741761,
+      "ok": true
+    },
+    {
+      "line": "31/224/228",
+      "item": "051 f5 1 cm3 scale for Pf 1e-3, GPa",
+      "card": 9.088382,
+      "mine": 9.088381902091628,
+      "ok": true
+    },
+    {
+      "line": "31/224/228",
+      "item": "051 019 1 cm3 scale for Pf 1e-3, GPa",
+      "card": 8.907641,
+      "mine": 8.90764139371831,
+      "ok": true
+    },
+    {
+      "line": "19",
+      "item": "reports folded vs reports ingested in the window",
+      "card": 18,
+      "mine": 18,
+      "missed": [],
+      "ok": true
+    },
+    {
+      "line": "252",
+      "item": "direct pins of the 18 reports",
+      "card": 408,
+      "mine": 408,
+      "ok": true
+    },
+    {
+      "line": "-",
+      "item": "030d snapshot copies against the sources' pinned sha256",
+      "identical": 345,
+      "differing": [],
+      "not_copied": 63,
+      "not_copied_by_type": {
+        ".py": 46,
+        ".png": 7,
+        ".svg": 2,
+        ".pdf": 3,
+        ".gz": 3,
+        ".log": 2
+      },
+      "ok": true
+    },
+    {
+      "line": "all",
+      "item": "card links that resolve",
+      "links": 51,
+      "unresolved": [],
+      "ok": true
+    },
+    {
+      "line": "248",
+      "item": "PENDING at filing",
+      "card": [
+        "029 check",
+        "047 dimple tolerance",
+        "047 check",
+        "048 check",
+        "049 Be-free P2",
+        "049 check",
+        "051 P3 frame targets"
+      ],
+      "filed_since": [
+        [
+          "2026-10-20T05:51:14-07:00",
+          "rpt-ref-e999413f5ed23130ebf6"
+        ],
+        [
+          "2026-10-20T05:58:37-07:00",
+          "rpt-check029-opus-1020"
+        ],
+        [
+          "2026-10-20T05:58:37-07:00",
+          "rpt-ref-0faaf1787ac688f46f7f"
+        ],
+        [
+          "2026-10-20T06:05:16-07:00",
+          "rpt-ref-06643b916584f58fd9e4"
+        ],
+        [
+          "2026-10-20T06:07:06-07:00",
+          "rpt-co28-boyce-daily-watch-1020"
+        ],
+        [
+          "2026-10-20T06:07:06-07:00",
+          "rpt-ref-17635c55001d23054259"
+        ],
+        [
+          "2026-10-20T06:07:06-07:00",
+          "rpt-sciences-g4-pinkrobotics-daily-written-1020"
+        ],
+        [
+          "2026-10-20T06:13:21-07:00",
+          "rpt-1228-mainline052-independent-check-1020"
+        ],
+        [
+          "2026-10-20T06:13:21-07:00",
+          "rpt-ref-5c8405d45d6cb50633f1"
+        ],
+        [
+          "2026-10-20T06:19:22-07:00",
+          "rpt-ref-3fb9907ba4e1c52825f0"
+        ],
+        [
+          "2026-10-20T06:19:22-07:00",
+          "rpt-ref-71723c1ae93445240630"
+        ]
+      ],
+      "ok": true
+    },
+    {
+      "line": "19",
+      "item": "register rows",
+      "card": 104,
+      "mine": 104,
+      "sum": 104,
+      "ok": true
+    },
+    {
+      "line": "19",
+      "item": "attributed findings",
+      "card": 1553,
+      "mine": 1553,
+      "sum": 1553,
+      "ok": true
+    },
+    {
+      "line": "244",
+      "item": "added grounding routes",
+      "card_names": 4,
+      "mine": [
+        "Matched finish and retained-water demonstration",
+        "Loaded damaged curved sandwich and member/bay tests",
+        "Protected film life and renewal interface",
+        "Finished-member statistics and proof coverage",
+        "052 complete dry-service and crossply demonstration"
+      ],
+      "found": 5,
+      "note": "the card names four additions; GROUND-FIRST.json carries five (the fifth is 052's)",
+      "ok": false
+    },
+    {
+      "line": "various",
+      "item": "joined or broken tokens in CARD.md",
+      "found": {
+        "2, 027, 245": 2,
+        "041d amage": 1,
+        "f5stress": 1,
+        "3\\.27f4factor": 1,
+        "At7149": 1,
+        "325comparisons": 1,
+        "Kapton, not the model's\\.09": 1,
+        "a4889\\.444": 1,
+        "A268\\.099": 1,
+        "31NFI": 1,
+        "AtR30": 1,
+        "At500": 1,
+        "aboutISA": 1,
+        "colderh 2": 1,
+        "fromP2": 1,
+        "theP3": 1,
+        "Full052": 1,
+        "Partial051": 1,
+        "corrected:458": 1,
+        "Pf\\.000947798": 1,
+        "Pf\\.824296": 1
+      },
+      "ok": false
+    }
+  ],
+  "sources": {
+    "030d_card": {
+      "path": "evidence/d470b81aa125e59e-rpt-ref-e999413f5ed23130ebf6--CARD--d470b81aa125.md",
+      "sha256": "d470b81aa125e59efb7e82ba8cfc549fc879914dc168f9a61367abd60d9120f0"
+    },
+    "own_040_run": {
+      "path": "evidence/5750025a1b213d52-COMPUTE.json",
+      "sha256": "5750025a1b213d5269c5c66cf154be4b75fb64ae107cbc331c8a174260ce2aa0"
+    }
+  }
+}

@@ -1,0 +1,1265 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-015",
+  "unit": "vacuum-mainline015-kd-precision-1019",
+  "started_at": "2026-10-20T00:19:23-07:00",
+  "ended_at": "2026-10-20T00:19:27-07:00",
+  "certification": false,
+  "tag": "QUESTIONABLE",
+  "biaxial_factor": 0.6823278038280194,
+  "structural_mass_kg": 4561.373476368534,
+  "plateau": {
+    "k_1": 0.4469700178321551,
+    "k_worst_2_625": 0.23375532218571446,
+    "eq3_floor": 0.45
+  },
+  "shells": {
+    "P2": {
+      "h_m": 0.10020000000000001,
+      "tf_m": 0.0002,
+      "core_m": 0.1,
+      "t_eq_m": 0.17355149091840152,
+      "R_over_t_eq": 57.61978734427402,
+      "i2_sandwich_m2": 0.0025100100000000005,
+      "i2_monocoque_m2": 0.0025100100000000005,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 1.317389429585654,
+        "width_lambda_I_1_m": 0.7247004230698924,
+        "width_worst_m": 1.9023386105584676,
+        "beta0_lambda_I_1_rad": 0.07247004230698924,
+        "beta0_worst_rad": 0.19023386105584678,
+        "l_c_m": 4.553427050339578
+      },
+      "one_thickness_mm": 173.55149091840153,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 173.55149091840153,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 11.672696079227743
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 173.55149091840153,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 11.672696079227743
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 103.87985859457638,
+          "rms_worst_single_mm": 6.986733514710921,
+          "rms_narrow_single_mm": 2.6616127675089216
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 31.890077861705787,
+          "rms_worst_single_mm": 2.144857326507311,
+          "rms_narrow_single_mm": 0.8170885053361182
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 5.598518058685767,
+          "rms_worst_single_mm": 0.37654415670697106,
+          "rms_narrow_single_mm": 0.14344539303122705
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.6596417670900933,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.8356594619303137,
+        "pnas_N": 68.31692890408786,
+        "pnas_mean": 0.26719336786881837,
+        "pnas_design_1e-3": 0.28152105080247036,
+        "pnas_design_1e-2": 0.3267560620905635
+      }
+    },
+    "P2-A": {
+      "h_m": 0.10037589364449301,
+      "tf_m": 0.000375893644493,
+      "core_m": 0.1,
+      "t_eq_m": 0.17385614764739185,
+      "R_over_t_eq": 57.51881734019325,
+      "i2_sandwich_m2": 0.002518830006232643,
+      "i2_monocoque_m2": 0.002518830006232643,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 1.3185452121462953,
+        "width_lambda_I_1_m": 0.7253362230025948,
+        "width_worst_m": 1.904007585381811,
+        "beta0_lambda_I_1_rad": 0.07253362230025948,
+        "beta0_worst_rad": 0.19040075853818111,
+        "l_c_m": 4.55742189913504
+      },
+      "one_thickness_mm": 173.85614764739185,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 173.85614764739185,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 11.703445388065235
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 173.85614764739185,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 11.703445388065235
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 104.06221195702764,
+          "rms_worst_single_mm": 7.005138622249995,
+          "rms_narrow_single_mm": 2.668624237047618
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 31.946058520570663,
+          "rms_worst_single_mm": 2.1505075104834455,
+          "rms_narrow_single_mm": 0.8192409563746458
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 5.608345840573013,
+          "rms_worst_single_mm": 0.37753608457752896,
+          "rms_narrow_single_mm": 0.1438232703152491
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.6598749639557948,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.8358483673620682,
+        "pnas_N": 68.2570450910062,
+        "pnas_mean": 0.2672199091637943,
+        "pnas_design_1e-3": 0.2815330866732033,
+        "pnas_design_1e-2": 0.3267798011094214
+      }
+    },
+    "P2-C": {
+      "h_m": 0.15956410501600002,
+      "tf_m": 0.0002,
+      "core_m": 0.159364105016,
+      "t_eq_m": 0.27637313695196797,
+      "R_over_t_eq": 36.18296665980942,
+      "i2_sandwich_m2": 0.006365175902389271,
+      "i2_monocoque_m2": 0.006365175902389271,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 1.6624474035348245,
+        "width_lambda_I_1_m": 0.9145179926425083,
+        "width_worst_m": 2.4006097306865843,
+        "beta0_lambda_I_1_rad": 0.09145179926425083,
+        "beta0_worst_rad": 0.24006097306865842,
+        "l_c_m": 5.746086014522777
+      },
+      "one_thickness_mm": 276.373136951968,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 276.373136951968,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 23.456996153889115
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 276.373136951968,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 23.456996153889115
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 165.4241184214792,
+          "rms_worst_single_mm": 14.04026799553792,
+          "rms_narrow_single_mm": 5.348673522109684
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 50.78355022847942,
+          "rms_worst_single_mm": 4.31022188164874,
+          "rms_narrow_single_mm": 1.6419892882471392
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 8.91539444560986,
+          "rms_worst_single_mm": 0.7566884955878331,
+          "rms_narrow_single_mm": 0.28826228403346027
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.71765855558634,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.8779144692533152,
+        "pnas_N": 54.13705107820857,
+        "pnas_mean": 0.27500349810308905,
+        "pnas_design_1e-3": 0.2848256506735883,
+        "pnas_design_1e-2": 0.3332739086509568
+      }
+    },
+    "P2-K": {
+      "h_m": 0.135712139239452,
+      "tf_m": 0.000270882513452,
+      "core_m": 0.135441256726,
+      "t_eq_m": 0.23506032036659275,
+      "R_over_t_eq": 42.54227163650722,
+      "i2_sandwich_m2": 0.004604446184237101,
+      "i2_monocoque_m2": 0.004604446184237101,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 1.5331677023945969,
+        "width_lambda_I_1_m": 0.8434007876561747,
+        "width_worst_m": 2.2139270675974583,
+        "beta0_lambda_I_1_rad": 0.08434007876561747,
+        "beta0_worst_rad": 0.22139270675974584,
+        "l_c_m": 5.299243437064966
+      },
+      "one_thickness_mm": 235.06032036659275,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 235.06032036659275,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 18.39914492491754
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 235.06032036659275,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 18.39914492491754
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 140.69618596568594,
+          "rms_worst_single_mm": 11.01287325707957,
+          "rms_narrow_single_mm": 4.195380288411265
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 43.19232222679421,
+          "rms_worst_single_mm": 3.3808419687981863,
+          "rms_narrow_single_mm": 1.2879397976374045
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 7.582703216716059,
+          "rms_worst_single_mm": 0.5935295892961158,
+          "rms_narrow_single_mm": 0.22610651020804415
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.6983540711483206,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.8649179161598544,
+        "pnas_N": 58.70199317363154,
+        "pnas_mean": 0.2721036103173208,
+        "pnas_design_1e-3": 0.28364988444388756,
+        "pnas_design_1e-2": 0.3309548793660319
+      }
+    },
+    "P2-E": {
+      "h_m": 0.11376814747839499,
+      "tf_m": 0.000336094970395,
+      "core_m": 0.113432052508,
+      "t_eq_m": 0.19705221171556916,
+      "R_over_t_eq": 50.747971377425024,
+      "i2_sandwich_m2": 0.003235797845166458,
+      "i2_monocoque_m2": 0.003235797845166458,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 1.4037528689750527,
+        "width_lambda_I_1_m": 0.7722092459416177,
+        "width_worst_m": 2.0270492705967467,
+        "beta0_lambda_I_1_rad": 0.07722092459416177,
+        "beta0_worst_rad": 0.20270492705967466,
+        "l_c_m": 4.8519337881686
+      },
+      "one_thickness_mm": 197.05221171556917,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 197.05221171556917,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 14.122143665390123
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 197.05221171556917,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 14.122143665390123
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 117.94629812996588,
+          "rms_worst_single_mm": 8.452859029040315,
+          "rms_narrow_single_mm": 3.2201367729677393
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 36.20833414439164,
+          "rms_worst_single_mm": 2.5949431991640433,
+          "rms_narrow_single_mm": 0.9885497901577305
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 6.356617047515167,
+          "rms_worst_single_mm": 0.45555976453820496,
+          "rms_narrow_single_mm": 0.17354657696693523
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.67624696614098,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.8487294291930978,
+        "pnas_N": 64.11384937415181,
+        "pnas_mean": 0.26916940233455927,
+        "pnas_design_1e-3": 0.2824006362813447,
+        "pnas_design_1e-2": 0.32849091756827475
+      },
+      "transfer": {
+        "t_eq_bending_only_m": 0.029604764789022967,
+        "t_eq_over_bending": 6.6560978653217795,
+        "lambda_004b_convention": 66.47006609527229,
+        "lambda_sealed": 66.4045460271,
+        "p_sandwich_Pa": 111634.56673298473,
+        "p_zoelly_at_t_eq_Pa": 32725628.492432803,
+        "p_sandwich_over_zoelly": 0.003411227587540394,
+        "zoelly_over_sandwich": 293.1495991802272
+      }
+    },
+    "014-CNT-HRH10": {
+      "h_m": 0.024508453356494708,
+      "tf_m": null,
+      "core_m": null,
+      "t_eq_m": 0.042449886428380816,
+      "R_over_t_eq": 235.57189056021306,
+      "i2_sandwich_m2": 0.0001501660714818692,
+      "i2_monocoque_m2": 0.00015016607148186914,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 0.6515357736025,
+        "width_lambda_I_1_m": 0.3584120535439608,
+        "width_worst_m": 0.940831640552897,
+        "beta0_lambda_I_1_rad": 0.035841205354396076,
+        "beta0_worst_rad": 0.0940831640552897,
+        "l_c_m": 2.2519693487434775
+      },
+      "one_thickness_mm": 42.449886428380815,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 42.449886428380815,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 1.4120284712402318
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 42.449886428380815,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 1.4120284712402318
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 25.40852963118204,
+          "rms_worst_single_mm": 0.8451746346155915,
+          "rms_narrow_single_mm": 0.3219712893773682
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 7.800164529027949,
+          "rms_worst_single_mm": 0.2594601616644592,
+          "rms_narrow_single_mm": 0.09884196634836541
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 1.3693714441795746,
+          "rms_worst_single_mm": 0.04554997974251747,
+          "rms_narrow_single_mm": 0.017352373235244748
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.44423774491252166,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.6126965902140923,
+        "pnas_N": 138.1351625596367,
+        "pnas_mean": 0.2514374510676111,
+        "pnas_design_1e-3": 0.2727963735828498,
+        "pnas_design_1e-2": 0.3095478948012485
+      },
+      "note": "014 optimum on the crimp branch; gamma = 1, so kd does not enter the governing factor"
+    },
+    "014-graphene-HRH10": {
+      "h_m": 0.02208325446776471,
+      "tf_m": null,
+      "core_m": null,
+      "t_eq_m": 0.03824931873464088,
+      "R_over_t_eq": 261.4425650134103,
+      "i2_sandwich_m2": 0.0001219175319720125,
+      "i2_monocoque_m2": 0.00012191753197201248,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 0.618460336114135,
+        "width_lambda_I_1_m": 0.3402171424548541,
+        "width_worst_m": 0.8930699989439921,
+        "beta0_lambda_I_1_rad": 0.03402171424548541,
+        "beta0_worst_rad": 0.0893069998943992,
+        "l_c_m": 2.1376473507229634
+      },
+      "one_thickness_mm": 38.24931873464088,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 38.24931873464088,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 1.2077143067640268
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 38.24931873464088,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 1.2077143067640268
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 22.894264984225995,
+          "rms_worst_single_mm": 0.7228816689813398,
+          "rms_narrow_single_mm": 0.2753834929452723
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 7.028310423322141,
+          "rms_worst_single_mm": 0.22191744405992436,
+          "rms_narrow_single_mm": 0.08453997868949499
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 1.233867254813711,
+          "rms_worst_single_mm": 0.038959102686882525,
+          "rms_narrow_single_mm": 0.014841562928336202
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.4269729559633979,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.5935113728548692,
+        "pnas_N": 145.52267096946179,
+        "pnas_mean": 0.25062897414389845,
+        "pnas_design_1e-3": 0.27221994049574405,
+        "pnas_design_1e-2": 0.30841096368685683
+      },
+      "note": "014 optimum on the crimp branch; gamma = 1, so kd does not enter the governing factor"
+    },
+    "014-Be-HRH10": {
+      "h_m": 0.022543516772786033,
+      "tf_m": null,
+      "core_m": null,
+      "t_eq_m": 0.03904651643174658,
+      "R_over_t_eq": 256.1047927919518,
+      "i2_sandwich_m2": 0.00012705253712122128,
+      "i2_monocoque_m2": 0.0001270525371212213,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 0.6248721183710039,
+        "width_lambda_I_1_m": 0.34374428576558064,
+        "width_worst_m": 0.9023287501346493,
+        "beta0_lambda_I_1_rad": 0.034374428576558064,
+        "beta0_worst_rad": 0.09023287501346493,
+        "l_c_m": 2.1598090457492374
+      },
+      "one_thickness_mm": 39.04651643174658,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 39.04651643174658,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 1.2456673909224922
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 39.04651643174658,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 1.2456673909224922
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 23.37143048484505,
+          "rms_worst_single_mm": 0.7455986217124642,
+          "rms_narrow_single_mm": 0.2840375701761768
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 7.174795460686795,
+          "rms_worst_single_mm": 0.2288913213945443,
+          "rms_narrow_single_mm": 0.08719669386458828
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 1.259583690206867,
+          "rms_worst_single_mm": 0.04018341384617929,
+          "rms_narrow_single_mm": 0.015307967179496873
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.43039154945262037,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.597275131556347,
+        "pnas_N": 144.02946995718654,
+        "pnas_mean": 0.25078590370497245,
+        "pnas_design_1e-3": 0.27233335331529956,
+        "pnas_design_1e-2": 0.30863465411373875
+      },
+      "note": "014 optimum on the crimp branch; gamma = 1, so kd does not enter the governing factor"
+    },
+    "014b-Be-CRIII-1.6": {
+      "h_m": 0.04224293688916936,
+      "tf_m": 0.0006932231273823878,
+      "core_m": 0.04154971376178697,
+      "t_eq_m": 0.0731669129529669,
+      "R_over_t_eq": 136.67379962344717,
+      "i2_sandwich_m2": 0.00044611642925558635,
+      "i2_monocoque_m2": 0.0004461164292555863,
+      "i2_match": true,
+      "widths": {
+        "sqrt_R_t_eq_m": 0.8553766009949472,
+        "width_lambda_I_1_m": 0.47054558864958657,
+        "width_worst_m": 1.2351821702051649,
+        "beta0_lambda_I_1_rad": 0.04705455886495866,
+        "beta0_worst_rad": 0.12351821702051648,
+        "l_c_m": 2.956525128961252
+      },
+      "one_thickness_mm": 73.1669129529669,
+      "levels": {
+        "0.2": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 73.1669129529669,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 3.1952198993483987
+        },
+        "0.3": {
+          "status": "below_eq3_floor_0.45",
+          "delta_bar_lambda1": null,
+          "amplitude_upper_bound_mm": 73.1669129529669,
+          "bound": "below one t_eq; worst-width one-thickness statement puts kd near 0.20-0.25 at delta = t_eq",
+          "rms_at_one_thickness_worst_mm": 3.1952198993483987
+        },
+        "0.5": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.5985535361572747,
+          "amplitude_mm": 43.79431447770985,
+          "rms_worst_single_mm": 1.9125101695550757,
+          "rms_narrow_single_mm": 0.7285753026876478
+        },
+        "0.7": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.1837499504783828,
+          "amplitude_mm": 13.444416631763813,
+          "rms_worst_single_mm": 0.5871214982728116,
+          "rms_narrow_single_mm": 0.2236653326753568
+        },
+        "0.9": {
+          "status": "lambda_I_1_inversion",
+          "delta_bar_lambda1": 0.03225854199845517,
+          "amplitude_mm": 2.3602579343905963,
+          "rms_worst_single_mm": 0.10307313531743002,
+          "rms_narrow_single_mm": 0.03926595631140191
+        }
+      },
+      "cross": {
+        "nasa_kd": 0.5329081796390196,
+        "R_over_800_mm": 12.5,
+        "kappa_eq3_at_R_over_800": 0.7128392944109059,
+        "pnas_N": 105.21681315027186,
+        "pnas_mean": 0.2563637488630151,
+        "pnas_design_1e-3": 0.2759565176735512,
+        "pnas_design_1e-2": 0.31578082317237915
+      }
+    }
+  },
+  "be_aluminium": {
+    "density_kg_m3": 25.629541398336222,
+    "Gc_Pa": 72394951.57826778,
+    "Ec_Pa": 206842718.7950508,
+    "frozen_kd_0_20": {
+      "tf_m": 0.0006932231273823878,
+      "core_m": 0.04154971376178697,
+      "h_m": 0.04224293688916936,
+      "Vc": 0.6046277775943771,
+      "Kc": 0.8488430556014057,
+      "gamma": 0.2,
+      "branch": "stiff_or_moderate_core",
+      "sfs": {
+        "global_buckling": 0.668649769508548,
+        "face_yield": 0.8220424179647356,
+        "core_shear_crimping": 6.514081802348509,
+        "core_crush": 7.222602947804261,
+        "face_wrinkling": 0.6688192082931708,
+        "intracell_dimpling": 23.542501617535834
+      },
+      "governing": "global_buckling",
+      "least_SF": 0.668649769508548,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6688192082931708,
+      "core_mass_fraction": 0.293375
+    },
+    "cell_3_8_least_SF": 0.668649769508548,
+    "kd_for_global_SF_1": 0.2991102504185387,
+    "frozen_at_raised_kd": {
+      "0.2000": {
+        "tf_m": 0.0006932231273823878,
+        "core_m": 0.04154971376178697,
+        "h_m": 0.04224293688916936,
+        "Vc": 0.6046277775943771,
+        "Kc": 0.8488430556014057,
+        "gamma": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 0.668649769508548,
+          "face_yield": 0.8220424179647356,
+          "core_shear_crimping": 6.514081802348509,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 0.6688192082931708,
+          "intracell_dimpling": 23.542501617535834
+        },
+        "governing": "global_buckling",
+        "least_SF": 0.668649769508548,
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6688192082931708
+      },
+      "0.2991": {
+        "tf_m": 0.0006932231273823878,
+        "core_m": 0.04154971376178697,
+        "h_m": 0.04224293688916936,
+        "Vc": 0.6046277775943771,
+        "Kc": 0.8488430556014057,
+        "gamma": 0.2991102504185387,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 1.0000000000000002,
+          "face_yield": 0.8220424179647356,
+          "core_shear_crimping": 6.514081802348509,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 0.6688192082931708,
+          "intracell_dimpling": 23.542501617535834
+        },
+        "governing": "face_wrinkling",
+        "least_SF": 0.6688192082931708,
+        "second_mode": "face_yield",
+        "second_SF": 0.8220424179647356
+      },
+      "0.3000": {
+        "tf_m": 0.0006932231273823878,
+        "core_m": 0.04154971376178697,
+        "h_m": 0.04224293688916936,
+        "Vc": 0.6046277775943771,
+        "Kc": 0.8488430556014057,
+        "gamma": 0.3,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 1.0029746542628222,
+          "face_yield": 0.8220424179647356,
+          "core_shear_crimping": 6.514081802348509,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 0.6688192082931708,
+          "intracell_dimpling": 23.542501617535834
+        },
+        "governing": "face_wrinkling",
+        "least_SF": 0.6688192082931708,
+        "second_mode": "face_yield",
+        "second_SF": 0.8220424179647356
+      }
+    },
+    "reoptimised_at_kd_0_30": {
+      "tf_m": 0.0007539246041300054,
+      "core_m": 0.03278656578049829,
+      "h_m": 0.033540490384628294,
+      "Vc": 0.6535149965259258,
+      "Kc": 0.8366212508685186,
+      "gamma": 0.3,
+      "branch": "stiff_or_moderate_core",
+      "sfs": {
+        "global_buckling": 0.8536141922090611,
+        "face_yield": 0.8940238432066504,
+        "core_shear_crimping": 5.204223297186605,
+        "core_crush": 7.222602947804261,
+        "face_wrinkling": 0.8539394965856173,
+        "intracell_dimpling": 30.28427833600109
+      },
+      "governing": "global_buckling",
+      "least_SF": 0.8536141922090611,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.8539394965856173,
+      "core_mass_fraction": 0.2315
+    },
+    "reoptimised_SF1_crossing": {
+      "first_at_or_above_1": {
+        "kd": 0.519,
+        "least_SF": 1.0001782683108882,
+        "governing": "face_yield",
+        "h_m": 0.02070657937793136,
+        "tf_m": 0.0008434439536769969,
+        "core_m": 0.01986313542425436
+      },
+      "previous": {
+        "kd": 0.518,
+        "least_SF": 0.9998874342695067,
+        "governing": "face_yield",
+        "h_m": 0.020741740777949703,
+        "tf_m": 0.0008431986951850872,
+        "core_m": 0.019898542082764616
+      }
+    },
+    "note": "Wrinkling has no kd. The frozen least factor does not follow the global mode up to 1."
+  },
+  "core_shear": {
+    "P2-E": {
+      "Gc_9e6": {
+        "delta_shear": 0.24288570077884322,
+        "p_cr_over_p_c": 0.8969833966241445,
+        "reduction": 0.1030166033758555
+      },
+      "Gc_14e6": {
+        "delta_shear": 0.15614080764354207,
+        "p_cr_over_p_c": 0.9300250252031935,
+        "reduction": 0.06997497479680648
+      },
+      "Gc_137.9e6": {
+        "delta_shear": 0.015852416655633184,
+        "p_cr_over_p_c": 0.992166800959244,
+        "reduction": 0.007833199040755967
+      }
+    },
+    "014b-Be-CRIII": {
+      "delta_shear": 0.27388649081508326,
+      "p_cr_over_p_c": 0.8860018607193241,
+      "reduction": 0.11399813928067593
+    }
+  },
+  "drivers": {
+    "P2-E": {
+      "thickness_dpc_over_pc_per_face": 1.0029542097489004,
+      "hydrostatic_Pa": 240.262925,
+      "hydrostatic_over_p": 0.002516874251792027,
+      "seam_step_narrow_branch": {
+        "1mm": {
+          "delta_bar": 0.005074797137742502,
+          "kappa_eq3": 0.9500562103602372
+        },
+        "3mm": {
+          "delta_bar": 0.015224391413227508,
+          "kappa_eq3": 0.9307464917714818
+        },
+        "10mm": {
+          "delta_bar": 0.050747971377425025,
+          "kappa_eq3": 0.8688482141003475
+        }
+      }
+    },
+    "014b-Be-CRIII": {
+      "thickness_dpc_over_pc_per_face": 1.0164103913797746,
+      "hydrostatic_Pa": 240.262925,
+      "hydrostatic_over_p": 0.002516874251792027,
+      "seam_step_narrow_branch": {
+        "1mm": {
+          "delta_bar": 0.013667379962344718,
+          "kappa_eq3": 0.9336595699978714
+        },
+        "3mm": {
+          "delta_bar": 0.041002139887034154,
+          "kappa_eq3": 0.8849897305837992
+        },
+        "10mm": {
+          "delta_bar": 0.13667379962344717,
+          "kappa_eq3": 0.7501001892830554
+        }
+      }
+    }
+  },
+  "gaps_required_over_achieved": {
+    "P2-E": {
+      "0.2": {
+        "note": "no sourced amplitude; upper bound is one t_eq, and the true allowance is smaller",
+        "bound": {
+          "GBT panels 50 um": {
+            "achieved_m": 5e-05,
+            "amplitude_over_achieved": 3941.044234311383,
+            "rms_over_achieved": 282.4428733078025
+          },
+          "DVA-C panels 200 um": {
+            "achieved_m": 0.0002,
+            "amplitude_over_achieved": 985.2610585778458,
+            "rms_over_achieved": 70.61071832695062
+          },
+          "SKA-1 260 um": {
+            "achieved_m": 0.00026,
+            "amplitude_over_achieved": 757.8931219829584,
+            "rms_over_achieved": 54.3159371745774
+          },
+          "GBT assembled 250 um": {
+            "achieved_m": 0.00025,
+            "amplitude_over_achieved": 788.2088468622767,
+            "rms_over_achieved": 56.48857466156049
+          },
+          "MeerKAT 900 um": {
+            "achieved_m": 0.0009,
+            "amplitude_over_achieved": 218.94690190618797,
+            "rms_over_achieved": 15.69127073932236
+          },
+          "UG-81 inside 125 mm": {
+            "achieved_m": 0.125,
+            "amplitude_over_achieved": 1.5764176937245533,
+            "rms_over_achieved": 0.11297714932312099
+          },
+          "UG-81 outside 250 mm": {
+            "achieved_m": 0.25,
+            "amplitude_over_achieved": 0.7882088468622767,
+            "rms_over_achieved": 0.056488574661560494
+          }
+        }
+      },
+      "0.3": {
+        "note": "no sourced amplitude; upper bound is one t_eq, and the true allowance is smaller",
+        "bound": {
+          "GBT panels 50 um": {
+            "achieved_m": 5e-05,
+            "amplitude_over_achieved": 3941.044234311383,
+            "rms_over_achieved": 282.4428733078025
+          },
+          "DVA-C panels 200 um": {
+            "achieved_m": 0.0002,
+            "amplitude_over_achieved": 985.2610585778458,
+            "rms_over_achieved": 70.61071832695062
+          },
+          "SKA-1 260 um": {
+            "achieved_m": 0.00026,
+            "amplitude_over_achieved": 757.8931219829584,
+            "rms_over_achieved": 54.3159371745774
+          },
+          "GBT assembled 250 um": {
+            "achieved_m": 0.00025,
+            "amplitude_over_achieved": 788.2088468622767,
+            "rms_over_achieved": 56.48857466156049
+          },
+          "MeerKAT 900 um": {
+            "achieved_m": 0.0009,
+            "amplitude_over_achieved": 218.94690190618797,
+            "rms_over_achieved": 15.69127073932236
+          },
+          "UG-81 inside 125 mm": {
+            "achieved_m": 0.125,
+            "amplitude_over_achieved": 1.5764176937245533,
+            "rms_over_achieved": 0.11297714932312099
+          },
+          "UG-81 outside 250 mm": {
+            "achieved_m": 0.25,
+            "amplitude_over_achieved": 0.7882088468622767,
+            "rms_over_achieved": 0.056488574661560494
+          }
+        }
+      },
+      "0.5": {
+        "GBT panels 50 um": {
+          "achieved_m": 5e-05,
+          "amplitude_over_achieved": 2358.9259625993172,
+          "rms_over_achieved": 169.0571805808063
+        },
+        "DVA-C panels 200 um": {
+          "achieved_m": 0.0002,
+          "amplitude_over_achieved": 589.7314906498293,
+          "rms_over_achieved": 42.26429514520157
+        },
+        "SKA-1 260 um": {
+          "achieved_m": 0.00026,
+          "amplitude_over_achieved": 453.63960819217647,
+          "rms_over_achieved": 32.510996265539674
+        },
+        "GBT assembled 250 um": {
+          "achieved_m": 0.00025,
+          "amplitude_over_achieved": 471.7851925198635,
+          "rms_over_achieved": 33.81143611616126
+        },
+        "MeerKAT 900 um": {
+          "achieved_m": 0.0009,
+          "amplitude_over_achieved": 131.05144236662875,
+          "rms_over_achieved": 9.392065587822573
+        },
+        "UG-81 inside 125 mm": {
+          "achieved_m": 0.125,
+          "amplitude_over_achieved": 0.943570385039727,
+          "rms_over_achieved": 0.06762287223232252
+        },
+        "UG-81 outside 250 mm": {
+          "achieved_m": 0.25,
+          "amplitude_over_achieved": 0.4717851925198635,
+          "rms_over_achieved": 0.03381143611616126
+        }
+      },
+      "0.7": {
+        "GBT panels 50 um": {
+          "achieved_m": 5e-05,
+          "amplitude_over_achieved": 724.1666828878327,
+          "rms_over_achieved": 51.89886398328086
+        },
+        "DVA-C panels 200 um": {
+          "achieved_m": 0.0002,
+          "amplitude_over_achieved": 181.04167072195818,
+          "rms_over_achieved": 12.974715995820215
+        },
+        "SKA-1 260 um": {
+          "achieved_m": 0.00026,
+          "amplitude_over_achieved": 139.26282363227554,
+          "rms_over_achieved": 9.98055076601555
+        },
+        "GBT assembled 250 um": {
+          "achieved_m": 0.00025,
+          "amplitude_over_achieved": 144.83333657756654,
+          "rms_over_achieved": 10.379772796656171
+        },
+        "MeerKAT 900 um": {
+          "achieved_m": 0.0009,
+          "amplitude_over_achieved": 40.231482382657376,
+          "rms_over_achieved": 2.8832702212933814
+        },
+        "UG-81 inside 125 mm": {
+          "achieved_m": 0.125,
+          "amplitude_over_achieved": 0.2896666731551331,
+          "rms_over_achieved": 0.020759545593312344
+        },
+        "UG-81 outside 250 mm": {
+          "achieved_m": 0.25,
+          "amplitude_over_achieved": 0.14483333657756656,
+          "rms_over_achieved": 0.010379772796656172
+        }
+      },
+      "0.9": {
+        "GBT panels 50 um": {
+          "achieved_m": 5e-05,
+          "amplitude_over_achieved": 127.13234095030332,
+          "rms_over_achieved": 9.1111952907641
+        },
+        "DVA-C panels 200 um": {
+          "achieved_m": 0.0002,
+          "amplitude_over_achieved": 31.78308523757583,
+          "rms_over_achieved": 2.277798822691025
+        },
+        "SKA-1 260 um": {
+          "achieved_m": 0.00026,
+          "amplitude_over_achieved": 24.448527105827566,
+          "rms_over_achieved": 1.7521529405315577
+        },
+        "GBT assembled 250 um": {
+          "achieved_m": 0.00025,
+          "amplitude_over_achieved": 25.426468190060664,
+          "rms_over_achieved": 1.8222390581528198
+        },
+        "MeerKAT 900 um": {
+          "achieved_m": 0.0009,
+          "amplitude_over_achieved": 7.062907830572407,
+          "rms_over_achieved": 0.5061775161535611
+        },
+        "UG-81 inside 125 mm": {
+          "achieved_m": 0.125,
+          "amplitude_over_achieved": 0.05085293638012133,
+          "rms_over_achieved": 0.0036444781163056396
+        },
+        "UG-81 outside 250 mm": {
+          "achieved_m": 0.25,
+          "amplitude_over_achieved": 0.025426468190060666,
+          "rms_over_achieved": 0.0018222390581528198
+        }
+      }
+    },
+    "014b-Be-CRIII-1.6": {
+      "0.2": {
+        "note": "no sourced amplitude; upper bound is one t_eq, and the true allowance is smaller",
+        "bound": {
+          "GBT panels 50 um": {
+            "achieved_m": 5e-05,
+            "amplitude_over_achieved": 1463.338259059338,
+            "rms_over_achieved": 63.90439798696797
+          },
+          "DVA-C panels 200 um": {
+            "achieved_m": 0.0002,
+            "amplitude_over_achieved": 365.8345647648345,
+            "rms_over_achieved": 15.976099496741993
+          },
+          "SKA-1 260 um": {
+            "achieved_m": 0.00026,
+            "amplitude_over_achieved": 281.41120366525735,
+            "rms_over_achieved": 12.28930730518615
+          },
+          "GBT assembled 250 um": {
+            "achieved_m": 0.00025,
+            "amplitude_over_achieved": 292.6676518118676,
+            "rms_over_achieved": 12.780879597393595
+          },
+          "MeerKAT 900 um": {
+            "achieved_m": 0.0009,
+            "amplitude_over_achieved": 81.296569947741,
+            "rms_over_achieved": 3.550244332609332
+          },
+          "UG-81 inside 125 mm": {
+            "achieved_m": 0.125,
+            "amplitude_over_achieved": 0.5853353036237352,
+            "rms_over_achieved": 0.02556175919478719
+          },
+          "UG-81 outside 250 mm": {
+            "achieved_m": 0.25,
+            "amplitude_over_achieved": 0.2926676518118676,
+            "rms_over_achieved": 0.012780879597393595
+          }
+        }
+      },
+      "0.3": {
+        "note": "no sourced amplitude; upper bound is one t_eq, and the true allowance is smaller",
+        "bound": {
+          "GBT panels 50 um": {
+            "achieved_m": 5e-05,
+            "amplitude_over_achieved": 1463.338259059338,
+            "rms_over_achieved": 63.90439798696797
+          },
+          "DVA-C panels 200 um": {
+            "achieved_m": 0.0002,
+            "amplitude_over_achieved": 365.8345647648345,
+            "rms_over_achieved": 15.976099496741993
+          },
+          "SKA-1 260 um": {
+            "achieved_m": 0.00026,
+            "amplitude_over_achieved": 281.41120366525735,
+            "rms_over_achieved": 12.28930730518615
+          },
+          "GBT assembled 250 um": {
+            "achieved_m": 0.00025,
+            "amplitude_over_achieved": 292.6676518118676,
+            "rms_over_achieved": 12.780879597393595
+          },
+          "MeerKAT 900 um": {
+            "achieved_m": 0.0009,
+            "amplitude_over_achieved": 81.296569947741,
+            "rms_over_achieved": 3.550244332609332
+          },
+          "UG-81 inside 125 mm": {
+            "achieved_m": 0.125,
+            "amplitude_over_achieved": 0.5853353036237352,
+            "rms_over_achieved": 0.02556175919478719
+          },
+          "UG-81 outside 250 mm": {
+            "achieved_m": 0.25,
+            "amplitude_over_achieved": 0.2926676518118676,
+            "rms_over_achieved": 0.012780879597393595
+          }
+        }
+      },
+      "0.5": {
+        "GBT panels 50 um": {
+          "achieved_m": 5e-05,
+          "amplitude_over_achieved": 875.8862895541969,
+          "rms_over_achieved": 38.250203391101515
+        },
+        "DVA-C panels 200 um": {
+          "achieved_m": 0.0002,
+          "amplitude_over_achieved": 218.97157238854922,
+          "rms_over_achieved": 9.562550847775379
+        },
+        "SKA-1 260 um": {
+          "achieved_m": 0.00026,
+          "amplitude_over_achieved": 168.4396710681148,
+          "rms_over_achieved": 7.3558083444425995
+        },
+        "GBT assembled 250 um": {
+          "achieved_m": 0.00025,
+          "amplitude_over_achieved": 175.1772579108394,
+          "rms_over_achieved": 7.650040678220303
+        },
+        "MeerKAT 900 um": {
+          "achieved_m": 0.0009,
+          "amplitude_over_achieved": 48.66034941967761,
+          "rms_over_achieved": 2.1250112995056396
+        },
+        "UG-81 inside 125 mm": {
+          "achieved_m": 0.125,
+          "amplitude_over_achieved": 0.35035451582167876,
+          "rms_over_achieved": 0.015300081356440606
+        },
+        "UG-81 outside 250 mm": {
+          "achieved_m": 0.25,
+          "amplitude_over_achieved": 0.17517725791083938,
+          "rms_over_achieved": 0.007650040678220303
+        }
+      },
+      "0.7": {
+        "GBT panels 50 um": {
+          "achieved_m": 5e-05,
+          "amplitude_over_achieved": 268.88833263527624,
+          "rms_over_achieved": 11.742429965456232
+        },
+        "DVA-C panels 200 um": {
+          "achieved_m": 0.0002,
+          "amplitude_over_achieved": 67.22208315881906,
+          "rms_over_achieved": 2.935607491364058
+        },
+        "SKA-1 260 um": {
+          "achieved_m": 0.00026,
+          "amplitude_over_achieved": 51.70929473755314,
+          "rms_over_achieved": 2.2581596087415834
+        },
+        "GBT assembled 250 um": {
+          "achieved_m": 0.00025,
+          "amplitude_over_achieved": 53.77766652705525,
+          "rms_over_achieved": 2.3484859930912463
+        },
+        "MeerKAT 900 um": {
+          "achieved_m": 0.0009,
+          "amplitude_over_achieved": 14.938240701959794,
+          "rms_over_achieved": 0.652357220303124
+        },
+        "UG-81 inside 125 mm": {
+          "achieved_m": 0.125,
+          "amplitude_over_achieved": 0.10755533305411051,
+          "rms_over_achieved": 0.004696971986182493
+        },
+        "UG-81 outside 250 mm": {
+          "achieved_m": 0.25,
+          "amplitude_over_achieved": 0.053777666527055255,
+          "rms_over_achieved": 0.0023484859930912464
+        }
+      },
+      "0.9": {
+        "GBT panels 50 um": {
+          "achieved_m": 5e-05,
+          "amplitude_over_achieved": 47.205158687811924,
+          "rms_over_achieved": 2.0614627063486006
+        },
+        "DVA-C panels 200 um": {
+          "achieved_m": 0.0002,
+          "amplitude_over_achieved": 11.801289671952981,
+          "rms_over_achieved": 0.5153656765871502
+        },
+        "SKA-1 260 um": {
+          "achieved_m": 0.00026,
+          "amplitude_over_achieved": 9.077915132271524,
+          "rms_over_achieved": 0.3964351358362694
+        },
+        "GBT assembled 250 um": {
+          "achieved_m": 0.00025,
+          "amplitude_over_achieved": 9.441031737562385,
+          "rms_over_achieved": 0.4122925412697201
+        },
+        "MeerKAT 900 um": {
+          "achieved_m": 0.0009,
+          "amplitude_over_achieved": 2.6225088159895513,
+          "rms_over_achieved": 0.11452570590825559
+        },
+        "UG-81 inside 125 mm": {
+          "achieved_m": 0.125,
+          "amplitude_over_achieved": 0.01888206347512477,
+          "rms_over_achieved": 0.0008245850825394402
+        },
+        "UG-81 outside 250 mm": {
+          "achieved_m": 0.25,
+          "amplitude_over_achieved": 0.009441031737562385,
+          "rms_over_achieved": 0.0004122925412697201
+        }
+      }
+    }
+  },
+  "display_half_up": {
+    "P2-E_t_eq_m": "0.197052",
+    "P2-E_R_over_t": "50.75",
+    "P2-E_wavelength_m": "1.404",
+    "Be_tf_mm": "0.693",
+    "Be_core_mm": "41.55",
+    "Be_t_eq_mm": "73.17",
+    "Be_R_over_t": "136.7",
+    "Be_wavelength_m": "0.855",
+    "kd_global_SF1": "0.2991",
+    "wrinkling_SF": "0.6688",
+    "least_at_kd_0_3_reopt": "0.8536",
+    "plateau_worst": "0.2338",
+    "plateau_lambda1": "0.4470",
+    "zoelly_over_sandwich": "293.1",
+    "P2-E_kd0.9_amp_mm": "6.36",
+    "P2-E_kd0.9_rms_mm": "0.46",
+    "P2-E_kd0.7_amp_mm": "36.2",
+    "P2-E_kd0.7_rms_mm": "2.59",
+    "P2-E_kd0.5_amp_mm": "118",
+    "P2-E_kd0.5_rms_mm": "8.45",
+    "014b-Be-CRIII-1.6_kd0.9_amp_mm": "2.36",
+    "014b-Be-CRIII-1.6_kd0.9_rms_mm": "0.10",
+    "014b-Be-CRIII-1.6_kd0.7_amp_mm": "13.44",
+    "014b-Be-CRIII-1.6_kd0.7_rms_mm": "0.59",
+    "014b-Be-CRIII-1.6_kd0.5_amp_mm": "43.79",
+    "014b-Be-CRIII-1.6_kd0.5_rms_mm": "1.91"
+  },
+  "checks": [
+    {
+      "name": "i2 match P2-E",
+      "pass": true
+    },
+    {
+      "name": "014b Be CR-III 1.6 least SF reproduces 0.668649769508548",
+      "pass": true,
+      "got": 0.668649769508548
+    },
+    {
+      "name": "1/4 and 3/8 cell tie on the least factor",
+      "pass": true
+    },
+    {
+      "name": "PNAS 0.278 at R/t 100, P0 1e-3, within 0.003",
+      "pass": true,
+      "got": 0.2778879808307898
+    },
+    {
+      "name": "PNAS 0.320 at R/t 100, P0 1e-2, within 0.003",
+      "pass": true,
+      "got": 0.31959035563830984
+    },
+    {
+      "name": "004b lambda reproduced within 1 percent",
+      "pass": true,
+      "got": 66.47006609527229
+    },
+    {
+      "name": "Eq 3 cannot invert kd 0.3 or 0.2",
+      "pass": true
+    }
+  ]
+}

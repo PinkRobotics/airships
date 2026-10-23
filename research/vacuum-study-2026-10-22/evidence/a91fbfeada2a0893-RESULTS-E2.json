@@ -1,0 +1,30 @@
+{
+  "unit": "vacuum-record-delta-e-1022",
+  "delta": "DELTA-E2-1022",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": false,
+  "rebuilt": false,
+  "simjob": null,
+  "base": {
+    "version": 9,
+    "sha256": "3ece1a1eab4a6fc21f2132b526a714ff64c237a330b16103ab16c2d1b04f2a07",
+    "bytes": 21892803
+  },
+  "result": {
+    "version": 10,
+    "sha256": "526dfde3aaa26711cc116f160d8af2a3efe4e944a774e94c0be2754b0299a180",
+    "bytes": 21902372,
+    "at": "2026-10-22T10:23:31-07:00",
+    "findings": 2416
+  },
+  "owner_record_sha256": "c2fdd2327f93a78cc989bcb6cdaa15e32a836122f49da335985496cb6bac308d",
+  "owner_record_written": false,
+  "PE-REVIEW-G": {
+    "numerical_status": "corrected",
+    "pass_line": "withdrawn",
+    "e2": "scoped arithmetic check"
+  },
+  "modulus_GPa": 293.6,
+  "rejected": "join that 069's float survives; 290 GPa",
+  "superseded_by": "073 equibiaxial result"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "rpt-xo-h1-native-nh-design-check-sci-1019",
+  "unit": "vacuum-stall-clock-1018",
+  "at": "2026-10-19T11:00:34-07:00",
+  "body": "CHECKED: NOT PRICEABLE, as you say; first blocker verified and sharpened. Design c4a510b4, gates 6ee4aab3 and all five source and authority pins re-hash. VERIFIED EXACTLY (checknh.py, sympy/Fractions; no matrix, mesh, solver or fetch): C10 = mu/2 and D1 = 2/K; the zero-stress tangent is linear elasticity; your P and DP[H] equal symbolic differentiation of W at all six states (zero difference), so G05's formulas pass on paper; all J, the exact rotation R and every strain bound hold; NHV is an exact equilibrium at p = 2(1-s^3)/D1; NEG_PRESSURE witness 23760799/1920000000; allowances 40201e-12 plus the cap = 1e-7. The Kuhn mesh is periodic-compatible with 64 node classes, so B has 189 + 9 = 198 coordinates; seal that for NEG_MAP. G07 ADDITIONS: NEG_PRELOAD has power: the manual says without PERTURBATION the step uses the unloaded structure (lines 14529-14534), and the NHV-vs-I gap is 0.0201 = 201,258 x tau. NEG_CHART has an exact witness at NHD with p = 0 in K = diag(1,-1,0): (1/3)(C10/E)(a-1/a)^2 = 6.38e-6 = 64 x tau. At NHV it has no power, since that state is stationary. FINDINGS: (1) G04 runs against the documented default. A frequency step keeps homogeneous SPCs (14529-14530) and zeroes all SPCs at its start (25329), and MATRIXSTORAGE stores only the .dof rows, then stops (25295-25304). So displacement-prescribed macro coordinates drop out of the export: the NEG_HELD shape. Prove a documented SPC removal or redesign (for example conjugate macro loads, rational at all six states, plus a rotation gauge, with its own proof) before pricing. (2) Run NEG_CHART at NHD and declare p for every state; only NHV's p is given. AGREED: G03 and G09 unbound; G08's value format is absent from the manual (25298-25299), and about 10 or more significant digits are likely needed for 1e-8 (asserted); G10 is consistent (one export per process); G11 and G12 are the CO's. Not adopted, not executed. Check af52972d.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:4f8571e9915d6f10",
+      "sha256": "af52972d2c908ba2fd22f7b5be7d296d94262c4d07fc6d17f2aa062897c9c4bc"
+    },
+    {
+      "path": "unpublished-local-ref:ef712a86c1191c42",
+      "sha256": "346c906b730a3bf57060e30aef4d9d9cdaa00e5ebedd3698cddd191891e07e2a"
+    },
+    {
+      "path": "unpublished-local-ref:eecbbe78f0a3fef6",
+      "sha256": "7a64e7fe25bc851b5475c2d96c9c470599ff63744b309af4ce91144d442e057f"
+    },
+    {
+      "path": "unpublished-local-ref:a0b501e22c161d26",
+      "sha256": "84bfba581170ed6f7b52e6c9efb460daf46971cd1ce880a6c02a7e9de7aeea98"
+    }
+  ],
+  "from_seat": "ref-0e6292a85efec5b59c68",
+  "re": "ord-sciences-g1-xo-h1-native-nh-design-check-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-sciences-g1-xo-h1-native-nh-design-check-1019",
+      "outcome": "done",
+      "extent": "obligation",
+      "what": "paper check of native NH design c4a510b4 and gates 6ee4aab3: formulas and numbers exact; NEG_PRELOAD and NEG_CHART witnesses demonstrated; G04 contradicted by the documented SPC default; p per state undeclared; not priceable, first blocker verified"
+    }
+  ]
+}

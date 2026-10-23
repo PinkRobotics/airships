@@ -1,0 +1,79 @@
+{
+  "id": "C068",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C068",
+    "report": "rpt-ref-025def9d3634f5e320d7",
+    "file": "evidence/866e8fd2fa98eded-NFI.json",
+    "snapshot": "evidence/866e8fd2fa98eded-NFI.json",
+    "source_sha256": "866e8fd2fa98eded086ac2b191d7ee65e5d1ceab3421ae98a8a7ee718c68b2db",
+    "source_json_pointer": "/open/7",
+    "row_id": "NFI-034-JOINT-ADHESIVE-MASS",
+    "fields": {
+      "id": "NFI-034-JOINT-ADHESIVE-MASS",
+      "tag": "PROJECTION",
+      "finding": "The 023 end-material estimate omits adhesive mass. At nominal inherited bond area, assumed 0.2 mm gap and 1400 kg/m3 density, this card adds 12.565 kg for Ti sleeves and 4.078 kg for CFRP wraps. Shear-transfer and gap assumptions remain unqualified.",
+      "proposed_next": "Book cured adhesive, primers and process losses against the complete assembly and qualify actual joints.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "open",
+    "blocks_progress": false
+  },
+  "claim": "The 023 end-material estimate omits adhesive mass. At nominal inherited bond area, assumed 0.2 mm gap and 1400 kg/m3 density, this card adds 12.565 kg for Ti sleeves and 4.078 kg for CFRP wraps. Shear-transfer and gap assumptions remain unqualified.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/778"
+    },
+    {
+      "report": "rpt-ref-025def9d3634f5e320d7",
+      "artifact": "evidence/866e8fd2fa98eded-NFI.json",
+      "snapshot": "evidence/866e8fd2fa98eded-NFI.json",
+      "sha256": "866e8fd2fa98eded086ac2b191d7ee65e5d1ceab3421ae98a8a7ee718c68b2db",
+      "bytes": 14164,
+      "selector": "/open/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-025def9d3634f5e320d7",
+          "artifact": "evidence/866e8fd2fa98eded-NFI.json",
+          "snapshot": "evidence/866e8fd2fa98eded-NFI.json",
+          "sha256": "866e8fd2fa98eded086ac2b191d7ee65e5d1ceab3421ae98a8a7ee718c68b2db",
+          "bytes": 14164,
+          "selector": "/open/7"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/778"
+          }
+        ]
+      }
+    }
+  ]
+}

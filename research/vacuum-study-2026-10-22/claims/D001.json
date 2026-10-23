@@ -1,0 +1,77 @@
+{
+  "id": "D001",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D001",
+    "report": "rpt-ref-378f34abc5a6eea5b053",
+    "file": "evidence/d248f8c270d5af7c-NFI.json",
+    "snapshot": "evidence/d248f8c270d5af7c-NFI.json",
+    "source_sha256": "d248f8c270d5af7c5791fc573e50aa0acd8559f6251b281e5c0441c2a2b1fe8f",
+    "source_json_pointer": "/findings/0",
+    "row_id": "048F-edge",
+    "fields": {
+      "id": "048F-edge",
+      "finding": "250 F compliant-core field survival does not close minimum-strength free edges.",
+      "disposition": "Strict as-designed account has no admissible point; conditional price retains failure."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/findings",
+    "blocks_progress": false
+  },
+  "claim": "250 F compliant-core field survival does not close minimum-strength free edges.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/961"
+    },
+    {
+      "report": "rpt-ref-378f34abc5a6eea5b053",
+      "artifact": "evidence/d248f8c270d5af7c-NFI.json",
+      "snapshot": "evidence/d248f8c270d5af7c-NFI.json",
+      "sha256": "d248f8c270d5af7c5791fc573e50aa0acd8559f6251b281e5c0441c2a2b1fe8f",
+      "bytes": 960,
+      "selector": "/findings/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-378f34abc5a6eea5b053",
+          "artifact": "evidence/d248f8c270d5af7c-NFI.json",
+          "snapshot": "evidence/d248f8c270d5af7c-NFI.json",
+          "sha256": "d248f8c270d5af7c5791fc573e50aa0acd8559f6251b281e5c0441c2a2b1fe8f",
+          "bytes": 960,
+          "selector": "/findings/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/961"
+          }
+        ]
+      }
+    }
+  ]
+}

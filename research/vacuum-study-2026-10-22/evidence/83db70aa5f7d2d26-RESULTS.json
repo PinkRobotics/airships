@@ -1,0 +1,2099 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-021",
+  "unit": "vacuum-mainline021-optimistic-floating-point-1020",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-20T00:36:36.508477-07:00",
+  "job_started_at": "2026-10-20T00:15:12-07:00",
+  "times_are": "measurements only, never limits",
+  "case": {
+    "R_m": 10.0,
+    "p_Pa": 95460.83791390515,
+    "lift_kg": 4889.442150186961,
+    "margin": 0.05,
+    "systems_kg": 100.0,
+    "joint_fraction": 0.05,
+    "structural_mass_kg": 4328.542897788202,
+    "face": {
+      "name": "Beryllium S-200F",
+      "rho": 1850.0,
+      "E_Pa": 290000000000.0,
+      "sigma_Pa": 283000000.0,
+      "tag": "QUESTIONABLE"
+    },
+    "face_E_basis": "S-200-F typical E 290 GPa, Materion DS-HPP-610 (ord-admiral-rr2-mainline021-be-modulus-290-1020)",
+    "E_chain_303_used_only_in_checks": 303000000000.0,
+    "E_O3_grade_Pa": 293600000000.0,
+    "biaxial_factor": 0.6823278038280194
+  },
+  "checks": {
+    "009d_aluminium_point": {
+      "result": "PASS",
+      "least": 0.6170447855269701,
+      "sealed": 0.6170447855269701
+    },
+    "009c5_aramid_point_held": {
+      "result": "PASS",
+      "least": 0.6504118436805308,
+      "sealed": 0.6504118436805308
+    },
+    "009c5_aramid_reoptimised": {
+      "least": 0.6504130224098146,
+      "sealed": 0.6504118436805308,
+      "result": "PASS",
+      "rule": "reproduced or bettered by less than 1e-5 (golden refinement past the sealed grid)",
+      "tf_m": 0.0007524297010490461,
+      "sealed_tf_m": 0.000752430055433027
+    },
+    "009d_kd_global_1": {
+      "mine": 0.3241255816288854,
+      "sealed": 0.3241255816288854
+    },
+    "biaxial_factor": 0.6823278038280194,
+    "009e_aluminium_optimistic": {
+      "least_on_009e_grid": 0.9241482267704966,
+      "sealed": 0.92414822677,
+      "tf_m": 0.0007793283046303996,
+      "sealed_tf_m": 0.00077932830463,
+      "Vc": 0.6673115919179704,
+      "gamma": 0.4669246367671882,
+      "refined_least": 0.9242000158181577,
+      "refined_tf_m": 0.0007793719780039378,
+      "result": "PASS",
+      "rule": "009e's own grid reproduces its sealed least and face to the printed digits"
+    },
+    "015_tolerance_kd_0p5": {
+      "amplitude_mm": 43.79431447770985,
+      "sealed_mm": 43.79,
+      "rms_worst_mm": 1.9125101695550757,
+      "sealed_rms_mm": 1.91,
+      "result": "PASS"
+    }
+  },
+  "optimisms": {
+    "O1_gamma": {
+      "today": "CR-1457 eq 6.2-13 and p. 6-12: 0.20 below Vc 2, 1 at Vc >= 2 (hemisphere; QUESTIONABLE for a sphere)",
+      "full": "MAINLINE-018 optimistic curve 0.20 + 0.40*min(Vc,2), PROJECTION",
+      "grounding_card": "MAINLINE-018b (crimp gamma measured); MAINLINE-015 (kd precision)"
+    },
+    "O2_wrinkle": {
+      "today": 0.33,
+      "full": 0.82,
+      "source": "CR-1457 eq 2.2-14 (design) and eq 2.2-12 with K_delta 0 (classical)",
+      "grounding_card": "none pending; a wrinkling test on a representative sandwich"
+    },
+    "O3_be_strength": {
+      "today_Pa": 283000000.0,
+      "today_basis": "MAINLINE-008 S-200F row: compressive yield 41 ksi (283 MPa), inherited by 014b and 009d",
+      "full_Pa": 379200000.0,
+      "full_grade": {
+        "grade": "SR-200 (cross-rolled sheet, 1.96 mm / 0.077 in)",
+        "product_form": "cross-rolled sheet rolled from vacuum hot pressed block; direction 1 = primary rolling (longitudinal)",
+        "property": "compressive yield",
+        "basis": "unstated (test result from a secondary report; yield definition (offset) not stated in the table)",
+        "value_Pa": 379200000.0,
+        "directions_Pa": [
+          379200000.0,
+          382700000.0
+        ],
+        "source": {
+          "citation": "Roschke, P.N., Mascorro, E., Papados, P., Serna, O.R., Failure prediction of thin beryllium sheets used in spacecraft structures, NASA CR-194164, Texas A&M Research Foundation, 1991 (NTRS record date 1991-01-01; report period 1 Jul 1990 - 30 Jun 1991). Values in the report's Table 3 are quoted from Fenn, Cooke, Kinder, Lempiere (1967) 'Test methods for mechanical properties of anisotropic materials (beryllium sheet)', AFML-TR-67-212, Lockheed Missiles and Space Co. (the original was NOT opened)",
+          "doi": null,
+          "url": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+          "crossref_title": null,
+          "access": "full text",
+          "location": "Table 3 'Uniaxial Strength Properties of 1.96-mm (0.08-in.) SR-200 Sheet (Fenn et al. 1967)'; Table 2 for E",
+          "quote": "Longitudinal: Tension 383.4 (yield) 537.6 (ultimate); Compression 379.2 659.1. Long transverse: Tension 386.1 564.0; Compression 382.7 591.5. Short transverse Tension 200.0. | Table 2: Longitudinal elastic modulus 298.7 GPa, Long transverse 293.6, Short transverse (through-thickness) 347.5"
+        },
+        "E_Pa": 298700000000.0
+      },
+      "other_sourced_values_Pa": {
+        "S-200-F inherited (MAINLINE-008, compressive yield 41 ksi)": 283000000.0,
+        "S-200-F, Materion design guide compressive yield 'about 37 ksi'": 255000000.0,
+        "SR-200 sheet, Materion datasheet minimum tensile yield (compressive about equal per the 1967 lot)": 345000000.0
+      },
+      "grounding_card": "MAINLINE-020 (beryllium reality)"
+    }
+  },
+  "main": {
+    "label": "S-200F at its own E 290 GPa and the inherited 283 MPa",
+    "sigma_today_Pa": 283000000.0,
+    "sigma_full_Pa": 379200000.0,
+    "E_Pa": 290000000000.0,
+    "subsets": [
+      {
+        "subset": [],
+        "min_max_usage": null,
+        "feasible_within_named": false,
+        "core": null,
+        "fraction": null
+      },
+      {
+        "subset": [
+          "O1_gamma"
+        ],
+        "min_max_usage": 1.0934235309104527,
+        "feasible_within_named": false,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.07825
+      },
+      {
+        "subset": [
+          "O2_wrinkle"
+        ],
+        "min_max_usage": null,
+        "feasible_within_named": false,
+        "core": null,
+        "fraction": null
+      },
+      {
+        "subset": [
+          "O3_be_strength"
+        ],
+        "min_max_usage": null,
+        "feasible_within_named": false,
+        "core": null,
+        "fraction": null
+      },
+      {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.9580717283996654,
+        "feasible_within_named": true,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.094
+      },
+      {
+        "subset": [
+          "O1_gamma",
+          "O3_be_strength"
+        ],
+        "min_max_usage": 1.0934235309104527,
+        "feasible_within_named": false,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.07825
+      },
+      {
+        "subset": [
+          "O2_wrinkle",
+          "O3_be_strength"
+        ],
+        "min_max_usage": 0.9992629158157242,
+        "feasible_within_named": true,
+        "core": "Hexcel HRH-10-4.8-32",
+        "fraction": 0.30475
+      },
+      {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle",
+          "O3_be_strength"
+        ],
+        "min_max_usage": 0.561971877038513,
+        "feasible_within_named": true,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.16325
+      }
+    ],
+    "least_set": {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle"
+      ],
+      "min_max_usage": 0.9580717283996654,
+      "feasible_within_named": true,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "fraction": 0.094
+    },
+    "floating_point": {
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "core_tag": "QUESTIONABLE",
+      "family": "aluminium",
+      "core_rho_kg_m3": 16.018463373960138,
+      "core_Ec_Pa": 103421359.3975254,
+      "core_Gc_Pa": 46884349.59354485,
+      "core_crush_Pa": 241316.50526089262,
+      "core_cell_m": 0.009524999999999999,
+      "core_mass_fraction": 0.094,
+      "R_m": 10.0,
+      "tf_m": 0.0008434480441930918,
+      "core_m": 0.02021337638749162,
+      "h_m": 0.02105682443168471,
+      "d_m_face_separation": 0.02105682443168471,
+      "masses_kg": {
+        "faces": 3921.659865396111,
+        "core": 406.88303239209097,
+        "joints": 216.4271448894101,
+        "systems": 100.0,
+        "margin": 244.47210750934806,
+        "total": 4889.442150186961,
+        "lift": 4889.442150186961
+      },
+      "Vc": 1.0610630680728836,
+      "Kc": 0.7347342329817791,
+      "branch": "stiff_or_moderate_core",
+      "today": {
+        "tf_m": 0.0008434480441930918,
+        "core_m": 0.02021337638749162,
+        "h_m": 0.02105682443168471,
+        "Vc": 1.0610630680728836,
+        "Kc": 0.7347342329817791,
+        "gamma": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 0.33595492156083406,
+          "face_compression": 1.0001831189536448,
+          "core_shear_crimping": 2.154663914751214,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 0.8902540320623679,
+          "intracell_dimpling": 9.018853684781929
+        },
+        "least_SF": 0.33595492156083406,
+        "governing": "global_buckling",
+        "intracell_dimpling_uniaxial_009d_form": 18.037707369563858
+      },
+      "needed_values": {
+        "gamma": 0.5953179642995181,
+        "gamma_today": 0.2,
+        "gamma_full_018": 0.6244252272291535,
+        "wrinkle_coefficient": 0.37068071372338524,
+        "wrinkle_today": 0.33,
+        "wrinkle_full": 0.82,
+        "be_strength_Pa": 283000000.0,
+        "be_today_Pa": 283000000.0,
+        "be_full_Pa": 379200000.0
+      },
+      "improvement_factors_over_today": {
+        "gamma": 2.9765898214975905,
+        "wrinkle_coefficient": 1.1232748900708642,
+        "be_strength": 1.0
+      },
+      "usage": {
+        "O1_gamma": 0.9580717283996654,
+        "O2_wrinkle": 0.1277158154673571,
+        "O3_be_strength": 0.0
+      },
+      "at_needed_values": {
+        "tf_m": 0.0008434480441930918,
+        "core_m": 0.02021337638749162,
+        "h_m": 0.02105682443168471,
+        "Vc": 1.0610630680728836,
+        "Kc": 0.7347342329817791,
+        "gamma": 0.5953179642995181,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 1.0,
+          "face_compression": 1.0001831189536448,
+          "core_shear_crimping": 2.154663914751214,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.0,
+          "intracell_dimpling": 9.018853684781929
+        },
+        "least_SF": 1.0,
+        "governing": "global_buckling",
+        "intracell_dimpling_uniaxial_009d_form": 18.037707369563858
+      },
+      "at_full_named_set": {
+        "tf_m": 0.0008434480441930918,
+        "core_m": 0.02021337638749162,
+        "h_m": 0.02105682443168471,
+        "Vc": 1.0742348854696504,
+        "Kc": 0.7314412786325875,
+        "gamma": 0.6296939541878601,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 1.0660750508436925,
+          "face_compression": 1.340174695078523,
+          "core_shear_crimping": 2.154663914751214,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 2.225834596815171,
+          "intracell_dimpling": 9.130811868455085
+        },
+        "least_SF": 1.0660750508436925,
+        "governing": "global_buckling",
+        "intracell_dimpling_uniaxial_009d_form": 18.26162373691017
+      },
+      "face_E_Pa_scored": 290000000000.0,
+      "face_E_Pa_at_full_set": 293600000000.0,
+      "tolerance_015_at_needed_gamma": {
+        "kd": 0.5953179642995181,
+        "t_eq_mm": 36.47148976173557,
+        "R_over_t_eq": 274.1867706893509,
+        "in_fit_range": true,
+        "wavelength_m": 0.6039163001752442,
+        "status": "lambda_I_1 inversion",
+        "delta_over_t_eq": 0.3235790017685749,
+        "amplitude_mm": 11.801408250115193,
+        "rms_worst_mm": 0.3638641267074433,
+        "rms_narrow_mm": 0.13861490541235935
+      },
+      "tolerance_015_at_018_curve": {
+        "kd": 0.6244252272291535,
+        "t_eq_mm": 36.47148976173557,
+        "R_over_t_eq": 274.1867706893509,
+        "in_fit_range": true,
+        "wavelength_m": 0.6039163001752442,
+        "status": "lambda_I_1 inversion",
+        "delta_over_t_eq": 0.2765243745260842,
+        "amplitude_mm": 10.085255894398411,
+        "rms_worst_mm": 0.31095126537975265,
+        "rms_narrow_mm": 0.11845762490657245
+      },
+      "at_full_set_but_conservative_gamma": {
+        "tf_m": 0.0008434480441930918,
+        "core_m": 0.02021337638749162,
+        "h_m": 0.02105682443168471,
+        "Vc": 1.0742348854696504,
+        "Kc": 0.7314412786325875,
+        "gamma": 0.2,
+        "branch": "stiff_or_moderate_core",
+        "sfs": {
+          "global_buckling": 0.3386010120483527,
+          "face_compression": 1.340174695078523,
+          "core_shear_crimping": 2.154663914751214,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 2.225834596815171,
+          "intracell_dimpling": 9.130811868455085
+        },
+        "least_SF": 0.3386010120483527,
+        "governing": "global_buckling",
+        "intracell_dimpling_uniaxial_009d_form": 18.26162373691017
+      }
+    },
+    "families": {
+      "aluminium": {
+        "all_three_min_max_usage": {
+          "score": 0.561971877038513,
+          "point": {
+            "core": "Hexcel CR-III 5056 3/8-1.0",
+            "core_tag": "QUESTIONABLE",
+            "family": "aluminium",
+            "core_rho_kg_m3": 16.018463373960138,
+            "core_Ec_Pa": 103421359.3975254,
+            "core_Gc_Pa": 46884349.59354485,
+            "core_crush_Pa": 241316.50526089262,
+            "core_cell_m": 0.009524999999999999,
+            "core_mass_fraction": 0.16325,
+            "R_m": 10.0,
+            "tf_m": 0.0007789791953405846,
+            "core_m": 0.0351046137793405,
+            "h_m": 0.035883592974681085,
+            "d_m_face_separation": 0.035883592974681085,
+            "masses_kg": {
+              "faces": 3621.9082697242784,
+              "core": 706.634628063924,
+              "joints": 216.4271448894101,
+              "systems": 100.0,
+              "margin": 244.47210750934806,
+              "total": 4889.442150186961,
+              "lift": 4889.442150186961
+            },
+            "Vc": 0.9986907155584266,
+            "Kc": 0.7503273211103934,
+            "branch": "stiff_or_moderate_core",
+            "today": {
+              "tf_m": 0.0007789791953405846,
+              "core_m": 0.0351046137793405,
+              "h_m": 0.035883592974681085,
+              "Vc": 0.9986907155584266,
+              "Kc": 0.7503273211103934,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.5399730217694143,
+                "face_compression": 0.9237342436914594,
+                "core_shear_crimping": 3.6029670763868165,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 0.5995874943832592,
+                "intracell_dimpling": 7.104833607469377
+              },
+              "least_SF": 0.5399730217694143,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 14.209667214938754
+            },
+            "needed_values": {
+              "gamma": 0.37038887488235733,
+              "gamma_today": 0.2,
+              "gamma_full_018": 0.5994762862233707,
+              "wrinkle_coefficient": 0.5503783902955495,
+              "wrinkle_today": 0.33,
+              "wrinkle_full": 0.82,
+              "be_strength_Pa": 306365171.511955,
+              "be_today_Pa": 283000000.0,
+              "be_full_Pa": 379200000.0
+            },
+            "improvement_factors_over_today": {
+              "gamma": 1.8519443744117865,
+              "wrinkle_coefficient": 1.6678133039259073,
+              "be_strength": 1.0825624435051415
+            },
+            "usage": {
+              "O1_gamma": 0.5613684779431448,
+              "O2_wrinkle": 0.561971877038513,
+              "O3_be_strength": 0.27110830288060245
+            },
+            "at_needed_values": {
+              "tf_m": 0.0007789791953405846,
+              "core_m": 0.0351046137793405,
+              "h_m": 0.035883592974681085,
+              "Vc": 0.9986907155584266,
+              "Kc": 0.7503273211103934,
+              "gamma": 0.37038887488235733,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.9999999999999999,
+                "face_compression": 1.0000000000000002,
+                "core_shear_crimping": 3.6029670763868165,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 1.0000000000000002,
+                "intracell_dimpling": 7.104833607469377
+              },
+              "least_SF": 0.9999999999999999,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 14.209667214938754
+            },
+            "at_full_named_set": {
+              "tf_m": 0.0007789791953405846,
+              "core_m": 0.0351046137793405,
+              "h_m": 0.035883592974681085,
+              "Vc": 1.0110882554757037,
+              "Kc": 0.7472279361310741,
+              "gamma": 0.6044353021902815,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 1.6453272139653998,
+                "face_compression": 1.2377386049745633,
+                "core_shear_crimping": 3.6029670763868165,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 1.49910311074276,
+                "intracell_dimpling": 7.193031541906928
+              },
+              "least_SF": 1.2377386049745633,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 14.386063083813855
+            },
+            "face_E_Pa_scored": 290000000000.0,
+            "face_E_Pa_at_full_set": 293600000000.0,
+            "tolerance_015_at_needed_gamma": {
+              "kd": 0.37038887488235733,
+              "t_eq_mm": 62.15220619026926,
+              "R_over_t_eq": 160.89533442122013,
+              "in_fit_range": true,
+              "wavelength_m": 0.788366705222064,
+              "status": "outside the Eq 3 inversion (floor 0.45)",
+              "amplitude_mm": null,
+              "rms_worst_mm": null
+            },
+            "tolerance_015_at_018_curve": {
+              "kd": 0.5994762862233707,
+              "t_eq_mm": 62.15220619026926,
+              "R_over_t_eq": 160.89533442122013,
+              "in_fit_range": true,
+              "wavelength_m": 0.788366705222064,
+              "status": "lambda_I_1 inversion",
+              "delta_over_t_eq": 0.3163074654764601,
+              "amplitude_mm": 19.659206813814425,
+              "rms_worst_mm": 0.7912667576397848,
+              "rms_narrow_mm": 0.3014349552913466
+            },
+            "at_full_set_but_conservative_gamma": {
+              "tf_m": 0.0007789791953405846,
+              "core_m": 0.0351046137793405,
+              "h_m": 0.035883592974681085,
+              "Vc": 1.0110882554757037,
+              "Kc": 0.7472279361310741,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.5444179742656516,
+                "face_compression": 1.2377386049745633,
+                "core_shear_crimping": 3.6029670763868165,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 1.49910311074276,
+                "intracell_dimpling": 7.193031541906928
+              },
+              "least_SF": 0.5444179742656516,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 14.386063083813855
+            }
+          }
+        },
+        "full_set_max_least": {
+          "score": 1.2983866872021785,
+          "point": {
+            "core": "Hexcel CR-III 5056 3/8-1.0",
+            "core_tag": "QUESTIONABLE",
+            "family": "aluminium",
+            "core_rho_kg_m3": 16.018463373960138,
+            "core_Ec_Pa": 103421359.3975254,
+            "core_Gc_Pa": 46884349.59354485,
+            "core_crush_Pa": 241316.50526089262,
+            "core_cell_m": 0.009524999999999999,
+            "core_mass_fraction": 0.12225,
+            "R_m": 10.0,
+            "tf_m": 0.0008171484776936936,
+            "core_m": 0.0262881410996899,
+            "h_m": 0.027105289577383593,
+            "d_m_face_separation": 0.027105289577383593,
+            "masses_kg": {
+              "faces": 3799.378528533595,
+              "core": 529.1643692546077,
+              "joints": 216.4271448894101,
+              "systems": 100.0,
+              "margin": 244.47210750934806,
+              "total": 4889.442150186961,
+              "lift": 4889.442150186961
+            },
+            "Vc": 1.0385889026728516,
+            "Kc": 0.740352774331787,
+            "branch": "stiff_or_moderate_core",
+            "today": {
+              "tf_m": 0.0008171484776936936,
+              "core_m": 0.0262881410996899,
+              "h_m": 0.027105289577383593,
+              "Vc": 1.0385889026728516,
+              "Kc": 0.740352774331787,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.4221757236661499,
+                "face_compression": 0.968996393666183,
+                "core_shear_crimping": 2.74524351830783,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 0.7444189206405989,
+                "intracell_dimpling": 8.20123511797451
+              },
+              "least_SF": 0.4221757236661499,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 16.40247023594902
+            },
+            "needed_values": {
+              "gamma": 0.47373638224199965,
+              "gamma_today": 0.2,
+              "gamma_full_018": 0.6154355610691407,
+              "wrinkle_coefficient": 0.4432987809015162,
+              "wrinkle_today": 0.33,
+              "wrinkle_full": 0.82,
+              "be_strength_Pa": 292054750.51282066,
+              "be_today_Pa": 283000000.0,
+              "be_full_Pa": 379200000.0
+            },
+            "improvement_factors_over_today": {
+              "gamma": 2.368681911209998,
+              "wrinkle_coefficient": 1.3433296390955036,
+              "be_strength": 1.0319955848509563
+            },
+            "usage": {
+              "O1_gamma": 0.7671919603410974,
+              "O2_wrinkle": 0.3242666973397891,
+              "O3_be_strength": 0.10763011890042627
+            },
+            "at_needed_values": {
+              "tf_m": 0.0008171484776936936,
+              "core_m": 0.0262881410996899,
+              "h_m": 0.027105289577383593,
+              "Vc": 1.0385889026728516,
+              "Kc": 0.740352774331787,
+              "gamma": 0.47373638224199965,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 1.0,
+                "face_compression": 1.0,
+                "core_shear_crimping": 2.74524351830783,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 1.0,
+                "intracell_dimpling": 8.20123511797451
+              },
+              "least_SF": 1.0,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 16.40247023594902
+            },
+            "at_full_named_set": {
+              "tf_m": 0.0008171484776936936,
+              "core_m": 0.0262881410996899,
+              "h_m": 0.027105289577383593,
+              "Vc": 1.0514817304301696,
+              "Kc": 0.7371295673924576,
+              "gamma": 0.6205926921720679,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 1.3204838530310092,
+                "face_compression": 1.2983866872021785,
+                "core_shear_crimping": 2.74524351830783,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 1.8612141348544569,
+                "intracell_dimpling": 8.30304355392178
+              },
+              "least_SF": 1.2983866872021785,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 16.60608710784356
+            },
+            "face_E_Pa_scored": 290000000000.0,
+            "face_E_Pa_at_full_set": 293600000000.0,
+            "tolerance_015_at_needed_gamma": {
+              "kd": 0.47373638224199965,
+              "t_eq_mm": 46.947738701895524,
+              "R_over_t_eq": 213.0028043202909,
+              "in_fit_range": true,
+              "wavelength_m": 0.6851841993354453,
+              "status": "lambda_I_1 inversion",
+              "delta_over_t_eq": 0.7905674584965751,
+              "amplitude_mm": 37.11535446771884,
+              "rms_worst_mm": 1.2983434958117333,
+              "rms_narrow_mm": 0.49460704602351746
+            },
+            "tolerance_015_at_018_curve": {
+              "kd": 0.6154355610691407,
+              "t_eq_mm": 46.947738701895524,
+              "R_over_t_eq": 213.0028043202909,
+              "in_fit_range": true,
+              "wavelength_m": 0.6851841993354453,
+              "status": "lambda_I_1 inversion",
+              "delta_over_t_eq": 0.2901621045927931,
+              "amplitude_mm": 13.62245466761453,
+              "rms_worst_mm": 0.4765312272598795,
+              "rms_narrow_mm": 0.18153570562281124
+            },
+            "at_full_set_but_conservative_gamma": {
+              "tf_m": 0.0008171484776936936,
+              "core_m": 0.0262881410996899,
+              "h_m": 0.027105289577383593,
+              "Vc": 1.0514817304301696,
+              "Kc": 0.7371295673924576,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.4255557210670108,
+                "face_compression": 1.2983866872021785,
+                "core_shear_crimping": 2.74524351830783,
+                "core_crush": 5.0558220634629825,
+                "face_wrinkling": 1.8612141348544569,
+                "intracell_dimpling": 8.30304355392178
+              },
+              "least_SF": 0.4255557210670108,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 16.60608710784356
+            }
+          }
+        },
+        "today_max_least": {
+          "least": 0.5977720192973582,
+          "core": "Hexcel CR-III 5056 1/4-1.6",
+          "fraction": 0.30325,
+          "governing": "global_buckling"
+        },
+        "full_set_conservative_gamma_max_least": {
+          "least": 0.8539600283463559,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "governing": "global_buckling"
+        },
+        "added_optimism": {
+          "full_set_least": 1.2983866872021785,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.12225,
+          "governing": "face_compression",
+          "single_property_multipliers": {}
+        }
+      },
+      "aramid": {
+        "all_three_min_max_usage": {
+          "score": 0.9992629158157242,
+          "point": {
+            "core": "Hexcel HRH-10-4.8-32",
+            "core_tag": "QUESTIONABLE",
+            "family": "aramid",
+            "core_rho_kg_m3": 32.0,
+            "core_Ec_Pa": 76000000.0,
+            "core_Gc_Pa": 14000000.0,
+            "core_crush_Pa": 1000000.0,
+            "core_cell_m": 0.0048,
+            "core_mass_fraction": 0.30475,
+            "R_m": 10.0,
+            "tf_m": 0.0006472486233170497,
+            "core_m": 0.0328039089552644,
+            "h_m": 0.03345115757858145,
+            "d_m_face_separation": 0.03345115757858145,
+            "masses_kg": {
+              "faces": 3009.419449687247,
+              "core": 1319.1234481009546,
+              "joints": 216.4271448894101,
+              "systems": 100.0,
+              "margin": 244.47210750934806,
+              "total": 4889.442150186961,
+              "lift": 4889.442150186961
+            },
+            "Vc": 2.7856228623470924,
+            "Kc": 0.35898614041292953,
+            "branch": "shear_crimping",
+            "today": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.7856228623470924,
+              "Kc": 0.35898614041292953,
+              "gamma": 1.0,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 1.0005285683083651,
+                "face_compression": 0.7675246285347918,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 0.40270911238456236,
+                "intracell_dimpling": 16.048603034919523
+              },
+              "least_SF": 0.40270911238456236,
+              "governing": "face_wrinkling",
+              "intracell_dimpling_uniaxial_009d_form": 32.09720606983905
+            },
+            "needed_values": {
+              "gamma": 1.0,
+              "gamma_today": 1.0,
+              "gamma_full_018": 1.0,
+              "wrinkle_coefficient": 0.819450044340865,
+              "wrinkle_today": 0.33,
+              "wrinkle_full": 0.82,
+              "be_strength_Pa": 368717809.7988183,
+              "be_today_Pa": 283000000.0,
+              "be_full_Pa": 379200000.0
+            },
+            "improvement_factors_over_today": {
+              "gamma": 1.0,
+              "wrinkle_coefficient": 2.4831819525480756,
+              "be_strength": 1.3028897872749763
+            },
+            "usage": {
+              "O1_gamma": 0.0,
+              "O2_wrinkle": 0.9992629158157242,
+              "O3_be_strength": 0.9042018263134334
+            },
+            "at_needed_values": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.7856228623470924,
+              "Kc": 0.35898614041292953,
+              "gamma": 1.0,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 1.0005285683083651,
+                "face_compression": 1.0000000000000002,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 1.0000000000000002,
+                "intracell_dimpling": 16.048603034919523
+              },
+              "least_SF": 1.0000000000000002,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 32.09720606983905
+            },
+            "at_full_named_set": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.820203008224505,
+              "Kc": 0.3545844029964222,
+              "gamma": 1.0,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 1.0005285683083651,
+                "face_compression": 1.028428760213403,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 1.006863032927541,
+                "intracell_dimpling": 16.247827072594387
+              },
+              "least_SF": 1.0005285683083651,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 32.49565414518877
+            },
+            "face_E_Pa_scored": 290000000000.0,
+            "face_E_Pa_at_full_set": 293600000000.0,
+            "tolerance_015_at_needed_gamma": {
+              "status": "crimp branch: kd does not enter (015)"
+            },
+            "tolerance_015_at_018_curve": {
+              "status": "crimp branch: kd does not enter (015)"
+            },
+            "at_full_set_but_conservative_gamma": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.820203008224505,
+              "Kc": 0.3545844029964222,
+              "gamma": 0.2,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 0.200105713661673,
+                "face_compression": 1.028428760213403,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 1.006863032927541,
+                "intracell_dimpling": 16.247827072594387
+              },
+              "least_SF": 0.200105713661673,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 32.49565414518877
+            }
+          }
+        },
+        "full_set_max_least": {
+          "score": 1.0005285683083651,
+          "point": {
+            "core": "Hexcel HRH-10-4.8-32",
+            "core_tag": "QUESTIONABLE",
+            "family": "aramid",
+            "core_rho_kg_m3": 32.0,
+            "core_Ec_Pa": 76000000.0,
+            "core_Gc_Pa": 14000000.0,
+            "core_crush_Pa": 1000000.0,
+            "core_cell_m": 0.0048,
+            "core_mass_fraction": 0.30475,
+            "R_m": 10.0,
+            "tf_m": 0.0006472486233170497,
+            "core_m": 0.0328039089552644,
+            "h_m": 0.03345115757858145,
+            "d_m_face_separation": 0.03345115757858145,
+            "masses_kg": {
+              "faces": 3009.419449687247,
+              "core": 1319.1234481009546,
+              "joints": 216.4271448894101,
+              "systems": 100.0,
+              "margin": 244.47210750934806,
+              "total": 4889.442150186961,
+              "lift": 4889.442150186961
+            },
+            "Vc": 2.7856228623470924,
+            "Kc": 0.35898614041292953,
+            "branch": "shear_crimping",
+            "today": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.7856228623470924,
+              "Kc": 0.35898614041292953,
+              "gamma": 1.0,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 1.0005285683083651,
+                "face_compression": 0.7675246285347918,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 0.40270911238456236,
+                "intracell_dimpling": 16.048603034919523
+              },
+              "least_SF": 0.40270911238456236,
+              "governing": "face_wrinkling",
+              "intracell_dimpling_uniaxial_009d_form": 32.09720606983905
+            },
+            "needed_values": {
+              "gamma": 1.0,
+              "gamma_today": 1.0,
+              "gamma_full_018": 1.0,
+              "wrinkle_coefficient": 0.819450044340865,
+              "wrinkle_today": 0.33,
+              "wrinkle_full": 0.82,
+              "be_strength_Pa": 368717809.7988183,
+              "be_today_Pa": 283000000.0,
+              "be_full_Pa": 379200000.0
+            },
+            "improvement_factors_over_today": {
+              "gamma": 1.0,
+              "wrinkle_coefficient": 2.4831819525480756,
+              "be_strength": 1.3028897872749763
+            },
+            "usage": {
+              "O1_gamma": 0.0,
+              "O2_wrinkle": 0.9992629158157242,
+              "O3_be_strength": 0.9042018263134334
+            },
+            "at_needed_values": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.7856228623470924,
+              "Kc": 0.35898614041292953,
+              "gamma": 1.0,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 1.0005285683083651,
+                "face_compression": 1.0000000000000002,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 1.0000000000000002,
+                "intracell_dimpling": 16.048603034919523
+              },
+              "least_SF": 1.0000000000000002,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 32.09720606983905
+            },
+            "at_full_named_set": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.820203008224505,
+              "Kc": 0.3545844029964222,
+              "gamma": 1.0,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 1.0005285683083651,
+                "face_compression": 1.028428760213403,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 1.006863032927541,
+                "intracell_dimpling": 16.247827072594387
+              },
+              "least_SF": 1.0005285683083651,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 32.49565414518877
+            },
+            "face_E_Pa_scored": 290000000000.0,
+            "face_E_Pa_at_full_set": 293600000000.0,
+            "tolerance_015_at_needed_gamma": {
+              "status": "crimp branch: kd does not enter (015)"
+            },
+            "tolerance_015_at_018_curve": {
+              "status": "crimp branch: kd does not enter (015)"
+            },
+            "at_full_set_but_conservative_gamma": {
+              "tf_m": 0.0006472486233170497,
+              "core_m": 0.0328039089552644,
+              "h_m": 0.03345115757858145,
+              "Vc": 2.820203008224505,
+              "Kc": 0.3545844029964222,
+              "gamma": 0.2,
+              "branch": "shear_crimping",
+              "sfs": {
+                "global_buckling": 0.200105713661673,
+                "face_compression": 1.028428760213403,
+                "core_shear_crimping": 1.0005285683083651,
+                "core_crush": 20.950999841461407,
+                "face_wrinkling": 1.006863032927541,
+                "intracell_dimpling": 16.247827072594387
+              },
+              "least_SF": 0.200105713661673,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 32.49565414518877
+            }
+          }
+        },
+        "today_max_least": {
+          "least": 0.6428012894393791,
+          "core": "Hexcel HRH-10-4.8-32",
+          "fraction": 0.1895,
+          "governing": "face_wrinkling"
+        },
+        "full_set_conservative_gamma_max_least": {
+          "least": 0.35809681786983816,
+          "core": "Hexcel HRH-10-4.8-32",
+          "governing": "global_buckling"
+        },
+        "added_optimism": {
+          "full_set_least": 1.0005285683083651,
+          "core": "Hexcel HRH-10-4.8-32",
+          "fraction": 0.30475,
+          "governing": "global_buckling",
+          "single_property_multipliers": {}
+        }
+      },
+      "other": {
+        "all_three_min_max_usage": {
+          "score": 0.8052999844769657,
+          "point": {
+            "core": "Hexcel HFT fiberglass 3/16-2.0",
+            "core_tag": "QUESTIONABLE",
+            "family": "other",
+            "core_rho_kg_m3": 32.036926747920276,
+            "core_Ec_Pa": 117210873.98386213,
+            "core_Gc_Pa": 34473786.4658418,
+            "core_crush_Pa": 1172108.7398386213,
+            "core_cell_m": 0.004762499999999999,
+            "core_mass_fraction": 0.28425,
+            "R_m": 10.0,
+            "tf_m": 0.0006663332644936043,
+            "core_m": 0.030561979990130286,
+            "h_m": 0.031228313254623892,
+            "d_m_face_separation": 0.031228313254623892,
+            "masses_kg": {
+              "faces": 3098.154579091906,
+              "core": 1230.3883186962964,
+              "joints": 216.4271448894101,
+              "systems": 100.0,
+              "margin": 244.47210750934806,
+              "total": 4889.442150186961,
+              "lift": 4889.442150186961
+            },
+            "Vc": 1.1622518306197664,
+            "Kc": 0.7094370423450584,
+            "branch": "stiff_or_moderate_core",
+            "today": {
+              "tf_m": 0.0006663332644936043,
+              "core_m": 0.030561979990130286,
+              "h_m": 0.031228313254623892,
+              "Vc": 1.1622518306197664,
+              "Kc": 0.7094370423450584,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.3800610847155274,
+                "face_compression": 0.7901557035221537,
+                "core_shear_crimping": 2.304672968978154,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 0.541216722507848,
+                "intracell_dimpling": 17.78733193673384
+              },
+              "least_SF": 0.3800610847155274,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 35.57466387346768
+            },
+            "needed_values": {
+              "gamma": 0.5262311982025162,
+              "gamma_today": 0.2,
+              "gamma_full_018": 0.6649007322479066,
+              "wrinkle_coefficient": 0.6097372573243333,
+              "wrinkle_today": 0.33,
+              "wrinkle_full": 0.82,
+              "be_strength_Pa": 358157257.7892118,
+              "be_today_Pa": 283000000.0,
+              "be_full_Pa": 379200000.0
+            },
+            "improvement_factors_over_today": {
+              "gamma": 2.6311559910125806,
+              "wrinkle_coefficient": 1.8476886585585854,
+              "be_strength": 1.265573349078487
+            },
+            "usage": {
+              "O1_gamma": 0.8052999844769657,
+              "O2_wrinkle": 0.6744974754767757,
+              "O3_be_strength": 0.8048929566905729
+            },
+            "at_needed_values": {
+              "tf_m": 0.0006663332644936043,
+              "core_m": 0.030561979990130286,
+              "h_m": 0.031228313254623892,
+              "Vc": 1.1622518306197664,
+              "Kc": 0.7094370423450584,
+              "gamma": 0.5262311982025162,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 1.0000000000000002,
+                "face_compression": 1.0,
+                "core_shear_crimping": 2.304672968978154,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 1.0,
+                "intracell_dimpling": 17.78733193673384
+              },
+              "least_SF": 1.0,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 35.57466387346768
+            },
+            "at_full_named_set": {
+              "tf_m": 0.0006663332644936043,
+              "core_m": 0.030561979990130286,
+              "h_m": 0.031228313254623892,
+              "Vc": 1.176679784379184,
+              "Kc": 0.705830053905204,
+              "gamma": 0.6706719137516737,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 1.283742343066029,
+                "face_compression": 1.058752801327211,
+                "core_shear_crimping": 2.304672968978154,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 1.3531630994606831,
+                "intracell_dimpling": 18.00814019525881
+              },
+              "least_SF": 1.058752801327211,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 36.01628039051762
+            },
+            "face_E_Pa_scored": 290000000000.0,
+            "face_E_Pa_at_full_set": 293600000000.0,
+            "tolerance_015_at_needed_gamma": {
+              "kd": 0.5262311982025162,
+              "t_eq_mm": 54.08902519168518,
+              "R_over_t_eq": 184.88038866592936,
+              "in_fit_range": true,
+              "wavelength_m": 0.735452413087925,
+              "status": "lambda_I_1 inversion",
+              "delta_over_t_eq": 0.4898556498936957,
+              "amplitude_mm": 26.49581458738942,
+              "rms_worst_mm": 0.9948566514788504,
+              "rms_narrow_mm": 0.37899301008718106
+            },
+            "tolerance_015_at_018_curve": {
+              "kd": 0.6649007322479066,
+              "t_eq_mm": 54.08902519168518,
+              "R_over_t_eq": 184.88038866592936,
+              "in_fit_range": true,
+              "wavelength_m": 0.735452413087925,
+              "status": "lambda_I_1 inversion",
+              "delta_over_t_eq": 0.22274085430068638,
+              "amplitude_mm": 12.047835679487305,
+              "rms_worst_mm": 0.4523684079283521,
+              "rms_narrow_mm": 0.17233082206794365
+            },
+            "at_full_set_but_conservative_gamma": {
+              "tf_m": 0.0006663332644936043,
+              "core_m": 0.030561979990130286,
+              "h_m": 0.031228313254623892,
+              "Vc": 1.176679784379184,
+              "Kc": 0.705830053905204,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.382822753344448,
+                "face_compression": 1.058752801327211,
+                "core_shear_crimping": 2.304672968978154,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 1.3531630994606831,
+                "intracell_dimpling": 18.00814019525881
+              },
+              "least_SF": 0.382822753344448,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 36.01628039051762
+            }
+          }
+        },
+        "full_set_max_least": {
+          "score": 1.1352752299994384,
+          "point": {
+            "core": "Hexcel HFT fiberglass 3/16-2.0",
+            "core_tag": "QUESTIONABLE",
+            "family": "other",
+            "core_rho_kg_m3": 32.036926747920276,
+            "core_Ec_Pa": 117210873.98386213,
+            "core_Gc_Pa": 34473786.4658418,
+            "core_crush_Pa": 1172108.7398386213,
+            "core_cell_m": 0.004762499999999999,
+            "core_mass_fraction": 0.2325,
+            "R_m": 10.0,
+            "tf_m": 0.0007145103464880773,
+            "core_m": 0.02499792558559469,
+            "h_m": 0.025712435932082767,
+            "d_m_face_separation": 0.025712435932082767,
+            "masses_kg": {
+              "faces": 3322.1566740524454,
+              "core": 1006.386223735757,
+              "joints": 216.4271448894101,
+              "systems": 100.0,
+              "margin": 244.47210750934806,
+              "total": 4889.442150186961,
+              "lift": 4889.442150186961
+            },
+            "Vc": 1.238069585497398,
+            "Kc": 0.6904826036256505,
+            "branch": "stiff_or_moderate_core",
+            "today": {
+              "tf_m": 0.0007145103464880773,
+              "core_m": 0.02499792558559469,
+              "h_m": 0.025712435932082767,
+              "Vc": 1.238069585497398,
+              "Kc": 0.6904826036256505,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.3265908452320529,
+                "face_compression": 0.8472853684292742,
+                "core_shear_crimping": 1.910188451175101,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 0.6644854965387956,
+                "intracell_dimpling": 21.931174580308795
+              },
+              "least_SF": 0.3265908452320529,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 43.86234916061759
+            },
+            "needed_values": {
+              "gamma": 0.6123870369296293,
+              "gamma_today": 0.2,
+              "gamma_full_018": 0.6952278341989593,
+              "wrinkle_coefficient": 0.49662483488190495,
+              "wrinkle_today": 0.33,
+              "wrinkle_full": 0.82,
+              "be_strength_Pa": 334007892.1988643,
+              "be_today_Pa": 283000000.0,
+              "be_full_Pa": 379200000.0
+            },
+            "improvement_factors_over_today": {
+              "gamma": 3.061935184648146,
+              "wrinkle_coefficient": 1.5049237420663786,
+              "be_strength": 1.1802399017627714
+            },
+            "usage": {
+              "O1_gamma": 0.8981677102965911,
+              "O2_wrinkle": 0.44906282084864546,
+              "O3_be_strength": 0.5663300370952976
+            },
+            "at_needed_values": {
+              "tf_m": 0.0007145103464880773,
+              "core_m": 0.02499792558559469,
+              "h_m": 0.025712435932082767,
+              "Vc": 1.238069585497398,
+              "Kc": 0.6904826036256505,
+              "gamma": 0.6123870369296293,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 1.0000000000000002,
+                "face_compression": 1.0,
+                "core_shear_crimping": 1.910188451175101,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 1.0,
+                "intracell_dimpling": 21.931174580308795
+              },
+              "least_SF": 1.0,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 43.86234916061759
+            },
+            "at_full_named_set": {
+              "tf_m": 0.0007145103464880773,
+              "core_m": 0.02499792558559469,
+              "h_m": 0.025712435932082767,
+              "Vc": 1.2534387251794346,
+              "Kc": 0.6866403187051413,
+              "gamma": 0.7013754900717739,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 1.153079389408105,
+                "face_compression": 1.1353025148706033,
+                "core_shear_crimping": 1.910188451175101,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 1.6613626605561314,
+                "intracell_dimpling": 22.203423644064348
+              },
+              "least_SF": 1.1353025148706033,
+              "governing": "face_compression",
+              "intracell_dimpling_uniaxial_009d_form": 44.406847288128695
+            },
+            "face_E_Pa_scored": 290000000000.0,
+            "face_E_Pa_at_full_set": 293600000000.0,
+            "tolerance_015_at_needed_gamma": {
+              "kd": 0.6123870369296293,
+              "t_eq_mm": 44.53524542072697,
+              "R_over_t_eq": 224.54125727902556,
+              "in_fit_range": true,
+              "wavelength_m": 0.6673473265154134,
+              "status": "lambda_I_1 inversion",
+              "delta_over_t_eq": 0.2949557018140766,
+              "amplitude_mm": 13.135924568532666,
+              "rms_worst_mm": 0.4475496537986449,
+              "rms_narrow_mm": 0.17049510620900762
+            },
+            "tolerance_015_at_018_curve": {
+              "kd": 0.6952278341989593,
+              "t_eq_mm": 44.53524542072697,
+              "R_over_t_eq": 224.54125727902556,
+              "in_fit_range": true,
+              "wavelength_m": 0.6673473265154134,
+              "status": "lambda_I_1 inversion",
+              "delta_over_t_eq": 0.18871727107985423,
+              "amplitude_mm": 8.40456998267117,
+              "rms_worst_mm": 0.28634926810417394,
+              "rms_narrow_mm": 0.10908543546825673
+            },
+            "at_full_set_but_conservative_gamma": {
+              "tf_m": 0.0007145103464880773,
+              "core_m": 0.02499792558559469,
+              "h_m": 0.025712435932082767,
+              "Vc": 1.2534387251794346,
+              "Kc": 0.6866403187051413,
+              "gamma": 0.2,
+              "branch": "stiff_or_moderate_core",
+              "sfs": {
+                "global_buckling": 0.32880515664729226,
+                "face_compression": 1.1353025148706033,
+                "core_shear_crimping": 1.910188451175101,
+                "core_crush": 24.556850022534487,
+                "face_wrinkling": 1.6613626605561314,
+                "intracell_dimpling": 22.203423644064348
+              },
+              "least_SF": 0.32880515664729226,
+              "governing": "global_buckling",
+              "intracell_dimpling_uniaxial_009d_form": 44.406847288128695
+            }
+          }
+        },
+        "today_max_least": {
+          "least": 0.4725124825050612,
+          "core": "ROHACELL 31 IG-F",
+          "fraction": 0.14625,
+          "governing": "face_wrinkling"
+        },
+        "full_set_conservative_gamma_max_least": {
+          "least": 0.5218236022600659,
+          "core": "Hexcel HFT fiberglass 3/16-2.0",
+          "governing": "global_buckling"
+        },
+        "added_optimism": {
+          "full_set_least": 1.1352752299994384,
+          "core": "Hexcel HFT fiberglass 3/16-2.0",
+          "fraction": 0.2325,
+          "governing": "global_buckling",
+          "single_property_multipliers": {}
+        }
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "label": "today = S-200-F, Materion design guide compressive yield 'about 37 ksi'",
+      "sigma_today_Pa": 255000000.0,
+      "sigma_full_Pa": 379200000.0,
+      "E_Pa": 290000000000.0,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O3_be_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 1.0934235309104527,
+          "feasible_within_named": false,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.07825
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 0.9992629158157242,
+          "feasible_within_named": true,
+          "core": "Hexcel HRH-10-4.8-32",
+          "fraction": 0.30475
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 0.561971877038513,
+          "feasible_within_named": true,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.16325
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O2_wrinkle",
+          "O3_be_strength"
+        ],
+        "min_max_usage": 0.9992629158157242,
+        "feasible_within_named": true,
+        "core": "Hexcel HRH-10-4.8-32",
+        "fraction": 0.30475
+      },
+      "floating_point": {
+        "core": "Hexcel HRH-10-4.8-32",
+        "core_tag": "QUESTIONABLE",
+        "family": "aramid",
+        "core_rho_kg_m3": 32.0,
+        "core_Ec_Pa": 76000000.0,
+        "core_Gc_Pa": 14000000.0,
+        "core_crush_Pa": 1000000.0,
+        "core_cell_m": 0.0048,
+        "core_mass_fraction": 0.30475,
+        "R_m": 10.0,
+        "tf_m": 0.0006472486233170497,
+        "core_m": 0.0328039089552644,
+        "h_m": 0.03345115757858145,
+        "d_m_face_separation": 0.03345115757858145,
+        "masses_kg": {
+          "faces": 3009.419449687247,
+          "core": 1319.1234481009546,
+          "joints": 216.4271448894101,
+          "systems": 100.0,
+          "margin": 244.47210750934806,
+          "total": 4889.442150186961,
+          "lift": 4889.442150186961
+        },
+        "Vc": 2.7856228623470924,
+        "Kc": 0.35898614041292953,
+        "branch": "shear_crimping",
+        "today": {
+          "tf_m": 0.0006472486233170497,
+          "core_m": 0.0328039089552644,
+          "h_m": 0.03345115757858145,
+          "Vc": 2.7856228623470924,
+          "Kc": 0.35898614041292953,
+          "gamma": 1.0,
+          "branch": "shear_crimping",
+          "sfs": {
+            "global_buckling": 1.0005285683083651,
+            "face_compression": 0.6915857960295827,
+            "core_shear_crimping": 1.0005285683083651,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.40270911238456236,
+            "intracell_dimpling": 16.048603034919523
+          },
+          "least_SF": 0.40270911238456236,
+          "governing": "face_wrinkling",
+          "intracell_dimpling_uniaxial_009d_form": 32.09720606983905
+        },
+        "needed_values": {
+          "gamma": 1.0,
+          "gamma_today": 1.0,
+          "gamma_full_018": 1.0,
+          "wrinkle_coefficient": 0.819450044340865,
+          "wrinkle_today": 0.33,
+          "wrinkle_full": 0.82,
+          "be_strength_Pa": 368717809.7988183,
+          "be_today_Pa": 255000000.0,
+          "be_full_Pa": 379200000.0
+        },
+        "improvement_factors_over_today": {
+          "gamma": 1.0,
+          "wrinkle_coefficient": 2.4831819525480756,
+          "be_strength": 1.4459521952894836
+        },
+        "usage": {
+          "O1_gamma": 0.0,
+          "O2_wrinkle": 0.9992629158157242,
+          "O3_be_strength": 0.9293544705464195
+        },
+        "at_needed_values": {
+          "tf_m": 0.0006472486233170497,
+          "core_m": 0.0328039089552644,
+          "h_m": 0.03345115757858145,
+          "Vc": 2.7856228623470924,
+          "Kc": 0.35898614041292953,
+          "gamma": 1.0,
+          "branch": "shear_crimping",
+          "sfs": {
+            "global_buckling": 1.0005285683083651,
+            "face_compression": 1.0000000000000002,
+            "core_shear_crimping": 1.0005285683083651,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 16.048603034919523
+          },
+          "least_SF": 1.0000000000000002,
+          "governing": "face_compression",
+          "intracell_dimpling_uniaxial_009d_form": 32.09720606983905
+        },
+        "at_full_named_set": {
+          "tf_m": 0.0006472486233170497,
+          "core_m": 0.0328039089552644,
+          "h_m": 0.03345115757858145,
+          "Vc": 2.820203008224505,
+          "Kc": 0.3545844029964222,
+          "gamma": 1.0,
+          "branch": "shear_crimping",
+          "sfs": {
+            "global_buckling": 1.0005285683083651,
+            "face_compression": 1.028428760213403,
+            "core_shear_crimping": 1.0005285683083651,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 1.006863032927541,
+            "intracell_dimpling": 16.247827072594387
+          },
+          "least_SF": 1.0005285683083651,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 32.49565414518877
+        },
+        "face_E_Pa_scored": 290000000000.0,
+        "face_E_Pa_at_full_set": 293600000000.0,
+        "tolerance_015_at_needed_gamma": {
+          "status": "crimp branch: kd does not enter (015)"
+        },
+        "tolerance_015_at_018_curve": {
+          "status": "crimp branch: kd does not enter (015)"
+        },
+        "at_full_set_but_conservative_gamma": {
+          "tf_m": 0.0006472486233170497,
+          "core_m": 0.0328039089552644,
+          "h_m": 0.03345115757858145,
+          "Vc": 2.820203008224505,
+          "Kc": 0.3545844029964222,
+          "gamma": 0.2,
+          "branch": "shear_crimping",
+          "sfs": {
+            "global_buckling": 0.200105713661673,
+            "face_compression": 1.028428760213403,
+            "core_shear_crimping": 1.0005285683083651,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 1.006863032927541,
+            "intracell_dimpling": 16.247827072594387
+          },
+          "least_SF": 0.200105713661673,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 32.49565414518877
+        }
+      },
+      "today_source": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74"
+    },
+    {
+      "label": "today = SR-200 sheet, Materion datasheet minimum tensile yield (compressive about equal per the 1967 lot)",
+      "sigma_today_Pa": 345000000.0,
+      "sigma_full_Pa": 379200000.0,
+      "E_Pa": 290000000000.0,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.0934235309104527,
+          "feasible_within_named": false,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.07825
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O3_be_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.561971877038513,
+          "feasible_within_named": true,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.16325
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 1.0934235309104527,
+          "feasible_within_named": false,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.07825
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 0.9992629158157242,
+          "feasible_within_named": true,
+          "core": "Hexcel HRH-10-4.8-32",
+          "fraction": 0.30475
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 0.561971877038513,
+          "feasible_within_named": true,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.16325
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.561971877038513,
+        "feasible_within_named": true,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.16325
+      },
+      "floating_point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "core_tag": "QUESTIONABLE",
+        "family": "aluminium",
+        "core_rho_kg_m3": 16.018463373960138,
+        "core_Ec_Pa": 103421359.3975254,
+        "core_Gc_Pa": 46884349.59354485,
+        "core_crush_Pa": 241316.50526089262,
+        "core_cell_m": 0.009524999999999999,
+        "core_mass_fraction": 0.16325,
+        "R_m": 10.0,
+        "tf_m": 0.0007789791953405846,
+        "core_m": 0.0351046137793405,
+        "h_m": 0.035883592974681085,
+        "d_m_face_separation": 0.035883592974681085,
+        "masses_kg": {
+          "faces": 3621.9082697242784,
+          "core": 706.634628063924,
+          "joints": 216.4271448894101,
+          "systems": 100.0,
+          "margin": 244.47210750934806,
+          "total": 4889.442150186961,
+          "lift": 4889.442150186961
+        },
+        "Vc": 0.9986907155584266,
+        "Kc": 0.7503273211103934,
+        "branch": "stiff_or_moderate_core",
+        "today": {
+          "tf_m": 0.0007789791953405846,
+          "core_m": 0.0351046137793405,
+          "h_m": 0.035883592974681085,
+          "Vc": 0.9986907155584266,
+          "Kc": 0.7503273211103934,
+          "gamma": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 0.5399730217694143,
+            "face_compression": 1.1261071168676804,
+            "core_shear_crimping": 3.6029670763868165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.5995874943832592,
+            "intracell_dimpling": 7.104833607469377
+          },
+          "least_SF": 0.5399730217694143,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 14.209667214938754
+        },
+        "needed_values": {
+          "gamma": 0.37038887488235733,
+          "gamma_today": 0.2,
+          "gamma_full_018": 0.5994762862233707,
+          "wrinkle_coefficient": 0.5503783902955495,
+          "wrinkle_today": 0.33,
+          "wrinkle_full": 0.82,
+          "be_strength_Pa": 345000000.0,
+          "be_today_Pa": 345000000.0,
+          "be_full_Pa": 379200000.0
+        },
+        "improvement_factors_over_today": {
+          "gamma": 1.8519443744117865,
+          "wrinkle_coefficient": 1.6678133039259073,
+          "be_strength": 1.0
+        },
+        "usage": {
+          "O1_gamma": 0.5613684779431448,
+          "O2_wrinkle": 0.561971877038513,
+          "O3_be_strength": 0.0
+        },
+        "at_needed_values": {
+          "tf_m": 0.0007789791953405846,
+          "core_m": 0.0351046137793405,
+          "h_m": 0.035883592974681085,
+          "Vc": 0.9986907155584266,
+          "Kc": 0.7503273211103934,
+          "gamma": 0.37038887488235733,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 0.9999999999999999,
+            "face_compression": 1.1261071168676804,
+            "core_shear_crimping": 3.6029670763868165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 7.104833607469377
+          },
+          "least_SF": 0.9999999999999999,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 14.209667214938754
+        },
+        "at_full_named_set": {
+          "tf_m": 0.0007789791953405846,
+          "core_m": 0.0351046137793405,
+          "h_m": 0.035883592974681085,
+          "Vc": 1.0110882554757037,
+          "Kc": 0.7472279361310741,
+          "gamma": 0.6044353021902815,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 1.6453272139653998,
+            "face_compression": 1.2377386049745633,
+            "core_shear_crimping": 3.6029670763868165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.49910311074276,
+            "intracell_dimpling": 7.193031541906928
+          },
+          "least_SF": 1.2377386049745633,
+          "governing": "face_compression",
+          "intracell_dimpling_uniaxial_009d_form": 14.386063083813855
+        },
+        "face_E_Pa_scored": 290000000000.0,
+        "face_E_Pa_at_full_set": 293600000000.0,
+        "tolerance_015_at_needed_gamma": {
+          "kd": 0.37038887488235733,
+          "t_eq_mm": 62.15220619026926,
+          "R_over_t_eq": 160.89533442122013,
+          "in_fit_range": true,
+          "wavelength_m": 0.788366705222064,
+          "status": "outside the Eq 3 inversion (floor 0.45)",
+          "amplitude_mm": null,
+          "rms_worst_mm": null
+        },
+        "tolerance_015_at_018_curve": {
+          "kd": 0.5994762862233707,
+          "t_eq_mm": 62.15220619026926,
+          "R_over_t_eq": 160.89533442122013,
+          "in_fit_range": true,
+          "wavelength_m": 0.788366705222064,
+          "status": "lambda_I_1 inversion",
+          "delta_over_t_eq": 0.3163074654764601,
+          "amplitude_mm": 19.659206813814425,
+          "rms_worst_mm": 0.7912667576397848,
+          "rms_narrow_mm": 0.3014349552913466
+        },
+        "at_full_set_but_conservative_gamma": {
+          "tf_m": 0.0007789791953405846,
+          "core_m": 0.0351046137793405,
+          "h_m": 0.035883592974681085,
+          "Vc": 1.0110882554757037,
+          "Kc": 0.7472279361310741,
+          "gamma": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 0.5444179742656516,
+            "face_compression": 1.2377386049745633,
+            "core_shear_crimping": 3.6029670763868165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.49910311074276,
+            "intracell_dimpling": 7.193031541906928
+          },
+          "least_SF": 0.5444179742656516,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 14.386063083813855
+        }
+      },
+      "today_source": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+    },
+    {
+      "label": "E = 303 GPa as filed at 00:30 (S-200FH's value), S-200F 283 MPa today",
+      "sigma_today_Pa": 283000000.0,
+      "sigma_full_Pa": 379200000.0,
+      "E_Pa": 303000000000.0,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.0170915987262434,
+          "feasible_within_named": false,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.081
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O3_be_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "core": null,
+          "fraction": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.9098990057213333,
+          "feasible_within_named": true,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.094
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 0.999106624867171,
+          "feasible_within_named": true,
+          "core": "Hexcel CR-III 5056 1/4-1.6",
+          "fraction": 0.18275
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 0.9751740784534491,
+          "feasible_within_named": true,
+          "core": "Hexcel HRH-10-4.8-32",
+          "fraction": 0.30475
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_be_strength"
+          ],
+          "min_max_usage": 0.5285902267717844,
+          "feasible_within_named": true,
+          "core": "Hexcel CR-III 5056 3/8-1.0",
+          "fraction": 0.1615
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.9098990057213333,
+        "feasible_within_named": true,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.094
+      },
+      "floating_point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "core_tag": "QUESTIONABLE",
+        "family": "aluminium",
+        "core_rho_kg_m3": 16.018463373960138,
+        "core_Ec_Pa": 103421359.3975254,
+        "core_Gc_Pa": 46884349.59354485,
+        "core_crush_Pa": 241316.50526089262,
+        "core_cell_m": 0.009524999999999999,
+        "core_mass_fraction": 0.094,
+        "R_m": 10.0,
+        "tf_m": 0.0008434480441930918,
+        "core_m": 0.02021337638749162,
+        "h_m": 0.02105682443168471,
+        "d_m_face_separation": 0.02105682443168471,
+        "masses_kg": {
+          "faces": 3921.659865396111,
+          "core": 406.88303239209097,
+          "joints": 216.4271448894101,
+          "systems": 100.0,
+          "margin": 244.47210750934806,
+          "total": 4889.442150186961,
+          "lift": 4889.442150186961
+        },
+        "Vc": 1.108627964227875,
+        "Kc": 0.7228430089430313,
+        "branch": "stiff_or_moderate_core",
+        "today": {
+          "tf_m": 0.0008434480441930918,
+          "core_m": 0.02021337638749162,
+          "h_m": 0.02105682443168471,
+          "Vc": 1.108627964227875,
+          "Kc": 0.7228430089430313,
+          "gamma": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 0.3453340072395549,
+            "face_compression": 1.0001831189536448,
+            "core_shear_crimping": 2.154663914751214,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.9099892557262665,
+            "intracell_dimpling": 9.423147125823878
+          },
+          "least_SF": 0.3453340072395549,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 18.846294251647755
+        },
+        "needed_values": {
+          "gamma": 0.5791494489601828,
+          "gamma_today": 0.2,
+          "gamma_full_018": 0.64345118569115,
+          "wrinkle_coefficient": 0.36264164430889406,
+          "wrinkle_today": 0.33,
+          "wrinkle_full": 0.82,
+          "be_strength_Pa": 283000000.0,
+          "be_today_Pa": 283000000.0,
+          "be_full_Pa": 379200000.0
+        },
+        "improvement_factors_over_today": {
+          "gamma": 2.895747244800914,
+          "wrinkle_coefficient": 1.0989140736633154,
+          "be_strength": 1.0
+        },
+        "usage": {
+          "O1_gamma": 0.9098990057213333,
+          "O2_wrinkle": 0.10362697810508233,
+          "O3_be_strength": 0.0
+        },
+        "at_needed_values": {
+          "tf_m": 0.0008434480441930918,
+          "core_m": 0.02021337638749162,
+          "h_m": 0.02105682443168471,
+          "Vc": 1.108627964227875,
+          "Kc": 0.7228430089430313,
+          "gamma": 0.5791494489601828,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 1.0,
+            "face_compression": 1.0001831189536448,
+            "core_shear_crimping": 2.154663914751214,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 9.423147125823878
+          },
+          "least_SF": 1.0,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 18.846294251647755
+        },
+        "at_full_named_set": {
+          "tf_m": 0.0008434480441930918,
+          "core_m": 0.02021337638749162,
+          "h_m": 0.02105682443168471,
+          "Vc": 1.0742348854696504,
+          "Kc": 0.7314412786325875,
+          "gamma": 0.6296939541878601,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 1.0660750508436925,
+            "face_compression": 1.340174695078523,
+            "core_shear_crimping": 2.154663914751214,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.225834596815171,
+            "intracell_dimpling": 9.130811868455085
+          },
+          "least_SF": 1.0660750508436925,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 18.26162373691017
+        },
+        "face_E_Pa_scored": 303000000000.0,
+        "face_E_Pa_at_full_set": 293600000000.0,
+        "tolerance_015_at_needed_gamma": {
+          "kd": 0.5791494489601828,
+          "t_eq_mm": 36.47148976173557,
+          "R_over_t_eq": 274.1867706893509,
+          "in_fit_range": true,
+          "wavelength_m": 0.6039163001752442,
+          "status": "lambda_I_1 inversion",
+          "delta_over_t_eq": 0.3539795033120813,
+          "amplitude_mm": 12.910159830910814,
+          "rms_worst_mm": 0.3980494474023491,
+          "rms_narrow_mm": 0.15163788472470444
+        },
+        "tolerance_015_at_018_curve": {
+          "kd": 0.64345118569115,
+          "t_eq_mm": 36.47148976173557,
+          "R_over_t_eq": 274.1867706893509,
+          "in_fit_range": true,
+          "wavelength_m": 0.6039163001752442,
+          "status": "lambda_I_1 inversion",
+          "delta_over_t_eq": 0.2498416276814488,
+          "amplitude_mm": 9.112096366039308,
+          "rms_worst_mm": 0.2809465545495892,
+          "rms_narrow_mm": 0.10702725887603398
+        },
+        "at_full_set_but_conservative_gamma": {
+          "tf_m": 0.0008434480441930918,
+          "core_m": 0.02021337638749162,
+          "h_m": 0.02105682443168471,
+          "Vc": 1.0742348854696504,
+          "Kc": 0.7314412786325875,
+          "gamma": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 0.3386010120483527,
+            "face_compression": 1.340174695078523,
+            "core_shear_crimping": 2.154663914751214,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.225834596815171,
+            "intracell_dimpling": 9.130811868455085
+          },
+          "least_SF": 0.3386010120483527,
+          "governing": "global_buckling",
+          "intracell_dimpling_uniaxial_009d_form": 18.26162373691017
+        }
+      }
+    }
+  ],
+  "conservative_today_gamma": {
+    "S-200F at its own E 290 GPa and the inherited 283 MPa": {
+      "branch": "stiff_or_moderate_core",
+      "Vc": 1.0610630680728836,
+      "gamma_needed": 0.5953179642995181,
+      "factor_over_0.20": 2.9765898214975905,
+      "usage_against_018_curve": 0.9580717283996654
+    },
+    "today = S-200-F, Materion design guide compressive yield 'about 37 ksi'": {
+      "branch": "shear_crimping",
+      "Vc": 2.7856228623470924,
+      "gamma_needed": 0.9994717109284957,
+      "factor_over_0.20": 4.997358554642479,
+      "usage_against_018_curve": 0.9996716688098004
+    },
+    "today = SR-200 sheet, Materion datasheet minimum tensile yield (compressive about equal per the 1967 lot)": {
+      "branch": "stiff_or_moderate_core",
+      "Vc": 0.9986907155584266,
+      "gamma_needed": 0.37038887488235733,
+      "factor_over_0.20": 1.8519443744117865,
+      "usage_against_018_curve": 0.5613684779431448
+    },
+    "E = 303 GPa as filed at 00:30 (S-200FH's value), S-200F 283 MPa today": {
+      "branch": "stiff_or_moderate_core",
+      "Vc": 1.108627964227875,
+      "gamma_needed": 0.5791494489601828,
+      "factor_over_0.20": 2.895747244800914,
+      "usage_against_018_curve": 0.9098990057213333
+    }
+  },
+  "ended_at": "2026-10-20T00:36:40.955262-07:00"
+}

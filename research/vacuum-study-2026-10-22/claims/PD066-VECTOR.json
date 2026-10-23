@@ -1,0 +1,35 @@
+{
+  "id": "PD066-VECTOR",
+  "kind": "piece_d",
+  "claim": "066's admissible improvement vector is face density only, at gamma 0.20 and Q 0.33 with BETA 1, on 293.6 GPa, 379.2 MPa and the favorable film. Filed concept factors 1.778711, 1.862738, 1.743286, 1.824772 and filed TRL7 factors 1.544302, 1.614325, 1.518709, 1.586983, order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic. The joint witnesses are concept 1.862738 at 993.162 kg/m3 and TRL7 1.614325 at 1145.990 kg/m3, both set by R20 optimistic. Sciences admitted 066 conditionally. Density-only is the best mix found under the stated L1 norm and the tested pairs, not a proven global minimum. PROBE corrects RUN's modulus-failure labels. The direct-Python follow-ups are an execution exception and stay apart from this numerical status. The stored margin of 1 does not reproduce on the independent route.",
+  "numerical_status": "reproduced",
+  "physical_qualification": "open",
+  "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. Sciences' three limits sit beside this status. Shared-model reproduction is not an independent derivation. The pair probe, the modulus closure, the face slopes already in RESULTS.json, and DERIV.json ran as direct python on the pinned copy, one core, after the kept simjob. The kept search is simjob-20261020t175116-2cf59f790fe1, exit 0, 112 s.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "rpt-ref-b1e4952922b441a54267",
+      "artifact": "evidence/99cff638c72579c1-RESULTS.json",
+      "snapshot": "evidence/99cff638c72579c1-RESULTS.json",
+      "sha256": "99cff638c72579c1128a9a264558ff4a982b82e2a1b8e013cffe33c0b0af5018",
+      "bytes": 18989,
+      "selector": "/density_only"
+    },
+    {
+      "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+      "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+      "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+      "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+      "bytes": 1276,
+      "selector": "/body"
+    },
+    {
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+      "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+      "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+      "bytes": 18706,
+      "selector": "/payload_match_max_abs_kg"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "DS004",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "DS004",
+    "report": "rpt-ref-e999413f5ed23130ebf6",
+    "card": "MAINLINE-030d",
+    "file": "evidence/dd3d64b0ea2d0272-rpt-ref-e999413f5ed23130ebf6--AUTHORED-NFI--dd3d64b0ea2d.json",
+    "snapshot": "evidence/dd3d64b0ea2d0272-rpt-ref-e999413f5ed23130ebf6--AUTHORED-NFI--dd3d64b0ea2d.json",
+    "row_id": "030D-BE-SUPPLY",
+    "fields": {
+      "id": "030D-BE-SUPPLY",
+      "finding": "R30 endpoint and least-usage face masses differ; historical world mine output is not finished-sheet availability.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "status": "OPEN",
+      "blocks_progress": false
+    },
+    "source_sha256": "dd3d64b0ea2d02720bfe9f4fcb6e19ee707a15620419df4ae12640e980586050",
+    "source_json_pointer": "/rows/3",
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "R30 endpoint and least-usage face masses differ; historical world mine output is not finished-sheet availability.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1547"
+    },
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/dd3d64b0ea2d0272-rpt-ref-e999413f5ed23130ebf6--AUTHORED-NFI--dd3d64b0ea2d.json",
+      "snapshot": "evidence/dd3d64b0ea2d0272-rpt-ref-e999413f5ed23130ebf6--AUTHORED-NFI--dd3d64b0ea2d.json",
+      "sha256": "dd3d64b0ea2d02720bfe9f4fcb6e19ee707a15620419df4ae12640e980586050",
+      "bytes": 2828,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-e999413f5ed23130ebf6",
+          "artifact": "evidence/dd3d64b0ea2d0272-rpt-ref-e999413f5ed23130ebf6--AUTHORED-NFI--dd3d64b0ea2d.json",
+          "snapshot": "evidence/dd3d64b0ea2d0272-rpt-ref-e999413f5ed23130ebf6--AUTHORED-NFI--dd3d64b0ea2d.json",
+          "sha256": "dd3d64b0ea2d02720bfe9f4fcb6e19ee707a15620419df4ae12640e980586050",
+          "bytes": 2828,
+          "selector": "/rows/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1547"
+          }
+        ]
+      }
+    }
+  ]
+}

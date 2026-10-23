@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "pins": [
+    {
+      "path": "unpublished-local-ref:bd9fce59fab05f7f",
+      "sha256": "0cc874af6424e3db79a364b2fb9b444a22e9a2f365d897d44680b685c6f48306",
+      "bytes": 2897,
+      "match": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063,
+      "match": true
+    }
+  ],
+  "mass": "payload = 0.05*L, systems = 100 kg, joints = 0.05*(film+nodes+tubes)",
+  "sic": {
+    "rho": 3100.0,
+    "E_Pa": 410000000000.0,
+    "flexural_Pa": 380000000.0,
+    "crush_Pa": 3900000000.0,
+    "weibull_Pa": 190451148.77836347,
+    "m": 10.0
+  },
+  "films": [
+    {
+      "name": "Mylar-850H",
+      "rho": 1400.0,
+      "sigma": 151684660.449916,
+      "tag": "QUESTIONABLE",
+      "state": "exists today",
+      "t_catalog_m": 1.2192000000000001e-05,
+      "o2_cc_per_100in2_day": 6.0
+    },
+    {
+      "name": "011-film",
+      "rho": 970.0,
+      "sigma": 1500000000.0,
+      "tag": "PROJECTION",
+      "state": "PROJECTION",
+      "t_catalog_m": 8e-05,
+      "o2_cc_per_100in2_day": null
+    }
+  ],
+  "global": {
+    "C_triangular": 4.898979485566356,
+    "C_two_way": 4.0
+  },
+  "arch": "N = p*s^3/(16*h) with h the sagitta. At h = s^2/(8R) this is N = p*R*s/2.",
+  "sources": [
+    "https://www.ceramicsrefractories.saint-gobain.com/hexoloy-enhanced-sa-sic-technical-data-sheet",
+    "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-sic-process-tubes",
+    "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-seal-tubes",
+    "https://www.ceramicsrefractories.saint-gobain.com/products/products-application/heating-systems/ceramic-radiant-tube",
+    "https://polymerfilms.com/wp-content/uploads/2023/09/Mylar850H-Datasheets.pdf"
+  ]
+}

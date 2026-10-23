@@ -1,0 +1,14 @@
+[
+  {
+    "row": "owner/RESULTS.json#/mass_options/AF015_to_AF060",
+    "field": "qualification",
+    "filed_value": "Matches U-film weight in one fatigue test, still not substrate/cure/peel geometry.",
+    "check_value": "The 0.060 lb/ft² titanium double-lap fatigue series is AF163-2K, a supported film; it is not an AF163-2U test.",
+    "source": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=TDS_AF163-2_R1.pdf",
+    "source_location": "PDF page 9, titanium double-lap tensile-shear fatigue heading",
+    "source_image": "source-pages/af163.png",
+    "classification": "SOURCE_LABEL_MISMATCH",
+    "numeric_effect": "None: added film mass remains 552.1895565892116 kg.",
+    "owner_internal_crosscheck": "owner/SOURCE-DATA.json#/AF163/double_lap_Ti_AF163_2K_006 correctly names K; CARD.md calls it supported film."
+  }
+]

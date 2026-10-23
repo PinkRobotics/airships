@@ -1,0 +1,158 @@
+{
+  "schema": "sciences-u3-two-part-gate-disposition-v1",
+  "at": "2026-10-18T22:13:57.845576-07:00",
+  "authority": [
+    {
+      "path": "unpublished-local-ref:86745225a3838d33",
+      "sha256": "84ca7d33dee78119fe45ee8e7b2bab80967d3086a247950c0c8013f8d7bf935f",
+      "bytes": 2071
+    },
+    {
+      "path": "unpublished-local-ref:0dd2bd0d1dc2f977",
+      "sha256": "7714f36982f536ed4156f5f625f3beb6ab118c0e942ee290414624af6d6b64b7",
+      "bytes": 2692
+    }
+  ],
+  "correction": {
+    "rejected_proposal": {
+      "path": "unpublished-local-ref:6374dc34c35b999d",
+      "sha256": "c48fee11126f178a30f5245ad055cf8ff27c54f14615b0cb583ec1fdccb6a866",
+      "bytes": 9639
+    },
+    "reason": "Sciences proposed16CPU contrary to the standing8-core per-job cap. CO refused it before any execution. Withdraw the proposed shape and combined18-target/3600s gate. Preserve the rejected artifact as history; no claim of valid resource authority or measured fit.",
+    "replacement": "CO-ruled distinct pre-land continuous selftest through simjob, then17 A/C landing targets under1800s. No extra object or source change."
+  },
+  "candidate": {
+    "sha": "5f96f32e13f5e8724e8245eefbbf2b9b55feb55a",
+    "tree": "a88437018a7884b2a871ed01358d94f0da92fc59",
+    "base": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "parent": "13f4b15f7c7f0720f84516d866ffd6595d3f3eff",
+    "source_checkout": "unpublished-local-ref:dc3ddc5767c2f53e",
+    "ref": "u3-a3-replacement-1018",
+    "complete_range": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d..5f96f32e13f5e8724e8245eefbbf2b9b55feb55a",
+    "intake": {
+      "path": "unpublished-local-ref:adcd9941cec53a5c",
+      "sha256": "38fdd376e0ec62abfd21457a49c9158c6b0a6af9241b3213e92e5726a3a8222f",
+      "bytes": 28313
+    },
+    "frozen_never_land": "01da6a4e30408859c0353f67f262bdf8facb81fd"
+  },
+  "main_observation": {
+    "method": "This wake, read-only git --no-optional-locks -C unpublished-local-ref:42ae21309e70422c rev-parse refs/heads/main",
+    "observed": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "limit": "Observation only, not a lock or future guarantee. Revalidate at landing; any moved main goes toCO. Do not rebase, even if the candidate could otherwise be adapted."
+  },
+  "pre_land": {
+    "owner": "ref-741b462e28e96fb5cf31",
+    "card_owner": "ref-af15e85a34cba04285e4",
+    "purpose": "The sole full ledgercheck-selftest is simjob live acceptance as CO ordered. Ops supplies exact simjob card and fresh live admission; B executes it once. Do not substitute the older direct group service launcher.",
+    "logical_payload_argv": [
+      "ref-d9af09a16f3a81bf2ded",
+      "CI=true",
+      "FLOAT_PLANT_TIMEOUT=2000",
+      "FLOAT_PLANT_WORKERS=4",
+      "MAKEFLAGS=",
+      "MFLAGS=",
+      "ref-994275a3cda2dd1ca6ee",
+      "-j1",
+      "ledgercheck-selftest"
+    ],
+    "coverage": "All five preceding suites and all38 fast-mode plants including controls and corruptions, through the unchanged ordinary recipe. Clear inherited case selection; recipe sets FLOAT_PLANT_CASES empty and fast mode. No isolated v10 command, subset, changed source or broader replacement suite.",
+    "cores": 8,
+    "workers": 4,
+    "memory_default_bytes": 17179869184,
+    "memory_conditional_max_bytes": 34359738368,
+    "memory_condition": "Only this job own measured need can justify above16GiB up to32GiB. Existing about2.8/2.9G peaks do not justify an increase. No automatic post-failure rerun or cap expansion.",
+    "swap_max_bytes": 0,
+    "thread_environment": {
+      "OMP_NUM_THREADS": "8",
+      "OPENBLAS_NUM_THREADS": "8",
+      "MKL_NUM_THREADS": "8",
+      "NUMEXPR_NUM_THREADS": "8"
+    },
+    "thread_basis": "Desk requires OMP/OpenBLAS equal the8-core share. Other standard thread controls follow the same explicit share. Do not inherit rejected/old4-thread settings. Four workers may create nested demand; this is a quota, not guaranteed throughput.",
+    "job_wall_ceiling_s": 7200,
+    "wall_condition": "Under2h per-job limit; exact timed payload and kill grace must fit the declared ceiling. This is not an owner-time grant or measured runtime. Ops prices the complete command and separate preparation/admission/collection/cleanup/filing envelope and B proves remaining time fit before launch. Existing clocks/retired balances are not reset/reused.",
+    "run_count": 1,
+    "launch_conditions": [
+      "Exact named card, source/ref/tree guards, simjob controls and fresh host admission verified.",
+      "One actual whole-unit clock from substantive work, paired UTC/monotonic samples and explicit reserved cleanup/report tail; no unpriced wrapper or report cost.",
+      "Owned outputs and exact entry/argv pins; no collision or overwrite of v8/v9/v10 evidence.",
+      "CfT/Node/CI/TMP contract bound before launch, and simjob owns enforcement/collection. If it cannot express the required profile or controls, return the exact blocker; no quiet direct-launch fallback."
+    ],
+    "result": "Return exact candidate/card/grant/entry, one-run exit, all suites/38 designed plant verdicts or first failure, raw logs, wall seconds, CPU seconds, peak memory, actual controls and collection/cleanup receipts, plus final complete owner debit. Continuous PASS replaces the split as current pre-land acceptance; preserve v9FAIL and v10/split historical evidence. Any failure stops and goes toCO; no automatic retry, repair, alternative object or extra invocation."
+  },
+  "host_admission": {
+    "owner": "ref-af15e85a34cba04285e4",
+    "aggregate_core_caps_max": 24,
+    "aggregate_memory_caps_gib_max": 36,
+    "MemAvailable_minus_new_cap_min_GB": 20,
+    "PSI_some_avg10_strictly_below": 5,
+    "measurement": "Fresh at admission/launch, not the historical12:4x sample or old reservation. No Sciences host query or allocation performed.",
+    "enforcement": "Own bounded simjob user unit/scope with CPUQuota, MemoryMax and MemorySwapMax=0, timeout, actual-controls receipt and complete descendant collection. Any service/profile adaptation must be explicit in Ops card under the CO route, never bypass simjob."
+  },
+  "shared_environment": {
+    "browser": "Qualified CfT153 sha8c599d43aec53f2460a31ae2f4af6bd863f8258b34ff519564bc5d4726bfaa1e, executor-owned chromium alias first PATH; no deleted B/bin or snap fallback.",
+    "node": "Existing Node22.23.3 pinfde6a4bf8d0562f7751d1a2d6cb9b417c4cfe107bbcb0aa3e9a24e125e348f48 before system binaries, no installation.",
+    "CI": "true",
+    "TMPDIR": "A short real canonical owned0700 directory with no symlink components and length+69<=107; exact new location bound by Ops, inherited also through AIRSHIPS_TMPDIR and nested tools.",
+    "profile": "Qualified CfT no-session-bus/no-display profile and isolated owned HOME/cache/profile, actual properties proven within simjob card. Existing service exception is not authority to bypass the new simjob acceptance route."
+  },
+  "land": {
+    "owner": "CO authorized landing executor; no protected-main move authorized by this routing",
+    "precondition": "Exact-object verification/signing and the actual continuous pre-land result; CO lands only after its required evidence/admission. Historical split alone does not discharge this new pre-land condition.",
+    "gate_timeout_s": 1800,
+    "test_argv": [
+      "ref-994275a3cda2dd1ca6ee",
+      "-j1",
+      "readmecheck",
+      "linkcheck",
+      "buildercheck",
+      "claimsrestore",
+      "claimscheck",
+      "ledgercheck",
+      "floatplantcheck",
+      "portcheck",
+      "reposizecheck",
+      "noticecheck",
+      "floatpagecheck",
+      "firstparty",
+      "pdfcheck",
+      "analysischeck",
+      "fallbackcheck",
+      "ciparity",
+      "evaccheck"
+    ],
+    "targets": [
+      "readmecheck",
+      "linkcheck",
+      "buildercheck",
+      "claimsrestore",
+      "claimscheck",
+      "ledgercheck",
+      "floatplantcheck",
+      "portcheck",
+      "reposizecheck",
+      "noticecheck",
+      "floatpagecheck",
+      "firstparty",
+      "pdfcheck",
+      "analysischeck",
+      "fallbackcheck",
+      "ciparity",
+      "evaccheck"
+    ],
+    "omitted_from_land_argv": "ledgercheck-selftest runs once in pre-land simjob acceptance, not again inside land.py. No weakening of its coverage.",
+    "environment": "Carry CfT153 first PATH, CI=true, short real TMPDIR and existing required Node22.",
+    "expected_main": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "mode": "PURE FAST-FORWARD ONLY. If main has moved or any different object is needed, stop toCO; do not take an automatic rebase path.",
+    "new_receipts": "Landing/independentCI/heartbeatactivation/firstbaseline remain separate future obligations. No map point or clock reset from software acceptance."
+  },
+  "routing": {
+    "Ops": "Issue exact card/live admission or precise blocker, ccSciences/CO/B.",
+    "B": "Wait for exact Ops card/live admission and finite fit, then execute once and return full result or blocker toSciences/CO. No waiting loop; end until queue delivery.",
+    "XO": "Replace prior rejected resource/combined-gate assumptions with this two-part prerequisite; continue exact-object evidence review, carrying actual continuous acceptance before landing-ready disposition. Return exact signature/store or precise blocker. No duplicate tests inferred.",
+    "CO": "Routing is progress only. Original two-part order remains open until actual card/result or precise blocker is returned."
+  },
+  "standing": "Only this one pre-land software acceptance is released conditionally underCO/Ops controls. No scientific solver/source work, protected-main change, service activation, workingY adoption, map credit or clock reset. HyBorUNSENT/open/notproposed; H1/Q0/native/Ref3holds retained."
+}

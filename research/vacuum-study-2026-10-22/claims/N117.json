@@ -1,0 +1,101 @@
+{
+  "id": "N117",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N117",
+    "report": "rpt-ref-e92af61311c9bf4a89cd",
+    "card": "CHECK-rpt-ref-e92af61311c9bf4a89cd",
+    "file": "evidence/0b74ca6f4252ee9e-NFI.json",
+    "row_id": "NFI-CHECK021-PINS",
+    "fields": {
+      "id": "NFI-CHECK021-PINS",
+      "category": "filing integrity",
+      "status": "OPEN",
+      "row": "Original report artifacts",
+      "field": "RESULTS.json and float021.py sha256/bytes",
+      "card_value": [
+        {
+          "file": "RESULTS.json",
+          "sha256": "950b3529dc6368f63214f87c127bd409c8f24ebefa24debd0902550fb3538355",
+          "bytes": 59234
+        },
+        {
+          "file": "float021.py",
+          "sha256": "48517e063880e0b5fd956693269ba0b3af2142854b8ff169b8a38d1d6d9bcb14",
+          "bytes": 31581
+        }
+      ],
+      "check_value": [
+        {
+          "file": "RESULTS.json",
+          "sha256": "35a1b129bed573b4a4043acd9d9213d10c13bb1848ad4276062512e03075596c",
+          "bytes": 67862,
+          "observed_at": "2026-10-20T00:35:53-07:00"
+        },
+        {
+          "file": "float021.py",
+          "sha256": "6b7dcb5b3c2b8b00be4ea3f099ca5a125585f2112467259ec21ee2279f75c8d8",
+          "bytes": 36429,
+          "observed_at": "2026-10-20T00:35:53-07:00"
+        }
+      ],
+      "effect": "[withheld: private quotation]",
+      "disposition": "[withheld: private quotation]",
+      "proposed_fix": "[withheld: private quotation]",
+      "grounding": "[withheld: private quotation]"
+    }
+  },
+  "claim": "{\"id\": \"NFI-CHECK021-PINS\", \"category\": \"filing integrity\", \"status\": \"OPEN\", \"row\": \"Original report artifacts\", \"field\": \"RESULTS.json and float021.py sha256/bytes\", \"card_value\": [{\"file\": \"RESULTS.json\", \"sha256\": \"950b3529dc6368f63214f87c127bd409c8f24ebefa24debd0902550fb3538355\", \"bytes\": 59234}, {\"file\": \"float021.py\", \"sha256\": \"48517e063880e0b5fd956693269ba0b3af2142854b8ff169b8a38d1d6d9bcb14\", \"bytes\": 31581}], \"check_value\": [{\"file\": \"RESULTS.json\", \"sha256\": \"35a1b129bed573b4a4043acd9d9213d10c13bb1848ad4276062512e03075596c\", \"bytes\": 67862, \"observed_at\": \"2026-10-20T00:35:53-07:00\"}, {\"file\": \"float021.py\", \"sha256\": \"6b7dcb5b3c2b8b00be4ea3f099ca5a125585f2112467259ec21ee2279f75c8d8\", \"bytes\": 36429, \"observed_at\": \"2026-10-20T00:35:53-07:00\"}], \"effect\": \"[withheld: private quotation]\", \"disposition\": \"[withheld: private quotation]\", \"proposed_fix\": \"[withheld: private quotation]\", \"grounding\": \"[withheld: private quotation]\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/116"
+    },
+    {
+      "report": "rpt-ref-e92af61311c9bf4a89cd",
+      "artifact": "evidence/0b74ca6f4252ee9e-NFI.json",
+      "snapshot": "evidence/0b74ca6f4252ee9e-NFI.json",
+      "sha256": "0b74ca6f4252ee9eb96334d4f62bcfde23de979944201e3ea03385f60235c182",
+      "bytes": 8636,
+      "selector": "source row ID: NFI-CHECK021-PINS"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-e92af61311c9bf4a89cd",
+          "artifact": "evidence/0b74ca6f4252ee9e-NFI.json",
+          "snapshot": "evidence/0b74ca6f4252ee9e-NFI.json",
+          "sha256": "0b74ca6f4252ee9eb96334d4f62bcfde23de979944201e3ea03385f60235c182",
+          "bytes": 8636,
+          "selector": "source row ID: NFI-CHECK021-PINS"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/116"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,580 @@
+row,field,card_value,check_value,status,delta,basis
+,per_kelvin_gradient_stress_Pa,1771734.429065744,1771734.429065744,MATCH,0.0,"Declared E, alpha and nu"
+,face_working_stress_Pa,298435856.7214987,298435856.7214987,MATCH,0.0,p R / (4 tf)
+,face_SF_on_345_uniform,1.1560273078109213,1.1560273078109213,MATCH,0.0,345 MPa tensile proxy / pressure stress
+/p2,today_uniform_least,0.33958237184408885,0.33958237184408885,MATCH,0.0,Independent 028b today-property equations
+/p2_thermal/coated_outer,alpha,0.2,0.2,DECLARED_INPUT,0.0,Declared optical assumption; not a measured property
+/p2_thermal/coated_outer,epsilon_out,0.9,0.9,DECLARED_INPUT,0.0,Declared optical assumption; not a measured property
+/p2_thermal/coated_outer,epsilon_in,0.2,0.2,DECLARED_INPUT,0.0,Declared optical assumption; not a measured property
+/p2_thermal/coated_outer,k_eff_W_per_mK,0.7887879691722796,0.7887879691722796,MATCH,0.0,Al conductivity times solidity; PROJECTION
+/p2_thermal/coated_outer,U_conduction_W_per_m2K,35.68080062957225,35.68080062957225,MATCH,0.0,keff / tc; conduction only
+/p2_thermal/coated_outer,T_outer_subsolar_K,301.56900146374886,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/coated_outer,T_inner_subsolar_K,301.1698049650141,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/coated_outer,T_outer_antisolar_K,285.3126580950526,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/coated_outer,T_inner_antisolar_K,285.40450354383825,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/coated_outer,day_night_outer_swing_K,30.493339712295153,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/coated_outer,dT_through_at_max_K,0.3991964987347387,0.3991964987347387,MATCH,0.0,Conditional on filed subsolar temperatures; global maximum not recoverable
+/p2_thermal/coated_outer,gradient_stress_Pa,707270.1807708364,707270.1807708363,MATCH,-1.1641532182693481e-10,Conditional on filed temperature difference
+/p2_thermal/coated_outer/pattern/legendre_K,0,288.37713274151133,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/coated_outer/pattern/legendre_K,1,8.577689130729212,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/coated_outer/pattern/legendre_K,2,6.262977505168337,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/coated_outer/pattern/legendre_K,3,-0.5488550653860005,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/coated_outer/pattern/legendre_K,4,-5.603838951887467,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/coated_outer/pattern/legendre_K,5,-0.028396176263610216,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/coated_outer/pattern/legendre_K,6,-8.374740360076036,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/coated_outer/pattern,T_rest_max_K,5.788443758417429,8.292853048444808,RECONSTRUCTION_MISMATCH,2.504409290027379,"Exact maximum absolute n=2..6 reconstruction; if field means untruncated residual, samples are required"
+/p2_thermal/coated_outer/pattern,kappa_max_1_per_m,0.0002449488918050441,0.00024502702768939807,DISCRETIZATION_DIFFERENCE,7.813588435398892e-08,Analytic angular derivative and stationary points of filed polynomial
+/p2_thermal/coated_outer/pattern,bending_stress_Pa,818209.4740996854,818470.4735284824,DISCRETIZATION_DIFFERENCE,260.99942879693117,"Same scalar bending screen, analytic curvature; not a shell equilibrium solution"
+/p2_thermal/coated_outer/pattern,constrained_upper_Pa,20511170.194997746,20511170.194997746,MATCH,0.0,Arithmetic on filed residual maximum only; reconstruction discrepancy remains
+/p2_thermal/coated_outer/shear_lag_from_day_rise,d_eps,0.0002050287180041113,0.0002050287180041113,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/coated_outer/shear_lag_from_day_rise,lambda_1_per_m,3.024091871444132,3.024091871444132,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/coated_outer/shear_lag_from_day_rise,tau_Pa,143787.7618694373,143787.7618694373,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/coated_outer/shear_lag_from_day_rise,SF_vs_shear_W,1.6782826446663364,1.6782826446663364,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/coated_outer/shear_lag_from_swing,d_eps,0.0003750680784612304,0.0003750680784612304,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/coated_outer/shear_lag_from_swing,lambda_1_per_m,3.024091871444132,3.024091871444132,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/coated_outer/shear_lag_from_swing,tau_Pa,263037.29582667246,263037.29582667246,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/coated_outer/shear_lag_from_swing,SF_vs_shear_W,0.917423152874516,0.917423152874516,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be,alpha,0.4,0.4,DECLARED_INPUT,0.0,Declared optical assumption; not a measured property
+/p2_thermal/bare_Be,epsilon_out,0.05,0.05,DECLARED_INPUT,0.0,Declared optical assumption; not a measured property
+/p2_thermal/bare_Be,epsilon_in,0.2,0.2,DECLARED_INPUT,0.0,Declared optical assumption; not a measured property
+/p2_thermal/bare_Be,k_eff_W_per_mK,0.7887879691722796,0.7887879691722796,MATCH,0.0,Al conductivity times solidity; PROJECTION
+/p2_thermal/bare_Be,U_conduction_W_per_m2K,35.68080062957225,35.68080062957225,MATCH,0.0,keff / tc; conduction only
+/p2_thermal/bare_Be,T_outer_subsolar_K,356.94567861916755,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/bare_Be,T_inner_subsolar_K,355.0382308573461,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/bare_Be,T_outer_antisolar_K,294.1505352489576,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/bare_Be,T_inner_antisolar_K,294.79494410869415,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/bare_Be,day_night_outer_swing_K,74.16485740453288,,UNRESOLVED,,"Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+/p2_thermal/bare_Be,dT_through_at_max_K,1.9074477618214587,1.9074477618214587,MATCH,0.0,Conditional on filed subsolar temperatures; global maximum not recoverable
+/p2_thermal/bare_Be,gradient_stress_Pa,3379490.8712634738,3379490.8712634733,MATCH,-4.656612873077393e-10,Conditional on filed temperature difference
+/p2_thermal/bare_Be/pattern/legendre_K,0,311.34200408077004,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/bare_Be/pattern/legendre_K,1,33.2295052388543,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/bare_Be/pattern/legendre_K,2,18.604675173557826,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/bare_Be/pattern/legendre_K,3,-2.573963517010231,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/bare_Be/pattern/legendre_K,4,-10.696390340527316,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/bare_Be/pattern/legendre_K,5,0.22929158479840772,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/bare_Be/pattern/legendre_K,6,-6.730827571629294,,UNRESOLVED,,Angular temperature samples and projection quadrature absent
+/p2_thermal/bare_Be/pattern,T_rest_max_K,17.14508304824119,14.851719628189025,RECONSTRUCTION_MISMATCH,-2.293363420052165,"Exact maximum absolute n=2..6 reconstruction; if field means untruncated residual, samples are required"
+/p2_thermal/bare_Be/pattern,kappa_max_1_per_m,0.0002310145369478525,0.00023108688056735745,DISCRETIZATION_DIFFERENCE,7.234361950494267e-08,Analytic angular derivative and stationary points of filed polynomial
+/p2_thermal/bare_Be/pattern,bending_stress_Pa,771664.1679519223,771905.8193202276,DISCRETIZATION_DIFFERENCE,241.65136830531992,"Same scalar bending screen, analytic curvature; not a shell equilibrium solution"
+/p2_thermal/bare_Be/pattern,constrained_upper_Pa,60753067.85152074,60753067.85152074,MATCH,0.0,Arithmetic on filed residual maximum only; reconstruction discrepancy remains
+/p2_thermal/bare_Be/shear_lag_from_day_rise,d_eps,0.0008861618470157612,0.0008861618470157612,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be/shear_lag_from_day_rise,lambda_1_per_m,3.024091871444132,3.024091871444132,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be/shear_lag_from_day_rise,tau_Pa,621470.1524589738,621470.1524589738,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be/shear_lag_from_day_rise,SF_vs_shear_W,0.38829942887212604,0.38829942887212604,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be/shear_lag_from_swing,d_eps,0.0009122277460757545,0.0009122277460757545,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be/shear_lag_from_swing,lambda_1_per_m,3.024091871444132,3.024091871444132,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be/shear_lag_from_swing,tau_Pa,639750.310104382,639750.310104382,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/p2_thermal/bare_Be/shear_lag_from_swing,SF_vs_shear_W,0.3772042020917806,0.3772042020917806,MATCH,0.0,Shear-lag algebra conditional on filed temperature and prescribed differential strain
+/wind,q_20_Pa,233.45366614923603,233.45366614923603,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,q_20_over_p,0.002445543861240614,0.002445543861240614,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,drag_20_N,34470.56715881808,34470.56715881808,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,mooring_016_N,48258.794022345304,48258.794022345304,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,VB_m_s,18.00554,18.00554,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,Ugust_35fps_m_s,10.668000000000001,10.668000000000001,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,q_flight_stagnation_Pa,290.63372090048773,290.63372090048773,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,q_flight_over_p,0.0030445335202547285,0.0030445335202547285,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,q_VB_only_Pa,189.21388749148954,189.21388749148954,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,q_moor_70kn_Pa,756.8555499659582,756.8555499659582,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,q_moor_70_over_p,0.007928440253672987,0.007928440253672987,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,drag_70_N,111753.39627328068,111753.39627328068,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,q_moor_78kn_Pa,939.7365644883448,939.7365644883448,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,drag_78_N,138756.66590339586,138756.66590339586,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/wind,potential_mean_dp_over_q,-0.5,-0.5,MATCH,0.0,"Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+/p2/uniform/modes,global_buckling,1.0063580774984726,1.0063580774984726,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/uniform/modes,face_compression,1.2706247974547864,1.2706247974547864,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/uniform/modes,core_shear_crimping,2.331434189777838,2.331434189777838,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/uniform/modes,core_crush,5.0558220634629825,5.0558220634629825,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/uniform/modes,face_wrinkling,1.9648678490458737,1.9648678490458737,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/uniform/modes,intracell_dimpling,6.973752041582777,6.973752041582778,MATCH,8.881784197001252e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/uniform/modes,scarf_mean_shear,1.0063580718238068,1.0063580718238068,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/uniform,least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Minimum and stress of independently evaluated seven screens
+/p2/uniform,least_SF,1.0063580718238068,1.0063580718238068,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/uniform,face_SF_on_345,1.1560273078109213,1.1560273078109213,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/uniform,demand_Pa,298435856.7214987,298435856.7214987,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/sun_coated_gradient_and_bend/modes,global_buckling,1.0063580774984726,1.0063580774984726,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_coated_gradient_and_bend/modes,face_compression,1.2641629237316372,1.2641629237316372,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_coated_gradient_and_bend/modes,core_shear_crimping,2.319577476955646,2.319577476955646,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_coated_gradient_and_bend/modes,core_crush,5.0558220634629825,5.0558220634629825,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_coated_gradient_and_bend/modes,face_wrinkling,1.9548753414632705,1.9548753414632705,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_coated_gradient_and_bend/modes,intracell_dimpling,6.938286414625448,6.938286414625449,MATCH,8.881784197001252e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_coated_gradient_and_bend/modes,scarf_mean_shear,1.0063580718238068,1.0063580718238068,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_coated_gradient_and_bend,least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Minimum and stress of independently evaluated seven screens
+/p2/sun_coated_gradient_and_bend,least_SF,1.0063580718238068,1.0063580718238068,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/sun_coated_gradient_and_bend,face_SF_on_345,1.150148229660904,1.150148229660904,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/sun_coated_gradient_and_bend,demand_Pa,299961336.37636924,299961336.37636924,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/sun_bare_gradient_and_bend/modes,global_buckling,1.0063580774984726,1.0063580774984726,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_bare_gradient_and_bend/modes,face_compression,1.253193247765279,1.253193247765279,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_bare_gradient_and_bend/modes,core_shear_crimping,2.2994495228578025,2.2994495228578025,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_bare_gradient_and_bend/modes,core_crush,5.0558220634629825,5.0558220634629825,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_bare_gradient_and_bend/modes,face_wrinkling,1.9379120619303012,1.9379120619303012,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_bare_gradient_and_bend/modes,intracell_dimpling,6.878079971056009,6.87807997105601,MATCH,8.881784197001252e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_bare_gradient_and_bend/modes,scarf_mean_shear,1.0063580718238068,1.0063580718238068,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/sun_bare_gradient_and_bend,least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Minimum and stress of independently evaluated seven screens
+/p2/sun_bare_gradient_and_bend,least_SF,1.0063580718238068,1.0063580718238068,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/sun_bare_gradient_and_bend,face_SF_on_345,1.1401679073813853,1.1401679073813853,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/sun_bare_gradient_and_bend,demand_Pa,302587011.7607141,302587011.7607141,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/wind_flight_gust_uniform/modes,global_buckling,1.0033034864031298,1.0033034864031298,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_flight_gust_uniform/modes,face_compression,1.2667680795741345,1.2667680795741343,MATCH,-2.220446049250313e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_flight_gust_uniform/modes,core_shear_crimping,2.3243576051359427,2.3243576051359423,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_flight_gust_uniform/modes,core_crush,5.04047616482114,5.04047616482114,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_flight_gust_uniform/modes,face_wrinkling,1.958903900457972,1.9589039004579716,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_flight_gust_uniform/modes,intracell_dimpling,6.95258466451924,6.9525846645192395,MATCH,-8.881784197001252e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_flight_gust_uniform/modes,scarf_mean_shear,1.0033034807456882,1.0033034807456882,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_flight_gust_uniform,least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Minimum and stress of independently evaluated seven screens
+/p2/wind_flight_gust_uniform,least_SF,1.0033034807456882,1.0033034807456882,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/wind_flight_gust_uniform,face_SF_on_345,1.152518426827733,1.1525184268277329,MATCH,-2.220446049250313e-16,Minimum and stress of independently evaluated seven screens
+/p2/wind_flight_gust_uniform,demand_Pa,299344454.6909332,299344454.6909333,MATCH,5.960464477539063e-08,Minimum and stress of independently evaluated seven screens
+/p2/wind_moor_70kn_uniform/modes,global_buckling,0.9984419898353051,0.9984419898353049,MATCH,-2.220446049250313e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_moor_70kn_uniform/modes,face_compression,1.2606299680709465,1.260629968070946,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_moor_70kn_uniform/modes,core_shear_crimping,2.3130949546289896,2.313094954628989,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_moor_70kn_uniform/modes,core_crush,5.016052590192361,5.016052590192361,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_moor_70kn_uniform/modes,face_wrinkling,1.9494120520613158,1.9494120520613154,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_moor_70kn_uniform/modes,intracell_dimpling,6.918895988119594,6.918895988119593,MATCH,-8.881784197001252e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_moor_70kn_uniform/modes,scarf_mean_shear,0.9984419842052765,0.9984419842052764,MATCH,-1.1102230246251565e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/wind_moor_70kn_uniform,least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Minimum and stress of independently evaluated seven screens
+/p2/wind_moor_70kn_uniform,least_SF,0.9984419842052765,0.9984419842052764,MATCH,-1.1102230246251565e-16,Minimum and stress of independently evaluated seven screens
+/p2/wind_moor_70kn_uniform,face_SF_on_345,1.1469339108240415,1.1469339108240413,MATCH,-2.220446049250313e-16,Minimum and stress of independently evaluated seven screens
+/p2/wind_moor_70kn_uniform,demand_Pa,300801987.5810688,300801987.5810689,MATCH,5.960464477539063e-08,Minimum and stress of independently evaluated seven screens
+/p2/combined_coated_gust/modes,global_buckling,1.0033034864031298,1.0033034864031298,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_coated_gust/modes,face_compression,1.2603452745270582,1.260345274527058,MATCH,-2.220446049250313e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_coated_gust/modes,core_shear_crimping,2.312572578343591,2.3125725783435906,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_coated_gust/modes,core_crush,5.04047616482114,5.04047616482114,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_coated_gust/modes,face_wrinkling,1.9489718078662257,1.9489718078662255,MATCH,-2.220446049250313e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_coated_gust/modes,intracell_dimpling,6.917333463771814,6.917333463771814,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_coated_gust/modes,scarf_mean_shear,1.0033034807456882,1.0033034807456882,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_coated_gust,least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Minimum and stress of independently evaluated seven screens
+/p2/combined_coated_gust,least_SF,1.0033034807456882,1.0033034807456882,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/combined_coated_gust,face_SF_on_345,1.1466748937548394,1.1466748937548392,MATCH,-2.220446049250313e-16,Minimum and stress of independently evaluated seven screens
+/p2/combined_coated_gust,demand_Pa,300869934.34580374,300869934.3458038,MATCH,5.960464477539063e-08,Minimum and stress of independently evaluated seven screens
+/p2/combined_bare_gust/modes,global_buckling,1.0033034864031298,1.0033034864031298,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_bare_gust/modes,face_compression,1.2494414674965595,1.2494414674965593,MATCH,-2.220446049250313e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_bare_gust/modes,core_shear_crimping,2.2925654853287476,2.292565485328747,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_bare_gust/modes,core_crush,5.04047616482114,5.04047616482114,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_bare_gust/modes,face_wrinkling,1.9321103866903262,1.9321103866903258,MATCH,-4.440892098500626e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_bare_gust/modes,intracell_dimpling,6.857488538116119,6.857488538116118,MATCH,-8.881784197001252e-16,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_bare_gust/modes,scarf_mean_shear,1.0033034807456882,1.0033034807456882,MATCH,0.0,Independent 028b capacities; filed thermal bending accepted only as conditional input
+/p2/combined_bare_gust,least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Minimum and stress of independently evaluated seven screens
+/p2/combined_bare_gust,least_SF,1.0033034807456882,1.0033034807456882,MATCH,0.0,Minimum and stress of independently evaluated seven screens
+/p2/combined_bare_gust,face_SF_on_345,1.1367544997001926,1.1367544997001924,MATCH,-2.220446049250313e-16,Minimum and stress of independently evaluated seven screens
+/p2/combined_bare_gust,demand_Pa,303495609.7301486,303495609.7301487,MATCH,5.960464477539063e-08,Minimum and stress of independently evaluated seven screens
+/p2,shear_lag_coated_swing_SF,0.917423152874516,0.917423152874516,MATCH,0.0,Repeated conditional shear result
+/p2,shear_lag_bare_day_SF,0.38829942887212604,0.38829942887212604,MATCH,0.0,Repeated conditional shear result
+/p2,shear_lag_bare_swing_SF,0.3772042020917806,0.3772042020917806,MATCH,0.0,Repeated conditional shear result
+/p2,scarf_pressure_stress_if_10MPa_Pa,9936820.978518272,9936820.978518272,MATCH,0.0,Projection of face compression onto 30:1 scarf
+/p2,scarf_SF_if_10MPa_plus_coated_swing_shear,0.9804057792795382,0.9804057792795382,MATCH,0.0,"Scalar same-sign sum, conditional only; core shear and scarf shear require a load-path mapping"
+/restore,coated_combined_least_SF,1.0033034807456882,1.0033034807456882,MATCH,0.0,Seven-screen restoration only; all-mode restoration is unresolved
+/restore,coated_combined_least_mode,scarf_mean_shear,scarf_mean_shear,MATCH,,Seven-screen restoration only; all-mode restoration is unresolved
+/restore,mass_to_restore_coated_combined_kg,0.0,0.0,MATCH,0.0,Seven-screen restoration only; all-mode restoration is unresolved
+/restore,bare_swing_shear_SF,0.3772042020917806,0.3772042020917806,MATCH,0.0,Seven-screen restoration only; all-mode restoration is unresolved
+/restore,coated_swing_shear_SF,0.917423152874516,0.917423152874516,MATCH,0.0,Seven-screen restoration only; all-mode restoration is unresolved
+/pads/mooring_016_one_pad_SF1,area_one_m2,0.19998132315968878,0.19998132315968878,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_one_pad_SF1,radius_m,0.25230147089116306,0.25230147089116306,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_one_pad_SF1,thickness_m,0.016021402498860755,0.016021402498860755,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_one_pad_SF1,mass_one_kg,8.650749430609519,8.650749430609519,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_one_pad_SF1,mass_total_kg,8.650749430609519,8.650749430609519,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_one_pad_SF1,share_N,48258.794022345304,48258.794022345304,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_six_pads_SF1,area_one_m2,0.0333302205266148,0.0333302205266148,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_six_pads_SF1,radius_m,0.10300164417283542,0.10300164417283542,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_six_pads_SF1,thickness_m,0.005118776125942365,0.005118776125942365,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_six_pads_SF1,mass_one_kg,0.46064683018088104,0.46064683018088104,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_six_pads_SF1,mass_total_kg,2.7638809810852862,2.763880981085286,MATCH,-4.440892098500626e-16,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_016_six_pads_SF1,share_N,8043.132337057551,8043.132337057551,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_70kn_one_pad_SF1,area_one_m2,0.46309885083269214,0.46309885083269214,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_70kn_one_pad_SF1,radius_m,0.3839387223247982,0.3839387223247982,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_70kn_one_pad_SF1,thickness_m,0.026502171335004106,0.026502171335004102,MATCH,-3.469446951953614e-18,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_70kn_one_pad_SF1,mass_one_kg,33.13743774249109,33.13743774249109,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_70kn_one_pad_SF1,mass_total_kg,33.13743774249109,33.13743774249109,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/mooring_70kn_one_pad_SF1,share_N,111753.39627328068,111753.39627328068,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/systems_100kg_six_pads,area_one_m2,0.0006773020622437888,0.0006773020622437888,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/systems_100kg_six_pads,radius_m,0.014683049490649655,0.014683049490649655,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/systems_100kg_six_pads,thickness_m,0.001,0.001,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/systems_100kg_six_pads,mass_one_kg,0.0018287155680582299,0.0018287155680582299,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/systems_100kg_six_pads,mass_total_kg,0.01097229340834938,0.01097229340834938,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/systems_100kg_six_pads,share_N,163.44416666666666,163.44416666666666,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/reserve_411kg_one_pad,area_one_m2,0.016714417381105167,0.016714417381105167,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/reserve_411kg_one_pad,radius_m,0.07294082734798091,0.07294082734798091,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/reserve_411kg_one_pad,thickness_m,0.0031523160513926836,0.0031523160513926836,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/reserve_411kg_one_pad,mass_one_kg,0.14226064074036363,0.14226064074036363,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/reserve_411kg_one_pad,mass_total_kg,0.14226064074036363,0.14226064074036363,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads/reserve_411kg_one_pad,share_N,4033.4647898802205,4033.4647898802205,MATCH,0.0,"Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+/pads,bare_016_patch_0p0707_SF,0.3535330143982733,0.3535330143982733,MATCH,0.0,Load-only core bearing screen
+/p3/0,s_m,6.15,6.15,MATCH,0.0,022c cap geometry
+/p3/0,half_wave_m,3.514133808753978,3.514133808752723,MATCH,-1.254996107036277e-12,Declared formula; polar-radius definition retained
+/p3/0,half_wave_over_s,0.5714038713421102,0.5714038713419062,MATCH,-2.0405899192610377e-13,Declared half-wave / spacing
+/p3/0,in_band,False,False,MATCH,,Declared half-wave test
+/p3/0,governing_filed,global,global,MATCH,,Independent minimum of 022c cap modes
+/p3/0/uniform,yield,3.91514055515,3.9151405551466834,MATCH,-3.3164582191602676e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/0/uniform,euler,1.44659814165,1.4465981416544385,MATCH,4.438449607846451e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/0/uniform,local,1.37814486994,1.3781448699427863,MATCH,2.786215702599293e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/0/uniform,film,1.4624665443,1.4624665443017104,MATCH,1.7104095917375162e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/0/uniform,perry,1.38684321386,1.386843213864119,MATCH,4.118927421359331e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/0/uniform,global,1.37332138578,1.3733213857842457,MATCH,4.245714890771524e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/0,film_alpha,4.5e-06,4.5e-06,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/0/thermal_day,film_alpha_used,4.5e-06,4.5e-06,MATCH,0.0,Selected film CTE
+/p3/0/thermal_day,shadow_fraction,0.18885281596278597,0.18885281596265016,MATCH,-1.3580803148727227e-13,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/0/thermal_day,T_film_subsolar_K,315.3371019711377,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/0/thermal_day,T_film_antisolar_K,289.5519075495471,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/0/thermal_day,T_tube_subsolar_K,292.81127711742397,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/0/thermal_day,T_tube_antisolar_K,284.86164779104513,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/0,thermal_night_subsolar_film_K,273.3052231914065,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/0,thermal_night_subsolar_tube_K,278.33052047953834,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/0/mismatch,eps_mechanical,-0.00010136621184171185,-0.00010136621184171185,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/0/mismatch,film_stress_Pa,-1512928.5349509232,-1512928.5349509232,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/0/mismatch,member_force_N,-1537.4391838431798,-1537.4391838442211,MATCH,-1.0413714335300028e-09,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/0,member_force_N,1694765.9693498067,1694765.9693498067,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/0,film_stress_Pa,1025664488.425769,1025664488.4250742,MATCH,-0.0006947517395019531,p s / (2 film thickness)
+/p3/0,film_mass_kg,348.856357015187,348.8563570154232,MATCH,2.362412487855181e-10,Full spherical area times gauge and inherited film density
+/p3/0,tube_mass_kg,3733.1853334618195,3794.671994894594,MISMATCH,61.486661432774326,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/0/combined_flight_gust,yield,3.906790320210332,3.9067903202070253,MATCH,-3.3066882565435662e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/0/combined_flight_gust,euler,1.443512828574796,1.4435128285792265,MATCH,4.43045600206915e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/0/combined_flight_gust,local,1.375205554407698,1.3752055544104795,MATCH,2.781552765895867e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/0/combined_flight_gust,film,1.4601748554346607,1.4601748554363698,MATCH,1.709077324107966e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/0/combined_flight_gust,perry,1.3838853464483223,1.3838853464524337,MATCH,4.11137790479188e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/0/combined_flight_gust,global,1.3703923578032524,1.3703923578074901,MATCH,4.2377212849942225e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/0,combined_least_SF,1.3703923578032524,1.3703923578074901,MATCH,4.2377212849942225e-12,Minimum of reproduced conditional modes
+/p3/0,combined_least_mode,global,global,MATCH,,Minimum of reproduced conditional modes
+/p3/0,optimism_or_thickness_factor_to_SF1,1.0,1.0,MATCH,0.0,Reciprocal SF; not proof of proportional wall scaling
+/p3/0,extra_mass_kg_if_that_part_scales,0.0,0.0,MATCH,0.0,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/0,members_to_hold_mooring_add_to_5pct,1,1,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/1,s_m,6.15,6.15,MATCH,0.0,022c cap geometry
+/p3/1,half_wave_m,3.514133808753978,3.514133808752723,MATCH,-1.254996107036277e-12,Declared formula; polar-radius definition retained
+/p3/1,half_wave_over_s,0.5714038713421102,0.5714038713419062,MATCH,-2.0405899192610377e-13,Declared half-wave / spacing
+/p3/1,in_band,False,False,MATCH,,Declared half-wave test
+/p3/1,governing_filed,global,global,MATCH,,Independent minimum of 022c cap modes
+/p3/1/uniform,yield,3.91514055515,3.9151405551466834,MATCH,-3.3164582191602676e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/1/uniform,euler,1.44659814165,1.4465981416544385,MATCH,4.438449607846451e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/1/uniform,local,1.37814486994,1.3781448699427863,MATCH,2.786215702599293e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/1/uniform,film,1.4624665443,1.4624665443017104,MATCH,1.7104095917375162e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/1/uniform,perry,1.38684321386,1.386843213864119,MATCH,4.118927421359331e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/1/uniform,global,1.37332138578,1.3733213857842457,MATCH,4.245714890771524e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/1,film_alpha,1.7e-05,1.7e-05,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/1/thermal_day,film_alpha_used,1.7e-05,1.7e-05,MATCH,0.0,Selected film CTE
+/p3/1/thermal_day,shadow_fraction,0.18885281596278597,0.18885281596265016,MATCH,-1.3580803148727227e-13,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/1/thermal_day,T_film_subsolar_K,315.3371019711377,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/1/thermal_day,T_film_antisolar_K,289.5519075495471,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/1/thermal_day,T_tube_subsolar_K,292.81127711742397,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/1/thermal_day,T_tube_antisolar_K,284.86164779104513,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/1,thermal_night_subsolar_film_K,273.3052231914065,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/1,thermal_night_subsolar_tube_K,278.33052047953834,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/1/mismatch,eps_mechanical,-0.00048182998648093353,-0.00048182998648093353,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/1/mismatch,film_stress_Pa,-7191492.335536322,-7191492.335536322,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/1/mismatch,member_force_N,-7308.000246898707,-7308.000246903658,MATCH,-4.951289156451821e-09,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/1,member_force_N,1694765.9693498067,1694765.9693498067,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/1,film_stress_Pa,1025664488.425769,1025664488.4250742,MATCH,-0.0006947517395019531,p s / (2 film thickness)
+/p3/1,film_mass_kg,348.856357015187,348.8563570154232,MATCH,2.362412487855181e-10,Full spherical area times gauge and inherited film density
+/p3/1,tube_mass_kg,3733.1853334618195,3794.671994894594,MISMATCH,61.486661432774326,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/1/combined_flight_gust,yield,3.9201095544110007,3.920109554407692,MATCH,-3.3089087025928166e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/1/combined_flight_gust,euler,1.448434128122406,1.4484341281268545,MATCH,4.448441615068077e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/1/combined_flight_gust,local,1.3798939772182242,1.3798939772210181,MATCH,2.793987263771669e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/1/combined_flight_gust,film,1.4682912720880468,1.468291272089771,MATCH,1.7241763572428681e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/1/combined_flight_gust,perry,1.3886033608605282,1.3886033608646566,MATCH,4.128475339371107e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/1/combined_flight_gust,global,1.3750643712117954,1.3750643712160504,MATCH,4.255040764178375e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/1,combined_least_SF,1.3750643712117954,1.3750643712160504,MATCH,4.255040764178375e-12,Minimum of reproduced conditional modes
+/p3/1,combined_least_mode,global,global,MATCH,,Minimum of reproduced conditional modes
+/p3/1,optimism_or_thickness_factor_to_SF1,1.0,1.0,MATCH,0.0,Reciprocal SF; not proof of proportional wall scaling
+/p3/1,extra_mass_kg_if_that_part_scales,0.0,0.0,MATCH,0.0,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/1,members_to_hold_mooring_add_to_5pct,1,1,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/2,s_m,6.15,6.15,MATCH,0.0,022c cap geometry
+/p3/2,half_wave_m,3.492501455359012,3.492501455362934,MATCH,3.921751812185903e-12,Declared formula; polar-radius definition retained
+/p3/2,half_wave_over_s,0.5678864155055304,0.567886415506168,MATCH,6.376010830422274e-13,Declared half-wave / spacing
+/p3/2,in_band,False,False,MATCH,,Declared half-wave test
+/p3/2,governing_filed,local,local,MATCH,,Independent minimum of 022c cap modes
+/p3/2/uniform,yield,3.75607531179,3.756075311792591,MATCH,2.5908164502652653e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/2/uniform,euler,1.35396688465,1.3539668846454178,MATCH,-4.582112467232946e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/2/uniform,local,1.29454034466,1.2945403446627521,MATCH,2.752242878045763e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/2/uniform,film,1.44271351144,1.4427135114359138,MATCH,-4.086286864435351e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/2/uniform,perry,1.29937293637,1.299372936373825,MATCH,3.824940364438589e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/2/uniform,global,1.30135480413,1.3013548041290186,MATCH,-9.814371537686384e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/2,film_alpha,4.5e-06,4.5e-06,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/2/thermal_day,film_alpha_used,4.5e-06,4.5e-06,MATCH,0.0,Selected film CTE
+/p3/2/thermal_day,shadow_fraction,0.1865199352334435,0.18651993523385896,MATCH,4.154454558147336e-13,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/2/thermal_day,T_film_subsolar_K,315.4206461465036,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/2/thermal_day,T_film_antisolar_K,289.56800962269097,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/2/thermal_day,T_tube_subsolar_K,292.7856777865219,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/2/thermal_day,T_tube_antisolar_K,284.86177510075254,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/2,thermal_night_subsolar_film_K,273.3052231914065,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/2,thermal_night_subsolar_tube_K,278.35277727725156,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/2/mismatch,eps_mechanical,-0.00010185735761991771,-0.00010185735761991771,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/2/mismatch,film_stress_Pa,-1520259.0689539958,-1520259.0689539958,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/2/mismatch,member_force_N,-1524.0222007477862,-1524.0222007496143,MATCH,-1.8280843505635858e-09,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/2,member_force_N,1694765.9693498067,1694765.9693498067,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/2,film_stress_Pa,1039707459.666659,1039707459.6654118,MATCH,-0.0012471675872802734,p s / (2 film thickness)
+/p3/2,film_mass_kg,344.1444741261899,344.14447412660274,MATCH,4.128537511860486e-10,Full spherical area times gauge and inherited film density
+/p3/2,tube_mass_kg,3581.5126092693927,3640.5011762956547,MISMATCH,58.98856702626199,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/2/combined_flight_gust,yield,3.7480347232959725,3.7480347232985616,MATCH,2.589040093425865e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/2/combined_flight_gust,euler,1.3510684628532275,1.3510684628486567,MATCH,-4.5707881923817695e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/2/combined_flight_gust,local,1.2917691365940553,1.2917691365968031,MATCH,2.7478019859472624e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/2/combined_flight_gust,film,1.4404342623900783,1.440434262386001,MATCH,-4.07740508023835e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/2/combined_flight_gust,perry,1.296591383228924,1.296591383232742,MATCH,3.818056981685913e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/2/combined_flight_gust,global,1.298569008426732,1.2985690084257542,MATCH,-9.778844400898379e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/2,combined_least_SF,1.2917691365940553,1.2917691365968031,MATCH,2.7478019859472624e-12,Minimum of reproduced conditional modes
+/p3/2,combined_least_mode,local,local,MATCH,,Minimum of reproduced conditional modes
+/p3/2,optimism_or_thickness_factor_to_SF1,1.0,1.0,MATCH,0.0,Reciprocal SF; not proof of proportional wall scaling
+/p3/2,extra_mass_kg_if_that_part_scales,0.0,0.0,MATCH,0.0,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/2,members_to_hold_mooring_add_to_5pct,1,1,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/3,s_m,6.15,6.15,MATCH,0.0,022c cap geometry
+/p3/3,half_wave_m,3.492501455359012,3.492501455362934,MATCH,3.921751812185903e-12,Declared formula; polar-radius definition retained
+/p3/3,half_wave_over_s,0.5678864155055304,0.567886415506168,MATCH,6.376010830422274e-13,Declared half-wave / spacing
+/p3/3,in_band,False,False,MATCH,,Declared half-wave test
+/p3/3,governing_filed,local,local,MATCH,,Independent minimum of 022c cap modes
+/p3/3/uniform,yield,3.75607531179,3.756075311792591,MATCH,2.5908164502652653e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/3/uniform,euler,1.35396688465,1.3539668846454178,MATCH,-4.582112467232946e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/3/uniform,local,1.29454034466,1.2945403446627521,MATCH,2.752242878045763e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/3/uniform,film,1.44271351144,1.4427135114359138,MATCH,-4.086286864435351e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/3/uniform,perry,1.29937293637,1.299372936373825,MATCH,3.824940364438589e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/3/uniform,global,1.30135480413,1.3013548041290186,MATCH,-9.814371537686384e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/3,film_alpha,1.7e-05,1.7e-05,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/3/thermal_day,film_alpha_used,1.7e-05,1.7e-05,MATCH,0.0,Selected film CTE
+/p3/3/thermal_day,shadow_fraction,0.1865199352334435,0.18651993523385896,MATCH,4.154454558147336e-13,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/3/thermal_day,T_film_subsolar_K,315.4206461465036,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/3/thermal_day,T_film_antisolar_K,289.56800962269097,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/3/thermal_day,T_tube_subsolar_K,292.7856777865219,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/3/thermal_day,T_tube_antisolar_K,284.86177510075254,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/3,thermal_night_subsolar_film_K,273.3052231914065,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/3,thermal_night_subsolar_tube_K,278.35277727725156,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/3/mismatch,eps_mechanical,-0.000483365434451213,-0.000483365434451213,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/3/mismatch,film_stress_Pa,-7214409.469421091,-7214409.469421091,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/3/mismatch,member_force_N,-7232.267460997803,-7232.267461006479,MATCH,-8.675669960211962e-09,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/3,member_force_N,1694765.9693498067,1694765.9693498067,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/3,film_stress_Pa,1039707459.666659,1039707459.6654118,MATCH,-0.0012471675872802734,p s / (2 film thickness)
+/p3/3,film_mass_kg,344.1444741261899,344.14447412660274,MATCH,4.128537511860486e-10,Full spherical area times gauge and inherited film density
+/p3/3,tube_mass_kg,3581.5126092693927,3640.5011762956547,MISMATCH,58.98856702626199,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/3/combined_flight_gust,yield,3.760674165567732,3.760674165570345,MATCH,2.6130209107577684e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/3/combined_flight_gust,euler,1.355624651123119,1.3556246511185384,MATCH,-4.580558154998471e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/3/combined_flight_gust,local,1.2961253506197523,1.2961253506225145,MATCH,2.7622348852673895e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/3/combined_flight_gust,film,1.448353909199044,1.4483539091949538,MATCH,-4.090283667324002e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/3/combined_flight_gust,perry,1.300963859245894,1.3009638592497303,MATCH,3.836264639289766e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/3/combined_flight_gust,global,1.3029481535600171,1.3029481535590413,MATCH,-9.758860386455126e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/3,combined_least_SF,1.2961253506197523,1.2961253506225145,MATCH,2.7622348852673895e-12,Minimum of reproduced conditional modes
+/p3/3,combined_least_mode,local,local,MATCH,,Minimum of reproduced conditional modes
+/p3/3,optimism_or_thickness_factor_to_SF1,1.0,1.0,MATCH,0.0,Reciprocal SF; not proof of proportional wall scaling
+/p3/3,extra_mass_kg_if_that_part_scales,0.0,0.0,MATCH,0.0,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/3,members_to_hold_mooring_add_to_5pct,1,1,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/4,s_m,0.55,0.55,MATCH,0.0,022c cap geometry
+/p3/4,half_wave_m,2.508991012485649,2.508991012486377,MATCH,7.278622149442526e-13,Declared formula; polar-radius definition retained
+/p3/4,half_wave_over_s,4.561801840882998,4.561801840884321,MATCH,1.3233858453531866e-12,Declared half-wave / spacing
+/p3/4,in_band,True,True,MATCH,,Declared half-wave test
+/p3/4,governing_filed,perry,perry,MATCH,,Independent minimum of 022c cap modes
+/p3/4/uniform,yield,0.417168959855,0.4171689598547063,MATCH,-2.9370950116458516e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/4/uniform,euler,53.091074319,53.09107431901818,MATCH,1.8182788608100964e-11,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/4/uniform,local,0.414010996767,0.4140109967668215,MATCH,-1.7846835120849391e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/4/uniform,film,0.437101571069,0.43710157106881414,MATCH,-1.858513343222512e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/4/uniform,perry,0.411790451893,0.41179045189293734,MATCH,-6.267208974009009e-14,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/4/uniform,global,0.765560371986,0.7655603719860388,MATCH,3.8746783559417963e-14,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/4,film_alpha,1.7e-05,1.7e-05,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/4/thermal_day,film_alpha_used,1.7e-05,1.7e-05,MATCH,0.0,Selected film CTE
+/p3/4/thermal_day,shadow_fraction,0.85,0.85,MATCH,0.0,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/4/thermal_day,T_film_subsolar_K,282.61623174935835,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/4/thermal_day,T_film_antisolar_K,283.93184508847776,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/4/thermal_day,T_tube_subsolar_K,291.42533250955705,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/4/thermal_day,T_tube_antisolar_K,284.86849713328604,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/4,thermal_night_subsolar_film_K,272.88408288264657,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/4,thermal_night_subsolar_tube_K,279.5218648874966,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/4/mismatch,eps_mechanical,6.818805655391452e-05,6.818805655391452e-05,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/4/mismatch,film_stress_Pa,527907.5346109512,527907.5346109512,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/4/mismatch,member_force_N,12.681147742863134,12.681147742871042,MATCH,7.908340649009915e-12,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/4,member_force_N,151564.43628331606,151564.43628331606,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/4,film_stress_Pa,347023828.07526094,347023828.0750445,MATCH,-0.00021642446517944336,p s / (2 film thickness)
+/p3/4,film_mass_kg,133.0872770003122,133.0872770003952,MATCH,8.29913915367797e-11,Full spherical area times gauge and inherited film density
+/p3/4,tube_mass_kg,4082.490566662958,4083.0053057749465,MISMATCH,0.5147391119885469,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/4/combined_flight_gust,yield,0.4158680406684497,0.4158680406681569,MATCH,-2.927658115936538e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/4/combined_flight_gust,euler,52.92551263090086,52.92551263091899,MATCH,1.8125945189240156e-11,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/4/combined_flight_gust,local,0.41271992552017417,0.41271992551999626,MATCH,-1.7791323969618134e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/4/combined_flight_gust,film,0.4351149335652014,0.435114933565016,MATCH,-1.8540724511240114e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/4/combined_flight_gust,perry,0.41050630529711707,0.41050630529705456,MATCH,-6.250555628639631e-14,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/4/combined_flight_gust,global,0.7631730127329881,0.7631730127330267,MATCH,3.863576125695545e-14,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/4,combined_least_SF,0.41050630529711707,0.41050630529705456,MATCH,-6.250555628639631e-14,Minimum of reproduced conditional modes
+/p3/4,combined_least_mode,perry,perry,MATCH,,Minimum of reproduced conditional modes
+/p3/4,optimism_or_thickness_factor_to_SF1,2.4360161758690113,2.436016175869382,MATCH,3.708144902248023e-13,Reciprocal SF; not proof of proportional wall scaling
+/p3/4,extra_mass_kg_if_that_part_scales,5862.522491560654,5862.5224915621675,MATCH,1.5133991837501526e-09,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/4,members_to_hold_mooring_add_to_5pct,7,7,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/5,s_m,0.55,0.55,MATCH,0.0,022c cap geometry
+/p3/5,half_wave_m,2.486066473205247,2.4860664732052014,MATCH,-4.574118861455645e-14,Declared formula; polar-radius definition retained
+/p3/5,half_wave_over_s,4.520120860373176,4.520120860373093,MATCH,-8.260059303211165e-14,Declared half-wave / spacing
+/p3/5,in_band,True,True,MATCH,,Declared half-wave test
+/p3/5,governing_filed,perry,perry,MATCH,,Independent minimum of 022c cap modes
+/p3/5/uniform,yield,0.401119251744,0.4011192517438182,MATCH,-1.8179902028236938e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/5/uniform,euler,49.2082089363,49.208208936343084,MATCH,4.3087311496492475e-11,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/5/uniform,local,0.396690072456,0.39669007245559906,MATCH,-4.009570453433753e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/5/uniform,film,0.43119779041,0.43119779040958817,MATCH,-4.118372309847018e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/5/uniform,perry,0.395851626757,0.3958516267571625,MATCH,1.6253665080512292e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/5/uniform,global,0.722716927636,0.7227169276362029,MATCH,2.028377465990161e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/5,film_alpha,1.7e-05,1.7e-05,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/5/thermal_day,film_alpha_used,1.7e-05,1.7e-05,MATCH,0.0,Selected film CTE
+/p3/5/thermal_day,shadow_fraction,0.85,0.85,MATCH,0.0,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/5/thermal_day,T_film_subsolar_K,282.61623174935835,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/5/thermal_day,T_film_antisolar_K,283.93184508847776,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/5/thermal_day,T_tube_subsolar_K,291.38841513082343,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/5/thermal_day,T_tube_antisolar_K,284.8686784586911,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/5,thermal_night_subsolar_film_K,272.88408288264657,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/5,thermal_night_subsolar_tube_K,279.5532469768067,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/5/mismatch,eps_mechanical,6.802192834961324e-05,6.802192834961324e-05,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/5/mismatch,film_stress_Pa,526621.3807711992,526621.3807711992,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/5/mismatch,member_force_N,12.479389747392137,12.4793897473882,MATCH,-3.936406756110955e-12,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/5,member_force_N,151564.43628331606,151564.43628331606,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/5,film_stress_Pa,351775133.8794784,351775133.8795894,MATCH,0.00011098384857177734,p s / (2 film thickness)
+/p3/5,film_mass_kg,131.28971290103811,131.2897129009967,MATCH,-4.141043064009864e-11,Full spherical area times gauge and inherited film density
+/p3/5,tube_mass_kg,3925.4252327975605,3925.920168386683,MISMATCH,0.49493558912263325,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/5/combined_flight_gust,yield,0.39986891335100716,0.3998689133508259,MATCH,-1.812439087700568e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/5/combined_flight_gust,euler,49.05482085378848,49.05482085383143,MATCH,4.2952308376698056e-11,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/5/combined_flight_gust,local,0.3954535403634755,0.3954535403630759,MATCH,-3.996247777138251e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/5/combined_flight_gust,film,0.4292483276516342,0.42924832765122445,MATCH,-4.09727807237914e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/5/combined_flight_gust,perry,0.3946177082035748,0.3946177082037368,MATCH,1.620370504440416e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/5/combined_flight_gust,global,0.720464129452018,0.7204641294522203,MATCH,2.0228263508670352e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/5,combined_least_SF,0.3946177082035748,0.3946177082037368,MATCH,1.620370504440416e-13,Minimum of reproduced conditional modes
+/p3/5,combined_least_mode,perry,perry,MATCH,,Minimum of reproduced conditional modes
+/p3/5,optimism_or_thickness_factor_to_SF1,2.5340981390630386,2.534098139061998,MATCH,-1.0405010186786967e-12,Reciprocal SF; not proof of proportional wall scaling
+/p3/5,extra_mass_kg_if_that_part_scales,6021.9875446658325,6021.987544661748,MATCH,-4.084540705662221e-09,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/5,members_to_hold_mooring_add_to_5pct,7,7,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/6,s_m,1.85,1.85,MATCH,0.0,022c cap geometry
+/p3/6,half_wave_m,2.75688202321029,2.756882023210912,MATCH,6.217248937900877e-13,Declared formula; polar-radius definition retained
+/p3/6,half_wave_over_s,1.4902064990325892,1.4902064990329253,MATCH,3.361755318564974e-13,Declared half-wave / spacing
+/p3/6,in_band,True,True,MATCH,,Declared half-wave test
+/p3/6,governing_filed,film,film,MATCH,,Independent minimum of 022c cap modes
+/p3/6/uniform,yield,3.43562499303,3.4356249930297644,MATCH,-2.353672812205332e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/6/uniform,euler,5.47468903403,5.474689034033089,MATCH,3.0890845437170356e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/6/uniform,local,0.761765644494,0.7617656444937001,MATCH,-2.998712389512548e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/6/uniform,film,0.739113638303,0.7391136383028991,MATCH,-1.0091927293842673e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/6/uniform,perry,3.16415609359,3.164156093592673,MATCH,2.672972954087527e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/6/uniform,global,0.741703542024,0.7417035420241839,MATCH,1.8385293287792592e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/6,film_alpha,2e-05,2e-05,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/6/thermal_day,film_alpha_used,2e-05,2e-05,MATCH,0.0,Selected film CTE
+/p3/6/thermal_day,shadow_fraction,0.38582600069220274,0.38582600069237666,MATCH,1.7391643680753077e-13,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/6/thermal_day,T_film_subsolar_K,315.70889049211894,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/6/thermal_day,T_film_antisolar_K,289.69033876102094,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/6/thermal_day,T_tube_subsolar_K,294.26713316208634,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/6/thermal_day,T_tube_antisolar_K,284.88725995984043,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/6,thermal_night_subsolar_film_K,273.08697089884936,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/6,thermal_night_subsolar_tube_K,282.7375903175813,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/6/mismatch,eps_mechanical,-0.0005356204646484366,-0.0005356204646484366,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/6/mismatch,film_stress_Pa,-2028865.3963955934,-2028865.3963955934,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/6/mismatch,member_force_N,-1224.5049434236644,-1224.5049434227083,MATCH,9.561063052387908e-10,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/6,member_force_N,509807.6493166085,509807.6493166085,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/6,film_stress_Pa,156268257.02352458,156268257.0236466,MATCH,0.00012201070785522461,p s / (2 film thickness)
+/p3/6,film_mass_kg,1008.3107910292986,1008.3107910285114,MATCH,-7.871676643844694e-10,Full spherical area times gauge and inherited film density
+/p3/6,tube_mass_kg,4681.445574594023,3280.644870479246,MISMATCH,-1400.800704114777,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/6/combined_flight_gust,yield,3.4334185493784717,3.43341854937823,MATCH,-2.4158453015843406e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/6/combined_flight_gust,euler,5.471173052836554,5.471173052839631,MATCH,3.076650045841234e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/6/combined_flight_gust,local,0.7612764196881333,0.7612764196878321,MATCH,-3.0120350658080497e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/6/combined_flight_gust,film,0.7465331988425643,0.7465331988424546,MATCH,-1.0969003483296547e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/6/combined_flight_gust,perry,3.162123994004245,3.1621239940069104,MATCH,2.665423437520076e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/6/combined_flight_gust,global,0.7412272015983322,0.7412272015985146,MATCH,1.8240964294591322e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/6,combined_least_SF,0.7412272015983322,0.7412272015985146,MATCH,1.8240964294591322e-13,Minimum of reproduced conditional modes
+/p3/6,combined_least_mode,global,global,MATCH,,Minimum of reproduced conditional modes
+/p3/6,optimism_or_thickness_factor_to_SF1,1.3491140069383147,1.3491140069379828,MATCH,-3.319566843629218e-13,Reciprocal SF; not proof of proportional wall scaling
+/p3/6,extra_mass_kg_if_that_part_scales,1634.3582228101607,1634.3582228086066,MATCH,-1.5540990716544911e-09,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/6,members_to_hold_mooring_add_to_5pct,2,2,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/7,s_m,1.85,1.85,MATCH,0.0,022c cap geometry
+/p3/7,half_wave_m,2.7415446123666207,2.74154461236086,MATCH,-5.760725230175012e-12,Declared formula; polar-radius definition retained
+/p3/7,half_wave_over_s,1.4819160066846597,1.4819160066815458,MATCH,-3.113953539468639e-12,Declared half-wave / spacing
+/p3/7,in_band,True,True,MATCH,,Declared half-wave test
+/p3/7,governing_filed,global,global,MATCH,,Independent minimum of 022c cap modes
+/p3/7/uniform,yield,3.28700995308,3.287009953080323,MATCH,3.228528555609955e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/7/uniform,euler,5.12227941877,5.122279418769755,MATCH,-2.4513724383723456e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/7/uniform,local,0.708276178104,0.7082761781039234,MATCH,-7.66053886991358e-14,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/7/uniform,film,0.719282566969,0.7192825669694574,MATCH,4.574118861455645e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/7/uniform,perry,3.01803070154,3.0180307015348538,MATCH,-5.146105763742526e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/7/uniform,global,0.701745910728,0.7017459107278026,MATCH,-1.9739765377835283e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/7,film_alpha,2e-05,2e-05,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/7/thermal_day,film_alpha_used,2e-05,2e-05,MATCH,0.0,Selected film CTE
+/p3/7/thermal_day,shadow_fraction,0.38151716055523577,0.3815171605536382,MATCH,-1.597555421284369e-12,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/7/thermal_day,T_film_subsolar_K,315.91513258108796,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/7/thermal_day,T_film_antisolar_K,289.73082979818776,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/7/thermal_day,T_tube_subsolar_K,294.22891802356344,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/7/thermal_day,T_tube_antisolar_K,284.8873124643378,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/7,thermal_night_subsolar_film_K,273.08697089884936,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/7,thermal_night_subsolar_tube_K,282.7465220897568,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/7/mismatch,eps_mechanical,-0.0005400739566191139,-0.0005400739566191139,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/7/mismatch,film_stress_Pa,-2045734.6841633103,-2045734.6841633103,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/7/mismatch,member_force_N,-1201.5585403583598,-1201.5585403588861,MATCH,-5.263700586510822e-10,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/7,member_force_N,509807.6493166085,509807.6493166085,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/7,film_stress_Pa,160576670.84395644,160576670.84388608,MATCH,-7.036328315734863e-05,p s / (2 film thickness)
+/p3/7,film_mass_kg,981.2569224658957,981.2569224663256,MATCH,4.298499334254302e-10,Full spherical area times gauge and inherited film density
+/p3/7,tube_mass_kg,4478.93999775417,3138.733815147143,MISMATCH,-1340.2061826070267,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/7/combined_flight_gust,yield,3.2847512022479144,3.2847512022482404,MATCH,3.2596148002994596e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/7/combined_flight_gust,euler,5.118759516772599,5.118759516772359,MATCH,-2.398081733190338e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/7/combined_flight_gust,local,0.707789468471393,0.7077894684713172,MATCH,-7.582823258189819e-14,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/7/combined_flight_gust,film,0.7263245677269734,0.7263245677274395,MATCH,4.660716257376407e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/7/combined_flight_gust,perry,3.015956786506072,3.015956786500932,MATCH,-5.139888514804625e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/7/combined_flight_gust,global,0.7012636885314154,0.7012636885312188,MATCH,-1.9662049766111522e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/7,combined_least_SF,0.7012636885314154,0.7012636885312188,MATCH,-1.9662049766111522e-13,Minimum of reproduced conditional modes
+/p3/7,combined_least_mode,global,global,MATCH,,Minimum of reproduced conditional modes
+/p3/7,optimism_or_thickness_factor_to_SF1,1.4259971197057093,1.425997119706109,MATCH,3.9968028886505635e-13,Reciprocal SF; not proof of proportional wall scaling
+/p3/7,extra_mass_kg_if_that_part_scales,1908.0155383779725,1908.0155383797626,MATCH,1.790112946764566e-09,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/7,members_to_hold_mooring_add_to_5pct,2,2,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/8,s_m,5.5,5.5,MATCH,0.0,022c cap geometry
+/p3/8,half_wave_m,3.498258331758169,3.498258331762516,MATCH,4.347189275222263e-12,Declared formula; polar-radius definition retained
+/p3/8,half_wave_over_s,0.6360469694105761,0.6360469694113665,MATCH,7.903677712306489e-13,Declared half-wave / spacing
+/p3/8,in_band,False,False,MATCH,,Declared half-wave test
+/p3/8,governing_filed,global,global,MATCH,,Independent minimum of 022c cap modes
+/p3/8/uniform,yield,4.27236643954,4.272366439538444,MATCH,-1.5560885913146194e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/8/uniform,euler,1.95142954175,1.9514295417460095,MATCH,-3.990585639712663e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/8/uniform,local,1.49206896315,1.4920689631463961,MATCH,-3.603783937933258e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/8/uniform,film,1.49375231321,1.4937523132144275,MATCH,4.427569422205124e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/8/uniform,perry,1.8504480324,1.8504480324014165,MATCH,1.4164225348167747e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/8/uniform,global,1.48511637206,1.485116372061488,MATCH,1.4879208976026348e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/8,film_alpha,-6e-06,-6e-06,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/8/thermal_day,film_alpha_used,-6e-06,-6e-06,MATCH,0.0,Selected film CTE
+/p3/8/thermal_day,shadow_fraction,0.20926180495741886,0.20926180495793661,MATCH,5.177525075339418e-13,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/8/thermal_day,T_film_subsolar_K,317.4188083455216,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/8/thermal_day,T_film_antisolar_K,289.9560362148562,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/8/thermal_day,T_tube_subsolar_K,292.7925653479965,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/8/thermal_day,T_tube_antisolar_K,284.861740850924,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/8,thermal_night_subsolar_film_K,273.3052231914065,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/8,thermal_night_subsolar_tube_K,278.3467900339074,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/8/mismatch,eps_mechanical,0.00019905913274712798,0.00019905913274712798,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/8/mismatch,film_stress_Pa,51186634.13497577,51186634.13497577,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/8/mismatch,member_force_N,18315.37932533707,18315.379325398215,MATCH,6.114350981079042e-08,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/8,member_force_N,1515644.3628331604,1515644.3628331604,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/8,film_stress_Pa,2329703505.2102814,2329703505.2025037,MATCH,-0.007777690887451172,p s / (2 film thickness)
+/p3/8,film_mass_kg,220.89798035910516,220.89798035984268,MATCH,7.375149380095536e-10,Full spherical area times gauge and inherited film density
+/p3/8,tube_mass_kg,2102.6112155993883,4126.9865492776535,MISMATCH,2024.3753336782652,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/8/combined_flight_gust,yield,4.208694144838094,4.208694144836394,MATCH,-1.6999734953060397e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/8/combined_flight_gust,euler,1.922346831118632,1.9223468311146241,MATCH,-4.007905118896815e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/8/combined_flight_gust,local,1.469832234142391,1.4698322341387824,MATCH,-3.608668919241609e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/8/combined_flight_gust,film,1.4572968066993481,1.4572968067035637,MATCH,4.215516824501719e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/8/combined_flight_gust,perry,1.822870277982891,1.8228702779842134,MATCH,1.3224976669334865e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/8/combined_flight_gust,global,1.4629832594989411,1.4629832595003487,MATCH,1.4075407506197735e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/8,combined_least_SF,1.4572968066993481,1.4572968067035637,MATCH,4.215516824501719e-12,Minimum of reproduced conditional modes
+/p3/8,combined_least_mode,film,film,MATCH,,Minimum of reproduced conditional modes
+/p3/8,optimism_or_thickness_factor_to_SF1,1.0,1.0,MATCH,0.0,Reciprocal SF; not proof of proportional wall scaling
+/p3/8,extra_mass_kg_if_that_part_scales,0.0,0.0,MATCH,0.0,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/8,members_to_hold_mooring_add_to_5pct,1,1,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+/p3/9,s_m,5.7,5.7,MATCH,0.0,022c cap geometry
+/p3/9,half_wave_m,3.4929556465917275,3.4929556465901266,MATCH,-1.6009416015094757e-12,Declared formula; polar-radius definition retained
+/p3/9,half_wave_over_s,0.6127992362441627,0.6127992362438819,MATCH,-2.807754029277021e-13,Declared half-wave / spacing
+/p3/9,in_band,False,False,MATCH,,Declared half-wave test
+/p3/9,governing_filed,film,film,MATCH,,Independent minimum of 022c cap modes
+/p3/9/uniform,yield,4.09294415772,4.0929441577209476,MATCH,9.476863738200336e-13,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/9/uniform,euler,1.72663320583,1.7266332058326266,MATCH,2.6265656316581953e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/9/uniform,local,1.42740041766,1.427400417657701,MATCH,-2.298827794788849e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/9/uniform,film,1.41704657175,1.4170465717477383,MATCH,-2.261746345766369e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/9/uniform,perry,1.64487373383,1.644873733832694,MATCH,2.694067191555405e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/9/uniform,global,1.41843747897,1.4184374789671248,MATCH,-2.8752555891742304e-12,"Independent annular section, arc length, SiC and 022c mode equations"
+/p3/9,film_alpha,-6e-06,-6e-06,DECLARED_INPUT,0.0,Declared thermal material assumption
+/p3/9/thermal_day,film_alpha_used,-6e-06,-6e-06,MATCH,0.0,Selected film CTE
+/p3/9/thermal_day,shadow_fraction,0.20130653165388426,0.2013065316537036,MATCH,-1.806610416821286e-13,"Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+/p3/9/thermal_day,T_film_subsolar_K,317.72593803564996,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/9/thermal_day,T_film_antisolar_K,290.01612192108325,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/9/thermal_day,T_tube_subsolar_K,292.7863054832121,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/9/thermal_day,T_tube_antisolar_K,284.86177197949655,,UNRESOLVED,,"Missing film/tube optical properties, heat balances, speed and complete view factors"
+/p3/9,thermal_night_subsolar_film_K,273.3052231914065,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/9,thermal_night_subsolar_tube_K,278.35223166138985,,UNRESOLVED,,Night thermal boundary-value problem unspecified
+/p3/9/mismatch,eps_mechanical,0.000200898780955506,0.000200898780955506,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/9/mismatch,film_stress_Pa,51659686.53141583,51659686.53141583,MATCH,0.0,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/9/mismatch,member_force_N,18833.93107624103,18833.93107628243,MATCH,4.1400198824703693e-08,"Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+/p3/9,member_force_N,1570758.703299821,1570758.703299821,MATCH,0.0,p R s / (2 sqrt(3))
+/p3/9,film_stress_Pa,2455812017.3252554,2455812017.3198566,MATCH,-0.005398750305175781,p s / (2 film thickness)
+/p3/9,film_mass_kg,217.1748070131799,217.17480701365733,MATCH,4.774278750119265e-10,Full spherical area times gauge and inherited film density
+/p3/9,tube_mass_kg,2014.309964427877,3957.5886775659837,MISMATCH,1943.2787131381067,"All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+/p3/9/combined_flight_gust,yield,4.032318754822479,4.032318754823307,MATCH,8.277822871605167e-13,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/9/combined_flight_gust,euler,1.7010580135659568,1.7010580135684998,MATCH,2.5430768602063836e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/9/combined_flight_gust,local,1.4062575136568987,1.4062575136545974,MATCH,-2.3012702854430245e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/9/combined_flight_gust,film,1.3837261446509181,1.3837261446486468,MATCH,-2.2712942637781453e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/9/combined_flight_gust,perry,1.6205095771285454,1.620509577131157,MATCH,2.6116886431282182e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/9/combined_flight_gust,global,1.3974273355784022,1.397427335575533,MATCH,-2.8692603848412546e-12,Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional
+/p3/9,combined_least_SF,1.3837261446509181,1.3837261446486468,MATCH,-2.2712942637781453e-12,Minimum of reproduced conditional modes
+/p3/9,combined_least_mode,film,film,MATCH,,Minimum of reproduced conditional modes
+/p3/9,optimism_or_thickness_factor_to_SF1,1.0,1.0,MATCH,0.0,Reciprocal SF; not proof of proportional wall scaling
+/p3/9,extra_mass_kg_if_that_part_scales,0.0,0.0,MATCH,0.0,Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design
+/p3/9,members_to_hold_mooring_add_to_5pct,1,1,MATCH,0,"Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"

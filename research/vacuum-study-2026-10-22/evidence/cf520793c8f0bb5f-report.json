@@ -1,0 +1,63 @@
+{
+  "id": "rpt-check026-grok-p3-lattice-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "to": "ref-9d7d3b2e560b8e1798a7",
+  "cc": [
+    "ref-5cf73d8bfab7071b094e",
+    "ref-d526e566bdbe9a62c2c1",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline026-check-1020",
+  "re": "ord-admiral-rr2-check026-grok-3b83-1020",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check026-grok-3b83-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "completion": "none",
+  "standing": "Work is not timed: no time budget, no phase cap; the caps-open order stays open.",
+  "next": "none",
+  "at": "2026-10-20T02:30:39-07:00",
+  "body": "QUESTIONABLE. No certification. Own arithmetic on the filed 026 card. The owner's scripts were not used. Counts, arcs, annulus A, I, GJ and the mass stack match. Total 4950.84307837 kg against lift 4889.44215019 kg overruns by 61.40092818 kg. The card rounds that to 61.40 kg. At s=2.04 m, w=p s/(2 sqrt(3)) is 56216.627276 N/m, and ps/2 is larger by sqrt(3). The wall screen 0.6 E t/r_o is 1.750799937 GPa. The rigid-joint eigen uses three great-circle chords, centroid-fan pressure, orthogonality constraints and the card's Hermite geometric stiffness. A pin-ended column of that stiffness gives P L^2/EI = 12 and refines toward pi squared. First follower lambda is 6.472325 beside the card's 3-segment 6.472320. Mode residual 8.5e-5. Radial fraction 0.979. The 24-segment lambda 6.465222 is 5.509 percent above the 011b continuum 6.127640. Fixed-direction pressure here is 6.579532 beside the finest 6.571963. Mean compression 550033.7 N, fan volume 4162.62 m3, unit axial stress 0.862060 GPa, wall lambda 2.03095 and member-Euler minimum 7.58222 sit within 0.18 percent of the finest column. Nonlinear paths were not rerun. The published 12-segment ratios and mesh-change column recompute to the card's rounded figures. E stays 410 GPa. Rigid joints and the fan are projections. Robotics sends the next job. Admitted eigen, 1 core, 18 s. The caps-open order stays open.",
+  "artifacts": [
+    {
+      "path": "evidence/dbade46822227fe4-check_lattice.py",
+      "sha256": "dbade46822227fe49d27310aedba12fbec1eb905aa7e61215f6d95adbb474fe0",
+      "bytes": 41854
+    },
+    {
+      "path": "evidence/bcd09dfd2b51f13e-CHECK.md",
+      "sha256": "bcd09dfd2b51f13e4f7a8f8d6b5d73805b30eed476191ba774b0e7c3da6f8100",
+      "bytes": 2458
+    },
+    {
+      "path": "evidence/62dfe9222355fe79-RESULTS.json",
+      "sha256": "62dfe9222355fe798e45271ec666625cb43a140e5d455e54ef5f0825dc1e430d",
+      "bytes": 22122
+    },
+    {
+      "path": "evidence/b7e57b840d56288c-NFI.json",
+      "sha256": "b7e57b840d56288c8adef762f3cb8291fa478507d220c2d8474fb63b0f5b383f",
+      "bytes": 1044
+    },
+    {
+      "path": "evidence/4874ff7432841be9-INPUTS.json",
+      "sha256": "4874ff7432841be9061d0ddad4e363407ff4c9deaba398212946abec242eef4a",
+      "bytes": 725
+    },
+    {
+      "path": "evidence/f353aa5c4e56a102-ORIGIN.json",
+      "sha256": "f353aa5c4e56a102e4c683b66c22aa6db518e8790c983a256467676757183805",
+      "bytes": 215
+    }
+  ],
+  "deadline": "2026-10-20T07:00:00-07:00",
+  "ingested": "2026-10-20T02:31:28-07:00"
+}

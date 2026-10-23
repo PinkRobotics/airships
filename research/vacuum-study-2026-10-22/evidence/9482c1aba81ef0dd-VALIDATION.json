@@ -1,0 +1,119 @@
+{
+  "schema": "mainline061-validation-v1",
+  "unit": "vacuum-mainline061-improvement-targets-growth-1020",
+  "status": "PASS",
+  "performed_by": "author arithmetic checks; not independent REVIEW-A",
+  "measured_at": "2026-10-20T09:32:23.808454-07:00",
+  "checks": [
+    {
+      "check": "No NaN/Infinity in delivered numerical data",
+      "passed": true,
+      "evidence": "All numeric leaves visited."
+    },
+    {
+      "check": "Itemized mass plus growth closes each payload account",
+      "passed": true,
+      "evidence": {
+        "records": 240,
+        "max_error_kg": 4.3655745685100555e-11
+      }
+    },
+    {
+      "check": "Nominal mass and growth entries are nonnegative",
+      "passed": true,
+      "evidence": "Every item, including reserves and growth."
+    },
+    {
+      "check": "Correct NASA columns and embedded-margin arithmetic",
+      "passed": true,
+      "evidence": {
+        "maximum_line_error_kg": 1.1368683772161603e-13,
+        "TRL7_hardware": 0.05,
+        "TRL7_battery": 0.06,
+        "concept_battery": 0.25,
+        "checked_against": "pinned source classifications and actual sleeves"
+      }
+    },
+    {
+      "check": "All 16 finite single-variable targets meet the scalar constraints",
+      "passed": true,
+      "evidence": {
+        "count": 16,
+        "min_payload_kg": -0.0003823115330305882,
+        "min_constraint_ratio": 1.0000000000839957
+      }
+    },
+    {
+      "check": "All 12 combination witnesses meet the same constraints",
+      "passed": true,
+      "evidence": {
+        "count": 12,
+        "min_payload_kg": -0.001266563584067626,
+        "min_constraint_ratio": 1.0000000000873517
+      }
+    },
+    {
+      "check": "Product values match their factors and do not exceed best single",
+      "passed": true,
+      "evidence": "Twelve case/basis products."
+    },
+    {
+      "check": "P2 vacuum pressure and factor physical caps retained",
+      "passed": true,
+      "evidence": "24-hour vacuum screen, gamma≤1 and Q≤0.82."
+    },
+    {
+      "check": "P3 retention capped and battery explicit",
+      "passed": true,
+      "evidence": "Perfect retention is a cap, not an extrapolation above one."
+    },
+    {
+      "check": "P3 named-lever and stronger relief bounds remain negative",
+      "passed": true,
+      "evidence": {
+        "least_negative_relief_bound_kg": -264.4148051844559,
+        "scope": "inherited constant-g/R family only"
+      }
+    },
+    {
+      "check": "Reproduce four direct P2 frozen bills",
+      "passed": true,
+      "evidence": {
+        "max_fixed_geometry_error_kg": 0.0,
+        "max_optimizer_difference_kg": 2.801951086439658e-05
+      }
+    },
+    {
+      "check": "Reproduce six seven-day P3 source rows",
+      "passed": true,
+      "evidence": {
+        "max_payload_error_kg": 1.772946234268602e-10,
+        "max_capture_error_kg": 3.495870259939693e-12
+      }
+    },
+    {
+      "check": "All used local data and dispatch brief/authority pins match",
+      "passed": true,
+      "evidence": {
+        "verified_files": 35,
+        "PROCESS_v2_current_source_drift": "recovered original bytes match declared dispatch pin"
+      }
+    },
+    {
+      "check": "NFI identifiers are unique and review is explicitly pending",
+      "passed": true,
+      "evidence": {
+        "nfi_count": 21,
+        "independent_review": "pending REVIEW-A under PROCESS-v2"
+      }
+    },
+    {
+      "check": "Be shares use mine-content denominator and separate nominal/budget",
+      "passed": true,
+      "evidence": {
+        "denominator_kg_Be": 430000,
+        "rows": 4
+      }
+    }
+  ]
+}

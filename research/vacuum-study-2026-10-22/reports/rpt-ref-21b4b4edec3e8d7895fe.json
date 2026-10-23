@@ -1,0 +1,49 @@
+{
+  "id": "rpt-ref-21b4b4edec3e8d7895fe",
+  "unit": "vacuum-mainline070-graphite-face-1020",
+  "at": "2026-10-20T18:48:13-07:00",
+  "body": "MAINLINE-070 is filed. A graphite-film P2 floats in no case. QUESTIONABLE. PROJECTION. No qualified hull safety factor.\n\nAt gamma 0.20 the face still needs density factor 1.693 at concept and 1.478 at TRL 7, set by R 20 optimistic, to 1329 and 1522 kg/m3, at 969 GPa. Payloads in R 20 ISA, R 20 optimistic, R 30 ISA, R 30 optimistic order: concept -16149.9, -17974.2, -52721.1, -58887.8 kg; TRL 7 -11268.6, -12971.3, -36447.5, -42202.5 kg. Global buckling and scarf shear co-bind. Wrinkling is near 1.376, face compression near 4.25, thermal interface near 1.071. Strength from 379.2 MPa to 1.29 GPa does not move a payload.\n\nThe film is 969 GPa at 2250 kg/m3, DOI 10.1038/s41467-025-62227-6, uniaxial tension, gauges about 2 to 145 micrometres, against faces of 1.645 to 2.534 mm. Expansion is the HOPG catalogue magnitude 1.0e-6 per K, a different product, sign not credited. Interface, cure and core-wall stay on 12.3e-6 and do not see the face, so thermal does not bind.\n\nVc is 3.02 to 3.45, outside the named CR-1457 support for gamma 0.20. Version 7's step therefore sets gamma to 1. Payloads stay negative. Scarf shear and core shear crimping co-bind, the core is about 17 to 27 mm, and the worst factors are 1.248 concept and 1.126 TRL 7.\n\nA ten-percent adhesive projection, 872.1 GPa at 2145 kg/m3, is -14140 kg at concept R 20 ISA and does not float. BETA is 1, Q is 0.33. No finite-element run. The 066 baselines reproduced within 0.001 kg.",
+  "artifacts": [
+    {
+      "path": "evidence/40310d6d87090aba-CARD.md",
+      "sha256": "40310d6d87090abadfd3cd16472661e9baf4c3d68d5b3a4cc5c42b1c46286990",
+      "bytes": 3448
+    },
+    {
+      "path": "evidence/0bf313b068a05a24-RESULTS.json",
+      "sha256": "0bf313b068a05a2446c69dfa88223831130a89582f3a6dc16da5a820aeef4979",
+      "bytes": 57727
+    },
+    {
+      "path": "evidence/2308cdf0b2bf04fc-NFI.json",
+      "sha256": "2308cdf0b2bf04fc49df27364f9ba7859db84303049cbfcc427f99018f8210f7",
+      "bytes": 1904
+    },
+    {
+      "path": "evidence/3144c2b417129659-INPUTS.json",
+      "sha256": "3144c2b417129659e4b74968b18570618f789cfbf364457df52de3ffe3ffd6e3",
+      "bytes": 6817
+    },
+    {
+      "path": "evidence/ceb992196f231915-RUN.json",
+      "sha256": "ceb992196f231915f9d3eada97fb6579d9d461c4e8816e4d1eaa9cc0373efab0",
+      "bytes": 60283
+    },
+    {
+      "path": "evidence/b7633306d6e1ebaf-RUN-GAMMA020.json",
+      "sha256": "b7633306d6e1ebafc4dc6512dd237aefba81449d81677e4008dec5288bd9aee6",
+      "bytes": 47060
+    }
+  ],
+  "from": "ref-5ad28e8f7a8e27ce8bc1",
+  "from_seat": "ref-5ad28e8f7a8e27ce8bc1",
+  "re": "ord-admiral-rr2-mainline070-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline070-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

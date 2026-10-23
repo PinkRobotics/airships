@@ -1,0 +1,1126 @@
+{
+  "schema": 1,
+  "card_checked": "MAINLINE-007b",
+  "owner_report": "rpt-ref-3dd5ab5528276031581d",
+  "checker_order": "ord-admiral-rr2-check006-007-007b-muse-1019",
+  "unit": "vacuum-mainline007b-check-1019",
+  "start_script": "2026-10-19T23:31:06.905412-07:00",
+  "end_script": "2026-10-19T23:31:06.906902-07:00",
+  "script_elapsed_s": 0.0014738321769982576,
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "R_m": 10.0,
+    "kd": 0.2,
+    "p_ext_Pa": 95460.83791390515,
+    "biaxial_factor_solved": 0.6823278038280193,
+    "biaxial_check_x3_plus_x": 0.9999999999999999
+  },
+  "comparisons": [
+    {
+      "material": "ROHACELL 31 IG-F",
+      "geometry": "rho_32.0_max_buckling_SF",
+      "checker": {
+        "Vc": 0.37738898771364804,
+        "Kc": 0.905652753071588,
+        "gamma_d": 0.2,
+        "SF_general": 0.10622616861328742,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.9056527530715882,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "foam_wrinkling": {
+          "uniaxial_Pa": 128784922.7041334,
+          "advisory_uniaxial_Pa": 123929254.21667479,
+          "equibiaxial_allowable_Pa": 87873533.47487256,
+          "SF_wr_equibiaxial": 0.12449046966262502,
+          "SF_wr_advisory_uniaxial": 0.17557062351184885,
+          "SF_ratio_sourced_over_advisory": 0.7090620695678252
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.37738898771364804,
+          "checker_value": 0.37738898771364804,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.905652753071588,
+          "checker_value": 0.905652753071588,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.10622616861328742,
+          "checker_value": 0.10622616861328742,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9056527530715882,
+          "checker_value": 0.9056527530715882,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.uniaxial_Pa": {
+          "card_value": 128784922.7041334,
+          "checker_value": 128784922.7041334,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.advisory_uniaxial_Pa": {
+          "card_value": 123929254.21667479,
+          "checker_value": 123929254.21667479,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.equibiaxial_allowable_Pa": {
+          "card_value": 87873533.47487257,
+          "checker_value": 87873533.47487256,
+          "rel_diff": 1.6957507687008674e-16,
+          "match": true
+        },
+        "foam.SF_wr_equibiaxial": {
+          "card_value": 0.12449046966262503,
+          "checker_value": 0.12449046966262502,
+          "rel_diff": 1.1147670858198147e-16,
+          "match": true
+        },
+        "foam.SF_wr_advisory_uniaxial": {
+          "card_value": 0.17557062351184885,
+          "checker_value": 0.17557062351184885,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.SF_ratio_sourced_over_advisory": {
+          "card_value": 0.7090620695678252,
+          "checker_value": 0.7090620695678252,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "ROHACELL 31 IG-F",
+      "geometry": "rho_32.0_max_least_SF",
+      "checker": {
+        "Vc": 0.37738898771364804,
+        "Kc": 0.905652753071588,
+        "gamma_d": 0.2,
+        "SF_general": 0.10622616861328742,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.9056527530715882,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "foam_wrinkling": {
+          "uniaxial_Pa": 128784922.7041334,
+          "advisory_uniaxial_Pa": 123929254.21667479,
+          "equibiaxial_allowable_Pa": 87873533.47487256,
+          "SF_wr_equibiaxial": 0.12449046966262502,
+          "SF_wr_advisory_uniaxial": 0.17557062351184885,
+          "SF_ratio_sourced_over_advisory": 0.7090620695678252
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.37738898771364804,
+          "checker_value": 0.37738898771364804,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.905652753071588,
+          "checker_value": 0.905652753071588,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.10622616861328742,
+          "checker_value": 0.10622616861328742,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9056527530715882,
+          "checker_value": 0.9056527530715882,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.uniaxial_Pa": {
+          "card_value": 128784922.7041334,
+          "checker_value": 128784922.7041334,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.advisory_uniaxial_Pa": {
+          "card_value": 123929254.21667479,
+          "checker_value": 123929254.21667479,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.equibiaxial_allowable_Pa": {
+          "card_value": 87873533.47487257,
+          "checker_value": 87873533.47487256,
+          "rel_diff": 1.6957507687008674e-16,
+          "match": true
+        },
+        "foam.SF_wr_equibiaxial": {
+          "card_value": 0.12449046966262503,
+          "checker_value": 0.12449046966262502,
+          "rel_diff": 1.1147670858198147e-16,
+          "match": true
+        },
+        "foam.SF_wr_advisory_uniaxial": {
+          "card_value": 0.17557062351184885,
+          "checker_value": 0.17557062351184885,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.SF_ratio_sourced_over_advisory": {
+          "card_value": 0.7090620695678252,
+          "checker_value": 0.7090620695678252,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Divinycell H35",
+      "geometry": "rho_32.0_max_buckling_SF",
+      "checker": {
+        "Vc": 0.4088380700231186,
+        "Kc": 0.8977904824942203,
+        "gamma_d": 0.2,
+        "SF_general": 0.10530398416985456,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.8977904824942204,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "foam_wrinkling": {
+          "uniaxial_Pa": 166781551.48432568,
+          "advisory_uniaxial_Pa": 160493269.38710853,
+          "equibiaxial_allowable_Pa": 113799689.74332967,
+          "SF_wr_equibiaxial": 0.1612200655122076,
+          "SF_wr_advisory_uniaxial": 0.22737087827934663,
+          "SF_ratio_sourced_over_advisory": 0.7090620695678252
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.4088380700231186,
+          "checker_value": 0.4088380700231186,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.8977904824942203,
+          "checker_value": 0.8977904824942203,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.10530398416985456,
+          "checker_value": 0.10530398416985456,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.8977904824942204,
+          "checker_value": 0.8977904824942204,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.uniaxial_Pa": {
+          "card_value": 166781551.48432568,
+          "checker_value": 166781551.48432568,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.advisory_uniaxial_Pa": {
+          "card_value": 160493269.38710853,
+          "checker_value": 160493269.38710853,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.equibiaxial_allowable_Pa": {
+          "card_value": 113799689.74332969,
+          "checker_value": 113799689.74332967,
+          "rel_diff": 1.309420195033623e-16,
+          "match": true
+        },
+        "foam.SF_wr_equibiaxial": {
+          "card_value": 0.16122006551220763,
+          "checker_value": 0.1612200655122076,
+          "rel_diff": 1.7215956045823126e-16,
+          "match": true
+        },
+        "foam.SF_wr_advisory_uniaxial": {
+          "card_value": 0.22737087827934663,
+          "checker_value": 0.22737087827934663,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.SF_ratio_sourced_over_advisory": {
+          "card_value": 0.7090620695678254,
+          "checker_value": 0.7090620695678252,
+          "rel_diff": 1.5657628186229727e-16,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Divinycell H35",
+      "geometry": "rho_32.0_max_least_SF",
+      "checker": {
+        "Vc": 0.4088380700231186,
+        "Kc": 0.8977904824942203,
+        "gamma_d": 0.2,
+        "SF_general": 0.10530398416985456,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.8977904824942204,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "foam_wrinkling": {
+          "uniaxial_Pa": 166781551.48432568,
+          "advisory_uniaxial_Pa": 160493269.38710853,
+          "equibiaxial_allowable_Pa": 113799689.74332967,
+          "SF_wr_equibiaxial": 0.1612200655122076,
+          "SF_wr_advisory_uniaxial": 0.22737087827934663,
+          "SF_ratio_sourced_over_advisory": 0.7090620695678252
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.4088380700231186,
+          "checker_value": 0.4088380700231186,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.8977904824942203,
+          "checker_value": 0.8977904824942203,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.10530398416985456,
+          "checker_value": 0.10530398416985456,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.8977904824942204,
+          "checker_value": 0.8977904824942204,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.uniaxial_Pa": {
+          "card_value": 166781551.48432568,
+          "checker_value": 166781551.48432568,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.advisory_uniaxial_Pa": {
+          "card_value": 160493269.38710853,
+          "checker_value": 160493269.38710853,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.equibiaxial_allowable_Pa": {
+          "card_value": 113799689.74332969,
+          "checker_value": 113799689.74332967,
+          "rel_diff": 1.309420195033623e-16,
+          "match": true
+        },
+        "foam.SF_wr_equibiaxial": {
+          "card_value": 0.16122006551220763,
+          "checker_value": 0.1612200655122076,
+          "rel_diff": 1.7215956045823126e-16,
+          "match": true
+        },
+        "foam.SF_wr_advisory_uniaxial": {
+          "card_value": 0.22737087827934663,
+          "checker_value": 0.22737087827934663,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "foam.SF_ratio_sourced_over_advisory": {
+          "card_value": 0.7090620695678254,
+          "checker_value": 0.7090620695678252,
+          "rel_diff": 1.5657628186229727e-16,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "geometry": "rho_32.0_max_buckling_SF",
+      "checker": {
+        "Vc": 0.0355781692644828,
+        "Kc": 0.9911054576838793,
+        "gamma_d": 0.2,
+        "SF_general": 0.1162491198800067,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.9911054576838794,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.0355781692644828,
+          "checker_value": 0.0355781692644828,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.9911054576838793,
+          "checker_value": 0.9911054576838793,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.1162491198800067,
+          "checker_value": 0.1162491198800067,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9911054576838794,
+          "checker_value": 0.9911054576838794,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "geometry": "rho_32.0_max_least_SF",
+      "checker": {
+        "Vc": 0.0355781692644828,
+        "Kc": 0.9911054576838793,
+        "gamma_d": 0.2,
+        "SF_general": 0.1162491198800067,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.9911054576838794,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.0355781692644828,
+          "checker_value": 0.0355781692644828,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.9911054576838793,
+          "checker_value": 0.9911054576838793,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.1162491198800067,
+          "checker_value": 0.1162491198800067,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9911054576838794,
+          "checker_value": 0.9911054576838794,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Hexcel HRH-10-4.8-32",
+      "geometry": "rho_32.0_max_buckling_SF",
+      "checker": {
+        "Vc": 0.3504326314483874,
+        "Kc": 0.9123918421379031,
+        "gamma_d": 0.2,
+        "SF_general": 0.10701661242194413,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.9123918421379033,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "honeycomb_wrinkling": {
+          "uniaxial_Pa": 58478661.775544,
+          "equibiaxial_allowable_Pa": 39901616.86010848,
+          "SF_wr_equibiaxial": 0.056528636402602854
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.3504326314483874,
+          "checker_value": 0.3504326314483874,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.9123918421379031,
+          "checker_value": 0.9123918421379031,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.10701661242194413,
+          "checker_value": 0.10701661242194413,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9123918421379033,
+          "checker_value": 0.9123918421379033,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.uniaxial_Pa": {
+          "card_value": 58478661.775544,
+          "checker_value": 58478661.775544,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.equibiaxial_allowable_Pa": {
+          "card_value": 39901616.86010849,
+          "checker_value": 39901616.86010848,
+          "rel_diff": 1.8672377670922208e-16,
+          "match": true
+        },
+        "honey.SF_wr_equibiaxial": {
+          "card_value": 0.05652863640260287,
+          "checker_value": 0.056528636402602854,
+          "rel_diff": 2.4550013393168376e-16,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Hexcel HRH-10-4.8-32",
+      "geometry": "rho_32.0_max_least_SF",
+      "checker": {
+        "Vc": 0.3504326314483874,
+        "Kc": 0.9123918421379031,
+        "gamma_d": 0.2,
+        "SF_general": 0.10701661242194413,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.9123918421379033,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "honeycomb_wrinkling": {
+          "uniaxial_Pa": 58478661.775544,
+          "equibiaxial_allowable_Pa": 39901616.86010848,
+          "SF_wr_equibiaxial": 0.056528636402602854
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.3504326314483874,
+          "checker_value": 0.3504326314483874,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.9123918421379031,
+          "checker_value": 0.9123918421379031,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.10701661242194413,
+          "checker_value": 0.10701661242194413,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9123918421379033,
+          "checker_value": 0.9123918421379033,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.uniaxial_Pa": {
+          "card_value": 58478661.775544,
+          "checker_value": 58478661.775544,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.equibiaxial_allowable_Pa": {
+          "card_value": 39901616.86010849,
+          "checker_value": 39901616.86010848,
+          "rel_diff": 1.8672377670922208e-16,
+          "match": true
+        },
+        "honey.SF_wr_equibiaxial": {
+          "card_value": 0.05652863640260287,
+          "checker_value": 0.056528636402602854,
+          "rel_diff": 2.4550013393168376e-16,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "geometry": "P2-E",
+      "checker": {
+        "Vc": 0.10135521292620196,
+        "Kc": 0.9746611967684495,
+        "gamma_d": 0.2,
+        "SF_general": 0.22795919832772132,
+        "SF_classical": 0.2338855789925097,
+        "ratio": 0.9746611967684499,
+        "crimp_ratio_h_over_tc": 1.002962962962963,
+        "membrane_Pa": 710073389.3892398
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.10135521292620196,
+          "checker_value": 0.10135521292620196,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.9746611967684495,
+          "checker_value": 0.9746611967684495,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.22795919832772132,
+          "checker_value": 0.22795919832772132,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.2338855789925097,
+          "checker_value": 0.2338855789925097,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9746611967684499,
+          "checker_value": 0.9746611967684499,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.002962962962963,
+          "checker_value": 1.002962962962963,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "geometry": "rho_16.0_max_buckling_SF",
+      "checker": {
+        "Vc": 0.10165462690696996,
+        "Kc": 0.9745863432732575,
+        "gamma_d": 0.2,
+        "SF_general": 0.2279436923264158,
+        "SF_classical": 0.23388763232700485,
+        "ratio": 0.9745863432732574,
+        "crimp_ratio_h_over_tc": 1.0029806259314455,
+        "membrane_Pa": 707969468.2354939
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.10165462690696996,
+          "checker_value": 0.10165462690696996,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.9745863432732575,
+          "checker_value": 0.9745863432732575,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.2279436923264158,
+          "checker_value": 0.2279436923264158,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.23388763232700485,
+          "checker_value": 0.23388763232700485,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9745863432732574,
+          "checker_value": 0.9745863432732574,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0029806259314455,
+          "checker_value": 1.0029806259314455,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "geometry": "rho_16.0_max_least_SF",
+      "checker": {
+        "Vc": 0.10165462690696996,
+        "Kc": 0.9745863432732575,
+        "gamma_d": 0.2,
+        "SF_general": 0.2279436923264158,
+        "SF_classical": 0.23388763232700485,
+        "ratio": 0.9745863432732574,
+        "crimp_ratio_h_over_tc": 1.0029806259314455,
+        "membrane_Pa": 707969468.2354939
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.10165462690696996,
+          "checker_value": 0.10165462690696996,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.9745863432732575,
+          "checker_value": 0.9745863432732575,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.2279436923264158,
+          "checker_value": 0.2279436923264158,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.23388763232700485,
+          "checker_value": 0.23388763232700485,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.9745863432732574,
+          "checker_value": 0.9745863432732574,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0029806259314455,
+          "checker_value": 1.0029806259314455,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Hexcel HRH-10-6.4-24",
+      "geometry": "rho_32.0_max_buckling_SF",
+      "checker": {
+        "Vc": 0.5451174266974915,
+        "Kc": 0.8637206433256271,
+        "gamma_d": 0.2,
+        "SF_general": 0.1013078515816456,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.8637206433256275,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "honeycomb_wrinkling": {
+          "uniaxial_Pa": 42951917.61012315,
+          "equibiaxial_allowable_Pa": 29307287.613117356,
+          "SF_wr_equibiaxial": 0.041519645964138846
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.5451174266974915,
+          "checker_value": 0.5451174266974915,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.8637206433256271,
+          "checker_value": 0.8637206433256271,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.1013078515816456,
+          "checker_value": 0.1013078515816456,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.8637206433256275,
+          "checker_value": 0.8637206433256275,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.uniaxial_Pa": {
+          "card_value": 42951917.61012315,
+          "checker_value": 42951917.61012315,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.equibiaxial_allowable_Pa": {
+          "card_value": 29307287.61311736,
+          "checker_value": 29307287.613117356,
+          "rel_diff": 1.2711139794439893e-16,
+          "match": true
+        },
+        "honey.SF_wr_equibiaxial": {
+          "card_value": 0.041519645964138846,
+          "checker_value": 0.041519645964138846,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Hexcel HRH-10-6.4-24",
+      "geometry": "rho_32.0_max_least_SF",
+      "checker": {
+        "Vc": 0.5451174266974915,
+        "Kc": 0.8637206433256271,
+        "gamma_d": 0.2,
+        "SF_general": 0.1013078515816456,
+        "SF_classical": 0.11729238193448153,
+        "ratio": 0.8637206433256275,
+        "crimp_ratio_h_over_tc": 1.0059970014992503,
+        "membrane_Pa": 705865547.081748,
+        "honeycomb_wrinkling": {
+          "uniaxial_Pa": 42951917.61012315,
+          "equibiaxial_allowable_Pa": 29307287.613117356,
+          "SF_wr_equibiaxial": 0.041519645964138846
+        }
+      },
+      "checks": {
+        "Vc": {
+          "card_value": 0.5451174266974915,
+          "checker_value": 0.5451174266974915,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "Kc": {
+          "card_value": 0.8637206433256271,
+          "checker_value": 0.8637206433256271,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_general": {
+          "card_value": 0.1013078515816456,
+          "checker_value": 0.1013078515816456,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "SF_classical": {
+          "card_value": 0.11729238193448153,
+          "checker_value": 0.11729238193448153,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "ratio": {
+          "card_value": 0.8637206433256275,
+          "checker_value": 0.8637206433256275,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_ratio": {
+          "card_value": 1.0059970014992503,
+          "checker_value": 1.0059970014992503,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.uniaxial_Pa": {
+          "card_value": 42951917.61012315,
+          "checker_value": 42951917.61012315,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "honey.equibiaxial_allowable_Pa": {
+          "card_value": 29307287.61311736,
+          "checker_value": 29307287.613117356,
+          "rel_diff": 1.2711139794439893e-16,
+          "match": true
+        },
+        "honey.SF_wr_equibiaxial": {
+          "card_value": 0.041519645964138846,
+          "checker_value": 0.041519645964138846,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    }
+  ],
+  "Gc_boundary_checks": [
+    {
+      "geometry": "P2-E",
+      "check": {
+        "card_value": 2445868.5773324715,
+        "checker_value": 2445868.5773324715,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_32.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453028.4201387116,
+        "checker_value": 2453028.4201387116,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_32.0_max_least_SF",
+      "check": {
+        "card_value": 2453028.4201387116,
+        "checker_value": 2453028.4201387116,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_16.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453093.930878989,
+        "checker_value": 2453093.930878989,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_16.0_max_least_SF",
+      "check": {
+        "card_value": 2453093.930878989,
+        "checker_value": 2453093.930878989,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_8.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453110.1952839196,
+        "checker_value": 2453110.1952839196,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_8.0_max_least_SF",
+      "check": {
+        "card_value": 2860080.4426963115,
+        "checker_value": 2860080.4426963115,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_6.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453112.560060293,
+        "checker_value": 2453112.560060293,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_6.0_max_least_SF",
+      "check": {
+        "card_value": 3368387.5431381436,
+        "checker_value": 3368387.5431381436,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_4.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453114.2473262786,
+        "checker_value": 2453114.2473262786,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_4.0_max_least_SF",
+      "check": {
+        "card_value": 3875940.3916350324,
+        "checker_value": 3875940.3916350324,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_3.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453114.837362978,
+        "checker_value": 2453114.837362978,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_3.0_max_least_SF",
+      "check": {
+        "card_value": 4129434.364549987,
+        "checker_value": 4129434.364549987,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_2.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453115.2585857846,
+        "checker_value": 2453115.2585857846,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_2.0_max_least_SF",
+      "check": {
+        "card_value": 4382740.245942977,
+        "checker_value": 4382740.245942977,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_1.0_max_buckling_SF",
+      "check": {
+        "card_value": 2453115.5111821666,
+        "checker_value": 2453115.5111821666,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    {
+      "geometry": "rho_1.0_max_least_SF",
+      "check": {
+        "card_value": 4635858.192645354,
+        "checker_value": 4635858.192645354,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    }
+  ],
+  "mismatches": [],
+  "pin_bad": 0,
+  "checks": {
+    "numeric_match_1e-9": true,
+    "all_Vc_below_2": true
+  }
+}

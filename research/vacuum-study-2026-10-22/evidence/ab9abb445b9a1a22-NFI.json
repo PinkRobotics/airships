@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009e independent check",
+  "blocking": false,
+  "open": [
+    {
+      "id": "NFI-CHK009E-CURVE",
+      "kind": "inherited evidence and tag gap",
+      "tag": "PROJECTION",
+      "finding": "The continuous optimistic gamma(Vc) curve is a prescribed sensitivity scenario, not a calibrated spherical-sandwich knockdown. Owner POINT.json has only a blanket QUESTIONABLE tag; the curve-dependent optimum also requires the inherited PROJECTION tag.",
+      "impact": "The 0.924 result is conditional on this curve and does not replace the distinct 009d handbook carries.",
+      "proposed_next": "Carry PROJECTION beside the curve and retain the 018 empirical-evidence gap."
+    },
+    {
+      "id": "NFI-CHK009E-DIMPLING-BIAXIAL",
+      "kind": "known upstream modelling discrepancy",
+      "tag": "QUESTIONABLE",
+      "source": "NASA CR-1457 pp 2-5, 2-7, eqs 2.1-4 and 2.1-6; 014b NFI-DIMPLE",
+      "rows": [
+        "1/4 inch cell",
+        "3/8 inch cell"
+      ],
+      "filed_uniaxial": [
+        33.44990036419439,
+        14.8666223840864
+      ],
+      "checker_equal_biaxial": [
+        16.724950182097196,
+        7.4333111920432
+      ],
+      "impact": "Both remain non-governing. Least factor and optimum unchanged. Not a mismatch under the explicitly inherited uniaxial formula.",
+      "proposed_next": "Carry the equal-biaxial local-mode values in the next physical modelling card."
+    },
+    {
+      "id": "NFI-CHK009E-INHERITED",
+      "kind": "inherited physical uncertainty",
+      "tag": "QUESTIONABLE",
+      "finding": "Nu=0.33 transferred to Be, stabilised Ec used as continuum Ec, W-direction shear as an isotropic replacement, nominal material properties, external-radius thin-shell approximation, p/2 crush demand, and local plate criteria remain assumptions. Hexcel values were tested at 0.625 inch core thickness; this point has approximately 0.862 inch core depth.",
+      "proposed_next": "Retain these substitutions and qualify properties and geometric applicability before any physical claim."
+    },
+    {
+      "id": "NFI-CHK009E-PACKAGING",
+      "kind": "requested record gap",
+      "tag": "QUESTIONABLE",
+      "owner_files": [
+        "CARD.md",
+        "POINT.json",
+        "optimise.py"
+      ],
+      "finding": "Owner supplies CARD.md, POINT.json and optimise.py. Separate INPUTS.json, RESULTS.json and NFI.json requested by COMMON are absent; source and assumption trace requires earlier cards. This check supplies all four records.",
+      "proposed_next": "Package explicit inputs and NFI with the next point."
+    },
+    {
+      "id": "NFI-CHK009E-P3",
+      "kind": "scope exclusion",
+      "tag": "QUESTIONABLE",
+      "finding": "P3 is PENDING-011b in the checked card and is outside this assigned P2 check.",
+      "proposed_next": "Use the separately assigned P3 work; no P3 conclusion follows here."
+    }
+  ],
+  "numerical_resolution_note": {
+    "blocking": false,
+    "classification": "Finite-grid resolution, not arithmetic error",
+    "grid_fraction": 0.162875,
+    "refined_fraction": 0.16282808771334767,
+    "grid_least_SF": 0.9241482267704965,
+    "refined_least_SF": 0.9242000158181579,
+    "relative_improvement_percent": 0.005603976306089997
+  }
+}

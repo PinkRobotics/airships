@@ -1,0 +1,205 @@
+{
+  "schema": "ship.xo.landing-audit.v1",
+  "at": "2026-09-24T19:47:33.213111-07:00",
+  "decision": "CLOSED: exact authority and landing integrity verified; retained evidence limits are not a reopening.",
+  "landing": {
+    "landing": 378,
+    "attestation": "a4381ad2c85511e53be3c6d36484fa1f3d487714",
+    "object": "66b4c4a646e8537f2fcabb64cbc3995ea7f9a248",
+    "base_before": "dbf0638141a7674b4a747b4cd2b5b60a0b434794",
+    "order": "ord-una-g19-land-review-access-66b4c4a64-0924",
+    "label": "Require candidate-access evidence before a review lane can count as completed",
+    "files": [
+      "docs/working/deferrals/review-candidate-access-gap-0923.md",
+      "helm/call/candidate_access.py",
+      "helm/call/lane_integrity.py",
+      "helm/call/lane_run_state.py",
+      "helm/call/review_findings.py",
+      "tests/fixtures/review/360-R1-WRAPPER.json",
+      "tests/fixtures/review/361-R3-WRAPPER.json",
+      "tests/test_agent_runner_codex_streaming.py",
+      "tests/test_lane_run_state.py",
+      "tests/test_review_candidate_access.py",
+      "tests/test_review_script.py",
+      "tests/test_ship_poll.py",
+      "tests/test_ship_worker_sandbox.py",
+      "tools/review.py"
+    ],
+    "at": "2026-09-24T19:43:54.116981-07:00",
+    "notified": [
+      "ref-56bce058187e66b61e72"
+    ],
+    "unaffected": [
+      "ref-b1022d104ec75b6692f9",
+      "ref-923eb03da0e3fb5b153e",
+      "ref-cc4b65be6fb699332898",
+      "ref-6af468df21b64887c529",
+      "ref-f180552d125ce14244c6",
+      "ref-99f939d6a1a7648ac049",
+      "ref-cace51f6ccc34bea5f2d",
+      "ref-53508bc26acff64f981b",
+      "ref-da946229c8b68275b29c",
+      "ref-8198259569582632dccd-hdd-mute",
+      "ref-8198259569582632dccd-site-ui",
+      "ref-eec6dc5cbd70fa5ed9ef-measure-before",
+      "ref-2f87e78309399d546c6c-web"
+    ],
+    "workspace_unreadable": []
+  },
+  "candidate_tree": "9bdc26d90796462fbad46ee54fd1f714e37ce4b6",
+  "attestation_tree": "3893b8da8b118e42f950f4140dc2176f932111e7",
+  "named_order": "ord-una-g19-land-review-access-66b4c4a64-0924",
+  "signature_store_line": 446,
+  "observed_gate": "HONOURED-XO",
+  "commits_unsquashed": [
+    {
+      "candidate": "7c6b3b7c391fa8d68c441a46d31dbaed05a4a9c3",
+      "audit": "gov-ack-7c6b3b7c391f"
+    },
+    {
+      "candidate": "04d70178bc4ea6edf14b73e12890d2fe2faeeafc",
+      "audit": "gov-ack-04d70178bc4e"
+    },
+    {
+      "candidate": "2fe7c1348bc6ecb537a6ff12595646c75b787e34",
+      "audit": "gov-ack-2fe7c1348bc6"
+    },
+    {
+      "candidate": "0c3b5dfdc3eff49e2679c0063d4761bdeaa1fc59",
+      "audit": "gov-ack-0c3b5dfdc3ef"
+    },
+    {
+      "candidate": "f9ea0fa88baa5d236a946e04f1a1046353cbbd50",
+      "audit": "gov-ack-f9ea0fa88baa"
+    },
+    {
+      "candidate": "87cd9cf237122892c95f6c9420e32636c5104cd7",
+      "audit": "gov-ack-87cd9cf23712"
+    },
+    {
+      "candidate": "c8cc5025293f9e04fc465bf775e49835c7951249",
+      "audit": "gov-ack-c8cc5025293f"
+    },
+    {
+      "candidate": "66b4c4a646e8537f2fcabb64cbc3995ea7f9a248",
+      "audit": "gov-ack-66b4c4a646e8"
+    }
+  ],
+  "verified_artifacts": [
+    {
+      "path": "unpublished-local-ref:e64a5a695acc3311",
+      "bytes": 1541,
+      "sha256": "d6e1e5b5ad3582dd2098a6324856ac06d343379cd35d3a0666213d3615fb420c"
+    },
+    {
+      "path": "unpublished-local-ref:efe99b9e29a9be5e",
+      "bytes": 1523,
+      "sha256": "3f0dc975224510016467cf8c9598bc9527f58a583d5ecef6997a7c5284752225"
+    },
+    {
+      "path": "unpublished-local-ref:7ff7806d9cf72b4c",
+      "bytes": 1703,
+      "sha256": "ec51df1686d5c7f1971c322908e1530d5e090d80a186a685bd591ede93eef85e"
+    },
+    {
+      "path": "unpublished-local-ref:cac6153f1ed14d58",
+      "bytes": 1526,
+      "sha256": "647df3b7a37c9aa5a451476c39956da42f9dddd9aaf1935c02307c8f28fe1442"
+    },
+    {
+      "path": "unpublished-local-ref:6d25c8387179fbde",
+      "bytes": 1502,
+      "sha256": "49c89d028ca4799e32891427b2dc4817a34b6a61a537fc1cfcb440fe23f4d3d1"
+    },
+    {
+      "path": "unpublished-local-ref:3f9dab59b9231087",
+      "bytes": 1513,
+      "sha256": "956098fe24a17ae84ed66897243ba6f459d47c7b63450e95319d80819d1e2a24"
+    },
+    {
+      "path": "unpublished-local-ref:1244aaa8c10334f1",
+      "bytes": 1582,
+      "sha256": "20f2bc93296c7c42090b69d136bbd8926dfb9d553d71d332d71bbfc20fc64d43"
+    },
+    {
+      "path": "unpublished-local-ref:f63570015307ffd1",
+      "bytes": 1556,
+      "sha256": "25ce945c475bc5879f56794a7a451ff5087863c4a51e06f5444a99fce60f8b9a"
+    },
+    {
+      "path": "unpublished-local-ref:27c82db8de4ff5e5",
+      "bytes": 4068,
+      "sha256": "06881ae1b78dfab7358b69ed27aa7a0128eb73e4901324d269cf118f3cade56d"
+    },
+    {
+      "path": "unpublished-local-ref:e6ebf63e56dab094",
+      "bytes": 2236,
+      "sha256": "64e8a9c52eb94faae92360cee132ecd8fb3ac815c1386e9eba427f9688827a63"
+    },
+    {
+      "path": "unpublished-local-ref:15138548ddaa6878",
+      "bytes": 3207,
+      "sha256": "621005cbe52d2d7e6ce2575e3316c7e98056758beeffb067112b9a631dc9cb7b"
+    },
+    {
+      "path": "evidence/ae9200c9a9669896-SIGN-d0baa6eba.json",
+      "bytes": 14931,
+      "sha256": "ae9200c9a966989664ac01c153293527a0bccfa9f0a36bb5a6ce9f234b058eee"
+    },
+    {
+      "path": "unpublished-local-ref:9fe06f0996695627",
+      "bytes": 13899,
+      "sha256": "0cbdf43b08deb2e7b79c0df547508a286cca44bec6cc6c135dcc2ac5050368ef"
+    },
+    {
+      "path": "unpublished-local-ref:4429e646c4e3ef34",
+      "bytes": 1336,
+      "sha256": "676af6b7cd65e64d6e05b8246ec2e3f619b1e772f346310eddd62b9893d2eb0b"
+    },
+    {
+      "path": "unpublished-local-ref:ebfcfa01e0c81e66",
+      "bytes": 1187,
+      "sha256": "847483f133a49b3611870f306ee656be01f817dfcb5054dbd96749b2af3e1cca"
+    },
+    {
+      "path": "unpublished-local-ref:f8c10003fc263776",
+      "bytes": 949,
+      "sha256": "7e0b6cc37459be0226038771eb0d554b156dd5b7a44352df78231092ae6cb6e4"
+    },
+    {
+      "path": "unpublished-local-ref:0985a85ee0a14417",
+      "bytes": 1131,
+      "sha256": "bdd8bd0b85ab482942eadfd4213a7fd4a22ea7f087f50c365b6246c18b14fd22"
+    }
+  ],
+  "primary_measurement": {
+    "primary_head": "a4381ad2c85511e53be3c6d36484fa1f3d487714",
+    "primary_main": "a4381ad2c85511e53be3c6d36484fa1f3d487714",
+    "origin_main": "a4381ad2c85511e53be3c6d36484fa1f3d487714",
+    "actual_remote": "a4381ad2c85511e53be3c6d36484fa1f3d487714",
+    "status": "?? .grok/"
+  },
+  "lander_receipt": {
+    "landed": "66b4c4a646e8537f2fcabb64cbc3995ea7f9a248",
+    "tree": "9bdc26d90796462fbad46ee54fd1f714e37ce4b6",
+    "main_before": "dbf0638141a7674b4a747b4cd2b5b60a0b434794",
+    "gate_rc": 0,
+    "focused": {
+      "ran": true,
+      "summary": "608 passed in 22.02s"
+    },
+    "attestation": "a4381ad2c85511e53be3c6d36484fa1f3d487714",
+    "pushed": true,
+    "deploy": [],
+    "landing_number": 378,
+    "seconds": 68.6
+  },
+  "lander_log": "CHECKS PASSED {\"order\": \"ord-una-g19-land-review-access-66b4c4a64-0924\", \"order_sha256\": \"64e8a9c52eb94faae92360cee132ecd8fb3ac815c1386e9eba427f9688827a63\", \"main\": \"dbf0638141a7\", \"candidate\": \"66b4c4a646e8\", \"tree\": \"9bdc26d90796\", \"audit\": \"gov-7e2ad804f0ce\", \"gate_rc\": 0, \"gate\": \"HONOURED-XO 66b4c4a646e8537f2fcabb64cbc3995ea7f9a248 \\u2014 the last record for this sha (store line 446) is XO-SIGNED.\", \"store\": \"unpublished-local-ref:76443f34d3c99ab4\", \"repo\": \"unpublished-local-ref:edec124c6bb7c542\", \"tool\": \"b720eadcd596\", \"scrubbed\": [\"PYTHONPATH\"]}\nLANDED {\"landed\": \"66b4c4a646e8537f2fcabb64cbc3995ea7f9a248\", \"tree\": \"9bdc26d90796462fbad46ee54fd1f714e37ce4b6\", \"main_before\": \"dbf0638141a7674b4a747b4cd2b5b60a0b434794\", \"gate_rc\": 0, \"focused\": {\"ran\": true, \"summary\": \"608 passed in 22.02s\"}, \"attestation\": \"a4381ad2c85511e53be3c6d36484fa1f3d487714\", \"pushed\": true, \"deploy\": [], \"landing_number\": 378, \"seconds\": 68.6}\nANNOUNCED {\"filed\": [{\"seat\": \"ref-56bce058187e66b61e72\", \"id\": \"nte-481336164fad4fdb81af66f89d19002a\", \"overlap\": []}], \"unaffected\": 13, \"unreadable\": [], \"record\": \"unpublished-local-ref:1b66b94fff85fb47\"}\n",
+  "qualifications": [
+    "Lander receipt608P22.02s across nine named paths is distinct from prior builder focused evidence and six full wrappers. This retained lander log is a summary receipt, not separate raw pytest output.",
+    "Original three-round ladder and final mixed/headerless correction intentionally unreviewed retained. Six full wrapper attempts remain; last6F25994P26S22W driver25/console68. No seventh full wrapper or new review by XO.",
+    "Original B1–B4 closure, CO once R3 ruling, bounded2versions2ids B2 disposition, raw focused base/tip differences and clone-size limits remain as exact signatures444/446 describe. No general speedup/no-new-reds/model-identity/adoption inference.",
+    "Tracked primary is clean; existing untracked.grok/ preserved. Actual remote/main equals governed record-only attestation. deploy[]; live integration/uptake not established.",
+    "Other signed objects remain signed; subsequent equal mechanical rebase maps exact objects for current landing sequencing. No redundant verification order or reopened signed content."
+  ]
+}

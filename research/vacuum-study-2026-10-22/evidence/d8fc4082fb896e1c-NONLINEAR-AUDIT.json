@@ -1,0 +1,92 @@
+{
+  "rows": [
+    {
+      "frequency": 4,
+      "segments": 6,
+      "raw_reported_crossing": 5.155462628444255,
+      "bracket_midpoint": 5.155462628444255,
+      "bracket_control_width_m": 9.76562500004663e-07,
+      "pressure_slope_on_final_bracket_Pa_per_m": 3928373.1700637345,
+      "independent_equilibrium_or_eigen_solve": false,
+      "verified_first_instability": null,
+      "maximum_raw_relative_Newton_residual": 1.1427962278862509e-08,
+      "raw_interpretation": "first loss of positive elastic tangent stiffness on the followed equilibrium branch; no material failure or post-collapse calculation",
+      "raw_stability_solver": "shift-invert nearest-zero constrained Hessian modes; checked against smallest-algebraic solver at the m6 perfect critical state"
+    },
+    {
+      "frequency": 4,
+      "segments": 12,
+      "raw_reported_crossing": 5.082443546617506,
+      "bracket_midpoint": 5.082443546617506,
+      "bracket_control_width_m": 9.765624999907851e-07,
+      "pressure_slope_on_final_bracket_Pa_per_m": 3902869.3994973446,
+      "independent_equilibrium_or_eigen_solve": false,
+      "verified_first_instability": null,
+      "maximum_raw_relative_Newton_residual": 1.8323535968301175e-08,
+      "raw_interpretation": "first loss of positive elastic tangent stiffness on the followed equilibrium branch; no material failure or post-collapse calculation",
+      "raw_stability_solver": "shift-invert nearest-zero constrained Hessian modes; checked against smallest-algebraic solver at the m6 perfect critical state"
+    },
+    {
+      "frequency": 2,
+      "segments": 12,
+      "raw_reported_crossing": 2.2304168428183866,
+      "bracket_midpoint": 2.2304168428183866,
+      "bracket_control_width_m": 9.76562499997724e-07,
+      "pressure_slope_on_final_bracket_Pa_per_m": 4263042.7258192105,
+      "independent_equilibrium_or_eigen_solve": false,
+      "verified_first_instability": null,
+      "maximum_raw_relative_Newton_residual": 1.0791413271629882e-08,
+      "raw_interpretation": "first loss of positive elastic tangent stiffness on the followed equilibrium branch; no material failure or post-collapse calculation",
+      "raw_stability_solver": "shift-invert nearest-zero constrained Hessian modes; checked against smallest-algebraic solver at the m6 perfect critical state"
+    },
+    {
+      "frequency": 2,
+      "segments": 24,
+      "raw_reported_crossing": 2.2181127571113937,
+      "bracket_midpoint": 2.2181127571113937,
+      "bracket_control_width_m": 9.76562499997724e-07,
+      "pressure_slope_on_final_bracket_Pa_per_m": 4262285.935102835,
+      "independent_equilibrium_or_eigen_solve": false,
+      "verified_first_instability": null,
+      "maximum_raw_relative_Newton_residual": 9.109062521324674e-09,
+      "raw_interpretation": "first loss of positive elastic tangent stiffness on the followed equilibrium branch; no material failure or post-collapse calculation",
+      "raw_stability_solver": "shift-invert nearest-zero constrained Hessian modes; checked against smallest-algebraic solver at the m6 perfect critical state"
+    }
+  ],
+  "f4_ambiguous_nearest_zero_points": [
+    {
+      "control_displacement_m": 0.10878140066663773,
+      "mean_inward_joint_displacement_m": 0.10878140066663775,
+      "control_kind": "mean_inward",
+      "lambda": 5.059944979206884,
+      "smallest_relative_tangent_eigenvalues": [
+        0.00016542416263273023,
+        0.00016542421835721507,
+        0.0001654243416325629
+      ],
+      "max_displacement_m": 0.17036223172444814,
+      "Newton_iterations": 2,
+      "final_relative_residual": 1.8323535968301175e-08,
+      "elapsed_seconds": 147.99410505685955,
+      "kind": "step"
+    },
+    {
+      "control_displacement_m": 0.10928140066663773,
+      "mean_inward_joint_displacement_m": 0.10928140066663775,
+      "control_kind": "mean_inward",
+      "lambda": 5.080744423604787,
+      "smallest_relative_tangent_eigenvalues": [
+        0.0006264168366925888,
+        0.000626416842758642,
+        0.0006264168463321869
+      ],
+      "max_displacement_m": 0.17372672813448248,
+      "Newton_iterations": 2,
+      "final_relative_residual": 4.700182054239284e-11,
+      "elapsed_seconds": 170.01264965720475,
+      "kind": "bracket_refinement"
+    }
+  ],
+  "conclusion": "Bracket midpoints and arithmetic reproduce only from the owner data. Nearest-zero selection does not certify the first loss; new top-level null fields are appropriate.",
+  "reference": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.eigsh.html"
+}

@@ -1,0 +1,104 @@
+{
+  "id": "N402",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N402",
+    "report": "rpt-ref-35706d7a2ae7e951590b",
+    "card": "rpt-ref-35706d7a2ae7e951590b",
+    "file": "evidence/17d1e17bba0e3797-NFI.json",
+    "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+    "source_sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+    "source_json_pointer": "/items/1",
+    "row_id": "NFI-020C-FALLBACK-E-BASIS",
+    "fields": {
+      "id": "NFI-020C-FALLBACK-E-BASIS",
+      "rank": 2,
+      "kind": "proposed fix",
+      "tag": "QUESTIONABLE",
+      "against": "CARD.md section 6",
+      "claim": "Section 4 takes 290 GPa as Be's current modulus, but section 6 prices the K13D2U trade against Be at the inherited 303 GPa. At 290 GPa, the SF given up by choosing K13D2U is smaller.",
+      "numbers": {
+        "published_designs": {
+          "Be_303": 0.6853382311714526,
+          "Be_290": 0.6705892825890435,
+          "K13D2U": 0.651932173894196,
+          "loss_pct_303": 4.874389864425844,
+          "loss_pct_290": 2.7821960742968055
+        },
+        "009c5_geometry": {
+          "Be_303": 0.6504118436805659,
+          "Be_290": 0.6363083913759237,
+          "K13D2U": 0.5414748616333155,
+          "loss_pct_303": 16.74892348681649,
+          "loss_pct_290": 14.903705660323697
+        },
+        "5pct_budget_resized": {
+          "Be_lead_303": 0.6504118436805659,
+          "Be_lead_290": 0.6363083913759237,
+          "K13D2U": 0.6186549721852571,
+          "loss_pct_303": 4.882578908096491,
+          "loss_pct_290": 2.774349581103841
+        }
+      },
+      "proposed_fix": "State section 6's SF given up at both Be moduli; K13D2U's 210 GPa stays the 014b QI value.",
+      "effect_on_lead": "The Be-free fallback costs less SF than the card shows; the ranking does not change."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    }
+  },
+  "claim": "Section 4 takes 290 GPa as Be's current modulus, but section 6 prices the K13D2U trade against Be at the inherited 303 GPa. At 290 GPa, the SF given up by choosing K13D2U is smaller.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/401"
+    },
+    {
+      "report": "rpt-ref-35706d7a2ae7e951590b",
+      "artifact": "evidence/17d1e17bba0e3797-NFI.json",
+      "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+      "sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+      "bytes": 4490,
+      "selector": "/items/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-35706d7a2ae7e951590b",
+          "artifact": "evidence/17d1e17bba0e3797-NFI.json",
+          "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+          "sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+          "bytes": 4490,
+          "selector": "/items/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/401"
+          }
+        ]
+      }
+    }
+  ]
+}

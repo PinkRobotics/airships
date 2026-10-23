@@ -1,0 +1,35 @@
+{
+  "id": "A1-09",
+  "kind": "review_claim",
+  "claim": "Cure-debited SF1.05 amplitude at R10 is 0.793 mm.",
+  "original": {
+    "id": "A1-09",
+    "card": "062",
+    "claim": "Cure-debited SF1.05 amplitude at R10 is 0.793 mm.",
+    "why_load_bearing": "Sets a quoted shape target.",
+    "disposition": "reproduces",
+    "reviewer_finding": "Eliminating C between source and target equations gives 0.792569717998 mm at R10, SF1.05, with the declared cure debit.",
+    "evidence": [
+      "ACCOUNT-CHECK.json",
+      "check_accounts_a1.py"
+    ],
+    "tag": "QUESTIONABLE / PROJECTION",
+    "physical_qualification": "open; no new hull/material qualification"
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "snapshot": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "sha256": "0a58772dc43eef58cdd741ae5a44b971bafea7dbfcebefc55d5b366e716ca00e",
+      "bytes": 10860,
+      "selector": "/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

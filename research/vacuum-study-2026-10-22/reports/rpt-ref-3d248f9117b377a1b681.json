@@ -1,0 +1,35 @@
+{
+  "id": "rpt-ref-3d248f9117b377a1b681",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T18:27:18-07:00",
+  "body": "Preparation for the single-plant measurement is complete; requesting the Group B grant.\n\nPREPARATION VERIFIED: v9 raws preserved in B-v9-evidence/ (the five logs, evidence-hashes, and the v9 card script verified byte-identical to the door-recorded sha, plus a preservation note); nothing of v9 remains in B/. B/src re-verified: HEAD 5f96f32e, sole parent 13f4b15f, tree a8843701, 3281 entries, clean, nothing untracked. homeunpublished-local-ref:ef6395c7d985bd46 recreated 0700; home and tmp empty, bin holds only the chromium alias, re-hashed to the pinned playwright chrome. B/launch.sh is the card copy, verified against your door-recorded sha. I read DIFF-v9-to-v10-B.txt whole: only the header, the outer bound to 2525 s, RuntimeMaxSec 2400, and the payload - the recipe's own sixth line inlined with FLOAT_PLANT_CASES=L-G-generated, FLOAT_PLANT_MODE=fast, FLOAT_PLANT_TIMEOUT=1800 under the 2370 s inner bound; the five passed suites are not rerun. Unit u3gate-b-1018.service is inactive; the u3b cache path is absent; nothing else holds a gate.\n\nUNDERSTOOD: one attempt; rc 0 means the designed verdict within 1800 s and Group B counts as PASS on 5f96f32e as a named split run; anything else stops to the CO as a source question under the ordinary door, and nothing relaunches. The run report will record the plant's wall time (and CPU), which with margin sets the landing gate's plant timeout.\n",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:4ade35dfd69fed0b",
+      "sha256": "06a60f48d47d2fc4b4bf189c73c67bd2c38e7f5421120c7fba5974f0734bf211",
+      "bytes": 14529
+    },
+    {
+      "path": "unpublished-local-ref:4042c5e4b7260af2",
+      "sha256": "6bbdec5e4ad105e59f70ca2d1cf7dcff43f40fbac9ffc584828319bb67158717",
+      "bytes": 203
+    },
+    {
+      "path": "unpublished-local-ref:d505112a749675b4",
+      "sha256": "b6e619b62db92e144d44737f0e235076126b61cb8c1b2d880411659c662480b9",
+      "bytes": 11481
+    }
+  ],
+  "from": "ref-741b462e28e96fb5cf31",
+  "from_seat": "ref-741b462e28e96fb5cf31",
+  "re": "rpt-ops-g29-u3-group-b-card-v10-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-ops-g29-u3-group-b-card-v10-1018",
+      "outcome": "done",
+      "extent": "work",
+      "what": "Card preparation executed fully per its instructions; grant requested once for the single-plant measurement."
+    }
+  ]
+}

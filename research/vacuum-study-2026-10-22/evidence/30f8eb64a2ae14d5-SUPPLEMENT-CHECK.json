@@ -1,0 +1,628 @@
+{
+  "continuum_baselines": {
+    "5": {
+      "SF": 1.258252476557821,
+      "mass_kg": {
+        "tube": 4183.590022951533,
+        "film": 214.54155754530413,
+        "joint": 44.191468266666426,
+        "nodes": 2.9265752151299433,
+        "systems": 100.0,
+        "reserve": 244.4721075095,
+        "sag_lift_loss": 99.72041870184702,
+        "vehicle": 4545.249623978633,
+        "closure": 4889.442150189981
+      },
+      "member_length_m": 3.184193538867475,
+      "members": 432.9862822694915,
+      "nodes": 146.32876075649716,
+      "area_m2": 0.0009788447832927523,
+      "inertia_m4": 9.182472671534404e-06,
+      "modes": {
+        "compression": 4.3689859063100105,
+        "euler": 4.1941749218578455,
+        "local": 1.2582524765579548,
+        "global_": 1.2582524765579735,
+        "film": 1.258252476557821,
+        "perry": 3.454499160202702,
+        "tension": 3.9992166153322426
+      },
+      "sag_mean_m": 0.06798350107484277
+    },
+    "019": {
+      "SF": 1.1941214260052073,
+      "mass_kg": {
+        "tube": 4033.7855547043923,
+        "film": 202.0064050805908,
+        "joint": 40.44212564734616,
+        "nodes": 2.972492100685821,
+        "systems": 100.0,
+        "reserve": 411.2989440716474,
+        "sag_lift_loss": 98.93662858536945,
+        "vehicle": 4379.206577533015,
+        "closure": 4889.4421501900315
+      },
+      "member_length_m": 3.1589550945655667,
+      "members": 439.87381510287315,
+      "nodes": 148.62460503429105,
+      "area_m2": 0.0009364391244916026,
+      "inertia_m4": 8.509447169989298e-06,
+      "modes": {
+        "compression": 4.212824327676151,
+        "euler": 3.9804047533507205,
+        "local": 1.1941214260052182,
+        "global_": 1.1941214260052164,
+        "film": 1.1941214260052073,
+        "perry": 3.3016780865441433,
+        "tension": 3.7939277488603813
+      },
+      "sag_mean_m": 0.06744915919261181
+    }
+  },
+  "checks": [
+    {
+      "group": "022d-5",
+      "field": "mass_kg/tube",
+      "owner": 4183.590022951527,
+      "checker": 4183.590022951533,
+      "error": 5.4569682106375694e-12,
+      "tolerance": 0.0008377180045903054,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/film",
+      "owner": 214.54155754530413,
+      "checker": 214.54155754530413,
+      "error": 0.0,
+      "tolerance": 4.390831150906082e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/joint",
+      "owner": 44.19146826669085,
+      "checker": 44.191468266666426,
+      "error": -2.4421353828074643e-11,
+      "tolerance": 9.83829365333817e-06,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/nodes",
+      "owner": 2.926575215129944,
+      "checker": 2.9265752151299433,
+      "error": -4.440892098500626e-16,
+      "tolerance": 1.5853150430259886e-06,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/reserve",
+      "owner": 244.4721075095,
+      "checker": 244.4721075095,
+      "error": 0.0,
+      "tolerance": 4.989442150189999e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 99.72041870184702,
+      "checker": 99.72041870184702,
+      "error": 0.0,
+      "tolerance": 2.0944083740369404e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/vehicle",
+      "owner": 4545.249623978652,
+      "checker": 4545.249623978633,
+      "error": -1.9099388737231493e-11,
+      "tolerance": 0.0009100499247957305,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "mass_kg/closure",
+      "owner": 4889.44215019,
+      "checker": 4889.442150189981,
+      "error": -1.9099388737231493e-11,
+      "tolerance": 0.0009788884300379998,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "member_length_m",
+      "owner": 3.184193538867475,
+      "checker": 3.184193538867475,
+      "error": 0.0,
+      "tolerance": 6.46838707773495e-07,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "members",
+      "owner": 432.98628226949154,
+      "checker": 432.9862822694915,
+      "error": -5.684341886080802e-14,
+      "tolerance": 8.66072564538983e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "nodes",
+      "owner": 146.3287607564972,
+      "checker": 146.32876075649716,
+      "error": -2.842170943040401e-14,
+      "tolerance": 2.9275752151299438e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "area_m2",
+      "owner": 0.0009788447832927507,
+      "checker": 0.0009788447832927523,
+      "error": 1.5178830414797062e-18,
+      "tolerance": 1.019576895665855e-08,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "inertia_m4",
+      "owner": 9.18247267153439e-06,
+      "checker": 9.182472671534404e-06,
+      "error": 1.3552527156068805e-20,
+      "tolerance": 1.0001836494534306e-08,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "sag_mean_m",
+      "owner": 0.06798350107484277,
+      "checker": 0.06798350107484277,
+      "error": 0.0,
+      "tolerance": 2.3596700214968554e-08,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-5",
+      "field": "SF",
+      "owner": 1.258252476557821,
+      "checker": 1.258252476557821,
+      "error": 0.0,
+      "tolerance": 2.616504953115642e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-5",
+      "field": "modes/compression",
+      "owner": 4.368985906310003,
+      "checker": 4.3689859063100105,
+      "error": 7.105427357601002e-15,
+      "tolerance": 8.837971812620007e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-5",
+      "field": "modes/euler",
+      "owner": 4.194174921857839,
+      "checker": 4.1941749218578455,
+      "error": 6.217248937900877e-15,
+      "tolerance": 8.488349843715678e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-5",
+      "field": "modes/local",
+      "owner": 1.258252476557938,
+      "checker": 1.2582524765579548,
+      "error": 1.687538997430238e-14,
+      "tolerance": 2.616504953115876e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-5",
+      "field": "modes/global_",
+      "owner": 1.2582524765579715,
+      "checker": 1.2582524765579735,
+      "error": 1.9984014443252818e-15,
+      "tolerance": 2.6165049531159426e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-5",
+      "field": "modes/film",
+      "owner": 1.258252476557821,
+      "checker": 1.258252476557821,
+      "error": 0.0,
+      "tolerance": 2.616504953115642e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-5",
+      "field": "modes/perry",
+      "owner": 3.4544991602026953,
+      "checker": 3.454499160202702,
+      "error": 6.661338147750939e-15,
+      "tolerance": 7.008998320405391e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-5",
+      "field": "modes/tension",
+      "owner": 3.9992166153322772,
+      "checker": 3.9992166153322426,
+      "error": -3.4638958368304884e-14,
+      "tolerance": 8.098433230664554e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/tube",
+      "owner": 4033.78555470436,
+      "checker": 4033.7855547043923,
+      "error": 3.228706191293895e-11,
+      "tolerance": 0.000807757110940872,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/film",
+      "owner": 202.0064050805908,
+      "checker": 202.0064050805908,
+      "error": 0.0,
+      "tolerance": 4.140128101611816e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/joint",
+      "owner": 40.442125647346145,
+      "checker": 40.44212564734616,
+      "error": 1.4210854715202004e-14,
+      "tolerance": 9.08842512946923e-06,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/nodes",
+      "owner": 2.9724921006858223,
+      "checker": 2.972492100685821,
+      "error": -1.3322676295501878e-15,
+      "tolerance": 1.5944984201371644e-06,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/reserve",
+      "owner": 411.2989440716474,
+      "checker": 411.2989440716474,
+      "error": 0.0,
+      "tolerance": 8.325978881432947e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 98.93662858536948,
+      "checker": 98.93662858536945,
+      "error": -2.842170943040401e-14,
+      "tolerance": 2.0787325717073893e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/vehicle",
+      "owner": 4379.206577532982,
+      "checker": 4379.206577533015,
+      "error": 3.2741809263825417e-11,
+      "tolerance": 0.0008768413155065964,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "mass_kg/closure",
+      "owner": 4889.442150189999,
+      "checker": 4889.4421501900315,
+      "error": 3.2741809263825417e-11,
+      "tolerance": 0.0009788884300379996,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "member_length_m",
+      "owner": 3.1589550945655667,
+      "checker": 3.1589550945655667,
+      "error": 0.0,
+      "tolerance": 6.417910189131133e-07,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "members",
+      "owner": 439.8738151028733,
+      "checker": 439.87381510287315,
+      "error": -1.7053025658242404e-13,
+      "tolerance": 8.798476302057465e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "nodes",
+      "owner": 148.6246050342911,
+      "checker": 148.62460503429105,
+      "error": -5.684341886080802e-14,
+      "tolerance": 2.9734921006858222e-05,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "area_m2",
+      "owner": 0.0009364391244915947,
+      "checker": 0.0009364391244916026,
+      "error": 7.914675859144182e-18,
+      "tolerance": 1.018728782489832e-08,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "inertia_m4",
+      "owner": 8.509447169989227e-06,
+      "checker": 8.509447169989298e-06,
+      "error": 7.115076756936123e-20,
+      "tolerance": 1.0001701889433999e-08,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "sag_mean_m",
+      "owner": 0.06744915919261184,
+      "checker": 0.06744915919261181,
+      "error": -2.7755575615628914e-17,
+      "tolerance": 2.3489831838522367e-08,
+      "match": true,
+      "basis": "independent continuum arithmetic"
+    },
+    {
+      "group": "022d-019",
+      "field": "SF",
+      "owner": 1.194121426005205,
+      "checker": 1.1941214260052073,
+      "error": 2.220446049250313e-15,
+      "tolerance": 2.48824285201041e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "modes/compression",
+      "owner": 4.212824327676115,
+      "checker": 4.212824327676151,
+      "error": 3.552713678800501e-14,
+      "tolerance": 8.52564865535223e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "modes/euler",
+      "owner": 3.980404753350687,
+      "checker": 3.9804047533507205,
+      "error": 3.3306690738754696e-14,
+      "tolerance": 8.060809506701375e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "modes/local",
+      "owner": 1.194121426005205,
+      "checker": 1.1941214260052182,
+      "error": 1.3100631690576847e-14,
+      "tolerance": 2.48824285201041e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "modes/global_",
+      "owner": 1.194121426005206,
+      "checker": 1.1941214260052164,
+      "error": 1.0436096431476471e-14,
+      "tolerance": 2.488242852010412e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "modes/film",
+      "owner": 1.1941214260052073,
+      "checker": 1.1941214260052073,
+      "error": 0.0,
+      "tolerance": 2.488242852010415e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "modes/perry",
+      "owner": 3.301678086544115,
+      "checker": 3.3016780865441433,
+      "error": 2.842170943040401e-14,
+      "tolerance": 6.703356173088229e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "022d-019",
+      "field": "modes/tension",
+      "owner": 3.7939277488603325,
+      "checker": 3.7939277488603813,
+      "error": 4.884981308350689e-14,
+      "tolerance": 7.687855497720664e-07,
+      "match": true,
+      "basis": "independent declared homogenization and scalar screens"
+    },
+    {
+      "group": "f5-5",
+      "field": "tube_mass_change_vs_022d_kg",
+      "owner": 79.62776138591562,
+      "checker": 79.62776138589652,
+      "error": -1.9099388737231493e-11,
+      "tolerance": 1.6925552277183124e-05,
+      "match": true,
+      "basis": "independent mass differences"
+    },
+    {
+      "group": "f5-5",
+      "field": "tube_mass_change_vs_matching_reserve_022d_kg",
+      "owner": 79.62776138591562,
+      "checker": 79.62776138589652,
+      "error": -1.9099388737231493e-11,
+      "tolerance": 1.6925552277183124e-05,
+      "match": true,
+      "basis": "independent mass differences"
+    },
+    {
+      "group": "f5-019",
+      "field": "tube_mass_change_vs_022d_kg",
+      "owner": -74.82500679894383,
+      "checker": -74.82500679890927,
+      "error": 3.456079866737127e-11,
+      "tolerance": 1.5965001359788764e-05,
+      "match": true,
+      "basis": "independent mass differences"
+    },
+    {
+      "group": "f5-019",
+      "field": "tube_mass_change_vs_matching_reserve_022d_kg",
+      "owner": 74.97946144822345,
+      "checker": 74.97946144823118,
+      "error": 7.73070496506989e-12,
+      "tolerance": 1.5995892289644687e-05,
+      "match": true,
+      "basis": "independent mass differences"
+    },
+    {
+      "group": "nonlinear-m6",
+      "field": "critical_midpoint",
+      "owner": 5.524841711877297,
+      "checker": 5.524791779355343,
+      "error": -4.9932521953621745e-05,
+      "tolerance": 0.0,
+      "match": false,
+      "basis": "independent from-zero continuation; interval and formulation differences must also be inspected"
+    },
+    {
+      "group": "nonlinear-m12",
+      "field": "critical_midpoint",
+      "owner": 5.4498771379747915,
+      "checker": 5.449871395253925,
+      "error": -5.7427208668414664e-06,
+      "tolerance": 0.0,
+      "match": false,
+      "basis": "independent from-zero continuation; interval and formulation differences must also be inspected"
+    },
+    {
+      "group": "nonlinear-m24",
+      "field": "critical_midpoint",
+      "owner": 5.430902211666655,
+      "checker": 5.430911824412611,
+      "error": 9.612745955678292e-06,
+      "tolerance": 0.0,
+      "match": false,
+      "basis": "independent from-zero continuation; interval and formulation differences must also be inspected"
+    }
+  ],
+  "mismatches": [
+    {
+      "group": "nonlinear-m6",
+      "field": "critical_midpoint",
+      "owner": 5.524841711877297,
+      "checker": 5.524791779355343,
+      "error": -4.9932521953621745e-05,
+      "tolerance": 0.0,
+      "match": false,
+      "basis": "independent from-zero continuation; interval and formulation differences must also be inspected"
+    },
+    {
+      "group": "nonlinear-m12",
+      "field": "critical_midpoint",
+      "owner": 5.4498771379747915,
+      "checker": 5.449871395253925,
+      "error": -5.7427208668414664e-06,
+      "tolerance": 0.0,
+      "match": false,
+      "basis": "independent from-zero continuation; interval and formulation differences must also be inspected"
+    },
+    {
+      "group": "nonlinear-m24",
+      "field": "critical_midpoint",
+      "owner": 5.430902211666655,
+      "checker": 5.430911824412611,
+      "error": 9.612745955678292e-06,
+      "tolerance": 0.0,
+      "match": false,
+      "basis": "independent from-zero continuation; interval and formulation differences must also be inspected"
+    }
+  ],
+  "numerical_comparison_tolerance": "absolute term + 2e-7*abs(owner); independent nonlinear midpoints retained with zero exact-comparison tolerance",
+  "optimization_scope": "Fixed reported witnesses evaluated independently; optimization search not rerun"
+}

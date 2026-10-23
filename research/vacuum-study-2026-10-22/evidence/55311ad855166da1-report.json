@@ -1,0 +1,112 @@
+{
+  "id": "rpt-ref-4b8e7b08241bb7a45536",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline022d-check-1020",
+  "re": "ord-admiral-rr2-check022d-codex-1693-1020",
+  "at": "2026-10-20T02:53:50.904942-07:00",
+  "body": "Independent CHECK MAINLINE-022d complete; owner code was not read or run. All 64 primary witnesses and 1,792 numeric table cells reproduce. Independent starts recover all 176 primary/sensitivity optima within 1e-6 SF; no materially better witness found.\n\nBest equilateral in-band: SF 1.258252476558 at s=3.170758569107 m; arc length/half-wave 3.184193539 m. Both Zylon plies total 214.541557545 kg. Candidate-sized joints weigh 44.191468267 kg and have axial/bond multipliers equal to target. Target extreme compression is 1.198096384 GPa; opposite-face tension is zero.\n\nExact mismatch ledger: 50 field differences in 16 square-membrane sensitivity rows, from declared coefficient 0.07028850747757764 versus output-implied 0.07028850698306077. Maximum least-SF effect 3.98e-9; primary result unaffected. NFI requests consistent coefficient/truncation documentation.\n\nRequired continuum NFI: frozen 026b frequency-4 discrete linear 5.254643802 versus continuum 6.193381346, 15.1571% lower despite the member-wave screen. This is not a universal correction to 022d.\n\nNine NFIs also carry material/contact reliability, complete membrane, joint density/bond/stiffness, local-shell conventions, two-way shear, manufacture/mass and search extent. Qualified SF, compression allowable and failure probability remain null. Five one-core simjob invocations completed and released; no time budget. CHECK names no successor.",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check022d-codex-1693-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "next": "none",
+  "standing": "none",
+  "deadline": "2026-10-20T07:00:00-07:00",
+  "artifacts": [
+    {
+      "path": "evidence/edfade737dbf65ec-CARD.md",
+      "sha256": "edfade737dbf65ec062478cb2dc8f5db586427ac0ebe058dcbf251494ebd0e68",
+      "bytes": 7200
+    },
+    {
+      "path": "evidence/52df09330d524b27-RESULTS.json",
+      "sha256": "52df09330d524b27cb9f8f8a7a53f087326cb44855ab108ae7f8226a37ad9926",
+      "bytes": 7814
+    },
+    {
+      "path": "evidence/842c8c5edf01325c-CHECKS.json",
+      "sha256": "842c8c5edf01325cb47c33c9bae9ea9f3e6e353ce0f5b3798f1f7fec7240f2ed",
+      "bytes": 1614
+    },
+    {
+      "path": "evidence/86e8a9642552d39e-NFI.json",
+      "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+      "bytes": 7666
+    },
+    {
+      "path": "evidence/93c73709b3661940-MISMATCHES.json",
+      "sha256": "93c73709b3661940a2b15837f50411db8e0298171b7db7566392e1d6c9ae87ac",
+      "bytes": 25746
+    },
+    {
+      "path": "evidence/bcefa9249d3187f0-MISMATCHES.csv",
+      "sha256": "bcefa9249d3187f0ae659e9e66c2ed81e05c8ff07b1a0626eabee647e473130f",
+      "bytes": 9323
+    },
+    {
+      "path": "evidence/6e600b5e1328706d-FIELD-CHECKS.csv",
+      "sha256": "6e600b5e1328706d2e3929d37e594b33177e2f2a3d8d8b3d964b25fbc94af941",
+      "bytes": 2712363
+    },
+    {
+      "path": "evidence/72765a5623219830-INDEPENDENT-OPTIMA.json",
+      "sha256": "72765a5623219830d49e88d213f2013d8511e6c62eb33b64fc053eb6e75a3f1a",
+      "bytes": 610855
+    },
+    {
+      "path": "evidence/111a3b59eef58384-SOURCE-ARITHMETIC.json",
+      "sha256": "111a3b59eef5838456994ae8dcc1aa33e4012b0606c62da04af827821a7c37d5",
+      "bytes": 18858
+    },
+    {
+      "path": "evidence/0c4ab0359f657552-SOURCES.md",
+      "sha256": "0c4ab0359f657552b35e484bd8992e781f052110e52eb3fdbb070cdd692dbbce",
+      "bytes": 6560
+    },
+    {
+      "path": "evidence/ff3b8a13f4402e92-METHODS.md",
+      "sha256": "ff3b8a13f4402e9263180ce5878b4c249bda9f6c89115b1c604a72652ff6952f",
+      "bytes": 7716
+    },
+    {
+      "path": "evidence/aa3f6e28b008d04b-INPUTS.json",
+      "sha256": "aa3f6e28b008d04bd267dea858129cb4f8558d83a13f798aaf2ea68d5b7bfc99",
+      "bytes": 17540
+    },
+    {
+      "path": "evidence/4721464840baae69-EXECUTION.json",
+      "sha256": "4721464840baae699bb62bf06d1648a4bd95cfbbce1b92e1faf8da7b063c5d48",
+      "bytes": 15212
+    },
+    {
+      "path": "unpublished-local-ref:2a8d850b2e0bae65",
+      "sha256": "09d289ef4de7119a4e668a7240cbea51d6afbacb1919f898641f961f19bf9c3b",
+      "bytes": 22949
+    },
+    {
+      "path": "evidence/e396c94afb634590-MANIFEST.json",
+      "sha256": "e396c94afb6345900cbeb655f56798d9276eb328c65c423182c60801bea3b834",
+      "bytes": 15644
+    },
+    {
+      "path": "evidence/bbcf3e9bbff5b49b-PACKAGECHECK.json",
+      "sha256": "bbcf3e9bbff5b49be8216ecb2b1279da5a59bc9b5c95034f396d06aeb42fdfc9",
+      "bytes": 816
+    }
+  ],
+  "ingested": "2026-10-20T02:54:23-07:00"
+}

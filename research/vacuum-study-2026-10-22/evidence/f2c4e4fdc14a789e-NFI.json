@@ -1,0 +1,149 @@
+[
+  {
+    "id": "051-complete-member-compression",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "No candidate has a retrieved 2–3 m complete-tube compression scale, m and effective size. Measure a relevant population, including joints/process/environment; do not substitute tensile or flexural fits.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-strength-basis",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Manufacturer typical compression averages are not Weibull scales, design allowables or specimen-size fits. All multipliers against them are explicitly hypothetical.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-composite-constitutive",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Virtual matrix/transverse/shear constants, density mixtures and homogenized B=0/D=Qbar t³/12 need construction-specific evidence; actual pultruded/wrapped geometry and fibre fractions may differ.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-composite-failure",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Transverse compression, interlaminar damage, microbuckling, defects, matrix shear and compression-after-impact remain incomplete. No CFRP tube is established to be non-brittle.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-local-shell-screen",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Peak-stress orthotropic Donnell screen with inherited gamma is unvalidated. The change from .6E axial demand materially reduces the baseline 019 margin.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-global-and-joints",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Rigid joints, global factor0.2, follower-pressure fan and lack of film tangent stiffness are projections; proof by nonlinear imperfection-sensitive structure tests/analysis is absent.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-joint-and-film-loss",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Every sampled loss triggers a second overload in the retained design. A changed load path, stronger joints and supported film bay must be designed with its mass charged.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-dynamic-cascade",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Two static edge removals per construction/reserve are not an exhaustive edge search, transient rupture chain or lifetime cascade probability.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-hail-calibration",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Pressure history/contact patch, preload, dynamic plate/shell response, effective flaw area and matching member-break fit are missing. Uncalibrated probabilities are not measured risks.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-hail-composites",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "First-ply stress, leakage and complete-member severance are distinct events; tow load sharing cannot supply an impact Weibull population.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-size-scaling",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "750 equal whole-member populations, 3 m reference weights and 1 cm³ volume weights are alternative hypotheses. Real compressive failure or composite load sharing may not follow weakest-link volume scaling.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-source-conflicts",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open source qualification",
+    "issue": "Saint-Gobain sheet/web m/E/rho entries differ; Specialty Materials metric and imperial entries conflict; reported PremaTech flexural mean/scale are not internally exact. Preserve source populations instead of silently combining them.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-CMC-temperature",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "GE's >1 GPa CMC compression concerns hot component averages; projected RT tube use and assumed E/G/rho are not justified by those data.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-optimization-scope",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open design scope",
+    "issue": "Fixed OD, actual f5 member lengths, retained film/joints and declared layups bound this study. Passing witnesses are not global minima or commercially demonstrated tubes.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-life-exposure",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open physical qualification",
+    "issue": "Hail flux, repeated impact, humidity/temperature, manufacturing scatter, stress corrosion and proof-test damage are unmodeled. No actual lifetime Pf is identified.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "051-trend-scope",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "status": "Open inference",
+    "issue": "The inherited flat stiffness/density trend does not constrain defect reduction, strength scatter, interfaces, proof testing or structural redundancy.",
+    "origin": "MAINLINE-051 owner; retained by checker"
+  },
+  {
+    "id": "CHECK051-signed-stress-label",
+    "status": "Open labeling fix",
+    "tag": "QUESTIONABLE",
+    "issue": "336 HAIL surface_stress_Pa shear values discard the tensor sign. Rename as magnitude or retain signed values. Utilization and probability are unaffected.",
+    "evidence": "DISCREPANCIES.json"
+  },
+  {
+    "id": "CHECK051-ill-conditioned-shape",
+    "status": "Open numerical presentation fix",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "FRAME-COMPARE rows32/86 report m about 6.8e12/2.25e11 at an active compression limit. Independent values differ; 1e-8 thinner wall makes finite m impossible. Use a resolution-aware infeasible/unbounded flag and retain required scale targets.",
+    "evidence": "SENSITIVITIES.json"
+  },
+  {
+    "id": "CHECK051-joint-reference",
+    "status": "Open physical/source qualification",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Legacy sleeves retain1470MPa while current cited T700S composite compression is1450MPa. Matching sleeve construction remains unqualified. A 1450 sensitivity reduces K13D2U ceilings to1.120291/1.061343; both still exceed1.",
+    "evidence": "SENSITIVITIES.json; SOURCE-CHECK.md"
+  },
+  {
+    "id": "CHECK051-eigen-order",
+    "status": "Resolved numerical; label guidance",
+    "tag": "QUESTIONABLE",
+    "issue": "49 higher-mode index differences across25 solves, repeated16 times in witness records, reflect returned multiplicity/order. Expanded independent12-mode solves contain every owner value; lowest factors match. Do not identify modes by array index across solves.",
+    "evidence": "FE-RECONCILIATION.json; eigen-expanded/"
+  },
+  {
+    "id": "CHECK051-member-ids",
+    "status": "Resolved data mapping",
+    "tag": "QUESTIONABLE",
+    "issue": "Original041/043-fold and CHECK041 use different member numbering. Coordinate/edge maps reconcile all3000 member stress comparisons; the target surface is unchanged.",
+    "evidence": "MEMBER-ID-MAP-5.json; MEMBER-ID-MAP-019.json"
+  }
+]

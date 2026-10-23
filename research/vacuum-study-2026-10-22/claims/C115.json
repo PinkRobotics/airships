@@ -1,0 +1,78 @@
+{
+  "id": "C115",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C115",
+    "report": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+    "file": "evidence/2fdd2471098ae313-NFI.json",
+    "snapshot": "evidence/2fdd2471098ae313-NFI.json",
+    "source_sha256": "2fdd2471098ae3132594f5aae4b6c4473c663608865de9197d54890278c20b71",
+    "source_json_pointer": "/5",
+    "row_id": "NFI-029-FACE-PLASTICITY",
+    "fields": {
+      "id": "NFI-029-FACE-PLASTICITY",
+      "status": "open",
+      "title": "Faces remain elastic",
+      "issue": "Neither beryllium nor stainless faces yield in the model. Beryllium inheritednu=.33 is used for comparison, not a verified grade-specific value. Known strength-basis uncertainty of021 is not resolved by these stability runs. NASA CR194164 Table2 reports SR200 in-plane nu12=.0768 andnu21=.0752 for1.96mm sheet. Treating.0768 isotropically at the lead gauge is itself a transfer. Its strong-direction endpoint98.34692kPa leaves only3.02% over operating pressure. A declared.03 sensitivity for021 gives91.468265kPa, below operating pressure. At the baseline endpoints, outer-face maximum equivalent stresses are660.806/835.808MPa for021 W/L and1144.503/1303.532MPa for021b W/L. These are von Mises diagnostics, not a verified beryllium criterion. Face survival to these loads is not established.",
+      "tag": "QUESTIONABLE",
+      "gates_other_cards": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "root_list",
+    "blocks_progress": false
+  },
+  "claim": "Neither beryllium nor stainless faces yield in the model. Beryllium inheritednu=.33 is used for comparison, not a verified grade-specific value. Known strength-basis uncertainty of021 is not resolved by these stability runs. NASA CR194164 Table2 reports SR200 in-plane nu12=.0768 andnu21=.0752 for1.96mm sheet. Treating.0768 isotropically at the lead gauge is itself a transfer. Its strong-direction endpoint98.34692kPa leaves only3.02% over operating pressure. A declared.03 sensitivity for021 gives91.468265kPa, below operating pressure. At the baseline endpoints, outer-face maximum equivalent stresses are660.806/835.808MPa for021 W/L and1144.503/1303.532MPa for021b W/L. These are von Mises diagnostics, not a verified beryllium criterion. Face survival to these loads is not established. | Faces remain elastic",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/825"
+    },
+    {
+      "report": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+      "artifact": "evidence/2fdd2471098ae313-NFI.json",
+      "snapshot": "evidence/2fdd2471098ae313-NFI.json",
+      "sha256": "2fdd2471098ae3132594f5aae4b6c4473c663608865de9197d54890278c20b71",
+      "bytes": 9277,
+      "selector": "/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+          "artifact": "evidence/2fdd2471098ae313-NFI.json",
+          "snapshot": "evidence/2fdd2471098ae313-NFI.json",
+          "sha256": "2fdd2471098ae3132594f5aae4b6c4473c663608865de9197d54890278c20b71",
+          "bytes": 9277,
+          "selector": "/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/825"
+          }
+        ]
+      }
+    }
+  ]
+}

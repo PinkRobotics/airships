@@ -1,0 +1,40 @@
+{
+  "id": "E-41154db4166699f89d57",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-41154db4166699f89d57",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/2",
+    "row_id": "NFI-043-03",
+    "fields": {
+      "id": "NFI-043-03",
+      "status": "open",
+      "topic": "Joint and end-interface reliability",
+      "finding": "The source's approximately 44.19 kg CFRP joining estimate and 44.02 mm overlap do not establish rotation, contact, adhesive peel, end damage or statistical reliability for roughly 866 end interfaces.",
+      "needed": "Joint geometry and stiffness, local contact and bond stresses, combined-load tests, processing variability, failure distributions, environmental durability and allocation of joint risk.",
+      "effect": "The tube-only risk budget omits an unresolved system contribution. The proxy moment is not a physical bound.",
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The source's approximately 44.19 kg CFRP joining estimate and 44.02 mm overlap do not establish rotation, contact, adhesive peel, end damage or statistical reliability for roughly 866 end interfaces.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

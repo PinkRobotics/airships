@@ -1,0 +1,2040 @@
+{
+  "unit": "vacuum-mainline070-graphite-face-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "note": "Copied from RUN.json and RUN-GAMMA020.json after the two simjobs. This file does not re-run the hull. Closed density is the face density at which payload reaches zero with every mode at least 1. The stated film is 2250 kg/m3. A density factor above 1 lowers density. The binder density factor was not searched.",
+  "simjobs": [
+    {
+      "scope": "simjob-20261020t183738-e805ab35990e.scope",
+      "exit": 0,
+      "reported_after_s": 25,
+      "what": "version-7 gamma step, 066 reproduction, strength floor, beryllium-expansion control, binder projection, density search on the primary",
+      "started": "2026-10-20T18:37:38.282699-07:00",
+      "completed": "2026-10-20T18:38:02.533059-07:00"
+    },
+    {
+      "scope": "simjob-20261020t183910-56b3157beb42.scope",
+      "exit": 0,
+      "reported_after_s": 65,
+      "what": "gamma held at 0.20 on the card, the strength floor, and the binder projection, with a density search on the card rows",
+      "started": "2026-10-20T18:39:10.701656-07:00",
+      "completed": "2026-10-20T18:40:15.653975-07:00"
+    }
+  ],
+  "model": {
+    "beta_natural": 0.682327803828082,
+    "beta_run": 1.0,
+    "revert": [
+      "Q",
+      "gamma"
+    ],
+    "Q": 0.33,
+    "face_alpha_primary_1_per_K": 1e-06,
+    "interface_cure_core_wall_1_per_K": 1.23e-05,
+    "reproduction_abs_max_kg": 0.0009861975195235573,
+    "reproduction_gate_kg": 0.05
+  },
+  "gamma_held_0_20": {
+    "law": "FORCE_GAMMA 0.20 after the version-7 step. Vc is above 2, so this hold is outside the named CR-1457 support.",
+    "rows": [
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -16149.851754904561,
+        "tf_m": 0.001644635759065156,
+        "tc_m": 0.10288456639553102,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.35554281817413,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000003155838
+          ],
+          [
+            "global_buckling",
+            1.0000000091870904
+          ],
+          [
+            "thermal_interface",
+            1.0712301004779932
+          ],
+          [
+            "face_wrinkling",
+            1.3750979202861429
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000091870904,
+          "face_wrinkling": 1.3750979202861429,
+          "face_compression": 4.247003682339836,
+          "thermal_interface": 1.0712301004779932,
+          "core_wall_yield": 2.400967532433806,
+          "scarf_average_shear": 1.0000000003155838
+        },
+        "floats": false,
+        "density_factor_to_float": 1.6064754410109046,
+        "closed_rho_kg_m3": 1400.581635150392,
+        "closed_payload_kg": 0.7633236000392571,
+        "closed_gamma": 0.2
+      },
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -17974.24789067152,
+        "tf_m": 0.001687652719452699,
+        "tc_m": 0.10556814278732786,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.4433062952934135,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000003288803
+          ],
+          [
+            "global_buckling",
+            1.0000000174520758
+          ],
+          [
+            "thermal_interface",
+            1.0712128618137595
+          ],
+          [
+            "face_wrinkling",
+            1.3751465315572982
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000174520758,
+          "face_wrinkling": 1.3751465315572982,
+          "face_compression": 4.247003682396307,
+          "thermal_interface": 1.0712128618137595,
+          "core_wall_yield": 2.400928895101725,
+          "scarf_average_shear": 1.0000000003288803
+        },
+        "floats": false,
+        "density_factor_to_float": 1.6933050733021113,
+        "closed_rho_kg_m3": 1328.7623331880054,
+        "closed_payload_kg": 0.07180710991360684,
+        "closed_gamma": 0.2
+      },
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -52721.061355906146,
+        "tf_m": 0.002469391803670647,
+        "tc_m": 0.1543228919322125,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.358805616379029,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002016896
+          ],
+          [
+            "global_buckling",
+            1.0000000067014088
+          ],
+          [
+            "thermal_interface",
+            1.0709254013498304
+          ],
+          [
+            "face_wrinkling",
+            1.3757949188117764
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000067014088,
+          "face_wrinkling": 1.3757949188117764,
+          "face_compression": 4.247003681856127,
+          "thermal_interface": 1.0709254013498304,
+          "core_wall_yield": 2.400284604728962,
+          "scarf_average_shear": 1.0000000002016896
+        },
+        "floats": false,
+        "density_factor_to_float": 1.5742815750815988,
+        "closed_rho_kg_m3": 1429.2233585236345,
+        "closed_payload_kg": 1.3420892331159848,
+        "closed_gamma": 0.2
+      },
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -58887.81634514379,
+        "tf_m": 0.0025340114899948117,
+        "tc_m": 0.15834810843671207,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.446695208178461,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.000000000309505
+          ],
+          [
+            "global_buckling",
+            1.000000032185854
+          ],
+          [
+            "thermal_interface",
+            1.0709039094910273
+          ],
+          [
+            "face_wrinkling",
+            1.3758520225402693
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000000032185854,
+          "face_wrinkling": 1.3758520225402693,
+          "face_compression": 4.247003682314021,
+          "thermal_interface": 1.0709039094910273,
+          "core_wall_yield": 2.4002364346344365,
+          "scarf_average_shear": 1.000000000309505
+        },
+        "floats": false,
+        "density_factor_to_float": 1.6585815524396763,
+        "closed_rho_kg_m3": 1356.5808667595402,
+        "closed_payload_kg": 2.520472733947827,
+        "closed_gamma": 0.2
+      },
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -11268.575789931338,
+        "tf_m": 0.001644635759065156,
+        "tc_m": 0.10288456639553102,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.35554281817413,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000003155838
+          ],
+          [
+            "global_buckling",
+            1.0000000091870904
+          ],
+          [
+            "thermal_interface",
+            1.0712301004779932
+          ],
+          [
+            "face_wrinkling",
+            1.3750979202861429
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000091870904,
+          "face_wrinkling": 1.3750979202861429,
+          "face_compression": 4.247003682339836,
+          "thermal_interface": 1.0712301004779932,
+          "core_wall_yield": 2.400967532433806,
+          "scarf_average_shear": 1.0000000003155838
+        },
+        "floats": false,
+        "density_factor_to_float": 1.4054606782737316,
+        "closed_rho_kg_m3": 1600.8985770868956,
+        "closed_payload_kg": 0.0625337168785336,
+        "closed_gamma": 0.2
+      },
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -12971.332529387953,
+        "tf_m": 0.001687652719452699,
+        "tc_m": 0.10556814278732786,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.4433062952934135,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000003288803
+          ],
+          [
+            "global_buckling",
+            1.0000000174520758
+          ],
+          [
+            "thermal_interface",
+            1.0712128618137595
+          ],
+          [
+            "face_wrinkling",
+            1.3751465315572982
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000174520758,
+          "face_wrinkling": 1.3751465315572982,
+          "face_compression": 4.247003682396307,
+          "thermal_interface": 1.0712128618137595,
+          "core_wall_yield": 2.400928895101725,
+          "scarf_average_shear": 1.0000000003288803
+        },
+        "floats": false,
+        "density_factor_to_float": 1.4784671338268978,
+        "closed_rho_kg_m3": 1521.8464776934532,
+        "closed_payload_kg": 0.3164625976255593,
+        "closed_gamma": 0.2
+      },
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -36447.5262681486,
+        "tf_m": 0.002469391803670647,
+        "tc_m": 0.1543228919322125,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.358805616379029,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002016896
+          ],
+          [
+            "global_buckling",
+            1.0000000067014088
+          ],
+          [
+            "thermal_interface",
+            1.0709254013498304
+          ],
+          [
+            "face_wrinkling",
+            1.3757949188117764
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000067014088,
+          "face_wrinkling": 1.3757949188117764,
+          "face_compression": 4.247003681856127,
+          "thermal_interface": 1.0709254013498304,
+          "core_wall_yield": 2.400284604728962,
+          "scarf_average_shear": 1.0000000002016896
+        },
+        "floats": false,
+        "density_factor_to_float": 1.3816283859886975,
+        "closed_rho_kg_m3": 1628.5131536219078,
+        "closed_payload_kg": 2.1446628599851465,
+        "closed_gamma": 0.2
+      },
+      {
+        "material": "graphite-film-gamma020",
+        "role": "card",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -42202.51524602988,
+        "tf_m": 0.0025340114899948117,
+        "tc_m": 0.15834810843671207,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.446695208178461,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.000000000309505
+          ],
+          [
+            "global_buckling",
+            1.000000032185854
+          ],
+          [
+            "thermal_interface",
+            1.0709039094910273
+          ],
+          [
+            "face_wrinkling",
+            1.3758520225402693
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000000032185854,
+          "face_wrinkling": 1.3758520225402693,
+          "face_compression": 4.247003682314021,
+          "thermal_interface": 1.0709039094910273,
+          "core_wall_yield": 2.4002364346344365,
+          "scarf_average_shear": 1.000000000309505
+        },
+        "floats": false,
+        "density_factor_to_float": 1.452797492987202,
+        "closed_rho_kg_m3": 1548.7361527404703,
+        "closed_payload_kg": 2.270311851538281,
+        "closed_gamma": 0.2
+      }
+    ],
+    "strength_floor_max_abs_payload_diff_kg": 0.0,
+    "binder_10pct": [
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -14140.092617328199,
+        "tf_m": 0.0016440963185929034,
+        "tc_m": 0.10288569158204675,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.019014079656392,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002724285
+          ],
+          [
+            "global_buckling",
+            1.0000000152805308
+          ],
+          [
+            "thermal_interface",
+            1.071230093182096
+          ],
+          [
+            "face_wrinkling",
+            1.304311337046767
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000152805308,
+          "face_wrinkling": 1.304311337046767,
+          "face_compression": 4.247003682156556,
+          "thermal_interface": 1.071230093182096,
+          "core_wall_yield": 2.4009675160813786,
+          "scarf_average_shear": 1.0000000002724285
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -15911.635212870948,
+        "tf_m": 0.0016870875912169598,
+        "tc_m": 0.10556931996453685,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.0979548076396783,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002671368
+          ],
+          [
+            "global_buckling",
+            1.000000009432907
+          ],
+          [
+            "thermal_interface",
+            1.0712128542353339
+          ],
+          [
+            "face_wrinkling",
+            1.30435283026054
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000000009432907,
+          "face_wrinkling": 1.30435283026054,
+          "face_compression": 4.247003682134082,
+          "thermal_interface": 1.0712128542353339,
+          "core_wall_yield": 2.4009288781160616,
+          "scarf_average_shear": 1.0000000002671368
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -45917.88938665818,
+        "tf_m": 0.0024683389520857393,
+        "tc_m": 0.15432508884635132,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.021657165777809,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002893334
+          ],
+          [
+            "global_buckling",
+            1.000000019372615
+          ],
+          [
+            "thermal_interface",
+            1.0709253894994142
+          ],
+          [
+            "face_wrinkling",
+            1.3049061016606596
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000000019372615,
+          "face_wrinkling": 1.3049061016606596,
+          "face_compression": 4.247003682228351,
+          "thermal_interface": 1.0709253894994142,
+          "core_wall_yield": 2.400284578168408,
+          "scarf_average_shear": 1.0000000002893334
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -51905.47733799451,
+        "tf_m": 0.002532910656090259,
+        "tc_m": 0.15835040221642266,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.100700018432928,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002447884
+          ],
+          [
+            "global_buckling",
+            1.0000000256535073
+          ],
+          [
+            "thermal_interface",
+            1.07090389726017
+          ],
+          [
+            "face_wrinkling",
+            1.3049548368413584
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000256535073,
+          "face_wrinkling": 1.3049548368413584,
+          "face_compression": 4.247003682039168,
+          "thermal_interface": 1.07090389726017,
+          "core_wall_yield": 2.4002364072211937,
+          "scarf_average_shear": 1.0000000002447884
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -9433.582941940564,
+        "tf_m": 0.0016440963185929034,
+        "tc_m": 0.10288569158204675,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.019014079656392,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002724285
+          ],
+          [
+            "global_buckling",
+            1.0000000152805308
+          ],
+          [
+            "thermal_interface",
+            1.071230093182096
+          ],
+          [
+            "face_wrinkling",
+            1.304311337046767
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000152805308,
+          "face_wrinkling": 1.304311337046767,
+          "face_compression": 4.247003682156556,
+          "thermal_interface": 1.071230093182096,
+          "core_wall_yield": 2.4009675160813786,
+          "scarf_average_shear": 1.0000000002724285
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -11088.082370583925,
+        "tf_m": 0.0016870875912169598,
+        "tc_m": 0.10556931996453685,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.0979548076396783,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002671368
+          ],
+          [
+            "global_buckling",
+            1.000000009432907
+          ],
+          [
+            "thermal_interface",
+            1.0712128542353339
+          ],
+          [
+            "face_wrinkling",
+            1.30435283026054
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000000009432907,
+          "face_wrinkling": 1.30435283026054,
+          "face_compression": 4.247003682134082,
+          "thermal_interface": 1.0712128542353339,
+          "core_wall_yield": 2.4009288781160616,
+          "scarf_average_shear": 1.0000000002671368
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -30235.958976128946,
+        "tf_m": 0.0024683389520857393,
+        "tc_m": 0.15432508884635132,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.021657165777809,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002893334
+          ],
+          [
+            "global_buckling",
+            1.000000019372615
+          ],
+          [
+            "thermal_interface",
+            1.0709253894994142
+          ],
+          [
+            "face_wrinkling",
+            1.3049061016606596
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000000019372615,
+          "face_wrinkling": 1.3049061016606596,
+          "face_compression": 4.247003682228351,
+          "thermal_interface": 1.0709253894994142,
+          "core_wall_yield": 2.400284578168408,
+          "scarf_average_shear": 1.0000000002893334
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct-gamma020",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -35827.36215151447,
+        "tf_m": 0.002532910656090259,
+        "tc_m": 0.15835040221642266,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.100700018432928,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002447884
+          ],
+          [
+            "global_buckling",
+            1.0000000256535073
+          ],
+          [
+            "thermal_interface",
+            1.07090389726017
+          ],
+          [
+            "face_wrinkling",
+            1.3049548368413584
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0000000256535073,
+          "face_wrinkling": 1.3049548368413584,
+          "face_compression": 4.247003682039168,
+          "thermal_interface": 1.07090389726017,
+          "core_wall_yield": 2.4002364072211937,
+          "scarf_average_shear": 1.0000000002447884
+        },
+        "floats": false
+      }
+    ]
+  },
+  "version7_gamma_step": {
+    "law": "Handbook step with revert of Q and gamma. Gamma becomes 1 because Vc is above 2.",
+    "rows": [
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -6939.837364112906,
+        "tf_m": 0.001607389873295612,
+        "tc_m": 0.017464456838258622,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.051153266000262,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002342866
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000252804389
+          ],
+          [
+            "global_buckling",
+            1.000673189654337
+          ],
+          [
+            "thermal_interface",
+            1.0718867246162544
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000673189654337,
+          "face_wrinkling": 3.2995669810320116,
+          "face_compression": 4.247003681994567,
+          "thermal_interface": 1.0718867246162544,
+          "core_wall_yield": 2.402439236072711,
+          "scarf_average_shear": 1.0000000002342866
+        },
+        "floats": false,
+        "density_factor_to_float": 1.1990456588727765,
+        "closed_rho_kg_m3": 1876.4923448496752,
+        "closed_payload_kg": 1.104814090639593,
+        "closed_gamma": 1.0
+      },
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -8521.060863092567,
+        "tf_m": 0.0016493469738133489,
+        "tc_m": 0.017920326342419832,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.1307964046312184,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002282552
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000845470134
+          ],
+          [
+            "global_buckling",
+            1.0006900675980719
+          ],
+          [
+            "thermal_interface",
+            1.0718825655086497
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0006900675980719,
+          "face_wrinkling": 3.299566863400329,
+          "face_compression": 4.247003681968951,
+          "thermal_interface": 1.0718825655086497,
+          "core_wall_yield": 2.4024299141890944,
+          "scarf_average_shear": 1.0000000002282552
+        },
+        "floats": false,
+        "density_factor_to_float": 1.247835267762008,
+        "closed_rho_kg_m3": 1803.1226221353513,
+        "closed_payload_kg": 0.08676331122205738,
+        "closed_gamma": 1.0
+      },
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -21491.274160988847,
+        "tf_m": 0.0024117472334527815,
+        "tc_m": 0.02620388241349873,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.051991541056079,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002063405
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000206937993
+          ],
+          [
+            "global_buckling",
+            1.0009466467149093
+          ],
+          [
+            "thermal_interface",
+            1.0718070293533737
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0009466467149093,
+          "face_wrinkling": 3.299566989985398,
+          "face_compression": 4.24700368187588,
+          "thermal_interface": 1.0718070293533737,
+          "core_wall_yield": 2.4022606136286813,
+          "scarf_average_shear": 1.0000000002063405
+        },
+        "floats": false,
+        "density_factor_to_float": 1.1796114797249455,
+        "closed_rho_kg_m3": 1907.4076835235962,
+        "closed_payload_kg": 1.3585490520345047,
+        "closed_gamma": 1.0
+      },
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -26831.221882604408,
+        "tf_m": 0.002474715816610846,
+        "tc_m": 0.026888043377318243,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.1316763437391533,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002009861
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000458559077
+          ],
+          [
+            "global_buckling",
+            1.0009697881402702
+          ],
+          [
+            "thermal_interface",
+            1.07180102537142
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0009697881402702,
+          "face_wrinkling": 3.299566940029142,
+          "face_compression": 4.247003681853139,
+          "thermal_interface": 1.07180102537142,
+          "core_wall_yield": 2.4022471567945893,
+          "scarf_average_shear": 1.0000000002009861
+        },
+        "floats": false,
+        "density_factor_to_float": 1.2273766162807995,
+        "closed_rho_kg_m3": 1833.1781542473548,
+        "closed_payload_kg": 0.9616526644495025,
+        "closed_gamma": 1.0
+      },
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -2894.2975829039806,
+        "tf_m": 0.001607389873295612,
+        "tc_m": 0.017464456838258622,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.051153266000262,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002342866
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000252804389
+          ],
+          [
+            "global_buckling",
+            1.000673189654337
+          ],
+          [
+            "thermal_interface",
+            1.0718867246162544
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.000673189654337,
+          "face_wrinkling": 3.2995669810320116,
+          "face_compression": 4.247003681994567,
+          "thermal_interface": 1.0718867246162544,
+          "core_wall_yield": 2.402439236072711,
+          "scarf_average_shear": 1.0000000002342866
+        },
+        "floats": false,
+        "density_factor_to_float": 1.082040329930567,
+        "closed_rho_kg_m3": 2079.4049332194295,
+        "closed_payload_kg": 0.22435977821737652,
+        "closed_gamma": 1.0
+      },
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -4376.0078374834175,
+        "tf_m": 0.0016493469738133489,
+        "tc_m": 0.017920326342419832,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.1307964046312184,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002282552
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000845470134
+          ],
+          [
+            "global_buckling",
+            1.0006900675980719
+          ],
+          [
+            "thermal_interface",
+            1.0718825655086497
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0006900675980719,
+          "face_wrinkling": 3.299566863400329,
+          "face_compression": 4.247003681968951,
+          "thermal_interface": 1.0718825655086497,
+          "core_wall_yield": 2.4024299141890944,
+          "scarf_average_shear": 1.0000000002282552
+        },
+        "floats": false,
+        "density_factor_to_float": 1.1257831460453058,
+        "closed_rho_kg_m3": 1998.6087088831327,
+        "closed_payload_kg": 0.738797474355124,
+        "closed_gamma": 1.0
+      },
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -8055.716338737139,
+        "tf_m": 0.0024117472334527815,
+        "tc_m": 0.02620388241349873,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.051991541056079,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002063405
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000206937993
+          ],
+          [
+            "global_buckling",
+            1.0009466467149093
+          ],
+          [
+            "thermal_interface",
+            1.0718070293533737
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0009466467149093,
+          "face_wrinkling": 3.299566989985398,
+          "face_compression": 4.24700368187588,
+          "thermal_interface": 1.0718070293533737,
+          "core_wall_yield": 2.4022606136286813,
+          "scarf_average_shear": 1.0000000002063405
+        },
+        "floats": false,
+        "density_factor_to_float": 1.0667003100365224,
+        "closed_rho_kg_m3": 2109.308471020284,
+        "closed_payload_kg": 3.102752634485114,
+        "closed_gamma": 1.0
+      },
+      {
+        "material": "graphite-film",
+        "role": "primary",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -13059.37967618299,
+        "tf_m": 0.002474715816610846,
+        "tc_m": 0.026888043377318243,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.1316763437391533,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002009861
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000458559077
+          ],
+          [
+            "global_buckling",
+            1.0009697881402702
+          ],
+          [
+            "thermal_interface",
+            1.07180102537142
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0009697881402702,
+          "face_wrinkling": 3.299566940029142,
+          "face_compression": 4.247003681853139,
+          "thermal_interface": 1.07180102537142,
+          "core_wall_yield": 2.4022471567945893,
+          "scarf_average_shear": 1.0000000002009861
+        },
+        "floats": false,
+        "density_factor_to_float": 1.1095765133647646,
+        "closed_rho_kg_m3": 2027.8006725078635,
+        "closed_payload_kg": 0.5170415675293043,
+        "closed_gamma": 1.0
+      }
+    ],
+    "strength_floor_max_abs_payload_diff_kg": 0.0,
+    "beryllium_expansion_control": [
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -7247.955942164976,
+        "tf_m": 0.001618745062595712,
+        "tc_m": 0.01758783233838314,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.0727077302586854,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002057536
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000345481774
+          ],
+          [
+            "global_buckling",
+            1.0077124869929166
+          ],
+          [
+            "thermal_interface",
+            1.0718855883825076
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0077124869929166,
+          "face_wrinkling": 3.29956696249172,
+          "face_compression": 4.247003681873388,
+          "thermal_interface": 1.0718855883825076,
+          "core_wall_yield": 2.402436689411322,
+          "scarf_average_shear": 1.0000000002057536
+        },
+        "floats": false
+      },
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -8845.241780626486,
+        "tf_m": 0.0016612939213193987,
+        "tc_m": 0.018050129761493772,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.1534741229688517,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002968197
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000197764565
+          ],
+          [
+            "global_buckling",
+            1.0079078461569153
+          ],
+          [
+            "thermal_interface",
+            1.0718813728584373
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0079078461569153,
+          "face_wrinkling": 3.2995669922837125,
+          "face_compression": 4.247003682260144,
+          "thermal_interface": 1.0718813728584373,
+          "core_wall_yield": 2.402427241080454,
+          "scarf_average_shear": 1.0000000002968197
+        },
+        "floats": false
+      },
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -22962.906525397706,
+        "tf_m": 0.0024358433328578824,
+        "tc_m": 0.02646568902903189,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.0824844097882846,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002482836
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000210649973
+          ],
+          [
+            "global_buckling",
+            1.0109048990818867
+          ],
+          [
+            "thermal_interface",
+            1.0718047134980324
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0109048990818867,
+          "face_wrinkling": 3.2995669894704682,
+          "face_compression": 4.247003682054013,
+          "thermal_interface": 1.0718047134980324,
+          "core_wall_yield": 2.402255423059931,
+          "scarf_average_shear": 1.0000000002482836
+        },
+        "floats": false
+      },
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -28378.96919371787,
+        "tf_m": 0.0025000574822933355,
+        "tc_m": 0.027163383300622675,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.163745439074907,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002590645
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000490929866
+          ],
+          [
+            "global_buckling",
+            1.0111765419552188
+          ],
+          [
+            "thermal_interface",
+            1.0717985930340745
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0111765419552188,
+          "face_wrinkling": 3.299566933912838,
+          "face_compression": 4.247003682099799,
+          "thermal_interface": 1.0717985930340745,
+          "core_wall_yield": 2.4022417051526017,
+          "scarf_average_shear": 1.0000000002590645
+        },
+        "floats": false
+      },
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -3175.4844501133384,
+        "tf_m": 0.0016187450628285282,
+        "tc_m": 0.017587832353684413,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.072707730888674,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.000000000338492
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000352846787
+          ],
+          [
+            "global_buckling",
+            1.0077124877425705
+          ],
+          [
+            "thermal_interface",
+            1.0718855883823675
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0077124877425705,
+          "face_wrinkling": 3.2995669617316796,
+          "face_compression": 4.247003682437127,
+          "thermal_interface": 1.0718855883823675,
+          "core_wall_yield": 2.402436689411008,
+          "scarf_average_shear": 1.000000000338492
+        },
+        "floats": false
+      },
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -4671.852514227246,
+        "tf_m": 0.0016612939213193987,
+        "tc_m": 0.018050129761493772,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.1534741229688517,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002968197
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000197764565
+          ],
+          [
+            "global_buckling",
+            1.0079078461569153
+          ],
+          [
+            "thermal_interface",
+            1.0718813728584373
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0079078461569153,
+          "face_wrinkling": 3.2995669922837125,
+          "face_compression": 4.247003682260144,
+          "thermal_interface": 1.0718813728584373,
+          "core_wall_yield": 2.402427241080454,
+          "scarf_average_shear": 1.0000000002968197
+        },
+        "floats": false
+      },
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -9398.665680750975,
+        "tf_m": 0.0024358433328578824,
+        "tc_m": 0.02646568902903189,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.0824844097882846,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002482836
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000210649973
+          ],
+          [
+            "global_buckling",
+            1.0109048990818867
+          ],
+          [
+            "thermal_interface",
+            1.0718047134980324
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0109048990818867,
+          "face_wrinkling": 3.2995669894704682,
+          "face_compression": 4.247003682054013,
+          "thermal_interface": 1.0718047134980324,
+          "core_wall_yield": 2.402255423059931,
+          "scarf_average_shear": 1.0000000002482836
+        },
+        "floats": false
+      },
+      {
+        "material": "graphite-beryllium-expansion",
+        "role": "control",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -14471.783695510778,
+        "tf_m": 0.0025000574822933355,
+        "tc_m": 0.027163383300622675,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1.13e-05,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 3.163745439074907,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002590645
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000490929866
+          ],
+          [
+            "global_buckling",
+            1.0111765419552188
+          ],
+          [
+            "thermal_interface",
+            1.0717985930340745
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0111765419552188,
+          "face_wrinkling": 3.299566933912838,
+          "face_compression": 4.247003682099799,
+          "thermal_interface": 1.0717985930340745,
+          "core_wall_yield": 2.4022417051526017,
+          "scarf_average_shear": 1.0000000002590645
+        },
+        "floats": false
+      }
+    ],
+    "binder_10pct": [
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -4985.790506877702,
+        "tf_m": 0.001607281157726208,
+        "tc_m": 0.017463275762639594,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.7458522132684164,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000003054685
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000315534259
+          ],
+          [
+            "global_buckling",
+            1.0006057990587975
+          ],
+          [
+            "thermal_interface",
+            1.0718867355321944
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0006057990587975,
+          "face_wrinkling": 3.1302440742523987,
+          "face_compression": 4.247003682296877,
+          "thermal_interface": 1.0718867355321944,
+          "core_wall_yield": 2.402439260538806,
+          "scarf_average_shear": 1.0000000003054685
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -6515.935927063675,
+        "tf_m": 0.0016492326331743513,
+        "tc_m": 0.017919083944778626,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.8175214255441365,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002595515
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000811117369
+          ],
+          [
+            "global_buckling",
+            1.0006209822199839
+          ],
+          [
+            "thermal_interface",
+            1.071882576699168
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0006209822199839,
+          "face_wrinkling": 3.1302439807323466,
+          "face_compression": 4.247003682101867,
+          "thermal_interface": 1.071882576699168,
+          "core_wall_yield": 2.4024299392706068,
+          "scarf_average_shear": 1.0000000002595515
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -14890.682253643929,
+        "tf_m": 0.002411517806619327,
+        "tc_m": 0.026201389987428467,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.7465310904722804,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.000000000289151
+          ],
+          [
+            "core_shear_crimping",
+            1.000000030935356
+          ],
+          [
+            "global_buckling",
+            1.0008518370507136
+          ],
+          [
+            "thermal_interface",
+            1.071807051511614
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0008518370507136,
+          "face_wrinkling": 3.1302440753340735,
+          "face_compression": 4.247003682227574,
+          "thermal_interface": 1.071807051511614,
+          "core_wall_yield": 2.4022606632923487,
+          "scarf_average_shear": 1.000000000289151
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -20057.95837939055,
+        "tf_m": 0.0024744746505636125,
+        "tc_m": 0.02688542265023581,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.8182340361816083,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002913847
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000325547866
+          ],
+          [
+            "global_buckling",
+            1.0008726372097254
+          ],
+          [
+            "thermal_interface",
+            1.0718010480772233
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0008726372097254,
+          "face_wrinkling": 3.1302440722968123,
+          "face_compression": 4.247003682237062,
+          "thermal_interface": 1.0718010480772233,
+          "core_wall_yield": 2.4022472076855195,
+          "scarf_average_shear": 1.0000000002913847
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "ISA",
+        "payload_kg": -1110.169171803577,
+        "tf_m": 0.001607281157726208,
+        "tc_m": 0.017463275762639594,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.7458522132684164,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000003054685
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000315534259
+          ],
+          [
+            "global_buckling",
+            1.0006057990587975
+          ],
+          [
+            "thermal_interface",
+            1.0718867355321944
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0006057990587975,
+          "face_wrinkling": 3.1302440742523987,
+          "face_compression": 4.247003682296877,
+          "thermal_interface": 1.0718867355321944,
+          "core_wall_yield": 2.402439260538806,
+          "scarf_average_shear": 1.0000000003054685
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 20,
+        "weather": "optimistic",
+        "payload_kg": -2545.242993829396,
+        "tf_m": 0.0016492326331743513,
+        "tc_m": 0.017919083944778626,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.8175214255441365,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002595515
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000811117369
+          ],
+          [
+            "global_buckling",
+            1.0006209822199839
+          ],
+          [
+            "thermal_interface",
+            1.071882576699168
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0006209822199839,
+          "face_wrinkling": 3.1302439807323466,
+          "face_compression": 4.247003682101867,
+          "thermal_interface": 1.071882576699168,
+          "core_wall_yield": 2.4024299392706068,
+          "scarf_average_shear": 1.0000000002595515
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -2029.0957444797905,
+        "tf_m": 0.002411517806619327,
+        "tc_m": 0.026201389987428467,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.7465310904722804,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.000000000289151
+          ],
+          [
+            "core_shear_crimping",
+            1.000000030935356
+          ],
+          [
+            "global_buckling",
+            1.0008518370507136
+          ],
+          [
+            "thermal_interface",
+            1.071807051511614
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0008518370507136,
+          "face_wrinkling": 3.1302440753340735,
+          "face_compression": 4.247003682227574,
+          "thermal_interface": 1.071807051511614,
+          "core_wall_yield": 2.4022606632923487,
+          "scarf_average_shear": 1.000000000289151
+        },
+        "floats": false
+      },
+      {
+        "material": "binder-10pct",
+        "role": "projection",
+        "maturity": "TRL7",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -6875.102799510427,
+        "tf_m": 0.0024744746505636125,
+        "tc_m": 0.02688542265023581,
+        "E_GPa": 872.1,
+        "rho_kg_m3": 2145.0,
+        "strength_MPa": 1290.0,
+        "alpha_1_per_K": 1e-06,
+        "gamma": 1.0,
+        "Q": 0.33,
+        "Vc": 2.8182340361816083,
+        "co_binding": [
+          "scarf_average_shear",
+          "core_shear_crimping"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002913847
+          ],
+          [
+            "core_shear_crimping",
+            1.0000000325547866
+          ],
+          [
+            "global_buckling",
+            1.0008726372097254
+          ],
+          [
+            "thermal_interface",
+            1.0718010480772233
+          ]
+        ],
+        "modes": {
+          "global_buckling": 1.0008726372097254,
+          "face_wrinkling": 3.1302440722968123,
+          "face_compression": 4.247003682237062,
+          "thermal_interface": 1.0718010480772233,
+          "core_wall_yield": 2.4022472076855195,
+          "scarf_average_shear": 1.0000000002913847
+        },
+        "floats": false
+      }
+    ]
+  },
+  "answer": "A graphite-film P2 floats in no case. At gamma 0.20 the improvement still needed is a lighter face, factor 1.693 at concept and 1.478 at TRL 7, to 1329 and 1522 kg/m3, keeping 969 GPa. Global buckling and scarf shear bind. Thermal interface, wrinkling and strength do not. Version 7's own step sets gamma to 1 and still does not float."
+}

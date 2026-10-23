@@ -1,0 +1,299 @@
+{
+  "status": "OPEN",
+  "all_nonblocking": true,
+  "tag": "QUESTIONABLE",
+  "new": [
+    {
+      "id": "NFI-CHECK045-PACH",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Test units and calibration description",
+      "finding": "The stored Pach test_depth_m is 1.1 instead of 0.0011. The claimed agreement with the measured 1.1–1.2 mm range is false: the model predicts 1.489–1.541 mm, and it is a peak-depth model compared with a residual dent.",
+      "proposed_fix": "Correct the unit field; report the 24–40% depth overprediction relative to the stated test range and the peak/residual distinction.",
+      "refs": [
+        "MISMATCHES.json",
+        "sources/pach_full.pdf"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-IEC",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Printed hail masses were replaced unnecessarily",
+      "finding": "IEC Table 3 supplies all six masses. The substituted 35/55/65 mm masses and energies differ from the printed inputs.",
+      "proposed_fix": "Use 20.7/80.2/132.0 g and 7.657344/46.083321/88.894740 J; carry the recomputed all-energy dents. The 50.8 mm design case is unchanged.",
+      "refs": [
+        "IEC-MASS-CORRECTIONS.json",
+        "sources/iec-table3.png"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-GROWTH-TABLE",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "55 mm growth entry",
+      "finding": "The clamped 55 mm threshold is 19.176311 mm, not deeper than the 23.237218 mm core.",
+      "proposed_fix": "Correct the table cell; keep its model and boundary qualifications.",
+      "refs": [
+        "PROSE-CROSS-CHECKS.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-PERRY",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Perry factor does not follow the cited equation",
+      "finding": "The filed 4.095817936 differs from 3.454499160 obtained from the stated L/1000 bow, direct magnified bending and an independent quadratic root. The pinned 022d table also gives 3.454499160.",
+      "proposed_fix": "Replace the non-governing factor and add the direct-stress check. The overall nominal 1.258252477 is unchanged.",
+      "refs": [
+        "AUDIT-CHECKS.json",
+        "inputs/upstream/022d_tables_csv/TABLES.csv"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-STRIKES",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "title": "Repeated-strike probability and approximation",
+      "finding": "The stored count is ln(2)/Pf. For independent equal-risk trials the exact real-valued 50% count is ln(2)/[-ln(1-Pf)]. The design case changes 61.224523/13.134564 to 60.877292/12.784859. Repeated identical loading of the same Weibull specimen is not automatically an independent trial.",
+      "proposed_fix": "Label the rare-event approximation and provide exact counts and integer ceilings: the 25 mm sectored-flexure lower bound is 485, not 484. Define strike location/damage history before treating counts as storm reliability.",
+      "refs": [
+        "ARITHMETIC-DIFFERENCES.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-SEARCH",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "title": "Additional feasible P3 witnesses",
+      "finding": "The published priced witnesses reproduce, but a separate multistart search finds better points. Walls 1.5/2.0/3.0 mm yield SF 0.805476/0.483053/0.223304 versus 0.800189/0.469060/null. At 303.532 MPa film allowable, SF 0.975445 uses 848.604 kg film, versus 0.975205 and 880.534 kg.",
+      "proposed_fix": "Retain filed points as local witnesses, add the independently verified alternatives and distinguish an unsuccessful search from an infeasibility proof. None of these wall/tear cases reaches SF 1.",
+      "refs": [
+        "FILED-WITNESS-CHECKS.json",
+        "NEW-WITNESS-INVARIANTS.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-FEASIBILITY",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Usage above one marked feasible",
+      "finding": "Two patch-price rows and all four denser-core rows have feasible=true although their optimism usage exceeds one; 028b explicitly excludes that interpretation.",
+      "proposed_fix": "Set design-feasible=false or rename the flag to geometry_solved, preserving the numeric usage.",
+      "refs": [
+        "MISMATCHES.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-LEAK-EVENT",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "First half-kilogram times are sampled too late",
+      "finding": "Twenty-four stored event-time fields differ outside tolerance. A 100 mm hole reaches 0.5 kg at 0.464206 s, not 0.770164 s; the torn bay reaches it at 0.000837478 s, not 0.001535376 s.",
+      "proposed_fix": "Root mass(t)-0.5 using dense output or an event function. Main touchdown and flow conclusions reproduce.",
+      "refs": [
+        "LEAK-DIFFERENCES.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-WIDTH-RANGE",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Summary excludes small tools and the 8 lb bird",
+      "finding": "The stated lambda range 0.077–0.258 omits the small-tool 0.061648 and 8 lb bird 0.314510. Both still lie below the adopted 0.630970 map cutoff.",
+      "proposed_fix": "State threat-specific ranges and retain the distinction between crushed diameter and dent depth.",
+      "refs": [
+        "inputs/owner/COMPUTE.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-NDI",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Contour interval is not detection performance",
+      "finding": "The primary Prior thesis uses 0.2 mm contours as a dent-diameter measurement threshold. It does not establish 0.2 mm detection resolution or reliable identification of critical damage. Tap-test values are disbond PoD on aluminium.",
+      "proposed_fix": "Report the measurement definition and retain unknown Be/SiC/PBO detection capability.",
+      "refs": [
+        "sources/prior_full.pdf",
+        "sources/tap_manual.pdf"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-FRAME",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Four selected removals do not bound all damage cases",
+      "finding": "All 56 reported frame comparisons reproduce with radial loads based on planar triangle areas. Across six f4 and nine f5 edge classes the stress ratio spans 1.959485–3.270739 and peak tension 0–1019.372 MPa. A static rigid-joint calculation does not prove a dynamic cascade after every possible member loss.",
+      "proposed_fix": "Pin mesh, pressure quadrature, joint model and removed edges; distinguish selected cases from an envelope. Keep nonlinear and installed-joint verification open.",
+      "refs": [
+        "FRAME-RESULTS.json",
+        "FRAME-MESH-f4.json",
+        "FRAME-MESH-f5.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-FILM",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "title": "Projected fracture screen stated as a certainty",
+      "finding": "The slit lengths and 0.838835 merged-bay SF reproduce, but substitute-polymer toughness and assumed effective modulus do not demonstrate that every puncture opens an installed PBO bay.",
+      "proposed_fix": "Use conditional fracture-screen language. Installed orthotropic film toughness, notch response, prestress and arrest features remain unknown.",
+      "refs": [
+        "inputs/owner/NFI.json",
+        "ARITHMETIC-CHECKS.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-TRAJECTORY",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "title": "Ground contact, inventory and heaviness conventions",
+      "finding": "The trajectory assumes a neutral full sphere at 500 m with non-air mass 4889.444 kg, rather than proving the built 028b/022d inventory. Centre altitude zero is also ten metres below first contact for an R10 sphere. About 5131 kg is incoming gas, not the net buoyancy deficit.",
+      "proposed_fix": "Specify carried inventory, sagged displacement and initial restraint; stop at centre height 10 m above terrain. For the same gross reference, torn-bay first-contact speeds remain 23.099647–34.541863 m/s and net heaviness about 4889 kg.",
+      "refs": [
+        "GROUND-CONTACT-SENSITIVITY.json",
+        "PROSE-CROSS-CHECKS.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-VENT",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "title": "Venting is a conditional load reduction, not a qualified operation",
+      "finding": "The 0.458903732 pressure fraction and 2645.660029 kg use the 500 m full-volume state. At sea-level ISA the same absolute differential requires 2912.791114 kg on that convention. Venting an airborne neutral hull makes it descend; it needs a supported landing/handling sequence. Regulatory speeds are analogous test criteria, not established safe hull speeds.",
+      "proposed_fix": "Retain the arithmetic and require explicit terrain, support, gas volume, atmosphere and valve control. Do not infer a 500 m AGL operating condition solely from a 500 m atmospheric design altitude.",
+      "refs": [
+        "LEAK-RESULTS.json",
+        "PROSE-CROSS-CHECKS.json"
+      ]
+    },
+    {
+      "id": "NFI-CHECK045-RECONSTRUCTION",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "title": "Unstated modeling choices and material transfers",
+      "finding": "Exact reproduction needs SiC nu=0.16, core E/G scaled linearly with density in pricing, radial/planar nodal loading, a rounded 48.894 kg gas item, and an integral of the expanding hard-impact footprint. The artificial growth law, typical core crush and transferred shell/film properties remain unvalidated.",
+      "proposed_fix": "Pin these input conventions and their PROJECTION tags. Keep primary measured properties distinct from transferred allowables and from predictions of installed damage tolerance.",
+      "refs": [
+        "METHOD.md",
+        "inputs/owner/NFI.json"
+      ]
+    }
+  ],
+  "inherited": [
+    {
+      "id": "NFI-045-DENT-GROWTH",
+      "tag": "QUESTIONABLE",
+      "claim": "The dent-growth criterion is this seat's derivation: the face's fixed membrane force pR/4 on a paraboloid dent's curvature, against the core's crush strength less its share of the pressure, with the patch's plate buckling force taken off. No opened page prints it. Castanie, the CAI literature on face wrinkling over crushed core, and McGowan and Ambur's preload threshold support the mechanism, not the numbers.",
+      "needed_to_ground": "Compression-after-impact tests on beryllium-faced CR-III coupons at 300 MPa, dented at 0.25-2 mm over 30-100 mm."
+    },
+    {
+      "id": "NFI-045-PATCH-EDGE",
+      "tag": "QUESTIONABLE",
+      "claim": "The lost-core patch is read clamped (54.8 mm) and simply supported (27.1 mm); the real edge, a face continuous over intact core, lies between. The pressure that holds the face on the crushed core is a barrier this static reading ignores.",
+      "needed_to_ground": "A plate-on-crushable-foundation analysis of the dented patch, or the coupon test above."
+    },
+    {
+      "id": "NFI-045-DENT-MODEL",
+      "tag": "QUESTIONABLE",
+      "claim": "The dent model (face membrane plus core crush over a plastic spread) is this seat's. It reads Pach's test within its 1.1-1.2 mm and 30 mm, and Clarke's FE at about half the FE depth. Hail is read three ways (fluid, Shi-calibrated, all energy) that span ten times in depth.",
+      "needed_to_ground": "Ice-ball tests on a beryllium-faced CR-III panel at 25-75 mm and IEC velocities."
+    },
+    {
+      "id": "NFI-045-BE-IMPACT",
+      "tag": "QUESTIONABLE",
+      "claim": "No impact, puncture or through-thickness ductility data exist for thin SR-200 sheet. NASA 1971 calls beryllium's impact resistance extremely low. A cracked outer face vents its core cells; whether the CR-III core is perforated (034's evacuation of every cell) decides whether a crack vents the whole core.",
+      "needed_to_ground": "Drop and ice-ball tests on 0.8 mm SR-200 sheet over honeycomb, and the core venting design."
+    },
+    {
+      "id": "NFI-045-AS-BUILT",
+      "tag": "QUESTIONABLE",
+      "claim": "Each dent is scored alone against gamma 0.564; the as-built imperfection already spends that allowance, so a dent and the as-built shape compete for it.",
+      "needed_to_ground": "015's map with two interacting imperfections, or a measured shell."
+    },
+    {
+      "id": "NFI-045-HAIL-FLUX",
+      "tag": "PROJECTION",
+      "claim": "No hail flux (stones per square metre per storm, by size) was sourced, so the number of tube strikes in a storm is not given.",
+      "needed_to_ground": "A hail climatology for the site."
+    },
+    {
+      "id": "NFI-045-TUBE-IMPACT",
+      "tag": "QUESTIONABLE",
+      "claim": "The tube's hail stress uses a shallow-shell-on-foundation reading of a cylinder, a static contact pressure (fluid or Shi-calibrated), no dynamic amplification, and the 14 mm Hexoloy tube data without size scaling. Birds, timber debris and tool drops on the tubes are not scored. No SiC tube impact test was found.",
+      "needed_to_ground": "Ice-ball tests on a 275 mm, 1.14 mm-wall SiC tube."
+    },
+    {
+      "id": "NFI-045-FILM",
+      "tag": "PROJECTION",
+      "claim": "No Zylon/PBO film exists as a sourced product: no modulus, toughness, puncture or tear data. The tear lengths use other films' toughness and a projected modulus. The film is also unprotected from daylight (35 percent strength after six months).",
+      "needed_to_ground": "A built 0/90 PBO film with barrier, tested for puncture, slit tear under biaxial load and UV."
+    },
+    {
+      "id": "NFI-045-CASCADE",
+      "tag": "QUESTIONABLE",
+      "claim": "The lost-member screen is linear, rigid-jointed, on f4/f5 geodesics not at 022d's spacing, with lumped pressure loads; joint stiffness is unknown and no nonlinear collapse was run. 026b's discrete model is the place to repeat it.",
+      "needed_to_ground": "A nonlinear frame analysis with one member removed, on 026b's model with the real joint stiffness."
+    },
+    {
+      "id": "NFI-045-MERGED-BAY",
+      "tag": "PROJECTION",
+      "claim": "The film over the two bays a lost member leaves is scored at the same rise-to-span, a tension 1.5 times higher; the real film shape after loss is not modelled.",
+      "needed_to_ground": "A membrane analysis of the rhombic bay."
+    },
+    {
+      "id": "NFI-045-DESCENT",
+      "tag": "QUESTIONABLE",
+      "claim": "The descent model is a rigid sphere in ISA with an isothermal fill, a constant drag coefficient 0.2-0.47, added mass 0.5 rho V and no wind; the neutral-buoyancy pressure result assumes the inside air takes the outside temperature.",
+      "needed_to_ground": "A coupled thermal and trajectory model, and the site's atmosphere."
+    },
+    {
+      "id": "NFI-045-HOLE-EDGE",
+      "tag": "QUESTIONABLE",
+      "claim": "At a hole the face reads twice its membrane stress and yields out to 3.9 hole radii; whether the edge crumples and the hole grows while the slow leak keeps the load on is not modelled.",
+      "needed_to_ground": "A hole-edge analysis of the sandwich at 300 MPa, or a punctured coupon under biaxial compression."
+    },
+    {
+      "id": "NFI-045-MOORING",
+      "tag": "PROJECTION",
+      "claim": "No mast contact speed was sourced; TAR 473 and 14 CFR 25.473 stand in, and the 0.5 m contact patch is assumed.",
+      "needed_to_ground": "A mooring system design and its contact envelope."
+    },
+    {
+      "id": "NFI-045-REGULATION",
+      "tag": "QUESTIONABLE",
+      "claim": "14 CFR 101.13 limits moored balloons to 152.4 m above the surface, below the 500 m design point; 101.19 requires a rapid-deflation device, which for a vacuum hull is a rapid air valve that lands it heavy.",
+      "needed_to_ground": "A regulatory route for a 500 m moored or free vacuum hull."
+    },
+    {
+      "id": "NFI-045-DETECTION",
+      "tag": "QUESTIONABLE",
+      "claim": "No inspection limit was sourced for beryllium faces, SiC tubes or PBO film; the tap-test PoD is for 0.5 mm aluminium and falls with face thickness. Access to a 1257 m2 hull at 500 m is not addressed.",
+      "needed_to_ground": "PoD trials on beryllium-faced coupons and an inspection-robot concept."
+    },
+    {
+      "id": "NFI-045-SOFT-BODY",
+      "tag": "QUESTIONABLE",
+      "claim": "Bird and hail readings disagree by reading: a moored 4 lb bird is stable on the fluid pressure and grows on the all-energy reading.",
+      "needed_to_ground": "Soft-body impact analysis on the sandwich."
+    }
+  ],
+  "count_new": 15,
+  "count_inherited": 16,
+  "count_total": 31
+}

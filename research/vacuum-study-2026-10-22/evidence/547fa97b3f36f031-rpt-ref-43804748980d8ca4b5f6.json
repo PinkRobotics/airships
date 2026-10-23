@@ -1,0 +1,177 @@
+{
+  "id": "rpt-ref-43804748980d8ca4b5f6",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline051-check-1020",
+  "re": "ord-admiral-rr2-check051-codex-1693-1020",
+  "at": "2026-10-20T06:50:53.064500-07:00",
+  "body": "CHECK-051 COMPLETE. QUESTIONABLE / PROJECTION. The requested headline results reproduce; physical qualification remains open.\n\nIndependently re-derived 288 m5–40 target rows, 18 material models, 108 frame comparisons, 280 gap rows, 36 witnesses, 980 hail scenarios and 72 member-loss cases. Re-solved all 182 FE cases, plus 25 expanded-spectrum checks. All 319 prose-table checks pass.\n\nHexoloy SFs are 1.053993/0.997807, with operating m10 scales 3.727343/3.873840 GPa. K13D2U ceilings are 1.135743/1.075982 and scales 2.161413/2.245731 GPa. Witness totals are 4281.952/5248.454/21178.569 kg; the filed 4282/5249/21179 figures round upward.\n\nThe 1.153–5.393% transferred hail estimates and all 72 secondary-overload triggers reproduce. Actual hail and dynamic-cascade probabilities remain unidentified.\n\n116,566 comparisons retain 338 flagged fields: 336 signed-versus-magnitude shear labels and two ill-conditioned Weibull inversions. Exact row/field/owner/independent differences are pinned. Higher-mode ordering differences resolve in the expanded spectra. Twenty-one NFI entries retain qualification gaps and fixes, including the legacy joint-strength reference.\n\nAll 1,658 package checks pass. Prior 048/043 packages remain unchanged. Owner programs were never accessed; all 15 attempts are accounted for and every admitted job released. Peak own allocation two cores. No out-of-band contact. No successor; SLEEPING.",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check051-codex-1693-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "next": "none",
+  "standing": "none",
+  "deadline": "2026-10-20T07:00:00-07:00",
+  "artifacts": [
+    {
+      "path": "evidence/4512285d11dbe992-CHECK.md",
+      "sha256": "4512285d11dbe992392883b4ddb0cba607a61e65a51bfea217019fd878948c23",
+      "bytes": 4716
+    },
+    {
+      "path": "evidence/95829ef8aa4164be-RESULTS.json",
+      "sha256": "95829ef8aa4164becfca47050e357f9e38da4195e1cb63c38bc52753bdec3866",
+      "bytes": 10205
+    },
+    {
+      "path": "evidence/e8820c6e8e58022f-METHOD.md",
+      "sha256": "e8820c6e8e58022f68af7fb8d3228025cf88a3ac739ae3b03022da8aa673a8e2",
+      "bytes": 8653
+    },
+    {
+      "path": "evidence/c822fa822b63def8-SOURCE-CHECK.md",
+      "sha256": "c822fa822b63def84ff0dcfe5e7180eb07e129be62ff36892b4ebc74538126bd",
+      "bytes": 4963
+    },
+    {
+      "path": "evidence/f2c4e4fdc14a789e-NFI.json",
+      "sha256": "f2c4e4fdc14a789e557140ebd9c058d3224fdcd558223bd19c2fbc0b49b1ccb5",
+      "bytes": 7972
+    },
+    {
+      "path": "evidence/f295d3c515b2dfb7-DISCREPANCIES.json",
+      "sha256": "f295d3c515b2dfb7702459ab270ae23757a5577e7e40bb709b9c10a7f4364730",
+      "bytes": 279093
+    },
+    {
+      "path": "evidence/d3c77a11ad6c7b9d-FINAL-AUDIT.json",
+      "sha256": "d3c77a11ad6c7b9d1d727d380f3530be5eb3903d975902340f4d6650692dc861",
+      "bytes": 33584309
+    },
+    {
+      "path": "evidence/1e6717ae6af0a5c9-SCALAR-CHECK.json",
+      "sha256": "1e6717ae6af0a5c93e403d3f62eb1276746a98b60dd1e8d80b5bf1130a3f15de",
+      "bytes": 1897294
+    },
+    {
+      "path": "evidence/307028455dc7313a-FE-CHECK-all.json",
+      "sha256": "307028455dc7313a3204ac1fedfec5984773ab7679a25e01a41f129d3b6fcc67",
+      "bytes": 1425187
+    },
+    {
+      "path": "evidence/c00953a9172b353f-FE-RECONCILIATION.json",
+      "sha256": "c00953a9172b353fc1559a973e3cef35b875bc2f6a78329b05cacfb192c8e863",
+      "bytes": 120032
+    },
+    {
+      "path": "evidence/4a9d5828b2db2e1e-GAPS-WITNESSES-DAMAGE-CHECK.json",
+      "sha256": "4a9d5828b2db2e1e9b8bf2ab045e2e2253e3dfa5735b76758976f017e1034a96",
+      "bytes": 7438975
+    },
+    {
+      "path": "evidence/ce1905b00900f080-HAIL-CHECK.json",
+      "sha256": "ce1905b00900f0809277f26aa650705fb9338945ae013ef7bc14233e973c30d1",
+      "bytes": 15544440
+    },
+    {
+      "path": "evidence/6f5f185b39f3ac71-SECTIONS-TABLES-CHECK.json",
+      "sha256": "6f5f185b39f3ac71789d2e41e758f1d40e7d3ea8b03e85f4c700de9c4cace75e",
+      "bytes": 2174524
+    },
+    {
+      "path": "withheld-source:485caa1253834d11",
+      "sha256": "3a6621b4fbefcca62835d6435882a0c6070d1f93afc7a233848b02f1dcdca190",
+      "bytes": 70670
+    },
+    {
+      "path": "evidence/85ff842c0095befc-HEADLINE-MASS-ROUNDING.json",
+      "sha256": "85ff842c0095befc22253e26aacfb427431be7dedc612bbcbabc79589b574ab6",
+      "bytes": 475
+    },
+    {
+      "path": "evidence/d94302b501464098-SENSITIVITIES.json",
+      "sha256": "d94302b501464098d49f55a077bb5bab511f268e7bc8676851b3688ab3ee6ec0",
+      "bytes": 2254
+    },
+    {
+      "path": "evidence/92876e0488b92f1f-INDEPENDENT-MATERIALS.json",
+      "sha256": "92876e0488b92f1ff3d227d1f196f221e375d0912ca2a4a2b2670b000bd1b0b0",
+      "bytes": 22831
+    },
+    {
+      "path": "evidence/f6e866f96804ad56-INDEPENDENT-FRAME-FIXED.json",
+      "sha256": "f6e866f96804ad5640b10f814d6c6395009cda409df7f8bdb8a97de8c20df6af",
+      "bytes": 124418
+    },
+    {
+      "path": "evidence/88bc15cedc5206aa-INDEPENDENT-GAPS.json",
+      "sha256": "88bc15cedc5206aa180fe1cbca9a3619ded54fb8792ad5e99f6030bc8d00cf56",
+      "bytes": 295811
+    },
+    {
+      "path": "evidence/d3dfed52ecdd8a64-INDEPENDENT-HAIL.json",
+      "sha256": "d3dfed52ecdd8a64c599b13d4aa245a9bae14aeab2a360faa4a8f7f22c97fde8",
+      "bytes": 1011618
+    },
+    {
+      "path": "evidence/32f9bc3de16856d0-MEMBER-ID-MAP-5.json",
+      "sha256": "32f9bc3de16856d06dfa0db56cb42d5cd509c0e39749147fa0579a208de390ea",
+      "bytes": 6673
+    },
+    {
+      "path": "evidence/32f9bc3de16856d0-MEMBER-ID-MAP-5.json",
+      "sha256": "32f9bc3de16856d06dfa0db56cb42d5cd509c0e39749147fa0579a208de390ea",
+      "bytes": 6673
+    },
+    {
+      "path": "evidence/7e5648c995029a2b-INPUTS.json",
+      "sha256": "7e5648c995029a2bd49bf4386027ad1c2367b28db3b70b226cd668b5b0956c73",
+      "bytes": 124836
+    },
+    {
+      "path": "evidence/6cd5796cf6538e35-INPUT-CHECK.json",
+      "sha256": "6cd5796cf6538e3545bc4316e99893cc2c971b09451224446b19ba153944b305",
+      "bytes": 38987
+    },
+    {
+      "path": "evidence/75add2525f744ffd-EXCLUDED-OWNER-CODE.json",
+      "sha256": "75add2525f744ffd171e7c3da69296713024509b7a3c803a88c771e053e10c70",
+      "bytes": 5320
+    },
+    {
+      "path": "evidence/0e815eefe4eeae8a-EXECUTION.json",
+      "sha256": "0e815eefe4eeae8af65eb6c083a17547867776cdd7cf12b8cc6f996c1e31d0fe",
+      "bytes": 74465
+    },
+    {
+      "path": "evidence/1a537bbda7ce2b4c-FROZEN-PRIOR-PACKAGES.json",
+      "sha256": "1a537bbda7ce2b4cb5dff2f0ff00e322c1f18c306a9bd97c37cdd269947d1463",
+      "bytes": 1042
+    },
+    {
+      "path": "evidence/669f50a69c22eaa3-PACKAGE-CHECK.json",
+      "sha256": "669f50a69c22eaa3c1500dd74892a1760a419f29ad69342bfe9c7c3f5eb96247",
+      "bytes": 213568
+    },
+    {
+      "path": "evidence/542537d06d89e8c3-MANIFEST.json",
+      "sha256": "542537d06d89e8c3b83828c63238738f42ae58db58cd05ae5989a85f609d1778",
+      "bytes": 153132
+    }
+  ],
+  "ingested": "2026-10-20T06:52:28-07:00"
+}

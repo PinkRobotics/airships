@@ -1,0 +1,4297 @@
+{
+  "schema": 1,
+  "tag": "QUESTIONABLE / PROJECTION",
+  "certification": false,
+  "owner_code_read": false,
+  "owner_code_executed": false,
+  "input_values": {
+    "tf_m": 0.0007946240669858892,
+    "tc_m": 0.02323721790601576,
+    "E_Pa": 290000000000.0,
+    "nu_physical": 0.0752,
+    "nu_map": 0.33,
+    "p_Pa": 95460.8379139,
+    "R_m": 10.0,
+    "gamma": 0.564164,
+    "Q": 0.43462785437520957
+  },
+  "derived": {
+    "gamma_need_028b": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 16.057295481678853,
+      "eq3_rms_mm": 0.20254630586539468,
+      "eq3_d_over_t": 0.3857666790260901,
+      "eq3_in_fit": true,
+      "lee_amp_mm": 9.318267240992759,
+      "lee_rms_k1_mm": 0.11754037962887842,
+      "lee_rms_k5_mm": 0.5877018981443922,
+      "lee_d_over_t": 0.22386565732298191,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": true
+    },
+    "gamma_table": {
+      "0.2": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": null,
+        "eq3_rms_mm": null,
+        "eq3_d_over_t": null,
+        "eq3_in_fit": false,
+        "lee_amp_mm": 67.17921258371261,
+        "lee_rms_k1_mm": 0.8473968331281134,
+        "lee_rms_k5_mm": 4.236984165640567,
+        "lee_d_over_t": 1.6139393939393938,
+        "lee_in_fem_range": true,
+        "lee_in_ode_range": true
+      },
+      "0.3": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": null,
+        "eq3_rms_mm": null,
+        "eq3_d_over_t": null,
+        "eq3_in_fit": false,
+        "lee_amp_mm": 33.19902441699276,
+        "lee_rms_k1_mm": 0.41877162699467657,
+        "lee_rms_k5_mm": 2.093858134973383,
+        "lee_d_over_t": 0.7975862068965518,
+        "lee_in_fem_range": true,
+        "lee_in_ode_range": true
+      },
+      "0.4": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": null,
+        "eq3_rms_mm": null,
+        "eq3_d_over_t": null,
+        "eq3_in_fit": false,
+        "lee_amp_mm": 19.68882912179089,
+        "lee_rms_k1_mm": 0.24835437636331,
+        "lee_rms_k5_mm": 1.2417718818165502,
+        "lee_d_over_t": 0.473012048192771,
+        "lee_in_fem_range": true,
+        "lee_in_ode_range": true
+      },
+      "0.468": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": 35.874618460639724,
+        "eq3_rms_mm": 0.45252150038739586,
+        "eq3_d_over_t": 0.8618657133562386,
+        "eq3_in_fit": true,
+        "lee_amp_mm": 14.360408097363276,
+        "lee_rms_k1_mm": 0.18114181271429913,
+        "lee_rms_k5_mm": 0.9057090635714956,
+        "lee_d_over_t": 0.345,
+        "lee_in_fem_range": true,
+        "lee_in_ode_range": true
+      },
+      "0.5": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": 24.91441462996623,
+        "eq3_rms_mm": 0.3142697754958914,
+        "eq3_d_over_t": 0.5985535361572747,
+        "eq3_in_fit": true,
+        "lee_amp_mm": 12.433353870663964,
+        "lee_rms_k1_mm": 0.1568340010242429,
+        "lee_rms_k5_mm": 0.7841700051212145,
+        "lee_d_over_t": 0.2987037037037037,
+        "lee_in_fem_range": true,
+        "lee_in_ode_range": true
+      },
+      "0.564164": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": 16.057295481678853,
+        "eq3_rms_mm": 0.20254630586539468,
+        "eq3_d_over_t": 0.3857666790260901,
+        "eq3_in_fit": true,
+        "lee_amp_mm": 9.318267240992759,
+        "lee_rms_k1_mm": 0.11754037962887842,
+        "lee_rms_k5_mm": 0.5877018981443922,
+        "lee_d_over_t": 0.22386565732298191,
+        "lee_in_fem_range": true,
+        "lee_in_ode_range": true
+      },
+      "0.6": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": 13.128578079800143,
+        "eq3_rms_mm": 0.16560354104232325,
+        "eq3_d_over_t": 0.3154060390778649,
+        "eq3_in_fit": true,
+        "lee_amp_mm": 7.9055008943967815,
+        "lee_rms_k1_mm": 0.09971978182768217,
+        "lee_rms_k5_mm": 0.4985989091384108,
+        "lee_d_over_t": 0.18992481203007516,
+        "lee_in_fem_range": true,
+        "lee_in_ode_range": false
+      },
+      "0.7": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": 7.64847616446339,
+        "eq3_rms_mm": 0.0964776785965709,
+        "eq3_d_over_t": 0.1837499504783828,
+        "eq3_in_fit": true,
+        "lee_amp_mm": 4.810512784036938,
+        "lee_rms_k1_mm": 0.06067968263003307,
+        "lee_rms_k5_mm": 0.3033984131501654,
+        "lee_d_over_t": 0.11556962025316458,
+        "lee_in_fem_range": false,
+        "lee_in_ode_range": false
+      },
+      "0.8": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": 4.038825311846326,
+        "eq3_rms_mm": 0.05094563700864237,
+        "eq3_d_over_t": 0.09703030186466807,
+        "eq3_in_fit": true,
+        "lee_amp_mm": 2.561149840442075,
+        "lee_rms_k1_mm": 0.032306277202233426,
+        "lee_rms_k5_mm": 0.16153138601116712,
+        "lee_d_over_t": 0.06153005464480871,
+        "lee_in_fem_range": false,
+        "lee_in_ode_range": false
+      },
+      "0.9": {
+        "t_eq_mm": 41.62437129670515,
+        "R_over_t": 240.24386887956595,
+        "width_m": 0.3567770588642883,
+        "eq3_amp_mm": 1.3427415296340548,
+        "eq3_rms_mm": 0.016937306588755127,
+        "eq3_d_over_t": 0.03225854199845517,
+        "eq3_in_fit": false,
+        "lee_amp_mm": 0.8524991429036711,
+        "lee_rms_k1_mm": 0.010753401925347168,
+        "lee_rms_k5_mm": 0.05376700962673585,
+        "lee_d_over_t": 0.02048076923076919,
+        "lee_in_fem_range": false,
+        "lee_in_ode_range": false
+      }
+    },
+    "amplitude_table": [
+      {
+        "amp_mm": 0.5,
+        "d_over_t": 0.012012193443978298,
+        "eq3_kd": 0.9367756869149978,
+        "eq3_in_fit": false,
+        "lee_kd": 0.9241286330255991,
+        "lee_in_fem_range": false
+      },
+      {
+        "amp_mm": 1.0,
+        "d_over_t": 0.024024386887956595,
+        "eq3_kd": 0.9146089595520941,
+        "eq3_in_fit": false,
+        "lee_kd": 0.8903024559280948,
+        "lee_in_fem_range": false
+      },
+      {
+        "amp_mm": 2.0,
+        "d_over_t": 0.04804877377591319,
+        "eq3_kd": 0.8732578143060379,
+        "eq3_in_fit": false,
+        "lee_kd": 0.8300817999788423,
+        "lee_in_fem_range": false
+      },
+      {
+        "amp_mm": 3.0,
+        "d_over_t": 0.07207316066386978,
+        "eq3_kd": 0.8355870053471014,
+        "eq3_in_fit": true,
+        "lee_kd": 0.7780796877802316,
+        "lee_in_fem_range": false
+      },
+      {
+        "amp_mm": 5.0,
+        "d_over_t": 0.12012193443978297,
+        "eq3_kd": 0.7700053198196563,
+        "eq3_in_fit": true,
+        "lee_kd": 0.6928095354982948,
+        "lee_in_fem_range": false
+      },
+      {
+        "amp_mm": 7.5,
+        "d_over_t": 0.18018290165967446,
+        "eq3_kd": 0.7034840919159329,
+        "eq3_in_fit": true,
+        "lee_kd": 0.611262253113624,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 9.32,
+        "d_over_t": 0.22390728579575547,
+        "eq3_kd": 0.6639303418866236,
+        "eq3_in_fit": true,
+        "lee_kd": 0.564123011210698,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 10.0,
+        "d_over_t": 0.24024386887956595,
+        "eq3_kd": 0.650790989633099,
+        "eq3_in_fit": true,
+        "lee_kd": 0.5485438659727364,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 12.5,
+        "d_over_t": 0.3003048360994574,
+        "eq3_kd": 0.6090514860838299,
+        "eq3_in_fit": true,
+        "lee_kd": 0.49880805888226815,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 16.06,
+        "d_over_t": 0.38583165342058284,
+        "eq3_kd": 0.564135222808848,
+        "eq3_in_fit": true,
+        "lee_kd": 0.443470283990965,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 20.0,
+        "d_over_t": 0.4804877377591319,
+        "eq3_kd": 0.5290529833683123,
+        "eq3_in_fit": true,
+        "lee_kd": 0.39673639848113124,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 25.0,
+        "d_over_t": 0.6006096721989148,
+        "eq3_kd": 0.4996026965205387,
+        "eq3_in_fit": true,
+        "lee_kd": 0.35189422452712876,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 30.0,
+        "d_over_t": 0.7207316066386978,
+        "eq3_kd": 0.4811237779685732,
+        "eq3_in_fit": true,
+        "lee_kd": 0.3178172320545677,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 40.0,
+        "d_over_t": 0.9609754755182638,
+        "eq3_kd": 0.46225367486162877,
+        "eq3_in_fit": true,
+        "lee_kd": 0.26945442430729216,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 50.0,
+        "d_over_t": 1.2012193443978296,
+        "eq3_kd": 0.45482436765119344,
+        "eq3_in_fit": true,
+        "lee_kd": 0.236779864336456,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 75.0,
+        "d_over_t": 1.8018290165967445,
+        "eq3_kd": 0.4504692189107954,
+        "eq3_in_fit": true,
+        "lee_kd": 0.18808671125580034,
+        "lee_in_fem_range": true
+      },
+      {
+        "amp_mm": 100.0,
+        "d_over_t": 2.4024386887956592,
+        "eq3_kd": 0.45004563632006644,
+        "eq3_in_fit": true,
+        "lee_kd": 0.16119877507144184,
+        "lee_in_fem_range": true
+      }
+    ],
+    "Q_need_028b": {
+      "waviness_mm_60psi": 0.12877362254636693,
+      "waviness_mm_35psi": 0.07511794648538071
+    },
+    "Q_table": [
+      {
+        "waviness_mm": 0.005,
+        "Q_60psi": 0.7927089880965041,
+        "Q_35psi": 0.7743017764263393
+      },
+      {
+        "waviness_mm": 0.01,
+        "Q_60psi": 0.7671760482609357,
+        "Q_35psi": 0.7334281616618952
+      },
+      {
+        "waviness_mm": 0.02,
+        "Q_60psi": 0.7207459858549293,
+        "Q_35psi": 0.6633904420252446
+      },
+      {
+        "waviness_mm": 0.024,
+        "Q_60psi": 0.7037103571375244,
+        "Q_35psi": 0.6389829217969429
+      },
+      {
+        "waviness_mm": 0.034,
+        "Q_60psi": 0.6644479511708756,
+        "Q_35psi": 0.5851597936801332
+      },
+      {
+        "waviness_mm": 0.05,
+        "Q_60psi": 0.6099941019159502,
+        "Q_35psi": 0.5156628774495716
+      },
+      {
+        "waviness_mm": 0.075,
+        "Q_60psi": 0.5407498041915478,
+        "Q_35psi": 0.43494881068155083
+      },
+      {
+        "waviness_mm": 0.1,
+        "Q_60psi": 0.48562359157506746,
+        "Q_35psi": 0.37608253879359355
+      },
+      {
+        "waviness_mm": 0.129,
+        "Q_60psi": 0.43426907156573535,
+        "Q_35psi": 0.32505107963520574
+      },
+      {
+        "waviness_mm": 0.15,
+        "Q_60psi": 0.4033793590647999,
+        "Q_35psi": 0.29596919028858
+      },
+      {
+        "waviness_mm": 0.2,
+        "Q_60psi": 0.34495797227430125,
+        "Q_35psi": 0.24399352906825994
+      },
+      {
+        "waviness_mm": 0.20320000000000002,
+        "Q_60psi": 0.34178988331380333,
+        "Q_35psi": 0.2412817273845316
+      },
+      {
+        "waviness_mm": 0.287,
+        "Q_60psi": 0.27552465613680266,
+        "Q_35psi": 0.18688739330350693
+      },
+      {
+        "waviness_mm": 0.3,
+        "Q_60psi": 0.2674798264591385,
+        "Q_35psi": 0.18057230108344402
+      },
+      {
+        "waviness_mm": 0.5,
+        "Q_60psi": 0.18457024578364378,
+        "Q_35psi": 0.11880851581548646
+      }
+    ],
+    "route": {
+      "blanks_per_skin": 1188.5605616641944,
+      "blanks_total": 2377.121123328389,
+      "coincident_seam_m": 2841.518543919854,
+      "flat_blank_corner_sag_mm": 46.45152,
+      "forming_strain_strip_w": 0.00046451520000000005,
+      "forming_strain_disc_halfdiag": 0.0011612880000000001,
+      "Be_elastic_strain_at_345MPa": 0.001189655172413793,
+      "forming_stress_strip_MPa": 134.709408,
+      "face_bending_strain_flat_to_R": 3.9731203349294464e-05,
+      "face_bending_stress_MPa": 11.522048971295394,
+      "seam_hot_cure_stress_MPa_per_100K": 354.3468858131488,
+      "Be_Al_core_cte_mismatch_strain_per_100K": 0.0012300000000000002,
+      "membrane_strain": 0.0009577526436781125,
+      "gauge_tol_fraction": 0.127859203139142,
+      "gauge_low_patch_radial_mm_upper": 1.2245748982509008,
+      "areal_mass_kg_m2": 3.4840156640872495,
+      "self_weight_Pa": 34.166522212221224,
+      "sea_level_overload": 0.06143002946809584,
+      "D_sandwich_Nm": 66921.6682998022,
+      "self_weight_span_deflection_mm": {
+        "1 m": 0.00664772117323738,
+        "2 m": 0.10636353877179808,
+        "3 m": 0.5384654150322278,
+        "5 m": 4.154825733273362
+      },
+      "forming_strain_small_blank_0.305x0.610": 0.0001453515625,
+      "inflation": {
+        "p_Pa": 3447.3786465841804,
+        "skin_stress_MPa": 21.691884186572203,
+        "tension_N_per_m": 17236.893232920902,
+        "face_bending_D_Nm": 12.194523040361133,
+        "bending_term_D_k2_N_per_m": 95.80120606651614,
+        "tension_over_bending": 179.92355149425865
+      }
+    },
+    "precedent_dimples": {
+      "Rohr 57 in gores after stretch forming (0.050 in)": {
+        "amp_mm": 1.27,
+        "d_over_t": 0.030510971347704873,
+        "eq3_kd": 0.903061626418497,
+        "eq3_in_fit": false,
+        "lee_kd": 0.8731245304310173,
+        "lee_in_fem_range": false
+      },
+      "Rohr gores after chemical milling (0.150 in)": {
+        "amp_mm": 3.8099999999999996,
+        "d_over_t": 0.09153291404311462,
+        "eq3_kd": 0.80754564032528,
+        "eq3_in_fit": true,
+        "lee_kd": 0.7408878937788772,
+        "lee_in_fem_range": false
+      },
+      "Rohr gores after chemical milling (0.200 in)": {
+        "amp_mm": 5.08,
+        "d_over_t": 0.12204388539081949,
+        "eq3_kd": 0.7676278614208123,
+        "eq3_in_fit": true,
+        "lee_kd": 0.6898226643516281,
+        "lee_in_fem_range": false
+      },
+      "S-II core-to-face fit limit (0.010 in)": {
+        "amp_mm": 0.254,
+        "d_over_t": 0.006102194269540975,
+        "eq3_kd": 0.9480668036743469,
+        "eq3_in_fit": false,
+        "lee_kd": 0.9418136407456961,
+        "lee_in_fem_range": false
+      },
+      "gauge-low patch under load (upper, this card)": {
+        "amp_mm": 1.2245748982509008,
+        "d_over_t": 0.02941966112885972,
+        "eq3_kd": 0.9049840851006282,
+        "eq3_in_fit": false,
+        "lee_kd": 0.8759641710159003,
+        "lee_in_fem_range": false
+      },
+      "reflector class, 3 x 50 um whole-surface rms": {
+        "amp_mm": 0.15000000000000002,
+        "d_over_t": 0.0036036580331934897,
+        "eq3_kd": 0.9529187028827808,
+        "eq3_in_fit": false,
+        "lee_kd": 0.9495119019753246,
+        "lee_in_fem_range": false
+      }
+    },
+    "precedent_waviness": {
+      "CSO panel 10 um rms (x sqrt2)": {
+        "amp_mm": 0.014142135623730952,
+        "Q_60psi": 0.7472372104695196,
+        "Q_35psi": 0.7026986118645862
+      },
+      "Woody 1994 installed 24 um rms (x sqrt2; 032b)": {
+        "amp_mm": 0.033941125496954286,
+        "Q_60psi": 0.6646662813987902,
+        "Q_35psi": 0.5854501269749494
+      },
+      "Nobeyama new-antenna panels 21 um rms (x sqrt2)": {
+        "amp_mm": 0.029698484809835,
+        "Q_60psi": 0.6807865725400116,
+        "Q_35psi": 0.607158819666855
+      },
+      "Nobeyama older panels 60 um rms (x sqrt2)": {
+        "amp_mm": 0.08485281374238571,
+        "Q_60psi": 0.5175935912903441,
+        "Q_35psi": 0.4096765149637878
+      },
+      "von Hoerner vendor honeycomb 0.2032 mm rms (x sqrt2; 032b)": {
+        "amp_mm": 0.2873681958742129,
+        "Q_60psi": 0.2752901511617599,
+        "Q_35psi": 0.18670246040725988
+      },
+      "ER-1001 cell dimple depth 0.001651 mm (032b)": {
+        "amp_mm": 0.001651,
+        "Q_60psi": 0.8107830425574938,
+        "Q_35psi": 0.804325348734139
+      },
+      "3/8 in cell one-cell rise projection 0.01524 mm (032b)": {
+        "amp_mm": 0.01524,
+        "Q_60psi": 0.7421250289936927,
+        "Q_35psi": 0.6949807716405165
+      }
+    },
+    "envelope": {
+      "sphere_volume_m3": 4188.790204786391,
+      "largest_autoclave_volume_m3_ASC": 2321.0,
+      "largest_autoclave_diameter_m_Spirit": 9.144,
+      "panel_envelope_m": [
+        0.7096,
+        1.9288
+      ],
+      "cure_dT_K_AF163_250F_to_service": 109.36111111111111,
+      "cure_dT_K_AF163_200F_to_service": 81.58333333333333,
+      "Be_Al_mismatch_strain_250F": 0.0013451416666666668,
+      "Be_Al_mismatch_strain_200F": 0.001003475,
+      "film_mass_per_10gm2_both_lines_kg": 25.132741228718345
+    },
+    "coverage": {
+      "bond_area_m2_two_lines": 2513.2741228718346,
+      "scarf_seam_m_two_skins": 5683.037087839708,
+      "shearography_hours_at_15m2h_vendor": 167.55160819145564,
+      "photogrammetry_relative_1_to_100k_at_20m_mm": 0.2,
+      "photogrammetry_relative_1_to_200k_at_20m_mm": 0.1
+    },
+    "disbond_critical_diameter_mm": {
+      "face_stress_MPa": 300.3333333333182,
+      "clamped": 54.779990832566725,
+      "simply_supported": 27.12759807241179
+    },
+    "reproduce": {
+      "015b_Be_kd0.9": [
+        2.360257934390596,
+        0.039472525702658676,
+        1.4985146595174923,
+        0.025060887435968834
+      ],
+      "015b_021": [
+        36.47148976173557,
+        11.801408250115195,
+        0.13934412734708224,
+        7.079016090939482
+      ],
+      "015b_021b": [
+        53.364448806653826,
+        45.819441454003304,
+        0.6544159696759175,
+        18.391687386788643
+      ],
+      "032_S200F": 0.15286876684636116,
+      "032_SR200": 0.06522290640394086
+    }
+  },
+  "sensitivities": {
+    "exact_corner_sag_mm": 46.559911266859544,
+    "strip_stress_if_half_peak_strain_MPa": 67.354704,
+    "small_blank_exact_12x24in_strain": 0.00014516100000000002,
+    "low_gauge_independent_membrane_patch_mm": 1.4041022993747996,
+    "finite_face_sandwich_D": 66946.05734588292,
+    "simply_supported_root": 1.8974990304243486,
+    "simply_supported_k": 3.600502570461343,
+    "clamped_root": 3.8317059702075125,
+    "clamped_k": 14.681970642123895,
+    "owner_disbond_using_4_20": 29.299109763927408,
+    "owner_disbond_using_14_69": 54.79496797839241,
+    "lee_R_over_t_is_tested": false,
+    "minimum_integer_panels_per_skin": 1189,
+    "two_skin_seams_at_30_34": 5685.225424610902,
+    "panels_per_skin_at_30_34": 1189.2870336376575,
+    "scarf_overlap_30_34_mm": 24.10889419235188,
+    "single_blank_mass_kg": 1.6388704108593912,
+    "four_blanks_low_cost_dollars": 65554.81643437565,
+    "four_blanks_high_cost_dollars": 327774.08217187825,
+    "manual_cumulative_a90_95_mm": 41.8,
+    "automated_cumulative_a90_95_mm": 29.0,
+    "manual_excluding_best_worst_a90_95_mm": 43.3,
+    "automated_excluding_best_worst_a90_95_mm": 28.0,
+    "SII_ratio_required_over_0_21": 2.686495238095238,
+    "SII_ratio_required_over_0_22": 2.5643818181818183,
+    "owner_disbond_k_inferred_from_values": {
+      "clamped": 14.681999999999208,
+      "simply_supported": 4.197999999999774
+    },
+    "Q_with_card_rounded_target": {
+      "60": 0.1287735307388891,
+      "35": 0.07511789293101863
+    },
+    "reproduction_with_card_rounded_core": {
+      "015b_Be_kd0.9": [
+        2.3602739275024196,
+        0.0394729269021914,
+        1.4985248134554028,
+        0.025061142155324886
+      ],
+      "015b_021": [
+        36.470837839476744,
+        11.801197301761453,
+        0.13934039123157524,
+        7.078889554617812
+      ],
+      "015b_021b": [
+        53.36404890237531,
+        45.81909809075143,
+        0.6544086135635122,
+        18.39154956255098
+      ]
+    },
+    "minimum_integer_panels_per_skin_30_34": 1190,
+    "additional_joining_mass_at_fixed_geometry_30_34_kg": 0.11977742259715084,
+    "SII_digitization": {
+      "image": "sources/cr1457-fig623.png",
+      "pdf_page": 355,
+      "printed_page": "6-9",
+      "corners_pixels": [
+        [
+          286.0,
+          1111.0
+        ],
+        [
+          1011.0,
+          1094.0
+        ],
+        [
+          266.0,
+          383.0
+        ],
+        [
+          994.0,
+          366.0
+        ]
+      ],
+      "method": "Affine calibration; fourth corner residual 3 pixels",
+      "hemispheres": [
+        {
+          "pixel": [
+            631,
+            950
+          ],
+          "R_over_rho": 240.82629605786346,
+          "gamma": 0.20990646419509978,
+          "reading_uncertainty_gamma": 0.01
+        },
+        {
+          "pixel": [
+            631,
+            941
+          ],
+          "R_over_rho": 240.9967054190177,
+          "gamma": 0.22226114287878215,
+          "reading_uncertainty_gamma": 0.01
+        }
+      ]
+    },
+    "trapped_core_air": {
+      "rhoair_500m_kg_m3": 1.1672683307461802,
+      "thin_shell_full_core_volume_m3": 29.200749225361726,
+      "full_void_upper_bound_500m_kg": 34.08510980482579,
+      "full_void_upper_bound_sea_level_kg": 35.770917801068116,
+      "annular_void_500m_kg": 33.79883909719765,
+      "owner_inherited_034_kg": 43.4,
+      "inherited_034_core_m": 0.030118230884842855
+    },
+    "mass_residual_at_028b_kg": 6.366462912410498e-12,
+    "owner_spare_mass_claim_kg": 2.0,
+    "cure_rebuild": {
+      "baseline": {
+        "tf_mm": 0.794624066985849,
+        "tc_mm": 23.23721790602507,
+        "joining_kg": 215.742079968062,
+        "gamma": 0.5641635666027824,
+        "Q": 0.43462785437530616,
+        "max_usage": 0.97197751742921,
+        "residual_face_MPa": 0.0,
+        "scarf_ratio": 30,
+        "mass_residual_kg": 0.0
+      },
+      "250F": {
+        "tf_mm": 0.8050988482276124,
+        "tc_mm": 20.893542207616658,
+        "joining_kg": 214.21575947115142,
+        "gamma": 0.6184291276674871,
+        "Q": 0.4094376562980565,
+        "max_usage": 1.0522815836113968,
+        "residual_face_MPa": 3.907502753484103,
+        "scarf_ratio": 30,
+        "mass_residual_kg": 0.0
+      },
+      "200F": {
+        "tf_mm": 0.8029256333251176,
+        "tc_mm": 21.37978191061839,
+        "joining_kg": 214.53253538880176,
+        "gamma": 0.6062336201591229,
+        "Q": 0.4147346506766473,
+        "max_usage": 1.0348328052599354,
+        "residual_face_MPa": 3.105190552000663,
+        "scarf_ratio": 30,
+        "mass_residual_kg": 0.0
+      },
+      "200F_30_34": {
+        "tf_mm": 0.7946556651223979,
+        "tc_mm": 23.22440597755653,
+        "joining_kg": 215.85305899262306,
+        "gamma": 0.5644448766820064,
+        "Q": 0.4394128389477995,
+        "max_usage": 0.9724326743252174,
+        "residual_face_MPa": 3.408206803540491,
+        "scarf_ratio": 30.34,
+        "mass_residual_kg": 0.0
+      },
+      "exact_ratio_fix": {
+        "tf_mm": 0.794622028589726,
+        "tc_mm": 23.23190862933911,
+        "joining_kg": 215.85843013349535,
+        "gamma": 0.5642879564373375,
+        "Q": 0.4395133081501524,
+        "max_usage": 0.9721901487261915,
+        "residual_face_MPa": 3.4094521426209603,
+        "scarf_ratio": 30.341397319147227,
+        "mass_residual_kg": 0.0
+      },
+      "exact_ratio": 30.341397319147227
+    }
+  },
+  "comparisons": [
+    {
+      "field": "gamma_need_028b.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.eq3_amp_mm",
+      "owner_value": 16.057295481678853,
+      "independent_value": 16.057295481678853,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.eq3_rms_mm",
+      "owner_value": 0.20254630586539468,
+      "independent_value": 0.20254630586539468,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.eq3_d_over_t",
+      "owner_value": 0.3857666790260901,
+      "independent_value": 0.3857666790260901,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.lee_amp_mm",
+      "owner_value": 9.318267240992759,
+      "independent_value": 9.318267240992759,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.lee_rms_k1_mm",
+      "owner_value": 0.11754037962887842,
+      "independent_value": 0.11754037962887842,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.lee_rms_k5_mm",
+      "owner_value": 0.587701898144392,
+      "independent_value": 0.5877018981443922,
+      "delta": 2.220446049250313e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.lee_d_over_t",
+      "owner_value": 0.22386565732298191,
+      "independent_value": 0.22386565732298191,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_need_028b.lee_in_ode_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.eq3_amp_mm",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.eq3_rms_mm",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.eq3_d_over_t",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.lee_amp_mm",
+      "owner_value": 67.17921258371261,
+      "independent_value": 67.17921258371261,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.lee_rms_k1_mm",
+      "owner_value": 0.8473968331281134,
+      "independent_value": 0.8473968331281134,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.lee_rms_k5_mm",
+      "owner_value": 4.236984165640567,
+      "independent_value": 4.236984165640567,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.lee_d_over_t",
+      "owner_value": 1.6139393939393938,
+      "independent_value": 1.6139393939393938,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.2.lee_in_ode_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.eq3_amp_mm",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.eq3_rms_mm",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.eq3_d_over_t",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.lee_amp_mm",
+      "owner_value": 33.19902441699276,
+      "independent_value": 33.19902441699276,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.lee_rms_k1_mm",
+      "owner_value": 0.4187716269946765,
+      "independent_value": 0.41877162699467657,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.lee_rms_k5_mm",
+      "owner_value": 2.0938581349733827,
+      "independent_value": 2.093858134973383,
+      "delta": 4.440892098500626e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.lee_d_over_t",
+      "owner_value": 0.7975862068965518,
+      "independent_value": 0.7975862068965518,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.3.lee_in_ode_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.eq3_amp_mm",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.eq3_rms_mm",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.eq3_d_over_t",
+      "owner_value": null,
+      "independent_value": null,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.lee_amp_mm",
+      "owner_value": 19.68882912179089,
+      "independent_value": 19.68882912179089,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.lee_rms_k1_mm",
+      "owner_value": 0.24835437636331004,
+      "independent_value": 0.24835437636331,
+      "delta": -2.7755575615628914e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.lee_rms_k5_mm",
+      "owner_value": 1.2417718818165502,
+      "independent_value": 1.2417718818165502,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.lee_d_over_t",
+      "owner_value": 0.473012048192771,
+      "independent_value": 0.473012048192771,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.4.lee_in_ode_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.eq3_amp_mm",
+      "owner_value": 35.874618460639724,
+      "independent_value": 35.874618460639724,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.eq3_rms_mm",
+      "owner_value": 0.45252150038739597,
+      "independent_value": 0.45252150038739586,
+      "delta": -1.1102230246251565e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.eq3_d_over_t",
+      "owner_value": 0.8618657133562386,
+      "independent_value": 0.8618657133562386,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.lee_amp_mm",
+      "owner_value": 14.360408097363276,
+      "independent_value": 14.360408097363276,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.lee_rms_k1_mm",
+      "owner_value": 0.18114181271429913,
+      "independent_value": 0.18114181271429913,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.lee_rms_k5_mm",
+      "owner_value": 0.9057090635714957,
+      "independent_value": 0.9057090635714956,
+      "delta": -1.1102230246251565e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.lee_d_over_t",
+      "owner_value": 0.345,
+      "independent_value": 0.345,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.468.lee_in_ode_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.eq3_amp_mm",
+      "owner_value": 24.91441462996623,
+      "independent_value": 24.91441462996623,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.eq3_rms_mm",
+      "owner_value": 0.3142697754958914,
+      "independent_value": 0.3142697754958914,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.eq3_d_over_t",
+      "owner_value": 0.5985535361572747,
+      "independent_value": 0.5985535361572747,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.lee_amp_mm",
+      "owner_value": 12.433353870663963,
+      "independent_value": 12.433353870663964,
+      "delta": 1.7763568394002505e-15,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.lee_rms_k1_mm",
+      "owner_value": 0.1568340010242429,
+      "independent_value": 0.1568340010242429,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.lee_rms_k5_mm",
+      "owner_value": 0.7841700051212144,
+      "independent_value": 0.7841700051212145,
+      "delta": 1.1102230246251565e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.lee_d_over_t",
+      "owner_value": 0.2987037037037037,
+      "independent_value": 0.2987037037037037,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.5.lee_in_ode_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.eq3_amp_mm",
+      "owner_value": 16.057295481678853,
+      "independent_value": 16.057295481678853,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.eq3_rms_mm",
+      "owner_value": 0.20254630586539468,
+      "independent_value": 0.20254630586539468,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.eq3_d_over_t",
+      "owner_value": 0.3857666790260901,
+      "independent_value": 0.3857666790260901,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.lee_amp_mm",
+      "owner_value": 9.318267240992759,
+      "independent_value": 9.318267240992759,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.lee_rms_k1_mm",
+      "owner_value": 0.11754037962887842,
+      "independent_value": 0.11754037962887842,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.lee_rms_k5_mm",
+      "owner_value": 0.587701898144392,
+      "independent_value": 0.5877018981443922,
+      "delta": 2.220446049250313e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.lee_d_over_t",
+      "owner_value": 0.22386565732298191,
+      "independent_value": 0.22386565732298191,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.564164.lee_in_ode_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.eq3_amp_mm",
+      "owner_value": 13.128578079800143,
+      "independent_value": 13.128578079800143,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.eq3_rms_mm",
+      "owner_value": 0.16560354104232322,
+      "independent_value": 0.16560354104232325,
+      "delta": 2.7755575615628914e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.eq3_d_over_t",
+      "owner_value": 0.3154060390778649,
+      "independent_value": 0.3154060390778649,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.lee_amp_mm",
+      "owner_value": 7.9055008943967815,
+      "independent_value": 7.9055008943967815,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.lee_rms_k1_mm",
+      "owner_value": 0.09971978182768217,
+      "independent_value": 0.09971978182768217,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.lee_rms_k5_mm",
+      "owner_value": 0.49859890913841076,
+      "independent_value": 0.4985989091384108,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.lee_d_over_t",
+      "owner_value": 0.18992481203007516,
+      "independent_value": 0.18992481203007516,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.6.lee_in_ode_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.eq3_amp_mm",
+      "owner_value": 7.648476164463389,
+      "independent_value": 7.64847616446339,
+      "delta": 8.881784197001252e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.eq3_rms_mm",
+      "owner_value": 0.0964776785965709,
+      "independent_value": 0.0964776785965709,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.eq3_d_over_t",
+      "owner_value": 0.1837499504783828,
+      "independent_value": 0.1837499504783828,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.lee_amp_mm",
+      "owner_value": 4.810512784036938,
+      "independent_value": 4.810512784036938,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.lee_rms_k1_mm",
+      "owner_value": 0.06067968263003308,
+      "independent_value": 0.06067968263003307,
+      "delta": -6.938893903907228e-18,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.lee_rms_k5_mm",
+      "owner_value": 0.3033984131501654,
+      "independent_value": 0.3033984131501654,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.lee_d_over_t",
+      "owner_value": 0.11556962025316458,
+      "independent_value": 0.11556962025316458,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.7.lee_in_ode_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.eq3_amp_mm",
+      "owner_value": 4.038825311846326,
+      "independent_value": 4.038825311846326,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.eq3_rms_mm",
+      "owner_value": 0.05094563700864236,
+      "independent_value": 0.05094563700864237,
+      "delta": 6.938893903907228e-18,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.eq3_d_over_t",
+      "owner_value": 0.09703030186466807,
+      "independent_value": 0.09703030186466807,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.lee_amp_mm",
+      "owner_value": 2.561149840442075,
+      "independent_value": 2.561149840442075,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.lee_rms_k1_mm",
+      "owner_value": 0.03230627720223342,
+      "independent_value": 0.032306277202233426,
+      "delta": 6.938893903907228e-18,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.lee_rms_k5_mm",
+      "owner_value": 0.1615313860111671,
+      "independent_value": 0.16153138601116712,
+      "delta": 2.7755575615628914e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.lee_d_over_t",
+      "owner_value": 0.06153005464480871,
+      "independent_value": 0.06153005464480871,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.8.lee_in_ode_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.t_eq_mm",
+      "owner_value": 41.62437129670515,
+      "independent_value": 41.62437129670515,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.R_over_t",
+      "owner_value": 240.24386887956595,
+      "independent_value": 240.24386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.width_m",
+      "owner_value": 0.3567770588642883,
+      "independent_value": 0.3567770588642883,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.eq3_amp_mm",
+      "owner_value": 1.3427415296340546,
+      "independent_value": 1.3427415296340548,
+      "delta": 2.220446049250313e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.eq3_rms_mm",
+      "owner_value": 0.016937306588755127,
+      "independent_value": 0.016937306588755127,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.eq3_d_over_t",
+      "owner_value": 0.03225854199845517,
+      "independent_value": 0.03225854199845517,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.lee_amp_mm",
+      "owner_value": 0.852499142903671,
+      "independent_value": 0.8524991429036711,
+      "delta": 1.1102230246251565e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.lee_rms_k1_mm",
+      "owner_value": 0.010753401925347168,
+      "independent_value": 0.010753401925347168,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.lee_rms_k5_mm",
+      "owner_value": 0.05376700962673585,
+      "independent_value": 0.05376700962673585,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.lee_d_over_t",
+      "owner_value": 0.02048076923076919,
+      "independent_value": 0.02048076923076919,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "gamma_table.0.9.lee_in_ode_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[0].amp_mm",
+      "owner_value": 0.5,
+      "independent_value": 0.5,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[0].d_over_t",
+      "owner_value": 0.012012193443978298,
+      "independent_value": 0.012012193443978298,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[0].eq3_kd",
+      "owner_value": 0.9367756869149978,
+      "independent_value": 0.9367756869149978,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[0].eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[0].lee_kd",
+      "owner_value": 0.9241286330255991,
+      "independent_value": 0.9241286330255991,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[0].lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[1].amp_mm",
+      "owner_value": 1.0,
+      "independent_value": 1.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[1].d_over_t",
+      "owner_value": 0.024024386887956595,
+      "independent_value": 0.024024386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[1].eq3_kd",
+      "owner_value": 0.9146089595520941,
+      "independent_value": 0.9146089595520941,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[1].eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[1].lee_kd",
+      "owner_value": 0.8903024559280948,
+      "independent_value": 0.8903024559280948,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[1].lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[2].amp_mm",
+      "owner_value": 2.0,
+      "independent_value": 2.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[2].d_over_t",
+      "owner_value": 0.04804877377591319,
+      "independent_value": 0.04804877377591319,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[2].eq3_kd",
+      "owner_value": 0.8732578143060379,
+      "independent_value": 0.8732578143060379,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[2].eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[2].lee_kd",
+      "owner_value": 0.8300817999788423,
+      "independent_value": 0.8300817999788423,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[2].lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[3].amp_mm",
+      "owner_value": 3.0,
+      "independent_value": 3.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[3].d_over_t",
+      "owner_value": 0.07207316066386979,
+      "independent_value": 0.07207316066386978,
+      "delta": -1.3877787807814457e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[3].eq3_kd",
+      "owner_value": 0.8355870053471014,
+      "independent_value": 0.8355870053471014,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[3].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[3].lee_kd",
+      "owner_value": 0.7780796877802316,
+      "independent_value": 0.7780796877802316,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[3].lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[4].amp_mm",
+      "owner_value": 5.0,
+      "independent_value": 5.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[4].d_over_t",
+      "owner_value": 0.12012193443978297,
+      "independent_value": 0.12012193443978297,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[4].eq3_kd",
+      "owner_value": 0.7700053198196563,
+      "independent_value": 0.7700053198196563,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[4].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[4].lee_kd",
+      "owner_value": 0.6928095354982948,
+      "independent_value": 0.6928095354982948,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[4].lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[5].amp_mm",
+      "owner_value": 7.5,
+      "independent_value": 7.5,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[5].d_over_t",
+      "owner_value": 0.18018290165967446,
+      "independent_value": 0.18018290165967446,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[5].eq3_kd",
+      "owner_value": 0.7034840919159329,
+      "independent_value": 0.7034840919159329,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[5].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[5].lee_kd",
+      "owner_value": 0.611262253113624,
+      "independent_value": 0.611262253113624,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[5].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[6].amp_mm",
+      "owner_value": 9.32,
+      "independent_value": 9.32,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[6].d_over_t",
+      "owner_value": 0.22390728579575547,
+      "independent_value": 0.22390728579575547,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[6].eq3_kd",
+      "owner_value": 0.6639303418866236,
+      "independent_value": 0.6639303418866236,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[6].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[6].lee_kd",
+      "owner_value": 0.564123011210698,
+      "independent_value": 0.564123011210698,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[6].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[7].amp_mm",
+      "owner_value": 10.0,
+      "independent_value": 10.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[7].d_over_t",
+      "owner_value": 0.24024386887956595,
+      "independent_value": 0.24024386887956595,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[7].eq3_kd",
+      "owner_value": 0.650790989633099,
+      "independent_value": 0.650790989633099,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[7].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[7].lee_kd",
+      "owner_value": 0.5485438659727364,
+      "independent_value": 0.5485438659727364,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[7].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[8].amp_mm",
+      "owner_value": 12.5,
+      "independent_value": 12.5,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[8].d_over_t",
+      "owner_value": 0.30030483609945746,
+      "independent_value": 0.3003048360994574,
+      "delta": -5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[8].eq3_kd",
+      "owner_value": 0.6090514860838299,
+      "independent_value": 0.6090514860838299,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[8].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[8].lee_kd",
+      "owner_value": 0.4988080588822681,
+      "independent_value": 0.49880805888226815,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[8].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[9].amp_mm",
+      "owner_value": 16.06,
+      "independent_value": 16.06,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[9].d_over_t",
+      "owner_value": 0.3858316534205829,
+      "independent_value": 0.38583165342058284,
+      "delta": -5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[9].eq3_kd",
+      "owner_value": 0.564135222808848,
+      "independent_value": 0.564135222808848,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[9].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[9].lee_kd",
+      "owner_value": 0.44347028399096494,
+      "independent_value": 0.443470283990965,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[9].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[10].amp_mm",
+      "owner_value": 20.0,
+      "independent_value": 20.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[10].d_over_t",
+      "owner_value": 0.4804877377591319,
+      "independent_value": 0.4804877377591319,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[10].eq3_kd",
+      "owner_value": 0.5290529833683123,
+      "independent_value": 0.5290529833683123,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[10].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[10].lee_kd",
+      "owner_value": 0.39673639848113124,
+      "independent_value": 0.39673639848113124,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[10].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[11].amp_mm",
+      "owner_value": 25.0,
+      "independent_value": 25.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[11].d_over_t",
+      "owner_value": 0.6006096721989149,
+      "independent_value": 0.6006096721989148,
+      "delta": -1.1102230246251565e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[11].eq3_kd",
+      "owner_value": 0.4996026965205387,
+      "independent_value": 0.4996026965205387,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[11].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[11].lee_kd",
+      "owner_value": 0.35189422452712876,
+      "independent_value": 0.35189422452712876,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[11].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[12].amp_mm",
+      "owner_value": 30.0,
+      "independent_value": 30.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[12].d_over_t",
+      "owner_value": 0.7207316066386978,
+      "independent_value": 0.7207316066386978,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[12].eq3_kd",
+      "owner_value": 0.4811237779685732,
+      "independent_value": 0.4811237779685732,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[12].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[12].lee_kd",
+      "owner_value": 0.3178172320545677,
+      "independent_value": 0.3178172320545677,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[12].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[13].amp_mm",
+      "owner_value": 40.0,
+      "independent_value": 40.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[13].d_over_t",
+      "owner_value": 0.9609754755182638,
+      "independent_value": 0.9609754755182638,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[13].eq3_kd",
+      "owner_value": 0.46225367486162877,
+      "independent_value": 0.46225367486162877,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[13].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[13].lee_kd",
+      "owner_value": 0.26945442430729216,
+      "independent_value": 0.26945442430729216,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[13].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[14].amp_mm",
+      "owner_value": 50.0,
+      "independent_value": 50.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[14].d_over_t",
+      "owner_value": 1.2012193443978298,
+      "independent_value": 1.2012193443978296,
+      "delta": -2.220446049250313e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[14].eq3_kd",
+      "owner_value": 0.45482436765119344,
+      "independent_value": 0.45482436765119344,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[14].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[14].lee_kd",
+      "owner_value": 0.23677986433645598,
+      "independent_value": 0.236779864336456,
+      "delta": 2.7755575615628914e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[14].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[15].amp_mm",
+      "owner_value": 75.0,
+      "independent_value": 75.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[15].d_over_t",
+      "owner_value": 1.8018290165967445,
+      "independent_value": 1.8018290165967445,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[15].eq3_kd",
+      "owner_value": 0.4504692189107954,
+      "independent_value": 0.4504692189107954,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[15].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[15].lee_kd",
+      "owner_value": 0.18808671125580034,
+      "independent_value": 0.18808671125580034,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[15].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[16].amp_mm",
+      "owner_value": 100.0,
+      "independent_value": 100.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[16].d_over_t",
+      "owner_value": 2.4024386887956597,
+      "independent_value": 2.4024386887956592,
+      "delta": -4.440892098500626e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[16].eq3_kd",
+      "owner_value": 0.45004563632006644,
+      "independent_value": 0.45004563632006644,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[16].eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[16].lee_kd",
+      "owner_value": 0.1611987750714418,
+      "independent_value": 0.16119877507144184,
+      "delta": 2.7755575615628914e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "amplitude_table[16].lee_in_fem_range",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_need_028b.waviness_mm_60psi",
+      "owner_value": 0.12877353073888909,
+      "independent_value": 0.12877362254636693,
+      "delta": 9.180747784220955e-08,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_need_028b.waviness_mm_35psi",
+      "owner_value": 0.07511789293101864,
+      "independent_value": 0.07511794648538071,
+      "delta": 5.355436206999631e-08,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[0].waviness_mm",
+      "owner_value": 0.005,
+      "independent_value": 0.005,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[0].Q_60psi",
+      "owner_value": 0.7927089880965041,
+      "independent_value": 0.7927089880965041,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[0].Q_35psi",
+      "owner_value": 0.7743017764263393,
+      "independent_value": 0.7743017764263393,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[1].waviness_mm",
+      "owner_value": 0.01,
+      "independent_value": 0.01,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[1].Q_60psi",
+      "owner_value": 0.7671760482609357,
+      "independent_value": 0.7671760482609357,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[1].Q_35psi",
+      "owner_value": 0.7334281616618952,
+      "independent_value": 0.7334281616618952,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[2].waviness_mm",
+      "owner_value": 0.02,
+      "independent_value": 0.02,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[2].Q_60psi",
+      "owner_value": 0.7207459858549293,
+      "independent_value": 0.7207459858549293,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[2].Q_35psi",
+      "owner_value": 0.6633904420252446,
+      "independent_value": 0.6633904420252446,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[3].waviness_mm",
+      "owner_value": 0.024,
+      "independent_value": 0.024,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[3].Q_60psi",
+      "owner_value": 0.7037103571375244,
+      "independent_value": 0.7037103571375244,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[3].Q_35psi",
+      "owner_value": 0.6389829217969429,
+      "independent_value": 0.6389829217969429,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[4].waviness_mm",
+      "owner_value": 0.034,
+      "independent_value": 0.034,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[4].Q_60psi",
+      "owner_value": 0.6644479511708756,
+      "independent_value": 0.6644479511708756,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[4].Q_35psi",
+      "owner_value": 0.5851597936801332,
+      "independent_value": 0.5851597936801332,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[5].waviness_mm",
+      "owner_value": 0.05,
+      "independent_value": 0.05,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[5].Q_60psi",
+      "owner_value": 0.6099941019159502,
+      "independent_value": 0.6099941019159502,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[5].Q_35psi",
+      "owner_value": 0.5156628774495716,
+      "independent_value": 0.5156628774495716,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[6].waviness_mm",
+      "owner_value": 0.075,
+      "independent_value": 0.075,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[6].Q_60psi",
+      "owner_value": 0.5407498041915477,
+      "independent_value": 0.5407498041915478,
+      "delta": 1.1102230246251565e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[6].Q_35psi",
+      "owner_value": 0.43494881068155083,
+      "independent_value": 0.43494881068155083,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[7].waviness_mm",
+      "owner_value": 0.1,
+      "independent_value": 0.1,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[7].Q_60psi",
+      "owner_value": 0.48562359157506746,
+      "independent_value": 0.48562359157506746,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[7].Q_35psi",
+      "owner_value": 0.37608253879359355,
+      "independent_value": 0.37608253879359355,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[8].waviness_mm",
+      "owner_value": 0.129,
+      "independent_value": 0.129,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[8].Q_60psi",
+      "owner_value": 0.4342690715657353,
+      "independent_value": 0.43426907156573535,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[8].Q_35psi",
+      "owner_value": 0.3250510796352057,
+      "independent_value": 0.32505107963520574,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[9].waviness_mm",
+      "owner_value": 0.15,
+      "independent_value": 0.15,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[9].Q_60psi",
+      "owner_value": 0.40337935906479977,
+      "independent_value": 0.4033793590647999,
+      "delta": 1.1102230246251565e-16,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[9].Q_35psi",
+      "owner_value": 0.29596919028858,
+      "independent_value": 0.29596919028858,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[10].waviness_mm",
+      "owner_value": 0.2,
+      "independent_value": 0.2,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[10].Q_60psi",
+      "owner_value": 0.34495797227430125,
+      "independent_value": 0.34495797227430125,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[10].Q_35psi",
+      "owner_value": 0.24399352906825994,
+      "independent_value": 0.24399352906825994,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[11].waviness_mm",
+      "owner_value": 0.20320000000000002,
+      "independent_value": 0.20320000000000002,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[11].Q_60psi",
+      "owner_value": 0.3417898833138033,
+      "independent_value": 0.34178988331380333,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[11].Q_35psi",
+      "owner_value": 0.2412817273845316,
+      "independent_value": 0.2412817273845316,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[12].waviness_mm",
+      "owner_value": 0.287,
+      "independent_value": 0.287,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[12].Q_60psi",
+      "owner_value": 0.27552465613680266,
+      "independent_value": 0.27552465613680266,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[12].Q_35psi",
+      "owner_value": 0.18688739330350684,
+      "independent_value": 0.18688739330350693,
+      "delta": 8.326672684688674e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[13].waviness_mm",
+      "owner_value": 0.3,
+      "independent_value": 0.3,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[13].Q_60psi",
+      "owner_value": 0.2674798264591384,
+      "independent_value": 0.2674798264591385,
+      "delta": 5.551115123125783e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[13].Q_35psi",
+      "owner_value": 0.18057230108344402,
+      "independent_value": 0.18057230108344402,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[14].waviness_mm",
+      "owner_value": 0.5,
+      "independent_value": 0.5,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[14].Q_60psi",
+      "owner_value": 0.18457024578364378,
+      "independent_value": 0.18457024578364378,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_table[14].Q_35psi",
+      "owner_value": 0.11880851581548646,
+      "independent_value": 0.11880851581548646,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.blanks_per_skin",
+      "owner_value": 1188.5605616641947,
+      "independent_value": 1188.5605616641944,
+      "delta": -2.2737367544323206e-13,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.blanks_total",
+      "owner_value": 2377.1211233283893,
+      "independent_value": 2377.121123328389,
+      "delta": -4.547473508864641e-13,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.coincident_seam_m",
+      "owner_value": 2841.518543919854,
+      "independent_value": 2841.518543919854,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.flat_blank_corner_sag_mm",
+      "owner_value": 46.45152,
+      "independent_value": 46.45152,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.forming_strain_strip_w",
+      "owner_value": 0.00046451520000000005,
+      "independent_value": 0.00046451520000000005,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.forming_strain_disc_halfdiag",
+      "owner_value": 0.0011612880000000001,
+      "independent_value": 0.0011612880000000001,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.Be_elastic_strain_at_345MPa",
+      "owner_value": 0.001189655172413793,
+      "independent_value": 0.001189655172413793,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.forming_stress_strip_MPa",
+      "owner_value": 67.354704,
+      "independent_value": 134.709408,
+      "delta": 67.354704,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.face_bending_strain_flat_to_R",
+      "owner_value": 3.9731203349294464e-05,
+      "independent_value": 3.9731203349294464e-05,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.face_bending_stress_MPa",
+      "owner_value": 11.522048971295394,
+      "independent_value": 11.522048971295394,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.seam_hot_cure_stress_MPa_per_100K",
+      "owner_value": 354.3468858131488,
+      "independent_value": 354.3468858131488,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.Be_Al_core_cte_mismatch_strain_per_100K",
+      "owner_value": 0.0012300000000000002,
+      "independent_value": 0.0012300000000000002,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.membrane_strain",
+      "owner_value": 0.0009577526436781641,
+      "independent_value": 0.0009577526436781125,
+      "delta": -5.160802341031001e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.gauge_tol_fraction",
+      "owner_value": 0.127859203139142,
+      "independent_value": 0.127859203139142,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.gauge_low_patch_radial_mm_upper",
+      "owner_value": 1.2245748982509668,
+      "independent_value": 1.2245748982509008,
+      "delta": -6.59472476627343e-14,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.areal_mass_kg_m2",
+      "owner_value": 3.4840156640872495,
+      "independent_value": 3.4840156640872495,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.self_weight_Pa",
+      "owner_value": 34.166522212221224,
+      "independent_value": 34.166522212221224,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.sea_level_overload",
+      "owner_value": 0.06143002946803855,
+      "independent_value": 0.06143002946809584,
+      "delta": 5.728750807065808e-14,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.D_sandwich_Nm",
+      "owner_value": 66921.6682998022,
+      "independent_value": 66921.6682998022,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.self_weight_span_deflection_mm.1 m",
+      "owner_value": 0.00664772117323738,
+      "independent_value": 0.00664772117323738,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.self_weight_span_deflection_mm.2 m",
+      "owner_value": 0.10636353877179808,
+      "independent_value": 0.10636353877179808,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.self_weight_span_deflection_mm.3 m",
+      "owner_value": 0.5384654150322278,
+      "independent_value": 0.5384654150322278,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.self_weight_span_deflection_mm.5 m",
+      "owner_value": 4.154825733273362,
+      "independent_value": 4.154825733273362,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.forming_strain_small_blank_0.305x0.610",
+      "owner_value": 0.00014516100000000002,
+      "independent_value": 0.0001453515625,
+      "delta": 1.9056249999998501e-07,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.inflation.p_Pa",
+      "owner_value": 3447.3786465841804,
+      "independent_value": 3447.3786465841804,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.inflation.skin_stress_MPa",
+      "owner_value": 21.691884186572203,
+      "independent_value": 21.691884186572203,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.inflation.tension_N_per_m",
+      "owner_value": 17236.893232920902,
+      "independent_value": 17236.893232920902,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.inflation.face_bending_D_Nm",
+      "owner_value": 12.194523040361133,
+      "independent_value": 12.194523040361133,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.inflation.bending_term_D_k2_N_per_m",
+      "owner_value": 95.80120606651613,
+      "independent_value": 95.80120606651614,
+      "delta": 1.4210854715202004e-14,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.inflation.tension_over_bending",
+      "owner_value": 179.92355149425867,
+      "independent_value": 179.92355149425865,
+      "delta": -2.842170943040401e-14,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr 57 in gores after stretch forming (0.050 in).amp_mm",
+      "owner_value": 1.27,
+      "independent_value": 1.27,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr 57 in gores after stretch forming (0.050 in).d_over_t",
+      "owner_value": 0.030510971347704877,
+      "independent_value": 0.030510971347704873,
+      "delta": -3.469446951953614e-18,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr 57 in gores after stretch forming (0.050 in).eq3_kd",
+      "owner_value": 0.903061626418497,
+      "independent_value": 0.903061626418497,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr 57 in gores after stretch forming (0.050 in).eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr 57 in gores after stretch forming (0.050 in).lee_kd",
+      "owner_value": 0.8731245304310173,
+      "independent_value": 0.8731245304310173,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr 57 in gores after stretch forming (0.050 in).lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.150 in).amp_mm",
+      "owner_value": 3.8099999999999996,
+      "independent_value": 3.8099999999999996,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.150 in).d_over_t",
+      "owner_value": 0.09153291404311462,
+      "independent_value": 0.09153291404311462,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.150 in).eq3_kd",
+      "owner_value": 0.80754564032528,
+      "independent_value": 0.80754564032528,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.150 in).eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.150 in).lee_kd",
+      "owner_value": 0.7408878937788772,
+      "independent_value": 0.7408878937788772,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.150 in).lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.200 in).amp_mm",
+      "owner_value": 5.08,
+      "independent_value": 5.08,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.200 in).d_over_t",
+      "owner_value": 0.1220438853908195,
+      "independent_value": 0.12204388539081949,
+      "delta": -1.3877787807814457e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.200 in).eq3_kd",
+      "owner_value": 0.7676278614208123,
+      "independent_value": 0.7676278614208123,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.200 in).eq3_in_fit",
+      "owner_value": true,
+      "independent_value": true,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.200 in).lee_kd",
+      "owner_value": 0.6898226643516281,
+      "independent_value": 0.6898226643516281,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.Rohr gores after chemical milling (0.200 in).lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.S-II core-to-face fit limit (0.010 in).amp_mm",
+      "owner_value": 0.254,
+      "independent_value": 0.254,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.S-II core-to-face fit limit (0.010 in).d_over_t",
+      "owner_value": 0.0061021942695409755,
+      "independent_value": 0.006102194269540975,
+      "delta": -8.673617379884035e-19,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.S-II core-to-face fit limit (0.010 in).eq3_kd",
+      "owner_value": 0.9480668036743469,
+      "independent_value": 0.9480668036743469,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.S-II core-to-face fit limit (0.010 in).eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.S-II core-to-face fit limit (0.010 in).lee_kd",
+      "owner_value": 0.9418136407456961,
+      "independent_value": 0.9418136407456961,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.S-II core-to-face fit limit (0.010 in).lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.gauge-low patch under load (upper, this card).amp_mm",
+      "owner_value": 1.2245748982509668,
+      "independent_value": 1.2245748982509008,
+      "delta": -6.59472476627343e-14,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.gauge-low patch under load (upper, this card).d_over_t",
+      "owner_value": 0.02941966112886131,
+      "independent_value": 0.02941966112885972,
+      "delta": -1.5890067039947553e-15,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.gauge-low patch under load (upper, this card).eq3_kd",
+      "owner_value": 0.9049840851006254,
+      "independent_value": 0.9049840851006282,
+      "delta": 2.7755575615628914e-15,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.gauge-low patch under load (upper, this card).eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.gauge-low patch under load (upper, this card).lee_kd",
+      "owner_value": 0.8759641710158963,
+      "independent_value": 0.8759641710159003,
+      "delta": 3.9968028886505635e-15,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.gauge-low patch under load (upper, this card).lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.reflector class, 3 x 50 um whole-surface rms.amp_mm",
+      "owner_value": 0.15,
+      "independent_value": 0.15000000000000002,
+      "delta": 2.7755575615628914e-17,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.reflector class, 3 x 50 um whole-surface rms.d_over_t",
+      "owner_value": 0.003603658033193489,
+      "independent_value": 0.0036036580331934897,
+      "delta": 8.673617379884035e-19,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.reflector class, 3 x 50 um whole-surface rms.eq3_kd",
+      "owner_value": 0.9529187028827808,
+      "independent_value": 0.9529187028827808,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.reflector class, 3 x 50 um whole-surface rms.eq3_in_fit",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.reflector class, 3 x 50 um whole-surface rms.lee_kd",
+      "owner_value": 0.9495119019753246,
+      "independent_value": 0.9495119019753246,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_dimples.reflector class, 3 x 50 um whole-surface rms.lee_in_fem_range",
+      "owner_value": false,
+      "independent_value": false,
+      "delta": null,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.CSO panel 10 um rms (x sqrt2).amp_mm",
+      "owner_value": 0.014142135623730952,
+      "independent_value": 0.014142135623730952,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.CSO panel 10 um rms (x sqrt2).Q_60psi",
+      "owner_value": 0.7472372104695196,
+      "independent_value": 0.7472372104695196,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.CSO panel 10 um rms (x sqrt2).Q_35psi",
+      "owner_value": 0.7026986118645862,
+      "independent_value": 0.7026986118645862,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Woody 1994 installed 24 um rms (x sqrt2; 032b).amp_mm",
+      "owner_value": 0.033941125496954286,
+      "independent_value": 0.033941125496954286,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Woody 1994 installed 24 um rms (x sqrt2; 032b).Q_60psi",
+      "owner_value": 0.6646662813987902,
+      "independent_value": 0.6646662813987902,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Woody 1994 installed 24 um rms (x sqrt2; 032b).Q_35psi",
+      "owner_value": 0.5854501269749494,
+      "independent_value": 0.5854501269749494,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Nobeyama new-antenna panels 21 um rms (x sqrt2).amp_mm",
+      "owner_value": 0.029698484809835,
+      "independent_value": 0.029698484809835,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Nobeyama new-antenna panels 21 um rms (x sqrt2).Q_60psi",
+      "owner_value": 0.6807865725400116,
+      "independent_value": 0.6807865725400116,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Nobeyama new-antenna panels 21 um rms (x sqrt2).Q_35psi",
+      "owner_value": 0.607158819666855,
+      "independent_value": 0.607158819666855,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Nobeyama older panels 60 um rms (x sqrt2).amp_mm",
+      "owner_value": 0.08485281374238571,
+      "independent_value": 0.08485281374238571,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Nobeyama older panels 60 um rms (x sqrt2).Q_60psi",
+      "owner_value": 0.5175935912903441,
+      "independent_value": 0.5175935912903441,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.Nobeyama older panels 60 um rms (x sqrt2).Q_35psi",
+      "owner_value": 0.4096765149637878,
+      "independent_value": 0.4096765149637878,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.von Hoerner vendor honeycomb 0.2032 mm rms (x sqrt2; 032b).amp_mm",
+      "owner_value": 0.2873681958742129,
+      "independent_value": 0.2873681958742129,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.von Hoerner vendor honeycomb 0.2032 mm rms (x sqrt2; 032b).Q_60psi",
+      "owner_value": 0.2752901511617599,
+      "independent_value": 0.2752901511617599,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.von Hoerner vendor honeycomb 0.2032 mm rms (x sqrt2; 032b).Q_35psi",
+      "owner_value": 0.18670246040725988,
+      "independent_value": 0.18670246040725988,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.ER-1001 cell dimple depth 0.001651 mm (032b).amp_mm",
+      "owner_value": 0.001651,
+      "independent_value": 0.001651,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.ER-1001 cell dimple depth 0.001651 mm (032b).Q_60psi",
+      "owner_value": 0.8107830425574938,
+      "independent_value": 0.8107830425574938,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.ER-1001 cell dimple depth 0.001651 mm (032b).Q_35psi",
+      "owner_value": 0.804325348734139,
+      "independent_value": 0.804325348734139,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.3/8 in cell one-cell rise projection 0.01524 mm (032b).amp_mm",
+      "owner_value": 0.01524,
+      "independent_value": 0.01524,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.3/8 in cell one-cell rise projection 0.01524 mm (032b).Q_60psi",
+      "owner_value": 0.7421250289936927,
+      "independent_value": 0.7421250289936927,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "precedent_waviness.3/8 in cell one-cell rise projection 0.01524 mm (032b).Q_35psi",
+      "owner_value": 0.6949807716405165,
+      "independent_value": 0.6949807716405165,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.sphere_volume_m3",
+      "owner_value": 4188.790204786391,
+      "independent_value": 4188.790204786391,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.largest_autoclave_volume_m3_ASC",
+      "owner_value": 2321.0,
+      "independent_value": 2321.0,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.largest_autoclave_diameter_m_Spirit",
+      "owner_value": 9.144,
+      "independent_value": 9.144,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.panel_envelope_m[0]",
+      "owner_value": 0.7096,
+      "independent_value": 0.7096,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.panel_envelope_m[1]",
+      "owner_value": 1.9288,
+      "independent_value": 1.9288,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.cure_dT_K_AF163_250F_to_service",
+      "owner_value": 109.36111111111109,
+      "independent_value": 109.36111111111111,
+      "delta": 2.842170943040401e-14,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.cure_dT_K_AF163_200F_to_service",
+      "owner_value": 81.58333333333331,
+      "independent_value": 81.58333333333333,
+      "delta": 1.4210854715202004e-14,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.Be_Al_mismatch_strain_250F",
+      "owner_value": 0.0013451416666666665,
+      "independent_value": 0.0013451416666666668,
+      "delta": 2.168404344971009e-19,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.Be_Al_mismatch_strain_200F",
+      "owner_value": 0.0010034749999999998,
+      "independent_value": 0.001003475,
+      "delta": 2.168404344971009e-19,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "envelope.film_mass_per_10gm2_both_lines_kg",
+      "owner_value": 25.132741228718345,
+      "independent_value": 25.132741228718345,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "coverage.bond_area_m2_two_lines",
+      "owner_value": 2513.2741228718346,
+      "independent_value": 2513.2741228718346,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "coverage.scarf_seam_m_two_skins",
+      "owner_value": 5683.037087839708,
+      "independent_value": 5683.037087839708,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "coverage.shearography_hours_at_15m2h_vendor",
+      "owner_value": 167.55160819145564,
+      "independent_value": 167.55160819145564,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "coverage.photogrammetry_relative_1_to_100k_at_20m_mm",
+      "owner_value": 0.2,
+      "independent_value": 0.2,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "coverage.photogrammetry_relative_1_to_200k_at_20m_mm",
+      "owner_value": 0.1,
+      "independent_value": 0.1,
+      "delta": 0.0,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "disbond_critical_diameter_mm.face_stress_MPa",
+      "owner_value": 300.3333333333344,
+      "independent_value": 300.3333333333182,
+      "delta": -1.6200374375330284e-11,
+      "agrees": true,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "disbond_critical_diameter_mm.clamped",
+      "owner_value": 54.780045601213786,
+      "independent_value": 54.779990832566725,
+      "delta": -5.476864706110973e-05,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "disbond_critical_diameter_mm.simply_supported",
+      "owner_value": 29.292132954739973,
+      "independent_value": 27.12759807241179,
+      "delta": -2.1645348823281836,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[0]",
+      "owner_value": 2.3602739203851284,
+      "independent_value": 2.360257934390596,
+      "delta": -1.5985994532563552e-05,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[1]",
+      "owner_value": 0.03947292672364836,
+      "independent_value": 0.039472525702658676,
+      "delta": -4.0102098968625155e-07,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[2]",
+      "owner_value": 1.498524808936674,
+      "independent_value": 1.4985146595174923,
+      "delta": -1.0149419181759711e-05,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[3]",
+      "owner_value": 0.0250611420419689,
+      "independent_value": 0.025060887435968834,
+      "delta": -2.546060000642447e-07,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[0]",
+      "owner_value": 36.470837762932064,
+      "independent_value": 36.47148976173557,
+      "delta": 0.0006519988035051938,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[1]",
+      "owner_value": 11.801197276993202,
+      "independent_value": 11.801408250115195,
+      "delta": 0.00021097312199280793,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[2]",
+      "owner_value": 0.1393403907929056,
+      "independent_value": 0.13934412734708224,
+      "delta": 3.7365541766254395e-06,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[3]",
+      "owner_value": 7.0788895397606995,
+      "independent_value": 7.079016090939482,
+      "delta": 0.00012655117878246358,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[0]",
+      "owner_value": 53.36404890439359,
+      "independent_value": 53.364448806653826,
+      "delta": 0.0003999022602343416,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[1]",
+      "owner_value": 45.81909809248435,
+      "independent_value": 45.819441454003304,
+      "delta": 0.0003433615189507577,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[2]",
+      "owner_value": 0.6544086136006378,
+      "independent_value": 0.6544159696759175,
+      "delta": 7.356075279685292e-06,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[3]",
+      "owner_value": 18.391549563246567,
+      "independent_value": 18.391687386788643,
+      "delta": 0.00013782354207592107,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.032_S200F.mine",
+      "owner_value": 0.15289145889487868,
+      "independent_value": 0.15286876684636116,
+      "delta": -2.2692048517514163e-05,
+      "agrees": false,
+      "basis": "032 formula with owner's rounded input core/Q"
+    },
+    {
+      "field": "reproduce.032_S200F.filed",
+      "owner_value": 0.152868766846,
+      "independent_value": 0.15286876684636116,
+      "delta": 3.611555499105634e-13,
+      "agrees": true,
+      "basis": "Different rounded inputs; report discrepancy rather than exact reproduction"
+    },
+    {
+      "field": "reproduce.032_SR200.mine",
+      "owner_value": 0.06521857553366171,
+      "independent_value": 0.06522290640394086,
+      "delta": 4.330870279151133e-06,
+      "agrees": false,
+      "basis": "032 formula with owner's rounded input core/Q"
+    },
+    {
+      "field": "reproduce.032_SR200.filed",
+      "owner_value": 0.0652229064039,
+      "independent_value": 0.06522290640394086,
+      "delta": 4.0870085094013575e-14,
+      "agrees": true,
+      "basis": "Different rounded inputs; report discrepancy rather than exact reproduction"
+    }
+  ],
+  "numeric_mismatches": [
+    {
+      "field": "Q_need_028b.waviness_mm_60psi",
+      "owner_value": 0.12877353073888909,
+      "independent_value": 0.12877362254636693,
+      "delta": 9.180747784220955e-08,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "Q_need_028b.waviness_mm_35psi",
+      "owner_value": 0.07511789293101864,
+      "independent_value": 0.07511794648538071,
+      "delta": 5.355436206999631e-08,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.forming_stress_strip_MPa",
+      "owner_value": 67.354704,
+      "independent_value": 134.709408,
+      "delta": 67.354704,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "route.forming_strain_small_blank_0.305x0.610",
+      "owner_value": 0.00014516100000000002,
+      "independent_value": 0.0001453515625,
+      "delta": 1.9056249999998501e-07,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "disbond_critical_diameter_mm.clamped",
+      "owner_value": 54.780045601213786,
+      "independent_value": 54.779990832566725,
+      "delta": -5.476864706110973e-05,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "disbond_critical_diameter_mm.simply_supported",
+      "owner_value": 29.292132954739973,
+      "independent_value": 27.12759807241179,
+      "delta": -2.1645348823281836,
+      "agrees": false,
+      "basis": "Independent formulas in METHOD.md; physical nu=.0752, map nu=.33"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[0]",
+      "owner_value": 2.3602739203851284,
+      "independent_value": 2.360257934390596,
+      "delta": -1.5985994532563552e-05,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[1]",
+      "owner_value": 0.03947292672364836,
+      "independent_value": 0.039472525702658676,
+      "delta": -4.0102098968625155e-07,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[2]",
+      "owner_value": 1.498524808936674,
+      "independent_value": 1.4985146595174923,
+      "delta": -1.0149419181759711e-05,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_Be_kd0.9.mine[3]",
+      "owner_value": 0.0250611420419689,
+      "independent_value": 0.025060887435968834,
+      "delta": -2.546060000642447e-07,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[0]",
+      "owner_value": 36.470837762932064,
+      "independent_value": 36.47148976173557,
+      "delta": 0.0006519988035051938,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[1]",
+      "owner_value": 11.801197276993202,
+      "independent_value": 11.801408250115195,
+      "delta": 0.00021097312199280793,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[2]",
+      "owner_value": 0.1393403907929056,
+      "independent_value": 0.13934412734708224,
+      "delta": 3.7365541766254395e-06,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021.mine[3]",
+      "owner_value": 7.0788895397606995,
+      "independent_value": 7.079016090939482,
+      "delta": 0.00012655117878246358,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[0]",
+      "owner_value": 53.36404890439359,
+      "independent_value": 53.364448806653826,
+      "delta": 0.0003999022602343416,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[1]",
+      "owner_value": 45.81909809248435,
+      "independent_value": 45.819441454003304,
+      "delta": 0.0003433615189507577,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[2]",
+      "owner_value": 0.6544086136006378,
+      "independent_value": 0.6544159696759175,
+      "delta": 7.356075279685292e-06,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.015b_021b.mine[3]",
+      "owner_value": 18.391549563246567,
+      "independent_value": 18.391687386788643,
+      "delta": 0.00013782354207592107,
+      "agrees": false,
+      "basis": "015b pinned geometry and exact target gamma"
+    },
+    {
+      "field": "reproduce.032_S200F.mine",
+      "owner_value": 0.15289145889487868,
+      "independent_value": 0.15286876684636116,
+      "delta": -2.2692048517514163e-05,
+      "agrees": false,
+      "basis": "032 formula with owner's rounded input core/Q"
+    },
+    {
+      "field": "reproduce.032_SR200.mine",
+      "owner_value": 0.06521857553366171,
+      "independent_value": 0.06522290640394086,
+      "delta": 4.330870279151133e-06,
+      "agrees": false,
+      "basis": "032 formula with owner's rounded input core/Q"
+    }
+  ],
+  "checks": [
+    {
+      "name": "inverse-forward-eq3-0.468",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-lee-0.468",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-eq3-0.5",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-lee-0.5",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-eq3-0.564164",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-lee-0.564164",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-eq3-0.7",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-lee-0.7",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-eq3-0.9",
+      "pass_": true
+    },
+    {
+      "name": "inverse-forward-lee-0.9",
+      "pass_": true
+    },
+    {
+      "name": "Q-inverse-forward-35",
+      "pass_": true
+    },
+    {
+      "name": "Q-inverse-forward-60",
+      "pass_": true
+    },
+    {
+      "name": "cure-mass-closure-baseline",
+      "pass_": true
+    },
+    {
+      "name": "cure-mass-closure-250F",
+      "pass_": true
+    },
+    {
+      "name": "cure-mass-closure-200F",
+      "pass_": true
+    },
+    {
+      "name": "cure-mass-closure-200F_30_34",
+      "pass_": true
+    },
+    {
+      "name": "cure-mass-closure-exact_ratio_fix",
+      "pass_": true
+    },
+    {
+      "name": "SS-boundary-residual",
+      "pass_": true
+    },
+    {
+      "name": "clamped-boundary-residual",
+      "pass_": true
+    },
+    {
+      "name": "geometry-point-identical",
+      "pass_": true
+    }
+  ]
+}

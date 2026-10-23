@@ -1,0 +1,849 @@
+{
+  "unit": "vacuum-mainline050-check-1020",
+  "status": "COMPLETE",
+  "verdict": "CONDITIONAL_HEADLINES_REPRODUCED_WITH_NUMERICAL_AND_SCOPE_QUALIFICATIONS",
+  "completed_at": "2026-10-20T06:56:42.917740-07:00",
+  "summary": {
+    "card_numbers_checked": 89,
+    "card_display_mismatches": 0,
+    "strict_interface_rechecked_knots": 952,
+    "coupled_knots": 57120,
+    "finite_filed_geometry_checks": 42160,
+    "coupled_max_finite_knot_difference_kg": 0.004138884658459574,
+    "exploratory_marginal_knot_differences": 680,
+    "frozen_pressure_knots": 5200,
+    "coupled_weather_points": 2027245,
+    "frozen_weather_points": 2027245,
+    "fixed_weather_points": 2027245,
+    "coupled_zero_entries": 791120,
+    "frozen_zero_entries": 791120,
+    "grid_classification_mismatches": 0,
+    "fixed_grid_classification_mismatches": 0,
+    "zero_finite_disagreements": 0,
+    "coupled_max_payload_difference_kg": 0.0008103978325380012,
+    "max_zero_offset_difference_K": 5.956453037470055e-06,
+    "design_days": 30,
+    "design_day_endpoint_cases": 2400,
+    "max_design_day_interpolation_difference_kg": 0.23813356219034176,
+    "design_day_least_set_mismatches": 0,
+    "dew_numeric_comparisons": 1673,
+    "maximum_deposit_difference_kg_m2": 5.551115123125783e-17,
+    "maximum_midpoint_refinement_change_kg_m2": 8.177816368720725e-06,
+    "transition_intervals": 167,
+    "transition_mismatches": 0,
+    "boundary_slice_values": 5760,
+    "slice_finite_mismatches": 0,
+    "gas_all_geometry_reserve_pass": true
+  },
+  "primary_artifact": "CHECK.md",
+  "exact_mismatches": "MISMATCHES.json",
+  "headline_rows": [
+    {
+      "row": "headline/R10/z100",
+      "field": "family_upper_K",
+      "card_value": 5.8,
+      "checker_value": 5.81179083708673,
+      "difference": 0.011790837086730122,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R10/z500",
+      "field": "family_upper_K",
+      "card_value": -2.7,
+      "checker_value": -2.6935554913224036,
+      "difference": 0.006444508677596605,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R10/z100",
+      "field": "fixed_upper_K",
+      "card_value": -6.5,
+      "checker_value": -6.512488870767754,
+      "difference": -0.012488870767754179,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R10",
+      "field": "ISA_payload_kg",
+      "card_value": 124.3,
+      "checker_value": 124.26204960240375,
+      "difference": -0.037950397596247853,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R10",
+      "field": "fixed_mass_kg",
+      "card_value": 5024,
+      "checker_value": 5024.055814773001,
+      "difference": 0.055814773000747664,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R10",
+      "field": "least_usage",
+      "card_value": 0.8331,
+      "checker_value": 0.8330753339842876,
+      "difference": -2.466601571238236e-05,
+      "display_decimals": 4,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R10/clear_calm_reference",
+      "field": "deposit_kg_m2",
+      "card_value": 0.09,
+      "checker_value": 0.0901981304012755,
+      "difference": 0.00019813040127550363,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R10/overcast_humid",
+      "field": "deposit_kg_m2",
+      "card_value": 0.004,
+      "checker_value": 0.003828400556921431,
+      "difference": -0.0001715994430785692,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R10/clear_saturated",
+      "field": "deposit_kg_m2",
+      "card_value": 0.243,
+      "checker_value": 0.24310792815785134,
+      "difference": 0.00010792815785135024,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R10/clear_cold_frost",
+      "field": "deposit_kg_m2",
+      "card_value": 0.084,
+      "checker_value": 0.0843857697831702,
+      "difference": 0.0003857697831701895,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R10",
+      "field": "ISA_total_water_kg_m2",
+      "card_value": 0.199,
+      "checker_value": 0.19888459716476423,
+      "difference": -0.00011540283523578387,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R12/z100",
+      "field": "family_upper_K",
+      "card_value": 9.5,
+      "checker_value": 9.508808444643389,
+      "difference": 0.008808444643388924,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R12/z500",
+      "field": "family_upper_K",
+      "card_value": 1.5,
+      "checker_value": 1.4887710006578863,
+      "difference": -0.011228999342113744,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R12/z100",
+      "field": "fixed_upper_K",
+      "card_value": -3.0,
+      "checker_value": -3.040081975299529,
+      "difference": -0.04008197529952895,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R12",
+      "field": "ISA_payload_kg",
+      "card_value": 337.0,
+      "checker_value": 336.9668878063776,
+      "difference": -0.03311219362240081,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R12",
+      "field": "fixed_mass_kg",
+      "card_value": 8568,
+      "checker_value": 8567.628412775932,
+      "difference": -0.37158722406820743,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R12",
+      "field": "least_usage",
+      "card_value": 0.8847,
+      "checker_value": 0.8847051322000082,
+      "difference": 5.1322000081954755e-06,
+      "display_decimals": 4,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R12/clear_calm_reference",
+      "field": "deposit_kg_m2",
+      "card_value": 0.09,
+      "checker_value": 0.08967483192433293,
+      "difference": -0.0003251680756670705,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R12/overcast_humid",
+      "field": "deposit_kg_m2",
+      "card_value": 0.004,
+      "checker_value": 0.0037957481559818835,
+      "difference": -0.0002042518440181166,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R12/clear_saturated",
+      "field": "deposit_kg_m2",
+      "card_value": 0.242,
+      "checker_value": 0.24235110726071982,
+      "difference": 0.000351107260719824,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R12/clear_cold_frost",
+      "field": "deposit_kg_m2",
+      "card_value": 0.084,
+      "checker_value": 0.08400427337532254,
+      "difference": 4.273375322536022e-06,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R12",
+      "field": "ISA_total_water_kg_m2",
+      "card_value": 0.286,
+      "checker_value": 0.28621508976624,
+      "difference": 0.00021508976624001752,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R15/z100",
+      "field": "family_upper_K",
+      "card_value": 12.2,
+      "checker_value": 12.228842494413541,
+      "difference": 0.02884249441354214,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R15/z500",
+      "field": "family_upper_K",
+      "card_value": 4.5,
+      "checker_value": 4.546621736167644,
+      "difference": 0.0466217361676442,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R15/z100",
+      "field": "fixed_upper_K",
+      "card_value": -0.3,
+      "checker_value": -0.3118340496192218,
+      "difference": -0.011834049619221798,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R15",
+      "field": "ISA_payload_kg",
+      "card_value": 832.3,
+      "checker_value": 832.2952104514152,
+      "difference": -0.0047895485847675445,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R15",
+      "field": "fixed_mass_kg",
+      "card_value": 16560,
+      "checker_value": 16559.75306300964,
+      "difference": -0.2469369903592451,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R15",
+      "field": "least_usage",
+      "card_value": 0.7208,
+      "checker_value": 0.7207564733922014,
+      "difference": -4.352660779860518e-05,
+      "display_decimals": 4,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R15/clear_calm_reference",
+      "field": "deposit_kg_m2",
+      "card_value": 0.089,
+      "checker_value": 0.08888459137913504,
+      "difference": -0.00011540862086495407,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R15/overcast_humid",
+      "field": "deposit_kg_m2",
+      "card_value": 0.004,
+      "checker_value": 0.0037460248921453985,
+      "difference": -0.0002539751078546016,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R15/clear_saturated",
+      "field": "deposit_kg_m2",
+      "card_value": 0.241,
+      "checker_value": 0.24121571498519456,
+      "difference": 0.00021571498519457055,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R15/clear_cold_frost",
+      "field": "deposit_kg_m2",
+      "card_value": 0.083,
+      "checker_value": 0.08343214561202167,
+      "difference": 0.00043214561202166435,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R15",
+      "field": "ISA_total_water_kg_m2",
+      "card_value": 0.394,
+      "checker_value": 0.394364215233449,
+      "difference": 0.00036421523344898343,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R20/z100",
+      "field": "family_upper_K",
+      "card_value": 14.3,
+      "checker_value": 14.293715937172065,
+      "difference": -0.006284062827935699,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R20/z500",
+      "field": "family_upper_K",
+      "card_value": 6.9,
+      "checker_value": 6.885371732307456,
+      "difference": -0.01462826769254466,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R20/z100",
+      "field": "fixed_upper_K",
+      "card_value": 1.8,
+      "checker_value": 1.785631909267238,
+      "difference": -0.014368090732762129,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R20",
+      "field": "ISA_payload_kg",
+      "card_value": 2290.0,
+      "checker_value": 2290.034380474797,
+      "difference": 0.034380474797217175,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R20",
+      "field": "fixed_mass_kg",
+      "card_value": 38937,
+      "checker_value": 38936.59450784864,
+      "difference": -0.40549215135979466,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R20",
+      "field": "least_usage",
+      "card_value": 0.5984,
+      "checker_value": 0.5984260016277639,
+      "difference": 2.6001627763894142e-05,
+      "display_decimals": 4,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R20/clear_calm_reference",
+      "field": "deposit_kg_m2",
+      "card_value": 0.088,
+      "checker_value": 0.08755551629303071,
+      "difference": -0.0004444837069692842,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R20/overcast_humid",
+      "field": "deposit_kg_m2",
+      "card_value": 0.004,
+      "checker_value": 0.0036616507283782256,
+      "difference": -0.0003383492716217745,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R20/clear_saturated",
+      "field": "deposit_kg_m2",
+      "card_value": 0.239,
+      "checker_value": 0.2393231267257281,
+      "difference": 0.0003231267257281234,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R20/clear_cold_frost",
+      "field": "deposit_kg_m2",
+      "card_value": 0.082,
+      "checker_value": 0.08247900500926632,
+      "difference": 0.0004790050092663145,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R20",
+      "field": "ISA_total_water_kg_m2",
+      "card_value": 0.556,
+      "checker_value": 0.5555878643786877,
+      "difference": -0.0004121356213123706,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R30/z100",
+      "field": "family_upper_K",
+      "card_value": 15.8,
+      "checker_value": 15.801844158801003,
+      "difference": 0.0018441588010027488,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R30/z500",
+      "field": "family_upper_K",
+      "card_value": 8.6,
+      "checker_value": 8.614563744058938,
+      "difference": 0.0145637440589379,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R30/z100",
+      "field": "fixed_upper_K",
+      "card_value": 3.3,
+      "checker_value": 3.338960525844925,
+      "difference": 0.038960525844925264,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R30",
+      "field": "ISA_payload_kg",
+      "card_value": 8525.5,
+      "checker_value": 8525.462646980784,
+      "difference": -0.037353019215515815,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R30",
+      "field": "fixed_mass_kg",
+      "card_value": 130621,
+      "checker_value": 130621.27036228114,
+      "difference": 0.27036228113865945,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "headline/R30",
+      "field": "least_usage",
+      "card_value": 0.5666,
+      "checker_value": 0.5665505141551717,
+      "difference": -4.948584482833418e-05,
+      "display_decimals": 4,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R30/clear_calm_reference",
+      "field": "deposit_kg_m2",
+      "card_value": 0.085,
+      "checker_value": 0.08486382114050614,
+      "difference": -0.00013617885949386566,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R30/overcast_humid",
+      "field": "deposit_kg_m2",
+      "card_value": 0.003,
+      "checker_value": 0.003488010402593368,
+      "difference": 0.000488010402593368,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R30/clear_saturated",
+      "field": "deposit_kg_m2",
+      "card_value": 0.236,
+      "checker_value": 0.23553697247466113,
+      "difference": -0.0004630275253388605,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R30/clear_cold_frost",
+      "field": "deposit_kg_m2",
+      "card_value": 0.081,
+      "checker_value": 0.08057418556285834,
+      "difference": -0.00042581443714166667,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R30",
+      "field": "ISA_total_water_kg_m2",
+      "card_value": 0.854,
+      "checker_value": 0.8538164013401701,
+      "difference": -0.00018359865982986445,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "cold/z100",
+      "field": "conservative_lower_K",
+      "card_value": -10.5,
+      "checker_value": -10.508500874411823,
+      "difference": -0.008500874411822679,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "cold/z500",
+      "field": "conservative_lower_K",
+      "card_value": -7.9,
+      "checker_value": -7.9085008744118,
+      "difference": -0.008500874411799586,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "fixed/R30/z500",
+      "field": "upper_K",
+      "card_value": -6.8,
+      "checker_value": -6.820795935974786,
+      "difference": -0.02079593597478624,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "fixed",
+      "field": "design_pressure_kPa",
+      "card_value": 103.953,
+      "checker_value": 103.95319780784745,
+      "difference": 0.0001978078474422773,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R10/dry",
+      "field": "minimum_skin_K",
+      "card_value": 271.54,
+      "checker_value": 271.5427184035125,
+      "difference": 0.0027184035124605543,
+      "display_decimals": 2,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "night/R10/clear",
+      "field": "minimum_skin_K",
+      "card_value": 273.66,
+      "checker_value": 273.6608556707645,
+      "difference": 0.0008556707644515882,
+      "display_decimals": 2,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "water/R10/clear_calm_reference",
+      "field": "capacity_kg_m2",
+      "card_value": 0.184,
+      "checker_value": 0.18360680349485375,
+      "difference": -0.0003931965051462427,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "water/R10/clear_calm_reference",
+      "field": "dry_start_payload_kg",
+      "card_value": 117,
+      "checker_value": 117.38080046894244,
+      "difference": 0.38080046894243935,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "water/R10/clear_saturated",
+      "field": "capacity_kg_m2",
+      "card_value": 0.178,
+      "checker_value": 0.17763140130834934,
+      "difference": -0.0003685986916506512,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "water/R10/clear_saturated",
+      "field": "dry_start_payload_kg",
+      "card_value": -82,
+      "checker_value": -82.28023029318814,
+      "difference": -0.28023029318813997,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "water/R12/clear_saturated",
+      "field": "dry_start_payload_kg",
+      "card_value": 33,
+      "checker_value": 33.223740154648056,
+      "difference": 0.22374015464805552,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "heater/R10/clear",
+      "field": "mean_power_W_m2",
+      "card_value": 21.1,
+      "checker_value": 21.144629726368056,
+      "difference": 0.04462972636805418,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "heater/R10/clear",
+      "field": "total_power_kW",
+      "card_value": 26.6,
+      "checker_value": 26.5711253644937,
+      "difference": -0.02887463550630187,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "heater/R10/clear",
+      "field": "energy_kWh_12h",
+      "card_value": 319,
+      "checker_value": 318.8535043739244,
+      "difference": -0.1464956260755912,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "heater/R10/clear",
+      "field": "battery_mass_kg",
+      "card_value": 2952,
+      "checker_value": 2952.3472627215224,
+      "difference": 0.3472627215223838,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "heater/R10/overcast",
+      "field": "mean_power_W_m2",
+      "card_value": 1.16,
+      "checker_value": 1.1635315501828893,
+      "difference": 0.0035315501828894202,
+      "display_decimals": 2,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "heater/R10/overcast",
+      "field": "battery_mass_kg",
+      "card_value": 162,
+      "checker_value": 162.4596520122004,
+      "difference": 0.45965201220039376,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "cover/R10",
+      "field": "10_g_m2_mass_kg",
+      "card_value": 12.6,
+      "checker_value": 12.566370614359172,
+      "difference": -0.03362938564082718,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "cover/R10",
+      "field": "50_g_m2_mass_kg",
+      "card_value": 62.8,
+      "checker_value": 62.83185307179587,
+      "difference": 0.03185307179587227,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "cover/R30",
+      "field": "10_g_m2_mass_kg",
+      "card_value": 113,
+      "checker_value": 113.09733552923255,
+      "difference": 0.09733552923255218,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "cover/R30",
+      "field": "50_g_m2_mass_kg",
+      "card_value": 565,
+      "checker_value": 565.4866776461628,
+      "difference": 0.4866776461627751,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "solar/R10/clear_calm_reference",
+      "field": "energy_equivalent_hours",
+      "card_value": 2.8,
+      "checker_value": 2.8125928405641463,
+      "difference": 0.012592840564146446,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "solar/R10/clear_saturated",
+      "field": "energy_equivalent_hours",
+      "card_value": 7.6,
+      "checker_value": 7.580685045013819,
+      "difference": -0.01931495498618041,
+      "display_decimals": 1,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "low_e/R10/saturated",
+      "field": "deposit_kg_m2",
+      "card_value": 0.027,
+      "checker_value": 0.027112652168018184,
+      "difference": 0.00011265216801818398,
+      "display_decimals": 3,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "hot10/z100/R10",
+      "field": "mask11_deficit_kg",
+      "card_value": 295,
+      "checker_value": 295.2975796216606,
+      "difference": 0.2975796216605886,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "hot10/z100/R12",
+      "field": "mask11_deficit_kg",
+      "card_value": 397,
+      "checker_value": 396.7003412480599,
+      "difference": -0.2996587519401146,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "hot10/z100/R15",
+      "field": "mask11_deficit_kg",
+      "card_value": 602,
+      "checker_value": 601.8998504831998,
+      "difference": -0.10014951680022932,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "hot10/z100/R20",
+      "field": "mask11_deficit_kg",
+      "card_value": 1114,
+      "checker_value": 1114.2202596183197,
+      "difference": 0.22025961831968743,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "hot10/z100/R30",
+      "field": "mask11_deficit_kg",
+      "card_value": 2993,
+      "checker_value": 2992.742231492448,
+      "difference": -0.25776850755210035,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "hot10/z100/R30",
+      "field": "mask15_deficit_kg",
+      "card_value": 2771,
+      "checker_value": 2771.211108391144,
+      "difference": 0.2111083911440801,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "transition/R10/z500/RH100/mask3",
+      "field": "upper_K",
+      "card_value": -4.87,
+      "checker_value": -4.867236660956886,
+      "difference": 0.002763339043114321,
+      "display_decimals": 2,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "transition/R10/z500/RH100/mask11",
+      "field": "upper_K",
+      "card_value": 5.71,
+      "checker_value": 5.7068511822299275,
+      "difference": -0.003148817770072476,
+      "display_decimals": 2,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "transition/R10/z500/RH100/mask15",
+      "field": "upper_K",
+      "card_value": 6.19,
+      "checker_value": 6.186801505771916,
+      "difference": -0.003198494228084492,
+      "display_decimals": 2,
+      "agrees_at_display_precision": true
+    },
+    {
+      "row": "grid",
+      "field": "weather_point_count",
+      "card_value": 2027245,
+      "checker_value": 2027245,
+      "difference": 0,
+      "display_decimals": 0,
+      "agrees_at_display_precision": true
+    }
+  ],
+  "owner_code_read": false,
+  "owner_code_run": false,
+  "independence": "Checker authored upstream040/048 and has prior familiarity with their implementation. No050 code read, copied, imported or run. New checker arithmetic is written from noncode inputs and declared equations. No claim of upstream personnel independence.",
+  "qualified_installed_hull_SF": null,
+  "qualified_operational_availability": null,
+  "next_job": null
+}

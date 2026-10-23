@@ -1,0 +1,70 @@
+{
+  "id": "N177",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N177",
+    "report": "rpt-ref-06668dbf12580ed0ffc3",
+    "card": "MAINLINE-015",
+    "file": "evidence/32fd0bf058dd6218-NFI.json",
+    "row_id": "NFI-015-SANDWICH-TRANSFER",
+    "fields": {
+      "id": "NFI-015-SANDWICH-TRANSFER",
+      "issue": "Every kd curve used here is a monocoque result transferred through t_eq = sqrt(3)(d+tf). No sandwich kd-versus-amplitude measurement was retrieved at this radius. The mapping preserves the radius of gyration by construction.",
+      "consequence": "The tolerance table carries this transfer as its central QUESTIONABLE. It is the sibling of 004b's NFI-KD-TRANSFER.",
+      "next": "A sandwich imperfection study at this geometry."
+    }
+  },
+  "claim": "Every kd curve used here is a monocoque result transferred through t_eq = sqrt(3)(d+tf). No sandwich kd-versus-amplitude measurement was retrieved at this radius. The mapping preserves the radius of gyration by construction.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/176"
+    },
+    {
+      "report": "rpt-ref-06668dbf12580ed0ffc3",
+      "artifact": "evidence/32fd0bf058dd6218-NFI.json",
+      "snapshot": "evidence/32fd0bf058dd6218-NFI.json",
+      "sha256": "32fd0bf058dd6218c0c22c124cdaabe5452a14c1dcc3e6dcb239e3b4bc604d82",
+      "bytes": 6822,
+      "selector": "source row ID: NFI-015-SANDWICH-TRANSFER"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-06668dbf12580ed0ffc3",
+          "artifact": "evidence/32fd0bf058dd6218-NFI.json",
+          "snapshot": "evidence/32fd0bf058dd6218-NFI.json",
+          "sha256": "32fd0bf058dd6218c0c22c124cdaabe5452a14c1dcc3e6dcb239e3b4bc604d82",
+          "bytes": 6822,
+          "selector": "source row ID: NFI-015-SANDWICH-TRANSFER"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/176"
+          }
+        ]
+      }
+    }
+  ]
+}

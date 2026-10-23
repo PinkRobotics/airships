@@ -1,0 +1,44 @@
+{
+  "id": "E-491ed4fde7effbfc4669",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-491ed4fde7effbfc4669",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043fold~1NFI.json/items/4",
+    "row_id": "NFI-043F-05",
+    "fields": {
+      "id": "NFI-043F-05",
+      "status": "open",
+      "topic": "Reliability envelope and reference population",
+      "finding": "Per-member peaks are applied over whole members; a second envelope applies the global maximum everywhere. Complete-member common-scale and coupon-volume calibrations are separate hypotheses and give very different probabilities.",
+      "remaining": "Calibrate the actual stress-field and size transfer. A common complete-member scale despite unequal lengths must not be silently reinterpreted as a volume-calibrated material constant. Zero positive longitudinal stress does not close multiaxial tension risk.",
+      "related_prior": [
+        "NFI-043-01",
+        "NFI-043-04",
+        "NFI-043-11"
+      ],
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Per-member peaks are applied over whole members; a second envelope applies the global maximum everywhere. Complete-member common-scale and coupon-volume calibrations are separate hypotheses and give very different probabilities.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043fold~1NFI.json/items/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

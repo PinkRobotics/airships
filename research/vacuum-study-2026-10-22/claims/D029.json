@@ -1,0 +1,79 @@
+{
+  "id": "D029",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D029",
+    "report": "rpt-ref-57c98dcce7960aca042a",
+    "file": "evidence/e256d521caccca80-NFI.json",
+    "snapshot": "evidence/e256d521caccca80-NFI.json",
+    "source_sha256": "e256d521caccca802473d82d87bf6b9c6226efaa1bda652c58c139fb924d7c7c",
+    "source_json_pointer": "/items/2",
+    "row_id": "NFI-045-DENT-MODEL",
+    "fields": {
+      "id": "NFI-045-DENT-MODEL",
+      "tag": "QUESTIONABLE",
+      "claim": "The dent model (face membrane plus core crush over a plastic spread) is this seat's. It reads Pach's test within its 1.1-1.2 mm and 30 mm, and Clarke's FE at about half the FE depth. Hail is read three ways (fluid, Shi-calibrated, all energy) that span ten times in depth.",
+      "needed_to_ground": "Ice-ball tests on a beryllium-faced CR-III panel at 25-75 mm and IEC velocities."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/items",
+    "blocks_progress": false
+  },
+  "claim": "The dent model (face membrane plus core crush over a plastic spread) is this seat's. It reads Pach's test within its 1.1-1.2 mm and 30 mm, and Clarke's FE at about half the FE depth. Hail is read three ways (fluid, Shi-calibrated, all energy) that span ten times in depth.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/989"
+    },
+    {
+      "report": "rpt-ref-57c98dcce7960aca042a",
+      "artifact": "evidence/e256d521caccca80-NFI.json",
+      "snapshot": "evidence/e256d521caccca80-NFI.json",
+      "sha256": "e256d521caccca802473d82d87bf6b9c6226efaa1bda652c58c139fb924d7c7c",
+      "bytes": 6488,
+      "selector": "/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-57c98dcce7960aca042a",
+          "artifact": "evidence/e256d521caccca80-NFI.json",
+          "snapshot": "evidence/e256d521caccca80-NFI.json",
+          "sha256": "e256d521caccca802473d82d87bf6b9c6226efaa1bda652c58c139fb924d7c7c",
+          "bytes": 6488,
+          "selector": "/items/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/989"
+          }
+        ]
+      }
+    }
+  ]
+}

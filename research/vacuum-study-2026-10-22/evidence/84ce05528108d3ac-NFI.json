@@ -1,0 +1,136 @@
+{
+  "unit": "vacuum-mainline057-check-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "count": 16,
+  "all_dispositioned": true,
+  "rows": [
+    {
+      "id": "N057-01-MGA-SOURCE",
+      "owner_state": "open",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "AIAA S-120A and SAWE RP 7 tables are paywalled and were not opened. The allowances are NASA GSFC IDC Table VI-1 (NTRS 20120013284), adapted from AIAA S-120-2006 Table 1. My map from maturity to its TRL rows is estimated to TRL 0-2, calculated to TRL 3-5 and measured to TRL 8. Different tables shift the numbers; no plausible table brings the concept-stage allowance below the 2.8-9.9% that the bills tolerate.",
+      "checker_disposition": "Open applicability; source table transcription verified. Historical NASA guidance is not direct access to S-120A, a present project requirement, or installed-hull maturity evidence.",
+      "evidence": "SOURCE-CHECK.md",
+      "blocking": false
+    },
+    {
+      "id": "N057-02-CLASSIFICATION",
+      "owner_state": "judgement",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "Faces, core, SiC, PBO and pads are classed calculated, because they are sized by analysis and none are built. Joints, films, seams, sleeves, nodes and primer are classed estimated (rules and catalog areal masses). The finish carries its own +10%; P3's joint allowance above the actual sleeves is its own margin. The 100 kg systems allowance, the vacuum-service charge, gas, contamination, retained water, weather headroom and the sag lift debit get none.",
+      "checker_disposition": "All28 item mappings reproduced; calculated/measured labels alone do not prove the claimed maturity row. Zero hardware-allocation growth preserves the brief convention but needs a reserve breakdown.",
+      "evidence": "SOURCE-CHECK.md",
+      "blocking": false
+    },
+    {
+      "id": "N057-03-P2-R20-R30",
+      "owner_state": "PROJECTION",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "P2 bills at R20 and R30 are 040's (200 F fix) with 048's finish transferred: the 0.2 kg/m2 coating is replaced by 8.33 g/m2 plus 10 g/m2 primer plus absorbed water. Checked against 048 at R10-15 for the same subsets: differences of 0.2-9.2 kg. 048's cure-in-global and drying folds are not re-optimized at R20 or R30.",
+      "checker_disposition": "Transfer arithmetic verified for320 bills. Correct the reported range scope, retain unqualified R20/R30 thermal/cure transfer and radius-squared material-water extrapolation.",
+      "evidence": "TRANSFER-WATER-SENSITIVITY.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-04-NO-REOPTIMIZATION",
+      "owner_state": "limitation",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "Geometry stays at the owners' optima. Re-optimizing with allowance-weighted masses could shift face/core splits slightly; it cannot close gaps of 579-6,410 kg.",
+      "checker_disposition": "Finite stored geometries verified. A global allowance-weighted optimum or proof that reoptimization cannot change a conclusion was not supplied; do not generalize beyond tested cases.",
+      "evidence": "INDEPENDENT-SUMMARIES.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-05-OPTIMISM-COST",
+      "owner_state": "PROJECTION",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "The optimism the allowance would need is a linear extrapolation of payload in the least set's usage, from its zero-payload point to its endpoint. P2 would need usage 1.78-2.13 and P3 4.6-30. Payload is not linear in usage; the point is that every value exceeds 1.",
+      "checker_disposition": "All eight two-point linear extrapolations reproduce. Values above one remain outside the stated optimism ranges and are not feasible design witnesses.",
+      "evidence": "INDEPENDENT-SUMMARIES.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-06-SEPARATE-UNCERTAINTIES",
+      "owner_state": "open",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "Environmental allowances and debits carry no allowance here but have their own uncertainties. At 1 mm retained water, every R10-15 case already fails (048 fold). Weather cases are separate rows.",
+      "checker_disposition": "Environmental and buoyancy uncertainties remain separate. Absorbed water is placed in the hardware subtotal by convention, not by verified thermal-hardware maturity.",
+      "evidence": "ALLOCATION-SENSITIVITY.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-07-SYSTEM-MARGIN",
+      "owner_state": "not applied",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "The same GSFC source adds a system-level margin, typically 30% for Pre-Phase-A concepts, above the itemized allowance. Applying it would only deepen every deficit.",
+      "checker_disposition": "System margin remains omitted as declared. A nonnegative added charge can only deepen current concept-stage deficits; a full project budget is still absent.",
+      "evidence": "SOURCE-CHECK.md",
+      "blocking": false
+    },
+    {
+      "id": "N057-08-THERMAL-AND-SERVICE-VARIANTS",
+      "owner_state": "noted",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "053's most conservative thermal reading lowers P2 R10 by 0.6 kg. 054's week aloft leaves P3 +1.1 kg. P3's onboard-service rows are worse than ground. None changes a sign.",
+      "checker_disposition": "Mass boundary independently checked:053 R10 loss0.606247746kg;054 seven-day SIOX payload1.115544269kg beforeMGA. Upstream thermal/service qualification remains open.",
+      "evidence": "CARD-AND-ANCILLARY-AUDIT.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-C09-CBE-DENOMINATOR",
+      "state": "fix",
+      "checker_disposition": "Coating included10% and target20/25% must share the original CBE denominator. R10 least-set extra0.951927707kg, not1.047120477; totalMGA707.293534634kg.3072 exact canonical detail fields enumerate both allowance cases.",
+      "evidence": "CBE-CREDIT-EXACT-FIELDS.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-C10-SOURCE-SELECTION",
+      "state": "fix; maturity threshold changes",
+      "checker_disposition": "Primary tables use040 transfers atR10–15 where prose specifies048. Direct048 P2R12ISA TRL7 yields+1.256483119kg versus−0.839968088kg; least maturity changes8to7.24 headline and91 sensitivity/maturity fields listed.",
+      "evidence": "DIRECT048-EXACT-FIELDS.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-C11-TRANSFER-RANGE",
+      "state": "fix scope",
+      "checker_disposition": "0.191100–9.191497kg applies to masks11/15. All96 comparisons span0.154287–160.754744kg absolute; worstR15 optimistic mask0.",
+      "evidence": "CARD-AND-ANCILLARY-AUDIT.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-C12-PRINTED-ROUNDING",
+      "state": "fix",
+      "checker_disposition": "Four CARD flat-sensitivity cells differ from nearestkg: P2R12optimistic20%−1441→−1440;P2R30optimistic5%1604→1603;P3R15ISA30%−3749→−3748;P3R20ISA0%2235→2234.",
+      "evidence": "DISCREPANCIES.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-C13-WATER-TRANSFER",
+      "state": "sensitivity; open",
+      "checker_disposition": "040 transfer applies one R10 material-water inventory atR² to every mask/weather. Reapplying material fractions givesR20ISA all-axis0.638377440kg instead0.547612634;R30 1.882426704instead1.232128427. No measured drying scaling is established.",
+      "evidence": "TRANSFER-WATER-SENSITIVITY.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-C14-PROTECTION-CLASS",
+      "state": "sensitivity; open",
+      "checker_disposition": "P3 aggregate protection contains attachment/seams alongside thermal/barrier layers. AtR10, using30% hardware forattachment/seams and20% forrest raisesMGA4.303512597kg. Need component maturity mapping.",
+      "evidence": "PROTECTION-CLASS-SENSITIVITY.json",
+      "blocking": false
+    },
+    {
+      "id": "N057-C15-DOMAIN-AND-MATURITY",
+      "state": "qualify claim",
+      "checker_disposition": "No stored concept-stage case floats at the five tested radii and sixteen endpoint subsets. This does not establish all continuous radii/geometries, universal mandatory allowances or actual TRL qualification. R30 ranks best only on the sampled tolerance metric.",
+      "evidence": "METHOD.md",
+      "blocking": false
+    },
+    {
+      "id": "N057-C16-LEAST-VS-ALL",
+      "state": "fix label",
+      "checker_disposition": "P2R10 −589kg is the three-axis least-set endpoint. Direct048 all-four endpoint is−578.811784kg under declaredMGA; transferall-four is−579.209122kg. Label each result with its actual source and mask.",
+      "evidence": "SOURCE-SELECTION-MISMATCHES.json",
+      "blocking": false
+    }
+  ]
+}

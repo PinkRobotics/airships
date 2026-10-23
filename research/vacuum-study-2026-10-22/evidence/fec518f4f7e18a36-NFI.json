@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-019",
+  "status": "OPEN_ISSUES_RECORDED",
+  "certification": false,
+  "rows": [
+    {
+      "id": "NFI-019-SITE",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "No operating site, measured temperature/pressure/humidity envelope or cold-case minimum is specified. The selected weather cases are assumptions, not site return-period limits.",
+      "next_evidence": "Replace the declared envelope with station data and operating constraints; recompute both mass and maximum differential-pressure cases."
+    },
+    {
+      "id": "NFI-019-PAYLOAD",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "Zero payload is an unladen demonstrator choice. The former 009c5 payload/margin number cannot simultaneously be mission payload and contingency.",
+      "next_evidence": "Set payload and remaining float reserve separately. The +100 kg case is supplied."
+    },
+    {
+      "id": "NFI-019-LEAK",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "Whole-hull leakage, trapped core gas, moisture desorption and outgassing have not been measured. The 30-50 kg passive package is a bill-of-mass estimate, not demonstrated vacuum retention.",
+      "next_evidence": "Measure normalized total gas load through a complete representative panel/valve assembly, then the hull. For the stated 24 h, pstart=10 Pa at T0 and Tint<=320 K, Qref must be <=40.71949 Pa m3/s."
+    },
+    {
+      "id": "NFI-019-PANELS",
+      "tag": "PROJECTION",
+      "status": "open",
+      "issue": "Neither 4 m nor 0.6 m curved thin S200F sandwich panels are established catalog products. The predecessor's 0.6-1.2 m rolled-sheet availability claim lacked a qualifying source. Required 18 m equivalent widths also exceed the local square-panel approximation's useful domain.",
+      "next_evidence": "Obtain a manufacturer-specific material grade, size, forming route, thickness tolerance and yield quote; replace 2A/w with a spherical seam-layout takeoff."
+    },
+    {
+      "id": "NFI-019-JOINTS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "Two face strips, their bond lines, core splice and full-area face/core adhesive are now counted. Strip sizing and .015/.030 lb/ft2 film use are not qualified for Be, peel, thermal cycling or vacuum; .015 is only a mass lower choice.",
+      "next_evidence": "Test a complete seam and bond architecture and measure its installed mass, leak rate and stiffness; do not infer that seam-only panel width closes the full joint allowance."
+    },
+    {
+      "id": "NFI-019-SYSTEMS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "The battery estimate assumes 150 Wh/kg packaged, 80% usable and 90% conversion. Catalog pump speed/power are not installed duty measurements; the smaller SV220B cannot meet the stated hot-gas flow at the fixed pressure cap.",
+      "next_evidence": "Measure the SV300B or alternative system's curve, input power, cooling, line conductance and duty cycle; procure a qualified power package. Passive and 8 h sensitivities isolate the endurance assumption."
+    },
+    {
+      "id": "NFI-019-MATERIAL-GRADE",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "The current Materion forms sheet lists 290 GPa for S200F and 303 GPa for S200FH. Main comparisons deliberately retain the pinned 303 GPa, 283 MPa compression and nu=0.33; the 290 GPa sensitivity is supplied.",
+      "next_evidence": "Reconcile the exact grade, compression basis, Poisson ratio and sheet/curved-face properties before revising the material point; do not substitute a tensile value for compression."
+    },
+    {
+      "id": "NFI-019-BRANCH",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "The inherited Vc=2 rule changes gamma from kd to 1. MAINLINE-018 owns its physical assessment. Under large reserve the aramid optimum leaves the crimp branch, invalidating constant-slope extrapolation.",
+      "next_evidence": "Resolve the knockdown/branch model and recompute the same margin lines; this card preserves the ordered scoring rule."
+    },
+    {
+      "id": "NFI-019-GETTERS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "SAES explicitly offers room-temperature nitrogen sorption. The unfinished script's blanket denial and unsourced N2 capacity band cannot support its mass result. All-air getter lifetime including noble gases remains unsized.",
+      "next_evidence": "Use measured species loads, sorption speeds and capacities with activation conditions; do not award a getter-only all-air system a mass credit."
+    },
+    {
+      "id": "NFI-019-GEOMETRY-MODES",
+      "tag": "PROJECTION",
+      "status": "open",
+      "issue": "The severe case mathematically selects about 0.056-0.057 mm Be faces and 6.8-8.3 mm core. These are unqualified fabrication and continuum-model geometries; every scored least factor is far below 1.",
+      "next_evidence": "Treat the result as an estimate of the gap, not a build point; local face/core geometry, buckling imperfections, seam load transfer and nonlinear validation remain open."
+    },
+    {
+      "id": "NFI-019-ENVIRONMENT",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "Water films are equivalent retained thickness over the whole area, not rainfall depths. Moisture absorbed in core, corrosion, thermal gradients and property derating are not separately quantified here. Gas temperature <=320 K is an acceptance condition, not a thermal prediction.",
+      "next_evidence": "Measure water shedding, conditioning, absorbed moisture and thermal response for the selected assembly."
+    },
+    {
+      "id": "NFI-019-OTHER-MASS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "This closes the card's explicit budget, not every aircraft subsystem. Separate coating, hardpoint/spreader, mooring attachment, handling, navigation or propulsion masses are not individually sized. The optimistic case retains 70 kg of unused system allowance; the active case has no such spare allowance.",
+      "next_evidence": "Allocate each needed item explicitly before calling this a complete vehicle mass statement; do not spend retained allowance twice."
+    },
+    {
+      "id": "NFI-019-RESERVE",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "The summed margin is consumed at the declared design condition; it is not an additional residual flight contingency or positive safety factor. The cases do not form a statistical confidence interval.",
+      "next_evidence": "Specify residual operational lift reserve and contingency after the environmental/system charges; add that amount to the budget."
+    },
+    {
+      "id": "NFI-019-PREDECESSOR-ARITHMETIC",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "The inherited partial script was not runnable and omitted the 86400 divisor in gas throughput plus the g-to-kg conversion for getter mass. MAINLINE-016 used a linear temperature loss and a constant-final-ratio commissioning expression.",
+      "next_evidence": "Use this script's normalized throughput, exact p/T climate calculation and variable-pressure reversible integral. Actual ground pump-down energy still needs measurement."
+    }
+  ]
+}

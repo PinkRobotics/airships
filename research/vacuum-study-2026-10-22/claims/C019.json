@@ -1,0 +1,82 @@
+{
+  "id": "C019",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C019",
+    "report": "rpt-ref-d2ffe81a7858ecabf149",
+    "file": "evidence/e6c21b640d5a4249-NFI.json",
+    "snapshot": "evidence/e6c21b640d5a4249-NFI.json",
+    "source_sha256": "e6c21b640d5a424940f40070fba4d07dfb6def408a4875f0706df8890edb1b8e",
+    "source_json_pointer": "/issues/9",
+    "row_id": "CHECK033-NFI-10",
+    "fields": {
+      "id": "CHECK033-NFI-10",
+      "tag": "PROJECTION",
+      "title": "Search fraction range and tiny-core extrapolations",
+      "finding": "224 differing paths arise in nonwinning projected 4/8/16 kg/m³ cores when the search extends below f=.00025. 220 recover within tolerance on the restricted range; four low-density handbook paths retain a precision residual. A representative wider-range core is only about 30 micrometres deep, far below its 4.8 mm cell scale. No physical validity or flotation is claimed.",
+      "next_evidence": "Declare the fraction/thickness domain and impose a justified sandwich/honeycomb geometry range before calling each per-core value an unrestricted optimum.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Numerical/scope finding filed; does not block completion."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "issues",
+    "blocks_progress": false
+  },
+  "claim": "224 differing paths arise in nonwinning projected 4/8/16 kg/m³ cores when the search extends below f=.00025. 220 recover within tolerance on the restricted range; four low-density handbook paths retain a precision residual. A representative wider-range core is only about 30 micrometres deep, far below its 4.8 mm cell scale. No physical validity or flotation is claimed. | Search fraction range and tiny-core extrapolations",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/729"
+    },
+    {
+      "report": "rpt-ref-d2ffe81a7858ecabf149",
+      "artifact": "evidence/e6c21b640d5a4249-NFI.json",
+      "snapshot": "evidence/e6c21b640d5a4249-NFI.json",
+      "sha256": "e6c21b640d5a424940f40070fba4d07dfb6def408a4875f0706df8890edb1b8e",
+      "bytes": 10162,
+      "selector": "/issues/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d2ffe81a7858ecabf149",
+          "artifact": "evidence/e6c21b640d5a4249-NFI.json",
+          "snapshot": "evidence/e6c21b640d5a4249-NFI.json",
+          "sha256": "e6c21b640d5a424940f40070fba4d07dfb6def408a4875f0706df8890edb1b8e",
+          "bytes": 10162,
+          "selector": "/issues/9"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/729"
+          }
+        ]
+      }
+    }
+  ]
+}

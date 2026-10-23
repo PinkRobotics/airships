@@ -1,0 +1,68 @@
+{
+  "id": "N321",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N321",
+    "report": "rpt-mainline014-grok-balanced-sandwich-1019",
+    "card": "MAINLINE-014",
+    "file": "evidence/e0fba238a74bd426-NFI.json",
+    "row_id": "NFI-NU",
+    "fields": {
+      "id": "NFI-NU",
+      "note": "Every face uses nu 0.33 from the aluminium case. MAINLINE-008 published no Poisson ratio. CFRP, SiC and beryllium are not aluminium."
+    }
+  },
+  "claim": "Every face uses nu 0.33 from the aluminium case. MAINLINE-008 published no Poisson ratio. CFRP, SiC and beryllium are not aluminium.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/320"
+    },
+    {
+      "report": "rpt-mainline014-grok-balanced-sandwich-1019",
+      "artifact": "evidence/e0fba238a74bd426-NFI.json",
+      "snapshot": "evidence/e0fba238a74bd426-NFI.json",
+      "sha256": "e0fba238a74bd42688b0a331e81d7162ac28afdee1e076646621982b39c92e22",
+      "bytes": 1944,
+      "selector": "source row ID: NFI-NU"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline014-grok-balanced-sandwich-1019",
+          "artifact": "evidence/e0fba238a74bd426-NFI.json",
+          "snapshot": "evidence/e0fba238a74bd426-NFI.json",
+          "sha256": "e0fba238a74bd42688b0a331e81d7162ac28afdee1e076646621982b39c92e22",
+          "bytes": 1944,
+          "selector": "source row ID: NFI-NU"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/320"
+          }
+        ]
+      }
+    }
+  ]
+}

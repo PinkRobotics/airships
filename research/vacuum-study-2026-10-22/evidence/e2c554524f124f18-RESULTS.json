@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline004-check-1019",
+  "card": "MAINLINE-004-check",
+  "checker": "ref-c713c40ee838487ac6d3 (glm)",
+  "owner": "ref-2543c559b19ffce7dfdd (grok)",
+  "tolerance_rel": 5e-09,
+  "mismatches": [],
+  "notes": [
+    "P2-A: card teq matches d=separation hypothesis (0.0283242462163); core-only hypothesis gives 0.0282534884541 (excluded)",
+    "P2-C: card teq matches d=separation hypothesis (0.031262032898); core-only hypothesis gives 0.0312359045761 (excluded)",
+    "P2-K: card teq matches d=separation hypothesis (0.031049637761); core-only hypothesis gives 0.0310083071208 (excluded)",
+    "P2-E: card teq matches d=separation hypothesis (0.0296632144964); core-only hypothesis gives 0.029604764789 (excluded)",
+    "COMMON.md invariant: 0.2 * p_cl(tf=0.0002, core=0.1) = 11701.558395327309 Pa = sealed 006 value (p_cl itself 58507.791976636516 Pa)",
+    "P2-A: my total mass 4889.442150186961 vs sealed lift 4889.442150186961",
+    "P2-C: my total mass 4889.442150186961 vs sealed lift 4889.442150186961",
+    "P2-K: my total mass 4889.442150186961 vs sealed lift 4889.442150186961",
+    "P2-E: my total mass 4889.442150186961 vs sealed lift 4889.442150186961"
+  ],
+  "derived_rows": {
+    "P2-A": {
+      "tf": 0.00037589364449288416,
+      "core": 2010.6192982974678,
+      "teq": 0.0283242462162671,
+      "lambda": 67.95598903760522,
+      "kd_sp8032": 0.14069293819919523,
+      "SF_kd02": 0.23078902511015886,
+      "SF_kdcurve": 0.16235193023438046,
+      "Ereq02_Pa": 298541059164.8067,
+      "Ereqcurve_Pa": 424386700549.4302,
+      "yield_SF": 0.43471919227695754
+    },
+    "P2-C": {
+      "tf": 0.0002,
+      "core": 3204.2054500177437,
+      "teq": 0.03126203289795851,
+      "lambda": 64.68421473744723,
+      "kd_sp8032": 0.14076480964803406,
+      "SF_kd02": 0.1952027543095354,
+      "SF_kdcurve": 0.13738839276576856,
+      "Ereq02_Pa": 352966331052.6061,
+      "Ereqcurve_Pa": 501497969464.32434,
+      "yield_SF": 0.23129903824973394
+    },
+    "P2-K": {
+      "tf": 0.0002708825134523563,
+      "core": 2723.2080455931546,
+      "teq": 0.031049637761016113,
+      "lambda": 64.9050739631473,
+      "kd_sp8032": 0.14075961350962365,
+      "SF_kd02": 0.22486424851387676,
+      "SF_kdcurve": 0.1582590235647263,
+      "Ereq02_Pa": 306407089856.919,
+      "Ereqcurve_Pa": 435362221047.82935,
+      "yield_SF": 0.31327432420100315
+    },
+    "P2-E": {
+      "tf": 0.0003360949703945902,
+      "core": 2280.686738184267,
+      "teq": 0.029663214496440944,
+      "lambda": 66.40454602706818,
+      "kd_sp8032": 0.14072569537344654,
+      "SF_kd02": 0.23388557899250975,
+      "SF_kdcurve": 0.16456855370771048,
+      "Ereq02_Pa": 294588491931.80286,
+      "Ereqcurve_Pa": 418670508111.6105,
+      "yield_SF": 0.3886922170642076
+    }
+  }
+}

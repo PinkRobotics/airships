@@ -1,0 +1,524 @@
+{
+  "schema": 1,
+  "status": "QUESTIONABLE; source transfers are PROJECTION",
+  "tensile_reference_rederivation": [
+    {
+      "reference_case": "rounded_1047_example",
+      "members": 1047,
+      "m": 8,
+      "reference_volume_m3": 1.4814814814814814e-08,
+      "assumed_characteristic_Pa": 403507242.54156315,
+      "array_volume_m3": 1.4560208788346496,
+      "uniform_tension_cap_Pa": 7191052.169520262,
+      "classification": "PROJECTION",
+      "is_qualified_allowable": false
+    },
+    {
+      "reference_case": "original_continuum_011b",
+      "members": 1046.0203945987416,
+      "m": 8,
+      "reference_volume_m3": 1.4814814814814814e-08,
+      "assumed_characteristic_Pa": 403507242.54156315,
+      "array_volume_m3": 1.4546585809194141,
+      "uniform_tension_cap_Pa": 7191893.63363379,
+      "classification": "PROJECTION",
+      "is_qualified_allowable": false
+    },
+    {
+      "reference_case": "rounded_1047_example",
+      "members": 1047,
+      "m": 10,
+      "reference_volume_m3": 1.1900826446280993e-08,
+      "assumed_characteristic_Pa": 399432062.3224757,
+      "array_volume_m3": 1.4560208788346496,
+      "uniform_tension_cap_Pa": 15584177.866401333,
+      "classification": "PROJECTION",
+      "is_qualified_allowable": false
+    },
+    {
+      "reference_case": "original_continuum_011b",
+      "members": 1046.0203945987416,
+      "m": 10,
+      "reference_volume_m3": 1.1900826446280993e-08,
+      "assumed_characteristic_Pa": 399432062.3224757,
+      "array_volume_m3": 1.4546585809194141,
+      "uniform_tension_cap_Pa": 15585636.720840208,
+      "classification": "PROJECTION",
+      "is_qualified_allowable": false
+    }
+  ],
+  "best_details": {
+    "key": "cap/equilateral/5/cfrp_zylon/in_band",
+    "inputs_held_fixed": true,
+    "recomputed": {
+      "target_multiplier": 1.2582524765581682,
+      "SF_least": 1.258252476557821,
+      "SF": {
+        "compression": 4.368985906310003,
+        "euler": 4.19417492185784,
+        "local": 1.258252476557938,
+        "perry": 3.4544991602026975,
+        "global": 1.2582524765579715,
+        "tension": 3.9992166153322772,
+        "film": 1.258252476557821
+      },
+      "SF_least_with_sized_joint": 1.258252476557821,
+      "binding_modes": [
+        "local",
+        "global",
+        "film"
+      ],
+      "s_m": 3.1707585691074884,
+      "r_o_m": 0.13754142819010323,
+      "r_i_m": 0.13640406334494515,
+      "wall_m": 0.0011373648451580738,
+      "film_total_m": 0.00010944022237810727,
+      "film_per_direction_m": 5.4720111189053635e-05,
+      "film_required_m": 0.00010944022237813748,
+      "film_floor_m": 1.2e-05,
+      "film_floor_active": false,
+      "members": 432.98628226949154,
+      "nodes": 146.3287607564972,
+      "member_length_m": 3.184193538867475,
+      "force_at_pressure_1_N": 873771.3365768079,
+      "area_m2": 0.0009788447832927507,
+      "inertia_m4": 9.18247267153439e-06,
+      "tube_volume_m3": 1.349545168694041,
+      "gamma": 0.5521414852551768,
+      "eta": 0.04668605448199703,
+      "axial_stress_at_pressure_1_Pa": 892655660.5200626,
+      "euler_stress_Pa": 3743953985.207692,
+      "Fc_assumed_Pa": 3900000000.0,
+      "Ft_projection_Pa": 15586000.0,
+      "NASA_L_over_midradius": 23.246913252887694,
+      "sag_mean_m": 0.06798350107484277,
+      "curvature_radius_m": 3.1707585691074884,
+      "mass_kg": {
+        "tube": 4183.590022951527,
+        "film": 214.54155754530413,
+        "joint": 44.19146826669084,
+        "nodes": 2.926575215129944,
+        "systems": 100.0,
+        "vehicle": 4545.249623978652,
+        "reserve": 244.4721075095,
+        "sag_lift_loss": 99.72041870184702,
+        "closure": 4889.44215019
+      },
+      "joint": {
+        "type": "cfrp",
+        "design_force_N": 1099424.9481933094,
+        "section_area_m2": 0.0007479081280226595,
+        "overlap_m": 0.04402043674327406,
+        "coefficient_kg_m_per_N2": 5.8067971139617685e-15,
+        "mass_at_multiplier_1_kg": 27.912763991760702,
+        "axial_SF": 1.2582524765581684,
+        "bond_SF": 1.2582524765581684,
+        "density_kg_m3": 1550.0,
+        "axial_allowable_Pa": 1470000000.0,
+        "bond_allowable_Pa": 28900000.0
+      },
+      "stresses": {
+        "operating_pressure": {
+          "multiplier": 1.0,
+          "mean_compression_Pa": 892655660.5200626,
+          "bending_Pa": 54721624.20893098,
+          "max_compression_Pa": 947377284.7289935,
+          "max_tension_Pa": 0.0
+        },
+        "at_limit": {
+          "multiplier": 1.2582524765581682,
+          "mean_compression_Pa": 1123186195.5630362,
+          "bending_Pa": 74910188.45642492,
+          "max_compression_Pa": 1198096384.0194612,
+          "max_tension_Pa": 0.0
+        }
+      },
+      "radius_of_gyration_m": 0.09685519212409979,
+      "half_wave_D_over_Y_over_rg2": 1.125,
+      "half_wave_m": 3.1841935388666913,
+      "half_wave_over_spacing": 1.0042371468739686,
+      "half_wave_over_member": 0.9999999999997539,
+      "passes_member_screen": true,
+      "in_band_binding": true,
+      "constraints": [
+        3.110733429751835,
+        2.935922445299672,
+        -2.3026025530725747e-13,
+        2.1962466836445294,
+        -1.9673151996357774e-13,
+        2.740964138774109,
+        4.1835900229515275,
+        0.9835298748700392,
+        9.193780948457261,
+        -3.4727776210274897e-13,
+        -2.461364445593972e-13
+      ],
+      "min_constraint": -3.4727776210274897e-13
+    },
+    "zylon": {
+      "total_gauge_m": 0.00010944022237810727,
+      "per_direction_gauge_m": 5.4720111189053635e-05,
+      "per_ply_mass_kg": 107.27077877265206,
+      "both_plies_mass_kg": 214.54155754530413,
+      "operating_directional_stress_Pa": 2765740632.2141123,
+      "limit_directional_stress_Pa": 3480000000.0009604,
+      "assumed_directional_strength_Pa": 3480000000.0
+    },
+    "joint_multiplier_examples": {
+      "1.0": {
+        "joint_mass_kg": 27.912763991760702,
+        "joint": {
+          "type": "cfrp",
+          "design_force_N": 873771.3365768079,
+          "section_area_m2": 0.0005944022697801414,
+          "overlap_m": 0.03498537659443981,
+          "coefficient_kg_m_per_N2": 5.8067971139617685e-15,
+          "mass_at_multiplier_1_kg": 27.912763991760702,
+          "axial_SF": 1.0,
+          "bond_SF": 1.0,
+          "density_kg_m3": 1550.0,
+          "axial_allowable_Pa": 1470000000.0,
+          "bond_allowable_Pa": 28900000.0
+        }
+      },
+      "1.2582524765581682": {
+        "joint_mass_kg": 44.19146826669084,
+        "joint": {
+          "type": "cfrp",
+          "design_force_N": 1099424.9481933094,
+          "section_area_m2": 0.0007479081280226595,
+          "overlap_m": 0.04402043674327406,
+          "coefficient_kg_m_per_N2": 5.8067971139617685e-15,
+          "mass_at_multiplier_1_kg": 27.912763991760702,
+          "axial_SF": 1.2582524765581684,
+          "bond_SF": 1.2582524765581684,
+          "density_kg_m3": 1550.0,
+          "axial_allowable_Pa": 1470000000.0,
+          "bond_allowable_Pa": 28900000.0
+        }
+      },
+      "2.0": {
+        "joint_mass_kg": 111.65105596704281,
+        "joint": {
+          "type": "cfrp",
+          "design_force_N": 1747542.6731536158,
+          "section_area_m2": 0.0011888045395602829,
+          "overlap_m": 0.06997075318887962,
+          "coefficient_kg_m_per_N2": 5.8067971139617685e-15,
+          "mass_at_multiplier_1_kg": 27.912763991760702,
+          "axial_SF": 2.0,
+          "bond_SF": 2.0,
+          "density_kg_m3": 1550.0,
+          "axial_allowable_Pa": 1470000000.0,
+          "bond_allowable_Pa": 28900000.0
+        }
+      }
+    },
+    "local_source_conventions": {
+      "declared_coefficient": 0.6,
+      "NASA_coefficient_for_nu_0p3": 0.6052275326688025,
+      "NASA_coefficient_for_nu_0p14": 0.5830928571177663,
+      "radius_convention_declared": "outer",
+      "radius_convention_shell": "midsurface",
+      "outer_radius_over_thickness": 120.92990984874987,
+      "mid_radius_over_thickness": 120.42990984874987,
+      "L_over_midradius": 23.246913252887694,
+      "gamma_outer": 0.5521414852551768,
+      "gamma_mid": 0.5527864641260054,
+      "hypothetical_midradius_nu014_local_SF": 1.229307846377027,
+      "qualification": "PROJECTION; arithmetic sensitivity, not a new allowed model"
+    }
+  },
+  "square_membrane_details": [
+    {
+      "index": 16,
+      "key": "membrane/two_way/5/projection/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.35214890066282484,
+      "check_sag_mean_m": 0.3521489031403789,
+      "sag_mass_difference_kg": 3.634157224041701e-06,
+      "least_SF_difference": -3.976191154109188e-09,
+      "all_SF_difference": {
+        "compression": -3.5911353890583086e-09,
+        "euler": -1.980819064328898e-09,
+        "local": -3.976191154109188e-09,
+        "perry": -1.8500936338483598e-09,
+        "global": -1.763231560758527e-09,
+        "tension": -1.8587023031813033e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 17,
+      "key": "membrane/two_way/5/projection/in_band",
+      "inferred_coefficient": 0.07028850698306076,
+      "card_sag_mean_m": 0.2234902998806316,
+      "check_sag_mean_m": 0.22349030145300425,
+      "sag_mass_difference_kg": 2.30640750942257e-06,
+      "least_SF_difference": -2.2433424007317626e-09,
+      "all_SF_difference": {
+        "compression": -2.293864653779565e-09,
+        "euler": -2.462626547128366e-09,
+        "local": -2.2433424007317626e-09,
+        "perry": -1.9129999806466458e-09,
+        "global": -9.907892284388709e-10,
+        "tension": -2.353527150944501e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 18,
+      "key": "membrane/two_way/5/mylar/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.03629154357512875,
+      "check_sag_mean_m": 0.03629154383045898,
+      "sag_mass_difference_kg": 3.745267065369262e-07,
+      "least_SF_difference": -8.654721384004915e-11,
+      "all_SF_difference": {
+        "compression": -3.644456958440401e-11,
+        "euler": -8.502780701746815e-09,
+        "local": -8.655143268754273e-11,
+        "perry": -3.609695875539387e-11,
+        "global": -1.2022005613232523e-10,
+        "tension": -8.421253028245701e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 19,
+      "key": "membrane/two_way/5/mylar/in_band",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.03629153347059803,
+      "check_sag_mean_m": 0.03629153372592818,
+      "sag_mass_difference_kg": 3.7452659995551585e-07,
+      "least_SF_difference": -8.65512106429378e-11,
+      "all_SF_difference": {
+        "compression": -3.6444514073252776e-11,
+        "euler": -8.502723858327954e-09,
+        "local": -8.65512106429378e-11,
+        "perry": -3.609690324424264e-11,
+        "global": -1.202198340877203e-10,
+        "tension": -8.42119618482684e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 20,
+      "key": "membrane/two_way/5/ti_kapton/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.0831936876605463,
+      "check_sag_mean_m": 0.08319368824585796,
+      "sag_mass_difference_kg": 8.585542587979944e-07,
+      "least_SF_difference": -5.929277069327554e-10,
+      "all_SF_difference": {
+        "compression": -8.998748413091562e-10,
+        "euler": -3.0979379062046064e-09,
+        "local": -5.929277069327554e-10,
+        "perry": -8.699339026918551e-10,
+        "global": -2.581431735038109e-10,
+        "tension": -3.0213360702191494e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 21,
+      "key": "membrane/two_way/5/ti_kapton/in_band",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.0831936876605463,
+      "check_sag_mean_m": 0.08319368824585796,
+      "sag_mass_difference_kg": 8.585542587979944e-07,
+      "least_SF_difference": -5.929277069327554e-10,
+      "all_SF_difference": {
+        "compression": -8.998748413091562e-10,
+        "euler": -3.0979379062046064e-09,
+        "local": -5.929277069327554e-10,
+        "perry": -8.699339026918551e-10,
+        "global": -2.581431735038109e-10,
+        "tension": -3.0213360702191494e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 22,
+      "key": "membrane/two_way/5/cfrp_zylon/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.31902929033093813,
+      "check_sag_mean_m": 0.31902929257547813,
+      "sag_mass_difference_kg": 3.2923645107985067e-06,
+      "least_SF_difference": -3.6781759860105012e-09,
+      "all_SF_difference": {
+        "compression": -3.42275141562709e-09,
+        "euler": -2.171190782718213e-09,
+        "local": -3.6781759860105012e-09,
+        "perry": -1.995469123272642e-09,
+        "global": -1.6295269578137095e-09,
+        "tension": -2.046284475198945e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 23,
+      "key": "membrane/two_way/5/cfrp_zylon/in_band",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.22332721175296041,
+      "check_sag_mean_m": 0.22332721332418562,
+      "sag_mass_difference_kg": 2.3047244326335203e-06,
+      "least_SF_difference": -2.350470706957708e-09,
+      "all_SF_difference": {
+        "compression": -2.406816523858879e-09,
+        "euler": -2.5801210057352364e-09,
+        "local": -2.350470706957708e-09,
+        "perry": -2.0059727212640155e-09,
+        "global": -1.038053420998608e-09,
+        "tension": -2.4657351715973164e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 24,
+      "key": "membrane/two_way/019/projection/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.3477659691665883,
+      "check_sag_mean_m": 0.3477659716133061,
+      "sag_mass_difference_kg": 3.5889254945686844e-06,
+      "least_SF_difference": -3.8608105601412035e-09,
+      "all_SF_difference": {
+        "compression": -3.5474005954938548e-09,
+        "euler": -1.9374442050690277e-09,
+        "local": -3.8608105601412035e-09,
+        "perry": -1.8113039956801913e-09,
+        "global": -1.7111323469265471e-09,
+        "tension": -1.8174401983372945e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 25,
+      "key": "membrane/two_way/019/projection/in_band",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.22165911951414577,
+      "check_sag_mean_m": 0.22165912107363506,
+      "sag_mass_difference_kg": 2.2875098579788755e-06,
+      "least_SF_difference": -2.1898434177103354e-09,
+      "all_SF_difference": {
+        "compression": -2.2752293382666267e-09,
+        "euler": -2.4027926315284276e-09,
+        "local": -2.1898434177103354e-09,
+        "perry": -1.884180811373426e-09,
+        "global": -9.66640767430249e-10,
+        "tension": -2.2954895761984062e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 26,
+      "key": "membrane/two_way/019/mylar/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.03661583292215068,
+      "check_sag_mean_m": 0.036615833179762455,
+      "sag_mass_difference_kg": 3.7787335571692893e-07,
+      "least_SF_difference": -8.730555167701937e-11,
+      "all_SF_difference": {
+        "compression": -3.6770197997526566e-11,
+        "euler": -8.181601174328534e-09,
+        "local": -8.730555167701937e-11,
+        "perry": -3.641104084906033e-11,
+        "global": -1.195119558872193e-10,
+        "tension": -8.101267212623497e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 27,
+      "key": "membrane/two_way/019/mylar/in_band",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.03661582750549955,
+      "check_sag_mean_m": 0.036615827763111286,
+      "sag_mass_difference_kg": 3.778733059789374e-07,
+      "least_SF_difference": -8.730510758780952e-11,
+      "all_SF_difference": {
+        "compression": -3.677003146407287e-11,
+        "euler": -8.181558541764389e-09,
+        "local": -8.730510758780952e-11,
+        "perry": -3.6410874315606634e-11,
+        "global": -1.1951151179800945e-10,
+        "tension": -8.101238790914067e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 28,
+      "key": "membrane/two_way/019/ti_kapton/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.0834171256601719,
+      "check_sag_mean_m": 0.08341712624705556,
+      "sag_mass_difference_kg": 8.608601120840831e-07,
+      "least_SF_difference": -5.88185611327674e-10,
+      "all_SF_difference": {
+        "compression": -9.022884661646913e-10,
+        "euler": -3.0216238400271322e-09,
+        "local": -5.88185611327674e-10,
+        "perry": -8.715490551480798e-10,
+        "global": -2.5597202135685393e-10,
+        "tension": -2.9458764316814268e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 29,
+      "key": "membrane/two_way/019/ti_kapton/in_band",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.08341712829977753,
+      "check_sag_mean_m": 0.08341712888666121,
+      "sag_mass_difference_kg": 8.608601405057925e-07,
+      "least_SF_difference": -5.881852782607666e-10,
+      "all_SF_difference": {
+        "compression": -9.022880220754814e-10,
+        "euler": -3.0216238400271322e-09,
+        "local": -5.881852782607666e-10,
+        "perry": -8.715494992372896e-10,
+        "global": -2.5597168828994654e-10,
+        "tension": -2.945878208038266e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 30,
+      "key": "membrane/two_way/019/cfrp_zylon/overall",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.31550059444336753,
+      "check_sag_mean_m": 0.31550059666308133,
+      "sag_mass_difference_kg": 3.2559487408434507e-06,
+      "least_SF_difference": -3.5801566156123954e-09,
+      "all_SF_difference": {
+        "compression": -3.3855585002129374e-09,
+        "euler": -2.1250228243729907e-09,
+        "local": -3.5801566156123954e-09,
+        "perry": -1.955869244341102e-09,
+        "global": -1.5852805734795083e-09,
+        "tension": -2.0021548863269345e-09,
+        "film": 0.0
+      }
+    },
+    {
+      "index": 31,
+      "key": "membrane/two_way/019/cfrp_zylon/in_band",
+      "inferred_coefficient": 0.07028850698306077,
+      "card_sag_mean_m": 0.22158764293062982,
+      "check_sag_mean_m": 0.22158764448961624,
+      "sag_mass_difference_kg": 2.2867721440889e-06,
+      "least_SF_difference": -2.2971531343785045e-09,
+      "all_SF_difference": {
+        "compression": -2.3882265054453455e-09,
+        "euler": -2.5204984765991867e-09,
+        "local": -2.297160905939677e-09,
+        "perry": -1.9771984050009905e-09,
+        "global": -1.0139908912520923e-09,
+        "tension": -2.4079023219769624e-09,
+        "film": 0.0
+      }
+    }
+  ],
+  "square_max_abs_least_SF_difference": 3.976191154109188e-09,
+  "square_max_abs_sag_mass_difference_kg": 3.634157224041701e-06
+}

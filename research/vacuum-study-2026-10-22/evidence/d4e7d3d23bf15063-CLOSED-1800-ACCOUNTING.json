@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "at": "2026-10-19T20:53:19-07:00",
+  "status": "CLOSED_NEW1800_WITH_OWNER_PHASE4_BREACH_RETAINED",
+  "accounting": {
+    "basis": "Parent explicitly supplies CO-disposed owner charge/retirement. This audit combines those figures administratively; it does not reinterpret the earlier review order, which still says owner disposition pending. No separate later CO disposition order was inspected in this narrow task.",
+    "owner": {
+      "reserved_s": 1200,
+      "actual_s": "758.5943640819751",
+      "charged_s": "793.5943640819751",
+      "retired_noncompliant_s": "406.4056359180249",
+      "phase4_actual_s": "328.7440369010437",
+      "phase4_cap_s": 165,
+      "phase4_overrun_s": "163.7440369010437",
+      "compliance": "CLOSED_WITH_INDIVIDUAL_PHASE4_CAP_BREACH; administratively disposed retirement does not cure the breach."
+    },
+    "review": {
+      "reserved_s": 600,
+      "actual_s": "130.715817151824",
+      "charged_s": "165.715817151824",
+      "retired_s": "434.284182848176"
+    },
+    "combined_reserved_s": 1800,
+    "combined_actual_s": "889.3101812337991",
+    "combined_fixed_allowances_s": 70,
+    "combined_charged_s": "959.3101812337991",
+    "combined_retired_s": "840.6898187662009",
+    "combined_actual_plus_fixed_allowances_s": "959.3101812337991",
+    "charged_plus_retired_s": "1800.0000000000000",
+    "reuse_or_transfer_authorized": false,
+    "qualification": "No retrospective phase extension, bank transfer, grant enlargement or reuse of retired seconds. Reviewer compliance does not cure owner noncompliance. Owner retirement remains explicitly noncompliant administrative retirement under the supplied CO disposition."
+  },
+  "owner_disposition": {
+    "path": "unpublished-local-ref:55d69d5e4bb324a1",
+    "sha256": "ba67ce3de2ba5a0f6b6ca7f268e88d6dd8b3dca6dc1a67d72af74443a7589721",
+    "bytes": 3314
+  },
+  "CO_authority": {
+    "path": "unpublished-local-ref:cd7707edbdf6a00c",
+    "sha256": "35059ac9b4dc36e7635f4b34efa64d2388f0c8e0c1a499707289a9184579d186",
+    "bytes": 1823
+  },
+  "review_closure_check": {
+    "path": "unpublished-local-ref:3eb5aba819e23edc",
+    "sha256": "daa760a67f65fd6eae7c524aa594b95bb9d822917d3d0771d87b05118f333818",
+    "bytes": 21869
+  },
+  "review_ledger": {
+    "path": "evidence/0921f217f57bdd28-final-ledger.json",
+    "sha256": "0921f217f57bdd28574bf9df70ce9bb72828365bae589fb2db7eb795e9d88579",
+    "bytes": 1128
+  },
+  "review_publication": {
+    "path": "evidence/2bb50763adc35f6d-PUBLICATION.json",
+    "sha256": "2bb50763adc35f6d04498c38a3425e83a746bc5ec7593ef48482694d296f08bd",
+    "bytes": 231
+  },
+  "review_evidence_limits": [
+    "The six report artifact bodies other than ORIGIN/PHASE1 were hashed as opaque bytes. mycheck2.py, logs, scientific calculations and the scientific verdict were not executed or independently reviewed.",
+    "PHASE1 and FINAL provide paired endpoints for both phases; no separate PHASE2 file is required to establish the available two-phase clock and none was searched for.",
+    "FINAL states verdict, state and cleanup complete. No separate cleanup or validation record was named in the report/timing records, so none was read, searched for or independently verified. This is an evidence limit, not an inferred failure.",
+    "ORIGIN asserts prior units closed and no active review. Those predecessor claims and foreign seat state/processes were not independently inspected.",
+    "The ledger description publication measured below is interpreted only as the measured short publication tail in PUBLICATION.json, not as 25 seconds of actual measured work.",
+    "This helper does not assign an admission timestamp or a map-point ruling. It preserves authored report time, paired final/publication times and ingestion separately."
+  ],
+  "retirement_nonreusable": true,
+  "owner_retirement_not_compliant_savings": true,
+  "combined_all_caps_compliant": false,
+  "further_execution_authorized": false
+}

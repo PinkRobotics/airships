@@ -1,0 +1,32 @@
+{
+  "shape_partition_error": 4.440892098500626e-16,
+  "internal_tangent_relative_error": 1.0422011288527415e-09,
+  "pressure_tangent_relative_error": 3.0876157827698142e-09,
+  "internal_symmetry_error": 1.234945844515732e-16,
+  "pressure_symmetry_on_free_error": 3.8939473224794784e-16,
+  "homogeneous_spheres": [
+    {
+      "R": 100,
+      "t": 1,
+      "outer_radial_mm": -4.9574778587618955e-05,
+      "exact_small_strain_mm": -4.957477862698226e-05,
+      "relative_error": -7.940188506694312e-10,
+      "solver": {
+        "method": "linear elasticity; exact thick sphere comparison",
+        "relative_residual": 9.49809445521469e-11
+      }
+    },
+    {
+      "R": 1000,
+      "t": 1,
+      "outer_radial_mm": -0.004995717634490309,
+      "exact_small_strain_mm": -0.004995717620714842,
+      "relative_error": 2.7574551531017732e-09,
+      "solver": {
+        "method": "linear elasticity; exact thick sphere comparison",
+        "relative_residual": 1.233641651704527e-08
+      }
+    }
+  ],
+  "passed": true
+}

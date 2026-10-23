@@ -1,0 +1,83 @@
+{
+  "unit": "vacuum-mainline052-p3-common-account-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "basis": "CHECK041 f5-019-m24, constant g/R family",
+  "radii_m": [
+    10,
+    12,
+    15,
+    20,
+    30
+  ],
+  "weather": {
+    "ISA": {
+      "headroom10_kg": 0.0,
+      "pressure_factor": 1.0,
+      "T_K": 284.9,
+      "pw_Pa": 1000.0
+    },
+    "optimistic": {
+      "headroom10_kg": 55.340908917960405,
+      "pressure_factor": 1.0365529619839071,
+      "T_K": 294.9,
+      "pw_Pa": 1000.0
+    },
+    "both": {
+      "headroom10_kg": 441.77010544583936,
+      "pressure_factor": 1.0228888077609428,
+      "T_K": 310.0,
+      "pw_Pa": 6000.0
+    }
+  },
+  "tube_material": {
+    "name": "SiC",
+    "density_kg_m3": 3100,
+    "E_Pa": 410000000000.0
+  },
+  "geometry": {
+    "nodes": 252,
+    "members": 750,
+    "faces": 500,
+    "segments_per_member": 24,
+    "area_reference_m2": 0.0007364701258650087,
+    "gyration_reference_m": 0.0868494175257779,
+    "arc_length_reference_m": 1799.6766239090878
+  },
+  "axes": {
+    "S": {
+      "definition": "full-member compression target",
+      "lower_Pa": 1000000000.0,
+      "upper_Pa": 3900000000.0
+    },
+    "F": {
+      "definition": "effective strength per PBO ply",
+      "lower_Pa": 3480000000.0,
+      "upper_Pa": 5800000000.0
+    },
+    "L": {
+      "definition": "ten-year retention",
+      "lower": 0.8615688736605606,
+      "upper": 0.9511101304657719
+    },
+    "J": {
+      "definition": "sleeve allowance",
+      "lower": "max(actual,.05*tube)",
+      "upper": "actual"
+    }
+  },
+  "general_systems_kg": 100,
+  "vacuum_service_allocation": "additional; ground50 kg or explicit pumps and batteries",
+  "primary_exterior_water_kg_m2": 0.1,
+  "gas_reserve": "max(1% ISA lift, initial gas plus external uptake)",
+  "barrier": "046 OD4 PET/aluminium/attachment/white/seams; replaces 034 barrier",
+  "numerical": {
+    "python": "3.14.4",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.0"
+  },
+  "whole_hull_SF": null,
+  "calibrated_frame_Pf": null,
+  "qualified_life_years": null,
+  "no_foreign_executable_access": true
+}

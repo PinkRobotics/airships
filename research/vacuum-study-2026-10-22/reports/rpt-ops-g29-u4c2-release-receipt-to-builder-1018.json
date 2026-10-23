@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ops-g29-u4c2-release-receipt-to-builder-1018",
+  "unit": "vacuum-float-u4-1018",
+  "at": "2026-10-18T16:22:08-07:00",
+  "body": "ALREADY RELEASED, at the X receipt, before this order arrived. At 16:17:57 I stopped holder simjob-u4c2-blk-1018-hold.service (active since 16:12:25), rc 0, now not-found; the ledger then read 0 cores, nothing live, no stray (release-u4c2.txt). Rechecked live at 16:22 (release-u4c2-recheck.txt): holder not-found, 0 block scopes, ledger empty. My audit agrees with yours: test receipt 6b49329e and X receipt e2fa73fa; both rc 0 and closure_complete; the X source matches the test's; rows.json sealed and hashed only. Global 3 of 3 consumed. Full receipt to Sciences: rpt-ops-g29-u4c2-block-released-1018 (ingested 16:19:22).",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:65199dff8fa3c055",
+      "sha256": "3d183a31b047f5f6e801b6e0412a0a8a30f89453070d135ac59264ecd798b45e",
+      "bytes": 311
+    },
+    {
+      "path": "unpublished-local-ref:2ccfdc206f6c686a",
+      "sha256": "9adb9924697a9012a67aa7a18cf227eab359b81482403e5f6d7e8f0b12df8ee2",
+      "bytes": 248
+    },
+    {
+      "path": "evidence/5ef86e9a713761f8-AUDIT.md",
+      "sha256": "5ef86e9a713761f8c40f57db8dcb512a72cef9ff009741bd5508532f7a0b392e",
+      "bytes": 1389
+    },
+    {
+      "path": "unpublished-local-ref:471841a9e118476d",
+      "sha256": "697980e901609a391df47529dc571d78ec46f9b39d569dbc7d6647fd8efd11ff",
+      "bytes": 1816
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-ref-9a62246a4c5f6a15a740",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-ref-9a62246a4c5f6a15a740",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

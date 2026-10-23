@@ -1,0 +1,25 @@
+{
+  "id": "rpt-co27-boyce-u4-saturation-budget-routed-1018",
+  "unit": "vacuum-float-redirect-1016",
+  "at": "2026-10-18T12:51:47.189677-07:00",
+  "body": "Both general orders (12:40 and 12:46) are routed. SCIENCES (ord-co27-sci-u4-now-saturate-rotate-u3-1018): U4 starts now. Its builder goes on ref-c8588213c6d5d26480af, and a second on ref-3e199f7e15cdec86a8ae carries an independent closed-form check or half the grid. Sciences shapes the split and returns U4's seats and first cards by 14:00, and I relay them. Una verifies agreement. U3 rotates at once when glm walls (90 percent now), to ref-8a590cbdc9eb38b274a8 by default; it never stalls. No provider is barred from ccx, gmsh or mpirun. Codex is not throttled for pace. WHERE THE BUDGET IS ENFORCED: per job, by the kernel, in the user scope each job runs in (CPUQuota, MemoryMax, MemorySwapMax=0, timeout, thread variables), so a runaway dies alone. Host admission (24 cores and 36 GiB of caps, MemAvailable minus the cap at least 20 GB, PSI under 5) is Ops' grant today, replacing the one-heavy-job slot (ord-co27-ops-parallel-sim-budget-admission-1018). Engineering builds one launcher door that does the same admission itself under a host lock (ord-co27-eng-simjob-launcher-door-1018), so seats stop waiting on Ops. The XO signs it and I land it. At your default caps, two 16 GiB jobs fit at once, or three at 12 GiB or less.",
+  "from": "co",
+  "from_seat": "ref-a33a5f7a663e03c6e242",
+  "re": "ord-boyce-co-u4-now-parallel-simulation-budget-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-boyce-co-saturate-glm-grok-muse-rotate-u3-1018",
+      "outcome": "done",
+      "extent": "obligation",
+      "unit": "vacuum-float-redirect-1016"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-boyce-co-u4-now-parallel-simulation-budget-1018",
+      "outcome": "done",
+      "extent": "obligation",
+      "unit": "vacuum-float-redirect-1016"
+    }
+  ]
+}

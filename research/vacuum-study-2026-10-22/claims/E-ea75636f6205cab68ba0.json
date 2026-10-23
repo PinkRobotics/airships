@@ -1,0 +1,37 @@
+{
+  "id": "E-ea75636f6205cab68ba0",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-ea75636f6205cab68ba0",
+    "report": "rpt-ref-a18ff970381ef39185d1",
+    "file": "evidence/48d60a95de565083-NFI.json",
+    "snapshot": "evidence/48d60a95de565083-NFI.json",
+    "source_sha256": "48d60a95de565083127d781bca62f4df3f7771004b5f6b64ba933586828ec43e",
+    "source_json_pointer": "/items/1",
+    "row_id": "NFI-C047-02",
+    "fields": {
+      "id": "NFI-C047-02",
+      "tag": "QUESTIONABLE",
+      "claim": "The face modulus E = 290 GPa has no source in 047. The cited NASA CR-194164 Table 2 gives 298.7 GPa (L) and 293.6 GPa (LT) for 1.96 mm SR-200 sheet. With 298.7 GPa the check's model lowers the governing face stress 0.57 MPa and raises the SF 1 tolerance about 0.015 mm, one bracket width.",
+      "needed_to_ground": "Name the modulus source, or carry the finished-sheet modulus range as a sensitivity (with 047-02)."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The face modulus E = 290 GPa has no source in 047. The cited NASA CR-194164 Table 2 gives 298.7 GPa (L) and 293.6 GPa (LT) for 1.96 mm SR-200 sheet. With 298.7 GPa the check's model lowers the governing face stress 0.57 MPa and raises the SF 1 tolerance about 0.015 mm, one bracket width.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-a18ff970381ef39185d1",
+      "artifact": "evidence/48d60a95de565083-NFI.json",
+      "snapshot": "evidence/48d60a95de565083-NFI.json",
+      "sha256": "48d60a95de565083127d781bca62f4df3f7771004b5f6b64ba933586828ec43e",
+      "bytes": 1284,
+      "selector": "/items/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

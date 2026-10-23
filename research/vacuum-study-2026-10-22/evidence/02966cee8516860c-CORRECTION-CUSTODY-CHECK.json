@@ -1,0 +1,301 @@
+{
+  "schema": "mechanical-source-correction-custody-v1",
+  "scope": "Custody and timing inventory only. No scientific verdict, validation of numerical source-objection scope, execution of checker/owner code, seat contact, private session/process inspection or queue action.",
+  "result": "SIX_PINS_MATCH; AUTHORED_OUTBOX_MATCHES; FIVE_OLDER_RECORDS_UNCHANGED; POST_FINAL_CORRECTION_WORK_SELF_REPORTED_OUTSIDE_HISTORICAL_LEDGER; CORRECTION_ACCOUNTING_PENDING_CO",
+  "evidence": [
+    {
+      "path": "unpublished-local-ref:bd088132b5c5bdb5",
+      "sha256": "314ddcb02e6ca3cec41049b023a77438acf9121eb27e0d8b4a0a76fba73054a1",
+      "bytes": 6203
+    },
+    {
+      "path": "unpublished-local-ref:7c3219f0358c7377",
+      "sha256": "d22b5ac6a875dbb979f43ece2b42477aab49af81b5d84e953f35bf033cdd4943",
+      "bytes": 6130
+    },
+    {
+      "path": "unpublished-local-ref:958e775f847b2c78",
+      "sha256": "44bc2dd279b0d63ff63bc1f426652cbb3f5dee36b100ff16a8f8c81b7e2660e8",
+      "bytes": 5106
+    },
+    {
+      "path": "unpublished-local-ref:3eb5aba819e23edc",
+      "sha256": "daa760a67f65fd6eae7c524aa594b95bb9d822917d3d0771d87b05118f333818",
+      "bytes": 21869
+    }
+  ],
+  "previous_audit_matches_recorded_pin": true,
+  "artifact_pin_checks": [
+    {
+      "declared": {
+        "path": "unpublished-local-ref:441aeb8ed85d8332",
+        "sha256": "88188277bf314c9f1e445d479fffc12b43c47ac9c0a28915166343a37cb54e74",
+        "bytes": 1580
+      },
+      "observed": {
+        "path": "unpublished-local-ref:441aeb8ed85d8332",
+        "sha256": "88188277bf314c9f1e445d479fffc12b43c47ac9c0a28915166343a37cb54e74",
+        "bytes": 1580
+      },
+      "sha256_matches": true,
+      "bytes_match": true
+    },
+    {
+      "declared": {
+        "path": "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md",
+        "sha256": "59f59b26097f947462763c46b13b99776c2b94c4ace6a265a9e78b89769fe9bd",
+        "bytes": 3755
+      },
+      "observed": {
+        "path": "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md",
+        "sha256": "59f59b26097f947462763c46b13b99776c2b94c4ace6a265a9e78b89769fe9bd",
+        "bytes": 3755
+      },
+      "sha256_matches": true,
+      "bytes_match": true
+    },
+    {
+      "declared": {
+        "path": "unpublished-local-ref:d9e30b591ec32cb5",
+        "sha256": "d4f8b4f3e751f15c9313454736a4f53f79c5bb3829411a2dcbbcd55ab9906afb",
+        "bytes": 2349
+      },
+      "observed": {
+        "path": "unpublished-local-ref:d9e30b591ec32cb5",
+        "sha256": "d4f8b4f3e751f15c9313454736a4f53f79c5bb3829411a2dcbbcd55ab9906afb",
+        "bytes": 2349
+      },
+      "sha256_matches": true,
+      "bytes_match": true
+    },
+    {
+      "declared": {
+        "path": "evidence/0921f217f57bdd28-final-ledger.json",
+        "sha256": "0921f217f57bdd28574bf9df70ce9bb72828365bae589fb2db7eb795e9d88579",
+        "bytes": 1128
+      },
+      "observed": {
+        "path": "evidence/0921f217f57bdd28-final-ledger.json",
+        "sha256": "0921f217f57bdd28574bf9df70ce9bb72828365bae589fb2db7eb795e9d88579",
+        "bytes": 1128
+      },
+      "sha256_matches": true,
+      "bytes_match": true
+    },
+    {
+      "declared": {
+        "path": "evidence/d55c841c5ecb4f20-FINAL.json",
+        "sha256": "d55c841c5ecb4f20aa6f8999d49c44fa92e7c676fef204b19e393fdb3ce275cb",
+        "bytes": 187
+      },
+      "observed": {
+        "path": "evidence/d55c841c5ecb4f20-FINAL.json",
+        "sha256": "d55c841c5ecb4f20aa6f8999d49c44fa92e7c676fef204b19e393fdb3ce275cb",
+        "bytes": 187
+      },
+      "sha256_matches": true,
+      "bytes_match": true
+    },
+    {
+      "declared": {
+        "path": "evidence/2bb50763adc35f6d-PUBLICATION.json",
+        "sha256": "2bb50763adc35f6d04498c38a3425e83a746bc5ec7593ef48482694d296f08bd",
+        "bytes": 231
+      },
+      "observed": {
+        "path": "evidence/2bb50763adc35f6d-PUBLICATION.json",
+        "sha256": "2bb50763adc35f6d04498c38a3425e83a746bc5ec7593ef48482694d296f08bd",
+        "bytes": 231
+      },
+      "sha256_matches": true,
+      "bytes_match": true
+    }
+  ],
+  "all_six_pins_match": true,
+  "five_older_record_comparisons": [
+    {
+      "path": "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md",
+      "prior_custody_source": "Original six-artifact report manifest",
+      "prior_sha256": "59f59b26097f947462763c46b13b99776c2b94c4ace6a265a9e78b89769fe9bd",
+      "prior_bytes": 3755,
+      "observed_sha256": "59f59b26097f947462763c46b13b99776c2b94c4ace6a265a9e78b89769fe9bd",
+      "observed_bytes": 3755,
+      "unchanged_since_prior_custody": true
+    },
+    {
+      "path": "unpublished-local-ref:d9e30b591ec32cb5",
+      "prior_custody_source": "Original six-artifact report manifest",
+      "prior_sha256": "d4f8b4f3e751f15c9313454736a4f53f79c5bb3829411a2dcbbcd55ab9906afb",
+      "prior_bytes": 2349,
+      "observed_sha256": "d4f8b4f3e751f15c9313454736a4f53f79c5bb3829411a2dcbbcd55ab9906afb",
+      "observed_bytes": 2349,
+      "unchanged_since_prior_custody": true
+    },
+    {
+      "path": "evidence/0921f217f57bdd28-final-ledger.json",
+      "prior_custody_source": "Separately observed and pinned in prior REVIEW-CLOSURE-CHECK.json; omitted from original report manifest",
+      "prior_sha256": "0921f217f57bdd28574bf9df70ce9bb72828365bae589fb2db7eb795e9d88579",
+      "prior_bytes": 1128,
+      "observed_sha256": "0921f217f57bdd28574bf9df70ce9bb72828365bae589fb2db7eb795e9d88579",
+      "observed_bytes": 1128,
+      "unchanged_since_prior_custody": true
+    },
+    {
+      "path": "evidence/d55c841c5ecb4f20-FINAL.json",
+      "prior_custody_source": "Separately observed and pinned in prior REVIEW-CLOSURE-CHECK.json; omitted from original report manifest",
+      "prior_sha256": "d55c841c5ecb4f20aa6f8999d49c44fa92e7c676fef204b19e393fdb3ce275cb",
+      "prior_bytes": 187,
+      "observed_sha256": "d55c841c5ecb4f20aa6f8999d49c44fa92e7c676fef204b19e393fdb3ce275cb",
+      "observed_bytes": 187,
+      "unchanged_since_prior_custody": true
+    },
+    {
+      "path": "evidence/2bb50763adc35f6d-PUBLICATION.json",
+      "prior_custody_source": "Separately observed and pinned in prior REVIEW-CLOSURE-CHECK.json; omitted from original report manifest",
+      "prior_sha256": "2bb50763adc35f6d04498c38a3425e83a746bc5ec7593ef48482694d296f08bd",
+      "prior_bytes": 231,
+      "observed_sha256": "2bb50763adc35f6d04498c38a3425e83a746bc5ec7593ef48482694d296f08bd",
+      "observed_bytes": 231,
+      "unchanged_since_prior_custody": true
+    }
+  ],
+  "all_five_older_records_unchanged": true,
+  "prior_manifest_distinction": "Only UNA600-MAINLINE002-REVIEW.md and mycheck2.log among these five were in the original admission report six-artifact manifest. final-ledger.json, FINAL.json and PUBLICATION.json were omitted there but separately observed and pinned in the prior mechanical closure audit. The correction now expressly pins all five older records plus its new scope log.",
+  "new_record": {
+    "path": "unpublished-local-ref:441aeb8ed85d8332",
+    "treatment": "Hashed as opaque bytes. Scientific numbers, source objection, formulas and scope assertions were not independently evaluated."
+  },
+  "authored_report_comparison": {
+    "all_outbox_fields_equal_canonical": true,
+    "field_differences": {},
+    "canonical_only_fields": {
+      "from_seat": "ref-d526e566bdbe9a62c2c1",
+      "ingested": "2026-10-19T20:51:30-07:00"
+    },
+    "from_seat_matches_authored_from": true
+  },
+  "timing_inventory": {
+    "original_authored_at": "2026-10-19T20:47:22-07:00",
+    "original_ingested": "2026-10-19T20:48:54-07:00",
+    "original_final_sample": {
+      "label": "final: verdict, state and cleanup done; publication follows in this process",
+      "utc": "2026-10-20T03:47:22.945121+00:00",
+      "monotonic_s": "2083568.125427642",
+      "pid": 579881
+    },
+    "original_publication_sample": {
+      "label": "publication: rpt-xo-h1-mainline002-review-600-sci-1019 renamed into the outbox",
+      "utc": "2026-10-20T03:47:22.948824+00:00",
+      "monotonic_s": "2083568.129130493",
+      "pid": 579881,
+      "after_final_s": "0.0037028510123491287"
+    },
+    "correction_authored_at": "2026-10-19T20:50:24-07:00",
+    "correction_ingested": "2026-10-19T20:51:30-07:00",
+    "reviewer_self_report_exact_excerpt": "This correction was written AFTER my final sample, between my read of the carry (~20:48:30) and this filing's 'at', outside that ledger. The CO decides whether it stands inside Una600.",
+    "self_report_excerpt_matches_body": true,
+    "reviewer_approximate_correction_start_wall": "2026-10-19T20:48:30-07:00",
+    "approximate_start_to_authored_at_nominal_wall_span_s": "114",
+    "original_final_to_correction_authored_wall_separation_s": "181.054879",
+    "original_publication_to_correction_authored_wall_separation_s": "181.051176",
+    "correction_authored_to_ingested_wall_separation_s": "66",
+    "original_publication_to_correction_ingested_wall_separation_s": "247.051176",
+    "correction_outbox_metadata": {
+      "mtime_ns": 1792468224239384797,
+      "ctime_ns": 1792468224239384797,
+      "mtime_utc": "2026-10-20T03:50:24.239385+00:00",
+      "ctime_utc": "2026-10-20T03:50:24.239385+00:00"
+    },
+    "correction_canonical_metadata": {
+      "mtime_ns": 1792468290566539947,
+      "ctime_ns": 1792468290566539947,
+      "mtime_utc": "2026-10-20T03:51:30.566540+00:00",
+      "ctime_utc": "2026-10-20T03:51:30.566540+00:00"
+    },
+    "correction_paired_origin_available": false,
+    "correction_paired_final_endpoint_available": false,
+    "correction_paired_publication_endpoint_available": false,
+    "missing_evidence_scope": "No correction-specific paired endpoint or publication sample occurs in the six named artifacts or report. The pinned FINAL/PUBLICATION retain the original review endpoints and their original-report label. No search for other files or private sessions was performed.",
+    "interpretation": "The approximate 114-second read-to-authored-at span and all other wall separations are chronology only. They are not continuous measured work, a new actual charge, a measured publication tail, an allowance-overrun computation or a basis for inferring phase/whole compliance. Filesystem metadata and queue ingestion corroborate filing, not a work clock."
+  },
+  "historical_review_account_only": {
+    "ledger_record": {
+      "unit": "vacuum-mainline002-strength-review600-1019",
+      "order": "ord-sciences-g2-xo-mainline002-review-600-1019",
+      "seat": "ref-d526e566bdbe9a62c2c1",
+      "origin": {
+        "utc": "2026-10-20T03:45:12.229308+00:00",
+        "monotonic_s": "2083437.40961049"
+      },
+      "phases": [
+        {
+          "name": "phase1_intake_arithmetic_tags_sources",
+          "end_utc": "2026-10-20T03:46:40.433298+00:00",
+          "end_monotonic_s": "2083525.613599365",
+          "actual_s": "88.20398887502961",
+          "cap_s": 400,
+          "cumulative_s": "88.20398887502961",
+          "cumulative_cap_s": 400
+        },
+        {
+          "name": "phase2_verdict_state_cleanup_final_sample",
+          "end_utc": "2026-10-20T03:47:22.945121+00:00",
+          "end_monotonic_s": "2083568.125427642",
+          "actual_s": "42.511828276794404",
+          "cap_s": 165,
+          "cumulative_s": "130.715817151824",
+          "cumulative_cap_s": 565
+        }
+      ],
+      "final": {
+        "utc": "2026-10-20T03:47:22.945121+00:00",
+        "monotonic_s": "2083568.125427642"
+      },
+      "actual_s": "130.715817151824",
+      "allowances_s": {
+        "opening": 10,
+        "publication": 25,
+        "status": "publication measured below (PUBLICATION.json)"
+      },
+      "charged_s": "165.715817151824",
+      "retired_s": "434.284182848176",
+      "caps_held": true
+    },
+    "actual_s": "130.715817151824",
+    "charged_s": "165.715817151824",
+    "retired_s": "434.284182848176",
+    "original_fixed_opening_allowance_s": 10,
+    "original_fixed_publication_allowance_s": 25,
+    "original_measured_publication_tail_s": "0.0037028510123491287",
+    "qualification": "The original ledger remains historical through its paired final sample and original publication. Its previous caps_held value and separately assessed compliance apply only to that recorded interval. They do not certify this later correction. The corrected report explicitly says its work was outside that ledger.",
+    "retired_seconds_available_for_reuse": false,
+    "silent_draw_from_retirement_authorized": false
+  },
+  "historical_new1800_rollup_only": {
+    "combined_charged_s": "959.3101812337991",
+    "combined_retired_s": "840.6898187662009",
+    "combined_fixed_allowances_s": 70,
+    "owner_charged_s": "793.5943640819751",
+    "owner_retired_noncompliant_s": "406.4056359180249",
+    "owner_phase4_overrun_s": "163.7440369010437",
+    "qualification": "Preserved solely as the prior administrative account, before correction disposition. Owner phase-4 noncompliance is not cured. No updated NEW1800 total is assigned by this audit."
+  },
+  "correction_accounting": {
+    "status": "PENDING_CO_DISPOSITION",
+    "measured_actual_s": null,
+    "charged_s": null,
+    "retired_s": null,
+    "individual_phase_compliance": "NOT_ESTABLISHED",
+    "whole_cap_compliance": "NOT_ESTABLISHED",
+    "measured_publication_allowance_compliance": "NOT_ESTABLISHED",
+    "new_origin_or_reset_admitted": false,
+    "extra_grant_or_retired_reuse_authorized": false,
+    "reason": "Reviewer declares post-final correction work outside the unchanged ledger and requests CO ruling. The available evidence lacks correction-specific paired work and publication endpoints. No wall span has been charged, no 434.284182848176-second retirement drawn down, and no revised cap-compliance finding inferred."
+  },
+  "evidence_limits": [
+    "Scientific files and logs were hash-checked as opaque bytes only; the amended scientific admission and source objection are for the parent/CO to carry.",
+    "The report self-description of an earlier queue read and missed carry order is recorded as reviewer testimony. No private records or prior queue-view history were inspected to validate it.",
+    "The report next field requests CO ruling inside Una600; this is not a ruling or authorization.",
+    "Original records, older ledger and prior audit were not changed. Only this new custody record was written."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "unit": "vacuum-mainline074-test-specs-1022",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": false,
+  "purchases_authorized": false,
+  "suppliers_contacted": false,
+  "simjob": null,
+  "numbers_from": "version 9 closures, unchanged in version 10",
+  "record_version": 10,
+  "record_sha256": "526dfde3aaa26711cc116f160d8af2a3efe4e944a774e94c0be2754b0299a180",
+  "order_of_tests": "T3 first, then T7",
+  "T7": {
+    "closes_038_route": "G1",
+    "measures": "gamma",
+    "admissible_today": 0.2,
+    "needed_trl7_r30_both_weathers": 0.6407145989713096,
+    "needed_factor": 3.2035729948565477,
+    "status": "UNREVIEWED",
+    "same_hull_both_weathers": false,
+    "cheapest_article": "one as-built design-gauge closed shell",
+    "quote_count": 3,
+    "earlier_range_usd": [
+      30000,
+      90000
+    ],
+    "earlier_range_buys_the_transferring_article": false
+  },
+  "T3": {
+    "closes_038_route": "G5",
+    "measures": [
+      "Q",
+      "equibiaxial_factor"
+    ],
+    "Q_admissible_today": 0.33,
+    "equibiaxial_factor": 0.7937005259840998,
+    "status": "UNREVIEWED",
+    "concept_face_r30_optimistic_kg_m3": 914.2756147739346,
+    "concept_face_r20_optimistic_kg_m3": 896.8181102430983,
+    "cheapest_article": "one design-gauge equibiaxial panel or dome, plus one uniaxial witness",
+    "quote_count": 3,
+    "earlier_range_usd": [
+      18000,
+      45000
+    ],
+    "uniaxial_coupons_answer_the_question": false
+  }
+}

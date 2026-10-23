@@ -1,0 +1,37 @@
+{
+  "id": "FIX-A1-062-COATING-R30-optimistic",
+  "kind": "review_fix",
+  "claim": "{\"id\": \"FIX-A1-062-COATING-R30-optimistic\", \"card\": \"062\", \"row\": {\"R_m\": 30, \"weather\": \"optimistic\"}, \"field\": \"payload_with_concept_MGA_kg\", \"card_value\": -11101.632034369179, \"reviewer_value\": -11100.775299433075, \"difference_kg\": 0.8567349361037486, \"cause\": \"Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.\", \"decision_effect\": \"All six signs remain negative; no float/no-float decision changes.\", \"review_status\": \"unreviewed correction; one review round\"}",
+  "original": {
+    "id": "FIX-A1-062-COATING-R30-optimistic",
+    "card": "062",
+    "row": {
+      "R_m": 30,
+      "weather": "optimistic"
+    },
+    "field": "payload_with_concept_MGA_kg",
+    "card_value": -11101.632034369179,
+    "reviewer_value": -11100.775299433075,
+    "difference_kg": 0.8567349361037486,
+    "cause": "Inherited 057 coating growth applies the extra 10% to mass already carrying 10%, giving 21% total instead of the stated 20%. Divide by 1.1 before adding the excess.",
+    "decision_effect": "All six signs remain negative; no float/no-float decision changes.",
+    "review_status": "unreviewed correction; one review round"
+  },
+  "numerical_status": "unreviewed",
+  "change_type": "correction",
+  "review_status": "UNREVIEWED",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Demonstrated discrepancy; proposed values have not had a second review.",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/0063cb5be8f2809e-FIXES.json",
+      "snapshot": "evidence/0063cb5be8f2809e-FIXES.json",
+      "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+      "bytes": 4105,
+      "selector": "/items/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "co-r3-ruling.v1",
+  "at": "2026-09-24T18:20:18-07:00",
+  "authority": "I.3g.1 one-time officer-lane ruling",
+  "request": "ord-xo-g24-review-access-r3-disposition-0924",
+  "candidate": {
+    "candidate": "57f98dd9f0e75fcdee0aa1ba2dad798199e076bf",
+    "tree": "f1e6d284b85c529f43222f33372ed13c0e6e0b75",
+    "base": "0e830089138d47c612ea1aa7042873f6e8dd9ff3",
+    "worktree": "unpublished-local-ref:627a9bd50e86cd14",
+    "branch": "review-candidate-access-gap-0923",
+    "tracked_status": ""
+  },
+  "source": {
+    "path": "evidence/19bf28ffde449330-RETURN-57f98dd9f.json",
+    "bytes": 21271,
+    "sha256": "19bf28ffde449330f8d0b2d73cea2bfe4f7a6dbf44a7cb821948f91dc7b58b46"
+  },
+  "decision": "Accept both retained demonstrated false-refusal limitations for this unit. No additional code correction or R4 is ordered for these two findings.",
+  "findings": [
+    {
+      "surface": "ref-d70466ca3ec284f000dd",
+      "trigger": "Quoted canonical THIS LANE HAS NO SHELL even with explicit lifting",
+      "evidence": "Codex executed counterexample, XO verified; CO read exact substring predicate and marker set.",
+      "disposition": "Accept conservative pre-dispatch refusal; safe prompt must omit canonical marker rather than quote it. This is a real usability limitation, not an undemonstrated finding."
+    },
+    {
+      "surface": "tools/review.py --r0 --candidate",
+      "trigger": "r0 early route before candidate contract seeding, then bound honesty rejects missing access assertion",
+      "evidence": "Claude traced; XO verified. CO read early r0 route and incompatible flag set (candidate absent). No current internal caller or runtime invocation measured by CO.",
+      "disposition": "Accept unsupported-combination fail-closed behavior for this unit. No successful bound review or PASS is inferred."
+    }
+  ],
+  "reason": "The unit protects against unreadable-candidate lanes being counted as completed. Both limitations refuse review and preserve that protection; fixing these convenience/unsupported-combination cases is not necessary to close the original false-PASS defect.",
+  "unreviewed_final_fix": "Already-applied mixed-clause/headerless fixes remain deliberately unreviewed at cap.",
+  "other_return_conditions": "XO B1-B3 remain: current unsquashed rebase, exact applied-object mechanical governance, missing raw Part-B focused/clone-size evidence. No seventh full wrapper or extra review ordered.",
+  "process": "This ruling closes only B4; builder hands corrected evidence directly to XO. CO does not certify signature readiness."
+}

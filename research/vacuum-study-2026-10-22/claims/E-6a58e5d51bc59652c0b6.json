@@ -1,0 +1,40 @@
+{
+  "id": "E-6a58e5d51bc59652c0b6",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-6a58e5d51bc59652c0b6",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/0",
+    "row_id": "NFI-043-01",
+    "fields": {
+      "id": "NFI-043-01",
+      "status": "open",
+      "topic": "Compression distribution and calibration",
+      "finding": "No retrieved SA, CVD SiC, reaction-bonded SiC or SiC/SiC population supplies matched compression m, characteristic strength, effective reference size and confidence bounds for finished P3 members.",
+      "needed": "Raw compression failures, specimen and stress-field dimensions, processing/batch information, fracture modes, fit method, competing populations and confidence bounds; evidence of transfer to full curved tubes.",
+      "effect": "Qualified compression parameters and actual member/frame Pf remain null. Catalogue 3.9 GPa is only a typical value; hypothetical scale assignments do not qualify it.",
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "No retrieved SA, CVD SiC, reaction-bonded SiC or SiC/SiC population supplies matched compression m, characteristic strength, effective reference size and confidence bounds for finished P3 members.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,536 @@
+{
+  "basis": "MAINLINE-059: how much exterior water the P2 lead can carry. Uses this seat's model49/thermal49 (MAINLINE-049's port\nof 040, which reproduces 048 bit for bit) on 048's account with CHECK-040's cure compression: multilayer CCAg/ITO, the\nbake route and 10 g/m2 primer. Beryllium on 5056 is run at R 10, 12, 15, 20 and 30, ISA and optimistic, actual joining.\n\nExterior water is a bill line, so the endpoint geometry does not depend on it. The carried water at zero payload is\n0.1 kg/m2 + payload / area at each endpoint. The least set is also searched at higher exterior water loads. Writes\nCAP.json.",
+  "elapsed_s": 32.0861780080013,
+  "rows": [
+    {
+      "R_m": 10,
+      "weather": "ISA",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q",
+        "film"
+      ],
+      "least_usage": 0.8427941767017763,
+      "endpoint_named_kg": 118.69482555678769,
+      "endpoint_all_kg": 127.25267095207346,
+      "endpoint_today_kg": -2977.79711417642,
+      "water_capacity_named_kg_m2": 0.19445434103396494,
+      "water_capacity_all_kg_m2": 0.2012644580183447
+    },
+    {
+      "R_m": 10,
+      "weather": "optimistic",
+      "external_water": 0.1,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -29.257218333962555,
+      "endpoint_all_kg": -20.80114975889137,
+      "endpoint_today_kg": -3193.0930805397174,
+      "water_capacity_named_kg_m2": 0.07671784540515517,
+      "water_capacity_all_kg_m2": 0.08344697096938826
+    },
+    {
+      "R_m": 12,
+      "weather": "ISA",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.8958497264580422,
+      "endpoint_named_kg": 373.4742386285743,
+      "endpoint_all_kg": 388.26415702347913,
+      "endpoint_today_kg": -4927.67714866558,
+      "water_capacity_named_kg_m2": 0.30638983053895724,
+      "water_capacity_all_kg_m2": 0.31456305491560604
+    },
+    {
+      "R_m": 12,
+      "weather": "optimistic",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q",
+        "film"
+      ],
+      "least_usage": 0.9045115558485642,
+      "endpoint_named_kg": 117.77445325570989,
+      "endpoint_all_kg": 132.3885771974219,
+      "endpoint_today_kg": -5299.939312364768,
+      "water_capacity_named_kg_m2": 0.16508467501941526,
+      "water_capacity_all_kg_m2": 0.17316075163150235
+    },
+    {
+      "R_m": 15,
+      "weather": "ISA",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.7339942558872462,
+      "endpoint_named_kg": 1009.4276168508095,
+      "endpoint_all_kg": 1038.3189014231339,
+      "endpoint_today_kg": -9250.427346473043,
+      "water_capacity_named_kg_m2": 0.4570119887006181,
+      "water_capacity_all_kg_m2": 0.4672301903716404
+    },
+    {
+      "R_m": 15,
+      "weather": "optimistic",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.9518272976888066,
+      "endpoint_named_kg": 509.9012584545271,
+      "endpoint_all_kg": 538.4493876295564,
+      "endpoint_today_kg": -9978.1458860969,
+      "water_capacity_named_kg_m2": 0.2803406794929246,
+      "water_capacity_all_kg_m2": 0.2904375147689955
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.6115102059957578,
+      "endpoint_named_kg": 2959.3330167082095,
+      "endpoint_all_kg": 3027.8290674693053,
+      "endpoint_today_kg": -21149.42631649517,
+      "water_capacity_named_kg_m2": 0.6887405973302025,
+      "water_capacity_all_kg_m2": 0.7023674536563297
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.7988688754618618,
+      "endpoint_named_kg": 1774.8354437914531,
+      "endpoint_all_kg": 1842.5196519994352,
+      "endpoint_today_kg": -22876.707849048602,
+      "water_capacity_named_kg_m2": 0.4530922925676344,
+      "water_capacity_all_kg_m2": 0.46655763794958616
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.5414185471038119,
+      "endpoint_named_kg": 11612.999591846878,
+      "endpoint_all_kg": 11844.212381960722,
+      "endpoint_today_kg": -69137.59836711807,
+      "water_capacity_named_kg_m2": 1.126814605092552,
+      "water_capacity_all_kg_m2": 1.1472583042329338
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "external_water": 0.1,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.6826597656100398,
+      "endpoint_named_kg": 7612.39452072687,
+      "endpoint_all_kg": 7840.879330811324,
+      "endpoint_today_kg": -74981.57883584336,
+      "water_capacity_named_kg_m2": 0.7730834537440783,
+      "water_capacity_all_kg_m2": 0.7932859464920525
+    },
+    {
+      "R_m": 10,
+      "weather": "ISA",
+      "external_water": 0.15,
+      "least_axes": [
+        "gamma",
+        "Q",
+        "film"
+      ],
+      "least_usage": 0.922767838117007,
+      "endpoint_named_kg": 55.86297248499159,
+      "endpoint_all_kg": 64.42081788027735,
+      "endpoint_today_kg": -3040.628967248216,
+      "water_capacity_named_kg_m2": 0.19445434103396475,
+      "water_capacity_all_kg_m2": 0.20126445801834447
+    },
+    {
+      "R_m": 10,
+      "weather": "ISA",
+      "external_water": 0.2,
+      "least_axes": [
+        "gamma",
+        "Q",
+        "face_compression_and_E",
+        "film"
+      ],
+      "least_usage": 0.9977253906346445,
+      "endpoint_named_kg": -6.9688805868045165,
+      "endpoint_all_kg": 1.5889648084812507,
+      "endpoint_today_kg": -3103.4608203200123,
+      "water_capacity_named_kg_m2": 0.19445434103396458,
+      "water_capacity_all_kg_m2": 0.2012644580183443
+    },
+    {
+      "R_m": 10,
+      "weather": "ISA",
+      "external_water": 0.3,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -132.63258673039581,
+      "endpoint_all_kg": -124.07474133511005,
+      "endpoint_today_kg": -3229.1245264636036,
+      "water_capacity_named_kg_m2": 0.19445434103396492,
+      "water_capacity_all_kg_m2": 0.20126445801834464
+    },
+    {
+      "R_m": 10,
+      "weather": "ISA",
+      "external_water": 0.5,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -383.9599990175793,
+      "endpoint_all_kg": -375.40215362229355,
+      "endpoint_today_kg": -3480.451938750787,
+      "water_capacity_named_kg_m2": 0.19445434103396486,
+      "water_capacity_all_kg_m2": 0.20126445801834458
+    },
+    {
+      "R_m": 10,
+      "weather": "ISA",
+      "external_water": 1.0,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -1012.2785297355385,
+      "endpoint_all_kg": -1003.7206843402528,
+      "endpoint_today_kg": -4108.770469468746,
+      "water_capacity_named_kg_m2": 0.19445434103396442,
+      "water_capacity_all_kg_m2": 0.20126445801834414
+    },
+    {
+      "R_m": 12,
+      "weather": "ISA",
+      "external_water": 0.15,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.9819377833897338,
+      "endpoint_named_kg": 282.9963702051882,
+      "endpoint_all_kg": 297.78628860009303,
+      "endpoint_today_kg": -5018.155017088966,
+      "water_capacity_named_kg_m2": 0.3063898305389572,
+      "water_capacity_all_kg_m2": 0.314563054915606
+    },
+    {
+      "R_m": 12,
+      "weather": "ISA",
+      "external_water": 0.2,
+      "least_axes": [
+        "gamma",
+        "Q",
+        "film"
+      ],
+      "least_usage": 0.8476589366700436,
+      "endpoint_named_kg": 192.51850178180393,
+      "endpoint_all_kg": 207.3084201767051,
+      "endpoint_today_kg": -5108.632885512352,
+      "water_capacity_named_kg_m2": 0.3063898305389582,
+      "water_capacity_all_kg_m2": 0.314563054915605
+    },
+    {
+      "R_m": 12,
+      "weather": "ISA",
+      "external_water": 0.3,
+      "least_axes": [
+        "gamma",
+        "Q",
+        "film"
+      ],
+      "least_usage": 0.9901209793817868,
+      "endpoint_named_kg": 11.562764935031737,
+      "endpoint_all_kg": 26.352683329932916,
+      "endpoint_today_kg": -5289.588622359124,
+      "water_capacity_named_kg_m2": 0.30638983053895813,
+      "water_capacity_all_kg_m2": 0.3145630549156049
+    },
+    {
+      "R_m": 12,
+      "weather": "ISA",
+      "external_water": 0.5,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -350.34870875851266,
+      "endpoint_all_kg": -335.5587903636115,
+      "endpoint_today_kg": -5651.500096052669,
+      "water_capacity_named_kg_m2": 0.30638983053895796,
+      "water_capacity_all_kg_m2": 0.31456305491560477
+    },
+    {
+      "R_m": 12,
+      "weather": "ISA",
+      "external_water": 1.0,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -1255.1273929923736,
+      "endpoint_all_kg": -1240.3374745974706,
+      "endpoint_today_kg": -6556.278780286528,
+      "water_capacity_named_kg_m2": 0.30638983053895763,
+      "water_capacity_all_kg_m2": 0.31456305491560543
+    },
+    {
+      "R_m": 15,
+      "weather": "ISA",
+      "external_water": 0.15,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.7903187157854236,
+      "endpoint_named_kg": 868.0559474392703,
+      "endpoint_all_kg": 896.9472320115947,
+      "endpoint_today_kg": -9391.799015884582,
+      "water_capacity_named_kg_m2": 0.45701198870061854,
+      "water_capacity_all_kg_m2": 0.46723019037164093
+    },
+    {
+      "R_m": 15,
+      "weather": "ISA",
+      "external_water": 0.2,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.8504770256102652,
+      "endpoint_named_kg": 726.6842780277293,
+      "endpoint_all_kg": 755.5755626000537,
+      "endpoint_today_kg": -9533.170685296125,
+      "water_capacity_named_kg_m2": 0.4570119887006185,
+      "water_capacity_all_kg_m2": 0.46723019037164076
+    },
+    {
+      "R_m": 15,
+      "weather": "ISA",
+      "external_water": 0.3,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.9846435049804708,
+      "endpoint_named_kg": 443.9409392046473,
+      "endpoint_all_kg": 472.83222377697166,
+      "endpoint_today_kg": -9815.914024119204,
+      "water_capacity_named_kg_m2": 0.4570119887006182,
+      "water_capacity_all_kg_m2": 0.46723019037164054
+    },
+    {
+      "R_m": 15,
+      "weather": "ISA",
+      "external_water": 0.5,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -121.54573844150946,
+      "endpoint_all_kg": -92.65445386918873,
+      "endpoint_today_kg": -10381.400701765368,
+      "water_capacity_named_kg_m2": 0.4570119887006204,
+      "water_capacity_all_kg_m2": 0.4672301903716414
+    },
+    {
+      "R_m": 15,
+      "weather": "ISA",
+      "external_water": 1.0,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -1535.2624325569159,
+      "endpoint_all_kg": -1506.3711479845952,
+      "endpoint_today_kg": -11795.117395880774,
+      "water_capacity_named_kg_m2": 0.45701198870062054,
+      "water_capacity_all_kg_m2": 0.4672301903716416
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "external_water": 0.15,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.6477858527754737,
+      "endpoint_named_kg": 2708.0056044210287,
+      "endpoint_all_kg": 2776.5016551821245,
+      "endpoint_today_kg": -21400.75372878235,
+      "water_capacity_named_kg_m2": 0.6887405973302031,
+      "water_capacity_all_kg_m2": 0.7023674536563304
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "external_water": 0.2,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.6856199409391591,
+      "endpoint_named_kg": 2456.678192133848,
+      "endpoint_all_kg": 2525.1742428949437,
+      "endpoint_today_kg": -21652.08114106953,
+      "water_capacity_named_kg_m2": 0.6887405973302037,
+      "water_capacity_all_kg_m2": 0.7023674536563309
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "external_water": 0.3,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.7665280224494854,
+      "endpoint_named_kg": 1954.023367559479,
+      "endpoint_all_kg": 2022.519418320575,
+      "endpoint_today_kg": -22154.7359656439,
+      "water_capacity_named_kg_m2": 0.6887405973302032,
+      "water_capacity_all_kg_m2": 0.7023674536563305
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "external_water": 0.5,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.9546093852388874,
+      "endpoint_named_kg": 948.7137184107414,
+      "endpoint_all_kg": 1017.2097691718373,
+      "endpoint_today_kg": -23160.045614792638,
+      "water_capacity_named_kg_m2": 0.6887405973302024,
+      "water_capacity_all_kg_m2": 0.7023674536563297
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "external_water": 1.0,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -1564.5604044610882,
+      "endpoint_all_kg": -1496.0643536999924,
+      "endpoint_today_kg": -25673.319737664468,
+      "water_capacity_named_kg_m2": 0.6887405973302034,
+      "water_capacity_all_kg_m2": 0.7023674536563307
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "external_water": 0.15,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.5482454808522527,
+      "endpoint_named_kg": 11047.51291420072,
+      "endpoint_all_kg": 11278.725704314566,
+      "endpoint_today_kg": -69703.08504476424,
+      "water_capacity_named_kg_m2": 1.1268146050925525,
+      "water_capacity_all_kg_m2": 1.1472583042329343
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "external_water": 0.2,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.5591264096005271,
+      "endpoint_named_kg": 10482.02623655455,
+      "endpoint_all_kg": 10713.239026668394,
+      "endpoint_today_kg": -70268.57172241042,
+      "water_capacity_named_kg_m2": 1.1268146050925518,
+      "water_capacity_all_kg_m2": 1.1472583042329336
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "external_water": 0.3,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.604781392789165,
+      "endpoint_named_kg": 9351.052881262236,
+      "endpoint_all_kg": 9582.26567137608,
+      "endpoint_today_kg": -71399.54507770273,
+      "water_capacity_named_kg_m2": 1.126814605092553,
+      "water_capacity_all_kg_m2": 1.1472583042329347
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "external_water": 0.5,
+      "least_axes": [
+        "gamma",
+        "Q"
+      ],
+      "least_usage": 0.7038542353062647,
+      "endpoint_named_kg": 7089.10617067758,
+      "endpoint_all_kg": 7320.318960791425,
+      "endpoint_today_kg": -73661.49178828739,
+      "water_capacity_named_kg_m2": 1.1268146050925525,
+      "water_capacity_all_kg_m2": 1.1472583042329343
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "external_water": 1.0,
+      "least_axes": [
+        "gamma",
+        "Q",
+        "film"
+      ],
+      "least_usage": 0.9174659469445134,
+      "endpoint_named_kg": 1434.2393942159542,
+      "endpoint_all_kg": 1665.452184329799,
+      "endpoint_today_kg": -79316.35856474901,
+      "water_capacity_named_kg_m2": 1.1268146050925525,
+      "water_capacity_all_kg_m2": 1.1472583042329343
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "external_water": 1.0,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -2749.0579773778445,
+      "endpoint_all_kg": -2681.3737691698625,
+      "endpoint_today_kg": -27400.601270217907,
+      "water_capacity_named_kg_m2": 0.4530922925676353,
+      "water_capacity_all_kg_m2": 0.46655763794958705
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "external_water": 1.0,
+      "least_axes": null,
+      "least_usage": null,
+      "endpoint_named_kg": -2566.365676904068,
+      "endpoint_all_kg": -2337.8808668196725,
+      "endpoint_today_kg": -85160.3390334743,
+      "water_capacity_named_kg_m2": 0.7730834537440775,
+      "water_capacity_all_kg_m2": 0.7932859464920468
+    }
+  ]
+}

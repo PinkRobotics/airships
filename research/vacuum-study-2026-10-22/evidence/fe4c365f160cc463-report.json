@@ -1,0 +1,137 @@
+{
+  "id": "rpt-ref-6c81b0b188ad134a3ea2",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-dbd2fa05cc3e88be3cdc",
+  "to": "ref-9d7d3b2e560b8e1798a7",
+  "cc": [
+    "ref-5cf73d8bfab7071b094e",
+    "ref-d526e566bdbe9a62c2c1",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline022d-p3-in-band-corrected-1020",
+  "re": "ord-admiral-rr2-mainline022d-in-band-corrected-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline022d-in-band-corrected-1020"
+    }
+  ],
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline022d-in-band-corrected-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "standing": "none",
+  "next": "none",
+  "completion": "MAINLINE-022d filed: all 64 corrected primary witnesses, mass rows, half-wave screen, sensitivities and NFI.",
+  "at": "2026-10-20T02:17:22-07:00",
+  "body": "MAINLINE-022d complete; QUESTIONABLE throughout. All 32 combinations have overall and half-wave-constrained optima: 64 full SF, binding-mode, spacing and mass rows. Both Zylon plies are charged. Ti/CFRP joint dimensions and mass use each candidate's multiplier. Film gauge is continuous; tensile bending is constrained at Ft=15.586 MPa, PROJECTION.\n\nBest equilateral overall: Zylon/CFRP, cap, 5% reserve, SF 1.397732582 at s=6.085747 m, half-wave/member=0.569022. Best equilateral screened: SF 1.258252477 at s=3.170759 m; local/global/film bind. Its masses are tubes 4183.590, film 214.542, joints 44.191, nodes 2.927, systems 100, reserve 244.472 and sag lift loss 99.720 kg. Membrane screened SF is 1.251857092; 019 reserve gives 1.194121426 cap and 1.187857743 membrane.\n\nThe two-way surrogate numerically leads at 2.010980577 overall and 1.867825477 screened, but its missing shear stiffness leaves those capacities unqualified. Square-cell sag/wave sensitivity lowers the latter to 1.728882831. Passing one-member half-wave is only the requested screen.\n\nSixteen overall optima fail that screen. Independent reconstruction passes 2800 checks; 112 optimized sensitivity witnesses and eleven open NFI are filed. Wider bounds improve none of sixteen checked cap optima. Qualified full-size allowable and assembly failure probability remain unknown. No next job.",
+  "artifacts": [
+    {
+      "path": "evidence/01cf777d3e7fb3d3-CARD.md",
+      "sha256": "01cf777d3e7fb3d33f432cec2a52e957ca0ea8548e71e1eee02d3e7365994456",
+      "bytes": 6144
+    },
+    {
+      "path": "evidence/13ef86ed188150a2-RESULTS.json",
+      "sha256": "13ef86ed188150a2cf92b8797a6d27a154e39dc37933d7dcb14d0443da7e2347",
+      "bytes": 543543
+    },
+    {
+      "path": "evidence/52276872c0a4b508-TABLES.md",
+      "sha256": "52276872c0a4b5081da20a94a2a1d2214adc80ee337a764d63a87163df1efe57",
+      "bytes": 11462
+    },
+    {
+      "path": "evidence/131601ad1913788a-TABLES.csv",
+      "sha256": "131601ad1913788a8ac6eab6c8d5065a0f620a20f054aca2d386b2d538644f34",
+      "bytes": 39158
+    },
+    {
+      "path": "evidence/2edecc3c851d8306-METHOD.md",
+      "sha256": "2edecc3c851d83065ee36f90b4a2c4995a00e4003a759d30f82c811459100347",
+      "bytes": 9270
+    },
+    {
+      "path": "evidence/23377b822a4303a6-NFI.json",
+      "sha256": "23377b822a4303a65696deab8f22b3b1b0d8fe02f50bae42ed14f9039c389247",
+      "bytes": 6492
+    },
+    {
+      "path": "evidence/88edc7a5112d3baf-INPUTS.json",
+      "sha256": "88edc7a5112d3bafee1398a2a3ed55e451ca038d071fac24432d4f8893919392",
+      "bytes": 3174
+    },
+    {
+      "path": "evidence/bea5b7d87b318bfa-INPUT-PINS.json",
+      "sha256": "bea5b7d87b318bfa77f54516938c73b7dd7da0bad18dccd6cbe4996504205cc1",
+      "bytes": 22114
+    },
+    {
+      "path": "evidence/c281e7ac7f3f4d0e-VERIFICATION.json",
+      "sha256": "c281e7ac7f3f4d0e9bd161766c56b344e2c0f8461f4543cba47da5cdb4b80bed",
+      "bytes": 588707
+    },
+    {
+      "path": "evidence/39e1a539bb73b6ae-SENSITIVITIES.md",
+      "sha256": "39e1a539bb73b6ae1fee2eea3299cb3fa0a705b0f089a4b251ed0b54eb8879f8",
+      "bytes": 3606
+    },
+    {
+      "path": "evidence/671a29f40d1432e4-SENSITIVITIES.json",
+      "sha256": "671a29f40d1432e4f3a01891954db12901def7e2e49496ff9575514054431c89",
+      "bytes": 951419
+    },
+    {
+      "path": "evidence/2ab3d4c0af52831c-SCAN.json",
+      "sha256": "2ab3d4c0af52831c21e0a8f27082be872d0ed395ff5fb74b75a1b37dbcd7f680",
+      "bytes": 511340
+    },
+    {
+      "path": "evidence/df322645dc6ed532-SEED-SCAN.json",
+      "sha256": "df322645dc6ed532d470fea1d5f050415245fb505702812875f43054a2a20599",
+      "bytes": 458646
+    },
+    {
+      "path": "evidence/a30d8cdb4554e1f3-COMPARISON.svg",
+      "sha256": "a30d8cdb4554e1f3a59b91af700cecfbe8cb42673a99c44297cfa51a496ebfde",
+      "bytes": 32605
+    },
+    {
+      "path": "unpublished-local-ref:38678351e76e9061",
+      "sha256": "dce6e9a28847c722e59c0e7d5eebdc2d0b500abaca01aa85a18b2ff5a324a5d0",
+      "bytes": 90310
+    },
+    {
+      "path": "evidence/dcd76eb75466282b-scan.py",
+      "sha256": "dcd76eb75466282b9ca9f86260d593f5bf5e1bd149a1cbbc58638617f8763a85",
+      "bytes": 14370
+    },
+    {
+      "path": "evidence/ebaee47004fe2734-sensitivities.py",
+      "sha256": "ebaee47004fe2734cf647171b8dcb1e18ecd49e51947f94808143f4121d5e5c2",
+      "bytes": 4523
+    },
+    {
+      "path": "evidence/427f25172f5f8216-verify.py",
+      "sha256": "427f25172f5f8216328cd4f0f1e653ca2e74e0f69379225420cc2b9d9b83d88f",
+      "bytes": 12517
+    },
+    {
+      "path": "evidence/6c58f26de85d19fa-assemble.py",
+      "sha256": "6c58f26de85d19fa00e79216165ae3ee639812648697032470b27fac87fc9f03",
+      "bytes": 36655
+    },
+    {
+      "path": "evidence/a424593f0771e957-MANIFEST.json",
+      "sha256": "a424593f0771e9578b2cbe18e5961de58c5c264f02a0005c701c1da16ed6542a",
+      "bytes": 24555
+    }
+  ],
+  "ingested": "2026-10-20T02:18:41-07:00"
+}

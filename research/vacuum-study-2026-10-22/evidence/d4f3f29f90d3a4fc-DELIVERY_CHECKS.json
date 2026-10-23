@@ -1,0 +1,270 @@
+{
+  "schema": 1,
+  "checked_at": "2026-10-20T02:14:17-07:00",
+  "passed_with_preserved_upstream_format_exception": true,
+  "new_calculation_JSON_all_strict": true,
+  "strict_JSON_files_checked": [
+    "INPUTS.json",
+    "NFI.json",
+    "PRIOR_CHECK_PINS.json",
+    "RESULTS.json",
+    "RUN.json",
+    "SOURCE_CATALOG.json",
+    "UPSTREAM_PINS.json",
+    "VALIDATION.json",
+    "sources/additional-source-pins.json",
+    "sources/edwards-e2m28-observation.json",
+    "sources/equipment-source-pins.json",
+    "sources/leybold-observation.json",
+    "sources/nasa-outgassing-5056.json",
+    "sources/nasa-outgassing-af163.json",
+    "sources/nasa-outgassing-ea9394.json",
+    "sources/nasa-outgassing-graphite-epoxy.json",
+    "sources/nasa-outgassing-kapton-film.json",
+    "sources/nasa-outgassing-kapton-hn.json",
+    "sources/nasa-outgassing-kapton.json",
+    "sources/nasa-outgassing-mylar.json",
+    "sources/nasa-outgassing-zylon.json",
+    "sources/nasa-query-sources.json",
+    "sources/nasa-rp1124-source.json",
+    "upstream/019/INPUTS.json",
+    "upstream/019/NFI.json",
+    "upstream/019/RESULTS.json",
+    "upstream/019/report.json",
+    "upstream/021b/INPUTS.json",
+    "upstream/021b/NFI.json",
+    "upstream/021b/report.json",
+    "upstream/022-base/INPUTS.json",
+    "upstream/022-base/report.json",
+    "upstream/022c/SAG.json",
+    "upstream/022c/report.json",
+    "upstream/023-corrected/INPUTS.json",
+    "upstream/023-corrected/report.json",
+    "upstream/024-check/INPUTS.json",
+    "upstream/024-check/RESULTS.json",
+    "upstream/028/INPUTS.json",
+    "upstream/028/MANIFEST.json",
+    "upstream/028/NFI.json",
+    "upstream/028/RESULTS.json",
+    "upstream/028/report.json"
+  ],
+  "frozen_upstream_exceptions": [
+    {
+      "file": "upstream/021b/RESULTS.json",
+      "location": "$.families.aramid.point.usage.O1_gamma",
+      "token": "Infinity",
+      "disposition": "Frozen upstream record retained byte-for-byte; aramid result is outside this Be/SiC vacuum calculation. New calculation outputs are strict JSON."
+    }
+  ],
+  "local_links": [
+    {
+      "document": "CARD.md",
+      "target": "sources/kapton-summary-fralock.pdf",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "sources/barrier-flex-pack-films-2001.pdf",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "sources/zylon-hp-fiber-data.pdf",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "METHOD.md",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "RESULTS.json",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "pressure-and-inventory.png",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "sources/basf-sorbead-air.pdf",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "sources/saes-nextorr-2017.pdf",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "sources/knf-n920.pdf",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "sources/edwards-e2m28-observation.json",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "sources/mylar-physical-thermal.pdf",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "INPUTS.json",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "SOURCE_CATALOG.json",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "UPSTREAM_PINS.json",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "PRIOR_CHECK_PINS.json",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "VALIDATION.json",
+      "pass": true
+    },
+    {
+      "document": "CARD.md",
+      "target": "NFI.json",
+      "pass": true
+    }
+  ],
+  "catalog_sources": [
+    {
+      "path": "sources/nasa-outgassing-af163.json",
+      "sha256": "edfec9865dd166628cfb0f4f8f0d6d0aeedf034fd49f6ec715a36e0e820e31ef",
+      "bytes": 926,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-kapton.json",
+      "sha256": "65f63165733ce9a3a4856565e5ca7a8d35cd3e60681d20d7fb61fa8ad6be77eb",
+      "bytes": 15214,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-5056.json",
+      "sha256": "eb77279c4bb32bda6d2f8ee5e31156146c491e916a0918edbf49d0d114759c8d",
+      "bytes": 300,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-zylon.json",
+      "sha256": "eb77279c4bb32bda6d2f8ee5e31156146c491e916a0918edbf49d0d114759c8d",
+      "bytes": 300,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-mylar.json",
+      "sha256": "d27278e95ec9dc84cc37a24ced41c85d6623ba9fc098656baf5b49c7701e36ba",
+      "bytes": 11099,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-kapton-hn.json",
+      "sha256": "7db432657abfb42b48129b2048b304e4f42800d015ef4573a332936f44cfc01b",
+      "bytes": 1198,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-kapton-film.json",
+      "sha256": "fc8efeef48f1b5058c99af096b810f7782b374bb2fe2afd55c3ed3e94904c87b",
+      "bytes": 2910,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-graphite-epoxy.json",
+      "sha256": "568647373f2870caf36cafe3799a8a996c8b6f84a70df5706770541099db6b8b",
+      "bytes": 3849,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-ea9394.json",
+      "sha256": "57e945915dc7d1c348beb6eb181b8ba6a833cda1fcf5456877f79a7c1c3eecc9",
+      "bytes": 2747,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/knf-n920.pdf",
+      "sha256": "66bd4f98a2b0028f5fdd482c95c491458a9e4335715f17b3cb8059a93ff22321",
+      "bytes": 528512,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/saes-nextorr-2017.pdf",
+      "sha256": "bd5dd59c6f9060f2172ba8ae5d93e61f4d3e39fdf1b9412cb99343983c7aa3f0",
+      "bytes": 2882234,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/basf-sorbead-air.pdf",
+      "sha256": "980eecdfb12c041b08c8ee8489c076430d0fe6b8e7ba6ca59648f56afc5ef8d2",
+      "bytes": 523797,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/mylar-physical-thermal.pdf",
+      "sha256": "f7fd683be3b5636b565cc8aff57da8d72eb571f273e89ed00ceeca0ca58bdbb0",
+      "bytes": 42065,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/nasa-outgassing-guide.html",
+      "sha256": "8d751100fcfd20e7fb4b8806c42c8a8de8204aa990a4d27994ffae26500d5f1f",
+      "bytes": 300984,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/saes-neg.html",
+      "sha256": "5a5cbca4b450fd4222d0f9abc40c59510a83365d953df3e497330567e69761d2",
+      "bytes": 91938,
+      "matches_catalog": true,
+      "observation_not_downloaded_PDF": false
+    },
+    {
+      "path": "sources/edwards-e2m28-observation.json",
+      "sha256": "f7509bf47cc285c476670b2f8304e7b86fcd17f6c72818b8785f66b519e15305",
+      "bytes": 971,
+      "matches_catalog": null,
+      "observation_not_downloaded_PDF": true
+    },
+    {
+      "path": "sources/leybold-observation.json",
+      "sha256": "4b91aeb150e0712db0cc3f955a9fcc8a43bd391b6b4d96175c02a2afc6aeb07b",
+      "bytes": 504,
+      "matches_catalog": null,
+      "observation_not_downloaded_PDF": true
+    }
+  ],
+  "numerical_checks_passed": 36,
+  "open_nonblocking_NFI": 17,
+  "scope": "Packaging and provenance verification; no repeat of the numerical calculation."
+}

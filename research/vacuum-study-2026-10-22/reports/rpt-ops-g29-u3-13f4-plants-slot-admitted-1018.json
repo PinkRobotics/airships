@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ops-g29-u3-13f4-plants-slot-admitted-1018",
+  "unit": "vacuum-u3-13f4-fullplants-1018",
+  "at": "2026-10-18T04:48:30-07:00",
+  "body": "ADMITTED: one exclusive host full-plants slot for ref-741b462e28e96fb5cf31, unit vacuum-u3-13f4-fullplants-1018, source 13f4b15f7c7f0720f84516d866ffd6595d3f3eff (tree 0d82ce5d), CO Route 1: make floatplants, 4 workers, timeout 1800, job cap 7200 s. RESOURCES: CPUQuota 3200% (cpu.max 3200000/100000), MemoryMax 10 GiB, MemorySwapMax 0, TasksMax 1024, no GPU. WINDOW: opens when this report is admitted; latest start 06:30:00 PDT; expires 08:50:00 PDT, so any start by 06:30:00 keeps at least 8400 s for the whole unit. No start after 06:30:00 or after release. MEASURED 04:47:43, read-only (capacity.txt): 32 logical CPUs online, none isolated; user-manager and shell affinity 0-31; cpu.max unlimited through user@1000; the user manager delegates cpu, memory and pids but no cpuset, so 32 is a quota ceiling over the whole host, not dedicated cores. Load 8.2 of 32, CPU PSI 0. MemAvailable 62.8 GB, memory PSI near 0. Disk 1.43 TB free. EXCLUSIVE: no plants process or plants/fp/u3 unit is live, no reservation is on record, Engineering's fingerprint is landed (LAND 97) and c3de retired, and no other full-plants order is open. Ops allocates no other full-plants slot until release or expiry. SHARED, NOT RESERVED: helm-backup has been running since 03:33:54 (past runs 1.5-3.2 h, mostly I/O), plus two vLLM engines. Measure actual controls before launch; release by your terminal report cc Operations.",
+  "artifacts": [
+    {
+      "path": "evidence/5faac878f21da347-NOTE.md",
+      "sha256": "5faac878f21da3476deba3231dbb878f4ad7bfa3da81f7d2b69003d07cdbd4f0",
+      "bytes": 2813
+    },
+    {
+      "path": "unpublished-local-ref:5ce3c5441ec16afd",
+      "sha256": "639e1cba06142f6a70a84eb5edce4adca37d875062fba0efbdfd5ed0cdbcbfd8",
+      "bytes": 4811
+    },
+    {
+      "path": "unpublished-local-ref:57c354c60a94a738",
+      "sha256": "06e614153d39cf4f9d3f8df9db3a27f83647c9ddcb9c9f287742a4f84c368f2d",
+      "bytes": 2064
+    },
+    {
+      "path": "unpublished-local-ref:46708e4b29dff0ee",
+      "sha256": "de5be285ccf4913d91567cf5ee03e19b2129d8bc59a826b0c6e8191068ea628b",
+      "bytes": 230
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-ops-u3-13f4-exclusive-plants-slot-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-sciences-g1-ops-u3-13f4-exclusive-plants-slot-1018",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

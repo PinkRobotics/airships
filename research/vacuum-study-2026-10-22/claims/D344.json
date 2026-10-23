@@ -1,0 +1,83 @@
+{
+  "id": "D344",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D344",
+    "report": "rpt-ref-9a9a131b4ca724b68cc2",
+    "file": "evidence/8df81646550a6f8e-NFI.json",
+    "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+    "source_sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+    "source_json_pointer": "/inherited_CHECK040/items/5",
+    "row_id": "NFI-CHECK040-RESIDUAL-GLOBAL-CRIMP",
+    "fields": {
+      "id": "NFI-CHECK040-RESIDUAL-GLOBAL-CRIMP",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "The primary screen excludes balanced cure compression from global buckling and crimping. Including it reduces payload; small four-axis floats need particular attention.",
+      "grounding": "Demonstrate the balanced residual stress field and its effect on global and local eigenmodes, including geometric imperfections; retain the computed sensitivity meanwhile.",
+      "evidence": "MODEL-DEPENDENCE.json; MARGINAL-MODELS.json",
+      "blocking": false,
+      "exact": {
+        "R15_optimistic_actual_all4_owner_kg": 15.913789827678556,
+        "include_cure_global_all4_kg": -1.8211655983395758
+      }
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/inherited_CHECK040/items",
+    "blocks_progress": false
+  },
+  "claim": "The primary screen excludes balanced cure compression from global buckling and crimping. Including it reduces payload; small four-axis floats need particular attention.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1304"
+    },
+    {
+      "report": "rpt-ref-9a9a131b4ca724b68cc2",
+      "artifact": "evidence/8df81646550a6f8e-NFI.json",
+      "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+      "sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+      "bytes": 52773,
+      "selector": "/inherited_CHECK040/items/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-9a9a131b4ca724b68cc2",
+          "artifact": "evidence/8df81646550a6f8e-NFI.json",
+          "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+          "sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+          "bytes": 52773,
+          "selector": "/inherited_CHECK040/items/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1304"
+          }
+        ]
+      }
+    }
+  ]
+}

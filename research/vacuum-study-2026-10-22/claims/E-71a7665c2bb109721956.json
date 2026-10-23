@@ -1,0 +1,39 @@
+{
+  "id": "E-71a7665c2bb109721956",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-71a7665c2bb109721956",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/owner_findings_unchanged/rows/1",
+    "row_id": "NFI052-02",
+    "fields": {
+      "id": "NFI052-02",
+      "title": "Linear frame and local shell interaction",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Constant-g/R scaling retains checked linear fields. The 0.2 eigen knockdown and local peak substitution do not qualify imperfections or nonlinear collapse.",
+      "proposed_fix": "Validate joints, geometric imperfections and coupled local/global behavior for the final resized sections."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Constant-g/R scaling retains checked linear fields. The 0.2 eigen knockdown and local peak substitution do not qualify imperfections or nonlinear collapse. | Linear frame and local shell interaction",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/owner_findings_unchanged/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

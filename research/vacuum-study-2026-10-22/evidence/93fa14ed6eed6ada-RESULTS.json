@@ -1,0 +1,4798 @@
+{
+  "schema": 1,
+  "check_of": "MAINLINE-020",
+  "card_report": "rpt-ref-3e02218a03708a878faa",
+  "owner": "ref-2b226fa1c9f1bf550d9b",
+  "checker": "ref-4189c1615990eb515921",
+  "order": "ord-admiral-rr2-check020-opus-65d1-1020",
+  "unit": "vacuum-mainline020-check-1020",
+  "status": "CHECK",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "method": "Own arithmetic from the pinned inputs (check020.py). The owner's calculate.py was read for its formulas and never imported or run. Source values re-read from the owner's pinned PDFs with pdftotext.",
+  "summary": {
+    "card_numbers_compared": 80,
+    "card_mismatches": 0,
+    "card_numbers_not_found_verbatim": [],
+    "results_values_compared": 395,
+    "results_mismatches": 0,
+    "results_max_rel_diff": 5.395683899678261e-12,
+    "pins_checked": 48,
+    "pins_failed": [],
+    "intake_checks": 56,
+    "intake_failed": [],
+    "sources_checked": 33,
+    "sources_not_found": [],
+    "echoes_failed": [],
+    "untagged": [
+      "INPUTS joint_scenarios: optimistic_bonded_splice",
+      "INPUTS joint_scenarios: conservative_bonded_splice",
+      "INPUTS procurement_scenarios: optimistic_budget",
+      "INPUTS procurement_scenarios: conservative_budget"
+    ],
+    "sections_without_source_link": [],
+    "INPUTS_sources_without_url": [],
+    "pin_counts": {
+      "report artifact": 12,
+      "owner input pin": 34,
+      "brief": 2
+    },
+    "formulas": "METHOD.md equations are those in calculate.py; mine were written independently (q by Cardano, wrinkling as q*0.33*sqrt(E*Ec*tf/d)) and agree."
+  },
+  "mismatches": [],
+  "card_comparisons": [
+    {
+      "row": "Header",
+      "field": "face thickness, mm",
+      "card": "0.75243",
+      "mine": 0.752430055433027,
+      "mine_at_card_precision": "0.75243",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "core thickness, mm",
+      "card": "20.6423",
+      "mine": 20.642305866854553,
+      "mine_at_card_precision": "20.6423",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "face mass, kg",
+      "card": "3,498.47",
+      "mine": 3498.4665270430664,
+      "mine_at_card_precision": "3,498.47",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "total mass, kg",
+      "card": "4,644.97",
+      "mine": 4644.970042677613,
+      "mine_at_card_precision": "4,644.97",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "payload, kg",
+      "card": "244.47",
+      "mine": 244.47210750934846,
+      "mine_at_card_precision": "244.47",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "lift, kg",
+      "card": "4,889.44",
+      "mine": 4889.442150186961,
+      "mine_at_card_precision": "4,889.44",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "least SF",
+      "card": "0.650412",
+      "mine": 0.6504118436805659,
+      "mine_at_card_precision": "0.650412",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "capacity shortfall, %",
+      "card": "34.96",
+      "mine": 34.95881563194341,
+      "mine_at_card_precision": "34.96",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Header",
+      "field": "capacity factor to SF 1",
+      "card": "1.5375",
+      "mine": 1.5374873777531115,
+      "mine_at_card_precision": "1.5375",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Supply",
+      "field": "2,100 kg share of 2024 output, %",
+      "card": "0.485",
+      "mine": 0.48498845265588914,
+      "mine_at_card_precision": "0.485",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Supply",
+      "field": "2,100 kg share of 2025 output, %",
+      "card": "0.488",
+      "mine": 0.4883720930232558,
+      "mine_at_card_precision": "0.488",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Supply",
+      "field": "face share of 2024 output, %",
+      "card": "0.808",
+      "mine": 0.8079599369614472,
+      "mine_at_card_precision": "0.808",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Supply",
+      "field": "face share of 2025 output, %",
+      "card": "0.814",
+      "mine": 0.8135968667542015,
+      "mine_at_card_precision": "0.814",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Price",
+      "field": "S-200F optimistic, $/kg (3 x USGS)",
+      "card": "4,800",
+      "mine": 4800,
+      "mine_at_card_precision": "4,800",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Price",
+      "field": "S-200F conservative, $/kg (6 x USGS)",
+      "card": "9,600",
+      "mine": 9600,
+      "mine_at_card_precision": "9,600",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Price",
+      "field": "sheet optimistic, $/kg (6 x USGS)",
+      "card": "9,600",
+      "mine": 9600,
+      "mine_at_card_precision": "9,600",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Price",
+      "field": "sheet conservative, $/kg (15 x USGS)",
+      "card": "24,000",
+      "mine": 24000,
+      "mine_at_card_precision": "24,000",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Cost",
+      "field": "actual faces, sheet stock at 85% yield, $m",
+      "card": "39.51",
+      "mine": 39.51209254072168,
+      "mine_at_card_precision": "39.51",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Cost",
+      "field": "actual faces, sheet stock at 50% yield, $m",
+      "card": "167.93",
+      "mine": 167.92639329806718,
+      "mine_at_card_precision": "167.93",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Cost",
+      "field": "2,100 kg, sheet stock at 85% yield, $m",
+      "card": "23.72",
+      "mine": 23.71764705882353,
+      "mine_at_card_precision": "23.72",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "1 Cost",
+      "field": "2,100 kg, sheet stock at 50% yield, $m",
+      "card": "100.80",
+      "mine": 100.8,
+      "mine_at_card_precision": "100.80",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Sheet",
+      "field": "maximum stock width, mm (24 in)",
+      "card": "609.6",
+      "mine": 609.5999999999999,
+      "mine_at_card_precision": "609.6",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Sheet",
+      "field": "maximum stock length, mm (72 in)",
+      "card": "1,828.8",
+      "mine": 1828.8,
+      "mine_at_card_precision": "1,828.8",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Sheet",
+      "field": "small planning panel width, mm (12 in)",
+      "card": "304.8",
+      "mine": 304.79999999999995,
+      "mine_at_card_precision": "304.8",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Panels",
+      "field": "panels per skin, large",
+      "card": "1,128",
+      "mine": 1128,
+      "mine_at_card_precision": "1,128",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Panels",
+      "field": "panels per skin, small",
+      "card": "6,764",
+      "mine": 6764,
+      "mine_at_card_precision": "6,764",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Panels",
+      "field": "edge joints per skin, large",
+      "card": "2,256",
+      "mine": 2256,
+      "mine_at_card_precision": "2,256",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Panels",
+      "field": "edge joints per skin, small",
+      "card": "13,528",
+      "mine": 13528,
+      "mine_at_card_precision": "13,528",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Seams",
+      "field": "coincident hull seam, large, km",
+      "card": "2.749",
+      "mine": 2.7485500031406764,
+      "mine_at_card_precision": "2.749",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Seams",
+      "field": "coincident hull seam, small, km",
+      "card": "6.184",
+      "mine": 6.184237507066521,
+      "mine_at_card_precision": "6.184",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Shape",
+      "field": "flat-panel corner sag, large, mm",
+      "card": "46.56",
+      "mine": 46.559911266859544,
+      "mine_at_card_precision": "46.56",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Shape",
+      "field": "flat-panel corner sag, small, mm",
+      "card": "5.81",
+      "mine": 5.808126716797091,
+      "mine_at_card_precision": "5.81",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Flatness",
+      "field": "Type 3, mm per foot (0.030 in)",
+      "card": "0.762",
+      "mine": 0.762,
+      "mine_at_card_precision": "0.762",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Gauge",
+      "field": "thickness tolerance, mm (0.004 in)",
+      "card": "0.1016",
+      "mine": 0.10160000000000001,
+      "mine_at_card_precision": "0.1016",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Gauge",
+      "field": "least SF at local low gauge",
+      "card": "0.52323",
+      "mine": 0.5232294307341869,
+      "mine_at_card_precision": "0.52323",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "2 Gauge",
+      "field": "face mass added at uniform high gauge, kg",
+      "card": "472.40",
+      "mine": 472.3950041349899,
+      "mine_at_card_precision": "472.40",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "least SF at eta 0.90",
+      "card": "0.65041",
+      "mine": 0.6504118436805659,
+      "mine_at_card_precision": "0.65041",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "least SF at eta 0.60",
+      "card": "0.53535",
+      "mine": 0.5353509405721423,
+      "mine_at_card_precision": "0.53535",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "seam mass, optimistic splice, kg per hull-seam m",
+      "card": "0.218",
+      "mine": 0.21832274825065098,
+      "mine_at_card_precision": "0.218",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "seam mass, conservative splice, kg per hull-seam m",
+      "card": "0.483",
+      "mine": 0.48279897548325995,
+      "mine_at_card_precision": "0.483",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "face/core film at 0.030 lb/ft2, kg",
+      "card": "368.13",
+      "mine": 368.1263710594745,
+      "mine_at_card_precision": "368.13",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "face/core film at 0.060 lb/ft2, kg",
+      "card": "736.25",
+      "mine": 736.252742118949,
+      "mine_at_card_precision": "736.25",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "large-panel optimistic joining total, kg",
+      "card": "968.20",
+      "mine": 968.1973614494823,
+      "mine_at_card_precision": "968.20",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "small-panel conservative joining total, kg",
+      "card": "3,722.00",
+      "mine": 3721.9962746758147,
+      "mine_at_card_precision": "3,722.00",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "inherited 5% joint allowance, kg",
+      "card": "216.43",
+      "mine": 216.4271448894101,
+      "mine_at_card_precision": "216.43",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "payload, large-panel optimistic, kg",
+      "card": "−507.30",
+      "mine": -507.2981090507228,
+      "mine_at_card_precision": "-507.30",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Joining",
+      "field": "payload, small-panel conservative, kg",
+      "card": "−3,261.10",
+      "mine": -3261.0970222770557,
+      "mine_at_card_precision": "-3,261.10",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Braze",
+      "field": "filler, optimistic, kg per hull-seam m",
+      "card": "0.0054",
+      "mine": 0.005399999999999999,
+      "mine_at_card_precision": "0.0054",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "3 Braze",
+      "field": "filler, conservative, kg per hull-seam m",
+      "card": "0.020",
+      "mine": 0.02,
+      "mine_at_card_precision": "0.020",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "4 Mechanical",
+      "field": "least SF at E 290 GPa (wrinkling)",
+      "card": "0.63631",
+      "mine": 0.6363083913759237,
+      "mine_at_card_precision": "0.63631",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "4 Mechanical",
+      "field": "least SF at 0.8 E and 0.7 x 241 MPa",
+      "card": "0.53188",
+      "mine": 0.5318828249382828,
+      "mine_at_card_precision": "0.53188",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "4 Thermal",
+      "field": "peak shear, 5 ppm/K x 30 K, MPa",
+      "card": "0.0577",
+      "mine": 0.05770430820956852,
+      "mine_at_card_precision": "0.0577",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "4 Thermal",
+      "field": "peak shear, 20 ppm/K x 60 K, MPa",
+      "card": "0.4616",
+      "mine": 0.46163446567654814,
+      "mine_at_card_precision": "0.4616",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "4 Fatigue",
+      "field": "daily cycles in 30 years (ceiling of 30 x 365.25)",
+      "card": "10,958",
+      "mine": 10958,
+      "mine_at_card_precision": "10,958",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "4 Fatigue",
+      "field": "membrane compressive demand, MPa",
+      "card": "317",
+      "mine": 317.1751222077441,
+      "mine_at_card_precision": "317",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "K13D2U at its published 014b design, SF",
+      "card": "0.65193",
+      "mine": 0.651932173894196,
+      "mine_at_card_precision": "0.65193",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "Be at its published 014b design, SF",
+      "card": "0.68534",
+      "mine": 0.6853382311714526,
+      "mine_at_card_precision": "0.68534",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "K13D2U loss against 014b Be, absolute",
+      "card": "0.03341",
+      "mine": 0.03340605727725665,
+      "mine_at_card_precision": "0.03341",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "K13D2U loss against 014b Be, %",
+      "card": "4.87",
+      "mine": 4.874389864425844,
+      "mine_at_card_precision": "4.87",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "M55J at its published design, SF",
+      "card": "0.59349",
+      "mine": 0.5934943829166591,
+      "mine_at_card_precision": "0.59349",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "M55J loss, %",
+      "card": "13.40",
+      "mine": 13.401243951881147,
+      "mine_at_card_precision": "13.40",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "AlBeMet at its published design, SF",
+      "card": "0.55399",
+      "mine": 0.5539944205084243,
+      "mine_at_card_precision": "0.55399",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "AlBeMet loss, %",
+      "card": "19.16",
+      "mine": 19.164815953506874,
+      "mine_at_card_precision": "19.16",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "K13D2U at the 009c5 geometry, SF",
+      "card": "0.54147",
+      "mine": 0.5414748616333155,
+      "mine_at_card_precision": "0.54147",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "K13D2U at the 009c5 geometry, loss %",
+      "card": "16.75",
+      "mine": 16.74892348681649,
+      "mine_at_card_precision": "16.75",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "K13D2U at the 009c5 geometry, payload kg",
+      "card": "443.03",
+      "mine": 443.0337212063869,
+      "mine_at_card_precision": "443.03",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "6 Fallback",
+      "field": "K13D2U published design resized to the 5% budget, SF",
+      "card": "0.61865",
+      "mine": 0.6186549721852571,
+      "mine_at_card_precision": "0.61865",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "METHOD",
+      "field": "film at 0.030 lb/ft2, kg/m2",
+      "card": "0.14647",
+      "mine": 0.1464728290914915,
+      "mine_at_card_precision": "0.14647",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "METHOD",
+      "field": "film at 0.060 lb/ft2, kg/m2",
+      "card": "0.29295",
+      "mine": 0.292945658182983,
+      "mine_at_card_precision": "0.29295",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "METHOD",
+      "field": "film product tolerance, both interfaces, kg",
+      "card": "61.35",
+      "mine": 61.354395176579075,
+      "mine_at_card_precision": "61.35",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "METHOD",
+      "field": "0.015 lb/ft2 film, both interfaces, kg",
+      "card": "184.06",
+      "mine": 184.0631855297372,
+      "mine_at_card_precision": "184.06",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "METHOD",
+      "field": "optimistic joining over the allowance, kg",
+      "card": "751.77",
+      "mine": 751.7702165600722,
+      "mine_at_card_precision": "751.77",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "METHOD",
+      "field": "shear-lag transfer length, m",
+      "card": "0.567",
+      "mine": 0.5672142761415044,
+      "mine_at_card_precision": "0.567",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Report",
+      "field": "face mass, kg",
+      "card": "3498.47",
+      "mine": 3498.4665270430664,
+      "mine_at_card_precision": "3,498.47",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Report",
+      "field": "least SF",
+      "card": "0.650412",
+      "mine": 0.6504118436805659,
+      "mine_at_card_precision": "0.650412",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Report",
+      "field": "capacity shortfall, %",
+      "card": "34.96",
+      "mine": 34.95881563194341,
+      "mine_at_card_precision": "34.96",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Report",
+      "field": "large-panel optimistic joining total, kg",
+      "card": "968.20",
+      "mine": 968.1973614494823,
+      "mine_at_card_precision": "968.20",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Report",
+      "field": "payload, large-panel optimistic, kg",
+      "card": "-507.30",
+      "mine": -507.2981090507228,
+      "mine_at_card_precision": "-507.30",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Report",
+      "field": "K13D2U at the 009c5 geometry, SF",
+      "card": "0.54147",
+      "mine": 0.5414748616333155,
+      "mine_at_card_precision": "0.54147",
+      "printed_in_text": true,
+      "match": true
+    },
+    {
+      "row": "Report",
+      "field": "K13D2U resized to the 5% budget, SF",
+      "card": "0.61865",
+      "mine": 0.6186549721852571,
+      "mine_at_card_precision": "0.61865",
+      "printed_in_text": true,
+      "match": true
+    }
+  ],
+  "input_echoes": [
+    {
+      "card_text": "4,800/$9,600",
+      "input": "price_basis bulk multipliers",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "85%/50%",
+      "input": "procurement yields",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "60/120 mm",
+      "input": "doubler widths",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "90%/60%",
+      "input": "joint efficiencies",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "0.030/0.060 lb/ft",
+      "input": "film weights",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "0.8/0.7",
+      "input": "retention factors",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "5/20 ppm/K",
+      "input": "thermal mismatch",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "30/60 K",
+      "input": "thermal excursion",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "283 MPa",
+      "input": "inherited compression",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "241 MPa",
+      "input": "conservative proxy",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "303 GPa",
+      "input": "inherited E",
+      "in_card": true,
+      "matches_INPUTS": true
+    },
+    {
+      "card_text": "290 GPa",
+      "input": "current E",
+      "in_card": true,
+      "matches_INPUTS": true
+    }
+  ],
+  "results_comparisons": [
+    {
+      "path": "baseline.face_mass_kg",
+      "RESULTS": 3498.466527043067,
+      "mine": 3498.4665270430664,
+      "rel_diff": 1.2998476543116174e-16,
+      "ok": true
+    },
+    {
+      "path": "baseline.core_mass_kg",
+      "RESULTS": 830.076370745136,
+      "mine": 830.076370745136,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.structural_mass_kg",
+      "RESULTS": 4328.542897788203,
+      "mine": 4328.542897788202,
+      "rel_diff": 2.1011567246743966e-16,
+      "ok": true
+    },
+    {
+      "path": "baseline.joint_allowance_kg",
+      "RESULTS": 216.42714488941016,
+      "mine": 216.4271448894101,
+      "rel_diff": 2.626445905842996e-16,
+      "ok": true
+    },
+    {
+      "path": "baseline.total_kg",
+      "RESULTS": 4644.9700426776135,
+      "mine": 4644.970042677613,
+      "rel_diff": 1.95802059736998e-16,
+      "ok": true
+    },
+    {
+      "path": "baseline.payload_kg",
+      "RESULTS": 244.47210750934755,
+      "mine": 244.47210750934846,
+      "rel_diff": 3.720239135002956e-15,
+      "ok": true
+    },
+    {
+      "path": "baseline.capacity_gap_to_SF1_fraction",
+      "RESULTS": 0.3495881563194341,
+      "mine": 0.3495881563194341,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.capacity_factor_needed_for_SF1",
+      "RESULTS": 1.5374873777531115,
+      "mine": 1.5374873777531115,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.brief_mass_error_kg",
+      "RESULTS": 1398.466527043067,
+      "mine": 1398.4665270430664,
+      "rel_diff": 3.2517571360680826e-16,
+      "ok": true
+    },
+    {
+      "path": "baseline.brief_mass_understatement_percent_of_reference",
+      "RESULTS": 66.59364414490794,
+      "mine": 66.59364414490793,
+      "rel_diff": 2.1339656205446796e-16,
+      "ok": true
+    },
+    {
+      "path": "baseline.area_one_skin_m2",
+      "RESULTS": 1256.6370614359173,
+      "mine": 1256.6370614359173,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.least_SF",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.8922515676202372,
+      "mine": 0.8922515676202372,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.sfs.face_wrinkling",
+      "RESULTS": 0.650414127458835,
+      "mine": 0.650414127458835,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.sfs.intracell_dimpling",
+      "RESULTS": 52.68619800038427,
+      "mine": 52.68619800038427,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.Vc",
+      "RESULTS": 3.328884907403892,
+      "mine": 3.328884907403892,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.Kc",
+      "RESULTS": 0.3004008933369442,
+      "mine": 0.3004008933369442,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "baseline.modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[0].finished_share_percent",
+      "RESULTS": 0.48498845265588914,
+      "mine": 0.48498845265588914,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[0].purchased_stock_kg",
+      "RESULTS": 2470.5882352941176,
+      "mine": 2470.5882352941176,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[0].purchased_share_percent",
+      "RESULTS": 0.570574650183399,
+      "mine": 0.570574650183399,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[1].finished_share_percent",
+      "RESULTS": 0.8079599369614473,
+      "mine": 0.8079599369614472,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[1].purchased_stock_kg",
+      "RESULTS": 4115.842972991843,
+      "mine": 4115.8429729918425,
+      "rel_diff": 2.2097410123297495e-16,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[1].purchased_share_percent",
+      "RESULTS": 0.9505411023075852,
+      "mine": 0.950541102307585,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[2].finished_share_percent",
+      "RESULTS": 0.4883720930232558,
+      "mine": 0.4883720930232558,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[2].purchased_stock_kg",
+      "RESULTS": 4200.0,
+      "mine": 4200.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[2].purchased_share_percent",
+      "RESULTS": 0.9767441860465116,
+      "mine": 0.9767441860465116,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[3].finished_share_percent",
+      "RESULTS": 0.8135968667542016,
+      "mine": 0.8135968667542015,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[3].purchased_stock_kg",
+      "RESULTS": 6996.933054086134,
+      "mine": 6996.933054086133,
+      "rel_diff": 1.2998476543116174e-16,
+      "ok": true
+    },
+    {
+      "path": "annual_supply[3].purchased_share_percent",
+      "RESULTS": 1.6271937335084032,
+      "mine": 1.627193733508403,
+      "rel_diff": 1.3645861605322156e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[0].finished_mass_times_unit_price_USD",
+      "RESULTS": 10080000.0,
+      "mine": 10080000.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[0].purchased_stock_cost_USD",
+      "RESULTS": 11858823.529411765,
+      "mine": 11858823.529411765,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[1].finished_mass_times_unit_price_USD",
+      "RESULTS": 20160000.0,
+      "mine": 20160000.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[1].purchased_stock_cost_USD",
+      "RESULTS": 23717647.05882353,
+      "mine": 23717647.05882353,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[2].finished_mass_times_unit_price_USD",
+      "RESULTS": 16792639.329806723,
+      "mine": 16792639.32980672,
+      "rel_diff": 2.2184066633584934e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[2].purchased_stock_cost_USD",
+      "RESULTS": 19756046.27036085,
+      "mine": 19756046.270360842,
+      "rel_diff": 3.7712913277094393e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[3].finished_mass_times_unit_price_USD",
+      "RESULTS": 33585278.659613445,
+      "mine": 33585278.65961344,
+      "rel_diff": 2.2184066633584934e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[3].purchased_stock_cost_USD",
+      "RESULTS": 39512092.5407217,
+      "mine": 39512092.540721685,
+      "rel_diff": 3.7712913277094393e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[4].finished_mass_times_unit_price_USD",
+      "RESULTS": 20160000.0,
+      "mine": 20160000.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[4].purchased_stock_cost_USD",
+      "RESULTS": 40320000.0,
+      "mine": 40320000.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[5].finished_mass_times_unit_price_USD",
+      "RESULTS": 50400000.0,
+      "mine": 50400000.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[5].purchased_stock_cost_USD",
+      "RESULTS": 100800000.0,
+      "mine": 100800000.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[6].finished_mass_times_unit_price_USD",
+      "RESULTS": 33585278.659613445,
+      "mine": 33585278.65961344,
+      "rel_diff": 2.2184066633584934e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[6].purchased_stock_cost_USD",
+      "RESULTS": 67170557.31922689,
+      "mine": 67170557.31922688,
+      "rel_diff": 2.2184066633584934e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[7].finished_mass_times_unit_price_USD",
+      "RESULTS": 83963196.6490336,
+      "mine": 83963196.64903359,
+      "rel_diff": 1.7747253306867949e-16,
+      "ok": true
+    },
+    {
+      "path": "cost_scenarios[7].purchased_stock_cost_USD",
+      "RESULTS": 167926393.2980672,
+      "mine": 167926393.29806718,
+      "rel_diff": 1.7747253306867949e-16,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].panels_per_skin_area_lower_bound",
+      "RESULTS": 1128,
+      "mine": 1128,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].panel_pieces_both_skins_lower_bound",
+      "RESULTS": 2256,
+      "mine": 2256,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].mean_field_edge_joints_per_skin",
+      "RESULTS": 2256,
+      "mine": 2256,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].mean_field_edge_joints_both_skins",
+      "RESULTS": 4512,
+      "mine": 4512,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].coincident_hull_seam_m",
+      "RESULTS": 2748.5500031406764,
+      "mine": 2748.5500031406764,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].skin_seam_m_both_skins",
+      "RESULTS": 5497.100006281353,
+      "mine": 5497.100006281353,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].corner_sag_from_tangent_plane_m",
+      "RESULTS": 0.046559911266859544,
+      "mine": 0.046559911266859544,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].through_thickness_bending_strain",
+      "RESULTS": 3.762150277165135e-05,
+      "mine": 3.762150277165135e-05,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[0].double_curvature_metric_strain_scale",
+      "RESULTS": 0.0015483839999999999,
+      "mine": 0.0015483839999999999,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].panels_per_skin_area_lower_bound",
+      "RESULTS": 6764,
+      "mine": 6764,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].panel_pieces_both_skins_lower_bound",
+      "RESULTS": 13528,
+      "mine": 13528,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].mean_field_edge_joints_per_skin",
+      "RESULTS": 13528,
+      "mine": 13528,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].mean_field_edge_joints_both_skins",
+      "RESULTS": 27056,
+      "mine": 27056,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].coincident_hull_seam_m",
+      "RESULTS": 6184.237507066521,
+      "mine": 6184.237507066521,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].skin_seam_m_both_skins",
+      "RESULTS": 12368.475014133042,
+      "mine": 12368.475014133042,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].corner_sag_from_tangent_plane_m",
+      "RESULTS": 0.005808126716797091,
+      "mine": 0.005808126716797091,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].through_thickness_bending_strain",
+      "RESULTS": 3.762150277165135e-05,
+      "mine": 3.762150277165135e-05,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "panel_scenarios[1].double_curvature_metric_strain_scale",
+      "RESULTS": 0.00019354799999999998,
+      "mine": 0.00019354799999999998,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].film_kg_m2_per_interface",
+      "RESULTS": 0.1464728290914915,
+      "mine": 0.1464728290914915,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].full_area_face_core_film_kg",
+      "RESULTS": 368.1263710594745,
+      "mine": 368.1263710594745,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].kg_per_hull_seam_m",
+      "RESULTS": 0.21832274825065098,
+      "mine": 0.21832274825065098,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].seam_mass_kg",
+      "RESULTS": 600.0709903900079,
+      "mine": 600.0709903900079,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].total_joining_mass_kg",
+      "RESULTS": 968.1973614494823,
+      "mine": 968.1973614494823,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].replaces_joint_allowance_kg",
+      "RESULTS": 216.42714488941016,
+      "mine": 216.4271448894101,
+      "rel_diff": 2.626445905842996e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].additional_mass_over_allowance_kg",
+      "RESULTS": 751.7702165600722,
+      "mine": 751.7702165600722,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].total_with_replacement_joining_kg",
+      "RESULTS": 5396.740259237686,
+      "mine": 5396.740259237684,
+      "rel_diff": 3.3705335372260386e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].remaining_payload_kg",
+      "RESULTS": -507.29810905072463,
+      "mine": -507.2981090507228,
+      "rel_diff": 3.585641994506185e-15,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].payload_fraction",
+      "RESULTS": -0.1037537807930352,
+      "mine": -0.10375378079303482,
+      "rel_diff": 3.7470027081099033e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].joint_efficiency_only_SF",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].per_hull_seam_m_kg_breakdown.Be_doublers",
+      "RESULTS": 0.167039472306132,
+      "mine": 0.167039472306132,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].per_hull_seam_m_kg_breakdown.doubler_adhesive",
+      "RESULTS": 0.01757673949097898,
+      "mine": 0.01757673949097898,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].per_hull_seam_m_kg_breakdown.core_gap_paste",
+      "RESULTS": 0.022706536453540007,
+      "mine": 0.02270653645354001,
+      "rel_diff": 3.469446951953614e-18,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[0].per_hull_seam_m_kg_breakdown.sealant",
+      "RESULTS": 0.011000000000000001,
+      "mine": 0.011000000000000001,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].film_kg_m2_per_interface",
+      "RESULTS": 0.292945658182983,
+      "mine": 0.292945658182983,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].full_area_face_core_film_kg",
+      "RESULTS": 736.252742118949,
+      "mine": 736.252742118949,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].kg_per_hull_seam_m",
+      "RESULTS": 0.48279897548325995,
+      "mine": 0.48279897548325995,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].seam_mass_kg",
+      "RESULTS": 1326.9971255808296,
+      "mine": 1326.9971255808296,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].total_joining_mass_kg",
+      "RESULTS": 2063.2498676997784,
+      "mine": 2063.2498676997784,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].replaces_joint_allowance_kg",
+      "RESULTS": 216.42714488941016,
+      "mine": 216.4271448894101,
+      "rel_diff": 2.626445905842996e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].additional_mass_over_allowance_kg",
+      "RESULTS": 1846.8227228103683,
+      "mine": 1846.8227228103683,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].total_with_replacement_joining_kg",
+      "RESULTS": 6491.792765487981,
+      "mine": 6491.79276548798,
+      "rel_diff": 1.400991582183635e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].remaining_payload_kg",
+      "RESULTS": -1602.3506153010203,
+      "mine": -1602.3506153010194,
+      "rel_diff": 5.676003073784629e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].payload_fraction",
+      "RESULTS": -0.32771644823321,
+      "mine": -0.32771644823320983,
+      "rel_diff": 1.6653345369377348e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].joint_efficiency_only_SF",
+      "RESULTS": 0.5353509405721423,
+      "mine": 0.5353509405721423,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].per_hull_seam_m_kg_breakdown.Be_doublers",
+      "RESULTS": 0.334078944612264,
+      "mine": 0.334078944612264,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].per_hull_seam_m_kg_breakdown.doubler_adhesive",
+      "RESULTS": 0.07030695796391592,
+      "mine": 0.07030695796391592,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].per_hull_seam_m_kg_breakdown.core_gap_paste",
+      "RESULTS": 0.045413072907080014,
+      "mine": 0.04541307290708002,
+      "rel_diff": 6.938893903907228e-18,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[1].per_hull_seam_m_kg_breakdown.sealant",
+      "RESULTS": 0.033,
+      "mine": 0.033,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].film_kg_m2_per_interface",
+      "RESULTS": 0.1464728290914915,
+      "mine": 0.1464728290914915,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].full_area_face_core_film_kg",
+      "RESULTS": 368.1263710594745,
+      "mine": 368.1263710594745,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].kg_per_hull_seam_m",
+      "RESULTS": 0.21832274825065098,
+      "mine": 0.21832274825065098,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].seam_mass_kg",
+      "RESULTS": 1350.1597283775175,
+      "mine": 1350.1597283775175,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].total_joining_mass_kg",
+      "RESULTS": 1718.286099436992,
+      "mine": 1718.286099436992,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].replaces_joint_allowance_kg",
+      "RESULTS": 216.42714488941016,
+      "mine": 216.4271448894101,
+      "rel_diff": 2.626445905842996e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].additional_mass_over_allowance_kg",
+      "RESULTS": 1501.8589545475818,
+      "mine": 1501.8589545475818,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].total_with_replacement_joining_kg",
+      "RESULTS": 6146.828997225195,
+      "mine": 6146.828997225194,
+      "rel_diff": 1.4796160787675935e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].remaining_payload_kg",
+      "RESULTS": -1257.386847038234,
+      "mine": -1257.386847038233,
+      "rel_diff": 7.233213103153073e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].payload_fraction",
+      "RESULTS": -0.2571636617052836,
+      "mine": -0.2571636617052834,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].joint_efficiency_only_SF",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].per_hull_seam_m_kg_breakdown.Be_doublers",
+      "RESULTS": 0.167039472306132,
+      "mine": 0.167039472306132,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].per_hull_seam_m_kg_breakdown.doubler_adhesive",
+      "RESULTS": 0.01757673949097898,
+      "mine": 0.01757673949097898,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].per_hull_seam_m_kg_breakdown.core_gap_paste",
+      "RESULTS": 0.022706536453540007,
+      "mine": 0.02270653645354001,
+      "rel_diff": 3.469446951953614e-18,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[2].per_hull_seam_m_kg_breakdown.sealant",
+      "RESULTS": 0.011000000000000001,
+      "mine": 0.011000000000000001,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].film_kg_m2_per_interface",
+      "RESULTS": 0.292945658182983,
+      "mine": 0.292945658182983,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].full_area_face_core_film_kg",
+      "RESULTS": 736.252742118949,
+      "mine": 736.252742118949,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].kg_per_hull_seam_m",
+      "RESULTS": 0.48279897548325995,
+      "mine": 0.48279897548325995,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].seam_mass_kg",
+      "RESULTS": 2985.743532556866,
+      "mine": 2985.743532556866,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].total_joining_mass_kg",
+      "RESULTS": 3721.9962746758147,
+      "mine": 3721.9962746758147,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].replaces_joint_allowance_kg",
+      "RESULTS": 216.42714488941016,
+      "mine": 216.4271448894101,
+      "rel_diff": 2.626445905842996e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].additional_mass_over_allowance_kg",
+      "RESULTS": 3505.5691297864046,
+      "mine": 3505.5691297864046,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].total_with_replacement_joining_kg",
+      "RESULTS": 8150.539172464018,
+      "mine": 8150.539172464017,
+      "rel_diff": 1.1158705976723448e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].remaining_payload_kg",
+      "RESULTS": -3261.0970222770566,
+      "mine": -3261.0970222770557,
+      "rel_diff": 2.7889225483327535e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].payload_fraction",
+      "RESULTS": -0.6669670940175373,
+      "mine": -0.6669670940175371,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].joint_efficiency_only_SF",
+      "RESULTS": 0.5353509405721423,
+      "mine": 0.5353509405721423,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].per_hull_seam_m_kg_breakdown.Be_doublers",
+      "RESULTS": 0.334078944612264,
+      "mine": 0.334078944612264,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].per_hull_seam_m_kg_breakdown.doubler_adhesive",
+      "RESULTS": 0.07030695796391592,
+      "mine": 0.07030695796391592,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].per_hull_seam_m_kg_breakdown.core_gap_paste",
+      "RESULTS": 0.045413072907080014,
+      "mine": 0.04541307290708002,
+      "rel_diff": 6.938893903907228e-18,
+      "ok": true
+    },
+    {
+      "path": "joining_scenarios[3].per_hull_seam_m_kg_breakdown.sealant",
+      "RESULTS": 0.033,
+      "mine": 0.033,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[0].both_interfaces_kg",
+      "RESULTS": 184.0631855297372,
+      "mine": 184.0631855297372,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[0].mass_plus_minus_kg",
+      "RESULTS": 61.354395176579075,
+      "mine": 61.354395176579075,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[0].remaining_payload_if_only_film_replaces_5pct_joints_kg",
+      "RESULTS": 276.8360668690211,
+      "mine": 276.83606686902203,
+      "rel_diff": 3.285318679965326e-15,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[1].both_interfaces_kg",
+      "RESULTS": 368.1263710594744,
+      "mine": 368.1263710594744,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[1].mass_plus_minus_kg",
+      "RESULTS": 61.354395176579075,
+      "mine": 61.354395176579075,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[1].remaining_payload_if_only_film_replaces_5pct_joints_kg",
+      "RESULTS": 92.77288133928323,
+      "mine": 92.77288133928505,
+      "rel_diff": 1.9606908584562827e-14,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[2].both_interfaces_kg",
+      "RESULTS": 552.1895565892116,
+      "mine": 552.1895565892116,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[2].mass_plus_minus_kg",
+      "RESULTS": 61.354395176579075,
+      "mine": 61.354395176579075,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[2].remaining_payload_if_only_film_replaces_5pct_joints_kg",
+      "RESULTS": -91.29030419045375,
+      "mine": -91.29030419045284,
+      "rel_diff": 9.962664817892395e-15,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[3].both_interfaces_kg",
+      "RESULTS": 736.2527421189488,
+      "mine": 736.2527421189488,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[3].mass_plus_minus_kg",
+      "RESULTS": 61.354395176579075,
+      "mine": 61.354395176579075,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "film_only_scenarios[3].remaining_payload_if_only_film_replaces_5pct_joints_kg",
+      "RESULTS": -275.35348972019074,
+      "mine": -275.3534897201898,
+      "rel_diff": 3.3030077181776067e-15,
+      "ok": true
+    },
+    {
+      "path": "braze_scenarios[0].kg_per_hull_seam_m_filler_only",
+      "RESULTS": 0.005399999999999999,
+      "mine": 0.005399999999999999,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "braze_scenarios[0].filler_mass_large_panel_kg",
+      "RESULTS": 14.84217001695965,
+      "mine": 14.84217001695965,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "braze_scenarios[0].joint_efficiency_only_SF",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "braze_scenarios[1].kg_per_hull_seam_m_filler_only",
+      "RESULTS": 0.02,
+      "mine": 0.02,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "braze_scenarios[1].filler_mass_large_panel_kg",
+      "RESULTS": 54.97100006281353,
+      "mine": 54.97100006281353,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "braze_scenarios[1].joint_efficiency_only_SF",
+      "RESULTS": 0.5353509405721423,
+      "mine": 0.5353509405721423,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].face_mass_kg",
+      "RESULTS": 3026.071522908077,
+      "mine": 3026.0715229080765,
+      "rel_diff": 1.5027647147264006e-16,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].face_mass_change_kg",
+      "RESULTS": -472.3950041349899,
+      "mine": -472.3950041349899,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].remaining_payload_if_uniform_kg",
+      "RESULTS": 740.4868618510873,
+      "mine": 740.4868618510873,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.least_SF",
+      "RESULTS": 0.5232294307341869,
+      "mine": 0.5232294307341869,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.sfs.global_buckling",
+      "RESULTS": 0.6442491186269375,
+      "mine": 0.6442491186269375,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.sfs.core_shear_crimping",
+      "RESULTS": 0.6442491186269375,
+      "mine": 0.6442491186269375,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.7717715859719163,
+      "mine": 0.7717715859719163,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.sfs.face_wrinkling",
+      "RESULTS": 0.5232294307341869,
+      "mine": 0.5232294307341869,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.sfs.intracell_dimpling",
+      "RESULTS": 34.09582917696715,
+      "mine": 34.09582917696715,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.Vc",
+      "RESULTS": 2.893127342106048,
+      "mine": 2.893127342106048,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.Kc",
+      "RESULTS": 0.3456467281775614,
+      "mine": 0.3456467281775614,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.membrane_compression_Pa",
+      "RESULTS": 366688804.2316421,
+      "mine": 366688804.2316421,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.tf_m",
+      "RESULTS": 0.000650830055433027,
+      "mine": 0.000650830055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[0].modes_at_local_gauge.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].face_mass_kg",
+      "RESULTS": 3498.466527043067,
+      "mine": 3498.4665270430664,
+      "rel_diff": 1.2998476543116174e-16,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].face_mass_change_kg",
+      "RESULTS": 0.0,
+      "mine": 0.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].remaining_payload_if_uniform_kg",
+      "RESULTS": 244.47210750934755,
+      "mine": 244.47210750934846,
+      "rel_diff": 3.720239135002956e-15,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.least_SF",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.sfs.global_buckling",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.8922515676202372,
+      "mine": 0.8922515676202372,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.sfs.face_wrinkling",
+      "RESULTS": 0.650414127458835,
+      "mine": 0.650414127458835,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.sfs.intracell_dimpling",
+      "RESULTS": 52.68619800038427,
+      "mine": 52.68619800038427,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.Vc",
+      "RESULTS": 3.328884907403892,
+      "mine": 3.328884907403892,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.Kc",
+      "RESULTS": 0.3004008933369442,
+      "mine": 0.3004008933369442,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[1].modes_at_local_gauge.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].face_mass_kg",
+      "RESULTS": 3970.861531178057,
+      "mine": 3970.8615311780563,
+      "rel_diff": 1.1452107995101804e-16,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].face_mass_change_kg",
+      "RESULTS": 472.3950041349899,
+      "mine": 472.3950041349899,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].remaining_payload_if_uniform_kg",
+      "RESULTS": -251.54264683239126,
+      "mine": -251.54264683239126,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.least_SF",
+      "RESULTS": 0.6566039041326761,
+      "mine": 0.6566039041326761,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.sfs.global_buckling",
+      "RESULTS": 0.6566039041326761,
+      "mine": 0.6566039041326761,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.sfs.core_shear_crimping",
+      "RESULTS": 0.6566039041326761,
+      "mine": 0.6566039041326761,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 1.0127315492685578,
+      "mine": 1.0127315492685578,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.sfs.face_wrinkling",
+      "RESULTS": 0.7865032033764024,
+      "mine": 0.7865032033764023,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.sfs.intracell_dimpling",
+      "RESULTS": 77.04029188568673,
+      "mine": 77.04029188568673,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.Vc",
+      "RESULTS": 3.760523355025652,
+      "mine": 3.760523355025652,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.Kc",
+      "RESULTS": 0.26592043329915144,
+      "mine": 0.26592043329915144,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.membrane_compression_Pa",
+      "RESULTS": 279442267.0098466,
+      "mine": 279442267.0098466,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.tf_m",
+      "RESULTS": 0.000854030055433027,
+      "mine": 0.000854030055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thickness_tolerance[2].modes_at_local_gauge.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.least_SF",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.8922515676202372,
+      "mine": 0.8922515676202372,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.sfs.face_wrinkling",
+      "RESULTS": 0.650414127458835,
+      "mine": 0.650414127458835,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.sfs.intracell_dimpling",
+      "RESULTS": 52.68619800038427,
+      "mine": 52.68619800038427,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.Vc",
+      "RESULTS": 3.328884907403892,
+      "mine": 3.328884907403892,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.Kc",
+      "RESULTS": 0.3004008933369442,
+      "mine": 0.3004008933369442,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[0].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.least_SF",
+      "RESULTS": 0.6363083913759237,
+      "mine": 0.6363083913759237,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805658,
+      "mine": 0.6504118436805658,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.8922515676202372,
+      "mine": 0.8922515676202372,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.sfs.face_wrinkling",
+      "RESULTS": 0.6363083913759237,
+      "mine": 0.6363083913759237,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.sfs.intracell_dimpling",
+      "RESULTS": 45.223803966047065,
+      "mine": 45.223803966047065,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.Vc",
+      "RESULTS": 3.0172519731218532,
+      "mine": 3.0172519731218532,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.Kc",
+      "RESULTS": 0.331427407756513,
+      "mine": 0.331427407756513,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[1].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.least_SF",
+      "RESULTS": 0.6363083913759237,
+      "mine": 0.6363083913759237,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805658,
+      "mine": 0.6504118436805658,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.7598326070546896,
+      "mine": 0.7598326070546896,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.sfs.face_wrinkling",
+      "RESULTS": 0.6363083913759237,
+      "mine": 0.6363083913759237,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.sfs.intracell_dimpling",
+      "RESULTS": 45.223803966047065,
+      "mine": 45.223803966047065,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.Vc",
+      "RESULTS": 3.0172519731218532,
+      "mine": 3.0172519731218532,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.Kc",
+      "RESULTS": 0.331427407756513,
+      "mine": 0.331427407756513,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[2].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.least_SF",
+      "RESULTS": 0.5318828249382828,
+      "mine": 0.5318828249382828,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.5318828249382828,
+      "mine": 0.5318828249382828,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.sfs.face_wrinkling",
+      "RESULTS": 0.5691315271080425,
+      "mine": 0.5691315271080425,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.sfs.intracell_dimpling",
+      "RESULTS": 36.17904317283765,
+      "mine": 36.17904317283765,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.Vc",
+      "RESULTS": 2.4138015784974822,
+      "mine": 2.4138015784974822,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.Kc",
+      "RESULTS": 0.41428425969564137,
+      "mine": 0.41428425969564137,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "mechanical_sensitivities[3].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[0].shear_lag_lambda_per_m",
+      "RESULTS": 1.7630021705422085,
+      "mine": 1.7630021705422085,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[0].transfer_length_m",
+      "RESULTS": 0.5672142761415044,
+      "mine": 0.5672142761415044,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[0].long_joint_peak_shear_Pa",
+      "RESULTS": 57704.30820956852,
+      "mine": 57704.30820956852,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[0].fully_restrained_uniaxial_thermal_stress_Pa",
+      "RESULTS": 43500000.00000001,
+      "mine": 43500000.00000001,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[0].fully_restrained_biaxial_proxy_Pa",
+      "RESULTS": 47282608.69565218,
+      "mine": 47282608.69565218,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[1].shear_lag_lambda_per_m",
+      "RESULTS": 1.7630021705422085,
+      "mine": 1.7630021705422085,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[1].transfer_length_m",
+      "RESULTS": 0.5672142761415044,
+      "mine": 0.5672142761415044,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[1].long_joint_peak_shear_Pa",
+      "RESULTS": 461634.46567654813,
+      "mine": 461634.46567654813,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[1].fully_restrained_uniaxial_thermal_stress_Pa",
+      "RESULTS": 348000000.00000006,
+      "mine": 348000000.00000006,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "thermal_sensitivities[1].fully_restrained_biaxial_proxy_Pa",
+      "RESULTS": 378260869.56521744,
+      "mine": 378260869.56521744,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "daily_cycles_assumed_30_years",
+      "RESULTS": 10958,
+      "mine": 10958,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.least_SF",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.8922515676202372,
+      "mine": 0.8922515676202372,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.sfs.face_wrinkling",
+      "RESULTS": 0.650414127458835,
+      "mine": 0.650414127458835,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.sfs.intracell_dimpling",
+      "RESULTS": 52.68619800038427,
+      "mine": 52.68619800038427,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.Vc",
+      "RESULTS": 3.328884907403892,
+      "mine": 3.328884907403892,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.Kc",
+      "RESULTS": 0.3004008933369442,
+      "mine": 0.3004008933369442,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].face_mass_kg",
+      "RESULTS": 3498.466527043067,
+      "mine": 3498.4665270430664,
+      "rel_diff": 1.2998476543116174e-16,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].remaining_payload_kg",
+      "RESULTS": 244.47210750934755,
+      "mine": 244.47210750934846,
+      "rel_diff": 3.720239135002956e-15,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].SF_lost_absolute_vs_lead",
+      "RESULTS": 0.0,
+      "mine": 0.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[0].SF_lost_percent_vs_lead",
+      "RESULTS": 0.0,
+      "mine": 0.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.least_SF",
+      "RESULTS": 0.5414748616333155,
+      "mine": 0.5414748616333155,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.6936231267719158,
+      "mine": 0.6936231267719158,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.sfs.face_wrinkling",
+      "RESULTS": 0.5414748616333155,
+      "mine": 0.5414748616333155,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.sfs.intracell_dimpling",
+      "RESULTS": 36.5151867329396,
+      "mine": 36.5151867329396,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.Vc",
+      "RESULTS": 2.30714795562646,
+      "mine": 2.30714795562646,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.Kc",
+      "RESULTS": 0.43343557467187666,
+      "mine": 0.43343557467187666,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].face_mass_kg",
+      "RESULTS": 3309.360228283982,
+      "mine": 3309.360228283982,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].remaining_payload_kg",
+      "RESULTS": 443.0337212063869,
+      "mine": 443.0337212063869,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].SF_lost_absolute_vs_lead",
+      "RESULTS": 0.10893698204725044,
+      "mine": 0.10893698204725044,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[1].SF_lost_percent_vs_lead",
+      "RESULTS": 16.74892348681649,
+      "mine": 16.74892348681649,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.least_SF",
+      "RESULTS": 0.12139557149015832,
+      "mine": 0.12139557149015832,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.sfs.global_buckling",
+      "RESULTS": 0.12139557149015832,
+      "mine": 0.12139557149015832,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 1.1034913380462297,
+      "mine": 1.1034913380462297,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.sfs.face_wrinkling",
+      "RESULTS": 0.43414573195343414,
+      "mine": 0.43414573195343414,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.sfs.intracell_dimpling",
+      "RESULTS": 23.474048614032593,
+      "mine": 23.474048614032593,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.Vc",
+      "RESULTS": 1.4831665429027239,
+      "mine": 1.4831665429027239,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.Kc",
+      "RESULTS": 0.629208364274319,
+      "mine": 0.629208364274319,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.gamma",
+      "RESULTS": 0.2,
+      "mine": 0.2,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].face_mass_kg",
+      "RESULTS": 3101.3432996489887,
+      "mine": 3101.3432996489887,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].remaining_payload_kg",
+      "RESULTS": 661.45149627313,
+      "mine": 661.45149627313,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].SF_lost_absolute_vs_lead",
+      "RESULTS": 0.5290162721904076,
+      "mine": 0.5290162721904076,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[2].SF_lost_percent_vs_lead",
+      "RESULTS": 81.3355841118756,
+      "mine": 81.3355841118756,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.least_SF",
+      "RESULTS": 0.5190955503184999,
+      "mine": 0.5190955503184999,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.sfs.global_buckling",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6504118436805659,
+      "mine": 0.6504118436805659,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.6084966521226353,
+      "mine": 0.6084966521226353,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.sfs.face_wrinkling",
+      "RESULTS": 0.5190955503184999,
+      "mine": 0.5190955503184999,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.sfs.intracell_dimpling",
+      "RESULTS": 33.55919542598733,
+      "mine": 33.55919542598733,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.Vc",
+      "RESULTS": 2.1203788354090793,
+      "mine": 2.1203788354090793,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.Kc",
+      "RESULTS": 0.47161383772587623,
+      "mine": 0.47161383772587623,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.membrane_compression_Pa",
+      "RESULTS": 317175122.2077441,
+      "mine": 317175122.2077441,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.tf_m",
+      "RESULTS": 0.000752430055433027,
+      "mine": 0.000752430055433027,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].modes.core_m",
+      "RESULTS": 0.020642305866854553,
+      "mine": 0.020642305866854553,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].face_mass_kg",
+      "RESULTS": 3916.391447300644,
+      "mine": 3916.3914473006434,
+      "rel_diff": 1.161138657883386e-16,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].remaining_payload_kg",
+      "RESULTS": -194.3490587611077,
+      "mine": -194.3490587611077,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].SF_lost_absolute_vs_lead",
+      "RESULTS": 0.13131629336206607,
+      "mine": 0.13131629336206607,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "fixed_geometry_alternatives[3].SF_lost_percent_vs_lead",
+      "RESULTS": 20.189714353750134,
+      "mine": 20.189714353750134,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[0].recomputed_SF",
+      "RESULTS": 0.6853382311714526,
+      "mine": 0.6853382311714526,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[0].loss_absolute_vs_014b_Be",
+      "RESULTS": -3.697042672001771e-14,
+      "mine": 0.0,
+      "rel_diff": 3.697042672001771e-14,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[0].loss_percent_vs_014b_Be",
+      "RESULTS": -5.395683899678261e-12,
+      "mine": 0.0,
+      "rel_diff": 5.395683899678261e-12,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[1].recomputed_SF",
+      "RESULTS": 0.6519321738941961,
+      "mine": 0.651932173894196,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[1].loss_absolute_vs_014b_Be",
+      "RESULTS": 0.03340605727721957,
+      "mine": 0.03340605727725665,
+      "rel_diff": 3.708144902248023e-14,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[1].loss_percent_vs_014b_Be",
+      "RESULTS": 4.874389864420692,
+      "mine": 4.874389864425844,
+      "rel_diff": 1.0568368508758e-12,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[2].recomputed_SF",
+      "RESULTS": 0.5934943829166591,
+      "mine": 0.5934943829166591,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[2].loss_absolute_vs_014b_Be",
+      "RESULTS": 0.09184384825475655,
+      "mine": 0.09184384825479353,
+      "rel_diff": 3.697042672001771e-14,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[2].loss_percent_vs_014b_Be",
+      "RESULTS": 13.401243951876474,
+      "mine": 13.401243951881147,
+      "rel_diff": 3.487433600375599e-13,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[3].recomputed_SF",
+      "RESULTS": 0.5539944205084244,
+      "mine": 0.5539944205084243,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[3].loss_absolute_vs_014b_Be",
+      "RESULTS": 0.13134381066299128,
+      "mine": 0.13134381066302836,
+      "rel_diff": 3.708144902248023e-14,
+      "ok": true
+    },
+    {
+      "path": "published_equal_ceiling_alternatives[3].loss_percent_vs_014b_Be",
+      "RESULTS": 19.16481595350249,
+      "mine": 19.164815953506874,
+      "rel_diff": 2.287550629380087e-13,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.least_SF",
+      "RESULTS": 0.650355851913636,
+      "mine": 0.650355851913636,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.sfs.global_buckling",
+      "RESULTS": 0.650355851913636,
+      "mine": 0.650355851913636,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.650355851913636,
+      "mine": 0.650355851913636,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.8922715296846877,
+      "mine": 0.8922715296846877,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.sfs.face_wrinkling",
+      "RESULTS": 0.6504666226790277,
+      "mine": 0.6504666226790278,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.sfs.intracell_dimpling",
+      "RESULTS": 52.68973427484454,
+      "mine": 52.68973427484452,
+      "rel_diff": 4.045623377337843e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.Vc",
+      "RESULTS": 3.32894572356527,
+      "mine": 3.328945723565269,
+      "rel_diff": 2.668047164039954e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.Kc",
+      "RESULTS": 0.30039540534443115,
+      "mine": 0.30039540534443127,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.membrane_compression_Pa",
+      "RESULTS": 317168026.3069774,
+      "mine": 317168026.3069774,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.tf_m",
+      "RESULTS": 0.0007524468893146431,
+      "mine": 0.000752446889314643,
+      "rel_diff": 1.0842021724855044e-19,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].modes.core_m",
+      "RESULTS": 0.020640359449292704,
+      "mine": 0.020640359449292697,
+      "rel_diff": 6.938893903907228e-18,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[0].scale",
+      "RESULTS": 0.948956037082564,
+      "mine": 0.9489560370825638,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.least_SF",
+      "RESULTS": 0.6186549721852572,
+      "mine": 0.6186549721852571,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.sfs.global_buckling",
+      "RESULTS": 0.6189584746167545,
+      "mine": 0.6189584746167542,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.6189584746167545,
+      "mine": 0.6189584746167544,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.7432547573305047,
+      "mine": 0.7432547573305046,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.sfs.face_wrinkling",
+      "RESULTS": 0.6186549721852572,
+      "mine": 0.6186549721852571,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.sfs.intracell_dimpling",
+      "RESULTS": 44.92787978261744,
+      "mine": 44.92787978261741,
+      "rel_diff": 6.326074047545049e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.Vc",
+      "RESULTS": 2.460390452667345,
+      "mine": 2.460390452667345,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.Kc",
+      "RESULTS": 0.40643955471209275,
+      "mine": 0.40643955471209275,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.membrane_compression_Pa",
+      "RESULTS": 295995414.5334479,
+      "mine": 295995414.533448,
+      "rel_diff": 2.0137016267410858e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.tf_m",
+      "RESULTS": 0.0008062695672529819,
+      "mine": 0.0008062695672529816,
+      "rel_diff": 2.168404344971009e-19,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].modes.core_m",
+      "RESULTS": 0.019456297108003416,
+      "mine": 0.019456297108003413,
+      "rel_diff": 3.469446951953614e-18,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[1].scale",
+      "RESULTS": 0.948956037082564,
+      "mine": 0.9489560370825638,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.least_SF",
+      "RESULTS": 0.5632000776433546,
+      "mine": 0.5632000776433544,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.sfs.global_buckling",
+      "RESULTS": 0.5634249088446376,
+      "mine": 0.5634249088446375,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.5634249088446376,
+      "mine": 0.5634249088446375,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 1.1119826454908885,
+      "mine": 1.1119826454908883,
+      "rel_diff": 1.996835164878036e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.sfs.face_wrinkling",
+      "RESULTS": 0.5632000776433546,
+      "mine": 0.5632000776433544,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.sfs.core_crush",
+      "RESULTS": 18.77876766429209,
+      "mine": 18.77876766429209,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.sfs.intracell_dimpling",
+      "RESULTS": 13.724934054342109,
+      "mine": 13.724934054342102,
+      "rel_diff": 5.177021127728539e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.Vc",
+      "RESULTS": 2.3567699984137898,
+      "mine": 2.3567699984137893,
+      "rel_diff": 1.884312894974708e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.Kc",
+      "RESULTS": 0.4243095425828758,
+      "mine": 0.42430954258287584,
+      "rel_diff": 5.551115123125783e-17,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.gamma",
+      "RESULTS": 1.0,
+      "mine": 1.0,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.membrane_compression_Pa",
+      "RESULTS": 314753113.6562759,
+      "mine": 314753113.656276,
+      "rel_diff": 1.8936951594538148e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.tf_m",
+      "RESULTS": 0.0007582199648876818,
+      "mine": 0.0007582199648876816,
+      "rel_diff": 2.168404344971009e-19,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].modes.core_m",
+      "RESULTS": 0.028466659755434,
+      "mine": 0.02846665975543399,
+      "rel_diff": 6.938893903907228e-18,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[2].scale",
+      "RESULTS": 0.948956037082564,
+      "mine": 0.9489560370825638,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.least_SF",
+      "RESULTS": 0.10518914508046318,
+      "mine": 0.10518914508046318,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.sfs.global_buckling",
+      "RESULTS": 0.10518914508046318,
+      "mine": 0.10518914508046318,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.sfs.core_shear_crimping",
+      "RESULTS": 0.5260451121200311,
+      "mine": 0.5260451121200311,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.sfs.face_compression_or_joint_net_section",
+      "RESULTS": 0.5694676145252129,
+      "mine": 0.5694676145252128,
+      "rel_diff": 1.1102230246251565e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.sfs.face_wrinkling",
+      "RESULTS": 0.5257163498515259,
+      "mine": 0.5257163498515257,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.sfs.core_crush",
+      "RESULTS": 20.950999841462536,
+      "mine": 20.950999841462536,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.sfs.intracell_dimpling",
+      "RESULTS": 27.507052318239182,
+      "mine": 27.507052318239175,
+      "rel_diff": 2.583129328215799e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.Vc",
+      "RESULTS": 1.9725094977209554,
+      "mine": 1.9725094977209547,
+      "rel_diff": 3.377087996507735e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.Kc",
+      "RESULTS": 0.5068726255697611,
+      "mine": 0.5068726255697613,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.gamma",
+      "RESULTS": 0.2,
+      "mine": 0.2,
+      "rel_diff": 0.0,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.membrane_compression_Pa",
+      "RESULTS": 338913039.2619632,
+      "mine": 338913039.26196325,
+      "rel_diff": 1.758700252583647e-16,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.tf_m",
+      "RESULTS": 0.000704169114603713,
+      "mine": 0.0007041691146037128,
+      "rel_diff": 1.0842021724855044e-19,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].modes.core_m",
+      "RESULTS": 0.016496141254780213,
+      "mine": 0.01649614125478021,
+      "rel_diff": 3.469446951953614e-18,
+      "ok": true
+    },
+    {
+      "path": "resized_5pct_margin_alternatives[3].scale",
+      "RESULTS": 0.948956037082564,
+      "mine": 0.9489560370825638,
+      "rel_diff": 2.220446049250313e-16,
+      "ok": true
+    }
+  ],
+  "intake_checks": [
+    {
+      "what": "lead tf_m = 009c5 optimum tf_m",
+      "INPUTS": 0.000752430055433027,
+      "intake": 0.000752430055433027,
+      "ok": true
+    },
+    {
+      "what": "lead core_m = 009c5 optimum core_m",
+      "INPUTS": 0.020642305866854553,
+      "intake": 0.020642305866854553,
+      "ok": true
+    },
+    {
+      "what": "lead expected SF = 009c5 least_SF",
+      "INPUTS": 0.6504118436805308,
+      "intake": 0.6504118436805308,
+      "ok": true
+    },
+    {
+      "what": "lead expected faces = 009c5 masses faces",
+      "INPUTS": 3498.466527043067,
+      "intake": 3498.466527043067,
+      "ok": true
+    },
+    {
+      "what": "lead face = 009c5 face",
+      "INPUTS": "Beryllium S-200F",
+      "intake": "Beryllium S-200F",
+      "ok": true
+    },
+    {
+      "what": "lead core = 009c5 core",
+      "INPUTS": "Hexcel HRH-10-4.8-32",
+      "intake": "Hexcel HRH-10-4.8-32",
+      "ok": true
+    },
+    {
+      "what": "pressure = 014b p_ext_Pa",
+      "INPUTS": 95460.8379139,
+      "intake": 95460.83791390515,
+      "ok": true
+    },
+    {
+      "what": "lift = 014b lift_kg",
+      "INPUTS": 4889.442150186961,
+      "intake": 4889.442150186961,
+      "ok": true
+    },
+    {
+      "what": "nu = 014b nu_used_for_every_face",
+      "INPUTS": 0.33,
+      "intake": 0.33,
+      "ok": true
+    },
+    {
+      "what": "structural ceiling = 014b structural_mass_kg",
+      "INPUTS": 4561.373476368534,
+      "intake": 4561.373476368534,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-10-4.8-32 rho",
+      "INPUTS": 32.0,
+      "intake": 32.0,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-10-4.8-32 Ec_Pa",
+      "INPUTS": 76000000.0,
+      "intake": 76000000.0,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-10-4.8-32 Gc_Pa",
+      "INPUTS": 14000000.0,
+      "intake": 14000000.0,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-10-4.8-32 crush_Pa",
+      "INPUTS": 1000000.0,
+      "intake": 1000000.0,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-10-4.8-32 s_cell_m",
+      "INPUTS": 0.0048,
+      "intake": 0.0048,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-49 Kevlar 1/4-2.1 rho",
+      "INPUTS": 33.638773085316295,
+      "intake": 33.638773085316295,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-49 Kevlar 1/4-2.1 Ec_Pa",
+      "INPUTS": 172368932.329209,
+      "intake": 172368932.329209,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-49 Kevlar 1/4-2.1 Gc_Pa",
+      "INPUTS": 8963184.481118869,
+      "intake": 8963184.481118869,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-49 Kevlar 1/4-2.1 crush_Pa",
+      "INPUTS": 896318.4481118869,
+      "intake": 896318.4481118869,
+      "ok": true
+    },
+    {
+      "what": "Hexcel HRH-49 Kevlar 1/4-2.1 s_cell_m",
+      "INPUTS": 0.00635,
+      "intake": 0.00635,
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F rho",
+      "INPUTS": 1850.0,
+      "intake": 1850.0,
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F E",
+      "INPUTS": 303000000000.0,
+      "intake": 303000000000.0,
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F sigma",
+      "INPUTS": 283000000.0,
+      "intake": 283000000.0,
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F tag",
+      "INPUTS": "QUESTIONABLE",
+      "intake": "QUESTIONABLE",
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy rho",
+      "INPUTS": 1750.0,
+      "intake": 1750.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy E",
+      "INPUTS": 210000000000.0,
+      "intake": 210000000000.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy sigma",
+      "INPUTS": 220000000.0,
+      "intake": 220000000.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy tag",
+      "INPUTS": "QUESTIONABLE",
+      "intake": "QUESTIONABLE",
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy rho",
+      "INPUTS": 1640.0,
+      "intake": 1640.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy E",
+      "INPUTS": 135000000000.0,
+      "intake": 135000000000.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy sigma",
+      "INPUTS": 350000000.0,
+      "intake": 350000000.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy tag",
+      "INPUTS": "QUESTIONABLE",
+      "intake": "QUESTIONABLE",
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) rho",
+      "INPUTS": 2071.0,
+      "intake": 2071.0,
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) E",
+      "INPUTS": 193000000000.0,
+      "intake": 193000000000.0,
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) sigma",
+      "INPUTS": 193000000.0,
+      "intake": 193000000.0,
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) tag",
+      "INPUTS": "QUESTIONABLE",
+      "intake": "QUESTIONABLE",
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F: one 014b kd 0.20 row",
+      "INPUTS": 1.0,
+      "intake": 1.0,
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F 014b core name",
+      "INPUTS": "Hexcel HRH-10-4.8-32",
+      "intake": "Hexcel HRH-10-4.8-32",
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F 014b tf_m",
+      "INPUTS": 0.0007929207043436264,
+      "intake": 0.0007929207043436264,
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F 014b core_m",
+      "INPUTS": 0.021750596068442405,
+      "intake": 0.021750596068442405,
+      "ok": true
+    },
+    {
+      "what": "Beryllium S-200F 014b least_SF",
+      "INPUTS": 0.6853382311714157,
+      "intake": 0.6853382311714157,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy: one 014b kd 0.20 row",
+      "INPUTS": 1.0,
+      "intake": 1.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy 014b core name",
+      "INPUTS": "Hexcel HRH-10-4.8-32",
+      "intake": "Hexcel HRH-10-4.8-32",
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy 014b tf_m",
+      "INPUTS": 0.0008496384824440842,
+      "intake": 0.0008496384824440842,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy 014b core_m",
+      "INPUTS": 0.020502843490852483,
+      "intake": 0.020502843490852483,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic K13D2U pitch/epoxy 014b least_SF",
+      "INPUTS": 0.6519321738941608,
+      "intake": 0.6519321738941608,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy: one 014b kd 0.20 row",
+      "INPUTS": 1.0,
+      "intake": 1.0,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy 014b core name",
+      "INPUTS": "Hexcel HRH-49 Kevlar 1/4-2.1",
+      "intake": "Hexcel HRH-49 Kevlar 1/4-2.1",
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy 014b tf_m",
+      "INPUTS": 0.000799004311325871,
+      "intake": 0.000799004311325871,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy 014b core_m",
+      "INPUTS": 0.029997869914976105,
+      "intake": 0.029997869914976105,
+      "ok": true
+    },
+    {
+      "what": "CFRP quasi-isotropic M55J/epoxy 014b least_SF",
+      "INPUTS": 0.5934943829166272,
+      "intake": 0.5934943829166272,
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP): one 014b kd 0.20 row",
+      "INPUTS": 1.0,
+      "intake": 1.0,
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) 014b core name",
+      "INPUTS": "Hexcel HRH-10-4.8-32",
+      "intake": "Hexcel HRH-10-4.8-32",
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) 014b tf_m",
+      "INPUTS": 0.0007420460875812382,
+      "intake": 0.0007420460875812382,
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) 014b core_m",
+      "INPUTS": 0.017383462046877695,
+      "intake": 0.017383462046877695,
+      "ok": true
+    },
+    {
+      "what": "AlBeMet 162 (AM162, HIP) 014b least_SF",
+      "INPUTS": 0.5539944205083944,
+      "intake": 0.5539944205083944,
+      "ok": true
+    }
+  ],
+  "sources": [
+    {
+      "source": "S01 USGS",
+      "card_value": "433 t (2024, revised) and 430 t (2025e) world mine output, Be content",
+      "where": "p. 2, world mine production table",
+      "pattern": "World total \\(rounded\\) 433 430",
+      "found": true
+    },
+    {
+      "source": "S01 USGS",
+      "card_value": "data in metric tons of Be content",
+      "where": "p. 1 header",
+      "pattern": "Data in metric tons, beryllium content",
+      "found": true
+    },
+    {
+      "source": "S01 USGS",
+      "card_value": "$1,600/kg contained Be, Be-Cu master alloy, 2025e",
+      "where": "p. 1 salient table",
+      "pattern": "master alloy,5 680 660 1,400 1,500 1,600 dollars per kilogram of contained beryllium",
+      "found": true
+    },
+    {
+      "source": "S01 USGS",
+      "card_value": "master alloy Be content taken as 4%",
+      "where": "footnote 5",
+      "pattern": "beryllium content estimated to be 4%",
+      "found": true
+    },
+    {
+      "source": "S02 S-200F",
+      "card_value": "E 290 GPa typical",
+      "where": "p. 1 physical properties",
+      "pattern": "1\\.85 g/cm3 290 GPa",
+      "found": true
+    },
+    {
+      "source": "S02 S-200F",
+      "card_value": "241 MPa minimum tensile yield",
+      "where": "p. 2 mechanical properties",
+      "pattern": "Yield Strength \\(0\\.2% offset\\), MPa \\(ksi\\), min 241 \\(35\\)",
+      "found": true
+    },
+    {
+      "source": "S02 S-200F",
+      "card_value": "2% minimum elongation",
+      "where": "p. 2",
+      "pattern": "Elongation \\(% in 4 diameters\\), min 2\\.0",
+      "found": true
+    },
+    {
+      "source": "S02 S-200F",
+      "card_value": "below 6.3 mm the product is SR-200 sheet or PS-200 foil",
+      "where": "p. 2 tolerance note",
+      "pattern": "less than 6\\.3 mm \\(\\.25.{0,2}\\) thick, SR-200 sheet and PS-200 foil",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "E 290 GPa typical",
+      "where": "p. 1",
+      "pattern": "1\\.85 g/cm3 290 GPa",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "345 MPa minimum tensile yield",
+      "where": "p. 1 mechanical properties",
+      "pattern": "Yield Strength \\(0\\.2% offset\\), MPa \\(ksi\\), min 345 \\(50\\)",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "10% elongation in 1 inch",
+      "where": "p. 1",
+      "pattern": "min 10\\.0 \\(% in 1",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "+/-0.004 in for 0.025-0.034 in (0.75 mm = 0.0296 in)",
+      "where": "p. 2 thickness table",
+      "pattern": "Over 0\\.025.{0,2} to 0\\.034.{0,2} \\(0\\.63 to 0\\.86 mm\\) 0\\.004.{0,2}/0\\.004",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "flatness at 0.040 in and under: Type 1 2%, Type 3 0.030 in/ft",
+      "where": "p. 2 flatness table",
+      "pattern": "0\\.030.{0,2}/ft\\. 0\\.040 and under 2% 1% N/A \\(0\\.762/304 mm\\)",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "flatness may be measured restrained",
+      "where": "p. 2",
+      "pattern": "Flatness measurements may be made with the sheet restrained",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "24 x 72 in maximum for 0.059-0.250 in",
+      "where": "p. 3",
+      "pattern": "0\\.059.{0,2} to 0\\.250.{0,2} \\(0\\.5 to 6\\.25 mm\\) with maximum dimensions of 24.{0,2} x 72",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "0.020-0.058 in sheet at narrower widths and shorter lengths",
+      "where": "p. 3",
+      "pattern": "Sheets 0\\.020.{0,2} to 0\\.058.{0,2} thick are available at narrower widths and shorter lengths",
+      "found": true
+    },
+    {
+      "source": "S03 SR-200",
+      "card_value": "hot forming is a documented route",
+      "where": "p. 1",
+      "pattern": "as a hot-formed material",
+      "found": true
+    },
+    {
+      "source": "S05 3M AF163",
+      "card_value": "film weights +/-0.005 lb/ft2",
+      "where": "p. 1 table",
+      "pattern": "\\(± \\.005\\) Lb/ft",
+      "found": true
+    },
+    {
+      "source": "S05 3M AF163",
+      "card_value": "0.015 lb/ft2 only as unsupported 2U",
+      "where": "p. 1 table",
+      "pattern": "AF 163-2U Film 0\\.015",
+      "found": true
+    },
+    {
+      "source": "S05 3M AF163",
+      "card_value": "0.030 and 0.060 lb/ft2 products",
+      "where": "p. 1 table",
+      "pattern": "AF 163-2U Film 0\\.030 .{0,40}AF 163-2U Film 0\\.060",
+      "found": true
+    },
+    {
+      "source": "S06 NASA",
+      "card_value": "FM-1000, 4 in lap: 112.5% efficiency",
+      "where": "printed p. 17",
+      "pattern": "BL3 4\\.0 5760 Tension 1400 62,000 112\\.5",
+      "found": true
+    },
+    {
+      "source": "S06 NASA",
+      "card_value": "FM-1000, 1 in lap: 85% efficiency",
+      "where": "printed p. 17",
+      "pattern": "BL7 1\\.0 4520 Tension 4520 46,800 85",
+      "found": true
+    },
+    {
+      "source": "S06 NASA",
+      "card_value": "efficiency based on cross-rolled sheet Ftu 55 ksi",
+      "where": "printed p. 17",
+      "pattern": "Ftu = 55,000 psi for beryllium cross-rolled sheet",
+      "found": true
+    },
+    {
+      "source": "S07 IAEA",
+      "card_value": "S-200F rotating-beam R = -1: 262/266 MPa at 10^7 cycles",
+      "where": "PDF p. 63",
+      "pattern": "Fatigue life \\(107 cycles\\) is 262 MPa and 266 MPa",
+      "found": true
+    },
+    {
+      "source": "S07 IAEA",
+      "card_value": "VHP Poisson ratio 0.08 as a representative value",
+      "where": "PDF p. 44, Table 7",
+      "found": true,
+      "values": [
+        0.102,
+        0.064,
+        0.072,
+        0.102,
+        0.08,
+        0.105,
+        0.069,
+        0.071,
+        0.108,
+        0.102,
+        0.058,
+        0.066
+      ],
+      "mean": 0.08325
+    },
+    {
+      "source": "S04 Materion guide",
+      "card_value": "adhesive bonding and brazing are established",
+      "found": true,
+      "note": "adhesive bonding 'a very desirable way to join beryllium'; brazing 'the most reliable method of metallurgically joining beryllium'",
+      "where": "p. 13 (image-only PDF; read visually by the checker at 60-70 dpi)"
+    },
+    {
+      "source": "S04 Materion guide",
+      "card_value": "published average Be joint strengths",
+      "found": true,
+      "note": "lap-shear and peel table, brazed shear table",
+      "where": "p. 14 (image-only PDF; read visually by the checker at 60-70 dpi)"
+    },
+    {
+      "source": "S04 Materion guide",
+      "card_value": "cross-rolling balances SR-200 in-plane properties; SR-200 is the 0.020-0.220 in sheet grade",
+      "found": true,
+      "note": "'properties of SR-200 sheet are balanced by cross rolling'; in-plane minimum 483 MPa UTS, 345 MPa yield, 10% elongation; wrought products stronger than hot-pressed block in the working direction",
+      "where": "p. 8 (image-only PDF; read visually by the checker at 60-70 dpi)"
+    },
+    {
+      "source": "S04 Materion guide",
+      "card_value": "compression: 'typically 10% higher' than tension, yet S-200F both 'about 37 ksi (255 MPa)'",
+      "found": true,
+      "note": "the internal inconsistency METHOD.md reports",
+      "where": "p. 4 (image-only PDF; read visually by the checker at 60-70 dpi)"
+    },
+    {
+      "source": "S04 Materion guide",
+      "card_value": "E 44.0 msi (303 GPa), the inherited value",
+      "found": true,
+      "note": "the 2024 datasheets give 290 GPa",
+      "where": "p. 5 (image-only PDF; read visually by the checker at 60-70 dpi)"
+    },
+    {
+      "source": "S04 Materion guide",
+      "card_value": "machining damage 0.002-0.010 in deep; etch 0.004 in (102 um) per side",
+      "found": true,
+      "note": "not used by the card; relevant only to faces machined rather than rolled",
+      "where": "p. 11 (image-only PDF; read visually by the checker at 60-70 dpi)"
+    },
+    {
+      "source": "S08 OSHA",
+      "card_value": "0.2 ug/m3 8-h and 2.0 ug/m3 15-min",
+      "where": "no local copy (owner: HTTP 403)",
+      "found": null,
+      "note": "Agrees with the checker's knowledge of 29 CFR 1910.1024(c); not hash-verifiable."
+    },
+    {
+      "source": "S09 AlBeMet",
+      "card_value": "AM162 is 62 wt% Be",
+      "where": "no local copy (owner: HTTP 403)",
+      "found": null,
+      "note": "Agrees with the checker's knowledge of AlBeMet AM162 (Al-62Be); not hash-verifiable."
+    }
+  ],
+  "tags": [
+    {
+      "where": "CARD section 1",
+      "heading": "Supply and price — QUESTIONABLE.",
+      "tagged": true,
+      "has_source_link": true
+    },
+    {
+      "where": "CARD section 2",
+      "heading": "Sheet, shape and seams — source values QUESTIONABLE; proposed panels PROJECTION.",
+      "tagged": true,
+      "has_source_link": true
+    },
+    {
+      "where": "CARD section 3",
+      "heading": "Joining — QUESTIONABLE process evidence; PROJECTION hull joints.",
+      "tagged": true,
+      "has_source_link": true
+    },
+    {
+      "where": "CARD section 4",
+      "heading": "Mechanical properties and daily cycles — QUESTIONABLE.",
+      "tagged": true,
+      "has_source_link": true
+    },
+    {
+      "where": "CARD section 5",
+      "heading": "Toxicity as process and cost — QUESTIONABLE.",
+      "tagged": true,
+      "has_source_link": true
+    },
+    {
+      "where": "CARD section 6",
+      "heading": "Best beryllium-free fallback — QUESTIONABLE.",
+      "tagged": true,
+      "has_source_link": true
+    },
+    {
+      "where": "INPUTS case",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS lead_point",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS lead_core",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS price_basis",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS process_cost_row",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS faces: Beryllium S-200F",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS faces: CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS faces: CFRP quasi-isotropic M55J/epoxy",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS faces: AlBeMet 162 (AM162, HIP)",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS panel_scenarios: large_panel_optimistic",
+      "tag": "PROJECTION",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS panel_scenarios: small_panel_conservative",
+      "tag": "PROJECTION",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS joint_scenarios: optimistic_bonded_splice",
+      "tag": null,
+      "tagged": false
+    },
+    {
+      "where": "INPUTS joint_scenarios: conservative_bonded_splice",
+      "tag": null,
+      "tagged": false
+    },
+    {
+      "where": "INPUTS braze_scenarios: optimistic_braze_screen",
+      "tag": "PROJECTION",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS braze_scenarios: conservative_braze_screen",
+      "tag": "PROJECTION",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS procurement_scenarios: optimistic_budget",
+      "tag": null,
+      "tagged": false
+    },
+    {
+      "where": "INPUTS procurement_scenarios: conservative_budget",
+      "tag": null,
+      "tagged": false
+    },
+    {
+      "where": "INPUTS mechanical_scenarios: inherited_optimistic",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS mechanical_scenarios: current_modulus_and_VHP_nu",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS mechanical_scenarios: conservative_compression_proxy",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS mechanical_scenarios: anisotropy_postform_retention_screen",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS thermal_scenarios: optimistic_HRH10_mismatch",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "INPUTS thermal_scenarios: conservative_HRH10_mismatch",
+      "tag": "QUESTIONABLE",
+      "tagged": true
+    },
+    {
+      "where": "RESULTS annual_supply",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS cost_scenarios",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS panel_scenarios",
+      "tag": [
+        "PROJECTION"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS joining_scenarios",
+      "tag": [
+        "PROJECTION"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS film_only_scenarios",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS braze_scenarios",
+      "tag": [
+        "PROJECTION"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS thickness_tolerance",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS mechanical_sensitivities",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS thermal_sensitivities",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS fixed_geometry_alternatives",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS published_equal_ceiling_alternatives",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    },
+    {
+      "where": "RESULTS resized_5pct_margin_alternatives",
+      "tag": [
+        "QUESTIONABLE"
+      ],
+      "tagged": true
+    }
+  ],
+  "pins_verified": [
+    {
+      "pin": "report artifact",
+      "path": "evidence/6dfbbd483fbbae59-CARD.md",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/fc7be4b3d9897bf5-RESULTS.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/72e91c4df6df4236-NFI.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/030ced6d126a014f-INPUTS.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/335cb5f696391b39-calculate.py",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/e46b58ffa0e8a263-METHOD.md",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/799cb0ff0b82571e-MANIFEST.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/a8de1b02c3204604-VALIDATION.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/3f72317b471a296f-MEASUREMENTS.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/bc38c02b3c801dff-RUN.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/909f15f11015c8fd-SCOPE-ENDED.json",
+      "ok": true
+    },
+    {
+      "pin": "report artifact",
+      "path": "evidence/b7796ffbe5c5b7aa-mainline020-beryllium-reality-1019.md",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:2db5e64ae42be065",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:a741faa639977202",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:947733266266e329",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:471c6d2c72d88a25",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:2bf33c80f29563cd",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:ed6f14046ad8c14c",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:68070f0f6a6db535",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:443910f451a8de3f",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:870186cdc6f7d142",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:349a2bb3bd3aec86",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:c7af2e319595726f",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:0fe9f19508773fee",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:54d427ecc78c48b5",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:0c8c96317d6308fe",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:2491234389ca96fb",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:4efbe27dda2858f9",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:652f79dfef8e55ad",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:58969d9eb666083c",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:1a25950c0248c41e",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:0a229da7a3e5b3f4",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:207ad6872ae19b4b",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:a0b1f054f4faec96",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:1ebe5e14bce4caf1",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:c03f420f72cd6192",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:27422224478554cd",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:c6024520e59d80b5",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:69477af5f195dd91",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:87327bf77fbea21a",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:e85d2203c79f335d",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:346bcce89e1f6200",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:ab3951a4a1cba749",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:a3b51f10e91a5e1f",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:4a0390267566b883",
+      "ok": true
+    },
+    {
+      "pin": "owner input pin",
+      "path": "unpublished-local-ref:de7134219b6308e3",
+      "ok": true
+    },
+    {
+      "pin": "brief",
+      "path": "withheld-source:1577f21d44c55eff",
+      "ok": true
+    },
+    {
+      "pin": "brief",
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "ok": true
+    }
+  ],
+  "objections": {
+    "grade_basis": {
+      "face_SF_at_lead_345": 1.0877271760741407,
+      "face_SF_at_lead_card": [
+        0.8922515676202372,
+        0.7598326070546896
+      ],
+      "eta_least_card_basis_345": [
+        0.6504118436805659,
+        0.6504118436805659
+      ],
+      "eta_least_card": [
+        0.6504118436805659,
+        0.5353509405721423
+      ],
+      "eta_least_current_E_345": [
+        0.6363083913759237,
+        0.6363083913759237
+      ],
+      "eta_least_current_E_283": [
+        0.6363083913759237,
+        0.5353509405721423
+      ],
+      "retention_least_345": 0.5691315271080425,
+      "retention_governs_345": [
+        "wrinkle"
+      ],
+      "retention_least_card": 0.5318828249382828,
+      "eta_breakeven_card_basis_283": 0.728955674928437,
+      "eta_breakeven_card_basis_345": 0.5979549449412976,
+      "guide_p11_etch_fraction_of_gauge": 0.2700583244020701
+    },
+    "fallback_E_basis": {
+      "Be_published_at_303": 0.6853382311714526,
+      "Be_published_at_290": 0.6705892825890435,
+      "Be_published_at_290_nu033": 0.6705892825890435,
+      "Be_published_at_290_governs": [
+        "wrinkle"
+      ],
+      "K13D2U_published": 0.651932173894196,
+      "loss_published_pct_303": 4.874389864425844,
+      "loss_published_pct_290": 2.7821960742968055,
+      "Be_lead_at_290": 0.6363083913759237,
+      "K13D2U_exact": 0.5414748616333155,
+      "loss_exact_pct_303": 16.74892348681649,
+      "loss_exact_pct_290": 14.903705660323697,
+      "K13D2U_resized": 0.6186549721852571,
+      "loss_resized_pct_303": 4.882578908096491,
+      "loss_resized_pct_290": 2.774349581103841
+    },
+    "doubler_beryllium": {
+      "Be_doubler_kg": [
+        459.11634213163603,
+        2066.023539592362
+      ],
+      "Be_total_kg": [
+        3957.5828691747024,
+        5564.490066635428
+      ],
+      "share_percent": [
+        0.9139914247516633,
+        1.2940674573570763
+      ],
+      "sheet_stock_cost_USDm": [
+        44.69740652244371,
+        267.09552319850053
+      ],
+      "card_cost_USDm": [
+        39.51209254072168,
+        167.92639329806718
+      ],
+      "cost_increase_percent": [
+        13.12335958005255,
+        59.05511811023621
+      ]
+    }
+  },
+  "observations": {
+    "dimpling_biaxial_straight_line_SF": 26.343099000192137,
+    "dimpling_card_uniaxial_SF": 52.68619800038427,
+    "published_structural_masses_kg": [
+      4561.373476368535,
+      4561.373476368534,
+      4561.373476368534,
+      4561.373476368534
+    ],
+    "resize_scale": 0.9489560370825638,
+    "cycles_exact": 10957.5,
+    "brief_2100kg_vs_009c5_other_branch_faces_kg": 2043.6145221875222,
+    "kd_0_20_ranking_014b": [
+      {
+        "face": "CNT-yarn composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "SF": 0.7503406304475981
+      },
+      {
+        "face": "Beryllium S-200F",
+        "tag": "QUESTIONABLE",
+        "SF": 0.6853382311714157
+      },
+      {
+        "face": "Graphene composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "SF": 0.6778805832136774
+      },
+      {
+        "face": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+        "tag": "QUESTIONABLE",
+        "SF": 0.6519321738941608
+      },
+      {
+        "face": "CFRP quasi-isotropic M55J/epoxy",
+        "tag": "QUESTIONABLE",
+        "SF": 0.5934943829166272
+      },
+      {
+        "face": "AlBeMet 162 (AM162, HIP)",
+        "tag": "QUESTIONABLE",
+        "SF": 0.5539944205083944
+      }
+    ]
+  },
+  "q_biax": 0.6823278038280194,
+  "measurement": {
+    "started_utc": "2026-10-20T08:19:28.697340+00:00",
+    "ended_utc": "2026-10-20T08:19:28.890179+00:00",
+    "elapsed_s": 0.1928994031623006
+  }
+}

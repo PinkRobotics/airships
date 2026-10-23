@@ -1,0 +1,22 @@
+{
+  "id": "rpt-ref-77cc6940cedb995b9fed",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-19T23:26:53-07:00",
+  "body": "MAINLINE-009 keeps its geometry. This column adds the wrinkling coefficient at two levels. Foam design Q is 0.50, the NASA CR-1457 lower bound. The theoretical band stated for a perfect face is 0.78 to 0.91. The comparison value is 0.82. Hoff and Mautner, Allen, and Plantema were not opened. QUESTIONABLE.\n\nDesign wrinkling SF is 0.235167984044. At Q 0.82 it is 0.385675493833. At 0.78 and 0.91 it is 0.366862055109 and 0.428005730961. The lesser factor stays 0.23515931325, because handbook buckling does not use Q. The wrinkling-precision gap is (0.82/0.50)^3 = 4.410944 on Ec times Gc.\n\nHoneycomb design coefficient 0.33 is equation 2.2-14. Equation 2.2-12 leads with 0.8. On the Hexcel 32 kg/m3 row, wrinkling SF rises from 0.145667432154 to 0.353133168858, and the lesser factor becomes handbook buckling at 0.26626666436. Not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/72947665dcded53a-WRINKLE-COLUMN.md",
+      "sha256": "72947665dcded53a69994b85ee3ef8bcac449106e3b9bb9d37de2048b4b95ef4",
+      "bytes": 1689,
+      "match": true
+    },
+    {
+      "path": "evidence/b7a5272ffb1b0a4c-WRINKLE-COLUMN.json",
+      "sha256": "b7a5272ffb1b0a4c417513ae13ed9f41a5926b510fafb277aab454065b7bc16b",
+      "bytes": 2976,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009-wrinkle-coefficient-two-levels-1019"
+}

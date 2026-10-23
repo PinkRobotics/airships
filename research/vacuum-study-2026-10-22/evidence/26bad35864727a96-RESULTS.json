@@ -1,0 +1,1547 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-018 independent check",
+  "status": "CHECKED_WITH_NFI",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "started_at": "2026-10-20T00:16:15-07:00",
+  "ended_at": "2026-10-20T00:25:12-07:00",
+  "independence": "Fresh formulas from the handbook and pinned material/geometry data. Owner scripts were neither read nor executed.",
+  "biaxial_factor": 0.6823278038280194,
+  "sim": {
+    "flat": {
+      "h_m": 0.0035199999999999997,
+      "R_middle_m": 0.04083,
+      "R_over_tc": 13.170967741935483,
+      "Gc_Pa": 20000000.0,
+      "unequal_face_factor": 1.0,
+      "sigma_0_Pa": 19178708418.605698,
+      "sigma_0_equal_face_approximation_Pa": 19178708418.605698,
+      "sigma_crimp_Pa": 95164362.5192012,
+      "Vc": 201.53246352841413,
+      "Vc_equal_face_approximation": 201.53246352841413,
+      "Gc_for_Vc_eq_2_Pa": 2015324635.2841413,
+      "branch": "shear_crimping",
+      "published_kdf": 0.22,
+      "published_imperfect_Pa": 6030000.0,
+      "published_linear_perfect_Pa": 27530000.0,
+      "kdf_from_published_rounded_pressures": 0.21903378132945878,
+      "conditional_CR1457_crimp_pressure_Pa": 3915653.4173954944,
+      "imperfect_over_CR1457_crimp": 1.5399728620544941,
+      "Gc_threshold_over_foam_E": 50.38311588210353
+    },
+    "dimple": {
+      "h_m": 0.00351,
+      "R_middle_m": 0.04084,
+      "R_over_tc": 13.174193548387098,
+      "Gc_Pa": 20000000.0,
+      "unequal_face_factor": 0.999702513752156,
+      "sigma_0_Pa": 19113852932.30557,
+      "sigma_0_equal_face_approximation_Pa": 19119540732.73865,
+      "sigma_crimp_Pa": 96932336.74272227,
+      "Vc": 197.18758027094242,
+      "Vc_equal_face_approximation": 197.24625832023136,
+      "Gc_for_Vc_eq_2_Pa": 1971875802.7094243,
+      "branch": "shear_crimping",
+      "published_kdf": 0.2,
+      "published_imperfect_Pa": 5630000.0,
+      "published_linear_perfect_Pa": 27560000.0,
+      "kdf_from_published_rounded_pressures": 0.20428156748911466,
+      "conditional_CR1457_crimp_pressure_Pa": 3892483.6498056934,
+      "imperfect_over_CR1457_crimp": 1.4463773021322879,
+      "Gc_threshold_over_foam_E": 49.296895067735605
+    }
+  },
+  "rescore": [
+    {
+      "label": "Be S-200F / HRH-10",
+      "curves": {
+        "optimistic": {
+          "tf_m": 0.0007929207043436264,
+          "core_m": 0.021750596068442405,
+          "h_m": 0.022543516772786033,
+          "sigma0_Pa": 723604190.5638765,
+          "sigma_crimp_Pa": 206272081.94864076,
+          "face_demand_Pa": 300978513.3335839,
+          "Vc": 3.5080083728637845,
+          "Kc": 0.2850620334134618,
+          "gamma": 1.0,
+          "modes": {
+            "global_buckling": 0.6853382311714158,
+            "face_compression": 0.9402664557863047,
+            "core_shear_crimping_bare": 0.6853382311714158,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6854549602516505
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.6853382311714158,
+            "face_compression": 0.9402664557863047,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6854549602516505
+          },
+          "governing": "core_shear_crimping",
+          "least_SF": 0.6853382311714158,
+          "second_mode": "face_wrinkling",
+          "second_SF": 0.6854549602516505,
+          "factor_to_SF_1": 1.4591335409535637,
+          "total_mass_kg": 4889.442150186961,
+          "payload_kg": 0.0,
+          "float_margin": 0.0
+        },
+        "conservative": {
+          "tf_m": 0.0007929207043436264,
+          "core_m": 0.021750596068442405,
+          "h_m": 0.022543516772786033,
+          "sigma0_Pa": 723604190.5638765,
+          "sigma_crimp_Pa": 206272081.94864076,
+          "face_demand_Pa": 300978513.3335839,
+          "Vc": 3.5080083728637845,
+          "Kc": 0.2850620334134618,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.13706764623428316,
+            "face_compression": 0.9402664557863047,
+            "core_shear_crimping_bare": 0.6853382311714158,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6854549602516505
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.13706764623428316,
+            "face_compression": 0.9402664557863047,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6854549602516505
+          },
+          "governing": "core_shear_crimping",
+          "least_SF": 0.13706764623428316,
+          "second_mode": "face_wrinkling",
+          "second_SF": 0.6854549602516505,
+          "factor_to_SF_1": 7.295667704767819,
+          "total_mass_kg": 4889.442150186961,
+          "payload_kg": 0.0,
+          "float_margin": 0.0
+        }
+      }
+    },
+    {
+      "label": "K13D2U / HRH-10",
+      "curves": {
+        "optimistic": {
+          "tf_m": 0.0008496384824440842,
+          "core_m": 0.020502843490852483,
+          "h_m": 0.021352481973296568,
+          "sigma0_Pa": 475011842.118536,
+          "sigma_crimp_Pa": 183208870.27317682,
+          "face_demand_Pa": 280886635.57028663,
+          "Vc": 2.59273386386948,
+          "Kc": 0.3856932691531894,
+          "gamma": 1.0,
+          "modes": {
+            "global_buckling": 0.6522520015991726,
+            "face_compression": 0.7832341312833629,
+            "core_shear_crimping_bare": 0.6522520015991726,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6519321738941608
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.6522520015991726,
+            "face_compression": 0.7832341312833629,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6519321738941608
+          },
+          "governing": "face_wrinkling",
+          "least_SF": 0.6519321738941608,
+          "second_mode": "core_shear_crimping",
+          "second_SF": 0.6522520015991726,
+          "factor_to_SF_1": 1.5339018996818938,
+          "total_mass_kg": 4889.442150186961,
+          "payload_kg": 0.0,
+          "float_margin": 0.0
+        },
+        "conservative": {
+          "tf_m": 0.0008496384824440842,
+          "core_m": 0.020502843490852483,
+          "h_m": 0.021352481973296568,
+          "sigma0_Pa": 475011842.118536,
+          "sigma_crimp_Pa": 183208870.27317682,
+          "face_demand_Pa": 280886635.57028663,
+          "Vc": 2.59273386386948,
+          "Kc": 0.3856932691531894,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.13045040031983454,
+            "face_compression": 0.7832341312833629,
+            "core_shear_crimping_bare": 0.6522520015991726,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6519321738941608
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.13045040031983454,
+            "face_compression": 0.7832341312833629,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6519321738941608
+          },
+          "governing": "core_shear_crimping",
+          "least_SF": 0.13045040031983454,
+          "second_mode": "face_wrinkling",
+          "second_SF": 0.6519321738941608,
+          "factor_to_SF_1": 7.665748802213169,
+          "total_mass_kg": 4889.442150186961,
+          "payload_kg": 0.0,
+          "float_margin": 0.0
+        }
+      }
+    },
+    {
+      "label": "AlBeMet 162 / HRH-10",
+      "curves": {
+        "optimistic": {
+          "tf_m": 0.0007420460875812382,
+          "core_m": 0.017383462046877695,
+          "h_m": 0.018125508134458932,
+          "sigma0_Pa": 370581963.1863612,
+          "sigma_crimp_Pa": 178283547.7374999,
+          "face_demand_Pa": 321613574.6536573,
+          "Vc": 2.078609988914942,
+          "Kc": 0.4810907314661811,
+          "gamma": 1.0,
+          "modes": {
+            "global_buckling": 0.5543408667668701,
+            "face_compression": 0.600099048082283,
+            "core_shear_crimping_bare": 0.5543408667668701,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.5539944205083945
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.5543408667668701,
+            "face_compression": 0.600099048082283,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.5539944205083945
+          },
+          "governing": "face_wrinkling",
+          "least_SF": 0.5539944205083945,
+          "second_mode": "core_shear_crimping",
+          "second_SF": 0.5543408667668701,
+          "factor_to_SF_1": 1.8050723310215129,
+          "total_mass_kg": 4889.442150186962,
+          "payload_kg": -9.094947017729282e-13,
+          "float_margin": -2.220446049250313e-16
+        },
+        "conservative": {
+          "tf_m": 0.0007420460875812382,
+          "core_m": 0.017383462046877695,
+          "h_m": 0.018125508134458932,
+          "sigma0_Pa": 370581963.1863612,
+          "sigma_crimp_Pa": 178283547.7374999,
+          "face_demand_Pa": 321613574.6536573,
+          "Vc": 2.078609988914942,
+          "Kc": 0.4810907314661811,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.11086817335337402,
+            "face_compression": 0.600099048082283,
+            "core_shear_crimping_bare": 0.5543408667668701,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.5539944205083945
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.11086817335337402,
+            "face_compression": 0.600099048082283,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.5539944205083945
+          },
+          "governing": "core_shear_crimping",
+          "least_SF": 0.11086817335337402,
+          "second_mode": "face_wrinkling",
+          "second_SF": 0.5539944205083945,
+          "factor_to_SF_1": 9.019721077325455,
+          "total_mass_kg": 4889.442150186962,
+          "payload_kg": -9.094947017729282e-13,
+          "float_margin": -2.220446049250313e-16
+        }
+      }
+    },
+    {
+      "label": "SiC / Divinycell H35",
+      "curves": {
+        "optimistic": {
+          "tf_m": 0.00027215364631557974,
+          "core_m": 0.04624190488644608,
+          "h_m": 0.04651405853276166,
+          "sigma0_Pa": 2020248857.9731042,
+          "sigma_crimp_Pa": 1031501460.0308503,
+          "face_demand_Pa": 876902066.2248646,
+          "Vc": 1.9585516223241044,
+          "Kc": 0.510362094418974,
+          "gamma": 0.9834206489296418,
+          "modes": {
+            "global_buckling": 1.1563026221885404,
+            "face_compression": 4.447474980632467,
+            "core_shear_crimping_bare": 1.1763017784546326,
+            "core_crush": 10.475499920730703,
+            "face_wrinkling": 0.23516798404427022
+          },
+          "effective_modes": {
+            "global_buckling": 1.1563026221885404,
+            "face_compression": 4.447474980632467,
+            "core_crush": 10.475499920730703,
+            "face_wrinkling": 0.23516798404427022,
+            "core_shear_crimping": 1.1763017784546326
+          },
+          "governing": "face_wrinkling",
+          "least_SF": 0.23516798404427022,
+          "second_mode": "global_buckling",
+          "second_SF": 1.1563026221885404,
+          "factor_to_SF_1": 4.252279510172399,
+          "total_mass_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "float_margin": 0.050000000000000044
+        },
+        "conservative": {
+          "tf_m": 0.00027215364631557974,
+          "core_m": 0.04624190488644608,
+          "h_m": 0.04651405853276166,
+          "sigma0_Pa": 2020248857.9731042,
+          "sigma_crimp_Pa": 1031501460.0308503,
+          "face_demand_Pa": 876902066.2248646,
+          "Vc": 1.9585516223241044,
+          "Kc": 0.510362094418974,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.23515931324953654,
+            "face_compression": 4.447474980632467,
+            "core_shear_crimping_bare": 1.1763017784546326,
+            "core_crush": 10.475499920730703,
+            "face_wrinkling": 0.23516798404427022
+          },
+          "effective_modes": {
+            "global_buckling": 0.23515931324953654,
+            "face_compression": 4.447474980632467,
+            "core_crush": 10.475499920730703,
+            "face_wrinkling": 0.23516798404427022,
+            "core_shear_crimping": 1.1763017784546326
+          },
+          "governing": "global_buckling",
+          "least_SF": 0.23515931324953654,
+          "second_mode": "face_wrinkling",
+          "second_SF": 0.23516798404427022,
+          "factor_to_SF_1": 4.2524363002321826,
+          "total_mass_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "float_margin": 0.050000000000000044
+        }
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.gamma",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.least_SF",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.second_SF",
+      "filed": 0.6854549602516505,
+      "checker": 0.6854549602516505,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.factor_to_SF_1",
+      "filed": 1.459133540953564,
+      "checker": 1.4591335409535637,
+      "difference": -2.220446049250313e-16,
+      "relative_difference": -1.5217565678047677e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.modes.global_buckling",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.modes.face_yield",
+      "filed": 0.940266455786305,
+      "checker": 0.9402664557863047,
+      "difference": -2.220446049250313e-16,
+      "relative_difference": -2.36150724678724e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.modes.core_shear_crimping",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.modes.face_wrinkling",
+      "filed": 0.6854549602516505,
+      "checker": 0.6854549602516505,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.bare_crimp_SF",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "optimistic.design_global_SF",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.gamma",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.least_SF",
+      "filed": 0.13706764623428314,
+      "checker": 0.13706764623428316,
+      "difference": 2.7755575615628914e-17,
+      "relative_difference": 2.0249545664618507e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.second_SF",
+      "filed": 0.6854549602516505,
+      "checker": 0.6854549602516505,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.factor_to_SF_1",
+      "filed": 7.29566770476782,
+      "checker": 7.295667704767819,
+      "difference": -8.881784197001252e-16,
+      "relative_difference": -1.2174052542438142e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.modes.global_buckling",
+      "filed": 0.13706764623428314,
+      "checker": 0.13706764623428316,
+      "difference": 2.7755575615628914e-17,
+      "relative_difference": 2.0249545664618507e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.modes.face_yield",
+      "filed": 0.940266455786305,
+      "checker": 0.9402664557863047,
+      "difference": -2.220446049250313e-16,
+      "relative_difference": -2.36150724678724e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.modes.core_shear_crimping",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.modes.face_wrinkling",
+      "filed": 0.6854549602516505,
+      "checker": 0.6854549602516505,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.bare_crimp_SF",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "conservative.design_global_SF",
+      "filed": 0.13706764623428314,
+      "checker": 0.13706764623428316,
+      "difference": 2.7755575615628914e-17,
+      "relative_difference": 2.0249545664618507e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "tf_m",
+      "filed": 0.0007929207043436264,
+      "checker": 0.0007929207043436264,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "core_m",
+      "filed": 0.021750596068442405,
+      "checker": 0.021750596068442405,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "Vc",
+      "filed": 3.5080083728637845,
+      "checker": 3.5080083728637845,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "Kc",
+      "filed": 0.2850620334134618,
+      "checker": 0.2850620334134618,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "filed_least_SF",
+      "filed": 0.6853382311714157,
+      "checker": 0.6853382311714158,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.6199636531694805e-16,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "gamma_filed",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Be S-200F / HRH-10",
+      "field": "margin",
+      "filed": 0.0,
+      "checker": 0.0,
+      "difference": 0.0,
+      "relative_difference": null,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.gamma",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.least_SF",
+      "filed": 0.6519321738941608,
+      "checker": 0.6519321738941608,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.second_SF",
+      "filed": 0.6522520015991726,
+      "checker": 0.6522520015991726,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.factor_to_SF_1",
+      "filed": 1.5339018996818938,
+      "checker": 1.5339018996818938,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.modes.global_buckling",
+      "filed": 0.6522520015991726,
+      "checker": 0.6522520015991726,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.modes.face_yield",
+      "filed": 0.7832341312833628,
+      "checker": 0.7832341312833629,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.4174855005437626e-16,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.modes.core_shear_crimping",
+      "filed": 0.6522520015991726,
+      "checker": 0.6522520015991726,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.modes.face_wrinkling",
+      "filed": 0.6519321738941608,
+      "checker": 0.6519321738941608,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.bare_crimp_SF",
+      "filed": 0.6522520015991726,
+      "checker": 0.6522520015991726,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "optimistic.design_global_SF",
+      "filed": 0.6522520015991726,
+      "checker": 0.6522520015991726,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.gamma",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.least_SF",
+      "filed": 0.13045040031983454,
+      "checker": 0.13045040031983454,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.second_SF",
+      "filed": 0.6519321738941608,
+      "checker": 0.6519321738941608,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.factor_to_SF_1",
+      "filed": 7.665748802213169,
+      "checker": 7.665748802213169,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.modes.global_buckling",
+      "filed": 0.13045040031983454,
+      "checker": 0.13045040031983454,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.modes.face_yield",
+      "filed": 0.7832341312833628,
+      "checker": 0.7832341312833629,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 1.4174855005437626e-16,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.modes.core_shear_crimping",
+      "filed": 0.6522520015991726,
+      "checker": 0.6522520015991726,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.modes.face_wrinkling",
+      "filed": 0.6519321738941608,
+      "checker": 0.6519321738941608,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.bare_crimp_SF",
+      "filed": 0.6522520015991726,
+      "checker": 0.6522520015991726,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "conservative.design_global_SF",
+      "filed": 0.13045040031983454,
+      "checker": 0.13045040031983454,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "tf_m",
+      "filed": 0.0008496384824440842,
+      "checker": 0.0008496384824440842,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "core_m",
+      "filed": 0.020502843490852483,
+      "checker": 0.020502843490852483,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "Vc",
+      "filed": 2.59273386386948,
+      "checker": 2.59273386386948,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "Kc",
+      "filed": 0.3856932691531894,
+      "checker": 0.3856932691531894,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "filed_least_SF",
+      "filed": 0.6519321738941608,
+      "checker": 0.6519321738941608,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "gamma_filed",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "K13D2U / HRH-10",
+      "field": "margin",
+      "filed": 0.0,
+      "checker": 0.0,
+      "difference": 0.0,
+      "relative_difference": null,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.gamma",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.least_SF",
+      "filed": 0.5539944205083944,
+      "checker": 0.5539944205083945,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 2.0040328630138863e-16,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.second_SF",
+      "filed": 0.5543408667668701,
+      "checker": 0.5543408667668701,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.factor_to_SF_1",
+      "filed": 1.8050723310215133,
+      "checker": 1.8050723310215129,
+      "difference": -4.440892098500626e-16,
+      "relative_difference": -2.460229444649162e-16,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.modes.global_buckling",
+      "filed": 0.5543408667668701,
+      "checker": 0.5543408667668701,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.modes.face_yield",
+      "filed": 0.600099048082283,
+      "checker": 0.600099048082283,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.modes.core_shear_crimping",
+      "filed": 0.5543408667668701,
+      "checker": 0.5543408667668701,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.modes.face_wrinkling",
+      "filed": 0.5539944205083944,
+      "checker": 0.5539944205083945,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 2.0040328630138863e-16,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.bare_crimp_SF",
+      "filed": 0.5543408667668701,
+      "checker": 0.5543408667668701,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "optimistic.design_global_SF",
+      "filed": 0.5543408667668701,
+      "checker": 0.5543408667668701,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.gamma",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.least_SF",
+      "filed": 0.11086817335337402,
+      "checker": 0.11086817335337402,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.second_SF",
+      "filed": 0.5539944205083944,
+      "checker": 0.5539944205083945,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 2.0040328630138863e-16,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.factor_to_SF_1",
+      "filed": 9.019721077325455,
+      "checker": 9.019721077325455,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.modes.global_buckling",
+      "filed": 0.11086817335337402,
+      "checker": 0.11086817335337402,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.modes.face_yield",
+      "filed": 0.600099048082283,
+      "checker": 0.600099048082283,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.modes.core_shear_crimping",
+      "filed": 0.5543408667668701,
+      "checker": 0.5543408667668701,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.modes.face_wrinkling",
+      "filed": 0.5539944205083944,
+      "checker": 0.5539944205083945,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 2.0040328630138863e-16,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.bare_crimp_SF",
+      "filed": 0.5543408667668701,
+      "checker": 0.5543408667668701,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "conservative.design_global_SF",
+      "filed": 0.11086817335337402,
+      "checker": 0.11086817335337402,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "tf_m",
+      "filed": 0.0007420460875812382,
+      "checker": 0.0007420460875812382,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "core_m",
+      "filed": 0.017383462046877695,
+      "checker": 0.017383462046877695,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "Vc",
+      "filed": 2.078609988914942,
+      "checker": 2.078609988914942,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "Kc",
+      "filed": 0.4810907314661811,
+      "checker": 0.4810907314661811,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "filed_least_SF",
+      "filed": 0.5539944205083944,
+      "checker": 0.5539944205083945,
+      "difference": 1.1102230246251565e-16,
+      "relative_difference": 2.0040328630138863e-16,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "gamma_filed",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "AlBeMet 162 / HRH-10",
+      "field": "margin",
+      "filed": 0.0,
+      "checker": -2.220446049250313e-16,
+      "difference": -2.220446049250313e-16,
+      "relative_difference": null,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.gamma",
+      "filed": 0.9834206489296418,
+      "checker": 0.9834206489296418,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.least_SF",
+      "filed": 0.23516798404427022,
+      "checker": 0.23516798404427022,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.second_SF",
+      "filed": 1.1563026221885402,
+      "checker": 1.1563026221885404,
+      "difference": 2.220446049250313e-16,
+      "relative_difference": 1.9202983774677107e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.factor_to_SF_1",
+      "filed": 4.252279510172399,
+      "checker": 4.252279510172399,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.modes.global_buckling",
+      "filed": 1.1563026221885402,
+      "checker": 1.1563026221885404,
+      "difference": 2.220446049250313e-16,
+      "relative_difference": 1.9202983774677107e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.modes.face_compression",
+      "filed": 4.4474749806324665,
+      "checker": 4.447474980632467,
+      "difference": 8.881784197001252e-16,
+      "relative_difference": 1.997039721567628e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.modes.core_crush",
+      "filed": 10.475499920730703,
+      "checker": 10.475499920730703,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.modes.core_shear_crimping",
+      "filed": 1.1763017784546326,
+      "checker": 1.1763017784546326,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.modes.face_wrinkling",
+      "filed": 0.23516798404427022,
+      "checker": 0.23516798404427022,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.bare_crimp_SF",
+      "filed": 1.1763017784546326,
+      "checker": 1.1763017784546326,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "optimistic.design_global_SF",
+      "filed": 1.1563026221885402,
+      "checker": 1.1563026221885404,
+      "difference": 2.220446049250313e-16,
+      "relative_difference": 1.9202983774677107e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.gamma",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.least_SF",
+      "filed": 0.23515931324953646,
+      "checker": 0.23515931324953654,
+      "difference": 8.326672684688674e-17,
+      "relative_difference": 3.540864518452189e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.second_SF",
+      "filed": 0.23516798404427022,
+      "checker": 0.23516798404427022,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.factor_to_SF_1",
+      "filed": 4.252436300232184,
+      "checker": 4.2524363002321826,
+      "difference": -1.7763568394002505e-15,
+      "relative_difference": -4.1772685443947997e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.modes.global_buckling",
+      "filed": 0.23515931324953646,
+      "checker": 0.23515931324953654,
+      "difference": 8.326672684688674e-17,
+      "relative_difference": 3.540864518452189e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.modes.face_compression",
+      "filed": 4.4474749806324665,
+      "checker": 4.447474980632467,
+      "difference": 8.881784197001252e-16,
+      "relative_difference": 1.997039721567628e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.modes.core_crush",
+      "filed": 10.475499920730703,
+      "checker": 10.475499920730703,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.modes.core_shear_crimping",
+      "filed": 1.1763017784546326,
+      "checker": 1.1763017784546326,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.modes.face_wrinkling",
+      "filed": 0.23516798404427022,
+      "checker": 0.23516798404427022,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.bare_crimp_SF",
+      "filed": 1.1763017784546326,
+      "checker": 1.1763017784546326,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "conservative.design_global_SF",
+      "filed": 0.23515931324953646,
+      "checker": 0.23515931324953654,
+      "difference": 8.326672684688674e-17,
+      "relative_difference": 3.540864518452189e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "tf_m",
+      "filed": 0.00027215364631557974,
+      "checker": 0.00027215364631557974,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "core_m",
+      "filed": 0.04624190488644608,
+      "checker": 0.04624190488644608,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "Vc",
+      "filed": 1.9585516223241044,
+      "checker": 1.9585516223241044,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "Kc",
+      "filed": 0.510362094418974,
+      "checker": 0.510362094418974,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "filed_least_SF",
+      "filed": 0.23515931324953646,
+      "checker": 0.23515931324953654,
+      "difference": 8.326672684688674e-17,
+      "relative_difference": 3.540864518452189e-16,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "gamma_filed",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "SiC / Divinycell H35",
+      "field": "margin",
+      "filed": 0.05,
+      "checker": 0.050000000000000044,
+      "difference": 4.163336342344337e-17,
+      "relative_difference": 8.326672684688674e-16,
+      "matches": true
+    },
+    {
+      "row": "Sim flat",
+      "field": "h_m",
+      "filed": 0.0035199999999999997,
+      "checker": 0.0035199999999999997,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim flat",
+      "field": "R_middle_m",
+      "filed": 0.04083,
+      "checker": 0.04083,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim flat",
+      "field": "R_over_tc",
+      "filed": 13.170967741935483,
+      "checker": 13.170967741935483,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim flat",
+      "field": "sigma_0_Pa",
+      "filed": 19178708418.605698,
+      "checker": 19178708418.605698,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim flat",
+      "field": "sigma_crimp_Pa",
+      "filed": 95164362.5192012,
+      "checker": 95164362.5192012,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim flat",
+      "field": "Vc",
+      "filed": 201.53246352841413,
+      "checker": 201.53246352841413,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim flat",
+      "field": "Gc_for_Vc_eq_2_Pa",
+      "filed": 2015324635.2841413,
+      "checker": 2015324635.2841413,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim dimple",
+      "field": "h_m",
+      "filed": 0.00351,
+      "checker": 0.00351,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim dimple",
+      "field": "R_middle_m",
+      "filed": 0.04084,
+      "checker": 0.04084,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim dimple",
+      "field": "R_over_tc",
+      "filed": 13.174193548387098,
+      "checker": 13.174193548387098,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim dimple",
+      "field": "sigma_0_Pa",
+      "filed": 19119540732.73865,
+      "checker": 19113852932.30557,
+      "difference": -5687800.433082581,
+      "relative_difference": -0.000297486247843981,
+      "matches": false
+    },
+    {
+      "row": "Sim dimple",
+      "field": "sigma_crimp_Pa",
+      "filed": 96932336.74272227,
+      "checker": 96932336.74272227,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Sim dimple",
+      "field": "Vc",
+      "filed": 197.24625832023136,
+      "checker": 197.18758027094242,
+      "difference": -0.05867804928894316,
+      "relative_difference": -0.00029748624784394504,
+      "matches": false
+    },
+    {
+      "row": "Sim dimple",
+      "field": "Gc_for_Vc_eq_2_Pa",
+      "filed": 1972462583.2023137,
+      "checker": 1971875802.7094243,
+      "difference": -586780.4928894043,
+      "relative_difference": -0.0002974862478439312,
+      "matches": false
+    }
+  ],
+  "comparison_count": 130,
+  "mismatches": [
+    {
+      "row": "Sim dimple",
+      "field": "sigma_0_Pa",
+      "filed": 19119540732.73865,
+      "checker": 19113852932.30557,
+      "difference": -5687800.433082581,
+      "relative_difference": -0.000297486247843981,
+      "matches": false
+    },
+    {
+      "row": "Sim dimple",
+      "field": "Vc",
+      "filed": 197.24625832023136,
+      "checker": 197.18758027094242,
+      "difference": -0.05867804928894316,
+      "relative_difference": -0.00029748624784394504,
+      "matches": false
+    },
+    {
+      "row": "Sim dimple",
+      "field": "Gc_for_Vc_eq_2_Pa",
+      "filed": 1972462583.2023137,
+      "checker": 1971875802.7094243,
+      "difference": -586780.4928894043,
+      "relative_difference": -0.0002974862478439312,
+      "matches": false
+    }
+  ],
+  "source_coverage": {
+    "NASA": "Downloaded independently from https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf. Visually read printed pages 6-7, 6-12, 6-14; extracted 6-3 through 6-11, 4-11/12, 2-26/33. The unequal-face factor is equation 6.2-8 / 6.2-19.",
+    "Sim2024": "Read publisher article sections 2.1, 2.3, 3.2 and conclusions. Used 27.53 MPa for flat perfect load from conclusion, consistent with stated -0.11 percent difference; section 3.2.2 repeats 27.56 MPa. Published KDFs are rounded.",
+    "geometry": "Read the pinned original EUCASS PDF and visually inspected Figure 4; no owner OCR used for dimensions.",
+    "materials": "Inherited values checked through 014, 008 and 007 data; each URL/handbook, tag and substitution is retained. Manufacturer documents are not requalified here.",
+    "assumptions": "The complete R=10 m sphere is still an estimate. External-radius convention, biaxial flat-plate transfer and stabilised core modulus are inherited; no new physical validation.",
+    "not_read": "Plantema, SP-8007, SP-8032 original texts and an independent sandwich-shell sensitivity series were not opened; those coverage gaps remain NFI.",
+    "Wagner": "Primary DLR PDF Table 3 inspected at https://elib.dlr.de/131957/; no sandwich-core Vc series."
+  },
+  "elapsed_seconds": 537.0
+}

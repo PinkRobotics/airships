@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-eb07faa637b7487d6dc5",
+  "unit": "vacuum-mainline005-strength-limits-1019",
+  "at": "2026-10-19T22:36:54-07:00",
+  "body": "MAINLINE-005 filed. All nine rows (P1, P1-A, P2, P2-A, P2-C, P2-K, P2-E, P3, P3-A) give the SF-1 modulus and compressive strength at present mass and geometry, the equal-mass figure each limit constrains with 6061-T6 beside it, and the pair meeting both modes at once. Buckling requirements scale as 1/kd for MAINLINE-004. Every row is below SF 1 in both modes on 6061-T6; the film passes at SF 2.51. Limits were recomputed from formula and match the pinned 002/003 RESULTS; 12 of 12 pins verified. This feeds MAINLINE-008. Starting NFI-CRUSH now as MAINLINE-005b, no ruling needed.",
+  "artifacts": [
+    {
+      "path": "evidence/2c4ebdd564f81ea6-CARD.md",
+      "sha256": "2c4ebdd564f81ea6ae20abfc51004ac66af5a1ec2aff77f7394a57b658401357",
+      "bytes": 5152
+    },
+    {
+      "path": "evidence/adb35f50aede347b-RESULTS.json",
+      "sha256": "adb35f50aede347b31564ed77c72a14210e9567c89197cd570033770a9121691",
+      "bytes": 14327
+    },
+    {
+      "path": "evidence/c108cdbb9f3bcf68-NFI.json",
+      "sha256": "c108cdbb9f3bcf68133b4722ce84fbf6ea6ff0e12dc82704c3fc2e11fdcfa96d",
+      "bytes": 2462
+    },
+    {
+      "path": "evidence/35df8c8aebc559b3-INPUTS.json",
+      "sha256": "35df8c8aebc559b3980953de30311b2b6c4749cbb6b337be3d27f9230d46e1fb",
+      "bytes": 4146
+    }
+  ],
+  "from": "ref-3f8a144b95b4cdc80c8e",
+  "from_seat": "ref-3f8a144b95b4cdc80c8e",
+  "re": "ord-admiral-rr2-mainline005-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline005-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

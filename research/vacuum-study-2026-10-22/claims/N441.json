@@ -1,0 +1,86 @@
+{
+  "id": "N441",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N441",
+    "report": "rpt-ref-d907de1e97319ecc3f9a",
+    "card": "MAINLINE-028b",
+    "file": "evidence/737765424727a77d-NFI.json",
+    "snapshot": "evidence/737765424727a77d-NFI.json",
+    "source_sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+    "source_json_pointer": "/rows/17",
+    "row_id": "NFI-028b-splice-and-seal",
+    "fields": {
+      "id": "NFI-028b-splice-and-seal",
+      "status": "OPEN",
+      "issue": "Weigh and qualify the core splice, seals and intersection details.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "core_gap_m": 0.0005,
+        "splice_density_kg_m3": 500,
+        "seal_kg_per_hull_m": 0.002
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+      "source": "MAINLINE-028 mass assumptions"
+    },
+    "inherited_document_tag": {
+      "overall_installed_hull_SF": null
+    }
+  },
+  "claim": "Weigh and qualify the core splice, seals and intersection details.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/440"
+    },
+    {
+      "report": "rpt-ref-d907de1e97319ecc3f9a",
+      "artifact": "evidence/737765424727a77d-NFI.json",
+      "snapshot": "evidence/737765424727a77d-NFI.json",
+      "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+      "bytes": 13400,
+      "selector": "/rows/17"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d907de1e97319ecc3f9a",
+          "artifact": "evidence/737765424727a77d-NFI.json",
+          "snapshot": "evidence/737765424727a77d-NFI.json",
+          "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+          "bytes": 13400,
+          "selector": "/rows/17"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/440"
+          }
+        ]
+      }
+    }
+  ]
+}

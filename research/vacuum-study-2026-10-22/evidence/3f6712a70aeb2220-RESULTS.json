@@ -1,0 +1,212 @@
+{
+  "unit": "vacuum-mainline032-check-1020",
+  "scope": "Combined 032 + 032b; 032 immutable verified report incorporated",
+  "tag": "QUESTIONABLE",
+  "prior_032_comparisons_passed": 236,
+  "new_032b_scalar_checks": 297,
+  "new_032b_counts": {
+    "boolean": 69,
+    "numeric": 228
+  },
+  "new_032b_failures": [],
+  "total_prior_plus_new_comparisons": 533,
+  "coverage": {
+    "owner_numeric_leaves": 229,
+    "owner_boolean_leaves": 69,
+    "excluded_metadata": {
+      "/elapsed_s": "Owner script timer; not an engineering result or review duration."
+    },
+    "uncovered_engineering_scalar_leaves": []
+  },
+  "lead_amplitudes_recomputed_mm": [
+    {
+      "face": "Be S-200F",
+      "Q": 0.371,
+      "Fc_basis": "stabilised_typical_60_psi",
+      "delta_mm": 0.1528687668463611
+    },
+    {
+      "face": "SR-200",
+      "Q": 0.609,
+      "Fc_basis": "stabilised_typical_60_psi",
+      "delta_mm": 0.06522290640394088
+    },
+    {
+      "face": "Be S-200F",
+      "Q": 0.371,
+      "Fc_basis": "stabilised_minimum_35_psi",
+      "delta_mm": 0.08917344732704402
+    },
+    {
+      "face": "SR-200",
+      "Q": 0.609,
+      "Fc_basis": "stabilised_minimum_35_psi",
+      "delta_mm": 0.03804669540229884
+    }
+  ],
+  "core_Fc_basis": "Conditional 60/35 psi; actual min(compression,tension,bond) not established",
+  "wavelength_projections": [
+    {
+      "face": "Be S-200F",
+      "tag": "PROJECTION",
+      "poisson_assumption": 0,
+      "D_Nm": 14.498315353846666,
+      "half_wavelength_mm": 19.27350838620779,
+      "full_period_mm": 38.54701677241558,
+      "half_wavelength_over_cell": 2.023465447370897,
+      "model": "NASA/CR-1999-208994 Eq.19, elastic symmetric flat-panel anti-plane core"
+    },
+    {
+      "face": "Be S-200F",
+      "tag": "PROJECTION",
+      "poisson_assumption": 0.33,
+      "D_Nm": 16.270132817693487,
+      "half_wavelength_mm": 19.83714492707825,
+      "full_period_mm": 39.6742898541565,
+      "half_wavelength_over_cell": 2.082639887357297,
+      "model": "NASA/CR-1999-208994 Eq.19, elastic symmetric flat-panel anti-plane core"
+    },
+    {
+      "face": "SR-200",
+      "tag": "PROJECTION",
+      "poisson_assumption": 0,
+      "D_Nm": 7.997791515980833,
+      "half_wavelength_mm": 18.352535587774526,
+      "full_period_mm": 36.70507117554905,
+      "half_wavelength_over_cell": 1.9267753897926014,
+      "model": "NASA/CR-1999-208994 Eq.19, elastic symmetric flat-panel anti-plane core"
+    },
+    {
+      "face": "SR-200",
+      "tag": "PROJECTION",
+      "poisson_assumption": 0.33,
+      "D_Nm": 8.975189671171398,
+      "half_wavelength_mm": 18.88923910161415,
+      "full_period_mm": 37.7784782032283,
+      "half_wavelength_over_cell": 1.983122215392562,
+      "model": "NASA/CR-1999-208994 Eq.19, elastic symmetric flat-panel anti-plane core"
+    }
+  ],
+  "metric_examples": {
+    "er1001_dimple_depth_mm": 0.0016509999999999997,
+    "er1001_symmetric_sine_amplitude_from_depth_mm_PROJECTION": 0.0008254999999999998,
+    "woody_24um_rms_single_sine_amplitude_mm_PROJECTION": 0.033941125496954286,
+    "woody_24um_rms_single_sine_amplitude_over_smallest_PROJECTION": 0.8920912877732743,
+    "woody_35um_rms_single_sine_amplitude_mm_PROJECTION": 0.04949747468305833,
+    "woody_35um_rms_single_sine_amplitude_over_smallest_PROJECTION": 1.300966461336025,
+    "er1001_fig25_face_mm": 0.2032,
+    "er1001_fig30_face_mm": 0.2032
+  },
+  "omitted_primary_experiment": {
+    "provenance": "Rion 2008 thesis, primary experiment; not an as-bonded Be/CR-III measurement",
+    "ply_thickness_mm": 0.07,
+    "type1_single_ply_face_mm": 0.07,
+    "type2_and_type3_two_ply_face_mm": 0.14,
+    "core_cell_mm": 3.2,
+    "core_thickness_mm": 8,
+    "core_density_kg_m3": 29,
+    "measured_height_definition": "Cell-wall level to lowest face point within a cell",
+    "type1_maximum_depth_mm_at_minus_0p1_bar": 0.16,
+    "type1_maximum_depth_mm_at_minus_0p9_bar": 0.37,
+    "type1_context": "Deliberately exaggerated waves; some cell walls collapse, especially at high pressure.",
+    "cross_section_plot_approximate_mean_height_range_mm": [
+      0.019,
+      0.101
+    ],
+    "plot_reading_not_raw_data": true,
+    "half_wavelength_from_cell_mm": 2.7712812921102037,
+    "critical_half_wavelength_reported_mm": 2.79,
+    "critical_wavelength_scope": "Two-ply model, Ec=50 MPa and 50 g/m2 adhesive; not the exaggerated single-ply specimens",
+    "half_wavelength_ratio": 0.993290785702582,
+    "model_reduction_Wmeas_over_W0": 25,
+    "reduction_is_empirical_not_universal": true,
+    "one_shot_fit_at_minus_0p7_bar_mm_NOT_RAW_DATUM": 0.07419999999999999,
+    "two_step_fit_at_minus_0p7_bar_mm_NOT_RAW_DATUM": 0.09286927270684948
+  },
+  "number_only_comparisons": [
+    {
+      "label": "ER-1001 Fig.25",
+      "value_mm": 0.001651,
+      "quantity": "Cell peak-to-valley depth",
+      "ratios_as_numbers_only": [
+        0.010800113287100153,
+        0.02531319272672344,
+        0.01851447992074311,
+        0.04339404467438305
+      ]
+    },
+    {
+      "label": "Woody installed fabrication estimate",
+      "value_mm": 0.024,
+      "quantity": "Multi-scale RMS estimate",
+      "ratios_as_numbers_only": [
+        0.15699740695966305,
+        0.3679688827627878,
+        0.2691384119308508,
+        0.630803799021922
+      ]
+    },
+    {
+      "label": "von Hoerner/Rohr",
+      "value_mm": 0.2032,
+      "quantity": "1969 vendor whole-surface RMS",
+      "ratios_as_numbers_only": [
+        1.3292447122584803,
+        3.11546987405827,
+        2.278705221014537,
+        5.340805498385606
+      ]
+    },
+    {
+      "label": "Rion type1 low pressure",
+      "value_mm": 0.16,
+      "quantity": "Measured maximum cell depth; exaggerated specimen",
+      "ratios_as_numbers_only": [
+        1.046649379731087,
+        2.4531258850852518,
+        1.7942560795390055,
+        4.205358660146147
+      ]
+    },
+    {
+      "label": "Rion type1 high pressure",
+      "value_mm": 0.37,
+      "quantity": "Measured maximum cell depth; damaged/exaggerated specimen",
+      "ratios_as_numbers_only": [
+        2.4203766906281383,
+        5.672853609259644,
+        4.14921718393395,
+        9.724891901587965
+      ]
+    },
+    {
+      "label": "Camarda mean maximum",
+      "value_mm": 0.097,
+      "quantity": "Mean of panel maxima from 45-point face profiles",
+      "ratios_as_numbers_only": [
+        0.6345311864619715,
+        1.487207567832934,
+        1.0877677482205221,
+        2.5494986877136014
+      ]
+    }
+  ],
+  "source_corrections_separate_from_arithmetic": [
+    "Woody 3 um is parabolic-template adjustment, not finished CSO surface-versus-template RMS.",
+    "ER-1001 Fig.22 identifies Fig.25/specimen30 as .008-inch H19 foil, Crest471, 3/16-inch core.",
+    "ER-1001 Fig.30 identifies specimen32 as .008-inch face, APS, .015-inch fillet.",
+    "Dimple depth, RMS, slope and modal amplitude remain different quantities.",
+    "Rion provides omitted measured thin-face waviness near that system's critical wavelength.",
+    "No retrieved source establishes an as-bonded Be/CR-III amplitude in the target wavelength band."
+  ],
+  "review_timing": {
+    "unit": "vacuum-mainline032-check-1020",
+    "order": "ord-admiral-rr2-check032-fold-032b-1020",
+    "started_at": "2026-10-20T02:07:39-07:00",
+    "scope": "Combined MAINLINE-032 and 032b check; immutable prior 032 artifacts incorporated by pin",
+    "native_session": "ref-1a4a64ff48b5597d4351",
+    "ended_at": "2026-10-20T02:23:13-07:00",
+    "elapsed_instrumented_review_s": 934.424362,
+    "timing_scope": "Own recorded review interval begins after initial order/report intake. Owner script timers are not review duration."
+  }
+}

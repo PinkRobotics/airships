@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-036",
+  "unit": "vacuum-mainline036-be-sheet-compression-1020",
+  "sources": {
+    "doe-ingot": {
+      "id": "doe-ingot",
+      "url": "https://www.osti.gov/servlets/purl/4019673",
+      "note": "DOE ingot-sheet beryllium fabrication report.",
+      "status": "retrieved",
+      "path": "unpublished-local-ref:b9ce5da849a3e8e0",
+      "bytes": 14255714,
+      "sha256": "a91badb9c0dead8746e0b61c81f3cfd69bf0127bc0f395cdeee8836a2f3efc71",
+      "retrieved_at": "2026-10-20T08:42:02.583388+00:00",
+      "local_pdf": "unpublished-local-ref:b9ce5da849a3e8e0"
+    },
+    "doe-specs": {
+      "id": "doe-specs",
+      "url": "https://www.osti.gov/servlets/purl/6182804",
+      "note": "DOE historical consolidated beryllium specifications, RFP-4283.",
+      "status": "retrieved",
+      "path": "unpublished-local-ref:92484179d3a804a1",
+      "bytes": 1420488,
+      "sha256": "a4851488b508cde0e4c09def539bbc53e2cd4e039ffc0cf69c93e93f9bbdba37",
+      "retrieved_at": "2026-10-20T08:41:38.662571+00:00",
+      "local_pdf": "unpublished-local-ref:92484179d3a804a1"
+    },
+    "historical-design": {
+      "id": "historical-design",
+      "url": "https://citeseerx.ist.psu.edu/document?doi=7aab804960e1a6d74d5e3c5210cf25968a95d15e&repid=rep1&type=pdf",
+      "retrieved_at": "2026-10-20T08:49:09.219977+00:00",
+      "status": "retrieval_failed",
+      "error": "<urlopen error timed out>"
+    },
+    "materion-design": {
+      "id": "materion-design",
+      "url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74",
+      "path": "unpublished-local-ref:39fc832afaebadc0",
+      "sha256": "793b3419c65159338d428ce73242e80bafffd911590c34058b74b96a79dbe3e1",
+      "bytes": 6505209,
+      "origin": "verified prior source copied without replacing the original",
+      "local_pdf": "unpublished-local-ref:39fc832afaebadc0"
+    },
+    "mil5j": {
+      "id": "mil5j",
+      "url": "https://www.abbottaerospace.com/downloads/mil-hdbk-5j-metallic-materials-and-elements-for-aerospace-vehicle-structures/?ind=1460029523480&wpdmdl=2182",
+      "retrieved_at": "2026-10-20T08:47:56.405835+00:00",
+      "resolved_url": "https://www.abbottaerospace.com/downloads/mil-hdbk-5j-metallic-materials-and-elements-for-aerospace-vehicle-structures/?ind=1460029523480&wpdmdl=2182",
+      "status": "retrieved",
+      "bytes": 72013135,
+      "sha256": "ee7909928cccc6adba798e14f51ae75df0dc84f0c25a682f4ed93bdbb78989ba",
+      "path": "unpublished-local-ref:0e19e76fb67e7136",
+      "local_pdf": "unpublished-local-ref:0e19e76fb67e7136"
+    },
+    "mmpds01": {
+      "id": "mmpds01",
+      "url": "https://www.kitplanes.com/wp-content/uploads/2019/06/MMPDS.pdf",
+      "note": "Archived FAA MMPDS-01 (2003), public mirror; equivalent to MIL-HDBK-5J per its foreword.",
+      "status": "retrieved",
+      "path": "unpublished-local-ref:061254101ce500aa",
+      "bytes": 72268687,
+      "sha256": "9ea87ae89e2e65dacaecc4d851c350749fe1c3cc5ab88369049c721e49a2f5f7",
+      "retrieved_at": "2026-10-20T08:41:34.876689+00:00",
+      "local_pdf": "unpublished-local-ref:061254101ce500aa"
+    },
+    "mmpds08": {
+      "id": "mmpds08",
+      "url": "https://oss.jishulink.com/upload/202207/13dc46f8325d4bbebb11fabcaa7838d6.pdf",
+      "note": "Archived MMPDS-08 (2013) primary handbook, public mirror; not asserted current.",
+      "status": "retrieved",
+      "path": "unpublished-local-ref:39685bd3dfad7e7c",
+      "bytes": 16136470,
+      "sha256": "a21659631687e6353b018d986b013e92e717c3369fc8e9013e265be88e8942a1",
+      "retrieved_at": "2026-10-20T08:41:32.279716+00:00",
+      "local_pdf": "unpublished-local-ref:39685bd3dfad7e7c"
+    },
+    "nasa4397": {
+      "id": "nasa4397",
+      "url": "https://ntrs.nasa.gov/api/citations/19920024241/downloads/19920024241.pdf",
+      "note": "NASA TM-4397, cross-rolled sheet mechanical behavior.",
+      "status": "retrieved",
+      "path": "unpublished-local-ref:5d5c66242269704f",
+      "bytes": 4391886,
+      "sha256": "ee157ae15ad068d1b58ca5ab7df5619391baeaf6a2b116f89af05202a881b4e3",
+      "retrieved_at": "2026-10-20T08:41:35.606629+00:00",
+      "local_pdf": "unpublished-local-ref:5d5c66242269704f"
+    },
+    "pf60": {
+      "id": "pf60",
+      "url": "https://hkvxni.files.cmp.optimizely.com/download/74b1f22ad41111eea5a18658c51b80c6",
+      "retrieved_at": "2026-10-20T08:49:08.351746+00:00",
+      "resolved_url": "https://hkvxni.files.cmp.optimizely.com/download/74b1f22ad41111eea5a18658c51b80c6",
+      "status": "retrieved",
+      "bytes": 208967,
+      "sha256": "983576b19c27d04f4112a1c72b5f790419a00482d5ac3017f3218f41d1ac3900",
+      "path": "unpublished-local-ref:275a0c29302f433a",
+      "local_pdf": "unpublished-local-ref:275a0c29302f433a"
+    },
+    "ps200": {
+      "id": "ps200",
+      "url": "https://hkvxni.files.cmp.optimizely.com/download/74937cf0d41111eeb5d18ee96f755a99",
+      "retrieved_at": "2026-10-20T08:49:08.733911+00:00",
+      "resolved_url": "https://hkvxni.files.cmp.optimizely.com/download/74937cf0d41111eeb5d18ee96f755a99",
+      "status": "retrieved",
+      "bytes": 169931,
+      "sha256": "9640719f3a60e1c171aadfee73b3c9b0d65541b40e7a45efbf1a66fa79b33f5a",
+      "path": "unpublished-local-ref:b299d2e5e5d3525a",
+      "local_pdf": "unpublished-local-ref:b299d2e5e5d3525a"
+    },
+    "sr200": {
+      "id": "sr200",
+      "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+      "path": "unpublished-local-ref:dbb0e8a35448a209",
+      "sha256": "6ecf4e420ebc92c0488e38e909fab7b3a1d661d473bc34079b661f467a6246d6",
+      "bytes": 179231,
+      "retrieved_at": "2026-10-20T08:14:10.268423+00:00",
+      "origin": "verified prior source copied without replacing the original",
+      "local_pdf": "unpublished-local-ref:dbb0e8a35448a209"
+    },
+    "sr200_lot": {
+      "id": "sr200_lot",
+      "url": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+      "path": "unpublished-local-ref:1417ddb809686a83",
+      "sha256": "3c354f7126d8d69fe8381dd9d1ab756c3d7287164615768ea1b1ae4f9ab7b915",
+      "bytes": 11102482,
+      "retrieved_at": "2026-10-20T08:14:11.819499+00:00",
+      "origin": "verified prior source copied without replacing the original",
+      "local_pdf": "unpublished-local-ref:1417ddb809686a83"
+    }
+  },
+  "rows": [
+    {
+      "id": "SR200-catalog",
+      "material": "Materion SR-200",
+      "product": "hot-rolled sheet",
+      "source": "sr200",
+      "pages_pdf": [
+        1,
+        2,
+        3
+      ],
+      "directions": [
+        "in_plane"
+      ],
+      "gauge_mm": [
+        0.508,
+        6.35
+      ],
+      "target_gauge_in_catalog_range": true,
+      "Fty_MPa": 345,
+      "Fcy_MPa": null,
+      "Ftu_MPa": 483,
+      "yield_definition": "0.2% offset tensile, ASTM E8",
+      "basis": "listed tensile minimum; datasheet is reference, contract specification required",
+      "condition": "hot rolled, ground, stress relieved, etched",
+      "temperature": "room temperature",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "limit": "No compressive minimum or biaxial yield reported. Full 24 by 72 inch blank applies only at >=0.059 inch; narrower/shorter below that."
+    },
+    {
+      "id": "AMS7902-archived-handbooks",
+      "material": "AMS 7902 beryllium",
+      "product": "sheet, not preform",
+      "source": [
+        "mil5j",
+        "mmpds01",
+        "mmpds08"
+      ],
+      "pages_pdf": [
+        1185,
+        1185,
+        278
+      ],
+      "locator": "Table 7.2.1.0(c); printed 7-5, 7-5, 7-6",
+      "editions": [
+        "MIL-HDBK-5J 31 January 2003",
+        "MMPDS-01 31 January 2003",
+        "MMPDS-08 1 April 2013"
+      ],
+      "directions": [
+        "L",
+        "LT"
+      ],
+      "gauge_mm": [
+        0.508,
+        6.35
+      ],
+      "Fty_MPa": 344.73786465841806,
+      "Fcy_MPa": null,
+      "Ftu_MPa": 482.63301052178525,
+      "basis": "S (specification minimum) for listed strengths; Fcy entries are ellipses",
+      "E_GPa": 293.02718495965536,
+      "Ec_GPa": 293.02718495965536,
+      "nu_L_LT": 0.1,
+      "condition": "stress relieved, ground and etched",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "limit": "Archived tables visually checked. Current approved handbook/specification revision not obtained. An Ec entry is not an Fcy entry."
+    },
+    {
+      "id": "SR200-Fenn-L",
+      "material": "SR-200",
+      "product": "cross-rolled sheet",
+      "source": "sr200_lot",
+      "pages_pdf": [
+        22
+      ],
+      "locator": "Table 3; Fenn et al. 1967 reproduced in NASA-CR-194164",
+      "directions": [
+        "L"
+      ],
+      "gauge_mm": 1.96,
+      "Fty_MPa": 383.4,
+      "Fcy_MPa": 379.2,
+      "Ftu_MPa": 537.6,
+      "Fcu_MPa": 659.1,
+      "basis": "historical reported values; not a design minimum",
+      "yield_definition": null,
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "limit": "Original AFML-TR-67-212 not inspected; exact offset/statistics/finish not recoverable from reproduced table. No 0.7-0.85 mm transfer."
+    },
+    {
+      "id": "SR200-Fenn-LT",
+      "material": "SR-200",
+      "product": "cross-rolled sheet",
+      "source": "sr200_lot",
+      "pages_pdf": [
+        22
+      ],
+      "locator": "Table 3",
+      "directions": [
+        "LT"
+      ],
+      "gauge_mm": 1.96,
+      "Fty_MPa": 386.1,
+      "Fcy_MPa": 382.7,
+      "Ftu_MPa": 564.0,
+      "Fcu_MPa": 591.5,
+      "basis": "historical reported values; not a design minimum",
+      "yield_definition": null,
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "limit": "In-plane value; cannot replace through-thickness properties or the weaker rolling direction."
+    },
+    {
+      "id": "SR200E-NASA1992-L",
+      "material": "SR-200E",
+      "product": "cross-rolled sheet",
+      "source": "nasa4397",
+      "pages_pdf": [
+        25
+      ],
+      "locator": "Table 7, printed 17",
+      "directions": [
+        "L"
+      ],
+      "study_nominal_gauge_mm": 2.54,
+      "compression_coupon_gauge_individually_documented_in_table": false,
+      "Fty_MPa": 391.6222142519629,
+      "Fcy_MPa": 344.73786465841806,
+      "Ftu_MPa": 517.106796987627,
+      "Fcu_MPa": 659.1387972268952,
+      "basis": "Fcy attributed to unpublished Roschke et al. 1990 data",
+      "yield_definition": "Table labels yield; compression offset not stated. Study's own tensile onset differs from 0.2% offset.",
+      "condition": "study specimens machined and etched; no supplier minimum",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "limit": "Thicker-sheet research evidence; not independent qualification of modern thin SR-200."
+    },
+    {
+      "id": "SR200E-NASA1992-LT",
+      "material": "SR-200E",
+      "product": "cross-rolled sheet",
+      "source": "nasa4397",
+      "pages_pdf": [
+        25
+      ],
+      "locator": "Table 7, printed 17",
+      "directions": [
+        "LT"
+      ],
+      "study_nominal_gauge_mm": 2.54,
+      "Fty_MPa": 415.06438904873534,
+      "Fcy_MPa": 396.44854435718077,
+      "Ftu_MPa": 497.11200083743876,
+      "Fcu_MPa": 691.5441565047865,
+      "basis": "same unpublished compression data provenance as L; not minimum",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "limit": "Do not select the stronger LT value for equal compression along both in-plane directions."
+    },
+    {
+      "id": "NASA-actual-compression-failure",
+      "material": "SR-200",
+      "product": "cross-rolled sheet",
+      "source": "sr200_lot",
+      "pages_pdf": [
+        99,
+        100,
+        102,
+        104
+      ],
+      "locator": "Section 5.2, Table 14, printed 86-91",
+      "directions": [
+        "L",
+        "LT"
+      ],
+      "gauge_mm": 2.54,
+      "specimens": 2,
+      "Fcy_MPa": null,
+      "Fcu_MPa": [
+        658.8,
+        691.8
+      ],
+      "Ec_GPa": [
+        300,
+        306
+      ],
+      "basis": "one catastrophic failure in each direction",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "limit": "These are ultimate compressive failures, not yield minima. 12.7 mm unsupported length and special end fixtures."
+    },
+    {
+      "id": "S200F-maker-prose",
+      "material": "S-200-F",
+      "product": "structural block grade; no thin-sheet coupon identified",
+      "source": "materion-design",
+      "pages_pdf": [
+        4
+      ],
+      "Fty_MPa": 255,
+      "Fcy_MPa": 255,
+      "gauge_mm": null,
+      "basis": "about/typical, not a minimum",
+      "yield_definition": "0.2% offset compression in prose",
+      "temperature": "room temperature",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "limit": "A sensitivity value, not a conservative certified SR-200 thin-sheet allowable. Generic 10% compression uplift is not a guarantee."
+    },
+    {
+      "id": "AMS7908-HIP-A",
+      "material": "AMS 7908",
+      "product": "HIP near-net preforms",
+      "source": "mmpds08",
+      "pages_pdf": [
+        279
+      ],
+      "locator": "Table 7.2.1.0(d), printed 7-7",
+      "directions": [
+        "all"
+      ],
+      "Fty_MPa": 296.47456360623954,
+      "Fcy_MPa": 289.5798063130712,
+      "Ftu_MPa": 413.6854375901016,
+      "basis": "A column",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "limit": "Wrong product form. Cannot assign 289.58 MPa to cross-rolled sheet; table has anomalous thickness heading/500 in2 entry, not interpreted."
+    },
+    {
+      "id": "AMS7908-HIP-B",
+      "material": "AMS 7908",
+      "product": "HIP near-net preforms",
+      "source": "mmpds08",
+      "pages_pdf": [
+        279
+      ],
+      "locator": "Table 7.2.1.0(d), printed 7-7",
+      "directions": [
+        "all"
+      ],
+      "Fty_MPa": 337.8431073652497,
+      "Fcy_MPa": 330.9483500720813,
+      "Ftu_MPa": 434.36970946960673,
+      "basis": "B column",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "limit": "Wrong product form; 330.95 MPa is not a sheet design basis."
+    },
+    {
+      "id": "PS200-catalog",
+      "material": "PS-200",
+      "product": "foil/sheet",
+      "source": "ps200",
+      "pages_pdf": [
+        1,
+        2
+      ],
+      "nominal_target_gauge_mm": 0.8,
+      "exact_inch_gauge_mm": 0.8128,
+      "Fty_MPa": null,
+      "Fcy_MPa": null,
+      "basis": "chemistry, gauge and integrity specification only",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "limit": "0.032 inch listed +/-0.002 inch. No tensile/compressive design strength published; >=18 inch width/length by inquiry."
+    },
+    {
+      "id": "PF60-catalog",
+      "material": "PF-60",
+      "product": "foil/sheet",
+      "source": "pf60",
+      "pages_pdf": [
+        1,
+        2,
+        3
+      ],
+      "nominal_target_gauge_mm": 0.8,
+      "exact_inch_gauge_mm": 0.8128,
+      "Fty_MPa": null,
+      "Fcy_MPa": null,
+      "basis": "chemistry, gauge and integrity specification only",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "limit": "A gauge match does not establish mechanical equivalence to SR-200. No compressive yield published."
+    },
+    {
+      "id": "DOE-specification-survey",
+      "material": "SR-200-E",
+      "product": "hot rolled VHP block into sheet",
+      "source": "doe-specs",
+      "pages_pdf": [
+        11
+      ],
+      "locator": "RFP-4283 (1990), current specifications table",
+      "Fty_MPa": 344.73786465841806,
+      "Ftu_MPa": 482.63301052178525,
+      "Fcy_MPa": null,
+      "gauge_mm": null,
+      "basis": "1974 Brush grade specification reproduced in historical survey",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "limit": "Only tensile strength fields; does not independently fill the compressive-yield gap."
+    },
+    {
+      "id": "DOE-ingot-thin",
+      "material": "ingot-sheet beryllium",
+      "product": "can-rolled then bare-rolled sheet",
+      "source": "doe-ingot",
+      "pages_pdf": [
+        29,
+        31,
+        32
+      ],
+      "locator": "RFP-910, mechanical-property tests and Table IX",
+      "as_rolled_gauge_mm": 0.635,
+      "tested_gauge_mm": 0.5334,
+      "extra_etch_each_side_mm": 0.0508,
+      "Fcy_MPa": null,
+      "tensile_example": {
+        "gauge_mm": 1.9049999999999998,
+        "cross_rolled_Fty_MPa": 193.053204204,
+        "cross_rolled_Ftu_MPa": 337.843107357
+      },
+      "basis": "tensile tests, not compression",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "limit": "Shows a real finishing/gauge effect, not a thin-sheet compression qualification."
+    }
+  ],
+  "design_allowable_for_finished_target_sheet_MPa": null,
+  "scope": "No matched minimum or statistically qualified equibiaxial compressive yield was found in the inspected sources. This is not proof that no proprietary data exist.",
+  "biaxial": {
+    "source": "nasa4397",
+    "pages_pdf": [
+      11,
+      13,
+      17,
+      25
+    ],
+    "test": "Ring-loaded discs with bending; no distinct biaxial yield reported.",
+    "fit": "Table 8 uses failure stresses for missing biaxial/off-axis yield observations.",
+    "computed_extrapolation_in_RESULTS": "NASA4397_unqualified_polynomial_extrapolation",
+    "status": "PROJECTION; not an equibiaxial compression test or an allowable",
+    "von_mises_transfer": "For (-s,-s,0), equivalent stress equals s, conditional on isotropic pressure-insensitive plasticity. Cross-rolled orthotropic Be is not thereby qualified."
+  },
+  "anisotropy": {
+    "source": "sr200_lot",
+    "page_pdf": 22,
+    "E_L_LT_ST_GPa": [
+      298.7,
+      293.6,
+      347.5
+    ],
+    "nu12_nu21": [
+      0.0768,
+      0.0752
+    ],
+    "ST_Ftu_MPa": 200,
+    "ST_Fcy_MPa": null,
+    "limit": "No substitution of through-thickness ultimate strength for in-plane yield; scalar shell sensitivities do not validate an orthotropic formed shell."
+  },
+  "finish": {
+    "handbook_source": "mmpds08",
+    "pages_pdf": [
+      275,
+      276
+    ],
+    "standard_postmachining_etch_each_surface_mm": 0.0508,
+    "alternate_etch_after_specified_stress_relief_each_surface_mm": 0.0127,
+    "scope": "The archived handbook's material-property guidance assumes etched surfaces. These are documentation findings, not shop instructions.",
+    "no_double_count": "Catalog SR-200 already arrives etched. Additional removal is charged only when later processing requires it.",
+    "NASA_sanding_result": "NASA-TM-4397 found tensile ultimate/ductility damage with little tensile-yield change; this is not a compression knockdown law."
+  }
+}

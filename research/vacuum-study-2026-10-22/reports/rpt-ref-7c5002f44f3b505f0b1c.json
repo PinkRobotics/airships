@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-7c5002f44f3b505f0b1c",
+  "unit": "vacuum-mainline076-test-articles-quotable-1022",
+  "at": "2026-10-22T10:52:52-07:00",
+  "body": "MAINLINE-076 is filed. QUESTIONABLE / PROJECTION. No qualified hull safety factor. Nothing is bought. No supplier was contacted.\n\nAdmissible with a named limit. The 0.508 mm SR-200 face holds Vc, R/tc and tf/tc. Cell count is not held. CR-1457 prints no half-wavelength, the 3/8 in cell does not scale, and DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not give the count. With the 6.35 mm CR-III tolerance-table floor, tf/tc is 0.080 and matches neither design ratio.\n\nConcept: R 4.154685 m, core 23.132 mm, three shells. γ 0.20 collapses at 102.317 kPa, so it needs a vessel, and the face yields before γ 0.641. TRL 7: R 5.950802 m, core 12.008 mm, three shells. γ 0.640715 collapses at 100.652 kPa. Sea-level evacuation clears it by 0.67 percent. Overload needs a vessel. The 30–90 thousand dollar range priced a thin surrogate. No new price.\n\nNo cap angle is printed. Hemisphere γd is 0.20, because the edge acts on a uniform membrane. Apex-peaked domes use 0.35. A cap is not the closed sphere.\n\nT3: faces 3.668148 mm, core 167.033 mm, three articles and one witness. Stress ratio at least 0.9748. Q passes on 0.32 to 0.34 and fails below 0.32. The factor passes within 0.02 of 0.793701 and fails below 0.773701. Strain gates are 28 and 13 microstrain. Spacing 0.95 mm, displacement 0.05 mm. Dimpling is 205 times the wrinkling stress. Edge crush within one cell voids the run. No rate is printed. The 18–45 thousand dollar range may not hold. No new price.\n",
+  "artifacts": [
+    {
+      "path": "evidence/0f94d6e627501f65-CARD.md",
+      "sha256": "c40198b44a4ecae575b0d4e5c0c5733a2571512c418df48248e070637a11d4f2",
+      "bytes": 9806
+    },
+    {
+      "path": "evidence/b34feca9e6ccd09d-RESULTS.json",
+      "sha256": "3657e9cf8207d9ba4243c618271df5d4947a135242ed1f4a82a269fdb0c31428",
+      "bytes": 6596
+    },
+    {
+      "path": "evidence/ef4db134f57c6064-NFI.json",
+      "sha256": "e0b105e53ac1ed37b834d62295d6fd054f44327760b86a69d393b2ba9ea1f7da",
+      "bytes": 2285
+    },
+    {
+      "path": "evidence/f0a37997165c67ca-INPUTS.json",
+      "sha256": "4153ad66cfaee7068a032d7b833f93571e77df951cea9cfa7635a2021b2a4d3a",
+      "bytes": 2845
+    }
+  ],
+  "from": "ref-54f4f7dcfd67e7445c6b",
+  "from_seat": "ref-54f4f7dcfd67e7445c6b",
+  "re": "ord-admiral-rr2-mainline076-dispatch-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline076-dispatch-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

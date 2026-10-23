@@ -1,0 +1,1810 @@
+{
+  "unit": "vacuum-mainline052-check-1020",
+  "all_nonblocking": true,
+  "checker_findings": [
+    {
+      "id": "NFI-C052-01",
+      "status": "OPEN",
+      "blocking": false,
+      "type": "presentation correction",
+      "location": "SENSITIVITIES.alternative_checked_f5_5[*].{baseline,all_axes_endpoint,endpoints,roots,least}.family",
+      "owner_value": "f5-019 CHECK041; constant g/R; rescaled area and all associated debits",
+      "checker_value": "f5-5 CHECK041; constant g/R; rescaled area and all associated debits",
+      "affected_fields": 288,
+      "exact_rows": "MISMATCHES.json",
+      "effect": "Metadata only; the alternative-family numbers reproduce from f5-5 inputs.",
+      "proposed_fix": "Correct the family string in a new version, retaining the original pinned package."
+    },
+    {
+      "id": "NFI-C052-02",
+      "status": "OPEN",
+      "blocking": false,
+      "type": "prose rounding correction",
+      "location": "METHOD.md paragraph 2: f5-019 lighter than f5-5 at R10 ISA",
+      "owner_value_kg": 52.425,
+      "checker_value_kg": 52.42580196643212,
+      "correct_rounded_kg": 52.426,
+      "exact_rows": "PROSE-AUDIT.json",
+      "effect": "0.000801966432 kg printed discrepancy; no change to computed endpoints or closure.",
+      "proposed_fix": "Round the displayed difference to 52.426 kg."
+    },
+    {
+      "id": "NFI-C052-03",
+      "status": "OPEN",
+      "blocking": false,
+      "type": "brief custody discrepancy",
+      "location": "CHECK052 order artifact COMMON.md",
+      "expected_sha256": "b32d08a24bcd3ac046df76771d66f214f59d9e82ce4bc4237df1f93086339c64",
+      "observed_sha256": "6a6a596f4dc23790d58cd5bc0d707322f639bf3fc68979674e39a1de6a13dbd7",
+      "expected_bytes": 6217,
+      "observed_bytes": 6368,
+      "exact_rows": "PIN-DISCREPANCIES.json",
+      "effect": "Direct order and matching CHECK.md govern this check; all owner numerical input pins match.",
+      "proposed_fix": "Future dispatches should pin an immutable matching brief copy. No reply is requested."
+    },
+    {
+      "id": "NFI-C052-04",
+      "status": "OPEN",
+      "blocking": false,
+      "type": "service-model scope",
+      "location": "Vacuum humidity crossings in all weather cases; METHOD ground service paragraph",
+      "tag": "PROJECTION",
+      "finding": "The reproduced humidity capacity and seam conversion retain 284.9 K bulk gas while weather.T_K varies. The 32.5165 Pa criterion instead derives from a fixed 274.007117 K cold-film screen.",
+      "owner_first_root_h": 17.279788676579475,
+      "counterfactual_320K_first_root_h": 15.321115978140327,
+      "counterfactual_320K_schedule_h": 13.789004380326295,
+      "effect": "The published 17.280 h result is correct under its inherited gas-temperature convention; it is not a demonstrated weather-wide operating interval.",
+      "proposed_fix": "Expose the bulk-gas temperature in each row and couple it to the cold-surface field before granting operational humidity/life credit. The supplied sensitivity holds rates and the cold-film target fixed; it is not a forecast."
+    }
+  ],
+  "owner_findings_unchanged": {
+    "unit": "vacuum-mainline052-p3-common-account-1020",
+    "rows": [
+      {
+        "id": "NFI052-01",
+        "title": "Full-member compression distribution",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "3.9 GPa is typical catalog compression, not a fitted scale at a known reference size. The 1 GPa baseline is only a ranking target.",
+        "proposed_fix": "Measure the actual full-length/full-wall production tube population in compression, including finish, joints and proof history."
+      },
+      {
+        "id": "NFI052-02",
+        "title": "Linear frame and local shell interaction",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Constant-g/R scaling retains checked linear fields. The 0.2 eigen knockdown and local peak substitution do not qualify imperfections or nonlinear collapse.",
+        "proposed_fix": "Validate joints, geometric imperfections and coupled local/global behavior for the final resized sections."
+      },
+      {
+        "id": "NFI052-03",
+        "title": "Rigid joints",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Sleeve sizing does not demonstrate rotational stiffness, peel, torsion, fatigue or temperature-dependent bond behavior.",
+        "proposed_fix": "Demonstrate the assembled joint stiffness and multiaxial load envelope at the actual installation."
+      },
+      {
+        "id": "NFI052-04",
+        "title": "PBO effective ply strength",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "The 10 m least root requires about 5.343 GPa effective ply strength; 60% of yarn strength does not close this radius even with the other endpoints.",
+        "proposed_fix": "Measure biaxial crossply strength, construction efficiency, seams, attachments and sustained load."
+      },
+      {
+        "id": "NFI052-05",
+        "title": "Ten-year retention",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Warehouse extrapolation and .995/year protection target are not measured installed life. OD4 and white mass do not establish a durable coating.",
+        "proposed_fix": "Qualify combined light, humidity, stress, temperature, abrasion, fatigue and repair histories."
+      },
+      {
+        "id": "NFI052-06",
+        "title": "Humidity criterion and service",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "5% of cold saturation is a design target; h=2 shortens the nominal first interval. Initial fill is assumed dry.",
+        "proposed_fix": "Measure the complete internal dewpoint distribution and establish an operating interval including uncertainty."
+      },
+      {
+        "id": "NFI052-07",
+        "title": "Barrier leakage and conditioning",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "OD3 coupon gas/WVTR and old outgassing inventories are transferred to installed OD4; 90% removal is assumed demonstrated.",
+        "proposed_fix": "Measure whole-hull leak acceptance, installed WVTR and a compatible conditioning endpoint."
+      },
+      {
+        "id": "NFI052-08",
+        "title": "Onboard pumping and energy",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "15–148 pump units arise from constant nominal-speed and 1000 W planning assumptions; this is not optimized or qualified hardware.",
+        "proposed_fix": "Obtain installed wet-speed curves near 32.5 Pa and a complete power/heat/plumbing design; recalculate changed barrier and power architectures explicitly."
+      },
+      {
+        "id": "NFI052-09",
+        "title": "Load introduction and wind",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Uniform pressure envelope and a P2-sized pad mass do not establish P3 attachment strength or nonuniform wind loading.",
+        "proposed_fix": "Resolve full wind, gust, mooring, payload, cable and landing load paths on the discrete frame."
+      },
+      {
+        "id": "NFI052-10",
+        "title": "Damage tolerance",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "045 reports cascading member loss and running tears in predecessor configurations. No damage-tolerance repair is qualified or silently assigned zero cost here.",
+        "proposed_fix": "Demonstrate residual strength, tear arrest, impact resistance and realistic protection/inspection; carry all added mass."
+      },
+      {
+        "id": "NFI052-11",
+        "title": "Size scaling and optimality",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Only the two checked f5 gyration families are assessed. Larger manufactured tubes and thermal interactions are not validated.",
+        "proposed_fix": "Search further sections/topologies using independently checked force/eigen solutions and manufacturing limits before claiming a global radius minimum."
+      },
+      {
+        "id": "NFI052-12",
+        "title": "Installed inventory",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Systems100, node, installation and mooring lines are planning allowances. The 10 m full-endpoint margin is only about 31 kg.",
+        "proposed_fix": "Replace allowances with a component bill including sensors, fixtures, mounting, valves, access, repair and handling hardware."
+      },
+      {
+        "id": "NFI052-13",
+        "title": "Gas and water location",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Bores must be vented. Material water is counted once in material mass; exterior .1 kg/m² water is separate. More external water can erase the margin.",
+        "proposed_fix": "Verify bore venting, actual liquid retention/drainage and material moisture at launch."
+      },
+      {
+        "id": "NFI052-14",
+        "title": "P2 comparability",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "P2 endpoints have different unqualified material, thermal, bond and life assumptions. 048 stopped at radius15.",
+        "proposed_fix": "Do not rank confidence from payload or axis count; any larger-radius 048 extension needs its own thermal and mechanical calculation."
+      },
+      {
+        "id": "NFI052-15",
+        "title": "Reliability aggregation",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Only an intact-member compression hazard envelope is reported. Independence, compression m=10, load sharing and reference volume are hypothetical.",
+        "proposed_fix": "Calibrate failure mechanisms and common causes before assembling a hull probability; do not substitute either number for installed reliability."
+      }
+    ],
+    "inherited_registers": [
+      "inputs/034/NFI.json",
+      "inputs/check041/NFI.json",
+      "inputs/check046/NFI.json",
+      "inputs/043fold/NFI.json",
+      "inputs/check043/NFI.json",
+      "inputs/045/NFI.json",
+      "inputs/048/NFI.json",
+      "inputs/check037/NFI.json",
+      "inputs/041/NFI.json",
+      "inputs/043/NFI.json",
+      "inputs/046/NFI.json"
+    ]
+  },
+  "inherited_registers_unchanged": {
+    "inputs/034/NFI.json": {
+      "schema": 1,
+      "card": "MAINLINE-034",
+      "blocking_for_filing": false,
+      "open": [
+        {
+          "id": "NFI-034-LEAK-RATES",
+          "tag": "PROJECTION",
+          "finding": "No full-hull or seam/node leak rate is measured. The 1e-5/1e-3/0.1 mbar L/s per metre and per node values are scenarios, with a separate port allowance. They span four decades but are not bounds.",
+          "proposed_next": "Measure assembled pressure rise and test gas-specific leaks at service load and temperature; compare with the 24 h acceptance budget."
+        },
+        {
+          "id": "NFI-034-SOURCE-TO-SERVICE",
+          "tag": "PROJECTION",
+          "finding": "500 m fixes nominal pressure, not humidity or membrane temperature. Water rates are source-condition values mapped to a chosen 1 kPa driving partial pressure. Temperature dependence and humidity-gradient dependence are not measured.",
+          "proposed_next": "Measure permeance at the intended thermal/humidity envelope. Keep the constant-source and partial-pressure model results distinct."
+        },
+        {
+          "id": "NFI-034-TML-NOT-RATE",
+          "tag": "QUESTIONABLE",
+          "finding": "NASA E595 uses 125 C for 24 h. TML is neither kg/day at 284.9 K nor a certified finite flight inventory. Historical cures/lots and several material/gauge proxies differ. CVCM is a subset, not added to TML.",
+          "proposed_next": "Obtain actual material inventory and service-temperature desorption curves; retain unmatched-data tags."
+        },
+        {
+          "id": "NFI-034-CONDITIONING",
+          "tag": "PROJECTION",
+          "finding": "Reference calculations assume 90% of the chosen release inventory was removed and the residue releases exponentially with one-day time constant. Neither fraction nor kinetics is demonstrated.",
+          "proposed_next": "Demonstrate the required residual gas load after conditioning; do not treat this as a prescribed bake process."
+        },
+        {
+          "id": "NFI-034-CORE-AND-TUBE-VENTING",
+          "tag": "PROJECTION",
+          "finding": "Unvented P2 honeycomb would retain about 43.388 kg of ambient air. P3 tube bores would retain about 88.153/76.110 kg. Base cases require these spaces to share the evacuation path. Trapped gas is onboard mass even before it leaks into the main cavity.",
+          "proposed_next": "Establish and qualify internal vent paths, pressure equalization and residual gas inventory. Any geometric vent change requires structural review."
+        },
+        {
+          "id": "NFI-034-P2-PERMEATION-PATH",
+          "tag": "PROJECTION",
+          "finding": "Intact Be bulk ambient-gas permeation is set to zero in the screen, not measured. AF full-area bonds are behind Be and do not see the full exterior-to-interior gradient. The outer 30:1 scarf is screened at an assumed 10 Barrer; its adhesive is the 028 70 g/m2 route, not silently replaced with AF163.",
+          "proposed_next": "Measure scarf and metal/adhesive assembly permeance, pinholes and surface defects. Validate the actual panel boundary path."
+        },
+        {
+          "id": "NFI-034-P3-RESIN-AND-SURFACES",
+          "tag": "PROJECTION",
+          "finding": "SiC tubes remain SiC in both 022c rows; CFRP is only the end wrap. The wrap outgassing proxy uses a different graphite/epoxy. A 0.1 g/m2 SiC surface inventory and 1 wt% unspecified attachment/seal inventories are assumptions.",
+          "proposed_next": "Measure actual end-wrap resin, cured joint adhesive, membrane attachment and cleaned ceramic surface gas release."
+        },
+        {
+          "id": "NFI-034-JOINT-ADHESIVE-MASS",
+          "tag": "PROJECTION",
+          "finding": "The 023 end-material estimate omits adhesive mass. At nominal inherited bond area, assumed 0.2 mm gap and 1400 kg/m3 density, this card adds 12.565 kg for Ti sleeves and 4.078 kg for CFRP wraps. Shear-transfer and gap assumptions remain unqualified.",
+          "proposed_next": "Book cured adhesive, primers and process losses against the complete assembly and qualify actual joints."
+        },
+        {
+          "id": "NFI-034-BARRIER-ASSEMBLY",
+          "tag": "PROJECTION",
+          "finding": "The Zylon row needs a separate barrier. A 12 um PET substrate, assumed 50 nm Al, 25 g/m2 attachment/lamination and 5 kg seam installation total 57.546 kg. This is a worked bill, not a qualified lightest laminate or weather/UV protection system.",
+          "proposed_next": "Test a complete load-bearing and gas-tight assembly; measure seam, resin, protective layer and processing mass."
+        },
+        {
+          "id": "NFI-034-GAS-COVERAGE",
+          "tag": "PROJECTION",
+          "finding": "Kapton has sourced CO2/O2/H2/N2/He data but not Ar; Ar is set to N2. Mylar has sourced O2 only: other gas ratios are assumed, including N2, and checked in a sensitivity. Outgassing is water-equivalent with a 5 mass% H2 sensitivity, not measured composition.",
+          "proposed_next": "Measure a full gas spectrum, including noble gases and organics; distinguish pressure from gas mass."
+        },
+        {
+          "id": "NFI-034-GEOMETRY",
+          "tag": "QUESTIONABLE",
+          "finding": "Uses 021b face/core geometry and re-sizes 028 scarfs to its panel width. Uses 022c cap sag for volume and the original sphere area for films; a 10% area sensitivity is supplied. A sphere cutting pattern and exact pillow area are absent. P3 internal solid volume is neglected in the pressure model.",
+          "proposed_next": "Carry an actual surface-area, solid-volume, seam-length and node inventory with the manufactured layout."
+        },
+        {
+          "id": "NFI-034-GETTER",
+          "tag": "QUESTIONABLE",
+          "finding": "BASF capacity is a humid-equilibrium number; the 10 wt% usable vacuum capacity is assumed. The SAES UHV capacity illustration is not a mixed-gas rough-vacuum recommendation. COMBO removes N2 at room temperature, but the opened page supplies no sizing capacity. Getter-retained external gas still adds vehicle mass.",
+          "proposed_next": "Obtain service-pressure mixed-gas capacity/rate and cartridge mass; do not treat a water bed as a complete air getter or as recovered lift."
+        },
+        {
+          "id": "NFI-034-PUMP-AND-CONDUCTANCE",
+          "tag": "PROJECTION",
+          "finding": "KNF inlet speed is read from the low-pressure curve, not its STP delivery rating. Installed speed is assumed 75% of nominal. E2M28 motor 750 W is mechanical; 1000 W electrical is an assumption. One E2M28 is 2.3% short of the Kapton hot constant-source envelope at the assumed installation factor.",
+          "proposed_next": "Measure effective inlet speed and input power with water vapour and the actual plumbing. Kapton needs at least 21.112 m3/h at the hot source-rate envelope."
+        },
+        {
+          "id": "NFI-034-POWER-ENDURANCE",
+          "tag": "PROJECTION",
+          "finding": "30 kg sealed hardware includes an assumed 10 kg power package. Even if all ten kilograms were battery, the stated pack factors support five-watt monitoring for only nine days. Gas-only lifetimes are not autonomous mission endurance.",
+          "proposed_next": "Size the actual pack, controls, wiring and thermal duty for the chosen service interval; retain daily ground-service baseline until supported."
+        },
+        {
+          "id": "NFI-034-MASS-ALLOCATION",
+          "tag": "PROJECTION",
+          "finding": "Both current lead models carry 100 kg systems. Identified sealed hardware is 30-50 kg. Zylon barrier and previously omitted joint adhesive may be funded from remaining allocation only by explicit reallocation; other installed hardware is unresolved.",
+          "proposed_next": "Keep the whole 100 kg reserved, book all new masses once, and do not assign unused allowance to payload before a complete bill exists."
+        },
+        {
+          "id": "NFI-034-PHASE-VERSUS-LIFT",
+          "tag": "QUESTIONABLE",
+          "finding": "Desorbed material was already aboard: gas-phase inventory consumes a pressure allowance without adding the same mass again to the vehicle. Net external ingress adds mass. Passive getters retain it; pumps can expel it.",
+          "proposed_next": "Keep separate ledgers for free gas, net external uptake and material phase transfer."
+        },
+        {
+          "id": "NFI-034-STRUCTURAL-CARRY",
+          "tag": "QUESTIONABLE",
+          "finding": "This is a vacuum-maintenance estimate at fixed inherited points. The 022c Kapton equilateral row has filed least SF below one; Zylon structural assumptions and P2 optimism remain unqualified.",
+          "proposed_next": "Carry the existing structural NFI; vacuum arithmetic does not establish a floating or certified hull."
+        }
+      ],
+      "resolved_material_mapping": "022-base and 023-corrected identify SiC tubes and CFRP/Ti end fittings; geometry independently gives 3100 kg/m3 for both tube rows.",
+      "numerical_validation": "36 checks pass. An initial RK45 dense interpolation residual of 1.73e-7 Pa exceeded the strict comparison tolerance; higher-order DOP853 with tighter integration controls resolved it without relaxing the analytic comparison tolerance."
+    },
+    "inputs/check041/NFI.json": {
+      "unit": "vacuum-mainline041-check-1020",
+      "all_nonblocking": true,
+      "qualified_structural_SF": null,
+      "qualified_compression_allowable_Pa": null,
+      "qualified_failure_probability": null,
+      "rows": [
+        {
+          "id": "CHECK041-NFI-01",
+          "status": "open",
+          "topic": "Prior owner-postprocessor exposure",
+          "finding": "This seat read score.py and force_stats.py during the earlier 043 fold. CHECK-041 uses an earlier independent linear core and new calculations, but cannot be described as blind.",
+          "action": "Retain the disclosure. If a blind check is required, commission it separately with a reviewer without this exposure.",
+          "evidence": [
+            "PRIOR-EXPOSURE.json",
+            "METHOD.md"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-02",
+          "status": "open",
+          "topic": "Film-tangent reproducibility",
+          "finding": "Rigid/pinned perfect multipliers are 7.151119777416943 / 2.0461935353568275 versus 7.155002496828368 / 2.0471334034237882. Direction-field ambiguity is a hypothesis, not an established cause.",
+          "action": "Supply a pinned per-cell material-direction field or an ordering-independent geometric definition, then align independent formulations. Preserve all exact differences.",
+          "evidence": [
+            "SCALAR-CHECK.json",
+            "MISMATCHES.csv",
+            "film_check.py"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-03",
+          "status": "open",
+          "topic": "Finite-rotation formulation equivalence",
+          "finding": "Independent m12/m24 brackets lie within the reported brackets. The m6 bracket is earlier and disjoint; six endpoint eigenvalues differ. Reference stiffness and objectivity tests do not prove equivalence of loaded-state formulations.",
+          "action": "Specify reference/current transverse frames and local rotation/deformation maps sufficiently for a code-independent matched benchmark; compare loaded curved-member examples and tangent matrices.",
+          "evidence": [
+            "NONLINEAR-CHECK.json",
+            "ENERGY-VALIDATION.json",
+            "nonlinear_energy.py"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-04",
+          "status": "open",
+          "topic": "First sampled loss versus physical collapse",
+          "finding": "Three independent perfect-branch continuations corroborate the fine-mesh trend. Finite sampling, ideal elastic material, and ideal rigid joints do not establish imperfection tolerance or physical collapse; resized f5 points were not independently continued nonlinearly.",
+          "action": "Treat the result as first sampled ideal tangent loss. For capacity work, evaluate manufactured imperfections, load paths, joints, and resized witnesses with a qualified model.",
+          "evidence": [
+            "NONLINEAR-CHECK.json",
+            "METHOD.md"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-05",
+          "status": "open",
+          "topic": "Uncalibrated global multiplier",
+          "finding": "The 0.2 linear multiplier is inherited. Applying it to the nonlinear result is only arithmetic; no measured knockdown distribution is established.",
+          "action": "Preserve explicit PROJECTION status and obtain geometry/joint/imperfection-specific calibration before using a qualified margin.",
+          "evidence": [
+            "SOURCES.md",
+            "NONLINEAR-CHECK.json"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-06",
+          "status": "open",
+          "topic": "Local curved-tube wall interaction",
+          "finding": "Independent peak-compression local sensitivities are 1.0332229353980462 and 0.9781320168028794. The 019 witness is below unity under that surrogate. Neither the axial-only nor peak-substitution interaction is qualified for curved ceramic tubes.",
+          "action": "Keep the sub-unity sensitivity visible and establish combined axial/bending local-wall response using geometry-resolved shell analysis and matched evidence.",
+          "evidence": [
+            "SCALAR-CHECK.json",
+            "CHECK.md"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-07",
+          "status": "open",
+          "topic": "SiC stiffness, strength and size transfer",
+          "finding": "410 GPa is a comparison input versus 430 GPa in the vendor sheet. Nominal 3.9 GPa compression and projected 15.586 MPa tension do not establish full-size member allowables or frame failure probabilities.",
+          "action": "Obtain matched finished-tube compression/tension distributions, flaw and size effects, load interaction, and joint-contact evidence. Keep probability and qualified allowable fields null.",
+          "evidence": [
+            "SOURCES.md",
+            "RESULTS.json"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-08",
+          "status": "open",
+          "topic": "Joint strength and rotational stiffness",
+          "finding": "Correlated end N/M/T sizing is reproduced. Coupon compression, prepared-aluminum lap shear, and an assumed joint density do not qualify sleeve laminates, adhesive peel, ceramic contact, or actual rotational restraint.",
+          "action": "Define the joint construction and characterize its combined-load strength, peel/contact behavior, stiffness, environment, and manufacturing variability.",
+          "evidence": [
+            "SCALAR-CHECK.json",
+            "SOURCES.md",
+            "PIN-CHECK.json"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-09",
+          "status": "open",
+          "topic": "Pressure-equilibrated skin and attachments",
+          "finding": "The film comparison assumes two taut axial tangents, perfect attachment, and zero assigned shear, coupling and prestress. Filament data do not determine the full skin. Interior kinematics are constrained by the frame.",
+          "action": "Specify laminate properties, pressure-equilibrated shape, tension-only/wrinkling behavior, seam transfer, and attachment compliance before crediting restraint.",
+          "evidence": [
+            "film_check.py",
+            "SOURCES.md"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-10",
+          "status": "open",
+          "topic": "Manufacturing and closure mass",
+          "finding": "The declared closure sums reproduce. Thin curved SiC manufacture, seams, gas barrier, coatings, attachment hardware, tolerances, inspection and assembly losses are not established by those sums.",
+          "action": "Replace projected allowances with a manufacturable bill of materials and keep both reserve conventions explicit.",
+          "evidence": [
+            "SCALAR-CHECK.json",
+            "SUPPLEMENT-CHECK.json"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-11",
+          "status": "open",
+          "topic": "Best-found scope",
+          "finding": "The fixed f4/f5 witnesses are independently evaluated; the full search is not repeated. The filed search covers a finite uniform-section family and fine-mesh witnesses inherit a coarser optimum gyration.",
+          "action": "Use best-found language. Any broader optimum claim needs additional independent search or a certificate, including relevant topology and nonuniform-section alternatives.",
+          "evidence": [
+            "COVERAGE.md",
+            "SUPPLEMENT-CHECK.json"
+          ],
+          "stops_work": false
+        },
+        {
+          "id": "CHECK041-NFI-12",
+          "status": "open",
+          "topic": "Pressure surface and sag-volume consistency",
+          "finding": "The pressure fan and circular-cap sag debit are different declared geometric surrogates. Arithmetic agreement does not establish that one pressure-equilibrated skin produces both.",
+          "action": "Use a common compatible pressure/volume/mass geometry when developing a qualified coupled model.",
+          "evidence": [
+            "METHOD.md",
+            "COVERAGE.md"
+          ],
+          "stops_work": false
+        }
+      ]
+    },
+    "inputs/check046/NFI.json": {
+      "status": "OPEN / QUESTIONABLE / PROJECTION",
+      "new": [
+        {
+          "id": "CHECK046-01",
+          "topic": "Annual water field scope",
+          "status": "OPEN",
+          "finding": "MOISTURE.csv annual_water_throughput_kg and CARD's 458.7 kg/year equal coupon permeation alone. Daily calculations include seam leakage; the annual field does not.",
+          "evidence": "At either 041 point, coupon-only 458.672527424 kg/year; adding the declared 305/50/10-day water weighting under the same nominal-pressure convention gives 459.261468067 kg/year. Continuous hot-leak upper envelope gives 461.780431057 kg/year, before initial residual water.",
+          "needed": "Rename the existing field annual_coupon_water_kg or include and identify the annual seam/port terms. This labeling omission does not alter the reported 24-hour moisture calculation."
+        },
+        {
+          "id": "CHECK046-02",
+          "topic": "Outdoor continuation is not a fit",
+          "status": "OPEN",
+          "finding": "The declared two-endpoint continuation gives .509318/.417089 at 2.25/4 months versus manual source readings .44/.335: residuals +.069318/+.082089, outside the stated ±.02 reading band.",
+          "evidence": "AGE-MODEL-SENSITIVITY.json; Toyobo page 12 visually inspected. The owner explicitly acknowledges that the curve does not fit all points.",
+          "needed": "Keep the numbers labeled endpoint continuation. Do not use the interpolated 10.2/5.95/3.55-day crossings as observed service lives or replacement triggers; the empirical bracket is zero to the first half-month observation."
+        },
+        {
+          "id": "CHECK046-03",
+          "topic": "Ageing endpoint and grade uncertainty",
+          "status": "OPEN",
+          "finding": "A ±.02 warehouse endpoint reading sensitivity alone gives ten-year nominal SF .912160–1.062012 at 041-5 and .864226–1.006204 at 041-019.",
+          "evidence": "AGE-MODEL-SENSITIVITY.json. These deterministic ranges omit model-tail, AS-to-HM, laminate, climate, and dose-transfer uncertainty.",
+          "needed": "Establish matched finished-material kinetics and lower-tail allowables. Preserve qualified life, strength, and whole-hull SF as null."
+        },
+        {
+          "id": "CHECK046-04",
+          "topic": "Hot loss budget and fresh limit",
+          "status": "OPEN",
+          "finding": "The full-restraint hot case needs retention .955211456 at 041-5, permitting only .457177% annual compounded loss over ten years. 041-019 needs 1.006695358 retention and fails this case fresh.",
+          "evidence": "HOT-AND-WATER-SENSITIVITY.json. A ±.02 instantaneous-strength-factor band gives ten-year hot SF .975049–1.016364 at 041-5; the sign of its small shortfall is uncertain.",
+          "needed": "Determine actual installation temperature, restraint and hot laminate allowable. The .714/9.165 kg film corrections restore this scalar film mode only; frame and joint screens remain open."
+        },
+        {
+          "id": "CHECK046-05",
+          "topic": "Cold-patch drying sensitivity",
+          "status": "OPEN",
+          "finding": "At the owner's h=2 W/m²K white-surface sensitivity, the cold patch reaches 268.630 K. At 041 the 5% RH water budget falls to .686336 kg, max WVTR .539393 g/m²/day and drying time 13.0198 h.",
+          "evidence": "HOT-AND-WATER-SENSITIVITY.json; primary h=5 values are 1.020387 kg, .805222 g/m²/day and 19.3568 h. Below freezing these use the declared supercooled-water convention.",
+          "needed": "Use the verified coldest patch, retained material water and installed moisture transport in the drying specification. A once-daily schedule is not established by the coupon upper bound."
+        },
+        {
+          "id": "CHECK046-06",
+          "topic": "Protected bill does not close",
+          "status": "OPEN",
+          "finding": "The OD4/white bill reproduces as 95.751050695 kg using the full-precision inherited seam length. With 30–50 kg vacuum hardware, 5 kg adhesive placeholder and the hot film correction, reserve-preserving deficits are 31.464822–51.464822 kg for 041-5 and 39.916436–59.916436 kg for 041-019.",
+          "evidence": "INDEPENDENT.json and HOT-AND-WATER-SENSITIVITY.json; no flotation margin is created. The stated 100 nm Al is a mass target, not a demonstrated aged OD4 spectrum.",
+          "needed": "Weigh a finished bay and seams, include excess area/trim/fasteners/repair, measure aged optical/leak performance, and reclose frame/joint/mass modes."
+        },
+        {
+          "id": "CHECK046-07",
+          "topic": "Chemistry-only alternate ranking",
+          "status": "OPEN",
+          "finding": "SK99's 135.881 kg nominal-SF1 chemistry-only film at 041 does not establish sustained-load suitability. The patent's 900 MPa/30°C rates give 39.6825 h (SK99) and 213.6752 h (DM20) to 1% strain if held constant.",
+          "evidence": "Patent PDF page 12, paragraphs 0099/0106/0107 visually inspected; UHMWPE-CREEP.csv reproduced. Required ten-year rate is 3.170979e-9 %/s. The 900 MPa comparison film weighs 338.220 kg and that stress is not qualified.",
+          "needed": "Obtain grade-specific creep/rupture/strain limits and hot aged laminate data. Neither patent rate nor another yarn's oxidative ageing law proves a ten-year installed SK99 or DM20 design."
+        },
+        {
+          "id": "CHECK046-08",
+          "topic": "Replacement remains a development candidate",
+          "status": "OPEN",
+          "finding": "The 268.099 kg annual 041-5 skin set and 2680.985 kg ten-year consumption reproduce, including 25 mm two-layer edge reinforcement. Annual humid-proxy pre-renewal SF is .9548.",
+          "evidence": "REPLACEMENT.csv; initial film SF is restored only for newly installed assumed-quality material. Existing interfaces and frame damage do not reset.",
+          "needed": "Demonstrate removable seams, repeated installation/reproof, inspection thresholds, drying and protected finished-film retention. No installed one-year replacement interval is approved."
+        }
+      ],
+      "owner_register": "owner/NFI.json",
+      "owner_open_entries": 22,
+      "inherited_registers": [
+        "inputs/022d/NFI.json",
+        "inputs/022d-check/NFI.json",
+        "inputs/041/NFI.json",
+        "inputs/031/NFI.json",
+        "inputs/034/NFI.json",
+        "inputs/037/NFI.json"
+      ],
+      "precision_findings": "Sixteen strict differences resolved by the explicitly declared six-decimal seam reference; not material arithmetic errors.",
+      "blocks_completion_of_research_check": false
+    },
+    "inputs/043fold/NFI.json": {
+      "unit": "vacuum-mainline043-sic-frame-reliability-1020",
+      "order": "ord-admiral-rr2-mainline043-fold-041-1020",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "assigned_fold_complete": true,
+      "stops_other_work": false,
+      "requires_immediate_reply": false,
+      "inherited_registers": [
+        {
+          "path": "intake/043/NFI.json",
+          "disposition": "All sixteen qualification questions remain applicable within their stated scope. Integer mesh and available force inputs are partially addressed for the new 041 cases as recorded below; no material qualification is closed."
+        },
+        {
+          "path": "intake/041/NFI.json",
+          "disposition": "The owner's eight structural/model questions are retained as source qualifications, including local-shell interaction and joint/membrane behavior."
+        }
+      ],
+      "items": [
+        {
+          "id": "NFI-043F-01",
+          "status": "partially addressed",
+          "topic": "Integer geometry and actual demand inputs",
+          "finding": "The 041 cases have 750 members, 252 joints and 500 cells, with actual arc lengths and 18000 correlated segment force/moment pairs per design. This replaces the noninteger 022d geometry only for the new cases.",
+          "remaining": "The input FE equilibrium and the fixed-gyration force transfer are inherited, not independently solved here. The old 433-member analysis remains bookkeeping rather than a constructed mesh.",
+          "related_prior": [
+            "NFI-043-02"
+          ],
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043F-02",
+          "status": "open",
+          "topic": "Finished-member material distribution",
+          "finding": "The fold supplies new stress and size information but no new compression m, characteristic strength, reference size or statistical confidence. Catalogue 3.9 GPa is still typical rather than a measured complete-member or 1 cm3 scale.",
+          "remaining": "Matched finished-part distributions and confidence-qualified tails, compatible flaw populations and full-size manufacture/process evidence are needed. The actual improvement factor and qualified frame Pf remain null.",
+          "related_prior": [
+            "NFI-043-01",
+            "NFI-043-05",
+            "NFI-043-06",
+            "NFI-043-07",
+            "NFI-043-09",
+            "NFI-043-11",
+            "NFI-043-15"
+          ],
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043F-03",
+          "status": "open",
+          "topic": "Pressure level, local wall and nonlinear capacity",
+          "finding": "The f5 source screens are 1.143285 and 1.083205. The peak-compression local-wall sensitivity is 1.033223 and 0.978132; the 019 sensitivity is below unity. Common-q 1.258252 rows exceed both declared screens.",
+          "remaining": "A validated local bending/axial interaction, imperfection response and coupled nonlinear capacity are needed. Source 041's verified perfect nonlinear path belongs to its selected f4 section, not these re-sized f5 witnesses.",
+          "related_prior": [
+            "NFI-043-10"
+          ],
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043F-04",
+          "status": "partially addressed",
+          "topic": "Actual end moments and joint stresses",
+          "finding": "The fold uses actual FE end moments and correlated axial/bending/torsional demands. It does not add the older dimensional joint proxy. Each design has 1500 end interfaces, with source joints sized to the target and no extra scalar reserve.",
+          "remaining": "Joint rotational stiffness, local contact, SiC end damage, adhesive peel, shear-induced principal tension, hoop stress and residual stress still require resolved fields and qualification.",
+          "related_prior": [
+            "NFI-043-03",
+            "NFI-043-04"
+          ],
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043F-05",
+          "status": "open",
+          "topic": "Reliability envelope and reference population",
+          "finding": "Per-member peaks are applied over whole members; a second envelope applies the global maximum everywhere. Complete-member common-scale and coupon-volume calibrations are separate hypotheses and give very different probabilities.",
+          "remaining": "Calibrate the actual stress-field and size transfer. A common complete-member scale despite unequal lengths must not be silently reinterpreted as a volume-calibrated material constant. Zero positive longitudinal stress does not close multiaxial tension risk.",
+          "related_prior": [
+            "NFI-043-01",
+            "NFI-043-04",
+            "NFI-043-11"
+          ],
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043F-06",
+          "status": "open",
+          "topic": "System risk and service life",
+          "finding": "All headline probabilities are tube-fracture-only and omit joints, membrane, instability, shared batches and degradation. Equal allocation at frame Pf=1e-6 is approximately 1.333334e-9 per member.",
+          "remaining": "Define whole-system risk allocation, valid component marginals, dependence/common-cause model and service duration/load spectrum with aging and crack-growth evidence.",
+          "related_prior": [
+            "NFI-043-12",
+            "NFI-043-14"
+          ],
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043F-07",
+          "status": "open",
+          "topic": "Proof and cost for 750-member frames",
+          "finding": "Illustrative 1.25-times-screen axial tests reach 1.00213 and 0.94965 MN and exceed the respective source screen. The frames require 750 part screens and qualification of 1500 end interfaces; amplified bending does not scale solely with axial-force ratio.",
+          "remaining": "Validate proof fixtures, stress coverage, confinement and damage effects, inspection detection, accept/reject criteria and lifetime treatment. Supplier capability, throughput, scrap and pricing remain unknown.",
+          "related_prior": [
+            "NFI-043-13",
+            "NFI-043-16"
+          ],
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043F-08",
+          "status": "open",
+          "topic": "Earlier rise-8 interpretation",
+          "finding": "The frozen rise-8 force solution remains independently unverified. The new f5 closure data are a different geometry and loading case.",
+          "remaining": "No rise-8 reliability claim can be closed by this fold. An independently admitted rise-8 solution and a defined transfer would be needed before using it as the new selected frame's demand.",
+          "related_prior": [
+            "NFI-043-08"
+          ],
+          "stops_other_work": false
+        }
+      ]
+    },
+    "inputs/check043/NFI.json": [
+      {
+        "id": "NFI-043-CHECK-01",
+        "key": "finished_compression_population",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Finished curved members lack a matched compression m, characteristic scale, reference size and sample population.",
+        "needed": "Obtain representative finished-part data, failure-mode identification and uncertainty-qualified fits at the intended geometry, processing and environment.",
+        "disposition": "Conditional Pf values remain projections; 3.9 GPa remains a typical catalogue value.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-02",
+        "key": "matched_material_deck",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "The old sheet and current page differ in E, density and m; the model combines E410 and rho3100.",
+        "needed": "Select a traceable grade/batch property deck and re-close geometry, mass and mechanical screens if its values change.",
+        "disposition": "Keep inherited properties explicit; the E430 sensitivity is not a redesign.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-03",
+        "key": "lower_tail_confidence",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Point-fit Weibull parameters do not establish confidence at per-member probabilities near 10^-9.",
+        "needed": "Report parameter uncertainty, population representativeness, model-form evidence and a defensible tail-validation plan.",
+        "disposition": "Retain the zero-failure sample counts only as burden illustrations.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-04",
+        "key": "multiaxial_contact",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Zero longitudinal tension does not resolve hoop stress, end contact, torsion, residual stress or shell behavior.",
+        "needed": "Resolve and validate representative member/joint stress fields and relevant flaw orientations under installed loads.",
+        "disposition": "The beam principal-stress numbers remain idealized estimates.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-05",
+        "key": "reference_geometry",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Several tensile populations lack spans, gauge area, fitted cohort reconciliation or equivalent finished-surface populations.",
+        "needed": "Recover specimen geometry and raw cohort metadata; preserve fitted versus mean-implied and normalized scales; justify any size transfer.",
+        "disposition": "Retain SA, CVD, RBSC and composite populations separately.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-06",
+        "key": "system_risk_budget",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "The reported series Pf covers tube fracture with independent hazards and allocates no risk to other failure modes.",
+        "needed": "Allocate a full-system risk budget and assess batch dependence, common causes, joints, membrane, instability and interfaces.",
+        "disposition": "Use union-bound allocations only with defensible marginal probabilities; actual frame Pf remains null.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-07",
+        "key": "proof_protocol",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "The illustrative force factors do not define a validated proof stress field or supported fixture.",
+        "needed": "Develop full-part stress-coverage, support, load-orientation, damage, acceptance and inspection evidence before adopting a proof protocol.",
+        "disposition": "Retain 1.25 force versus 1.259378651 stress distinction and separate local/global screens from the 0.375 Euler ratio.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-08",
+        "key": "lifetime_and_handling",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Instantaneous unchanged-strength conditioning does not cover slow crack growth, handling damage or service exposure.",
+        "needed": "Define load history, environment, duration, post-proof processing controls and a validated degradation model.",
+        "disposition": "Qualified lifetime failure probability stays null.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-09",
+        "key": "stability_of_resized_frame",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Own-screen and common-q cases differ; the 019 peak-local surrogate is 0.978132 and the resized f5 nonlinear capacity is not established here.",
+        "needed": "Resolve the local-wall interaction and relevant nonlinear stability of the selected physical configuration.",
+        "disposition": "Do not treat above-screen common-q reliability arithmetic as an admissible load claim.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-10",
+        "key": "rise8_independent_solution",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Rise8 moment and force inputs remain attributed; section conversions do not independently verify equilibrium or geometry.",
+        "needed": "Under fresh authority if needed, establish an independently verified rise8 geometry/load/equilibrium result and appropriate convergence evidence.",
+        "disposition": "Do not resume an earlier refused run or merge this source case into the nominal selected frame.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-11",
+        "key": "rise8_mass_label",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "The inherited mass_from_owner_arc_length_and_independent_section_kg field contains charged total rather than only tube mass.",
+        "needed": "Rename as total_mass_with_inherited_allowances_kg and expose tube_mass_kg separately; values 5446.290626 and 5039.557739 kg.",
+        "disposition": "Label correction only; no headline stress/Pf change.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-12",
+        "key": "manufacturing_and_joint",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "Finished curvature, thin-wall variability, surface flaws and local joint behavior are not qualified by the ledger or beam model.",
+        "needed": "Establish process capability, inspection sensitivity, joint load-transfer/rotation behavior and representative full-size validation.",
+        "disposition": "Joint scalar mass sizing supplies no additional reliability reserve.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      },
+      {
+        "id": "NFI-043-CHECK-13",
+        "key": "proof_cost_and_yield",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "issue": "High/custom is a qualitative cost class; no validated cycle time, yield, rejection rate, price or supplier capability is available.",
+        "needed": "Estimate cost and yield only after defining the test protocol, traceable population and manufacturing process.",
+        "disposition": "Do not interpret hypothetical proof rejection fractions as a production scrap forecast.",
+        "blocks_check": false,
+        "owner": "sciences / robotics programme",
+        "execution_authorized_by_this_row": false
+      }
+    ],
+    "inputs/045/NFI.json": {
+      "schema": 1,
+      "card": "MAINLINE-045",
+      "unit": "vacuum-mainline045-damage-tolerance-1020",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "items": [
+        {
+          "id": "NFI-045-DENT-GROWTH",
+          "tag": "QUESTIONABLE",
+          "claim": "The dent-growth criterion is this seat's derivation: the face's fixed membrane force pR/4 on a paraboloid dent's curvature, against the core's crush strength less its share of the pressure, with the patch's plate buckling force taken off. No opened page prints it. Castanie, the CAI literature on face wrinkling over crushed core, and McGowan and Ambur's preload threshold support the mechanism, not the numbers.",
+          "needed_to_ground": "Compression-after-impact tests on beryllium-faced CR-III coupons at 300 MPa, dented at 0.25-2 mm over 30-100 mm."
+        },
+        {
+          "id": "NFI-045-PATCH-EDGE",
+          "tag": "QUESTIONABLE",
+          "claim": "The lost-core patch is read clamped (54.8 mm) and simply supported (27.1 mm); the real edge, a face continuous over intact core, lies between. The pressure that holds the face on the crushed core is a barrier this static reading ignores.",
+          "needed_to_ground": "A plate-on-crushable-foundation analysis of the dented patch, or the coupon test above."
+        },
+        {
+          "id": "NFI-045-DENT-MODEL",
+          "tag": "QUESTIONABLE",
+          "claim": "The dent model (face membrane plus core crush over a plastic spread) is this seat's. It reads Pach's test within its 1.1-1.2 mm and 30 mm, and Clarke's FE at about half the FE depth. Hail is read three ways (fluid, Shi-calibrated, all energy) that span ten times in depth.",
+          "needed_to_ground": "Ice-ball tests on a beryllium-faced CR-III panel at 25-75 mm and IEC velocities."
+        },
+        {
+          "id": "NFI-045-BE-IMPACT",
+          "tag": "QUESTIONABLE",
+          "claim": "No impact, puncture or through-thickness ductility data exist for thin SR-200 sheet. NASA 1971 calls beryllium's impact resistance extremely low. A cracked outer face vents its core cells; whether the CR-III core is perforated (034's evacuation of every cell) decides whether a crack vents the whole core.",
+          "needed_to_ground": "Drop and ice-ball tests on 0.8 mm SR-200 sheet over honeycomb, and the core venting design."
+        },
+        {
+          "id": "NFI-045-AS-BUILT",
+          "tag": "QUESTIONABLE",
+          "claim": "Each dent is scored alone against gamma 0.564; the as-built imperfection already spends that allowance, so a dent and the as-built shape compete for it.",
+          "needed_to_ground": "015's map with two interacting imperfections, or a measured shell."
+        },
+        {
+          "id": "NFI-045-HAIL-FLUX",
+          "tag": "PROJECTION",
+          "claim": "No hail flux (stones per square metre per storm, by size) was sourced, so the number of tube strikes in a storm is not given.",
+          "needed_to_ground": "A hail climatology for the site."
+        },
+        {
+          "id": "NFI-045-TUBE-IMPACT",
+          "tag": "QUESTIONABLE",
+          "claim": "The tube's hail stress uses a shallow-shell-on-foundation reading of a cylinder, a static contact pressure (fluid or Shi-calibrated), no dynamic amplification, and the 14 mm Hexoloy tube data without size scaling. Birds, timber debris and tool drops on the tubes are not scored. No SiC tube impact test was found.",
+          "needed_to_ground": "Ice-ball tests on a 275 mm, 1.14 mm-wall SiC tube."
+        },
+        {
+          "id": "NFI-045-FILM",
+          "tag": "PROJECTION",
+          "claim": "No Zylon/PBO film exists as a sourced product: no modulus, toughness, puncture or tear data. The tear lengths use other films' toughness and a projected modulus. The film is also unprotected from daylight (35 percent strength after six months).",
+          "needed_to_ground": "A built 0/90 PBO film with barrier, tested for puncture, slit tear under biaxial load and UV."
+        },
+        {
+          "id": "NFI-045-CASCADE",
+          "tag": "QUESTIONABLE",
+          "claim": "The lost-member screen is linear, rigid-jointed, on f4/f5 geodesics not at 022d's spacing, with lumped pressure loads; joint stiffness is unknown and no nonlinear collapse was run. 026b's discrete model is the place to repeat it.",
+          "needed_to_ground": "A nonlinear frame analysis with one member removed, on 026b's model with the real joint stiffness."
+        },
+        {
+          "id": "NFI-045-MERGED-BAY",
+          "tag": "PROJECTION",
+          "claim": "The film over the two bays a lost member leaves is scored at the same rise-to-span, a tension 1.5 times higher; the real film shape after loss is not modelled.",
+          "needed_to_ground": "A membrane analysis of the rhombic bay."
+        },
+        {
+          "id": "NFI-045-DESCENT",
+          "tag": "QUESTIONABLE",
+          "claim": "The descent model is a rigid sphere in ISA with an isothermal fill, a constant drag coefficient 0.2-0.47, added mass 0.5 rho V and no wind; the neutral-buoyancy pressure result assumes the inside air takes the outside temperature.",
+          "needed_to_ground": "A coupled thermal and trajectory model, and the site's atmosphere."
+        },
+        {
+          "id": "NFI-045-HOLE-EDGE",
+          "tag": "QUESTIONABLE",
+          "claim": "At a hole the face reads twice its membrane stress and yields out to 3.9 hole radii; whether the edge crumples and the hole grows while the slow leak keeps the load on is not modelled.",
+          "needed_to_ground": "A hole-edge analysis of the sandwich at 300 MPa, or a punctured coupon under biaxial compression."
+        },
+        {
+          "id": "NFI-045-MOORING",
+          "tag": "PROJECTION",
+          "claim": "No mast contact speed was sourced; TAR 473 and 14 CFR 25.473 stand in, and the 0.5 m contact patch is assumed.",
+          "needed_to_ground": "A mooring system design and its contact envelope."
+        },
+        {
+          "id": "NFI-045-REGULATION",
+          "tag": "QUESTIONABLE",
+          "claim": "14 CFR 101.13 limits moored balloons to 152.4 m above the surface, below the 500 m design point; 101.19 requires a rapid-deflation device, which for a vacuum hull is a rapid air valve that lands it heavy.",
+          "needed_to_ground": "A regulatory route for a 500 m moored or free vacuum hull."
+        },
+        {
+          "id": "NFI-045-DETECTION",
+          "tag": "QUESTIONABLE",
+          "claim": "No inspection limit was sourced for beryllium faces, SiC tubes or PBO film; the tap-test PoD is for 0.5 mm aluminium and falls with face thickness. Access to a 1257 m2 hull at 500 m is not addressed.",
+          "needed_to_ground": "PoD trials on beryllium-faced coupons and an inspection-robot concept."
+        },
+        {
+          "id": "NFI-045-SOFT-BODY",
+          "tag": "QUESTIONABLE",
+          "claim": "Bird and hail readings disagree by reading: a moored 4 lb bird is stable on the fluid pressure and grows on the all-energy reading.",
+          "needed_to_ground": "Soft-body impact analysis on the sandwich."
+        }
+      ]
+    },
+    "inputs/048/NFI.json": {
+      "unit": "vacuum-mainline048-coating-and-water-1020",
+      "overall_installed_hull_SF": null,
+      "findings": [
+        {
+          "id": "048-01-matched_multilayer_optics",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "The 7.5752 g/m2 recipe and .09/.80 hemispherical optics are linked by a class-level transfer, not a matched Be coupon.",
+          "grounding": "Weigh and measure solar absorptance and hemispherical emittance on the exact stack, Be surface and process."
+        },
+        {
+          "id": "048-02-classical_emittance",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Classical IR emittance .65 is used as hemispherical for the model; the cited 2015 value is normal emittance and not interchangeable.",
+          "grounding": "Measure the hemispherical optical pair over temperature and relevant surface roughness."
+        },
+        {
+          "id": "048-03-Be_deposition_process",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Direct deposition omits carrier and PSA only conditionally. Native oxide, pretreatment, deposition stress and adhesion are unresolved.",
+          "grounding": "Qualify a prepared curved Be panel with thermal cycling and peel/adhesion testing; weigh all treatment layers."
+        },
+        {
+          "id": "048-04-installed_coating_mass",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Layer-density calculations and 10% application allowance are not measured installed weights.",
+          "grounding": "Measure total coating, edge seal, repairs, masking effects and coverage variation per finished area."
+        },
+        {
+          "id": "048-05-white_paint_mass",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "AZ93/Z93/SolarWhite minimum useful thickness is sourced but installed dry areal mass is not.",
+          "grounding": "Weigh matched coated Be witnesses, including paint primer; resolve SolarWhite reflectance/absorptance heading."
+        },
+        {
+          "id": "048-06-film_availability",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "The lightest 0.5 mil Ag/FEP tape's catalog part number is TBD, despite a specification entry.",
+          "grounding": "Confirm an actual offered construction and as-delivered adhesive weight without treating a catalog row as availability."
+        },
+        {
+          "id": "048-07-film_attachment",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Silver/FEP stainless-steel peel results do not qualify Be, overlaps, edges or repair strips.",
+          "grounding": "Test the complete Be/tape construction and weigh required edge seals and surface preparation."
+        },
+        {
+          "id": "048-08-UV_humidity_life",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Space heritage and base-FEP weathering do not establish atmospheric coating/PSA/metal lifetime.",
+          "grounding": "Measure combined UV, humidity, rain, corrosion, handling and thermal-cycle changes for the selected finish."
+        },
+        {
+          "id": "048-09-exterior_retention",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "0.1 kg/m2 is an assumed retained exterior liquid layer, not a measurement or a moisture-uptake property.",
+          "grounding": "Measure dew/rain/frost retention and drainage at hull orientations; specify dry-operating limits if claiming zero."
+        },
+        {
+          "id": "048-10-wet_optics",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Primary dry optical values are used alongside an exterior liquid mass. Assumed wet optics are sensitivities only.",
+          "grounding": "Measure wet/frosted optical properties and solve the coupled condensation/evaporation thermal problem."
+        },
+        {
+          "id": "048-11-AF_uptake",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Historical 2U WVR does not establish equilibrium uptake for the proposed 200 F cure. TML is not a water inventory.",
+          "grounding": "Measure sorption/desorption and mass baseline for the exact 2U lot, cure and humidity cycle."
+        },
+        {
+          "id": "048-12-AF_2M_transfer",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "The 9.16% sensitivity derives from 2M immersed at 70 C with dissolution and a different cure.",
+          "grounding": "Use only as a severe sensitivity until exact 2U exposure data exist."
+        },
+        {
+          "id": "048-13-primer_process",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "The 10 g/m2 structural-primer charge and 1% water fraction are planning assumptions; cited primer cure differs from 200 F.",
+          "grounding": "Define the actual two-interface primer, dry thickness, density, uptake and matched cure/Be compatibility."
+        },
+        {
+          "id": "048-14-core_moisture",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "CRIII durability data are not core moisture-uptake data. Metal nonabsorption does not remove coating/node/cell water.",
+          "grounding": "Measure the actual vented core's coating, contamination and condensed-water inventory."
+        },
+        {
+          "id": "048-15-finish_moisture",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "PSA, deposited-stack and seam-polymer water fractions are assumptions.",
+          "grounding": "Measure each complete finish/seam construction's moisture baseline and change after conditioning."
+        },
+        {
+          "id": "048-16-nominal_water_baseline",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Nominal density and film weights may already contain some moisture. The model conservatively adds a separate inventory.",
+          "grounding": "Establish dry-reference versus as-delivered masses to avoid an unknown double allowance."
+        },
+        {
+          "id": "048-17-bake_endpoint",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "70 C preconditioning evidence is for exposed coupons; 90% removal and cure compatibility are not proven on a hull.",
+          "grounding": "Demonstrate a measured residual-water endpoint and required access, temperature, time and equipment."
+        },
+        {
+          "id": "048-18-dry_gas_process",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Five well-mixed hull-volume purges are a resource scenario, not a qualified assembly process or material dry-out.",
+          "grounding": "Size the actual enclosure/glovebox and verify mixing, dew point, leak rate, exposure time and final material water."
+        },
+        {
+          "id": "048-19-sorbent_vacuum",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "10% usable capacity and 95% capture are unqualified at hull pressure and temperature.",
+          "grounding": "Measure vacuum sorption isotherms, kinetics, dust control, regeneration and cartridge/retention mass."
+        },
+        {
+          "id": "048-20-nominal_volatiles",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "040's 90% volatile conditioning and water-equivalent pressure model remain assumptions shared by all routes.",
+          "grounding": "Measure species-resolved release for the chosen cure/process; use the zero-capture and unconditioned sensitivities."
+        },
+        {
+          "id": "048-21-dew_operating_cycle",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Dry-night temperatures can fall below the inherited water partial-pressure dew point; dew mass is unknown.",
+          "grounding": "Resolve latent heat, air humidity transport, shading, sky condition, shedding and frost over the mission cycle."
+        },
+        {
+          "id": "048-22-coating_thermal_resistance",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Optical coating thermal resistance and its own residual stress are omitted.",
+          "grounding": "Measure or bound through-thickness resistance and coating stress for the installed stack."
+        },
+        {
+          "id": "048-23-joint_interaction",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "The primary 037b account separates mean scarf and free-edge shear. An added scalar interaction can erase the thin-tape margin.",
+          "grounding": "Validate coincident load paths, peel and free-edge behavior on the matched curved joint."
+        },
+        {
+          "id": "048-24-200F_cure",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "The new finish does not repair the original 250 F minimum-strength free-edge failure. The 200 F stress-free state remains conditional.",
+          "grounding": "Measure residual strains and qualify 2U/primer strength, durability and cure against 037b/CHECK-037b findings."
+        },
+        {
+          "id": "048-25-optical_aging_margin",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "For fixed emittance .80, the declared legacy day/full-cycle screen limits alpha to about .1665 at the source geometry.",
+          "grounding": "Set optical end-of-life limits and measure aged coupons; this number is a model threshold, not a life prediction."
+        },
+        {
+          "id": "048-26-combined_mission",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "031 weather mass/pressure and 037 thermal environments remain separate model inputs.",
+          "grounding": "Choose a joint atmospheric, solar, wind and water exposure before claiming mission-level float."
+        },
+        {
+          "id": "048-27-least_set_definition",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Least sets depend on the four declared optimism axes, minimax interpolation and scalar equations; they are not measured allowable properties.",
+          "grounding": "Ground each retained axis and replace the surrogate with validated coupled structural behavior."
+        },
+        {
+          "id": "048-28-cost_scope",
+          "tag": "QUESTIONABLE / PROJECTION",
+          "open_issue": "Ground-gas and ideal heat calculations are resource lower bounds; equipment, labor, pumping, cycle duration and currency cost are unsourced.",
+          "grounding": "Develop a matched process and obtain measured energy/use and equipment quotations."
+        }
+      ],
+      "inherited_040_findings": [
+        {
+          "id": "040-01-coating_inventory",
+          "tag": "PROJECTION",
+          "open_issue": "0.20 kg/m² paint+primer remains assumed; the marginal R12/R15 results are sensitive to installed coating mass.",
+          "grounding": "Weigh prepared, coated Be witnesses at the required optical performance, including primer, repairs and coverage variation."
+        },
+        {
+          "id": "040-02-cure_reference",
+          "tag": "PROJECTION",
+          "open_issue": "Filed 037b's 200 F stress-free state, compliant-core/free-edge model and balanced-force argument are adopted conditionally.",
+          "grounding": "Measure actual stress-free state and layer-wise residual strains; validate the free-edge and global/crimp assumptions on a curved matched panel."
+        },
+        {
+          "id": "040-03-combined_weather_thermal",
+          "tag": "PROJECTION",
+          "open_issue": "031 buoyancy/pressure and 037 solar temperatures are separate environments.",
+          "grounding": "Define the combined mission and compute/test its complete thermal cycle with the Admiral's chosen weather envelope."
+        },
+        {
+          "id": "040-04-face_compression",
+          "tag": "QUESTIONABLE",
+          "open_issue": "Compression strength is nonbinding under the scarf cap. Marginal face-tuple floats receive elasticity credit from 033's coupled historical E/Fcy tuple.",
+          "grounding": "Measure lot, orientation and formed-condition elastic modulus and compression, and state whether the design credits the coupled historical tuple."
+        },
+        {
+          "id": "040-05-bond_strength",
+          "tag": "QUESTIONABLE",
+          "open_issue": "Film weights do not establish adhesive shear, peel, flatwise tension, fatigue or leakage on Be/5056.",
+          "grounding": "Test the exact film, primer, surface treatment, cure and honeycomb geometry."
+        },
+        {
+          "id": "040-06-gamma",
+          "tag": "PROJECTION",
+          "open_issue": "The effective global coefficient and Vc branch convention lack whole-hull imperfection validation.",
+          "grounding": "Use measured imperfections, orthotropic shell analysis and correlated physical buckling tests."
+        },
+        {
+          "id": "040-07-wrinkling_Q",
+          "tag": "PROJECTION",
+          "open_issue": "Q=.33–.82 is a selectable model factor rather than a qualified lower-bound allowable.",
+          "grounding": "Correlate matched sandwich wrinkle specimens across relevant wavelengths and defects."
+        },
+        {
+          "id": "040-08-thermal_model",
+          "tag": "PROJECTION",
+          "open_issue": "Corrected thermal quadrature does not qualify the 037b homogenized free-edge model, local hardpoint restraint or joint coincidence.",
+          "grounding": "Compare thermal maps, strain and interface damage on curved instrumented panels."
+        },
+        {
+          "id": "040-09-scarf",
+          "tag": "PROJECTION",
+          "open_issue": "The 10 MPa mean-shear screen and worst-direction thermal addition do not resolve scarf peel, voids or intersections.",
+          "grounding": "Weigh and load/leak-test full process scarf intersections under thermal cycling."
+        },
+        {
+          "id": "040-10-stock_and_mouldline",
+          "tag": "PROJECTION",
+          "open_issue": "Low-radius face gauges are outside the cited standard sheet gauge envelope; spherical coverage and rejection rates are unresolved.",
+          "grounding": "Confirm formed stock supply and make a dimensioned panel/seam/mouldline manufacturing account."
+        },
+        {
+          "id": "040-11-core_properties",
+          "tag": "QUESTIONABLE",
+          "open_issue": "Typical CR-III properties, weak shear direction and scalar elasticity are transferred to a formed shell.",
+          "grounding": "Measure density, orthotropic stiffness, compression, shear and crushed/formed condition for the selected lot."
+        },
+        {
+          "id": "040-12-pad_load_path",
+          "tag": "PROJECTION",
+          "open_issue": "Heavy pad is sized to mean crush and a plate formula; punching, peel and hull load distribution remain open.",
+          "grounding": "Resolve the complete mooring attachment and validate with combined pressure/tether tests."
+        },
+        {
+          "id": "040-13-light_pad",
+          "tag": "PROJECTION",
+          "open_issue": "The 20 m/s pad supplies only about 0.432 of the 70 kn capacity.",
+          "grounding": "Resize the attachment for the actual required load; a mass-only lighter-pad result is not an assembly pass."
+        },
+        {
+          "id": "040-14-aerodynamic_pressure",
+          "tag": "PROJECTION",
+          "open_issue": "Uniform Cp=1 and aligned gust velocity are load surrogates; 70 kn is the governing modeled pressure.",
+          "grounding": "Resolve pressure distribution and transient tether/flight loads for the chosen configuration."
+        },
+        {
+          "id": "040-15-unvented_cells",
+          "tag": "PROJECTION",
+          "open_issue": "Ambient trapped gas consumes lift and changes inner/outer face load paths; late venting is a separate transient.",
+          "grounding": "Specify and demonstrate cell venting or analyze/test the sealed-cell pressure distribution and failure transient."
+        },
+        {
+          "id": "040-16-service_hardware",
+          "tag": "PROJECTION",
+          "open_issue": "30–50 kg service is nested in 100 kg systems and held fixed with radius; there is no installed bill of materials.",
+          "grounding": "Provide a weighed scalable hardware, support, controls and wiring bill with the remaining systems allocation."
+        },
+        {
+          "id": "040-17-leak_and_permeation",
+          "tag": "PROJECTION",
+          "open_issue": "Reference .001 mbar L/(s m) seam leakage and 10 Barrer scarf permeability are scenarios, not measured acceptances.",
+          "grounding": "Measure conditioned full-seam/port leakage and species permeation under mission pressure and temperature."
+        },
+        {
+          "id": "040-18-conditioning",
+          "tag": "PROJECTION",
+          "open_issue": "90% inventory removal, one-day release kinetics and water-only desorption composition are unverified.",
+          "grounding": "Measure finite species inventories and desorption rates after a validated conditioning process."
+        },
+        {
+          "id": "040-19-weather_requirement",
+          "tag": "PROJECTION",
+          "open_issue": "100 m centre altitude and both weather sets are choices for comparison, not an approved terrain/operations requirement.",
+          "grounding": "Have the Admiral choose the mission envelope and reserve policy; retain all three current accounts."
+        },
+        {
+          "id": "040-20-joint_floor",
+          "tag": "PROJECTION",
+          "open_issue": "Actual joining and the retained 5% floor produce different margins and least sets; neither closes an unmeasured installed joining bill.",
+          "grounding": "Close unlisted joining/edge/repair costs with a weighed assembly bill before releasing any retained allowance."
+        },
+        {
+          "id": "040-21-additional_installation",
+          "tag": "PROJECTION",
+          "open_issue": "Local hardpoints, tolerances, penetrations, rejected parts and repairs are not independently itemized beyond retained allowances.",
+          "grounding": "Reconcile the complete installed bill and load-path drawing; do not assign an installed-hull SF from the scored scalar screens."
+        },
+        {
+          "id": "040-22-film_interpolation",
+          "tag": "PROJECTION",
+          "open_issue": "Intermediate film weights rank optimism but are not necessarily available or qualified resin systems.",
+          "grounding": "Choose an available process and demonstrate both installed weight and bond/leak performance."
+        },
+        {
+          "id": "040-23-radius_scope",
+          "tag": "PROJECTION",
+          "open_issue": "The least-optimism ranking holds over R10/12/15/20/30 for the selected 3/8–1.0 core only.",
+          "grounding": "Treat other radii/core grades and pressure/weather reserve policies as separate design choices requiring recomputation."
+        }
+      ],
+      "inheritance_note": "040 findings remain open unless explicitly replaced by measured evidence; this card supplies sensitivities, not closure. Source pin is in MODEL-PINS.json."
+    },
+    "inputs/check037/NFI.json": {
+      "unit": "vacuum-mainline037-check-1020",
+      "status": "Check complete; no work blocked",
+      "rows": [
+        {
+          "id": "NFI-CHECK037-HEAT-INPUTS",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "84 thermal/projection fields are not independently recoverable from supplied inputs.",
+          "proposed_fix": "Publish velocities, all optical properties, sky/ground/cavity boundary conditions, grid, weights, converged day/night profiles and residuals; rerun both P2 and P3. The declared P2 comparison supplies a reproducible starting model."
+        },
+        {
+          "id": "NFI-CHECK037-PATTERN-DEFINITION",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "Filed residual maxima do not equal extrema of the filed n=2..6 polynomial.",
+          "proposed_fix": "State whether maxima use raw or truncated temperatures; retain raw samples, area weights and projection coefficients; use analytic extrema and constant/linear-mode consistency checks."
+        },
+        {
+          "id": "NFI-CHECK037-SHELL-EQUILIBRIUM",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "The scalar bending estimate and a membrane-free kinematic trial do not establish full spherical-shell equilibrium.",
+          "proposed_fix": "Solve both curvature components, membrane/bending coupling and force/moment equilibrium with compatible thermal strains and core restraint; compare with the rough gradient screen."
+        },
+        {
+          "id": "NFI-CHECK037-P3-TUBE-IDENTITY",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "Ti/CFRP fittings were treated as tube materials in thermal CTE and mass while SiC capacities were retained.",
+          "proposed_fix": "Use SiC properties for all tubes, keep fittings separate, and rerun temperatures plus compatibility. Corrected fixed-temperature sensitivities are already tabulated."
+        },
+        {
+          "id": "NFI-CHECK037-P3-ARC-MASS",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "Every filed tube mass uses chord length; inherited capacities use arcs.",
+          "proposed_fix": "Charge each SiC tube's inherited arc length. Eight unique corrected masses and ten exact result mismatches are supplied."
+        },
+        {
+          "id": "NFI-CHECK037-STEADY-FLIGHT-LOAD",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "The 290.634 Pa flight addition omits the selected VB baseline.",
+          "proposed_fix": "For the same selected local-speed case add 189.214 Pa steady pressure; total 479.848 Pa gives conditional P2 least 1.001324769. Select EAS/TAS and dynamic-response treatment consistently."
+        },
+        {
+          "id": "NFI-CHECK037-WIND-PATCH",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "Negative mean Cp is not proof that uniform excess bounds a nonuniform buckling mode.",
+          "proposed_fix": "Compute the prestressed nonuniform pressure and hardpoint equilibrium, then compare instability/imperfection response; retain uniform excess as a screening assumption until shown."
+        },
+        {
+          "id": "NFI-CHECK037-PAD-SUPPORT",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "The filed thickness reproduces only a logarithmic term; support and boss-loading conditions are unspecified.",
+          "proposed_fix": "Select edge support versus elastic foundation and finite boss loading. The supplied simply-supported uniform-patch solution includes the nonlogarithmic term and has independent boundary-condition checks."
+        },
+        {
+          "id": "NFI-CHECK037-PAD-BOSS-FIT",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "Under recovered 25 mm boss-radius assumptions the systems pad radius is only 14.683 mm.",
+          "proposed_fix": "Define whether 25 mm is radius or diameter; enforce boss containment. The supplied 25 mm radius floor changes six-pad mass to 0.031809 kg before installation."
+        },
+        {
+          "id": "NFI-CHECK037-PAD-PRELOAD-LOADPATH",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "Load-only F/crush sizing omits possible existing p/2 compression and does not address pull/oblique mooring transfer.",
+          "proposed_fix": "Determine actual reaction direction and superpose compatible pressure loads; use available compression headroom when applicable, then check face bending, core shear, peel, local shell failure and hardware."
+        },
+        {
+          "id": "NFI-CHECK037-P3-HARDPOINTS",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "7/2/1 member counts are scalar 5% sharing counts, without a vector load path or mass.",
+          "proposed_fix": "Place attachment nodes and members, solve equilibrium and joint loads, size fittings/spreaders and weigh their mass into the same lift budget."
+        },
+        {
+          "id": "NFI-CHECK037-RESERVE-POINT-LOAD",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "The 411.299 kg reserve contains environmental lift losses and distributed masses, not one suspended payload.",
+          "proposed_fix": "Use the actual payload and equipment layout; label the 4.033 kN example as hypothetical. Do not convert buoyancy penalties into concentrated hardware weight."
+        },
+        {
+          "id": "NFI-CHECK037-RESTORATION",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "Multiplying a tube mass by reciprocal least SF is not a demonstrated structural restoration and cannot repair a separate film failure.",
+          "proposed_fix": "Recompute changed sections, Euler/local/Perry/global modes, film, fittings, sag and lift. Use the supplied corrected proportional masses only as sensitivities."
+        },
+        {
+          "id": "NFI-CHECK037-SHEAR-ALLOWABLE",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "The 241.317 kPa W value is typical core shear, not a bonded-interface or cyclic allowable; the minimum-average column is 172.369 kPa.",
+          "proposed_fix": "Choose the intended material statistic, stress-free bond temperature, finite transfer geometry and interface properties. The nominal thermal-change limits are 27.975 K typical and 19.982 K minimum-average in this screen."
+        },
+        {
+          "id": "NFI-CHECK037-CORE-CTE-LAG",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "Prescribed Al-versus-Be strain in an equivalent shear-lag formula does not include effective cellular in-plane stiffness or finite boundary conditions.",
+          "proposed_fix": "Model both adherends/core compatibility and effective thermal expansion, then compare with representative measured thermal-cycle shear and peel."
+        },
+        {
+          "id": "NFI-CHECK037-CONVECTION-OPTICS",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "No speed or validity check is provided for Whitaker; bare optics and coating durability are assumptions.",
+          "proposed_fix": "Select climate and flight/ground thermal cases, validate the applicable convection regime, and retain measured or explicitly assumed surface optics and their temperature dependence."
+        },
+        {
+          "id": "NFI-CHECK037-FILM-CONSTITUTIVE",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "Film nu is unstated, the frame is assumed rigid, and an isotropic law is applied even to the Zylon reinforcement case.",
+          "proposed_fix": "Provide membrane/laminate stiffness and CTE tensors, prestress and slip/bond conditions; solve frame-film compatibility with both directions and barrier mass."
+        },
+        {
+          "id": "NFI-CHECK037-NONUNIFORM-BOW",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "Saying uniform mismatch does not bow a member does not evaluate circumferential tube heating, asymmetric film traction or thermal imperfections.",
+          "proposed_fix": "Calculate thermal curvature and load eccentricity for actual tube and attachment temperatures and add the resulting imperfection to the member stability calculation."
+        },
+        {
+          "id": "NFI-CHECK037-COMPLETE-MODE-ACCOUNT",
+          "tag": "PROJECTION",
+          "status": "open",
+          "finding": "The seven-screen minimum omits unresolved assembly modes; the filed coated swing is 0.917 and a separate scalar scarf interaction is 0.980.",
+          "proposed_fix": "Maintain a complete mode/load-case ledger, distinguish day-rise from night-reference assembly and map core thermal shear to scarf/bond stresses before combining them. Do not present seven-screen unity as installed-hull unity."
+        },
+        {
+          "id": "NFI-CHECK037-CURRENT-GEOMETRY",
+          "tag": "QUESTIONABLE",
+          "status": "open",
+          "finding": "037 used 022c before 022d filed; several quoted high P3 factors are outside the half-wave band.",
+          "proposed_fix": "Carry the now-filed 022d in-band geometry into the next thermal/load calculation, charging both film plies and fittings. Keep this audit tied to the original 022c record."
+        }
+      ],
+      "resolved_source_findings": [
+        "FAA 78-to-70-knot history is resolved by Appendix B, not a remaining document conflict.",
+        "FAA VB lower bound includes the 0.65 VH alternative; design airspeeds are EAS.",
+        "The SR-200 manufacturer's own sheet supports typical 11.3 ppm/K thermal expansion."
+      ]
+    },
+    "inputs/041/NFI.json": {
+      "schema": 1,
+      "card": "MAINLINE-041",
+      "status": "QUESTIONABLE / PROJECTION",
+      "qualified_structural_SF": null,
+      "items": [
+        {
+          "id": "NFI-041-01",
+          "status": "open",
+          "topic": "Full-size ceramic material and contact reliability",
+          "evidence": [
+            "SOURCES.md",
+            "RESULTS.json:best_closure_by_reserve",
+            "intake/technical/Hexoloy-SA.pdf"
+          ],
+          "finding": "The best 5% closure witness requires 1.164235 GPa extreme compression under the declared amplified-demand screen. The 3.9 GPa typical compression value and fixed 15.586 MPa tension reliability projection are not qualified allowables for long, thin curved arcs or their contacts. The vendor sheet gives E=430 GPa; the dispatched comparison retains E=410 GPa.",
+          "needed": "Production-representative arc and joint/contact tests, defect/size statistics, environmental durability, and a stated reliability model. Resolve the modulus edition and geometry transfer before claiming capacity.",
+          "prohibited_inference": "No qualified compression allowable or assembly failure probability follows from the reported required stress."
+        },
+        {
+          "id": "NFI-041-02",
+          "status": "open",
+          "topic": "Local shell buckling under bending",
+          "evidence": [
+            "RESULTS.json:best_closure_by_reserve",
+            "ADDITIONAL-SCORES.json",
+            "METHODS.md"
+          ],
+          "finding": "The matching-022d optimization retains its axial-stress local-wall formula. Substituting peak amplified compression into that formula lowers the selected frequency-5 witnesses from 1.143285/1.083205 to 1.033223/0.978132 at the 5%/019 reserves. This is a conservative sensitivity, not a calibrated interaction law.",
+          "needed": "A verified local-shell model or tests for curved SiC tubes under combined axial force, end bending, contact and geometric imperfections. Reoptimize if the interaction changes the active local limit.",
+          "prohibited_inference": "The 019 witness cannot be presented as robustly above unity across the displayed local-shell conventions."
+        },
+        {
+          "id": "NFI-041-03",
+          "status": "open",
+          "topic": "Joint strength, density, rotational stiffness and mass",
+          "evidence": [
+            "MODES.csv",
+            "RESULTS.json:selected_realization",
+            "intake/joint/toray-legacy.pdf",
+            "intake/joint/henkel-ea9394.pdf"
+          ],
+          "finding": "Actual member-end axial force, bending and torsion are included in the annular-sleeve and ring-bond demand. The selected frame reaches 3.356559 kN m end bending and 1.118657 kN m torsion. Equal-stress resized joints attain the requested scalar target by construction, without surplus reserve. The 1550 kg/m3 composite density is assumed; Toray's laminate strength and Henkel's prepared-aluminum shear result do not establish the proposed SiC joint.",
+          "needed": "A joint architecture, laminate orientation/thickness, bondline and surface treatment, peel and transverse/torsional shear interaction, cyclic/environmental data, contact stress and measured rotational stiffness. Include all hardware mass.",
+          "prohibited_inference": "Scalar sleeve/bond sizing does not establish a rigid joint, full multiaxial strength or a manufactured joint mass."
+        },
+        {
+          "id": "NFI-041-04",
+          "status": "open",
+          "topic": "Complete membrane constitution and coupling",
+          "evidence": [
+            "film/rigid/RESULTS.json",
+            "film/pinned/RESULTS.json",
+            "intake/film/zylon-hp-fiber-data.pdf",
+            "film.py"
+          ],
+          "finding": "A 270 GPa filament-derived axial tangent changes perfect linear multipliers, but the assumed taut, perfectly attached 0/90 skin has no qualified shear modulus, Poisson coupling, prestress, wrinkling, sagged equilibrium or free interior kinematics. The projected tangent can overstate restraint. No film-stiffness credit is used in primary resizing.",
+          "needed": "An actual gas-tight laminate, biaxial and shear constitutive data, tension-only/wrinkling treatment, pressure-equilibrated geometry, seams and attachments, plus tear, creep, fatigue and permeability evidence.",
+          "prohibited_inference": "Neither the fiber modulus nor the conditional pinned-film result proves a stable pressure vessel."
+        },
+        {
+          "id": "NFI-041-05",
+          "status": "open",
+          "topic": "Imperfections, nonlinear capacity and the global 0.2 factor",
+          "evidence": [
+            "RESULTS.json:selected_mesh_study",
+            "NONLINEAR-AUDIT-M24.json",
+            "METHODS.md"
+          ],
+          "finding": "The selected perfect f=4 frame has a verified first sampled elastic tangent loss near 5.430902; m12 to m24 changes it by about 0.35%. Smallest-algebraic values are checked along the sampled path and independently audited. The inherited 0.2 factor is not calibrated to this frame. Applying it to the nonlinear value would be an alternative arithmetic sensitivity near 1.086180. The primary resize retains 022d's 0.2-times-linear convention.",
+          "needed": "Manufacturing and joint-imperfection distributions, path refinement as needed, measured stiffness, and validated nonlinear analyses for final resized candidates before adopting a capacity factor.",
+          "prohibited_inference": "Perfect elastic first loss is not material/joint collapse, a global certification of every inter-step state, or a validated knockdown. The frozen 026b nonlinear paths remain unverified."
+        },
+        {
+          "id": "NFI-041-06",
+          "status": "open",
+          "topic": "Realized mass, volume and practical fabrication",
+          "evidence": [
+            "CARD.md",
+            "RESULTS.json:selected_realization",
+            "RESIZE.csv",
+            "frame_tools.py:geometry"
+          ],
+          "finding": "Actual integer counts add 178.319 kg of tube mass to the selected continuum point and leave 174.444 kg closure deficit at the 5% reserve. Resizing closes the declared arithmetic, but the cap sag and pressure-fan surfaces are distinct approximations. Film mass uses 4 pi R squared; node and systems allowances are inherited.",
+          "needed": "Manufactured curved-tube tolerances and joints, gas-barrier/adhesive/seam/attachment mass, continuous or segmented arc feasibility, a pressure-equilibrated volume, assembly access, damage protection and a complete bill of materials.",
+          "prohibited_inference": "Near-zero numerical closure residual does not establish physical vehicle mass closure."
+        },
+        {
+          "id": "NFI-041-07",
+          "status": "open",
+          "topic": "Beam idealization and initial bending coupling",
+          "evidence": [
+            "METHODS.md",
+            "frame_tools.py:response",
+            "run_verified_nonlinear.py"
+          ],
+          "finding": "The linear eigenproblem uses segment compression geometric stiffness plus the conservative pressure Hessian; it omits initial-moment coupling. The separate corotational nonlinear selected-frame calculation includes the elastic tangent. Euler-Bernoulli circular beams do not resolve local shell ovalization, shear deformation, joints, contact or composite/ceramic defects.",
+          "needed": "Cross-check with independently formulated beam/shell models and benchmark problems; resolve the relevant local and joint physics rather than treating mesh convergence alone as model validation."
+        },
+        {
+          "id": "NFI-041-08",
+          "status": "open",
+          "topic": "Search scope and best-found ranking",
+          "evidence": [
+            "resize/coarse-m3/RESULTS.json",
+            "resize/f456-m12/RESULTS.json",
+            "resize/f45-m24/CLOSED.json"
+          ],
+          "finding": "Frequency 5 ranks first at both reserves in the tested uniform-section family. Frequencies 1 through 10 were searched; 4/5/6 reoptimized at m6 and m12; 4/5 checked at m24. The final m24 witnesses keep the m12 gyration and solve exact mass closure. Multiple local starts and adaptive interpolation checks are not a global optimality certificate.",
+          "needed": "Broader topology/nonuniform-section search and any necessary final exact optimizer refinement if a global optimum or minimum mass at the continuum target is required.",
+          "prohibited_inference": "No claim of a globally lightest design attaining 022d's target is made; this card selected the brief's best-SF-at-closure option."
+        }
+      ],
+      "resolved_for_this_card_only": [
+        {
+          "topic": "Cross-geometry global eigenvalue transfer",
+          "finding": "The selected section is modeled directly; the transferred 026b ratio is not used. Its own perfect linear multiplier and explicit 0.2 screen replace that numerical shortcut, while material and model qualification remain open."
+        },
+        {
+          "topic": "New nonlinear eigenvalue-family selection",
+          "finding": "Smallest-algebraic eigenvalues at every recorded selected-frame equilibrium, independent shifted solves and finite-difference tangent checks establish the reported first sampled loss for the new m6/m12/m24 paths. This is not a retroactive claim about earlier cards."
+        }
+      ]
+    },
+    "inputs/043/NFI.json": {
+      "unit": "vacuum-mainline043-sic-frame-reliability-1020",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "status": "open qualification questions retained; assigned analysis complete",
+      "stops_other_work": false,
+      "requires_immediate_reply": false,
+      "items": [
+        {
+          "id": "NFI-043-01",
+          "status": "open",
+          "topic": "Compression distribution and calibration",
+          "finding": "No retrieved SA, CVD SiC, reaction-bonded SiC or SiC/SiC population supplies matched compression m, characteristic strength, effective reference size and confidence bounds for finished P3 members.",
+          "needed": "Raw compression failures, specimen and stress-field dimensions, processing/batch information, fracture modes, fit method, competing populations and confidence bounds; evidence of transfer to full curved tubes.",
+          "effect": "Qualified compression parameters and actual member/frame Pf remain null. Catalogue 3.9 GPa is only a typical value; hypothetical scale assignments do not qualify it.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-02",
+          "status": "open",
+          "topic": "Integer frame and resolved member loads",
+          "finding": "CHECK-022d uses continuum count 432.9863. Rounding to 433 does not define a closed triangular mesh; 435 is only a compatible counting example. The three independently recovered 026b meshes use different geometries.",
+          "needed": "A physically specified selected integer mesh, all section properties, boundary conditions, member forces and nonlinear load paths.",
+          "effect": "433-member probabilities are risk bookkeeping. The selected-point joint-moment estimate is a dimensional sensitivity, not an equilibrium solution.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-03",
+          "status": "open",
+          "topic": "Joint and end-interface reliability",
+          "finding": "The source's approximately 44.19 kg CFRP joining estimate and 44.02 mm overlap do not establish rotation, contact, adhesive peel, end damage or statistical reliability for roughly 866 end interfaces.",
+          "needed": "Joint geometry and stiffness, local contact and bond stresses, combined-load tests, processing variability, failure distributions, environmental durability and allocation of joint risk.",
+          "effect": "The tube-only risk budget omits an unresolved system contribution. The proxy moment is not a physical bound.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-04",
+          "status": "open",
+          "topic": "Multiaxial and local tensile stresses",
+          "finding": "Nominal beam normal stresses are compressive, but ideal beam shear produces small positive principal-stress estimates. Hoop stresses, pressure load path, membrane attachment, contact and residual stresses are not resolved.",
+          "needed": "Validated three-dimensional joint/member stress fields and a suitable multiaxial fracture law, including tensile surface/volume flaw populations.",
+          "effect": "Zero longitudinal tension cannot be reported as zero actual tensile or frame hazard. Uniform tensile levels and stressed fractions are sensitivity inputs.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-05",
+          "status": "open",
+          "topic": "Flexure reference sizes and statistical meanings",
+          "finding": "SA sources report m=10 and m=8; catalogue 380 MPa is typical rather than explicitly a fitted mean. Bend spans are absent. Commercial CVD reports m=11, scale 424 MPa and mean 415 MPa but no specimen dimensions.",
+          "needed": "Applicable product revision, specimen spans and orientation, sample sizes, raw data, finish, fit definition and uncertainty. Clarify the CVD mean/scale relationship without replacing the reported scale.",
+          "effect": "SA 40/20 mm spans and mean-to-scale conversions remain PROJECTION. Commercial CVD has no justified full-size probability here.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-06",
+          "status": "open",
+          "topic": "RBSC effective-size conventions",
+          "finding": "The 2017 paper's labelled effective bend volume equals the 360 mm3 span prism. The normalized stress-power integral at m=8.6 instead gives 1.953125 mm3. Ring values likewise need stress-field interpretation.",
+          "needed": "Reconcile the paper's geometric definitions and size-transfer convention with its full stress field and flaw populations before transferring its fitted data.",
+          "effect": "Our explicitly defined three-point projection is retained; ring geometric sizes are not used as uniform tensile reference volumes.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-07",
+          "status": "open",
+          "topic": "SiC/SiC population, size and source consistency",
+          "finding": "Mini-composite tensile gauge area is missing. The pilot appendix's specimen labels and stated strength range need reconciliation; the scale table header has a unit inconsistency. The compression study uses a different 2.5D architecture and only three coupons.",
+          "needed": "Gauge area, full raw data, corrected labels/range/units, fitting details, anisotropic failure mechanisms and matched full-component compression/tension statistics.",
+          "effect": "Reported tensile batch m/scale values are preserved separately, not combined with the 460 MPa compression mean or monolithic weakest-link scaling.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-08",
+          "status": "open",
+          "topic": "Rise-8 force solution",
+          "finding": "The owner reports large rise-8 moments and tensile stresses. The old independent 026b run was refused admission and produced no independently verified rise-8 force solution.",
+          "needed": "An admitted independent geometry/load-path solution and verification, plus a separately defined selected-point rise case if transfer is intended.",
+          "effect": "Owner rise-8 stresses remain attributed and unverified. Applying the same moment to another section is only a section conversion. No refusal was bypassed or retried for this card.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-09",
+          "status": "open",
+          "topic": "Manufacturing geometry and flaw population",
+          "finding": "The selected tube is approximately 3.184 m long, 275.083 mm OD and 1.137 mm wall. Its L/1000 initial bow is an assumed imperfection, not a measured tolerance distribution or the spherical centerline curvature.",
+          "needed": "Demonstrated fabrication capability, full-length section/bow measurements, surface and end preparation, machining/handling damage controls and strength data at this size.",
+          "effect": "Current catalogue properties cannot establish the delivered-member lower tail. The actual material improvement factor remains unknown.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-10",
+          "status": "open",
+          "topic": "Coupled instability and fracture",
+          "finding": "The source's 1.258252 stability multiplier is not a failure-probability distribution. No new nonlinear FE equilibrium or first-loss solve was performed here.",
+          "needed": "Validated local/global instability, joint interaction, imperfection and fracture models with their uncertainties for the same actual design.",
+          "effect": "Strength improvements and conditional tube Pf do not qualify stability. Linear target scaling of frozen 026b stresses is only a sensitivity.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-11",
+          "status": "open",
+          "topic": "Lower-tail statistical confidence",
+          "finding": "The 433-member targets allocate probabilities near 2.31e-6 and 2.31e-9 per member, well below the empirical resolution of the retrieved small samples.",
+          "needed": "Physically justified tail extrapolation, parameter confidence bounds, competing failure populations, batch effects and validated proof-screen modelling.",
+          "effect": "Point-estimate Weibull projections are not confidence-qualified reliability predictions. Zero-failure sample counts are illustrative, not a proposed testing campaign.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-12",
+          "status": "open",
+          "topic": "Exposure and lifetime",
+          "finding": "Service duration, cycles, environment, slow crack growth and post-proof damage are unspecified.",
+          "needed": "Defined lifetime/load spectrum and matched environmental growth, aging, handling and fatigue evidence.",
+          "effect": "Lifetime failure probability remains null. Ideal instantaneous proof truncation cannot establish lifetime survival.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-13",
+          "status": "open",
+          "topic": "Proof fixture and acceptance specification",
+          "finding": "The illustrative 1.25-times-target axial proof is 1.374281 MN, with pressure-equivalent multiplier 1.572816 exceeding the source's stability multiplier. Support, confinement and local loading can change which flaws are screened.",
+          "needed": "Validated fixture, proof stress coverage and load sequence, instrumentation and inspection sensitivity, proof-damage assessment, handling limits, accept/reject criteria and subsequent life model.",
+          "effect": "PROOF.md is a prospective qualification outline, not a ready test protocol. Proof rejection rate and residual reliability are unknown.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-14",
+          "status": "open",
+          "topic": "System risk budget and dependence",
+          "finding": "Headline targets allocate the entire risk budget to tube fracture and use an independent series model. Joints, membrane, instability, shared batches and common-cause events are omitted.",
+          "needed": "A whole-frame failure definition and allocated risk budget; valid component marginals and dependence/common-cause model.",
+          "effect": "The conditional series probabilities are not whole-vehicle reliability claims. Union-bound allocations avoid independence but do not supply missing marginal probabilities.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-15",
+          "status": "open",
+          "topic": "Closest qualified grade and improvement route",
+          "finding": "SA is the closest catalogue compression comparison in the retrieved set, but no candidate is qualified for this geometry and target tail. CVD and CMC datasets describe different populations and modes.",
+          "needed": "Matched full-member comparisons and evidence that strength, scatter or validated screening can deliver the required combined-stress lower quantile.",
+          "effect": "The conditional 2.24427-times 3.9 GPa requirement at m=10 is not an established improvement factor over today's delivered SiC.",
+          "stops_other_work": false
+        },
+        {
+          "id": "NFI-043-16",
+          "status": "open",
+          "topic": "Qualification and recurring cost",
+          "finding": "Geometry, loads, complete inspection and proof coverage imply high/custom qualification and recurring inspection cost classes, but no supplier quotation or process yield is available.",
+          "needed": "Supplier capability and quotations, fixture design, throughput, inspection detection performance, scrap rate and surveillance plan for the qualified process.",
+          "effect": "No dollar estimate, cycle time or scrap forecast is asserted. No supplier contact or purchase was made.",
+          "stops_other_work": false
+        }
+      ]
+    },
+    "inputs/046/NFI.json": {
+      "status": "OPEN / QUESTIONABLE",
+      "new": [
+        {
+          "id": "046-01",
+          "topic": "Finished material",
+          "finding": "PBO filament/yarn evidence does not qualify 0/90 laminate, areal weight, transverse/shear response, load sharing, seam peel, attachment or large-area flaws.",
+          "needed": "Test both directions and finished seams under biaxial sustained pressure; establish lot-specific lower-tail allowables."
+        },
+        {
+          "id": "046-02",
+          "topic": "Grade transfer",
+          "finding": "40 C and warehouse long curves are AS; the density/modulus point is HM. NIST yarn and local sourcing are not identified as the actual product.",
+          "needed": "Identify grade, finish, resin, supplier lot and manufacture process; repeat matched retention tests."
+        },
+        {
+          "id": "046-03",
+          "topic": "PBO kinetics",
+          "finding": "No validated combined humidity-temperature-light-load aging law or low-temperature activation energy is available in the retrieved evidence.",
+          "needed": "Use multiple controlled temperatures, activities, doses and service exposures; validate accelerated-to-service transfer."
+        },
+        {
+          "id": "046-04",
+          "topic": "Tail shape",
+          "finding": "Exponential, stretched and plateau tails are not distinguished by limited observations. The requested 5/10-year outputs are scenarios.",
+          "needed": "Extend natural exposure and check model selection against held-out time points; keep qualified ages null."
+        },
+        {
+          "id": "046-05",
+          "topic": "Annual climate",
+          "finding": "031 specifies weather states, not an annual probability distribution. Counts, sunlight hours and spectral fractions here are declared assumptions.",
+          "needed": "Specify location, season, mission duty, altitude control, terrain and measured weather/light dose."
+        },
+        {
+          "id": "046-06",
+          "topic": "Light barrier",
+          "finding": "OD3 visible designation and assumed metal gauge do not establish broadband UV/visible transmission or protection of edges, cracks and repairs.",
+          "needed": "Demonstrate local worst-spot OD4 or better across the damaging spectrum after cycling; cover and inspect every seam."
+        },
+        {
+          "id": "046-07",
+          "topic": "Dose reciprocity",
+          "finding": "Transferring outdoor calendar time to attenuated photons assumes unknown spectral/dose reciprocity. Outdoor source includes other aging agents.",
+          "needed": "Measure low-flux kinetics and humidity synergy; do not count the light table as a life prediction."
+        },
+        {
+          "id": "046-08",
+          "topic": "Water microclimate",
+          "finding": "A low bulk vacuum-water pressure does not prove low activity inside resin, fibres, edges or a laminate sandwich.",
+          "needed": "Measure moisture sorption, diffusion and water activity in the actual laminate; provide dry conditioning and residual-water acceptance."
+        },
+        {
+          "id": "046-09",
+          "topic": "Daily drying",
+          "finding": "034 water upper envelope exceeds the 5% RH budget on the chosen cold patch; initial fibre moisture can consume that budget alone.",
+          "needed": "Verify <=0.805 g/m2/day at the chosen 041 conditions or shorten/regulate drying; include all water sources and cold-patch sensitivity."
+        },
+        {
+          "id": "046-10",
+          "topic": "Barrier aging",
+          "finding": "Pinholes, flex cracking, rain, erosion, UV embrittlement, foil corrosion and seal peel can remove protection before fibre strength changes.",
+          "needed": "Age complete curved bays, with wet exterior and vacuum interior; leak and optical tests before/after cycling."
+        },
+        {
+          "id": "046-11",
+          "topic": "Coating performance",
+          "finding": "25 g/m2 white coating is a mass target, not proof of 037 alpha=.2/epsilon=.9 or ten-year adhesion.",
+          "needed": "Identify and weigh a qualified construction; measure aged optical properties and outgassing."
+        },
+        {
+          "id": "046-12",
+          "topic": "Thermal restraint",
+          "finding": "No installed membrane stress-free temperature, interply constraint or frame-film temperature solution is measured.",
+          "needed": "Solve/test coupled pressure-membrane thermal equilibrium; distinguish full restraint from free sliding and wrinkling."
+        },
+        {
+          "id": "046-13",
+          "topic": "Instantaneous temperature",
+          "finding": "Approximate HM hot-strength graph interpolation has reading/grade uncertainty comparable with the small SF margin.",
+          "needed": "Measure finished-laminate hot allowable at the peak temperature and moisture condition."
+        },
+        {
+          "id": "046-14",
+          "topic": "Creep and shape",
+          "finding": "Toyobo's 19-year/60% value is an extrapolation. Creep changes sag volume, membrane curvature, buoyancy and seam forces.",
+          "needed": "Measure long-duration biaxial creep/rupture and geometry on protected aged bays; set a permissible sag/strain limit."
+        },
+        {
+          "id": "046-15",
+          "topic": "Fatigue",
+          "finding": "Two single-filament median R=0 points do not establish high-R gust endurance, folded-seam life, low-tail reliability or aged interaction.",
+          "needed": "Obtain matched laminate/termination S-N and creep-fatigue data under the declared service spectrum."
+        },
+        {
+          "id": "046-16",
+          "topic": "Loss-budget proof",
+          "finding": "0.5% annual total loss is a requirement; source uncertainty around 2-3 percentage points cannot verify that rate.",
+          "needed": "Define sufficient sample size, confidence/tolerance bounds, controls and a service witness/replacement trigger."
+        },
+        {
+          "id": "046-17",
+          "topic": "Alternative fibres",
+          "finding": "Kevlar ten-year .95 is a requirement; UHMWPE uses another yarn's oxidative-aging law. Neither includes installed creep/hot/UV performance.",
+          "needed": "Test actual alternate grade/laminate; do not combine SK99 specific strength with an unrelated zero-creep claim."
+        },
+        {
+          "id": "046-18",
+          "topic": "UHMWPE creep",
+          "finding": "SK99/DM20 patent rates at 900 MPa/30 C show why a chemically retained high strength is not ten-year dimensional stability.",
+          "needed": "Obtain grade-specific stress/temperature/strain-limit maps and a permissible membrane stress; 900 MPa is not approved."
+        },
+        {
+          "id": "046-19",
+          "topic": "Mass closure",
+          "finding": "Both P3 points have zero unallocated closure mass. Barrier, coating and systems allocation exceed 100 kg in the worked white-coated bill.",
+          "needed": "Reclose the entire vehicle with measured masses; preserve required reserve and rerun frame/joint modes."
+        },
+        {
+          "id": "046-20",
+          "topic": "Seam/repair bill",
+          "finding": "034's 5 kg seam allowance is scaled by length, not weighed. Extra sag area, trim, fasteners, joints, patches, inspection fittings and redundancy remain.",
+          "needed": "Produce a complete bay BOM and scalable seam/removal design; account for overlap and repair overhead."
+        },
+        {
+          "id": "046-21",
+          "topic": "Replacement interface",
+          "finding": "Annual renewal does not reset frame fatigue, bonds, pads or joints; peeling and reattachment can damage the pressure boundary.",
+          "needed": "Demonstrate repeated bay replacement, reproof, drying and leak tests with the actual supporting frame."
+        },
+        {
+          "id": "046-22",
+          "topic": "Qualified lifetime",
+          "finding": "No retrieved evidence establishes even a one-year installed film allowable or a qualified ten-year architecture.",
+          "needed": "Keep qualified life/SF null; treat one-year protected replacement only as a planning candidate until accepted evidence exists."
+        }
+      ],
+      "inherited_pinned_registers": [
+        "inputs/022d/NFI.json",
+        "inputs/022d-check/NFI.json",
+        "inputs/041/NFI.json",
+        "inputs/031/NFI.json",
+        "inputs/034/NFI.json",
+        "inputs/037/NFI.json"
+      ],
+      "inherited_effect": "No upstream ceramic, frame, joint, atmosphere or gas qualification is closed by this film study.",
+      "blocking_of_this_research_card": false
+    }
+  },
+  "qualified_installed_SF": null,
+  "qualified_life_years": null,
+  "calibrated_hull_Pf": null
+}

@@ -1,0 +1,40 @@
+{
+  "id": "rpt-ref-0d85ae067b41baf8d095",
+  "unit": "vacuum-mainline009e-check-1020",
+  "at": "2026-10-20T00:43:08-07:00",
+  "body": "MAINLINE-009e checked: all 86 numeric and 16 categorical comparisons reproduce under the stated formulas. Payload 244.472107509 kg. Independent full mass-fraction sweeps reproduce the same geometry for both cells and both wrinkling coefficients. Least SF 0.924148226770, face compression; global 0.924388366791.\n\nContinuous refinement and an independent global/face crossing agree at f=0.162828087713348, tf=0.000779371978004 m, tc=0.021883679676898 m, least SF 0.924200015818. The gain is only 0.005604 percent. This is grid resolution, not an arithmetic error. Maximum Vc anywhere on this mass line is 0.703544364212, so the Vc=2 transition is never reached.\n\nThe handbook zero-payload control reproduces 0.668649769509. Known upstream dimpling NFI persists: equal-biaxial factors are 16.724950182097 and 7.433311192043, half the stated uniaxial estimates; neither governs. Changing gamma alone cannot lift face compression to 1 at held geometry.\n\nThe optimistic curve is PROJECTION; material/model inputs remain QUESTIONABLE. Inherited assumptions, source packaging and P3 exclusion are recorded in NFI. No certification. This result does not replace the 009d handbook carries. Proceeding to the queued 018b check.",
+  "artifacts": [
+    {
+      "path": "evidence/1330d6b413ac0d8f-CARD.md",
+      "sha256": "1330d6b413ac0d8fa188864113f6f4c570b4223c39af6d99e7ec2986018a0c40",
+      "bytes": 5556,
+      "match": true
+    },
+    {
+      "path": "evidence/c8db8205b9633ec9-RESULTS.json",
+      "sha256": "c8db8205b9633ec980b168ed3152e0de03614606c2586b2414129a24e01bed9a",
+      "bytes": 50634,
+      "match": true
+    },
+    {
+      "path": "evidence/c5695c6c2bf886f1-INPUTS.json",
+      "sha256": "c5695c6c2bf886f10f44759577e700dcd664efd0e86261b0d06ff3e538ab3b66",
+      "bytes": 13841,
+      "match": true
+    },
+    {
+      "path": "evidence/ab9abb445b9a1a22-NFI.json",
+      "sha256": "ab9abb445b9a1a22c01524721f3051a9a25211c9f33c1d8f184a00e1aa320275",
+      "bytes": 3251,
+      "match": true
+    },
+    {
+      "path": "evidence/5fdf7a1c7b836807-recalculate.py",
+      "sha256": "5fdf7a1c7b836807d41f552b52d4b806fcd6ea75bbdb5180a4edc0be8aeff2e9",
+      "bytes": 9815,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "re": "ord-admiral-rr2-check009e-after-009d-codex-1020"
+}

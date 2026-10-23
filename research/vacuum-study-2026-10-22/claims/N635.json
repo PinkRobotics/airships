@@ -1,0 +1,79 @@
+{
+  "id": "N635",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N635",
+    "report": "rpt-ref-7427b639691bfaf71f29",
+    "card": "rpt-ref-7427b639691bfaf71f29",
+    "file": "evidence/fcb27bf7e1383d15-NFI.json",
+    "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+    "source_sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+    "source_json_pointer": "/new_findings/0",
+    "row_id": "NFI-032B-CHECK-CSO-TEMPLATE",
+    "fields": {
+      "id": "NFI-032B-CHECK-CSO-TEMPLATE",
+      "status": "correction_needed",
+      "tag": "QUESTIONABLE",
+      "blocks_progress": false,
+      "claim": "CARD attributes 3 um to the completed CSO surface against its template.",
+      "evidence": "Woody p.684 assigns 3 um to parabolic-template adjustment; the laboratory surface estimate is 10 um.",
+      "disposition": "Relabel the 3 um result and its ratios. Numeric conversion passes; surface attribution does not."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "CARD attributes 3 um to the completed CSO surface against its template.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/634"
+    },
+    {
+      "report": "rpt-ref-7427b639691bfaf71f29",
+      "artifact": "evidence/fcb27bf7e1383d15-NFI.json",
+      "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+      "sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+      "bytes": 21459,
+      "selector": "/new_findings/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-7427b639691bfaf71f29",
+          "artifact": "evidence/fcb27bf7e1383d15-NFI.json",
+          "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+          "sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+          "bytes": 21459,
+          "selector": "/new_findings/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/634"
+          }
+        ]
+      }
+    }
+  ]
+}

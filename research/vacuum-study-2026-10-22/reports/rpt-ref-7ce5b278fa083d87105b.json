@@ -1,0 +1,94 @@
+{
+  "id": "rpt-ref-7ce5b278fa083d87105b",
+  "unit": "vacuum-mainline026-p3-lattice-model-1020",
+  "at": "2026-10-20T01:53:51.059988-07:00",
+  "body": "MAINLINE-026 complete as a QUESTIONABLE elastic-model study. The frequency-6 frame has 362 joints and 1080 arcs. Rigid-joint linear lambda converges to 6.46522 versus 011b’s 6.12764; representative low modes are global lattice modes. Freely rolling ball pins have 1080 zero-strain member-roll mechanisms, so no positive pressure reserve is established without film or anti-roll stiffness.\n\nRefined nonlinear limits are 5.10740 perfect, 4.95038 for 10 mm joint offsets, 5.08261 for 2.04 mm member crookedness, and 4.53958 for the 10 mm first-mode imperfection. Knockdowns are 0.702–0.790 against discrete perfect linear, or 0.741–0.834 against 011b’s continuum; mesh changes are below 0.7%. These prescribed elastic cases do not validate design k=0.2 or 0.4.\n\nTriangular tributary loading is ps/(2sqrt(3)), not the inherited local ps/2. Discrete mass exceeds inherited lift by 61.40 kg. The inherited wall screen reaches nominal unity near lambda 2.03; computed elastic-limit axial stresses exceed the typical compression strength. No certification.\n\nCode, modes, figures, runtimes, four passing verification suites and 12 NFI rows are pinned through the 263-file manifest. Rejected tangent linearization, replaced diagnostics, one memory-cap failure and one recovered outer receipt are disclosed. All 30 own admissions ended/released; no live work. Stop and file; robotics sends the next job.",
+  "artifacts": [
+    {
+      "path": "evidence/b4023071ba192b8a-CARD.md",
+      "sha256": "b4023071ba192b8a51985ef3d466793f163f398d1e7dd38dd49d01d148b987f6",
+      "bytes": 7723
+    },
+    {
+      "path": "evidence/3fc568384c22184b-RESULTS.json",
+      "sha256": "3fc568384c22184bd21c3594e65349a40ef60332bf5bfabcade02476ce8da1ef",
+      "bytes": 27061
+    },
+    {
+      "path": "evidence/ef844aa46265294c-INPUTS.json",
+      "sha256": "ef844aa46265294c54929342fb2faf6b0889a4f0699f5a28ea2b1b3961410dd9",
+      "bytes": 4878
+    },
+    {
+      "path": "evidence/78c3ad662469116d-NFI.json",
+      "sha256": "78c3ad662469116daa68efb93ae6446806ad2ec5d8c644b1c6abd4201806c8ab",
+      "bytes": 6153
+    },
+    {
+      "path": "evidence/39e9b2084ffea343-METHODS.md",
+      "sha256": "39e9b2084ffea3430f2958e7510ae637e66d94b54c66b26a50ffa4467ae629a1",
+      "bytes": 12633
+    },
+    {
+      "path": "evidence/5cbd45d5fff1d709-CHECKS-COMBINED.json",
+      "sha256": "5cbd45d5fff1d709c88f72eea53c02b9f12a9e798ec2d0ef0b984080284db200",
+      "bytes": 10255
+    },
+    {
+      "path": "evidence/80a64a8da56352f7-EXECUTION.json",
+      "sha256": "80a64a8da56352f737a943c51309fbdb429c56fed1a00b8986bd99ae26fc47f1",
+      "bytes": 17702
+    },
+    {
+      "path": "evidence/ed14f69708583e85-MANIFEST.json",
+      "sha256": "ed14f69708583e8548e93d32a25ebe5c7096241e362eca51613e9feb9435ed52",
+      "bytes": 44866
+    },
+    {
+      "path": "evidence/b07b39dcc60dea5d-PACKAGE-CHECK.json",
+      "sha256": "b07b39dcc60dea5db60380b638114dd7f80ab9269dfca2a4a9a264c0c7800330",
+      "bytes": 1229
+    },
+    {
+      "path": "unpublished-local-ref:7f6e87986b45351c",
+      "sha256": "90355b8e154b3b8831f11e5ff7c1f367d16d025f13d2ade751350060789abfc1",
+      "bytes": 37706
+    },
+    {
+      "path": "unpublished-local-ref:d0756f5bfd198c51",
+      "sha256": "8d28591f922e3687106207ff9c600580d855fa02850c1b9dc64c5bc5a07b5a53",
+      "bytes": 1068902
+    },
+    {
+      "path": "unpublished-local-ref:0baaeac4592d7e50",
+      "sha256": "7995c78f7edbf9e06d480f31fa8e0124829559fda4c4ddaadae086ac04445780",
+      "bytes": 239620
+    },
+    {
+      "path": "unpublished-local-ref:2bc1a323622e4b06",
+      "sha256": "ae19ebce2bd1749ae485ac7d241d484ea5509e2b5c99e4372b785692bfed6c0c",
+      "bytes": 850897
+    },
+    {
+      "path": "unpublished-local-ref:ee3ce96bbcde3fc5",
+      "sha256": "95044d074f971903674a54de4985d48b64ba1a7a1882ecdb1c4403276030fa8b",
+      "bytes": 127512
+    },
+    {
+      "path": "unpublished-local-ref:5e52953bedc1e275",
+      "sha256": "7c1f8d8f2d7244b4a36ac7f7a0072ef09386f823c54b1a0aa54fb791cbd1c793",
+      "bytes": 89111
+    }
+  ],
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "re": "ord-admiral-rr2-mainline026-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline026-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

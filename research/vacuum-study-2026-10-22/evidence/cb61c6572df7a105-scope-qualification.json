@@ -1,0 +1,14 @@
+{
+  "schema": "source-unit-scope-qualification/1",
+  "at": "2026-10-18T19:52:53.840175+00:00",
+  "event": "Unnecessary historical-file hash reads during intake",
+  "instruction": "[withheld: private instruction field]",
+  "actual": "Intake Python opened four historical Q0 files solely as bytes for SHA256/size: the prior proof card, operator reader, units diagnostic and frozen deck. No decoding, source interpretation, project import, execution or mutation was performed.",
+  "evidence": {
+    "path": "unpublished-local-ref:679cfc35d65eb728",
+    "sha256": "95f7b342f71e337759e3fec4075dd32f3cf41f55e5630ec3f06cea907ff38c64",
+    "bytes": 1332
+  },
+  "disposition": "Read-only scope deviation retained. No after-hash or further historical source access will be performed. Existing files were not modified by this unit; no fresh comprehensive custody verification is claimed. All attributable time stays in this NEW1800 clock.",
+  "effect_on_scientific_result": "Does not supply source completeness or resolve the new compression boundary/control gap."
+}

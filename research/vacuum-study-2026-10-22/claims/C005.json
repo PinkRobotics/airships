@@ -1,0 +1,80 @@
+{
+  "id": "C005",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C005",
+    "report": "rpt-ref-4b8e7b08241bb7a45536",
+    "file": "evidence/86e8a9642552d39e-NFI.json",
+    "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+    "source_sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+    "source_json_pointer": "/rows/4",
+    "row_id": "NFI-022D-CHECK-05",
+    "fields": {
+      "id": "NFI-022D-CHECK-05",
+      "owner": "MAINLINE-022d / MAINLINE-023",
+      "state": "open qualification",
+      "kind": "joint mass, material provenance and force transfer",
+      "evidence": "upstream/023/INPUTS.json; web-sources Toray/Henkel PDFs; SOURCES.md",
+      "note": "Candidate-multiplier joint sizing is correct, including quadratic mass. At the headline, 44.191468267 kg and 1.258252477 axial/bond multipliers are consequences of equal-stress design, without extra reserve. Legacy Toray supports 1470 MPa but does not establish 1550 kg/m3 composite density. Henkel's 28.9 MPa datum is prepared aluminum, not SiC. Percent-joint cases have unknown capacity; sub-unity Ti cases size below operating demand.",
+      "settle": "Pin density and laminate/manufacturing specification; verify ceramic adhesion, peel, load spreading, moment transfer and rotational stiffness; include adhesive and attachment mass.",
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "Candidate-multiplier joint sizing is correct, including quadratic mass. At the headline, 44.191468267 kg and 1.258252477 axial/bond multipliers are consequences of equal-stress design, without extra reserve. Legacy Toray supports 1470 MPa but does not establish 1550 kg/m3 composite density. Henkel's 28.9 MPa datum is prepared aluminum, not SiC. Percent-joint cases have unknown capacity; sub-unity Ti cases size below operating demand.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/715"
+    },
+    {
+      "report": "rpt-ref-4b8e7b08241bb7a45536",
+      "artifact": "evidence/86e8a9642552d39e-NFI.json",
+      "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+      "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+      "bytes": 7666,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-4b8e7b08241bb7a45536",
+          "artifact": "evidence/86e8a9642552d39e-NFI.json",
+          "snapshot": "evidence/86e8a9642552d39e-NFI.json",
+          "sha256": "86e8a9642552d39ee89d0f711f027d947ed101c9d5eae4b14be2a8689ee7ef03",
+          "bytes": 7666,
+          "selector": "/rows/4"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/715"
+          }
+        ]
+      }
+    }
+  ]
+}

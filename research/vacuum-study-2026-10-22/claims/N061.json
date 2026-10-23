@@ -1,0 +1,71 @@
+{
+  "id": "N061",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N061",
+    "report": "ref-0c9ab80606a173c6adb6",
+    "card": "MAINLINE-016",
+    "file": "evidence/e000d61baed6b1db-NFI.json",
+    "row_id": "NFI-016-BAKEOUT",
+    "fields": {
+      "NFI_id": "NFI-016-BAKEOUT",
+      "rank": 5,
+      "gap": "Resident moisture 0.5 to 3 percent of the 2208.2 kg PVC core is 11.0 to 66.2 kg of water, worth 347 to 2079 Pa inside if released, against the 954.6 Pa one-percent-per-day ceiling. Steady outgassing itself is only 0.00 to 0.03 percent of the leak budget.",
+      "direction": "Measure water content of the core lot; specify a bake-out and vent procedure at commissioning with a dry-gas backfill during assembly.",
+      "effect": "Without bake-out the moisture alone can exceed the one-percent ceiling after release."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-016-BAKEOUT\", \"rank\": 5, \"gap\": \"Resident moisture 0.5 to 3 percent of the 2208.2 kg PVC core is 11.0 to 66.2 kg of water, worth 347 to 2079 Pa inside if released, against the 954.6 Pa one-percent-per-day ceiling. Steady outgassing itself is only 0.00 to 0.03 percent of the leak budget.\", \"direction\": \"Measure water content of the core lot; specify a bake-out and vent procedure at commissioning with a dry-gas backfill during assembly.\", \"effect\": \"Without bake-out the moisture alone can exceed the one-percent ceiling after release.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/60"
+    },
+    {
+      "report": "ref-0c9ab80606a173c6adb6",
+      "artifact": "evidence/e000d61baed6b1db-NFI.json",
+      "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+      "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+      "bytes": 6808,
+      "selector": "source row ID: NFI-016-BAKEOUT"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "ref-0c9ab80606a173c6adb6",
+          "artifact": "evidence/e000d61baed6b1db-NFI.json",
+          "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+          "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+          "bytes": 6808,
+          "selector": "source row ID: NFI-016-BAKEOUT"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/60"
+          }
+        ]
+      }
+    }
+  ]
+}

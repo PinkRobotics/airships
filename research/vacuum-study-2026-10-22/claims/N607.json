@@ -1,0 +1,77 @@
+{
+  "id": "N607",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N607",
+    "report": "rpt-ref-6ba73ec8a89453b26832",
+    "card": "MAINLINE-017b",
+    "file": "evidence/e10b0bbc09d310a0-NFI.json",
+    "snapshot": "evidence/e10b0bbc09d310a0-NFI.json",
+    "source_sha256": "e10b0bbc09d310a0069e111a48e958accfe5e7ef837d6bedb6c833604514c61f",
+    "source_json_pointer": "/items/7",
+    "row_id": "NFI-017b-FACE-MATERIAL",
+    "fields": {
+      "id": "NFI-017b-FACE-MATERIAL",
+      "tag": "PROJECTION",
+      "claim": "A lighter face at beryllium's E and strength (x1.73-1.87, 272-293 MPa per kg/m3) has no thin isotropic candidate: quasi-isotropic carbon is about 100 (a worker estimate with assumed matrix constants); nano-carbon films are lab only.",
+      "needed_to_ground": "Sourced in-plane-isotropic properties of nano-carbon or other candidate face sheets."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    }
+  },
+  "claim": "A lighter face at beryllium's E and strength (x1.73-1.87, 272-293 MPa per kg/m3) has no thin isotropic candidate: quasi-isotropic carbon is about 100 (a worker estimate with assumed matrix constants); nano-carbon films are lab only.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/606"
+    },
+    {
+      "report": "rpt-ref-6ba73ec8a89453b26832",
+      "artifact": "evidence/e10b0bbc09d310a0-NFI.json",
+      "snapshot": "evidence/e10b0bbc09d310a0-NFI.json",
+      "sha256": "e10b0bbc09d310a0069e111a48e958accfe5e7ef837d6bedb6c833604514c61f",
+      "bytes": 6074,
+      "selector": "/items/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-6ba73ec8a89453b26832",
+          "artifact": "evidence/e10b0bbc09d310a0-NFI.json",
+          "snapshot": "evidence/e10b0bbc09d310a0-NFI.json",
+          "sha256": "e10b0bbc09d310a0069e111a48e958accfe5e7ef837d6bedb6c833604514c61f",
+          "bytes": 6074,
+          "selector": "/items/7"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/606"
+          }
+        ]
+      }
+    }
+  ]
+}

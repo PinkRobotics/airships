@@ -1,0 +1,37 @@
+{
+  "id": "E-1ae483d685de3d6a7e41",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-1ae483d685de3d6a7e41",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1048~1NFI.json/findings/9",
+    "row_id": "048-10-wet_optics",
+    "fields": {
+      "id": "048-10-wet_optics",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Primary dry optical values are used alongside an exterior liquid mass. Assumed wet optics are sensitivities only.",
+      "grounding": "Measure wet/frosted optical properties and solve the coupled condensation/evaporation thermal problem."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Primary dry optical values are used alongside an exterior liquid mass. Assumed wet optics are sensitivities only.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1048~1NFI.json/findings/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

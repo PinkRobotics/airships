@@ -1,0 +1,86 @@
+{
+  "id": "N370",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N370",
+    "report": "rpt-ref-58c781cbea9c220eb5b4",
+    "card": "MAINLINE-025",
+    "file": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "source_sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+    "source_json_pointer": "/rows/2",
+    "row_id": "NFI-025-CVD-REFERENCE",
+    "fields": {
+      "id": "NFI-025-CVD-REFERENCE",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE",
+      "target_transfer": "PROJECTION",
+      "evidence_state": "exists_today commercial CVD; miniature tests in_the_lab; large-arc scaling PROJECTION",
+      "issue": "Commercial CVD m11/beta424 MPa lack effective coupon size; miniature CVD hoop tests are distinct populations.",
+      "factor": {
+        "commercial_m": 11,
+        "commercial_reported_beta_MPa": 424,
+        "reference_area_or_volume": null,
+        "large_tube_tensile_or_compression_allowable_Pa": null
+      },
+      "required_next_evidence": "Lot- and process-specific coupon geometry, test method and fracture origins; representative long-tube tests.",
+      "note": "Do not borrow a reference area from the miniature TRISO tube paper for a commercial CVD strength distribution."
+    },
+    "inherited_document_tag": {
+      "classification": "QUESTIONABLE"
+    }
+  },
+  "claim": "Commercial CVD m11/beta424 MPa lack effective coupon size; miniature CVD hoop tests are distinct populations. | Do not borrow a reference area from the miniature TRISO tube paper for a commercial CVD strength distribution.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/369"
+    },
+    {
+      "report": "rpt-ref-58c781cbea9c220eb5b4",
+      "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+      "bytes": 21434,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58c781cbea9c220eb5b4",
+          "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+          "bytes": 21434,
+          "selector": "/rows/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/369"
+          }
+        ]
+      }
+    }
+  ]
+}

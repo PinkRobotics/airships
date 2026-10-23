@@ -1,0 +1,157 @@
+[
+  {
+    "id": "B0",
+    "label": "052 OD4 package / inherited OD3 coupon",
+    "tag": "QUESTIONABLE",
+    "coupon_WVTR_g_m2_day": 1.0,
+    "charged_barrier_kg_m2": 0.01695,
+    "test_temperature_C": 38.0,
+    "test_RH": 0.9,
+    "mass_basis": "PET12um*1390 + Al100nm*2700; common attachment/white/seams retained",
+    "evidence": [
+      "034/INPUTS.json; DuPont Teijin 2001 barrier table; 052/RESULTS.json"
+    ],
+    "flex_and_defects": "No installed crease/aging WVTR; OD4 mass does not establish better WVTR.",
+    "qualification": "product-envelope",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "MET",
+    "label": "F-UHB-M metallised PET12",
+    "tag": "QUESTIONABLE",
+    "coupon_WVTR_g_m2_day": 0.1,
+    "charged_barrier_kg_m2": 0.017071075268817203,
+    "test_temperature_C": 38.0,
+    "test_RH": 0.5,
+    "mass_basis": "Measured product yield59.52m2/kg + additional100nm Al opacity allowance",
+    "evidence": [
+      "flex-uhb-tds.pdf"
+    ],
+    "flex_and_defects": "20% higher puncture resistance and metal bond1200gf/25mm; no cyclic-flex WVTR or OD4 certification.",
+    "qualification": "product-envelope",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "SIOX",
+    "label": "TECHBARRIER HX PET12 / SiOx/topcoat",
+    "tag": "QUESTIONABLE",
+    "coupon_WVTR_g_m2_day": 0.08,
+    "charged_barrier_kg_m2": 0.01895,
+    "test_temperature_C": 40.0,
+    "test_RH": 0.9,
+    "mass_basis": "PET12um*1390 + assumed2g/m2 total SiOx/topcoat +100nm Al opacity",
+    "evidence": [
+      "techbarrier-brochure.pdf p4",
+      "resin-sheet-patent.html Table1 filmF"
+    ],
+    "flex_and_defects": "Topcoat present; no post-crease hull-scale WVTR. Coating2g/m2 is an allowance, not weighed data.",
+    "qualification": "product-envelope",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "ALD",
+    "label": "Single30nm ALD Al2O3 / proposed PET12",
+    "tag": "PROJECTION",
+    "coupon_WVTR_g_m2_day": 0.0008,
+    "charged_barrier_kg_m2": 0.01704,
+    "test_temperature_C": 38.0,
+    "test_RH": 1.0,
+    "mass_basis": "Proposed PET12um +30nm oxide*3000 +100nm Al; source PET gauge not reported",
+    "evidence": [
+      "ald-2018-fulltext.xml Table1"
+    ],
+    "flex_and_defects": "Bare oxide cracks and can corrode; no long-life barrier credit. Carrier transfer is untested.",
+    "qualification": "recipe",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "ML3",
+    "label": "3 ALD30nm/parylene500nm dyads / proposed PET12",
+    "tag": "PROJECTION",
+    "coupon_WVTR_g_m2_day": 5e-05,
+    "charged_barrier_kg_m2": 0.01917,
+    "test_temperature_C": 38.0,
+    "test_RH": 1.0,
+    "mass_basis": "Proposed PET12um;3*(30nm*3000+500nm*1300)+100nm Al; all coating densities are planning values",
+    "evidence": [
+      "ald-2018-fulltext.xml"
+    ],
+    "flex_and_defects": "Use instrument floor5e-5, not sub-floor headline<1e-5. PET gauge missing. PDMS stretch test is a different stack/substrate.",
+    "qualification": "recipe",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "VERREAL",
+    "label": "Verreal Si/O/C multilayer / PET50",
+    "tag": "QUESTIONABLE",
+    "coupon_WVTR_g_m2_day": 0.001,
+    "charged_barrier_kg_m2": 0.07177000000000001,
+    "test_temperature_C": 40.0,
+    "test_RH": 0.9,
+    "mass_basis": "PET50um*1390 + assumed2g/m2 inorganic/planarising coat +100nm Al opacity",
+    "evidence": [
+      "resin-sheet-patent.html Table1 filmH"
+    ],
+    "flex_and_defects": "No installed flex/crease WVTR; mass of coat not disclosed.",
+    "qualification": "product-envelope",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "FOIL30",
+    "label": "Al30um / PET25 laminate",
+    "tag": "QUESTIONABLE",
+    "coupon_WVTR_g_m2_day": 0.001,
+    "charged_barrier_kg_m2": 0.11875000000000001,
+    "test_temperature_C": 40.0,
+    "test_RH": 0.9,
+    "mass_basis": "Al30um*2700 +PET25um*1390 +assumed3g/m2 adhesive; opaque foil",
+    "evidence": [
+      "resin-sheet-patent.html Table1 filmG"
+    ],
+    "flex_and_defects": "Coupon<.001 used at .001 ceiling; crease/pinhole leakage not zero. Adhesive mass assumed.",
+    "qualification": "product-envelope",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "FOIL9",
+    "label": "Proposed Al9um / PET12 laminate",
+    "tag": "PROJECTION",
+    "coupon_WVTR_g_m2_day": 0.01,
+    "charged_barrier_kg_m2": 0.043980000000000005,
+    "test_temperature_C": 38.0,
+    "test_RH": 0.9,
+    "mass_basis": "Al9um*2700 +PET12um*1390 +assumed3g/m2 adhesive; .01 is a target, not measured on this recipe",
+    "evidence": [
+      "DuPont Teijin 2001 table:9um foil rate depends on pinholes",
+      "flex-laminate-patent.html"
+    ],
+    "flex_and_defects": "No transfer of30um laminate coupon result; flex-induced pinholes can defeat barrier.",
+    "qualification": "recipe",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  },
+  {
+    "id": "PVDC",
+    "label": "Saranex540CX coextruded PVDC",
+    "tag": "QUESTIONABLE",
+    "coupon_WVTR_g_m2_day": 1.00750201500403,
+    "charged_barrier_kg_m2": 0.12482172541793496,
+    "test_temperature_C": 37.77777777777778,
+    "test_RH": 0.9,
+    "mass_basis": "Product yield39.2ft2/lb +100nm Al opacity;4mil product includes support polymers",
+    "evidence": [
+      "saranex-540cx.pdf p1"
+    ],
+    "flex_and_defects": "Flexible product; maximum installation flexibility above-4C; no cyclic WVTR certificate.",
+    "qualification": "product-envelope",
+    "installed_service_WVTR_measured": false,
+    "qualified_hull": false
+  }
+]

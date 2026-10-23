@@ -1,0 +1,52 @@
+{
+  "id": "rpt-ref-fe49179fb6a8ad8c986e",
+  "unit": "vacuum-mainline021-optimistic-floating-point-1020",
+  "at": "2026-10-20T00:30:43-07:00",
+  "body": "MAINLINE-021 filed. A hull floats at 5 percent margin with every mode at SF 1 or above on two named optimisms. Be faces 0.8434 mm (S-200F, 303 GPa, 283 MPa) on Hexcel CR-III 5056 3/8-1.0 aluminium honeycomb, 16 kg/m3, core 20.21 mm, R 10 m. Masses: faces 3921.7 kg, core 406.9, joints 216.4, systems 100, margin 244.5. Vc 1.109, moderate branch. It needs gamma 0.579, which is 2.90x CR-1457's 0.20 and 0.91 of the 018 optimistic curve's stretch, and a wrinkling coefficient of 0.363, 1.10x 0.33. Face strength needs exactly 283 MPa. Global 1.000, face compression 1.0002, crimp 2.15, crush 5.06, wrinkling 1.000, dimpling 9.4. With the full named set the least is 1.111. Gamma alone needs 1.017 of its stretch. Fragility: Materion's current guide gives S-200F about 255 MPa. At that value the least set is wrinkling 0.80 with Be 369 MPa on aramid HRH-10, resting on the handbook's gamma 1 at Vc >= 2. Thin faces are SR-200 sheet; at its 345 MPa datasheet minimum, gamma alone floats (0.461 against the curve's 0.462). Under 018's conservative gamma the point is 0.345, so gamma is the whole result. Under the full set: aluminium 1.309; aramid 1.010, on the crimp branch only. The strongest sourced Be is SR-200 sheet at 379.2 MPa compressive (1967 lot, second-hand). 009d and 009c-5 are reproduced. 10 NFI rows; grounding is 018b, 015, 019 and 020. QUESTIONABLE, not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/74176cf445147edf-CARD.md",
+      "sha256": "09e4d6d846410af18f779287cb5cbc0fb102d0960a0d779df76d830a09687eed",
+      "bytes": 9938,
+      "match": false
+    },
+    {
+      "path": "evidence/83db70aa5f7d2d26-RESULTS.json",
+      "sha256": "950b3529dc6368f63214f87c127bd409c8f24ebefa24debd0902550fb3538355",
+      "bytes": 59234,
+      "match": false
+    },
+    {
+      "path": "evidence/fae865c7f039491f-NFI.json",
+      "sha256": "2983bcac64c2fe5d438f3c81bc7979a45c13100749a574f38a238f9e042f2ebd",
+      "bytes": 4886,
+      "match": false
+    },
+    {
+      "path": "evidence/bd74c703a8cd795d-INPUTS.json",
+      "sha256": "bd74c703a8cd795d973e5546f0ecef0872f872cd00a95f987ffb769d8639b049",
+      "bytes": 6570,
+      "match": true
+    },
+    {
+      "path": "evidence/9eda312036601a80-float021.py",
+      "sha256": "48517e063880e0b5fd956693269ba0b3af2142854b8ff169b8a38d1d6d9bcb14",
+      "bytes": 31581,
+      "match": false
+    },
+    {
+      "path": "evidence/93a948717780379e-make_docs.py",
+      "sha256": "a678d3d11fb5a975c1395d52ee85b7c2a8fb1be1b69c15c64f27082b00a401c6",
+      "bytes": 17140,
+      "match": false
+    },
+    {
+      "path": "evidence/649d7a4bbc761f6b-beryllium.json",
+      "sha256": "649d7a4bbc761f6b42f86a1481dd55e114ae2e0ee670bd2c3344619f27fea27a",
+      "bytes": 36159,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-4189c1615990eb515921",
+  "re": "ord-admiral-rr2-mainline021-dispatch-1019"
+}

@@ -1,0 +1,84 @@
+{
+  "id": "C108",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C108",
+    "report": "rpt-ref-2beb70a569266cf0297d",
+    "file": "evidence/0381c4a209c644de-NFI.json",
+    "snapshot": "evidence/0381c4a209c644de-NFI.json",
+    "source_sha256": "0381c4a209c644de9d3f2c2be0be9290c3006115dde131b8a0b6ed94db922125",
+    "source_json_pointer": "/items/6",
+    "row_id": "NFI-CHECK038-MINIATURE",
+    "fields": {
+      "id": "NFI-CHECK038-MINIATURE",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "Minimum radii use hypothetical 25 µm/1 mm floors and a partly matched Al/core system.",
+      "evidence": "0.361403286198 m and 0.430344116083 m reproduce. Custom core, foil compression, forming and defect-field transfer remain unverified.",
+      "resolution_needed": "Demonstrate actual gauges/properties and the as-built dimensionless state before procurement. Keep the current dent ratio an imposed experiment parameter.",
+      "tests": [
+        "T7"
+      ],
+      "classification": "inherited manufacturing/model gap"
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE/PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "items",
+    "blocks_progress": false
+  },
+  "claim": "Minimum radii use hypothetical 25 µm/1 mm floors and a partly matched Al/core system.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/818"
+    },
+    {
+      "report": "rpt-ref-2beb70a569266cf0297d",
+      "artifact": "evidence/0381c4a209c644de-NFI.json",
+      "snapshot": "evidence/0381c4a209c644de-NFI.json",
+      "sha256": "0381c4a209c644de9d3f2c2be0be9290c3006115dde131b8a0b6ed94db922125",
+      "bytes": 6106,
+      "selector": "/items/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-2beb70a569266cf0297d",
+          "artifact": "evidence/0381c4a209c644de-NFI.json",
+          "snapshot": "evidence/0381c4a209c644de-NFI.json",
+          "sha256": "0381c4a209c644de9d3f2c2be0be9290c3006115dde131b8a0b6ed94db922125",
+          "bytes": 6106,
+          "selector": "/items/6"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/818"
+          }
+        ]
+      }
+    }
+  ]
+}

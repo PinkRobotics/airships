@@ -1,0 +1,42 @@
+{
+  "at": {
+    "captured_monotonic": 2021951.426864982,
+    "captured_utc": "2026-10-19T10:40:26.246558+00:00"
+  },
+  "scope": "simjob-20261019t033812-58a58ccf266f.scope",
+  "door_result": {
+    "path": "unpublished-local-ref:a2a48dea4700b5c5",
+    "sha256": "aae85836add0af5d53e3b7bfbea6a9f6eb1c6ca61f48ea6082e8b2f66fdd6fdd",
+    "bytes": 617
+  },
+  "simjob_raw": {
+    "path": "unpublished-local-ref:18798116bbf0983a",
+    "sha256": "2bf15ffe6cfe27d851dc15de7389477971ac4355d5f87cf2feb8f6f611e38559",
+    "bytes": 510
+  },
+  "admitted_lines": [
+    "simjob: ADMITTED simjob-20261019t033812-58a58ccf266f.scope: 1 cores (CPUQuota=100%), MemoryMax 4.00 GiB (4,294,967,296 B), MemorySwapMax=0, RuntimeMaxSec=420"
+  ],
+  "ended_lines": [
+    "simjob: ENDED simjob-20261019t033812-58a58ccf266f.scope: exited 1 after 2 s; reservation released"
+  ],
+  "reservation_released_in_receipt": true,
+  "owned_cgroup_path": "/sys/fs/cgroup/user.slice/user-1000.slice/[address]/app.slice/simjob-20261019t033812-58a58ccf266f.scope",
+  "owned_cgroup_exists_at_check": false,
+  "owned_cgroup_processes_at_check": null,
+  "tool_session_44034": "Collected, exit1, no tracked session outstanding",
+  "Ops_hold": false,
+  "native_payloads": 0,
+  "own_live_payloads": 0,
+  "temporary_root_before": {
+    "path": "unpublished-local-ref:548ac491c017f11e",
+    "exists": true,
+    "non_symlink": true,
+    "entries": []
+  },
+  "temporary_root_cleanup": "Removed the exact owned empty directory using rmdir; no recursive deletion",
+  "temporary_root_exists_after": false,
+  "other_job_or_seat_intervention": false,
+  "peak_payload_memory_bytes": null,
+  "peak_memory_qualification": "No peak RSS field is produced by frozen blocker path;4GiB enforced cap is not measured peak use."
+}

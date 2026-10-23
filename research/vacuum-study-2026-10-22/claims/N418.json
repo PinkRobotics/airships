@@ -1,0 +1,75 @@
+{
+  "id": "N418",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N418",
+    "report": "rpt-ref-7d6892c4e55be16ad523",
+    "card": "MAINLINE-024 independent check",
+    "file": "evidence/1b8584393478c427-NFI.json",
+    "snapshot": "evidence/1b8584393478c427-NFI.json",
+    "source_sha256": "1b8584393478c427c706fadabe75a6fedec189f635ee01568f6e5da7e7666c1a",
+    "source_json_pointer": "/open/7",
+    "row_id": "NFI-CHK024-ALD-AND-UNSOURCED",
+    "fields": {
+      "id": "NFI-CHK024-ALD-AND-UNSOURCED",
+      "kind": "scale/form uncertainty",
+      "tag": "PROJECTION",
+      "finding": "ALD bound is a supported lab coupon, not a bare film, fibre coating or hull-scale result; substrate and fabrication mass remain necessary. CNT/graphene production allowables remain uncomputed.",
+      "proposed_next": "Retain coupon bounds and absent allowables; do not use them to close hull mass."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "ALD bound is a supported lab coupon, not a bare film, fibre coating or hull-scale result; substrate and fabrication mass remain necessary. CNT/graphene production allowables remain uncomputed.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/417"
+    },
+    {
+      "report": "rpt-ref-7d6892c4e55be16ad523",
+      "artifact": "evidence/1b8584393478c427-NFI.json",
+      "snapshot": "evidence/1b8584393478c427-NFI.json",
+      "sha256": "1b8584393478c427c706fadabe75a6fedec189f635ee01568f6e5da7e7666c1a",
+      "bytes": 6228,
+      "selector": "/open/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-7d6892c4e55be16ad523",
+          "artifact": "evidence/1b8584393478c427-NFI.json",
+          "snapshot": "evidence/1b8584393478c427-NFI.json",
+          "sha256": "1b8584393478c427c706fadabe75a6fedec189f635ee01568f6e5da7e7666c1a",
+          "bytes": 6228,
+          "selector": "/open/7"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/417"
+          }
+        ]
+      }
+    }
+  ]
+}

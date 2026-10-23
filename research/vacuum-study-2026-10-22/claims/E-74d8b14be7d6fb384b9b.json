@@ -1,0 +1,44 @@
+{
+  "id": "E-74d8b14be7d6fb384b9b",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-74d8b14be7d6fb384b9b",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/7",
+    "row_id": "NFI-041-08",
+    "fields": {
+      "id": "NFI-041-08",
+      "status": "open",
+      "topic": "Search scope and best-found ranking",
+      "evidence": [
+        "resize/coarse-m3/RESULTS.json",
+        "resize/f456-m12/RESULTS.json",
+        "resize/f45-m24/CLOSED.json"
+      ],
+      "finding": "Frequency 5 ranks first at both reserves in the tested uniform-section family. Frequencies 1 through 10 were searched; 4/5/6 reoptimized at m6 and m12; 4/5 checked at m24. The final m24 witnesses keep the m12 gyration and solve exact mass closure. Multiple local starts and adaptive interpolation checks are not a global optimality certificate.",
+      "needed": "Broader topology/nonuniform-section search and any necessary final exact optimizer refinement if a global optimum or minimum mass at the continuum target is required.",
+      "prohibited_inference": "No claim of a globally lightest design attaining 022d's target is made; this card selected the brief's best-SF-at-closure option."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Frequency 5 ranks first at both reserves in the tested uniform-section family. Frequencies 1 through 10 were searched; 4/5/6 reoptimized at m6 and m12; 4/5 checked at m24. The final m24 witnesses keep the m12 gyration and solve exact mass closure. Multiple local starts and adaptive interpolation checks are not a global optimality certificate.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

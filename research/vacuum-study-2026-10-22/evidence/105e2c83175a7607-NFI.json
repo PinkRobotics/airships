@@ -1,0 +1,191 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline049-check-1020",
+  "blocking": false,
+  "items": [
+    {
+      "id": "NFI-CHECK049-DENSITY",
+      "kind": "model-input inconsistency",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "K13D2U QI at 60% Vf; all radii and variants",
+      "field": "density_kg_m3 / fibre_mass_fraction",
+      "owner": [
+        1725.4901960784314,
+        0.67
+      ],
+      "checker": [
+        1800.0,
+        0.7333333333333333
+      ],
+      "evidence": "The stated 2200/1200 constituent densities give Vf=.525490196 at 67 wt% fibre, not .6.",
+      "impact": {
+        "R": 30,
+        "weather": "ISA",
+        "kind": "least",
+        "owner_model_payload": 0.00013932210276834667,
+        "corrected_density_payload": -4354.509347291896,
+        "owner_faces": 100823.1241592386,
+        "corrected_faces": 105176.84997520573,
+        "owner_fibre": 67551.49318668987,
+        "corrected_fibre": 77129.68998181753,
+        "corrected_pitch_capacity_share": 0.055092635701298236
+      },
+      "fix": "Use one consistent volume/weight mixture and rerun geometry, water, payload and supply. Preserve the separate 33 wt% resin baseline."
+    },
+    {
+      "id": "NFI-CHECK049-NONMONOTONE-E",
+      "kind": "numerical search counterexample",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "CARD section 6; AlBeMet/5056/200 F, R15 ISA actual joining, reference040 coating",
+      "field": "E_multiplier_to_float",
+      "owner": "none up to x8",
+      "checker": [
+        3.1551750871093143,
+        3.7333608029872942
+      ],
+      "witness": {
+        "multiplier": 3.3,
+        "point": {
+          "tf_m": 0.001210109203529195,
+          "tc_m": 0.013095949675532962,
+          "payload_kg": 10.529092803008098,
+          "bill_kg": {
+            "faces": 14171.866111351237,
+            "core": 593.1304662440269,
+            "charged_joining": 481.9904165465161,
+            "coating": 565.4866776461628,
+            "mooring_pad": 119.85248089815242,
+            "gas": 165.01867256880993,
+            "systems": 100.0,
+            "extra_service": 0.0,
+            "water": 282.7433388230814,
+            "contamination": 11.25,
+            "weather_headroom": 0.0,
+            "absorbed_water": 0.0,
+            "structural_primer": 0.0,
+            "desiccant": 0.0
+          },
+          "joining": {
+            "film": 414.1421674419087,
+            "scarf": 33.49783786617966,
+            "splice": 21.324058116902282,
+            "seal": 13.026353121525394,
+            "total": 481.9904165465161,
+            "length_m": 6513.176560762697
+          },
+          "vacuum": {
+            "added_material_water_kg": 0.0,
+            "desorbed_24h_kg": 1.3500519941591549,
+            "pressure_SF": 32.019291535927806
+          },
+          "lift_kg": 16501.867256880992,
+          "modes": {
+            "global_buckling": 1.0053728536976037,
+            "face_compression": 1.0337667874702428,
+            "core_shear_crimping": 1.000000005934054,
+            "core_crush": 4.966775458363128,
+            "face_wrinkling": 4.5444818853628615,
+            "intracell_dimpling": 34.851331992084866,
+            "scarf_average_shear_screen": 1.0000000000020652,
+            "core_cell_wall_yield_screen": 3.0465230282674316,
+            "thermal_core_interface_screen": 1.359255019317682
+          },
+          "Vc": 2.036065130208768,
+          "gamma": 1.0,
+          "Q": 0.82,
+          "E_Pa": 636900000000.0,
+          "Fcy_Pa": 314000000.0,
+          "film_kg_m2": 0.07323641454574575,
+          "cure_compression_Pa": 998993.0943392605,
+          "edge_shear_Pa": 126811.32670434035,
+          "thermal": {
+            "gradient_K": 0.2567755510580822,
+            "curvature_temperature_K": 56.419729010640886,
+            "min_outer_K": 270.9095678420091,
+            "max_outer_K": 302.0034621608478,
+            "swing_K": 31.09389431883867,
+            "rise_K": 17.103462160847798
+          },
+          "binding": [
+            "core_shear_crimping",
+            "scarf_average_shear_screen"
+          ]
+        }
+      },
+      "fix": "Scan/refine interior E intervals; thermal stress makes endpoint-only exclusion invalid. This formal high-E target does not establish available AlBeMet."
+    },
+    {
+      "id": "NFI-CHECK049-THERMAL-CLOSURE",
+      "kind": "reproducibility / model dependence",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "folded K13D2U 60% Vf /5056/50 C, R30 ISA endpoint",
+      "field": "free-edge SF",
+      "owner": 1.0175814590337993,
+      "checker": 0.9596642430419865,
+      "evidence": "Independent explicit thermal boundary gives Tmin=268.358318334 K at this geometry. Pinned-table arithmetic agrees where tables exist; the full owner heat boundary remains unspecified.",
+      "fix": "Publish complete non-code convection, sky/ground views, enclosure exchange and all 049 tables; retain both interpretations as sensitivities until closed."
+    },
+    {
+      "id": "NFI-CHECK049-BE-SCREEN-E",
+      "kind": "screen reference clarification",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "Be own endpoint thermal screen; R15 ISA",
+      "field": "full_cycle_SF",
+      "owner": 1.399191044592521,
+      "checker": 1.3905864399946701,
+      "evidence": "Owner retains 290 GPa in the rigid-face screen at a 293.6 GPa endpoint geometry. The ratio is sqrt(290/293.6); both pass.",
+      "fix": "State that the comparison uses baseline E, or consistently use the endpoint E. No change in float decision."
+    },
+    {
+      "id": "NFI-CHECK049-SERVICE-TRANSFER",
+      "kind": "unqualified physical transfer",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "all CFRP constructions",
+      "field": "whole-area gas permeation and nominal face volatiles",
+      "owner": "inherited metal-shell service construction",
+      "checker": "not established for CFRP",
+      "evidence": "The exact pressure reconstruction retains the inherited 70 g/m² scarf permeation gap despite the 146 g/m² CFRP seam. A face-specific gap changes SF by <.000057. Whole-area CFRP permeance is a separate unresolved term.",
+      "fix": "Measure the actual face/finish barrier and volatile inventory; document the scarf path consistently. Keep unknowns as NFIs, not zero qualification."
+    },
+    {
+      "id": "NFI-CHECK049-SOURCE-QUALIFICATION",
+      "kind": "source limitations carried forward",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "row": "face/core/bond/finish construction",
+      "field": "installed allowables",
+      "owner": "calculated, transferred and projected properties as disclosed",
+      "checker": "sources checked; installed qualification remains absent",
+      "evidence": "K13 Xc=220 MPa is unsourced; M55 QI numbers are calculated; AlBeMet/Be tensile values are transferred. Cold cure and biaxial strength remain projections. 585 GPa E1 is a cross-fibre empirical translation.",
+      "fix": "Ground joint-specific and laminate-specific properties and temperature/drying processes. Keep the 3 GPa resin calculation as a separate hypothetical sensitivity."
+    },
+    {
+      "id": "NFI-CHECK049-PROVENANCE",
+      "kind": "metadata correction",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "row": "COMPUTE.faces and COMPUTE.cores",
+      "field": "nested source/family/nu_basis/strength_basis",
+      "owner": "copied Be and aluminum descriptions",
+      "checker": "actual CFRP/aramid top-level properties differ",
+      "fix": "Replace stale copied provenance. Use the printed HRH-49 30 psi W minimum, or explicitly retain the conservative 28.571 psi projection."
+    },
+    {
+      "id": "NFI-CHECK049-SUPPLY",
+      "kind": "denominator and allocation limits",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "row": "R30 supply comparison",
+      "field": "share of supply",
+      "owner": "433 t Be mine production; 1400 t continuous pitch capacity",
+      "checker": "denominators verified, allocation unverified",
+      "evidence": "Original share arithmetic matches the original 67 wt% assumption. At the original geometry the density-corrected pitch fraction is 5.50926357%; at the independent reoptimized corrected least point it is 5.292775859808878%.",
+      "fix": "Separate mine content, fibre capacity and finished-product availability. Obtain grade-specific production, allocation and manufacturing yield. The broader all-carbon market figures were not independently confirmed from a primary market report."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "E-a17785cdd687a08e5897",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-a17785cdd687a08e5897",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/3",
+    "row_id": "CHECK046-04",
+    "fields": {
+      "id": "CHECK046-04",
+      "topic": "Hot loss budget and fresh limit",
+      "status": "OPEN",
+      "finding": "The full-restraint hot case needs retention .955211456 at 041-5, permitting only .457177% annual compounded loss over ten years. 041-019 needs 1.006695358 retention and fails this case fresh.",
+      "evidence": "HOT-AND-WATER-SENSITIVITY.json. A ±.02 instantaneous-strength-factor band gives ten-year hot SF .975049–1.016364 at 041-5; the sign of its small shortfall is uncertain.",
+      "needed": "Determine actual installation temperature, restraint and hot laminate allowable. The .714/9.165 kg film corrections restore this scalar film mode only; frame and joint screens remain open."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The full-restraint hot case needs retention .955211456 at 041-5, permitting only .457177% annual compounded loss over ten years. 041-019 needs 1.006695358 retention and fails this case fresh.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

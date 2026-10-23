@@ -1,0 +1,148 @@
+{
+  "distinct_models": 20,
+  "exact_input_aliases": {
+    "L1-be-sphere-d16-loc": "S1-be-sphere-d16",
+    "L3-be-cap2500-d16-loc": "C3-be-cap2500-d16",
+    "L4-be-cap3000-d16-loc": "C4-be-cap3000-d16"
+  },
+  "reported_run_count": 23,
+  "scalar_comparisons": 207,
+  "path_comparisons": 3985,
+  "max_relative_by_field": {
+    "gamma_H_elastic": {
+      "row": "C2-be-cap2000-d16",
+      "field": "gamma_H_elastic",
+      "owner": 0.4522662637377148,
+      "independent": 0.4522611679521378,
+      "delta": -5.095785577002854e-06,
+      "relative_delta": -1.1267224609867732e-05,
+      "category": "independent FE"
+    },
+    "face_yield_inner_kPa": {
+      "row": "R30b-be-cap3000",
+      "field": "face_yield_inner_kPa",
+      "owner": 62.590864034367314,
+      "independent": 63.30361943284033,
+      "delta": 0.7127553984730142,
+      "relative_delta": 0.011387530903578025,
+      "category": "independent FE stress crossing"
+    },
+    "core_crush_typ_kPa": {
+      "row": "C2-be-cap2000-d16",
+      "field": "core_crush_typ_kPa",
+      "owner": 56.91671445739882,
+      "independent": 58.36849862251637,
+      "delta": 1.4517841651175516,
+      "relative_delta": 0.02550716742801784,
+      "category": "independent FE stress crossing"
+    },
+    "p_H_kPa": {
+      "row": "C1-be-cap1500-d16",
+      "field": "p_H_kPa",
+      "owner": 169.2077325905303,
+      "independent": 169.20773259053027,
+      "delta": -2.842170943040401e-14,
+      "relative_delta": -2.220446049250313e-16,
+      "category": "reference"
+    },
+    "limit_kPa": {
+      "row": "C2-be-cap2000-d16",
+      "field": "limit_kPa",
+      "owner": 76.52694901424948,
+      "independent": 76.52608676792623,
+      "delta": -0.00086224632325127,
+      "relative_delta": -1.1267224609867732e-05,
+      "category": "independent FE"
+    },
+    "face_yield_outer_kPa": {
+      "row": "S2-be-sphere-d9",
+      "field": "face_yield_outer_kPa",
+      "owner": 63.54190348413447,
+      "independent": 62.831336420428705,
+      "delta": -0.710567063705767,
+      "relative_delta": -0.011182653095735295,
+      "category": "independent FE stress crossing"
+    },
+    "Vc": {
+      "row": "C5-al-cap2000-d16",
+      "field": "Vc",
+      "owner": 0.8585169005789048,
+      "independent": 0.858516900578905,
+      "delta": 1.1102230246251565e-16,
+      "relative_delta": 2.220446049250313e-16,
+      "category": "reference"
+    },
+    "core_W_shear_typ_kPa": {
+      "row": "L1-be-sphere-d16-loc",
+      "field": "core_W_shear_typ_kPa",
+      "owner": 24.91795775317577,
+      "independent": 24.94125597763878,
+      "delta": 0.023298224463008665,
+      "relative_delta": 0.0009349973498546937,
+      "category": "independent FE stress crossing"
+    },
+    "core_W_shear_min_kPa": {
+      "row": "L1-be-sphere-d16-loc",
+      "field": "core_W_shear_min_kPa",
+      "owner": 18.66554631664308,
+      "independent": 18.675681938495156,
+      "delta": 0.010135621852075616,
+      "relative_delta": 0.0005430123329976944,
+      "category": "independent FE stress crossing"
+    }
+  },
+  "path_max_relative_by_field": {
+    "core_min_snn": {
+      "row": "C2-be-cap2000-d16",
+      "index": 8,
+      "pole_dz_mm": -12.378015000000001,
+      "field": "core_min_snn",
+      "owner": -0.1669799549312837,
+      "independent": -0.16255240834872442,
+      "delta": 0.004427546582559283,
+      "relative_delta": -0.026515437642687822
+    },
+    "core_tau": {
+      "row": "S3-be33-sphere-d16",
+      "index": 23,
+      "pole_dz_mm": -42.378015000000005,
+      "field": "core_tau",
+      "owner": 1.4498970296641083,
+      "independent": 1.4479913177133623,
+      "delta": -0.0019057119507459586,
+      "relative_delta": -0.0013143774431950694
+    },
+    "p_kPa": {
+      "row": "R30c-be-cap2500",
+      "index": 0,
+      "pole_dz_mm": -0.5,
+      "field": "p_kPa",
+      "owner": 2.06770675240751,
+      "independent": 2.067617367385037,
+      "delta": -8.938502247302083e-05,
+      "relative_delta": -4.322906155285189e-05
+    },
+    "inner_vm": {
+      "row": "C3-be-cap2500-d16",
+      "index": 0,
+      "pole_dz_mm": -0.5,
+      "field": "inner_vm",
+      "owner": 12.091872934738054,
+      "independent": 11.920146691895024,
+      "delta": -0.17172624284303062,
+      "relative_delta": -0.014201790224712685
+    },
+    "outer_vm": {
+      "row": "S2-be-sphere-d9",
+      "index": 20,
+      "pole_dz_mm": -36.378015000000005,
+      "field": "outer_vm",
+      "owner": 533.7875928365889,
+      "independent": 543.3268002508445,
+      "delta": 9.539207414255543,
+      "relative_delta": 0.01787079269408154
+    }
+  },
+  "capacity_validated": false,
+  "interpretation": "Agreement refers to conditional equilibrium branches. All delta values retained, including stress diagnostics differences."
+}

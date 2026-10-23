@@ -1,0 +1,50 @@
+{
+  "id": "rpt-ref-4e3875b461b36a2d6cfd",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T17:13:11-07:00",
+  "body": "Group B failed on the unit timeout with work demonstrably in progress; precise evidence follows.\n\nRESULT: FAIL (rc=124, manager_rc=124, collected). The card's own inner bound fired: 'timeout --kill-after=5s 870s make --no-print-directory ledgercheck-selftest' expired, and make reports '*** [Makefile:402: ledgercheck-selftest] Terminated' inside test_float_hardening.PlantedTree.test_counterexamples. Service runtime 14min 30.311s (the 870s inner bound); CPU consumed 26min 51.877s on the 2-CPU cap (~1.85 cores sustained) - the selftest was compute-bound and working, not hung; memory peak 2.9G, swap 0B.\n\nPROGRESS BEFORE THE KILL: the attestation-shape suite finished OK (14 tests, 0.122s); the plant-anchors test ok (one benign ResourceWarning at float_plants.py:380, an unclosed file handle); the stdout shows the plant phase preparing counterexamples A2a through A10, each detected RED as designed; the kill landed during the planted-tree counterexamples regeneration. No assertion failed - the target never reached a verdict.\n\nFIT ERROR OWNED: my recorded fit proof bounded the single target by whole-group service runtimes measured at 4 CPU (A3's eight targets 265.850s; C's nine 439.6s). That was inapplicable twice over: B runs at 2 CPU, and ledgercheck-selftest regenerates planted float shards - it is not a cheap subset of the family runs. The unit cap 900s (inner 870s) is insufficient for this target at 2 CPU; your flagged risk was the one that fired.\n\nSTATE: collection clean; the script removed Bunpublished-local-ref:e9671acd244849c5, B/home, B/bin and unpublished-local-ref:29305cbbbe918a03 (each independently re-verified absent); B/src is KEPT per the FAIL rule at 5f96f32e, clean, still anchored by u3-a3-replacement-1018 in the clone (re-verified after the run). Grant 89225d75eed3-u3gate-b-1018165515 consumed by this single attempt; launched 23:57:55.598Z inside validity; NO retry, NO repair, NO second grant.\n\nASK: dispose the cap versus the measured cost - measured need is >870s wall at 2 CPU with ~1.85 cores sustained (1611.9s CPU consumed); a re-admission would need a RuntimeMaxSec and inner bound covering the plant-regeneration workload, or a wider CPU allowance, per your design. Nothing further launches without your direction.\n",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:c2a1b3b815150476",
+      "sha256": "a62993e2d2d3f338a7acf177b4c640a1d0afbc0f282e8a26a344b6d88724d519",
+      "bytes": 1144
+    },
+    {
+      "path": "unpublished-local-ref:a49ca968ebe88063",
+      "sha256": "cc35c414c8f1833d3a00f1ed3d98107f76f6f9462464561c1b1fdf5690e0c631",
+      "bytes": 78
+    },
+    {
+      "path": "unpublished-local-ref:0283e39f9bb4a34e",
+      "sha256": "814c66dc6df5eb932563ea1f5504773a1d719ecd55eec5d1617d63aab529f9db",
+      "bytes": 2058
+    },
+    {
+      "path": "unpublished-local-ref:a50e25b76db4bcd1",
+      "sha256": "43d1ace402224d4b35a88fb00a8ea4a9d8b611ffc4ad6a2ad9700c6feea7bcb3",
+      "bytes": 13698
+    },
+    {
+      "path": "unpublished-local-ref:14704747ec9d2650",
+      "sha256": "59adfee3c40f64412a7bdacb198e9db5da15ce5c5ccc2f30c0e6c903e78beaa4",
+      "bytes": 2680
+    },
+    {
+      "path": "unpublished-local-ref:d505112a749675b4",
+      "sha256": "7ad2692e1eb709556ebd1d08bf74ef2357fe49525aa8fee4425f201b38180048",
+      "bytes": 3448
+    }
+  ],
+  "from": "ref-741b462e28e96fb5cf31",
+  "from_seat": "ref-741b462e28e96fb5cf31",
+  "re": "rpt-ops-g29-u3-group-b-grant-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-ops-g29-u3-group-b-grant-1018",
+      "outcome": "done",
+      "extent": "obligation",
+      "what": "Group B executed once under its grant and card v8; failed on the inner 870s timeout with the selftest compute-bound and in progress; reported with precise evidence; no retry."
+    }
+  ]
+}

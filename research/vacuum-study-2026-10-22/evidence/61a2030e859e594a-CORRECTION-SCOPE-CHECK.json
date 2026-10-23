@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "task": "MAINLINE002 post-publication source-correction authority/scope reconciliation",
+  "status": "CORRECTED_SCOPED_ADMISSION_PRESERVED_ACCOUNTING_DISPOSITION_PENDING_CO",
+  "method": {
+    "named_records_only": true,
+    "numerical_science_or_threshold_recomputation": false,
+    "checker_or_owner_code_execution": false,
+    "external_source_fetch": false,
+    "ship_seat_contact": false,
+    "accounting_authority_exercised": false,
+    "only_output_written": "This mechanical findings JSON; prior records remain unmodified."
+  },
+  "evidence_pins": [
+    {
+      "path": "unpublished-local-ref:bd088132b5c5bdb5",
+      "sha256": "314ddcb02e6ca3cec41049b023a77438acf9121eb27e0d8b4a0a76fba73054a1",
+      "bytes": 6203
+    },
+    {
+      "path": "unpublished-local-ref:cd7707edbdf6a00c",
+      "sha256": "35059ac9b4dc36e7635f4b34efa64d2388f0c8e0c1a499707289a9184579d186",
+      "bytes": 1823
+    },
+    {
+      "path": "evidence/c31fdf607c5051ca-ADMISSION-RECORD.json",
+      "sha256": "c31fdf607c5051ca35cf2038289cbbce1b8b5cba3894370719f394b71cdbc2cc",
+      "bytes": 5227
+    },
+    {
+      "path": "evidence/d4e7d3d23bf15063-CLOSED-1800-ACCOUNTING.json",
+      "sha256": "d4e7d3d23bf1506310f98ccabe50bb1e2861a363e5f621131367e1a95ed1e3e2",
+      "bytes": 4360,
+      "matches_declared_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:3eb5aba819e23edc",
+      "sha256": "daa760a67f65fd6eae7c524aa594b95bb9d822917d3d0771d87b05118f333818",
+      "bytes": 21869,
+      "matches_declared_pin": true
+    }
+  ],
+  "correction_artifact_pins": [
+    {
+      "path": "unpublished-local-ref:441aeb8ed85d8332",
+      "sha256": "88188277bf314c9f1e445d479fffc12b43c47ac9c0a28915166343a37cb54e74",
+      "bytes": 1580,
+      "matches_declared_pin": true
+    },
+    {
+      "path": "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md",
+      "sha256": "59f59b26097f947462763c46b13b99776c2b94c4ace6a265a9e78b89769fe9bd",
+      "bytes": 3755,
+      "matches_declared_pin": true
+    },
+    {
+      "path": "unpublished-local-ref:d9e30b591ec32cb5",
+      "sha256": "d4f8b4f3e751f15c9313454736a4f53f79c5bb3829411a2dcbbcd55ab9906afb",
+      "bytes": 2349,
+      "matches_declared_pin": true
+    },
+    {
+      "path": "evidence/0921f217f57bdd28-final-ledger.json",
+      "sha256": "0921f217f57bdd28574bf9df70ce9bb72828365bae589fb2db7eb795e9d88579",
+      "bytes": 1128,
+      "matches_declared_pin": true
+    },
+    {
+      "path": "evidence/d55c841c5ecb4f20-FINAL.json",
+      "sha256": "d55c841c5ecb4f20aa6f8999d49c44fa92e7c676fef204b19e393fdb3ce275cb",
+      "bytes": 187,
+      "matches_declared_pin": true
+    },
+    {
+      "path": "evidence/2bb50763adc35f6d-PUBLICATION.json",
+      "sha256": "2bb50763adc35f6d04498c38a3425e83a746bc5ec7593ef48482694d296f08bd",
+      "bytes": 231,
+      "matches_declared_pin": true
+    }
+  ],
+  "pin_mismatches": [],
+  "correction_chronology": {
+    "original_admission_publication": "2026-10-19T20:47:22.948824-07:00",
+    "original_final": "2026-10-19T20:47:22.945121-07:00",
+    "original_ingestion": "2026-10-19T20:48:54-07:00",
+    "correction_at": "2026-10-19T20:50:24-07:00",
+    "correction_ingested": "2026-10-19T20:51:30-07:00",
+    "correction_publication_paired_sample": "Not provided in this correction; original PUBLICATION.json still describes the first report.",
+    "reviewer_disclosed_carry_miss": {
+      "carry_ingested_as_reported": "2026-10-19T20:38:08-07:00",
+      "review_origin_as_reported": "2026-10-19T20:45:12-07:00",
+      "cause_as_reported": "Reviewer relied on a queue view read before the carry existed and did not refresh before origin; initial verdict applied the old brief only."
+    },
+    "post_publication_work_as_reported": "Correction written after original final sample, between carry read approximately20:48:30 and correction at20:50:24, outside unchanged ledger.",
+    "duration_limit": "Those narrative endpoints are not a paired measured work ledger. Do not charge a calculated wall-clock interval or infer exact correction duration."
+  },
+  "amended_verdict": {
+    "verbatim_status": "ADMITTED for scope, with a SOURCE OBJECTION on every sigma-dependent output as above.",
+    "retracts_all_scoped_admission": false,
+    "creates_new_card": false,
+    "creates_new_review_origin_or_reset": false,
+    "new_date_replacing_original_admission": false,
+    "relationship": "Correction of the same vacuum-mainline002-strength-review600-1019 verdict. The report says unaffected scope is admitted as filed and asks CO to rule only on post-publication accounting treatment.",
+    "does_not_establish_automatic_CO_acceptance": "Reviewer requests CO ruling; this helper does not decide correction accounting or CO disposition."
+  },
+  "unaffected_admitted_scope_as_reported": [
+    "Atmosphere, displaced volume and lift",
+    "Mass components/totals and float margins",
+    "Allocation thicknesses and numerical-zero residuals",
+    "Stiffness limits and stiffness factors",
+    "Film limit and film factor",
+    "Presence of tags, source representation and NFI records"
+  ],
+  "source_objection": {
+    "condition_authority": "ord-co28-sci-mainline002-phase4-breach-disposed-1019",
+    "source_exception_satisfied": false,
+    "compressive_source_admitted": false,
+    "compressive_value_admitted": false,
+    "reasons_as_reported": [
+      "Only owner-reported search-snippet trace; no raw capture and direct fetch failed",
+      "The snippet reports typical tensile yield, with not-for-design qualification",
+      "No compressive yield or design allowable retrieved; NFI-AL-YIELD-CARRY remains"
+    ],
+    "affected_rows": [
+      "P1",
+      "P2",
+      "P3",
+      "P1-A",
+      "P2-A",
+      "P3-A"
+    ],
+    "directly_affected_outputs_each_row": [
+      "aluminum_yield limit",
+      "aluminum_yield improvement factor",
+      "stiffness-only remaining safety factor"
+    ],
+    "why_film_rows_do_not_escape": "Correction says the least non-stiffness limit is aluminum yield even for P3 and P3-A.",
+    "retained_status_of_affected_numbers": "Checked arithmetic using the QUESTIONABLE tensile premise only; not admitted compressive-strength results.",
+    "original_check_counts": "Keep 97 RESULTS numbers and 71 print matches as historical arithmetic assertions. The correction does not provide a new count for the unaffected subset; do not manufacture one."
+  },
+  "governing_and_minimum_conditionality": {
+    "stiffness_pressure": "The individual buckling/Euler pressure does not contain sigma and remains in unaffected arithmetic scope.",
+    "least_limit_claim": "Calling stiffness the governing least limit, and thus carrying the resulting collapse pressure and crush SF as governing, is conditional on the unknown compressive allowable meeting the rowwise threshold.",
+    "thresholds_transcribed_not_recomputed": [
+      {
+        "row": "P1",
+        "stated_compressive_allowable_threshold_MPa": "0.59"
+      },
+      {
+        "row": "P2",
+        "stated_compressive_allowable_threshold_MPa": "146.3"
+      },
+      {
+        "row": "P3",
+        "stated_compressive_allowable_threshold_MPa": "129.4"
+      },
+      {
+        "row": "P1-A",
+        "stated_compressive_allowable_threshold_MPa": "1.059"
+      },
+      {
+        "row": "P2-A",
+        "stated_compressive_allowable_threshold_MPa": "146.5"
+      },
+      {
+        "row": "P3-A",
+        "stated_compressive_allowable_threshold_MPa": "114.3"
+      }
+    ],
+    "threshold_status": "Stated ratio bounds from reviewer correction, not independently verified here and not admitted compression material values.",
+    "no_unqualified_collapse_claim": "Preserve the distinction between an admitted stiffness-model number and an unqualified physically governing collapse/crush result."
+  },
+  "changes_recommended_to_prior_records": [
+    {
+      "record": "ADMISSION-RECORD.json",
+      "fields": [
+        "status",
+        "basis",
+        "admitted_scope",
+        "compressive_source_condition",
+        "accounting"
+      ],
+      "change": "Link correction report and scope log; explicitly mark SOURCE OBJECTION and enumerate unaffected/directly affected/conditionally governing outputs. Original counts remain historical arithmetic assertions. Mark accounting as first-publication snapshot with post-publication disposition pending CO."
+    },
+    {
+      "record": "ADMISSION-AUTHORITY-CHECK.json / previous CO return",
+      "fields": [
+        "source_condition_reconciliation",
+        "recommended_CO_return"
+      ],
+      "change": "Correct any implication that the original reviewer had applied the prospective carry. Reviewer now explicitly says it was missed; the new correction supplies the source objection. Do not erase original evidence or represent the correction as already inside the original ledger."
+    },
+    {
+      "record": "CLOSED-1800-ACCOUNTING.json",
+      "fields": [
+        "status",
+        "accounting.review",
+        "accounting.combined_actual_s",
+        "accounting.combined_charged_s",
+        "accounting.combined_retired_s",
+        "accounting.qualification"
+      ],
+      "change": "Replace unconditional CLOSED_NEW1800 characterization with OWNER_DISPOSED_FIRST_PUBLICATION_LEDGER_PRESERVED_CORRECTION_ACCOUNTING_PENDING_CO (or equivalent). Retain old numerical totals as the unchanged original-return snapshot; they are not demonstrated final totals for all work now acknowledged."
+    },
+    {
+      "record": "REVIEW-CLOSURE-CHECK.json",
+      "fields": [
+        "result",
+        "phase_checks",
+        "review_accounting",
+        "publication_and_filing",
+        "administrative_new1800_rollup",
+        "evidence_limits"
+      ],
+      "change": "Qualify REVIEW_PHASE_AND_WHOLE_CAPS_HELD to measured original intervals only. These checks do not cover post-publication correction work or establish complete-unit compliance. Original +0.0037s publication sample belongs only to first report."
+    },
+    {
+      "record": "FINAL.json interpretation / completion prose",
+      "fields": [
+        "final: verdict, state and cleanup done",
+        "full-envelope-finalization claims"
+      ],
+      "change": "Keep raw FINAL unchanged as its original assertion. It no longer establishes that all substantive review/correction work was finished at that sample. Corrected scope log and correction filing occurred later; complete finalization of that additional work is unaccounted pending CO."
+    }
+  ],
+  "accounting_boundaries": {
+    "owner_disposition": "Unchanged: CO debited793.59s and retired406.41s, preserving phase4 breach. Do not reopen the owner.",
+    "first_publication_snapshot": {
+      "review_actual_s": "130.715817151824",
+      "review_charged_s": "165.715817151824",
+      "review_retired_s": "434.284182848176",
+      "combined_actual_s": "889.3101812337991",
+      "combined_charged_s": "959.3101812337991",
+      "combined_retired_s": "840.6898187662009"
+    },
+    "new_fact": "Reviewer explicitly performed post-final correction work and stated ratios after the first publication; it is outside the unchanged ledger.",
+    "CO_question": "Whether and how the post-publication correction stands inside Una600, including accounting/finalization disposition.",
+    "not_authorized_by_this_check": [
+      "Charging a guessed correction duration",
+      "Reusing retired seconds",
+      "Declaring the correction absorbed by25s publication allowance or other headroom",
+      "Resetting or replacing the original clock",
+      "Issuing a new grant",
+      "Calling the complete review compliant or finally CLOSED1800 before CO disposition"
+    ],
+    "retirement_status": "Existing retired amounts remain nonreusable. Uncertainty over final correction accounting is not permission to spend them."
+  },
+  "map_and_date_recommendation": {
+    "retain_existing_map_count_pending_CO": 2,
+    "retain_existing_admission_and_stall_date_pending_CO": "2026-10-19T20:47:22.948824-07:00",
+    "basis": "Reviewer expressly keeps unaffected scope admitted as filed; this is one corrected card, not a retraction or fresh admission.",
+    "qualification": "Attach the corrected scope/source objection and accounting disposition pending CO. Do not claim CO has accepted unaccounted correction work.",
+    "new_map_point_for_correction": false,
+    "reset_to_correction_at_or_ingestion": false,
+    "rollback_to_map1_by_helper": false,
+    "CO_control": "CO may rule otherwise; helper neither rules nor changes the map. H1 remains parked/unfunded and no-pause remains."
+  },
+  "minimal_return_sentence": "MAINLINE-002 remains admitted for its corrected narrow scope at the original publication date, with SOURCE OBJECTION on all sigma-dependent outputs and conditional governing/minimum claims. Prior accounting totals are the first-publication snapshot; acknowledged post-publication correction work is outside that ledger and awaits CO disposition. No new card, map point, clock reset, grant or retired-second reuse is claimed."
+}

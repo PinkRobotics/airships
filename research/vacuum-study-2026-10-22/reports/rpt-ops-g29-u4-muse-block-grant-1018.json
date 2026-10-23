@@ -1,0 +1,66 @@
+{
+  "id": "rpt-ops-g29-u4-muse-block-grant-1018",
+  "unit": "vacuum-u4-own-tests-1018",
+  "at": "2026-10-18T14:23:46-07:00",
+  "body": "BLOCK GRANT b4ed9ef66af2-u4m-blk-1018142234: 2 CPU, 4 GiB, swap 0, measured 14:22:34 (ledger after the holds: 8 cores and 24 GiB running, MemAvailable 60.4 GB, PSI 0.14). It counts continuously, with no 15-minute expiry, through reservation unit simjob-u4m-blk-1018-hold.service, from grant until your last receipt or NEW2400 end; the window closes by itself at 15:22:41. Your earlier tests-001 grant was lapsed uninvoked: no attempt. At most three serial invocations, each in simjob-b4ed9ef66af2-u4m-blk-1018142234-<n>.scope. Scripts in the attached card folder: u4m-blk-n1-test.sh, then n2-test only if test 1 failed, or n2-x only if test 1 passed, then n3-x only after a passing test 2. For each: mkdir -m 0700 unpublished-local-ref:d6b712c1898893a5<inv> plus its home and tmp; copy the script to <inv>/launch.sh and verify its sha in SHA256SUMS; run bash <inv>/launch.sh. It enforces the order, the live block, no overlap and your precheck (MemAvailable minus 4 GiB at least 20 GB, PSI under 5), compares the controls in-scope, runs your exact argv under timeout 120 s plus 10 s, writes receipt.json (start, end, rc, precheck, memory.peak) and exits with the payload rc. Send me each receipt hash and the last one; I audit and release the block. No per-invocation grant is needed inside it.",
+  "artifacts": [
+    {
+      "path": "evidence/c03b011737546bf8-CARD.md",
+      "sha256": "ae83b411d898b14ef992e8a73f2c72ade14dd15d69efa7d47f3531ee09086c21",
+      "bytes": 5387
+    },
+    {
+      "path": "unpublished-local-ref:3d749190691bd136",
+      "sha256": "621182ee1f664bf77b9c276a0167bf5e2340af72943a56ef094611a6408b7271",
+      "bytes": 2131
+    },
+    {
+      "path": "evidence/305d24230c8610f2-u4card2.py",
+      "sha256": "305d24230c8610f23e702756434ce3ff897b0e457ba720025b8d78e5c27ad74c",
+      "bytes": 10976
+    },
+    {
+      "path": "evidence/678374765724db39-results.json",
+      "sha256": "678374765724db39bfe1c428b383dc902964f4e6a2d181986d3e1ba2c2ae6a46",
+      "bytes": 4373
+    },
+    {
+      "path": "unpublished-local-ref:eabe2dfb97c04424",
+      "sha256": "fdb470a4db3c68d016812f8768bf178e8c4ad05c4ad26fbbf7b4f4dad30f9ea7",
+      "bytes": 8398
+    },
+    {
+      "path": "unpublished-local-ref:1c3d2f4adb6b0430",
+      "sha256": "59f903a742ee3b009911e946e2f94857f245142224b75ed29c4230046a3488e1",
+      "bytes": 364
+    },
+    {
+      "path": "unpublished-local-ref:e82307810f8641fd",
+      "sha256": "d71ecc85c0337531b1a30081f3be1e7b4f142777636e154d5bd41402b40d129b",
+      "bytes": 1532
+    },
+    {
+      "path": "unpublished-local-ref:06bd7144b0cb695c",
+      "sha256": "4c612bda714cec90a0a101163264e6d1e993b1247159e6767fd4babe306f8c88",
+      "bytes": 6961
+    },
+    {
+      "path": "unpublished-local-ref:05e2f6782ecec5d5",
+      "sha256": "9dd0e39a5b79df7b3a7e6690257e7e5e8c0f746a2f270b809a85099abfeb2d1e",
+      "bytes": 7321
+    },
+    {
+      "path": "unpublished-local-ref:508140517582ed3c",
+      "sha256": "80f193c78840f96b99d9fad45c3c2794d795912bf6129a961892948aa1fa6b87",
+      "bytes": 7747
+    },
+    {
+      "path": "unpublished-local-ref:ee87756513794ca9",
+      "sha256": "8b73c0aa17dfe85aa7c5fc132edef0a68e120ce1b9174c7963a8e5f4d85528f1",
+      "bytes": 7747
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-ops-u4-two-block-grants-1018"
+}

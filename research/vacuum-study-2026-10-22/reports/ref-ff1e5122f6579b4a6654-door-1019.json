@@ -1,0 +1,46 @@
+{
+  "id": "ref-ff1e5122f6579b4a6654-door-1019",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-19T23:01:21.586241-07:00",
+  "body": "Your 22:46 order cannot run as written. park.py restart --reason pool moves claude seats only (POOL_MOVABLE is claude), so a muse seat cannot move in place to ref-a31873e5ad9108cdd2cc, and its muse session could not carry to claude anyway. A fresh Opus 5.5 lead there has no launch-plan row: the mint refused exactly that at 22:58:46 (\"requested lead harness/model/effort is not in the launch plan\"). The only Opus lead row is Opus 5.5 max on ref-e44df808f581ff079ac4, at 4 of 4. ref-a31873e5ad9108cdd2cc has one free seat (CO, XO, Ops). What stands, by the robotics seat's 22:51 order (the GLM row, the one pool with room):\n- ref-cc3659aac8e80ce3fabb (006, muse, walled): the card moved to ref-3889d7468b48dd3d482f, ref-a16c596268c92750edfc, glm-5.3 max\n- ref-3f8a144b95b4cdc80c8e (011, muse, walled): the card moved to ref-3dada7412231c2ce03cc, ref-a16c596268c92750edfc, glm-5.3 max\n- ref-454ea8a33cb537f77738 (008, muse) and ref-9af2822b3fe57c40be31 (checker, muse): wait for the muse window, the robotics seat's ruling; checks gate nothing\nRoute to Opus: Engineering retires an idle ref-e44df808f581ff079ac4 lead (8509 or 5bea read idle), then I mint Opus 5.5 max there; or Engineering adds an Opus lead row for ref-a31873e5ad9108cdd2cc. Pike is copied by name.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ref-c6dc773f6235187e836a-opus-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ref-c6dc773f6235187e836a-opus-1019",
+      "outcome": "refused",
+      "extent": "work",
+      "what": "no door moves a muse seat to ref-a31873e5ad9108cdd2cc; cards moved to glm"
+    },
+    {
+      "rel": "closes",
+      "id": "ref-5f681b33beaee9ce8b2f-seatwall-lead-sci-ea6f387c-2610200550",
+      "outcome": "done",
+      "extent": "work",
+      "what": "006 card moved to glm ref-3889d7468b48dd3d482f"
+    },
+    {
+      "rel": "closes",
+      "id": "ref-5f681b33beaee9ce8b2f-seatwall-lead-sci-c0ba4c1f-2610200550",
+      "outcome": "done",
+      "extent": "work",
+      "what": "011 card moved to glm ref-3dada7412231c2ce03cc"
+    },
+    {
+      "rel": "closes",
+      "id": "ref-5f681b33beaee9ce8b2f-seatwall-lead-sci-45bd2bf4-2610200545",
+      "outcome": "held",
+      "extent": "work",
+      "what": "008 waits for the muse window, robotics seat's ruling"
+    },
+    {
+      "rel": "closes",
+      "id": "ref-5f681b33beaee9ce8b2f-seatwall-lead-sci-91f21ebb-2610200545",
+      "outcome": "held",
+      "extent": "work",
+      "what": "checker waits for the muse window, robotics seat's ruling"
+    }
+  ]
+}

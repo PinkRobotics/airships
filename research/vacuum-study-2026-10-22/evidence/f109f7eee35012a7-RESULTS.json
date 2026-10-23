@@ -1,0 +1,399 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-19T23:21:09-07:00",
+  "ended_at": "2026-10-19T23:21:23-07:00",
+  "point": {
+    "family": "P2",
+    "family_reason": "MAINLINE-006 least safety factor at zero margin is higher for P2-E than for P1 or P3. The P3 film factor stays above 1 and does not govern. No filed sandwich family beats P2.",
+    "face": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+    "face_tag": "QUESTIONABLE",
+    "face_source": "Saint-Gobain Hexoloy SA data https://www.ceramicsrefractories.saint-gobain.com/pt/files/4731/view (compressive 3900 MPa, flexural 380 MPa); MatWeb alpha SiC https://www.matweb.com/search/datasheet_print.aspx?matguid=dd2598e783ba4457845586b58c8ea9fb (density 3.10 g/cc, E 410 GPa)",
+    "sigma_basis": "measured compressive strength of sintered SiC; flexural strength is only ~380 MPa and governs any bending/tension path (NFI)",
+    "core": "Divinycell H35",
+    "core_tag": "QUESTIONABLE",
+    "core_family": "PVC_foam",
+    "core_density_kg_m3": 38.0,
+    "core_source": "DIAB Divinycell H, H Oct 2012 rev9 SI, nominal column, via https://www.castrocompositesshop.com/en/index.php?controller=attachment&id_attachment=1020",
+    "payload_margin": 0.05,
+    "payload_reason": "CARD-009 says 5 percent of lift unless MAINLINE-006 shows a better knee. On P2-E the knee is the 0 to 5 percent step, the steepest drop, not a different operating margin. Margins above 5 percent cost less safety factor per kilogram and are a worse trade. The point keeps 5 percent.",
+    "knockdown_main": 0.2,
+    "knockdown_precision": 0.9,
+    "knockdown_conservative_reference": 0.1407,
+    "geometry_rule": "On the 5 percent mass ceiling, face thickness is the value that maximises the lesser of the five mode safety factors at knockdown 0.20. Global buckling in that lesser factor is the NASA CR-1457 handbook value, gamma_d times Kc, not the classical pressure stacked on top of it. The 0.90 column is the same geometry with the classical pressure scaled to 0.90. The handbook does not authorise gamma_d of 0.90."
+  },
+  "float": {
+    "lift_kg": 4889.442150186961,
+    "total_mass_kg": 4644.970042677613,
+    "payload_kg": 244.47210750934846,
+    "float_margin": 0.050000000000000086,
+    "above_zero": true
+  },
+  "geometry": {
+    "tf_m": 0.00027215364631557974,
+    "core_m": 0.04624190488644608,
+    "separation_m": 0.04651405853276166,
+    "R_m": 10.0,
+    "radius_note": "R is the external 10 m. The handbook middle-surface radius is smaller by about half the separation. Both the classical and the handbook pressures use 10 m, as MAINLINE-007b did."
+  },
+  "masses_kg": {
+    "faces": 2120.3898218634963,
+    "core": 2208.1530759247057,
+    "joints": 216.4271448894101,
+    "systems_kg": 100.0,
+    "residual_gas": 0.0,
+    "total": 4644.970042677613,
+    "payload_kg": 244.47210750934846,
+    "float_margin": 0.050000000000000086
+  },
+  "modes_main_kd_0_20": {
+    "global_buckling": 0.23515931324953654,
+    "face_compression": 4.4474749806324665,
+    "core_crush": 10.475499920730703,
+    "core_shear_crimping": 1.1763017784546326,
+    "face_wrinkling": 0.23516798404427022
+  },
+  "modes_precision_kd_0_90": {
+    "global_buckling": 2.0734629808815446,
+    "face_compression": 4.4474749806324665,
+    "core_crush": 10.475499920730703,
+    "core_shear_crimping": 1.1763017784546326,
+    "face_wrinkling": 0.23516798404427022
+  },
+  "modes_conservative_kd_0_1407": {
+    "global_buckling": 0.3241513793444814,
+    "face_compression": 4.4474749806324665,
+    "core_crush": 10.475499920730703,
+    "core_shear_crimping": 1.1763017784546326,
+    "face_wrinkling": 0.23516798404427022
+  },
+  "least_SF_main": 0.23515931324953654,
+  "governing_main": "global_buckling",
+  "handbook": {
+    "Vc": 1.9585516223241044,
+    "Kc": 0.510362094418974,
+    "gamma_d": 0.2,
+    "branch": "stiff_or_moderate_core",
+    "SF_classical_0_20": 0.4607695513070099,
+    "SF_general": 0.23515931324953654
+  },
+  "rejected_crimp_branch": {
+    "reason": "Vc>2 flips gamma_d from 0.20 to 1 while Kc is 1/2. MAINLINE-007b records that jump as discontinuous. The point stays on the moderate branch, where gamma_d is the brief's 0.20.",
+    "least_SF": 0.400655676414081,
+    "governing": "face_wrinkling",
+    "Vc": 3.255748655235621,
+    "gamma_d": 1.0,
+    "tf_m": 0.0004636681463944534,
+    "core_m": 0.014994802241998263,
+    "modes": {
+      "global_buckling": 0.40066212854372313,
+      "face_compression": 7.5771627840487,
+      "core_crush": 10.475499920730703,
+      "core_shear_crimping": 0.40066212854372313,
+      "face_wrinkling": 0.400655676414081
+    }
+  },
+  "reaches_SF_1_in_every_mode": false,
+  "any_sourced_questionable_pair_reaches_1": false,
+  "improvement": {
+    "needed": true,
+    "any_sourced_pair_clears": false,
+    "governing_mode": "global_buckling",
+    "SF": 0.23515931324953654,
+    "factor_on_that_allowable": 4.2524363002321826,
+    "also_short_at_0_20": {
+      "global_buckling": 0.23515931324953654,
+      "face_wrinkling": 0.23516798404427022
+    },
+    "also_short_at_0_90": {
+      "face_wrinkling": 0.23516798404427022
+    },
+    "nearest_face_class": "Beryllium S-200F",
+    "nearest_face_least_SF": 0.28214881588696855,
+    "nearest_face_core": "Divinycell H35",
+    "wrinkle_stress_factor": 4.252279510172399,
+    "wrinkle_Ec_Gc_product_factor_if_foam": 76.88921222043608,
+    "note": "SiC (monolithic alpha SiC, Hexoloy SA type)"
+  },
+  "zero_margin_same_materials": {
+    "least_SF": 0.2400523293764984,
+    "governing": "face_wrinkling",
+    "tf_m": 0.00027780616911723857,
+    "core_m": 0.0501954587298604,
+    "modes": {
+      "global_buckling": 0.2551962943171141,
+      "face_compression": 4.539847264003168,
+      "core_crush": 10.475499920730703,
+      "core_shear_crimping": 1.275981473252241,
+      "face_wrinkling": 0.2400523293764984
+    },
+    "note": "Same face, same core, margin 0. Shown so the knee is not mistaken for a fix."
+  },
+  "sic_cores_ranked": [
+    {
+      "core": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "density_kg_m3": 16.0,
+      "complete": false,
+      "least_SF": 0.9595779253573088,
+      "governing": "incomplete:global_buckling",
+      "tf_m": 0.0002589869376293246,
+      "core_m": 0.11492662372123329,
+      "modes": {
+        "global_buckling": 0.9595779253573088,
+        "face_compression": 4.232307525585793,
+        "core_crush": 7.511507065716431,
+        "core_shear_crimping": 11.67340588696312,
+        "face_wrinkling": null
+      }
+    },
+    {
+      "core": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "density_kg_m3": 32.0,
+      "complete": false,
+      "least_SF": 0.5233477779614927,
+      "governing": "incomplete:global_buckling",
+      "tf_m": 0.0002729036487091006,
+      "core_m": 0.054766949088910034,
+      "modes": {
+        "global_buckling": 0.5233477779614927,
+        "face_compression": 4.459731354654113,
+        "core_crush": 27.012535024787933,
+        "core_shear_crimping": 15.9804759676073,
+        "face_wrinkling": null
+      }
+    },
+    {
+      "core": "Divinycell H35",
+      "density_kg_m3": 38.0,
+      "complete": true,
+      "least_SF": 0.23515931324953654,
+      "governing": "global_buckling",
+      "tf_m": 0.00027215364631557974,
+      "core_m": 0.04624190488644608,
+      "modes": {
+        "global_buckling": 0.23515931324953654,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.23516798404427022
+      }
+    },
+    {
+      "core": "ROHACELL 31 IG-F",
+      "density_kg_m3": 32.0,
+      "complete": true,
+      "least_SF": 0.20092281306157256,
+      "governing": "face_wrinkling",
+      "tf_m": 0.0003011259609986264,
+      "core_m": 0.04929887608281443,
+      "modes": {
+        "global_buckling": 0.27183443524991735,
+        "face_compression": 4.920934169690866,
+        "core_crush": 8.380399936584563,
+        "core_shear_crimping": 1.3591721789044326,
+        "face_wrinkling": 0.20092281306157256
+      }
+    },
+    {
+      "core": "Hexcel HRH-10-4.8-32",
+      "density_kg_m3": 32.0,
+      "complete": true,
+      "least_SF": 0.14566743215377415,
+      "governing": "face_wrinkling",
+      "tf_m": 0.0003246677027952535,
+      "core_m": 0.044737663609717905,
+      "modes": {
+        "global_buckling": 0.26626666435995383,
+        "face_compression": 5.3056481320369775,
+        "core_crush": 20.950999841461407,
+        "core_shear_crimping": 1.3313333223302604,
+        "face_wrinkling": 0.14566743215377415
+      }
+    },
+    {
+      "core": "Hexcel HRH-10-6.4-24",
+      "density_kg_m3": 24.0,
+      "complete": true,
+      "least_SF": 0.03861978981724169,
+      "governing": "face_wrinkling",
+      "tf_m": 0.00020768121833921225,
+      "core_m": 0.08987172663076788,
+      "modes": {
+        "global_buckling": 0.3404906705233996,
+        "face_compression": 3.3938807545494916,
+        "core_crush": 11.523049912803774,
+        "core_shear_crimping": 1.7024533592400586,
+        "face_wrinkling": 0.03861978981724169
+      }
+    }
+  ],
+  "questionable_faces_best_complete_core": [
+    {
+      "face": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+      "tag": "QUESTIONABLE",
+      "best_core": "Divinycell H35",
+      "best_least_SF": 0.23515931324953654,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "CFRP quasi-isotropic M55J/epoxy",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.24355750079920327,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "Beryllium S-200F",
+      "tag": "QUESTIONABLE",
+      "best_core": "Divinycell H35",
+      "best_least_SF": 0.28214881588696855,
+      "governing": "face_wrinkling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.2779339253405377,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "Boron/epoxy quasi-isotropic",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.15259246700631943,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "AlBeMet 162 (AM162, HIP)",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.2425569295754079,
+      "governing": "face_wrinkling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "CFRP quasi-isotropic T700/epoxy",
+      "tag": "QUESTIONABLE",
+      "best_core": "Hexcel HRH-10-6.4-24",
+      "best_least_SF": 0.13147135283081776,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "Al-Li 2195-T8",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.10495784305276482,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "Ti-6Al-4V (annealed)",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.09430380712702448,
+      "governing": "face_wrinkling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "6061-T6 (baseline)",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.09639358100358857,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "7075-T6",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.09636268772445142,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "Mg AZ31B",
+      "tag": "QUESTIONABLE",
+      "best_core": "Hexcel HRH-10-6.4-24",
+      "best_least_SF": 0.1018416068376685,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    },
+    {
+      "face": "Metallic glass Vitreloy 1 (Zr41.2Ti13.8Cu12.5Ni10Be22.5)",
+      "tag": "QUESTIONABLE",
+      "best_core": "ROHACELL 31 IG-F",
+      "best_least_SF": 0.06083419897272295,
+      "governing": "global_buckling",
+      "clears_at_0_20": false
+    }
+  ],
+  "best_questionable_pair": {
+    "face": "Beryllium S-200F",
+    "core": "Divinycell H35",
+    "least_SF": 0.28214881588696855,
+    "governing": "face_wrinkling",
+    "modes": {
+      "global_buckling": 0.2821572905536288,
+      "face_compression": 0.428268159716565,
+      "core_crush": 10.475499920730703,
+      "core_shear_crimping": 1.4130715121779636,
+      "face_wrinkling": 0.28214881588696855
+    },
+    "tf_m": 0.00036115580722958883,
+    "core_m": 0.05548075016031754
+  },
+  "family_evidence": {
+    "P2E_least_SF_margin_0": 0.23388557899250978,
+    "P1_least_SF_margin_0": 0.0027876603671443925,
+    "P3_least_SF_margin_0": 0.09602613905451597,
+    "P3_block_keys": [
+      "knee",
+      "rows",
+      "secant_0_to_30_SF_per_100kg",
+      "segments"
+    ],
+    "film_SF_if_present": 2.5141199809753694
+  },
+  "checks": {
+    "007b_rohacell": "PASS",
+    "007b_hexcel": "PASS",
+    "006_p2e_5pct": "PASS",
+    "008_sic_p2e": "PASS",
+    "004b_p2e_central": "PASS",
+    "float_margin_above_zero": true
+  },
+  "crush_model": {
+    "sigma_core_Pa": 47730.41895695258,
+    "source_report": "rpt-ref-9dd3721f6f2e5595ab9a",
+    "required_Pa_on_005b": 47730.41895695258
+  },
+  "knockdown_ledger_inputs": {
+    "main": 0.2,
+    "precision": 0.9,
+    "brief_conservative": 0.1407,
+    "precision_over_main": 4.5,
+    "004b_P2E_optimistic_over_conservative": 6.395420520834183,
+    "004b_P2E_sealed_kd": 0.14072569537344654
+  },
+  "formulas": {
+    "mass": "(1-margin)*lift = 1.05*(faces+core)+100",
+    "classical": "kd*4*tf*h*E/(R^2*sqrt(1-nu^2)), h=tc+tf",
+    "handbook": "gamma_d*Kc*sigma_0, NASA CR-1457 6.2, as on MAINLINE-007b",
+    "face": "4*sigma*tf/R",
+    "crush": "core compressive strength / (p/2)",
+    "crimp": "handbook crimp pressure 4*sigma_crimp*tf/R, equation 6.2-6",
+    "wrinkle_foam": "0.50*(E*Ec*Gc/(1-nu^2))**(1/3) times equibiaxial factor, equation 2.2-5",
+    "wrinkle_honeycomb": "0.33*E*sqrt(Ec*tf/(E*tc)) times the same factor, equation 2.2-14",
+    "nu": "0.33 carried from the 6061 case. 008 does not give a SiC Poisson ratio."
+  }
+}

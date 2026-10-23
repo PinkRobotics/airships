@@ -1,0 +1,952 @@
+[
+  {
+    "id": "CSO-Leighton-10.4m",
+    "structure": "Caltech Submillimeter Observatory / Leighton 10.4 m telescopes (OVRO and CSO dishes)",
+    "category": "reflector",
+    "diameter_m": 10.4,
+    "construction": "84 hexagonal aluminium-honeycomb panels, about 1.15 m across and about 7 cm thick (NTRS 1977). Panels carry three skins (bottom, centre, top); the top skin is 1.0 mm (0.040 in) sheet aluminium, selected for uniform thickness, etched, epoxy-coated on one side and pulled onto the machined open-cell honeycomb face by about 0.1 atm / 1 psi external (vacuum-bag) pressure. Flat sheet is elastically bent to the panel curvature, which loads the panel (see shape_accuracy).",
+    "panel_size": "hexagonal, about 1.15 m (Leighton NSF report, NTRS 1976/1977); thickness about 7 cm (NTRS 1977, p.4). Core cell size, adhesive type and brand: null (not found in the pages read).",
+    "tooling": "No mould. The whole dish (steel tube space frame, panels mounted) sits on an air bearing and rotates under a fixed cutter running on a parabolic cutter track; track set to about 2 um by laser ranging (Phillips) and 3.5 um attained in 1977 (Leighton, item 2 of the error list). The cutter planes the honeycomb to shape; one full cut takes 4-8 h. After the skin is bonded the surface is measured with a linear transducer in the cutter position and contour-mapped (felt-pen colour code). Skins may then be etched (4 % NaOH), ground or lapped; grinding the aluminium skin warped panels by heating, etching worked (NTRS 1977).",
+    "cure_method": "Epoxy cemented under vacuum-bag / external pressure; cure temperature and schedule: null (the NTRS 1977 report says room-temperature-curing epoxy for the proposed space version). The prototype also tested a pre-strain device that made the cutter remove about 150 um more at panel centre than edge to offset skin rebound.",
+    "assembly_and_adjustment": "Panels on thin laterally flexible steel rods with differential-screw adjusters (also a Peltier option, Phillips). Panels are removable and re-mountable with reproducibility error 5-15 um (prototype) to 5-10 um (improved), per NTRS 1976 Table 1. Frame is disassembled in sections for shipping; at CSO the reassembled surface was about 40 um, brought to about 20 um by procedures listed in Phillips. Measured on site by shearing-interferometer holography (Serabyn 1991) and later radio holography.",
+    "shape_accuracy": [
+      {
+        "quantity": "whole-dish rms, prototype dish (1977 report)",
+        "value": 50,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "machined honeycomb + transducer survey",
+        "quote": "The surface accuracy attained on a prototype dish was about",
+        "location": "Leighton NSF final report abstract, PDF p.2 (OCR renders um as \"lim\")"
+      },
+      {
+        "quantity": "whole-dish rms, first production dish DISH 1 (1977 report)",
+        "value": 25,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "transducer survey at the cutter position",
+        "quote": "on the first of four \"production\" dishes, about 25",
+        "location": "Leighton NSF final report abstract, PDF p.2 (OCR garbles the unit)"
+      },
+      {
+        "quantity": "individual panel rms (CSO dish)",
+        "value": "5-10",
+        "unit": "um rms",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "not stated in the passage",
+        "quote": "individual panels making up the primary reflector are accurate to 5-10",
+        "location": "Serabyn, Phillips, Masson, Appl. Opt. 30(10) 1227, Sect. 1 (printed p.1227); OCR renders um as \"A\""
+      },
+      {
+        "quantity": "whole-dish rms measured on Mauna Kea (CSO)",
+        "value": "just under 30",
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "shearing interferometer on the focal-plane diffraction pattern near 1 mm; measurement accuracy 9 um",
+        "quote": "the rms surface accuracy has been determined to be just under 30 µm",
+        "location": "Serabyn 1991 abstract (CaltechAUTHORS record page)"
+      },
+      {
+        "quantity": "whole-dish rms after shipping and reassembly (CSO)",
+        "value": 40,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "not stated",
+        "quote": "found to have a surface error of about 40 µm",
+        "location": "Phillips, CSO history paper, p.2 (reduced to about 20 um by later procedures)"
+      },
+      {
+        "quantity": "whole-dish accuracy achieved in the laboratory before shipping (1 sigma)",
+        "value": 10,
+        "unit": "um",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "cutter track + grinding and polishing of the glued skins",
+        "quote": "A final accuracy (1σ) of 10 µm was achieved in the lab.",
+        "location": "Phillips, CSO history paper, p.2 (Fig. 4 caption)"
+      },
+      {
+        "quantity": "panel elastic rebound of the 1.0 mm skin: centre-to-edge bulge of a hexagonal panel (prototype)",
+        "value": 150,
+        "unit": "um",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "transducer survey; corrected by pre-straining the panel during cutting",
+        "quote": "This elastic response amounted to about 150",
+        "location": "Leighton NSF final report, PDF p.23 (OCR garbles the unit)"
+      },
+      {
+        "quantity": "error-budget terms (prototype to improved): panel elastic rebound and cutting heating 35 -> 12 um; skin thickness variation 7.5 um; scalloping 7.5 -> 2 um; panel remount 5-15 -> 5-10 um; total 41-46 -> 17-22 um rms",
+        "value": "41-46 -> 17-22",
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured (prototype) and estimated (improved)",
+        "method": "Table 1 of NASA CR-146304",
+        "quote": "Heavier honeycomb panel skins.",
+        "location": "NASA CR-146304 (NTRS 19760011928), Table 1, PDF p.12"
+      },
+      {
+        "quantity": "skin thickness variation as a surface error source",
+        "value": "less than 6-7",
+        "unit": "um rms",
+        "scale": "panel",
+        "measured_or_specified": "estimated",
+        "method": "thickness variation of the 1.0 mm sheet stock",
+        "quote": "They are thought to amount to less than 6-7",
+        "location": "Leighton NSF final report, section \"Panels\" (printed p.43, PDF p.46); a 7.5 um budget entry is in NTRS 1976 Table 1"
+      }
+    ],
+    "cost_class": "null: no cost figure found. Qualitatively bespoke: a dedicated air-bearing, cutter track and cutter built per telescope, plus machining time of 4-8 h per full cut.",
+    "sources": [
+      {
+        "citation": "Leighton, R.B., Final Technical Report NSF AST 73-04908 (1977), \"A 10-Meter Telescope for Millimeter and Sub-Millimeter Astronomy\"",
+        "url": "https://doi.org/10.7907/75rd-4h66 (file mirrored at https://ftp.mirrorservice.org/sites/www.bitsavers.org/pdf/calTech/ovro/Leighton_Robert-AST_73-04908.pdf)",
+        "local_path": "unpublished-local-ref:802a000ac9909a68",
+        "pages_read": "passages on PDF pp.2, 22-23, 46, 52 read; the remainder keyword-searched only, not read through"
+      },
+      {
+        "citation": "Leighton, R.B., NASA CR-146304, Final Technical Report NGL-05-002-007 (1976)",
+        "url": "https://ntrs.nasa.gov/api/citations/19760011928/downloads/19760011928.pdf",
+        "local_path": "unpublished-local-ref:43c3746f2cb0015f",
+        "pages_read": "passages on PDF pp.6, 12 read; the rest keyword-searched"
+      },
+      {
+        "citation": "Leighton, R.B., NASA CR-152608, Millimeter-Wave Antenna Design (1977)",
+        "url": "https://ntrs.nasa.gov/api/citations/19770026465/downloads/19770026465.pdf",
+        "local_path": "unpublished-local-ref:7dda9da8e20e9394",
+        "pages_read": "passages on PDF pp.3-4, 8, 15, 24-28 read; the rest keyword-searched"
+      },
+      {
+        "citation": "Serabyn, Phillips, Masson, Appl. Opt. 30(10) 1227-1241 (1991)",
+        "url": "https://authors.library.caltech.edu/records/gwhtw-cx480",
+        "local_path": "unpublished-local-ref:ed1ddca8187e942c",
+        "pages_read": "PDF p.1 plus abstract on record page (cso_oscl/cso.html)"
+      },
+      {
+        "citation": "Phillips, T.G., The Caltech Submillimeter Observatory (CSO history)",
+        "url": "http://cso.caltech.edu/cso_history/CSO-Tom.pdf",
+        "local_path": "unpublished-local-ref:90e6ddb59ba3820f",
+        "pages_read": "PDF pp.1-2 read"
+      },
+      {
+        "citation": "Woody, Vail, Schaal, Proc. IEEE 82(5) 673-686 (1994), Design, construction and performance of the Leighton 10.4-m telescopes",
+        "url": "https://ui.adsabs.harvard.edu/abs/1994IEEEP..82..673W/abstract",
+        "local_path": null,
+        "pages_read": "NOT OPENED: ADS returned a CAPTCHA; only a web-search summary of its abstract (rms under 35 um routinely; CSO under 20 um) was seen, so those two numbers are not entered as records"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Woody 1994 itself (not opened). Core cell size and foil thickness, adhesive product and cure temperature. Panel-level rms after skin bonding for the production dishes other than the 5-10 um sentence. Cost."
+  },
+  {
+    "id": "SMT-HHT-10m",
+    "structure": "Heinrich Hertz Submillimeter Telescope (SMT/HHT), Mt Graham, 10 m, MPIfR and Steward Observatory",
+    "category": "reflector",
+    "diameter_m": 10,
+    "construction": "Aluminium honeycomb core bonded top and bottom to carbon-fibre-reinforced plastic (CFRP) face sheets; 60 panels in the primary (Physics Today 1987). Backup structure CFRP tubes with invar joints.",
+    "panel_size": "null (60 primary panels per Physics Today 1987; no per-panel dimensions in the pages read)",
+    "tooling": "Panels were replicated from Pyrex moulds ground to 3 um surface accuracy under R. Parks at the University of Arizona Optical Sciences Center (Physics Today, Aug 1987, p.67).",
+    "cure_method": "null (CFRP skin cure and adhesive not stated in the pages read)",
+    "assembly_and_adjustment": "Panels adjustable; the surface was set by holography with the LES-8 then LES-9 37-38 GHz satellite beacon; the 1997 run adjusted only the worst one or two panels and re-measured, first scan to final scan dropping from 47 to 14-19 um rms. Two panels near repaired struts had moved 100-200 um (accident damage).",
+    "shape_accuracy": [
+      {
+        "quantity": "operating overall figure accuracy, design target",
+        "value": 15,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "specified",
+        "method": "design",
+        "quote": "surface accuracy of 15 microns rms",
+        "location": "Physics Today, Aug 1987, p.67 (primary reflector design goal); the 1994 Martin and Baars status report (2 pages, OCR-garbled unit) gives the same 15 um"
+      },
+      {
+        "quantity": "panel positions after 1995 holography, per-panel limit",
+        "value": "better than 40",
+        "unit": "um",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "holography with LES-8 beacon",
+        "quote": "every panel was positioned to better than 40 microns",
+        "location": "HHT holography 1997 page, \"Initial Observations\""
+      },
+      {
+        "quantity": "whole-dish rms, first 1997 scan",
+        "value": 47,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "37-38 GHz satellite-beacon holography",
+        "quote": "Scan 4488",
+        "location": "HHT holography 1997 page, scan table (rms = 47 microns)"
+      },
+      {
+        "quantity": "whole-dish rms, last 1997 scans after panel resets",
+        "value": "14-19",
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "holography; averaging last maps gives 16-19 um",
+        "quote": "We now are getting between 15 and 20 microns rms overall.",
+        "location": "HHT holography 1997 page, \"Adjusting the Panels\""
+      },
+      {
+        "quantity": "whole-dish average rms, later holography summary",
+        "value": 15,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "holography (2000 summary)",
+        "quote": "The surface has an average rms of 15 microns over the entire surface.",
+        "location": "MPIfR SMT specification page"
+      }
+    ],
+    "cost_class": "telescope as a whole estimated at $5-6 million (Krupp and MAN consortium, quoted in Physics Today Aug 1987, p.67); a pre-construction estimate, final cost null. Small and low-cost relative to ALMA-class antennas.",
+    "sources": [
+      {
+        "citation": "Physics Today 40(8), Aug 1987, p.67 (news item on the Mt Graham submillimetre telescope)",
+        "url": "https://aip.brightspotcdn.com/PTO.v40.i8.67_1.online.pdf",
+        "local_path": "unpublished-local-ref:72505ebc82fd0729",
+        "pages_read": "whole page (1 page) read"
+      },
+      {
+        "citation": "Martin, R.N. and Baars, J.W.M., The Submillimeter Telescope - a status report, ASP Conf. 59 (1994) 66-67",
+        "url": "https://doi.org/10.1017/S0252921100019151",
+        "local_path": "unpublished-local-ref:37aabebd67412ad9",
+        "pages_read": "2 pages read"
+      },
+      {
+        "citation": "HHT, Summary of the 1997 Holography Antenna Measurements",
+        "url": "https://www3.mpifr-bonn.mpg.de/div/hhertz/holo97/holo97.html",
+        "local_path": "unpublished-local-ref:5183d0a298dba506",
+        "pages_read": "whole page read"
+      },
+      {
+        "citation": "MPIfR/SMTO specifications, The Telescope",
+        "url": "https://www3.mpifr-bonn.mpg.de/div/hhertz/smtspecs_telescope.html",
+        "local_path": "unpublished-local-ref:eaac425f333745a1",
+        "pages_read": "whole page read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Panel size and mass per panel, panel-level rms (as made), cure schedule, adhesive, skin and core thickness, final construction cost. The 1983 SPIE Baars design paper and Peters 1994 BAAS were not opened."
+  },
+  {
+    "id": "ALMA-AEC-12m-Ni-honeycomb",
+    "structure": "ALMA European (Alcatel/EIE, AEM) 12 m antenna: electroformed-nickel / aluminium-honeycomb panels (Media Lario)",
+    "category": "reflector",
+    "diameter_m": 12,
+    "construction": "Nickel skin about 0.6 mm thick (ESO) replicated by electroforming from a machined steel mould, bonded to a 20 mm thick aluminium honeycomb core; 200 nm rhodium coating; 120 panels in 5 rings per antenna, 5 adjusters per panel; CFRP back-up structure. Closest published analogue to a thin metal face on 20-23 mm Al honeycomb.",
+    "panel_size": "null: no panel dimensions in the pages read (120 panels per 12 m dish; ESA states 3000 panels for 25 antennas)",
+    "tooling": "Electroforming replicated from a machined steel mould (Mangum et al. 2006); the process is described as based on that used for X-ray satellite mirrors (ESO announcement).",
+    "cure_method": "null (adhesive and cure of the honeycomb bonding not stated in the pages read)",
+    "assembly_and_adjustment": "120 panels, 5 axial adjusters each; 600 adjusters set in about 7 h with a tool calibrated in turns, from the front with two people on a manlift. Contractor set the surface with a Leica laser tracker; NRAO/ESO then the evaluation team used near-field holography with iterated partial adjustments.",
+    "shape_accuracy": [
+      {
+        "quantity": "panel surface requirement",
+        "value": 8,
+        "unit": "um",
+        "scale": "panel",
+        "measured_or_specified": "specified",
+        "method": "ESA text on the ALMA contract",
+        "quote": "only eight microns for each of the 120 single panels that form each antenna",
+        "location": "ESA, XMM-Newton technology on new telescopes"
+      },
+      {
+        "quantity": "whole-antenna surface requirement",
+        "value": 25,
+        "unit": "um",
+        "scale": "whole surface",
+        "measured_or_specified": "specified",
+        "method": "ESA text on the ALMA contract",
+        "quote": "The surface must not deviate by more than 25 microns from the ideal shape",
+        "location": "ESA, XMM-Newton technology on new telescopes"
+      },
+      {
+        "quantity": "whole-antenna rms as set by the contractor with a laser tracker",
+        "value": 38,
+        "unit": "um RMS",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "Leica laser tracker",
+        "quote": "The RMS of the surface was reported by the contractor to be 38 µm.",
+        "location": "Mangum et al. 2006, Sect. 5.1.1 (PDF p.12); an accident then raised it to 50 um"
+      },
+      {
+        "quantity": "whole-antenna rms, first holography map",
+        "value": 55,
+        "unit": "um RMS",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "near-field holography",
+        "quote": "Our first holography map indicated an RMS of 55 µm",
+        "location": "Mangum et al. 2006, Sect. 5.1.1 (PDF p.12)"
+      },
+      {
+        "quantity": "whole-antenna rms after a third partial adjustment",
+        "value": 14,
+        "unit": "um RMS",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "near-field holography; a faulty panel and the quadripod region excluded; illumination-weighted",
+        "quote": "A third partial adjustment improved the surface RMS to about 14 µm",
+        "location": "Mangum et al. 2006, Sect. 5.1.1 (PDF p.12)"
+      },
+      {
+        "quantity": "whole-antenna rms, temporal stability over 16 maps in 2 days",
+        "value": "average 14, peak-to-peak variation under 2",
+        "unit": "um",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "repeated holography, temperature -10 to +2 C",
+        "quote": "The measured RMS error is very constant",
+        "location": "Mangum et al. 2006, Sect. 5.1.2 (PDF p.15)"
+      }
+    ],
+    "cost_class": "null for the panels. Whole programme: ALMA is a billion-dollar-class project; the North American (VertexRSI-design) contract was $169 million for 25 antennas (General Dynamics C4 Systems, 2005), a different design. No Media Lario panel price found.",
+    "sources": [
+      {
+        "citation": "Mangum, Baars, Greve et al., Evaluation of the ALMA Prototype Antennas, PASP 118 (2006); arXiv:astro-ph/0609329",
+        "url": "https://arxiv.org/pdf/astro-ph/0609329",
+        "local_path": "unpublished-local-ref:982361eb6e5bda4d",
+        "pages_read": "PDF pp.7, 9-16, 21-22 read; the rest searched by keyword"
+      },
+      {
+        "citation": "ESA, XMM-Newton technology on new telescopes",
+        "url": "https://www.esa.int/Enabling_Support/Space_Engineering_Technology/XMM-Newton_technology_on_new_telescopes",
+        "local_path": "unpublished-local-ref:ef972bf3c1db872f",
+        "pages_read": "whole page read"
+      },
+      {
+        "citation": "ESO announcement ann11022 (first European ALMA antenna)",
+        "url": "https://www.eso.org/public/announcements/ann11022/",
+        "local_path": "unpublished-local-ref:97cd5999ca78cfbe",
+        "pages_read": "relevant paragraphs read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Panel dimensions, adhesive and cure, the as-delivered panel rms measurements, skin-to-core defect statistics, cost of panels. The 8 um panel figure is a specification quoted by ESA, not a measured distribution."
+  },
+  {
+    "id": "LMT-50m-Ni-panels",
+    "structure": "Large Millimeter Telescope Alfonso Serrano (LMT), 50 m; Media Lario electroformed-nickel composite panels",
+    "category": "reflector",
+    "diameter_m": 50,
+    "construction": "180 segments in 5 rings, each about 5 x 3 m with 8 Media Lario electroformed-nickel panels (rhodium coating) on an aluminium box baseplate, 5 adjusters per panel (40 per segment), stainless subframe, 4 axial actuators per segment. The paper calls them composite panels; honeycomb is not named in the pages read (a search summary said Al honeycomb core, not opened).",
+    "panel_size": "segment about 5 x 3 m carrying 8 panels; panel size itself null",
+    "tooling": "Electroforming by Media Lario (same house as European ALMA panels); segments aligned with a laser tracker in the INAOE Aspheric Surfaces Laboratory.",
+    "cure_method": "null",
+    "assembly_and_adjustment": "Panel adjusters set by an iterative laser-tracker process per segment, then segments actively positioned by actuators on the steel truss; 768 additional panels made for the 32 m to 50 m expansion.",
+    "shape_accuracy": [
+      {
+        "quantity": "panel rms as delivered by Media Lario",
+        "value": "better than 15",
+        "unit": "um RMS",
+        "scale": "panel",
+        "measured_or_specified": "specified/measured (delivered)",
+        "method": "not stated",
+        "quote": "delivered to the LMT project with an RMS surface error of 15 microns or better",
+        "location": "Hughes et al., SPIE 11445 (2020), Sect. 2.1 (PDF p.7)"
+      },
+      {
+        "quantity": "segment rms after mechanical upgrades, outer two rings",
+        "value": "just below 20",
+        "unit": "um RMS",
+        "scale": "panel group (segment of 8 panels)",
+        "measured_or_specified": "measured",
+        "method": "laser tracker",
+        "quote": "further reduction in segment surface error to just below 20 microns RMS",
+        "location": "Hughes et al. 2020, Sect. 4.3 (PDF p.13)"
+      },
+      {
+        "quantity": "overall surface rms of the 50 m from aperture-efficiency fit",
+        "value": 98,
+        "unit": "um RMS",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "Ruze-equation fit to gain versus frequency",
+        "quote": "consistent with an overall optical RMS of 98 microns",
+        "location": "Hughes et al. 2020, Ruze-fit discussion (PDF p.14); design goal 75 um RMS"
+      }
+    ],
+    "cost_class": "null (a Spanish-language news piece in a search summary gave about $200 million for the whole telescope, not opened or verified). Panels came from a space-optics electroforming house.",
+    "sources": [
+      {
+        "citation": "Hughes, Schloerb, Aretxaga et al., The Large Millimeter Telescope Alfonso Serrano: current status and telescope performance, SPIE 11445 (2020)",
+        "url": "https://www.inaoep.mx/~itziar/papers/2020Hughes_1144522LMT.pdf",
+        "local_path": "unpublished-local-ref:943d43d1b8cf804b",
+        "pages_read": "PDF pp.6-7, 11-14 read; rest keyword-searched"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Honeycomb and skin thickness not confirmed from an opened source; the panel-level rms distribution; cost."
+  },
+  {
+    "id": "IRAM-30m",
+    "structure": "IRAM 30 m telescope, Pico Veleta",
+    "category": "reflector",
+    "diameter_m": 30,
+    "construction": "420 aluminium panels, two per frame, panels not adjustable relative to their frame (Kramer et al. 2013). Search-result snippet only, not verified here: stretched Al skins bonded to 40 mm Al honeycomb, about 2 m2 per panel.",
+    "panel_size": "null verified; frame about 2 m (Kramer 2013, panel-frame dimension d about 2 m); snippet claims about 2 m2 per panel",
+    "tooling": "null verified (snippet: panel units adjusted on a 3-D measuring machine of 5 um accuracy)",
+    "cure_method": "null",
+    "assembly_and_adjustment": "Frames adjusted using holography; the 3rd error beam shows that panel-scale errors cannot be corrected.",
+    "shape_accuracy": [
+      {
+        "quantity": "whole-dish rms after frame adjustments 1998-2002",
+        "value": "65 -> 50",
+        "unit": "um",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "holography",
+        "quote": "the adjustment has improved the surface rms-value from",
+        "location": "Kramer, Penalver, Greve 2013 (IRAM report v8.2), Introduction (PDF p.1)"
+      },
+      {
+        "quantity": "correlation length of panel-scale surface errors (the 3rd error beam)",
+        "value": "0.3 - 0.5 (fit 0.43 +/- 0.01)",
+        "unit": "m",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "lunar-limb beam pattern",
+        "quote": "panel deformations of typical correlation lengths 0.3 m",
+        "location": "Kramer et al. 2013, \"Third Error Beam\" paragraph (PDF p.6)"
+      },
+      {
+        "quantity": "whole-dish rms quoted for current telescope",
+        "value": "around 60 (at 50 deg elevation)",
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "stated",
+        "method": "review text",
+        "quote": "420 aluminum panels with a very small global surface error, around 60 µm",
+        "location": "Sanchez Portal et al., SEA proceedings, PDF p.2"
+      },
+      {
+        "quantity": "transient thermal panel-frame buckling, maximum",
+        "value": "30-50",
+        "unit": "um",
+        "scale": "panel group (frame, about 2 m)",
+        "measured_or_specified": "measured",
+        "method": "holography",
+        "quote": "The maximum of the buckling is ∼ 30 µm to 50 µm",
+        "location": "Kramer et al. 2013, \"Panel Buckling\" paragraph (PDF p.7)"
+      }
+    ],
+    "cost_class": "null",
+    "sources": [
+      {
+        "citation": "Kramer, Penalver, Greve, Improvement of the IRAM 30m telescope beam pattern (2013), v8.2",
+        "url": "https://web-archives.iram.fr/legacy-website/medias/uploads/eb2013-v8.2.pdf",
+        "local_path": "unpublished-local-ref:75ebf55b5a3e6a30",
+        "pages_read": "PDF pp.1-2, 6-7 read"
+      },
+      {
+        "citation": "Sanchez Portal et al., Introduction to the IRAM 30-meter telescope capabilities (SEA proceedings 2016)",
+        "url": "https://sea-astronomia.es/sites/default/files/archivos/proceedings16/ORALES/Instrumentacion_Supercomputacion/IS_Sanchez_Portal_m.pdf",
+        "local_path": "unpublished-local-ref:b5c0307753948b3c",
+        "pages_read": "p.1 and the 2024 repaint paragraph read"
+      },
+      {
+        "citation": "Baars et al., Design parameters and measured performance of the IRAM 30-m (Proc. IEEE / FNAL copy iram-298)",
+        "url": "https://lss.fnal.gov/archive/other1/iram-298.pdf",
+        "local_path": null,
+        "pages_read": "NOT OPENED: the host returned a bot challenge (not bypassed). The 26 um panel-unit rms, 40 mm honeycomb and 0.08 mm design figures came only from search-result snippets and are not entered as shape_accuracy"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": "The primary design paper (panel construction, panel-unit rms 26 um as stated in a snippet) was not opened."
+  },
+  {
+    "id": "JCMT-15m",
+    "structure": "James Clerk Maxwell Telescope, 15 m",
+    "category": "reflector",
+    "diameter_m": 15,
+    "construction": "276 lightweight panels, each a thin aluminium skin bonded to an aluminium honeycomb, attached at three points to the backing structure and adjustable by actuators at the mounting points.",
+    "panel_size": "null",
+    "tooling": "null",
+    "cure_method": "null",
+    "assembly_and_adjustment": "Three-point support with actuators; holography then panel setting.",
+    "shape_accuracy": [
+      {
+        "quantity": "whole-dish rms, a 1990s refurbishment study estimate vs present",
+        "value": "~25 -> ~18",
+        "unit": "um",
+        "scale": "whole surface",
+        "measured_or_specified": "estimated",
+        "method": "study cited in workshop slide",
+        "quote": "improve the overall rms from ~25 microns to ~18",
+        "location": "Gear, JCMT2020 panel talk (2011), PDF p.23"
+      },
+      {
+        "quantity": "whole-dish rms, EIE proposal with ALMA-type panels and new backing structure",
+        "value": "~13",
+        "unit": "um",
+        "scale": "whole surface",
+        "measured_or_specified": "proposed/estimated",
+        "method": "EIE study",
+        "quote": "could improve the rms to",
+        "location": "Gear, JCMT2020 panel talk (2011), PDF p.23"
+      }
+    ],
+    "cost_class": "Refurbishing the existing panels ~GBP 2M (25 -> 18 um); replacing panels and backing structure with ALMA-type technology ~GBP 5M (-> 13 um); both estimates quoted in a 2011 workshop talk, so the order is single-digit GBP millions for a 15 m surface.",
+    "sources": [
+      {
+        "citation": "Davis and Chrysostomou, Submillimetre Astronomy with the JCMT (IEEE Trans. THz)",
+        "url": "https://uhra.herts.ac.uk/id/eprint/24013/1/902582.pdf",
+        "local_path": "unpublished-local-ref:e0af9dad30a5efed",
+        "pages_read": "p.1 read"
+      },
+      {
+        "citation": "Gear, W.K., The Case for extending JCMT operations to 2020 (workshop slides, 13 Dec 2011)",
+        "url": "https://www.roe.ac.uk/workshop/submm/presentations/walter-gear.pdf",
+        "local_path": "unpublished-local-ref:b43d5204f5b0a14e",
+        "pages_read": "PDF p.23 read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Current measured rms (a search snippet said 22 um maintained by periodic holography; ADASS and RadioNet pages could not be opened), panel size and cure."
+  },
+  {
+    "id": "NRO-NMA-10m",
+    "structure": "Nobeyama Millimeter Array 10 m antennas (five existing plus one new)",
+    "category": "reflector",
+    "diameter_m": 10,
+    "construction": "Main reflector of 36 aluminium honeycomb panels per antenna; each panel is mounted at six points with remotely controlled motors (new antenna).",
+    "panel_size": "null (10 m dish carrying 36 panels)",
+    "tooling": "null",
+    "cure_method": "null",
+    "assembly_and_adjustment": "Six motorised support points per panel on the new antenna allow rapid correction.",
+    "shape_accuracy": [
+      {
+        "quantity": "panel rms, existing antennas, average",
+        "value": 60,
+        "unit": "um",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "not stated",
+        "quote": "surface accuracies of which are 60",
+        "location": "Morita, ASP Conf. 59 (1994), \"Antennas\" (p.18; OCR garbles the unit)"
+      },
+      {
+        "quantity": "dish rms, five existing antennas, average",
+        "value": 71,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "not stated",
+        "quote": "Averaged surface accuracy of main dish for five antennas is 71",
+        "location": "Morita 1994, p.18"
+      },
+      {
+        "quantity": "panel rms, new antenna, average of achieved distribution",
+        "value": 21,
+        "unit": "um rms",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "not stated",
+        "quote": "the average value is 21",
+        "location": "Morita 1994, p.19 (Fig. 4)"
+      }
+    ],
+    "cost_class": "null",
+    "sources": [
+      {
+        "citation": "Morita, K.-I., The Nobeyama Millimeter Array, ASP Conf. Ser. 59 (1994) 18-19",
+        "url": "https://doi.org/10.1017/S0252921100019035",
+        "local_path": "unpublished-local-ref:0726afc624747a62",
+        "pages_read": "pp.1-3 of the PDF read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Panel dimensions, process, per-panel scale of errors."
+  },
+  {
+    "id": "APEX-VertexRSI-SMA-machined-Al",
+    "structure": "APEX 12 m, ALMA VertexRSI prototype 12 m, SMA 6 m: machined (not sandwich) aluminium panels, as a contrast",
+    "category": "reflector",
+    "diameter_m": 12,
+    "construction": "Not sandwich. Machined aluminium panels (open back). APEX: 264 panels, 8 rings, 5 vertical plus 3 horizontal adjusters per panel (Mangum 2006; Gusten 2006); SMA: about 1 m panels of machined cast aluminium chosen over carbon-fibre panels, 4 adjusters per panel.",
+    "panel_size": "SMA about 1 m; APEX and VertexRSI: null in pages read",
+    "tooling": "Machining of aluminium; chemically etched to scatter visible and IR light (APEX, ALMA VertexRSI).",
+    "cure_method": "not applicable",
+    "assembly_and_adjustment": "Holographic setting with iterated manual adjustment. VertexRSI: delivered 80 um by photogrammetry, first holography 85 um, final 19 um after 5 steps (later 16-17 um). APEX: photogrammetry 35-40 um, holography to 15 um (14.7 um after masking); 1320 vertical adjusters took a full workday. SMA: three or four holography-and-reset rounds for 12 um.",
+    "shape_accuracy": [
+      {
+        "quantity": "APEX panel average rms as manufactured",
+        "value": 8,
+        "unit": "um rms",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "not stated",
+        "quote": "have been manufactured to an average surface accuracy of 8 µm rms",
+        "location": "Gusten et al., A&A 454 L13 (2006), PDF p.2 (printed p.L14)"
+      },
+      {
+        "quantity": "SMA panel mean surface accuracy",
+        "value": 6,
+        "unit": "um",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "not stated",
+        "quote": "A mean surface accuracy of six microns was achieved for the individual panels.",
+        "location": "Ho, Moran, Lo, The Submillimeter Array (astro-ph/0406352), p.2"
+      },
+      {
+        "quantity": "ALMA VertexRSI prototype dish after holographic resets",
+        "value": 19,
+        "unit": "um RMS",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "near-field holography",
+        "quote": "the surface error decreased to 19 µm RMS",
+        "location": "Mangum et al. 2006, Sect. 5.1.1 (PDF p.12)"
+      },
+      {
+        "quantity": "ALMA VertexRSI prototype dish as delivered",
+        "value": 80,
+        "unit": "um RMS",
+        "scale": "whole surface",
+        "measured_or_specified": "measured",
+        "method": "photogrammetry by the contractor",
+        "quote": "The antenna was delivered with a nominal surface error of 80 µm RMS",
+        "location": "Mangum et al. 2006, Sect. 5.1.1 (PDF p.12)"
+      }
+    ],
+    "cost_class": "ALMA North American contract: $169 million to design, make and deliver 25 12 m antennas (General Dynamics C4 Systems; its 10-Q lists \"$170\"), whole antenna not just panels.",
+    "sources": [
+      {
+        "citation": "Gusten et al., The Atacama Pathfinder EXperiment (APEX), A&A 454 L13 (2006)",
+        "url": "https://www.mpifr-bonn.mpg.de/4491962/aa5420-06.pdf",
+        "local_path": "unpublished-local-ref:f6bcfe513a2458f2",
+        "pages_read": "pp.1-3 read"
+      },
+      {
+        "citation": "Ho, Moran, Lo, The Submillimeter Array, arXiv:astro-ph/0406352",
+        "url": "https://arxiv.org/pdf/astro-ph/0406352",
+        "local_path": "unpublished-local-ref:3377be68383891c1",
+        "pages_read": "p.2 read"
+      },
+      {
+        "citation": "Mangum et al. 2006 (see ALMA-AEC record)",
+        "url": "https://arxiv.org/pdf/astro-ph/0609329",
+        "local_path": "unpublished-local-ref:982361eb6e5bda4d",
+        "pages_read": "PDF pp.7, 12 read"
+      },
+      {
+        "citation": "General Dynamics Corp Form 10-Q, 2005",
+        "url": "https://www.sec.gov/Archives/edgar/data/0000040533/000119312505214365/d10q.htm",
+        "local_path": "unpublished-local-ref:cea8c93cc141cbe4",
+        "pages_read": "the ALMA contract sentence read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Panel sizes; process control; this record is a contrast and was not read beyond the cited passages."
+  },
+  {
+    "id": "Planck-telescope-CFRP-sandwich",
+    "structure": "Planck telescope primary (1.9 x 1.5 m class) and secondary reflectors",
+    "category": "reflector",
+    "diameter_m": null,
+    "construction": "CFRP honeycomb sandwich with aluminium coating (ESA SCI(2005)1); early design baseline: all-CFRP rounded-triangular-tube sandwich core 4-10 cm thick with two 1-1.5 mm CFRP skins (Villa et al. 2001). Primary elliptical perimeter 1555.98 x 1886.79 mm (table in ESA SCI(2005)1).",
+    "panel_size": "primary perimeter 1555.98 x 1886.79 mm (single monolithic reflector, not a panel); secondary 1050.96 x 1104.39 mm",
+    "tooling": "null in pages read (search summary: CNC fibre placement and filament winding at Astrium, unverified)",
+    "cure_method": "null",
+    "assembly_and_adjustment": "Single monolithic reflectors on a carbon-fibre support structure; no adjusters in the passage read.",
+    "shape_accuracy": [
+      {
+        "quantity": "mechanical surface error requirement, centre",
+        "value": 7.5,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "specified",
+        "method": "requirement, under-illuminated edge",
+        "quote": "vary from ∼ 7.5 µm (rms) near the centre",
+        "location": "ESA SCI(2005)1, The Scientific Programme of Planck, Sect. 1.3 (PDF p.19)"
+      },
+      {
+        "quantity": "mechanical surface error requirement, edge",
+        "value": 50,
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "specified",
+        "method": "requirement",
+        "quote": "to ∼ 50 µm (rms) near the edge",
+        "location": "ESA SCI(2005)1, Sect. 1.3 (PDF p.19)"
+      }
+    ],
+    "cost_class": "null",
+    "sources": [
+      {
+        "citation": "ESA-SCI(2005)1, The Scientific Programme of Planck",
+        "url": "https://arxiv.org/pdf/astro-ph/0604069",
+        "local_path": "unpublished-local-ref:6dd536c051cf1386",
+        "pages_read": "PDF p.19 read; rest keyword-searched"
+      },
+      {
+        "citation": "Villa et al., The Planck Telescope (astro-ph/0112173)",
+        "url": "https://arxiv.org/pdf/astro-ph/0112173",
+        "local_path": "unpublished-local-ref:c0ec42ef6cf418f0",
+        "pages_read": "p.2 read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Measured as-built rms, mould/tooling, cure, adhesive, cost. Specification only."
+  },
+  {
+    "id": "CFRP-replica-sandwich-small-scale",
+    "structure": "Replicated CFRP-sandwich mirrors and panels: JAXA (150-300 mm), Hoffmann et al. 0.5 m balloon-telescope panels, DATE5 1 m panel",
+    "category": "reflector",
+    "diameter_m": 0.15,
+    "construction": "JAXA: 16-ply CFRP skins 1.7 mm thick, CFRP flex core 40 mm high with 3/8 inch cells (30 kg/m3), bonded with epoxy film adhesive; areal density 6 kg/m2.",
+    "panel_size": "JAXA mirrors 150 mm (and 300 mm) diameter, flat panels 150 mm square. Hoffmann: four 0.5 m test panels (NTRS abstract). DATE5: 1 m prototype (search snippet).",
+    "tooling": "Replication: epoxy replica layer deposited on skins from an optically polished (lambda/20) low-expansion glass layup tool, used for both skin cure and sandwich bonding (JAXA).",
+    "cure_method": "Skins pre-cured in autoclave, sandwich bonded with epoxy film; even, symmetric heating and cooling through thickness was the key to flatness.",
+    "assembly_and_adjustment": "not applicable (single mirrors)",
+    "shape_accuracy": [
+      {
+        "quantity": "150 mm spherical sandwich mirror, shape accuracy",
+        "value": 0.8,
+        "unit": "um RMS",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "Zygo laser interferometer",
+        "quote": "Shape accuracy of the demonstrated mirrors of 150 mm in diameter was",
+        "location": "Utsunomiya et al., SPIE 8837 88370P (2013), abstract (PDF p.1)"
+      },
+      {
+        "quantity": "150 mm square flat sandwich panel, flatness over 100 mm",
+        "value": 0.2,
+        "unit": "um RMS",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "white-light interferometer, 3-D optical profiler",
+        "quote": "improved to flatness of 0.2 μm RMS",
+        "location": "Utsunomiya 2013, abstract and Sect. 5 (PDF pp.1, 4)"
+      },
+      {
+        "quantity": "300 mm mirror shape error (not good enough for the 0.8 um PV goal)",
+        "value": 8,
+        "unit": "um PV",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "interferometer",
+        "quote": "mirrors of 300 mm diameter was 8",
+        "location": "Utsunomiya 2013, Sect. 5 (PDF p.4)"
+      },
+      {
+        "quantity": "fibre-tow print-through undulation after replication, 10-100 mm scale",
+        "value": "several tens of nm",
+        "unit": "nm",
+        "scale": "panel",
+        "measured_or_specified": "measured",
+        "method": "white-light interferometer",
+        "quote": "but several 10 nm undulation remained.",
+        "location": "Utsunomiya 2013, Sect. 5 (PDF p.5)"
+      },
+      {
+        "quantity": "Hoffmann et al. 1986: goal for balloon 3 m primary at -40 to -50 C",
+        "value": "1-2",
+        "unit": "um rms",
+        "scale": "whole surface",
+        "measured_or_specified": "specified",
+        "method": "NTRS abstract (paraphrase by the fetch tool, not saved locally)",
+        "quote": null,
+        "location": "NTRS 19870023730 record page"
+      }
+    ],
+    "cost_class": "null",
+    "sources": [
+      {
+        "citation": "Utsunomiya, Kamiya, Shimizu, Development of CFRP mirrors for space telescopes, SPIE 8837 (2013)",
+        "url": "https://jaxa.repo.nii.ac.jp/record/39535/files/PA1410032.pdf",
+        "local_path": "unpublished-local-ref:dac75af3d54f8f3e",
+        "pages_read": "PDF pp.1-5 read"
+      },
+      {
+        "citation": "Hoffmann, Helwig, Scheulen, Thermal stability tests of CFRP sandwich panels for far infrared astronomy (1986)",
+        "url": "https://ntrs.nasa.gov/citations/19870023730",
+        "local_path": null,
+        "pages_read": "NTRS abstract page only; no PDF exists on NTRS. A search-result claim of 2-3 um rms for panels replicated on a Pyrex mould is not entered (unopened)"
+      },
+      {
+        "citation": "DATE5 CFRP panel, SPIE 9912 99121D (2016)",
+        "url": "https://astronomicaltelescopes.spiedigitallibrary.org/conference-proceedings-of-spie/9912/99121D/",
+        "local_path": null,
+        "pages_read": "NOT OPENED (paywall/empty fetch); search snippet said 1 m prototype from a 1.4 um mould measured 5.1 um rms. Not entered as a value"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "DATE5 and Hoffmann panel numbers unverified; nothing at the 0.6 x 1.8 m scale."
+  },
+  {
+    "id": "Radome-sandwich-panelised-CPI-Comtech",
+    "structure": "Commercial sandwich ground radomes: CPI (ESSCO) 3-23.5 m and Comtech 1.5-20 m",
+    "category": "radome",
+    "diameter_m": 23.5,
+    "construction": "Doubly curved polygonal sandwich panels bolted together from inside to form a truncated sphere. Core: low-dielectric foam for larger radomes, honeycomb for smaller; core fully enclosed by skins. Skins from pre-impregnated material to control thickness and resin content (CPI). Comtech lists A-sandwich (three layers, two skins and a foam core) and C-sandwich (five layers), and spaceframe and geodesic types.",
+    "panel_size": "null",
+    "tooling": "null (tooling is required per panel size; the CPI selector guide was not retrievable)",
+    "cure_method": "prepreg skins (CPI); cure details null",
+    "assembly_and_adjustment": "Reinforced panel edges form an overlapping flange joint with fasteners in shear, assembled from inside, and each panel can be replaced. Flange loss or phase shift can be nine times that of the panel window, so flanges are tuned.",
+    "shape_accuracy": [
+      {
+        "quantity": "shape tolerance of panels or assembled radome",
+        "value": null,
+        "unit": null,
+        "scale": "panel",
+        "measured_or_specified": "not published in these sources",
+        "method": null,
+        "quote": null,
+        "location": "CPI Sandwich Radomes data sheet Feb 2025 and Comtech Radome datasheet 2025: no geometric tolerance given"
+      },
+      {
+        "quantity": "maximum size, CPI sandwich",
+        "value": "3.0 to 23.5 (10 to 77 ft)",
+        "unit": "m",
+        "scale": "whole surface",
+        "measured_or_specified": "specified",
+        "method": "catalogue",
+        "quote": "Sizes range from 10 to 77 ft. (3.0 to 23.5m) in diameter.",
+        "location": "CPI data sheet, page 2"
+      },
+      {
+        "quantity": "maximum size, Comtech sandwich/spaceframe",
+        "value": "1.5 to 20 (larger on request)",
+        "unit": "m",
+        "scale": "whole surface",
+        "measured_or_specified": "specified",
+        "method": "catalogue",
+        "quote": "1.5 meters - 20 meters (larger on request)",
+        "location": "Comtech Radome datasheet, Mechanical table (PDF p.2)"
+      }
+    ],
+    "cost_class": "Comtech calls its tuned sandwich, spaceframe and geodesic radomes \"a cost-effective alternative to higher priced systems\"; no prices.",
+    "sources": [
+      {
+        "citation": "CPI, Composite Ground-based Radomes data sheet (Feb 2025)",
+        "url": "https://cpii.com/docs/related/184/CPI Sandwich Radomes Sheet Feb25.pdf",
+        "local_path": "unpublished-local-ref:33de450b17a9913e",
+        "pages_read": "both pages read"
+      },
+      {
+        "citation": "Comtech, Radomes datasheet ds_Radome_102025",
+        "url": "https://comtech.com/wp-content/uploads/2025/10/ds_Radome_102025.pdf",
+        "local_path": "unpublished-local-ref:18bc92b35bc9e0bf",
+        "pages_read": "both pages read"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Every geometric tolerance, mould tolerance and cure schedule; the largest monolithic (one-piece) sandwich radome diameter."
+  },
+  {
+    "id": "Radome-sandwich-patents-EP0470271-US9735466",
+    "structure": "Panelised sandwich radome designs in two patents: EP0470271 (GRP skins on PU foam, moulded panels) and US9735466 (Ebert, thermoplastic skins on PET foam, 32 ft)",
+    "category": "radome",
+    "diameter_m": 9.75,
+    "construction": "US9735466 example: 32.00 ft (9.75 m, unit conversion mine) outside diameter, 1.080 in thick panels, PET foam core about 1.00 in with through-thickness fibre bundles, skins about 0.040 in; 60 identical panels in a full sphere, 15 truncated panels at the base. EP0470271: GRP polyester skins (glass fabric plus mat) over rigid polyurethane foam core, foam thickness 32 mm in the example.",
+    "panel_size": "US9735466: panels 1.080 in thick; other dimensions null. EP0470271: dimensions null in the pages read.",
+    "tooling": "EP0470271: open mould cleaned, release agent, gel coat, outer skin, foam placed, inner skin laid up, cured in the mould at 80 C. US9735466: thermoplastic panel held on a vacuum table, edges thermoformed in a heated CNC edge tool then machined on a 5-axis router; no mould.",
+    "cure_method": "EP0470271: in-mould cure at 80 C. US9735466: heat-and-cool thermoplastic consolidation.",
+    "assembly_and_adjustment": "EP0470271: bolted joint straps and caps. US9735466: butt edges with pultruded splines bolted about every 4 in, fastener heads covered.",
+    "shape_accuracy": [
+      {
+        "quantity": "numeric dimensional tolerance",
+        "value": null,
+        "unit": null,
+        "scale": "panel",
+        "measured_or_specified": "not published",
+        "method": null,
+        "quote": null,
+        "location": "US9735466 and EP0470271 give no numeric shape tolerance in the text read"
+      },
+      {
+        "quantity": "panel thickness, US9735466 example",
+        "value": 1.08,
+        "unit": "in",
+        "scale": "panel",
+        "measured_or_specified": "specified",
+        "method": "patent example",
+        "quote": "sandwich panels that are 1.080 inches thick",
+        "location": "US9735466B2 description"
+      },
+      {
+        "quantity": "mould cure temperature, EP0470271",
+        "value": 80,
+        "unit": "C",
+        "scale": "panel",
+        "measured_or_specified": "specified",
+        "method": "patent",
+        "quote": "curing in the mold at a temperature of 80",
+        "location": "EP0470271A1 description (Google Patents copy)"
+      }
+    ],
+    "cost_class": "null",
+    "sources": [
+      {
+        "citation": "US 9,735,466 B2, Advanced composite radome and method of manufacturing (Ebert Composites)",
+        "url": "https://patents.google.com/patent/US9735466B2/en",
+        "local_path": "unpublished-local-ref:3c4f265e74034bc6",
+        "pages_read": "description read via text extraction"
+      },
+      {
+        "citation": "EP 0470271 A1, Big dimension radome",
+        "url": "https://patents.google.com/patent/EP0470271A1/en",
+        "local_path": "unpublished-local-ref:f20ae00efb09db40",
+        "pages_read": "description keyword-read"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Whether the patented products were built at scale; tolerances."
+  },
+  {
+    "id": "Radome-spaceframe-contrast-Haystack",
+    "structure": "Haystack 37 m telescope radome (space-frame/membrane contrast, not a sandwich shell)",
+    "category": "radome",
+    "diameter_m": 46,
+    "construction": "Not a sandwich shell: 932 triangular panels of hydrophobic material in a trapezoidal hexecontahedron pattern, 46 m diameter (MIT Haystack page; the page does not name the frame type, space-frame/membrane is my reading). EP0470271 states space-frame radomes with metal frames and fibreglass-resin membranes reach about 30 m diameter, and shell-type radomes up to about 10 m.",
+    "panel_size": "null",
+    "tooling": "null",
+    "cure_method": "null",
+    "assembly_and_adjustment": "null",
+    "shape_accuracy": [
+      {
+        "quantity": "largest rigid radome claim",
+        "value": 46,
+        "unit": "m",
+        "scale": "whole surface",
+        "measured_or_specified": "stated",
+        "method": "web page",
+        "quote": "It is the largest radome of its kind in the world.",
+        "location": "MIT Haystack web page (37 m radome)"
+      }
+    ],
+    "cost_class": "null",
+    "sources": [
+      {
+        "citation": "MIT Haystack, 37 m radio antenna and radome",
+        "url": "https://www.haystack.mit.edu/about/haystack-telescopes-and-facilities/haystack-37m-radio-antenna-radome",
+        "local_path": "unpublished-local-ref:700d028973eda007",
+        "pages_read": "relevant paragraph read"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": "Everything about frame and membrane tolerances."
+  },
+  {
+    "id": "GAPS",
+    "gaps": [
+      "No published numeric shape or waviness tolerance for any sandwich radome was found; CPI, Comtech and two patents give sizes, construction and joints only.",
+      "Category \"other\" (boat hulls, wind-turbine blades, domes, launcher fairings) is empty: no opened source gave a shape-accuracy number for a large sandwich shell. Search summaries mentioned a +/-5 mm blade-profile deviation in a patent family and the Ariane 5 fairing (aluminium honeycomb with carbon skins, 5.4 m) but neither was opened or carried a measured tolerance.",
+      "Woody 1994 Proc. IEEE (ADS gave a CAPTCHA; no open PDF) and the 1983 Baars SPIE design paper were not opened. IRAM 30 m primary design paper (Fermilab copy) and Greve 1998 A&AS page returned bot challenges or 403 and were not bypassed.",
+      "Not covered: Nobeyama 45 m panel numbers (only a title seen), GBT panels (solid aluminium, not sandwich), Effelsberg (a search summary said glued honeycomb panels failed in the inner 60 m; the SHAO page was gone and the claim is unverified), Cassini 4 m HGA (no source with a surface number), Herschel, von Hoerner NRAO reports, CCAT/FYST, SPT, GLT, Planck as-built rms.",
+      "Panel dimensions are missing for ALMA AEC, SMT and LMT panels; none of the real precedents is Be-faced or 23 mm core, and the closest analogue (0.6 mm Ni on 20 mm Al honeycomb, ALMA) has only a 8 um panel specification, not a distribution.",
+      "No source states a dimple or waviness amplitude at the 0.35 m or 0.1 mm scale for a sandwich panel. The nearest facts are the IRAM panel-scale error correlation length of 0.3-0.5 m (amplitude not given), the CSO 5-10 um panel rms with the 150 um panel rebound correction, and the JAXA finding that tow print-through left several tens of nm.",
+      "Cost: only JCMT (GBP 2M refurbish, GBP 5M replace, 2011 estimates), SMT (USD 5-6M estimate, 1987), and the ALMA North American contract (USD 169M for 25 antennas) were found; no cost per square metre of panel."
+    ]
+  }
+]

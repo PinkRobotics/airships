@@ -1,0 +1,1009 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "numerical_status": "unreviewed",
+  "beta_natural": 0.682327803828082,
+  "beta_run": 1.0,
+  "equation": "CR-1457 2.2-14: 0.33*sqrt(E*Ec*tf/tc), eta=1",
+  "started": "2026-10-20T17:29:06.872558-07:00",
+  "completed": "2026-10-20T17:29:54.065487-07:00",
+  "elapsed_s": 47.192935422062874,
+  "rows": [
+    {
+      "law": "ramp",
+      "R_m": 20,
+      "weather": "ISA",
+      "revert": [
+        "Q"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -5925.833037420652,
+        "trl7": -1958.5057713483156,
+        "factor": 1.1801825417385003,
+        "gamma": 0.6350723039930783
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -2473.5500140724216,
+          "geometry": {
+            "tf_m": 0.0016254706033341105,
+            "tc_m": 0.04420493842565879
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5938845100207362,
+            "Vc": 0.9847112750518405,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002729215
+            ],
+            [
+              "global_buckling",
+              1.000000039364329
+            ],
+            [
+              "thermal_interface",
+              1.0716559035406743
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5423.6113335383525,
+          "mass_before_growth_kg": 36165.47588202976,
+          "pressure_Pa": 97172.30315075364
+        },
+        "TRL7": {
+          "payload_kg": 1194.5724318951852,
+          "geometry": {
+            "tf_m": 0.0016254706024028463,
+            "tc_m": 0.044204936856935204
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5938845093073173,
+            "Vc": 0.9847112732682932,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002484073
+            ],
+            [
+              "global_buckling",
+              1.000000004306607
+            ],
+            [
+              "thermal_interface",
+              1.0716559035534274
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 1755.489035900615,
+          "mass_before_growth_kg": 36165.47573369989,
+          "pressure_Pa": 97172.30315075364
+        },
+        "density_factor": 1.0765996765403547,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.006430458176510001,
+          "geometry": {
+            "tf_m": 0.0016254706024028463,
+            "tc_m": 0.044204936969959197
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1718.3729990937575,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.593884509343036,
+            "Vc": 0.98471127335759,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002091212
+            ],
+            [
+              "global_buckling",
+              1.0000000067763137
+            ],
+            [
+              "thermal_interface",
+              1.0716559035525088
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5100.973535857635,
+          "mass_before_growth_kg": 34014.55723517988,
+          "pressure_Pa": 97172.30315075364
+        }
+      }
+    },
+    {
+      "law": "ramp",
+      "R_m": 20,
+      "weather": "optimistic",
+      "revert": [
+        "Q"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -7069.309613386611,
+        "trl7": -3040.7469815062304,
+        "factor": 1.2179491112563663,
+        "gamma": 0.642498555381245
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -3772.657517898937,
+          "geometry": {
+            "tf_m": 0.0016671921714947198,
+            "tc_m": 0.043797824991294865
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6034907402317844,
+            "Vc": 1.0087268505794609,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002936356
+            ],
+            [
+              "global_buckling",
+              1.0000000123795294
+            ],
+            [
+              "thermal_interface",
+              1.0716592284818012
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5535.487597501386,
+          "mass_before_growth_kg": 37352.70712189324,
+          "pressure_Pa": 99707.07115083348
+        },
+        "TRL7": {
+          "payload_kg": -29.884121324033003,
+          "geometry": {
+            "tf_m": 0.0016671921712619036,
+            "tc_m": 0.04379782457769333
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6034907400377807,
+            "Vc": 1.0087268500944515,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.000000000296423
+            ],
+            [
+              "global_buckling",
+              1.0000000030744762
+            ],
+            [
+              "thermal_interface",
+              1.0716592284851951
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 1792.7142397994494,
+          "mass_before_growth_kg": 37352.70708302027,
+          "pressure_Pa": 99707.07115083348
+        },
+        "density_factor": 1.1183202024790495,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.006748971984961827,
+          "geometry": {
+            "tf_m": 0.0016671921726588,
+            "tc_m": 0.04379782694071891
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1654.2666500158089,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6034907411617423,
+            "Vc": 1.0087268529043558,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.000000000320318
+            ],
+            [
+              "global_buckling",
+              1.0000000562912308
+            ],
+            [
+              "thermal_interface",
+              1.0716592284658064
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5043.400954757958,
+          "mass_before_growth_kg": 34072.129497765745,
+          "pressure_Pa": 99707.07115083348
+        }
+      }
+    },
+    {
+      "law": "ramp",
+      "R_m": 30,
+      "weather": "ISA",
+      "revert": [
+        "Q"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -18148.42594870122,
+        "trl7": -4968.150052446039,
+        "factor": 1.1606542642018385,
+        "gamma": 0.6354201168166034
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -6582.656950982218,
+          "geometry": {
+            "tf_m": 0.0024429978442514167,
+            "tc_m": 0.0661244544543769
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5945923299780864,
+            "Vc": 0.986480824945216,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000003587302
+            ],
+            [
+              "scarf_average_shear",
+              1.0000000051475972
+            ],
+            [
+              "thermal_interface",
+              1.0714837696248563
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 18069.38018764,
+          "mass_before_growth_kg": 120528.21481839016,
+          "pressure_Pa": 97172.30315075364
+        },
+        "TRL7": {
+          "payload_kg": 5594.8307618927365,
+          "geometry": {
+            "tf_m": 0.002442997833469,
+            "tc_m": 0.06612445642061977
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5945923287166147,
+            "Vc": 0.9864808217915367,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002680514
+            ],
+            [
+              "global_buckling",
+              1.000000023076093
+            ],
+            [
+              "thermal_interface",
+              1.0714837696102089
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 5891.892557825776,
+          "mass_before_growth_kg": 120528.21473532943,
+          "pressure_Pa": 97172.30315075364
+        },
+        "density_factor": 1.0593131195279497,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.014394302495929878,
+          "geometry": {
+            "tf_m": 0.002442997833469,
+            "tc_m": 0.06612445646171972
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1746.414521727451,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.5945923287253532,
+            "Vc": 0.9864808218133829,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002576246
+            ],
+            [
+              "global_buckling",
+              1.0000000236764117
+            ],
+            [
+              "thermal_interface",
+              1.0714837696099024
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 17210.770883321842,
+          "mass_before_growth_kg": 114804.1527774236,
+          "pressure_Pa": 97172.30315075364
+        }
+      }
+    },
+    {
+      "law": "ramp",
+      "R_m": 30,
+      "weather": "optimistic",
+      "revert": [
+        "Q"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -22010.464486428173,
+        "trl7": -8623.144576046321,
+        "factor": 1.1975137479372135,
+        "gamma": 0.6428498380608656
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -10973.593483521443,
+          "geometry": {
+            "tf_m": 0.0025056722317368216,
+            "tc_m": 0.065517058688401
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6042090706436843,
+            "Vc": 1.0105226766092108,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.000000000291039
+            ],
+            [
+              "scarf_average_shear",
+              1.0000000008048942
+            ],
+            [
+              "thermal_interface",
+              1.0714883153219896
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 18447.93782990647,
+          "mass_before_growth_kg": 124540.59370866291,
+          "pressure_Pa": 99707.07115083348
+        },
+        "TRL7": {
+          "payload_kg": 1456.5429574464424,
+          "geometry": {
+            "tf_m": 0.002505672230885578,
+            "tc_m": 0.06551705943281545
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6042090706805974,
+            "Vc": 1.0105226767014934,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002811715
+            ],
+            [
+              "global_buckling",
+              1.0000000107971951
+            ],
+            [
+              "thermal_interface",
+              1.0714883153163928
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 6017.8012846667925,
+          "mass_before_growth_kg": 124540.5938129347,
+          "pressure_Pa": 99707.07115083348
+        },
+        "density_factor": 1.1001181192524239,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.02809065976543934,
+          "geometry": {
+            "tf_m": 0.0025056722317368216,
+            "tc_m": 0.06551706069679844
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1681.6374374936854,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.6042090711001116,
+            "Vc": 1.010522677750279,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.000000000301705
+            ],
+            [
+              "global_buckling",
+              1.0000000298786906
+            ],
+            [
+              "thermal_interface",
+              1.071488315306889
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 17016.595887260988,
+          "mass_before_growth_kg": 114998.31407712719,
+          "pressure_Pa": 99707.07115083348
+        }
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 20,
+      "weather": "ISA",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -29388.76159348207,
+        "trl7": -23345.704763314785,
+        "factor": 2.118037110392169,
+        "gamma": 0.2
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -19594.208605672735,
+          "geometry": {
+            "tf_m": 0.002092757918873549,
+            "tc_m": 0.11764215690812727
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2914389989366684,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.000000000301574
+            ],
+            [
+              "global_buckling",
+              1.000000011346755
+            ],
+            [
+              "thermal_interface",
+              1.0711372993433987
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 7689.425118725196,
+          "mass_before_growth_kg": 51020.32068844323,
+          "pressure_Pa": 97172.30315075364
+        },
+        "TRL7": {
+          "payload_kg": -14403.015003408918,
+          "geometry": {
+            "tf_m": 0.0020927579400598136,
+            "tc_m": 0.11764215482706265
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2914390113828862,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000001597964
+            ],
+            [
+              "face_wrinkling",
+              1.0000000248692165
+            ],
+            [
+              "thermal_interface",
+              1.0711372993560866
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 2498.2312947246196,
+          "mass_before_growth_kg": 51020.32091017999,
+          "pressure_Pa": 97172.30315075364
+        },
+        "density_factor": 1.778610232219045,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.0028571551229106262,
+          "geometry": {
+            "tf_m": 0.0020927579174766526,
+            "tc_m": 0.11764215667132522
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1040.1378455424187,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2914389980442762,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003964131
+            ],
+            [
+              "global_buckling",
+              1.0000000090749046
+            ],
+            [
+              "thermal_interface",
+              1.0711372993448423
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5133.658406075803,
+          "mass_before_growth_kg": 33981.87593826476,
+          "pressure_Pa": 97172.30315075364
+        }
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 20,
+      "weather": "optimistic",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -31324.20860105718,
+        "trl7": -25149.90874625808,
+        "factor": 2.2210491118125706,
+        "gamma": 0.2
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -21184.23455564135,
+          "geometry": {
+            "tf_m": 0.0021386864728814526,
+            "tc_m": 0.11930540860604444
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3196038871127238,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000001636822
+            ],
+            [
+              "face_wrinkling",
+              1.0000000124687023
+            ],
+            [
+              "thermal_interface",
+              1.071127162527819
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 7840.171896472451,
+          "mass_before_growth_kg": 52459.59986066459,
+          "pressure_Pa": 99707.07115083348
+        },
+        "TRL7": {
+          "payload_kg": -15892.121478656387,
+          "geometry": {
+            "tf_m": 0.0021386864640344414,
+            "tc_m": 0.11930540990855137
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3196038820038152,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.000000000442707
+            ],
+            [
+              "global_buckling",
+              1.0000000082874525
+            ],
+            [
+              "thermal_interface",
+              1.071127162519851
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 2548.0588758628946,
+          "mass_before_growth_kg": 52459.59980428918,
+          "pressure_Pa": 99707.07115083348
+        },
+        "density_factor": 1.8626237670124857,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.00451528575104021,
+          "geometry": {
+            "tf_m": 0.002138686468923579,
+            "tc_m": 0.11930541066829758
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 993.2224895676516,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3196038851153529,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004023206
+            ],
+            [
+              "global_buckling",
+              1.0000000155350732
+            ],
+            [
+              "thermal_interface",
+              1.0711271625152032
+            ]
+          ],
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5077.010279300213,
+          "mass_before_growth_kg": 34038.522406909724,
+          "pressure_Pa": 99707.07115083348
+        }
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 30,
+      "weather": "ISA",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -97877.74545950821,
+        "trl7": -77634.3080381391,
+        "factor": 2.0801961550040193,
+        "gamma": 0.2
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -64564.821981282366,
+          "geometry": {
+            "tf_m": 0.0031469432131095423,
+            "tc_m": 0.1762111335654307
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2945618007246342,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003311367
+            ],
+            [
+              "global_buckling",
+              1.0000000053914246
+            ],
+            [
+              "thermal_interface",
+              1.070811884186734
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 25749.5290289464,
+          "mass_before_growth_kg": 170830.2310073839,
+          "pressure_Pa": 97172.30315075364
+        },
+        "TRL7": {
+          "payload_kg": -47222.28610855001,
+          "geometry": {
+            "tf_m": 0.003146943210272064,
+            "tc_m": 0.17621113311064124
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2945617995192344,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003930642
+            ],
+            [
+              "global_buckling",
+              1.0000000024550038
+            ],
+            [
+              "thermal_interface",
+              1.0708118841890026
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 8406.993361180192,
+          "mass_before_growth_kg": 170830.23080241776,
+          "pressure_Pa": 97172.30315075364
+        },
+        "density_factor": 1.743190092978529,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.016157381960510975,
+          "geometry": {
+            "tf_m": 0.0031469432125420466,
+            "tc_m": 0.1762111326028296
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1061.2725614100912,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.2945618003711983,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.000000000122271
+            ],
+            [
+              "face_wrinkling",
+              1.0000000030197405
+            ],
+            [
+              "thermal_interface",
+              1.070811884191536
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 17328.028401252526,
+          "mass_before_growth_kg": 114686.89349641345,
+          "pressure_Pa": 97172.30315075364
+        }
+      }
+    },
+    {
+      "law": "handbook",
+      "R_m": 30,
+      "weather": "optimistic",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "numerical_status": "unreviewed",
+      "filed_065": {
+        "concept": -104441.2304443153,
+        "trl7": -83751.33536831073,
+        "factor": 2.1805615255806963,
+        "gamma": 0.2
+      },
+      "recomputed": {
+        "concept": {
+          "payload_kg": -69947.21520463409,
+          "geometry": {
+            "tf_m": 0.0032160626429052672,
+            "tc_m": 0.17870774531316982
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3228171361535983,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000001096712
+            ],
+            [
+              "face_wrinkling",
+              1.0000000065843007
+            ],
+            [
+              "thermal_interface",
+              1.0707994721020269
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 26260.87390897831,
+          "mass_before_growth_kg": 175701.27935070373,
+          "pressure_Pa": 99707.07115083348
+        },
+        "TRL7": {
+          "payload_kg": -52262.178107306456,
+          "geometry": {
+            "tf_m": 0.0032160626542551795,
+            "tc_m": 0.17870774910015663
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1850.0,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3228171412350151,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003464908
+            ],
+            [
+              "global_buckling",
+              1.000000022041762
+            ],
+            [
+              "thermal_interface",
+              1.0707994720831593
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 8575.835621083597,
+          "mass_before_growth_kg": 175701.2805412708,
+          "pressure_Pa": 99707.07115083348
+        },
+        "density_factor": 1.8246635685863137,
+        "density_status": "conditional closure",
+        "closure": {
+          "payload_kg": 0.01054416999249952,
+          "geometry": {
+            "tf_m": 0.003216062674117525,
+            "tc_m": 0.17870774434376452
+          },
+          "properties": {
+            "E_Pa": 293600000000.0,
+            "strength_Pa": 379200000.0,
+            "density_kg_m3": 1013.8854344712622,
+            "Q": 0.33,
+            "Gc_Pa": 46884349.59354485,
+            "gamma": 0.2,
+            "Vc": 1.3228171486378861,
+            "film_kg_m2_interface": 0.07323641454574575
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000001423883
+            ],
+            [
+              "face_wrinkling",
+              1.0000000238799038
+            ],
+            [
+              "thermal_interface",
+              1.0707994721068566
+            ]
+          ],
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 17137.322724291087,
+          "mass_before_growth_kg": 114877.60478658686,
+          "pressure_Pa": 99707.07115083348
+        }
+      }
+    }
+  ]
+}

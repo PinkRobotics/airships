@@ -1,0 +1,90 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "review": "UNREVIEWED where marked",
+  "open": [
+    {
+      "id": "NFI-071-CORE",
+      "uid": "PD069-GRAPHITE-071",
+      "status": "open",
+      "statement": "On CR-III the graphite variant is thermally infeasible. Face density does not release the interface. The condition is a core expansion at or below 12.2e-6 per K. 072 tests real cores of that kind."
+    },
+    {
+      "id": "NFI-E-VC",
+      "uid": "PE-NFI-VC",
+      "status": "open",
+      "statement": "Independent Vc on the handbook (4.2-3) is 1.3208622451020047 against filed 1.322817147615744. The model power was not fitted to close that gap."
+    },
+    {
+      "id": "NFI-E-BUCKLING",
+      "uid": "PE-NFI-BUCKLING",
+      "status": "open",
+      "statement": "Handbook global buckling with cure removed is 1.0272329728699576 against the filed margin 1.000. Cure stays in the model and is unsourced."
+    },
+    {
+      "id": "NFI-E-MEMBRANE",
+      "uid": "PE-NFI-MEMBRANE",
+      "status": "open",
+      "statement": "Equation 2.2-14 on membrane stress at the filed pressure is 1.0491194341443413. The filed margin 1.000 includes gradient, bending and cure."
+    },
+    {
+      "id": "NFI-E-THERMAL",
+      "uid": "PE-NFI-THERMAL",
+      "status": "open",
+      "statement": "The thermal interface margin near 1.071 cannot be checked. kb and the cure-temperature increment are not a closed law in the admitted record."
+    },
+    {
+      "id": "NFI-E-JOINTS",
+      "uid": "PE-NFI-JOINTS",
+      "status": "open",
+      "statement": "Scarf, splice, mooring and weather headroom were not re-derived. Their mass exceeds the +5.031 kg residual, so the physical float is not independently closed."
+    },
+    {
+      "id": "NFI-E-SIG0",
+      "uid": "PE-NFI-SIG0",
+      "status": "open",
+      "statement": "The copied model uses sig0 = E*h/(R*sqrt(1-nu^2)). Handbook (4.2-3) uses the one-quarter power. The discrepancy is disclosed and uncorrected. Buckling in 073 still uses the model power."
+    },
+    {
+      "id": "NFI-E-073-LIMITS",
+      "uid": "PE-NFI-073-LIMITS",
+      "status": "open",
+      "statement": "073 limits that remain open: the wrinkle wavelength was not compared with R; 2.2-14 and 2.2-15 are not a measured SR-200 on CR-III allowable; gamma for both weathers uses separate geometries, optimistic tf/tc 2.561/60.538 mm and ISA 2.508/59.855 mm, so the +3963.234 kg ISA payload is not a same-hull result; gram-scale residuals are not physical reserves; DELTA-D's term-removal factors were uniaxial."
+    },
+    {
+      "id": "NFI-G-SIGMA",
+      "uid": "PE-NFI-G-SIGMA",
+      "status": "open",
+      "statement": "Graphite review NFI-1. The applied face stress 303.7436 MPa is constant across rows and is not carried by a pinned input."
+    },
+    {
+      "id": "NFI-G-BLEND",
+      "uid": "PE-NFI-G-BLEND",
+      "status": "open",
+      "statement": "Graphite review NFI-2. Global buckling sits within 0.4 percent, their side higher. CR-1457 gives no blending rule between the Kc branches."
+    },
+    {
+      "id": "NFI-G-GROWTH",
+      "uid": "PE-NFI-G-GROWTH",
+      "status": "open",
+      "statement": "Graphite review NFI-3. Growth plus joining is 4160 to 28235 kg per row and 070's outputs do not decompose it."
+    },
+    {
+      "id": "NFI-G-GAMMA",
+      "uid": "PE-NFI-G-GAMMA",
+      "status": "open",
+      "statement": "Graphite review NFI-4. gamma_d = 0.20 for hemispheres rests on CR-1457 figure 6.2-3, which the review could not re-read."
+    },
+    {
+      "id": "NFI-G-SCARF",
+      "uid": "PE-NFI-G-SCARF",
+      "status": "open",
+      "statement": "Graphite review NFI-5. The wrinkling level rides the unpinned applied stress, and the 10 MPa scarf screen is an owner assumption."
+    },
+    {
+      "id": "NFI-E-072B",
+      "uid": "PE-NFI-072B",
+      "status": "open",
+      "statement": "072b limits. The carbon outcome rests on unmeasured wall modulus and in-plane expansion. The Kevlar values are typical, not lot minima. The model keeps 2.2-14, so no corrected-law closure follows. The future-dated RESULTS completion stamp is excluded."
+    }
+  ]
+}

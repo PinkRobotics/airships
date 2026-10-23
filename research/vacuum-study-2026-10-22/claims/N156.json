@@ -1,0 +1,70 @@
+{
+  "id": "N156",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N156",
+    "report": "rpt-ref-44f9940325e236cb80b3",
+    "card": "MAINLINE-013",
+    "file": "evidence/fe5e5ec3daad9605-NFI.json",
+    "row_id": "NFI-013-SHEAR-UNMEASURED",
+    "fields": {
+      "id": "NFI-013-SHEAR-UNMEASURED",
+      "issue": "No source measured a transverse shear modulus for any core at or below 10 kg/m3.",
+      "numbers": "Gc is DERIVED as Ec/2 (isotropic, nu = 0, the optimistic bound) for every non-honeycomb core; at nu = 1/3 every product falls by 0.75 and every crimp margin by 0.75. Si et al. 2014 measured shear stress at 9.6 kg/m3 but printed no modulus.",
+      "closes_when": "a plate-shear or sandwich-beam shear modulus is measured on a candidate core."
+    }
+  },
+  "claim": "No source measured a transverse shear modulus for any core at or below 10 kg/m3.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/155"
+    },
+    {
+      "report": "rpt-ref-44f9940325e236cb80b3",
+      "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+      "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+      "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+      "bytes": 9230,
+      "selector": "source row ID: NFI-013-SHEAR-UNMEASURED"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-44f9940325e236cb80b3",
+          "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+          "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+          "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+          "bytes": 9230,
+          "selector": "source row ID: NFI-013-SHEAR-UNMEASURED"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/155"
+          }
+        ]
+      }
+    }
+  ]
+}

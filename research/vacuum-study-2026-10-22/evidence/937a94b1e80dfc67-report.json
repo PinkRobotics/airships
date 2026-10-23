@@ -1,0 +1,83 @@
+{
+  "kind": "report",
+  "from": "ref-3f7ec48b84b54a049007",
+  "from_seat": "ref-3f7ec48b84b54a049007",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "completion": "none",
+  "priority": 4,
+  "asks": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "id": "rpt-ref-378f34abc5a6eea5b053",
+  "unit": "vacuum-mainline040-common-account-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline040-fold-037b-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline040-fold-037b-1020",
+  "at": "2026-10-20T04:03:03.470571-07:00",
+  "next": "ref-3f7ec48b84b54a049007: complete MAINLINE-048 under its dispatch order",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline040-fold-037b-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "QUESTIONABLE / PROJECTION. Explicit 037b as-designed and fix rows now accompany the filed 040 common account. All 120 configurations carry 250 F / 30:1 scarf and 200 F / 30.341397:1 scarf rows; original 040 files remain unchanged.\n\nAs-designed field survival does not close minimum-strength free edges: minimum factor is about 0.830, versus typical-strength 1.163. Thus no strict as-designed solution exists within the four optimism axes. Conditional pricing relaxes only the edge feasibility filter, retains every failed safety factor and false pass flag, and reoptimizes the remaining shell/scarf constraints.\n\nAt R10 ISA the conditional as-designed payload is -154.130 kg versus -109.649 kg for the fix. At R30 ISA retained-floor it is 4,826.570 versus 6,100.222 kg; the first remains an edge failure despite positive payload.\n\nThe 037b +0.120151 kg repair applies to its original 028b geometry, not as a fixed charge at every size. All joining and residual-compression terms are recomputed. All 120 fixed payloads reproduce within 1e-8 kg; mass closure and remaining scalar modes pass. Installed SF unknown. MAINLINE-048 is underway.",
+  "artifacts": [
+    {
+      "path": "evidence/da4748b1237caeed-CARD.md",
+      "sha256": "da4748b1237caeed4e4279d09a88630bff1fb1680b55b9e1fde0cfc3c8dc4037",
+      "bytes": 4127
+    },
+    {
+      "path": "evidence/8a551fa5b2597b18-RESULTS.json",
+      "sha256": "8a551fa5b2597b18f4a34df0411419e83b936ced44b05a2937348e016aa7f6b6",
+      "bytes": 2582477
+    },
+    {
+      "path": "evidence/52cc90cdae5f2b7d-PAIRED-ROWS.csv",
+      "sha256": "52cc90cdae5f2b7de2833334e8e4f850a343d56ec1e2c845783b49c82a4ea462",
+      "bytes": 51508
+    },
+    {
+      "path": "evidence/6ff631bdd5a22826-VALIDATION.json",
+      "sha256": "6ff631bdd5a22826d82d090963968973e3bb3a462dc960ed28eb699c395fd4be",
+      "bytes": 27087
+    },
+    {
+      "path": "evidence/d248f8c270d5af7c-NFI.json",
+      "sha256": "d248f8c270d5af7c5791fc573e50aa0acd8559f6251b281e5c0441c2a2b1fe8f",
+      "bytes": 960
+    },
+    {
+      "path": "evidence/16ff16ad9702bc66-INPUT-PINS.json",
+      "sha256": "16ff16ad9702bc66ffe88e76db0e836950fda74fed0b01ee8213fee601eeb949",
+      "bytes": 2694
+    },
+    {
+      "path": "evidence/7ffb0479fa46e00c-fold.py",
+      "sha256": "7ffb0479fa46e00cd08963e17bf99a69453b0301769b61630bfb5c00c28f02e6",
+      "bytes": 10785
+    },
+    {
+      "path": "evidence/b1ebad46d8342ef1-fold_model.py",
+      "sha256": "b1ebad46d8342ef1db5e6900dfb4e0933715f8af93991497d8cc6b6989d01de1",
+      "bytes": 17334
+    },
+    {
+      "path": "evidence/ad2d4c497ae36279-MANIFEST.json",
+      "sha256": "ad2d4c497ae3627986a62f605449a426f106d789c9bc9d6698f5a9b0ee9d0289",
+      "bytes": 2894
+    }
+  ],
+  "ingested": "2026-10-20T04:04:14-07:00"
+}

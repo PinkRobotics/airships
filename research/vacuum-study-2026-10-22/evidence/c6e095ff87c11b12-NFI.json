@@ -1,0 +1,315 @@
+{
+  "unit": "vacuum-mainline048-coating-and-water-1020",
+  "overall_installed_hull_SF": null,
+  "findings": [
+    {
+      "id": "048-01-matched_multilayer_optics",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "The 7.5752 g/m2 recipe and .09/.80 hemispherical optics are linked by a class-level transfer, not a matched Be coupon.",
+      "grounding": "Weigh and measure solar absorptance and hemispherical emittance on the exact stack, Be surface and process."
+    },
+    {
+      "id": "048-02-classical_emittance",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Classical IR emittance .65 is used as hemispherical for the model; the cited 2015 value is normal emittance and not interchangeable.",
+      "grounding": "Measure the hemispherical optical pair over temperature and relevant surface roughness."
+    },
+    {
+      "id": "048-03-Be_deposition_process",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Direct deposition omits carrier and PSA only conditionally. Native oxide, pretreatment, deposition stress and adhesion are unresolved.",
+      "grounding": "Qualify a prepared curved Be panel with thermal cycling and peel/adhesion testing; weigh all treatment layers."
+    },
+    {
+      "id": "048-04-installed_coating_mass",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Layer-density calculations and 10% application allowance are not measured installed weights.",
+      "grounding": "Measure total coating, edge seal, repairs, masking effects and coverage variation per finished area."
+    },
+    {
+      "id": "048-05-white_paint_mass",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "AZ93/Z93/SolarWhite minimum useful thickness is sourced but installed dry areal mass is not.",
+      "grounding": "Weigh matched coated Be witnesses, including paint primer; resolve SolarWhite reflectance/absorptance heading."
+    },
+    {
+      "id": "048-06-film_availability",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "The lightest 0.5 mil Ag/FEP tape's catalog part number is TBD, despite a specification entry.",
+      "grounding": "Confirm an actual offered construction and as-delivered adhesive weight without treating a catalog row as availability."
+    },
+    {
+      "id": "048-07-film_attachment",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Silver/FEP stainless-steel peel results do not qualify Be, overlaps, edges or repair strips.",
+      "grounding": "Test the complete Be/tape construction and weigh required edge seals and surface preparation."
+    },
+    {
+      "id": "048-08-UV_humidity_life",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Space heritage and base-FEP weathering do not establish atmospheric coating/PSA/metal lifetime.",
+      "grounding": "Measure combined UV, humidity, rain, corrosion, handling and thermal-cycle changes for the selected finish."
+    },
+    {
+      "id": "048-09-exterior_retention",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "0.1 kg/m2 is an assumed retained exterior liquid layer, not a measurement or a moisture-uptake property.",
+      "grounding": "Measure dew/rain/frost retention and drainage at hull orientations; specify dry-operating limits if claiming zero."
+    },
+    {
+      "id": "048-10-wet_optics",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Primary dry optical values are used alongside an exterior liquid mass. Assumed wet optics are sensitivities only.",
+      "grounding": "Measure wet/frosted optical properties and solve the coupled condensation/evaporation thermal problem."
+    },
+    {
+      "id": "048-11-AF_uptake",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Historical 2U WVR does not establish equilibrium uptake for the proposed 200 F cure. TML is not a water inventory.",
+      "grounding": "Measure sorption/desorption and mass baseline for the exact 2U lot, cure and humidity cycle."
+    },
+    {
+      "id": "048-12-AF_2M_transfer",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "The 9.16% sensitivity derives from 2M immersed at 70 C with dissolution and a different cure.",
+      "grounding": "Use only as a severe sensitivity until exact 2U exposure data exist."
+    },
+    {
+      "id": "048-13-primer_process",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "The 10 g/m2 structural-primer charge and 1% water fraction are planning assumptions; cited primer cure differs from 200 F.",
+      "grounding": "Define the actual two-interface primer, dry thickness, density, uptake and matched cure/Be compatibility."
+    },
+    {
+      "id": "048-14-core_moisture",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "CRIII durability data are not core moisture-uptake data. Metal nonabsorption does not remove coating/node/cell water.",
+      "grounding": "Measure the actual vented core's coating, contamination and condensed-water inventory."
+    },
+    {
+      "id": "048-15-finish_moisture",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "PSA, deposited-stack and seam-polymer water fractions are assumptions.",
+      "grounding": "Measure each complete finish/seam construction's moisture baseline and change after conditioning."
+    },
+    {
+      "id": "048-16-nominal_water_baseline",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Nominal density and film weights may already contain some moisture. The model conservatively adds a separate inventory.",
+      "grounding": "Establish dry-reference versus as-delivered masses to avoid an unknown double allowance."
+    },
+    {
+      "id": "048-17-bake_endpoint",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "70 C preconditioning evidence is for exposed coupons; 90% removal and cure compatibility are not proven on a hull.",
+      "grounding": "Demonstrate a measured residual-water endpoint and required access, temperature, time and equipment."
+    },
+    {
+      "id": "048-18-dry_gas_process",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Five well-mixed hull-volume purges are a resource scenario, not a qualified assembly process or material dry-out.",
+      "grounding": "Size the actual enclosure/glovebox and verify mixing, dew point, leak rate, exposure time and final material water."
+    },
+    {
+      "id": "048-19-sorbent_vacuum",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "10% usable capacity and 95% capture are unqualified at hull pressure and temperature.",
+      "grounding": "Measure vacuum sorption isotherms, kinetics, dust control, regeneration and cartridge/retention mass."
+    },
+    {
+      "id": "048-20-nominal_volatiles",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "040's 90% volatile conditioning and water-equivalent pressure model remain assumptions shared by all routes.",
+      "grounding": "Measure species-resolved release for the chosen cure/process; use the zero-capture and unconditioned sensitivities."
+    },
+    {
+      "id": "048-21-dew_operating_cycle",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Dry-night temperatures can fall below the inherited water partial-pressure dew point; dew mass is unknown.",
+      "grounding": "Resolve latent heat, air humidity transport, shading, sky condition, shedding and frost over the mission cycle."
+    },
+    {
+      "id": "048-22-coating_thermal_resistance",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Optical coating thermal resistance and its own residual stress are omitted.",
+      "grounding": "Measure or bound through-thickness resistance and coating stress for the installed stack."
+    },
+    {
+      "id": "048-23-joint_interaction",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "The primary 037b account separates mean scarf and free-edge shear. An added scalar interaction can erase the thin-tape margin.",
+      "grounding": "Validate coincident load paths, peel and free-edge behavior on the matched curved joint."
+    },
+    {
+      "id": "048-24-200F_cure",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "The new finish does not repair the original 250 F minimum-strength free-edge failure. The 200 F stress-free state remains conditional.",
+      "grounding": "Measure residual strains and qualify 2U/primer strength, durability and cure against 037b/CHECK-037b findings."
+    },
+    {
+      "id": "048-25-optical_aging_margin",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "For fixed emittance .80, the declared legacy day/full-cycle screen limits alpha to about .1665 at the source geometry.",
+      "grounding": "Set optical end-of-life limits and measure aged coupons; this number is a model threshold, not a life prediction."
+    },
+    {
+      "id": "048-26-combined_mission",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "031 weather mass/pressure and 037 thermal environments remain separate model inputs.",
+      "grounding": "Choose a joint atmospheric, solar, wind and water exposure before claiming mission-level float."
+    },
+    {
+      "id": "048-27-least_set_definition",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Least sets depend on the four declared optimism axes, minimax interpolation and scalar equations; they are not measured allowable properties.",
+      "grounding": "Ground each retained axis and replace the surrogate with validated coupled structural behavior."
+    },
+    {
+      "id": "048-28-cost_scope",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "open_issue": "Ground-gas and ideal heat calculations are resource lower bounds; equipment, labor, pumping, cycle duration and currency cost are unsourced.",
+      "grounding": "Develop a matched process and obtain measured energy/use and equipment quotations."
+    }
+  ],
+  "inherited_040_findings": [
+    {
+      "id": "040-01-coating_inventory",
+      "tag": "PROJECTION",
+      "open_issue": "0.20 kg/m² paint+primer remains assumed; the marginal R12/R15 results are sensitive to installed coating mass.",
+      "grounding": "Weigh prepared, coated Be witnesses at the required optical performance, including primer, repairs and coverage variation."
+    },
+    {
+      "id": "040-02-cure_reference",
+      "tag": "PROJECTION",
+      "open_issue": "Filed 037b's 200 F stress-free state, compliant-core/free-edge model and balanced-force argument are adopted conditionally.",
+      "grounding": "Measure actual stress-free state and layer-wise residual strains; validate the free-edge and global/crimp assumptions on a curved matched panel."
+    },
+    {
+      "id": "040-03-combined_weather_thermal",
+      "tag": "PROJECTION",
+      "open_issue": "031 buoyancy/pressure and 037 solar temperatures are separate environments.",
+      "grounding": "Define the combined mission and compute/test its complete thermal cycle with the Admiral's chosen weather envelope."
+    },
+    {
+      "id": "040-04-face_compression",
+      "tag": "QUESTIONABLE",
+      "open_issue": "Compression strength is nonbinding under the scarf cap. Marginal face-tuple floats receive elasticity credit from 033's coupled historical E/Fcy tuple.",
+      "grounding": "Measure lot, orientation and formed-condition elastic modulus and compression, and state whether the design credits the coupled historical tuple."
+    },
+    {
+      "id": "040-05-bond_strength",
+      "tag": "QUESTIONABLE",
+      "open_issue": "Film weights do not establish adhesive shear, peel, flatwise tension, fatigue or leakage on Be/5056.",
+      "grounding": "Test the exact film, primer, surface treatment, cure and honeycomb geometry."
+    },
+    {
+      "id": "040-06-gamma",
+      "tag": "PROJECTION",
+      "open_issue": "The effective global coefficient and Vc branch convention lack whole-hull imperfection validation.",
+      "grounding": "Use measured imperfections, orthotropic shell analysis and correlated physical buckling tests."
+    },
+    {
+      "id": "040-07-wrinkling_Q",
+      "tag": "PROJECTION",
+      "open_issue": "Q=.33–.82 is a selectable model factor rather than a qualified lower-bound allowable.",
+      "grounding": "Correlate matched sandwich wrinkle specimens across relevant wavelengths and defects."
+    },
+    {
+      "id": "040-08-thermal_model",
+      "tag": "PROJECTION",
+      "open_issue": "Corrected thermal quadrature does not qualify the 037b homogenized free-edge model, local hardpoint restraint or joint coincidence.",
+      "grounding": "Compare thermal maps, strain and interface damage on curved instrumented panels."
+    },
+    {
+      "id": "040-09-scarf",
+      "tag": "PROJECTION",
+      "open_issue": "The 10 MPa mean-shear screen and worst-direction thermal addition do not resolve scarf peel, voids or intersections.",
+      "grounding": "Weigh and load/leak-test full process scarf intersections under thermal cycling."
+    },
+    {
+      "id": "040-10-stock_and_mouldline",
+      "tag": "PROJECTION",
+      "open_issue": "Low-radius face gauges are outside the cited standard sheet gauge envelope; spherical coverage and rejection rates are unresolved.",
+      "grounding": "Confirm formed stock supply and make a dimensioned panel/seam/mouldline manufacturing account."
+    },
+    {
+      "id": "040-11-core_properties",
+      "tag": "QUESTIONABLE",
+      "open_issue": "Typical CR-III properties, weak shear direction and scalar elasticity are transferred to a formed shell.",
+      "grounding": "Measure density, orthotropic stiffness, compression, shear and crushed/formed condition for the selected lot."
+    },
+    {
+      "id": "040-12-pad_load_path",
+      "tag": "PROJECTION",
+      "open_issue": "Heavy pad is sized to mean crush and a plate formula; punching, peel and hull load distribution remain open.",
+      "grounding": "Resolve the complete mooring attachment and validate with combined pressure/tether tests."
+    },
+    {
+      "id": "040-13-light_pad",
+      "tag": "PROJECTION",
+      "open_issue": "The 20 m/s pad supplies only about 0.432 of the 70 kn capacity.",
+      "grounding": "Resize the attachment for the actual required load; a mass-only lighter-pad result is not an assembly pass."
+    },
+    {
+      "id": "040-14-aerodynamic_pressure",
+      "tag": "PROJECTION",
+      "open_issue": "Uniform Cp=1 and aligned gust velocity are load surrogates; 70 kn is the governing modeled pressure.",
+      "grounding": "Resolve pressure distribution and transient tether/flight loads for the chosen configuration."
+    },
+    {
+      "id": "040-15-unvented_cells",
+      "tag": "PROJECTION",
+      "open_issue": "Ambient trapped gas consumes lift and changes inner/outer face load paths; late venting is a separate transient.",
+      "grounding": "Specify and demonstrate cell venting or analyze/test the sealed-cell pressure distribution and failure transient."
+    },
+    {
+      "id": "040-16-service_hardware",
+      "tag": "PROJECTION",
+      "open_issue": "30–50 kg service is nested in 100 kg systems and held fixed with radius; there is no installed bill of materials.",
+      "grounding": "Provide a weighed scalable hardware, support, controls and wiring bill with the remaining systems allocation."
+    },
+    {
+      "id": "040-17-leak_and_permeation",
+      "tag": "PROJECTION",
+      "open_issue": "Reference .001 mbar L/(s m) seam leakage and 10 Barrer scarf permeability are scenarios, not measured acceptances.",
+      "grounding": "Measure conditioned full-seam/port leakage and species permeation under mission pressure and temperature."
+    },
+    {
+      "id": "040-18-conditioning",
+      "tag": "PROJECTION",
+      "open_issue": "90% inventory removal, one-day release kinetics and water-only desorption composition are unverified.",
+      "grounding": "Measure finite species inventories and desorption rates after a validated conditioning process."
+    },
+    {
+      "id": "040-19-weather_requirement",
+      "tag": "PROJECTION",
+      "open_issue": "100 m centre altitude and both weather sets are choices for comparison, not an approved terrain/operations requirement.",
+      "grounding": "Have the Admiral choose the mission envelope and reserve policy; retain all three current accounts."
+    },
+    {
+      "id": "040-20-joint_floor",
+      "tag": "PROJECTION",
+      "open_issue": "Actual joining and the retained 5% floor produce different margins and least sets; neither closes an unmeasured installed joining bill.",
+      "grounding": "Close unlisted joining/edge/repair costs with a weighed assembly bill before releasing any retained allowance."
+    },
+    {
+      "id": "040-21-additional_installation",
+      "tag": "PROJECTION",
+      "open_issue": "Local hardpoints, tolerances, penetrations, rejected parts and repairs are not independently itemized beyond retained allowances.",
+      "grounding": "Reconcile the complete installed bill and load-path drawing; do not assign an installed-hull SF from the scored scalar screens."
+    },
+    {
+      "id": "040-22-film_interpolation",
+      "tag": "PROJECTION",
+      "open_issue": "Intermediate film weights rank optimism but are not necessarily available or qualified resin systems.",
+      "grounding": "Choose an available process and demonstrate both installed weight and bond/leak performance."
+    },
+    {
+      "id": "040-23-radius_scope",
+      "tag": "PROJECTION",
+      "open_issue": "The least-optimism ranking holds over R10/12/15/20/30 for the selected 3/8–1.0 core only.",
+      "grounding": "Treat other radii/core grades and pressure/weather reserve policies as separate design choices requiring recomputation."
+    }
+  ],
+  "inheritance_note": "040 findings remain open unless explicitly replaced by measured evidence; this card supplies sensitivities, not closure. Source pin is in MODEL-PINS.json."
+}

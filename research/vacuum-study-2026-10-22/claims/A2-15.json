@@ -1,0 +1,34 @@
+{
+  "id": "A2-15",
+  "kind": "review_claim",
+  "claim": "TRL7 hardware5%, battery6%; R12ISA P2 +4.6kg",
+  "original": {
+    "id": "A2-15",
+    "card": "061",
+    "claim": "TRL7 hardware5%, battery6%; R12ISA P2 +4.6kg",
+    "why_load_bearing": "Growth classification changes a float sign",
+    "outcome": "it reproduces",
+    "finding": "NASA Table VI-1 distinguishes 5% TRL7 hardware from 6% battery. R12 ISA P2 growth is 383.648403 kg and payload +4.615730 kg under the declared account.",
+    "evidence": [
+      "checks/061-ARITHMETIC.json",
+      "SOURCE-AUDIT.json",
+      "sources/NASA-table-VI-1.png"
+    ]
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "it reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "snapshot": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059,
+      "selector": "/claims/14"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

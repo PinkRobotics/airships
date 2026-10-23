@@ -1,0 +1,37 @@
+{
+  "id": "A1-06",
+  "kind": "review_claim",
+  "claim": "047 is inadmissible as a physical manufacturing tolerance.",
+  "original": {
+    "id": "A1-06",
+    "card": "062",
+    "claim": "047 is inadmissible as a physical manufacturing tolerance.",
+    "why_load_bearing": "Controls whether target amplitudes can be used for fabrication acceptance.",
+    "disposition": "reproduces",
+    "reviewer_finding": "The source record supports withholding physical tolerance release: 345 MPa is a tensile proxy; the in-plane core law, processed compression/bond and manufactured residual state remain unqualified.",
+    "evidence": [
+      "sources/047--INPUTS.json",
+      "sources/primary--sr200.pdf",
+      "sources/primary--af163.pdf",
+      "ADMISSIBILITY.md"
+    ],
+    "tag": "QUESTIONABLE / PROJECTION",
+    "physical_qualification": "open; no new hull/material qualification"
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "snapshot": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "sha256": "0a58772dc43eef58cdd741ae5a44b971bafea7dbfcebefc55d5b366e716ca00e",
+      "bytes": 10860,
+      "selector": "/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

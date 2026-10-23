@@ -1,0 +1,3121 @@
+{
+  "manifest_files": 776,
+  "all_manifest_pins_match": true,
+  "passed_input_and_prior_checks": 275,
+  "source_snapshot_checks": 178,
+  "all_admitted_jobs_released": true,
+  "live_jobs": 0,
+  "FE_checks": 560,
+  "FE_failures": 0,
+  "target_checks": 592,
+  "hail_checks": 145,
+  "witnesses": 36,
+  "damaged_same_budget_cases": 72,
+  "visual_review": "Target surface reviewed in partial turn; material chart reviewed and missing-Al-row axis alignment corrected.",
+  "verified_files": [
+    {
+      "relative": "CARD.md",
+      "passed": true
+    },
+    {
+      "relative": "CODE.tar.gz",
+      "passed": true
+    },
+    {
+      "relative": "DAMAGE.json",
+      "passed": true
+    },
+    {
+      "relative": "EXECUTION.json",
+      "passed": true
+    },
+    {
+      "relative": "FE-041-reference-5-same_tube_mass-m6.json",
+      "passed": true
+    },
+    {
+      "relative": "FE-ALL.json",
+      "passed": true
+    },
+    {
+      "relative": "FE-CHECKS.json",
+      "passed": true
+    },
+    {
+      "relative": "FE-all-all-same_tube_mass-m6.json",
+      "passed": true
+    },
+    {
+      "relative": "FRAME-COMPARE.csv",
+      "passed": true
+    },
+    {
+      "relative": "FRAME-COMPARE.json",
+      "passed": true
+    },
+    {
+      "relative": "GAPS.csv",
+      "passed": true
+    },
+    {
+      "relative": "GAPS.json",
+      "passed": true
+    },
+    {
+      "relative": "HAIL-DESIGN.csv",
+      "passed": true
+    },
+    {
+      "relative": "HAIL.json",
+      "passed": true
+    },
+    {
+      "relative": "INPUT-CHECK.json",
+      "passed": true
+    },
+    {
+      "relative": "INPUTS.json",
+      "passed": true
+    },
+    {
+      "relative": "MATERIAL-COMPARISON.pdf",
+      "passed": true
+    },
+    {
+      "relative": "MATERIAL-COMPARISON.png",
+      "passed": true
+    },
+    {
+      "relative": "MATERIAL-EVIDENCE.csv",
+      "passed": true
+    },
+    {
+      "relative": "MATERIAL-EVIDENCE.json",
+      "passed": true
+    },
+    {
+      "relative": "MATERIAL-MODELS.json",
+      "passed": true
+    },
+    {
+      "relative": "METHOD.md",
+      "passed": true
+    },
+    {
+      "relative": "NFI.json",
+      "passed": true
+    },
+    {
+      "relative": "RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "SOURCES.md",
+      "passed": true
+    },
+    {
+      "relative": "TARGET-SURFACE.csv",
+      "passed": true
+    },
+    {
+      "relative": "TARGET-SURFACE.pdf",
+      "passed": true
+    },
+    {
+      "relative": "TARGET-SURFACE.png",
+      "passed": true
+    },
+    {
+      "relative": "TARGETS.json",
+      "passed": true
+    },
+    {
+      "relative": "TIMING-START.json",
+      "passed": true
+    },
+    {
+      "relative": "TIMING.json",
+      "passed": true
+    },
+    {
+      "relative": "WITNESSES.json",
+      "passed": true
+    },
+    {
+      "relative": "analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "build_completion.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/build_completion.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/source/witnesses.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/build_completion.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/source/witnesses.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-02/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/build_completion.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/source/witnesses.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/analyze-03/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/compare-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-all-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-baseline-02/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/fe-validation-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-02/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-03/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-04/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/build_completion.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/source/witnesses.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/hail-05/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/analyze.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/hail.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/source/witnesses.py",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "execution/witnesses-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "frame_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "hail.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/CARD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/INPUTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/NFI.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/TRENDS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/p3-materials.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/017b/p3-materials.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/041/CARD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/041/MANIFEST.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/041/METHODS.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/041/NFI.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/041/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/041/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/041/SOURCES.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/CARD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/MANIFEST.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/METHOD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/NFI.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/SOURCE-DATA.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/043/SOURCES.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/CARD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/MANIFEST.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/MEMBERS-f5-019-operating.csv",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/MEMBERS-f5-019-own_screen.csv",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/MEMBERS-f5-5-operating.csv",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/MEMBERS-f5-5-own_screen.csv",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/METHOD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/043-fold/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/CARD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/COMPUTE.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/DET.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/INPUTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/NFI.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/dt45.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/p3_022d.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/p3damage.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/p3damage.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/run45.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/threats.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/045/threats.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/ORDER.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/RESUME-ORDER.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/brief/CARD-051-P3-FRAME-TARGETS.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/brief/COMMON-RESUMED.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/brief/COMMON.md",
+      "passed": true
+    },
+    {
+      "relative": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "passed": true
+    },
+    {
+      "relative": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "passed": true
+    },
+    {
+      "relative": "intake/brief/RESUME-ORDER.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/CHECK.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/MANIFEST.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/SCALAR-CHECK.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/runs/f5-019-m24/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/runs/f5-019-m24/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/runs/f5-5-m24/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check041/runs/f5-5-m24/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "intake/check043/CARD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/check043/CHECK.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/check043/METHOD.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/check043/NFI.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check043/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/check043/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/END.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/START.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/source/build_documents.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/source/package.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-02/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/END.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/START.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/source/build_documents.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/source/package.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-03/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/END.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/START.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/source/build_documents.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/source/package.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-04/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/END.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/START.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/source/build_documents.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/source/package.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-05/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/END.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/START.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/source/build_documents.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/source/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/source/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/source/package.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/compare-06/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/targets-01/END.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/targets-01/START.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/targets-01/source/linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/targets-01/source/run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/targets-01/source/targets.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/targets-01/stderr.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/earlier-execution/targets-01/stdout.txt",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/INPUT-CHECK.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/INPUTS.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/MANIFEST-051.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/REPORT.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/imported/0d24229a8dae19257a486dc029047d3e17453aa4864ad9eb428197f453df778a/SOURCES.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/imported/0e076a66e14016f0a8aa05df82b484827ea40e9cb29b62e73bbcebde0fb70b0a/SOURCES.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/imported/1250e75f1ca702231c6f3065730c6a0d0314d98a37af21ed38593bca32a4e869/SOURCES.md",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/imported/9e37a7acbeba8b98115f28ed7426b8b3c0e8358f7eeaf46a4c51447b6ee5b34b/MATERIAL-EVIDENCE.csv",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/imported/b8e7c269d5ef2c796cc0477fcb830b9cf6693361769af2a8f5b277f4752e2764/MATERIAL-EVIDENCE.json",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/imported/frame_compare.py",
+      "passed": true
+    },
+    {
+      "relative": "intake/partial/imported/material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "linear_core.py",
+      "passed": true
+    },
+    {
+      "relative": "material_models.py",
+      "passed": true
+    },
+    {
+      "relative": "package_completion.py",
+      "passed": true
+    },
+    {
+      "relative": "retry_job.py",
+      "passed": true
+    },
+    {
+      "relative": "run_job.py",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m12-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m12-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m12-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m12-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m12-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m12-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/041-reference-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Al6061T6-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/CVD-PureSiC-HR-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/HNS-MI-CMC-scenario-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Hexoloy-SA-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m12-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m12-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m12-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m12-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m12-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m12-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-50-20-20-10-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-70-10-10-10-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/K13D2U-UD-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-50-20-20-10-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-70-10-10-10-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/M55J-UD-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCS6-epoxy-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/SCSUltra-epoxy-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-50-20-20-10-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-70-10-10-10-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/T700S-UD-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/Tyranno-SA-CVI-scenario-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-same_tube_mass-m6-lost321/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-same_tube_mass-m6-lost321/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-same_tube_mass-m6-lost585/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-same_tube_mass-m6-lost585/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-019-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-minimum_wall_q1_screen-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-minimum_wall_q1_screen-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-same_tube_mass-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-same_tube_mass-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-same_tube_mass-m6-lost123/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-same_tube_mass-m6-lost123/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-same_tube_mass-m6-lost551/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-same_tube_mass-m6-lost551/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-verified_q1_1-m6-intact/RESULTS.json",
+      "passed": true
+    },
+    {
+      "relative": "runs/UltraSiC-sintered-5-verified_q1_1-m6-intact/STATIC.npz",
+      "passed": true
+    },
+    {
+      "relative": "sources/DOWNLOADS.json",
+      "passed": true
+    },
+    {
+      "relative": "sources/WEB-EVIDENCE.json",
+      "passed": true
+    },
+    {
+      "relative": "sources/coi-hns.pdf",
+      "passed": true
+    },
+    {
+      "relative": "sources/coi-hns.txt",
+      "passed": true
+    },
+    {
+      "relative": "sources/mitsubishi-dialead.pdf",
+      "passed": true
+    },
+    {
+      "relative": "sources/mitsubishi-dialead.txt",
+      "passed": true
+    },
+    {
+      "relative": "sources/mitsubishi-page2.png",
+      "passed": true
+    },
+    {
+      "relative": "sources/mitsubishi-page3.png",
+      "passed": true
+    },
+    {
+      "relative": "sources/mitsubishi-page4.png",
+      "passed": true
+    },
+    {
+      "relative": "sources/mitsubishi-page7.png",
+      "passed": true
+    },
+    {
+      "relative": "sources/nasa-orthotropic.pdf",
+      "passed": true
+    },
+    {
+      "relative": "sources/nasa-orthotropic.txt",
+      "passed": true
+    },
+    {
+      "relative": "sources/ornl-tubes-2013.pdf",
+      "passed": true
+    },
+    {
+      "relative": "sources/ornl-tubes-2013.txt",
+      "passed": true
+    },
+    {
+      "relative": "sources/sic-bundle-statistics.html",
+      "passed": true
+    },
+    {
+      "relative": "sources/sic-bundle-statistics.txt",
+      "passed": true
+    },
+    {
+      "relative": "sources/specialty-scs.html",
+      "passed": true
+    },
+    {
+      "relative": "sources/toray-m55j.pdf",
+      "passed": true
+    },
+    {
+      "relative": "sources/toray-m55j.txt",
+      "passed": true
+    },
+    {
+      "relative": "sources/toray-t700s.pdf",
+      "passed": true
+    },
+    {
+      "relative": "sources/toray-t700s.txt",
+      "passed": true
+    },
+    {
+      "relative": "sources/tyranno-flexure.pdf",
+      "passed": true
+    },
+    {
+      "relative": "sources/tyranno-flexure.txt",
+      "passed": true
+    },
+    {
+      "relative": "targets.py",
+      "passed": true
+    },
+    {
+      "relative": "validate_fe.py",
+      "passed": true
+    },
+    {
+      "relative": "witnesses.py",
+      "passed": true
+    }
+  ]
+}

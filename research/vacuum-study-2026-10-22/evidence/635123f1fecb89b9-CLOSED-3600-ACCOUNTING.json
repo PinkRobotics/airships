@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "status": "BOTH_UNITS_CLOSED",
+  "grant_s": 3600,
+  "owner": {
+    "grant_s": 3000,
+    "actual_s": "771.5844438250642",
+    "charged_s": "806.5844438250642",
+    "retired_exact_s": "2193.4155561749358",
+    "retired_owner_reported_s": "2193.415556174936"
+  },
+  "Una": {
+    "grant_s": 600,
+    "actual_s": "153.79372591199353",
+    "charged_s": "188.79372591199353",
+    "retired_s": "411.20627408800647"
+  },
+  "combined": {
+    "actual_s": "925.37816973705773",
+    "charged_s": "995.37816973705773",
+    "retired_s": "2604.62183026294227",
+    "fixed_allowances_in_charge_s": 70,
+    "retired_reusable": false
+  },
+  "publication": "Both measured intervals inside assigned25second allowances; fixed prospective allowances retained, not replaced by measured intervals and no ingestion delay charged.",
+  "qualifications": [
+    "Owner phase2 absolute pair absent; reported phase2/3 allocation has the earlier stated limit.",
+    "Owner presample validation14/final16 artifacts and unstamped cleanup remain administrative qualifications.",
+    "Reviewer final-ledger, FINAL and PUBLICATION omitted from six-artifact report list; independently pinned in this return."
+  ],
+  "old_grant_separate": "Earlier re-funded1054.72charged/2545.28retired with70allowances0 is a separate disposed grant, not changed by this ledger.",
+  "evidence": [
+    {
+      "path": "evidence/edd42d7d9ec0cbb7-ACCOUNTING.json",
+      "sha256": "edd42d7d9ec0cbb723a2597f58e8d949139e55431393efd4248645d4c0619059",
+      "bytes": 1855
+    },
+    {
+      "path": "unpublished-local-ref:ff9a865eeaae10ab",
+      "sha256": "dd27d21165a0eec420f4603d128146541f52f9d1d6df8df2022cdec63c0bb6ca",
+      "bytes": 723
+    },
+    {
+      "path": "unpublished-local-ref:f10c880ded5aac05",
+      "sha256": "f2c7c4bc7b3f8d84a40b016e988527533e7d69618c5d31c16530e811fad65ec0",
+      "bytes": 1139
+    },
+    {
+      "path": "unpublished-local-ref:7d11cdd8da5a13f6",
+      "sha256": "6a7e8adad91e40be20cc3a76ea8886d30fc6b98ff13e2b96eab4dd317fca229b",
+      "bytes": 187
+    },
+    {
+      "path": "unpublished-local-ref:8f6e4fca238c0329",
+      "sha256": "242d162a1c40bd5c8c348c13c06d8fa46e7419543ba662c24458dc29c72bad7f",
+      "bytes": 237
+    },
+    {
+      "path": "unpublished-local-ref:baf7d703af03c140",
+      "sha256": "7e96cb8d1875a89c1769485fb02297bf5e9628e2409ada195829df481a15acde",
+      "bytes": 13619
+    }
+  ]
+}

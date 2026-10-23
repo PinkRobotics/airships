@@ -1,0 +1,44 @@
+{
+  "id": "E-b1c1eb3994ec4931e96e",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-b1c1eb3994ec4931e96e",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check041~1NFI.json/rows/1",
+    "row_id": "CHECK041-NFI-02",
+    "fields": {
+      "id": "CHECK041-NFI-02",
+      "status": "open",
+      "topic": "Film-tangent reproducibility",
+      "finding": "Rigid/pinned perfect multipliers are 7.151119777416943 / 2.0461935353568275 versus 7.155002496828368 / 2.0471334034237882. Direction-field ambiguity is a hypothesis, not an established cause.",
+      "action": "Supply a pinned per-cell material-direction field or an ordering-independent geometric definition, then align independent formulations. Preserve all exact differences.",
+      "evidence": [
+        "SCALAR-CHECK.json",
+        "MISMATCHES.csv",
+        "film_check.py"
+      ],
+      "stops_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Rigid/pinned perfect multipliers are 7.151119777416943 / 2.0461935353568275 versus 7.155002496828368 / 2.0471334034237882. Direction-field ambiguity is a hypothesis, not an established cause.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check041~1NFI.json/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

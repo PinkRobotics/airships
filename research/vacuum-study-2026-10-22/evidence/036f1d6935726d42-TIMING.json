@@ -1,0 +1,922 @@
+{
+  "start": {
+    "started": "2026-10-20T07:00:50.502723-07:00",
+    "order": "ord-admiral-rr2-check059-codex-7e53-1020"
+  },
+  "executions": [
+    {
+      "tag": "capacity01",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/capacity_check.py"
+      ],
+      "started_at": "2026-10-20T07:08:08.881469-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5303e6f8c2b2280c88eb0d60e246c5a7f9c978f9f6bd065d41c7a7cdc4466fd8"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/capacity_check.py",
+          "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+        }
+      ],
+      "ended_at": "2026-10-20T07:08:16.406447-07:00",
+      "exit_code": 1,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "capacity02",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/capacity_check.py"
+      ],
+      "started_at": "2026-10-20T07:13:01.982830-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "b2cbd9f700e1a3877f7c6bfac2606d64251f512b2fad863c709f33655ed7d1f6"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/capacity_check.py",
+          "sha256": "b2cbd9f700e1a3877f7c6bfac2606d64251f512b2fad863c709f33655ed7d1f6"
+        }
+      ],
+      "ended_at": "2026-10-20T07:13:23.670392-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "finish01",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/finish_check.py"
+      ],
+      "started_at": "2026-10-20T07:30:00.741900-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "4cbb8498bc4181695d81617c7859529a53ec16bceb73e99f1cb504fcab3bde00"
+        },
+        {
+          "path": "evidence/df9598a6ee97f610-finish_check.py",
+          "sha256": "df9598a6ee97f61099dcdcad03b9ba85d52ba74545dc317d7b370972d8dd2f18"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+        },
+        {
+          "path": "evidence/804f81135bfcdf67-pond_grid_check.py",
+          "sha256": "804f81135bfcdf67d3b4171352c6f76fa54606faba104c12b31e899bdcf0c91c"
+        },
+        {
+          "path": "evidence/b145d0fca347677e-pond_validation.py",
+          "sha256": "b145d0fca347677e84dc1ce5811f3c258619c985fd6daa8d7227de36ac837038"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": "evidence/8ff7ec27709b7f62-water_check.py",
+          "sha256": "8ff7ec27709b7f62a89dbfaa4fe016b16d01fc69d36575ef731516eddecc1439"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/finish_check.py",
+          "sha256": "df9598a6ee97f61099dcdcad03b9ba85d52ba74545dc317d7b370972d8dd2f18"
+        }
+      ],
+      "ended_at": "2026-10-20T07:30:01.925186-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "liquid01",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py"
+      ],
+      "started_at": "2026-10-20T07:04:12.925289-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "cf8d38535e11e32970145b4c026e8020ca33eaa816982a815968c913aae8bec7"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py",
+          "sha256": "cf8d38535e11e32970145b4c026e8020ca33eaa816982a815968c913aae8bec7"
+        }
+      ],
+      "ended_at": "2026-10-20T07:04:13.326622-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "liquid02",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py"
+      ],
+      "started_at": "2026-10-20T07:05:58.431006-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5303e6f8c2b2280c88eb0d60e246c5a7f9c978f9f6bd065d41c7a7cdc4466fd8"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "4fc49e9057a547224b5df1db20fff06219a95fcb3e182ac9fe4d1b6dad0ae03b"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py",
+          "sha256": "5303e6f8c2b2280c88eb0d60e246c5a7f9c978f9f6bd065d41c7a7cdc4466fd8"
+        }
+      ],
+      "ended_at": "2026-10-20T07:05:58.829067-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "liquid03",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py"
+      ],
+      "started_at": "2026-10-20T07:09:08.787475-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "34a16d5b13c1e015c9070a28960141aa5a78960f0b708a05fc6604f2c40d0eac"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py",
+          "sha256": "34a16d5b13c1e015c9070a28960141aa5a78960f0b708a05fc6604f2c40d0eac"
+        }
+      ],
+      "ended_at": "2026-10-20T07:09:09.178326-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "liquid04",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py"
+      ],
+      "started_at": "2026-10-20T07:11:06.908825-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        }
+      ],
+      "ended_at": "2026-10-20T07:11:07.320187-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "local01",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/local_drying.py"
+      ],
+      "started_at": "2026-10-20T07:11:06.899295-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        }
+      ],
+      "ended_at": "2026-10-20T07:11:09.899245-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "pond01",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/pond_check.py"
+      ],
+      "started_at": "2026-10-20T07:05:25.861082-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "cf8d38535e11e32970145b4c026e8020ca33eaa816982a815968c913aae8bec7"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "4fc49e9057a547224b5df1db20fff06219a95fcb3e182ac9fe4d1b6dad0ae03b"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        }
+      ],
+      "ended_at": "2026-10-20T07:05:30.125494-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "pond02",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/pond_validation.py"
+      ],
+      "started_at": "2026-10-20T07:16:31.958080-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "b2cbd9f700e1a3877f7c6bfac2606d64251f512b2fad863c709f33655ed7d1f6"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+        },
+        {
+          "path": "evidence/b145d0fca347677e-pond_validation.py",
+          "sha256": "75ea680c4bab1a854f0e43d708b020c7f9e6879cc9e5f9fef096b2edf3aca062"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": "evidence/8ff7ec27709b7f62-water_check.py",
+          "sha256": "7e08bab5a856ee6e5d40eb56085f5f98afedec608ded0abdd7ad3653e8d4faef"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/pond_validation.py",
+          "sha256": "75ea680c4bab1a854f0e43d708b020c7f9e6879cc9e5f9fef096b2edf3aca062"
+        }
+      ],
+      "ended_at": "2026-10-20T07:16:34.186620-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "pond03",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/pond_validation.py"
+      ],
+      "started_at": "2026-10-20T07:20:29.829317-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "4cbb8498bc4181695d81617c7859529a53ec16bceb73e99f1cb504fcab3bde00"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+        },
+        {
+          "path": "evidence/b145d0fca347677e-pond_validation.py",
+          "sha256": "b145d0fca347677e84dc1ce5811f3c258619c985fd6daa8d7227de36ac837038"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": "evidence/8ff7ec27709b7f62-water_check.py",
+          "sha256": "8ff7ec27709b7f62a89dbfaa4fe016b16d01fc69d36575ef731516eddecc1439"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/pond_validation.py",
+          "sha256": "b145d0fca347677e84dc1ce5811f3c258619c985fd6daa8d7227de36ac837038"
+        }
+      ],
+      "ended_at": "2026-10-20T07:20:32.473624-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "pond04",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/pond_grid_check.py"
+      ],
+      "started_at": "2026-10-20T07:22:22.272242-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "4cbb8498bc4181695d81617c7859529a53ec16bceb73e99f1cb504fcab3bde00"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+        },
+        {
+          "path": "evidence/804f81135bfcdf67-pond_grid_check.py",
+          "sha256": "e1bf311c183d2989efb0db63c10df0b05f5b44c4b6de117f426a202a25ed619d"
+        },
+        {
+          "path": "evidence/b145d0fca347677e-pond_validation.py",
+          "sha256": "b145d0fca347677e84dc1ce5811f3c258619c985fd6daa8d7227de36ac837038"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": "evidence/8ff7ec27709b7f62-water_check.py",
+          "sha256": "8ff7ec27709b7f62a89dbfaa4fe016b16d01fc69d36575ef731516eddecc1439"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/pond_grid_check.py",
+          "sha256": "e1bf311c183d2989efb0db63c10df0b05f5b44c4b6de117f426a202a25ed619d"
+        }
+      ],
+      "ended_at": "2026-10-20T07:22:23.724772-07:00",
+      "exit_code": 1,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "pond05",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/pond_grid_check.py"
+      ],
+      "started_at": "2026-10-20T07:28:25.362680-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "4cbb8498bc4181695d81617c7859529a53ec16bceb73e99f1cb504fcab3bde00"
+        },
+        {
+          "path": "evidence/df9598a6ee97f610-finish_check.py",
+          "sha256": "df9598a6ee97f61099dcdcad03b9ba85d52ba74545dc317d7b370972d8dd2f18"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+        },
+        {
+          "path": "evidence/804f81135bfcdf67-pond_grid_check.py",
+          "sha256": "804f81135bfcdf67d3b4171352c6f76fa54606faba104c12b31e899bdcf0c91c"
+        },
+        {
+          "path": "evidence/b145d0fca347677e-pond_validation.py",
+          "sha256": "b145d0fca347677e84dc1ce5811f3c258619c985fd6daa8d7227de36ac837038"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": "evidence/8ff7ec27709b7f62-water_check.py",
+          "sha256": "8ff7ec27709b7f62a89dbfaa4fe016b16d01fc69d36575ef731516eddecc1439"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/pond_grid_check.py",
+          "sha256": "804f81135bfcdf67d3b4171352c6f76fa54606faba104c12b31e899bdcf0c91c"
+        }
+      ],
+      "ended_at": "2026-10-20T07:28:26.800411-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "probe01",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/probe_check.py"
+      ],
+      "started_at": "2026-10-20T07:05:25.859919-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "cf8d38535e11e32970145b4c026e8020ca33eaa816982a815968c913aae8bec7"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "4fc49e9057a547224b5df1db20fff06219a95fcb3e182ac9fe4d1b6dad0ae03b"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/probe_check.py",
+          "sha256": "4fc49e9057a547224b5df1db20fff06219a95fcb3e182ac9fe4d1b6dad0ae03b"
+        }
+      ],
+      "ended_at": "2026-10-20T07:05:26.474685-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "probe02",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/probe_check.py"
+      ],
+      "started_at": "2026-10-20T07:08:08.872531-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "1f1f64ab43823edb990027213b50b25c0e5abad20bc3108b169f268f786892cf"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5303e6f8c2b2280c88eb0d60e246c5a7f9c978f9f6bd065d41c7a7cdc4466fd8"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        }
+      ],
+      "ended_at": "2026-10-20T07:08:09.541384-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "water01",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/water_check.py"
+      ],
+      "started_at": "2026-10-20T07:16:31.958117-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "b2cbd9f700e1a3877f7c6bfac2606d64251f512b2fad863c709f33655ed7d1f6"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+        },
+        {
+          "path": "evidence/b145d0fca347677e-pond_validation.py",
+          "sha256": "75ea680c4bab1a854f0e43d708b020c7f9e6879cc9e5f9fef096b2edf3aca062"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": "evidence/8ff7ec27709b7f62-water_check.py",
+          "sha256": "7e08bab5a856ee6e5d40eb56085f5f98afedec608ded0abdd7ad3653e8d4faef"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/water_check.py",
+          "sha256": "7e08bab5a856ee6e5d40eb56085f5f98afedec608ded0abdd7ad3653e8d4faef"
+        }
+      ],
+      "ended_at": "2026-10-20T07:16:32.234046-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    },
+    {
+      "tag": "water02",
+      "command": [
+        "python3",
+        "tools/simjob.py",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "python3",
+        ".ship/work/outputs/vacuum-mainline059-check-1020/water_check.py"
+      ],
+      "started_at": "2026-10-20T07:20:29.829439-07:00",
+      "cores": 1,
+      "memory": "1G",
+      "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+      "source_pins": [
+        {
+          "path": "evidence/015df10734ee9eb1-admit.py",
+          "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+        },
+        {
+          "path": "evidence/4cbb8498bc418169-capacity_check.py",
+          "sha256": "4cbb8498bc4181695d81617c7859529a53ec16bceb73e99f1cb504fcab3bde00"
+        },
+        {
+          "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+          "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+        },
+        {
+          "path": "evidence/322edaeb9df48485-local_drying.py",
+          "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+        },
+        {
+          "path": "evidence/1bc63dd16be03461-pond_check.py",
+          "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+        },
+        {
+          "path": "evidence/b145d0fca347677e-pond_validation.py",
+          "sha256": "b145d0fca347677e84dc1ce5811f3c258619c985fd6daa8d7227de36ac837038"
+        },
+        {
+          "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+          "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+        },
+        {
+          "path": "evidence/8ff7ec27709b7f62-water_check.py",
+          "sha256": "8ff7ec27709b7f62a89dbfaa4fe016b16d01fc69d36575ef731516eddecc1439"
+        },
+        {
+          "path": ".ship/work/outputs/vacuum-mainline059-check-1020/water_check.py",
+          "sha256": "8ff7ec27709b7f62a89dbfaa4fe016b16d01fc69d36575ef731516eddecc1439"
+        }
+      ],
+      "ended_at": "2026-10-20T07:20:30.125043-07:00",
+      "exit_code": 0,
+      "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+    }
+  ],
+  "times_are": "measured, never limits",
+  "no_refusal": true,
+  "corrected_failures": {
+    "capacity01": "missing historical R20 table; independent extension added",
+    "pond04": "completed diagnostic data; NumPy integer printing corrected"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009 wrinkling-coefficient column",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "does_not_restart": "Geometry, face, core and knockdowns stay at the filed MAINLINE-009 point.",
+  "foam": {
+    "formula": "sigma_wr = Q*(E*Ec*Gc/(1-nu^2))**(1/3), then the equibiaxial factor 0.682327803828",
+    "design_Q": 0.5,
+    "design_source": "NASA CR-1457 equation 2.2-5. Q=0.50 is the lower bound selected from elastic tests and from Plantema's practical-design recommendation. Hoff and Mautner data are cited there as leading to the same lower bound.",
+    "theoretical_band": [
+      0.78,
+      0.91
+    ],
+    "comparison_Q": 0.82,
+    "theoretical_source": "The dispatch states about 0.78-0.91 for a perfect face on an isotropic core, naming Hoff and Mautner 1945, Allen 1969 and Plantema 1966. Those three works were not opened. The band is QUESTIONABLE.",
+    "rows": {
+      "design_0.50": {
+        "Q": 0.5,
+        "SF_wrinkle": 0.23516798404427022,
+        "least_SF": 0.23515931324953654,
+        "governing": "global_buckling"
+      },
+      "band_0.78": {
+        "Q": 0.78,
+        "SF_wrinkle": 0.36686205510906156,
+        "least_SF": 0.23515931324953654,
+        "governing": "global_buckling"
+      },
+      "compare_0.82": {
+        "Q": 0.82,
+        "SF_wrinkle": 0.38567549383260313,
+        "least_SF": 0.23515931324953654,
+        "governing": "global_buckling"
+      },
+      "band_0.91": {
+        "Q": 0.91,
+        "SF_wrinkle": 0.4280057309605718,
+        "least_SF": 0.23515931324953654,
+        "governing": "global_buckling"
+      }
+    },
+    "precision_gap_Ec_Gc": 4.410943999999999,
+    "precision_gap_note": "(0.82/0.50)**3. Required Ec*Gc scales as 1/Q**3. The filed point's product factor 76.8892122204 at Q=0.50 becomes that factor divided by this gap."
+  },
+  "honeycomb": {
+    "design_coefficient": 0.33,
+    "design_source": "NASA CR-1457 equation 2.2-14, waviness unknown. The handbook says this choice implies a knockdown of about 0.4.",
+    "theoretical_coefficient": 0.8,
+    "theoretical_source": "NASA CR-1457 equation 2.2-12 leads with 0.8 when initial waviness is known. Using 0.8 in place of 0.33 inside 2.2-14 drops the waviness denominator. QUESTIONABLE.",
+    "hexcel_HRH-10-4.8-32_on_the_filed_mass_line": {
+      "design_0.33": {
+        "coefficient": 0.33,
+        "SF_wrinkle": 0.14566743215377415,
+        "least_of_buckling_and_wrinkle": 0.14566743215377415,
+        "governing": "face_wrinkling"
+      },
+      "equation_2_2_12_0.80": {
+        "coefficient": 0.8,
+        "SF_wrinkle": 0.3531331688576343,
+        "least_of_buckling_and_wrinkle": 0.26626666435995383,
+        "governing": "global_buckling"
+      }
+    },
+    "Ec_scales_as": "1/coefficient**2, because 2.2-14 is linear in the coefficient and in sqrt(Ec)"
+  },
+  "nfi": {
+    "id": "NFI-WRINKLE-PRECISION",
+    "optimistic": 0.82,
+    "design": 0.5,
+    "factor": 4.410943999999999,
+    "direction": "A wrinkling test on the face and core this point would build. The coefficient is not a measured property of Divinycell."
+  }
+}

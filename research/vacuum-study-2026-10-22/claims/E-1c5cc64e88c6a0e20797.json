@@ -1,0 +1,39 @@
+{
+  "id": "E-1c5cc64e88c6a0e20797",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-1c5cc64e88c6a0e20797",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/owner_findings_unchanged/rows/0",
+    "row_id": "NFI052-01",
+    "fields": {
+      "id": "NFI052-01",
+      "title": "Full-member compression distribution",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "3.9 GPa is typical catalog compression, not a fitted scale at a known reference size. The 1 GPa baseline is only a ranking target.",
+      "proposed_fix": "Measure the actual full-length/full-wall production tube population in compression, including finish, joints and proof history."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "3.9 GPa is typical catalog compression, not a fitted scale at a known reference size. The 1 GPa baseline is only a ranking target. | Full-member compression distribution",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/owner_findings_unchanged/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

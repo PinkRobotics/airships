@@ -1,0 +1,185 @@
+{
+  "id": "rpt-ref-17635c55001d23054259",
+  "unit": "vacuum-mainline051-p3-frame-targets-1020",
+  "at": "2026-10-20T06:05:30.880800-07:00",
+  "body": "MAINLINE-051 COMPLETE. QUESTIONABLE / PROJECTION. Resume finished; prior partial and all its pins preserved.\n\nDelivered m5–40 target surfaces, 18 material/layup models, frame masses and SFs, explicit q≥1 mechanical witnesses, numerical strength/m gaps, 980 hail scenarios and 72 same-budget member-loss cases. 182 FE solves; 592 target, six regression, 145 hail and 560 FE/mesh checks pass.\n\nAt 5% reserve, Hexoloy's same-mass mechanical SF is 1.05399. Required whole-member compression scale at m10/Pf1e-3 is 3.72734 GPa; assuming 3.9 GPa gives Pf0.00063595. This is hypothetical, not a measured distribution. At the original higher 041 screens, scale improvements remain 1.09710×/1.07925×.\n\nK13D2U 50/20/20/10 has same-mass mechanical ceilings 1.13574/1.07598 and required scales 2.16141/2.24573 GPa; compression data are absent. Its 5% q≥1 witness totals 4282 kg including reserve/sag, versus 5249 kg for M55J's best modeled layup and 21179 kg for aluminium.\n\nThe transferred SiC hail estimates are 1.153–5.393% at the 5% section; actual break probabilities remain unidentified. All sampled member losses trigger secondary overload; dynamic cascade is not proven. Joints and film need redesign as well as tubes.\n\nSixteen qualification NFIs remain; no evidence-backed winner. Unchanged admission retries completed at one core/1GiB; all admitted jobs released. One early 29-second manual retry is disclosed. No successor; SLEEPING.",
+  "artifacts": [
+    {
+      "path": "evidence/ddcb7f00a136d59c-CARD.md",
+      "sha256": "ddcb7f00a136d59c7378f568a319e131c0b6dd398c30a3173c57dc6c33874fb2",
+      "bytes": 19545
+    },
+    {
+      "path": "evidence/69b69485433e32ad-METHOD.md",
+      "sha256": "69b69485433e32ad7640667743e6c6e15bbd17735b46fad025d95090e1330b56",
+      "bytes": 7555
+    },
+    {
+      "path": "evidence/b2dcfe2176364425-SOURCES.md",
+      "sha256": "b2dcfe21763644250cbdd71d6c6068bcbcf03e5c7e4894acf9e7ae907a5b09d2",
+      "bytes": 8995
+    },
+    {
+      "path": "evidence/e4eaad8b4aadc060-RESULTS.json",
+      "sha256": "e4eaad8b4aadc060d6f0084d0810d2fc9b3b82b883724832a82cd4ea17182a28",
+      "bytes": 2696861
+    },
+    {
+      "path": "evidence/e06b630b96cf85ca-TARGETS.json",
+      "sha256": "e06b630b96cf85ca5527cd57e458873cc0be17db492910ded18b6acf3b6dc1ec",
+      "bytes": 245618
+    },
+    {
+      "path": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv",
+      "sha256": "05ec78b6ec5d7d5efb0bb987fef76de1008f2443aecfaa2a78287fbbfe0cccd0",
+      "bytes": 49628
+    },
+    {
+      "path": "unpublished-local-ref:ed1c6a73e27085ca",
+      "sha256": "5dddc2ab1992412fdadf71cab11f5e985489926c73187f2cc9a2ad34b0601969",
+      "bytes": 225781
+    },
+    {
+      "path": "unpublished-local-ref:ecfa64b5ce60579d",
+      "sha256": "66f8eaae405e1d0825df4b22edb4153227133ee6b24ec6a4702c34b21c35e55d",
+      "bytes": 25821
+    },
+    {
+      "path": "evidence/4df98e13477c694c-MATERIAL-MODELS.json",
+      "sha256": "4df98e13477c694ca65f6e51c5dfadd69571c8b37e8c21d8d64072ba69826b46",
+      "bytes": 35449
+    },
+    {
+      "path": "evidence/38b1eec7beb1c091-MATERIAL-EVIDENCE.json",
+      "sha256": "38b1eec7beb1c0914ed36a110a65ee6ae9a90fe584b70e73a33bb2faa789aaf8",
+      "bytes": 11246
+    },
+    {
+      "path": "evidence/692794c1e2322e79-FRAME-COMPARE.json",
+      "sha256": "692794c1e2322e79d6bcad90cee54eb766d8cf52769e238403f663527f4210af",
+      "bytes": 171066
+    },
+    {
+      "path": "evidence/9826f9944862691d-FRAME-COMPARE.csv",
+      "sha256": "9826f9944862691d3abc00c4094e0c830464c2ca58bf1b16b47cf74428dbd1dc",
+      "bytes": 58161
+    },
+    {
+      "path": "evidence/fbfc1b339d658712-GAPS.json",
+      "sha256": "fbfc1b339d6587126b1b55f06fe57c1aa2857a6da2ce830891418996b16425ee",
+      "bytes": 2000156
+    },
+    {
+      "path": "evidence/b7d8699ea89db8f4-GAPS.csv",
+      "sha256": "b7d8699ea89db8f47adc72eac2126f8e264091d69e766d71b7a6c9a6ab9a9afe",
+      "bytes": 27944
+    },
+    {
+      "path": "evidence/0de0e8f02bafa678-WITNESSES.json",
+      "sha256": "0de0e8f02bafa6786b944f55d6f23e4859deb1e2041e85773705b89e7e3107a0",
+      "bytes": 149019
+    },
+    {
+      "path": "evidence/8a201dfd8d2e9cc4-HAIL.json",
+      "sha256": "8a201dfd8d2e9cc4d556f6e77553339eaa5b6c74eb960082c7ba8907d5241951",
+      "bytes": 8759647
+    },
+    {
+      "path": "evidence/68b3767b7c9cbf7f-HAIL-DESIGN.csv",
+      "sha256": "68b3767b7c9cbf7ffe29493fff6c2e3fc602aecdb85ab3410075c848b5b20735",
+      "bytes": 19298
+    },
+    {
+      "path": "evidence/daae368e38bd1aa0-DAMAGE.json",
+      "sha256": "daae368e38bd1aa052ecbdd46080d5098b0c9d1f11fa271167acb8004d5f78ae",
+      "bytes": 111790
+    },
+    {
+      "path": "evidence/bcee4f97389777a7-FE-ALL.json",
+      "sha256": "bcee4f97389777a70902a5fd00bdff2b9af93747bfbdb276958333f54a992fef",
+      "bytes": 1258168
+    },
+    {
+      "path": "evidence/27595462021993dd-FE-CHECKS.json",
+      "sha256": "27595462021993dd4368490391fe478da07f3a36e17be1f840590b291455f482",
+      "bytes": 105115
+    },
+    {
+      "path": "unpublished-local-ref:71a5dd537fe81010",
+      "sha256": "460adb5af6f313fba3237b211cd9409cf7044722a46be9e4b768c488cf26b074",
+      "bytes": 155727
+    },
+    {
+      "path": "unpublished-local-ref:397320de69c9f184",
+      "sha256": "f2d57ea36b0bb204986a6f191054e9408653f7c8739ca1b9fed74d937e5c4b27",
+      "bytes": 27649
+    },
+    {
+      "path": "evidence/72e67d7e9cb78e99-NFI.json",
+      "sha256": "72e67d7e9cb78e9912a2b949aa9ffa53236031e5350931baf62a38e37d274f6f",
+      "bytes": 5064
+    },
+    {
+      "path": "evidence/9cdf51253fc9f96d-INPUTS.json",
+      "sha256": "9cdf51253fc9f96df96926dfa825354a7abaae1443d85dc4b74f7f9e6d415d88",
+      "bytes": 51196
+    },
+    {
+      "path": "evidence/f0bdd986cfb3408a-INPUT-CHECK.json",
+      "sha256": "f0bdd986cfb3408a87c71b67c5a6ce2c1e035fd98a10da360ff24dc12b6545a4",
+      "bytes": 68277
+    },
+    {
+      "path": "evidence/fb4e72a313417421-EXECUTION.json",
+      "sha256": "fb4e72a313417421bf12a07a090e7a6a6e247901c0158f8c56248a554c648880",
+      "bytes": 82694
+    },
+    {
+      "path": "evidence/ac9ef41a538bc54c-TIMING.json",
+      "sha256": "ac9ef41a538bc54c4d3003e9a3485ba078e558813f59614aa8f0925112e384c9",
+      "bytes": 481
+    },
+    {
+      "path": "unpublished-local-ref:c7fea8de4d5e04e3",
+      "sha256": "12ee91689f2a45fa70a3ad1cead0d7f05915a3b0cb5a443b8ce021b0d134920a",
+      "bytes": 61053
+    },
+    {
+      "path": "evidence/33d0c4582ac74d2a-MANIFEST-051-COMPLETE.json",
+      "sha256": "33d0c4582ac74d2a423234e9c9b6db742c2aad1573e319b9c2b729608a6a96c8",
+      "bytes": 303392
+    },
+    {
+      "path": "evidence/60a3e67b370d41db-PACKAGE-CHECK.json",
+      "sha256": "60a3e67b370d41db750872ca54977e7d2f5f472eb5430d721353b6d84d0f8c63",
+      "bytes": 80865
+    },
+    {
+      "path": "withheld-source:650de35c5ce9f596",
+      "sha256": "8ba257c577aeb93ae634261bcb3234e19af3cf2173d9c1d714923eb41d39d272",
+      "bytes": 1704
+    },
+    {
+      "path": "withheld-source:163872aa0bedf827",
+      "sha256": "b32d08a24bcd3ac046df76771d66f214f59d9e82ce4bc4237df1f93086339c64",
+      "bytes": 6217
+    }
+  ],
+  "from": "ref-70f7af6d0a8d64c42272",
+  "from_seat": "ref-70f7af6d0a8d64c42272",
+  "re": "ord-admiral-rr2-mainline051-resume-retry-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline051-resume-retry-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline051-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

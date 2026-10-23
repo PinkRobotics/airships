@@ -1,0 +1,77 @@
+{
+  "id": "C024",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C024",
+    "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+    "file": "evidence/1c1bd18f1657b61c-NFI.json",
+    "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+    "source_sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+    "source_json_pointer": "/rows/2",
+    "row_id": "N039-03",
+    "fields": {
+      "id": "N039-03",
+      "issue": "The stiffened-dome record does not show a higher knockdown",
+      "detail": "IDH CR-124075A p.4.1.012 gives 0.425 for heavily stiffened domes from one 1964 aluminium dome (C 0.26, plasticity suspected). CR-62257's plastic geodesic caps reached 0.57-0.64 of classical, while monocoque caps in the same program reached 0.78-0.82. SP-8032 p24 gives stiffened domes the isotropic cap curve (0.14 at a complete sphere).",
+      "to_close": "Any stiffened-sphere test at a realistic scale; until then, 0.425 is a one-test handbook value.",
+      "tag": "QUESTIONABLE"
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "The stiffened-dome record does not show a higher knockdown",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/734"
+    },
+    {
+      "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+      "artifact": "evidence/1c1bd18f1657b61c-NFI.json",
+      "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+      "sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+      "bytes": 6701,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+          "artifact": "evidence/1c1bd18f1657b61c-NFI.json",
+          "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+          "sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+          "bytes": 6701,
+          "selector": "/rows/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/734"
+          }
+        ]
+      }
+    }
+  ]
+}

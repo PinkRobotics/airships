@@ -1,0 +1,87 @@
+{
+  "id": "N392",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N392",
+    "report": "rpt-ref-f4daf73c940b6f527d37",
+    "card": "rpt-ref-f4daf73c940b6f527d37",
+    "file": "evidence/6e377349147b3b13-NFI.json",
+    "snapshot": "evidence/6e377349147b3b13-NFI.json",
+    "source_sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+    "source_json_pointer": "/findings/2",
+    "row_id": "NFI-023-CHECK-JOINT-MARGIN",
+    "fields": {
+      "id": "NFI-023-CHECK-JOINT-MARGIN",
+      "status": "open",
+      "non_blocking": true,
+      "field": "reported least SF1.466/2.061 for wrap shell search",
+      "reported": "The six scored modes exclude joint strength. End sections and bonds are sized at N/strength and N/shear.",
+      "check": {
+        "nominal_joint_strength_SF": 1.0,
+        "frozen_joint_inclusive_nominal_SF": 1.0,
+        "wrap_shell_k02": 1.4658145265725706,
+        "wrap_shell_k04": 2.0607540827668074,
+        "sleeve_scaling_for_target_q": "end mass scales q^2 at fixed section; braze overlap scales q"
+      },
+      "evidence": [
+        "CHECK.md joint sizing derivation",
+        "RESULTS.json nominal_joint_SF"
+      ],
+      "next": "Label existing factors shell-only. Include joint modes and resize at the desired load factor before quoting assembled-frame margin."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "{\"id\": \"NFI-023-CHECK-JOINT-MARGIN\", \"status\": \"open\", \"non_blocking\": true, \"field\": \"reported least SF1.466/2.061 for wrap shell search\", \"reported\": \"The six scored modes exclude joint strength. End sections and bonds are sized at N/strength and N/shear.\", \"check\": {\"nominal_joint_strength_SF\": 1.0, \"frozen_joint_inclusive_nominal_SF\": 1.0, \"wrap_shell_k02\": 1.4658145265725706, \"wrap_shell_k04\": 2.0607540827668074, \"sleeve_scaling_for_target_q\": \"end mass scales q^2 at fixed section; braze overlap scales q\"}, \"evidence\": [\"CHECK.md joint sizing derivation\", \"RESULTS.json nominal_joint_SF\"], \"next\": \"Label existing factors shell-only. Include joint modes and resize at the desired load factor before quoting assembled-frame margin.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/391"
+    },
+    {
+      "report": "rpt-ref-f4daf73c940b6f527d37",
+      "artifact": "evidence/6e377349147b3b13-NFI.json",
+      "snapshot": "evidence/6e377349147b3b13-NFI.json",
+      "sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+      "bytes": 8399,
+      "selector": "/findings/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f4daf73c940b6f527d37",
+          "artifact": "evidence/6e377349147b3b13-NFI.json",
+          "snapshot": "evidence/6e377349147b3b13-NFI.json",
+          "sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+          "bytes": 8399,
+          "selector": "/findings/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/391"
+          }
+        ]
+      }
+    }
+  ]
+}

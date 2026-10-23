@@ -1,0 +1,40 @@
+{
+  "id": "E-d4f62644c678a519cd03",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-d4f62644c678a519cd03",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/8",
+    "row_id": "C055-09",
+    "fields": {
+      "id": "C055-09",
+      "title": "Statistics wording and sampling populations need correction",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The exact one-sided 90/95 noncentral-t factors reproduce, including k3=6.155281103326 and k10=2.354640131829. At n=3 and CV=10%, the formula gives a finite required mean 1.467373857912, not 'no mean'. It exceeds one only if gamma<=1 is imposed. One cap at each of three different dimple amplitudes is not three iid replicates of one amplitude population.",
+      "proposed_fix": "State any gamma ceiling explicitly; separate model-discrimination tests from population tolerance bounds. The 10% model-agreement acceptance rule is a proposed rule, not a qualification standard established by the NASA precedent."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Statistics wording and sampling populations need correction",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

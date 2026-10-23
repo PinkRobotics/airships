@@ -1,0 +1,132 @@
+{
+  "scope": "Section, mass-accounting and ratio arithmetic from attributed source inputs only.",
+  "independent_rise_geometry_or_equilibrium_solution": false,
+  "source_force_solution_verified": false,
+  "owner_code_read": false,
+  "owner_code_executed": false,
+  "derived": {
+    "rise8_m12": {
+      "tube_mass_kg": 5039.557738754902,
+      "allowances_kg": 406.7328869377451,
+      "total_mass_with_inherited_allowances_kg": 5446.290625692647,
+      "max_end_bending_stress_Pa": 4223824085.6576214
+    },
+    "rise8_m24": {
+      "tube_mass_kg": 5039.557738754902,
+      "allowances_kg": 406.7328869377451,
+      "total_mass_with_inherited_allowances_kg": 5446.290625692647,
+      "max_end_bending_stress_Pa": 4248086375.1604075
+    },
+    "rise supplement": {
+      "mean_axial_ratio_rise8_to_baseline_m12": 0.9789356564391719,
+      "mean_chord_thrust_ratio_rise8_to_baseline_m12": 1.0402981974157033,
+      "refinement_mean_axial_pct": -0.004485207976545613,
+      "refinement_peak_bending_pct": 0.5744152457762386
+    }
+  },
+  "comparisons": [
+    {
+      "field": "rise8_m12.tube_mass_kg",
+      "owner": 5039.557738754933,
+      "independent": 5039.557738754902,
+      "delta": -3.092281986027956e-11,
+      "agrees": true
+    },
+    {
+      "field": "rise8_m12.total_mass_with_inherited_allowances_kg",
+      "owner": 5446.29062569268,
+      "independent": 5446.290625692647,
+      "delta": -3.2741809263825417e-11,
+      "agrees": true
+    },
+    {
+      "field": "rise8_m12.max_end_bending_stress_Pa",
+      "owner": 4223824085.6576138,
+      "independent": 4223824085.6576214,
+      "delta": 7.62939453125e-06,
+      "agrees": true
+    },
+    {
+      "field": "rise8_m24.tube_mass_kg",
+      "owner": 5039.557738754933,
+      "independent": 5039.557738754902,
+      "delta": -3.092281986027956e-11,
+      "agrees": true
+    },
+    {
+      "field": "rise8_m24.total_mass_with_inherited_allowances_kg",
+      "owner": 5446.29062569268,
+      "independent": 5446.290625692647,
+      "delta": -3.2741809263825417e-11,
+      "agrees": true
+    },
+    {
+      "field": "rise8_m24.max_end_bending_stress_Pa",
+      "owner": 4248086375.1604,
+      "independent": 4248086375.1604075,
+      "delta": 7.62939453125e-06,
+      "agrees": true
+    },
+    {
+      "field": "rise supplement.mean_axial_ratio_rise8_to_baseline_m12",
+      "owner": 0.9789356564391088,
+      "independent": 0.9789356564391719,
+      "delta": 6.306066779870889e-14,
+      "agrees": true
+    },
+    {
+      "field": "rise supplement.mean_chord_thrust_ratio_rise8_to_baseline_m12",
+      "owner": 1.0402981974156398,
+      "independent": 1.0402981974157033,
+      "delta": 6.350475700855895e-14,
+      "agrees": true
+    },
+    {
+      "field": "rise supplement.refinement_mean_axial_pct",
+      "owner": -0.004485207976545613,
+      "independent": -0.004485207976545613,
+      "delta": 0.0,
+      "agrees": true
+    },
+    {
+      "field": "rise supplement.refinement_peak_bending_pct",
+      "owner": 0.5744152457762386,
+      "independent": 0.5744152457762386,
+      "delta": 0.0,
+      "agrees": true
+    }
+  ],
+  "numerical_mismatches": [],
+  "checks": [
+    {
+      "name": "rise8_m12-A_m2-geometry",
+      "passed": true
+    },
+    {
+      "name": "rise8_m12-I_m4-geometry",
+      "passed": true
+    },
+    {
+      "name": "rise8_m24-A_m2-geometry",
+      "passed": true
+    },
+    {
+      "name": "rise8_m24-I_m4-geometry",
+      "passed": true
+    },
+    {
+      "name": "inherited-mass-field-equals-total",
+      "passed": true
+    }
+  ],
+  "labeling_finding": {
+    "field": "original.rise8.mass_from_owner_arc_length_and_independent_section_kg",
+    "current_value_kg": 5446.29062569268,
+    "tube_mass_from_section_length_density_kg": 5039.557738754902,
+    "total_with_allowances_kg": 5446.290625692647,
+    "excess_over_tube_mass_kg": 406.73288693777795,
+    "classification": "ambiguous label; value correctly reproduces charged total",
+    "correction": "Rename as total_mass_with_inherited_allowances_kg and expose tube_mass_kg separately.",
+    "affects_headline_failure_probabilities": false
+  }
+}

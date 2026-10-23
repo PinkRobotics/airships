@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-011",
+  "unit": "vacuum-mainline011-p3-frame-1019",
+  "NFI": [
+    {
+      "NFI_id": "NFI-011-GLOBAL",
+      "gap": "No global frame mode: the model checks member Euler, member yield, tube local buckling and film only. Snap-through or general-instability of the whole stiffened sphere between nodes is unmodelled, and MAINLINE-004's spherical knockdown therefore neither applies to nor rescales any P3 number.",
+      "direction": "Add an equivalent-stiffened-shell general-instability check (ribbed-sphere analogy) before any P3 number is read as a whole-vehicle figure.",
+      "effect": "Could only lower the P3 rows; the aluminum plateau's flatness and the material ranking survive any such factor applied uniformly."
+    },
+    {
+      "NFI_id": "NFI-011-BAND",
+      "gap": "The unconstrained optimum rides the node-mass saving to s=6.4 m (V=37 nodes), where the equal-triangle continuum behind V(s) is no longer a defensible reading; the reported optimum is cut at s<=3.0 m (V>=161), suppressing 0.0002 of SF.",
+      "direction": "Re-run on real geodesic layouts (unequal members, real tributary areas) if a design point is ever picked.",
+      "effect": "At most +0.1 percent on aluminum; no ranking change."
+    },
+    {
+      "NFI_id": "NFI-011-LOCAL-KD",
+      "gap": "sigma_local = 0.6*E*t_w/r_o is SP-8007 classical with gamma=1 (no imperfection knockdown). At the aluminum best, local sits 3.9x above the least SF, so the answer is robust; at the T700 best the margin is 1.18x, and a gamma of 0.65 would pull that point's local to ~0.59.",
+      "direction": "Re-optimise r_o under a knocked-down local curve: at s=1 the local margin is 2.6x, so the material conclusion (T700 least ~0.76, yield-bound) survives down to gamma ~0.29 after re-optimisation.",
+      "effect": "The best-point geometry moves; the least SF per material does not."
+    },
+    {
+      "NFI_id": "NFI-011-SIC",
+      "gap": "SiC's 3900 MPa is a crushing value; 008's own NFI carries that flexural ~380 MPa governs any bending or tension path, with brittle fracture, joining and handling unresolved. A 0.04 m radius sintered SiC tube of 1.3 mm wall is undemonstrated.",
+      "direction": "Treat the SiC row as a material-boundary statement (sigma/rho headroom), not a buildable tube.",
+      "effect": "The P3 sigma/rho-bound conclusion stands; the SiC design point does not."
+    },
+    {
+      "NFI_id": "NFI-011-FILM",
+      "gap": "The film allowable 1.5e9 Pa is an owner assumption with no datasheet, and wrinkling, puncture, sag area and shear transfer to members are unmodelled. For aluminum the film never binds (>=0.838 at the best point), but for SiC and the CNT projection it is the second limit and binds from s=1.0.",
+      "direction": "Pin a real film (material, thickness, seaming) before crediting any SiC-family margin.",
+      "effect": "SiC-family rows are film-capped in reality until the film is real."
+    },
+    {
+      "NFI_id": "NFI-011-NODES",
+      "gap": "Node count is the equilateral-continuum formula (equal members, equal tributary area R*s per member, load N=p*R*s/2 — the 002 pinned load path), node hardware 0.02 kg each, and no separate joint or gusset mass exists for P3 in the pinned mass rules.",
+      "direction": "Real geodesic load paths and joint masses before any design pick.",
+      "effect": "Node and joint mass growth eats tube mass one-for-one at the ceiling; SF_yield falls in proportion."
+    },
+    {
+      "NFI_id": "NFI-011-TW-EXACT",
+      "gap": "NFI-005-THINWALL answered: all sections here are exact annuli, and at every reported optimum t_w/r_o lies in 0.019-0.076 (thin). Only the 005-frame comparison rows at fixed r_o=0.02 sit thick (t_w/r_o 0.175 aluminum, up to 0.38 for swaps), where the thin-cylinder local formula itself is weakest.",
+      "direction": "None for this card's optima; the 005-frame rows are comparison only.",
+      "effect": "None on the reported optima."
+    }
+  ]
+}

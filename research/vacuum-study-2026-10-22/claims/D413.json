@@ -1,0 +1,78 @@
+{
+  "id": "D413",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D413",
+    "report": "rpt-ref-8d5027d15bbe034522e3",
+    "file": "evidence/89601ea61b099497-NFI.json",
+    "snapshot": "evidence/89601ea61b099497-NFI.json",
+    "source_sha256": "89601ea61b09949717619a5dae7921d43fbe3d277407147d7663cac23cca42b1",
+    "source_json_pointer": "/rows/5",
+    "row_id": "051-06-scs-load-sharing",
+    "fields": {
+      "id": "051-06-scs-load-sharing",
+      "status": "open",
+      "finding": "SCS fibre tensile data lack an assembled tube compression population; page units/diameters conflict.",
+      "resolution": "Specify matrix, Vf, orientation, transverse restraint and product grade before a member distribution."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/rows",
+    "blocks_progress": false
+  },
+  "claim": "SCS fibre tensile data lack an assembled tube compression population; page units/diameters conflict.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1373"
+    },
+    {
+      "report": "rpt-ref-8d5027d15bbe034522e3",
+      "artifact": "evidence/89601ea61b099497-NFI.json",
+      "snapshot": "evidence/89601ea61b099497-NFI.json",
+      "sha256": "89601ea61b09949717619a5dae7921d43fbe3d277407147d7663cac23cca42b1",
+      "bytes": 4905,
+      "selector": "/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-8d5027d15bbe034522e3",
+          "artifact": "evidence/89601ea61b099497-NFI.json",
+          "snapshot": "evidence/89601ea61b099497-NFI.json",
+          "sha256": "89601ea61b09949717619a5dae7921d43fbe3d277407147d7663cac23cca42b1",
+          "bytes": 4905,
+          "selector": "/rows/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1373"
+          }
+        ]
+      }
+    }
+  ]
+}

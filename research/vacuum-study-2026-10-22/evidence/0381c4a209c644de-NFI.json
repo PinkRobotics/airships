@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "card": "CHECK-038",
+  "unit": "vacuum-mainline038-check-1020",
+  "tag": "QUESTIONABLE/PROJECTION",
+  "task_blocked": false,
+  "installed_hull_SF": null,
+  "upstream_NFI_reference": "owner/NFI.json",
+  "upstream_NFI_ids": [
+    "NFI-038-SOURCE_STATE",
+    "NFI-038-COMPRESSION",
+    "NFI-038-GAUGE",
+    "NFI-038-BAXIAL",
+    "NFI-038-BOND_MASS",
+    "NFI-038-SEAM_MODES",
+    "NFI-038-GAMMA_DENOM",
+    "NFI-038-MIN_SHELL",
+    "NFI-038-CELL_SCALE",
+    "NFI-038-IMPERFECTION",
+    "NFI-038-VACUUM_LOAD",
+    "NFI-038-FILM_EXISTS",
+    "NFI-038-CERAMIC_SIZE",
+    "NFI-038-JOINT_STIFFNESS",
+    "NFI-038-TOPOLOGY",
+    "NFI-038-TRAPPED_GAS",
+    "NFI-038-VACUUM_SPECIES",
+    "NFI-038-SYSTEM_MASS",
+    "NFI-038-COST_AVAILABILITY",
+    "NFI-038-RELIABILITY"
+  ],
+  "items": [
+    {
+      "id": "NFI-CHECK038-ROUNDING",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "Two historical 022c end masses use rounded joint coefficients.",
+      "evidence": "SUPPLEMENT.json lists owner and unrounded values, exact coefficients and assembly impact.",
+      "resolution_needed": "Use 1550/(2π·1470e6·28.9e6) and 4430/(2π·827e6·28.9e6) in the next regeneration, or label the coefficient precision.",
+      "tests": [
+        "T6"
+      ],
+      "classification": "minor numerical precision"
+    },
+    {
+      "id": "NFI-CHECK038-COST_BASIS",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "Campaign and Be stock costs are projections without specimen-specific supplier evidence.",
+      "evidence": "Cost sums reproduce. Official UW/UNR rates are partial service anchors and do not establish Be acceptance or turnkey costs.",
+      "resolution_needed": "Before an authorized purchase, define quantities, fixtures, hours, process/yield, material cost, analysis and facility scope; retain quotes separately from assumptions.",
+      "tests": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ],
+      "classification": "inherited evidence gap"
+    },
+    {
+      "id": "NFI-CHECK038-STOCK_SIZE",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "The shared-stock example assumes a 24×72 inch blank at about 0.8 mm.",
+      "evidence": "Materion assigns reduced dimensions to 0.020–0.058 inch sheet. The mass arithmetic is right, but that full-envelope product is not established.",
+      "resolution_needed": "Obtain a finished-gauge/blank/process specification and a cutting layout; revise the stock/process allowance if only smaller or thicker blanks are available.",
+      "tests": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "classification": "specific procurement gap"
+    },
+    {
+      "id": "NFI-CHECK038-CSV_HEADING",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "A P2 CSV heading describes fixed other modes but its values are conditional minima.",
+      "evidence": "The gamma=0.2 row contains 0.354507, while the other modes stay at one. METHOD describes the correct min(affected,1) operation.",
+      "resolution_needed": "Rename fixed_P2_all_other_named_modes_at_threshold_SF to conditional_least_P2_SF_with_other_modes_fixed_at_threshold. Keep the values.",
+      "tests": [
+        "T1",
+        "T2",
+        "T3",
+        "T7"
+      ],
+      "classification": "presentation fix"
+    },
+    {
+      "id": "NFI-CHECK038-STANDARD_EDITION",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "F1249-20 is cited although ASTM identifies F1249-25 as active.",
+      "evidence": "The official F1249-20 version list and the retrieved F1249-25 page confirm the edition difference. No procedural difference is asserted.",
+      "resolution_needed": "Select and record the executing lab's controlled edition. Preserve C365 as compression/modulus evidence; it does not characterize compressive core crush.",
+      "tests": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "classification": "protocol clarification"
+    },
+    {
+      "id": "NFI-CHECK038-TEST_TRANSFER",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "Coupon, surrogate and axial-joint successes do not supply full installed-hull SF.",
+      "evidence": "The owner already distinguishes biaxial transfer, yield-censored wrinkles, component size, contacts and unknown joint restraint.",
+      "resolution_needed": "Retain those conditions in purchase acceptance tables and subsequent model updates; use effective capacities only for the tested mode and state.",
+      "tests": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T8"
+      ],
+      "classification": "inherited qualification gap"
+    },
+    {
+      "id": "NFI-CHECK038-MINIATURE",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "Minimum radii use hypothetical 25 µm/1 mm floors and a partly matched Al/core system.",
+      "evidence": "0.361403286198 m and 0.430344116083 m reproduce. Custom core, foil compression, forming and defect-field transfer remain unverified.",
+      "resolution_needed": "Demonstrate actual gauges/properties and the as-built dimensionless state before procurement. Keep the current dent ratio an imposed experiment parameter.",
+      "tests": [
+        "T7"
+      ],
+      "classification": "inherited manufacturing/model gap"
+    },
+    {
+      "id": "NFI-CHECK038-CURRENT_HOLD",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "The quoted 034 leakage and trapped-gas examples have older geometry inventories.",
+      "evidence": "Current 028b seam length is 2841.518544 m versus 808.893916 m in 034 P2. Current 022d joints/plies also change the bill.",
+      "resolution_needed": "Re-inventory final seams, adhesives, cells, bores and barriers, then evaluate initial/species gas, hot pressure and added mass separately; retain the 100 kg systems line.",
+      "tests": [
+        "T2",
+        "T4",
+        "T6",
+        "T9"
+      ],
+      "classification": "inherited geometry-transfer gap"
+    }
+  ]
+}

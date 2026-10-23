@@ -1,0 +1,20 @@
+[
+  {
+    "NFI_id": "NFI-KD-020",
+    "gap": "Buckling uses kd 0.2. The 004b optimistic carry is 0.90. Buckling SF scales linearly with kd.",
+    "direction": "Multiply buckling SF by kd/0.2 if a later card adopts the carry.",
+    "effect": "Yield SF does not move with kd."
+  },
+  {
+    "NFI_id": "NFI-CORE-FIXED",
+    "gap": "P2-A keeps the 0.1 m core while radius and altitude change. That fixed core can exhaust the mass budget.",
+    "direction": "A core thickness that scales with radius.",
+    "effect": "An infeasible row has no safety factor."
+  },
+  {
+    "NFI_id": "NFI-TROPOPAUSE",
+    "gap": "11000 m is evaluated on the tropospheric lapse at the tropopause boundary. The isothermal stratosphere is not used.",
+    "direction": "Hold T at 216.65 K above 11000 m if a later card climbs further.",
+    "effect": "None inside this grid. 11000 m is the top row."
+  }
+]

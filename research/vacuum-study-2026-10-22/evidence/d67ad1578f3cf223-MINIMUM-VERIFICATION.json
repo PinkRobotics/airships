@@ -1,0 +1,3177 @@
+{
+  "grid_fractions": 15999,
+  "cores": 47,
+  "cases": 22,
+  "passed": 22,
+  "results": [
+    {
+      "label": "retained_027_floor_six_modes.R10.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.08168595920631105,
+      "reported_payload_kg": -2.2100721253082156e-09,
+      "normalized_payload": -4.5200905490285996e-13,
+      "improvement_over_dense_kg": 0.08168595699623893,
+      "point": {
+        "R_m": 10,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.6676479923880554,
+        "f": 0.1726973771866095,
+        "geometry": {
+          "tf_m": 0.0007391888534891262,
+          "tc_m": 0.03564163526150497,
+          "separation_m": 0.0363808241149941,
+          "Vc": 0.8985146754565235,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3974352345210297,
+          "Q": 0.6059476881337127,
+          "gamma_full": 0.5594058701826095,
+          "face_stress_Pa": 326085295.5166434,
+          "scarf_average_shear_Pa": 10857446.021641845
+        },
+        "improvement_factors": {
+          "gamma": 1.9871761726051484,
+          "Q": 1.836205115556705,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000011282,
+          "face_compression": 1.0580053892138512,
+          "core_shear_crimping": 3.611592306472503,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000005274,
+          "intracell_dimpling": 5.387866050760412,
+          "scarf_average_shear_screen": 0.9210269137021063
+        },
+        "scored_least_SF": 1.0000000000005274,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 4889.442150186961,
+          "faces": 3436.9008021706136,
+          "core": 717.4445454638685,
+          "structural": 4154.345347634482,
+          "actual_joining": 223.79785848304164,
+          "joint_allowance_floor": 207.71726738172413,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 223.79785848304164,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 411.29894407164744,
+          "temperature_pressure_loss": 213.0364265437514,
+          "humidity_loss": 18.70438988243473,
+          "internal_air": 48.89442150186961,
+          "retained_water": 125.66370614359174,
+          "contamination": 5.0,
+          "systems_excess": 0,
+          "payload": -2.2100721253082156e-09,
+          "accounted_total": 4889.442150186961
+        },
+        "joining": {
+          "total": 223.79785848304164,
+          "film": 184.06318552973724,
+          "primer": 0.0,
+          "scarf": 8.805801479601353,
+          "splice": 25.25926330464628,
+          "sealing": 5.669608169056765,
+          "hull_seam_length_m": 2834.8040845283826,
+          "scarf_overlap_m": 0.022175665604673784,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_six_modes.R15.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.09641719337423638,
+      "reported_payload_kg": -7.99172994447872e-09,
+      "normalized_payload": -4.842924633966079e-13,
+      "improvement_over_dense_kg": 0.09641718538250643,
+      "point": {
+        "R_m": 15,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.6200817684239042,
+        "f": 0.16975301403867166,
+        "geometry": {
+          "tf_m": 0.0011458928656049485,
+          "tc_m": 0.054117169489266675,
+          "separation_m": 0.05526306235487163,
+          "Vc": 0.9281914405635712,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3834188395661459,
+          "Q": 0.5802727932917664,
+          "gamma_full": 0.5712765762254285,
+          "face_stress_Pa": 315525067.35264415,
+          "scarf_average_shear_Pa": 10505829.10164187
+        },
+        "improvement_factors": {
+          "gamma": 1.9170941978307294,
+          "Q": 1.7584024039144435,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000011073,
+          "face_compression": 1.0934155022758092,
+          "core_shear_crimping": 3.65893620524074,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000005271,
+          "intracell_dimpling": 13.381085613937907,
+          "scarf_average_shear_screen": 0.9518525290343037
+        },
+        "scored_least_SF": 1.0000000000005271,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 16501.867256880992,
+          "faces": 11987.762265923588,
+          "core": 2451.028200798997,
+          "structural": 14438.790466722585,
+          "actual_joining": 546.2006395856995,
+          "joint_allowance_floor": 721.9395233361292,
+          "unspent_joint_floor": 175.73888375042975,
+          "charged_joining": 721.9395233361292,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 1241.1372668302695,
+          "temperature_pressure_loss": 718.9979395851609,
+          "humidity_loss": 63.127315853217205,
+          "internal_air": 165.01867256880993,
+          "retained_water": 282.7433388230814,
+          "contamination": 11.249999999999998,
+          "systems_excess": 0,
+          "payload": -7.99172994447872e-09,
+          "accounted_total": 16501.867256880992
+        },
+        "joining": {
+          "total": 546.2006395856995,
+          "film": 414.1421674419087,
+          "primer": 0.0,
+          "scarf": 31.25712976709878,
+          "splice": 87.81925150481362,
+          "sealing": 12.982090871878471,
+          "hull_seam_length_m": 6491.045435939235,
+          "scarf_overlap_m": 0.03437678596814846,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_six_modes.R20.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.18713202683761665,
+      "reported_payload_kg": -1.0878466127905995e-08,
+      "normalized_payload": -2.781111268360652e-13,
+      "improvement_over_dense_kg": 0.18713201595915052,
+      "point": {
+        "R_m": 20,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.6063564202370285,
+        "f": 0.16893991149185106,
+        "geometry": {
+          "tf_m": 0.0015425995701817477,
+          "tc_m": 0.07243257319245565,
+          "separation_m": 0.0739751727626374,
+          "Vc": 0.9370349998179341,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.37935237055627746,
+          "Q": 0.5730685562187674,
+          "gamma_full": 0.5748139999271737,
+          "face_stress_Pa": 312509636.8388221,
+          "scarf_average_shear_Pa": 10405426.309838694
+        },
+        "improvement_factors": {
+          "gamma": 1.8967618527813872,
+          "Q": 1.7365713824811133,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.000000000000627,
+          "face_compression": 1.1039659560256534,
+          "core_shear_crimping": 3.6738324172208445,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000003,
+          "intracell_dimpling": 24.48387673448189,
+          "scarf_average_shear_screen": 0.9610370303179842
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 39115.53720149569,
+          "faces": 28689.61930451341,
+          "core": 5832.095432160645,
+          "structural": 34521.714736674054,
+          "actual_joining": 1048.5056410355664,
+          "joint_allowance_floor": 1726.0857368337029,
+          "unspent_joint_floor": 677.5800957981364,
+          "charged_joining": 1726.0857368337029,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 2767.736727998813,
+          "temperature_pressure_loss": 1704.2914123500111,
+          "humidity_loss": 149.63511905947783,
+          "internal_air": 391.15537201495687,
+          "retained_water": 502.65482457436696,
+          "contamination": 20.0,
+          "systems_excess": 0,
+          "payload": -1.0878466127905995e-08,
+          "accounted_total": 39115.53720149569
+        },
+        "joining": {
+          "total": 1048.5056410355664,
+          "film": 736.252742118949,
+          "primer": 0.0,
+          "scarf": 76.12389489686258,
+          "splice": 212.6430957965026,
+          "sealing": 23.485908223252334,
+          "hull_seam_length_m": 11742.954111626166,
+          "scarf_overlap_m": 0.04627798710545243,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_six_modes.R30.minimum",
+      "passed": true,
+      "dense_payload_kg": -2.4194477466662647,
+      "reported_payload_kg": -6.494883564300835e-08,
+      "normalized_payload": -4.919809576089473e-13,
+      "improvement_over_dense_kg": 2.419447681717429,
+      "point": {
+        "R_m": 30,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.5957280505823277,
+        "f": 0.16832157362765982,
+        "geometry": {
+          "tf_m": 0.002331246052489603,
+          "tc_m": 0.10898163819506732,
+          "separation_m": 0.11131288424755692,
+          "Vc": 0.9439726934785686,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3761973816836142,
+          "Q": 0.5675513828127067,
+          "gamma_full": 0.5775890773914274,
+          "face_stress_Pa": 310184266.66099703,
+          "scarf_average_shear_Pa": 10327999.99981122
+        },
+        "improvement_factors": {
+          "gamma": 1.880986908418071,
+          "Q": 1.71985267519002,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.000000000001097,
+          "face_compression": 1.112242099555144,
+          "core_shear_crimping": 3.6857643133739626,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000005274,
+          "intracell_dimpling": 56.33699116093354,
+          "scarf_average_shear_screen": 0.9682416731393089
+        },
+        "scored_least_SF": 1.0000000000005274,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 132014.93805504794,
+          "faces": 97553.35528985773,
+          "core": 19743.609734678514,
+          "structural": 117296.96502453624,
+          "actual_joining": 2725.8213644400257,
+          "joint_allowance_floor": 5864.848251226813,
+          "unspent_joint_floor": 3139.026886786787,
+          "charged_joining": 5864.848251226813,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 8753.12477934983,
+          "temperature_pressure_loss": 5751.983516681287,
+          "humidity_loss": 505.01852682573764,
+          "internal_air": 1320.1493805504795,
+          "retained_water": 1130.9733552923256,
+          "contamination": 44.99999999999999,
+          "systems_excess": 0,
+          "payload": -6.494883564300835e-08,
+          "accounted_total": 132014.93805504794
+        },
+        "joining": {
+          "total": 2725.8213644400257,
+          "film": 1656.568669767635,
+          "primer": 0.0,
+          "scarf": 268.3032539847456,
+          "splice": 746.1750707577552,
+          "sealing": 54.77436992988995,
+          "hull_seam_length_m": 27387.184964944976,
+          "scarf_overlap_m": 0.06993738157468808,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_six_modes.R50.minimum",
+      "passed": true,
+      "dense_payload_kg": -47.22287147688985,
+      "reported_payload_kg": -1.7176716937683523e-07,
+      "normalized_payload": -2.810417452146638e-13,
+      "improvement_over_dense_kg": 47.22287130512268,
+      "point": {
+        "R_m": 50,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.5887372210036226,
+        "f": 0.1679202520721244,
+        "geometry": {
+          "tf_m": 0.0039046060894841607,
+          "tc_m": 0.18201040853711523,
+          "separation_m": 0.18591501462659937,
+          "Vc": 0.948579334275705,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3741194372999739,
+          "Q": 0.5639514424710136,
+          "gamma_full": 0.579431733710282,
+          "face_stress_Pa": 308659324.66500634,
+          "scarf_average_shear_Pa": 10277225.016592884
+        },
+        "improvement_factors": {
+          "gamma": 1.8705971864998694,
+          "Q": 1.7089437650636774,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000006222,
+          "face_compression": 1.1177371698536398,
+          "core_shear_crimping": 3.6938051018910283,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000003,
+          "intracell_dimpling": 158.82257734257493,
+          "scarf_average_shear_screen": 0.9730253043846662
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 611180.2687733701,
+          "faces": 453867.2268177601,
+          "core": 91593.98401933044,
+          "structural": 545461.2108370905,
+          "actual_joining": 9851.724552105083,
+          "joint_allowance_floor": 27273.060541854527,
+          "unspent_joint_floor": 17421.335989749445,
+          "charged_joining": 27273.060541854527,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 38345.99739459676,
+          "temperature_pressure_loss": 26629.553317968923,
+          "humidity_loss": 2338.048735304341,
+          "internal_air": 6111.802687733701,
+          "retained_water": 3141.5926535897934,
+          "contamination": 125.00000000000001,
+          "systems_excess": 0,
+          "payload": -1.7176716937683523e-07,
+          "accounted_total": 611180.2687733701
+        },
+        "joining": {
+          "total": 9851.724552105083,
+          "film": 4601.579638243431,
+          "primer": 0.0,
+          "scarf": 1347.9163969320912,
+          "splice": 3737.9331587132306,
+          "sealing": 164.29535821632962,
+          "hull_seam_length_m": 82147.67910816481,
+          "scarf_overlap_m": 0.11713818268452482,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_with_scarf_screen.R15.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.2841339194203556,
+      "reported_payload_kg": -7.99172994447872e-09,
+      "normalized_payload": -4.842924633966079e-13,
+      "improvement_over_dense_kg": 0.28413391142862565,
+      "point": {
+        "R_m": 15,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.8270166084551135,
+        "f": 0.12775670533324288,
+        "geometry": {
+          "tf_m": 0.001203855461484261,
+          "tc_m": 0.04072876888262116,
+          "separation_m": 0.041932624344105426,
+          "Vc": 0.967201595338571,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.4871656107378637,
+          "Q": 0.7005409594661681,
+          "gamma_full": 0.5868806381354283,
+          "face_stress_Pa": 300333333.333175,
+          "scarf_average_shear_Pa": 9999999.999994729
+        },
+        "improvement_factors": {
+          "gamma": 2.435828053689318,
+          "Q": 2.1228513923217216,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000011733,
+          "face_compression": 1.1487236404001615,
+          "core_shear_crimping": 2.7991283993167966,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.4985240496475394,
+          "intracell_dimpling": 15.516091962020274,
+          "scarf_average_shear_screen": 1.0000000000005271
+        },
+        "scored_least_SF": 1.0000000000005271,
+        "governing": [
+          "global_buckling",
+          "scarf_average_shear_screen"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 16501.867256880992,
+          "faces": 12594.13816769707,
+          "core": 1844.6522990255137,
+          "structural": 14438.790466722585,
+          "actual_joining": 526.3388513257985,
+          "joint_allowance_floor": 721.9395233361292,
+          "unspent_joint_floor": 195.60067201033075,
+          "charged_joining": 721.9395233361292,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 1241.1372668302695,
+          "temperature_pressure_loss": 718.9979395851609,
+          "humidity_loss": 63.127315853217205,
+          "internal_air": 165.01867256880993,
+          "retained_water": 282.7433388230814,
+          "contamination": 11.249999999999998,
+          "systems_excess": 0,
+          "payload": -7.99172994447872e-09,
+          "accounted_total": 16501.867256880992
+        },
+        "joining": {
+          "total": 526.3388513257985,
+          "film": 414.1421674419087,
+          "primer": 0.0,
+          "scarf": 32.921337922871956,
+          "splice": 66.26039027404312,
+          "sealing": 13.014955686974615,
+          "hull_seam_length_m": 6507.477843487307,
+          "scarf_overlap_m": 0.03611566384452783,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_with_scarf_screen.R20.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.14465596896479838,
+      "reported_payload_kg": -1.0878466127905995e-08,
+      "normalized_payload": -2.781111268360652e-13,
+      "improvement_over_dense_kg": 0.14465595808633225,
+      "point": {
+        "R_m": 20,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.7674608860419764,
+        "f": 0.13524654899778388,
+        "geometry": {
+          "tf_m": 0.0016051406153119836,
+          "tc_m": 0.05798662656326505,
+          "separation_m": 0.05959176717857704,
+          "Vc": 0.9689677981392149,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.45733467616038087,
+          "Q": 0.6635767498623093,
+          "gamma_full": 0.587587119255686,
+          "face_stress_Pa": 300333333.3332432,
+          "scarf_average_shear_Pa": 9999999.999996997
+        },
+        "improvement_factors": {
+          "gamma": 2.286673380801904,
+          "Q": 2.0108386359463917,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.000000000000656,
+          "face_compression": 1.1487236403999008,
+          "core_shear_crimping": 2.978008718182278,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.3736542467859583,
+          "intracell_dimpling": 27.58416348801726,
+          "scarf_average_shear_screen": 1.0000000000003
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "scarf_average_shear_screen"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 39115.53720149569,
+          "faces": 29852.77195305295,
+          "core": 4668.942783621105,
+          "structural": 34521.714736674054,
+          "actual_joining": 1009.9444911739903,
+          "joint_allowance_floor": 1726.0857368337029,
+          "unspent_joint_floor": 716.1412456597126,
+          "charged_joining": 1726.0857368337029,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 2767.736727998813,
+          "temperature_pressure_loss": 1704.2914123500111,
+          "humidity_loss": 149.63511905947783,
+          "internal_air": 391.15537201495687,
+          "retained_water": 502.65482457436696,
+          "contamination": 20.0,
+          "systems_excess": 0,
+          "payload": -1.0878466127905995e-08,
+          "accounted_total": 39115.53720149569
+        },
+        "joining": {
+          "total": 1009.9444911739903,
+          "film": 736.252742118949,
+          "primer": 0.0,
+          "scarf": 79.43133866916448,
+          "splice": 170.7089217884559,
+          "sealing": 23.55148859742101,
+          "hull_seam_length_m": 11775.744298710504,
+          "scarf_overlap_m": 0.04815421845935951,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_with_scarf_screen.R30.minimum",
+      "passed": true,
+      "dense_payload_kg": -2.8647231450777326,
+      "reported_payload_kg": -3.6987330531701446e-08,
+      "normalized_payload": -2.80175342856112e-13,
+      "improvement_over_dense_kg": 2.864723108090402,
+      "point": {
+        "R_m": 30,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.7232859762037955,
+        "f": 0.14104252125789443,
+        "geometry": {
+          "tf_m": 0.0024077109229679755,
+          "tc_m": 0.09131951829208998,
+          "separation_m": 0.09372722921505795,
+          "Vc": 0.9702096687497687,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.43633881909315886,
+          "Q": 0.6374246042370088,
+          "gamma_full": 0.5880838674999075,
+          "face_stress_Pa": 300333333.3332432,
+          "scarf_average_shear_Pa": 9999999.999996997
+        },
+        "improvement_factors": {
+          "gamma": 2.181694095465794,
+          "Q": 1.9315897098091173,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000006477,
+          "face_compression": 1.1487236403999008,
+          "core_shear_crimping": 3.1185877293860553,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.287783453677258,
+          "intracell_dimpling": 62.06436784803882,
+          "scarf_average_shear_screen": 1.0000000000003
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "scarf_average_shear_screen"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 132014.93805504794,
+          "faces": 100753.10534155372,
+          "core": 16543.859682955896,
+          "structural": 117296.96502450961,
+          "actual_joining": 2617.1127660644006,
+          "joint_allowance_floor": 5864.848251225481,
+          "unspent_joint_floor": 3247.7354851610808,
+          "charged_joining": 5864.848251225481,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 8753.12477934983,
+          "temperature_pressure_loss": 5751.983516681287,
+          "humidity_loss": 505.01852682573764,
+          "internal_air": 1320.1493805504795,
+          "retained_water": 1130.9733552923256,
+          "contamination": 44.99999999999999,
+          "systems_excess": 0,
+          "payload": -3.6987330531701446e-08,
+          "accounted_total": 132014.93805504794
+        },
+        "joining": {
+          "total": 2617.1127660644006,
+          "film": 1656.568669767635,
+          "primer": 0.0,
+          "scarf": 278.0937459096791,
+          "splice": 627.4802609526967,
+          "sealing": 54.970089434389706,
+          "hull_seam_length_m": 27485.04471719485,
+          "scarf_overlap_m": 0.07223132768903927,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "retained_027_floor_with_scarf_screen.R50.minimum",
+      "passed": true,
+      "dense_payload_kg": -14.788530333429662,
+      "reported_payload_kg": -3.019486030098051e-07,
+      "normalized_payload": -4.940418047457774e-13,
+      "improvement_over_dense_kg": 14.78853003148106,
+      "point": {
+        "R_m": 50,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.6950765945998906,
+        "f": 0.14485291987927645,
+        "geometry": {
+          "tf_m": 0.00401285153828087,
+          "tc_m": 0.15700750088025736,
+          "separation_m": 0.16102035241853824,
+          "Vc": 0.9709735352244404,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.4234158534332233,
+          "Q": 0.621266100510601,
+          "gamma_full": 0.5883894140897762,
+          "face_stress_Pa": 300333333.333175,
+          "scarf_average_shear_Pa": 9999999.999994729
+        },
+        "improvement_factors": {
+          "gamma": 2.1170792671661163,
+          "Q": 1.8826245470018212,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000011275,
+          "face_compression": 1.1487236404001617,
+          "core_shear_crimping": 3.2120508783500297,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.2357700199403236,
+          "intracell_dimpling": 172.40102180022527,
+          "scarf_average_shear_screen": 1.0000000000005274
+        },
+        "scored_least_SF": 1.0000000000005274,
+        "governing": [
+          "global_buckling",
+          "scarf_average_shear_screen"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 611180.2687733701,
+          "faces": 466449.5617665583,
+          "core": 79011.64907065615,
+          "structural": 545461.2108372145,
+          "actual_joining": 9402.246222675845,
+          "joint_allowance_floor": 27273.060541860727,
+          "unspent_joint_floor": 17870.81431918488,
+          "charged_joining": 27273.060541860727,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 38345.99739459676,
+          "temperature_pressure_loss": 26629.553317968923,
+          "humidity_loss": 2338.048735304341,
+          "internal_air": 6111.802687733701,
+          "retained_water": 3141.5926535897934,
+          "contamination": 125.00000000000001,
+          "systems_excess": 0,
+          "payload": -3.019486030098051e-07,
+          "accounted_total": 611180.2687733701
+        },
+        "joining": {
+          "total": 9402.246222675845,
+          "film": 4601.579638243431,
+          "primer": 0.0,
+          "scarf": 1393.0132225974603,
+          "splice": 3242.4413154173644,
+          "sealing": 165.21204641759022,
+          "hull_seam_length_m": 82606.0232087951,
+          "scarf_overlap_m": 0.1203855461484261,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": true,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_six_modes.R10.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.08168595920631105,
+      "reported_payload_kg": -1.2570637863973388e-09,
+      "normalized_payload": -2.570975885969469e-13,
+      "improvement_over_dense_kg": 0.08168595794924727,
+      "point": {
+        "R_m": 10,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.6676479923880555,
+        "f": 0.17269737718660952,
+        "geometry": {
+          "tf_m": 0.000739188853488958,
+          "tc_m": 0.035641635261496864,
+          "separation_m": 0.03638082411498582,
+          "Vc": 0.8985146754563189,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3974352345209909,
+          "Q": 0.6059476881337127,
+          "gamma_full": 0.5594058701825275,
+          "face_stress_Pa": 326085295.51671755,
+          "scarf_average_shear_Pa": 10857446.021644313
+        },
+        "improvement_factors": {
+          "gamma": 1.9871761726049544,
+          "Q": 1.836205115556705,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000006415,
+          "face_compression": 1.0580053892136105,
+          "core_shear_crimping": 3.611592306471682,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000003,
+          "intracell_dimpling": 5.387866050756734,
+          "scarf_average_shear_screen": 0.9210269137018967
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 4889.442150186961,
+          "faces": 3436.900802169832,
+          "core": 717.4445454637054,
+          "structural": 4154.345347633537,
+          "actual_joining": 223.7978584830336,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 223.7978584830336,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 411.29894407164744,
+          "temperature_pressure_loss": 213.0364265437514,
+          "humidity_loss": 18.70438988243473,
+          "internal_air": 48.89442150186961,
+          "retained_water": 125.66370614359174,
+          "contamination": 5.0,
+          "systems_excess": 0,
+          "payload": -1.2570637863973388e-09,
+          "accounted_total": 4889.442150186961
+        },
+        "joining": {
+          "total": 223.7978584830336,
+          "film": 184.06318552973724,
+          "primer": 0.0,
+          "scarf": 8.805801479599289,
+          "splice": 25.259263304640356,
+          "sealing": 5.669608169056725,
+          "hull_seam_length_m": 2834.8040845283626,
+          "scarf_overlap_m": 0.02217566560466874,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_six_modes.R15.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.0014105016022085692,
+      "reported_payload_kg": -7.775270205456764e-09,
+      "normalized_payload": -4.711751757798567e-13,
+      "improvement_over_dense_kg": 0.0014104938269383638,
+      "point": {
+        "R_m": 15,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.6009644037851632,
+        "f": 0.16862498007216536,
+        "geometry": {
+          "tf_m": 0.0011613375938588795,
+          "tc_m": 0.054408192261256996,
+          "separation_m": 0.05556952985511587,
+          "Vc": 0.9405447779149513,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.37775241439728147,
+          "Q": 0.570262897130707,
+          "gamma_full": 0.5762179111659805,
+          "face_stress_Pa": 311328872.4233366,
+          "scarf_average_shear_Pa": 10366111.179467367
+        },
+        "improvement_factors": {
+          "gamma": 1.8887620719864073,
+          "Q": 1.7280693852445665,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000010996,
+          "face_compression": 1.108152923031431,
+          "core_shear_crimping": 3.679841939193501,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000005276,
+          "intracell_dimpling": 13.9294752994183,
+          "scarf_average_shear_screen": 0.9646819165713231
+        },
+        "scored_least_SF": 1.0000000000005276,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 16501.867256880992,
+          "faces": 12149.33734517166,
+          "core": 2464.2089533763187,
+          "structural": 14613.546298547977,
+          "actual_joining": 547.1836915105205,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 547.1836915105205,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 1241.1372668302695,
+          "temperature_pressure_loss": 718.9979395851609,
+          "humidity_loss": 63.127315853217205,
+          "internal_air": 165.01867256880993,
+          "retained_water": 282.7433388230814,
+          "contamination": 11.249999999999998,
+          "systems_excess": 0,
+          "payload": -7.775270205456764e-09,
+          "accounted_total": 16501.867256880992
+        },
+        "joining": {
+          "total": 547.1836915105205,
+          "film": 414.1421674419087,
+          "primer": 0.0,
+          "scarf": 31.69974833635557,
+          "splice": 88.3509458991454,
+          "sealing": 12.990829833110757,
+          "hull_seam_length_m": 6495.414916555378,
+          "scarf_overlap_m": 0.034840127815766384,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_six_modes.R20.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.9384723992720865,
+      "reported_payload_kg": -1.873195287771523e-08,
+      "normalized_payload": -4.788877826532563e-13,
+      "improvement_over_dense_kg": 0.9384723805401336,
+      "point": {
+        "R_m": 20,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.5759920789557506,
+        "f": 0.1671996364445424,
+        "geometry": {
+          "tf_m": 0.0015759902291275884,
+          "tc_m": 0.0730850948301193,
+          "separation_m": 0.07466108505924689,
+          "Vc": 0.9570678312652664,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3703257758039169,
+          "Q": 0.5574469688400974,
+          "gamma_full": 0.5828271325061065,
+          "face_stress_Pa": 305888464.63349056,
+          "scarf_average_shear_Pa": 10184965.526087366
+        },
+        "improvement_factors": {
+          "gamma": 1.8516288790195845,
+          "Q": 1.6892332389093858,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000010885,
+          "face_compression": 1.1278620800995949,
+          "core_shear_crimping": 3.7088652894547094,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000005274,
+          "intracell_dimpling": 26.10845232205576,
+          "scarf_average_shear_screen": 0.9818393566857343
+        },
+        "scored_least_SF": 1.0000000000005274,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 39115.53720149569,
+          "faces": 29310.62640966264,
+          "core": 5884.634894652095,
+          "structural": 35195.261304314736,
+          "actual_joining": 1052.5391692008743,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 1052.5391692008743,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 2767.736727998813,
+          "temperature_pressure_loss": 1704.2914123500111,
+          "humidity_loss": 149.63511905947783,
+          "internal_air": 391.15537201495687,
+          "retained_water": 502.65482457436696,
+          "contamination": 20.0,
+          "systems_excess": 0,
+          "payload": -1.873195287771523e-08,
+          "accounted_total": 39115.537201495696
+        },
+        "joining": {
+          "total": 1052.5391692008743,
+          "film": 736.252742118949,
+          "primer": 0.0,
+          "scarf": 77.88742516624994,
+          "splice": 214.87813141140907,
+          "sealing": 23.520870504266494,
+          "hull_seam_length_m": 11760.435252133248,
+          "scarf_overlap_m": 0.047279706873827654,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_six_modes.R30.minimum",
+      "passed": true,
+      "dense_payload_kg": -10.103576026529936,
+      "reported_payload_kg": -3.6460278352024034e-08,
+      "normalized_payload": -2.761829751177153e-13,
+      "improvement_over_dense_kg": 10.103575990069658,
+      "point": {
+        "R_m": 30,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.5548773855036524,
+        "f": 0.16603732673781202,
+        "geometry": {
+          "tf_m": 0.002399792902907371,
+          "tc_m": 0.11036052448894568,
+          "separation_m": 0.11276031739185305,
+          "Vc": 0.9713922912477314,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.36402689478313077,
+          "Q": 0.546835778338807,
+          "gamma_full": 0.5885569164990926,
+          "face_stress_Pa": 301324271.07429564,
+          "scarf_average_shear_Pa": 10032994.597368333
+        },
+        "improvement_factors": {
+          "gamma": 1.8201344739156537,
+          "Q": 1.657078116178203,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000006137,
+          "face_compression": 1.1449459373783253,
+          "core_shear_crimping": 3.7349848464019404,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000003,
+          "intracell_dimpling": 61.454062974342634,
+          "scarf_average_shear_screen": 0.9967113908964936
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 132014.93805504794,
+          "faces": 100421.76776209078,
+          "core": 19993.415053314875,
+          "structural": 120415.18281540566,
+          "actual_joining": 2746.6304603289104,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 2746.6304603289104,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 8753.12477934983,
+          "temperature_pressure_loss": 5751.983516681287,
+          "humidity_loss": 505.01852682573764,
+          "internal_air": 1320.1493805504795,
+          "retained_water": 1130.9733552923256,
+          "contamination": 44.99999999999999,
+          "systems_excess": 0,
+          "payload": -3.6460278352024034e-08,
+          "accounted_total": 132014.93805504794
+        },
+        "joining": {
+          "total": 2746.6304603289104,
+          "film": 1656.568669767635,
+          "primer": 0.0,
+          "scarf": 277.07664323850804,
+          "splice": 758.035397761717,
+          "sealing": 54.94974956105041,
+          "hull_seam_length_m": 27474.874780525206,
+          "scarf_overlap_m": 0.07199378708722112,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_six_modes.R50.minimum",
+      "passed": true,
+      "dense_payload_kg": -22.57512937343745,
+      "reported_payload_kg": -1.7088314052671194e-07,
+      "normalized_payload": -2.7959531623897467e-13,
+      "improvement_over_dense_kg": 22.575129202554308,
+      "point": {
+        "R_m": 50,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.5404819890948435,
+        "f": 0.16526756205670665,
+        "geometry": {
+          "tf_m": 0.0040411374140268096,
+          "tc_m": 0.18480972460850645,
+          "separation_m": 0.18885086202253326,
+          "Vc": 0.9813504794154043,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.35972346312020037,
+          "Q": 0.5397174041340055,
+          "gamma_full": 0.5925401917661617,
+          "face_stress_Pa": 298231155.0406133,
+          "scarf_average_shear_Pa": 9930005.162284572
+        },
+        "improvement_factors": {
+          "gamma": 1.7986173156010017,
+          "Q": 1.635507285254562,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000006102,
+          "face_compression": 1.1568207887369033,
+          "core_shear_crimping": 3.753655348459804,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000003,
+          "intracell_dimpling": 176.0724521609148,
+          "scarf_average_shear_screen": 1.0070488218859421
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 611180.2687733701,
+          "faces": 469737.48164597887,
+          "core": 93002.69747461495,
+          "structural": 562740.1791205938,
+          "actual_joining": 9994.092258350327,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 9994.092258350327,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 38345.99739459676,
+          "temperature_pressure_loss": 26629.553317968923,
+          "humidity_loss": 2338.048735304341,
+          "internal_air": 6111.802687733701,
+          "retained_water": 3141.5926535897934,
+          "contamination": 125.00000000000001,
+          "systems_excess": 0,
+          "payload": -1.7088314052671194e-07,
+          "accounted_total": 611180.2687733701
+        },
+        "joining": {
+          "total": 9994.092258350327,
+          "film": 4601.579638243431,
+          "primer": 0.0,
+          "scarf": 1404.8824319173116,
+          "splice": 3822.1766999368997,
+          "sealing": 165.4534882526835,
+          "hull_seam_length_m": 82726.74412634176,
+          "scarf_overlap_m": 0.12123412242080428,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_six_modes.mask1.noncrossing_peak",
+      "passed": true,
+      "dense_payload_kg": -42425.23764659157,
+      "reported_payload_kg": -42380.58706017777,
+      "normalized_payload": -0.006480936678715389,
+      "improvement_over_dense_kg": 44.65058641380165,
+      "point": {
+        "R_m": 110.17675049090884,
+        "core": "Hexcel CR-III 5056 3/8-1.6",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma"
+        ],
+        "mask": 1,
+        "common_usage": 1.0,
+        "f": 0.18756741107374406,
+        "geometry": {
+          "tf_m": 0.008791559690283272,
+          "tc_m": 0.2930197315536927,
+          "separation_m": 0.301811291243976,
+          "Vc": 0.6225032781005827,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.4490013112402331,
+          "Q": 0.33,
+          "gamma_full": 0.4490013112402331,
+          "face_stress_Pa": 302072127.81137586,
+          "scarf_average_shear_Pa": 10057895.48761518
+        },
+        "improvement_factors": {
+          "gamma": 2.2450065562011656,
+          "Q": 1.0,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000009062,
+          "face_compression": 1.1421113311567421,
+          "core_shear_crimping": 4.237169164390696,
+          "core_crush": 7.15109202752897,
+          "face_wrinkling": 1.000000006481132,
+          "intracell_dimpling": 822.7320009041747,
+          "scarf_average_shear_screen": 0.9942437771712315
+        },
+        "scored_least_SF": 1.0000000000009062,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 6539268.806523533,
+          "faces": 4962007.722204371,
+          "core": 1145585.4367091125,
+          "structural": 6107593.158913484,
+          "actual_joining": 82766.11255513605,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 82766.11255513605,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 391190.1221150907,
+          "temperature_pressure_loss": 284920.53202787694,
+          "humidity_loss": 25015.744035049647,
+          "internal_air": 65392.68806523533,
+          "retained_water": 15254.212169491999,
+          "contamination": 606.9458174367991,
+          "systems_excess": 0,
+          "payload": -42380.58706017777,
+          "accounted_total": 6539268.806523533
+        },
+        "joining": {
+          "total": 82766.11255513605,
+          "film": 22343.276120273513,
+          "primer": 0.0,
+          "scarf": 19895.948341968517,
+          "splice": 39449.832103674526,
+          "sealing": 1077.0559892195047,
+          "hull_seam_length_m": 538527.9946097523,
+          "scarf_overlap_m": 0.26374679070849816,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        },
+        "per_core_optima": [
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.6",
+            "payload_kg": -42380.58706017777,
+            "f": 0.18756741107374406
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-1.6",
+            "payload_kg": -42380.58706017777,
+            "f": 0.18756741107374406
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.0",
+            "payload_kg": -46244.548338921886,
+            "f": 0.08417112528076141
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-2.0",
+            "payload_kg": -264455.57896201266,
+            "f": 0.27175256551832333
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-2.0",
+            "payload_kg": -271725.5365800781,
+            "f": 0.1590174393461656
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.6",
+            "payload_kg": -414688.0942384703,
+            "f": 0.15710513195080186
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-1.6",
+            "payload_kg": -414688.0942384703,
+            "f": 0.15710513195080186
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-1.6",
+            "payload_kg": -494946.1382182973,
+            "f": 0.1610170545129711
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-2.0",
+            "payload_kg": -498739.2570682663,
+            "f": 0.24548616812454546
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-1.0",
+            "payload_kg": -545102.968923208,
+            "f": 0.06883566161863994
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.0",
+            "payload_kg": -545628.0573527057,
+            "f": 0.06890962091747307
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-2.3",
+            "payload_kg": -553036.7705227777,
+            "f": 0.3350108197290478
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-2.3",
+            "payload_kg": -553036.7705227777,
+            "f": 0.3350108197290478
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-2.3",
+            "payload_kg": -710525.7407403062,
+            "f": 0.3081292540754925
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-2.3",
+            "payload_kg": -712220.2055824654,
+            "f": 0.30762508355085344
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-2.3",
+            "payload_kg": -712220.2055824654,
+            "f": 0.30762508355085344
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-2.0",
+            "payload_kg": -760887.9705524016,
+            "f": 0.25494753936088205
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-2.3",
+            "payload_kg": -810084.7935534798,
+            "f": 0.3119152200417832
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-3.0",
+            "payload_kg": -841590.2640984916,
+            "f": 0.31104832900120166
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-3.0",
+            "payload_kg": -862530.6865583013,
+            "f": 0.26120063330106824
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-2.6",
+            "payload_kg": -938527.2901632644,
+            "f": 0.3789069777194803
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-2.6",
+            "payload_kg": -1069071.4005133726,
+            "f": 0.3642848957613421
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-2.6",
+            "payload_kg": -1292197.381547688,
+            "f": 0.3735496666158672
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-3.0",
+            "payload_kg": -1454699.7681670147,
+            "f": 0.42144892978176146
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.0",
+            "payload_kg": -1559259.4198532796,
+            "f": 0.42926294769652756
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-3.1",
+            "payload_kg": -1610956.748904442,
+            "f": 0.43036509742558937
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/8-3.1",
+            "payload_kg": -1610956.748904442,
+            "f": 0.43036509742558937
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.0",
+            "payload_kg": -1670281.5140456862,
+            "f": 0.43564819166934915
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-3.1",
+            "payload_kg": -1703323.789552536,
+            "f": 0.4328361078034464
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/8-3.1",
+            "payload_kg": -1703323.789552536,
+            "f": 0.4328361078034464
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/8-3.1",
+            "payload_kg": -1882256.4755224737,
+            "f": 0.4372341103823875
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-4.0",
+            "payload_kg": -1884375.728688613,
+            "f": 0.41711615887985026
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-4.0",
+            "payload_kg": -1884375.7286891742,
+            "f": 0.41711612867673814
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-3.1",
+            "payload_kg": -1916163.178917346,
+            "f": 0.4382697847163033
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-3.4",
+            "payload_kg": -2019230.9697758828,
+            "f": 0.43151277282587763
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-3.4",
+            "payload_kg": -2106175.955156196,
+            "f": 0.4338007578538034
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-3.4",
+            "payload_kg": -2153377.171205977,
+            "f": 0.43608315381432267
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.7",
+            "payload_kg": -2475890.062134497,
+            "f": 0.4347262142101147
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.7",
+            "payload_kg": -2492725.136772619,
+            "f": 0.43465573818233294
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-3.8",
+            "payload_kg": -2508672.1077772435,
+            "f": 0.43212126377334525
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-3.8",
+            "payload_kg": -2607986.055057,
+            "f": 0.43464937555891764
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-3.8",
+            "payload_kg": -2806587.698182217,
+            "f": 0.43986347814592164
+          },
+          {
+            "core": "Hexcel HRH-10-4.8-32",
+            "payload_kg": -3083451.544674051,
+            "f": 0.1894017837745996
+          },
+          {
+            "core": "Hexcel HRH-49 Kevlar 1/4-2.1",
+            "payload_kg": -3506098.9355222303,
+            "f": 0.30740545431547683
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 4",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 8",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 16",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          }
+        ]
+      }
+    },
+    {
+      "label": "explicit_028_bill_six_modes.mask2.noncrossing_peak",
+      "passed": true,
+      "dense_payload_kg": -68777.47892678199,
+      "reported_payload_kg": -68519.70965285487,
+      "normalized_payload": -0.008737859767554363,
+      "improvement_over_dense_kg": 257.76927392711514,
+      "point": {
+        "R_m": 117.05331307318477,
+        "core": "Hexcel HRH-10-4.8-32",
+        "family": "aramid",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "Q"
+        ],
+        "mask": 2,
+        "common_usage": 1.0,
+        "f": 0.2901632118627758,
+        "geometry": {
+          "tf_m": 0.008178077840604292,
+          "tc_m": 0.3865332266857636,
+          "separation_m": 0.39471130452636793,
+          "Vc": 2.8428852707987313,
+          "branch": "crimp",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 1.0,
+          "Q": 0.82,
+          "gamma_full": 1.0,
+          "face_stress_Pa": 344999999.9998965,
+          "scarf_average_shear_Pa": 11487236.403992115
+        },
+        "improvement_factors": {
+          "gamma": 1.0,
+          "Q": 2.4848484848484844,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000054926015,
+          "face_compression": 1.0000000000003,
+          "core_shear_crimping": 1.0000000054926015,
+          "core_crush": 20.74356419946674,
+          "face_wrinkling": 1.1074543281423064,
+          "intracell_dimpling": 2454.528421573805,
+          "scarf_average_shear_screen": 0.8705314009664447
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "face_compression",
+          "core_shear_crimping"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 7841703.972783353,
+          "faces": 5209910.335060737,
+          "core": 2129678.739679593,
+          "structural": 7339589.07474033,
+          "actual_joining": 102547.9982441429,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 102547.9982441429,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 467986.60945173545,
+          "temperature_pressure_loss": 341668.5464438567,
+          "humidity_loss": 29998.164196291535,
+          "internal_air": 78417.03972783353,
+          "retained_water": 17217.785178683185,
+          "contamination": 685.0739050704503,
+          "systems_excess": 0,
+          "payload": -68519.70965285487,
+          "accounted_total": 7841703.972783353
+        },
+        "joining": {
+          "total": 102547.9982441429,
+          "film": 25219.37705811278,
+          "primer": 0.0,
+          "scarf": 19981.555002094585,
+          "splice": 56184.232489735965,
+          "sealing": 1162.8336941995735,
+          "hull_seam_length_m": 581416.8470997867,
+          "scarf_overlap_m": 0.24534233521812876,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": false,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        },
+        "per_core_optima": [
+          {
+            "core": "Hexcel HRH-10-4.8-32",
+            "payload_kg": -68519.70965285487,
+            "f": 0.2901632118627758
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.0",
+            "payload_kg": -730879.5463141758,
+            "f": 0.28687388661741425
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-1.0",
+            "payload_kg": -1184668.9005569292,
+            "f": 0.24907076409274623
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.0",
+            "payload_kg": -1187077.154880092,
+            "f": 0.2492865322894491
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.6",
+            "payload_kg": -1493458.5675120847,
+            "f": 0.40154280670708714
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-1.6",
+            "payload_kg": -1493458.5675120847,
+            "f": 0.40154280670708714
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-1.6",
+            "payload_kg": -1497387.7272426325,
+            "f": 0.4019134230026285
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.6",
+            "payload_kg": -1520254.6176870372,
+            "f": 0.40332083983550676
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-1.6",
+            "payload_kg": -1520254.6176870372,
+            "f": 0.40332083983550676
+          },
+          {
+            "core": "Hexcel HRH-49 Kevlar 1/4-2.1",
+            "payload_kg": -1522734.0807705668,
+            "f": 0.40532054575774445
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-2.0",
+            "payload_kg": -2070789.686271716,
+            "f": 0.4392153272968732
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-2.0",
+            "payload_kg": -2212792.5711296266,
+            "f": 0.4474513453681565
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-2.0",
+            "payload_kg": -2263121.6495763394,
+            "f": 0.45031013156772404
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-2.3",
+            "payload_kg": -2751396.6420475943,
+            "f": 0.4774434239592078
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-2.3",
+            "payload_kg": -2779648.49793528,
+            "f": 0.4788633455744126
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-2.3",
+            "payload_kg": -2779648.49793528,
+            "f": 0.4788633455744126
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-2.3",
+            "payload_kg": -2806277.3058097875,
+            "f": 0.48024064828925744
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-2.3",
+            "payload_kg": -2819168.481264522,
+            "f": 0.48086955719938745
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-2.3",
+            "payload_kg": -2819168.481264522,
+            "f": 0.48086955719938745
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-2.6",
+            "payload_kg": -3274459.0900000846,
+            "f": 0.5036039805804167
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-2.6",
+            "payload_kg": -3323835.890778209,
+            "f": 0.5058411686922447
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-2.0",
+            "payload_kg": -3343122.114191985,
+            "f": 0.08470718574075328
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-2.6",
+            "payload_kg": -3378198.6923459144,
+            "f": 0.5083260155777576
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.0",
+            "payload_kg": -4013939.8915980496,
+            "f": 0.5110149725543613
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.0",
+            "payload_kg": -4074570.29049937,
+            "f": 0.5136352004378789
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-3.0",
+            "payload_kg": -4129160.284308384,
+            "f": 0.5162966312604353
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-3.1",
+            "payload_kg": -4204283.626686311,
+            "f": 0.5091238885575998
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/8-3.1",
+            "payload_kg": -4218532.384551124,
+            "f": 0.509793301303318
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-3.1",
+            "payload_kg": -4248928.546550876,
+            "f": 0.5130905878722798
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/8-3.1",
+            "payload_kg": -4248928.546550876,
+            "f": 0.5130905878722798
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-3.1",
+            "payload_kg": -4295617.982436668,
+            "f": 0.5153252825475961
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/8-3.1",
+            "payload_kg": -4295617.982436668,
+            "f": 0.5153252825475961
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-3.4",
+            "payload_kg": -4676520.449586399,
+            "f": 0.5102891013870664
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-3.4",
+            "payload_kg": -4763770.467075568,
+            "f": 0.5119437104631925
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-3.0",
+            "payload_kg": -4782248.850431997,
+            "f": 0.5495622765960054
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-3.4",
+            "payload_kg": -4806038.906216204,
+            "f": 0.5138691938895031
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-3.0",
+            "payload_kg": -5067499.598721657,
+            "f": 0.5646747006508052
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.7",
+            "payload_kg": -5226777.021267597,
+            "f": 0.5108514395818969
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.7",
+            "payload_kg": -5255662.706088462,
+            "f": 0.5108800972544876
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-3.8",
+            "payload_kg": -5352828.99702274,
+            "f": 0.5073254120870346
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-3.8",
+            "payload_kg": -5419661.643542619,
+            "f": 0.5107413798716437
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-3.8",
+            "payload_kg": -5466514.539900189,
+            "f": 0.512754728052218
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-4.0",
+            "payload_kg": -6399942.946225144,
+            "f": 0.5390707606658103
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-4.0",
+            "payload_kg": -6399942.946225144,
+            "f": 0.5390707606658103
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 16",
+            "payload_kg": -12249150.272978036,
+            "f": 0.2599953587029806
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 4",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 8",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          }
+        ]
+      }
+    },
+    {
+      "label": "explicit_028_bill_with_scarf_screen.R15.minimum",
+      "passed": true,
+      "dense_payload_kg": -0.6050319011685588,
+      "reported_payload_kg": -7.771745913487393e-09,
+      "normalized_payload": -4.709616064961806e-13,
+      "improvement_over_dense_kg": 0.6050318933968128,
+      "point": {
+        "R_m": 15,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.7385532019400975,
+        "f": 0.13901592571730947,
+        "geometry": {
+          "tf_m": 0.0012038554614842612,
+          "tc_m": 0.044897758187153566,
+          "separation_m": 0.04610161364863783,
+          "Vc": 0.969786858292366,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.44348905468612715,
+          "Q": 0.6463443488055531,
+          "gamma_full": 0.5879147433169465,
+          "face_stress_Pa": 300333333.333175,
+          "scarf_average_shear_Pa": 9999999.999994729
+        },
+        "improvement_factors": {
+          "gamma": 2.2174452734306356,
+          "Q": 1.9586192388047063,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000011429,
+          "face_compression": 1.1487236404001617,
+          "core_shear_crimping": 3.0692171299907933,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.3168383124374738,
+          "intracell_dimpling": 15.516091962020283,
+          "scarf_average_shear_screen": 1.0000000000005274
+        },
+        "scored_least_SF": 1.0000000000005274,
+        "governing": [
+          "global_buckling",
+          "scarf_average_shear_screen"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 16501.867256880992,
+          "faces": 12594.138167697074,
+          "core": 2033.4705696533772,
+          "structural": 14627.60873735045,
+          "actual_joining": 533.1212527080435,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 533.1212527080435,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 1241.1372668302695,
+          "temperature_pressure_loss": 718.9979395851609,
+          "humidity_loss": 63.127315853217205,
+          "internal_air": 165.01867256880993,
+          "retained_water": 282.7433388230814,
+          "contamination": 11.249999999999998,
+          "systems_excess": 0,
+          "payload": -7.771745913487393e-09,
+          "accounted_total": 16501.867256880992
+        },
+        "joining": {
+          "total": 533.1212527080435,
+          "film": 414.1421674419087,
+          "primer": 0.0,
+          "scarf": 32.92133792287196,
+          "splice": 73.04279165628817,
+          "sealing": 13.014955686974615,
+          "hull_seam_length_m": 6507.477843487307,
+          "scarf_overlap_m": 0.036115663844527836,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_with_scarf_screen.R20.minimum",
+      "passed": true,
+      "dense_payload_kg": -1.5822959297197485,
+      "reported_payload_kg": -1.872354005172383e-08,
+      "normalized_payload": -4.78672706328264e-13,
+      "improvement_over_dense_kg": 1.5822959109962085,
+      "point": {
+        "R_m": 20,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.6423059325028413,
+        "f": 0.15221324961341653,
+        "geometry": {
+          "tf_m": 0.001605140615312348,
+          "tc_m": 0.06656712315814703,
+          "separation_m": 0.06817226377345938,
+          "Vc": 0.972343773683921,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.40021804770059743,
+          "Q": 0.5921304824147907,
+          "gamma_full": 0.5889375094735685,
+          "face_stress_Pa": 300333333.333175,
+          "scarf_average_shear_Pa": 9999999.999994729
+        },
+        "improvement_factors": {
+          "gamma": 2.001090238502987,
+          "Q": 1.7943347951963353,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000011087,
+          "face_compression": 1.1487236404001615,
+          "core_shear_crimping": 3.394977675053217,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.144030804986647,
+          "intracell_dimpling": 27.58416348803605,
+          "scarf_average_shear_screen": 1.0000000000005274
+        },
+        "scored_least_SF": 1.0000000000005274,
+        "governing": [
+          "global_buckling",
+          "scarf_average_shear_screen"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 39115.53720149569,
+          "faces": 29852.77195305973,
+          "core": 5359.8235958175355,
+          "structural": 35212.59554887727,
+          "actual_joining": 1035.2049246383347,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 1035.2049246383347,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 2767.736727998813,
+          "temperature_pressure_loss": 1704.2914123500111,
+          "humidity_loss": 149.63511905947783,
+          "internal_air": 391.15537201495687,
+          "retained_water": 502.65482457436696,
+          "contamination": 20.0,
+          "systems_excess": 0,
+          "payload": -1.872354005172383e-08,
+          "accounted_total": 39115.53720149569
+        },
+        "joining": {
+          "total": 1035.2049246383347,
+          "film": 736.252742118949,
+          "primer": 0.0,
+          "scarf": 79.4313386691838,
+          "splice": 195.96935525278062,
+          "sealing": 23.551488597421386,
+          "hull_seam_length_m": 11775.744298710693,
+          "scarf_overlap_m": 0.04815421845937044,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_with_scarf_screen.R30.minimum",
+      "passed": true,
+      "dense_payload_kg": -2.091305890513013,
+      "reported_payload_kg": -3.650075086625293e-08,
+      "normalized_payload": -2.764895503797665e-13,
+      "improvement_over_dense_kg": 2.091305854012262,
+      "point": {
+        "R_m": 30,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.5662699252616734,
+        "f": 0.1633610021702606,
+        "geometry": {
+          "tf_m": 0.0024077109229679755,
+          "tc_m": 0.10859141675859274,
+          "separation_m": 0.11099912768156071,
+          "Vc": 0.974190069871455,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3689274721804318,
+          "Q": 0.5525357613648908,
+          "gamma_full": 0.589676027948582,
+          "face_stress_Pa": 300333333.3332432,
+          "scarf_average_shear_Pa": 9999999.999996997
+        },
+        "improvement_factors": {
+          "gamma": 1.844637360902159,
+          "Q": 1.6743507920148206,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.000000000000616,
+          "face_compression": 1.1487236403999008,
+          "core_shear_crimping": 3.6781857112686915,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.023666440594074,
+          "intracell_dimpling": 62.06436784803885,
+          "scarf_average_shear_screen": 1.0000000000003
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "scarf_average_shear_screen"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 132014.93805504794,
+          "faces": 100753.10534155372,
+          "core": 19672.915442690817,
+          "structural": 120426.02078424454,
+          "actual_joining": 2735.7924914900696,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 2735.7924914900696,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 8753.12477934983,
+          "temperature_pressure_loss": 5751.983516681287,
+          "humidity_loss": 505.01852682573764,
+          "internal_air": 1320.1493805504795,
+          "retained_water": 1130.9733552923256,
+          "contamination": 44.99999999999999,
+          "systems_excess": 0,
+          "payload": -3.650075086625293e-08,
+          "accounted_total": 132014.93805504794
+        },
+        "joining": {
+          "total": 2735.7924914900696,
+          "film": 1656.568669767635,
+          "primer": 0.0,
+          "scarf": 278.0937459096791,
+          "splice": 746.159986378366,
+          "sealing": 54.970089434389706,
+          "hull_seam_length_m": 27485.04471719485,
+          "scarf_overlap_m": 0.07223132768903927,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_with_scarf_screen.R50.minimum",
+      "passed": true,
+      "dense_payload_kg": -22.575129373319214,
+      "reported_payload_kg": -1.7064849089365453e-07,
+      "normalized_payload": -2.792113875602424e-13,
+      "improvement_over_dense_kg": 22.575129202670723,
+      "point": {
+        "R_m": 50,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "Q"
+        ],
+        "mask": 3,
+        "common_usage": 0.5404819890948436,
+        "f": 0.16526756205670665,
+        "geometry": {
+          "tf_m": 0.004041137414026809,
+          "tc_m": 0.1848097246085064,
+          "separation_m": 0.1888508620225332,
+          "Vc": 0.9813504794154041,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": true
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.3597234631202004,
+          "Q": 0.5397174041340056,
+          "gamma_full": 0.5925401917661617,
+          "face_stress_Pa": 298231155.04061335,
+          "scarf_average_shear_Pa": 9930005.162284574
+        },
+        "improvement_factors": {
+          "gamma": 1.7986173156010021,
+          "Q": 1.6355072852545622,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.00000000000061,
+          "face_compression": 1.156820788736903,
+          "core_shear_crimping": 3.753655348459803,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000000003,
+          "intracell_dimpling": 176.07245216091468,
+          "scarf_average_shear_screen": 1.0070488218859417
+        },
+        "scored_least_SF": 1.0000000000003,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 611180.2687733701,
+          "faces": 469737.48164597864,
+          "core": 93002.69747461492,
+          "structural": 562740.1791205936,
+          "actual_joining": 9994.092258350325,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 9994.092258350325,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 38345.99739459676,
+          "temperature_pressure_loss": 26629.553317968923,
+          "humidity_loss": 2338.048735304341,
+          "internal_air": 6111.802687733701,
+          "retained_water": 3141.5926535897934,
+          "contamination": 125.00000000000001,
+          "systems_excess": 0,
+          "payload": -1.7064849089365453e-07,
+          "accounted_total": 611180.2687733701
+        },
+        "joining": {
+          "total": 9994.092258350325,
+          "film": 4601.579638243431,
+          "primer": 0.0,
+          "scarf": 1404.8824319173114,
+          "splice": 3822.1766999368983,
+          "sealing": 165.4534882526835,
+          "hull_seam_length_m": 82726.74412634176,
+          "scarf_overlap_m": 0.12123412242080427,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        }
+      }
+    },
+    {
+      "label": "explicit_028_bill_with_scarf_screen.mask1.noncrossing_peak",
+      "passed": true,
+      "dense_payload_kg": -41028.22700595285,
+      "reported_payload_kg": -40349.5218749575,
+      "normalized_payload": -0.007048051087053,
+      "improvement_over_dense_kg": 678.7051309953531,
+      "point": {
+        "R_m": 105.39904580152155,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma"
+        ],
+        "mask": 1,
+        "common_usage": 1.0,
+        "f": 0.08417112519238303,
+        "geometry": {
+          "tf_m": 0.009492421494447068,
+          "tc_m": 0.2015146786315715,
+          "separation_m": 0.21100710012601856,
+          "Vc": 1.0671725084672632,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 290000000000.0,
+          "strength_Pa": 345000000.0,
+          "nu": 0.0768,
+          "gamma": 0.6268690033869053,
+          "Q": 0.33,
+          "gamma_full": 0.6268690033869053,
+          "face_stress_Pa": 267637084.1138742,
+          "scarf_average_shear_Pa": 8911334.65418005
+        },
+        "improvement_factors": {
+          "gamma": 3.1343450169345264,
+          "Q": 1.0,
+          "face_strength": 1.0,
+          "coupled_E": 1.0
+        },
+        "modes": {
+          "global_buckling": 1.0000000000008946,
+          "face_compression": 1.2890590298510705,
+          "core_shear_crimping": 2.0387409583062386,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.0000000058688145,
+          "intracell_dimpling": 1082.5424239718775,
+          "scarf_average_shear_screen": 1.122166363184362
+        },
+        "scored_least_SF": 1.0000000000008946,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 5724919.041673524,
+          "faces": 4903000.758512408,
+          "core": 450620.3091159235,
+          "structural": 5353621.067628331,
+          "actual_joining": 68443.70949322708,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 68443.70949322708,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 343103.78642692417,
+          "temperature_pressure_loss": 249438.74115450372,
+          "humidity_loss": 21900.4775006371,
+          "internal_air": 57249.19041673525,
+          "retained_water": 13959.929412254543,
+          "contamination": 555.4479427935619,
+          "systems_excess": 0,
+          "payload": -40349.5218749575,
+          "accounted_total": 5724919.041673524
+        },
+        "joining": {
+          "total": 68443.70949322708,
+          "film": 20447.503549304452,
+          "primer": 0.0,
+          "scarf": 20750.024827312856,
+          "splice": 26205.82704520758,
+          "sealing": 1040.3540714021967,
+          "hull_seam_length_m": 520177.0357010984,
+          "scarf_overlap_m": 0.284772644833412,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        },
+        "per_core_optima": [
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.0",
+            "payload_kg": -40349.5218749575,
+            "f": 0.08417112519238303
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.6",
+            "payload_kg": -54213.61012800169,
+            "f": 0.18545224201207128
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-1.6",
+            "payload_kg": -54213.61012800169,
+            "f": 0.18545224201207128
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-2.0",
+            "payload_kg": -238005.38111041003,
+            "f": 0.15901743943148708
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.6",
+            "payload_kg": -362834.8770602838,
+            "f": 0.1571051319622563
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-1.6",
+            "payload_kg": -362834.8770602838,
+            "f": 0.1571051319622563
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-2.0",
+            "payload_kg": -408505.7885257043,
+            "f": 0.23555019741806865
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-1.6",
+            "payload_kg": -433032.24420862604,
+            "f": 0.16101705444092204
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-2.0",
+            "payload_kg": -456799.63379174995,
+            "f": 0.24178904623390451
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-1.0",
+            "payload_kg": -476583.15670179296,
+            "f": 0.06883566161552587
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.0",
+            "payload_kg": -477042.8554661798,
+            "f": 0.06890962189332209
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-2.0",
+            "payload_kg": -665934.3561790404,
+            "f": 0.25494753542424936
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-2.3",
+            "payload_kg": -693696.0509151642,
+            "f": 0.27165068474078163
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-2.3",
+            "payload_kg": -693696.0509151642,
+            "f": 0.27165068474078163
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-2.3",
+            "payload_kg": -738553.0481487967,
+            "f": 0.2769534829435036
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-2.3",
+            "payload_kg": -738690.0524166377,
+            "f": 0.2769500238713048
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-2.3",
+            "payload_kg": -738690.0524166377,
+            "f": 0.2769500238713048
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-3.0",
+            "payload_kg": -755259.6244949247,
+            "f": 0.26120063298259805
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-2.3",
+            "payload_kg": -807560.770204822,
+            "f": 0.2849336433893146
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-3.0",
+            "payload_kg": -817075.3592501185,
+            "f": 0.2870928936376785
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-2.6",
+            "payload_kg": -988725.2264036315,
+            "f": 0.30560833031880696
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-2.6",
+            "payload_kg": -1061621.037901847,
+            "f": 0.3134015183422362
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-2.6",
+            "payload_kg": -1229237.1309610466,
+            "f": 0.33071185435051376
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-3.0",
+            "payload_kg": -1368445.242436784,
+            "f": 0.34498354157661215
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.0",
+            "payload_kg": -1450036.1398325684,
+            "f": 0.35276101802125875
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-3.1",
+            "payload_kg": -1484767.723688298,
+            "f": 0.35614624331026257
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/8-3.1",
+            "payload_kg": -1484767.723688298,
+            "f": 0.35614624331026257
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.0",
+            "payload_kg": -1537657.6799728929,
+            "f": 0.3609055826618835
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-3.1",
+            "payload_kg": -1557562.353614781,
+            "f": 0.3628643237400055
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/8-3.1",
+            "payload_kg": -1557562.353614781,
+            "f": 0.3628643237400055
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-4.0",
+            "payload_kg": -1675618.974516509,
+            "f": 0.37436623729422336
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-4.0",
+            "payload_kg": -1675618.974516509,
+            "f": 0.37436623729422336
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/8-3.1",
+            "payload_kg": -1699717.652482619,
+            "f": 0.37561485633123237
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-3.1",
+            "payload_kg": -1727203.5576766157,
+            "f": 0.3780165600341474
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-3.4",
+            "payload_kg": -1798373.5162489752,
+            "f": 0.3844789073405297
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-3.4",
+            "payload_kg": -1869866.4779046248,
+            "f": 0.3905217967251331
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-3.4",
+            "payload_kg": -1909991.334313649,
+            "f": 0.39382977329635166
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.7",
+            "payload_kg": -2172833.4224828463,
+            "f": 0.41515651360460304
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.7",
+            "payload_kg": -2186938.2866751873,
+            "f": 0.416258629426779
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-3.8",
+            "payload_kg": -2199228.0237956084,
+            "f": 0.4172935151383884
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-3.8",
+            "payload_kg": -2284684.770548766,
+            "f": 0.42376920087654085
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-3.8",
+            "payload_kg": -2456942.448109512,
+            "f": 0.4364018569450315
+          },
+          {
+            "core": "Hexcel HRH-10-4.8-32",
+            "payload_kg": -2694460.876150611,
+            "f": 0.1894017853265799
+          },
+          {
+            "core": "Hexcel HRH-49 Kevlar 1/4-2.1",
+            "payload_kg": -3065407.9219857836,
+            "f": 0.30740545658829704
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 4",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 8",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 16",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          }
+        ]
+      }
+    },
+    {
+      "label": "explicit_028_bill_with_scarf_screen.mask5.noncrossing_peak",
+      "passed": true,
+      "dense_payload_kg": -4983.44908253428,
+      "reported_payload_kg": -4084.556910169631,
+      "normalized_payload": -0.0006992042587940176,
+      "improvement_over_dense_kg": 898.892172364649,
+      "point": {
+        "R_m": 106.11102869396889,
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium",
+        "core_tag": "QUESTIONABLE",
+        "subset": [
+          "gamma",
+          "face_strength"
+        ],
+        "mask": 5,
+        "common_usage": 1.0,
+        "f": 0.08410045345454203,
+        "geometry": {
+          "tf_m": 0.009493419730513125,
+          "tc_m": 0.20135111904222125,
+          "separation_m": 0.21084453877273437,
+          "Vc": 1.0732393285045727,
+          "branch": "stiff/moderate",
+          "nominal_panel_a_m": 0.6096,
+          "nominal_panel_b_m": 1.8288,
+          "published_standard_gauge_range": false
+        },
+        "properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "nu": 0.0768,
+          "gamma": 0.629295731401829,
+          "Q": 0.33,
+          "gamma_full": 0.629295731401829,
+          "face_stress_Pa": 269416671.7199928,
+          "scarf_average_shear_Pa": 8970588.40355137
+        },
+        "improvement_factors": {
+          "gamma": 3.146478657009145,
+          "Q": 1.0,
+          "face_strength": 1.0991304347826087,
+          "coupled_E": 1.0124137931034483
+        },
+        "modes": {
+          "global_buckling": 1.0000000000010867,
+          "face_compression": 1.4074852813641243,
+          "core_shear_crimping": 2.023584834730804,
+          "core_crush": 5.005764419270279,
+          "face_wrinkling": 1.000000013305298,
+          "intracell_dimpling": 1088.970558968861,
+          "scarf_average_shear_screen": 1.1147540774517195
+        },
+        "scored_least_SF": 1.0000000000010867,
+        "governing": [
+          "global_buckling",
+          "face_wrinkling"
+        ],
+        "overall_installed_hull_SF": null,
+        "masses_kg": {
+          "lift": 5841722.012984653,
+          "faces": 4969987.774231265,
+          "core": 456358.15308882715,
+          "structural": 5426345.927320092,
+          "actual_joining": 69356.04480016264,
+          "joint_allowance_floor": 0.0,
+          "unspent_joint_floor": 0.0,
+          "charged_joining": 69356.04480016264,
+          "systems_allowance": 100.0,
+          "fixed_reserve": 350004.5977745681,
+          "temperature_pressure_loss": 254527.92860237314,
+          "humidity_loss": 22347.303180893203,
+          "internal_air": 58417.22012984653,
+          "retained_water": 14149.168340930608,
+          "contamination": 562.9775205246145,
+          "systems_excess": 0,
+          "payload": -4084.556910169631,
+          "accounted_total": 5841722.012984653
+        },
+        "joining": {
+          "total": 69356.04480016264,
+          "film": 20724.68716187871,
+          "primer": 0.0,
+          "scarf": 21035.194228807417,
+          "splice": 26541.62255827003,
+          "sealing": 1054.5408512064748,
+          "hull_seam_length_m": 527270.4256032374,
+          "scarf_overlap_m": 0.28480259191539375,
+          "valid": true
+        },
+        "settings": {
+          "nu": 0.0768,
+          "pressure_factor": 1.01,
+          "joint_floor": false,
+          "scarf_screen": true,
+          "flat_gamma": false,
+          "primer_kg_m2": 0.0
+        },
+        "per_core_optima": [
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.0",
+            "payload_kg": -4084.556910169631,
+            "f": 0.08410045345454203
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-1.6",
+            "payload_kg": -37362.75925805216,
+            "f": 0.18286327072032388
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-1.6",
+            "payload_kg": -37362.75925805216,
+            "f": 0.18286327072032388
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-2.0",
+            "payload_kg": -205207.76409540453,
+            "f": 0.158936215656544
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.6",
+            "payload_kg": -330016.26341258833,
+            "f": 0.15696499288521926
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-1.6",
+            "payload_kg": -330016.26341258833,
+            "f": 0.15696499288521926
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-2.0",
+            "payload_kg": -392950.0202720991,
+            "f": 0.23249122167245642
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-1.6",
+            "payload_kg": -401153.1692451155,
+            "f": 0.16087485523792106
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-2.0",
+            "payload_kg": -441566.3231418788,
+            "f": 0.23869531815402242
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-1.0",
+            "payload_kg": -446472.6171668984,
+            "f": 0.06877959743448867
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-1.0",
+            "payload_kg": -446938.1761203013,
+            "f": 0.06885350167607848
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-2.0",
+            "payload_kg": -637305.4593081237,
+            "f": 0.2547773653479856
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-2.3",
+            "payload_kg": -679345.1286720255,
+            "f": 0.2683228893281136
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-2.3",
+            "payload_kg": -679345.1286720255,
+            "f": 0.2683228893281136
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-2.3",
+            "payload_kg": -724517.3893362598,
+            "f": 0.2736039594012024
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-2.3",
+            "payload_kg": -724688.2760487562,
+            "f": 0.2736043093790239
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-2.3",
+            "payload_kg": -724688.2760487562,
+            "f": 0.2736043093790239
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-3.0",
+            "payload_kg": -727256.5141276882,
+            "f": 0.2610054811130125
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-2.3",
+            "payload_kg": -794105.5779132423,
+            "f": 0.281563465298531
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-3.0",
+            "payload_kg": -802457.2806865233,
+            "f": 0.28357618233815923
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-2.6",
+            "payload_kg": -975734.0974866452,
+            "f": 0.30207706822336455
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-2.6",
+            "payload_kg": -1049273.3462796456,
+            "f": 0.30986031387522806
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-2.6",
+            "payload_kg": -1218463.7304254519,
+            "f": 0.32716198047281053
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/8-3.0",
+            "payload_kg": -1357231.60391867,
+            "f": 0.34126285156402764
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.0",
+            "payload_kg": -1439606.0158179284,
+            "f": 0.3490455876051326
+          },
+          {
+            "core": "Hexcel CR-III 5056 3/16-3.1",
+            "payload_kg": -1474209.9403305575,
+            "f": 0.35239055656726787
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/8-3.1",
+            "payload_kg": -1474209.9403305575,
+            "f": 0.35239055656726787
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.0",
+            "payload_kg": -1528156.1046176488,
+            "f": 0.3572045855906584
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/16-3.1",
+            "payload_kg": -1547725.623274059,
+            "f": 0.35911717096359713
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/8-3.1",
+            "payload_kg": -1547725.623274059,
+            "f": 0.35911717096359713
+          },
+          {
+            "core": "Hexcel HFT fiberglass 3/16-4.0",
+            "payload_kg": -1663823.2594955356,
+            "f": 0.3703594855493019
+          },
+          {
+            "core": "Hexcel HFT fiberglass 1/8-4.0",
+            "payload_kg": -1663823.2594955356,
+            "f": 0.3703594855493019
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/8-3.1",
+            "payload_kg": -1691294.8734188098,
+            "f": 0.37188612285006073
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/16-3.1",
+            "payload_kg": -1719094.6462955228,
+            "f": 0.37429506273936247
+          },
+          {
+            "core": "Hexcel CR-III 5056 1/4-3.4",
+            "payload_kg": -1789490.5768946905,
+            "f": 0.3806418946496039
+          },
+          {
+            "core": "Hexcel CR-III 5052 1/4-3.4",
+            "payload_kg": -1861734.8242729432,
+            "f": 0.38670086319146413
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 1/4-3.4",
+            "payload_kg": -1902467.5927862285,
+            "f": 0.39003318472428977
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 3/8-3.7",
+            "payload_kg": -2166433.5047038747,
+            "f": 0.41129382960720623
+          },
+          {
+            "core": "Hexcel CR-III 5052 3/8-3.7",
+            "payload_kg": -2180598.683597815,
+            "f": 0.41239290961861635
+          },
+          {
+            "core": "Hexcel CR-III 5056 5/32-3.8",
+            "payload_kg": -2192454.5637549385,
+            "f": 0.413388299440853
+          },
+          {
+            "core": "Hexcel CR-III 5052 5/32-3.8",
+            "payload_kg": -2278858.719657184,
+            "f": 0.4198909646204317
+          },
+          {
+            "core": "Plascore PAMG-XR1 5052 5/32-3.8",
+            "payload_kg": -2453123.0711799962,
+            "f": 0.43258419627347294
+          },
+          {
+            "core": "Hexcel HRH-10-4.8-32",
+            "payload_kg": -2723556.3849114566,
+            "f": 0.1900655357298553
+          },
+          {
+            "core": "Hexcel HRH-49 Kevlar 1/4-2.1",
+            "payload_kg": -3104574.895578083,
+            "f": 0.30830578495542327
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 4",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 8",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          },
+          {
+            "core": "aramid honeycomb scaled from HRH-10-32 to 16",
+            "payload_kg": null,
+            "f": 0.00016666666666666666
+          }
+        ]
+      }
+    }
+  ],
+  "scope": "Numerical cross-check of usage minima and sampled radius peaks; not an interval proof."
+}

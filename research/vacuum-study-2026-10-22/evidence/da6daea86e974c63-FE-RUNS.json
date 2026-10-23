@@ -1,0 +1,3786 @@
+{
+  "c-W332-a1.208988-hi-ein0.01": {
+    "meta": {
+      "name": "c-W332-a1.208988-hi-ein0.01",
+      "a_mm": 1.208988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 0.01,
+        "G_in": 0.005,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.66201999712695,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6950722375840938,
+        "core_index_typical": 0.4965018543164652,
+        "core_tau_meridian": 0.11979208952590724,
+        "core_tau_hoop": 0.0036081348569532317,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06492483589694746,
+        "core_min_sufficient_bound": -0.14250486845174595,
+        "core_invariant_error": 1.3056402992095428e-07,
+        "core_worst_E": [
+          [
+            -0.0009827504,
+            -0.001277421,
+            -3.550733e-07
+          ],
+          [
+            -0.001277421,
+            -0.0003821076,
+            -1.743338e-05
+          ],
+          [
+            -3.550733e-07,
+            -1.743338e-05,
+            -0.0009274097
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 365.21439197055616,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7820324549268597,
+        "core_index_typical": 0.5586189808586569,
+        "core_tau_meridian": 0.134779252430573,
+        "core_tau_hoop": 0.004057269408592996,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.0695758546981188,
+        "core_min_sufficient_bound": -0.15880428086584958,
+        "core_invariant_error": 1.3157353973003438e-07,
+        "core_worst_E": [
+          [
+            -0.001033376,
+            -0.001437217,
+            -3.94985e-07
+          ],
+          [
+            -0.001437217,
+            -0.0003951319,
+            -1.960272e-05
+          ],
+          [
+            -3.94985e-07,
+            -1.960272e-05,
+            -0.0009714454
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 29.549803495407104
+  },
+  "c-W332-a1.208988-hi-ein10": {
+    "meta": {
+      "name": "c-W332-a1.208988-hi-ein10",
+      "a_mm": 1.208988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 10.0,
+        "G_in": 5.0,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.49796966726643,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.694518243664017,
+        "core_index_typical": 0.4961061271879234,
+        "core_tau_meridian": 0.11969661147601522,
+        "core_tau_hoop": 0.003605267188817621,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06493085647429082,
+        "core_min_sufficient_bound": 4.827810156034923,
+        "core_invariant_error": 1.2897647055920558e-07,
+        "core_worst_E": [
+          [
+            -0.0009822823,
+            -0.001276403,
+            -3.54854e-07
+          ],
+          [
+            -0.001276403,
+            -0.0003819651,
+            -1.741953e-05
+          ],
+          [
+            -3.54854e-07,
+            -1.741953e-05,
+            -0.0009269812
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 365.0384417307382,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7813940858932081,
+        "core_index_typical": 0.558162983220167,
+        "core_tau_meridian": 0.13466923272126294,
+        "core_tau_hoop": 0.004053968798071428,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06958025092555394,
+        "core_min_sufficient_bound": 4.809222582307597,
+        "core_invariant_error": 1.3131323875481549e-07,
+        "core_worst_E": [
+          [
+            -0.001032882,
+            -0.001436044,
+            -3.947276e-07
+          ],
+          [
+            -0.001436044,
+            -0.0003949908,
+            -1.958678e-05
+          ],
+          [
+            -3.947276e-07,
+            -1.958678e-05,
+            -0.0009709982
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 31.69725775718689
+  },
+  "e-W402-a0.520967-345": {
+    "meta": {
+      "name": "e-W402-a0.520967-345",
+      "a_mm": 0.520967,
+      "w_mm": 401.8559050423529,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        95.46083791390515
+      ],
+      "endpoint_to_kPa": 112.0,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 2411.1354302541176,
+        "core": 2009.2795252117644
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 317.15194451712216,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.21786723263131794,
+        "core_index_typical": 0.15562657744048625,
+        "core_tau_meridian": 0.03754803164781631,
+        "core_tau_hoop": 0.0011579709513234197,
+        "core_worst_elem": 673,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 270.0,
+        "core_max_compression": 0.05155286606029487,
+        "core_min_sufficient_bound": 0.4298170056370262,
+        "core_invariant_error": 1.5554457638566888e-08,
+        "core_worst_E": [
+          [
+            -0.0009669552,
+            -0.0004004429,
+            -1.430334e-07
+          ],
+          [
+            -0.0004004429,
+            -0.0004398263,
+            -5.595366e-06
+          ],
+          [
+            -1.430334e-07,
+            -5.595366e-06,
+            -0.0009456201
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      }
+    ],
+    "endpoint_kPa": 105.0764586633294,
+    "solver_returncode": 201,
+    "wall_s": 249.2079517841339
+  },
+  "e-W402-a0.538967-345": {
+    "meta": {
+      "name": "e-W402-a0.538967-345",
+      "a_mm": 0.538967,
+      "w_mm": 401.8559050423529,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        95.46083791390515
+      ],
+      "endpoint_to_kPa": 112.0,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 2411.1354302541176,
+        "core": 2009.2795252117644
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 317.7654853304663,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.22587543995117426,
+        "core_index_typical": 0.16134697072895246,
+        "core_tau_meridian": 0.038928208164348214,
+        "core_tau_hoop": 0.001199175973494323,
+        "core_worst_elem": 673,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 270.0,
+        "core_max_compression": 0.05170277269528314,
+        "core_min_sufficient_bound": 0.4286186445945796,
+        "core_invariant_error": 1.5602672875925094e-08,
+        "core_worst_E": [
+          [
+            -0.0009673948,
+            -0.0004151616,
+            -1.483452e-07
+          ],
+          [
+            -0.0004151616,
+            -0.0004389814,
+            -5.794463e-06
+          ],
+          [
+            -1.483452e-07,
+            -5.794463e-06,
+            -0.0009452714
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      }
+    ],
+    "endpoint_kPa": 104.9167234359019,
+    "solver_returncode": 201,
+    "wall_s": 312.90558910369873
+  },
+  "e-perfect-255": {
+    "meta": {
+      "name": "e-perfect-255",
+      "a_mm": 0.0,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 255,
+      "pressures_kPa": [
+        75.0
+      ],
+      "endpoint_to_kPa": 85.0,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 236.19431399163446,
+        "face_max_elem": 741,
+        "face_max_ip": 3,
+        "face_max_s_mm": 298.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0005854399898854701,
+        "core_index_typical": 0.00047897481058744755,
+        "core_tau_meridian": -1.9625055949751852e-06,
+        "core_tau_hoop": 0.00018160664585101423,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.03765544043971155,
+        "core_min_sufficient_bound": 0.461635746026301,
+        "core_invariant_error": 1.0226669774904273e-08,
+        "core_worst_E": [
+          [
+            -0.0007499163,
+            2.093026e-08,
+            -4.752005e-11
+          ],
+          [
+            2.093026e-08,
+            -0.0003620897,
+            -8.776535e-07
+          ],
+          [
+            -4.752005e-11,
+            -8.776535e-07,
+            -0.0007499143
+          ]
+        ],
+        "pressure_kPa": 75.0
+      }
+    ],
+    "endpoint_kPa": 81.04191,
+    "solver_returncode": 201,
+    "wall_s": 258.6401116847992
+  },
+  "e-perfect-300": {
+    "meta": {
+      "name": "e-perfect-300",
+      "a_mm": 0.0,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 300,
+      "pressures_kPa": [
+        90.0
+      ],
+      "endpoint_to_kPa": 100.0,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 283.3838040209007,
+        "face_max_elem": 2571,
+        "face_max_ip": 2,
+        "face_max_s_mm": 1030.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0007021151820226194,
+        "core_index_typical": 0.0005744320303630777,
+        "core_tau_meridian": -2.3539553952849117e-06,
+        "core_tau_hoop": 0.0002177999087788206,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.04518653937100422,
+        "core_min_sufficient_bound": 0.45397355226652714,
+        "core_invariant_error": 1.0158772052737408e-08,
+        "core_worst_E": [
+          [
+            -0.0008994916,
+            2.510536e-08,
+            -5.700089e-11
+          ],
+          [
+            2.510536e-08,
+            -0.0004344088,
+            -1.052484e-06
+          ],
+          [
+            -5.700089e-11,
+            -1.052484e-06,
+            -0.0008994892
+          ]
+        ],
+        "pressure_kPa": 90.0
+      }
+    ],
+    "endpoint_kPa": 95.36449,
+    "solver_returncode": 201,
+    "wall_s": 239.33161878585815
+  },
+  "e-perfect-345": {
+    "meta": {
+      "name": "e-perfect-345",
+      "a_mm": 0.0,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        95.46083791390515
+      ],
+      "endpoint_to_kPa": 115.0,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 300.5593426435016,
+        "face_max_elem": 2251,
+        "face_max_ip": 1,
+        "face_max_s_mm": 902.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0007445578537234512,
+        "core_index_typical": 0.0006091562878471128,
+        "core_tau_meridian": -2.4963625953429716e-06,
+        "core_tau_hoop": 0.00023096585010367611,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.04792827772553659,
+        "core_min_sufficient_bound": 0.45118496830525856,
+        "core_invariant_error": 1.0117119260411034e-08,
+        "core_worst_E": [
+          [
+            -0.0009539117,
+            2.662426e-08,
+            -6.04503e-11
+          ],
+          [
+            2.662426e-08,
+            -0.0004607289,
+            -1.116075e-06
+          ],
+          [
+            -6.04503e-11,
+            -1.116075e-06,
+            -0.0009539092
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      }
+    ],
+    "endpoint_kPa": 109.68419510201912,
+    "solver_returncode": 201,
+    "wall_s": 277.58591651916504
+  },
+  "f-W332-a1.208988-hi-E298.7": {
+    "meta": {
+      "name": "f-W332-a1.208988-hi-E298.7",
+      "a_mm": 1.208988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "face_E_MPa": 298700.0,
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.0792846736629,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6839113506671881,
+        "core_index_typical": 0.4885294293870777,
+        "core_tau_meridian": 0.11786857997481205,
+        "core_tau_hoop": 0.003548979188509256,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06468557141055899,
+        "core_min_sufficient_bound": 0.351981407332562,
+        "core_invariant_error": 1.3246354685358952e-07,
+        "core_worst_E": [
+          [
+            -0.0009546527,
+            -0.001256947,
+            -3.352988e-07
+          ],
+          [
+            -0.001256947,
+            -0.0003838134,
+            -1.714807e-05
+          ],
+          [
+            -3.352988e-07,
+            -1.714807e-05,
+            -0.0009012408
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 364.42381121836075,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7677292779995627,
+        "core_index_typical": 0.5484019657618432,
+        "core_tau_meridian": 0.1323141849551595,
+        "core_tau_hoop": 0.00398186207716868,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06926164902420137,
+        "core_min_sufficient_bound": 0.33599893581167006,
+        "core_invariant_error": 1.3160634046438524e-07,
+        "core_worst_E": [
+          [
+            -0.001003823,
+            -0.001410976,
+            -3.721954e-07
+          ],
+          [
+            -0.001410976,
+            -0.0003972926,
+            -1.9239e-05
+          ],
+          [
+            -3.721954e-07,
+            -1.9239e-05,
+            -0.0009441764
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 45.046512603759766
+  },
+  "f-W332-a1.226988-hi-E298.7": {
+    "meta": {
+      "name": "f-W332-a1.226988-hi-E298.7",
+      "a_mm": 1.226988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "face_E_MPa": 298700.0,
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.7801647960453,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6955406412519285,
+        "core_index_typical": 0.4968364220461476,
+        "core_tau_meridian": 0.11987283265418505,
+        "core_tau_hoop": 0.00360882445068564,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.0650069791453092,
+        "core_min_sufficient_bound": 0.3499750391549099,
+        "core_invariant_error": 1.3109328009242027e-07,
+        "core_worst_E": [
+          [
+            -0.0009551286,
+            -0.001278317,
+            -3.412577e-07
+          ],
+          [
+            -0.001278317,
+            -0.0003824448,
+            -1.74372e-05
+          ],
+          [
+            -3.412577e-07,
+            -1.74372e-05,
+            -0.0009007895
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 365.2219382602404,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.781010587629752,
+        "core_index_typical": 0.5578890226330716,
+        "core_tau_meridian": 0.13460315525536748,
+        "core_tau_hoop": 0.004050205245444979,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06963288619470374,
+        "core_min_sufficient_bound": 0.333701683308178,
+        "core_invariant_error": 1.298424768536588e-07,
+        "core_worst_E": [
+          [
+            -0.001004353,
+            -0.001435381,
+            -3.788374e-07
+          ],
+          [
+            -0.001435381,
+            -0.0003957379,
+            -1.956917e-05
+          ],
+          [
+            -3.788374e-07,
+            -1.956917e-05,
+            -0.0009436588
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 45.44944381713867
+  },
+  "g-L332-a1.79559-hi": {
+    "meta": {
+      "name": "g-L332-a1.79559-hi",
+      "a_mm": 1.79559,
+      "w_mm": 332.2164186283597,
+      "meridian": "L",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 103.4213593975254,
+        "G_hoop": 46.884349593544854
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.79639756185594,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.4245906336878933,
+        "core_index_typical": 0.3473923366537308,
+        "core_tau_meridian": 0.131735221570376,
+        "core_tau_hoop": -8.31452571238854e-18,
+        "core_worst_elem": 583,
+        "core_worst_ip": 10,
+        "core_worst_s_mm": 233.99999999999997,
+        "core_max_compression": 0.06609841534038133,
+        "core_min_sufficient_bound": 0.33933573020005225,
+        "core_invariant_error": 8.386819552730351e-08,
+        "core_worst_E": [
+          [
+            -0.0009692588,
+            -0.000636538,
+            8.959266e-19
+          ],
+          [
+            -0.000636538,
+            -0.0003698004,
+            8.865799e-20
+          ],
+          [
+            8.959266e-19,
+            8.865799e-20,
+            -0.0009162271
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 363.7676144118531,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.4600489632619927,
+        "core_index_typical": 0.3764036972143576,
+        "core_tau_meridian": 0.14273666750993252,
+        "core_tau_hoop": -1.0405837405823818e-14,
+        "core_worst_elem": 583,
+        "core_worst_ip": 10,
+        "core_worst_s_mm": 233.99999999999997,
+        "core_max_compression": 0.07002288104750812,
+        "core_min_sufficient_bound": 0.3269185038669367,
+        "core_invariant_error": 8.245160362796433e-08,
+        "core_worst_E": [
+          [
+            -0.001017831,
+            -0.0006896762,
+            2.196674e-18
+          ],
+          [
+            -0.0006896762,
+            -0.0003847202,
+            1.109548e-16
+          ],
+          [
+            2.196674e-18,
+            1.109548e-16,
+            -0.0009604773
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 37.945276737213135
+  },
+  "g-L332-a1.810809-hi": {
+    "meta": {
+      "name": "g-L332-a1.810809-hi",
+      "a_mm": 1.810809,
+      "w_mm": 332.2164186283597,
+      "meridian": "L",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 103.4213593975254,
+        "G_hoop": 46.884349593544854
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 345.18738587760595,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.42850033785215236,
+        "core_index_typical": 0.35059118551539736,
+        "core_tau_meridian": 0.13294826232890553,
+        "core_tau_hoop": 1.0395325031835655e-14,
+        "core_worst_elem": 583,
+        "core_worst_ip": 10,
+        "core_worst_s_mm": 233.99999999999997,
+        "core_max_compression": 0.06628803036758753,
+        "core_min_sufficient_bound": 0.33813105763603124,
+        "core_invariant_error": 8.391782307937135e-08,
+        "core_worst_E": [
+          [
+            -0.0009693843,
+            -0.000642399,
+            -2.37928e-18
+          ],
+          [
+            -0.000642399,
+            -0.0003688881,
+            -1.108442e-16
+          ],
+          [
+            -2.37928e-18,
+            -1.108442e-16,
+            -0.0009158618
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 364.1958516672065,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.4643096268362543,
+        "core_index_typical": 0.3798896946842081,
+        "core_tau_meridian": 0.1440585983662895,
+        "core_tau_hoop": -1.0381758854712106e-14,
+        "core_worst_elem": 583,
+        "core_worst_ip": 10,
+        "core_worst_s_mm": 233.99999999999997,
+        "core_max_compression": 0.07023017711237162,
+        "core_min_sufficient_bound": 0.32560441876692137,
+        "core_invariant_error": 8.242871085695214e-08,
+        "core_worst_E": [
+          [
+            -0.001017964,
+            -0.0006960631,
+            4.043137e-18
+          ],
+          [
+            -0.0006960631,
+            -0.0003837241,
+            1.106978e-16
+          ],
+          [
+            4.043137e-18,
+            1.106978e-16,
+            -0.0009600778
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 27.23451066017151
+  },
+  "g-W332-a0.65274-hi": {
+    "meta": {
+      "name": "g-W332-a0.65274-hi",
+      "a_mm": 0.65274,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 323.34507594711033,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.35175371777865005,
+        "core_index_typical": 0.25126381647961926,
+        "core_tau_meridian": 0.060622781379171146,
+        "core_tau_hoop": 0.0018414563988185145,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.05591127449900457,
+        "core_min_sufficient_bound": 0.40830015205861925,
+        "core_invariant_error": 1.5298070130120855e-08,
+        "core_worst_E": [
+          [
+            -0.0009688644,
+            -0.0006465087,
+            -1.75448e-07
+          ],
+          [
+            -0.0006465087,
+            -0.0004222933,
+            -8.897824e-06
+          ],
+          [
+            -1.75448e-07,
+            -8.897824e-06,
+            -0.0009411711
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 341.0451285467377,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.392318987713695,
+        "core_index_typical": 0.2802402734601732,
+        "core_tau_meridian": 0.06761399599246491,
+        "core_tau_hoop": 0.0020519251333013626,
+        "core_worst_elem": 573,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 230.0,
+        "core_max_compression": 0.05925478652913726,
+        "core_min_sufficient_bound": 0.3999298294364146,
+        "core_invariant_error": 1.5360595434499302e-08,
+        "core_worst_E": [
+          [
+            -0.001018002,
+            -0.000721063,
+            -1.952209e-07
+          ],
+          [
+            -0.000721063,
+            -0.0004410575,
+            -9.914497e-06
+          ],
+          [
+            -1.952209e-07,
+            -9.914497e-06,
+            -0.0009870845
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 38.81370306015015
+  },
+  "g-W332-a0.67074-hi": {
+    "meta": {
+      "name": "g-W332-a0.67074-hi",
+      "a_mm": 0.67074,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 324.0128099380323,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.36219873891721494,
+        "core_index_typical": 0.25872486599671074,
+        "core_tau_meridian": 0.06242293094461942,
+        "core_tau_hoop": 0.0018952059206801984,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.05617158118744476,
+        "core_min_sufficient_bound": 0.40658132304286876,
+        "core_invariant_error": 1.5387394955435063e-08,
+        "core_worst_E": [
+          [
+            -0.0009692825,
+            -0.0006657048,
+            -1.808184e-07
+          ],
+          [
+            -0.0006657048,
+            -0.0004210808,
+            -9.157524e-06
+          ],
+          [
+            -1.808184e-07,
+            -9.157524e-06,
+            -0.000940755
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 341.7966104468036,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.40407255039580475,
+        "core_index_typical": 0.28863603562200946,
+        "core_tau_meridian": 0.06963966644454749,
+        "core_tau_hoop": 0.0021124080673824855,
+        "core_worst_elem": 573,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 230.0,
+        "core_max_compression": 0.059549276079625034,
+        "core_min_sufficient_bound": 0.39798172332666804,
+        "core_invariant_error": 1.505845163840558e-08,
+        "core_worst_E": [
+          [
+            -0.001018468,
+            -0.0007426637,
+            -2.012117e-07
+          ],
+          [
+            -0.0007426637,
+            -0.0004397062,
+            -1.020672e-05
+          ],
+          [
+            -2.012117e-07,
+            -1.020672e-05,
+            -0.0009866135
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 35.04532051086426
+  },
+  "g-W332-a0.737936-hi": {
+    "meta": {
+      "name": "g-W332-a0.737936-hi",
+      "a_mm": 0.737936,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 326.51809896489664,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.40156726912793994,
+        "core_index_typical": 0.28684645136306636,
+        "core_tau_meridian": 0.06920790929852305,
+        "core_tau_hoop": 0.0020977929220142846,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.057160981406477934,
+        "core_min_sufficient_bound": 0.4000528677808286,
+        "core_invariant_error": 1.59630374058084e-08,
+        "core_worst_E": [
+          [
+            -0.0009708608,
+            -0.0007380564,
+            -2.011243e-07
+          ],
+          [
+            -0.0007380564,
+            -0.0004165046,
+            -1.013635e-05
+          ],
+          [
+            -2.011243e-07,
+            -1.013635e-05,
+            -0.0009391845
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 344.61919130011074,
+        "face_max_elem": 10,
+        "face_max_ip": 16,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.44842905127405946,
+        "core_index_typical": 0.320320610143627,
+        "core_tau_meridian": 0.07728429768110288,
+        "core_tau_hoop": 0.0023406665305172702,
+        "core_worst_elem": 573,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 230.0,
+        "core_max_compression": 0.060670583888727224,
+        "core_min_sufficient_bound": 0.3905782539347674,
+        "core_invariant_error": 1.5726733540444293e-08,
+        "core_worst_E": [
+          [
+            -0.001020227,
+            -0.0008241811,
+            -2.238707e-07
+          ],
+          [
+            -0.0008241811,
+            -0.0004346018,
+            -1.130954e-05
+          ],
+          [
+            -2.238707e-07,
+            -1.130954e-05,
+            -0.0009848336
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 30.811192512512207
+  },
+  "g-W332-a0.755936-hi": {
+    "meta": {
+      "name": "g-W332-a0.755936-hi",
+      "a_mm": 0.755936,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 327.1925823360523,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.4122146646941038,
+        "core_index_typical": 0.2944520602733816,
+        "core_tau_meridian": 0.07104293710946503,
+        "core_tau_hoop": 0.002152584357588364,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.05743078515810664,
+        "core_min_sufficient_bound": 0.3982754088417327,
+        "core_invariant_error": 1.547850436711684e-08,
+        "core_worst_E": [
+          [
+            -0.0009712883,
+            -0.000757624,
+            -2.06633e-07
+          ],
+          [
+            -0.000757624,
+            -0.0004152654,
+            -1.040108e-05
+          ],
+          [
+            -2.06633e-07,
+            -1.040108e-05,
+            -0.0009387591
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 345.3798724603285,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.4604407138633138,
+        "core_index_typical": 0.32890073732811875,
+        "core_tau_meridian": 0.07935445039342155,
+        "core_tau_hoop": 0.0024024787110805443,
+        "core_worst_elem": 573,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 230.0,
+        "core_max_compression": 0.06097691208610704,
+        "core_min_sufficient_bound": 0.38856124536984843,
+        "core_invariant_error": 1.6158061402760104e-08,
+        "core_worst_E": [
+          [
+            -0.001020704,
+            -0.0008462556,
+            -2.300197e-07
+          ],
+          [
+            -0.0008462556,
+            -0.0004332181,
+            -1.160818e-05
+          ],
+          [
+            -2.300197e-07,
+            -1.160818e-05,
+            -0.0009843509
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 26.75934600830078
+  },
+  "g-W332-a1.117424-hi": {
+    "meta": {
+      "name": "g-W332-a1.117424-hi",
+      "a_mm": 1.117424,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 341.04352050702437,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6354892655213433,
+        "core_index_typical": 0.4539407620435439,
+        "core_tau_meridian": 0.1095232487922746,
+        "core_tau_hoop": 0.003301527413550917,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.0632971544244136,
+        "core_min_sufficient_bound": 0.36031177046481877,
+        "core_invariant_error": 1.3054425973546557e-07,
+        "core_worst_E": [
+          [
+            -0.0009802939,
+            -0.001167933,
+            -3.235163e-07
+          ],
+          [
+            -0.001167933,
+            -0.0003891176,
+            -1.59521e-05
+          ],
+          [
+            -3.235163e-07,
+            -1.59521e-05,
+            -0.0009297796
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 361.08530820416064,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7138844049839843,
+        "core_index_typical": 0.5099397132344448,
+        "core_tau_meridian": 0.12303426143513563,
+        "core_tau_hoop": 0.0037065873532440524,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.0676934749448832,
+        "core_min_sufficient_bound": 0.34529187617968676,
+        "core_invariant_error": 1.333740436149089e-07,
+        "core_worst_E": [
+          [
+            -0.001030644,
+            -0.001311994,
+            -3.597207e-07
+          ],
+          [
+            -0.001311994,
+            -0.0004031143,
+            -1.790859e-05
+          ],
+          [
+            -3.597207e-07,
+            -1.790859e-05,
+            -0.0009741727
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 35.54175806045532
+  },
+  "g-W332-a1.135424-hi": {
+    "meta": {
+      "name": "g-W332-a1.135424-hi",
+      "a_mm": 1.135424,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 341.7486010290844,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6470935841077545,
+        "core_index_typical": 0.4622299167494068,
+        "core_tau_meridian": 0.11152319770257489,
+        "core_tau_hoop": 0.0033612409531317776,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06361252453378155,
+        "core_min_sufficient_bound": 0.35831564979139435,
+        "core_invariant_error": 1.3110585381226336e-07,
+        "core_worst_E": [
+          [
+            -0.0009807633,
+            -0.001189257,
+            -3.296499e-07
+          ],
+          [
+            -0.001189257,
+            -0.0003877501,
+            -1.624059e-05
+          ],
+          [
+            -3.296499e-07,
+            -1.624059e-05,
+            -0.0009293099
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 361.8891857054655,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7271396523001583,
+        "core_index_typical": 0.5194081533409308,
+        "core_tau_meridian": 0.12531874004102272,
+        "core_tau_hoop": 0.0037747947524812515,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06805752170061412,
+        "core_min_sufficient_bound": 0.34300507309004535,
+        "core_invariant_error": 1.3088930980731384e-07,
+        "core_worst_E": [
+          [
+            -0.001031166,
+            -0.001336351,
+            -3.665728e-07
+          ],
+          [
+            -0.001336351,
+            -0.0004015591,
+            -1.82381e-05
+          ],
+          [
+            -3.665728e-07,
+            -1.82381e-05,
+            -0.0009736338
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 42.159000635147095
+  },
+  "g-W332-a1.208988-hi": {
+    "meta": {
+      "name": "g-W332-a1.208988-hi",
+      "a_mm": 1.208988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.6457699772824,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.695017817513684,
+        "core_index_typical": 0.4964629811257383,
+        "core_tau_meridian": 0.11978271052035638,
+        "core_tau_hoop": 0.0036078511893588086,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.0649254401231432,
+        "core_min_sufficient_bound": 0.3500570803816897,
+        "core_invariant_error": 1.3129672568612527e-07,
+        "core_worst_E": [
+          [
+            -0.0009827023,
+            -0.001277321,
+            -3.550285e-07
+          ],
+          [
+            -0.001277321,
+            -0.0003820935,
+            -1.743201e-05
+          ],
+          [
+            -3.550285e-07,
+            -1.743201e-05,
+            -0.0009273672
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 365.1969918705461,
+        "face_max_elem": 10,
+        "face_max_ip": 16,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.781969869573577,
+        "core_index_typical": 0.5585742750797403,
+        "core_tau_meridian": 0.13476846617207297,
+        "core_tau_hoop": 0.004056944307884119,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06957630264456503,
+        "core_min_sufficient_bound": 0.3335307067090381,
+        "core_invariant_error": 1.315359979825459e-07,
+        "core_worst_E": [
+          [
+            -0.001033325,
+            -0.001437102,
+            -3.949337e-07
+          ],
+          [
+            -0.001437102,
+            -0.0003951179,
+            -1.960115e-05
+          ],
+          [
+            -3.949337e-07,
+            -1.960115e-05,
+            -0.0009714011
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 26.330575942993164
+  },
+  "g-W332-a1.226988-hi": {
+    "meta": {
+      "name": "g-W332-a1.226988-hi",
+      "a_mm": 1.226988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 345.35844975960947,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7068673391149901,
+        "core_index_typical": 0.5049272883634259,
+        "core_tau_meridian": 0.12182491899598046,
+        "core_tau_hoop": 0.003668826448353712,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06525263585965684,
+        "core_min_sufficient_bound": 0.34801176148781404,
+        "core_invariant_error": 1.330696286494515e-07,
+        "core_worst_E": [
+          [
+            -0.0009831817,
+            -0.001299095,
+            -3.613145e-07
+          ],
+          [
+            -0.001299095,
+            -0.0003806926,
+            -1.772659e-05
+          ],
+          [
+            -3.613145e-07,
+            -1.772659e-05,
+            -0.0009268861
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 366.0118185123677,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7955487871803253,
+        "core_index_typical": 0.5682739182057301,
+        "core_tau_meridian": 0.13710872778175662,
+        "core_tau_hoop": 0.004126819540505142,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06995560375161275,
+        "core_min_sufficient_bound": 0.33118088961526393,
+        "core_invariant_error": 1.3101705437223998e-07,
+        "core_worst_E": [
+          [
+            -0.001033859,
+            -0.001462053,
+            -4.019606e-07
+          ],
+          [
+            -0.001462053,
+            -0.0003935207,
+            -1.993871e-05
+          ],
+          [
+            -4.019606e-07,
+            -1.993871e-05,
+            -0.0009708472
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 32.38268041610718
+  },
+  "g-W402-a1.284271-hi": {
+    "meta": {
+      "name": "g-W402-a1.284271-hi",
+      "a_mm": 1.284271,
+      "w_mm": 401.8559050423529,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 2411.1354302541176,
+        "core": 2009.2795252117644
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.68992981051247,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.5900237731552301,
+        "core_index_typical": 0.4214640790122385,
+        "core_tau_meridian": 0.1016874400117681,
+        "core_tau_hoop": 0.0030727445216630843,
+        "core_worst_elem": 663,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 266.0,
+        "core_max_compression": 0.059122687213954625,
+        "core_min_sufficient_bound": 0.3687464512408849,
+        "core_invariant_error": 1.3247711783126448e-07,
+        "core_worst_E": [
+          [
+            -0.0009871985,
+            -0.0010844,
+            -3.903204e-07
+          ],
+          [
+            -0.0010844,
+            -0.0003999087,
+            -1.484674e-05
+          ],
+          [
+            -3.903204e-07,
+            -1.484674e-05,
+            -0.0009293
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 365.44964186177,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6680822765470557,
+        "core_index_typical": 0.47722256802943097,
+        "core_tau_meridian": 0.1151404331154688,
+        "core_tau_hoop": 0.0034762839100876903,
+        "core_worst_elem": 663,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 266.0,
+        "core_max_compression": 0.06312963678590357,
+        "core_min_sufficient_bound": 0.35387065653715666,
+        "core_invariant_error": 1.3106499180404185e-07,
+        "core_worst_E": [
+          [
+            -0.001038597,
+            -0.00122785,
+            -4.377713e-07
+          ],
+          [
+            -0.00122785,
+            -0.0004148816,
+            -1.679593e-05
+          ],
+          [
+            -4.377713e-07,
+            -1.679593e-05,
+            -0.0009733491
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 28.665668725967407
+  },
+  "g-W402-a1.302271-hi": {
+    "meta": {
+      "name": "g-W402-a1.302271-hi",
+      "a_mm": 1.302271,
+      "w_mm": 401.8559050423529,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 2411.1354302541176,
+        "core": 2009.2795252117644
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 345.3782167741063,
+        "face_max_elem": 10,
+        "face_max_ip": 7,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.5997038787720549,
+        "core_index_typical": 0.42837873681973304,
+        "core_tau_meridian": 0.10335576006363618,
+        "core_tau_hoop": 0.003122551202145182,
+        "core_worst_elem": 663,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 266.0,
+        "core_max_compression": 0.059334831263403165,
+        "core_min_sufficient_bound": 0.36709462212690597,
+        "core_invariant_error": 1.2710449670549906e-07,
+        "core_worst_E": [
+          [
+            -0.0009877171,
+            -0.001102189,
+            -3.967722e-07
+          ],
+          [
+            -0.001102189,
+            -0.0003988707,
+            -1.508737e-05
+          ],
+          [
+            -3.967722e-07,
+            -1.508737e-05,
+            -0.0009288652
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 366.2440265445926,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6792656356346333,
+        "core_index_typical": 0.48521102440396446,
+        "core_tau_meridian": 0.11706783172072177,
+        "core_tau_hoop": 0.0035338263001471735,
+        "core_worst_elem": 663,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 266.0,
+        "core_max_compression": 0.06337892869276868,
+        "core_min_sufficient_bound": 0.3519555664795886,
+        "core_invariant_error": 1.3152319658371603e-07,
+        "core_worst_E": [
+          [
+            -0.001039188,
+            -0.001248401,
+            -4.450806e-07
+          ],
+          [
+            -0.001248401,
+            -0.0004136943,
+            -1.707392e-05
+          ],
+          [
+            -4.450806e-07,
+            -1.707392e-05,
+            -0.0009728489
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 40.0423321723938
+  },
+  "m-W332-a1.208988-hi": {
+    "meta": {
+      "name": "m-W332-a1.208988-hi",
+      "a_mm": 1.208988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 1193,
+        "h_fine_mm": 2.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 3,
+        "ncore": 8,
+        "elements": 16702,
+        "nodes": 52521
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 3,
+      "nc": 8,
+      "L": 14
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.75943386617234,
+        "face_max_elem": 14,
+        "face_max_ip": 25,
+        "face_max_s_mm": 1.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.6950260695239587,
+        "core_index_typical": 0.4964688742615204,
+        "core_tau_meridian": 0.11978413380564183,
+        "core_tau_hoop": 0.003607776322978729,
+        "core_worst_elem": 1586,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 226.99999999999997,
+        "core_max_compression": 0.06511172835637377,
+        "core_min_sufficient_bound": 0.3500249668132247,
+        "core_invariant_error": 1.3209691152038516e-07,
+        "core_worst_E": [
+          [
+            -0.0009820849,
+            -0.001277332,
+            -3.544737e-07
+          ],
+          [
+            -0.001277332,
+            -0.000380431,
+            -1.743163e-05
+          ],
+          [
+            -3.544737e-07,
+            -1.743163e-05,
+            -0.0009269597
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 365.3250585718027,
+        "face_max_elem": 14,
+        "face_max_ip": 7,
+        "face_max_s_mm": 1.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7819706521687327,
+        "core_index_typical": 0.5585748343828786,
+        "core_tau_meridian": 0.1347686008300343,
+        "core_tau_hoop": 0.004056971860418912,
+        "core_worst_elem": 1586,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.99999999999997,
+        "core_max_compression": 0.0697857209912671,
+        "core_min_sufficient_bound": 0.3334920228810329,
+        "core_invariant_error": 1.3336542506459104e-07,
+        "core_worst_E": [
+          [
+            -0.001033079,
+            -0.001437103,
+            -3.99153e-07
+          ],
+          [
+            -0.001437103,
+            -0.0003947134,
+            -1.960128e-05
+          ],
+          [
+            -3.99153e-07,
+            -1.960128e-05,
+            -0.0009708105
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 60.50234031677246
+  },
+  "m-W332-a1.226988-hi": {
+    "meta": {
+      "name": "m-W332-a1.226988-hi",
+      "a_mm": 1.226988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 1193,
+        "h_fine_mm": 2.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 3,
+        "ncore": 8,
+        "elements": 16702,
+        "nodes": 52521
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 3,
+      "nc": 8,
+      "L": 14
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 345.4741206342458,
+        "face_max_elem": 14,
+        "face_max_ip": 25,
+        "face_max_s_mm": 1.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7068767552734009,
+        "core_index_typical": 0.5049340130735964,
+        "core_tau_meridian": 0.12182654291329838,
+        "core_tau_hoop": 0.003668757914717252,
+        "core_worst_elem": 1586,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 226.99999999999997,
+        "core_max_compression": 0.06544214484009861,
+        "core_min_sufficient_bound": 0.3479793515403002,
+        "core_invariant_error": 1.312539611442176e-07,
+        "core_worst_E": [
+          [
+            -0.0009825532,
+            -0.001299108,
+            -3.607565e-07
+          ],
+          [
+            -0.001299108,
+            -0.0003790027,
+            -1.772624e-05
+          ],
+          [
+            -3.607565e-07,
+            -1.772624e-05,
+            -0.0009264705
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 366.1421431997094,
+        "face_max_elem": 14,
+        "face_max_ip": 7,
+        "face_max_s_mm": 1.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.7955495784374826,
+        "core_index_typical": 0.568274483695947,
+        "core_tau_meridian": 0.13710886393282845,
+        "core_tau_hoop": 0.004126847113336511,
+        "core_worst_elem": 1586,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.99999999999997,
+        "core_max_compression": 0.07016869873273314,
+        "core_min_sufficient_bound": 0.3311416954048856,
+        "core_invariant_error": 1.342262750114731e-07,
+        "core_worst_E": [
+          [
+            -0.001033608,
+            -0.001462054,
+            -4.062514e-07
+          ],
+          [
+            -0.001462054,
+            -0.000393109,
+            -1.993884e-05
+          ],
+          [
+            -4.062514e-07,
+            -1.993884e-05,
+            -0.0009702464
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 61.2120463848114
+  },
+  "p-W332-a0.737936-345": {
+    "meta": {
+      "name": "p-W332-a0.737936-345",
+      "a_mm": 0.737936,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 326.5180989648965,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.4015673235212671,
+        "core_index_typical": 0.2868464902137244,
+        "core_tau_meridian": 0.06920791867557205,
+        "core_tau_hoop": 0.002097792922014281,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.057160981406477934,
+        "core_min_sufficient_bound": 0.40005285886231035,
+        "core_invariant_error": 1.5913749554230527e-08,
+        "core_worst_E": [
+          [
+            -0.0009708608,
+            -0.0007380565,
+            -2.011243e-07
+          ],
+          [
+            -0.0007380565,
+            -0.0004165046,
+            -1.013635e-05
+          ],
+          [
+            -2.011243e-07,
+            -1.013635e-05,
+            -0.0009391845
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 344.6191912901108,
+        "face_max_elem": 10,
+        "face_max_ip": 16,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.44842905127405946,
+        "core_index_typical": 0.320320610143627,
+        "core_tau_meridian": 0.07728429768110288,
+        "core_tau_hoop": 0.0023406665305172702,
+        "core_worst_elem": 573,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 230.0,
+        "core_max_compression": 0.060670583888727224,
+        "core_min_sufficient_bound": 0.3905782539347674,
+        "core_invariant_error": 1.5726733540444293e-08,
+        "core_worst_E": [
+          [
+            -0.001020227,
+            -0.0008241811,
+            -2.238707e-07
+          ],
+          [
+            -0.0008241811,
+            -0.0004346018,
+            -1.130954e-05
+          ],
+          [
+            -2.238707e-07,
+            -1.130954e-05,
+            -0.0009848336
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 46.64106607437134
+  },
+  "p-W332-a0.755936-345": {
+    "meta": {
+      "name": "p-W332-a0.755936-345",
+      "a_mm": 0.755936,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 327.1925823360523,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.4122146646941038,
+        "core_index_typical": 0.2944520602733816,
+        "core_tau_meridian": 0.07104293710946503,
+        "core_tau_hoop": 0.002152584357588364,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.05743078515810664,
+        "core_min_sufficient_bound": 0.3982754088417327,
+        "core_invariant_error": 1.547850436711684e-08,
+        "core_worst_E": [
+          [
+            -0.0009712883,
+            -0.000757624,
+            -2.06633e-07
+          ],
+          [
+            -0.000757624,
+            -0.0004152654,
+            -1.040108e-05
+          ],
+          [
+            -2.06633e-07,
+            -1.040108e-05,
+            -0.0009387591
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 345.000047892766,
+        "face_max_elem": 50,
+        "face_max_ip": 25,
+        "face_max_s_mm": 18.0,
+        "face_max_layer": "outer",
+        "peeq_max": 1.916604e-06,
+        "core_index_min_avg": 0.4604438150483641,
+        "core_index_typical": 0.3289029525375835,
+        "core_tau_meridian": 0.07935498488160939,
+        "core_tau_hoop": 0.002402493198580262,
+        "core_worst_elem": 573,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 230.0,
+        "core_max_compression": 0.06104255415590987,
+        "core_min_sufficient_bound": 0.3885607028332261,
+        "core_invariant_error": 1.5599874170213468e-08,
+        "core_worst_E": [
+          [
+            -0.001020704,
+            -0.0008462613,
+            -2.300239e-07
+          ],
+          [
+            -0.0008462613,
+            -0.0004332181,
+            -1.160825e-05
+          ],
+          [
+            -2.300239e-07,
+            -1.160825e-05,
+            -0.0009843508
+          ]
+        ],
+        "pressure_kPa": 100.23387980960041
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 27.793133020401
+  },
+  "p-W332-a1.208988-345": {
+    "meta": {
+      "name": "p-W332-a1.208988-345",
+      "a_mm": 1.208988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 344.64576996728215,
+        "face_max_elem": 10,
+        "face_max_ip": 25,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.695017817513684,
+        "core_index_typical": 0.4964629811257383,
+        "core_tau_meridian": 0.11978271052035638,
+        "core_tau_hoop": 0.0036078511893588086,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06492544012314322,
+        "core_min_sufficient_bound": 0.3500570803816897,
+        "core_invariant_error": 1.3129672568612527e-07,
+        "core_worst_E": [
+          [
+            -0.0009827023,
+            -0.001277321,
+            -3.550285e-07
+          ],
+          [
+            -0.001277321,
+            -0.0003820935,
+            -1.743201e-05
+          ],
+          [
+            -3.550285e-07,
+            -1.743201e-05,
+            -0.0009273672
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      }
+    ],
+    "solver_returncode": 201,
+    "wall_s": 194.71384453773499
+  },
+  "p-W332-a1.226988-345": {
+    "meta": {
+      "name": "p-W332-a1.226988-345",
+      "a_mm": 1.226988,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        95.46083791390515,
+        100.23387980960041
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 345.00003932055756,
+        "face_max_elem": 20,
+        "face_max_ip": 16,
+        "face_max_s_mm": 6.000000000000001,
+        "face_max_layer": "outer",
+        "peeq_max": 1.831323e-06,
+        "core_index_min_avg": 0.7068689715845404,
+        "core_index_typical": 0.5049284544865664,
+        "core_tau_meridian": 0.12182520032620017,
+        "core_tau_hoop": 0.00366883679745911,
+        "core_worst_elem": 563,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 226.00000000000003,
+        "core_max_compression": 0.06535856569087298,
+        "core_min_sufficient_bound": 0.3480114830893652,
+        "core_invariant_error": 1.2953444569752115e-07,
+        "core_worst_E": [
+          [
+            -0.0009831819,
+            -0.001299098,
+            -3.613166e-07
+          ],
+          [
+            -0.001299098,
+            -0.0003806926,
+            -1.772664e-05
+          ],
+          [
+            -3.613166e-07,
+            -1.772664e-05,
+            -0.0009268861
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      }
+    ],
+    "solver_returncode": 201,
+    "wall_s": 101.29595589637756
+  },
+  "perfect-W-hi": {
+    "meta": {
+      "name": "perfect-W-hi",
+      "a_mm": 0.0,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000.0,
+      "pressures_kPa": [
+        80.1,
+        81.0,
+        94.95,
+        95.2875,
+        95.46083791390515,
+        109.51875,
+        109.645308
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 252.24058204380407,
+        "face_max_elem": 1411,
+        "face_max_ip": 1,
+        "face_max_s_mm": 566.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0006251250372373605,
+        "core_index_typical": 0.0005114429320331157,
+        "core_tau_meridian": -2.095642227230675e-06,
+        "core_tau_hoop": 0.00019391715814153602,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.04021600887023415,
+        "core_min_sufficient_bound": 0.45903020736790373,
+        "core_invariant_error": 1.0119329707514169e-08,
+        "core_worst_E": [
+          [
+            -0.0008007871,
+            2.235025e-08,
+            -5.074447e-11
+          ],
+          [
+            2.235025e-08,
+            -0.0003866819,
+            -9.371221e-07
+          ],
+          [
+            -5.074447e-11,
+            -9.371221e-07,
+            -0.000800785
+          ]
+        ],
+        "pressure_kPa": 80.1
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 255.07207962763155,
+        "face_max_elem": 1521,
+        "face_max_ip": 1,
+        "face_max_s_mm": 610.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0006321265896111471,
+        "core_index_typical": 0.0005171712167874293,
+        "core_tau_meridian": -2.1191324693149155e-06,
+        "core_tau_hoop": 0.00019608907680135885,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.04066787406659306,
+        "core_min_sufficient_bound": 0.45857044885212733,
+        "core_invariant_error": 1.0253696197670692e-08,
+        "core_worst_E": [
+          [
+            -0.0008097627,
+            2.260079e-08,
+            -5.131339e-11
+          ],
+          [
+            2.260079e-08,
+            -0.0003910213,
+            -9.476137e-07
+          ],
+          [
+            -5.131339e-11,
+            -9.476137e-07,
+            -0.0008097606
+          ]
+        ],
+        "pressure_kPa": 81.0
+      },
+      {
+        "time": 3.0,
+        "face_mises_max": 298.9527388429661,
+        "face_max_elem": 541,
+        "face_max_ip": 2,
+        "face_max_s_mm": 218.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0007405878671565882,
+        "core_index_typical": 0.0006059082633584303,
+        "core_tau_meridian": -2.4830435525095003e-06,
+        "core_tau_hoop": 0.0002297343392169241,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.04767180813588469,
+        "core_min_sufficient_bound": 0.45144580013559504,
+        "core_invariant_error": 1.0169435148144057e-08,
+        "core_worst_E": [
+          [
+            -0.0009488217,
+            2.64822e-08,
+            -6.012769e-11
+          ],
+          [
+            2.64822e-08,
+            -0.000458267,
+            -1.110127e-06
+          ],
+          [
+            -6.012769e-11,
+            -1.110127e-06,
+            -0.0009488192
+          ]
+        ],
+        "pressure_kPa": 94.95
+      },
+      {
+        "time": 4.0,
+        "face_mises_max": 300.0141903084387,
+        "face_max_elem": 1001,
+        "face_max_ip": 2,
+        "face_max_s_mm": 402.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0007432109392642749,
+        "core_index_typical": 0.0006080543165804644,
+        "core_tau_meridian": -2.4918435350452215e-06,
+        "core_tau_hoop": 0.00023054803010425358,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.04784125580373622,
+        "core_min_sufficient_bound": 0.45127346997116835,
+        "core_invariant_error": 1.0153806642709817e-08,
+        "core_worst_E": [
+          [
+            -0.0009521846,
+            2.657606e-08,
+            -6.034081e-11
+          ],
+          [
+            2.657606e-08,
+            -0.0004598935,
+            -1.114057e-06
+          ],
+          [
+            -6.034081e-11,
+            -1.114057e-06,
+            -0.000952182
+          ]
+        ],
+        "pressure_kPa": 95.2875
+      },
+      {
+        "time": 5.0,
+        "face_mises_max": 300.5593426435016,
+        "face_max_elem": 2251,
+        "face_max_ip": 1,
+        "face_max_s_mm": 902.0,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0007445578537234512,
+        "core_index_typical": 0.0006091562878471128,
+        "core_tau_meridian": -2.4963625953429855e-06,
+        "core_tau_hoop": 0.00023096585010367611,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.04792827772553659,
+        "core_min_sufficient_bound": 0.45118496830525867,
+        "core_invariant_error": 1.0117119260411034e-08,
+        "core_worst_E": [
+          [
+            -0.0009539117,
+            2.662426e-08,
+            -6.045033e-11
+          ],
+          [
+            2.662426e-08,
+            -0.0004607289,
+            -1.116075e-06
+          ],
+          [
+            -6.045033e-11,
+            -1.116075e-06,
+            -0.0009539092
+          ]
+        ],
+        "pressure_kPa": 95.46083791390515
+      },
+      {
+        "time": 6.0,
+        "face_mises_max": 344.76459263012305,
+        "face_max_elem": 3131,
+        "face_max_ip": 3,
+        "face_max_s_mm": 1254.0000000000002,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.0008537339914872355,
+        "core_index_typical": 0.0006984781935000445,
+        "core_tau_meridian": -2.862681091939433e-06,
+        "core_tau_hoop": -0.00026483286563014927,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 27,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.05498639085685318,
+        "core_min_sufficient_bound": 0.44400841894275517,
+        "core_invariant_error": 1.162954332140087e-08,
+        "core_worst_E": [
+          [
+            -0.001093924,
+            3.053143e-08,
+            6.932428e-11
+          ],
+          [
+            3.053143e-08,
+            -0.000528465,
+            1.279635e-06
+          ],
+          [
+            6.932428e-11,
+            1.279635e-06,
+            -0.001093921
+          ]
+        ],
+        "pressure_kPa": 109.51875
+      },
+      {
+        "time": 7.0,
+        "face_mises_max": 345.1624903055094,
+        "face_max_elem": 3531,
+        "face_max_ip": 1,
+        "face_max_s_mm": 1601.3959690629338,
+        "face_max_layer": "inner",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.00085471662130799,
+        "core_index_typical": 0.000699282127158507,
+        "core_tau_meridian": -2.8659765614751696e-06,
+        "core_tau_hoop": 0.00026513768265327167,
+        "core_worst_elem": 3568,
+        "core_worst_ip": 9,
+        "core_worst_s_mm": 1672.4658854894592,
+        "core_max_compression": 0.055049936876645174,
+        "core_min_sufficient_bound": 0.4439438211035436,
+        "core_invariant_error": 1.1761448565072996e-08,
+        "core_worst_E": [
+          [
+            -0.001095184,
+            3.056658e-08,
+            -6.940416e-11
+          ],
+          [
+            3.056658e-08,
+            -0.0005290747,
+            -1.281107e-06
+          ],
+          [
+            -6.940416e-11,
+            -1.281107e-06,
+            -0.001095181
+          ]
+        ],
+        "pressure_kPa": 109.645308
+      }
+    ]
+  },
+  "s-W332-a11.8-345": {
+    "meta": {
+      "name": "s-W332-a11.8-345",
+      "a_mm": 11.8,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 345,
+      "pressures_kPa": [
+        40.0
+      ],
+      "endpoint_to_kPa": 80.0,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 201.20408415535172,
+        "face_max_elem": 10,
+        "face_max_ip": 17,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 2.036526987619259,
+        "core_index_typical": 1.4547247801739562,
+        "core_tau_meridian": 0.35098553470104354,
+        "core_tau_hoop": 0.010497459158222247,
+        "core_worst_elem": 613,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 246.0,
+        "core_max_compression": 0.09205010123496794,
+        "core_min_sufficient_bound": 0.13832082408687524,
+        "core_invariant_error": 1.3673750420828412e-07,
+        "core_worst_E": [
+          [
+            -0.0005703635,
+            -0.003740622,
+            -2.188851e-06
+          ],
+          [
+            -0.003740622,
+            0.0001567997,
+            -5.071401e-05
+          ],
+          [
+            -2.188851e-06,
+            -5.071401e-05,
+            -0.0003158147
+          ]
+        ],
+        "pressure_kPa": 40.0
+      }
+    ],
+    "endpoint_kPa": 68.60911999999999,
+    "solver_returncode": 201,
+    "wall_s": 293.5608973503113
+  },
+  "s-W332-a11.8-hi": {
+    "meta": {
+      "name": "s-W332-a11.8-hi",
+      "a_mm": 11.8,
+      "w_mm": 332.2164186283597,
+      "meridian": "W",
+      "yield_MPa": 10000,
+      "pressures_kPa": [
+        20.0,
+        21.6,
+        22.0,
+        23.0,
+        24.0,
+        25.2,
+        58.0,
+        60.0,
+        61.0,
+        62.0,
+        63.0,
+        64.0
+      ],
+      "endpoint_to_kPa": null,
+      "mesh": {
+        "n_theta": 857,
+        "h_fine_mm": 4.0,
+        "s_fine_mm": 1300.0,
+        "h_far_mm": 60.0,
+        "growth": 1.06,
+        "nface": 2,
+        "ncore": 6,
+        "elements": 8570,
+        "nodes": 27445
+      },
+      "core": {
+        "E_normal": 103.4213593975254,
+        "E_in": 1.0,
+        "G_in": 0.5,
+        "G_meridian": 46.884349593544854,
+        "G_hoop": 103.4213593975254
+      },
+      "out_regions_mm": {
+        "faces": 1993.2985117701583,
+        "core": 1661.0820931417984
+      },
+      "nf": 2,
+      "nc": 6,
+      "L": 10
+    },
+    "frames": [
+      {
+        "time": 1.0,
+        "face_mises_max": 96.34377976602278,
+        "face_max_elem": 10,
+        "face_max_ip": 17,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.8618378044037248,
+        "core_index_typical": 0.6156249534289431,
+        "core_tau_meridian": 0.14853355144721017,
+        "core_tau_hoop": 0.004443297884183419,
+        "core_worst_elem": 593,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 238.00000000000003,
+        "core_max_compression": 0.03955418870102066,
+        "core_min_sufficient_bound": 0.34613673278405743,
+        "core_invariant_error": 1.3539983476085204e-07,
+        "core_worst_E": [
+          [
+            -0.0002744208,
+            -0.001583576,
+            -9.942372e-07
+          ],
+          [
+            -0.001583576,
+            5.926676e-05,
+            -2.147436e-05
+          ],
+          [
+            -9.942372e-07,
+            -2.147436e-05,
+            -0.0001634187
+          ]
+        ],
+        "pressure_kPa": 20.0
+      },
+      {
+        "time": 2.0,
+        "face_mises_max": 104.37913146108762,
+        "face_max_elem": 10,
+        "face_max_ip": 17,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.9423361362282482,
+        "core_index_typical": 0.6731262388416099,
+        "core_tau_meridian": 0.1624070473798571,
+        "core_tau_hoop": 0.004858295303438546,
+        "core_worst_elem": 593,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 238.00000000000003,
+        "core_max_compression": 0.043196773708205544,
+        "core_min_sufficient_bound": 0.3318295293786085,
+        "core_invariant_error": 1.3564754081096808e-07,
+        "core_worst_E": [
+          [
+            -0.0002984754,
+            -0.001731448,
+            -1.085666e-06
+          ],
+          [
+            -0.001731448,
+            6.344452e-05,
+            -2.347937e-05
+          ],
+          [
+            -1.085666e-06,
+            -2.347937e-05,
+            -0.0001766752
+          ]
+        ],
+        "pressure_kPa": 21.6
+      },
+      {
+        "time": 3.0,
+        "face_mises_max": 106.39649858264265,
+        "face_max_elem": 10,
+        "face_max_ip": 17,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 0.9627879826942674,
+        "core_index_typical": 0.6877353296898355,
+        "core_tau_meridian": 0.16593182381102237,
+        "core_tau_hoop": 0.004963712978347473,
+        "core_worst_elem": 593,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 238.00000000000003,
+        "core_max_compression": 0.04412045729995957,
+        "core_min_sufficient_bound": 0.3281987956249906,
+        "core_invariant_error": 1.360713225151411e-07,
+        "core_worst_E": [
+          [
+            -0.0003041274,
+            -0.001769014,
+            -1.107796e-06
+          ],
+          [
+            -0.001769014,
+            6.516155e-05,
+            -2.398866e-05
+          ],
+          [
+            -1.107796e-06,
+            -2.398866e-05,
+            -0.00017979
+          ]
+        ],
+        "pressure_kPa": 22.0
+      },
+      {
+        "time": 4.0,
+        "face_mises_max": 111.45526499593103,
+        "face_max_elem": 10,
+        "face_max_ip": 17,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 1.0144779879038661,
+        "core_index_typical": 0.7246583519160764,
+        "core_tau_meridian": 0.174840345235579,
+        "core_tau_hoop": 0.005230143933580075,
+        "core_worst_elem": 593,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 238.00000000000003,
+        "core_max_compression": 0.046453027760957076,
+        "core_min_sufficient_bound": 0.31902540874689456,
+        "core_invariant_error": 1.3601438797472554e-07,
+        "core_worst_E": [
+          [
+            -0.0003182758,
+            -0.001863956,
+            -1.163459e-06
+          ],
+          [
+            -0.001863956,
+            6.955656e-05,
+            -2.52758e-05
+          ],
+          [
+            -1.163459e-06,
+            -2.52758e-05,
+            -0.0001875457
+          ]
+        ],
+        "pressure_kPa": 23.0
+      },
+      {
+        "time": 5.0,
+        "face_mises_max": 116.53607935007737,
+        "face_max_elem": 10,
+        "face_max_ip": 17,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 1.066984872980033,
+        "core_index_typical": 0.762164884800158,
+        "core_tau_meridian": 0.1838896520066161,
+        "core_tau_hoop": 0.005500778078829916,
+        "core_worst_elem": 593,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 238.00000000000003,
+        "core_max_compression": 0.048819609201972106,
+        "core_min_sufficient_bound": 0.3097099297888113,
+        "core_invariant_error": 1.3639018181521578e-07,
+        "core_worst_E": [
+          [
+            -0.00033245,
+            -0.001960395,
+            -1.219605e-06
+          ],
+          [
+            -0.001960395,
+            7.410079e-05,
+            -2.65832e-05
+          ],
+          [
+            -1.219605e-06,
+            -2.65832e-05,
+            -0.0001952557
+          ]
+        ],
+        "pressure_kPa": 24.0
+      },
+      {
+        "time": 6.0,
+        "face_mises_max": 122.66282377755039,
+        "face_max_elem": 10,
+        "face_max_ip": 17,
+        "face_max_s_mm": 2.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 1.1310961308153202,
+        "core_index_typical": 0.8079606122096376,
+        "core_tau_meridian": 0.19493891615573067,
+        "core_tau_hoop": 0.00583121752608864,
+        "core_worst_elem": 593,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 238.00000000000003,
+        "core_max_compression": 0.05170554657879692,
+        "core_min_sufficient_bound": 0.29834066782218477,
+        "core_invariant_error": 1.3493465300662422e-07,
+        "core_worst_E": [
+          [
+            -0.0003494921,
+            -0.002078143,
+            -1.287619e-06
+          ],
+          [
+            -0.002078143,
+            7.975596e-05,
+            -2.817945e-05
+          ],
+          [
+            -1.287619e-06,
+            -2.817945e-05,
+            -0.000204445
+          ]
+        ],
+        "pressure_kPa": 25.2
+      },
+      {
+        "time": 7.0,
+        "face_mises_max": 306.944645548888,
+        "face_max_elem": 270,
+        "face_max_ip": 9,
+        "face_max_s_mm": 106.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 3.5337908086746017,
+        "core_index_typical": 2.524244949866418,
+        "core_tau_meridian": 0.6090317174338724,
+        "core_tau_hoop": 0.018211388635282075,
+        "core_worst_elem": 653,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 262.0,
+        "core_max_compression": 0.15699272533261005,
+        "core_min_sufficient_bound": -0.12440202715094456,
+        "core_invariant_error": 1.4104237427980948e-07,
+        "core_worst_E": [
+          [
+            -0.0008557078,
+            -0.00648791,
+            -3.376042e-06
+          ],
+          [
+            -0.00648791,
+            0.0002996417,
+            -8.794286e-05
+          ],
+          [
+            -3.376042e-06,
+            -8.794286e-05,
+            -0.0004369223
+          ]
+        ],
+        "pressure_kPa": 58.0
+      },
+      {
+        "time": 8.0,
+        "face_mises_max": 320.08982269732996,
+        "face_max_elem": 320,
+        "face_max_ip": 9,
+        "face_max_s_mm": 126.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 3.7384213290398933,
+        "core_index_typical": 2.6704158950010366,
+        "core_tau_meridian": 0.6442987990942488,
+        "core_tau_hoop": 0.01926559121555802,
+        "core_worst_elem": 653,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 262.0,
+        "core_max_compression": 0.16566081866174898,
+        "core_min_sufficient_bound": -0.16016645873296909,
+        "core_invariant_error": 1.4390681857268106e-07,
+        "core_worst_E": [
+          [
+            -0.0008911809,
+            -0.006863258,
+            -3.510568e-06
+          ],
+          [
+            -0.006863258,
+            0.0003162927,
+            -9.302875e-05
+          ],
+          [
+            -3.510568e-06,
+            -9.302875e-05,
+            -0.0004505341
+          ]
+        ],
+        "pressure_kPa": 60.0
+      },
+      {
+        "time": 9.0,
+        "face_mises_max": 326.8387751665105,
+        "face_max_elem": 340,
+        "face_max_ip": 18,
+        "face_max_s_mm": 134.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 3.844417006604516,
+        "core_index_typical": 2.7461303489425326,
+        "core_tau_meridian": 0.6625666430658481,
+        "core_tau_hoop": 0.019811546323901173,
+        "core_worst_elem": 663,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 266.0,
+        "core_max_compression": 0.17012828167531568,
+        "core_min_sufficient_bound": -0.17867562262489262,
+        "core_invariant_error": 1.360901376035173e-07,
+        "core_worst_E": [
+          [
+            -0.0009070377,
+            -0.007057643,
+            -3.56775e-06
+          ],
+          [
+            -0.007057643,
+            0.0003270602,
+            -9.566248e-05
+          ],
+          [
+            -3.56775e-06,
+            -9.566248e-05,
+            -0.0004563988
+          ]
+        ],
+        "pressure_kPa": 61.0
+      },
+      {
+        "time": 10.0,
+        "face_mises_max": 333.7161869382978,
+        "face_max_elem": 360,
+        "face_max_ip": 9,
+        "face_max_s_mm": 142.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 3.952884059653,
+        "core_index_typical": 2.8236101500368385,
+        "core_tau_meridian": 0.6812604143342457,
+        "core_tau_hoop": 0.020370485688603144,
+        "core_worst_elem": 663,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 266.0,
+        "core_max_compression": 0.17468877700679422,
+        "core_min_sufficient_bound": -0.19765146812444578,
+        "core_invariant_error": 1.3640285478899727e-07,
+        "core_worst_E": [
+          [
+            -0.0009278486,
+            -0.00725664,
+            -3.631388e-06
+          ],
+          [
+            -0.00725664,
+            0.0003311797,
+            -9.835893e-05
+          ],
+          [
+            -3.631388e-06,
+            -9.835893e-05,
+            -0.0004649853
+          ]
+        ],
+        "pressure_kPa": 62.0
+      },
+      {
+        "time": 11.0,
+        "face_mises_max": 340.73069294414444,
+        "face_max_elem": 380,
+        "face_max_ip": 9,
+        "face_max_s_mm": 150.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 4.064393182592902,
+        "core_index_typical": 2.9032629470286566,
+        "core_tau_meridian": 0.7004784752432605,
+        "core_tau_hoop": 0.02094470794804369,
+        "core_worst_elem": 663,
+        "core_worst_ip": 3,
+        "core_worst_s_mm": 266.0,
+        "core_max_compression": 0.1793460158511869,
+        "core_min_sufficient_bound": -0.2170798720372918,
+        "core_invariant_error": 1.3743414295497303e-07,
+        "core_worst_E": [
+          [
+            -0.0009426381,
+            -0.007461075,
+            -3.697173e-06
+          ],
+          [
+            -0.007461075,
+            0.0003456416,
+            -0.0001011286
+          ],
+          [
+            -3.697173e-06,
+            -0.0001011286,
+            -0.0004694365
+          ]
+        ],
+        "pressure_kPa": 63.0
+      },
+      {
+        "time": 12.0,
+        "face_mises_max": 347.8950504725181,
+        "face_max_elem": 390,
+        "face_max_ip": 18,
+        "face_max_s_mm": 154.0,
+        "face_max_layer": "outer",
+        "peeq_max": 0.0,
+        "core_index_min_avg": 4.178610299652067,
+        "core_index_typical": 2.9848501096739515,
+        "core_tau_meridian": 0.7201632451373104,
+        "core_tau_hoop": 0.021532959059768552,
+        "core_worst_elem": 673,
+        "core_worst_ip": 1,
+        "core_worst_s_mm": 270.0,
+        "core_max_compression": 0.18410360598618394,
+        "core_min_sufficient_bound": -0.2370126958098065,
+        "core_invariant_error": 1.4142434506814183e-07,
+        "core_worst_E": [
+          [
+            -0.0009583675,
+            -0.0076705,
+            -3.750999e-06
+          ],
+          [
+            -0.0076705,
+            0.0003576438,
+            -0.000103966
+          ],
+          [
+            -3.750999e-06,
+            -0.000103966,
+            -0.0004748863
+          ]
+        ],
+        "pressure_kPa": 64.0
+      }
+    ],
+    "solver_returncode": 0,
+    "wall_s": 149.10404801368713
+  }
+}

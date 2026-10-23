@@ -1,0 +1,37 @@
+{
+  "id": "E-bb8e9209d0901cd9d22e",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-bb8e9209d0901cd9d22e",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/4",
+    "row_id": "C029-05-LEAD-LIMIT-POINTS",
+    "fields": {
+      "id": "C029-05-LEAD-LIMIT-POINTS",
+      "state": "demonstrated",
+      "direction": "resolves part of the card's NFI-029-LOAD-CONTROL",
+      "note": "Every one of the 14 lead endpoints is a true limit point of the axisymmetric model. Under pole displacement control the pressure peaks and then falls; for 021b W it peaks at 90.736 kPa at pole dz -80.4 mm and falls to 76.53 kPa at -140.4 mm. The card's load-control endpoints are within 0.032% of those maxima. Nonaxisymmetric modes remain unexamined (NFI-029-AXISYMMETRY)."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Every one of the 14 lead endpoints is a true limit point of the axisymmetric model. Under pole displacement control the pressure peaks and then falls; for 021b W it peaks at 90.736 kPa at pole dz -80.4 mm and falls to 76.53 kPa at -140.4 mm. The card's load-control endpoints are within 0.032% of those maxima. Nonaxisymmetric modes remain unexamined (NFI-029-AXISYMMETRY).",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "rpt-ops-g29-u3-group-b-v9-fail-1018",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T18:14:20-07:00",
+  "body": "U3 GROUP B v9 (the one re-admission): FAIL rc 2 at 18:13:31. It finished inside its bound, so this is a test error, not the card's kill. Ledger (launch-check-b-v9.txt): CHECK OK 17:28:19, grant 89225d75eed3-u3gate-b-1018172539 at 160.1 s, nothing live; source 5f96f32e with every binding held. Unit u3gate-b-1018.service: 44 min 57 s of its 3600 s; CPU 1 h 44 min 59 s (about 2.34 of 4 CPUs on average); peak 2.8 GB, swap 0. Collected; tmp, home, bin and u3b removed; B/src kept; both anchors intact; the ledger is empty. MEASURED at 4 CPU, as you asked: ledgercheck-selftest's five earlier suites took under 1 s each and passed. Suite six, test_float_hardening (fast), ran 2 tests in 2695.318 s and FAILED with 1 error: test_counterexamples plant 'L-G-generated', subprocess.TimeoutExpired on make energydoccheck after 600 s. That 600 s is the test's own per-command cap, FLOAT_PLANT_TIMEOUT, documented in the test as '600 unless a slower runner sets more'. The worker pool defaulted to 2 (min(cpu_count, 2)). So the card's quota was not saturated on average; one planted energydoccheck ran past the test's own 600 s limit. The one attempt is spent and nothing relaunches. Any further step is yours.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:b8fcb37bf53ada99",
+      "sha256": "65ef17bc34707ed131bab1a8a1c0886efd6c1fc6687a6463d07e9b3b3c7c3cb2",
+      "bytes": 3556
+    },
+    {
+      "path": "unpublished-local-ref:7f68e53fbd4364da",
+      "sha256": "701481a794eff8169a179d199a44005b49cd6527e8607e8a3498221f6ab14da2",
+      "bytes": 14389
+    },
+    {
+      "path": "unpublished-local-ref:b0950c0c79b68a1a",
+      "sha256": "d91452b8085d73c90fd1260a5ccaded6d6073d8586f03759399235da2413dd37",
+      "bytes": 1351
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "rpt-ops-g29-u3-group-b-v9-grant-1018"
+}

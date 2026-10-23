@@ -1,0 +1,88 @@
+{
+  "id": "D113",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D113",
+    "report": "rpt-ref-593068c3ed82fd458128",
+    "file": "evidence/a103f3bba0744beb-NFI.json",
+    "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+    "source_sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+    "source_json_pointer": "/retained_check037b_rows/1",
+    "row_id": "NFI-CHECK037b-200F-TRANSFER",
+    "fields": {
+      "id": "NFI-CHECK037b-200F-TRANSFER",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "The detailed 200 F cure data use AF 163-2K at 0.060 lb/ft2 on metal, not the 2U 0.015 lb/ft2 Be/honeycomb joint. The family's six-hour guidance is not evidence that all two-to-six-hour cycles qualify the target assembly.",
+      "exact": {
+        "test_cycle_pressure_psi": 50,
+        "core_stabilized_typical_compression_psi": 60,
+        "core_stabilized_minimum_average_compression_psi": 35,
+        "unbypassed_cure_pressure_SF_typical": 1.2,
+        "unbypassed_cure_pressure_SF_minimum_average": 0.7
+      },
+      "disposition": "Keep the +0.12015 kg route as a process candidate; establish cure, pressure/tooling path, actual bond performance and stress-free temperature on target materials.",
+      "evidence": "3M datasheet pp.15,19; Hexcel CR-III Table II; EVIDENCE.md",
+      "blocking": false
+    },
+    "inherited_document_tag": {
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/retained_check037b_rows",
+    "blocks_progress": false
+  },
+  "claim": "The detailed 200 F cure data use AF 163-2K at 0.060 lb/ft2 on metal, not the 2U 0.015 lb/ft2 Be/honeycomb joint. The family's six-hour guidance is not evidence that all two-to-six-hour cycles qualify the target assembly.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1073"
+    },
+    {
+      "report": "rpt-ref-593068c3ed82fd458128",
+      "artifact": "evidence/a103f3bba0744beb-NFI.json",
+      "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+      "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+      "bytes": 30702,
+      "selector": "/retained_check037b_rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-593068c3ed82fd458128",
+          "artifact": "evidence/a103f3bba0744beb-NFI.json",
+          "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+          "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+          "bytes": 30702,
+          "selector": "/retained_check037b_rows/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1073"
+          }
+        ]
+      }
+    }
+  ]
+}

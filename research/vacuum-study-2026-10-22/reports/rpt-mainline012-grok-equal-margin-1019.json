@@ -1,0 +1,41 @@
+{
+  "id": "rpt-mainline012-grok-equal-margin-1019",
+  "unit": "vacuum-mainline012-equal-margin-1019",
+  "at": "2026-10-19T23:13:26-07:00",
+  "body": "ESTIMATE_PENDING_UNA. MAINLINE-012 rescales P2-A and P2-E to float margin 0 and 5 percent. Buckling uses knockdown 0.2 and scales linearly with it. Every value is QUESTIONABLE. At 500 m and margin 0, P2-E buckling SF is 0.170514658189 at 5 m, 0.233885578993 at 10 m, 0.242509518291 at 20 m and 0.243598488425 at 40 m. Above 10 m that curve is nearly size-invariant. The fixed 100 kg allowance spread at 5 m is -0.0537061668293. P2-A keeps a 0.1 m core, so it is not invariant: 0.23078902511 at 10 m, 0.165786898289 at 20 m, 0.0958662663699 at 40 m. P2-A at 5 m is infeasible. Infeasible rows in the grid: 4. At R = 10 m and margin 0, lift per unit pressure versus 500 m is 1.11441423822 at 5000 m and 1.31502423263 at 11000 m. P2-E buckling SF moves to 0.685700039007 and 0.373061196958 of the 500 m value. The cold-air fraction left in the safety factor is 0.615300859853 and 0.283691499898. The 1/T gain does not survive the rescale. Start 2026-10-19T23:08:49.605041-07:00. End 2026-10-19T23:08:49.605426-07:00. Elapsed 0.0003733930643647909 s, a measurement. This report leaves the caps-open order open. MAINLINE-009 is dispatched to another seat. This seat does not take it.",
+  "artifacts": [
+    {
+      "path": "evidence/01252f31bdfa2a0e-CARD.md",
+      "sha256": "01252f31bdfa2a0ed9f9758a40bba1802d97ce82b8d9f8dddb8f38f876ae40c4",
+      "bytes": 9511
+    },
+    {
+      "path": "evidence/6677ce51bc261229-RESULTS.json",
+      "sha256": "6677ce51bc261229a999d1648178103600bae8d7a5869ed24fbec4a19b3a2519",
+      "bytes": 23475
+    },
+    {
+      "path": "evidence/811b275dbd0d54b1-NFI.json",
+      "sha256": "811b275dbd0d54b10c21c955f73ebc3b1abd50b6047e58ef3937cd7920fa2755",
+      "bytes": 848
+    },
+    {
+      "path": "evidence/b6d447ad4171eef6-INPUTS.json",
+      "sha256": "b6d447ad4171eef6fb33daeb66dffad9df6fcac73211f6aa213ae5a5de79879d",
+      "bytes": 760
+    },
+    {
+      "path": "evidence/5d48ba2306959aef-equal_margin.py",
+      "sha256": "5d48ba2306959aeff9744140d3f070675871260db6ffbb5d311dff4a726e6f4b",
+      "bytes": 13765
+    },
+    {
+      "path": "evidence/cbc8af6ee619a8b6-ORIGIN.json",
+      "sha256": "cbc8af6ee619a8b6af670a1e094cdff404a6c744e41746406aebab356e13ad5d",
+      "bytes": 276
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline006-rotated-grok-1019"
+}

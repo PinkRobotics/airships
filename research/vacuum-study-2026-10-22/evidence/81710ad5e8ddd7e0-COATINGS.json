@@ -1,0 +1,168 @@
+[
+  {
+    "id": "reference040",
+    "name": "040 assumed white paint + primer",
+    "alpha": 0.2,
+    "epsilon": 0.9,
+    "areal_mass_kg_m2": 0.2,
+    "mass_basis": "Original unsourced installed allowance",
+    "source": "evidence/1cbdd9a60e056abd-INPUTS.json",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "AZ93",
+    "name": "AZ-93, at least 127 um",
+    "alpha": 0.17,
+    "epsilon": 0.89,
+    "areal_mass_kg_m2": null,
+    "mass_basis": "Dry density absent; 0.20 kg/m2 is not a measured AZ-93 value.",
+    "source": "https://www.aztechnology.com/product/1/az-93",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "Z93",
+    "name": "Z-93, 114.3 to 152.4 um",
+    "alpha": 0.184,
+    "epsilon": 0.88,
+    "areal_mass_kg_m2": null,
+    "mass_basis": "NASA catalog explicitly has no density.",
+    "source": "https://ntrs.nasa.gov/api/citations/19730017242/downloads/19730017242.pdf",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "SolarWhite",
+    "name": "SolarWhite, 150 to 220 um",
+    "alpha": 0.18,
+    "epsilon": 0.89,
+    "areal_mass_kg_m2": null,
+    "mass_basis": "Manufacturer does not give density or areal mass; web heading calls 0.15-0.18 reflectance, interpreted as absorptance subject to confirmation.",
+    "source": "https://enbio.eu/solar-white/",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "AgFEP05",
+    "name": "0.5 mil Ag/FEP + 3M966 tape",
+    "alpha": 0.09,
+    "epsilon": 0.4,
+    "areal_mass_kg_m2": 0.088,
+    "mass_basis": "Catalog includes adhesive; standard part TBD, specification G400600.",
+    "source": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+    "page": 67,
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "AgFEP1",
+    "name": "1 mil Ag/FEP + 3M966 tape",
+    "alpha": 0.09,
+    "epsilon": 0.48,
+    "areal_mass_kg_m2": 0.115,
+    "mass_basis": "Catalog includes adhesive; standard part 146430.",
+    "source": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+    "page": 67,
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "AlFEP05",
+    "name": "0.5 mil Al/FEP + 3M966 tape",
+    "alpha": 0.14,
+    "epsilon": 0.4,
+    "areal_mass_kg_m2": 0.088,
+    "mass_basis": "Catalog includes adhesive; standard part TBD.",
+    "source": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+    "page": 63,
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "AlFEP2",
+    "name": "2 mil Al/FEP + 3M966 tape",
+    "alpha": 0.14,
+    "epsilon": 0.6,
+    "areal_mass_kg_m2": 0.169,
+    "mass_basis": "Catalog includes adhesive; standard part 146372.",
+    "source": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+    "page": 63,
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "AlKapton05",
+    "name": "0.5 mil Al/polyimide second surface + silicone PSA",
+    "alpha": 0.36,
+    "epsilon": 0.52,
+    "areal_mass_kg_m2": 0.054,
+    "mass_basis": "Catalog includes adhesive; standard part 146493.",
+    "source": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+    "page": 51,
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "SiOxAlKapton",
+    "name": "SiOx over Al/polyimide, high-emittance option",
+    "alpha": 0.13,
+    "epsilon": 0.26,
+    "areal_mass_kg_m2": null,
+    "mass_basis": "0.5 mil substrate; coating/adhesive mass not specified for this construction.",
+    "source": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+    "page": 89,
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "CCAg",
+    "name": "Classical direct CCAg/ITO",
+    "alpha": 0.09,
+    "epsilon": 0.65,
+    "areal_mass_kg_m2": 0.0093256,
+    "mass_band_kg_m2": [
+      0.0093256,
+      0.011178599999999999
+    ],
+    "mass_basis": "Sum of patent layer thicknesses times bulk densities. Direct Be transfer unqualified.",
+    "source": "https://patents.justia.com/patent/11391493",
+    "optical_source": "https://ntrs.nasa.gov/api/citations/20150018109/downloads/20150018109.pdf",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "MLCCAg",
+    "name": "Direct multilayer CCAg/ITO, 80 oxide pairs",
+    "alpha": 0.09,
+    "epsilon": 0.8,
+    "areal_mass_kg_m2": 0.0075752,
+    "mass_basis": "Patent example layer recipe; NASA 2018 class-level hemispherical optics transferred to this recipe and Be: PROJECTION.",
+    "source": "https://patents.justia.com/patent/11391493",
+    "optical_source": "https://ntrs.nasa.gov/api/citations/20180002012/downloads/20180002012.pdf",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "BareBe",
+    "name": "Chemically polished Be (historical Brush QMV)",
+    "alpha": 0.5,
+    "epsilon": 0.1,
+    "areal_mass_kg_m2": 0.0,
+    "mass_basis": "No added coating; surface preparation and corrosion change optics.",
+    "source": "https://ntrs.nasa.gov/api/citations/19690012311/downloads/19690012311.pdf",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  },
+  {
+    "id": "BeOxide",
+    "name": "Native/oxidized Be",
+    "alpha": null,
+    "epsilon": null,
+    "areal_mass_kg_m2": null,
+    "mass_basis": "No matched oxide thickness, optics or outdoor-aging data found. Not assigned zero mass or a passing factor.",
+    "source": "https://ntrs.nasa.gov/api/citations/19690012311/downloads/19690012311.pdf",
+    "material_tag": "QUESTIONABLE",
+    "installed_Be_tag": "PROJECTION"
+  }
+]

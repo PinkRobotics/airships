@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline-estimates-owner3000-1019",
+  "order": "ord-sciences-g2-mainline-estimates-grok-3000-1019",
+  "status": "ESTIMATE_PENDING_UNA",
+  "clock": "UTC plus CLOCK_MONOTONIC since boot",
+  "origin_utc": "2026-10-19T19:04:00.409711-07:00",
+  "origin_monotonic_s": 2077365.589951272,
+  "no_transfer_no_reset": true,
+  "overlapping_unit": false,
+  "retired_transfer": false,
+  "h1_route": "PARKED_UNFUNDED_NOT_APPLIED",
+  "una600": "NOT_STARTED",
+  "map_point": false,
+  "final_sample": {
+    "utc": "2026-10-19T19:16:51.994147-07:00",
+    "monotonic_s": 2078137.174395097,
+    "elapsed_s": 771.5844438250642,
+    "deadline_s": 2965,
+    "status": "INSIDE"
+  },
+  "charged_s": 806.5844438250642,
+  "charged_cap_s": 3000,
+  "charged_status": "INSIDE",
+  "retired_owner_s": 2193.415556174936,
+  "allowances_s": {
+    "opening": 10,
+    "publication": 25,
+    "status": "unmeasured"
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "sources_assumptions_family_choice",
+      "elapsed_end_s": 430.5604903032072,
+      "duration_s": 430.5604903032072,
+      "actual_max_s": 500,
+      "cumulative_max_s": 500,
+      "status": "INSIDE"
+    },
+    {
+      "phase": 2,
+      "name": "three_point_arithmetic_inputs_table",
+      "elapsed_end_s": 604.9127930570394,
+      "duration_s": 174.3523027538322,
+      "actual_max_s": 1500,
+      "cumulative_max_s": 2000,
+      "status": "INSIDE"
+    },
+    {
+      "phase": 3,
+      "name": "property_factors_NFI_cheap_sensitivities",
+      "elapsed_end_s": 665.0773347772192,
+      "duration_s": 60.16454172017984,
+      "actual_max_s": 600,
+      "cumulative_max_s": 2600,
+      "status": "INSIDE"
+    },
+    {
+      "phase": 4,
+      "name": "card_pins_validation_final_sample",
+      "elapsed_end_s": 771.5844438250642,
+      "duration_s": 106.507109047845,
+      "actual_max_s": 365,
+      "cumulative_max_s": 2965,
+      "status": "INSIDE"
+    }
+  ],
+  "input_pin_mismatches": 0,
+  "independent_arithmetic": "PASS"
+}

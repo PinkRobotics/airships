@@ -1,0 +1,55 @@
+{
+  "id": "PD066-NO-KC",
+  "kind": "piece_d",
+  "claim": "STRUCK as an optimism credit. UNREVIEWED. Face-density factors with kc set to 1. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.433694, 1.487481, 1.406875, 1.459147 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.262668, 1.308957, 1.242631, 1.287813 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+  "numerical_status": "unreviewed",
+  "physical_qualification": "open",
+  "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. Struck by DELTA-E-1022. Not an improvement target.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+      "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+      "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+      "bytes": 46915,
+      "selector": "/variants"
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/a9c80592955b6939-run_terms.py",
+      "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+      "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+      "bytes": 10847,
+      "selector": ""
+    }
+  ],
+  "amendments": [
+    {
+      "delta": "DELTA-E-1022",
+      "reason": "kc is sourced from CR-1457 (4.2-4). The factor without it is struck as an optimism credit and kept only as a historical sensitivity.",
+      "sources": [
+        {
+          "report": "rpt-ref-3d309c9998ff4bbe5e81",
+          "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+          "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+          "bytes": 6467,
+          "selector": "/independent"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-e-dispatch-1022",
+          "artifact": "withheld-source:d905d27416dcb39c",
+          "snapshot": "withheld-source:d905d27416dcb39c",
+          "sha256": "106684d9eabed29aa49567e10dbd8ec70ba93ec05d334ac58a77b055dd377cf1",
+          "bytes": 4132,
+          "selector": ""
+        }
+      ],
+      "previous": {
+        "claim": "UNREVIEWED. Face-density factors with kc set to 1. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.433694, 1.487481, 1.406875, 1.459147 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.262668, 1.308957, 1.242631, 1.287813 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+        "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets."
+      }
+    }
+  ]
+}

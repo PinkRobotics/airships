@@ -1,0 +1,264 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline022d-check-1020",
+  "authority": "ord-admiral-rr2-check022d-codex-1693-1020",
+  "status": "CHECK COMPLETE: primary arithmetic reproduced; sensitivity precision NFI filed",
+  "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+  "certification": false,
+  "owner_code_read": false,
+  "owner_code_executed": false,
+  "primary_witnesses": 64,
+  "sensitivity_witnesses": 112,
+  "duplicate_headlines": 4,
+  "numeric_primary_table_cells": 1792,
+  "field_comparisons": 17452,
+  "mismatches": 50,
+  "primary_mismatches": 0,
+  "mismatch_cause": "square membrane coefficient precision",
+  "max_abs_sensitivity_least_SF_effect": 3.976191154109188e-09,
+  "independent_optima_recovered": 176,
+  "independent_local_searches": 880,
+  "independent_optimum_tolerance": 1e-06,
+  "mathematical_global_certificate": false,
+  "best_equilateral_screened": {
+    "target_multiplier": 1.2582524765581682,
+    "SF_least": 1.258252476557821,
+    "SF": {
+      "compression": 4.368985906310003,
+      "euler": 4.19417492185784,
+      "local": 1.258252476557938,
+      "perry": 3.4544991602026975,
+      "global": 1.2582524765579715,
+      "tension": 3.9992166153322772,
+      "film": 1.258252476557821
+    },
+    "SF_least_with_sized_joint": 1.258252476557821,
+    "binding_modes": [
+      "local",
+      "global",
+      "film"
+    ],
+    "s_m": 3.1707585691074884,
+    "r_o_m": 0.13754142819010323,
+    "r_i_m": 0.13640406334494515,
+    "wall_m": 0.0011373648451580738,
+    "film_total_m": 0.00010944022237810727,
+    "film_per_direction_m": 5.4720111189053635e-05,
+    "film_required_m": 0.00010944022237813748,
+    "film_floor_m": 1.2e-05,
+    "film_floor_active": false,
+    "members": 432.98628226949154,
+    "nodes": 146.3287607564972,
+    "member_length_m": 3.184193538867475,
+    "force_at_pressure_1_N": 873771.3365768079,
+    "area_m2": 0.0009788447832927507,
+    "inertia_m4": 9.18247267153439e-06,
+    "tube_volume_m3": 1.349545168694041,
+    "gamma": 0.5521414852551768,
+    "eta": 0.04668605448199703,
+    "axial_stress_at_pressure_1_Pa": 892655660.5200626,
+    "euler_stress_Pa": 3743953985.207692,
+    "Fc_assumed_Pa": 3900000000.0,
+    "Ft_projection_Pa": 15586000.0,
+    "NASA_L_over_midradius": 23.246913252887694,
+    "sag_mean_m": 0.06798350107484277,
+    "curvature_radius_m": 3.1707585691074884,
+    "mass_kg": {
+      "tube": 4183.590022951527,
+      "film": 214.54155754530413,
+      "joint": 44.19146826669084,
+      "nodes": 2.926575215129944,
+      "systems": 100.0,
+      "vehicle": 4545.249623978652,
+      "reserve": 244.4721075095,
+      "sag_lift_loss": 99.72041870184702,
+      "closure": 4889.44215019
+    },
+    "joint": {
+      "type": "cfrp",
+      "design_force_N": 1099424.9481933094,
+      "section_area_m2": 0.0007479081280226595,
+      "overlap_m": 0.04402043674327406,
+      "coefficient_kg_m_per_N2": 5.8067971139617685e-15,
+      "mass_at_multiplier_1_kg": 27.912763991760702,
+      "axial_SF": 1.2582524765581684,
+      "bond_SF": 1.2582524765581684,
+      "density_kg_m3": 1550.0,
+      "axial_allowable_Pa": 1470000000.0,
+      "bond_allowable_Pa": 28900000.0
+    },
+    "stresses": {
+      "operating_pressure": {
+        "multiplier": 1.0,
+        "mean_compression_Pa": 892655660.5200626,
+        "bending_Pa": 54721624.20893098,
+        "max_compression_Pa": 947377284.7289935,
+        "max_tension_Pa": 0.0
+      },
+      "at_limit": {
+        "multiplier": 1.2582524765581682,
+        "mean_compression_Pa": 1123186195.5630362,
+        "bending_Pa": 74910188.45642492,
+        "max_compression_Pa": 1198096384.0194612,
+        "max_tension_Pa": 0.0
+      }
+    },
+    "radius_of_gyration_m": 0.09685519212409979,
+    "half_wave_D_over_Y_over_rg2": 1.125,
+    "half_wave_m": 3.1841935388666913,
+    "half_wave_over_spacing": 1.0042371468739686,
+    "half_wave_over_member": 0.9999999999997539,
+    "passes_member_screen": true,
+    "in_band_binding": true,
+    "constraints": [
+      3.110733429751835,
+      2.935922445299672,
+      -2.3026025530725747e-13,
+      2.1962466836445294,
+      -1.9673151996357774e-13,
+      2.740964138774109,
+      4.1835900229515275,
+      0.9835298748700392,
+      9.193780948457261,
+      -3.4727776210274897e-13,
+      -2.461364445593972e-13
+    ],
+    "min_constraint": -3.4727776210274897e-13
+  },
+  "active_roots": [
+    {
+      "key": "cap/equilateral/5/cfrp_zylon/overall",
+      "success": true,
+      "solution": [
+        6.0857465777652955,
+        1.6807762728848499,
+        1.3977325820604434
+      ],
+      "residual": [
+        2.220446049250313e-16,
+        0.0,
+        -6.661338147750939e-16
+      ],
+      "message": "The solution converged."
+    },
+    {
+      "key": "cap/equilateral/5/cfrp_zylon/in_band",
+      "success": true,
+      "solution": [
+        3.1707585691070426,
+        1.3754142819009163,
+        1.2582524765578884
+      ],
+      "residual": [
+        1.3167245072054357e-13,
+        -7.771561172376096e-15,
+        -1.467714838554457e-13
+      ],
+      "message": "The solution converged."
+    },
+    {
+      "key": "cap/equilateral/019/cfrp_zylon/overall",
+      "success": true,
+      "solution": [
+        6.0385362652331676,
+        1.6548083185127,
+        1.3281305889332407
+      ],
+      "residual": [
+        2.886579864025407e-15,
+        4.440892098500626e-16,
+        2.886579864025407e-15
+      ],
+      "message": "The solution converged."
+    },
+    {
+      "key": "cap/equilateral/019/cfrp_zylon/in_band",
+      "success": true,
+      "solution": [
+        3.1458368002204815,
+        1.3536281609012055,
+        1.1941214260052058
+      ],
+      "residual": [
+        1.1102230246251565e-15,
+        0.0,
+        0.0
+      ],
+      "message": "The solution converged."
+    },
+    {
+      "key": "membrane/equilateral/5/cfrp_zylon/overall",
+      "success": true,
+      "solution": [
+        6.076890836211887,
+        1.6758881141429363,
+        1.3844396952405311
+      ],
+      "residual": [
+        1.4210854715202004e-14,
+        1.1102230246251565e-15,
+        2.6201263381153694e-14
+      ],
+      "message": "The solution converged."
+    },
+    {
+      "key": "membrane/equilateral/5/cfrp_zylon/in_band",
+      "success": true,
+      "solution": [
+        3.168322835339798,
+        1.3732770815702258,
+        1.2518570918739882
+      ],
+      "residual": [
+        2.0294876890147862e-13,
+        -8.215650382226158e-15,
+        -2.3991919562149633e-13
+      ],
+      "message": "The solution converged."
+    },
+    {
+      "key": "membrane/equilateral/019/cfrp_zylon/overall",
+      "success": true,
+      "solution": [
+        6.029445592267866,
+        1.6498337059412325,
+        1.3150806675993665
+      ],
+      "residual": [
+        6.217248937900877e-15,
+        6.661338147750939e-16,
+        7.993605777301127e-15
+      ],
+      "message": "The solution converged."
+    },
+    {
+      "key": "membrane/equilateral/019/cfrp_zylon/in_band",
+      "success": true,
+      "solution": [
+        3.1433415615156326,
+        1.3514567735557812,
+        1.187857743489201
+      ],
+      "residual": [
+        -2.220446049250313e-16,
+        4.440892098500626e-16,
+        2.220446049250313e-16
+      ],
+      "message": "The solution converged."
+    }
+  ],
+  "continuum_NFI": {
+    "frequency": 4,
+    "linear_discrete_multiplier": 5.254643802209333,
+    "source_continuum_multiplier": 6.1933813461115825,
+    "discrete_vs_continuum_percent": -15.1571087172215,
+    "status": "QUESTIONABLE discrete evidence; NFI for continuum transfer",
+    "applicability": "026b geometry only; not a correction factor for 022d"
+  },
+  "qualified_structural_SF": null,
+  "qualified_full_size_compression_allowable_Pa": null,
+  "qualified_assembly_failure_probability": null,
+  "NFI_count": 9,
+  "next": "none",
+  "stops_other_work": false
+}

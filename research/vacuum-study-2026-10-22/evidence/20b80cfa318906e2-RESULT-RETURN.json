@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "unit": "h1-stvk-interface-1019",
+  "continuation": "clock-only-1019",
+  "status": "FIRST_BLOCKER_RETURNED_FOR_UNA_VERIFICATION",
+  "at": {
+    "captured_monotonic": 2022400.543616451,
+    "captured_utc": "2026-10-19T10:47:55.363310+00:00"
+  },
+  "authority": [
+    {
+      "id": "ord-sciences-g1-h1-stvk-clock-only-unit-1019"
+    },
+    {
+      "id": "ord-co27-sci-h1-stvk-clock-card-granted-1019"
+    },
+    {
+      "id": "rpt-xo-h1-stvk-reseal-verified-a-1019"
+    },
+    {
+      "id": "rpt-ops-g29-h1-clock-offline-approved-1019"
+    }
+  ],
+  "cards": {
+    "clock": "3e2b7eff",
+    "carries": "4bf0e976",
+    "science": "4d6e48f8"
+  },
+  "result": "One unchanged authorized offline invocation stopped at first state-to-tangent proof gate. Native gate not met.",
+  "first_precise_blocker": {
+    "path": "evidence/4a5f5e0ca0f541fa-FIRST-BLOCKER.json",
+    "sha256": "4a5f5e0ca0f541fa720ab14c43af48298bad772b0f79bc531a9e3ebfb60ae263",
+    "bytes": 2117
+  },
+  "bound_exact": "31857000095571/276400000000000000000",
+  "bound_display": 1.1525687444128437e-07,
+  "fixed_allowance": 1e-07,
+  "interpretation": "Frozen conservative proof exceeds allowance; not observed native error, physical failure, solver failure, or proof no tighter valid bound exists. No recalculation or tightening.",
+  "sealed_pack": {
+    "path": "evidence/70e66d6fe4e495d5-PACK-SEAL.json",
+    "sha256": "8247d2e853d8eeae0aec4467e53f7c35a2f0add553900c5b31a2387c245e0807",
+    "bytes": 15327
+  },
+  "current_clock": {
+    "path": "evidence/9144799dd9282a17-intake-clock.json",
+    "sha256": "9144799dd9282a17bec02e2e2814b1e8e00ee18d9303d237ba11bce72fda6ef3",
+    "bytes": 482
+  },
+  "closing_custody": {
+    "path": "evidence/fe81af186c82f398-CLOSING-CUSTODY-CHECK.json",
+    "sha256": "fe81af186c82f398d358933b97baf2fc8934b56dc813b2bf4121d1560bd0be46",
+    "bytes": 37563
+  },
+  "seal_status_qualification": "no_test_or_native_response_seen is historical at sealing time; current status is one offline blocker, not UNTESTED or PASS.",
+  "verification_and_admission": {
+    "Una_actual_reseal": {
+      "path": "unpublished-local-ref:d2b6a18d7128465b",
+      "sha256": "4fa5e1c248929b27818ba72ae2c8b79c8b775091178e4fdff8065da250ee2f4f",
+      "bytes": 4198
+    },
+    "Una_checks": "105/105,0defects; custody only, no scientific credit",
+    "Ops_exact_offline": {
+      "path": "unpublished-local-ref:bb000871968e7a8e",
+      "sha256": "6f0192a407e57a112bac3b347e7e842dc24ede8a2134c4b43c8b6e2191aab9ea",
+      "bytes": 3430
+    },
+    "entry_packet": {
+      "path": "evidence/edd6efdb12ba04c4-OFFLINE-EXACT-ENTRY-PACKET.json",
+      "sha256": "edd6efdb12ba04c455596bf1fa94533a1cfee13a394129d8479fba14ed21de14",
+      "bytes": 9562
+    },
+    "effective_prelaunch": {
+      "path": "unpublished-local-ref:2f0e027426b30e78",
+      "sha256": "d8ee5859bbf1e4e70f7ea26a5edeb91fbec9a6e1eb2ca18048e1a0ff5efa7f7b",
+      "bytes": 3045
+    }
+  },
+  "actual_execution": {
+    "scope": "simjob-20261019t033812-58a58ccf266f.scope",
+    "exit_code": 1,
+    "door_elapsed_seconds": 1.7114789430052042,
+    "payload_result_elapsed_seconds": 1.589370305184275,
+    "tool_session_44034": "Collected exit1; no tracked session outstanding",
+    "CPUQuota_percent": 100,
+    "memory_max_bytes": 4294967296,
+    "swap_max_bytes": 0,
+    "runtime_limit_seconds": 420,
+    "launcher_backstop_seconds": 120,
+    "peak_payload_memory_bytes": null,
+    "peak_memory_qualification": "4GiB cap is not measured peak. Frozen blocker branch supplies no peak RSS.",
+    "reservation": "Released; exact cgroup absent; owned empty TMP directory removed."
+  },
+  "positive_progress": "Frozen admission returned for125physical nodes,48C3D10,64representatives,183independent periodic equations plus3anchors,189micro+6macro=195. Identity K/H reference evaluated transiently; conservative K/H bound exceeds1e-7 atrow123. No references.json persisted; not independent oracle/parser certification.",
+  "counts": {
+    "launcher_invocations": 1,
+    "simjob_admitted_payloads": 1,
+    "offline_test_invocations": 1,
+    "offline_negative_cases_reached": 0,
+    "native_batches": 0,
+    "native_processes": 0,
+    "native_stages": 0,
+    "final_native_comparisons": 0
+  },
+  "not_run_inventory": {
+    "path": "evidence/a521f6e84dabef28-NOT-RUN-INVENTORY.json",
+    "sha256": "a521f6e84dabef286c552786a986afdba1ee6ddf1919ac4ce37e51fdd76c0ba4",
+    "bytes": 4900
+  },
+  "complete_matrix_reference": false,
+  "derived_seal": false,
+  "qualification_flags": {
+    "Q0_native": false,
+    "Q0_energy": false,
+    "native_qualified": false,
+    "H1_qualified": false,
+    "conditional_interface_pass": false
+  },
+  "raw_evidence": [
+    {
+      "path": "unpublished-local-ref:c954ac16d8491f9b",
+      "sha256": "15f77518530cbbc9b4f3fd38554590a07e995fbf55e1be53d57de1c1c40ff5ca",
+      "bytes": 2035
+    },
+    {
+      "path": "unpublished-local-ref:f2924c4566538578",
+      "sha256": "7be600bcfc6bccdbe25feee83b687e3dac75f4812591ce8ba7b97d1399634bfa",
+      "bytes": 75
+    },
+    {
+      "path": "unpublished-local-ref:a1cbf587f24f6197",
+      "sha256": "d54657dc4d25985c0325e87d82cfe0b5ba56997746598d8dbfe334ff3a0a4c53",
+      "bytes": 342
+    },
+    {
+      "path": "unpublished-local-ref:bf0f269abb2c1e8c",
+      "sha256": "94d50dc968069a584b2115b5edb7067770abdeed1b57becf6bd79a1a9b3eef4d",
+      "bytes": 2838
+    },
+    {
+      "path": "unpublished-local-ref:1cb0fd82938ecb5b",
+      "sha256": "82f49a9d2aff16b2ec823bb089ff84d46f4b0d7b7848d7528c875f7b6ea7afb5",
+      "bytes": 1198
+    },
+    {
+      "path": "unpublished-local-ref:16047e3aad71907f",
+      "sha256": "64666f0095491af0c8f26ec2af611a7279237707a55af6a71d5a82f4e74082f1",
+      "bytes": 1587
+    },
+    {
+      "path": "unpublished-local-ref:9cd22ab6f3f96cd6",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "unpublished-local-ref:83082a37729d3437",
+      "sha256": "2bf15ffe6cfe27d851dc15de7389477971ac4355d5f87cf2feb8f6f611e38559",
+      "bytes": 510
+    },
+    {
+      "path": "unpublished-local-ref:d5727138f0527248",
+      "sha256": "aae85836add0af5d53e3b7bfbea6a9f6eb1c6ca61f48ea6082e8b2f66fdd6fdd",
+      "bytes": 617
+    }
+  ],
+  "resource_cleanup": {
+    "path": "evidence/ce066dc7e6319c3f-CLEANUP.json",
+    "sha256": "ce066dc7e6319c3f484690f6db988a7ea987c9d61bb447fc0f9b8a5378701abc",
+    "bytes": 1949
+  },
+  "result_copy_inventory": {
+    "path": "unpublished-local-ref:a53339ac8628901d",
+    "sha256": "a904e76b5651fc2b9aec155f72bd700c6bbc8af3215f884e402008ec6b6a1e5f",
+    "bytes": 9054
+  },
+  "original_archive": {
+    "path": "evidence/1a4db78eb2b38322-ARCHIVE-INVENTORY.json",
+    "sha256": "1a4db78eb2b383227fe66c2c33811b924ea7983f61364578911e923aad41e207",
+    "bytes": 48703
+  },
+  "phase_accounting": "Unpaused actual origin2021075.357763523. All Una/Ops waits, delivery/intake, tool work, collection and filing charged. Native staging/execution skipped at zero. No reset, clipping, scientific reseal or old retired-time reuse.",
+  "budget_file": "unpublished-local-ref:047e78125f5931f1",
+  "evidence_manifest_file": "evidence/49bf1eaf76cbacea-RESULT-EVIDENCE-MANIFEST.json",
+  "return_route": "Una independent verification first, cc Sciences/CO/Ops; Sciences carries verified result to CO. Owner attempt closed; CO obligation disposition pending.",
+  "carry": {
+    "path": "evidence/2fb797b7504ff81e-FINAL-CARRY.json",
+    "sha256": "2fb797b7504ff81e3b95443f1e5e715da54000f545d97698b187a633ec193351",
+    "bytes": 6573
+  },
+  "automatic_continuation": false
+}

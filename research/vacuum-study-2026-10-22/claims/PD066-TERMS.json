@@ -1,0 +1,75 @@
+{
+  "id": "PD066-TERMS",
+  "kind": "piece_d",
+  "claim": "At 066's four concept optima the model global-buckling and face-wrinkling margins are 1. REVIEW-D's COMMON buckling margins at nu 0.33 are 1.6328, 1.6925, 1.6347, 1.6945. This piece's same formula gives 1.6328, 1.6925, 1.6347, 1.6945. Equation 2.2-14 over P0 gives 1.0634, 1.0909, 1.0681, 1.0958. The buckling gap is kc = 1 - vc/4 while vc is below 2. kc is 0.6771, 0.6701, 0.6764, 0.6693. It is set at model61.py line 106 and model63.py line 113 and multiplies the buckling allowable at model61.py line 120 and model63.py line 127. With kc removed and cure kept, those margins are 1.4768, 1.4923, 1.4785, 1.4941. With kc kept and cure removed, they are 1.0284, 1.0280, 1.0283, 1.0280. Cure then brings that last step to 1. Cure is kb*12.3e-6*dtc*tc/(2*tf) at model61.py line 116 and model63.py line 123, and it sits in the buckling denominator. The wrinkling gap is the pressure adder plus thermal demand. Pressure is P0*max(1.01, QWEATHER)+QWIND at model61.py line 99 and model63.py line 106. QWIND and QWEATHER are model63.py lines 21-23, with no handbook citation in the file. Wrinkling on membrane stress alone at that pressure is 1.0447, 1.0445, 1.0493, 1.0491. grad, bend and cure are 4.28%, 4.26%, 4.70%, 4.68% of demand and bring the margin to 1. grad and bend are model61.py lines 110-111 and model63.py lines 117-118, using 11.3e-6. nu 0.0768 stands as 040's historical SR-200 nu12 scalar proxy. It accounts for the move from the nu 0.33 margins 1.6328, 1.6925, 1.6347, 1.6945 to the model-nu margins 1.5459, 1.6024, 1.5476, 1.6043, and it does not bring either set to 1. Gamma 0.20 and Q 0.33 stand, from CR-1457 as COMMON and knockdown.md state them, with the named hemisphere and waviness limits. kc, the cure coefficients, 11.3e-6, the 1.01 floor, QWIND and QWEATHER have no equation in the opened model text, the SOURCE-INDEX bodies, knockdown.md, or COMMON.md. The 040 case source string names pinned 014b. That pin is not in the SOURCE-INDEX and was not opened. Those four unsourced terms are removed one at a time. BETA stays 1. Vc itself is not replaced.",
+  "numerical_status": "unreviewed",
+  "physical_qualification": "open",
+  "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/194954ccad05e1d1-model61.py",
+      "snapshot": "evidence/194954ccad05e1d1-model61.py",
+      "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+      "bytes": 18948,
+      "selector": "L21,L99,L106,L110,L111,L116,L120,L123"
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/2c44efb4bb78a17d-model63.py",
+      "snapshot": "evidence/2c44efb4bb78a17d-model63.py",
+      "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+      "bytes": 19294,
+      "selector": "L21,L23,L106,L113,L117,L118,L123,L127,L130"
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+      "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+      "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+      "bytes": 46915,
+      "selector": "/fixed_geometry_margins"
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+      "bytes": 22506,
+      "selector": "/face/nu_basis"
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/ee19dc5ee59f450c-knockdown.md",
+      "snapshot": "evidence/ee19dc5ee59f450c-knockdown.md",
+      "sha256": "ee19dc5ee59f450c18b9db9254d2d19997b18b755f5160e1f6a06dba05971b12",
+      "bytes": 2588,
+      "selector": ""
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "withheld-source:b528d6a62c81ce0b",
+      "snapshot": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+      "bytes": 6686,
+      "selector": ""
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/f68f46df6147fecc-SOURCE-INDEX.json",
+      "snapshot": "evidence/f68f46df6147fecc-SOURCE-INDEX.json",
+      "sha256": "f68f46df6147feccd6298e8d30d7c9b4e84b01569d33d2c40a4157092c1946c5",
+      "bytes": 70644,
+      "selector": ""
+    },
+    {
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+      "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+      "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+      "bytes": 18706,
+      "selector": "/rows"
+    }
+  ]
+}

@@ -1,0 +1,4985 @@
+{
+  "schema": 1,
+  "check": "MAINLINE-029",
+  "unit": "vacuum-mainline029-check-1020",
+  "order": "ord-admiral-rr2-check029-opus-6ea7-1020",
+  "owner_report": "rpt-1228-mainline029-crimp-gamma-fe-1020",
+  "owner_seat": "ref-ed3515d83349998d6b1b",
+  "checker_seat": "ref-55cff924be25afe6f9dd",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "measured_times": {
+    "order_received_local": "2026-10-20T03:42:40-07:00",
+    "first_working_line_local": "2026-10-20T03:44:32-07:00",
+    "results_built_local": "2026-10-20T05:56:20-07:00",
+    "note": "measurements, not a budget"
+  },
+  "independence": "Own axisymmetric 8-node total-Lagrangian St. Venant-Kirchhoff model (check029/axi029.py). The owner's axisymmetric.py, three_dimensional.py and decks were not read or run. Read: CARD.md, RESULTS.json, NFI.json, INPUTS.json, declared MODEL.json parameters, and the owner's pinned source copies (EUCASS, Hexcel, Materion).",
+  "tolerances": {
+    "linear": 0.0002,
+    "lead-nl": 0.0005,
+    "nl": 0.002,
+    "stress": 0.02
+  },
+  "normalisations": {
+    "rows": 66,
+    "not_matching": [
+      {
+        "row": "lead021 Gaussian width mm under 015b live nu 0.33",
+        "card": 332.216,
+        "mine": 333.964,
+        "diff": 1.7481347114042478,
+        "rel": 0.0052620425006750056,
+        "match": false
+      },
+      {
+        "row": "lead021b Gaussian width mm under 015b live nu 0.33",
+        "card": 401.856,
+        "mine": 403.97,
+        "diff": 2.113979610231354,
+        "rel": 0.005260540119424256,
+        "match": false
+      }
+    ]
+  },
+  "comparisons": [
+    {
+      "group": "EUCASS linear",
+      "row": "flat first eigenpressure (dead pressure)",
+      "card": 30.23653,
+      "mine": 30.2365302514187,
+      "unit": "MPa",
+      "rel": 8.315064624460956e-09,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "96 x 2f x 8c CAX8",
+      "my_mesh": "96 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "EUCASS linear",
+      "row": "flat first eigenpressure (dead pressure)",
+      "card": 30.21954,
+      "mine": 30.21954043376161,
+      "unit": "MPa",
+      "rel": 1.4353680093794381e-08,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "192 x 2f x 8c",
+      "my_mesh": "192 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "EUCASS linear",
+      "row": "flat first eigenpressure (dead pressure)",
+      "card": 30.21717,
+      "mine": 30.217170128886746,
+      "unit": "MPa",
+      "rel": 4.265348032549508e-09,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "384 x 3f x 12c",
+      "my_mesh": "384 x 3f x 10c",
+      "note": ""
+    },
+    {
+      "group": "EUCASS linear",
+      "row": "dimple first eigenpressure (dead pressure)",
+      "card": 30.19659,
+      "mine": 30.19659331268939,
+      "unit": "MPa",
+      "rel": 1.0970408878471615e-07,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "192 x 2f x 8c",
+      "my_mesh": "192 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "EUCASS perfect nonlinear",
+      "row": "flat elastic endpoint (owner-style load control)",
+      "card": 28.84878,
+      "mine": 28.848624825477614,
+      "unit": "MPa",
+      "rel": -5.3788937482664326e-06,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "96 x 2f x 4c, p_ref 40 MPa",
+      "my_mesh": "96 x 2f x 4c, same increments",
+      "note": ""
+    },
+    {
+      "group": "EUCASS perfect nonlinear",
+      "row": "dimple elastic endpoint (owner-style load control)",
+      "card": 28.83042,
+      "mine": 28.830280939862142,
+      "unit": "MPa",
+      "rel": -4.8233823113967114e-06,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "96 x 2f x 4c, p_ref 40 MPa",
+      "my_mesh": "96 x 2f x 4c, same increments",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "flat mu 0.75: first critical point (arc-length)",
+      "card": 13.956916,
+      "mine": 13.78479337162115,
+      "unit": "MPa",
+      "rel": -0.012332425614573398,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c arc-length",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "flat mu 0.75: owner-style load-control endpoint",
+      "card": 13.956916,
+      "mine": 14.050919735431673,
+      "unit": "MPa",
+      "rel": 0.006735279873553271,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c load control",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "flat mu 0.75: pole displacement-control maximum",
+      "card": 13.956916,
+      "mine": 14.218711749126015,
+      "unit": "MPa",
+      "rel": 0.01875742098942314,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c displacement control",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "dimple mu 0.75: first critical point (arc-length)",
+      "card": 13.843652,
+      "mine": 13.83806476761902,
+      "unit": "MPa",
+      "rel": -0.000403595263806145,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c arc-length",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "dimple mu 0.75: owner-style load-control endpoint",
+      "card": 13.843652,
+      "mine": 14.065352369844915,
+      "unit": "MPa",
+      "rel": 0.016014587035625718,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c load control",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "dimple mu 0.75: pole displacement-control maximum",
+      "card": 13.843652,
+      "mine": 13.843141108365511,
+      "unit": "MPa",
+      "rel": -3.6904397372105365e-05,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c displacement control",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021 W first eigenpressure, uniform 512",
+      "card": 160.1382,
+      "mine": 160.13418696113123,
+      "unit": "kPa",
+      "rel": -2.505984748659052e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c",
+      "my_mesh": "uniform 512 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021 W first eigenpressure, uniform 1024",
+      "card": 160.1336,
+      "mine": 160.1317089480998,
+      "unit": "kPa",
+      "rel": -1.1809213682837338e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 1024 x 2f x 6c",
+      "my_mesh": "uniform 1024 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021 L first eigenpressure, uniform 512",
+      "card": 191.4662,
+      "mine": 191.4782003281056,
+      "unit": "kPa",
+      "rel": 6.2675961112793e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c",
+      "my_mesh": "uniform 512 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021 L first eigenpressure, uniform 1024",
+      "card": 191.486,
+      "mine": 191.47627032922398,
+      "unit": "kPa",
+      "rel": -5.0811394963657054e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 1024 x 2f x 6c",
+      "my_mesh": "uniform 1024 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021b W first eigenpressure, uniform 512",
+      "card": 203.245,
+      "mine": 203.24485927644162,
+      "unit": "kPa",
+      "rel": -6.923838637523423e-07,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c",
+      "my_mesh": "uniform 512 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021b W first eigenpressure, uniform 1024",
+      "card": 203.2457,
+      "mine": 203.2437808688617,
+      "unit": "kPa",
+      "rel": -9.442419388424974e-06,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 1024 x 2f x 6c",
+      "my_mesh": "uniform 1024 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021b L first eigenpressure, uniform 512",
+      "card": 234.5322,
+      "mine": 234.5194008347962,
+      "unit": "kPa",
+      "rel": -5.457316822083269e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c",
+      "my_mesh": "uniform 512 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear",
+      "row": "lead021b L first eigenpressure, uniform 1024",
+      "card": 234.5114,
+      "mine": 234.51837085783575,
+      "unit": "kPa",
+      "rel": 2.9725027592429417e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 1024 x 2f x 6c",
+      "my_mesh": "uniform 1024 x 2f x 6c",
+      "note": ""
+    },
+    {
+      "group": "lead linear sensitivity",
+      "row": "lead021 W face nu 0.03",
+      "card": 154.2503,
+      "mine": 154.2484597742924,
+      "unit": "kPa",
+      "rel": -1.193012725168407e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c (one core)",
+      "my_mesh": "graded 512 x 1f x 4c",
+      "note": ""
+    },
+    {
+      "group": "lead linear sensitivity",
+      "row": "lead021b W face nu 0.03",
+      "card": 194.933,
+      "mine": 194.93942314114977,
+      "unit": "kPa",
+      "rel": 3.2950506839691e-05,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c (one core)",
+      "my_mesh": "graded 512 x 1f x 4c",
+      "note": ""
+    },
+    {
+      "group": "lead linear sensitivity",
+      "row": "lead021 W in-plane core x100",
+      "card": 160.1384,
+      "mine": 160.13825801304822,
+      "unit": "kPa",
+      "rel": -8.86651495048642e-07,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c (one core)",
+      "my_mesh": "graded 512 x 1f x 4c",
+      "note": ""
+    },
+    {
+      "group": "lead linear sensitivity",
+      "row": "lead021b W in-plane core x100",
+      "card": 203.2509,
+      "mine": 203.252871346132,
+      "unit": "kPa",
+      "rel": 9.699077012673661e-06,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "uniform 512 x 2f x 6c (one core)",
+      "my_mesh": "graded 512 x 1f x 4c",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021-W-a11.8: limit point (pole displacement control)",
+      "card": 78.627,
+      "mine": 78.63109327989523,
+      "unit": "kPa",
+      "rel": 5.2059469332796426e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 66.126 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021-W-a11.8: owner-style load-control endpoint",
+      "card": 78.627,
+      "mine": 78.63278332352635,
+      "unit": "kPa",
+      "rel": 7.355391311329043e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021-L-a11.8: limit point (pole displacement control)",
+      "card": 98.094,
+      "mine": 98.0785484520359,
+      "unit": "kPa",
+      "rel": -0.00015751776830479593,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 82.823 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021-L-a11.8: owner-style load-control endpoint",
+      "card": 98.094,
+      "mine": 98.09546780586241,
+      "unit": "kPa",
+      "rel": 1.4963258327914641e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021b-W-a46: limit point (pole displacement control)",
+      "card": 90.722,
+      "mine": 90.73575416264588,
+      "unit": "kPa",
+      "rel": 0.0001516077979528808,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 76.529 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021b-W-a46: owner-style load-control endpoint",
+      "card": 90.722,
+      "mine": 90.73682641983031,
+      "unit": "kPa",
+      "rel": 0.00016342695079819508,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021b-L-a46: limit point (pole displacement control)",
+      "card": 105.051,
+      "mine": 105.07659636799222,
+      "unit": "kPa",
+      "rel": 0.00024365658577473568,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 88.781 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nl-lead021b-L-a46: owner-style load-control endpoint",
+      "card": 105.051,
+      "mine": 105.07884025573729,
+      "unit": "kPa",
+      "rel": 0.0002650165704018862,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-W-a5: limit point (pole displacement control)",
+      "card": 91.324,
+      "mine": 91.30511463040955,
+      "unit": "kPa",
+      "rel": -0.0002067952519649801,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 76.828 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-W-a5: owner-style load-control endpoint",
+      "card": 91.324,
+      "mine": 91.3267721235752,
+      "unit": "kPa",
+      "rel": 3.0354819929025155e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-W-a25: limit point (pole displacement control)",
+      "card": 72.92,
+      "mine": 72.92469336462294,
+      "unit": "kPa",
+      "rel": 6.436320108252439e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 61.885 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-W-a25: owner-style load-control endpoint",
+      "card": 72.92,
+      "mine": 72.92553758621213,
+      "unit": "kPa",
+      "rel": 7.594056791179479e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-L-a5: limit point (pole displacement control)",
+      "card": 121.456,
+      "mine": 121.43608751734324,
+      "unit": "kPa",
+      "rel": -0.00016394811830427515,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 102.977 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-L-a5: owner-style load-control endpoint",
+      "card": 121.456,
+      "mine": 121.4663932323456,
+      "unit": "kPa",
+      "rel": 8.557199599519329e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-L-a25: limit point (pole displacement control)",
+      "card": 87.118,
+      "mine": 87.10446679140365,
+      "unit": "kPa",
+      "rel": -0.00015534342611564386,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 73.318 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021-L-a25: owner-style load-control endpoint",
+      "card": 87.118,
+      "mine": 87.11877715587615,
+      "unit": "kPa",
+      "rel": 8.920726786088517e-06,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-W-a20: limit point (pole displacement control)",
+      "card": 98.272,
+      "mine": 98.26678400089563,
+      "unit": "kPa",
+      "rel": -5.30771644454109e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 82.984 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-W-a20: owner-style load-control endpoint",
+      "card": 98.272,
+      "mine": 98.26953887939452,
+      "unit": "kPa",
+      "rel": -2.504396578362638e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-W-a75: limit point (pole displacement control)",
+      "card": 88.544,
+      "mine": 88.55441647562402,
+      "unit": "kPa",
+      "rel": 0.00011764180095801623,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 74.877 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-W-a75: owner-style load-control endpoint",
+      "card": 88.544,
+      "mine": 88.56097012758255,
+      "unit": "kPa",
+      "rel": 0.0001916575666623726,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-L-a20: limit point (pole displacement control)",
+      "card": 118.05,
+      "mine": 118.07587109573865,
+      "unit": "kPa",
+      "rel": 0.0002191537123138603,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 99.685 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-L-a20: owner-style load-control endpoint",
+      "card": 118.05,
+      "mine": 118.01256042718884,
+      "unit": "kPa",
+      "rel": -0.00031715012970057,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-L-a75: limit point (pole displacement control)",
+      "card": 102.172,
+      "mine": 102.19594029848885,
+      "unit": "kPa",
+      "rel": 0.0002343136915089537,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 86.466 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "sw-lead021b-L-a75: owner-style load-control endpoint",
+      "card": 102.172,
+      "mine": 102.19751095771791,
+      "unit": "kPa",
+      "rel": 0.0002496863888140848,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nu-lead021-L-a11.8-nu003: limit point (pole displacement control)",
+      "card": 91.468,
+      "mine": 91.46042796495928,
+      "unit": "kPa",
+      "rel": -8.278343290247726e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 77.604 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nu-lead021-L-a11.8-nu003: owner-style load-control endpoint",
+      "card": 91.468,
+      "mine": 91.4702467024326,
+      "unit": "kPa",
+      "rel": 2.4562715185644162e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nu-lead021b-L-a46-nu00768: limit point (pole displacement control)",
+      "card": 98.347,
+      "mine": 98.37558580324392,
+      "unit": "kPa",
+      "rel": 0.00029066268664959684,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, displacement control",
+      "note": "after its maximum the path falls to 82.993 kPa"
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "nu-lead021b-L-a46-nu00768: owner-style load-control endpoint",
+      "card": 98.347,
+      "mine": 98.37768554687497,
+      "unit": "kPa",
+      "rel": 0.00031201304437326383,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c load control",
+      "my_mesh": "same mesh, same increments",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear, refined",
+      "row": "lead021-W-a11.8: load-control endpoint on graded 2048 x 1f x 4c",
+      "card": 78.627,
+      "mine": 78.63232707977292,
+      "unit": "kPa",
+      "rel": 6.775127847845471e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512",
+      "my_mesh": "graded 2048",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear, refined",
+      "row": "lead021-W-a11.8: limit point on graded 2048 x 1f x 4c",
+      "card": 78.627,
+      "mine": 78.63091848377984,
+      "unit": "kPa",
+      "rel": 4.983636384246644e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512",
+      "my_mesh": "graded 2048",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear, refined",
+      "row": "lead021b-W-a46: load-control endpoint on graded 2048 x 1f x 4c",
+      "card": 90.722,
+      "mine": 90.73682641983031,
+      "unit": "kPa",
+      "rel": 0.00016342695079819508,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512",
+      "my_mesh": "graded 2048",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear, refined",
+      "row": "lead021b-W-a46: limit point on graded 2048 x 1f x 4c",
+      "card": 90.722,
+      "mine": 90.73565529387055,
+      "unit": "kPa",
+      "rel": 0.00015051799861727372,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512",
+      "my_mesh": "graded 2048",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear, refined",
+      "row": "lead021b-L-a46: load-control endpoint on graded 2048 x 1f x 4c",
+      "card": 105.051,
+      "mine": 105.07884025573729,
+      "unit": "kPa",
+      "rel": 0.0002650165704018862,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512",
+      "my_mesh": "graded 2048",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear, refined",
+      "row": "lead021b-L-a46: limit point on graded 2048 x 1f x 4c",
+      "card": 105.051,
+      "mine": 105.07651669814442,
+      "unit": "kPa",
+      "rel": 0.00024289819368130544,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512",
+      "my_mesh": "graded 2048",
+      "note": ""
+    },
+    {
+      "group": "lead nonlinear",
+      "row": "lead021 W, 256 meridional elements",
+      "card": 78.627,
+      "mine": 78.63294315372256,
+      "unit": "kPa",
+      "rel": 7.558667789142598e-05,
+      "tol": 0.0005,
+      "reproduced": true,
+      "owner_mesh": "graded 512",
+      "my_mesh": "graded 256",
+      "note": ""
+    },
+    {
+      "group": "face stress",
+      "row": "nl-lead021-W-a11.8: outer-face max von Mises at the load-control endpoint",
+      "card": 660.806,
+      "mine": 666.6429199085784,
+      "unit": "MPa",
+      "rel": 0.008833031038728994,
+      "tol": 0.02,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c",
+      "my_mesh": "same",
+      "note": "at my displacement-control maximum: 670.5"
+    },
+    {
+      "group": "face stress",
+      "row": "nl-lead021-L-a11.8: outer-face max von Mises at the load-control endpoint",
+      "card": 835.808,
+      "mine": 822.0991326671273,
+      "unit": "MPa",
+      "rel": -0.01640193361737711,
+      "tol": 0.02,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c",
+      "my_mesh": "same",
+      "note": "at my displacement-control maximum: 830.9"
+    },
+    {
+      "group": "face stress",
+      "row": "nl-lead021b-W-a46: outer-face max von Mises at the load-control endpoint",
+      "card": 1144.503,
+      "mine": 1157.2226860281405,
+      "unit": "MPa",
+      "rel": 0.011113720128423068,
+      "tol": 0.02,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c",
+      "my_mesh": "same",
+      "note": "at my displacement-control maximum: 1162.4"
+    },
+    {
+      "group": "face stress",
+      "row": "nl-lead021b-L-a46: outer-face max von Mises at the load-control endpoint",
+      "card": 1303.532,
+      "mine": 1320.4648000160862,
+      "unit": "MPa",
+      "rel": 0.012989938118961618,
+      "tol": 0.02,
+      "reproduced": true,
+      "owner_mesh": "graded 512 x 1f x 4c",
+      "my_mesh": "same",
+      "note": "at my displacement-control maximum: 1328.6"
+    },
+    {
+      "group": "transfer40",
+      "row": "axis eigen24",
+      "card": 7.472405,
+      "mine": 7.4723936541794815,
+      "unit": "MPa",
+      "rel": -1.5183626313949744e-06,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "24 x 1f x 2c",
+      "my_mesh": "24 x 1f x 2c",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis eigen48",
+      "card": 6.626231,
+      "mine": 6.626230200011055,
+      "unit": "MPa",
+      "rel": -1.2073061509961325e-07,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "48 x 1f x 2c",
+      "my_mesh": "48 x 1f x 2c",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis eigen96",
+      "card": 6.417224,
+      "mine": 6.417223427223746,
+      "unit": "MPa",
+      "rel": -8.925607926137519e-08,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "96 x 1f x 2c",
+      "my_mesh": "96 x 1f x 2c",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis eigen192",
+      "card": 6.378169,
+      "mine": 6.378169395045973,
+      "unit": "MPa",
+      "rel": 6.193720687285444e-08,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "192 x 1f x 2c",
+      "my_mesh": "192 x 1f x 2c",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis eigen384",
+      "card": 6.372661,
+      "mine": 6.372660954324301,
+      "unit": "MPa",
+      "rel": -7.16744524442456e-09,
+      "tol": 0.0002,
+      "reproduced": true,
+      "owner_mesh": "384 x 2f x 4c",
+      "my_mesh": "384 x 2f x 4c",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static24 endpoint vs my limit point",
+      "card": 2.853333,
+      "mine": 2.8545406779072375,
+      "unit": "MPa",
+      "rel": 0.0004232516524490532,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static24 endpoint vs my load control",
+      "card": 2.853333,
+      "mine": 2.8559849739074705,
+      "unit": "MPa",
+      "rel": 0.0009294302163366162,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static48 endpoint vs my limit point",
+      "card": 2.296584,
+      "mine": 2.2993207789174948,
+      "unit": "MPa",
+      "rel": 0.0011916737717821667,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static48 endpoint vs my load control",
+      "card": 2.296584,
+      "mine": 2.2999159097671504,
+      "unit": "MPa",
+      "rel": 0.0014508111905117574,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static192 endpoint vs my limit point",
+      "card": 2.218066,
+      "mine": 2.219907554474392,
+      "unit": "MPa",
+      "rel": 0.000830252334417433,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static192 endpoint vs my load control",
+      "card": 2.218066,
+      "mine": 2.220252227783203,
+      "unit": "MPa",
+      "rel": 0.0009856459560729878,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static384 endpoint vs my limit point",
+      "card": 2.216077,
+      "mine": 2.2190171870305835,
+      "unit": "MPa",
+      "rel": 0.00132675310044896,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static384 endpoint vs my load control",
+      "card": 2.216077,
+      "mine": 2.219349503517151,
+      "unit": "MPa",
+      "rel": 0.0014767102032785984,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static48 graded endpoint vs my limit point",
+      "card": 2.254362,
+      "mine": 2.257096821657028,
+      "unit": "MPa",
+      "rel": 0.0012131244480824224,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    },
+    {
+      "group": "transfer40",
+      "row": "axis static48 graded endpoint vs my load control",
+      "card": 2.254362,
+      "mine": 2.2577754020690914,
+      "unit": "MPa",
+      "rel": 0.0015141321886597914,
+      "tol": 0.002,
+      "reproduced": true,
+      "owner_mesh": "",
+      "my_mesh": "",
+      "note": ""
+    }
+  ],
+  "mismatches": [
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "flat mu 0.75: first critical point (arc-length)",
+      "card": 13.956916,
+      "mine": 13.78479337162115,
+      "unit": "MPa",
+      "rel": -0.012332425614573398,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c arc-length",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "flat mu 0.75: owner-style load-control endpoint",
+      "card": 13.956916,
+      "mine": 14.050919735431673,
+      "unit": "MPa",
+      "rel": 0.006735279873553271,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c load control",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "flat mu 0.75: pole displacement-control maximum",
+      "card": 13.956916,
+      "mine": 14.218711749126015,
+      "unit": "MPa",
+      "rel": 0.01875742098942314,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c displacement control",
+      "note": ""
+    },
+    {
+      "group": "EUCASS imperfect nonlinear",
+      "row": "dimple mu 0.75: owner-style load-control endpoint",
+      "card": 13.843652,
+      "mine": 14.065352369844915,
+      "unit": "MPa",
+      "rel": 0.016014587035625718,
+      "tol": 0.002,
+      "reproduced": false,
+      "owner_mesh": "96 x 2f x 4c load control",
+      "my_mesh": "96 x 2f x 4c load control",
+      "note": ""
+    }
+  ],
+  "text_and_record_arithmetic": [
+    {
+      "row": "flat linear vs published (about 10% high)",
+      "card": 0.09760879041046122,
+      "mine": 0.09760879041046122,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "dimple linear vs published",
+      "card": 0.09566727140783748,
+      "mine": 0.09566727140783748,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "flat imperfect elastic / published (more than two)",
+      "card": 2.314579767827529,
+      "mine": 2.314579767827529,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "dimple imperfect elastic / published",
+      "card": 2.4589079928952042,
+      "mine": 2.4589079928952042,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "flat numerical imperfect / perfect",
+      "card": 0.48379570990523685,
+      "mine": 0.48379570990523685,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "dimple numerical imperfect / perfect",
+      "card": 0.4801751760813751,
+      "mine": 0.48017517608137517,
+      "rel": 1.1560604128742042e-16,
+      "reproduced": true
+    },
+    {
+      "row": "flat published imperfect / perfect",
+      "card": 0.48433734939759043,
+      "mine": 0.48433734939759043,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "dimple published imperfect / perfect",
+      "card": 0.45257234726688106,
+      "mine": 0.45257234726688106,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "dimple elastic endpoint / p_crimp",
+      "card": 3.5565087089552834,
+      "mine": 3.5565083889875977,
+      "rel": -8.996679380385974e-08,
+      "reproduced": true
+    },
+    {
+      "row": "021b L nu 0.0768 endpoint above operating (3.02%)",
+      "card": 0.0302,
+      "mine": 0.0302,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "021 L 512->1024 eigen change (at most 0.0103%)",
+      "card": 0.000103,
+      "mine": 0.000103,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "completed native runs (79)",
+      "card": 79,
+      "mine": 79,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "summed solver elapsed s (7648.82)",
+      "card": 7648.82,
+      "mine": 7648.82,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "nonblocking NFI rows (17)",
+      "card": 17,
+      "mine": 17,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "3D sizing elements (582,168)",
+      "card": 582168,
+      "mine": 582168,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "3D sizing nodes (2,765,307)",
+      "card": 2765307,
+      "mine": 2765307,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "3D sizing free equations (8,263,917)",
+      "card": 8263917,
+      "mine": 8263917,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "3D sizing GiB at 10 kB/equation (76.96)",
+      "card": 76.96,
+      "mine": 76.96,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "3D sizing meridian edge mm",
+      "card": 1.0359854098761943,
+      "mine": 1.0359854098761943,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "3D sizing equator edge mm",
+      "card": 1.038704531686893,
+      "mine": 1.038704531686893,
+      "rel": 0.0,
+      "reproduced": true
+    },
+    {
+      "row": "021b face membrane stress at operating (MPa)",
+      "card": 345.0,
+      "mine": 344.998604672168,
+      "rel": -4.044428498469063e-06,
+      "reproduced": true
+    }
+  ],
+  "extensions": {
+    "eucass_linear_follower": {
+      "flat 96x2fx6c": {
+        "dead_MPa": 30.2365302514187,
+        "follower_MPa": 30.751365592691492,
+        "follower_over_dead": 1.0170269318930414
+      },
+      "flat 192x2fx6c": {
+        "dead_MPa": 30.21954043376161,
+        "follower_MPa": 30.734252873884085,
+        "follower_over_dead": 1.0170324377119724
+      },
+      "flat 384x2fx6c": {
+        "dead_MPa": 30.218155772306357,
+        "follower_MPa": 30.732855125199432,
+        "follower_over_dead": 1.017032785083621
+      },
+      "flat 384x3fx10c": {
+        "dead_MPa": 30.217170128886746,
+        "follower_MPa": 30.73186064336815,
+        "follower_over_dead": 1.0170330481738055
+      },
+      "dimple 96x2fx6c": {
+        "dead_MPa": 30.213546333404338,
+        "follower_MPa": 30.72770709527784,
+        "follower_over_dead": 1.0170175574955609
+      },
+      "dimple 192x2fx6c": {
+        "dead_MPa": 30.19659331268939,
+        "follower_MPa": 30.710632493586004,
+        "follower_over_dead": 1.0170230852061248
+      },
+      "dimple 384x2fx6c": {
+        "dead_MPa": 30.195213427822143,
+        "follower_MPa": 30.709239758364486,
+        "follower_over_dead": 1.0170234375647338
+      },
+      "dimple 384x3fx10c": {
+        "dead_MPa": 30.19423097971669,
+        "follower_MPa": 30.708248585281684,
+        "follower_over_dead": 1.0170237025049682
+      }
+    },
+    "eucass_linear_sensitivity_192x2fx6c_MPa": {
+      "paper": {
+        "flat": 27.53,
+        "dimple": 27.56
+      },
+      "runs": {
+        "E_steel 190 GPa": 27.877356997667775,
+        "E_steel 200 GPa": 29.048851984179972,
+        "E_foam 30 MPa": 28.798359280877555,
+        "E_foam 35 MPa": 29.51163550078125,
+        "foam nu 0.3": 30.874106332264063,
+        "flat, 42.80 mm read as the mid-surface radius (R_outer 44.77)": 28.075757498260188,
+        "dimple, 42.80 mm read as the mid-surface radius (R_outer 44.76)": 28.06052839867904,
+        "flat, 42.80 mm read at the foam/outer-face interface (R_outer 43.22)": 29.73841350803566,
+        "dimple, 42.80 mm read at the foam/outer-face interface (R_outer 43.22)": 29.714977153442064
+      },
+      "E_steel_closing_flat_GPa_linear_interp": 187.03492544426558
+    },
+    "eucass_perfect_flat_arc_peak_MPa": 28.831325610781818,
+    "eucass_perfect_flat_stability_scan": [
+      {
+        "p_MPa": 20.0,
+        "lowest_eigs": [
+          11.465550590100046,
+          16.253238596397043,
+          19.4572380132349
+        ],
+        "pole_dz_mm": -0.13649410909671722,
+        "asym": 6.714259089128792e-17
+      },
+      {
+        "p_MPa": 26.0,
+        "lowest_eigs": [
+          10.263344677140767,
+          15.349082029293267,
+          18.034177547244514
+        ],
+        "pole_dz_mm": -0.1775921027874082,
+        "asym": 7.208806724029832e-17
+      },
+      {
+        "p_MPa": 27.0,
+        "lowest_eigs": [
+          9.592405569867777,
+          14.81006543847042,
+          17.03735515884796
+        ],
+        "pole_dz_mm": -0.18584758616605412,
+        "asym": 6.877773292375466e-17
+      },
+      {
+        "p_MPa": 28.0,
+        "lowest_eigs": [
+          7.925201922220301,
+          13.617443131881213,
+          16.150190424326553
+        ],
+        "pole_dz_mm": -0.1979346113380773,
+        "asym": 6.926647217142263e-17
+      },
+      {
+        "p_MPa": 28.5,
+        "lowest_eigs": [
+          5.740034042521634,
+          12.792741965649858,
+          15.80170375452013
+        ],
+        "pole_dz_mm": -0.20985842145461253,
+        "asym": 7.121560567364419e-17
+      },
+      {
+        "p_MPa": 28.8,
+        "lowest_eigs": [
+          2.336249606130517,
+          12.156830932868553,
+          15.489245974414086
+        ],
+        "pole_dz_mm": -0.2277133234516087,
+        "asym": 7.143951123694227e-17
+      },
+      {
+        "p_MPa": 29.0,
+        "lowest_eigs": [
+          19.28966696888525,
+          39.592252176613954,
+          72.94815479419286
+        ],
+        "pole_dz_mm": -11.533471990549806,
+        "asym": 7.048673615995893e-17
+      },
+      {
+        "p_MPa": 29.5,
+        "lowest_eigs": [
+          18.870966427304403,
+          26.58590494710394,
+          32.2035524091131
+        ],
+        "pole_dz_mm": -51.61610085338365,
+        "asym": 7.648714787655273e-17
+      }
+    ],
+    "eucass_imperfect_mesh_series": {
+      "eucass-flat 96 x 1f x 4c": {
+        "first_critical_MPa": 13.783998636130686,
+        "outer_face_vm_MPa": 2826.1202967033287,
+        "dof": 3866
+      },
+      "eucass-flat 96 x 2f x 4c": {
+        "first_critical_MPa": 13.78479337162115,
+        "outer_face_vm_MPa": 2987.1748300171002,
+        "dof": 5026
+      },
+      "eucass-flat 96 x 2f x 6c": {
+        "first_critical_MPa": 13.576206185035508,
+        "outer_face_vm_MPa": 2889.282636231224,
+        "dof": 6186
+      },
+      "eucass-flat 96 x 2f x 8c": {
+        "first_critical_MPa": 13.553169406393504,
+        "outer_face_vm_MPa": 2879.2216131464347,
+        "dof": 7346
+      },
+      "eucass-flat 96 x 2f x 10c": {
+        "first_critical_MPa": 13.430919078702914,
+        "outer_face_vm_MPa": 2827.2129510971135,
+        "dof": 8506
+      },
+      "eucass-flat 96 x 2f x 12c": {
+        "first_critical_MPa": 13.371675834483817,
+        "outer_face_vm_MPa": 2802.8665069201033,
+        "dof": 9666
+      },
+      "eucass-flat 96 x 3f x 8c": {
+        "first_critical_MPa": 13.470266525515886,
+        "outer_face_vm_MPa": 2901.39210417263,
+        "dof": 8506
+      },
+      "eucass-flat 192 x 2f x 6c": {
+        "first_critical_MPa": 13.566219862859905,
+        "outer_face_vm_MPa": 2884.423658305912,
+        "dof": 12330
+      },
+      "eucass-flat 384 x 2f x 6c": {
+        "first_critical_MPa": 13.565470653581372,
+        "outer_face_vm_MPa": 2885.933683008175,
+        "dof": 24618
+      },
+      "eucass-dimple 96 x 1f x 4c": {
+        "first_critical_MPa": 13.84791452039796,
+        "outer_face_vm_MPa": 2914.2319917769987,
+        "dof": 3866
+      },
+      "eucass-dimple 96 x 2f x 4c": {
+        "first_critical_MPa": 13.83806476761902,
+        "outer_face_vm_MPa": 3074.445942431108,
+        "dof": 5026
+      },
+      "eucass-dimple 96 x 2f x 6c": {
+        "first_critical_MPa": 13.649039128443386,
+        "outer_face_vm_MPa": 2975.304983766364,
+        "dof": 6186
+      },
+      "eucass-dimple 96 x 2f x 8c": {
+        "first_critical_MPa": 13.551615411099057,
+        "outer_face_vm_MPa": 2928.888962876777,
+        "dof": 7346
+      },
+      "eucass-dimple 96 x 2f x 10c": {
+        "first_critical_MPa": 13.495158418096272,
+        "outer_face_vm_MPa": 2903.093215164832,
+        "dof": 8506
+      },
+      "eucass-dimple 192 x 2f x 6c": {
+        "first_critical_MPa": 13.638331721088681,
+        "outer_face_vm_MPa": 2972.7827405756448,
+        "dof": 12330
+      }
+    },
+    "stvk_foam_uniaxial_limit": {
+      "max_compressive_cauchy_MPa": 7.69800358919501,
+      "at_stretch": 0.5773502691896258,
+      "formula": "sigma = E lambda (lambda^2 - 1)/2 for nu 0; extremum at lambda = 1/sqrt(3)"
+    },
+    "eucass_core_collapse": {
+      "eucass-flat-96-2-4": {
+        "path_max_MPa": 14.218711749126015,
+        "at_max": {
+          "pole_dz_mm": -1.2868096923828127,
+          "p_MPa": 14.218711749126015,
+          "outer_vm": 3278.1129287634653,
+          "inner_vm": 1328.2967389812784,
+          "core_min_principal": -72.22371018864713,
+          "core_min_stretch": 0.020605985589605583
+        },
+        "at_13.0_MPa": {
+          "pole_dz_mm": -0.9484185791015628,
+          "p_MPa": 13.069548004071507,
+          "outer_vm": 2687.0303236768787,
+          "inner_vm": 1059.5527322046798,
+          "core_min_principal": -7.4564940916031555,
+          "core_min_stretch": 0.6495525280368482
+        },
+        "min_core_stretch_on_path": 0.009573293346147049,
+        "p_at_min_core_stretch_MPa": 13.777860037963235
+      },
+      "eucass-flat-96-2-12": {
+        "path_max_MPa": 13.460014180659194,
+        "at_max": {
+          "pole_dz_mm": -1.0269036695886762,
+          "p_MPa": 13.460014180659194,
+          "outer_vm": 2839.3506244312216,
+          "inner_vm": 1130.5362762659636,
+          "core_min_principal": -7.614633045593592,
+          "core_min_stretch": 0.22917781714128813
+        },
+        "at_13.0_MPa": {
+          "pole_dz_mm": -0.9484185791015628,
+          "p_MPa": 13.069467231833347,
+          "outer_vm": 2687.0272456124303,
+          "inner_vm": 1059.5287832437689,
+          "core_min_principal": -7.5433596856442655,
+          "core_min_stretch": 0.6358058633366674
+        },
+        "min_core_stretch_on_path": 0.20819664767991883,
+        "p_at_min_core_stretch_MPa": 13.372540877999652
+      },
+      "eucass-dimple-96-2-4": {
+        "path_max_MPa": 13.843141108365511,
+        "at_max": {
+          "pole_dz_mm": -1.1638635253906253,
+          "p_MPa": 13.843141108365511,
+          "outer_vm": 3078.1089916066517,
+          "inner_vm": 1325.4100783970516,
+          "core_min_principal": -7.482186867688352,
+          "core_min_stretch": 0.3528101360086766
+        },
+        "at_13.0_MPa": {
+          "pole_dz_mm": -0.9984185791015628,
+          "p_MPa": 13.208518323788889,
+          "outer_vm": 2781.9938065341366,
+          "inner_vm": 1164.9338388110446,
+          "core_min_principal": -7.47708835796985,
+          "core_min_stretch": 0.645456194813763
+        },
+        "min_core_stretch_on_path": 0.3508337033306266,
+        "p_at_min_core_stretch_MPa": 13.843097193977322
+      }
+    },
+    "eucass_elastic_stress_at_paper_pressures": {
+      "eucass-flat-a2.955": {
+        "at_5.63": {
+          "pole_dz_mm": -0.2753309558086159,
+          "p_MPa": 5.63,
+          "outer_vm": 941.9568853178162,
+          "inner_vm": 336.2948302183512,
+          "core_min_principal": -2.9273747792581735
+        },
+        "at_6.03": {
+          "pole_dz_mm": -0.2981413889255279,
+          "p_MPa": 6.03,
+          "outer_vm": 1014.8345201093484,
+          "inner_vm": 363.42196819347436,
+          "core_min_principal": -3.1453106845597176
+        },
+        "at_12.45": {
+          "pole_dz_mm": -0.8483774019121378,
+          "p_MPa": 12.45,
+          "outer_vm": 2477.8999238601914,
+          "inner_vm": 963.7507720289902,
+          "core_min_principal": -7.056606546890521
+        }
+      },
+      "eucass-flat-a0": {
+        "at_5.63": {
+          "pole_dz_mm": -0.038895178496099025,
+          "p_MPa": 5.63,
+          "outer_vm": 449.9874008649378,
+          "inner_vm": 28.595622193468323,
+          "core_min_principal": -0.4948470671102192
+        },
+        "at_6.03": {
+          "pole_dz_mm": -0.041640573382991965,
+          "p_MPa": 6.03,
+          "outer_vm": 482.6326432354795,
+          "inner_vm": 30.593894453904255,
+          "core_min_principal": -0.530413484880494
+        },
+        "at_12.45": {
+          "pole_dz_mm": -0.0855201927386545,
+          "p_MPa": 12.45,
+          "outer_vm": 1014.4011748413133,
+          "inner_vm": 62.60799258497636,
+          "core_min_principal": -1.110562771686421
+        }
+      },
+      "crossings_MPa": {
+        "imperfect: foam min principal reaches -1.4 MPa": 2.7520551930429815,
+        "imperfect: outer face von Mises reaches 750 MPa": 4.557348895308943,
+        "perfect: foam min principal reaches -1.4 MPa": 15.506576015797876,
+        "perfect: outer face von Mises reaches 750 MPa": 9.287914262554432
+      },
+      "paper_reads_QUESTIONABLE": {
+        "foam_plateau_MPa_read_from_Fig3": 1.4,
+        "steel_Fig5_as_printed_MPa_at_zero_strain": 7500,
+        "steel_Fig5_if_axis_x10_MPa": 750
+      }
+    },
+    "lead021b_wrinkling": {
+      "eigen_kPa_by_mesh": {
+        "lead021b L 512 grading 1.35 1f x 4c": [
+          230.38576382419419,
+          234.51985683074585,
+          234.7869180727852,
+          235.1500154194728
+        ],
+        "lead021b L 1024 grading 1.35 1f x 4c": [
+          209.1731274654897,
+          220.72596686014472,
+          226.05726178040612,
+          230.65824096139076
+        ],
+        "lead021b W 1024 grading 1.35 1f x 4c": [
+          203.2439032246739,
+          203.2838154405506,
+          203.4823861312269,
+          203.65393809384602
+        ],
+        "lead021b L 1024 grading 1.0 1f x 4c": [
+          234.51836596094188,
+          234.78521388043822,
+          235.1487024867372,
+          235.8230095514357
+        ],
+        "lead021b L 2048 grading 1.35 1f x 4c": [
+          200.79161655151003,
+          204.25207075005667,
+          206.05699680221247,
+          207.66576513215725
+        ],
+        "lead021b L 2048 grading 1.35 2f x 6c": [
+          200.69241735241363,
+          204.0295006421261,
+          205.726071561419,
+          207.2286056264226
+        ],
+        "lead021b L 4096 grading 1.35 2f x 6c": [
+          198.1735109463674,
+          199.04566511910855,
+          199.55186946480472,
+          200.0014684478041
+        ],
+        "lead021b L 4096 grading 1.0 1f x 4c": [
+          210.18786170977685,
+          210.18809958649558,
+          211.44138034885896,
+          211.44138247011475
+        ],
+        "lead021b W 512 grading 1.35 1f x 4c": [
+          203.24545705054882,
+          203.28525306816726,
+          203.4841059679534,
+          203.65523462274183
+        ],
+        "lead021b W 2048 grading 1.35 1f x 4c": [
+          200.79095467698187,
+          203.24373600524146,
+          203.28366484007827,
+          203.48221138671667
+        ],
+        "lead021b W 4096 grading 1.35 1f x 4c": [
+          198.2188597804995,
+          199.09917050221736,
+          199.613767053971,
+          200.07211683845372
+        ],
+        "lead021b W 4096 grading 2.0 1f x 4c": [
+          197.58157783618609,
+          197.84687815231837,
+          198.09020486479048,
+          198.3215452222424
+        ],
+        "lead021b W 8192 grading 1.35 1f x 4c": [
+          197.59291764653761,
+          197.77945951234602,
+          197.8989433092038,
+          198.0066302461345
+        ],
+        "lead021b W 4096 grading 1.0 1f x 4c": [
+          203.2437164264057,
+          203.28364175072784,
+          203.48218562840316,
+          203.65378374350823
+        ],
+        "lead021 L 512 grading 1.35 1f x 4c": [
+          191.47923869955616,
+          191.6287354947305,
+          191.7483398737341,
+          192.25479563597023
+        ],
+        "lead021 L 2048 grading 1.35 1f x 4c": [
+          191.47618800408617,
+          191.62596133330052,
+          191.74496349564606,
+          192.2523001719385
+        ],
+        "lead021 W 512 grading 1.35 1f x 4c": [
+          160.13541223405025,
+          160.1739397741989,
+          160.20062024824128,
+          160.30208957434218
+        ],
+        "lead021 W 2048 grading 1.35 1f x 4c": [
+          160.13150117695002,
+          160.1696083289882,
+          160.19687123605144,
+          160.29747840341173
+        ],
+        "lead021b W 4096 grading 1.35 1f x 4c in-plane E 1": [
+          203.25106728932042,
+          203.29135151519415,
+          203.3921485279413,
+          203.48920540516315
+        ]
+      },
+      "winkler_estimate": {
+        "lead021": {
+          "sigma_wr_MPa": 913.4151838583854,
+          "p_kPa": 308.16730014465145,
+          "wavelength_mm": 38.55027356487991,
+          "face_membrane_at_operating_MPa": 282.9481868240931
+        },
+        "lead021b": {
+          "sigma_wr_MPa": 677.6691517585305,
+          "p_kPa": 187.51051215626399,
+          "wavelength_mm": 36.70644252144279,
+          "face_membrane_at_operating_MPa": 344.998604672168
+        }
+      },
+      "formula": "sigma_wr = 2 sqrt(D_f k)/t_f, D_f = E_f t_f^3/12, k = 2 E_c/t_c (symmetric mode, half core per face)"
+    },
+    "width_convention_015b_nu033": {
+      "lead021 W endpoint kPa": 78.45907211672517,
+      "lead021b W endpoint kPa": 90.49891018697254,
+      "widths_mm": {
+        "lead021": 333.964,
+        "lead021b": 403.97
+      }
+    },
+    "stability_scan_partial": {
+      "stabsig-4096g135-lead021b-L-a46": "3 logged states; the 105 kPa state was stopped unfinished at filing"
+    },
+    "lead021b_refined_path_stability": {
+      "stab2048-lead021b-W-a46": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.0316231074800728,
+            1.0543087456622318,
+            1.3291375900561815
+          ],
+          "pole_dz_mm": -13.333319289617691,
+          "modes": [
+            {
+              "eig": 0.0316231074800728,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999737603657868
+            },
+            {
+              "eig": 1.0543087456622318,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.8599369819470286
+            },
+            {
+              "eig": 1.3291375900561815,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999943392184838
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.027804660381658408,
+            0.9355547564784674,
+            1.0182924560121198
+          ],
+          "pole_dz_mm": -30.787520032524345,
+          "modes": [
+            {
+              "eig": 0.027804660381658408,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999763305305875
+            },
+            {
+              "eig": 0.9355547564784674,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999932218449026
+            },
+            {
+              "eig": 1.0182924560121198,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.3206665085034893
+            }
+          ]
+        },
+        {
+          "p_kPa": 80.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.025163687985205963,
+            0.5402368109996651,
+            0.9840529430932428
+          ],
+          "pole_dz_mm": -49.11216933305796,
+          "modes": [
+            {
+              "eig": 0.025163687985205963,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999782540087472
+            },
+            {
+              "eig": 0.5402368109996651,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999954359681366
+            },
+            {
+              "eig": 0.9840529430932428,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9672690816413083
+            }
+          ]
+        },
+        {
+          "p_kPa": 86.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.024321340236463485,
+            0.3514068039704794,
+            0.9686704601800709
+          ],
+          "pole_dz_mm": -58.62722743316308,
+          "modes": [
+            {
+              "eig": 0.024321340236463485,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999789791999223
+            },
+            {
+              "eig": 0.3514068039704794,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999969615046852
+            },
+            {
+              "eig": 0.9686704601800709,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.972860691381209
+            }
+          ]
+        },
+        {
+          "p_kPa": 89.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.023818728708872028,
+            0.208243916856941,
+            0.9573280731297689
+          ],
+          "pole_dz_mm": -66.54398220007535,
+          "modes": [
+            {
+              "eig": 0.023818728708872028,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999796201731761
+            },
+            {
+              "eig": 0.208243916856941,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999978494956431
+            },
+            {
+              "eig": 0.9573280731297689,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9710238993199868
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.3,
+          "converged": true,
+          "lowest_eigs": [
+            0.02332825495899593,
+            0.10312384344048597,
+            0.9490721653551428
+          ],
+          "pole_dz_mm": -73.01073088549707,
+          "modes": [
+            {
+              "eig": 0.02332825495899593,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999808849737619
+            },
+            {
+              "eig": 0.10312384344048597,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999978784982236
+            },
+            {
+              "eig": 0.9490721653551428,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.968017165402583
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.7,
+          "converged": true,
+          "lowest_eigs": [
+            0.01970241626093716,
+            0.03459330827567619,
+            0.9434180902601401
+          ],
+          "pole_dz_mm": -77.90700961953495,
+          "modes": [
+            {
+              "eig": 0.01970241626093716,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999925391145627
+            },
+            {
+              "eig": 0.03459330827567619,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999899608458596
+            },
+            {
+              "eig": 0.9434180902601401,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9653181281097278
+            }
+          ]
+        }
+      ],
+      "stab2048-lead021b-L-a46": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.04546362530968295,
+            1.126109505314841,
+            1.5930173803062861
+          ],
+          "pole_dz_mm": -11.542379676160053,
+          "modes": [
+            {
+              "eig": 0.04546362530968295,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999458111786633
+            },
+            {
+              "eig": 1.126109505314841,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9525701110984259
+            },
+            {
+              "eig": 1.5930173803062861,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999929869756568
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.041623236121405505,
+            1.0838493212496783,
+            1.204209728966692
+          ],
+          "pole_dz_mm": -25.802524348845406,
+          "modes": [
+            {
+              "eig": 0.041623236121405505,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999470289153329
+            },
+            {
+              "eig": 1.0838493212496783,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.6441426205429666
+            },
+            {
+              "eig": 1.204209728966692,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999917560054602
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.03754760160453885,
+            0.6675800248304191,
+            1.0242724067639108
+          ],
+          "pole_dz_mm": -47.24024120413183,
+          "modes": [
+            {
+              "eig": 0.03754760160453885,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999485380476906
+            },
+            {
+              "eig": 0.6675800248304191,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999934460819978
+            },
+            {
+              "eig": 1.0242724067639108,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9637705705723799
+            }
+          ]
+        },
+        {
+          "p_kPa": 100.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.03602782798881754,
+            0.3741706619182439,
+            0.9935002539845024
+          ],
+          "pole_dz_mm": -60.60208575381976,
+          "modes": [
+            {
+              "eig": 0.03602782798881754,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999496659323621
+            },
+            {
+              "eig": 0.3741706619182439,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999953113225294
+            },
+            {
+              "eig": 0.9935002539845024,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.976725786756864
+            }
+          ]
+        },
+        {
+          "p_kPa": 103.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.03540387104750442,
+            0.23465306873121472,
+            0.9795965199688648
+          ],
+          "pole_dz_mm": -67.77495256444777,
+          "modes": [
+            {
+              "eig": 0.03540387104750442,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999509556726048
+            },
+            {
+              "eig": 0.23465306873121472,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999957546045183
+            },
+            {
+              "eig": 0.9795965199688648,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9756915453657342
+            }
+          ]
+        },
+        {
+          "p_kPa": 104.5,
+          "converged": true,
+          "lowest_eigs": [
+            0.03455635337230345,
+            0.12286310694127622,
+            0.9687959293557045
+          ],
+          "pole_dz_mm": -74.16868035918215,
+          "modes": [
+            {
+              "eig": 0.03455635337230345,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999548919483042
+            },
+            {
+              "eig": 0.12286310694127622,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999946990016162
+            },
+            {
+              "eig": 0.9687959293557045,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9739247658922621
+            }
+          ]
+        },
+        {
+          "p_kPa": 105.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.029527902569595588,
+            0.051905086223142716,
+            0.9617064354257778
+          ],
+          "pole_dz_mm": -78.93195740448036,
+          "modes": [
+            {
+              "eig": 0.029527902569595588,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999815876858936
+            },
+            {
+              "eig": 0.051905086223142716,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999767051476237
+            },
+            {
+              "eig": 0.9617064354257778,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9724741761927087
+            }
+          ]
+        }
+      ],
+      "stab4096g135-lead021b-W-a46": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.012646195481266664,
+            0.40901928619860306,
+            0.6656241707424964
+          ],
+          "pole_dz_mm": -13.33331950106546,
+          "modes": [
+            {
+              "eig": 0.012646195481266664,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999590887043293
+            },
+            {
+              "eig": 0.40901928619860306,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9490235874203843
+            },
+            {
+              "eig": 0.6656241707424964,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999936261122633
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            -1.5142104673734587,
+            0.011082541528024903,
+            0.39951624417803466
+          ],
+          "pole_dz_mm": -30.787520720190813,
+          "modes": [
+            {
+              "eig": -1.5142104673734587,
+              "outer_peak_r_mm": 435.8912696358603,
+              "outer_peak_z_mm": 9976.3562627638,
+              "inner_outer_corr": -0.5924662136650524
+            },
+            {
+              "eig": 0.011082541528024903,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999603095123312
+            },
+            {
+              "eig": 0.39951624417803466,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.6293859529342567
+            }
+          ]
+        },
+        {
+          "p_kPa": 80.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.010007133596084294,
+            0.27029720318440753,
+            0.39031318889872524
+          ],
+          "pole_dz_mm": -49.112170772645186,
+          "modes": [
+            {
+              "eig": 0.010007133596084294,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999612454659893
+            },
+            {
+              "eig": 0.27029720318440753,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999947673712367
+            },
+            {
+              "eig": 0.39031318889872524,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.8813889948933817
+            }
+          ]
+        },
+        {
+          "p_kPa": 86.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.00966889259121384,
+            0.17571960198715786,
+            0.38612116870012314
+          ],
+          "pole_dz_mm": -58.62722966698129,
+          "modes": [
+            {
+              "eig": 0.00966889259121384,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999617015965422
+            },
+            {
+              "eig": 0.17571960198715786,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999962010077112
+            },
+            {
+              "eig": 0.38612116870012314,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9515708762373255
+            }
+          ]
+        },
+        {
+          "p_kPa": 89.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.009474950489560374,
+            0.10401351988340513,
+            0.3830064287569339
+          ],
+          "pole_dz_mm": -66.54398596395093,
+          "modes": [
+            {
+              "eig": 0.009474950489560374,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999623095744085
+            },
+            {
+              "eig": 0.10401351988340513,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999969980644513
+            },
+            {
+              "eig": 0.3830064287569339,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9612577204922952
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.3,
+          "converged": true,
+          "lowest_eigs": [
+            0.009311939111938283,
+            0.05131644364340815,
+            0.380726380363275
+          ],
+          "pole_dz_mm": -73.01073804729543,
+          "modes": [
+            {
+              "eig": 0.009311939111938283,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999638791451795
+            },
+            {
+              "eig": 0.05131644364340815,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999968978667332
+            },
+            {
+              "eig": 0.380726380363275,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9621784225038318
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.7,
+          "converged": true,
+          "lowest_eigs": [
+            0.008406090534398336,
+            0.0161041271711313,
+            0.37915856016250005
+          ],
+          "pole_dz_mm": -77.90703704018912,
+          "modes": [
+            {
+              "eig": 0.008406090534398336,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999789941398481
+            },
+            {
+              "eig": 0.0161041271711313,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999890954112067
+            },
+            {
+              "eig": 0.37915856016250005,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9612154256656615
+            }
+          ]
+        }
+      ],
+      "stab4096g135-lead021b-W-a46-ein1": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.012693130668690378,
+            0.6656679968012051,
+            6.930249010549047
+          ],
+          "pole_dz_mm": -13.332761019513114,
+          "modes": [
+            {
+              "eig": 0.012693130668690378,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999600385019339
+            },
+            {
+              "eig": 0.6656679968012051,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999937077300951
+            },
+            {
+              "eig": 6.930249010549047,
+              "outer_peak_r_mm": 144.8693446149737,
+              "outer_peak_z_mm": -9998.950588586324,
+              "inner_outer_corr": 0.9948903087845866
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.011130709025069851,
+            0.46838867883501645,
+            6.250179061184657
+          ],
+          "pole_dz_mm": -30.785978322340465,
+          "modes": [
+            {
+              "eig": 0.011130709025069851,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999614253413499
+            },
+            {
+              "eig": 0.46838867883501645,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.999992761297523
+            },
+            {
+              "eig": 6.250179061184657,
+              "outer_peak_r_mm": 144.8693446149737,
+              "outer_peak_z_mm": -9998.950588586324,
+              "inner_outer_corr": 0.994465303784455
+            }
+          ]
+        },
+        {
+          "p_kPa": 80.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.01005656390564802,
+            0.27034475425301285,
+            5.746535243465949
+          ],
+          "pole_dz_mm": -49.10869166501587,
+          "modes": [
+            {
+              "eig": 0.01005656390564802,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999625071628276
+            },
+            {
+              "eig": 0.27034475425301285,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999948943252309
+            },
+            {
+              "eig": 5.746535243465949,
+              "outer_peak_r_mm": 139.6986616171711,
+              "outer_peak_z_mm": -9999.024166584573,
+              "inner_outer_corr": 0.9942380296772817
+            }
+          ]
+        },
+        {
+          "p_kPa": 86.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.009718231042111558,
+            0.1757802990339996,
+            5.587509906025075
+          ],
+          "pole_dz_mm": -58.621516112588125,
+          "modes": [
+            {
+              "eig": 0.009718231042111558,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999630101605701
+            },
+            {
+              "eig": 0.1757802990339996,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999963065814733
+            },
+            {
+              "eig": 5.587509906025075,
+              "outer_peak_r_mm": 139.6986616171711,
+              "outer_peak_z_mm": -9999.024166584573,
+              "inner_outer_corr": 0.9941675122184337
+            }
+          ]
+        },
+        {
+          "p_kPa": 89.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.009524456370425982,
+            0.1041020902264298,
+            5.506720750023913
+          ],
+          "pole_dz_mm": -66.53400582171932,
+          "modes": [
+            {
+              "eig": 0.009524456370425982,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.999963631451617
+            },
+            {
+              "eig": 0.1041020902264298,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999970874607751
+            },
+            {
+              "eig": 5.506720750023913,
+              "outer_peak_r_mm": 139.6986616171711,
+              "outer_peak_z_mm": -9999.024166584573,
+              "inner_outer_corr": 0.9941306400538358
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.3,
+          "converged": true,
+          "lowest_eigs": [
+            0.009360957290704297,
+            0.05147703140066118,
+            5.471634700968241
+          ],
+          "pole_dz_mm": -72.99005830150003,
+          "modes": [
+            {
+              "eig": 0.009360957290704297,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999651612805188
+            },
+            {
+              "eig": 0.05147703140066118,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999969920334192
+            },
+            {
+              "eig": 5.471634700968241,
+              "outer_peak_r_mm": 139.6986616171711,
+              "outer_peak_z_mm": -9999.024166584573,
+              "inner_outer_corr": 0.9941134818855227
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.7,
+          "converged": true,
+          "lowest_eigs": [
+            0.008505987363542244,
+            0.01655822177100319,
+            5.46103976768969
+          ],
+          "pole_dz_mm": -77.83500483447021,
+          "modes": [
+            {
+              "eig": 0.008505987363542244,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999789265451242
+            },
+            {
+              "eig": 0.01655822177100319,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999900376112906
+            },
+            {
+              "eig": 5.46103976768969,
+              "outer_peak_r_mm": 139.6986616171711,
+              "outer_peak_z_mm": -9999.024166584573,
+              "inner_outer_corr": 0.9941071763951873
+            }
+          ]
+        }
+      ],
+      "stab4096g135-lead021b-L-a46-ein1": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.01724418902539493,
+            0.797526096304876,
+            7.613853455432917
+          ],
+          "pole_dz_mm": -11.541886255364698,
+          "modes": [
+            {
+              "eig": 0.01724418902539493,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999263500497064
+            },
+            {
+              "eig": 0.797526096304876,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999918783330939
+            },
+            {
+              "eig": 7.613853455432917,
+              "outer_peak_r_mm": 150.03954555058246,
+              "outer_peak_z_mm": -9998.874343383406,
+              "inner_outer_corr": 0.992230894368681
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.0156270930340332,
+            0.6027143612424091,
+            7.00137567508996
+          ],
+          "pole_dz_mm": -25.801249091243363,
+          "modes": [
+            {
+              "eig": 0.0156270930340332,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999241062638876
+            },
+            {
+              "eig": 0.6027143612424091,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999907564402614
+            },
+            {
+              "eig": 7.00137567508996,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.9912136654933658
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.013922129035418784,
+            0.3339075242920808,
+            6.312829674760731
+          ],
+          "pole_dz_mm": -47.236797333667006,
+          "modes": [
+            {
+              "eig": 0.013922129035418784,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999210060129763
+            },
+            {
+              "eig": 0.3339075242920808,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999923526837436
+            },
+            {
+              "eig": 6.312829674760731,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.9901253891473194
+            }
+          ]
+        },
+        {
+          "p_kPa": 100.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.01330467909516675,
+            0.18696659881225464,
+            6.065205124735137
+          ],
+          "pole_dz_mm": -60.59511530839287,
+          "modes": [
+            {
+              "eig": 0.01330467909516675,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999202674952183
+            },
+            {
+              "eig": 0.18696659881225464,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.999994039136336
+            },
+            {
+              "eig": 6.065205124735137,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.9897045174006219
+            }
+          ]
+        },
+        {
+          "p_kPa": 103.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.013076472569633069,
+            0.11709165537471788,
+            5.989228880248569
+          ],
+          "pole_dz_mm": -67.76327423122032,
+          "modes": [
+            {
+              "eig": 0.013076472569633069,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.999921005210544
+            },
+            {
+              "eig": 0.11709165537471788,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999943954977709
+            },
+            {
+              "eig": 5.989228880248569,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.9895680638909155
+            }
+          ]
+        },
+        {
+          "p_kPa": 104.5,
+          "converged": true,
+          "lowest_eigs": [
+            0.01283804991394355,
+            0.06103658184526384,
+            5.9511829202476045
+          ],
+          "pole_dz_mm": -74.14530907984853,
+          "modes": [
+            {
+              "eig": 0.01283804991394355,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999245831713554
+            },
+            {
+              "eig": 0.06103658184526384,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999934093540777
+            },
+            {
+              "eig": 5.9511829202476045,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.989496024163066
+            }
+          ]
+        },
+        {
+          "p_kPa": 105.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.011889980608228878,
+            0.02424812078890226,
+            5.9387388210856304
+          ],
+          "pole_dz_mm": -78.86687030637738,
+          "modes": [
+            {
+              "eig": 0.011889980608228878,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999492777666179
+            },
+            {
+              "eig": 0.02424812078890226,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999815875467959
+            },
+            {
+              "eig": 5.9387388210856304,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.9894695822802096
+            }
+          ]
+        }
+      ],
+      "stabsig-4096g135-lead021b-W-a46": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.012646089396071147,
+            0.4090192859077888,
+            0.6656241524327697,
+            0.6921300592024409
+          ],
+          "pole_dz_mm": -13.33331950106546,
+          "modes": [
+            {
+              "eig": 0.012646089396071147,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999590887054239
+            },
+            {
+              "eig": 0.4090192859077888,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9490246125929109
+            },
+            {
+              "eig": 0.6656241524327697,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999936261129927
+            },
+            {
+              "eig": 0.6921300592024409,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999837192354138
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            -569.7179192781086,
+            -535.7957482893621,
+            -503.7369483723771,
+            -470.06761944293646
+          ],
+          "pole_dz_mm": -30.787520720190813,
+          "modes": [
+            {
+              "eig": -569.7179192781086,
+              "outer_peak_r_mm": 397.0213647510238,
+              "outer_peak_z_mm": 9974.837284584393,
+              "inner_outer_corr": 0.587327009034458
+            },
+            {
+              "eig": -535.7957482893621,
+              "outer_peak_r_mm": 382.07317974834797,
+              "outer_peak_z_mm": 9974.127386194099,
+              "inner_outer_corr": -0.6656643857283454
+            },
+            {
+              "eig": -503.7369483723771,
+              "outer_peak_r_mm": 372.19089962404325,
+              "outer_peak_z_mm": 9973.62254445139,
+              "inner_outer_corr": -0.05627056140698142
+            },
+            {
+              "eig": -470.06761944293646,
+              "outer_peak_r_mm": 364.0067145261621,
+              "outer_peak_z_mm": 9973.184115924027,
+              "inner_outer_corr": -0.5331341268787544
+            }
+          ]
+        },
+        {
+          "p_kPa": 80.0,
+          "converged": true,
+          "lowest_eigs": [
+            -1059.9918805552802,
+            -1020.8997120154819,
+            -983.5437676980486,
+            -946.1448649821485
+          ],
+          "pole_dz_mm": -49.112170772645186,
+          "modes": [
+            {
+              "eig": -1059.9918805552802,
+              "outer_peak_r_mm": 349.3988141443697,
+              "outer_peak_z_mm": 9972.358446794991,
+              "inner_outer_corr": -0.5095565686054293
+            },
+            {
+              "eig": -1020.8997120154819,
+              "outer_peak_r_mm": 346.1737954592608,
+              "outer_peak_z_mm": 9972.169109255883,
+              "inner_outer_corr": -0.6608031999659313
+            },
+            {
+              "eig": -983.5437676980486,
+              "outer_peak_r_mm": 344.56326024034394,
+              "outer_peak_z_mm": 9972.073643620013,
+              "inner_outer_corr": -0.47551513616460517
+            },
+            {
+              "eig": -946.1448649821485,
+              "outer_peak_r_mm": 342.9566358887521,
+              "outer_peak_z_mm": 9971.977813665642,
+              "inner_outer_corr": -0.6350548027789085
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.7,
+          "converged": true,
+          "lowest_eigs": [
+            -1016.3264960346283,
+            -1004.5622635005413,
+            -955.153060765874,
+            -949.4949838281832
+          ],
+          "pole_dz_mm": -77.90703760006443,
+          "modes": [
+            {
+              "eig": -1016.3264960346283,
+              "outer_peak_r_mm": 568.7965688449236,
+              "outer_peak_z_mm": 9977.625023996688,
+              "inner_outer_corr": -0.8316766920980051
+            },
+            {
+              "eig": -1004.5622635005413,
+              "outer_peak_r_mm": 377.1226543819707,
+              "outer_peak_z_mm": 9973.877917377451,
+              "inner_outer_corr": -0.5456207353664886
+            },
+            {
+              "eig": -955.153060765874,
+              "outer_peak_r_mm": 570.628911095789,
+              "outer_peak_z_mm": 9977.599926192812,
+              "inner_outer_corr": -0.8126165307721538
+            },
+            {
+              "eig": -949.4949838281832,
+              "outer_peak_r_mm": 375.47747118257007,
+              "outer_peak_z_mm": 9973.793479531021,
+              "inner_outer_corr": -0.5277518948272876
+            }
+          ]
+        }
+      ],
+      "stabsig-4096g135-lead021b-L-a46": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.01715310511087864,
+            0.4188727438506703,
+            0.7302414981907077,
+            0.797472699490072
+          ],
+          "pole_dz_mm": -11.542379719207364,
+          "modes": [
+            {
+              "eig": 0.01715310511087864,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999247329979114
+            },
+            {
+              "eig": 0.4188727438506703,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9775993634514576
+            },
+            {
+              "eig": 0.7302414981907077,
+              "outer_peak_r_mm": 18.28786741842493,
+              "outer_peak_z_mm": 9954.079248114555,
+              "inner_outer_corr": 0.999843367536278
+            },
+            {
+              "eig": 0.797472699490072,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999917561694655
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            -55.5280894001429,
+            -22.433312440715667,
+            0.015527645507063426,
+            0.40834315433858137
+          ],
+          "pole_dz_mm": -25.802524509767206,
+          "modes": [
+            {
+              "eig": -55.5280894001429,
+              "outer_peak_r_mm": 355.87227972926615,
+              "outer_peak_z_mm": 9972.730937681952,
+              "inner_outer_corr": -0.983133918634866
+            },
+            {
+              "eig": -22.433312440715667,
+              "outer_peak_r_mm": 378.7715761534445,
+              "outer_peak_z_mm": 9973.961783626944,
+              "inner_outer_corr": -0.97160490570321
+            },
+            {
+              "eig": 0.015527645507063426,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999220982862248
+            },
+            {
+              "eig": 0.40834315433858137,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": -0.9394808552125691
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.0,
+          "converged": true,
+          "lowest_eigs": [
+            -1077.184112406575,
+            -1006.8816289270948,
+            -938.7081435609557,
+            -872.6217878175967
+          ],
+          "pole_dz_mm": -47.240241769402225,
+          "modes": [
+            {
+              "eig": -1077.184112406575,
+              "outer_peak_r_mm": 418.8760413105798,
+              "outer_peak_z_mm": 9975.751592863346,
+              "inner_outer_corr": -0.9763674311428735
+            },
+            {
+              "eig": -1006.8816289270948,
+              "outer_peak_r_mm": 442.74619996310537,
+              "outer_peak_z_mm": 9976.572419867976,
+              "inner_outer_corr": -0.9784387949310737
+            },
+            {
+              "eig": -938.7081435609557,
+              "outer_peak_r_mm": 456.5384539356613,
+              "outer_peak_z_mm": 9976.958553606904,
+              "inner_outer_corr": -0.9799264979986431
+            },
+            {
+              "eig": -872.6217878175967,
+              "outer_peak_r_mm": 463.4753059304694,
+              "outer_peak_z_mm": 9977.127841431204,
+              "inner_outer_corr": -0.9808338486217932
+            }
+          ]
+        }
+      ],
+      "stabsig-4096g135-lead021b-W-a46-ein1": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.012693323290136505,
+            0.6656680150138072,
+            6.9302489434397785,
+            8.017710937234142
+          ],
+          "pole_dz_mm": -13.332761019513114,
+          "modes": [
+            {
+              "eig": 0.012693323290136505,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999600385008972
+            },
+            {
+              "eig": 0.6656680150138072,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999937077286343
+            },
+            {
+              "eig": 6.9302489434397785,
+              "outer_peak_r_mm": 144.8693446149737,
+              "outer_peak_z_mm": -9998.950588586324,
+              "inner_outer_corr": 0.9948903088590217
+            },
+            {
+              "eig": 8.017710937234142,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9990614674545973
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.01113072420912431,
+            0.4683886883858577,
+            6.2501789776230225,
+            8.185742282243268
+          ],
+          "pole_dz_mm": -30.785978322340465,
+          "modes": [
+            {
+              "eig": 0.01113072420912431,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.999961425337829
+            },
+            {
+              "eig": 0.4683886883858577,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999927612969738
+            },
+            {
+              "eig": 6.2501789776230225,
+              "outer_peak_r_mm": 144.8693446149737,
+              "outer_peak_z_mm": -9998.950588586324,
+              "inner_outer_corr": 0.9944653038043096
+            },
+            {
+              "eig": 8.185742282243268,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.995611088501748
+            }
+          ]
+        },
+        {
+          "p_kPa": 80.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.010056478370529476,
+            0.27034475364655464,
+            5.746535301765334,
+            8.279092489755044
+          ],
+          "pole_dz_mm": -49.10869166501587,
+          "modes": [
+            {
+              "eig": 0.010056478370529476,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999625071609646
+            },
+            {
+              "eig": 0.27034475364655464,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999948943273222
+            },
+            {
+              "eig": 5.746535301765334,
+              "outer_peak_r_mm": 139.6986616171711,
+              "outer_peak_z_mm": -9999.024166584573,
+              "inner_outer_corr": 0.9942380296651857
+            },
+            {
+              "eig": 8.279092489755044,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9856214484386953
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.7,
+          "converged": true,
+          "lowest_eigs": [
+            0.008506147141815745,
+            0.016558318880470324,
+            5.461039807311408,
+            7.81046279633631
+          ],
+          "pole_dz_mm": -77.83500486743101,
+          "modes": [
+            {
+              "eig": 0.008506147141815745,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999789271350333
+            },
+            {
+              "eig": 0.016558318880470324,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999900371935984
+            },
+            {
+              "eig": 5.461039807311408,
+              "outer_peak_r_mm": 139.6986616171711,
+              "outer_peak_z_mm": -9999.024166584573,
+              "inner_outer_corr": 0.9941071763139653
+            },
+            {
+              "eig": 7.81046279633631,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9599467926866772
+            }
+          ]
+        }
+      ],
+      "stabsig-4096g135-lead021b-L-a46-ein1": [
+        {
+          "p_kPa": 29.999999999999996,
+          "converged": true,
+          "lowest_eigs": [
+            0.017244365968167585,
+            0.7975261325235579,
+            7.613853435582314,
+            9.038072934663774
+          ],
+          "pole_dz_mm": -11.541886255364698,
+          "modes": [
+            {
+              "eig": 0.017244365968167585,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999263500486751
+            },
+            {
+              "eig": 0.7975261325235579,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999918783294943
+            },
+            {
+              "eig": 7.613853435582314,
+              "outer_peak_r_mm": 150.03954555058246,
+              "outer_peak_z_mm": -9998.874343383406,
+              "inner_outer_corr": 0.9922308943731142
+            },
+            {
+              "eig": 9.038072934663774,
+              "outer_peak_r_mm": 1054.8474556271563,
+              "outer_peak_z_mm": 9944.16333706823,
+              "inner_outer_corr": 0.9992817230332487
+            }
+          ]
+        },
+        {
+          "p_kPa": 60.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.015627114771064043,
+            0.6027143699097905,
+            7.001375569921947,
+            8.984253770241025
+          ],
+          "pole_dz_mm": -25.801249091243363,
+          "modes": [
+            {
+              "eig": 0.015627114771064043,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999241062595615
+            },
+            {
+              "eig": 0.6027143699097905,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999907564389906
+            },
+            {
+              "eig": 7.001375569921947,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.9912136656545089
+            },
+            {
+              "eig": 8.984253770241025,
+              "outer_peak_r_mm": 1108.6004217454854,
+              "outer_peak_z_mm": 9938.338068354607,
+              "inner_outer_corr": 0.9992452284609203
+            }
+          ]
+        },
+        {
+          "p_kPa": 90.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.013922159799449219,
+            0.33390750269143155,
+            6.312829578582523,
+            9.1998505679652
+          ],
+          "pole_dz_mm": -47.236797333667006,
+          "modes": [
+            {
+              "eig": 0.013922159799449219,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.999921006013396
+            },
+            {
+              "eig": 0.33390750269143155,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999923526824629
+            },
+            {
+              "eig": 6.312829578582523,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.9901253892150392
+            },
+            {
+              "eig": 9.1998505679652,
+              "outer_peak_r_mm": 1184.9461051136523,
+              "outer_peak_z_mm": 9929.539508540422,
+              "inner_outer_corr": 0.9984969817041154
+            }
+          ]
+        },
+        {
+          "p_kPa": 105.0,
+          "converged": true,
+          "lowest_eigs": [
+            0.011889933444194867,
+            0.02424808577791282,
+            5.938738770982241,
+            10.354816688245137
+          ],
+          "pole_dz_mm": -78.86687110203596,
+          "modes": [
+            {
+              "eig": 0.011889933444194867,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999492776327854
+            },
+            {
+              "eig": 0.02424808577791282,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9999815876295391
+            },
+            {
+              "eig": 5.938738770982241,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": -9999.999999999998,
+              "inner_outer_corr": 0.989469582177302
+            },
+            {
+              "eig": 10.354816688245137,
+              "outer_peak_r_mm": 0.0,
+              "outer_peak_z_mm": 9953.999999999998,
+              "inner_outer_corr": 0.9837964823504957
+            }
+          ]
+        }
+      ]
+    },
+    "core_regularization_artifact": {
+      "diag-4096g2-lead021b-L": {
+        "case": "lead021b",
+        "dir": "L",
+        "amp_mm": 46.0,
+        "dof": 163866,
+        "rows": [
+          {
+            "p_kPa": 0.0,
+            "sigma_-1": {
+              "eigs": [
+                0.02133759004709712,
+                0.044324022694914644,
+                0.061580627067429505
+              ],
+              "lowest": 0.02133759004709712,
+              "residual": 6.0959942448030014e-05,
+              "rayleigh_KT": 0.021337614264826162,
+              "rayleigh_K_at_u": 0.021337614264826162,
+              "rayleigh_load_stiffness": 0.0,
+              "rayleigh_K0": 0.021337614264826162
+            },
+            "sigma_-1e-3": {
+              "eigs": [
+                0.021337565316716652,
+                0.044324022727045186,
+                0.0615806270677602
+              ],
+              "lowest": 0.021337565316716652,
+              "residual": 4.4442285479428866e-05,
+              "rayleigh_KT": 0.02133757510343985,
+              "rayleigh_K_at_u": 0.02133757510343985,
+              "rayleigh_load_stiffness": 0.0,
+              "rayleigh_K0": 0.02133757510343985
+            }
+          },
+          {
+            "p_kPa": 3.0,
+            "sigma_-1": {
+              "eigs": [
+                0.02116981668316731,
+                0.044263594016292096,
+                0.06148779361161094
+              ],
+              "lowest": 0.02116981668316731,
+              "residual": 6.170105142823985e-05,
+              "rayleigh_KT": 0.021169815407875433,
+              "rayleigh_K_at_u": 0.021169594507675398,
+              "rayleigh_load_stiffness": 1.9603840537022136e-07,
+              "rayleigh_K0": 0.021337984895803203
+            },
+            "sigma_-1e-3": {
+              "eigs": [
+                0.021169827366179204,
+                0.044263594015505135,
+                0.06148779360372625
+              ],
+              "lowest": 0.021169827366179204,
+              "residual": 4.2939904463660926e-05,
+              "rayleigh_KT": 0.021169728732880977,
+              "rayleigh_K_at_u": 0.021169532920007644,
+              "rayleigh_load_stiffness": 1.9603840658003685e-07,
+              "rayleigh_K0": 0.021337955727984033
+            }
+          },
+          {
+            "p_kPa": 29.999999999999996,
+            "sigma_-1": {
+              "eigs": [
+                -0.5951444944309495,
+                0.01962928087460103,
+                0.043641059247721214
+              ],
+              "lowest": -0.5951444944309495,
+              "residual": 3.3175051595495496e-07,
+              "rayleigh_KT": -0.595144494474914,
+              "rayleigh_K_at_u": -0.5951445653738513,
+              "rayleigh_load_stiffness": 7.089893846968453e-08,
+              "rayleigh_K0": 617.8849462118781
+            },
+            "sigma_-1e-3": {
+              "eigs": [
+                0.01962939225534958,
+                0.04364105926474096,
+                0.0605160661462852
+              ],
+              "lowest": 0.01962939225534958,
+              "residual": 4.379268574132018e-05,
+              "rayleigh_KT": 0.01962922312148427,
+              "rayleigh_K_at_u": 0.01962699751999124,
+              "rayleigh_load_stiffness": 2.2120976691544737e-06,
+              "rayleigh_K0": 0.021397316364757526
+            }
+          }
+        ],
+        "elapsed_s": 165.7659182548523
+      },
+      "diag-4096g2-lead021b-L-ein1": {
+        "case": "lead021b",
+        "dir": "L",
+        "amp_mm": 46.0,
+        "dof": 163866,
+        "rows": [
+          {
+            "p_kPa": 29.999999999999996,
+            "sigma_-1": {
+              "eigs": [
+                0.019683050486893672,
+                0.318907768419179,
+                2.0322612832266156
+              ],
+              "lowest": 0.019683050486893672,
+              "residual": 4.719262547153758e-05,
+              "rayleigh_KT": 0.0196831256580298,
+              "rayleigh_K_at_u": 0.01968089770985479,
+              "rayleigh_load_stiffness": 2.2237875315933283e-06,
+              "rayleigh_K0": 0.02144633447942858
+            },
+            "sigma_-1e-3": {
+              "eigs": [
+                0.019683288366900264,
+                0.31890782068390555,
+                2.032261283198829
+              ],
+              "lowest": 0.019683288366900264,
+              "residual": 4.536602983206575e-05,
+              "rayleigh_KT": 0.01968311423591991,
+              "rayleigh_K_at_u": 0.019680897152462257,
+              "rayleigh_load_stiffness": 2.22379481371366e-06,
+              "rayleigh_K0": 0.02144628238101498
+            }
+          }
+        ],
+        "elapsed_s": 133.33619093894958
+      },
+      "diag-2048g135-lead021b-L": {
+        "case": "lead021b",
+        "dir": "L",
+        "amp_mm": 46.0,
+        "dof": 81946,
+        "rows": [
+          {
+            "p_kPa": 0.0,
+            "sigma_-1": {
+              "eigs": [
+                0.04915090317869675,
+                1.1587917363036557,
+                1.925615156002526
+              ],
+              "lowest": 0.04915090317869675,
+              "residual": 0.00011299153635671604,
+              "rayleigh_KT": 0.049150907302617945,
+              "rayleigh_K_at_u": 0.049150907302617945,
+              "rayleigh_load_stiffness": 0.0,
+              "rayleigh_K0": 0.049150907302617945
+            },
+            "sigma_-1e-3": {
+              "eigs": [
+                0.04915004579605228,
+                1.1587917354331767,
+                1.9256150922981912
+              ],
+              "lowest": 0.04915004579605228,
+              "residual": 0.00010877355295259065,
+              "rayleigh_KT": 0.0491511103882426,
+              "rayleigh_K_at_u": 0.0491511103882426,
+              "rayleigh_load_stiffness": 0.0,
+              "rayleigh_K0": 0.0491511103882426
+            }
+          },
+          {
+            "p_kPa": 3.0,
+            "sigma_-1": {
+              "eigs": [
+                0.04878847757198912,
+                1.1558684424575811,
+                1.893933573645819
+              ],
+              "lowest": 0.04878847757198912,
+              "residual": 0.0001164023727898253,
+              "rayleigh_KT": 0.04878803069280022,
+              "rayleigh_K_at_u": 0.04878751618448391,
+              "rayleigh_load_stiffness": 4.6930604945624734e-07,
+              "rayleigh_K0": 0.049151838875043014
+            },
+            "sigma_-1e-3": {
+              "eigs": [
+                0.04878629814125621,
+                1.15586844325695,
+                1.8939333488112065
+              ],
+              "lowest": 0.04878629814125621,
+              "residual": 0.0001186041278806112,
+              "rayleigh_KT": 0.048788134458060274,
+              "rayleigh_K_at_u": 0.0487876554101508,
+              "rayleigh_load_stiffness": 4.693055120005464e-07,
+              "rayleigh_K0": 0.049151643878856954
+            }
+          },
+          {
+            "p_kPa": 29.999999999999996,
+            "sigma_-1": {
+              "eigs": [
+                0.045463625143498554,
+                1.1261095052408558,
+                1.5930173799773613
+              ],
+              "lowest": 0.045463625143498554,
+              "residual": 0.0001243294207404734,
+              "rayleigh_KT": 0.04546352407127885,
+              "rayleigh_K_at_u": 0.04545839972086591,
+              "rayleigh_load_stiffness": 5.206707500231304e-06,
+              "rayleigh_K0": 0.049229567045616526
+            },
+            "sigma_-1e-3": {
+              "eigs": [
+                0.04546201084116125,
+                1.1261095047970717,
+                1.5930172683249681
+              ],
+              "lowest": 0.04546201084116125,
+              "residual": 0.00011923811494331936,
+              "rayleigh_KT": 0.04546358199372475,
+              "rayleigh_K_at_u": 0.04545835605414237,
+              "rayleigh_load_stiffness": 5.206701157428421e-06,
+              "rayleigh_K0": 0.049229484063669934
+            }
+          }
+        ],
+        "elapsed_s": 48.0732479095459
+      },
+      "diagmode-4096g2-lead021b-L-30": {
+        "case": "lead021b",
+        "dir": "L",
+        "amp_mm": 46.0,
+        "p_kPa": 29.999999999999996,
+        "eig": -0.5951444945172863,
+        "totals": {
+          "material": 588.4651614524267,
+          "geometric": -589.0603060177999,
+          "small_strain": 617.8849462296901,
+          "load_stiffness": 7.089893847066596e-08
+        },
+        "by_layer": {
+          "0": {
+            "material": 0.08466184526677814,
+            "geometric": 0.00019513975072650103,
+            "small_strain": 0.08494950255782302
+          },
+          "1": {
+            "material": 138.3376648311117,
+            "geometric": -42.22167426720243,
+            "small_strain": 141.14267364239868
+          },
+          "2": {
+            "material": 153.2940308499104,
+            "geometric": -249.10144394733095,
+            "small_strain": 164.97854288890267
+          },
+          "3": {
+            "material": 155.5225030650918,
+            "geometric": -253.65075246022514,
+            "small_strain": 167.40641880842196
+          },
+          "4": {
+            "material": 141.1380857472135,
+            "geometric": -44.08611617927378,
+            "small_strain": 144.18391361638186
+          },
+          "5": {
+            "material": 0.08821511383258837,
+            "geometric": -0.0005143035183658183,
+            "small_strain": 0.08844777102693904
+          }
+        },
+        "worst_elements": [
+          {
+            "element": 2127,
+            "meridional_index": 354,
+            "layer_row": 3,
+            "r_mm": 234.25051391535592,
+            "z_mm": 9952.611427393029,
+            "material": 10.850487182436082,
+            "geometric": -23.408101258202258,
+            "small_strain": 11.786096693575741,
+            "S_min": -0.040666722451489425,
+            "S_max": 0.28391726444981596,
+            "length_mm": 1.3272267417775416,
+            "thickness_mm": 7.529557750000392
+          },
+          {
+            "element": 2181,
+            "meridional_index": 363,
+            "layer_row": 3,
+            "r_mm": 246.3220126000807,
+            "z_mm": 9953.480106940497,
+            "material": 11.240838654386373,
+            "geometric": -23.76046223316502,
+            "small_strain": 12.300613635637237,
+            "S_min": -0.043017911984920595,
+            "S_max": 0.29962427481241827,
+            "length_mm": 1.3612539716590202,
+            "thickness_mm": 7.5295577499991895
+          },
+          {
+            "element": 2180,
+            "meridional_index": 363,
+            "layer_row": 2,
+            "r_mm": 246.1357332197982,
+            "z_mm": 9945.952853813335,
+            "material": 11.251064393241165,
+            "geometric": -23.342264356915273,
+            "small_strain": 12.291981589973894,
+            "S_min": -0.042726909839030845,
+            "S_max": 0.2966463036821496,
+            "length_mm": 1.360233734338645,
+            "thickness_mm": 7.5295577500010085
+          },
+          {
+            "element": 2126,
+            "meridional_index": 354,
+            "layer_row": 2,
+            "r_mm": 234.07334288792848,
+            "z_mm": 9945.083954371636,
+            "material": 10.340786480658801,
+            "geometric": -21.550219818925363,
+            "small_strain": 11.485937216138721,
+            "S_min": -0.040348929657866815,
+            "S_max": 0.28075992509216746,
+            "length_mm": 1.3262316381210193,
+            "thickness_mm": 7.529557750000392
+          },
+          {
+            "element": 2132,
+            "meridional_index": 355,
+            "layer_row": 2,
+            "r_mm": 235.39853556753965,
+            "z_mm": 9945.179316258098,
+            "material": 8.574701469369552,
+            "geometric": -18.104767923723355,
+            "small_strain": 9.29160536961954,
+            "S_min": -0.040625202835712144,
+            "S_max": 0.28253431018327935,
+            "length_mm": 1.3300106777166023,
+            "thickness_mm": 7.5295577499996105
+          },
+          {
+            "element": 2163,
+            "meridional_index": 360,
+            "layer_row": 3,
+            "r_mm": 242.2642374112993,
+            "z_mm": 9953.187983872249,
+            "material": 8.4450052575322,
+            "geometric": -17.90906186727904,
+            "small_strain": 9.036123309794213,
+            "S_min": -0.04226260480966652,
+            "S_max": 0.29441234607766115,
+            "length_mm": 1.3499140430330696,
+            "thickness_mm": 7.529557750000168
+          },
+          {
+            "element": 2133,
+            "meridional_index": 355,
+            "layer_row": 3,
+            "r_mm": 235.57670737089703,
+            "z_mm": 9952.706765657984,
+            "material": 7.817923259340441,
+            "geometric": -15.81677998264804,
+            "small_strain": 8.68242771677504,
+            "S_min": -0.04094102001370314,
+            "S_max": 0.2856785255250357,
+            "length_mm": 1.3310085727108705,
+            "thickness_mm": 7.529557749999611
+          },
+          {
+            "element": 2162,
+            "meridional_index": 360,
+            "layer_row": 2,
+            "r_mm": 242.08101949032334,
+            "z_mm": 9945.660655604817,
+            "material": 7.917056675279244,
+            "geometric": -15.852069336143398,
+            "small_strain": 8.869740256947484,
+            "S_min": -0.04196423928355254,
+            "S_max": 0.29138623335144365,
+            "length_mm": 1.348902186632961,
+            "thickness_mm": 7.529557750000168
+          },
+          {
+            "element": 2198,
+            "meridional_index": 366,
+            "layer_row": 2,
+            "r_mm": 250.22437044138857,
+            "z_mm": 9946.24737821924,
+            "material": 5.939830857861372,
+            "geometric": -12.542363852519687,
+            "small_strain": 6.365293158712889,
+            "S_min": -0.043460780470986254,
+            "S_max": 0.3019029940924989,
+            "length_mm": 1.3715623937853045,
+            "thickness_mm": 7.529557749999127
+          },
+          {
+            "element": 2168,
+            "meridional_index": 361,
+            "layer_row": 2,
+            "r_mm": 243.42882174681657,
+            "z_mm": 9945.75778520249,
+            "material": 5.342055833452496,
+            "geometric": -11.244394893913439,
+            "small_strain": 5.769876775290875,
+            "S_min": -0.04222210811358738,
+            "S_max": 0.2931451840994059,
+            "length_mm": 1.3526796715118994,
+            "thickness_mm": 7.529557750000743
+          },
+          {
+            "element": 2199,
+            "meridional_index": 366,
+            "layer_row": 3,
+            "r_mm": 250.41373662098786,
+            "z_mm": 9953.774554322772,
+            "material": 5.668770427732828,
+            "geometric": -11.305384848238841,
+            "small_strain": 6.311951126070655,
+            "S_min": -0.04373810744321161,
+            "S_max": 0.30478870500531974,
+            "length_mm": 1.3725910153579697,
+            "thickness_mm": 7.5295577500009445
+          },
+          {
+            "element": 2121,
+            "meridional_index": 353,
+            "layer_row": 3,
+            "r_mm": 232.92809083660742,
+            "z_mm": 9952.516405223636,
+            "material": 4.693036880057666,
+            "geometric": -9.368085759300303,
+            "small_strain": 5.056165112569518,
+            "S_min": -0.04038977137008685,
+            "S_max": 0.2821552215773789,
+            "length_mm": 1.3234446916145173,
+            "thickness_mm": 7.529557749999374
+          }
+        ],
+        "energy_share_top50_elements": 0.746321242178603,
+        "top50_meridional_index_range": [
+          350,
+          368
+        ],
+        "top50_r_mm_range": [
+          228.63704956711587,
+          253.16041531297648
+        ],
+        "elapsed_s": 135.35714435577393
+      },
+      "diagmode-4096g135-lead021b-W-60": {
+        "case": "lead021b",
+        "dir": "W",
+        "amp_mm": 46.0,
+        "p_kPa": 60.0,
+        "eig": -569.7179192782075,
+        "shape": {
+          "active_r_mm": [
+            208.4039307083885,
+            512.7724125176155
+          ],
+          "zero_crossings": 2,
+          "wavelength_mm": 304.36848180922703,
+          "outer_inner_corr_active": 0.7130273522987014,
+          "outer_peak_r_mm": 397.0213647510238
+        },
+        "totals": {
+          "material": 3429.4240086632262,
+          "geometric": -3999.141983645853,
+          "small_strain": 3772.9979323639304,
+          "load_stiffness": 5.5704822220314634e-05
+        },
+        "by_layer": {
+          "0": {
+            "material": 0.8105562597885544,
+            "geometric": 0.017221840270484432,
+            "small_strain": 1.0088790189267838
+          },
+          "1": {
+            "material": 1307.3830785478192,
+            "geometric": -368.28202275124033,
+            "small_strain": 1339.617288309816
+          },
+          "2": {
+            "material": 422.11788649312183,
+            "geometric": -1632.1484785628284,
+            "small_strain": 560.4653810224007
+          },
+          "3": {
+            "material": 406.5386130468717,
+            "geometric": -1629.7677977880405,
+            "small_strain": 544.9615919048741
+          },
+          "4": {
+            "material": 1291.7011184817525,
+            "geometric": -368.8281347376833,
+            "small_strain": 1325.5428681835324
+          },
+          "5": {
+            "material": 0.8727558338724383,
+            "geometric": -0.1327716463306962,
+            "small_strain": 1.4019239243801158
+          }
+        },
+        "worst_elements": [
+          {
+            "element": 945,
+            "meridional_index": 157,
+            "layer_row": 3,
+            "r_mm": 384.919488174237,
+            "z_mm": 9962.312670186537,
+            "material": 60.046024408999585,
+            "geometric": -241.23823490740574,
+            "small_strain": 80.36605106095293,
+            "S_min": -0.07599423787728002,
+            "S_max": 0.7760843832326793,
+            "length_mm": 3.311527234018355,
+            "thickness_mm": 7.529557749999081
+          },
+          {
+            "element": 944,
+            "meridional_index": 157,
+            "layer_row": 2,
+            "r_mm": 384.62878134234205,
+            "z_mm": 9954.7887265467,
+            "material": 62.8831302342399,
+            "geometric": -240.57667032648618,
+            "small_strain": 83.08741730002635,
+            "S_min": -0.07611790852224952,
+            "S_max": 0.7758822577120758,
+            "length_mm": 3.3090443785648818,
+            "thickness_mm": 7.5295577500008966
+          },
+          {
+            "element": 939,
+            "meridional_index": 156,
+            "layer_row": 3,
+            "r_mm": 381.6143811688507,
+            "z_mm": 9962.149693846364,
+            "material": 55.17061193506722,
+            "geometric": -227.4932828040176,
+            "small_strain": 74.42038781224433,
+            "S_min": -0.07678923667452298,
+            "S_max": 0.7698402094083382,
+            "length_mm": 3.3042390596296456,
+            "thickness_mm": 7.529557750000463
+          },
+          {
+            "element": 950,
+            "meridional_index": 158,
+            "layer_row": 2,
+            "r_mm": 387.9388161562406,
+            "z_mm": 9954.948961799117,
+            "material": 58.022046273598335,
+            "geometric": -229.8323513617437,
+            "small_strain": 77.7014637651235,
+            "S_min": -0.07527005509885541,
+            "S_max": 0.7820876023193363,
+            "length_mm": 3.3162926376852275,
+            "thickness_mm": 7.529557749999834
+          },
+          {
+            "element": 951,
+            "meridional_index": 158,
+            "layer_row": 3,
+            "r_mm": 388.23201626079424,
+            "z_mm": 9962.472808690793,
+            "material": 56.96039591980134,
+            "geometric": -222.80549244961384,
+            "small_strain": 75.66878420115127,
+            "S_min": -0.07510411411869701,
+            "S_max": 0.7819960950693254,
+            "length_mm": 3.31878113881909,
+            "thickness_mm": 7.529557749999834
+          },
+          {
+            "element": 938,
+            "meridional_index": 156,
+            "layer_row": 2,
+            "r_mm": 381.32616210691083,
+            "z_mm": 9954.625654496596,
+            "material": 59.2296928568388,
+            "geometric": -219.58152673067042,
+            "small_strain": 77.34222340472577,
+            "S_min": -0.07688622015259232,
+            "S_max": 0.7692195707295094,
+            "length_mm": 3.3017618697376068,
+            "thickness_mm": 7.529557750000463
+          },
+          {
+            "element": 956,
+            "meridional_index": 159,
+            "layer_row": 2,
+            "r_mm": 391.2562326142895,
+            "z_mm": 9955.106292787957,
+            "material": 46.53719959318374,
+            "geometric": -191.10086971543944,
+            "small_strain": 63.211389530878336,
+            "S_min": -0.07431466795226188,
+            "S_max": 0.7882455039529982,
+            "length_mm": 3.3235071297516763,
+            "thickness_mm": 7.529557749999994
+          },
+          {
+            "element": 933,
+            "meridional_index": 155,
+            "layer_row": 3,
+            "r_mm": 378.3167294634956,
+            "z_mm": 9961.983948196843,
+            "material": 44.29339804580598,
+            "geometric": -187.02199303383713,
+            "small_strain": 60.19793521416137,
+            "S_min": -0.0775128670976345,
+            "S_max": 0.7630822646350074,
+            "length_mm": 3.296916130583497,
+            "thickness_mm": 7.529557749999493
+          },
+          {
+            "element": 957,
+            "meridional_index": 159,
+            "layer_row": 3,
+            "r_mm": 391.55193147099584,
+            "z_mm": 9962.630041888635,
+            "material": 46.963351603926974,
+            "geometric": -179.0069974150141,
+            "small_strain": 62.021093910181015,
+            "S_min": -0.07414368269984652,
+            "S_max": 0.7881005760610026,
+            "length_mm": 3.326001256776749,
+            "thickness_mm": 7.529557749999996
+          },
+          {
+            "element": 932,
+            "meridional_index": 155,
+            "layer_row": 2,
+            "r_mm": 378.0309926453618,
+            "z_mm": 9954.45981417078,
+            "material": 48.509058859300865,
+            "geometric": -174.98129737852813,
+            "small_strain": 62.74490326286654,
+            "S_min": -0.07761811859415679,
+            "S_max": 0.7624552719997532,
+            "length_mm": 3.2944446262322566,
+            "thickness_mm": 7.529557750001309
+          },
+          {
+            "element": 962,
+            "meridional_index": 160,
+            "layer_row": 2,
+            "r_mm": 394.5809970407046,
+            "z_mm": 9955.260653137142,
+            "material": 32.36924877747417,
+            "geometric": -138.14190954963104,
+            "small_strain": 44.69520279854253,
+            "S_min": -0.07329783104453136,
+            "S_max": 0.794029413961926,
+            "length_mm": 3.3306883348665046,
+            "thickness_mm": 7.52955774999876
+          },
+          {
+            "element": 927,
+            "meridional_index": 154,
+            "layer_row": 3,
+            "r_mm": 375.02656754110177,
+            "z_mm": 9961.815502785881,
+            "material": 31.057694337368268,
+            "geometric": -134.2347743585027,
+            "small_strain": 42.58415586414469,
+            "S_min": -0.07818654244663449,
+            "S_max": 0.7563305259437385,
+            "length_mm": 3.2895579597074547,
+            "thickness_mm": 7.529557749998918
+          }
+        ],
+        "energy_share_top50_elements": 0.97736963138128,
+        "top50_meridional_index_range": [
+          151,
+          163
+        ],
+        "top50_r_mm_range": [
+          364.9255057425696,
+          404.90479340498035
+        ],
+        "elapsed_s": 289.325608253479
+      },
+      "diagmode-4096g135-lead021b-L-60": {
+        "case": "lead021b",
+        "dir": "L",
+        "amp_mm": 46.0,
+        "p_kPa": 60.0,
+        "eig": -55.52808940183479,
+        "shape": {
+          "active_r_mm": [
+            301.8663240053235,
+            408.7518713350675
+          ],
+          "zero_crossings": 33,
+          "wavelength_mm": 6.477911959378424,
+          "outer_inner_corr_active": -0.9897019014846439,
+          "outer_peak_r_mm": 355.87227972926615
+        },
+        "totals": {
+          "material": 1512.0118330458995,
+          "geometric": -1567.5399282944206,
+          "small_strain": 1755.9212282188453,
+          "load_stiffness": 5.8471367814053855e-06
+        },
+        "by_layer": {
+          "0": {
+            "material": 1.8177690792313381,
+            "geometric": 0.00569403089105037,
+            "small_strain": 1.8756852206213488
+          },
+          "1": {
+            "material": 278.1937780944146,
+            "geometric": -63.01325817094765,
+            "small_strain": 303.58285581127484
+          },
+          "2": {
+            "material": 474.76440726842446,
+            "geometric": -720.5197681310948,
+            "small_strain": 570.4239966729184
+          },
+          "3": {
+            "material": 475.4971708874076,
+            "geometric": -719.4403608820022,
+            "small_strain": 572.2040566757036
+          },
+          "4": {
+            "material": 279.80258805926826,
+            "geometric": -64.53542672392184,
+            "small_strain": 305.8378284851286
+          },
+          "5": {
+            "material": 1.9361196571531125,
+            "geometric": -0.03680841734507414,
+            "small_strain": 1.9968053531982155
+          }
+        },
+        "worst_elements": [
+          {
+            "element": 890,
+            "meridional_index": 148,
+            "layer_row": 2,
+            "r_mm": 355.1763286729066,
+            "z_mm": 9953.22738129731,
+            "material": 32.15385811364636,
+            "geometric": -49.64459966808704,
+            "small_strain": 38.73686592524954,
+            "S_min": -0.09323136502386482,
+            "S_max": 0.8162464653466095,
+            "length_mm": 3.242210226274437,
+            "thickness_mm": 7.529557750001369
+          },
+          {
+            "element": 879,
+            "meridional_index": 146,
+            "layer_row": 3,
+            "r_mm": 348.979131919412,
+            "z_mm": 9960.379401741224,
+            "material": 32.55147882552109,
+            "geometric": -49.976097737231576,
+            "small_strain": 39.149240209908434,
+            "S_min": -0.09451017979981073,
+            "S_max": 0.8076326932500355,
+            "length_mm": 3.2293648970994195,
+            "thickness_mm": 7.529557750000269
+          },
+          {
+            "element": 884,
+            "meridional_index": 147,
+            "layer_row": 2,
+            "r_mm": 351.9420207537903,
+            "z_mm": 9953.041976383938,
+            "material": 32.921557015394335,
+            "geometric": -50.1710101029119,
+            "small_strain": 39.572405762898974,
+            "S_min": -0.0939363003863684,
+            "S_max": 0.8114973818715013,
+            "length_mm": 3.2345974385499123,
+            "thickness_mm": 7.529557749999137
+          },
+          {
+            "element": 885,
+            "meridional_index": 147,
+            "layer_row": 3,
+            "r_mm": 352.20810145766416,
+            "z_mm": 9960.566831165681,
+            "material": 33.08366879162044,
+            "geometric": -50.3058925435139,
+            "small_strain": 39.80329562896748,
+            "S_min": -0.09385577776442129,
+            "S_max": 0.8123869654382524,
+            "length_mm": 3.2370227252257116,
+            "thickness_mm": 7.529557750000953
+          },
+          {
+            "element": 896,
+            "meridional_index": 149,
+            "layer_row": 2,
+            "r_mm": 358.4183696946952,
+            "z_mm": 9953.410599763636,
+            "material": 30.466604622918496,
+            "geometric": -47.64633295833877,
+            "small_strain": 36.78711841879473,
+            "S_min": -0.09245313573671529,
+            "S_max": 0.8207666576177692,
+            "length_mm": 3.249784341325299,
+            "thickness_mm": 7.5295577499998805
+          },
+          {
+            "element": 873,
+            "meridional_index": 145,
+            "layer_row": 3,
+            "r_mm": 345.7579749364445,
+            "z_mm": 9960.189938258685,
+            "material": 31.06328630855413,
+            "geometric": -48.13628308344064,
+            "small_strain": 37.346775016776064,
+            "S_min": -0.09509120549014588,
+            "S_max": 0.8026595339463961,
+            "length_mm": 3.221667380895689,
+            "thickness_mm": 7.529557750000225
+          },
+          {
+            "element": 891,
+            "meridional_index": 148,
+            "layer_row": 3,
+            "r_mm": 355.4448465375889,
+            "z_mm": 9960.75214950481,
+            "material": 32.61394215074056,
+            "geometric": -49.0981590340153,
+            "small_strain": 39.252434879881335,
+            "S_min": -0.09312832228884917,
+            "S_max": 0.8169174558814785,
+            "length_mm": 3.244641362716405,
+            "thickness_mm": 7.529557749999552
+          },
+          {
+            "element": 878,
+            "meridional_index": 146,
+            "layer_row": 2,
+            "r_mm": 348.7154826278427,
+            "z_mm": 9952.854461376983,
+            "material": 32.69918201826163,
+            "geometric": -49.17524187898984,
+            "small_strain": 39.216656420771145,
+            "S_min": -0.09456754112317081,
+            "S_max": 0.8065244550369699,
+            "length_mm": 3.2269454813894716,
+            "thickness_mm": 7.529557750000269
+          },
+          {
+            "element": 902,
+            "meridional_index": 150,
+            "layer_row": 2,
+            "r_mm": 361.6681074211764,
+            "z_mm": 9953.591556140727,
+            "material": 28.008371911283557,
+            "geometric": -44.35637704081329,
+            "small_strain": 33.89542120094366,
+            "S_min": -0.09160214910656855,
+            "S_max": 0.825053105699604,
+            "length_mm": 3.2573202798387864,
+            "thickness_mm": 7.529557749999664
+          },
+          {
+            "element": 867,
+            "meridional_index": 144,
+            "layer_row": 3,
+            "r_mm": 342.5446678245129,
+            "z_mm": 9959.998518371573,
+            "material": 28.748939660838285,
+            "geometric": -44.950199983388586,
+            "small_strain": 34.553110362222306,
+            "S_min": -0.0955986651888583,
+            "S_max": 0.7974725575800102,
+            "length_mm": 3.213929678773892,
+            "thickness_mm": 7.529557749999103
+          },
+          {
+            "element": 897,
+            "meridional_index": 149,
+            "layer_row": 3,
+            "r_mm": 358.68933044292095,
+            "z_mm": 9960.93528040046,
+            "material": 31.186876540940837,
+            "geometric": -46.4654020219762,
+            "small_strain": 37.5489379162742,
+            "S_min": -0.09232827000101027,
+            "S_max": 0.8212194568230441,
+            "length_mm": 3.2522213065041603,
+            "thickness_mm": 7.5295577499998805
+          },
+          {
+            "element": 872,
+            "meridional_index": 145,
+            "layer_row": 2,
+            "r_mm": 345.49675128262515,
+            "z_mm": 9952.664913298988,
+            "material": 31.504988771856006,
+            "geometric": -46.74475615298592,
+            "small_strain": 37.69947749464467,
+            "S_min": -0.09512482270796538,
+            "S_max": 0.8013329182200145,
+            "length_mm": 3.2192538575303526,
+            "thickness_mm": 7.529557750000223
+          }
+        ],
+        "energy_share_top50_elements": 0.7281232131906951,
+        "top50_meridional_index_range": [
+          140,
+          154
+        ],
+        "top50_r_mm_range": [
+          329.7706952664115,
+          374.7433074169384
+        ],
+        "elapsed_s": 292.10254192352295
+      }
+    },
+    "core_stress_diagnostic": {
+      "lead021-W": {
+        "limit_kPa": 78.62744114991324,
+        "strength_crossings": {
+          "W shear typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 26.378888319629098
+          },
+          "W shear min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 19.96202768804202
+          },
+          "L shear typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 37.39476107905416
+          },
+          "L shear min": {
+            "MPa": 0.31026407805,
+            "p_kPa": 32.156507508254215
+          },
+          "bare compression typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 78.61432317720835
+          },
+          "bare compression min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 55.9041248415033
+          },
+          "stabilized compression typ": {
+            "MPa": 0.4136854374,
+            "p_kPa": 76.85251457295031
+          },
+          "stabilized compression min": {
+            "MPa": 0.24131650515,
+            "p_kPa": 67.25961198697699
+          },
+          "crush typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 67.25961198697699
+          }
+        },
+        "at_limit": {
+          "pole_dz_mm": -43.5367431640625,
+          "p_kPa": 78.62744114991324,
+          "core_max_abs_tau_MPa": 1.6088358286338154,
+          "tau_where": [
+            115,
+            380.36541112682306
+          ],
+          "core_min_sigma_nn_MPa": -0.3760133950556704,
+          "sigma_nn_where": [
+            4,
+            3.451010551128291
+          ]
+        },
+        "first_state_at_or_above_operating": null,
+        "args": {
+          "dir": "W",
+          "amp": "11.8",
+          "nth": "512",
+          "grading": "1.35",
+          "nface": "1",
+          "ncore": "4"
+        },
+        "source": "Hexcel CR III Table II, 5056, 3/8 in. cell, 1.0 pcf row (the card's cited datasheet, owner's pinned copy 0467f718...)",
+        "p_kPa_at_tau": {
+          "ellipticity threshold, W E_in 0.01 (0.088 MPa)": 10.969065889534921,
+          "ellipticity threshold, W E_in 1.0 (2.579 MPa)": null,
+          "ellipticity threshold, L E_in 0.01 (0.088 MPa)": 10.986149730199575,
+          "ellipticity threshold, L E_in 1.0 (2.614 MPa)": null
+        }
+      },
+      "lead021-L": {
+        "limit_kPa": 98.09548788395897,
+        "strength_crossings": {
+          "W shear typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 28.323016115599028
+          },
+          "W shear min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 21.077509961241404
+          },
+          "L shear typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 41.178147537251505
+          },
+          "L shear min": {
+            "MPa": 0.31026407805,
+            "p_kPa": 35.074761704939846
+          },
+          "bare compression typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 92.93455402863844
+          },
+          "bare compression min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 62.930125683420556
+          },
+          "stabilized compression typ": {
+            "MPa": 0.4136854374,
+            "p_kPa": 95.2250373044088
+          },
+          "stabilized compression min": {
+            "MPa": 0.24131650515,
+            "p_kPa": 76.56805647149456
+          },
+          "crush typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 76.56805647149456
+          }
+        },
+        "at_limit": {
+          "pole_dz_mm": -41.5367431640625,
+          "p_kPa": 98.09548788395897,
+          "core_max_abs_tau_MPa": 1.8379289581411784,
+          "tau_where": [
+            103,
+            328.6581136709136
+          ],
+          "core_min_sigma_nn_MPa": -0.5075610102532657,
+          "sigma_nn_where": [
+            4,
+            3.451010551128291
+          ]
+        },
+        "first_state_at_or_above_operating": {
+          "pole_dz_mm": -33.5367431640625,
+          "p_kPa": 95.8437493699534,
+          "core_max_abs_tau_MPa": 1.5632050927231638,
+          "tau_where": [
+            97,
+            303.55584642219765
+          ],
+          "core_min_sigma_nn_MPa": -0.42432406500288666,
+          "sigma_nn_where": [
+            4,
+            3.451010551128291
+          ]
+        },
+        "args": {
+          "dir": "L",
+          "amp": "11.8",
+          "nth": "512",
+          "grading": "1.35",
+          "nface": "1",
+          "ncore": "4"
+        },
+        "source": "Hexcel CR III Table II, 5056, 3/8 in. cell, 1.0 pcf row (the card's cited datasheet, owner's pinned copy 0467f718...)",
+        "p_kPa_at_tau": {
+          "ellipticity threshold, W E_in 0.01 (0.088 MPa)": 11.287452113331268,
+          "ellipticity threshold, W E_in 1.0 (2.579 MPa)": null,
+          "ellipticity threshold, L E_in 0.01 (0.088 MPa)": 11.305246884322417,
+          "ellipticity threshold, L E_in 1.0 (2.614 MPa)": null
+        }
+      },
+      "lead021b-W": {
+        "limit_kPa": 90.73525172736437,
+        "strength_crossings": {
+          "W shear typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 19.49476732984781
+          },
+          "W shear min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 14.144265590818787
+          },
+          "L shear typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 29.663332299154035
+          },
+          "L shear min": {
+            "MPa": 0.31026407805,
+            "p_kPa": 24.654964589225266
+          },
+          "bare compression typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 77.00189302796478
+          },
+          "bare compression min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 40.210233842684886
+          },
+          "stabilized compression typ": {
+            "MPa": 0.4136854374,
+            "p_kPa": 80.4463010339819
+          },
+          "stabilized compression min": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.361279494290834
+          },
+          "crush typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.361279494290834
+          }
+        },
+        "at_limit": {
+          "pole_dz_mm": -79.5367431640625,
+          "p_kPa": 90.73525172736437,
+          "core_max_abs_tau_MPa": 1.774000667894219,
+          "tau_where": [
+            163,
+            604.1150851203471
+          ],
+          "core_min_sigma_nn_MPa": -0.6228595706168754,
+          "sigma_nn_where": [
+            1,
+            3.4310104035115536
+          ]
+        },
+        "first_state_at_or_above_operating": null,
+        "args": {
+          "dir": "W",
+          "amp": "46.0",
+          "nth": "512",
+          "grading": "1.35",
+          "nface": "1",
+          "ncore": "4"
+        },
+        "source": "Hexcel CR III Table II, 5056, 3/8 in. cell, 1.0 pcf row (the card's cited datasheet, owner's pinned copy 0467f718...)",
+        "p_kPa_at_tau": {
+          "ellipticity threshold, W E_in 0.01 (0.088 MPa)": 7.336138581914669,
+          "ellipticity threshold, W E_in 1.0 (2.579 MPa)": null,
+          "ellipticity threshold, L E_in 0.01 (0.088 MPa)": 7.348094074352884,
+          "ellipticity threshold, L E_in 1.0 (2.614 MPa)": null
+        }
+      },
+      "lead021b-L": {
+        "limit_kPa": 105.0783367107691,
+        "strength_crossings": {
+          "W shear typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 18.463619706910652
+          },
+          "W shear min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 13.322647152084741
+          },
+          "L shear typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 28.3659830295405
+          },
+          "L shear min": {
+            "MPa": 0.31026407805,
+            "p_kPa": 23.474643028411446
+          },
+          "bare compression typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 69.56256671726561
+          },
+          "bare compression min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 34.33663229106228
+          },
+          "stabilized compression typ": {
+            "MPa": 0.4136854374,
+            "p_kPa": 74.82384498785493
+          },
+          "stabilized compression min": {
+            "MPa": 0.24131650515,
+            "p_kPa": 46.75120681781924
+          },
+          "crush typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 46.75120681781924
+          }
+        },
+        "at_limit": {
+          "pole_dz_mm": -81.5367431640625,
+          "p_kPa": 105.0783367107691,
+          "core_max_abs_tau_MPa": 2.030159304085691,
+          "tau_where": [
+            157,
+            574.6200036119623
+          ],
+          "core_min_sigma_nn_MPa": -0.8070853733637419,
+          "sigma_nn_where": [
+            1,
+            3.4310104035115536
+          ]
+        },
+        "first_state_at_or_above_operating": {
+          "pole_dz_mm": -53.5367431640625,
+          "p_kPa": 95.48054978999035,
+          "core_max_abs_tau_MPa": 1.5925903759347535,
+          "tau_where": [
+            139,
+            488.4509419837681
+          ],
+          "core_min_sigma_nn_MPa": -0.5664588437725585,
+          "sigma_nn_where": [
+            4,
+            3.4388176181344585
+          ]
+        },
+        "args": {
+          "dir": "L",
+          "amp": "46.0",
+          "nth": "512",
+          "grading": "1.35",
+          "nface": "1",
+          "ncore": "4"
+        },
+        "source": "Hexcel CR III Table II, 5056, 3/8 in. cell, 1.0 pcf row (the card's cited datasheet, owner's pinned copy 0467f718...)",
+        "p_kPa_at_tau": {
+          "ellipticity threshold, W E_in 0.01 (0.088 MPa)": 6.868566185069547,
+          "ellipticity threshold, W E_in 1.0 (2.579 MPa)": null,
+          "ellipticity threshold, L E_in 0.01 (0.088 MPa)": 6.87991603040156,
+          "ellipticity threshold, L E_in 1.0 (2.614 MPa)": null
+        }
+      },
+      "lead021b-W-1024": {
+        "limit_kPa": 90.73516231147725,
+        "strength_crossings": {
+          "W shear typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 19.487995595393162
+          },
+          "W shear min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 14.146297626319576
+          },
+          "L shear typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 29.68269749988626
+          },
+          "L shear min": {
+            "MPa": 0.31026407805,
+            "p_kPa": 24.669517279005106
+          },
+          "bare compression typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 77.00232115262222
+          },
+          "bare compression min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 40.20738639143769
+          },
+          "stabilized compression typ": {
+            "MPa": 0.4136854374,
+            "p_kPa": 80.44669999682655
+          },
+          "stabilized compression min": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.3572018887734
+          },
+          "crush typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.3572018887734
+          }
+        },
+        "at_limit": {
+          "pole_dz_mm": -79.5367431640625,
+          "p_kPa": 90.73516231147725,
+          "core_max_abs_tau_MPa": 1.7735366924497533,
+          "tau_where": [
+            331,
+            611.512480352456
+          ],
+          "core_min_sigma_nn_MPa": -0.6228523117905475,
+          "sigma_nn_where": [
+            1,
+            1.345956630666533
+          ]
+        },
+        "first_state_at_or_above_operating": null,
+        "args": {
+          "dir": "W",
+          "amp": "46.0",
+          "nth": "1024",
+          "grading": "1.35",
+          "nface": "1",
+          "ncore": "4"
+        },
+        "source": "Hexcel CR III Table II, 5056, 3/8 in. cell, 1.0 pcf row (the card's cited datasheet, owner's pinned copy 0467f718...)",
+        "p_kPa_at_tau": {
+          "ellipticity threshold, W E_in 0.01 (0.088 MPa)": 7.341571707945997,
+          "ellipticity threshold, W E_in 1.0 (2.579 MPa)": null,
+          "ellipticity threshold, L E_in 0.01 (0.088 MPa)": 7.353541478268356,
+          "ellipticity threshold, L E_in 1.0 (2.614 MPa)": null
+        }
+      },
+      "lead021b-W-2048": {
+        "limit_kPa": 90.73515456968188,
+        "strength_crossings": {
+          "W shear typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 19.491130373145467
+          },
+          "W shear min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 14.147120225557073
+          },
+          "L shear typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 29.686843166837637
+          },
+          "L shear min": {
+            "MPa": 0.31026407805,
+            "p_kPa": 24.670944049600905
+          },
+          "bare compression typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 77.00279489334852
+          },
+          "bare compression min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 40.2065318990108
+          },
+          "stabilized compression typ": {
+            "MPa": 0.4136854374,
+            "p_kPa": 80.4471305110238
+          },
+          "stabilized compression min": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.35598131294693
+          },
+          "crush typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.35598131294693
+          }
+        },
+        "at_limit": {
+          "pole_dz_mm": -79.5367431640625,
+          "p_kPa": 90.73515456968188,
+          "core_max_abs_tau_MPa": 1.7733496631681362,
+          "tau_where": [
+            661,
+            607.7851073117453
+          ],
+          "core_min_sigma_nn_MPa": -0.6228466253242737,
+          "sigma_nn_where": [
+            1,
+            0.5280079956512098
+          ]
+        },
+        "first_state_at_or_above_operating": null,
+        "args": {
+          "dir": "W",
+          "amp": "46.0",
+          "nth": "2048",
+          "grading": "1.35",
+          "nface": "1",
+          "ncore": "4"
+        },
+        "source": "Hexcel CR III Table II, 5056, 3/8 in. cell, 1.0 pcf row (the card's cited datasheet, owner's pinned copy 0467f718...)",
+        "p_kPa_at_tau": {
+          "ellipticity threshold, W E_in 0.01 (0.088 MPa)": 7.342803906289079,
+          "ellipticity threshold, W E_in 1.0 (2.579 MPa)": null,
+          "ellipticity threshold, L E_in 0.01 (0.088 MPa)": 7.354766538659565,
+          "ellipticity threshold, L E_in 1.0 (2.614 MPa)": null
+        }
+      },
+      "lead021b-W-2f6c": {
+        "limit_kPa": 90.73525171358133,
+        "strength_crossings": {
+          "W shear typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 19.492501078840572
+          },
+          "W shear min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 14.142735639320419
+          },
+          "L shear typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 29.659708330839468
+          },
+          "L shear min": {
+            "MPa": 0.31026407805,
+            "p_kPa": 24.65183770842207
+          },
+          "bare compression typ": {
+            "MPa": 0.37921165095000003,
+            "p_kPa": 76.99378781124537
+          },
+          "bare compression min": {
+            "MPa": 0.17236893225,
+            "p_kPa": 40.14830574185664
+          },
+          "stabilized compression typ": {
+            "MPa": 0.4136854374,
+            "p_kPa": 80.43091450419553
+          },
+          "stabilized compression min": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.31216357290834
+          },
+          "crush typ": {
+            "MPa": 0.24131650515,
+            "p_kPa": 54.31216357290834
+          }
+        },
+        "at_limit": {
+          "pole_dz_mm": -79.5367431640625,
+          "p_kPa": 90.73525171358133,
+          "core_max_abs_tau_MPa": 1.7742765250768748,
+          "tau_where": [
+            272,
+            604.0390314798234
+          ],
+          "core_min_sigma_nn_MPa": -0.6238263459775952,
+          "sigma_nn_where": [
+            2,
+            3.4305766693658377
+          ]
+        },
+        "first_state_at_or_above_operating": null,
+        "args": {
+          "dir": "W",
+          "amp": "46.0",
+          "nth": "512",
+          "grading": "1.35",
+          "nface": "2",
+          "ncore": "6"
+        },
+        "source": "Hexcel CR III Table II, 5056, 3/8 in. cell, 1.0 pcf row (the card's cited datasheet, owner's pinned copy 0467f718...)",
+        "p_kPa_at_tau": {
+          "ellipticity threshold, W E_in 0.01 (0.088 MPa)": 7.335295038383138,
+          "ellipticity threshold, W E_in 1.0 (2.579 MPa)": null,
+          "ellipticity threshold, L E_in 0.01 (0.088 MPa)": 7.34724919777446,
+          "ellipticity threshold, L E_in 1.0 (2.614 MPa)": null
+        }
+      }
+    },
+    "core_ellipticity_threshold_tau_MPa": {
+      "W E_in 0.01": 0.08770956381022343,
+      "W E_in 1.0": 2.5785126766914925,
+      "L E_in 0.01": 0.08785630736426814,
+      "L E_in 1.0": 2.6137089927308783
+    },
+    "core_ellipticity_formula": "acoustic tensor of C = diag(E_in, E_n, G) in (t, n) with initial shear tau: det = E_in G + 2 tau x (E_in + G) + x^2 (E_in E_n + 4 tau^2) + 2 tau x^3 (G + E_n) + G E_n x^4, x = k_n/k_t; ellipticity is lost when det < 0 for some x",
+    "first_face_yield_on_the_path": {
+      "lead021/W": {
+        "S200F spec-minimum yield 241 MPa (Materion, the card's cited datasheet)": {
+          "p_kPa": 42.86195668986614,
+          "over_operating": 0.44900042390705563,
+          "element_and_r_mm": [
+            5,
+            3.452141377383472
+          ]
+        },
+        "345 MPa, the line's SR-200 proxy (021b is sized to it)": {
+          "p_kPa": 57.563037728975175,
+          "over_operating": 0.6030015971668979,
+          "element_and_r_mm": [
+            17,
+            24.012608112269675
+          ]
+        },
+        "379.2 MPa, one historical lot": {
+          "p_kPa": 61.798188656900315,
+          "over_operating": 0.6473669203766603,
+          "element_and_r_mm": [
+            41,
+            86.53401599172189
+          ]
+        },
+        "limit_kPa": 78.62744114991324
+      },
+      "lead021/L": {
+        "S200F spec-minimum yield 241 MPa (Materion, the card's cited datasheet)": {
+          "p_kPa": 43.776976929420606,
+          "over_operating": 0.45858571835397544,
+          "element_and_r_mm": [
+            5,
+            3.452141377383472
+          ]
+        },
+        "345 MPa, the line's SR-200 proxy (021b is sized to it)": {
+          "p_kPa": 59.405870574898394,
+          "over_operating": 0.6223061924982866,
+          "element_and_r_mm": [
+            5,
+            3.452141377383472
+          ]
+        },
+        "379.2 MPa, one historical lot": {
+          "p_kPa": 64.10766285108748,
+          "over_operating": 0.6715598171147976,
+          "element_and_r_mm": [
+            5,
+            3.452141377383472
+          ]
+        },
+        "limit_kPa": 98.09548788395897
+      },
+      "lead021b/W": {
+        "S200F spec-minimum yield 241 MPa (Materion, the card's cited datasheet)": {
+          "p_kPa": 31.454162621778153,
+          "over_operating": 0.3294980780510877,
+          "element_and_r_mm": [
+            125,
+            407.1240834628369
+          ]
+        },
+        "345 MPa, the line's SR-200 proxy (021b is sized to it)": {
+          "p_kPa": 43.1988172114244,
+          "over_operating": 0.45252920627393645,
+          "element_and_r_mm": [
+            125,
+            417.535680943642
+          ]
+        },
+        "379.2 MPa, one historical lot": {
+          "p_kPa": 46.809467367003336,
+          "over_operating": 0.4903525716924899,
+          "element_and_r_mm": [
+            131,
+            423.64622201983684
+          ]
+        },
+        "limit_kPa": 90.73525172736437
+      },
+      "lead021b/L": {
+        "S200F spec-minimum yield 241 MPa (Materion, the card's cited datasheet)": {
+          "p_kPa": 32.506193958987296,
+          "over_operating": 0.34051863224062834,
+          "element_and_r_mm": [
+            113,
+            354.3085835874546
+          ]
+        },
+        "345 MPa, the line's SR-200 proxy (021b is sized to it)": {
+          "p_kPa": 44.95696204563516,
+          "over_operating": 0.4709466523453444,
+          "element_and_r_mm": [
+            113,
+            364.34942091071565
+          ]
+        },
+        "379.2 MPa, one historical lot": {
+          "p_kPa": 48.83065510026281,
+          "over_operating": 0.5115255236320314,
+          "element_and_r_mm": [
+            119,
+            370.24786601086794
+          ]
+        },
+        "limit_kPa": 105.0783367107691
+      }
+    },
+    "validation": [
+      {
+        "R_outer_mm": 1000.0,
+        "t_mm": 10.0,
+        "R_over_t": 100.0,
+        "ntheta": 240,
+        "classical_MPa": 25.67567119223222,
+        "eigen_dead_MPa": 24.91637814828878,
+        "eigen_follower_MPa": 25.321396173886008,
+        "ratio_dead": 0.970427528914097,
+        "ratio_follower": 0.9862019179286969,
+        "equator_outer_ur_mm_per_MPa": -0.16524926208698995,
+        "membrane_mm_per_MPa": -0.16500416666666667,
+        "ur_ratio": 1.0014853892800077,
+        "s": 0.3709704875946045
+      },
+      {
+        "R_outer_mm": 1000.0,
+        "t_mm": 1.0,
+        "R_over_t": 1000.0,
+        "ntheta": 960,
+        "classical_MPa": 0.254449950058468,
+        "eigen_dead_MPa": 0.2538260543835962,
+        "eigen_follower_MPa": 0.25424097322938544,
+        "ratio_dead": 0.9975480613192164,
+        "ratio_follower": 0.9991787114556928,
+        "equator_outer_ur_mm_per_MPa": -1.6652392092881765,
+        "membrane_mm_per_MPa": -1.6650004166666665,
+        "ur_ratio": 1.0001434189560072,
+        "s": 7.1122658252716064
+      }
+    ]
+  }
+}

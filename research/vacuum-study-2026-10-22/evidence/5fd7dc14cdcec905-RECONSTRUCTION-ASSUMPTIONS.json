@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "purpose": "Make assumptions missing from owner INPUTS/METHOD explicit; these are inferred conventions, not newly sourced measurements.",
+  "AF163_density_assumed_kg_m3": 1250,
+  "AF163_density_basis": "Owner names 1250 kg/m3 only for scarf adhesive. Reusing it for the full-area bond reproduces the filed known-solids volume. Actual AF163 cured density and bondline geometry remain unverified.",
+  "core_void_subtract_full_bond_and_splice_volumes": true,
+  "core_void_basis": "Subtract 0.2945010968475796 m3 of full-area AF film and 0.012181226862401973 m3 of splice from A*t_core-core_mass/2700. This exactly explains the first independent comparison's 0.3066823237099854 m3 difference. Whether the full film occupies the quoted core envelope is not established by a manufactured section.",
+  "Kapton_unmeasured_seals_and_titanium_surfaces_inventory_kg": 0.1,
+  "Kapton_inventory_basis": "Explicitly named and valued in owner RESULTS sources, absent as a configurable numerical input in INPUTS. Included as a declared reconstruction assumption only."
+}

@@ -1,0 +1,2567 @@
+{
+  "schema": 1,
+  "card_checked": "MAINLINE-007",
+  "owner_report": "rpt-ref-05310d05f1fb52d6522e",
+  "checker_order": "ord-admiral-rr2-check006-007-007b-muse-1019",
+  "unit": "vacuum-mainline007-check-1019",
+  "start_script": "2026-10-19T23:30:37.244385-07:00",
+  "end_script": "2026-10-19T23:30:37.252358-07:00",
+  "script_elapsed_s": 0.007966513046994805,
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_Pa": 276000000.0,
+    "R_m": 10.0,
+    "kd": 0.2,
+    "lift_kg": 4889.442150186961,
+    "p_ext_Pa": 95460.83791390515,
+    "area_m2": 1256.6370614359173,
+    "sandwich_kg": 4561.373476368534,
+    "sep_eq_m": 0.1890702011864905
+  },
+  "rows": {
+    "32.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.00033809851716296333,
+          "core_m": 0.05637792773692414,
+          "separation_m": 0.0567160262540871,
+          "masses_kg": {
+            "faces": 2294.282486250939,
+            "core": 2267.090990117595,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 11196.829060383401,
+          "p_yield_Pa": 37326.07629479115,
+          "SF_b": 0.11729238193448156,
+          "SF_y": 0.3910093092672729,
+          "least_SF": 0.11729238193448156,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 705865547.081748,
+          "E_factor": 8.52570289312217,
+          "strength_factor": 2.5574838662382176,
+          "Gc_crimp_Pa": 8415684.614983583,
+          "Ec_times_Gc_Pa2": 4.083539108988257e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033809851716296333,
+            "checker_value": 0.00033809851716296333,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.05637792773692413,
+            "checker_value": 0.05637792773692414,
+            "rel_diff": 2.461564013592743e-16,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.05671602625408709,
+            "checker_value": 0.0567160262540871,
+            "rel_diff": 2.446890010531087e-16,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 11196.8290603834,
+            "checker_value": 11196.829060383401,
+            "rel_diff": 1.6245576258565933e-16,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37326.07629479115,
+            "checker_value": 37326.07629479115,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.11729238193448153,
+            "checker_value": 0.11729238193448156,
+            "rel_diff": 2.3663579132643865e-16,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.3910093092672729,
+            "checker_value": 0.3910093092672729,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.11729238193448153,
+            "checker_value": 0.11729238193448156,
+            "rel_diff": 2.3663579132643865e-16,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 705865547.081748,
+            "checker_value": 705865547.081748,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 8.52570289312217,
+            "checker_value": 8.52570289312217,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.5574838662382176,
+            "checker_value": 2.5574838662382176,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 8415684.614983585,
+            "checker_value": 8415684.614983583,
+            "rel_diff": 2.2133019884260365e-16,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.083539108988257e+16,
+            "checker_value": 4.083539108988257e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2294.2824862509397,
+            "checker_value": 2294.282486250939,
+            "rel_diff": 1.9820896232772166e-16,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2267.0909901175946,
+            "checker_value": 2267.090990117595,
+            "rel_diff": 2.0058628121621013e-16,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          0.1172922646420996,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.00033809851716296333,
+          "core_m": 0.05637792773692414,
+          "separation_m": 0.0567160262540871,
+          "masses_kg": {
+            "faces": 2294.282486250939,
+            "core": 2267.090990117595,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 11196.829060383401,
+          "p_yield_Pa": 37326.07629479115,
+          "SF_b": 0.11729238193448156,
+          "SF_y": 0.3910093092672729,
+          "least_SF": 0.11729238193448156,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 705865547.081748,
+          "E_factor": 8.52570289312217,
+          "strength_factor": 2.5574838662382176,
+          "Gc_crimp_Pa": 8415684.614983583,
+          "Ec_times_Gc_Pa2": 4.083539108988257e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033809851716296333,
+            "checker_value": 0.00033809851716296333,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.05637792773692413,
+            "checker_value": 0.05637792773692414,
+            "rel_diff": 2.461564013592743e-16,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.05671602625408709,
+            "checker_value": 0.0567160262540871,
+            "rel_diff": 2.446890010531087e-16,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 11196.8290603834,
+            "checker_value": 11196.829060383401,
+            "rel_diff": 1.6245576258565933e-16,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37326.07629479115,
+            "checker_value": 37326.07629479115,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.11729238193448153,
+            "checker_value": 0.11729238193448156,
+            "rel_diff": 2.3663579132643865e-16,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.3910093092672729,
+            "checker_value": 0.3910093092672729,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.11729238193448153,
+            "checker_value": 0.11729238193448156,
+            "rel_diff": 2.3663579132643865e-16,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 705865547.081748,
+            "checker_value": 705865547.081748,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 8.52570289312217,
+            "checker_value": 8.52570289312217,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.5574838662382176,
+            "checker_value": 2.5574838662382176,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 8415684.614983585,
+            "checker_value": 8415684.614983583,
+            "rel_diff": 2.2133019884260365e-16,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.083539108988257e+16,
+            "checker_value": 4.083539108988257e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2294.2824862509397,
+            "checker_value": 2294.282486250939,
+            "rel_diff": 1.9820896232772166e-16,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2267.0909901175946,
+            "checker_value": 2267.090990117595,
+            "rel_diff": 2.0058628121621013e-16,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        }
+      },
+      "splits_coincide_checker": true,
+      "splits_coincide_check": {
+        "card_value": 1.0,
+        "checker_value": 1.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    "16.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.00033709376674048795,
+          "core_m": 0.11309495874143372,
+          "separation_m": 0.1134320525081742,
+          "masses_kg": {
+            "faces": 2287.464410511709,
+            "core": 2273.9090658568252,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 22327.109359635255,
+          "p_yield_Pa": 37215.15184814987,
+          "SF_b": 0.23388763232700485,
+          "SF_y": 0.3898473202352751,
+          "least_SF": 0.23388763232700485,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 707969468.2354939,
+          "E_factor": 4.275557412124605,
+          "strength_factor": 2.565106768969181,
+          "Gc_crimp_Pa": 4207842.307491791,
+          "Ec_times_Gc_Pa2": 4.120162560890915e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033709376674048795,
+            "checker_value": 0.00033709376674048795,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.11309495874143372,
+            "checker_value": 0.11309495874143372,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.1134320525081742,
+            "checker_value": 0.1134320525081742,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 22327.109359635255,
+            "checker_value": 22327.109359635255,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37215.15184814987,
+            "checker_value": 37215.15184814987,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.23388763232700485,
+            "checker_value": 0.23388763232700485,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.3898473202352751,
+            "checker_value": 0.3898473202352751,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.23388763232700485,
+            "checker_value": 0.23388763232700485,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 707969468.2354939,
+            "checker_value": 707969468.2354939,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 4.275557412124605,
+            "checker_value": 4.275557412124605,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.565106768969181,
+            "checker_value": 2.565106768969181,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 4207842.307491791,
+            "checker_value": 4207842.307491791,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.120162560890915e+16,
+            "checker_value": 4.120162560890915e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2287.464410511709,
+            "checker_value": 2287.464410511709,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2273.9090658568252,
+            "checker_value": 2273.9090658568252,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          0.23388739843937245,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.00033709376674048795,
+          "core_m": 0.11309495874143372,
+          "separation_m": 0.1134320525081742,
+          "masses_kg": {
+            "faces": 2287.464410511709,
+            "core": 2273.9090658568252,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 22327.109359635255,
+          "p_yield_Pa": 37215.15184814987,
+          "SF_b": 0.23388763232700485,
+          "SF_y": 0.3898473202352751,
+          "least_SF": 0.23388763232700485,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 707969468.2354939,
+          "E_factor": 4.275557412124605,
+          "strength_factor": 2.565106768969181,
+          "Gc_crimp_Pa": 4207842.307491791,
+          "Ec_times_Gc_Pa2": 4.120162560890915e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033709376674048795,
+            "checker_value": 0.00033709376674048795,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.11309495874143372,
+            "checker_value": 0.11309495874143372,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.1134320525081742,
+            "checker_value": 0.1134320525081742,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 22327.109359635255,
+            "checker_value": 22327.109359635255,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37215.15184814987,
+            "checker_value": 37215.15184814987,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.23388763232700485,
+            "checker_value": 0.23388763232700485,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.3898473202352751,
+            "checker_value": 0.3898473202352751,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.23388763232700485,
+            "checker_value": 0.23388763232700485,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 707969468.2354939,
+            "checker_value": 707969468.2354939,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 4.275557412124605,
+            "checker_value": 4.275557412124605,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.565106768969181,
+            "checker_value": 2.565106768969181,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 4207842.307491791,
+            "checker_value": 4207842.307491791,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.120162560890915e+16,
+            "checker_value": 4.120162560890915e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2287.464410511709,
+            "checker_value": 2287.464410511709,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2273.9090658568252,
+            "checker_value": 2273.9090658568252,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        }
+      },
+      "splits_coincide_checker": true,
+      "splits_coincide_check": {
+        "card_value": 1.0,
+        "checker_value": 1.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    "8.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.000336593627620695,
+          "core_m": 0.22652751138872768,
+          "separation_m": 0.22686410501634838,
+          "masses_kg": {
+            "faces": 2284.070546401158,
+            "core": 2277.3029299673763,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 44587.96616924191,
+          "p_yield_Pa": 37159.936489324726,
+          "SF_b": 0.4670812360714369,
+          "SF_y": 0.38926891174827916,
+          "least_SF": 0.38926891174827916,
+          "governing": "aluminum_yield",
+          "membrane_stress_Pa": 709021428.8123667,
+          "E_factor": 2.140955197453183,
+          "strength_factor": 2.568918220334662,
+          "Gc_crimp_Pa": 2103921.1537458957,
+          "Ec_times_Gc_Pa2": 4.138556116658385e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033659362762069494,
+            "checker_value": 0.000336593627620695,
+            "rel_diff": 1.6105506514628442e-16,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.2265275113887277,
+            "checker_value": 0.22652751138872768,
+            "rel_diff": 1.2252629027473643e-16,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.2268641050163484,
+            "checker_value": 0.22686410501634838,
+            "rel_diff": 1.2234450052655434e-16,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 44587.96616924191,
+            "checker_value": 44587.96616924191,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37159.93648932472,
+            "checker_value": 37159.936489324726,
+            "rel_diff": 1.958011315835714e-16,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.4670812360714369,
+            "checker_value": 0.4670812360714369,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.3892689117482791,
+            "checker_value": 0.38926891174827916,
+            "rel_diff": 1.4260360782973117e-16,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.3892689117482791,
+            "checker_value": 0.38926891174827916,
+            "rel_diff": 1.4260360782973117e-16,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 709021428.8123668,
+            "checker_value": 709021428.8123667,
+            "rel_diff": 1.681321391801381e-16,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 2.140955197453183,
+            "checker_value": 2.140955197453183,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.5689182203346625,
+            "checker_value": 2.568918220334662,
+            "rel_diff": 1.7287012343748702e-16,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 2103921.1537458957,
+            "checker_value": 2103921.1537458957,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.138556116658387e+16,
+            "checker_value": 4.138556116658385e+16,
+            "rel_diff": 5.799123975484094e-16,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2284.0705464011576,
+            "checker_value": 2284.070546401158,
+            "rel_diff": 1.9909514248716011e-16,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2277.3029299673767,
+            "checker_value": 2277.3029299673763,
+            "rel_diff": 1.9968680710079206e-16,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          0.4670807689902008,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.00039266766891128533,
+          "core_m": 0.18867753351757918,
+          "separation_m": 0.18907020118649046,
+          "masses_kg": {
+            "faces": 2664.5800261404743,
+            "core": 1896.79345022806,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 43350.51064780589,
+          "p_yield_Pa": 43350.5106478059,
+          "SF_b": 0.4541182708547261,
+          "SF_y": 0.4541182708547263,
+          "least_SF": 0.4541182708547261,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 607771185.8642508,
+          "E_factor": 2.2020695140009092,
+          "strength_factor": 2.2020695140009083,
+          "Gc_crimp_Pa": 2524481.3120959983,
+          "Ec_times_Gc_Pa2": 2.60670019668116e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.0003926676689112853,
+            "checker_value": 0.00039266766891128533,
+            "rel_diff": 1.380559514221753e-16,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.18867753351757924,
+            "checker_value": 0.18867753351757918,
+            "rel_diff": 2.9421177071983403e-16,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.1890702011864905,
+            "checker_value": 0.18907020118649046,
+            "rel_diff": 2.93600741327313e-16,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 43350.510647805895,
+            "checker_value": 43350.51064780589,
+            "rel_diff": 1.6784018239821323e-16,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 43350.510647805895,
+            "checker_value": 43350.5106478059,
+            "rel_diff": 1.6784018239821323e-16,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.45411827085472617,
+            "checker_value": 0.4541182708547261,
+            "rel_diff": 1.2223941381344687e-16,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.45411827085472617,
+            "checker_value": 0.4541182708547263,
+            "rel_diff": 2.4447882762689374e-16,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.45411827085472617,
+            "checker_value": 0.4541182708547261,
+            "rel_diff": 1.2223941381344687e-16,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 607771185.8642509,
+            "checker_value": 607771185.8642508,
+            "rel_diff": 1.9614172623413463e-16,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 2.202069514000909,
+            "checker_value": 2.2020695140009092,
+            "rel_diff": 2.016690240823521e-16,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.2020695140009092,
+            "checker_value": 2.2020695140009083,
+            "rel_diff": 4.033380481647041e-16,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 2524481.3120959974,
+            "checker_value": 2524481.3120959983,
+            "rel_diff": 3.6891640676960714e-16,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 2.6067001966811616e+16,
+            "checker_value": 2.60670019668116e+16,
+            "rel_diff": 6.138028462333767e-16,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2664.580026140474,
+            "checker_value": 2664.5800261404743,
+            "rel_diff": 1.7066379933243945e-16,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 1896.7934502280605,
+            "checker_value": 1896.79345022806,
+            "rel_diff": 2.397453190445105e-16,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": false
+        }
+      },
+      "splits_coincide_checker": false,
+      "splits_coincide_check": {
+        "card_value": 0.0,
+        "checker_value": 0.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    "6.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.00033646882464419487,
+          "core_m": 0.30214900453048704,
+          "separation_m": 0.30248547335513126,
+          "masses_kg": {
+            "faces": 2283.223653354661,
+            "core": 2278.149823013873,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 59428.578317773434,
+          "p_yield_Pa": 37146.15824071911,
+          "SF_b": 0.622544067456974,
+          "SF_y": 0.3891245777061032,
+          "least_SF": 0.3891245777061032,
+          "governing": "aluminum_yield",
+          "membrane_stress_Pa": 709284418.9565852,
+          "E_factor": 1.6063119902256768,
+          "strength_factor": 2.569871083176033,
+          "Gc_crimp_Pa": 1577940.8653094214,
+          "Ec_times_Gc_Pa2": 4.143163043267289e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033646882464419487,
+            "checker_value": 0.00033646882464419487,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.30214900453048704,
+            "checker_value": 0.30214900453048704,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.30248547335513126,
+            "checker_value": 0.30248547335513126,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 59428.578317773434,
+            "checker_value": 59428.578317773434,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37146.15824071911,
+            "checker_value": 37146.15824071911,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.622544067456974,
+            "checker_value": 0.622544067456974,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.3891245777061032,
+            "checker_value": 0.3891245777061032,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.3891245777061032,
+            "checker_value": 0.3891245777061032,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 709284418.9565852,
+            "checker_value": 709284418.9565852,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 1.6063119902256768,
+            "checker_value": 1.6063119902256768,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.569871083176033,
+            "checker_value": 2.569871083176033,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 1577940.8653094214,
+            "checker_value": 1577940.8653094214,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.143163043267289e+16,
+            "checker_value": 4.143163043267289e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2283.223653354661,
+            "checker_value": 2283.223653354661,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2278.149823013873,
+            "checker_value": 2278.149823013873,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          0.6225434449129065,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.00046262596832455155,
+          "core_m": 0.188607575218166,
+          "separation_m": 0.18907020118649057,
+          "masses_kg": {
+            "faces": 3139.305861848275,
+            "core": 1422.0676145202592,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 51073.9069030305,
+          "p_yield_Pa": 51073.90690303049,
+          "SF_b": 0.5350247077141034,
+          "SF_y": 0.5350247077141033,
+          "least_SF": 0.5350247077141033,
+          "governing": "aluminum_yield",
+          "membrane_stress_Pa": 515864026.50302243,
+          "E_factor": 1.8690725597935591,
+          "strength_factor": 1.8690725597935596,
+          "Gc_crimp_Pa": 2524481.3120959965,
+          "Ec_times_Gc_Pa2": 1.5939566135257134e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00046262596832455155,
+            "checker_value": 0.00046262596832455155,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.18860757521816596,
+            "checker_value": 0.188607575218166,
+            "rel_diff": 2.943208997149082e-16,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.1890702011864905,
+            "checker_value": 0.18907020118649057,
+            "rel_diff": 2.93600741327313e-16,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 51073.906903030496,
+            "checker_value": 51073.9069030305,
+            "rel_diff": 1.42459389840641e-16,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 51073.90690303049,
+            "checker_value": 51073.90690303049,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.5350247077141033,
+            "checker_value": 0.5350247077141034,
+            "rel_diff": 2.0750873905778895e-16,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.5350247077141033,
+            "checker_value": 0.5350247077141033,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.5350247077141033,
+            "checker_value": 0.5350247077141033,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 515864026.50302243,
+            "checker_value": 515864026.50302243,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 1.8690725597935594,
+            "checker_value": 1.8690725597935591,
+            "rel_diff": 1.1879934984950843e-16,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 1.8690725597935596,
+            "checker_value": 1.8690725597935596,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 2524481.3120959974,
+            "checker_value": 2524481.3120959965,
+            "rel_diff": 3.6891640676960714e-16,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 1.5939566135257134e+16,
+            "checker_value": 1.5939566135257134e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 3139.3058618482755,
+            "checker_value": 3139.305861848275,
+            "rel_diff": 1.4485601941912417e-16,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 1422.0676145202588,
+            "checker_value": 1422.0676145202592,
+            "rel_diff": 3.197789937997254e-16,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": false
+        }
+      },
+      "splits_coincide_checker": false,
+      "splits_coincide_check": {
+        "card_value": 0.0,
+        "checker_value": 0.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    "4.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.00033634411418287385,
+          "core_m": 0.4533918659185139,
+          "separation_m": 0.45372821003269675,
+          "masses_kg": {
+            "faces": 2282.3773881013794,
+            "core": 2278.996088267155,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 89109.82712548273,
+          "p_yield_Pa": 37132.39020578928,
+          "SF_b": 0.933469986989321,
+          "SF_y": 0.38898035065728714,
+          "least_SF": 0.38898035065728714,
+          "governing": "aluminum_yield",
+          "membrane_stress_Pa": 709547409.1008033,
+          "E_factor": 1.0712717215743115,
+          "strength_factor": 2.570823946017403,
+          "Gc_crimp_Pa": 1051960.5768729479,
+          "Ec_times_Gc_Pa2": 4.147773387477372e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033634411418287385,
+            "checker_value": 0.00033634411418287385,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.4533918659185139,
+            "checker_value": 0.4533918659185139,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.45372821003269675,
+            "checker_value": 0.45372821003269675,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 89109.82712548273,
+            "checker_value": 89109.82712548273,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37132.39020578928,
+            "checker_value": 37132.39020578928,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.933469986989321,
+            "checker_value": 0.933469986989321,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.38898035065728714,
+            "checker_value": 0.38898035065728714,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.38898035065728714,
+            "checker_value": 0.38898035065728714,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 709547409.1008033,
+            "checker_value": 709547409.1008033,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 1.0712717215743115,
+            "checker_value": 1.0712717215743115,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.570823946017403,
+            "checker_value": 2.570823946017403,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 1051960.5768729479,
+            "checker_value": 1051960.5768729479,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.147773387477372e+16,
+            "checker_value": 4.147773387477372e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2282.3773881013794,
+            "checker_value": 2282.3773881013794,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2278.996088267155,
+            "checker_value": 2278.996088267155,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          0.9334690535193338,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.0005325324083609364,
+          "core_m": 0.1885376687781295,
+          "separation_m": 0.18907020118649043,
+          "masses_kg": {
+            "faces": 3613.6797881152265,
+            "core": 947.6936882533078,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 58791.57788304736,
+          "p_yield_Pa": 58791.57788304738,
+          "SF_b": 0.6158711694534956,
+          "SF_y": 0.6158711694534958,
+          "least_SF": 0.6158711694534956,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 448145673.4610803,
+          "E_factor": 1.6237162081923207,
+          "strength_factor": 1.62371620819232,
+          "Gc_crimp_Pa": 2524481.3120959983,
+          "Ec_times_Gc_Pa2": 1.0450291119046392e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.0005325324083609364,
+            "checker_value": 0.0005325324083609364,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.1885376687781295,
+            "checker_value": 0.1885376687781295,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.18907020118649043,
+            "checker_value": 0.18907020118649043,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 58791.57788304736,
+            "checker_value": 58791.57788304736,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 58791.57788304738,
+            "checker_value": 58791.57788304738,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.6158711694534956,
+            "checker_value": 0.6158711694534956,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.6158711694534958,
+            "checker_value": 0.6158711694534958,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.6158711694534956,
+            "checker_value": 0.6158711694534956,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 448145673.4610803,
+            "checker_value": 448145673.4610803,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 1.6237162081923207,
+            "checker_value": 1.6237162081923207,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 1.62371620819232,
+            "checker_value": 1.62371620819232,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 2524481.3120959983,
+            "checker_value": 2524481.3120959983,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 1.0450291119046392e+16,
+            "checker_value": 1.0450291119046392e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 3613.6797881152265,
+            "checker_value": 3613.6797881152265,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 947.6936882533078,
+            "checker_value": 947.6936882533078,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": false
+        }
+      },
+      "splits_coincide_checker": false,
+      "splits_coincide_check": {
+        "card_value": 0.0,
+        "checker_value": 0.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    "3.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.00033628179361326426,
+          "core_m": 0.6046346649166492,
+          "separation_m": 0.6049709467102624,
+          "masses_kg": {
+            "faces": 2281.954490679089,
+            "core": 2279.4189856894454,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 118791.08817716133,
+          "p_yield_Pa": 37125.51001490437,
+          "SF_b": 1.2443960347833676,
+          "SF_y": 0.3889082772182177,
+          "least_SF": 0.3889082772182177,
+          "governing": "aluminum_yield",
+          "membrane_stress_Pa": 709678904.1729125,
+          "E_factor": 0.803602689214681,
+          "strength_factor": 2.5713003774380887,
+          "Gc_crimp_Pa": 788970.4326547108,
+          "Ec_times_Gc_Pa2": 4.150079841578856e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033628179361326426,
+            "checker_value": 0.00033628179361326426,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.6046346649166492,
+            "checker_value": 0.6046346649166492,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.6049709467102624,
+            "checker_value": 0.6049709467102624,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 118791.08817716133,
+            "checker_value": 118791.08817716133,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37125.51001490437,
+            "checker_value": 37125.51001490437,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 1.2443960347833676,
+            "checker_value": 1.2443960347833676,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.3889082772182177,
+            "checker_value": 0.3889082772182177,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.3889082772182177,
+            "checker_value": 0.3889082772182177,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 709678904.1729125,
+            "checker_value": 709678904.1729125,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 0.803602689214681,
+            "checker_value": 0.803602689214681,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.5713003774380887,
+            "checker_value": 2.5713003774380887,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 788970.4326547108,
+            "checker_value": 788970.4326547108,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.150079841578856e+16,
+            "checker_value": 4.150079841578856e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2281.954490679089,
+            "checker_value": 2281.954490679089,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2279.4189856894454,
+            "checker_value": 2279.4189856894454,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          1.2443947903873331,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.0005674661991295355,
+          "core_m": 0.18850273498736086,
+          "separation_m": 0.1890702011864904,
+          "masses_kg": {
+            "faces": 3850.7349074670824,
+            "core": 710.6385689014519,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 62648.268383900686,
+          "p_yield_Pa": 62648.26838390073,
+          "SF_b": 0.6562719304894675,
+          "SF_y": 0.656271930489468,
+          "least_SF": 0.6562719304894675,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 420557374.4318924,
+          "E_factor": 1.5237586030141037,
+          "strength_factor": 1.5237586030141028,
+          "Gc_crimp_Pa": 2524481.312095999,
+          "Ec_times_Gc_Pa2": 8636673923018765.0,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.0005674661991295354,
+            "checker_value": 0.0005674661991295355,
+            "rel_diff": 1.9106022070541222e-16,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.188502734987361,
+            "checker_value": 0.18850273498736086,
+            "rel_diff": 7.362114830187983e-16,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.18907020118649054,
+            "checker_value": 0.1890702011864904,
+            "rel_diff": 7.340018533182824e-16,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 62648.26838390072,
+            "checker_value": 62648.268383900686,
+            "rel_diff": 5.806990202504298e-16,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 62648.268383900715,
+            "checker_value": 62648.26838390073,
+            "rel_diff": 2.3227960810017196e-16,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.6562719304894679,
+            "checker_value": 0.6562719304894675,
+            "rel_diff": 5.075135655110761e-16,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.6562719304894677,
+            "checker_value": 0.656271930489468,
+            "rel_diff": 3.383423770073842e-16,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.6562719304894677,
+            "checker_value": 0.6562719304894675,
+            "rel_diff": 3.383423770073842e-16,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 420557374.43189245,
+            "checker_value": 420557374.4318924,
+            "rel_diff": 1.4172773656842237e-16,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 1.5237586030141028,
+            "checker_value": 1.5237586030141037,
+            "rel_diff": 5.82886566115686e-16,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 1.523758603014103,
+            "checker_value": 1.5237586030141028,
+            "rel_diff": 1.457216415289215e-16,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 2524481.312095997,
+            "checker_value": 2524481.312095999,
+            "rel_diff": 7.378328135392144e-16,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 8636673923018769.0,
+            "checker_value": 8636673923018765.0,
+            "rel_diff": 4.63141255030951e-16,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 3850.734907467082,
+            "checker_value": 3850.7349074670824,
+            "rel_diff": 1.180936527218867e-16,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 710.6385689014523,
+            "checker_value": 710.6385689014519,
+            "rel_diff": 6.39913692820585e-16,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": false
+        }
+      },
+      "splits_coincide_checker": false,
+      "splits_coincide_check": {
+        "card_value": 0.0,
+        "checker_value": 0.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    "2.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.00033621949613389906,
+          "core_m": 0.9071202005692597,
+          "separation_m": 0.9074564200653936,
+          "masses_kg": {
+            "faces": 2281.5317499435055,
+            "core": 2279.841726425029,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 178153.6225154149,
+          "p_yield_Pa": 37118.63237318246,
+          "SF_b": 1.8662482585381166,
+          "SF_y": 0.388836230482905,
+          "least_SF": 0.388836230482905,
+          "governing": "aluminum_yield",
+          "membrane_stress_Pa": 709810399.2450216,
+          "E_factor": 0.5358343914990857,
+          "strength_factor": 2.5717768088587736,
+          "Gc_crimp_Pa": 525980.2884364739,
+          "Ec_times_Gc_Pa2": 4.1523871505558296e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.00033621949613389906,
+            "checker_value": 0.00033621949613389906,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.9071202005692597,
+            "checker_value": 0.9071202005692597,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.9074564200653936,
+            "checker_value": 0.9074564200653936,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 178153.6225154149,
+            "checker_value": 178153.6225154149,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37118.63237318246,
+            "checker_value": 37118.63237318246,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 1.8662482585381166,
+            "checker_value": 1.8662482585381166,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.388836230482905,
+            "checker_value": 0.388836230482905,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.388836230482905,
+            "checker_value": 0.388836230482905,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 709810399.2450216,
+            "checker_value": 709810399.2450216,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 0.5358343914990857,
+            "checker_value": 0.5358343914990857,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.571776808858774,
+            "checker_value": 2.5717768088587736,
+            "rel_diff": 1.7267797435623009e-16,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 525980.2884364739,
+            "checker_value": 525980.2884364739,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.1523871505558296e+16,
+            "checker_value": 4.1523871505558296e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2281.5317499435055,
+            "checker_value": 2281.5317499435055,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2279.841726425029,
+            "checker_value": 2279.841726425029,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          1.8662463922898582,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.0006023870466633185,
+          "core_m": 0.18846781413982722,
+          "separation_m": 0.18907020118649054,
+          "masses_kg": {
+            "faces": 4087.702196096688,
+            "core": 473.6712802718462,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 66503.52995163036,
+          "p_yield_Pa": 66503.52995163036,
+          "SF_b": 0.6966577227366159,
+          "SF_y": 0.6966577227366159,
+          "least_SF": 0.6966577227366159,
+          "governing": "both_equal",
+          "membrane_stress_Pa": 396177334.99862003,
+          "E_factor": 1.4354251268065943,
+          "strength_factor": 1.4354251268065943,
+          "Gc_crimp_Pa": 2524481.312095997,
+          "Ec_times_Gc_Pa2": 7220040668897212.0,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.0006023870466633185,
+            "checker_value": 0.0006023870466633185,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.18846781413982722,
+            "checker_value": 0.18846781413982722,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.18907020118649054,
+            "checker_value": 0.18907020118649054,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 66503.52995163036,
+            "checker_value": 66503.52995163036,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 66503.52995163036,
+            "checker_value": 66503.52995163036,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.6966577227366159,
+            "checker_value": 0.6966577227366159,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.6966577227366159,
+            "checker_value": 0.6966577227366159,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.6966577227366159,
+            "checker_value": 0.6966577227366159,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 396177334.99862003,
+            "checker_value": 396177334.99862003,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 1.4354251268065943,
+            "checker_value": 1.4354251268065943,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 1.4354251268065943,
+            "checker_value": 1.4354251268065943,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 2524481.312095997,
+            "checker_value": 2524481.312095997,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 7220040668897212.0,
+            "checker_value": 7220040668897212.0,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 4087.702196096688,
+            "checker_value": 4087.702196096688,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 473.6712802718462,
+            "checker_value": 473.6712802718462,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        }
+      },
+      "splits_coincide_checker": false,
+      "splits_coincide_check": {
+        "card_value": 0.0,
+        "checker_value": 0.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    },
+    "1.0": {
+      "max_buckling_SF": {
+        "checker": {
+          "tf_m": 0.000336157221731948,
+          "core_m": 1.8145766829090553,
+          "separation_m": 1.8149128401307872,
+          "masses_kg": {
+            "faces": 2281.1091658075648,
+            "core": 2280.2643105609695,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 356241.2499863714,
+          "p_yield_Pa": 37111.75727920706,
+          "SF_b": 3.73180518599324,
+          "SF_y": 0.38876421043651066,
+          "least_SF": 0.38876421043651066,
+          "governing": "aluminum_yield",
+          "membrane_stress_Pa": 709941894.3171307,
+          "E_factor": 0.2679668284275254,
+          "strength_factor": 2.572253240279459,
+          "Gc_crimp_Pa": 262990.14421823696,
+          "Ec_times_Gc_Pa2": 4.1546953145666936e+16,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.000336157221731948,
+            "checker_value": 0.000336157221731948,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 1.8145766829090553,
+            "checker_value": 1.8145766829090553,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 1.8149128401307872,
+            "checker_value": 1.8149128401307872,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 356241.2499863714,
+            "checker_value": 356241.2499863714,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 37111.75727920706,
+            "checker_value": 37111.75727920706,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 3.73180518599324,
+            "checker_value": 3.73180518599324,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.38876421043651066,
+            "checker_value": 0.38876421043651066,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.38876421043651066,
+            "checker_value": 0.38876421043651066,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 709941894.3171307,
+            "checker_value": 709941894.3171307,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 0.2679668284275254,
+            "checker_value": 0.2679668284275254,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 2.572253240279459,
+            "checker_value": 2.572253240279459,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 262990.14421823696,
+            "checker_value": 262990.14421823696,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 4.1546953145666936e+16,
+            "checker_value": 4.1546953145666936e+16,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 2281.1091658075648,
+            "checker_value": 2281.1091658075648,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 2280.2643105609695,
+            "checker_value": 2280.2643105609695,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": true
+        },
+        "grid_best_i_over_1000": [
+          3.7318014541880533,
+          999
+        ]
+      },
+      "max_least_SF": {
+        "checker": {
+          "tf_m": 0.0006372949581543033,
+          "core_m": 0.18843290622833614,
+          "separation_m": 0.18907020118649046,
+          "masses_kg": {
+            "faces": 4324.581702807928,
+            "core": 236.7917735606061,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "all_mass_kg": 4889.442150186961,
+          "float_margin_kg": 0.0,
+          "p_buckling_Pa": 70357.36338023507,
+          "p_yield_Pa": 70357.36338023508,
+          "SF_b": 0.7370285545124737,
+          "SF_y": 0.737028554512474,
+          "least_SF": 0.7370285545124737,
+          "governing": "knocked_down_buckling",
+          "membrane_stress_Pa": 374476671.6434306,
+          "E_factor": 1.3567995349399662,
+          "strength_factor": 1.356799534939966,
+          "Gc_crimp_Pa": 2524481.3120959983,
+          "Ec_times_Gc_Pa2": 6097405377403412.0,
+          "crush_target_Pa": 47730.41895695258
+        },
+        "checks": {
+          "tf_m": {
+            "card_value": 0.0006372949581543033,
+            "checker_value": 0.0006372949581543033,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "core_m": {
+            "card_value": 0.18843290622833614,
+            "checker_value": 0.18843290622833614,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "separation_m": {
+            "card_value": 0.18907020118649046,
+            "checker_value": 0.18907020118649046,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "all_mass_kg": {
+            "card_value": 4889.442150186961,
+            "checker_value": 4889.442150186961,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_buckling_Pa": {
+            "card_value": 70357.36338023507,
+            "checker_value": 70357.36338023507,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "p_yield_Pa": {
+            "card_value": 70357.36338023508,
+            "checker_value": 70357.36338023508,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_b": {
+            "card_value": 0.7370285545124737,
+            "checker_value": 0.7370285545124737,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "SF_y": {
+            "card_value": 0.737028554512474,
+            "checker_value": 0.737028554512474,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "least_SF": {
+            "card_value": 0.7370285545124737,
+            "checker_value": 0.7370285545124737,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "membrane_stress_Pa": {
+            "card_value": 374476671.6434306,
+            "checker_value": 374476671.6434306,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "E_factor": {
+            "card_value": 1.3567995349399662,
+            "checker_value": 1.3567995349399662,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "strength_factor": {
+            "card_value": 1.356799534939966,
+            "checker_value": 1.356799534939966,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Gc_crimp_Pa": {
+            "card_value": 2524481.3120959983,
+            "checker_value": 2524481.3120959983,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "Ec_times_Gc_Pa2": {
+            "card_value": 6097405377403412.0,
+            "checker_value": 6097405377403412.0,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "crush_target_Pa": {
+            "card_value": 47730.41895695258,
+            "checker_value": 47730.41895695258,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.faces": {
+            "card_value": 4324.581702807928,
+            "checker_value": 4324.581702807928,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.core": {
+            "card_value": 236.7917735606061,
+            "checker_value": 236.7917735606061,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "masses.joints": {
+            "card_value": 228.06867381842673,
+            "checker_value": 228.06867381842673,
+            "rel_diff": 0.0,
+            "match": true
+          },
+          "governing_match": false
+        }
+      },
+      "splits_coincide_checker": false,
+      "splits_coincide_check": {
+        "card_value": 0.0,
+        "checker_value": 0.0,
+        "rel_diff": 0.0,
+        "match": true
+      }
+    }
+  },
+  "headline": {
+    "equal_SF_separation_m": {
+      "card_value": 0.1890702011864905,
+      "checker_value": 0.1890702011864905,
+      "rel_diff": 0.0,
+      "match": true
+    },
+    "tf_max_all_faces_m": {
+      "card_value": 0.0006721899407891804,
+      "checker_value": 0.0006721899407891804,
+      "rel_diff": 0.0,
+      "match": true
+    },
+    "all_face_membrane_Pa": {
+      "card_value": 355036694.6946199,
+      "checker_value": 355036694.6946199,
+      "rel_diff": 0.0,
+      "match": true
+    },
+    "all_face_SF_y": {
+      "card_value": 0.7773844341284152,
+      "checker_value": 0.7773844341284152,
+      "rel_diff": 0.0,
+      "match": true
+    },
+    "sf_b_reaches_1_rho": {
+      "card_value": 3.7336956819672293,
+      "checker_value": 3.7336956819672293,
+      "rel_diff": 0.0,
+      "match": true
+    },
+    "sf_b_reaches_1_SF_y": {
+      "card_value": 0.3889611545796348,
+      "checker_value": 0.3889611545796348,
+      "rel_diff": 0.0,
+      "match": true
+    },
+    "named_peak_rho": 1.0,
+    "named_peak_least": 0.7370285545124737,
+    "card_named_peak": 1.0
+  },
+  "material_comparison_checks": [
+    {
+      "material": "ROHACELL 31 IG-F",
+      "checks": {
+        "crush_margin": {
+          "card_value": 8.380399936584563,
+          "checker_value": 8.380399936584563,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_margin": {
+          "card_value": 1.5447346941750095,
+          "checker_value": 1.5447346941750095,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "wrinkle_margin": {
+          "card_value": 0.005411972166828476,
+          "checker_value": 0.005411972166828476,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Divinycell H35",
+      "checks": {
+        "crush_margin": {
+          "card_value": 10.475499920730703,
+          "checker_value": 10.475499920730703,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_margin": {
+          "card_value": 1.4259089484692395,
+          "checker_value": 1.4259089484692395,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "wrinkle_margin": {
+          "card_value": 0.01175450968360936,
+          "checker_value": 0.01175450968360936,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "checks": {
+        "crush_margin": {
+          "card_value": 27.012535024787933,
+          "checker_value": 27.012535024787933,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_margin": {
+          "card_value": 16.38549353642053,
+          "checker_value": 16.38549353642053,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "wrinkle_margin": null
+      }
+    },
+    {
+      "material": "Hexcel HRH-10-4.8-32",
+      "checks": {
+        "crush_margin": {
+          "card_value": 20.950999841461407,
+          "checker_value": 20.950999841461407,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_margin": {
+          "card_value": 1.6635604398807795,
+          "checker_value": 1.6635604398807795,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "wrinkle_margin": {
+          "card_value": 0.026055829798667413,
+          "checker_value": 0.026055829798667413,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "checks": {
+        "crush_margin": {
+          "card_value": 7.511507065716431,
+          "checker_value": 7.511507065716431,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_margin": {
+          "card_value": 11.469845475494374,
+          "checker_value": 11.469845475494374,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "wrinkle_margin": null
+      }
+    },
+    {
+      "material": "Hexcel HRH-10-6.4-24",
+      "checks": {
+        "crush_margin": {
+          "card_value": 11.523049912803774,
+          "checker_value": 11.523049912803774,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "crimp_margin": {
+          "card_value": 1.0694317113519296,
+          "checker_value": 1.0694317113519296,
+          "rel_diff": 0.0,
+          "match": true
+        },
+        "wrinkle_margin": {
+          "card_value": 0.009036279319274695,
+          "checker_value": 0.009036279319274695,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      }
+    },
+    {
+      "material": "Schaedler nickel microlattice",
+      "checks": {
+        "crush_margin": null,
+        "crimp_margin": null,
+        "wrinkle_margin": null
+      }
+    }
+  ],
+  "mismatches": [
+    {
+      "row": "8.0/max_least",
+      "field": "governing",
+      "card_value": "both_equal",
+      "checker_value": "knocked_down_buckling"
+    },
+    {
+      "row": "6.0/max_least",
+      "field": "governing",
+      "card_value": "both_equal",
+      "checker_value": "aluminum_yield"
+    },
+    {
+      "row": "4.0/max_least",
+      "field": "governing",
+      "card_value": "both_equal",
+      "checker_value": "knocked_down_buckling"
+    },
+    {
+      "row": "3.0/max_least",
+      "field": "governing",
+      "card_value": "both_equal",
+      "checker_value": "knocked_down_buckling"
+    },
+    {
+      "row": "1.0/max_least",
+      "field": "governing",
+      "card_value": "both_equal",
+      "checker_value": "knocked_down_buckling"
+    }
+  ],
+  "pin_bad": 0,
+  "checks": {
+    "numeric_match_1e-9_except_cross_1e-7": false
+  }
+}

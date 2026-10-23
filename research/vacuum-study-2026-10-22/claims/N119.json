@@ -1,0 +1,117 @@
+{
+  "id": "N119",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N119",
+    "report": "rpt-ref-e92af61311c9bf4a89cd",
+    "card": "CHECK-rpt-ref-e92af61311c9bf4a89cd",
+    "file": "evidence/0b74ca6f4252ee9e-NFI.json",
+    "row_id": "NFI-CHECK021-POISSON",
+    "fields": {
+      "id": "NFI-CHECK021-POISSON",
+      "category": "inherited material-model gap",
+      "status": "OPEN",
+      "row": "All beryllium calculations",
+      "field": "nu",
+      "card_value": 0.33,
+      "check_value": {
+        "nu12": 0.0768,
+        "nu21": 0.0752
+      },
+      "tag": "QUESTIONABLE transfer from an orthotropic 1.96-mm sheet lot; not a replacement isotropic specification",
+      "source": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+      "location": "PDF page 22, Table 2",
+      "effect": {
+        "isotropic_sensitivity_E_GPa": 290,
+        "nu_surrogate": 0.0768,
+        "fixed_geometry_gamma_needed": 0.6169290607109224,
+        "fixed_geometry_gamma_full": 0.6018361371765335,
+        "fixed_geometry_full_gamma_global_SF": 0.9755353986453542,
+        "preferred_subset_in_surrogate": {
+          "subset": [
+            "wrinkle",
+            "strength"
+          ],
+          "best": {
+            "core": "Hexcel HRH-10-4.8-32",
+            "tag": "QUESTIONABLE",
+            "fraction": 0.30457951448127507,
+            "max_usage": 0.9985514670768213,
+            "feasible_within_named": true,
+            "needed": {
+              "gamma": 0.9999999999999998,
+              "wrinkle": 0.818919565710445,
+              "strength": 368627416.93813074
+            },
+            "usage": {
+              "gamma": 0.0,
+              "wrinkle": 0.9985514670768213,
+              "strength": 0.903363923032564
+            },
+            "feasible_intervals": [
+              [
+                0.30457951448127507,
+                0.47808902548736587
+              ]
+            ]
+          }
+        }
+      },
+      "disposition": "Arithmetic follows the pinned nu=.33. Treat that as an explicit inherited assumption, not a sourced beryllium property. The demonstrated sensitivity changes the preferred two-optimism set.",
+      "proposed_fix": "A card using a coherent measured in-plane elastic tuple and an appropriate orthotropic model, or an explicitly tagged isotropic approximation."
+    }
+  },
+  "claim": "{\"id\": \"NFI-CHECK021-POISSON\", \"category\": \"inherited material-model gap\", \"status\": \"OPEN\", \"row\": \"All beryllium calculations\", \"field\": \"nu\", \"card_value\": 0.33, \"check_value\": {\"nu12\": 0.0768, \"nu21\": 0.0752}, \"tag\": \"QUESTIONABLE transfer from an orthotropic 1.96-mm sheet lot; not a replacement isotropic specification\", \"source\": \"https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf\", \"location\": \"PDF page 22, Table 2\", \"effect\": {\"isotropic_sensitivity_E_GPa\": 290, \"nu_surrogate\": 0.0768, \"fixed_geometry_gamma_needed\": 0.6169290607109224, \"fixed_geometry_gamma_full\": 0.6018361371765335, \"fixed_geometry_full_gamma_global_SF\": 0.9755353986453542, \"preferred_subset_in_surrogate\": {\"subset\": [\"wrinkle\", \"strength\"], \"best\": {\"core\": \"Hexcel HRH-10-4.8-32\", \"tag\": \"QUESTIONABLE\", \"fraction\": 0.30457951448127507, \"max_usage\": 0.9985514670768213, \"feasible_within_named\": true, \"needed\": {\"gamma\": 0.9999999999999998, \"wrinkle\": 0.818919565710445, \"strength\": 368627416.93813074}, \"usage\": {\"gamma\": 0.0, \"wrinkle\": 0.9985514670768213, \"strength\": 0.903363923032564}, \"feasible_intervals\": [[0.30457951448127507, 0.47808902548736587]]}}}, \"disposition\": \"Arithmetic follows the pinned nu=.33. Treat that as an explicit inherited assumption, not a sourced beryllium property. The demonstrated sensitivity changes the preferred two-optimism set.\", \"proposed_fix\": \"A card using a coherent measured in-plane elastic tuple and an appropriate orthotropic model, or an explicitly tagged isotropic approximation.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/118"
+    },
+    {
+      "report": "rpt-ref-e92af61311c9bf4a89cd",
+      "artifact": "evidence/0b74ca6f4252ee9e-NFI.json",
+      "snapshot": "evidence/0b74ca6f4252ee9e-NFI.json",
+      "sha256": "0b74ca6f4252ee9eb96334d4f62bcfde23de979944201e3ea03385f60235c182",
+      "bytes": 8636,
+      "selector": "source row ID: NFI-CHECK021-POISSON"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-e92af61311c9bf4a89cd",
+          "artifact": "evidence/0b74ca6f4252ee9e-NFI.json",
+          "snapshot": "evidence/0b74ca6f4252ee9e-NFI.json",
+          "sha256": "0b74ca6f4252ee9eb96334d4f62bcfde23de979944201e3ea03385f60235c182",
+          "bytes": 8636,
+          "selector": "source row ID: NFI-CHECK021-POISSON"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/118"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "N059",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N059",
+    "report": "ref-0c9ab80606a173c6adb6",
+    "card": "MAINLINE-016",
+    "file": "evidence/e000d61baed6b1db-NFI.json",
+    "row_id": "NFI-016-CTE",
+    "fields": {
+      "NFI_id": "NFI-016-CTE",
+      "rank": 3,
+      "gap": "CTE mismatch SiC 4.5e-6 vs PVC 60e-6 per K drives sandwich shear-lag at 283 kPa per 30 K face-core difference (567 kPa at 60 K), against a QUESTIONABLE H35 shear strength of 0.40 to 0.55 MPa: one-off SF 1.41 to 1.94 at 30 K, 0.71 to 0.97 at 60 K, cycled daily. Not one of the five scored modes; no fatigue law.",
+      "direction": "Bond-line and core shear coupon under thermal cycling over the full daily band; pin DIAB H35 shear strength and modulus; add the mismatch mode to the scored set.",
+      "effect": "A new structural failure mode at the 009 point, unquantified for the life of the hull."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-016-CTE\", \"rank\": 3, \"gap\": \"CTE mismatch SiC 4.5e-6 vs PVC 60e-6 per K drives sandwich shear-lag at 283 kPa per 30 K face-core difference (567 kPa at 60 K), against a QUESTIONABLE H35 shear strength of 0.40 to 0.55 MPa: one-off SF 1.41 to 1.94 at 30 K, 0.71 to 0.97 at 60 K, cycled daily. Not one of the five scored modes; no fatigue law.\", \"direction\": \"Bond-line and core shear coupon under thermal cycling over the full daily band; pin DIAB H35 shear strength and modulus; add the mismatch mode to the scored set.\", \"effect\": \"A new structural failure mode at the 009 point, unquantified for the life of the hull.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/58"
+    },
+    {
+      "report": "ref-0c9ab80606a173c6adb6",
+      "artifact": "evidence/e000d61baed6b1db-NFI.json",
+      "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+      "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+      "bytes": 6808,
+      "selector": "source row ID: NFI-016-CTE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "ref-0c9ab80606a173c6adb6",
+          "artifact": "evidence/e000d61baed6b1db-NFI.json",
+          "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+          "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+          "bytes": 6808,
+          "selector": "source row ID: NFI-016-CTE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/58"
+          }
+        ]
+      }
+    }
+  ]
+}

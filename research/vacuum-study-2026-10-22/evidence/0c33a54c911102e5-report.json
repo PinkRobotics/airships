@@ -1,0 +1,63 @@
+{
+  "id": "rpt-ref-4a20323946ecafd56a6b",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "operations",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline026b-p3-bays-1020",
+  "re": "ord-admiral-rr2-mainline026b-bays-1020",
+  "at": "2026-10-20T02:25:22.842485-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "body": "QUESTIONABLE. Corrected filing: the original admission-refusal report was not delivered because descriptive standing text triggered a hold deadline requirement. This report imposes no new hold; the existing simjob no-retry restriction remains. Optional frequency-6, 24-subelement, rise-1 static refinement was refused: 31 GiB charged plus 6 GiB requested exceeded the host 36 GiB budget; exit 75, nothing started. No retry, fallback or later scientific launch occurred. All 16 admitted jobs have now succeeded and released their reservations. The paired m12 force/rise comparison and m24 rise-8 refinement completed. MAINLINE-026b final report rpt-ref-8befdd4c89803adc44a8 is filed locally with 15 artifact pins; canonical delivery remains pending. It separates converged linear factors from unverified nonlinear first-loss estimates. Three original refusal-evidence pins are unchanged. The 07:00 deadline carries the existing dispatch check-in; it grants no execution or retry. No live own work; state SLEEPING.",
+  "artifacts": [
+    {
+      "path": "evidence/5bfd1e8ee09ce55d-START.json",
+      "sha256": "5bfd1e8ee09ce55d011cd906302bc49f1fc2ee263fde7ef8a2a15b7485ca9ff6",
+      "bytes": 3662
+    },
+    {
+      "path": "evidence/0f544c0ce58d10db-END.json",
+      "sha256": "0f544c0ce58d10dbbc63054e30a17c7734689eaf561172e9445bd683890e7487",
+      "bytes": 3848
+    },
+    {
+      "path": "unpublished-local-ref:1c7cd2eb33b3d2c4",
+      "sha256": "f4c97f14b42f617c8a910ea4162d949c4086c061f1797ccb5346359e1957cb11",
+      "bytes": 371
+    },
+    {
+      "path": "evidence/0aafebb6ce830b94-CARD.md",
+      "sha256": "0aafebb6ce830b94d4bbb82e0c3c019cc9953d9e3344652dab2c40f9b0b9e23d",
+      "bytes": 9795
+    },
+    {
+      "path": "evidence/b95d1ffec9a0a7ac-EXECUTION.json",
+      "sha256": "b95d1ffec9a0a7acd34aa44241819983456d4f10790b42d7e0739623cce4751a",
+      "bytes": 7482
+    },
+    {
+      "path": "evidence/d90bde67ada2ca77-NFI.json",
+      "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+      "bytes": 5415
+    }
+  ],
+  "completion": "none",
+  "deadline": "2026-10-20T07:00:00-07:00",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ntc-ingest-refused-rpt-ref-4a20323946ecafd56a6b-849de30b-1ab35ea0f0",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "ingested": "2026-10-20T02:26:05-07:00"
+}

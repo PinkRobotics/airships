@@ -1,0 +1,39 @@
+{
+  "id": "E-09943c0bf5e7c431a397",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-09943c0bf5e7c431a397",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/6",
+    "row_id": "CHECK046-07",
+    "fields": {
+      "id": "CHECK046-07",
+      "topic": "Chemistry-only alternate ranking",
+      "status": "OPEN",
+      "finding": "SK99's 135.881 kg nominal-SF1 chemistry-only film at 041 does not establish sustained-load suitability. The patent's 900 MPa/30°C rates give 39.6825 h (SK99) and 213.6752 h (DM20) to 1% strain if held constant.",
+      "evidence": "Patent PDF page 12, paragraphs 0099/0106/0107 visually inspected; UHMWPE-CREEP.csv reproduced. Required ten-year rate is 3.170979e-9 %/s. The 900 MPa comparison film weighs 338.220 kg and that stress is not qualified.",
+      "needed": "Obtain grade-specific creep/rupture/strain limits and hot aged laminate data. Neither patent rate nor another yarn's oxidative ageing law proves a ten-year installed SK99 or DM20 design."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "SK99's 135.881 kg nominal-SF1 chemistry-only film at 041 does not establish sustained-load suitability. The patent's 900 MPa/30°C rates give 39.6825 h (SK99) and 213.6752 h (DM20) to 1% strain if held constant.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

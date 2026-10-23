@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-049",
+  "unit": "vacuum-mainline049-be-free-p2-1020",
+  "tag": "QUESTIONABLE",
+  "status": "OPEN",
+  "items": [
+    {
+      "id": "NFI-049-K13-VF",
+      "tag": "PROJECTION",
+      "claim": "The floating case rests on K13D2U at a 60% fibre fraction: E1 585 GPa by Toray's M55J lamina/fibre ratio, against Tuttle's measured 410 GPa at an unstated fraction (one specimen).",
+      "needed_to_ground": "A measured K13D2U lamina and quasi-isotropic laminate modulus at 55-60% Vf."
+    },
+    {
+      "id": "NFI-049-K13-XC",
+      "tag": "QUESTIONABLE",
+      "claim": "No K13D2U compression strength was found. The 220 MPa quasi-isotropic figure is 014b's inherited value; the floating least set needs 293-302 MPa in equal-biaxial compression.",
+      "needed_to_ground": "Uniaxial and biaxial compression tests on quasi-isotropic K13D2U laminates at face gauge."
+    },
+    {
+      "id": "NFI-049-BIAXIAL",
+      "tag": "PROJECTION",
+      "claim": "CFRP's full compression is uniaxial/(1-nu), the equal-biaxial reading of a fibre-strain limit; transverse and shear ply failure, microbuckling and thin-ply effects are not modelled.",
+      "needed_to_ground": "Biaxial compression of a curved quasi-isotropic panel."
+    },
+    {
+      "id": "NFI-049-COLD-CURE",
+      "tag": "QUESTIONABLE",
+      "claim": "CFRP on 5056 passes 037b's free-edge screen only for a bond stress-free at or below 50 C (0.55 at 200 F under the multilayer finish). No source gives honeycomb bond data for such cures, and the free-edge model is 037b's derivation.",
+      "needed_to_ground": "A cold-curing film or paste on 5056 honeycomb with CFRP skins: flatwise, climbing drum and residual strain."
+    },
+    {
+      "id": "NFI-049-FINISH",
+      "tag": "PROJECTION",
+      "claim": "The multilayer CCAg/ITO optics are a class-level NASA transfer, unqualified on beryllium (048) and on CFRP, where deposition, adhesion over a -0.4 ppm/K laminate and matrix outgassing are open. On the 60% Vf face, 048's full-cycle screen reads 0.890 at 037's source geometry (fails) and 1.18 at its own geometry.",
+      "needed_to_ground": "Measured optics, adhesion and thermal cycling of the finish on the chosen face."
+    },
+    {
+      "id": "NFI-049-WATER-UPTAKE",
+      "tag": "PROJECTION",
+      "claim": "Material water uses transferred uptakes. The CFRP face uses 0.18%, a pitch/cyanate laminate at 55% RH; other sources give 0.04-0.70% for cyanate and about 0.9% for epoxy. The aramid cores use 95% RH, 120 h pickups (4.4% and 3.4%); the CFRP seam film uses FM-300's 1.67% hot-wet estimate. The bake's 90% removal is 048's acceptance target, and DuPont says Nomex needs at least 100 C to dry fully against 048's 70 C bake.",
+      "needed_to_ground": "Weighed uptake and bake-out of the chosen face, core and films."
+    },
+    {
+      "id": "NFI-049-ONE-MM",
+      "tag": "QUESTIONABLE",
+      "claim": "With CHECK-040's 1 mm of exterior water only R 30 floats: beryllium on gamma, Q and film, the 60% Vf projection on gamma, Q and the face tuple.",
+      "needed_to_ground": "A measured retained-water film for the hull's finish and attitude."
+    },
+    {
+      "id": "NFI-049-CHK040-MODELS",
+      "tag": "QUESTIONABLE",
+      "claim": "Cure compression in the global and crimp demand and edge/scarf coincidence are carried as rows. CHECK-040's rigid-face transfer alternatives, which remove every beryllium float, were not rerun for the beryllium-free faces.",
+      "needed_to_ground": "Grounding of the compliant-core transfer (037b, CHECK-037b)."
+    },
+    {
+      "id": "NFI-049-M55J-QI",
+      "tag": "QUESTIONABLE",
+      "claim": "M55J's quasi-isotropic modulus, compression and CTE are a vendor's calculated plate values; tested values are announced as coming.",
+      "needed_to_ground": "Tested M55J quasi-isotropic laminate properties."
+    },
+    {
+      "id": "NFI-049-ARAMID",
+      "tag": "PROJECTION",
+      "claim": "Aramid cores use their thickness-direction CTE in plane, a measured Nomex wall modulus with paper density and strength, a projected Kevlar fabric wall, and a minimum shear strength scaled from CR-III's ratio. They do not float because crimping binds, which none of these changes; without drying credit their water also breaks the service pressure.",
+      "needed_to_ground": "In-plane CTE and wall data for low-density aramid cores."
+    },
+    {
+      "id": "NFI-049-SEAM",
+      "tag": "PROJECTION",
+      "claim": "The CFRP seam is a co-cured scarf with 146 g/m2 FM 300-2M film over the scarf faces, a 17.3 MPa screen (co-cured lap shear, laminate failure) and 040's stock panel and ratio. Larger CFRP panels would reduce seam mass.",
+      "needed_to_ground": "A co-cured CFRP scarf on a curved panel, and the panel size a CFRP gore allows."
+    },
+    {
+      "id": "NFI-049-ALBEMET",
+      "tag": "QUESTIONABLE",
+      "claim": "AlBeMet's compressive yield is not printed; its tensile yield stands in. It is 62 wt% beryllium and does not float.",
+      "needed_to_ground": "AlBeMet sheet compression data."
+    },
+    {
+      "id": "NFI-049-SUPPLY",
+      "tag": "QUESTIONABLE",
+      "claim": "No K13D2U or M55J tonnage or price was found; the pitch-fibre share uses the three-producer capacity of 1,400 t/yr.",
+      "needed_to_ground": "Producer capacity for K13D2U and M55J."
+    },
+    {
+      "id": "NFI-049-BE-GAUGE",
+      "tag": "QUESTIONABLE",
+      "claim": "Beryllium's least-point faces are 1.22 / 1.63 / 2.48 mm at R 15 / 20 / 30. SR-200's full 609.6 x 1828.8 mm stock is listed from 1.50 mm (020); thinner stock comes in smaller, unspecified sizes, which 040's joining does not charge.",
+      "needed_to_ground": "A supplier gauge map for SR-200 below 1.5 mm."
+    },
+    {
+      "id": "NFI-049-DENSITY-CTE",
+      "tag": "PROJECTION",
+      "claim": "Laminate densities use a 1.2 g/cm3 resin; K13D2U's quasi-isotropic CTE is taken as M55J's calculated value.",
+      "needed_to_ground": "Measured laminate densities and CTEs."
+    },
+    {
+      "id": "NFI-049-THERMAL",
+      "tag": "PROJECTION",
+      "claim": "Aramid-core conductivity in vacuum is the wall's conductivity times solidity.",
+      "needed_to_ground": "A vacuum conductance measurement of the core."
+    },
+    {
+      "id": "NFI-049-HM-DAMAGE",
+      "tag": "QUESTIONABLE",
+      "claim": "High-modulus pitch laminates are brittle (fibre strain under 0.4%); 045's damage-tolerance findings apply and are not rescored here.",
+      "needed_to_ground": "Impact and compression-after-impact tests on K13D2U/5056 sandwich."
+    }
+  ]
+}

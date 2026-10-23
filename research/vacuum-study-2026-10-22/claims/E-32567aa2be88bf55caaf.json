@@ -1,0 +1,40 @@
+{
+  "id": "E-32567aa2be88bf55caaf",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-32567aa2be88bf55caaf",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/7",
+    "row_id": "C055-08",
+    "fields": {
+      "id": "C055-08",
+      "title": "SR-200 ductility and available blank dimensions are misstated or incompletely transferred",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The owner's post_yield field says about 2–3% elongation. The cited SR-200 sheet datasheet specifies 10% minimum over a one-inch gauge. It allows 0.020–0.058-inch sheet only at reduced width/length; the 0.7946mm face falls in that range. The assumed 0.6096x1.8288m blank and 18-panels-per-face count are not established for it.",
+      "proposed_fix": "Use the sheet-specific tensile requirement without treating it as formed/biaxial fracture data. Re-layout seams and price actual gauges/blanks. Carry CHECK038 and CHECK042 qualifications."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "SR-200 ductility and available blank dimensions are misstated or incompletely transferred",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

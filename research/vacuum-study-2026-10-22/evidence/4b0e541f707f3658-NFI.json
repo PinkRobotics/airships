@@ -1,0 +1,316 @@
+{
+  "unit": "vacuum-mainline036-check-1020",
+  "overall_installed_hull_SF": null,
+  "rows": [
+    {
+      "id": "NFI-036-finished-sheet-Fcy",
+      "status": "OPEN",
+      "issue": "Obtain a minimum compressive strength for the finished SR-200 face product in both in-plane directions.",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "R10_scarf_MPa": 300.3333333333333,
+        "R10_lab_weld_MPa": 321.580390796927,
+        "R20_as_filed_including_eta09_MPa": 376.3819067936061
+      },
+      "today": {
+        "tensile_minimum_MPa": 345,
+        "matched_compressive_minimum_MPa": null
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "sr200; mil5j; mmpds01; mmpds08",
+      "closure": "Supplier specification plus traceable post-form/post-finish compression data at 0.7-0.85 mm and around 1.4 mm, rolling directions, offset definition and lower-basis statistics.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-biaxial",
+      "status": "OPEN",
+      "issue": "Validate transfer from directional uniaxial compression to equal in-plane compression.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "stress_state": "(-s,-s,0)",
+        "matched_yield_locus": true
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "nasa4397; sr200_lot",
+      "closure": "Matched biaxial compression yield/failure data or validated anisotropic constitutive and fracture model; distinguish membrane, bending and local 3-D stresses.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-historical-transfer",
+      "status": "OPEN",
+      "issue": "Resolve gauge, lot and finish transfer of the 379.2 MPa historical value.",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "modern_target_gauges_mm": [
+          0.7,
+          0.85,
+          1.4
+        ]
+      },
+      "today": {
+        "historical_gauge_mm": 1.96,
+        "Fcy_L_MPa": 379.2
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "sr200_lot Table 3",
+      "closure": "Obtain original AFML-TR-67-212 and qualification data for the purchased thin sheet; historical reported values remain non-minimum evidence.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-current-handbook",
+      "status": "OPEN",
+      "issue": "Check current authorized material allowables and purchase specification.",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "approved_revision": true
+      },
+      "today": {
+        "reviewed": "MIL-HDBK-5J/MMPDS-01 (2003), MMPDS-08 (2013)",
+        "sheet_Fcy": null
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "mil5j; mmpds01; mmpds08",
+      "closure": "Controlled current MMPDS/AMS7902 review and supplier-specific compression requirement; no assumption that a blank archived cell proves absence in all later/private data.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-sheet-elastic-model",
+      "status": "OPEN",
+      "issue": "Resolve the scalar elastic approximation and legacy nu=0.33.",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "R20_scalar_sheet_threshold_MPa": 381.61217284422
+      },
+      "today": {
+        "handbook_E_GPa": 293.02718495965536,
+        "nu": 0.1,
+        "historical_nu12_nu21": [
+          0.0768,
+          0.0752
+        ]
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "mmpds08; sr200_lot",
+      "closure": "Use measured post-form orthotropic stiffness, including shear moduli and reciprocity, in validated shell buckling analysis.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-minimum-gauge",
+      "status": "OPEN",
+      "issue": "Specify minimum finished gauge rather than an unqualified nominal gauge.",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "R10_scarf_finished_mm": 0.7946240669858892,
+        "R20_027_finished_mm": 1.4231326177653179
+      },
+      "today": {
+        "R10_catalog_tolerance_mm": 0.1016,
+        "R20_catalog_tolerance_mm": 0.1524
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "sr200 pp2-3; RESULTS thickness",
+      "closure": "Thickness map and guaranteed minimum after forming, machining and any new etch; mass accounting includes actual supplied gauge.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-forming-finish",
+      "status": "OPEN",
+      "issue": "Determine strength after the actual forming and finishing history.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "same_thermal_mechanical_history_as_hull": true
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "mmpds08; nasa4397; doe-ingot",
+      "closure": "Matched finished coupons, defect inspection and compressive/rupture tests; do not transfer a tensile sanding result into a compression factor.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-stock-size",
+      "status": "OPEN",
+      "issue": "Confirm available blank dimensions at the required thin gauges.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "width_m": 0.6096,
+        "length_m": 1.8288
+      },
+      "today": {
+        "catalog_full_envelope_minimum_mm": 1.4986
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "sr200 p3",
+      "closure": "Supplier-confirmed usable dimensions at final gauge; rerun seams/mass if smaller.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-other-sheet-grades",
+      "status": "OPEN",
+      "issue": "Qualify PS-200 or PF-60 mechanically before substitution.",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "Fcy_MPa": "route-specific requirement"
+      },
+      "today": {
+        "catalog_nominal_mm": 0.8,
+        "Fty_MPa": null,
+        "Fcy_MPa": null
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "ps200; pf60",
+      "closure": "Actual in-plane compression and biaxial qualification for the candidate grade, finish, gauge and size.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-gamma-wrinkle",
+      "status": "OPEN",
+      "issue": "Retain the unresolved buckling and wrinkling assumptions after adding strength.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "gamma_model": ".2+.4 min(Vc,2) for full endpoint",
+        "wrinkle_max": 0.82
+      },
+      "today": {
+        "today_gamma": 0.2,
+        "today_wrinkle": 0.33
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "028b; 027; RESULTS today_infinite_strength_screens",
+      "closure": "Representative joined-shell imperfection tests and actual face/core wrinkling/bond characterization. High Fcy alone does not close these modes.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-scarf",
+      "status": "OPEN",
+      "issue": "Qualify the assumed scarf compression/shear/peel capacity.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "ratio": 30,
+        "mean_shear_screen_MPa": 10
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "028b",
+      "closure": "Exact Be/adhesive/core process testing under equal compression, including peel and local buckling.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-lab-bond-weld",
+      "status": "OPEN",
+      "issue": "Qualify the 8 g/m2 bond and weld strength retention.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "bond_each_interface_g_m2": 8,
+        "assumed_weld_retention": 1
+      },
+      "today": {
+        "matched_hull_bond_weld_properties": null
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "028b",
+      "closure": "Matched bonded/welded thin-sheet specimens; HAZ, brittle failure, debonding, fatigue and leak integrity.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-R20-joint",
+      "status": "OPEN",
+      "issue": "Qualify the inherited R20 0.9 joint efficiency and full-gauge splice model.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "eta": 0.9
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "027",
+      "closure": "Compression qualification of actual splice geometry/process with the purchased face grade.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-environment",
+      "status": "OPEN",
+      "issue": "Cover mission temperature and cycling in the strength basis.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "post_process_and_operating_envelope": true
+      },
+      "today": {
+        "published_strengths": "mostly room-temperature"
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "sr200; nasa4397; 027/028b",
+      "closure": "Temperature-dependent yield/fracture and cyclic/thermal durability for the actual face and joint.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "NFI-036-installed-hull",
+      "status": "OPEN",
+      "issue": "Establish installed capacity including unmodeled local failures.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "installed_SF": ">= project requirement"
+      },
+      "today": {
+        "installed_SF": null
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "027; 028b; this card",
+      "closure": "Close bond, peel, fracture, local instability, defect, thermal and leak modes and validate the joined geometry; model SF=1 is not certification.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    {
+      "id": "CHECK036-D1",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE",
+      "issue": "Inherited R20 film label differs by a factor of two from the governing mass field.",
+      "source": "MISMATCHES.json",
+      "closure": "Label the 0.015 lb/ft2 field as legacy or reconcile it with the explicitly governing 0.1464728290914915 kg/m2 per interface.",
+      "impact": "Documentation ambiguity; all current calculations use the governing mass field."
+    }
+  ]
+}

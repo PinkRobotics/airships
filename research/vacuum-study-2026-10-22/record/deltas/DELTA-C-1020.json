@@ -1,0 +1,445 @@
+{
+  "id": "DELTA-C-1020",
+  "expected_version": 6,
+  "at": "2026-10-20T17:36:07-07:00",
+  "meaning": "Append Piece C, 064, 065, both review halves, and the unreviewed BETA=1 recomputation. Do not rebuild version 6.",
+  "append_findings": [
+    {
+      "id": "PC064-CELLS",
+      "kind": "piece_c",
+      "claim": "064 reports gamma 0.20 as the only admissible sandwich knockdown, with the named CR-1457 hemisphere limit. All eight concept and TRL 7 payloads at that gamma are negative. The review half reproduced all eight cells and named no fix.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "Sciences admitted the review with limits: shared-model reproduction, so the independent-derivation requirement is unmet; shared assumptions, including NFI065-BETA-SCALE, are not independently cleared; 2014-T6 on glass-fabric is the flight bulkhead and the SDL 468 specimen materials remain unverified. The one-round result stands with those limits. No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION payloads.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/032c3e9453a6a1c5-CARD.md",
+          "snapshot": "evidence/032c3e9453a6a1c5-CARD.md",
+          "sha256": "032c3e9453a6a1c5690a602ccfda319bb72e30691b52e42ed822016cca215400",
+          "bytes": 6868,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/e79036da6905d92f-RESULTS.json",
+          "snapshot": "evidence/e79036da6905d92f-RESULTS.json",
+          "sha256": "e79036da6905d92f57803bcc2f300059f724c50f61250ca2d1ad870ed87e8c04",
+          "bytes": 14776,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-408ec9521c88e0a0d103",
+          "artifact": "evidence/74ebd836a8977050-rpt-ref-408ec9521c88e0a0d103.json",
+          "snapshot": "evidence/74ebd836a8977050-rpt-ref-408ec9521c88e0a0d103.json",
+          "sha256": "74ebd836a897705022503fef12be4b359ed2d7d8670419ac53b6dc72b6a174ce",
+          "bytes": 3171,
+          "selector": ""
+        },
+        {
+          "report": "rpt-sciences-g6-review-c064-admission-limits-1020",
+          "artifact": "evidence/f687cd5e158bd388-rpt-sciences-g6-review-c064-admission-limits-1020.json",
+          "snapshot": "evidence/f687cd5e158bd388-rpt-sciences-g6-review-c064-admission-limits-1020.json",
+          "sha256": "f687cd5e158bd388dd1198cca443b7ba8a142d314d56637d83cc9e30af8d16b2",
+          "bytes": 1139,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PC065-SOURCES",
+      "kind": "piece_c",
+      "claim": "065's source check reproduces. The only admissible Q is 0.33, CR-1457 equation 2.2-14, with that named limit. Q 0.82 is not an installed value. The favorable gamma ramp is not admissible. T3 and T7 are the tests that could show a better coefficient.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION payloads.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rep-ref-1542e20f6aa5d09ff49e",
+          "artifact": "evidence/6b03b4653d5a5f67-CARD.md",
+          "snapshot": "evidence/6b03b4653d5a5f67-CARD.md",
+          "sha256": "6b03b4653d5a5f673a74884546408d56f130c0208a2197eb44eb19f0bffb0a43",
+          "bytes": 8678,
+          "selector": ""
+        },
+        {
+          "report": "rep-ref-1542e20f6aa5d09ff49e",
+          "artifact": "evidence/d99c711f6f90d228-RESULTS.json",
+          "snapshot": "evidence/d99c711f6f90d228-RESULTS.json",
+          "sha256": "d99c711f6f90d228b2db54309ff7aed75e7f4ed602424de8e358a486570e201b",
+          "bytes": 9124,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-501b98e96f89f574b82d",
+          "artifact": "evidence/4fa1a0068ddd1229-RESULTS.json",
+          "snapshot": "evidence/4fa1a0068ddd1229-RESULTS.json",
+          "sha256": "4fa1a0068ddd122913037bf4dc528f3bab9d69eb6fd3ee5cee836c80c2b33759",
+          "bytes": 5211,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PC065-BETA",
+      "kind": "piece_c",
+      "claim": "BETA is the real root of b^3+b=1, value 0.682327803828082. model61.py and model63.py each set it at line 33 and multiply it onto Q in the face-wrinkling margin, model61.py line 123 and model63.py line 130. The model text cites no handbook for that root. Equation 2.2-14's coefficient 0.33 stands for the admissible published Q. The inherited product BETA times Q, 0.225, stands only as the model line. Both values are kept.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION payloads.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/194954ccad05e1d1-model61.py",
+          "snapshot": "evidence/194954ccad05e1d1-model61.py",
+          "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+          "bytes": 18948,
+          "selector": "L33,L123"
+        },
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/2c44efb4bb78a17d-model63.py",
+          "snapshot": "evidence/2c44efb4bb78a17d-model63.py",
+          "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+          "bytes": 19294,
+          "selector": "L33,L130"
+        },
+        {
+          "report": "rpt-ref-501b98e96f89f574b82d",
+          "artifact": "evidence/4fa1a0068ddd1229-RESULTS.json",
+          "snapshot": "evidence/4fa1a0068ddd1229-RESULTS.json",
+          "sha256": "4fa1a0068ddd122913037bf4dc528f3bab9d69eb6fd3ee5cee836c80c2b33759",
+          "bytes": 5211,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PC065-RAMP-BETA1",
+      "kind": "piece_c",
+      "claim": "UNREVIEWED. The four favorable-ramp rows at Q 0.33 recomputed with BETA set to 1 land on the filed Q 0.82 cap anchors, difference 0 kg, because face wrinkling no longer binds. R20 ISA: concept -2473.6 kg, TRL7 1194.6 kg, factor 1.0766, gamma 0.5939, filed concept -5925.8 kg. R20 optimistic: concept -3772.7 kg, TRL7 -29.9 kg, factor 1.1183, gamma 0.6035, filed concept -7069.3 kg. R30 ISA: concept -6582.7 kg, TRL7 5594.8 kg, factor 1.0593, gamma 0.5946, filed concept -18148.4 kg. R30 optimistic: concept -10973.6 kg, TRL7 1456.5 kg, factor 1.1001, gamma 0.6042, filed concept -22010.5 kg. Concept stays negative. TRL 7 is positive at R 20 ISA and at both R 30 weathers. The ramp is not admissible, so those positive cells are not the programme result.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "Named unreviewed. No second review of this recomputation. No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION payloads.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+          "artifact": "evidence/f945978fdd78508e-RUN.json",
+          "snapshot": "evidence/f945978fdd78508e-RUN.json",
+          "sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+          "bytes": 29289,
+          "selector": "/rows"
+        },
+        {
+          "report": "rep-ref-1542e20f6aa5d09ff49e",
+          "artifact": "evidence/d99c711f6f90d228-RESULTS.json",
+          "snapshot": "evidence/d99c711f6f90d228-RESULTS.json",
+          "sha256": "d99c711f6f90d228b2db54309ff7aed75e7f4ed602424de8e358a486570e201b",
+          "bytes": 9124,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PC065-HANDBOOK-BETA1",
+      "kind": "piece_c",
+      "claim": "UNREVIEWED. The four gamma 0.20 and Q 0.33 rows recomputed with BETA set to 1 stay negative at concept and at TRL 7. Vc stays below 2, so gamma stays 0.20. R20 ISA: concept -19594.2 kg, TRL7 -14403.0 kg, factor 1.7786, gamma 0.2000, filed concept -29388.8 kg. R20 optimistic: concept -21184.2 kg, TRL7 -15892.1 kg, factor 1.8626, gamma 0.2000, filed concept -31324.2 kg. R30 ISA: concept -64564.8 kg, TRL7 -47222.3 kg, factor 1.7432, gamma 0.2000, filed concept -97877.7 kg. R30 optimistic: concept -69947.2 kg, TRL7 -52262.2 kg, factor 1.8247, gamma 0.2000, filed concept -104441.2 kg",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "Named unreviewed. This is the admissible pair, restated on equation 2.2-14 rather than on BETA times 0.33. No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION payloads.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+          "artifact": "evidence/f945978fdd78508e-RUN.json",
+          "snapshot": "evidence/f945978fdd78508e-RUN.json",
+          "sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+          "bytes": 29289,
+          "selector": "/rows"
+        },
+        {
+          "report": "rep-ref-1542e20f6aa5d09ff49e",
+          "artifact": "evidence/d99c711f6f90d228-RESULTS.json",
+          "snapshot": "evidence/d99c711f6f90d228-RESULTS.json",
+          "sha256": "d99c711f6f90d228b2db54309ff7aed75e7f4ed602424de8e358a486570e201b",
+          "bytes": 9124,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PC-STATE",
+      "kind": "piece_c",
+      "claim": "With today's admissible gamma 0.20 and Q 0.33 taken as equation 2.2-14, every recomputed concept and TRL 7 payload is still negative. The favorable ramp and Q 0.82 are not admissible. T7 and T3 remain the tests that could show better.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "Restated after the BETA fix. The restatement is unreviewed because the recomputed rows are unreviewed. No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION payloads.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+          "artifact": "evidence/f945978fdd78508e-RUN.json",
+          "snapshot": "evidence/f945978fdd78508e-RUN.json",
+          "sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+          "bytes": 29289,
+          "selector": "/rows"
+        },
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/032c3e9453a6a1c5-CARD.md",
+          "snapshot": "evidence/032c3e9453a6a1c5-CARD.md",
+          "sha256": "032c3e9453a6a1c5690a602ccfda319bb72e30691b52e42ed822016cca215400",
+          "bytes": 6868,
+          "selector": ""
+        },
+        {
+          "report": "rep-ref-1542e20f6aa5d09ff49e",
+          "artifact": "evidence/6b03b4653d5a5f67-CARD.md",
+          "snapshot": "evidence/6b03b4653d5a5f67-CARD.md",
+          "sha256": "6b03b4653d5a5f673a74884546408d56f130c0208a2197eb44eb19f0bffb0a43",
+          "bytes": 8678,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/6fbed1dae9140018-CLAIM-RECORD.json",
+          "snapshot": "evidence/6fbed1dae9140018-CLAIM-RECORD.json",
+          "sha256": "6fbed1dae9140018f7a788787f4ce5f259d9ec431a76613eef88a56e569f0735",
+          "bytes": 21667290,
+          "selector": "/version"
+        }
+      ]
+    }
+  ],
+  "append_changes": [
+    {
+      "id": "PC064-CELLS",
+      "kind": "filed_change",
+      "label": "064-cells",
+      "claim": "064 reports gamma 0.20 as the only admissible sandwich knockdown, with the named CR-1457 hemisphere limit. All eight concept and TRL 7 payloads at that gamma are negative. The review half reproduced all eight cells and named no fix.",
+      "report": "rpt-ref-219592c41c9dbc5d7ddc",
+      "sources": [
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/e79036da6905d92f-RESULTS.json",
+          "snapshot": "evidence/e79036da6905d92f-RESULTS.json",
+          "sha256": "e79036da6905d92f57803bcc2f300059f724c50f61250ca2d1ad870ed87e8c04",
+          "bytes": 14776,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-408ec9521c88e0a0d103",
+          "artifact": "evidence/74ebd836a8977050-rpt-ref-408ec9521c88e0a0d103.json",
+          "snapshot": "evidence/74ebd836a8977050-rpt-ref-408ec9521c88e0a0d103.json",
+          "sha256": "74ebd836a897705022503fef12be4b359ed2d7d8670419ac53b6dc72b6a174ce",
+          "bytes": 3171,
+          "selector": ""
+        },
+        {
+          "report": "rpt-sciences-g6-review-c064-admission-limits-1020",
+          "artifact": "evidence/f687cd5e158bd388-rpt-sciences-g6-review-c064-admission-limits-1020.json",
+          "snapshot": "evidence/f687cd5e158bd388-rpt-sciences-g6-review-c064-admission-limits-1020.json",
+          "sha256": "f687cd5e158bd388dd1198cca443b7ba8a142d314d56637d83cc9e30af8d16b2",
+          "bytes": 1139,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PC065-SOURCES",
+      "kind": "filed_change",
+      "label": "065-sources",
+      "claim": "065's source check reproduces. The only admissible Q is 0.33, CR-1457 equation 2.2-14, with that named limit. Q 0.82 is not an installed value. The favorable gamma ramp is not admissible. T3 and T7 are the tests that could show a better coefficient.",
+      "report": "rep-ref-1542e20f6aa5d09ff49e",
+      "sources": [
+        {
+          "report": "rep-ref-1542e20f6aa5d09ff49e",
+          "artifact": "evidence/d99c711f6f90d228-RESULTS.json",
+          "snapshot": "evidence/d99c711f6f90d228-RESULTS.json",
+          "sha256": "d99c711f6f90d228b2db54309ff7aed75e7f4ed602424de8e358a486570e201b",
+          "bytes": 9124,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-501b98e96f89f574b82d",
+          "artifact": "evidence/4fa1a0068ddd1229-RESULTS.json",
+          "snapshot": "evidence/4fa1a0068ddd1229-RESULTS.json",
+          "sha256": "4fa1a0068ddd122913037bf4dc528f3bab9d69eb6fd3ee5cee836c80c2b33759",
+          "bytes": 5211,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PC065-BETA",
+      "kind": "filed_change",
+      "label": "beta-where",
+      "claim": "BETA is the real root of b^3+b=1, value 0.682327803828082. model61.py and model63.py each set it at line 33 and multiply it onto Q in the face-wrinkling margin, model61.py line 123 and model63.py line 130. The model text cites no handbook for that root. Equation 2.2-14's coefficient 0.33 stands for the admissible published Q. The inherited product BETA times Q, 0.225, stands only as the model line. Both values are kept.",
+      "report": "rpt-ref-501b98e96f89f574b82d",
+      "sources": [
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/2c44efb4bb78a17d-model63.py",
+          "snapshot": "evidence/2c44efb4bb78a17d-model63.py",
+          "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+          "bytes": 19294,
+          "selector": "L33,L130"
+        },
+        {
+          "report": "rpt-ref-219592c41c9dbc5d7ddc",
+          "artifact": "evidence/194954ccad05e1d1-model61.py",
+          "snapshot": "evidence/194954ccad05e1d1-model61.py",
+          "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+          "bytes": 18948,
+          "selector": "L33,L123"
+        }
+      ]
+    },
+    {
+      "id": "PC065-RAMP-BETA1",
+      "kind": "filed_change",
+      "label": "beta1-ramp",
+      "claim": "UNREVIEWED. The four favorable-ramp rows at Q 0.33 recomputed with BETA set to 1 land on the filed Q 0.82 cap anchors, difference 0 kg, because face wrinkling no longer binds. R20 ISA: concept -2473.6 kg, TRL7 1194.6 kg, factor 1.0766, gamma 0.5939, filed concept -5925.8 kg. R20 optimistic: concept -3772.7 kg, TRL7 -29.9 kg, factor 1.1183, gamma 0.6035, filed concept -7069.3 kg. R30 ISA: concept -6582.7 kg, TRL7 5594.8 kg, factor 1.0593, gamma 0.5946, filed concept -18148.4 kg. R30 optimistic: concept -10973.6 kg, TRL7 1456.5 kg, factor 1.1001, gamma 0.6042, filed concept -22010.5 kg. Concept stays negative. TRL 7 is positive at R 20 ISA and at both R 30 weathers. The ramp is not admissible, so those positive cells are not the programme result.",
+      "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+          "artifact": "evidence/f945978fdd78508e-RUN.json",
+          "snapshot": "evidence/f945978fdd78508e-RUN.json",
+          "sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+          "bytes": 29289,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PC065-HANDBOOK-BETA1",
+      "kind": "filed_change",
+      "label": "beta1-handbook",
+      "claim": "UNREVIEWED. The four gamma 0.20 and Q 0.33 rows recomputed with BETA set to 1 stay negative at concept and at TRL 7. Vc stays below 2, so gamma stays 0.20. R20 ISA: concept -19594.2 kg, TRL7 -14403.0 kg, factor 1.7786, gamma 0.2000, filed concept -29388.8 kg. R20 optimistic: concept -21184.2 kg, TRL7 -15892.1 kg, factor 1.8626, gamma 0.2000, filed concept -31324.2 kg. R30 ISA: concept -64564.8 kg, TRL7 -47222.3 kg, factor 1.7432, gamma 0.2000, filed concept -97877.7 kg. R30 optimistic: concept -69947.2 kg, TRL7 -52262.2 kg, factor 1.8247, gamma 0.2000, filed concept -104441.2 kg",
+      "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+          "artifact": "evidence/f945978fdd78508e-RUN.json",
+          "snapshot": "evidence/f945978fdd78508e-RUN.json",
+          "sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+          "bytes": 29289,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PC-STATE",
+      "kind": "filed_change",
+      "label": "piece-c-state",
+      "claim": "With today's admissible gamma 0.20 and Q 0.33 taken as equation 2.2-14, every recomputed concept and TRL 7 payload is still negative. The favorable ramp and Q 0.82 are not admissible. T7 and T3 remain the tests that could show better.",
+      "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+          "artifact": "evidence/f945978fdd78508e-RUN.json",
+          "snapshot": "evidence/f945978fdd78508e-RUN.json",
+          "sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+          "bytes": 29289,
+          "selector": "/rows"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/6fbed1dae9140018-CLAIM-RECORD.json",
+          "snapshot": "evidence/6fbed1dae9140018-CLAIM-RECORD.json",
+          "sha256": "6fbed1dae9140018f7a788787f4ce5f259d9ec431a76613eef88a56e569f0735",
+          "bytes": 21667290,
+          "selector": "/version"
+        }
+      ]
+    }
+  ],
+  "append_register_rows": [
+    {
+      "rid": "R120",
+      "topic": "Piece C",
+      "topic_name": "Supported gamma and Q, and the BETA fix",
+      "gap": "Whether a published gamma or Q closes P2 at R 20-30",
+      "unknown": "The BETA=1 rows are unreviewed. Sciences' limits on the 064 review are carried, not cleared.",
+      "today": [
+        "064 reports gamma 0.20 as the only admissible sandwich knockdown, with the named CR-1457 hemisphere limit. All eight concept and TRL 7 payloads at that gamma are negative. The review half reproduced all eight cells and named no fix.",
+        "065's source check reproduces. The only admissible Q is 0.33, CR-1457 equation 2.2-14, with that named limit. Q 0.82 is not an installed value. The favorable gamma ramp is not admissible. T3 and T7 are the tests that could show a better coefficient.",
+        "BETA is the real root of b^3+b=1, value 0.682327803828082. model61.py and model63.py each set it at line 33 and multiply it onto Q in the face-wrinkling margin, model61.py line 123 and model63.py line 130. The model text cites no handbook for that root. Equation 2.2-14's coefficient 0.33 stands for the admissible published Q. The inherited product BETA times Q, 0.225, stands only as the model line. Both values are kept.",
+        "UNREVIEWED. The four favorable-ramp rows at Q 0.33 recomputed with BETA set to 1 land on the filed Q 0.82 cap anchors, difference 0 kg, because face wrinkling no longer binds. R20 ISA: concept -2473.6 kg, TRL7 1194.6 kg, factor 1.0766, gamma 0.5939, filed concept -5925.8 kg. R20 optimistic: concept -3772.7 kg, TRL7 -29.9 kg, factor 1.1183, gamma 0.6035, filed concept -7069.3 kg. R30 ISA: concept -6582.7 kg, TRL7 5594.8 kg, factor 1.0593, gamma 0.5946, filed concept -18148.4 kg. R30 optimistic: concept -10973.6 kg, TRL7 1456.5 kg, factor 1.1001, gamma 0.6042, filed concept -22010.5 kg. Concept stays negative. TRL 7 is positive at R 20 ISA and at both R 30 weathers. The ramp is not admissible, so those positive cells are not the programme result.",
+        "UNREVIEWED. The four gamma 0.20 and Q 0.33 rows recomputed with BETA set to 1 stay negative at concept and at TRL 7. Vc stays below 2, so gamma stays 0.20. R20 ISA: concept -19594.2 kg, TRL7 -14403.0 kg, factor 1.7786, gamma 0.2000, filed concept -29388.8 kg. R20 optimistic: concept -21184.2 kg, TRL7 -15892.1 kg, factor 1.8626, gamma 0.2000, filed concept -31324.2 kg. R30 ISA: concept -64564.8 kg, TRL7 -47222.3 kg, factor 1.7432, gamma 0.2000, filed concept -97877.7 kg. R30 optimistic: concept -69947.2 kg, TRL7 -52262.2 kg, factor 1.8247, gamma 0.2000, filed concept -104441.2 kg",
+        "With today's admissible gamma 0.20 and Q 0.33 taken as equation 2.2-14, every recomputed concept and TRL 7 payload is still negative. The favorable ramp and Q 0.82 are not admissible. T7 and T3 remain the tests that could show better."
+      ],
+      "needed": [
+        "Leave the BETA=1 rows unreviewed until a later piece.",
+        "T3 for an installed Q and T7 for an installed gamma on this product form."
+      ],
+      "owners": [
+        "rpt-ref-219592c41c9dbc5d7ddc",
+        "rep-ref-1542e20f6aa5d09ff49e",
+        "rpt-ref-501b98e96f89f574b82d",
+        "rpt-sciences-g6-review-c064-admission-limits-1020"
+      ],
+      "states": [
+        "QUESTIONABLE",
+        "PROJECTION"
+      ],
+      "directions": [
+        "Carry gamma 0.20 and equation 2.2-14's Q 0.33. Both admissible cells stay negative after BETA is set to 1."
+      ],
+      "check_outcome": "064 cells reproduced with Sciences' limits. 065 sources reproduced. BETA=1 recomputation unreviewed. Admissible pair still negative.",
+      "sources": [],
+      "finding_ids": [
+        "PC064-CELLS",
+        "PC065-SOURCES",
+        "PC065-BETA",
+        "PC065-RAMP-BETA1",
+        "PC065-HANDBOOK-BETA1",
+        "PC-STATE"
+      ]
+    }
+  ],
+  "append_nfi_rows": [
+    {
+      "uid": "PC064-CELLS",
+      "report": "rpt-sciences-g6-review-c064-admission-limits-1020",
+      "file": "evidence/f687cd5e158bd388-rpt-sciences-g6-review-c064-admission-limits-1020.json",
+      "snapshot": "evidence/f687cd5e158bd388-rpt-sciences-g6-review-c064-admission-limits-1020.json",
+      "source_sha256": "f687cd5e158bd388dd1198cca443b7ba8a142d314d56637d83cc9e30af8d16b2",
+      "source_json_pointer": "/body",
+      "row_id": "NFI-C-064-LIMITS",
+      "fields": {
+        "id": "NFI-C-064-LIMITS",
+        "status": "open",
+        "statement": "The 064 review is a shared-model reproduction. Independent derivation and NFI065-BETA-SCALE were not cleared. SDL 468 specimen materials remain unverified."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PC065-HANDBOOK-BETA1",
+      "report": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+      "file": "evidence/f945978fdd78508e-RUN.json",
+      "snapshot": "evidence/f945978fdd78508e-RUN.json",
+      "source_sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+      "source_json_pointer": "/rows",
+      "row_id": "NFI-C-BETA1-UNREVIEWED",
+      "fields": {
+        "id": "NFI-C-BETA1-UNREVIEWED",
+        "status": "open",
+        "statement": "The four gamma 0.20, Q 0.33 rows at BETA=1 are unreviewed. They stay negative. They are not a qualified safety factor."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    }
+  ],
+  "append_grounding_routes": [
+    {
+      "id": "PC-T3-T7",
+      "statement": "T3 still has to measure elastic wrinkling of this coupon before any Q above 0.33. T7 still has to measure this sandwich shell at Vc 0.9 to 1.1 before any gamma above 0.20.",
+      "status": "open"
+    }
+  ]
+}

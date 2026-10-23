@@ -1,0 +1,29 @@
+{
+  "numeric_comparisons": 112,
+  "all_same_convention_pass": true,
+  "pinned_input_copies_verified": 25,
+  "source_lead_points_reproduced": 2,
+  "hemisphere_and_ellipsoid_points_digitized": 8,
+  "cylinder_points_digitized": 11,
+  "cone_points_digitized": 2,
+  "calibration_grid_checks": 3,
+  "exact_difference_and_qualification_rows": 71,
+  "nfi_rows": 16,
+  "owner_script_read_or_executed": false,
+  "unresolved_numeric_claims": [
+    "Sim/EUCASS Vc≈200",
+    "Sim/EUCASS R/rho≈26",
+    "Sim/EUCASS crimp ratio 1.44–1.54"
+  ],
+  "checks": [
+    "CLT stiffness symmetry, positivity, reciprocal Poisson ratio and symmetric-laminate B",
+    "Quasi-isotropic Ex=Ey and Gxy identity for six-ply faces",
+    "112 owner-convention fields within rel_tol=1e-11, abs_tol=1e-12",
+    "Two predecessor geometry/gamma calculations within rel_tol=1e-12",
+    "Three unused S-II grid intersections within R/rho=3 and gamma=0.005",
+    "25 local input copies match their pinned byte counts and SHA-256",
+    "All differences have precise fields, values, evidence and nonblocking dispositions",
+    "All referenced NFI IDs exist"
+  ],
+  "scope": "These checks verify arithmetic and traceability, not material allowables or shell safety."
+}

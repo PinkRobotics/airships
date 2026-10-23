@@ -1,0 +1,58 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "label": "M55J-50-20-20-10-5-verified_q1_1-m6-intact",
+  "material": "M55J-50-20-20-10",
+  "reserve": "5",
+  "section_policy": "verified_q1_1",
+  "removed_member": null,
+  "segments": 6,
+  "ndof": 24012,
+  "radius_m": 0.12477937548301114,
+  "wall_m": 0.0020312490089499508,
+  "frame_tubes_kg": 4622.229606176111,
+  "total_mass_including_reserve_sag_kg": 5248.453972028661,
+  "modes": {
+    "euler": 4.716256772074407,
+    "global_k0p2": 1.0096140746704232,
+    "local_peak": 1.3161243742392095,
+    "compression": 1.0141127955349276,
+    "joint_sleeve": 1.1359270031056854,
+    "joint_bond": 1.1359268727016525,
+    "film": 1.1432846186728538
+  },
+  "conditional_SF_or_ceiling": 1.0096140746704232,
+  "qualified_structural_SF": null,
+  "qualified_frame_Pf": null,
+  "qualified_hail_break_probability": null,
+  "all_composite_modes_complete": false,
+  "linear_multipliers": [
+    5.0480703733521155,
+    5.09850661769873,
+    5.165453339484072,
+    5.178083599042794
+  ],
+  "eigen_relative_residuals": [
+    3.782847603735197e-13,
+    4.927607446589626e-13,
+    2.8336842947816767e-09,
+    6.455701793285336e-08
+  ],
+  "equilibrium_relative_residual": 6.018965901831677e-13,
+  "load_rigid_projection_ratio": 3.962343040501833e-16,
+  "q1_peak_compression_Pa": 494443282.46381986,
+  "q1_peak_tension_Pa": 0.0,
+  "q1_whole_member_scale_needed_m10_Pf1e3_Pa": 1810861286.0569642,
+  "max_axial_N": 701292.6398508991,
+  "max_bending_Nm": 2887.9491426854534,
+  "local_shell_limit_Pa": 657098698.7508605,
+  "secondary_failure_trigger_at_q1": false,
+  "individual_secondary_failure_members_at_q1": {
+    "local_shell": [],
+    "compression": []
+  },
+  "merged_bay": null,
+  "pressure_fan_volume_m3": 4156.277016250995,
+  "tube_loss_includes_pressure_bay_merge": false,
+  "dynamic_cascade_probability": null,
+  "elapsed_seconds": 1.690366196911782
+}

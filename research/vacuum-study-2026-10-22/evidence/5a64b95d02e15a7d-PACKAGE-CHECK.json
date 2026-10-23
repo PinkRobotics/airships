@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-20T09:22:24.417128+00:00",
+  "scope": "package/receipt validation only; no simulation or numerical test",
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "copied_input_pins",
+      "pass": true,
+      "count": 25
+    },
+    {
+      "name": "scientific_job_source_pins_unchanged",
+      "pass": true,
+      "checks": 153
+    },
+    {
+      "name": "source_syntax",
+      "pass": true,
+      "count": 10
+    },
+    {
+      "name": "execution_and_own_resource_release",
+      "pass": true,
+      "admitted": 16,
+      "released": 16,
+      "refused_without_execution": 1,
+      "post_refusal_scientific_launches": 0
+    },
+    {
+      "name": "primary_linear_convergence_and_explicit_nonlinear_hold",
+      "pass": true,
+      "new_first_instability_values": "null; not silently promoted from raw solver crossings"
+    },
+    {
+      "name": "new_case_checks",
+      "pass": true,
+      "case_count": 3,
+      "checks_per_case": 5
+    },
+    {
+      "name": "local_document_links",
+      "pass": true,
+      "count": 11
+    },
+    {
+      "name": "strict_json",
+      "pass": true
+    },
+    {
+      "name": "code_archive_contents",
+      "pass": true,
+      "files": [
+        "CASES.json",
+        "CODE-README.md",
+        "METHODS.md",
+        "beam.py",
+        "check_cases.py",
+        "collect.py",
+        "corot.py",
+        "force_stats.py",
+        "mixed.py",
+        "run_classical.py",
+        "run_job.py",
+        "run_nonlinear.py",
+        "run_static.py"
+      ]
+    },
+    {
+      "name": "manifest_rehash",
+      "pass": true,
+      "files": 164
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "schema": 1,
+  "checker_unit": "vacuum-mainline007-check-1019",
+  "pins": [
+    {
+      "path": "evidence/69d9ef27cb5c86f2-INPUTS.json",
+      "sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "bytes": 15384,
+      "role": "001 INPUTS",
+      "expected_sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "expected_bytes": 15384,
+      "match": true
+    },
+    {
+      "path": "evidence/d728af6ca61595e1-RESULTS.json",
+      "sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "bytes": 13071,
+      "role": "002 RESULTS",
+      "expected_sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "expected_bytes": 13071,
+      "match": true
+    },
+    {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995,
+      "role": "003 RESULTS",
+      "expected_sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "expected_bytes": 7995,
+      "match": true
+    },
+    {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799,
+      "role": "CHECK",
+      "expected_sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "expected_bytes": 799,
+      "match": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "role": "COMMON",
+      "expected_sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "expected_bytes": 5874,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:eee4da47983eaf06",
+      "sha256": "05791cd102b446c15ddf1b266b08263652ed4f24d54ac2f1206d79f010533b53",
+      "bytes": 1640,
+      "role": "CARD-007 brief",
+      "expected_sha256": "05791cd102b446c15ddf1b266b08263652ed4f24d54ac2f1206d79f010533b53",
+      "expected_bytes": 1640,
+      "match": true
+    },
+    {
+      "path": "evidence/bbff5c7a2a0ce888-CARD.md",
+      "sha256": "bbff5c7a2a0ce8888879d7d5b6d697bfcd871bf348b529917bf81e6a6eee164c",
+      "bytes": 22947,
+      "role": "owner 007 CARD.md",
+      "expected_sha256": "bbff5c7a2a0ce8888879d7d5b6d697bfcd871bf348b529917bf81e6a6eee164c",
+      "expected_bytes": 22947,
+      "match": true
+    },
+    {
+      "path": "evidence/cd02e4ec651bc748-RESULTS.json",
+      "sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "bytes": 31544,
+      "role": "owner 007 RESULTS.json",
+      "expected_sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "expected_bytes": 31544,
+      "match": true
+    },
+    {
+      "path": "evidence/d0ddbdac23ccf0df-NFI.json",
+      "sha256": "d0ddbdac23ccf0df7c80b3cceed3e2db8339fabe5b00b63a0e7392265c0df3b0",
+      "bytes": 4978,
+      "role": "owner 007 NFI.json",
+      "expected_sha256": "d0ddbdac23ccf0df7c80b3cceed3e2db8339fabe5b00b63a0e7392265c0df3b0",
+      "expected_bytes": 4978,
+      "match": true
+    },
+    {
+      "path": "evidence/7eb1c039dc8cf930-INPUTS.json",
+      "sha256": "7eb1c039dc8cf930e326dd95f0642f769b14644b9fb09204235a6422b9519144",
+      "bytes": 6730,
+      "role": "owner 007 INPUTS.json",
+      "expected_sha256": "7eb1c039dc8cf930e326dd95f0642f769b14644b9fb09204235a6422b9519144",
+      "expected_bytes": 6730,
+      "match": true
+    },
+    {
+      "path": "evidence/d8db008dd86ed4d1-compute.py",
+      "sha256": "d8db008dd86ed4d11ddae9a9cc0034bb81c43d20cb0d349aafe1f082c21ceaaa",
+      "bytes": 25655,
+      "role": "owner 007 compute.py",
+      "expected_sha256": "d8db008dd86ed4d11ddae9a9cc0034bb81c43d20cb0d349aafe1f082c21ceaaa",
+      "expected_bytes": 25655,
+      "match": true
+    }
+  ],
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_Pa": 276000000.0,
+    "R_m": 10.0,
+    "kd": 0.2,
+    "lift_kg": 4889.442150186961,
+    "p_ext_Pa": 95460.83791390515,
+    "area_m2": 1256.6370614359173,
+    "sandwich_kg": 4561.373476368534,
+    "sep_eq_m": 0.1890702011864905
+  },
+  "materials_from_owner_RESULTS": [
+    {
+      "name": "ROHACELL 31 IG-F",
+      "family": "PMI_foam",
+      "density_kg_m3": 32.0,
+      "compressive_strength_Pa": 400000.0,
+      "Ec_Pa": 17000000.0,
+      "Ec_column": "compressive modulus ISO 844, 17 MPa",
+      "Gc_Pa": 13000000.0,
+      "Gc_used_for_compare_Pa": 13000000.0,
+      "shear_strength_Pa": 400000.0,
+      "tag": "QUESTIONABLE",
+      "source": "Evonik ROHACELL IG-F product information, April 2022, https://cdn.sanity.io/files/dorbplvp/production/ed045b3e26f3de6b4faf1533d03ca5c1b66f8ae0.pdf",
+      "note": "Nominal density 32 kg/m3 with a printed tolerance of plus or minus 7. Typical values, not a design allowable."
+    },
+    {
+      "name": "Divinycell H35",
+      "family": "PVC_foam",
+      "density_kg_m3": 38.0,
+      "compressive_strength_Pa": 500000.0,
+      "Ec_Pa": 40000000.0,
+      "Gc_Pa": 12000000.0,
+      "Gc_used_for_compare_Pa": 12000000.0,
+      "shear_strength_Pa": 400000.0,
+      "tag": "QUESTIONABLE",
+      "source": "DIAB Divinycell H, H Oct 2012 rev9 SI, nominal column, via https://www.castrocompositesshop.com/en/index.php?controller=attachment&id_attachment=1020",
+      "note": "Nearest listed PVC to 32 kg/m3, not a 32 kg/m3 product. An October 2012 rev7 sheet prints compressive strength 0.45 MPa for the same grade. Nominal is used. Minimum printed compressive strength on rev9 is 0.3 MPa."
+    },
+    {
+      "name": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "family": "aluminium_honeycomb",
+      "density_kg_m3": 32.0,
+      "compressive_strength_Pa": 1289319.6138224835,
+      "compressive_strength_source_column": "187.0 psi typical bare",
+      "Ec_Pa": null,
+      "Gc_L_Pa": 234421747.9677243,
+      "Gc_W_Pa": 137895145.86336723,
+      "Gc_used_for_compare_Pa": 137895145.86336723,
+      "tag": "QUESTIONABLE",
+      "source": "Plascore PAMG-XR1 5052 datasheet rev 4.6.2021, http://plascore.com/wp-content/uploads/dlm_uploads/2025/08/PLA_PAMG-XR1-5052_2023-06-02.pdf",
+      "note": "The sheet's MPa cell beside the 100 psi bare-compression minimum prints 0.55, which is not 100 psi. Typical 187 psi converts to 1.289 MPa and the sheet prints 1.29. No compressive modulus column. Plate shear, not an isotropic G."
+    },
+    {
+      "name": "Hexcel HRH-10-4.8-32",
+      "family": "aramid_honeycomb",
+      "density_kg_m3": 32.0,
+      "compressive_strength_Pa": 1000000.0,
+      "compressive_strength_column": "bare typical 1.00 MPa; stabilised typical 1.05 MPa",
+      "Ec_Pa": 76000000.0,
+      "Ec_column": "stabilised compressive modulus 76 MPa",
+      "Gc_L_Pa": 30000000.0,
+      "Gc_W_Pa": 14000000.0,
+      "Gc_used_for_compare_Pa": 14000000.0,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+      "note": "Aramid/phenolic honeycomb, 4.8 mm cell, 32 kg/m3. Stabilised modulus is not the continuum Ec of the wrinkling formula. W modulus is the smaller plate-shear modulus."
+    },
+    {
+      "name": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "family": "aluminium_honeycomb",
+      "density_kg_m3": 16.0,
+      "compressive_strength_Pa": 358527.3792447548,
+      "compressive_strength_source_column": "52.0 psi typical bare",
+      "Ec_Pa": null,
+      "Gc_L_Pa": 68947572.93168361,
+      "Gc_W_Pa": 48263301.05217853,
+      "Gc_used_for_compare_Pa": 48263301.05217853,
+      "tag": "QUESTIONABLE",
+      "source": "Plascore PAMG-XR1 5052 datasheet rev 4.6.2021, http://plascore.com/wp-content/uploads/dlm_uploads/2025/08/PLA_PAMG-XR1-5052_2023-06-02.pdf",
+      "note": "Lightest 5052 row on that sheet, 1.0 pcf. No compressive modulus column. Bare typical compression 52 psi."
+    },
+    {
+      "name": "Hexcel HRH-10-6.4-24",
+      "family": "aramid_honeycomb",
+      "density_kg_m3": 24.0,
+      "compressive_strength_Pa": 550000.0,
+      "Ec_Pa": 41000000.0,
+      "Gc_L_Pa": 21000000.0,
+      "Gc_W_Pa": 9000000.0,
+      "Gc_used_for_compare_Pa": 9000000.0,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+      "note": "Nearest listed aramid honeycomb below 32 kg/m3. 24 kg/m3, not 16. Bare typical compression 0.55 MPa. Stabilised modulus 41 MPa."
+    },
+    {
+      "name": "Schaedler nickel microlattice",
+      "family": "microlattice",
+      "density_kg_m3": 0.9,
+      "compressive_strength_Pa": null,
+      "Ec_Pa": null,
+      "Gc_Pa": null,
+      "tag": "QUESTIONABLE",
+      "exists": "PROJECTION of a usable core is not claimed. The solid exists at this density in the paper.",
+      "source": "T. A. Schaedler et al., Science 334, 962-965 (2011), doi:10.1126/science.1211649",
+      "note": "Open abstract: density at or above 0.9 mg/cm3, recovery after compression beyond 50 percent strain, Young's modulus scales as density squared. No numeric modulus, shear modulus or compressive strength was in the abstract. Those values are not invented here."
+    }
+  ]
+}

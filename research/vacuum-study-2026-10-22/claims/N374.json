@@ -1,0 +1,94 @@
+{
+  "id": "N374",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N374",
+    "report": "rpt-ref-58c781cbea9c220eb5b4",
+    "card": "MAINLINE-025",
+    "file": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "source_sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+    "source_json_pointer": "/rows/6",
+    "row_id": "NFI-025-EQUILIBRIUM",
+    "fields": {
+      "id": "NFI-025-EQUILIBRIUM",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE",
+      "target_transfer": "PROJECTION",
+      "evidence_state": "derived continuum equilibrium; discrete spherical application PROJECTION",
+      "issue": "Uniform equilateral force correction is established for the stated continuum; full discrete topology and coupled film/load collection remain unresolved.",
+      "factor": {
+        "inherited_N_factor": 1,
+        "consistent_uniform_triangular_N_factor": 0.5773502691896258,
+        "fixed_point_stress_reduction_factor": 1.7320508075688772,
+        "separate_optimistic_SiC_SF": 1.2057081881088565,
+        "separate_mixed_CMC580_SF": 0.8711613194493811,
+        "equilateral_mean_compression_at_original_Pa": 824658297.2240363,
+        "inherited_mean_compression_at_original_Pa": 1428350069.6752675,
+        "source_note_pin": {
+          "path": "unpublished-local-ref:f1ad809d1efc520a",
+          "sha256": "dc65f9c0d7585fbf3e57e3423fe48896a96425fd9f3abdcf49ce3b7cadaf7d8e",
+          "matches": true
+        }
+      },
+      "required_next_evidence": "MAINLINE-022b must reconcile discrete topology, load collection, actual member length/curvature, film spans and global stiffness together.",
+      "note": "Amendment ord-admiral-rr2-mainline025-demand-082gpa-1020 and its pinned note confirm N=pRs/(2sqrt3). Both demands are scored in fixed and reoptimized principal tables. Extra arc rise must not reduce this equilibrium force; bending about the actual thrust line must be evaluated."
+    },
+    "inherited_document_tag": {
+      "classification": "QUESTIONABLE"
+    }
+  },
+  "claim": "Uniform equilateral force correction is established for the stated continuum; full discrete topology and coupled film/load collection remain unresolved. | Amendment ord-admiral-rr2-mainline025-demand-082gpa-1020 and its pinned note confirm N=pRs/(2sqrt3). Both demands are scored in fixed and reoptimized principal tables. Extra arc rise must not reduce this equilibrium force; bending about the actual thrust line must be evaluated.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/373"
+    },
+    {
+      "report": "rpt-ref-58c781cbea9c220eb5b4",
+      "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+      "bytes": 21434,
+      "selector": "/rows/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58c781cbea9c220eb5b4",
+          "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+          "bytes": 21434,
+          "selector": "/rows/6"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/373"
+          }
+        ]
+      }
+    }
+  ]
+}

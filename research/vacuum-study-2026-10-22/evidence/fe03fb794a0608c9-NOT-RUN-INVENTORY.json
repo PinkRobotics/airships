@@ -1,0 +1,203 @@
+{
+  "offline_invocation": "NOT_RUN: required exact Ops admission missing before worst-case fit closed",
+  "derived_reference_matrices": "NOT_GENERATED",
+  "state_to_tangent_bound": "IMPLEMENTED_BUT_UNEXECUTED_AND_UNPROVEN",
+  "reader_and_transform_acceptance": "NOT_TESTED",
+  "offline_nine_negative_cases": [
+    {
+      "id": "missing-tie",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "duplicate-tie",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "shear-factor",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "missing-dof",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "duplicate-dof",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "wrong-permutation",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "pressure-term-absent",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "pressure-term-reversed",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "microscopic-entry",
+      "status": "NOT_RUN"
+    }
+  ],
+  "native_calls": [
+    {
+      "call": 1,
+      "name": "identity",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "identity:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "identity:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 2,
+      "name": "hydro-compression",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "hydro-compression:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "hydro-compression:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 3,
+      "name": "axial11",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "axial11:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "axial11:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 4,
+      "name": "axial22",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "axial22:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "axial22:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 5,
+      "name": "axial33",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "axial33:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "axial33:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 6,
+      "name": "shear12",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "shear12:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "shear12:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 7,
+      "name": "shear13",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "shear13:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "shear13:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 8,
+      "name": "shear23",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "shear23:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "shear23:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 9,
+      "name": "negative-retained-macro-spcs",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "negative-retained-macro-spcs:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "negative-retained-macro-spcs:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    },
+    {
+      "call": 10,
+      "name": "negative-no-perturbation",
+      "status": "NOT_RUN",
+      "stages": [
+        {
+          "name": "negative-no-perturbation:static-nlgeom",
+          "status": "NOT_RUN"
+        },
+        {
+          "name": "negative-no-perturbation:frequency-matrixstorage",
+          "status": "NOT_RUN"
+        }
+      ]
+    }
+  ],
+  "qualification_flags": {
+    "Q0_native": false,
+    "Q0_energy": false,
+    "native_qualified": false,
+    "H1_qualified": false
+  },
+  "conditional_interface_pass": false
+}

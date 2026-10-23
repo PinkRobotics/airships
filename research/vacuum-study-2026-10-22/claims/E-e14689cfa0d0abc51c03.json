@@ -1,0 +1,37 @@
+{
+  "id": "E-e14689cfa0d0abc51c03",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-e14689cfa0d0abc51c03",
+    "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+    "file": "evidence/717e88be4a20c9a5-NFI.json",
+    "snapshot": "evidence/717e88be4a20c9a5-NFI.json",
+    "source_sha256": "717e88be4a20c9a5422ac9933ad9b1a69e9c724dcf0546111ffacff5332fd9ec",
+    "source_json_pointer": "/inherited_owner_register/inherited_031/rows/5",
+    "row_id": "NFI-031-BE-PROPERTIES",
+    "fields": {
+      "id": "NFI-031-BE-PROPERTIES",
+      "tag": "QUESTIONABLE",
+      "issue": "SR-200 345MPa is a tensile minimum transferred to compression. The 379.2MPa endpoint is a historical lot result; continuous interpolated strength is not a procureable design allowable. 021 rev1 inherits 283MPa at E290GPa.",
+      "next_evidence": "Obtain gauge-, direction-, lot-, temperature- and post-form compression and modulus allowables."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "SR-200 345MPa is a tensile minimum transferred to compression. The 379.2MPa endpoint is a historical lot result; continuous interpolated strength is not a procureable design allowable. 021 rev1 inherits 283MPa at E290GPa.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+      "artifact": "evidence/717e88be4a20c9a5-NFI.json",
+      "snapshot": "evidence/717e88be4a20c9a5-NFI.json",
+      "sha256": "717e88be4a20c9a5422ac9933ad9b1a69e9c724dcf0546111ffacff5332fd9ec",
+      "bytes": 54407,
+      "selector": "/inherited_owner_register/inherited_031/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

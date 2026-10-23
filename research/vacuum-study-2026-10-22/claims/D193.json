@@ -1,0 +1,78 @@
+{
+  "id": "D193",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D193",
+    "report": "rpt-1228-mainline044-independent-check-1020",
+    "file": "evidence/a72cfaaaf4fb91a1-NFI.json",
+    "snapshot": "evidence/a72cfaaaf4fb91a1-NFI.json",
+    "source_sha256": "a72cfaaaf4fb91a16a3d9e056d8d5bbff081c963271988dfa759368816d32051",
+    "source_json_pointer": "/inherited_records_verbatim/0/record/items/16",
+    "row_id": "NFI-044-ENVIRONMENT-AGING",
+    "fields": {
+      "id": "NFI-044-ENVIRONMENT-AGING",
+      "finding": "Room-temperature S-N screens do not supply ten-year humidity, salt, corrosion, UV/coating damage, creep, fretting or vacuum/environmental bond retention.",
+      "evidence_needed": "Relevant environmental conditioning and fatigue/dwell testing with documented acceleration and retention factors."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION",
+      "status": "Check complete; findings nonblocking; inherited qualification gaps remain open."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/inherited_records_verbatim/0/record/items",
+    "blocks_progress": false
+  },
+  "claim": "Room-temperature S-N screens do not supply ten-year humidity, salt, corrosion, UV/coating damage, creep, fretting or vacuum/environmental bond retention.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1153"
+    },
+    {
+      "report": "rpt-1228-mainline044-independent-check-1020",
+      "artifact": "evidence/a72cfaaaf4fb91a1-NFI.json",
+      "snapshot": "evidence/a72cfaaaf4fb91a1-NFI.json",
+      "sha256": "a72cfaaaf4fb91a16a3d9e056d8d5bbff081c963271988dfa759368816d32051",
+      "bytes": 46214,
+      "selector": "/inherited_records_verbatim/0/record/items/16"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline044-independent-check-1020",
+          "artifact": "evidence/a72cfaaaf4fb91a1-NFI.json",
+          "snapshot": "evidence/a72cfaaaf4fb91a1-NFI.json",
+          "sha256": "a72cfaaaf4fb91a16a3d9e056d8d5bbff081c963271988dfa759368816d32051",
+          "bytes": 46214,
+          "selector": "/inherited_records_verbatim/0/record/items/16"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1153"
+          }
+        ]
+      }
+    }
+  ]
+}

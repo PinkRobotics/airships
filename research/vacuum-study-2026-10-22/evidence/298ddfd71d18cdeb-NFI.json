@@ -1,0 +1,74 @@
+{
+  "unit": "vacuum-mainline056-fe-benchmark-crushable-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "certification": "none",
+  "issues": [
+    {
+      "id": "NFI056-TARGET-PROVENANCE",
+      "status": "open; corrected in this card",
+      "finding": "The dispatch calls 6.03 MPa measured. EUCASS2023-367 reports it as a nonlinear pressure-buckling simulation; its physical validation is axial compression.",
+      "consequence": "Agreement with 6.03 MPa is numerical benchmarking, not validation against a measured pressure-collapse shell.",
+      "source": "https://www.eucass.eu/doi/EUCASS2023-367.pdf"
+    },
+    {
+      "id": "NFI056-FOAM-ELLIPSE",
+      "status": "open",
+      "finding": "The paper does not supply the hydrostatic/uniaxial strength ratio, plastic Poisson ratio, tensile behavior or hardening variant. Associated alpha=3/sqrt(2) is a projection; alternatives are explicit sensitivities.",
+      "consequence": "The uniaxial curve does not uniquely calibrate the multiaxial foam law."
+    },
+    {
+      "id": "NFI056-DENSIFICATION",
+      "status": "open",
+      "finding": "The printed densification slope exceeds E=40 MPa. Converting all plotted total strains with epsilon_p=epsilon_total-sigma/E gives nonmonotone plastic strain. The conditional model retains the monotone portion and explicitly extrapolates its last hardening slope.",
+      "consequence": "Any path using extrapolation has material uncertainty beyond plot digitization. Full densification cannot be claimed fitted."
+    },
+    {
+      "id": "NFI056-STEEL-AXIS",
+      "status": "open",
+      "finding": "Figure 5 starts near 7500 MPa as labeled. The base uses the declared factor-of-ten interpretation (750 MPa) and J2 plasticity; the literal axis is a separate sensitivity.",
+      "consequence": "No unique sourced steel plasticity curve was recovered. The axis correction is not an established erratum. The plotted tensile curve is also transferred symmetrically to compression through the J2 assumption."
+    },
+    {
+      "id": "NFI056-GEOMETRY",
+      "status": "open",
+      "finding": "The radius arrow is ambiguous. The inherited outer-radius model and a 42.8 mm midsurface interpretation are separate cases. Baseline Gaussian offsets and reconstructed indentation-generated shapes are both evaluated; the original mesh and precise plastic-state import convention are unavailable.",
+      "consequence": "Remaining numerical differences cannot be assigned to the constitutive law alone."
+    },
+    {
+      "id": "NFI056-FOAM-SHEAR",
+      "status": "open",
+      "finding": "The foam shear screen uses the chosen DF ellipse's implied virgin pure-shear yield strength. A measured PVC80 shear-rupture allowable was not recovered.",
+      "consequence": "First shear yield, later hardening and irreversible shear failure must not be conflated."
+    },
+    {
+      "id": "NFI056-FINITE-STRAIN",
+      "status": "open",
+      "finding": "The new extension uses a documented corotational logarithmic-strain/Cauchy convention and an independently checked assembled tangent. It is not the original Abaqus model or an independently validated constitutive executable.",
+      "consequence": "Material-point and equilibrium checks do not establish equivalence to the paper's finite-strain integration."
+    },
+    {
+      "id": "NFI056-AXISYMMETRY",
+      "status": "open",
+      "finding": "Only axisymmetric equilibrium paths are followed; interfaces are perfectly bonded. A traced pressure peak does not prove stability against nonaxisymmetric or interface modes.",
+      "consequence": "The pressure peak is a conditional model result, not an installed-hull capacity."
+    },
+    {
+      "id": "NFI056-HONEYCOMB-TRANSFER",
+      "status": "open",
+      "finding": "CR III 5056 has distinct directional shear limits, compression peaks and crush plateau. Datasheet scalars do not identify postpeak curves, densification strains, unloading, mixed-mode interactions or shear rupture energy.",
+      "consequence": "A candidate directional law is stated in HONEYCOMB-TRANSFER.md, but no calibrated P2 gamma can be released."
+    },
+    {
+      "id": "NFI056-LEAD-MATERIALS",
+      "status": "open",
+      "finding": "The lead also needs thin-gauge beryllium compression/fracture data, admissible in-plane honeycomb behavior, bonds, imperfections, joints and a realizable ribbon layout.",
+      "consequence": "Matching a steel/PVC hemisphere does not remove the lead's existing strength violations or establish its gamma."
+    },
+    {
+      "id": "NFI056-EARLY-LIMIT",
+      "status": "open; distinguished in results",
+      "finding": "The Gaussian-imperfection paths have an earlier local maximum and descending branch before their largest traced pressure. Reconstructed-indentation paths differ.",
+      "consequence": "A largest-pressure comparison alone does not identify the first instability. Sampled turning points are retained; no dynamic jump or nonaxisymmetric stability is proved."
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline042-build-route-1020",
+  "rows": [
+    {
+      "id": "N042-01",
+      "issue": "The single-dimple map is not the record",
+      "detail": "By 015b's map, the dimples a dome-class build holds (1-5 mm) imply gamma 0.69-0.90, and a reflector-class build (0.15 mm) about 0.95. The only measured large sandwich domes, S-II's, were built with a 0.254 mm core-to-face fit and inflation-faired skins, and reached about 0.21-0.22 (035, CHECK-035). The map transfers to a sandwich at Vc 0.95 only through t_eq (015b NFI-015B-SANDWICH).",
+      "to_close": "A built sandwich shell with measured shape and measured knockdown: 038 T7, or a subscale shell built by this route.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N042-02",
+      "issue": "S-II's shape and specimens are unpublished in the sources opened",
+      "detail": "No as-built contour RMS or peak exists for the S-II or S-IVB bulkheads. The CR-1457 hemisphere specimen details (SDL 468) are unread.",
+      "to_close": "Retrieve SDL 468 and S-II acceptance records.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-03",
+      "issue": "Thin-sheet size is unknown",
+      "detail": "SR-200 at 0.795 mm is in the 0.020-0.058 in class sold 'at narrower widths and shorter lengths' than 24 x 72 in (DS-HPP-613). The 028b blank of 0.6096 x 1.8288 m is a projection; smaller sheets multiply blanks and seams (020: up to 6,764 per skin).",
+      "to_close": "Supplier specification (038 T1).",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-04",
+      "issue": "Doubly curved Be forming at blank size is unmeasured",
+      "detail": "Solar's 0.003 in conformance was on a cylindrical 1 x 2 ft panel (10 ft radius). Lockheed's 39 in skins warped from thermal gradients, and it advised forming square sections and splicing. No doubly curved Be blank near 0.6 x 1.8 m has a measured contour.",
+      "to_close": "Forming trial on one full blank (F1).",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-05",
+      "issue": "Forming residual stress is this card's estimate",
+      "detail": "Conforming a flat blank elastically to R 10 m takes about 4.6e-4 strain across a 0.61 m width (67 MPa) and about 1.2e-3 over the half-diagonal disc, which is at Be's elastic limit. CSO saw 150 um panel rebound from the same effect in 1.0 mm Al.",
+      "to_close": "Measure residual stress and springback on F1.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N042-06",
+      "issue": "The face-core cure is set by 037b",
+      "detail": "037b (filed 03:24) finds the continuous core bond survives once the faces carry the in-plane load. A bond stress-free above 54 C instead loads 028b's 30:1 scarf: at 250 F, 4.4 MPa takes usage from 0.972 to 1.052. Its lightest fix, adopted here, is AF 163-2U's 200 F cure plus a 30.34:1 scarf (+0.12 kg). Free core edges read 1.08-1.51 at 200 F. A room-temperature paste would cost 25.1 kg per 10 g/m2 on both bond lines (this card).",
+      "to_close": "037b's checker (ord-admiral-rr2-check037b-codex-7e53-1020), then a bonded witness at 200 F.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N042-07",
+      "issue": "Seams must cure in place at room temperature",
+      "detail": "A strip 100 K hotter than the cold shell carries about 354 MPa (this card), above 345 MPa, so heat-blanket cure is excluded on the shell. No room-temperature 30:1 scarf data in Be exist. EA 9394 and EA 9309.3NA give 29-33 MPa lap shear on aluminium (sub-worker rows).",
+      "to_close": "Room-temperature scarf witnesses in SR-200 (038 T2 extended).",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-08",
+      "issue": "No inspection method for scarf seams",
+      "detail": "No source inspects a 30:1 bonded scarf. E2580 UT assumes parallel surfaces, and shearography needs two shear directions on strip debonds.",
+      "to_close": "Develop and validate a seam NDE on witness strips.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-09",
+      "issue": "Bond NDE for Be on Al honeycomb is unproven",
+      "detail": "Tap-test a90/95 is 28-43 mm on 0.5 mm Al skins, about the 29-55 mm disbond that buckles the inner face at 300 MPa (this card). Flash thermography likely cannot see the far bond under conductive Be (inference). Weak and kissing bonds escape commercial NDE.",
+      "to_close": "PoD study on Be-faced panels with seeded disbonds.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-10",
+      "issue": "Holding shape through closure is a projection",
+      "detail": "There is no precedent for a 20 m thin-metal sandwich sphere. Large spheres held +/-6 mm (SNO 12 m) to under 2 cm (Moss R 18.3 m), which is global and cm-class. The S-II inflation technique smoothed welded skins to fit the core; using an inflated inner skin as the mandrel is this card's proposal.",
+      "to_close": "Subscale assembly trial of either method.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N042-11",
+      "issue": "Be dust limits where scarfs are cut",
+      "detail": "OSHA 1910.1024 sets a PEL of 0.2 ug/m3, so scarfing and trimming Be is regulated-area work (sub-worker row). JPL had all dust-producing Be operations done at the supplier. The route puts every Be cut before assembly.",
+      "to_close": "Supplier-side scarfing and handling plan.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-12",
+      "issue": "Be face waviness at the wrinkle wavelength is unmeasured",
+      "detail": "The precedents are whole-panel RMS (reflectors 5-60 um; vendor honeycomb 0.2 mm) or cell depths. Treated as wrinkle-band amplitude, they map to Q 0.19-0.75 (this card). Wrinkle periods are near 37-40 mm (CHECK-032).",
+      "to_close": "Profilometry of a bonded Be/CR-III panel in the 20-60 mm band (F1, 038 T3).",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N042-13",
+      "issue": "Jig support spacing is this card's estimate",
+      "detail": "Self-weight is 34.2 Pa. A sandwich span sags 0.11 mm at 2 m and 4.2 mm at 5 m (simply supported strip), so supports belong 2 m apart or closer.",
+      "to_close": "Jig design with measured sag.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N042-14",
+      "issue": "The first evacuation is the proof, and it is destructive",
+      "detail": "Sea-level evacuation loads the hull to 1.061 of its 500 m design pressure (038). A buckle at proof ends the hull, and no subscale proof precedes it.",
+      "to_close": "A subscale built shell evacuated first (T7).",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N042-15",
+      "issue": "Cost class is not scaled",
+      "detail": "Reflector-grade surfaces cost GBP 2-5M to refurbish or replace a 15 m dish (JCMT, 2011 talk) and about $5-6M per 10 m SMT (1987). Nothing here scales that to a 20 m sphere. Be stock is 020's $39.5-167.9M.",
+      "to_close": "Costed route after F1.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N042-16",
+      "issue": "The route rests on 037b",
+      "detail": "The route adopts 037b's 200 F panel cure and 30.34:1 scarf. If CHECK-037b moves the stress-free temperature or the scarf rule, step 4 and the seam overlap change.",
+      "to_close": "Re-read step 4 against CHECK-037b when it files.",
+      "tag": "QUESTIONABLE"
+    }
+  ]
+}

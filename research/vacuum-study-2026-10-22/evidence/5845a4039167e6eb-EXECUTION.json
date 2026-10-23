@@ -1,0 +1,119 @@
+{
+  "unit": "vacuum-mainline043-sic-frame-reliability-1020",
+  "execution_kind": "scientific postprocessing of frozen input data",
+  "new_finite_element_or_nonlinear_solve": false,
+  "task_time_limit": null,
+  "phase_time_limit": null,
+  "technical_watchdog": "ordinary simjob launcher default; no task or phase cap imposed",
+  "cores_per_job": 1,
+  "requested_memory_per_job": "1G",
+  "gpu_requested": false,
+  "jobs": [
+    {
+      "label": "reliability-01",
+      "returncode": 0,
+      "started_utc": "2026-10-20T10:31:53.220871+00:00",
+      "ended_utc": "2026-10-20T10:31:54.059667+00:00",
+      "elapsed_seconds": 0.8388006626628339,
+      "admitted": true,
+      "refused": false,
+      "released": true,
+      "code_snapshot": {
+        "path": "unpublished-local-ref:2ee51e2b11420751",
+        "sha256": "cf4f6dc31c4ca44c516e79cde05d5a4c20546ac413a46f5e7e4de0105e7b9a5e",
+        "bytes": 20728
+      },
+      "start_receipt": {
+        "path": "unpublished-local-ref:031d8ad8ce0e3c17",
+        "sha256": "2cc9cc5e30117f72c0d5ea2cdbf87c25fe254eeecdf7a8793a12654cf9da022b",
+        "bytes": 579
+      },
+      "end_receipt": {
+        "path": "unpublished-local-ref:7ee85b90c49a73a3",
+        "sha256": "d6a79dae987c1cafef9935fe80332aede3f0a750fafedc420329232ae6af4171",
+        "bytes": 256
+      }
+    },
+    {
+      "label": "reliability-02",
+      "returncode": 0,
+      "started_utc": "2026-10-20T10:33:36.507168+00:00",
+      "ended_utc": "2026-10-20T10:33:37.341436+00:00",
+      "elapsed_seconds": 0.8342637959867716,
+      "admitted": true,
+      "refused": false,
+      "released": true,
+      "code_snapshot": {
+        "path": "unpublished-local-ref:9aa5a3ab56e4c383",
+        "sha256": "147bfd8de016b9f1e23d9816cbc20f053a155590975a07dbad5d6f7dfc10f690",
+        "bytes": 21445
+      },
+      "start_receipt": {
+        "path": "unpublished-local-ref:0c9f30e35d88b779",
+        "sha256": "690294321fc349460d33e6dd25cb64c05cc8f430aab51dded7ef7fded340f09b",
+        "bytes": 579
+      },
+      "end_receipt": {
+        "path": "unpublished-local-ref:f06021d81f7b9442",
+        "sha256": "b711923a7ca417124e251d237437680d81cf17d6196ecd202c10f905e90f2325",
+        "bytes": 256
+      }
+    },
+    {
+      "label": "reliability-final",
+      "returncode": 0,
+      "started_utc": "2026-10-20T10:37:30.312802+00:00",
+      "ended_utc": "2026-10-20T10:37:31.263998+00:00",
+      "elapsed_seconds": 0.9511886755935848,
+      "admitted": true,
+      "refused": false,
+      "released": true,
+      "code_snapshot": {
+        "path": "unpublished-local-ref:78d2bbd0734fb901",
+        "sha256": "218a5516ddffa4b92dea5cbe8bce1089975764a461e99a97277ec9f9f85a9468",
+        "bytes": 23109
+      },
+      "start_receipt": {
+        "path": "unpublished-local-ref:b167818fa0dc31e0",
+        "sha256": "a3c674dd62db65cc0185903382e6576605b6d32ed3aee93cf5ec595ba966c9f9",
+        "bytes": 671
+      },
+      "end_receipt": {
+        "path": "unpublished-local-ref:12b4c694f54e8302",
+        "sha256": "1a1d2044c51a60f7793b2501d12653daacaeb7d551d90c906c4946ef915ff526",
+        "bytes": 259
+      }
+    },
+    {
+      "label": "reliability-verified",
+      "returncode": 0,
+      "started_utc": "2026-10-20T10:38:59.114083+00:00",
+      "ended_utc": "2026-10-20T10:39:01.044430+00:00",
+      "elapsed_seconds": 1.9303438030183315,
+      "admitted": true,
+      "refused": false,
+      "released": true,
+      "code_snapshot": {
+        "path": "evidence/6ad0c100fc27a9ca-reliability.py",
+        "sha256": "6ad0c100fc27a9ca3795bd9f97a48eb7aa369f9d8dc32cd8167c80e8e760d358",
+        "bytes": 24220
+      },
+      "start_receipt": {
+        "path": "unpublished-local-ref:6831d7750afbf142",
+        "sha256": "14279901e3f63dda615120657aa383a07cb3a4550e7e7190c3594df2372c167e",
+        "bytes": 671
+      },
+      "end_receipt": {
+        "path": "unpublished-local-ref:6b003a94c346d32b",
+        "sha256": "e432b8df76d576d25c7df02e1e82d77b34ab1b0796cf6096adf08a85093015b0",
+        "bytes": 262
+      }
+    }
+  ],
+  "all_four_admitted_and_released": true,
+  "total_job_elapsed_seconds": 4.554596937261522,
+  "outstanding_jobs": [],
+  "scientific_checks_passed": 210,
+  "development_note": "01 used an incorrect four-point RBSC reference; 02 corrected the documented three-point reference. The third run added member probabilities and bow sensitivities; the fourth refined and independently checked quadrature. Only top-level scientific results are current.",
+  "csv_packaging_annotation": "Constant QUESTIONABLE/PROJECTION columns added after final run; numerical values unchanged."
+}

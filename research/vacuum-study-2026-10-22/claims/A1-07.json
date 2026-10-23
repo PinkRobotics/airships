@@ -1,0 +1,34 @@
+{
+  "id": "A1-07",
+  "kind": "review_claim",
+  "claim": "SR-200 E=290 GPa is sourced, with sheet/form/allowable limits.",
+  "original": {
+    "id": "A1-07",
+    "card": "062",
+    "claim": "SR-200 E=290 GPa is sourced, with sheet/form/allowable limits.",
+    "why_load_bearing": "Sets the material stiffness for every shape target.",
+    "disposition": "reproduces",
+    "reviewer_finding": "Materion SR-200 p.1 lists representative scalar E=290 GPa. Its mechanical minimums are tensile; the source does not identify a finished, formed, biaxial compressive allowable.",
+    "evidence": [
+      "sources/primary--sr200.pdf"
+    ],
+    "tag": "QUESTIONABLE / PROJECTION",
+    "physical_qualification": "open; no new hull/material qualification"
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "snapshot": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "sha256": "0a58772dc43eef58cdd741ae5a44b971bafea7dbfcebefc55d5b366e716ca00e",
+      "bytes": 10860,
+      "selector": "/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

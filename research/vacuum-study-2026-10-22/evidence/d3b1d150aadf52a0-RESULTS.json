@@ -1,0 +1,392 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-016",
+  "unit": "ref-81587374594cae9c1e2e-nfi-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-19T23:37:00-07:00",
+  "base_point": {
+    "report": "rpt-ref-d5b4aaa267b71d82fe25",
+    "R_m": 10.0,
+    "tf_m": 0.00027215364631557974,
+    "core_m": 0.04624190488644608,
+    "A_m2": 1256.6370614359173,
+    "V_m3": 4188.790204786391,
+    "p_ext_Pa": 95460.83791390515,
+    "T_K": 284.9,
+    "rho_air": 1.1672683307461802,
+    "lift_kg": 4889.442150186961,
+    "margin_kg": 244.47210750934846,
+    "least_SF_main": 0.23515931324953654,
+    "modes_main_kd_0_20": {
+      "global_buckling": 0.23515931324953654,
+      "face_compression": 4.4474749806324665,
+      "core_crush": 10.475499920730703,
+      "core_shear_crimping": 1.1763017784546326,
+      "face_wrinkling": 0.23516798404427022
+    },
+    "membrane_stress_MPa": 876.9020662248646,
+    "core_stress_at_ext_MPa": 0.047730418956952576,
+    "H35_compressive_allow_MPa_backed_out": 0.5
+  },
+  "item1_vacuum": {
+    "lift_1pct_kg_per_day": 48.89442150186961,
+    "p_int_at_1pct_Pa": 954.6083791390515,
+    "Q_allow_Pa_m3_s": 46.28072023084111,
+    "m_rate_allow_kg_s": 0.000565907656271639,
+    "A_choked_equivalent_mm2": 2.475854097509246,
+    "A_molecular_equivalent_mm2": 4.249519248819863,
+    "choked_flux_kg_s_m2": 228.57068065559773,
+    "permeation": [
+      {
+        "face": "metal_foil_6061",
+        "note": "N2/O2 solution-diffusion through Al at 285-400 K is nil for barrier purposes (textbook; Ashby)",
+        "kg_per_day": [
+          0.0,
+          0.0
+        ],
+        "pct_of_1pct_budget": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "face": "monolithic_SiC",
+        "note": "sintered >98% dense alpha SiC has no connected porosity; used as a gas barrier (datasheet class)",
+        "kg_per_day": [
+          0.0,
+          0.0
+        ],
+        "pct_of_1pct_budget": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "face": "CFRP_quasi_isotropic_epoxy",
+        "note": "QUESTIONABLE NASA composite cryotank He permeance band /50 for air",
+        "kg_per_day": [
+          2.6441820911151575e-06,
+          2.644182091115158e-05
+        ],
+        "pct_of_1pct_budget": [
+          5.407942276224804e-06,
+          5.4079422762248056e-05
+        ]
+      }
+    ],
+    "outgassing_Q_Pa_m3_s": [
+      0.0001256637061435917,
+      0.012566370614359173
+    ],
+    "outgassing_pct_of_budget": [
+      0.00027152495794533984,
+      0.027152495794533986
+    ],
+    "moisture_kg_band": [
+      11.04076537962353,
+      66.24459227774116
+    ],
+    "moisture_pressure_if_released_Pa": [
+      346.55704061936706,
+      2079.3422437162017
+    ],
+    "deploy_pumpdown_kWh": 506.35359344478576,
+    "pump": {
+      "ceiling_Pa": 1000.0,
+      "vdot_m3_s": 0.046280720230841114,
+      "W_ideal": 210.98066393532739,
+      "W_real_band_W": [
+        843.9226557413095,
+        527.4516598383184
+      ],
+      "mass_band_kg": [
+        150.0,
+        400.0
+      ],
+      "pct_of_margin": [
+        61.356692805646176,
+        163.61784748172315
+      ]
+    }
+  },
+  "item2_seams": [
+    {
+      "scenario": "w4_PROJECTION",
+      "panel_w_m": 4.0,
+      "bound": "optimistic",
+      "seam_length_m": 628.3185307179587,
+      "doubler_kg": 31.80584732795245,
+      "adhesive_kg": 9.42477796076938,
+      "core_splice_kg": 47.940165464154795,
+      "total_kg": 89.17079075287663,
+      "pct_of_5pct_allowance": 41.20129699924706,
+      "margin_after_kg": 371.7284616458819,
+      "note": "4 m panels: no SiC face panel this size exists today (PROJECTION)"
+    },
+    {
+      "scenario": "w4_PROJECTION",
+      "panel_w_m": 4.0,
+      "bound": "conservative",
+      "seam_length_m": 628.3185307179587,
+      "doubler_kg": 63.6116946559049,
+      "adhesive_kg": 28.274333882308138,
+      "core_splice_kg": 95.88033092830959,
+      "total_kg": 187.76635946652263,
+      "pct_of_5pct_allowance": 86.75730558773829,
+      "margin_after_kg": 273.1328929322359,
+      "note": "4 m panels: no SiC face panel this size exists today (PROJECTION)"
+    },
+    {
+      "scenario": "w2_PROJECTION",
+      "panel_w_m": 2.0,
+      "bound": "optimistic",
+      "seam_length_m": 1256.6370614359173,
+      "doubler_kg": 63.6116946559049,
+      "adhesive_kg": 18.84955592153876,
+      "core_splice_kg": 95.88033092830959,
+      "total_kg": 178.34158150575325,
+      "pct_of_5pct_allowance": 82.40259399849413,
+      "margin_after_kg": 282.5576708930053,
+      "note": "2 m panels: standard for Al sheet today, PROJECTION for SiC"
+    },
+    {
+      "scenario": "w2_PROJECTION",
+      "panel_w_m": 2.0,
+      "bound": "conservative",
+      "seam_length_m": 1256.6370614359173,
+      "doubler_kg": 127.2233893118098,
+      "adhesive_kg": 56.548667764616276,
+      "core_splice_kg": 191.76066185661918,
+      "total_kg": 375.53271893304526,
+      "pct_of_5pct_allowance": 173.51461117547657,
+      "margin_after_kg": 85.3665334657133,
+      "note": "2 m panels: standard for Al sheet today, PROJECTION for SiC"
+    },
+    {
+      "scenario": "w0p5_today",
+      "panel_w_m": 0.5,
+      "bound": "optimistic",
+      "seam_length_m": 5026.548245743669,
+      "doubler_kg": 254.4467786236196,
+      "adhesive_kg": 75.39822368615503,
+      "core_splice_kg": 383.52132371323836,
+      "total_kg": 713.366326023013,
+      "pct_of_5pct_allowance": 329.6103759939765,
+      "margin_after_kg": -252.46707362425445,
+      "note": "0.5 m: Saint-Gobain Hexoloy SA plate size today, QUESTIONABLE"
+    },
+    {
+      "scenario": "w0p5_today",
+      "panel_w_m": 0.5,
+      "bound": "conservative",
+      "seam_length_m": 5026.548245743669,
+      "doubler_kg": 508.8935572472392,
+      "adhesive_kg": 226.1946710584651,
+      "core_splice_kg": 767.0426474264767,
+      "total_kg": 1502.130875732181,
+      "pct_of_5pct_allowance": 694.0584447019063,
+      "margin_after_kg": -1041.2316233334225,
+      "note": "0.5 m: Saint-Gobain Hexoloy SA plate size today, QUESTIONABLE"
+    },
+    {
+      "scenario": "w0p25_conservative",
+      "panel_w_m": 0.25,
+      "bound": "optimistic",
+      "seam_length_m": 10053.096491487338,
+      "doubler_kg": 508.8935572472392,
+      "adhesive_kg": 150.79644737231007,
+      "core_splice_kg": 767.0426474264767,
+      "total_kg": 1426.732652046026,
+      "pct_of_5pct_allowance": 659.220751987953,
+      "margin_after_kg": -965.8333996472675,
+      "note": "0.25 m tiles: conservative producible today, QUESTIONABLE"
+    },
+    {
+      "scenario": "w0p25_conservative",
+      "panel_w_m": 0.25,
+      "bound": "conservative",
+      "seam_length_m": 10053.096491487338,
+      "doubler_kg": 1017.7871144944784,
+      "adhesive_kg": 452.3893421169302,
+      "core_splice_kg": 1534.0852948529534,
+      "total_kg": 3004.261751464362,
+      "pct_of_5pct_allowance": 1388.1168894038126,
+      "margin_after_kg": -2543.3624990656035,
+      "note": "0.25 m tiles: conservative producible today, QUESTIONABLE"
+    }
+  ],
+  "item3_thermal": {
+    "environment": [
+      {
+        "case": "coated wind 2 m/s",
+        "T_face_day_K": 288.6759548486831,
+        "T_face_night_K": 276.4535509954411,
+        "dT_day_K": 3.7759548486831136,
+        "dT_night_K": -8.446449004558872
+      },
+      {
+        "case": "coated wind 10 m/s",
+        "T_face_day_K": 287.44045243101675,
+        "T_face_night_K": 279.35868584694333,
+        "dT_day_K": 2.5404524310167744,
+        "dT_night_K": -5.541314153056646
+      },
+      {
+        "case": "bare_SiC wind 2 m/s",
+        "T_face_day_K": 306.1324114728675,
+        "T_face_night_K": 276.60800778475436,
+        "dT_day_K": 21.23241147286751,
+        "dT_night_K": -8.291992215245614
+      },
+      {
+        "case": "bare_SiC wind 10 m/s",
+        "T_face_day_K": 299.493225957645,
+        "T_face_night_K": 279.5309646123394,
+        "dT_day_K": 14.593225957645018,
+        "dT_night_K": -5.369035387660574
+      }
+    ],
+    "T_rad_only_bound_K": 313.52556114988306,
+    "core_tau_s": 356.761006902434,
+    "cte_mismatch_shear_lag": {
+      "lambda_per_m": 1.5250137447380212,
+      "rows": [
+        {
+          "dT_face_core_K": 10.0,
+          "differential_strain": 0.000555,
+          "tau_max_Pa": 94441.90857600675,
+          "SF_vs_0p40MPa": 4.235407839921833,
+          "SF_vs_0p55MPa": 5.823685779892521
+        },
+        {
+          "dT_face_core_K": 30.0,
+          "differential_strain": 0.001665,
+          "tau_max_Pa": 283325.72572802025,
+          "SF_vs_0p40MPa": 1.4118026133072776,
+          "SF_vs_0p55MPa": 1.9412285932975069
+        },
+        {
+          "dT_face_core_K": 60.0,
+          "differential_strain": 0.00333,
+          "tau_max_Pa": 566651.4514560405,
+          "SF_vs_0p40MPa": 0.7059013066536388,
+          "SF_vs_0p55MPa": 0.9706142966487534
+        }
+      ]
+    },
+    "thermal_imperfection": [
+      {
+        "dT_vertical_K": 5.0,
+        "w_thermal_m": 0.00011250000000000001
+      },
+      {
+        "dT_vertical_K": 10.0,
+        "w_thermal_m": 0.00022500000000000002
+      },
+      {
+        "dT_vertical_K": 20.0,
+        "w_thermal_m": 0.00045000000000000004
+      }
+    ],
+    "core_service_limit_K": [
+      343.0,
+      353.0
+    ]
+  },
+  "item4_loads": {
+    "weather": [
+      {
+        "case": "diurnal_1hPa",
+        "p_case_Pa": 95560.83791390515,
+        "pct_of_p_ext": 0.10475499920730703,
+        "crush_SF_at_case": 0.23491322989741964,
+        "lift_margin_kg_at_case": 244.72820426363197
+      },
+      {
+        "case": "synoptic_3pct",
+        "p_case_Pa": 98324.6630513223,
+        "pct_of_p_ext": 3.0,
+        "crush_SF_at_case": 0.2283100128636277,
+        "lift_margin_kg_at_case": 251.8062707346289
+      },
+      {
+        "case": "extreme_storm_low_10pct",
+        "p_case_Pa": 85914.75412251464,
+        "pct_of_p_ext": -10.000000000000002,
+        "crush_SF_at_case": 0.26128812583281835,
+        "lift_margin_kg_at_case": 220.0248967584136
+      }
+    ],
+    "gust": {
+      "v_m_s": 20.0,
+      "q_Pa": 233.45366614923603,
+      "q_pct_of_p_ext": 0.2445543861240614,
+      "F_drag_N": 34470.56715881807,
+      "F_mooring_N": 48258.7940223453,
+      "patch_p_kPa": 682.5854882934271,
+      "SF_patch": 0.7325089803038151,
+      "spreader_m2_needed": 0.14477638206703589,
+      "fittings_est_kg": 48.0,
+      "added_air_mass_kg": 2444.7210750934805,
+      "cradle_target_kPa": 250.0
+    }
+  },
+  "item5_climate": {
+    "law": "rho = p/(R_air*T); dL/L = dp/p - dT/T at fixed V; MAINLINE-012 unfiled, derived",
+    "rows": [
+      {
+        "case": "hot_summer_afternoon",
+        "dT_K": 25.1,
+        "dp_Pa": 0.0,
+        "dL_over_L": -0.08810108810108812,
+        "lift_kg": 4458.676976548166,
+        "margin_kg": -186.29306612944674
+      },
+      {
+        "case": "cold_winter_dawn",
+        "dT_K": -11.9,
+        "dp_Pa": 0.0,
+        "dL_over_L": 0.041769041769041775,
+        "lift_kg": 5093.669463585434,
+        "margin_kg": 448.69942090782104
+      },
+      {
+        "case": "synoptic_high_2pct",
+        "dT_K": 0.0,
+        "dp_Pa": 1909.216758278103,
+        "dL_over_L": 0.02,
+        "lift_kg": 4987.2309931907,
+        "margin_kg": 342.26095051308766
+      },
+      {
+        "case": "synoptic_low_2pct",
+        "dT_K": 0.0,
+        "dp_Pa": -1909.216758278103,
+        "dL_over_L": -0.02,
+        "lift_kg": 4791.653307183222,
+        "margin_kg": 146.68326450560926
+      }
+    ],
+    "surface_water": [
+      {
+        "film_mm": 0.1,
+        "mass_kg": 125.66370614359174,
+        "pct_of_margin": 51.40206276447567
+      },
+      {
+        "film_mm": 1.0,
+        "mass_kg": 1256.6370614359173,
+        "pct_of_margin": 514.0206276447567
+      }
+    ]
+  },
+  "checks": {
+    "membrane_stress_vs_009_face_SF": "PASS",
+    "core_allow_backout_vs_crush": "PASS",
+    "volume_and_area": "PASS",
+    "separation": "PASS"
+  },
+  "ended_at": "2026-10-19T23:40:47.083301-07:00"
+}

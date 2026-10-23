@@ -1,0 +1,82 @@
+{
+  "id": "N234",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N234",
+    "report": "rpt-ref-2519e14e5d71b9eb18f3",
+    "card": "MAINLINE-028",
+    "file": "evidence/4a6f636dbfa17be3-NFI.json",
+    "row_id": "NFI-028-13",
+    "fields": {
+      "id": "NFI-028-13",
+      "status": "OPEN",
+      "tag": "PROJECTION",
+      "technology_state": "PROJECTION",
+      "hull_adoption_state": "PROJECTION",
+      "assumption": "Primer and surface preparation mass",
+      "today_value": "Zero is a bookkeeping lower limit, not proof of a primer-free process; 5 g/m2 per line is sensitivity",
+      "required_or_budget_target": {
+        "remaining_g_m2_per_line_at_nominal_stock": 0.8702381595960997,
+        "5gsm_added_kg": 12.566370614359172
+      },
+      "needed_evidence": "Qualify Be-compatible preparation/primer and weigh it including core-side coverage.",
+      "scenario": "af015_scarf_primer5",
+      "scenario_joining_kg": 226.80636845652077,
+      "factor_to_216_427kg_allowance": 1.047957124659267,
+      "mass_reduction_factor_to_fit": 1.047957124659267
+    }
+  },
+  "claim": "{\"id\": \"NFI-028-13\", \"status\": \"OPEN\", \"tag\": \"PROJECTION\", \"technology_state\": \"PROJECTION\", \"hull_adoption_state\": \"PROJECTION\", \"assumption\": \"Primer and surface preparation mass\", \"today_value\": \"Zero is a bookkeeping lower limit, not proof of a primer-free process; 5 g/m2 per line is sensitivity\", \"required_or_budget_target\": {\"remaining_g_m2_per_line_at_nominal_stock\": 0.8702381595960997, \"5gsm_added_kg\": 12.566370614359172}, \"needed_evidence\": \"Qualify Be-compatible preparation/primer and weigh it including core-side coverage.\", \"scenario\": \"af015_scarf_primer5\", \"scenario_joining_kg\": 226.80636845652077, \"factor_to_216_427kg_allowance\": 1.047957124659267, \"mass_reduction_factor_to_fit\": 1.047957124659267}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/233"
+    },
+    {
+      "report": "rpt-ref-2519e14e5d71b9eb18f3",
+      "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+      "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+      "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+      "bytes": 17155,
+      "selector": "source row ID: NFI-028-13"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-2519e14e5d71b9eb18f3",
+          "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+          "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+          "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+          "bytes": 17155,
+          "selector": "source row ID: NFI-028-13"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/233"
+          }
+        ]
+      }
+    }
+  ]
+}

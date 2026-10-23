@@ -1,0 +1,49 @@
+{
+  "id": "rpt-ref-a8b77f7de2ffc56af7b4",
+  "unit": "vacuum-mainline025-check-1020",
+  "at": "2026-10-20T01:38:34-07:00",
+  "body": "CHECK MAINLINE-025. QUESTIONABLE. Not a certification. The owner's card is not rewritten. The arithmetic is independent of the owner's scripts.\n\nNo mismatch at the printed precision. 166 published rows were rescored on the published section. The closure uses the printed film mass, 97.515 kg.\n\nThe null compression allowable stands. Hexoloy SA Form B-1045, opened this check, is headed Typical Physical Properties. It prints compressive strength 3900 MPa, four-point flexure 380 MPa, Weibull modulus 10, elastic modulus 430 GPa and Poisson 0.14. Those are typical catalogue values. The allowable stays unknown.\n\nThe re-optimised NASA SiC multipliers match. Inherited demand: 0.260499014022 at 380 MPa, 0.679537708137 at 1 GPa, and 1.07574839355 at 3.9 GPa. Equilateral demand: 0.451197527607, 1.1686594299 and 1.20570818811. An own search lands slightly below each refined peak.\n\nThe same bays at the sheet modulus 430 GPa leave the two 3.9 GPa factors unchanged, because film governs, and move the 380 MPa factors by less than 0.00001. That objection is NFI-CHECK-025-SHEET-MODULUS. Sag lift filed on 024 stays outside this card: NFI-CHECK-025-SAG-UNCHARGED. This check names no next job.",
+  "artifacts": [
+    {
+      "path": "evidence/9cffbe0caf0e3e3f-check025.py",
+      "sha256": "9cffbe0caf0e3e3f95cd10140b13973966a8a12a811e2c8160dfed6263153926",
+      "bytes": 20673
+    },
+    {
+      "path": "evidence/59f953423cfb54f3-CHECK-CARD.md",
+      "sha256": "59f953423cfb54f38e027cd34237dca955247f013d2ad65600678fec7e1b9d13",
+      "bytes": 1715
+    },
+    {
+      "path": "evidence/2d5f73d440c64820-CHECK-RESULTS.json",
+      "sha256": "2d5f73d440c64820aa641eceb6ec6e9cc9d93af0be0ef56d0f05a85f2ad9eec1",
+      "bytes": 3112
+    },
+    {
+      "path": "evidence/50b53f5a5398101c-CHECK-NFI.json",
+      "sha256": "50b53f5a5398101c0546d7b97d28abe44a50c1a2a2f004ca9200fe3797bab1c2",
+      "bytes": 1179
+    },
+    {
+      "path": "evidence/4a8364b38bcc96c3-CHECK-INPUTS.json",
+      "sha256": "4a8364b38bcc96c346276b54fa714f111d7ef11028ced776036f26d00b42876c",
+      "bytes": 2100
+    },
+    {
+      "path": "unpublished-local-ref:c86444c6c6114744",
+      "sha256": "07d24a91676b3ee5e06087220174e511b39e4aaea5a0a66986fbdf123b8a6add",
+      "bytes": 195833
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-check025-grok-af6f-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check025-grok-af6f-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

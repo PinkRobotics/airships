@@ -1,0 +1,39 @@
+{
+  "id": "E-ddee9edb1e917020f584",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-ddee9edb1e917020f584",
+    "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+    "file": "evidence/717e88be4a20c9a5-NFI.json",
+    "snapshot": "evidence/717e88be4a20c9a5-NFI.json",
+    "source_sha256": "717e88be4a20c9a5422ac9933ad9b1a69e9c724dcf0546111ffacff5332fd9ec",
+    "source_json_pointer": "/inherited_owner_register/findings/10",
+    "row_id": "NFI50-11",
+    "fields": {
+      "id": "NFI50-11",
+      "title": "Near-boundary numerical interpretation",
+      "finding": "Tables are projections with interpolation and scanned geometry bounds. Reported 0.1 K limits should not be interpreted as operational tolerances or probabilistic accuracy. Numerical checks do not validate the inherited material models.",
+      "missing_evidence": "Independent card check and higher-fidelity model validation.",
+      "tag": "PROJECTION",
+      "blocks_filing": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Tables are projections with interpolation and scanned geometry bounds. Reported 0.1 K limits should not be interpreted as operational tolerances or probabilistic accuracy. Numerical checks do not validate the inherited material models. | Near-boundary numerical interpretation",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+      "artifact": "evidence/717e88be4a20c9a5-NFI.json",
+      "snapshot": "evidence/717e88be4a20c9a5-NFI.json",
+      "sha256": "717e88be4a20c9a5422ac9933ad9b1a69e9c724dcf0546111ffacff5332fd9ec",
+      "bytes": 54407,
+      "selector": "/inherited_owner_register/findings/10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

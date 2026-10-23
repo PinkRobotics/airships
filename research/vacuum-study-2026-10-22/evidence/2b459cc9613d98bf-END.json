@@ -1,0 +1,85 @@
+{
+  "started_utc": "2026-10-20T12:37:55.230646+00:00",
+  "ended_utc": "2026-10-20T12:37:56.968970+00:00",
+  "elapsed_seconds": 1.7383233709260821,
+  "returncode": 0,
+  "command": [
+    "ref-81e2f24e4e80426e80f0",
+    "unpublished-local-ref:6b66f99ebd630954",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "3G",
+    "--timeout",
+    "900",
+    "--",
+    "ref-d9af09a16f3a81bf2ded",
+    "-i",
+    "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+    "LANG=C.UTF-8",
+    "TMPDIR=unpublished-local-ref:b948547c02a33692",
+    "MPLCONFIGDIR=unpublished-local-ref:5681745ba6d16cd6",
+    "XDG_CACHE_HOME=unpublished-local-ref:25395324989f7820",
+    "CUDA_VISIBLE_DEVICES=",
+    "OPENBLAS_NUM_THREADS=1",
+    "OMP_NUM_THREADS=1",
+    "MKL_NUM_THREADS=1",
+    "NUMEXPR_NUM_THREADS=1",
+    "BLIS_NUM_THREADS=1",
+    "VECLIB_MAXIMUM_THREADS=1",
+    "ref-81e2f24e4e80426e80f0",
+    "-I",
+    "-B",
+    "evidence/2b0b005e791d0919-search_smoke.py"
+  ],
+  "source_pins": [
+    {
+      "path": "evidence/6236fa465426a182-account_model.py",
+      "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+      "bytes": 11857
+    },
+    {
+      "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+      "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+      "bytes": 1090
+    },
+    {
+      "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+      "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+      "bytes": 8604
+    },
+    {
+      "path": "evidence/947a14bc0933a32b-retry_job.py",
+      "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+      "bytes": 1304
+    },
+    {
+      "path": "evidence/e4a915aa0fc96350-run_job.py",
+      "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+      "bytes": 2535
+    },
+    {
+      "path": "evidence/2b0b005e791d0919-search_smoke.py",
+      "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+      "bytes": 1366
+    },
+    {
+      "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+      "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+      "bytes": 7208
+    },
+    {
+      "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+      "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+      "bytes": 7094
+    },
+    {
+      "path": "evidence/062d2896ca485aa8-verify_account.py",
+      "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+      "bytes": 3816
+    }
+  ],
+  "time_budget": null,
+  "timeout_is_technical_watchdog": true
+}

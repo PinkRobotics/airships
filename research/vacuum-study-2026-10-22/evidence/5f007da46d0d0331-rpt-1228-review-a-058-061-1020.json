@@ -1,0 +1,98 @@
+{
+  "id": "rpt-1228-review-a-058-061-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-review-a-058-061-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-review-a2-dispatch-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-review-a2-dispatch-1020",
+  "completion": "done",
+  "body": "REVIEW-A2 complete: 17 load-bearing claims; 13 reproduce, two differ, two need further evidence. Two 058 hardware-accounting fixes are recorded, unreviewed. Its original sampled weather counts reproduce exactly at hull-only mass. Adding its declared valve/bladder changes P2 R10 MLCCAg 63.979% to 61.253%, R10 AlAOC 83.647% to 79.854%, R12 AlAOC 95.785% to 94.156%, and R20 AlAOC 99.269% to 98.960%. P3 standard-pressure R10 falls from 77.747% to at most 76.482% with only its 5 kg valve; matched bladder mass remains missing. Do not infer new minimum radii from these spot checks. No numerical correction was demonstrated in the selected 061 arithmetic: density factors, fixed-family P3 bound, NASA TRL7 column and Be comparison reproduce. The all-density witness closes mass; best-product ranking remains unresolved. Original dispatched 061 PROCESS-v2 bytes verified; later replacement is not an owner fault. No owner code read/run, no fresh FE, no active jobs. QUESTIONABLE/PROJECTION limits remain. Files pin all findings and evidence; this review round is complete.",
+  "priority": 4,
+  "at": "2026-10-20T17:22:52.047865+00:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-a2-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/07a6db6a8bc3485c-CARD.md",
+      "sha256": "07a6db6a8bc3485c34363c56214e257e94a1fd3cc292f7c7b942ea3867bfcd50",
+      "bytes": 1776
+    },
+    {
+      "path": "evidence/887001b91192287a-REVIEW.md",
+      "sha256": "887001b91192287acd5381748ede9f6e11b9cce65790da90393b4d681c5bc559",
+      "bytes": 5697
+    },
+    {
+      "path": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059
+    },
+    {
+      "path": "evidence/93f07ada6e604aa5-FIXES.json",
+      "sha256": "93f07ada6e604aa5a3deef1dc48ebc49f4c37c2c4c695f4f1764608d5985a1f0",
+      "bytes": 5191
+    },
+    {
+      "path": "evidence/34074798765144b3-NFI.json",
+      "sha256": "34074798765144b320a12a25be6c91d9098aaf6b66647738d84ffbfca9a6ba2e",
+      "bytes": 3942
+    },
+    {
+      "path": "evidence/c2bb3810552676ee-INPUTS.json",
+      "sha256": "c2bb3810552676ee9e5da7eda6477d9e3d7bd2f880b2137c912a9c6c985fe1ac",
+      "bytes": 750
+    },
+    {
+      "path": "evidence/fa8f5cc0c7402e31-METHOD.md",
+      "sha256": "fa8f5cc0c7402e31bbf0df088e0be820d47a2321dabbc3257f53f0e361c77bbb",
+      "bytes": 7002
+    },
+    {
+      "path": "evidence/25f665cfdcfbfe4e-REPRODUCTION.md",
+      "sha256": "25f665cfdcfbfe4e28dbb1c8968dd68ad58eafe95b945f8c5ab6227b95ee1aa7",
+      "bytes": 1503
+    },
+    {
+      "path": "evidence/2357d084c0f3aae7-SOURCE-AUDIT.json",
+      "sha256": "2357d084c0f3aae70fdca15687c3ea6ae68a20817f8aca10bc10f5b86512544c",
+      "bytes": 2190
+    },
+    {
+      "path": "evidence/e500f69835c36879-EXECUTION.json",
+      "sha256": "e500f69835c36879f6c9ebb795684b8974d23c48ac363898662fdbfd6e69c6c5",
+      "bytes": 1420
+    },
+    {
+      "path": "evidence/315155566ac57ea1-VERIFICATION.json",
+      "sha256": "315155566ac57ea1d7e0549ee7d962f1ff1c2431873cff1ef2655c4156da2a5c",
+      "bytes": 708
+    },
+    {
+      "path": "evidence/320138b78c201751-MANIFEST.json",
+      "sha256": "320138b78c201751a12e3d65124f1754a5569b0ca81bca19aaa2211cb490d2ac",
+      "bytes": 29935
+    }
+  ],
+  "ingested": "2026-10-20T10:22:53-07:00"
+}

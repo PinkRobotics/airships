@@ -1,0 +1,135 @@
+{
+  "id": "DELTA-069-GRAPHITE-071",
+  "expected_version": 8,
+  "at": "2026-10-20T19:07:56-07:00",
+  "meaning": "Reconcile 069's filed graphite-film variant with 071. On CR-III the variant is thermally infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is not rewritten.",
+  "append_findings": [
+    {
+      "id": "PD069-GRAPHITE-071",
+      "kind": "reconciliation",
+      "claim": "069's filed graphite-film variant described 070's gamma-held-0.20 cases. None float. R 30 optimistic still needs density factor 1.659, to 1357 kg/m3. 071 carries the thermal result this variant was missing. Above Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1, so 070's gamma = 1 branch matches the handbook, with the named limit that the rule is not this film on CR-III and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern that step. On the aluminum core every gamma-step case is thermally infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, and the core thickness is the search floor. On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is unchanged. This delta reconciles it.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. 071 was not re-run.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/5ffdd692853839ce-CARD.md",
+          "snapshot": "evidence/5ffdd692853839ce-CARD.md",
+          "sha256": "5ffdd692853839ce9db784dcbd75515075f1f3b06556cca3f0df248e24cc89ca",
+          "bytes": 3308,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/da3f907b048d4338-RESULTS.json",
+          "snapshot": "evidence/da3f907b048d4338-RESULTS.json",
+          "sha256": "da3f907b048d4338c48df995a9cd07cde6faf695d03ac07d3eb56deb0a4101cc",
+          "bytes": 9018,
+          "selector": "/rows"
+        },
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "snapshot": "evidence/f9eaf5d4ec250ed2-rpt-ref-9851d55bdb5d2ec1f91b.json",
+          "sha256": "f9eaf5d4ec250ed2f363fef98479993948ea0f63e067b4796350ed608a8385f2",
+          "bytes": 3404,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-aa9fcf4d7d90bf834644",
+          "artifact": "evidence/eae96f3c61e1c964-CARD.md",
+          "snapshot": "evidence/eae96f3c61e1c964-CARD.md",
+          "sha256": "eae96f3c61e1c964b938e3fdf49dfd3f472f1ea3ae4413d0d04cfa3d4b6c494e",
+          "bytes": 6241,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-mainline069-graphite-variant-amendment-1020",
+          "artifact": "evidence/f2a9a70a11e9e755-GRAPHITE-VARIANT.md",
+          "snapshot": "evidence/f2a9a70a11e9e755-GRAPHITE-VARIANT.md",
+          "sha256": "f2a9a70a11e9e755352f5f74b1282ff0f26fd27f0e80c1ffadfcc5abc63f5455",
+          "bytes": 1938,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-mainline069-graphite-variant-amendment-1020",
+          "artifact": "withheld-source:f01d0586fc742617",
+          "snapshot": "withheld-source:f01d0586fc742617",
+          "sha256": "9bc219f1c11ba4766357436e5135dd3edc0db60d6d1a4a9a990d5d2785ec4eca",
+          "bytes": 1747,
+          "selector": "/body"
+        }
+      ]
+    }
+  ],
+  "append_changes": [
+    {
+      "id": "PD069-GRAPHITE-071",
+      "kind": "filed_change",
+      "label": "graphite-variant-thermal",
+      "claim": "069's filed graphite-film variant described 070's gamma-held-0.20 cases. None float. R 30 optimistic still needs density factor 1.659, to 1357 kg/m3. 071 carries the thermal result this variant was missing. Above Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1, so 070's gamma = 1 branch matches the handbook, with the named limit that the rule is not this film on CR-III and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern that step. On the aluminum core every gamma-step case is thermally infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, and the core thickness is the search floor. On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is unchanged. This delta reconciles it.",
+      "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+      "sources": [
+        {
+          "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+          "artifact": "evidence/5ffdd692853839ce-CARD.md",
+          "snapshot": "evidence/5ffdd692853839ce-CARD.md",
+          "sha256": "5ffdd692853839ce9db784dcbd75515075f1f3b06556cca3f0df248e24cc89ca",
+          "bytes": 3308,
+          "selector": ""
+        }
+      ]
+    }
+  ],
+  "append_register_rows": [
+    {
+      "rid": "R122",
+      "topic": "Graphite variant",
+      "topic_name": "071 thermal result carried onto 069",
+      "gap": "Whether the graphite-film variant filed in 069 can exist on CR-III",
+      "unknown": "072 has not yet reported a real core at or below 12.2e-6 per K.",
+      "today": [
+        "069's filed graphite-film variant described 070's gamma-held-0.20 cases. None float. R 30 optimistic still needs density factor 1.659, to 1357 kg/m3. 071 carries the thermal result this variant was missing. Above Vc 2, CR-1457 governs by shear crimping and sets the knockdown to 1, so 070's gamma = 1 branch matches the handbook, with the named limit that the rule is not this film on CR-III and not a closed 20 to 30 m sphere. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not govern that step. On the aluminum core every gamma-step case is thermally infeasible. At 070's geometry the thermal margin is 0.536. Face density cannot release it. A core expansion at or below 12.2e-6 per K would release it at this stiffness. At that boundary, R 20 optimistic still needs a face-density factor of 3.467 at concept and 3.137 at TRL 7, to 649 and 717 kg/m3, and the core thickness is the search floor. On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion. 072 tests real cores of that kind. The filed 069 page is unchanged. This delta reconciles it."
+      ],
+      "needed": [
+        "A core whose expansion is at or below 12.2e-6 per K. 072 tests real cores of that kind.",
+        "Do not read 069's gamma-0.20 graphite factors as a feasible shell on CR-III."
+      ],
+      "owners": [
+        "rpt-ref-aa9fcf4d7d90bf834644",
+        "rpt-ref-9851d55bdb5d2ec1f91b"
+      ],
+      "states": [
+        "QUESTIONABLE",
+        "PROJECTION"
+      ],
+      "directions": [
+        "On CR-III the graphite variant is infeasible. Its condition is a core with matched expansion."
+      ],
+      "check_outcome": "071's thermal result is on the record. No qualified hull safety factor.",
+      "sources": [],
+      "finding_ids": [
+        "PD069-GRAPHITE-071"
+      ]
+    }
+  ],
+  "append_nfi_rows": [
+    {
+      "uid": "PD069-GRAPHITE-071",
+      "report": "rpt-ref-9851d55bdb5d2ec1f91b",
+      "file": "evidence/84523fc62d9e2242-NFI.json",
+      "snapshot": "evidence/84523fc62d9e2242-NFI.json",
+      "source_sha256": "84523fc62d9e2242b435fe50428f7fb823581f2aaf021f1855d843dfddd46e04",
+      "source_json_pointer": "/open",
+      "row_id": "NFI-071-CORE",
+      "fields": {
+        "id": "NFI-071-CORE",
+        "status": "open",
+        "statement": "On CR-III the graphite variant is thermally infeasible. Face density does not release the interface. The condition is a core expansion at or below 12.2e-6 per K. 072 tests real cores of that kind."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    }
+  ]
+}

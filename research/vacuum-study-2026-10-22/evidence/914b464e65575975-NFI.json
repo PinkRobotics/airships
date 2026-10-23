@@ -1,0 +1,81 @@
+{
+  "status": "OPEN / QUESTIONABLE / PROJECTION",
+  "new": [
+    {
+      "id": "CHECK046-01",
+      "topic": "Annual water field scope",
+      "status": "OPEN",
+      "finding": "MOISTURE.csv annual_water_throughput_kg and CARD's 458.7 kg/year equal coupon permeation alone. Daily calculations include seam leakage; the annual field does not.",
+      "evidence": "At either 041 point, coupon-only 458.672527424 kg/year; adding the declared 305/50/10-day water weighting under the same nominal-pressure convention gives 459.261468067 kg/year. Continuous hot-leak upper envelope gives 461.780431057 kg/year, before initial residual water.",
+      "needed": "Rename the existing field annual_coupon_water_kg or include and identify the annual seam/port terms. This labeling omission does not alter the reported 24-hour moisture calculation."
+    },
+    {
+      "id": "CHECK046-02",
+      "topic": "Outdoor continuation is not a fit",
+      "status": "OPEN",
+      "finding": "The declared two-endpoint continuation gives .509318/.417089 at 2.25/4 months versus manual source readings .44/.335: residuals +.069318/+.082089, outside the stated ±.02 reading band.",
+      "evidence": "AGE-MODEL-SENSITIVITY.json; Toyobo page 12 visually inspected. The owner explicitly acknowledges that the curve does not fit all points.",
+      "needed": "Keep the numbers labeled endpoint continuation. Do not use the interpolated 10.2/5.95/3.55-day crossings as observed service lives or replacement triggers; the empirical bracket is zero to the first half-month observation."
+    },
+    {
+      "id": "CHECK046-03",
+      "topic": "Ageing endpoint and grade uncertainty",
+      "status": "OPEN",
+      "finding": "A ±.02 warehouse endpoint reading sensitivity alone gives ten-year nominal SF .912160–1.062012 at 041-5 and .864226–1.006204 at 041-019.",
+      "evidence": "AGE-MODEL-SENSITIVITY.json. These deterministic ranges omit model-tail, AS-to-HM, laminate, climate, and dose-transfer uncertainty.",
+      "needed": "Establish matched finished-material kinetics and lower-tail allowables. Preserve qualified life, strength, and whole-hull SF as null."
+    },
+    {
+      "id": "CHECK046-04",
+      "topic": "Hot loss budget and fresh limit",
+      "status": "OPEN",
+      "finding": "The full-restraint hot case needs retention .955211456 at 041-5, permitting only .457177% annual compounded loss over ten years. 041-019 needs 1.006695358 retention and fails this case fresh.",
+      "evidence": "HOT-AND-WATER-SENSITIVITY.json. A ±.02 instantaneous-strength-factor band gives ten-year hot SF .975049–1.016364 at 041-5; the sign of its small shortfall is uncertain.",
+      "needed": "Determine actual installation temperature, restraint and hot laminate allowable. The .714/9.165 kg film corrections restore this scalar film mode only; frame and joint screens remain open."
+    },
+    {
+      "id": "CHECK046-05",
+      "topic": "Cold-patch drying sensitivity",
+      "status": "OPEN",
+      "finding": "At the owner's h=2 W/m²K white-surface sensitivity, the cold patch reaches 268.630 K. At 041 the 5% RH water budget falls to .686336 kg, max WVTR .539393 g/m²/day and drying time 13.0198 h.",
+      "evidence": "HOT-AND-WATER-SENSITIVITY.json; primary h=5 values are 1.020387 kg, .805222 g/m²/day and 19.3568 h. Below freezing these use the declared supercooled-water convention.",
+      "needed": "Use the verified coldest patch, retained material water and installed moisture transport in the drying specification. A once-daily schedule is not established by the coupon upper bound."
+    },
+    {
+      "id": "CHECK046-06",
+      "topic": "Protected bill does not close",
+      "status": "OPEN",
+      "finding": "The OD4/white bill reproduces as 95.751050695 kg using the full-precision inherited seam length. With 30–50 kg vacuum hardware, 5 kg adhesive placeholder and the hot film correction, reserve-preserving deficits are 31.464822–51.464822 kg for 041-5 and 39.916436–59.916436 kg for 041-019.",
+      "evidence": "INDEPENDENT.json and HOT-AND-WATER-SENSITIVITY.json; no flotation margin is created. The stated 100 nm Al is a mass target, not a demonstrated aged OD4 spectrum.",
+      "needed": "Weigh a finished bay and seams, include excess area/trim/fasteners/repair, measure aged optical/leak performance, and reclose frame/joint/mass modes."
+    },
+    {
+      "id": "CHECK046-07",
+      "topic": "Chemistry-only alternate ranking",
+      "status": "OPEN",
+      "finding": "SK99's 135.881 kg nominal-SF1 chemistry-only film at 041 does not establish sustained-load suitability. The patent's 900 MPa/30°C rates give 39.6825 h (SK99) and 213.6752 h (DM20) to 1% strain if held constant.",
+      "evidence": "Patent PDF page 12, paragraphs 0099/0106/0107 visually inspected; UHMWPE-CREEP.csv reproduced. Required ten-year rate is 3.170979e-9 %/s. The 900 MPa comparison film weighs 338.220 kg and that stress is not qualified.",
+      "needed": "Obtain grade-specific creep/rupture/strain limits and hot aged laminate data. Neither patent rate nor another yarn's oxidative ageing law proves a ten-year installed SK99 or DM20 design."
+    },
+    {
+      "id": "CHECK046-08",
+      "topic": "Replacement remains a development candidate",
+      "status": "OPEN",
+      "finding": "The 268.099 kg annual 041-5 skin set and 2680.985 kg ten-year consumption reproduce, including 25 mm two-layer edge reinforcement. Annual humid-proxy pre-renewal SF is .9548.",
+      "evidence": "REPLACEMENT.csv; initial film SF is restored only for newly installed assumed-quality material. Existing interfaces and frame damage do not reset.",
+      "needed": "Demonstrate removable seams, repeated installation/reproof, inspection thresholds, drying and protected finished-film retention. No installed one-year replacement interval is approved."
+    }
+  ],
+  "owner_register": "owner/NFI.json",
+  "owner_open_entries": 22,
+  "inherited_registers": [
+    "inputs/022d/NFI.json",
+    "inputs/022d-check/NFI.json",
+    "inputs/041/NFI.json",
+    "inputs/031/NFI.json",
+    "inputs/034/NFI.json",
+    "inputs/037/NFI.json"
+  ],
+  "precision_findings": "Sixteen strict differences resolved by the explicitly declared six-decimal seam reference; not material arithmetic errors.",
+  "blocks_completion_of_research_check": false
+}

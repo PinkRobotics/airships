@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "passed": true,
+  "method": "Independent 45-digit scalar pressure capacities and physical wet/hot mass balance; no solver imports.",
+  "p2_points_including_payload": 159,
+  "max_P2_relative_SF_error": 5.341328668126372e-16,
+  "max_P2_mass_error_kg": 2.2357491131509293e-10,
+  "source021_reproductions": [
+    {
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "max_SF_error": 4.440892098500626e-16,
+      "passed": true
+    },
+    {
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "max_SF_error": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "core": "Hexcel HRH-10-4.8-32",
+      "max_SF_error": 3.552713678800501e-15,
+      "passed": true
+    }
+  ],
+  "source020_joining_reproductions": [
+    {
+      "scenario": "optimistic",
+      "total_kg": 968.1973614494823,
+      "mass_error_kg": 1.0922737712481048e-13
+    },
+    {
+      "scenario": "conservative",
+      "total_kg": 3721.996274675815,
+      "mass_error_kg": 3.9554383095197475e-13
+    }
+  ],
+  "source011b_error": 3.019806626980426e-14,
+  "frame_points_including_payload": 17,
+  "max_P3_absolute_SF_error": 9.805489753489383e-13,
+  "max_P3_mass_error_kg": 1.7887649804333983e-10,
+  "pins_reverified": 53,
+  "P2_dense_grid_checks": 116,
+  "P3_dense_grid_checks": 15,
+  "catalogue_geometry_searches": 1110,
+  "catalogue_dense_grid_checks": 30,
+  "limitations": "Arithmetic and search checks do not validate physical knockdown, brittle strength, joints, leakage or fabrication."
+}

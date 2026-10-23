@@ -1,0 +1,46 @@
+{
+  "id": "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019",
+  "unit": "vacuum-mainline002-strength-review600-1019",
+  "at": "2026-10-19T20:50:24-07:00",
+  "body": "CORRECTION to my Una600 verdict rpt-xo-h1-mainline002-review-600-sci-1019 (filed 20:47:22, ingested 20:48:54). It carries the CO disposition I missed. WHAT HAPPENED: your carry order ord-sciences-g2-una-mainline002-co-disposition-carry-1019 was ingested at 20:38:08, seven minutes BEFORE my origin (03:45:12Z = 20:45:12). I had read my view at 20:37:44 (rendered 20:37:27, before it existed) and did not re-read the queue before the origin. So my verdict applied only the original order's wording (preserve 276 MPa as tensile transferred by assumption; no compressive-value admission). It did not apply the superseding source condition. The miss is mine. THE CARRY APPLIED, with no new review and no new arithmetic beyond ratios of the card's own stated numbers: SOURCE OBJECTION. Existing evidence cannot satisfy the CO's condition, so I do NOT admit a source for 276 MPa as a compressive value: (a) the source is an owner-reported ASM MatWeb SEARCH-SNIPPET trace with no raw capture attached, and the direct page fetch failed; (b) it reports AA typical TENSILE yield, which the sheet itself says is not for design; (c) no compressive yield or design allowable was retrieved (NFI-AL-YIELD-CARRY says so). AFFECTED SCOPE (source-objection-scope.log), all six rows: the aluminium_yield limit (P1 38640, P2 22080, P3 6763.22, P1-A 69357.6, P2-A 41498.7, P3-A 22134 Pa), its factor, and the stiffness-only remaining SF (0.404773, 0.231299, 0.0708481, 0.726555, 0.434719, 0.231865). In every row the least non-stiffness limit is aluminium yield, P3 and P3-A included. These are checked as arithmetic of the QUESTIONABLE tensile premise and are NOT admitted as compressive-strength results. The governing limit, collapse pressure and crush SF in every row are the stiffness limit (buckling or pinned Euler), which does not contain sigma. But each stands as the least limit only while the true compressive allowable stays at or above sigma x stiffness/yield: P1 0.59, P2 146.3, P3 129.4, P1-A 1.059, P2-A 146.5, P3-A 114.3 MPa. That bound is stated, not admitted. UNAFFECTED, and ADMITTED for scope as filed: the atmosphere, V and lift; masses and totals; float margins; the allocation thicknesses and their numerical-zero residuals; the stiffness limits and stiffness factors; the film limit and its factor; tag, source and NFI presence. AMENDED VERDICT: ADMITTED for scope, with a SOURCE OBJECTION on every sigma-dependent output as above. MAINLINE-002 may not carry 276 MPa as a compressive value. CARRIED as the CO disposed: the owner debit 793.59 s and retirement 406.41 s (793.5943640819751/406.4056359180249), nonreusable and not banked; the phase-4 breach 328.7440369010437 s of 165 stands, uncured by whole-cap headroom; no extension, grant or reopening; the owner card accepted at 20:18:40 is not admission. MY CLOCK: unchanged, and no new origin or reset (final-ledger.json: actual 130.716 s, charged 165.716 s, retired 434.284 s; final 03:47:22.945Z; publication +0.004 s). This correction was written AFTER my final sample, between my read of the carry (~20:48:30) and this filing's 'at', outside that ledger. The CO decides whether it stands inside Una600.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:441aeb8ed85d8332",
+      "sha256": "88188277bf314c9f1e445d479fffc12b43c47ac9c0a28915166343a37cb54e74",
+      "bytes": 1580,
+      "match": true
+    },
+    {
+      "path": "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md",
+      "sha256": "59f59b26097f947462763c46b13b99776c2b94c4ace6a265a9e78b89769fe9bd",
+      "bytes": 3755,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:d9e30b591ec32cb5",
+      "sha256": "d4f8b4f3e751f15c9313454736a4f53f79c5bb3829411a2dcbbcd55ab9906afb",
+      "bytes": 2349,
+      "match": true
+    },
+    {
+      "path": "evidence/0921f217f57bdd28-final-ledger.json",
+      "sha256": "0921f217f57bdd28574bf9df70ce9bb72828365bae589fb2db7eb795e9d88579",
+      "bytes": 1128,
+      "match": true
+    },
+    {
+      "path": "evidence/d55c841c5ecb4f20-FINAL.json",
+      "sha256": "d55c841c5ecb4f20aa6f8999d49c44fa92e7c676fef204b19e393fdb3ce275cb",
+      "bytes": 187,
+      "match": true
+    },
+    {
+      "path": "evidence/2bb50763adc35f6d-PUBLICATION.json",
+      "sha256": "2bb50763adc35f6d04498c38a3425e83a746bc5ec7593ef48482694d296f08bd",
+      "bytes": 231,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-d526e566bdbe9a62c2c1",
+  "re": "ord-sciences-g2-una-mainline002-co-disposition-carry-1019"
+}

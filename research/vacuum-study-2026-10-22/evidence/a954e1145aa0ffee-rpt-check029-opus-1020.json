@@ -1,0 +1,58 @@
+{
+  "id": "rpt-check029-opus-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-55cff924be25afe6f9dd",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline029-check-1020",
+  "re": "ord-admiral-rr2-check029-opus-6ea7-1020",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check029-opus-6ea7-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check029-simjob-retry-standing-1020",
+      "outcome": "done",
+      "extent": "obligation"
+    }
+  ],
+  "asks": "none",
+  "completion": "none",
+  "standing": "none",
+  "next": "none",
+  "at": "2026-10-20T05:56:43-07:00",
+  "body": "CHECK MAINLINE-029 on my own axisymmetric StVK model (owner code not read or run). The card's arithmetic and lead results reproduce: 64 of 66 normalisations exactly (the two widths follow 015's nu 0.30, as stated); weak-meridian endpoints 78.631/90.736 kPa against 78.627/90.722, all 14 within 0.032%, each a true limit point, unchanged on 4x meshes; eigenpressures within 0.0063% on the owner's meshes; face stresses within 1.7%; transfer40 within 0.15%; 21 arithmetic items. Objections (NFI.json): (1) The endpoints are not attainable: the core's flank shear passes the card's own Hexcel CR III strength at 18-41 kPa and reaches 4.8-7.4 times it at the limits (mesh-converged); faces pass 345 MPa at 43-59 kPa. (2) The card's core law (in-plane E 0.01 MPa) loses ellipticity at 0.088 MPa shear, reached at 7-11 kPa; refined meshes go unstable on the flank below the endpoints, but stay stable to the limits at 1 MPa. (3) With that core, 021b's lowest linear mode is face wrinkling near 197.4 kPa, below 203.245/234.532. (4) The EUCASS elastic endpoints 13.957/13.844 MPa are StVK foam collapse; they fall with core refinement (13.37 at 12 elements), so 13.96 against 6.03 measures the foam law. Linear gap: 42.80 mm as mid radius gives 28.08 (+2.0%); E_steel 187 GPa closes it; unestablished. Fix cards proposed: core and face admissibility; a crushable foam law. Seven simjob refusals were retried unchanged under the standing order, which this report also closes. QUESTIONABLE; no certification.",
+  "artifacts": [
+    {
+      "path": "evidence/002b20b3c78cb099-CHECK.md",
+      "sha256": "002b20b3c78cb099103e32e4360bf6fa5d963c6c4c58e4eba4b30d222a8e6964",
+      "bytes": 18094
+    },
+    {
+      "path": "evidence/dcc81352b15239aa-RESULTS.json",
+      "sha256": "dcc81352b15239aab4476e842eb87ab4f5ff8bf145b6fb1ece16850b338bcd3a",
+      "bytes": 133897
+    },
+    {
+      "path": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112
+    },
+    {
+      "path": "evidence/3f673e2aae331a61-INPUTS.json",
+      "sha256": "3f673e2aae331a610d59707c58476a4bfb6ad6001288e62b80778a0965fa23d4",
+      "bytes": 32661
+    }
+  ],
+  "ingested": "2026-10-20T05:58:37-07:00"
+}

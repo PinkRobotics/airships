@@ -1,0 +1,101 @@
+{
+  "core_acoustic": [
+    {
+      "E_in_plane_MPa": 0.01,
+      "direction": "W",
+      "min_acoustic_eigenvalue": -5.551115123125783e-17,
+      "angle_radians": -0.07586682182002213,
+      "engineering_shear": 0.0018714270500872507,
+      "cauchy_shear_MPa": 0.08774097897647766
+    },
+    {
+      "E_in_plane_MPa": 0.01,
+      "direction": "L",
+      "min_acoustic_eigenvalue": -1.3322676295501878e-15,
+      "angle_radians": -0.07565998463531132,
+      "engineering_shear": 0.0008496199539316709,
+      "cauchy_shear_MPa": 0.08786888232111986
+    },
+    {
+      "E_in_plane_MPa": 0.024,
+      "direction": "W",
+      "min_acoustic_eigenvalue": 7.216449660063518e-16,
+      "angle_radians": -0.09476736323801552,
+      "engineering_shear": 0.0035932199781824234,
+      "cauchy_shear_MPa": 0.16846818063143265
+    },
+    {
+      "E_in_plane_MPa": 0.024,
+      "direction": "L",
+      "min_acoustic_eigenvalue": 3.3306690738754696e-16,
+      "angle_radians": -0.09437686401219589,
+      "engineering_shear": 0.0016322796171466599,
+      "cauchy_shear_MPa": 0.16881280180895603
+    },
+    {
+      "E_in_plane_MPa": 1.0,
+      "direction": "W",
+      "min_acoustic_eigenvalue": 4.6629367034256575e-15,
+      "angle_radians": -0.25065696343989535,
+      "engineering_shear": 0.05667064940796825,
+      "cauchy_shear_MPa": 2.6663779511581622
+    },
+    {
+      "E_in_plane_MPa": 1.0,
+      "direction": "L",
+      "min_acoustic_eigenvalue": 8.171241461241152e-13,
+      "angle_radians": -0.246122395140196,
+      "engineering_shear": 0.0255940072596859,
+      "cauchy_shear_MPa": 2.64783397534635
+    }
+  ],
+  "R30_040_exact": {
+    "tf_mm": 2.4649000366687117,
+    "tc_mm": 102.59175736704715,
+    "nu": 0.0768,
+    "gamma": 0.3864655294942036,
+    "actual_load_kPa": 97.17230315075363,
+    "pressure_stress_over_345": 0.8570089421141046
+  },
+  "R30_gamma_ranges": {
+    "ISA": [
+      0.37338405741614594,
+      0.418418963928838
+    ],
+    "optimistic": [
+      0.45915550435353253,
+      0.5294607643785165
+    ]
+  },
+  "r30_scaled": {
+    "Be_tf_mm": 0.8216333455562372,
+    "Be_tc_mm": 34.19725245568238,
+    "face_5052_mm": 3.208991228027927,
+    "cell_over_h": 0.271996089597548,
+    "cells_per_wavelength": 4.525988998016696,
+    "full_curvature_cap_m_by_angular_similarity": [
+      15,
+      18
+    ],
+    "note": "5m R10 Be cap angular similarity suggests 15m at R30; R30-similar 6m cap on R10 corresponds to 18m at R30. Neither establishes a global minimum.",
+    "core_5052_mm": 31.80989457321069
+  },
+  "metrology": {
+    "minimum_waviness_mm": 0.0751,
+    "maximum_waviness_mm": 0.1288,
+    "advertised_scan_mm": [
+      0.1,
+      0.3
+    ],
+    "scan_to_minimum_tolerance": [
+      1.3315579227696406,
+      3.994673768308921
+    ]
+  },
+  "scope": {
+    "typical_core_crush_is_post_peak": "35 psi is crush strength. Hexcel also lists bare 55/25 psi and stabilized 60/35 psi compressive strengths. C365 and D7336 measure different properties.",
+    "full_similarity": false,
+    "smallest_cap_demonstrated": false,
+    "reason": "Only selected cap sizes and ideal uniform pressure/edge were compared; no modeled reinforcement, seams, thermal residuals, cell law or nonaxisymmetric modes."
+  }
+}

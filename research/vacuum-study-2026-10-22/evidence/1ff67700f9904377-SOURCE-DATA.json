@@ -1,0 +1,280 @@
+{
+  "classification": "QUESTIONABLE evidence transfer; measured source results distinguished from PROJECTION",
+  "entries": [
+    {
+      "id": "PBO-light-outdoor",
+      "source": "https://www.toyobo-global.com/seihin/kc/pbo/zylon-p/bussei-p/technical.pdf",
+      "file": "sources/toyobo2005.pdf",
+      "page": 12,
+      "specimen": "HM yarn; AS plotted separately",
+      "conditions": "45 degrees south, Ohtsu Japan, June-November 1997",
+      "duration_days": 182.5,
+      "retention_approx": 0.35,
+      "points_months": [
+        0,
+        0.5,
+        2.25,
+        4,
+        6
+      ],
+      "HM_retention_readings": [
+        1,
+        0.71,
+        0.44,
+        0.335,
+        0.35
+      ],
+      "limits": "Manual ±0.02 readings. Solar spectrum/dose, load and detailed humidity absent. Half-month is first nonzero observation."
+    },
+    {
+      "id": "PBO-visible",
+      "source": "https://www.toyobo-global.com/seihin/kc/pbo/zylon-p/bussei-p/technical.pdf",
+      "file": "sources/toyobo2005.pdf",
+      "page": 12,
+      "conditions": "Two 35 W fluorescent lamps; 150 cm distance; irradiance not stated",
+      "duration_hours": 720,
+      "retention_approx_HM": 0.73,
+      "retention_approx_AS": 0.65,
+      "limits": "Visible light also matters; lamp power cannot be converted to fibre irradiance without geometry/spectrum."
+    },
+    {
+      "id": "PBO-hot-humid",
+      "source": "https://www.toyobo-global.com/seihin/kc/pbo/zylon-p/bussei-p/technical.pdf",
+      "file": "sources/toyobo2005.pdf",
+      "page": 9,
+      "specimen": "AS 555 dtex for long series",
+      "conditions": "40 C, 80% RH; dark environmental exposure",
+      "days": [
+        0,
+        20,
+        50,
+        100,
+        200,
+        400,
+        600,
+        800,
+        1000
+      ],
+      "retention_approx": [
+        1,
+        0.965,
+        0.94,
+        0.9,
+        0.86,
+        0.83,
+        0.8,
+        0.78,
+        0.76
+      ],
+      "limits": "Manual ±0.02 readings; transfer to HM, loaded 0/90 membrane and variable service climate unvalidated."
+    },
+    {
+      "id": "PBO-warehouse",
+      "source": "https://www.toyobo-global.com/seihin/kc/pbo/zylon-p/bussei-p/technical.pdf",
+      "file": "sources/toyobo2005.pdf",
+      "page": 9,
+      "specimen": "AS 555 dtex",
+      "conditions": "Room temperature and humidity at warehouse; numeric climate not specified on plot",
+      "duration_days": 1000,
+      "retention_approx": 0.96,
+      "limits": "Curve has early loss then a flatter tail; an endpoint exponential is not a fit to its entire shape."
+    },
+    {
+      "id": "PBO-steam",
+      "source": "https://www.toyobo-global.com/seihin/kc/pbo/zylon-p/bussei-p/technical.pdf",
+      "file": "sources/toyobo2005.pdf",
+      "page": 9,
+      "conditions": "Saturated steam, 180 C",
+      "duration_hours": 50,
+      "retention_range": [
+        0.4,
+        0.5
+      ],
+      "limits": "Not an activation-energy calibration for service near ambient."
+    },
+    {
+      "id": "PBO-temperature-at-test",
+      "source": "https://www.toyobo-global.com/seihin/kc/pbo/zylon-p/bussei-p/technical.pdf",
+      "file": "sources/toyobo2005.pdf",
+      "page": 10,
+      "conditions": "Tensile test at temperature; instantaneous reversible contribution",
+      "interpolation_used": "1 at 20 C; approximately .9 at 100 C, graph read; linear screening interpolation",
+      "limits": "About ±0.02 graph uncertainty; does not describe permanent aging."
+    },
+    {
+      "id": "NIST-PBO-humidity",
+      "source": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=860679",
+      "file": "sources/chin2007.pdf",
+      "identity": "NISTIR 7373 (April 2006), not the subsequent 2007 journal PDF",
+      "page": 26,
+      "specimen": "20-layer woven armor in water-vapor-permeable liner and cotton carrier; extracted yarn",
+      "conditions": "50 C/60% RH for 84 days, then 60 C/37% RH for 73 days; constant absolute humidity intent",
+      "days": [
+        0,
+        15,
+        29,
+        44,
+        56,
+        71,
+        85,
+        98,
+        109,
+        118,
+        132,
+        146,
+        152,
+        157
+      ],
+      "strengths_GPa": [
+        4.82,
+        4.45,
+        4.18,
+        4.02,
+        3.88,
+        3.8,
+        3.64,
+        3.5,
+        3.57,
+        3.51,
+        3.3,
+        3.23,
+        3.3,
+        3.08
+      ],
+      "relative_standard_uncertainty_strength": 0.03,
+      "limits": "Table reports .639 retention at day 157; round prose/abstract percentages differ. No single-temperature PBO Arrhenius constant is inferred."
+    },
+    {
+      "id": "NIST-PBO-protected",
+      "source": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=860679",
+      "file": "sources/chin2007.pdf",
+      "pages": [
+        10,
+        11,
+        23
+      ],
+      "specimen": "Yarn in evacuated, argon-backfilled, heat-fused glass tubes",
+      "conditions": "55 C oven",
+      "duration_days": 210,
+      "retention_greater_than": 0.96,
+      "additional_result": "Previously humid-aged vest yarn showed no further measured loss during 332 days at 25 C/5% RH.",
+      "limits": "Glass/argon protection is not a 12 um polymer laminate; remaining moisture and uncertainty matter."
+    },
+    {
+      "id": "PBO-coating",
+      "source": "https://doi.org/10.1038/s41598-019-45199-8",
+      "file": "sources/pbo-coating-published.pdf",
+      "conditions": "QUV/spray 340 nm, 50 C, 400 h; irradiance not specified in retrieved experimental description",
+      "uncoated_retention": 0.214,
+      "coated_retention": 0.53,
+      "optimized_three_coat_retention": 0.59,
+      "coating": "KH-560-functionalized PBO with fluorosilane HFTES, UV-328 and silicone-modified epoxy/polyamide system",
+      "limits": "Improvement is partial; no transferable 10-year result or installed g/m2 bill."
+    },
+    {
+      "id": "PBO-creep",
+      "source": "https://www.toyobo-global.com/seihin/kc/pbo/zylon-p/bussei-p/technical.pdf",
+      "file": "sources/toyobo2005.pdf",
+      "page": 5,
+      "specimen": "HM yarn",
+      "conditions": "50% breaking load, 100 hours; test climate unspecified on this page",
+      "nonrecoverable_strain_less_than": 0.0003,
+      "prediction": "Manufacturer extrapolates 10^7 minutes (about 19 years) at 60% breaking load",
+      "limits": "Nineteen years is extrapolated, not an observed runout; no aged crossply attachment qualification."
+    },
+    {
+      "id": "PBO-fatigue",
+      "source": "https://doi.org/10.1007/s10853-010-4721-z",
+      "file": "sources/pbo-fatigue.pdf",
+      "specimen": "HM single filaments, 50 mm gauge; measured mean strength 5.030 ± .750 GPa",
+      "conditions": "50 Hz, R=0 tensile cycling",
+      "stress_fraction_of_measured_strength": [
+        0.6,
+        0.7
+      ],
+      "median_cycles": [
+        514800,
+        21060
+      ],
+      "sample_count": [
+        7,
+        30
+      ],
+      "limits": "Median, not allowable or low-tail reliability. Test stresses 3.018/3.521 GPa. No high-R aged laminate curve."
+    },
+    {
+      "id": "PBO-folding",
+      "source": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=902527",
+      "file": "sources/nist-folding.pdf",
+      "conditions": "Modified single-fibre tests following folding",
+      "results": "One fold reduced ultimate strength and strain to failure about 10%; repeated-folding comparisons reported 15%/40% changes in strain to failure.",
+      "limits": "Strain-to-failure reductions are not silently relabelled retained tensile strength; body-armor use-time equivalence is not P3 life."
+    },
+    {
+      "id": "PBO-PPTA-combined",
+      "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir7627.pdf",
+      "file": "sources/nij-conditioning.pdf",
+      "conditions": "Phase II: 35-65 C twice daily, 75% RH reduced to 65% on cooling; 40 rpm tumbling 2 h twice weekly, six weeks",
+      "PBO_all_conditions_retention": 0.58,
+      "PBO_humidity_temperature_only_retention": 0.8,
+      "PPTA_result": "No measured reduction in this phase; other phases differed",
+      "limits": "Synergy prevents assuming independent damage products are validated. NIJ protocol is not a known number of field-service years."
+    },
+    {
+      "id": "Kevlar49",
+      "source": "https://www.r-g.de/wiki/images/e/ec/Td_en_Kevlar_guide.pdf",
+      "file": "sources/kevlar-guide-mirror.pdf",
+      "authorship": "DuPont primary technical guide, retrieved via distributor mirror after official URLs failed",
+      "density_kg_m3": 1440,
+      "conditioned_yarn_strength_GPa": 3.0,
+      "neutral_pH_result": "Near-unchanged filament tenacity after more than 200 days at 65 C and pH 7",
+      "light_result": "Protection needed against roughly 300-450 nm; yarn/fabric size affects self-shielding",
+      "limits": "95% retention at ten years is an imposed option requirement, not a sourced forecast; moisture regain and finished laminate not in dry-fibre mass."
+    },
+    {
+      "id": "UHMWPE-aging",
+      "source": "https://doi.org/10.1016/j.polymdegradstab.2015.01.028",
+      "file": "sources/uhmwpe-aging.pdf",
+      "conditions": "43,65,90,115 C; dark oxidative aging of ballistic yarn",
+      "activation_energy_J_mol": 140000,
+      "predicted_years_to_70pct_at_43C": 36,
+      "limits": "Authors' time-temperature-superposition projection; higher-temperature physical changes complicate interpretation. Grade not established as SK75/SK99/DM20."
+    },
+    {
+      "id": "UHMWPE-strength",
+      "source": "https://www.dyneema.com/design-with-dyneema/dyneema-product-portfolio",
+      "file": "sources/dyneema-portfolio.html",
+      "SK99_tenacity_cN_dtex": 42.5,
+      "SK99_modulus_cN_dtex": 1590,
+      "assumptions": "970 kg/m3 generic UHMWPE density; same unqualified 60% efficiency and two directions as inherited PBO screen",
+      "limits": "Current supplier property is not a sustained-load allowable."
+    },
+    {
+      "id": "UHMWPE-creep",
+      "source": "https://patentimages.storage.googleapis.com/6e/89/bd/f4165a0c295be7/US20180112336A1.pdf",
+      "file": "sources/uhmwpe-creep-patent.pdf",
+      "pdf_page": 12,
+      "paragraphs": [
+        "0099",
+        "0106",
+        "0107"
+      ],
+      "conditions": "900 MPa, 30 C, minimum creep rate",
+      "SK99_rate_percent_per_second": 7e-06,
+      "DM20_rate_percent_per_second": 1.3e-06,
+      "DM20_tenacity_cN_dtex": 32,
+      "limits": "Manufacturer patent example claims, graph/page verified. Not a rupture-life calibration or a permissible service stress."
+    },
+    {
+      "id": "034-barrier",
+      "source": "sources/barrier-flex-pack-films-2001.pdf",
+      "authorship": "DuPont Teijin Films primary packaging comparison sheet, frozen via CHECK034",
+      "specimen": "12 um OD3 metallized Mylar",
+      "water_g_m2_day_less_than": 1,
+      "water_conditions": "38 C, 90% RH",
+      "oxygen_cc_m2_day": 0.5,
+      "oxygen_conditions": "25 C,45% RH,100% oxygen",
+      "limits": "Unflexed coupon transmission, not installed RH or aged seam durability. OD3 is not a measured broadband spectrum."
+    }
+  ]
+}

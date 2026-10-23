@@ -1,0 +1,38 @@
+{
+  "id": "E-7250479fbcad79ca6386",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-7250479fbcad79ca6386",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check037~1NFI.json/rows/8",
+    "row_id": "NFI-CHECK037-PAD-BOSS-FIT",
+    "fields": {
+      "id": "NFI-CHECK037-PAD-BOSS-FIT",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Under recovered 25 mm boss-radius assumptions the systems pad radius is only 14.683 mm.",
+      "proposed_fix": "Define whether 25 mm is radius or diameter; enforce boss containment. The supplied 25 mm radius floor changes six-pad mass to 0.031809 kg before installation."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Under recovered 25 mm boss-radius assumptions the systems pad radius is only 14.683 mm.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check037~1NFI.json/rows/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

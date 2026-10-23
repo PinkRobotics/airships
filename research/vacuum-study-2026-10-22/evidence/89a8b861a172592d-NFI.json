@@ -1,0 +1,145 @@
+[
+  {
+    "id": "NFI-043-CHECK-01",
+    "key": "finished_compression_population",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Finished curved members lack a matched compression m, characteristic scale, reference size and sample population.",
+    "needed": "Obtain representative finished-part data, failure-mode identification and uncertainty-qualified fits at the intended geometry, processing and environment.",
+    "disposition": "Conditional Pf values remain projections; 3.9 GPa remains a typical catalogue value.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-02",
+    "key": "matched_material_deck",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "The old sheet and current page differ in E, density and m; the model combines E410 and rho3100.",
+    "needed": "Select a traceable grade/batch property deck and re-close geometry, mass and mechanical screens if its values change.",
+    "disposition": "Keep inherited properties explicit; the E430 sensitivity is not a redesign.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-03",
+    "key": "lower_tail_confidence",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Point-fit Weibull parameters do not establish confidence at per-member probabilities near 10^-9.",
+    "needed": "Report parameter uncertainty, population representativeness, model-form evidence and a defensible tail-validation plan.",
+    "disposition": "Retain the zero-failure sample counts only as burden illustrations.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-04",
+    "key": "multiaxial_contact",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Zero longitudinal tension does not resolve hoop stress, end contact, torsion, residual stress or shell behavior.",
+    "needed": "Resolve and validate representative member/joint stress fields and relevant flaw orientations under installed loads.",
+    "disposition": "The beam principal-stress numbers remain idealized estimates.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-05",
+    "key": "reference_geometry",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Several tensile populations lack spans, gauge area, fitted cohort reconciliation or equivalent finished-surface populations.",
+    "needed": "Recover specimen geometry and raw cohort metadata; preserve fitted versus mean-implied and normalized scales; justify any size transfer.",
+    "disposition": "Retain SA, CVD, RBSC and composite populations separately.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-06",
+    "key": "system_risk_budget",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "The reported series Pf covers tube fracture with independent hazards and allocates no risk to other failure modes.",
+    "needed": "Allocate a full-system risk budget and assess batch dependence, common causes, joints, membrane, instability and interfaces.",
+    "disposition": "Use union-bound allocations only with defensible marginal probabilities; actual frame Pf remains null.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-07",
+    "key": "proof_protocol",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "The illustrative force factors do not define a validated proof stress field or supported fixture.",
+    "needed": "Develop full-part stress-coverage, support, load-orientation, damage, acceptance and inspection evidence before adopting a proof protocol.",
+    "disposition": "Retain 1.25 force versus 1.259378651 stress distinction and separate local/global screens from the 0.375 Euler ratio.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-08",
+    "key": "lifetime_and_handling",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Instantaneous unchanged-strength conditioning does not cover slow crack growth, handling damage or service exposure.",
+    "needed": "Define load history, environment, duration, post-proof processing controls and a validated degradation model.",
+    "disposition": "Qualified lifetime failure probability stays null.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-09",
+    "key": "stability_of_resized_frame",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Own-screen and common-q cases differ; the 019 peak-local surrogate is 0.978132 and the resized f5 nonlinear capacity is not established here.",
+    "needed": "Resolve the local-wall interaction and relevant nonlinear stability of the selected physical configuration.",
+    "disposition": "Do not treat above-screen common-q reliability arithmetic as an admissible load claim.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-10",
+    "key": "rise8_independent_solution",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Rise8 moment and force inputs remain attributed; section conversions do not independently verify equilibrium or geometry.",
+    "needed": "Under fresh authority if needed, establish an independently verified rise8 geometry/load/equilibrium result and appropriate convergence evidence.",
+    "disposition": "Do not resume an earlier refused run or merge this source case into the nominal selected frame.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-11",
+    "key": "rise8_mass_label",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "The inherited mass_from_owner_arc_length_and_independent_section_kg field contains charged total rather than only tube mass.",
+    "needed": "Rename as total_mass_with_inherited_allowances_kg and expose tube_mass_kg separately; values 5446.290626 and 5039.557739 kg.",
+    "disposition": "Label correction only; no headline stress/Pf change.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-12",
+    "key": "manufacturing_and_joint",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "Finished curvature, thin-wall variability, surface flaws and local joint behavior are not qualified by the ledger or beam model.",
+    "needed": "Establish process capability, inspection sensitivity, joint load-transfer/rotation behavior and representative full-size validation.",
+    "disposition": "Joint scalar mass sizing supplies no additional reliability reserve.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  },
+  {
+    "id": "NFI-043-CHECK-13",
+    "key": "proof_cost_and_yield",
+    "tag": "QUESTIONABLE / PROJECTION",
+    "issue": "High/custom is a qualitative cost class; no validated cycle time, yield, rejection rate, price or supplier capability is available.",
+    "needed": "Estimate cost and yield only after defining the test protocol, traceable population and manufacturing process.",
+    "disposition": "Do not interpret hypothetical proof rejection fractions as a production scrap forecast.",
+    "blocks_check": false,
+    "owner": "sciences / robotics programme",
+    "execution_authorized_by_this_row": false
+  }
+]

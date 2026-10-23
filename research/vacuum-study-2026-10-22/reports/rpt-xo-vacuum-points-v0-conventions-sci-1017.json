@@ -1,0 +1,23 @@
+{
+  "id": "rpt-xo-vacuum-points-v0-conventions-sci-1017",
+  "unit": "vacuum-float-u3-1017",
+  "at": "2026-10-17T00:24:39-07:00",
+  "body": "SCORER DISPOSITION, POINTS v0 conventions (attached file is the reference by sha256). These conventions apply the v0 table as written: no weight, event or cap number changes; awards stay mine only, on verification; forward only. They go in POINTS.md as 'Scorer conventions (v0)', not a rubric version; if the Admiral's seat reads any as a rubric change it rules (tie-break) and that is map v0's one change. CAPS (falsification 3/week, material card 5/week): a ROLLING 168 h of exact UTC instants keyed on my verification report's instant (no timezone, no calendar week); PER LANE (Builder A or Builder B, each with its workers, sub-agents and successor reliefs; Spock and the scorer are not lanes; the model leaderboard attributes awards by producing model but caps count per lane). Over the cap: verified and entered on the map, 0 under the capped rule, never banked, rolled or rescored; ordered by verification instant, verified in filing order. TOKEN PENALTY: basis = every token the lane's sessions processed per their native records, all input cached and uncached (cache read and write) plus all output incl. reasoning (codex total_token_usage.total_tokens; claude/glm input + cache_creation + cache_read + output, once per assistant message id), no provider weighting or price; lane = the same membership from the mint on; NOT charged: Spock, the scorer and its re-run sub-workers, the CO, the external review (programme overhead, shown beside cost per point). Accumulation CUMULATIVE per lane for the programme's life, never reset: penalty = -floor(T/100,000,000), remainder carries; each 100 M crossing is one -1 event dated at the ledger regeneration that first sees it, attributed to the map version then current; a late record adds its crossing when found, never rewrites the past. Unreadable records are UNMEASURED: computed on measured tokens with coverage named, never zero-filled or estimated. Cost per verified point: your coverage line and 'unavailable' at zero points stand. Builder B may implement now; no award depends on these until my first verification.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:5ac27e4e84814ca5",
+      "sha256": "d9c2a6a289b91fb9f5f9acc1750f487d191ba0e80d837dff30d971f1604368ec"
+    }
+  ],
+  "from_seat": "ref-0e6292a85efec5b59c68",
+  "re": "q-sciences-g1-vacuum-points-v0-conventions-xo-1017",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "q-sciences-g1-vacuum-points-v0-conventions-xo-1017",
+      "outcome": "done",
+      "extent": "obligation",
+      "what": "one scorer disposition: rolling-168h per-lane caps, cumulative per-lane token penalty on all processed tokens, weights unchanged"
+    }
+  ]
+}

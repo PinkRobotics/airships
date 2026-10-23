@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-058",
+  "unit": "vacuum-mainline058-flyable-band-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "rows": [
+    {
+      "id": "N058-01-COLD-EDGE",
+      "state": "open",
+      "note": "P2's cold edge is the inherited 037b/048 bond-interface screen (Be/Al CTE mismatch from the 200 F cure): outer-skin minimum >= 264.03 K. It is not validated by cold assembled-interface tests (050 NFI50-05). It applies on the ground as well as in flight: a moored hull also needs cover, heating or a low-emittance finish on cold clear nights."
+    },
+    {
+      "id": "N058-02-FINISH-TRANSFER",
+      "state": "PROJECTION",
+      "note": "Al + acrylic overcoat (Sheldahl film product, A 0.14, eps 0.05), TARC (a roof coating, cold state A ~0.25, sky-window eps 0.20) and the switchable eps 0.05 night state (050) are transfers to a Be skin. Installed mass, adhesion, UV and humidity life and wet optics are unknown; areal mass was held at MLCCAg's 8.33 g/m2. 048's legacy finish screen (037 day SF >= 1.678, full-cycle >= 1) was not evaluated. The static Al+AOC skin reaches 319 K by day at ISA. A switchable state must switch by skin temperature, not by sun: in its day state the edge is 269.7 K without sun credit."
+    },
+    {
+      "id": "N058-03-CLIMB-AIRSPACE",
+      "state": "open",
+      "note": "Relief by climbing needs room: at Heathrow the -30 hPa design climbs 268 m median, 426 m at the 99th percentile and 510 m at most above the 100 m floor; the 0 hPa P3 design 60/198/270 m; floating free (no dump) 0.7-1.7 km. Airspace ceilings and traffic rules are not modelled."
+    },
+    {
+      "id": "N058-04-TRIM-AIR",
+      "state": "open",
+      "note": "Air admitted for relief or to dump lift cannot be pumped back in flight: 034's onboard pumps need 264-416 h (E2M28) or 8,062-12,709 h (KNF N920) at R10. Re-evacuation is a ground task, about 16-20 h per flown day at 052's effective ground speed (1574.9 m3/h per 4188.8 m3), against 24.5 h for a full evacuation. Energy is bracketed: ideal isothermal 23-50 kWh (R10) to 900-1,530 kWh (R30) per day; Edwards GXS-class sets list 1,900-2,200 m3/h and 7.5-29.5 kW rated across the family (not tied to a model). P3 admitted air must be dried for the 052/054 dry cavity. After a pressure fall, trim air lowers lift with no in-flight recovery."
+    },
+    {
+      "id": "N058-05-BALLAST",
+      "state": "PROJECTION",
+      "note": "The water-ballast bladder is charged at 2 % of capacity; pillow-tank listings give 0.35-0.93 % for the fabric of 1,500-10,000 L ground tanks, not flight hardware. Capacity is the cold-day excess lift: 322-536 kg at R10 and 13.9-19.7 t at R30 for the widest bands. Refill is at the mooring; drain control and load paths are not designed. The dump is needed only to hold altitude at fixed payload; a variable payload can absorb the excess."
+    },
+    {
+      "id": "N058-06-BOUNDARY-LAYER",
+      "state": "PROJECTION",
+      "note": "Heathrow 2 m observations are mapped to the 100 m centre with 050's 6.5 K/km lapse and a constant vapour mole fraction. Real night inversions (warmer aloft: helps P2's cold edge) and daytime superadiabatic layers (cooler aloft: helps lift) are not represented."
+    },
+    {
+      "id": "N058-07-SKY-AND-WIND",
+      "state": "PROJECTION",
+      "note": "The primary cold test applies 050's clear-sky depressions every night (24.9 K) and day (9.9 K, no sun credit): conservative. The cloud-aware sensitivity mixes clear and overcast (2 K) sky radiance by observed oktas; 3.1 % of hours have no cloud report and are treated as clear. Wind is fixed at 2 m/s."
+    },
+    {
+      "id": "N058-08-DAYS-METRIC",
+      "state": "open",
+      "note": "A day counts only if all 24 UTC hours lie inside the band; days with a missing hour are dropped (87,354 of 87,648 hours complete). One site, 2014-2023. Gusts beyond the 70 kn design, precipitation, hail (045), icing and lightning are outside the band. The fractions are not availability guarantees."
+    },
+    {
+      "id": "N058-09-P3-COLD",
+      "state": "open",
+      "note": "P3's account has no cold screen: SiC/PBO/sleeve CTE mismatch and the PBO film at low temperature are unscreened, so its band is open on the cold side. Its dry-cavity humidity limit tightens as the film gets colder (052), shortening the ground interval on cold days."
+    },
+    {
+      "id": "N058-10-P3-SCALING",
+      "state": "PROJECTION",
+      "note": "P3 mass against design load is a log-linear fit per item through 052's three loads (97.2-99.7 kPa): SiC tubes ~p^0.445 at the endpoints, PBO ~p^1.0, sleeves ~p^2. The full-range load 103.95 kPa is a 4.3 % extrapolation. 052's ISA payloads are reproduced within 0.06 kg; its force field and sizing were not re-solved."
+    },
+    {
+      "id": "N058-11-MGA",
+      "state": "open",
+      "note": "With 057's sourced concept-stage mass-growth allowance (15-30 %) no hull of either lead floats at any radius; every band here assumes flight-proven masses."
+    },
+    {
+      "id": "N058-12-DYNAMIC-LIFT",
+      "state": "PROJECTION",
+      "note": "Thrust: momentum theory with FM 0.70, motor/drive 0.85, 0.5 kg/kW, 108 Wh/kg usable. Kite: CL 1.0, 0.2 kg/m2 sail and spars, 1/7-power shear from 10 m. A kite needs a tether; load introduction into the shell is unscreened, as for 045's mooring."
+    },
+    {
+      "id": "N058-13-NIGHT-HEATING",
+      "state": "PROJECTION",
+      "note": "Heater, cable and battery integration are unpriced; 12-hour clear-night energy at 050's 108 Wh/kg usable. Flight use is limited to about 1-2 K at R10; ground power on the mooring is assumed available."
+    },
+    {
+      "id": "N058-14-GROUND-CASE",
+      "state": "open",
+      "note": "On the ground (centre at z = R) on a high-pressure day the load exceeds the 100 m floor's; relief by admitting air covers it, but 050's grid starts at 100 m and the moored load path is not re-checked."
+    },
+    {
+      "id": "N058-15-MIL-MARKERS",
+      "state": "PROJECTION",
+      "note": "No relieved hull of either lead floats on any MIL-HDBK-310 hot marker up to R30: 10 % hot day at R30 P2 -2,956 to -3,853 kg, P3 -886 kg (0.7 % of its mass). This is not an impossibility proof beyond R30."
+    },
+    {
+      "id": "N058-16-LEAST-SETS",
+      "state": "limitation",
+      "note": "Least optimism sets are the fewest axes at their endpoints (usage 1) reaching a coverage target, with the best finish, design pressure and relief; common-usage roots below 1 were not refined."
+    },
+    {
+      "id": "N058-17-DESIGN-TEMPERATURE",
+      "state": "limitation",
+      "note": "Every fixed hull is sized at its finish's own clear-night cold threshold, as 050's builds; finish mass differences come from the day thermal gradient and curvature terms only."
+    }
+  ]
+}

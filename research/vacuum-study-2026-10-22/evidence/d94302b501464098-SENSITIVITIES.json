@@ -1,0 +1,74 @@
+{
+  "ill_conditioned_m": [
+    {
+      "frame_row": 32,
+      "material": "M55J-50-20-20-10",
+      "reserve": "5",
+      "owner_m": 6806150609724.931,
+      "tests": [
+        {
+          "relative_wall_change": -1e-08,
+          "peak_over_scale": 1.0000000101747406,
+          "m_needed": null,
+          "required_scale_m10_Pa": 1844256638.243054
+        },
+        {
+          "relative_wall_change": 0.0,
+          "peak_over_scale": 0.999999999998986,
+          "m_needed": 6812112419084.157,
+          "required_scale_m10_Pa": 1844256619.597305
+        },
+        {
+          "relative_wall_change": 1e-08,
+          "peak_over_scale": 0.9999999898232318,
+          "m_needed": 1077589198.433215,
+          "required_scale_m10_Pa": 1844256600.9515562
+        }
+      ]
+    },
+    {
+      "frame_row": 86,
+      "material": "M55J-50-20-20-10",
+      "reserve": "019",
+      "owner_m": 224890447498.35278,
+      "tests": [
+        {
+          "relative_wall_change": -1e-08,
+          "peak_over_scale": 1.000000010153176,
+          "m_needed": null,
+          "required_scale_m10_Pa": 1843333850.182659
+        },
+        {
+          "relative_wall_change": 0.0,
+          "peak_over_scale": 0.9999999999688628,
+          "m_needed": 224903840631.78098,
+          "required_scale_m10_Pa": 1843333831.5365078
+        },
+        {
+          "relative_wall_change": 1e-08,
+          "peak_over_scale": 0.9999999897845497,
+          "m_needed": 1073648426.1714811,
+          "required_scale_m10_Pa": 1843333812.8903637
+        }
+      ]
+    }
+  ],
+  "joint_reference_sensitivity": [
+    {
+      "reserve": "5",
+      "legacy_sleeve_strength_MPa": 1470,
+      "alternative_T700S_sheet_strength_MPa": 1450,
+      "original_screen": 1.1357431782203353,
+      "alternative_screen_or_ceiling": 1.1202910210972705,
+      "status": "Sensitivity only: matching sleeve construction and allowable remain unqualified"
+    },
+    {
+      "reserve": "019",
+      "legacy_sleeve_strength_MPa": 1470,
+      "alternative_T700S_sheet_strength_MPa": 1450,
+      "original_screen": 1.075981681410542,
+      "alternative_screen_or_ceiling": 1.0613425926658289,
+      "status": "Sensitivity only: matching sleeve construction and allowable remain unqualified"
+    }
+  ]
+}

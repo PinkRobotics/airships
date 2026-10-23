@@ -1,0 +1,842 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-042",
+  "unit": "vacuum-mainline042-build-route-1020",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "started_local": "2026-10-20T03:40:42.344154-07:00",
+  "measured_times": {
+    "job_started_local": "2026-10-20T03:09:06-07:00 (WORKING state line)",
+    "this_run_local": "2026-10-20T03:40:42.344154-07:00"
+  },
+  "reproduce": {
+    "015b_Be_kd0.9": {
+      "mine": [
+        2.3602739203851284,
+        0.03947292672364836,
+        1.498524808936674,
+        0.0250611420419689
+      ],
+      "filed": [
+        2.36,
+        0.0395,
+        1.499,
+        0.0251
+      ]
+    },
+    "015b_021": {
+      "mine": [
+        36.470837762932064,
+        11.801197276993202,
+        0.1393403907929056,
+        7.0788895397606995
+      ],
+      "filed": [
+        36.47,
+        11.801,
+        0.1393,
+        7.079
+      ]
+    },
+    "015b_021b": {
+      "mine": [
+        53.36404890439359,
+        45.81909809248435,
+        0.6544086136006378,
+        18.391549563246567
+      ],
+      "filed": [
+        53.36,
+        45.819,
+        0.6544,
+        18.392
+      ]
+    },
+    "032_S200F": {
+      "mine": 0.15289145889487868,
+      "filed": 0.152868766846
+    },
+    "032_SR200": {
+      "mine": 0.06521857553366171,
+      "filed": 0.0652229064039
+    }
+  },
+  "gamma_need_028b": {
+    "t_eq_mm": 41.62437129670515,
+    "R_over_t": 240.24386887956595,
+    "width_m": 0.3567770588642883,
+    "eq3_amp_mm": 16.057295481678853,
+    "eq3_rms_mm": 0.20254630586539468,
+    "eq3_d_over_t": 0.3857666790260901,
+    "eq3_in_fit": true,
+    "lee_amp_mm": 9.318267240992759,
+    "lee_rms_k1_mm": 0.11754037962887842,
+    "lee_rms_k5_mm": 0.587701898144392,
+    "lee_d_over_t": 0.22386565732298191,
+    "lee_in_fem_range": true,
+    "lee_in_ode_range": true
+  },
+  "gamma_table": {
+    "0.2": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": null,
+      "eq3_rms_mm": null,
+      "eq3_d_over_t": null,
+      "eq3_in_fit": false,
+      "lee_amp_mm": 67.17921258371261,
+      "lee_rms_k1_mm": 0.8473968331281134,
+      "lee_rms_k5_mm": 4.236984165640567,
+      "lee_d_over_t": 1.6139393939393938,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": true
+    },
+    "0.3": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": null,
+      "eq3_rms_mm": null,
+      "eq3_d_over_t": null,
+      "eq3_in_fit": false,
+      "lee_amp_mm": 33.19902441699276,
+      "lee_rms_k1_mm": 0.4187716269946765,
+      "lee_rms_k5_mm": 2.0938581349733827,
+      "lee_d_over_t": 0.7975862068965518,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": true
+    },
+    "0.4": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": null,
+      "eq3_rms_mm": null,
+      "eq3_d_over_t": null,
+      "eq3_in_fit": false,
+      "lee_amp_mm": 19.68882912179089,
+      "lee_rms_k1_mm": 0.24835437636331004,
+      "lee_rms_k5_mm": 1.2417718818165502,
+      "lee_d_over_t": 0.473012048192771,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": true
+    },
+    "0.468": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 35.874618460639724,
+      "eq3_rms_mm": 0.45252150038739597,
+      "eq3_d_over_t": 0.8618657133562386,
+      "eq3_in_fit": true,
+      "lee_amp_mm": 14.360408097363276,
+      "lee_rms_k1_mm": 0.18114181271429913,
+      "lee_rms_k5_mm": 0.9057090635714957,
+      "lee_d_over_t": 0.345,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": true
+    },
+    "0.5": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 24.91441462996623,
+      "eq3_rms_mm": 0.3142697754958914,
+      "eq3_d_over_t": 0.5985535361572747,
+      "eq3_in_fit": true,
+      "lee_amp_mm": 12.433353870663963,
+      "lee_rms_k1_mm": 0.1568340010242429,
+      "lee_rms_k5_mm": 0.7841700051212144,
+      "lee_d_over_t": 0.2987037037037037,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": true
+    },
+    "0.564164": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 16.057295481678853,
+      "eq3_rms_mm": 0.20254630586539468,
+      "eq3_d_over_t": 0.3857666790260901,
+      "eq3_in_fit": true,
+      "lee_amp_mm": 9.318267240992759,
+      "lee_rms_k1_mm": 0.11754037962887842,
+      "lee_rms_k5_mm": 0.587701898144392,
+      "lee_d_over_t": 0.22386565732298191,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": true
+    },
+    "0.6": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 13.128578079800143,
+      "eq3_rms_mm": 0.16560354104232322,
+      "eq3_d_over_t": 0.3154060390778649,
+      "eq3_in_fit": true,
+      "lee_amp_mm": 7.9055008943967815,
+      "lee_rms_k1_mm": 0.09971978182768217,
+      "lee_rms_k5_mm": 0.49859890913841076,
+      "lee_d_over_t": 0.18992481203007516,
+      "lee_in_fem_range": true,
+      "lee_in_ode_range": false
+    },
+    "0.7": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 7.648476164463389,
+      "eq3_rms_mm": 0.0964776785965709,
+      "eq3_d_over_t": 0.1837499504783828,
+      "eq3_in_fit": true,
+      "lee_amp_mm": 4.810512784036938,
+      "lee_rms_k1_mm": 0.06067968263003308,
+      "lee_rms_k5_mm": 0.3033984131501654,
+      "lee_d_over_t": 0.11556962025316458,
+      "lee_in_fem_range": false,
+      "lee_in_ode_range": false
+    },
+    "0.8": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 4.038825311846326,
+      "eq3_rms_mm": 0.05094563700864236,
+      "eq3_d_over_t": 0.09703030186466807,
+      "eq3_in_fit": true,
+      "lee_amp_mm": 2.561149840442075,
+      "lee_rms_k1_mm": 0.03230627720223342,
+      "lee_rms_k5_mm": 0.1615313860111671,
+      "lee_d_over_t": 0.06153005464480871,
+      "lee_in_fem_range": false,
+      "lee_in_ode_range": false
+    },
+    "0.9": {
+      "t_eq_mm": 41.62437129670515,
+      "R_over_t": 240.24386887956595,
+      "width_m": 0.3567770588642883,
+      "eq3_amp_mm": 1.3427415296340546,
+      "eq3_rms_mm": 0.016937306588755127,
+      "eq3_d_over_t": 0.03225854199845517,
+      "eq3_in_fit": false,
+      "lee_amp_mm": 0.852499142903671,
+      "lee_rms_k1_mm": 0.010753401925347168,
+      "lee_rms_k5_mm": 0.05376700962673585,
+      "lee_d_over_t": 0.02048076923076919,
+      "lee_in_fem_range": false,
+      "lee_in_ode_range": false
+    }
+  },
+  "amplitude_table": [
+    {
+      "amp_mm": 0.5,
+      "d_over_t": 0.012012193443978298,
+      "eq3_kd": 0.9367756869149978,
+      "eq3_in_fit": false,
+      "lee_kd": 0.9241286330255991,
+      "lee_in_fem_range": false
+    },
+    {
+      "amp_mm": 1.0,
+      "d_over_t": 0.024024386887956595,
+      "eq3_kd": 0.9146089595520941,
+      "eq3_in_fit": false,
+      "lee_kd": 0.8903024559280948,
+      "lee_in_fem_range": false
+    },
+    {
+      "amp_mm": 2.0,
+      "d_over_t": 0.04804877377591319,
+      "eq3_kd": 0.8732578143060379,
+      "eq3_in_fit": false,
+      "lee_kd": 0.8300817999788423,
+      "lee_in_fem_range": false
+    },
+    {
+      "amp_mm": 3.0,
+      "d_over_t": 0.07207316066386979,
+      "eq3_kd": 0.8355870053471014,
+      "eq3_in_fit": true,
+      "lee_kd": 0.7780796877802316,
+      "lee_in_fem_range": false
+    },
+    {
+      "amp_mm": 5.0,
+      "d_over_t": 0.12012193443978297,
+      "eq3_kd": 0.7700053198196563,
+      "eq3_in_fit": true,
+      "lee_kd": 0.6928095354982948,
+      "lee_in_fem_range": false
+    },
+    {
+      "amp_mm": 7.5,
+      "d_over_t": 0.18018290165967446,
+      "eq3_kd": 0.7034840919159329,
+      "eq3_in_fit": true,
+      "lee_kd": 0.611262253113624,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 9.32,
+      "d_over_t": 0.22390728579575547,
+      "eq3_kd": 0.6639303418866236,
+      "eq3_in_fit": true,
+      "lee_kd": 0.564123011210698,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 10.0,
+      "d_over_t": 0.24024386887956595,
+      "eq3_kd": 0.650790989633099,
+      "eq3_in_fit": true,
+      "lee_kd": 0.5485438659727364,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 12.5,
+      "d_over_t": 0.30030483609945746,
+      "eq3_kd": 0.6090514860838299,
+      "eq3_in_fit": true,
+      "lee_kd": 0.4988080588822681,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 16.06,
+      "d_over_t": 0.3858316534205829,
+      "eq3_kd": 0.564135222808848,
+      "eq3_in_fit": true,
+      "lee_kd": 0.44347028399096494,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 20.0,
+      "d_over_t": 0.4804877377591319,
+      "eq3_kd": 0.5290529833683123,
+      "eq3_in_fit": true,
+      "lee_kd": 0.39673639848113124,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 25.0,
+      "d_over_t": 0.6006096721989149,
+      "eq3_kd": 0.4996026965205387,
+      "eq3_in_fit": true,
+      "lee_kd": 0.35189422452712876,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 30.0,
+      "d_over_t": 0.7207316066386978,
+      "eq3_kd": 0.4811237779685732,
+      "eq3_in_fit": true,
+      "lee_kd": 0.3178172320545677,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 40.0,
+      "d_over_t": 0.9609754755182638,
+      "eq3_kd": 0.46225367486162877,
+      "eq3_in_fit": true,
+      "lee_kd": 0.26945442430729216,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 50.0,
+      "d_over_t": 1.2012193443978298,
+      "eq3_kd": 0.45482436765119344,
+      "eq3_in_fit": true,
+      "lee_kd": 0.23677986433645598,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 75.0,
+      "d_over_t": 1.8018290165967445,
+      "eq3_kd": 0.4504692189107954,
+      "eq3_in_fit": true,
+      "lee_kd": 0.18808671125580034,
+      "lee_in_fem_range": true
+    },
+    {
+      "amp_mm": 100.0,
+      "d_over_t": 2.4024386887956597,
+      "eq3_kd": 0.45004563632006644,
+      "eq3_in_fit": true,
+      "lee_kd": 0.1611987750714418,
+      "lee_in_fem_range": true
+    }
+  ],
+  "Q_need_028b": {
+    "waviness_mm_60psi": 0.12877353073888909,
+    "waviness_mm_35psi": 0.07511789293101864
+  },
+  "Q_table": [
+    {
+      "waviness_mm": 0.005,
+      "Q_60psi": 0.7927089880965041,
+      "Q_35psi": 0.7743017764263393
+    },
+    {
+      "waviness_mm": 0.01,
+      "Q_60psi": 0.7671760482609357,
+      "Q_35psi": 0.7334281616618952
+    },
+    {
+      "waviness_mm": 0.02,
+      "Q_60psi": 0.7207459858549293,
+      "Q_35psi": 0.6633904420252446
+    },
+    {
+      "waviness_mm": 0.024,
+      "Q_60psi": 0.7037103571375244,
+      "Q_35psi": 0.6389829217969429
+    },
+    {
+      "waviness_mm": 0.034,
+      "Q_60psi": 0.6644479511708756,
+      "Q_35psi": 0.5851597936801332
+    },
+    {
+      "waviness_mm": 0.05,
+      "Q_60psi": 0.6099941019159502,
+      "Q_35psi": 0.5156628774495716
+    },
+    {
+      "waviness_mm": 0.075,
+      "Q_60psi": 0.5407498041915477,
+      "Q_35psi": 0.43494881068155083
+    },
+    {
+      "waviness_mm": 0.1,
+      "Q_60psi": 0.48562359157506746,
+      "Q_35psi": 0.37608253879359355
+    },
+    {
+      "waviness_mm": 0.129,
+      "Q_60psi": 0.4342690715657353,
+      "Q_35psi": 0.3250510796352057
+    },
+    {
+      "waviness_mm": 0.15,
+      "Q_60psi": 0.40337935906479977,
+      "Q_35psi": 0.29596919028858
+    },
+    {
+      "waviness_mm": 0.2,
+      "Q_60psi": 0.34495797227430125,
+      "Q_35psi": 0.24399352906825994
+    },
+    {
+      "waviness_mm": 0.20320000000000002,
+      "Q_60psi": 0.3417898833138033,
+      "Q_35psi": 0.2412817273845316
+    },
+    {
+      "waviness_mm": 0.287,
+      "Q_60psi": 0.27552465613680266,
+      "Q_35psi": 0.18688739330350684
+    },
+    {
+      "waviness_mm": 0.3,
+      "Q_60psi": 0.2674798264591384,
+      "Q_35psi": 0.18057230108344402
+    },
+    {
+      "waviness_mm": 0.5,
+      "Q_60psi": 0.18457024578364378,
+      "Q_35psi": 0.11880851581548646
+    }
+  ],
+  "route": {
+    "blanks_per_skin": 1188.5605616641947,
+    "blanks_total": 2377.1211233283893,
+    "coincident_seam_m": 2841.518543919854,
+    "flat_blank_corner_sag_mm": 46.45152,
+    "forming_strain_strip_w": 0.00046451520000000005,
+    "forming_strain_disc_halfdiag": 0.0011612880000000001,
+    "forming_strain_small_blank_0.305x0.610": 0.00014516100000000002,
+    "Be_elastic_strain_at_345MPa": 0.001189655172413793,
+    "forming_stress_strip_MPa": 67.354704,
+    "face_bending_strain_flat_to_R": 3.9731203349294464e-05,
+    "face_bending_stress_MPa": 11.522048971295394,
+    "seam_hot_cure_stress_MPa_per_100K": 354.3468858131488,
+    "Be_Al_core_cte_mismatch_strain_per_100K": 0.0012300000000000002,
+    "membrane_strain": 0.0009577526436781641,
+    "gauge_tol_fraction": 0.127859203139142,
+    "gauge_low_patch_radial_mm_upper": 1.2245748982509668,
+    "areal_mass_kg_m2": 3.4840156640872495,
+    "self_weight_Pa": 34.166522212221224,
+    "sea_level_overload": 0.06143002946803855,
+    "inflation": {
+      "p_Pa": 3447.3786465841804,
+      "skin_stress_MPa": 21.691884186572203,
+      "tension_N_per_m": 17236.893232920902,
+      "face_bending_D_Nm": 12.194523040361133,
+      "bending_term_D_k2_N_per_m": 95.80120606651613,
+      "tension_over_bending": 179.92355149425867
+    },
+    "D_sandwich_Nm": 66921.6682998022,
+    "self_weight_span_deflection_mm": {
+      "1 m": 0.00664772117323738,
+      "2 m": 0.10636353877179808,
+      "3 m": 0.5384654150322278,
+      "5 m": 4.154825733273362
+    }
+  },
+  "precedent_dimples": {
+    "Rohr 57 in gores after stretch forming (0.050 in)": {
+      "amp_mm": 1.27,
+      "d_over_t": 0.030510971347704877,
+      "eq3_kd": 0.903061626418497,
+      "eq3_in_fit": false,
+      "lee_kd": 0.8731245304310173,
+      "lee_in_fem_range": false
+    },
+    "Rohr gores after chemical milling (0.150 in)": {
+      "amp_mm": 3.8099999999999996,
+      "d_over_t": 0.09153291404311462,
+      "eq3_kd": 0.80754564032528,
+      "eq3_in_fit": true,
+      "lee_kd": 0.7408878937788772,
+      "lee_in_fem_range": false
+    },
+    "Rohr gores after chemical milling (0.200 in)": {
+      "amp_mm": 5.08,
+      "d_over_t": 0.1220438853908195,
+      "eq3_kd": 0.7676278614208123,
+      "eq3_in_fit": true,
+      "lee_kd": 0.6898226643516281,
+      "lee_in_fem_range": false
+    },
+    "S-II core-to-face fit limit (0.010 in)": {
+      "amp_mm": 0.254,
+      "d_over_t": 0.0061021942695409755,
+      "eq3_kd": 0.9480668036743469,
+      "eq3_in_fit": false,
+      "lee_kd": 0.9418136407456961,
+      "lee_in_fem_range": false
+    },
+    "gauge-low patch under load (upper, this card)": {
+      "amp_mm": 1.2245748982509668,
+      "d_over_t": 0.02941966112886131,
+      "eq3_kd": 0.9049840851006254,
+      "eq3_in_fit": false,
+      "lee_kd": 0.8759641710158963,
+      "lee_in_fem_range": false
+    },
+    "reflector class, 3 x 50 um whole-surface rms": {
+      "amp_mm": 0.15,
+      "d_over_t": 0.003603658033193489,
+      "eq3_kd": 0.9529187028827808,
+      "eq3_in_fit": false,
+      "lee_kd": 0.9495119019753246,
+      "lee_in_fem_range": false
+    }
+  },
+  "precedent_waviness": {
+    "CSO panel 10 um rms (x sqrt2)": {
+      "amp_mm": 0.014142135623730952,
+      "Q_60psi": 0.7472372104695196,
+      "Q_35psi": 0.7026986118645862
+    },
+    "Woody 1994 installed 24 um rms (x sqrt2; 032b)": {
+      "amp_mm": 0.033941125496954286,
+      "Q_60psi": 0.6646662813987902,
+      "Q_35psi": 0.5854501269749494
+    },
+    "Nobeyama new-antenna panels 21 um rms (x sqrt2)": {
+      "amp_mm": 0.029698484809835,
+      "Q_60psi": 0.6807865725400116,
+      "Q_35psi": 0.607158819666855
+    },
+    "Nobeyama older panels 60 um rms (x sqrt2)": {
+      "amp_mm": 0.08485281374238571,
+      "Q_60psi": 0.5175935912903441,
+      "Q_35psi": 0.4096765149637878
+    },
+    "von Hoerner vendor honeycomb 0.2032 mm rms (x sqrt2; 032b)": {
+      "amp_mm": 0.2873681958742129,
+      "Q_60psi": 0.2752901511617599,
+      "Q_35psi": 0.18670246040725988
+    },
+    "ER-1001 cell dimple depth 0.001651 mm (032b)": {
+      "amp_mm": 0.001651,
+      "Q_60psi": 0.8107830425574938,
+      "Q_35psi": 0.804325348734139
+    },
+    "3/8 in cell one-cell rise projection 0.01524 mm (032b)": {
+      "amp_mm": 0.01524,
+      "Q_60psi": 0.7421250289936927,
+      "Q_35psi": 0.6949807716405165
+    }
+  },
+  "disbond_critical_diameter_mm": {
+    "face_stress_MPa": 300.3333333333344,
+    "clamped": 54.780045601213786,
+    "simply_supported": 29.292132954739973
+  },
+  "envelope": {
+    "sphere_volume_m3": 4188.790204786391,
+    "largest_autoclave_volume_m3_ASC": 2321.0,
+    "largest_autoclave_diameter_m_Spirit": 9.144,
+    "panel_envelope_m": [
+      0.7096,
+      1.9288
+    ],
+    "cure_dT_K_AF163_250F_to_service": 109.36111111111109,
+    "cure_dT_K_AF163_200F_to_service": 81.58333333333331,
+    "Be_Al_mismatch_strain_250F": 0.0013451416666666665,
+    "Be_Al_mismatch_strain_200F": 0.0010034749999999998,
+    "film_mass_per_10gm2_both_lines_kg": 25.132741228718345
+  },
+  "coverage": {
+    "bond_area_m2_two_lines": 2513.2741228718346,
+    "scarf_seam_m_two_skins": 5683.037087839708,
+    "shearography_hours_at_15m2h_vendor": 167.55160819145564,
+    "photogrammetry_relative_1_to_100k_at_20m_mm": 0.2,
+    "photogrammetry_relative_1_to_200k_at_20m_mm": 0.1
+  },
+  "precedents": [
+    {
+      "id": "S-II common bulkhead",
+      "diameter_m": 10.06,
+      "verified": "verified at source by this seat",
+      "construction": "2014-T6 Al faces, chem-milled gores 13 mm to 0.79 mm; phenolic honeycomb tapering from about 5 in",
+      "tooling": "gores explosively formed (3 blasts each); 12 gores + dollar welded; skins inflated at low pressure and measured at about 15,000 points; core machined to cutting tables in 0.010 in passes",
+      "cure": "aft sheet + core cured in a 'gargantuan autoclave'; skins bonded in preload; ultrasonic checks",
+      "shape": "core contour to match the face within 0.010 in (0.254 mm), the largest gap the adhesive bridges (specified); welding left localized distortion; as-built RMS/peak not published",
+      "sources": "SD 71-256 (NTRS 19720008130) printed pp.4-44 to 4-45; NASA SP-4206 pp.213-214"
+    },
+    {
+      "id": "S-IVB common bulkhead",
+      "diameter_m": 6.63,
+      "verified": "verified at source by this seat",
+      "construction": "2014-T6 Al faces 0.813/1.4 mm on phenolic fibreglass honeycomb",
+      "tooling": "350 putty-pad 'Paleno' blocks to read the fit, then the core sanded by hand",
+      "cure": "final bond at 182 C (360 F) in an oversized autoclave; machined on a Niles boring mill",
+      "shape": "fit read by putty pads, values unpublished; experimental bonded segments 0 to 0.090 in gap, welded 0 to 0.015 in (Douglas Paper 3817, sub-worker row)",
+      "sources": "NASA SP-4206 p.168 (read); Douglas Paper 3817 (sub-worker)"
+    },
+    {
+      "id": "Rohr 57 in bonded bulkhead",
+      "diameter_m": 1.448,
+      "verified": "verified at source by this seat",
+      "construction": "2219 Al skins on 1 in HRP honeycomb",
+      "tooling": "stretch-formed, welded gores",
+      "cure": "autoclave 350 F, about 200 psi, creep-sizing the skins in the bond cycle (sub-worker detail)",
+      "shape": "gores about 0.050 in out of contour after forming; 0.150-0.200 in after chemical milling; extensive hand forming",
+      "sources": "NTRS 19660014454"
+    },
+    {
+      "id": "CCTD 5.5 m composite tank",
+      "diameter_m": 5.5,
+      "verified": "verified at source by this seat",
+      "construction": "IM7/5320-1 laminate (not sandwich)",
+      "tooling": "-",
+      "cure": "out of autoclave: 'no autoclave large enough to cure a 10m cryotank'",
+      "shape": "-",
+      "sources": "NTRS 20150021410"
+    },
+    {
+      "id": "Ares I common bulkhead",
+      "diameter_m": 5.49,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "1.78 mm Al skins on 50.8 mm perforated phenolic honeycomb",
+      "tooling": "robotic FSW tool",
+      "cure": "not stated",
+      "shape": "dome-to-ring weld mismatch max 0.041 in",
+      "sources": "NTRS 20120014602, 20100017376"
+    },
+    {
+      "id": "Atlas V 5.4 m fairing",
+      "diameter_m": 5.4,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "carbon prepreg faces on vented Al honeycomb bent to radius",
+      "tooling": "54 t mould",
+      "cure": "out-of-autoclave oven under vacuum bag",
+      "shape": "not published",
+      "sources": "CompositesWorld RUAG tour"
+    },
+    {
+      "id": "X-33 LH2 tank",
+      "diameter_m": null,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "IM7/977-2 on Korex honeycomb, AF-191",
+      "tooling": "lobes cured separately",
+      "cure": "autoclave, 350 F; severe skin-core disbonds after cure; 1999 failure by microcracking and cryopumping",
+      "shape": "not published",
+      "sources": "NTRS 20200006023, 20020021989"
+    },
+    {
+      "id": "CSO 10.4 m reflector",
+      "diameter_m": 10.4,
+      "verified": "verified at source by this seat",
+      "construction": "1.0 mm Al skin pulled onto machined Al honeycomb, hexagonal panels about 1.15 m",
+      "tooling": "honeycomb machined on a curved cutter track; panels pre-strained during cutting",
+      "cure": "epoxy",
+      "shape": "skin force bent each prototype panel about 150 um centre-to-edge until pre-strained; panels 5-10 um rms; dish just under 30 um rms (Serabyn 1991, sub-worker)",
+      "sources": "Leighton NSF final report (read); Serabyn et al. 1991 Appl. Opt. 30, 1227"
+    },
+    {
+      "id": "ALMA European 12 m antenna",
+      "diameter_m": 12,
+      "verified": "verified at source by this seat",
+      "construction": "0.6 mm electroformed Ni skin on 20 mm Al honeycomb, 120 panels, 5 adjusters each (ESO/ESA, sub-worker)",
+      "tooling": "replication from machined steel moulds",
+      "cure": "bonded",
+      "shape": "dish 38 um rms as set by the contractor's laser tracker; 55 um at first holography; about 14 um after a third partial adjustment; panel spec 8 um",
+      "sources": "Mangum et al. 2006 PASP, Sect. 5.1.1 (read)"
+    },
+    {
+      "id": "SMT/HHT 10 m",
+      "diameter_m": 10,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "CFRP faces on Al honeycomb, 60 panels",
+      "tooling": "-",
+      "cure": "-",
+      "shape": "47 um first holography; 14-19 um after panel resets",
+      "sources": "HHT 1997 holography page"
+    },
+    {
+      "id": "LMT 50 m",
+      "diameter_m": 50,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "electroformed Ni panels on Al boxes",
+      "tooling": "-",
+      "cure": "-",
+      "shape": "segments just below 20 um; overall 98 um rms",
+      "sources": "Hughes et al. SPIE 11445 (2020)"
+    },
+    {
+      "id": "IRAM 30 m",
+      "diameter_m": 30,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "Al panels (honeycomb per snippet)",
+      "tooling": "-",
+      "cure": "-",
+      "shape": "about 50-60 um; panel errors correlated over 0.3-0.5 m",
+      "sources": "Kramer et al. 2013 IRAM report"
+    },
+    {
+      "id": "Sandwich ground radomes",
+      "diameter_m": 23.5,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "bolted doubly curved sandwich panels (foam or honeycomb)",
+      "tooling": "-",
+      "cure": "-",
+      "shape": "no tolerance published; sizes to 23.5 m (CPI) and 20 m (Comtech)",
+      "sources": "CPI and Comtech data sheets"
+    },
+    {
+      "id": "SNO 12 m acrylic sphere",
+      "diameter_m": 12,
+      "verified": "verified at source by this seat",
+      "construction": "122 bonded acrylic panels 5.6 cm",
+      "tooling": "dry-assembled hemispheres on a framework",
+      "cure": "room-temperature polymerising adhesive, bonds above 27.5 MPa (sub-worker)",
+      "shape": "+/-25 mm specified; 'typically maintained to +/-6 mm'",
+      "sources": "Boger et al. NIM A 449 (2000) p.181"
+    },
+    {
+      "id": "Moss LNG sphere, JUNO, JT-60SA lid",
+      "diameter_m": 36.6,
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "construction": "welded Al (Moss), bonded acrylic (JUNO), welded steel (JT-60SA)",
+      "tooling": "jigs",
+      "cure": "-",
+      "shape": "Moss under 2 cm; JUNO +/-50 mm (panels within 6 mm); JT-60SA R 8 m +/-8 mm",
+      "sources": "Faig ISPRS 1980; JUNO arXiv 2311.17314; JT-60SA poster"
+    },
+    {
+      "id": "Solar creep-formed Be honeycomb panel",
+      "diameter_m": null,
+      "verified": "verified at source by this seat",
+      "construction": "brazed all-Be honeycomb, 1 x 2 ft",
+      "tooling": "vacuum-bagged die, 10 ft radius (cylindrical)",
+      "cure": "creep formed at 1250 F",
+      "shape": "'conformed to the die within 0.003 inch at room temperature'",
+      "sources": "Vogan and Grant, Solar RDR 1550-12 (NTRS 19730016169) Sect. 6.3"
+    }
+  ],
+  "inspection": [
+    {
+      "target": "face-core bond",
+      "method": "tap test (manual / automated)",
+      "resolution": "a90/95 43 / 28 mm, 0.5 mm Al skins on 19 mm Al honeycomb, laboratory (automated better by 15 mm)",
+      "verified": "verified at source by this seat",
+      "source": "Genest et al. ICAF 2023"
+    },
+    {
+      "target": "face-core bond",
+      "method": "vacuum-stress shearography",
+      "resolution": "POD 0.95 at debond diameter equal to foam thickness (Shuttle SOFI); 0.375 in voids; vendor 15 m2/h hood; ASTM E2581 names metal-faced honeycomb, no size",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "NTRS 19960028755/19960029100; Dantec"
+    },
+    {
+      "target": "face-core bond",
+      "method": "pulse-echo / through-transmission UT",
+      "resolution": "6.35 mm inserts in thin CFRP; ASTM E2580 flat parallel panels only",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "NLR; ASTM E2580-24"
+    },
+    {
+      "target": "face-core bond",
+      "method": "flash thermography",
+      "resolution": "E2582 excludes core and far-side bond; signal lost at face/core-wall ratio 8:1 (CFRP model)",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "NTRS 20150001252; ASTM E2582"
+    },
+    {
+      "target": "weak or kissing bond",
+      "method": "commercial NDE",
+      "resolution": "fails on weak or kissing bonds",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "NTRS 20230010345"
+    },
+    {
+      "target": "scarf seams",
+      "method": "none found",
+      "resolution": "no scarf-seam NDE source; shearography needs two shear directions on strip debonds",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "LIT-C GAPS"
+    },
+    {
+      "target": "global shape",
+      "method": "laser tracker AT960",
+      "resolution": "scale-bar MPE 0.106 mm at 10 m, 0.191 mm at 20 m",
+      "verified": "verified at source by this seat",
+      "source": "Leica AT960 ASME B89.4.19 sheet"
+    },
+    {
+      "target": "global shape",
+      "method": "photogrammetry (V-STARS)",
+      "resolution": "0.043-0.091 mm rms on a 13.2 m tool; 1:100,000-1:200,000 claimed",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "GSI acceptance test 1997"
+    },
+    {
+      "target": "global shape",
+      "method": "terrestrial laser scanner RTC360",
+      "resolution": "1.9 mm at 10 m, 2.9 mm at 20 m",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "Leica RTC360 sheet"
+    },
+    {
+      "target": "waviness",
+      "method": "structured light + photogrammetry; laser line profiler",
+      "resolution": "0.001 in on 8 ft cylinder OML (NASA SBKF); profiler Z repeatability 0.4 um",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "NTRS 20180006177; Keyence"
+    },
+    {
+      "target": "under load",
+      "method": "stereo DIC; distributed fibre-optic strain",
+      "resolution": "0.003 in (3 sigma) on 8 ft shells, six systems on 27.5 ft cylinders; 0.65 mm gage pitch, +/-5 microstrain",
+      "verified": "sub-worker row (LIT-*.json), not re-read",
+      "source": "NTRS 20180006177, 20180006174; Luna ODiSI 6000"
+    }
+  ],
+  "ended_local": "2026-10-20T03:40:42.344316-07:00",
+  "elapsed_s": 0.0001431410200893879
+}

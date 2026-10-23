@@ -1,0 +1,386 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline018b-check-1020",
+  "started_at": "2026-10-20T00:43:38-07:00",
+  "sim": {
+    "face_E_Pa": 210000000000.0,
+    "face_nu": 0.33,
+    "core_E_Pa": 40000000.0,
+    "core_nu": 0.0,
+    "tag": "QUESTIONABLE",
+    "source": "https://onlinelibrary.wiley.com/doi/10.1155/2024/8765733; Table 1; geometry independently inspected in pinned EUCASS2023-367 Figure 4",
+    "rows": {
+      "flat": {
+        "t_outer_m": 0.00042,
+        "t_inner_m": 0.00042,
+        "t_core_m": 0.0031,
+        "R_outer_m": 0.0428,
+        "published_kdf": 0.22,
+        "imperfect_Pa": 6030000.0,
+        "linear_perfect_Pa": 27530000.0,
+        "nonlinear_perfect_Pa": 12450000.0,
+        "tag": "QUESTIONABLE"
+      },
+      "dimple": {
+        "t_outer_m": 0.00042,
+        "t_inner_m": 0.0004,
+        "t_core_m": 0.0031,
+        "R_outer_m": 0.0428,
+        "published_kdf": 0.2,
+        "imperfect_Pa": 5630000.0,
+        "linear_perfect_Pa": 27560000.0,
+        "nonlinear_perfect_Pa": 12440000.0,
+        "tag": "QUESTIONABLE"
+      }
+    },
+    "core_density_kg_m3": 80.0,
+    "core_identity": "PVC80 foam in Table 1; manufacturer H35 is not the identified coupon",
+    "primary_source_read": "EUCASS 2023-367 sections 3.2.1-3.3, pp 6-10, Figures 9/10/12/13/15/16; independently extracted source PDF and visually checked pages 7/8/9. Journal Sim 2024 Table 1, sections 3.2.3 and conclusions independently read on publisher site."
+  },
+  "lead_point": {
+    "tf_m": 0.000752430055433027,
+    "core_m": 0.020642305866854553,
+    "h_m": 0.02139473592228758,
+    "Vc": 3.328884907403892,
+    "Kc": 0.3004008933369442,
+    "gamma": 1.0,
+    "modes": {
+      "global_buckling": 0.6504118436805308,
+      "face_compression": 0.8922515676201891,
+      "core_shear_crimping": 0.6504118436805308,
+      "core_crush": 20.950999841461407,
+      "face_wrinkling": 0.6504141274587999,
+      "intracell_dimpling": 52.68619800038143
+    },
+    "effective_modes": {
+      "core_shear_crimping": 0.6504118436805308,
+      "face_compression": 0.8922515676201891,
+      "face_wrinkling": 0.6504141274587999,
+      "core_crush": 20.950999841461407,
+      "intracell_dimpling": 52.68619800038143
+    },
+    "least_SF": 0.6504118436805308,
+    "governing": "core_shear_crimping",
+    "second_SF": 0.6504141274587999,
+    "second_mode": "face_wrinkling",
+    "factor_to_SF_1": 1.5374873777531946,
+    "wrinkle_SF_coefficient_0.82": 1.616180559140048,
+    "intracell_dimpling_equal_biaxial": 26.343099000190715,
+    "least_SF_with_biaxial_dimpling": 0.6504118436805308,
+    "structural_kg": 4328.542897788203,
+    "total_kg": 4644.9700426776135,
+    "payload_kg": 244.47210750934755,
+    "margin": 0.04999999999999993,
+    "core_mass_fraction": 0.19176808231917677,
+    "kd_that_brings_global_to_1": 1.5374873777531946,
+    "maximum_least_SF_if_only_global_gamma_changes": 0.6504118436805308
+  },
+  "shear_rows": {
+    "paper_E_over_2": {
+      "Gc_Pa": 20000000.0,
+      "Ec_Pa": 40000000.0,
+      "nu": 0.0,
+      "rho_kg_m3": 80,
+      "tag": "QUESTIONABLE",
+      "source": "Sim/EUCASS Table 1; G derived with isotropic E/(2(1+nu))"
+    },
+    "H80": {
+      "Gc_Pa": 27000000.0,
+      "Ec_Pa": 90000000.0,
+      "rho_kg_m3": 80,
+      "tag": "QUESTIONABLE",
+      "source": "DIAB Divinycell H H.ds-u/10_2012.rev7: ASTM C273 shear, ASTM D1621 perpendicular compression, average at 23 C; not a rerun of Sim"
+    },
+    "H35": {
+      "Gc_Pa": 12000000.0,
+      "Ec_Pa": 40000000.0,
+      "rho_kg_m3": 38,
+      "tag": "QUESTIONABLE",
+      "source": "Same DIAB sheet: compressive modulus matches paper but density does not; not identified as the tested/modelled foam"
+    }
+  },
+  "owner_results": {
+    "schema": 1,
+    "card": "MAINLINE-018b",
+    "unit": "vacuum-mainline018b-crimp-gamma-measured-1020",
+    "status": "ESTIMATE",
+    "tag": "QUESTIONABLE",
+    "certification": "none",
+    "started_at": "2026-10-20T00:25:15-07:00",
+    "ended_at": "2026-10-20T00:25:15-07:00",
+    "p_crimp_formula": "p = 2 * h^2 * Gc / (R_middle * tc)",
+    "p_classical_formula": "p = 2 * sigma_0 * (t_outer + t_inner) / R_middle",
+    "gamma_definition": "imperfect collapse pressure / p_crimp",
+    "Gc_paper_Pa": 20000000.0,
+    "Gc_basis": "G = E / (2 * (1 + nu)) from the stated foam modulus 0.04 GPa and Poisson 0.",
+    "shells": {
+      "flat": {
+        "name": "flat",
+        "t_outer_m": 0.00042,
+        "t_inner_m": 0.00042,
+        "t_core_m": 0.0031,
+        "h_m": 0.0035199999999999997,
+        "R_outer_m": 0.0428,
+        "R_middle_m": 0.04083,
+        "R_over_tc": 13.170967741935483,
+        "sigma_0_Pa": 19178708418.605698,
+        "sigma_crimp_Pa": 95164362.5192012,
+        "Vc": 201.53246352841413,
+        "branch": "shear_crimping",
+        "p_crimp_Pa": 3915653.4173954944,
+        "p_classical_Pa": 789131279.5311676,
+        "linear_over_crimp": 7.030755040192409,
+        "nonlinear_perfect_over_crimp": 3.179545958968234,
+        "gamma_imperfect_over_crimp": 1.5399728620544941,
+        "published_kdf_check": 0.21903378132945878,
+        "face_bending_share_of_flexural_rigidity": 0.004723195064743116,
+        "lead_least_times_gamma": 1.0016165884275698,
+        "pressures": {
+          "linear_perfect_Pa": 27530000.0,
+          "nonlinear_perfect_Pa": 12450000.0,
+          "imperfect_Pa": 6030000.0,
+          "figure_linear": "Figure 9",
+          "figure_imperfect": "Figure 10",
+          "published_kdf": 0.22
+        }
+      },
+      "dimple": {
+        "name": "dimple",
+        "t_outer_m": 0.00042,
+        "t_inner_m": 0.0004,
+        "t_core_m": 0.0031,
+        "h_m": 0.00351,
+        "R_outer_m": 0.0428,
+        "R_middle_m": 0.04084,
+        "R_over_tc": 13.174193548387098,
+        "sigma_0_Pa": 19119540732.73865,
+        "sigma_crimp_Pa": 96932336.74272227,
+        "Vc": 197.24625832023136,
+        "branch": "shear_crimping",
+        "p_crimp_Pa": 3892483.6498056934,
+        "p_classical_Pa": 767777835.4968507,
+        "linear_over_crimp": 7.08031233512715,
+        "nonlinear_perfect_over_crimp": 3.1959029553331546,
+        "gamma_imperfect_over_crimp": 1.4463773021322879,
+        "published_kdf_check": 0.20428156748911466,
+        "face_bending_share_of_flexural_rigidity": 0.004538262400473471,
+        "lead_least_times_gamma": 0.9407409277382122,
+        "pressures": {
+          "linear_perfect_Pa": 27560000.0,
+          "nonlinear_perfect_Pa": 12440000.0,
+          "imperfect_Pa": 5630000.0,
+          "figure_linear": "Figure 12",
+          "figure_imperfect": "Figure 13",
+          "published_kdf": 0.2
+        }
+      }
+    },
+    "sensitivity": {
+      "flat": {
+        "paper_E_over_2": {
+          "Gc_Pa": 20000000.0,
+          "p_crimp_Pa": 3915653.4173954944,
+          "gamma": 1.5399728620544941,
+          "lead_least_times_gamma": 1.0016165884275698
+        },
+        "H80": {
+          "Gc_Pa": 27000000.0,
+          "p_crimp_Pa": 5286132.113483918,
+          "gamma": 1.1407206385588844,
+          "lead_least_times_gamma": 0.7419382136500516
+        },
+        "H35": {
+          "Gc_Pa": 12000000.0,
+          "p_crimp_Pa": 2349392.0504372967,
+          "gamma": 2.56662143675749,
+          "lead_least_times_gamma": 1.6693609807126164
+        }
+      },
+      "dimple": {
+        "paper_E_over_2": {
+          "Gc_Pa": 20000000.0,
+          "p_crimp_Pa": 3892483.6498056934,
+          "gamma": 1.4463773021322879,
+          "lead_least_times_gamma": 0.9407409277382122
+        },
+        "H80": {
+          "Gc_Pa": 27000000.0,
+          "p_crimp_Pa": 5254852.927237687,
+          "gamma": 1.071390594172065,
+          "lead_least_times_gamma": 0.6968451316579348
+        },
+        "H35": {
+          "Gc_Pa": 12000000.0,
+          "p_crimp_Pa": 2335490.189883416,
+          "gamma": 2.4106288368871467,
+          "lead_least_times_gamma": 1.5679015462303538
+        }
+      }
+    },
+    "design_credit_cap": 1.0,
+    "carried_least_if_capped": 0.650411843681
+  },
+  "owner_NFI": {
+    "schema": 1,
+    "card": "MAINLINE-018b",
+    "open": [
+      {
+        "NFI_id": "NFI-SIM-2024-PDF",
+        "gap": "The Sim 2024 PDF was not opened. Hindawi downloads and Wiley pdfdirect returned HTTP 403. Absolute pressures were read from the EUCASS 2023-367 PDF of the same shells.",
+        "tag": "QUESTIONABLE"
+      },
+      {
+        "NFI_id": "NFI-GC-NOT-STATED",
+        "gap": "The paper does not state Gc. The 20 MPa row uses G = E/2 from foam modulus 0.04 GPa and Poisson 0. H80 at 27 MPa is a datasheet example. H35 at 12 MPa is the closer compressive-modulus match on the same sheet, not an identified coupon.",
+        "tag": "QUESTIONABLE"
+      },
+      {
+        "NFI_id": "NFI-FACE-BENDING-SHARE",
+        "gap": "Own-face bending is about half a percent of flexural rigidity. CR-1457 section 2.3.2 says the crimp-formula error from neglecting it can be considerable. The papers do not isolate that error. Linear pressure over p_crimp is a mixed margin near 7.",
+        "tag": "QUESTIONABLE"
+      },
+      {
+        "NFI_id": "NFI-TRANSFER",
+        "gap": "The shells are numerical, about 43 mm, R/tc near 13, with foam plasticity. They are not a laboratory pressure test and not the beryllium honeycomb sphere.",
+        "tag": "QUESTIONABLE"
+      },
+      {
+        "NFI_id": "NFI-DESIGN-CREDIT-CAP",
+        "gap": "The products 1.00161658843 and 0.940740927738 apply the measured gamma to the 009c-5 least factor. Design credit is stated to stop at gamma 1, so the carried least stays 0.650411843681.",
+        "tag": "PROJECTION"
+      },
+      {
+        "NFI_id": "NFI-P3-PENDING-011b",
+        "gap": "P3 lattice buckling and member bending remain unscored.",
+        "tag": "QUESTIONABLE"
+      }
+    ]
+  },
+  "pin_provenance": [
+    {
+      "path": "unpublished-local-ref:9a2b428b1b9ae166",
+      "sha256": "88351c1cc09ea63754672b85c18c4daede300ce8b87b83523ae9c6d3c836986b",
+      "bytes": 3913
+    },
+    {
+      "path": "evidence/55bee489508254fc-CARD.md",
+      "sha256": "55bee489508254fcf852bf29fbe135288700d8ec7812195c796c5f64ea987042",
+      "bytes": 3542,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/54bea4b17721a1f5-RESULTS.json",
+      "sha256": "54bea4b17721a1f5f277ccbc6836a2903c3232a63a4dd3d94040ad7a8373c1e9",
+      "bytes": 3665,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/5a3a9793e0652ba0-NFI.json",
+      "sha256": "5a3a9793e0652ba0c509cb8efb9d677ecc169ddf9b28c0e3bc76a7d3ae15106e",
+      "bytes": 1594,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/1903336e6522fdcd-INPUTS.json",
+      "sha256": "1903336e6522fdcd7e1be756267535fed7c14762db3cc7a7a4f007182ed6965b",
+      "bytes": 1022,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/4f4cb02a8b75276e-measure.py",
+      "sha256": "4f4cb02a8b75276e885fc813a73e5d6f69d508c91dbb487c9128552d18561cd2",
+      "bytes": 6540,
+      "pin_verified": true,
+      "script_content_read": false
+    },
+    {
+      "path": "unpublished-local-ref:21bc2f97ada03ac5",
+      "sha256": "bb8ab0bc8bf24db27567d3dabb50585b22c7f61924090c9ce94b4679ef3e7fa8",
+      "bytes": 452498,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/b6a9486957d5bf62-INPUTS.json",
+      "sha256": "b6a9486957d5bf62633cfe3cf958900487f1239f1b42acb4004b9cc572f3615d",
+      "bytes": 38568
+    },
+    {
+      "path": "evidence/26bad35864727a96-RESULTS.json",
+      "sha256": "26bad35864727a96f882e0c86ecf640bf13ec5a74c9ff74169eb0d05c1a1db74",
+      "bytes": 47103
+    },
+    {
+      "path": "unpublished-local-ref:663183e5ffe45542",
+      "sha256": "6a1a55855cc2c8b0a864289518b868a0528db319739a26eacb6a4b262f110b51",
+      "bytes": 10571741
+    },
+    {
+      "path": "evidence/bee89d47f9a66651-RESULTS.json",
+      "sha256": "bee89d47f9a666510744d336a00e86998331020cc2d294fba673c4c2bd274b96",
+      "bytes": 44775
+    },
+    {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "path": "unpublished-local-ref:03806c1fdf68a273",
+      "sha256": "712059c49e3cbfb20a752cffc41d1419d5cfd8cebf22f66fae3446292d488e3b",
+      "bytes": 471949
+    },
+    {
+      "path": "unpublished-local-ref:bf367900967cd372",
+      "sha256": "bb8ab0bc8bf24db27567d3dabb50585b22c7f61924090c9ce94b4679ef3e7fa8",
+      "bytes": 452498
+    },
+    {
+      "path": "unpublished-local-ref:e65a714b3788390d",
+      "sha256": "a6af91db293b693fb5c111ddcc3f8c802ca0428afb7f8273a3fc2ae97fe3506c",
+      "bytes": 2142405
+    },
+    {
+      "path": "unpublished-local-ref:4d311dc34835d732",
+      "sha256": "24e7d6ba7cdee41603a282741c26afccb2b47054255130f1e1fbb6fa75b7838a",
+      "bytes": 366941
+    },
+    {
+      "path": "unpublished-local-ref:2ca3cecff6af3173",
+      "sha256": "65acb4b34500ad9f5e02472b56a4bbce0f989d3457b124cffacc7f90968a0c33",
+      "bytes": 349072
+    },
+    {
+      "path": "unpublished-local-ref:4866297b8666d90c",
+      "sha256": "335d4a715c342859f515de80fc93d0f99aa45cf37710858c803fe6ac845e0176",
+      "bytes": 377638
+    },
+    {
+      "path": "unpublished-local-ref:a184cf3a7a22d45f",
+      "sha256": "456b0430121cb1ff8091b7b52e531770757043d6705d2ba374afa33216632b7f",
+      "bytes": 88813
+    }
+  ],
+  "formulas": {
+    "q": "2*sqrt(t_outer*t_inner)/(t_outer+t_inner), NASA CR-1457 eqs 6.2-8/6.2-19",
+    "sigma0": "E*h/(Rmiddle*sqrt(1-nu^2))*q",
+    "sigma_crimp": "h^2*Gc/((t_outer+t_inner)*tc)",
+    "p_crimp": "2*h^2*Gc/(Rmiddle*tc)",
+    "p_classical": "2*sigma0*(t_outer+t_inner)/Rmiddle",
+    "own_face_bending": "E/(1-nu^2)*(t_outer^3+t_inner^3)/12",
+    "face_separation_bending": "E/(1-nu^2)*t_outer*t_inner/(t_outer+t_inner)*h^2",
+    "face_bending_share": "D_own/(D_own+D_separation), facings only; no inference that it equals the effect on crimp pressure",
+    "sensitivity": "Only denominator Gc changes, holding published collapse pressures fixed; no FE rerun"
+  },
+  "source_notes": {
+    "pressure_agreement": "All six numerical pressure values verified in EUCASS. Sim journal explicitly confirms the linear and imperfect loads; flat section 3.2.2 repeats 27.56 while its conclusion and EUCASS give 27.53, the adopted value.",
+    "source_identity": "These external-pressure collapses are numerical predictions; the preceding validation involved axial compression tests.",
+    "NASA": "Retained independently downloaded NASA CR-1457; section 2.3.2 printed p 2-41 (PDF 83), section 4.7.3.1 printed p 4-72 (PDF 250). Own-facing bending can materially affect crimp despite a small share of conventional D.",
+    "CEL": "Journal references CEL PVC80 strength data. Its cited old PDF URL could not be fetched by web tool; no substitution inferred from that inaccessible sheet."
+  },
+  "independence": "Fresh independent equations and source readings; no owner script inspected as code, imported or executed."
+}

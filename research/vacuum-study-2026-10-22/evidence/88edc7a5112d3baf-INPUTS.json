@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline022d-p3-in-band-corrected-1020",
+  "classification": "QUESTIONABLE",
+  "authority": "ord-admiral-rr2-mainline022d-in-band-corrected-1020",
+  "snapshot_pins": "INPUT-PINS.json",
+  "methods": "METHOD.md",
+  "corrections": [
+    {
+      "change": "Zylon 0/90",
+      "implemented": "Total gauge carries both plies; each tensile direction gets t_total/2.",
+      "status": "DEMONSTRATED arithmetic correction; complete membrane remains PROJECTION"
+    },
+    {
+      "change": "Joint multiplier",
+      "implemented": "Each sleeve/wrap end is sized at lambda*N; exact 023 C and lambda² mass enter every trial.",
+      "status": "DEMONSTRATED arithmetic correction; adhesive/SiC and structural joint qualifications remain open"
+    },
+    {
+      "change": "Tensile bending",
+      "implemented": "Ft=15.586 MPa and amplified opposite-face tension are constraints.",
+      "status": "PROJECTION; not a calibrated reliability or allowable claim"
+    },
+    {
+      "change": "Continuous gauge",
+      "implemented": "s, r_o, total film gauge and lambda are continuous variables in the final search.",
+      "status": "Numerical search completed, not a mathematical global certificate"
+    },
+    {
+      "change": "030 screen",
+      "implemented": "Each combination has an overall result and half-wave>=curved-member-length result.",
+      "status": "Necessary comparison screen only; no continuum/discrete validation claimed"
+    }
+  ],
+  "constant_Ft_projection_Pa": 15586000.0,
+  "qualified_compression_allowable_Pa": null,
+  "qualified_failure_probability": null,
+  "R_m": 10.0,
+  "p_Pa": 95460.8379139,
+  "lift_kg": 4889.44215019,
+  "systems_kg": 100.0,
+  "node_kg": 0.02,
+  "reserves_kg": {
+    "5": 244.4721075095,
+    "019": 411.2989440716474
+  },
+  "film_inputs_density_effective_strength_total_floor": {
+    "projection": [
+      970.0,
+      1500000000.0,
+      8e-05
+    ],
+    "mylar": [
+      1400.0,
+      151684660.449916,
+      1.2192000000000001e-05
+    ],
+    "kapton": [
+      1420.0,
+      115500000.0,
+      2.5e-05
+    ],
+    "zylon": [
+      1560.0,
+      1740000000.0,
+      1.2e-05
+    ]
+  },
+  "joint_inputs_density_axial_bond": {
+    "ti": [
+      4430.0,
+      827000000.0,
+      28900000.0
+    ],
+    "cfrp": [
+      1550.0,
+      1470000000.0,
+      28900000.0
+    ]
+  },
+  "families": {
+    "projection": [
+      "projection",
+      "percent",
+      3900000000.0
+    ],
+    "mylar": [
+      "mylar",
+      "percent",
+      380000000.0
+    ],
+    "ti_kapton": [
+      "kapton",
+      "ti",
+      3900000000.0
+    ],
+    "cfrp_zylon": [
+      "zylon",
+      "cfrp",
+      3900000000.0
+    ]
+  },
+  "wave_primary": "030 triangle expression, evaluated on both diagnostic grids; threshold uses arc length",
+  "two_way_primary_sag": "Inherited 022c triangular surrogate; square-cell alternatives separately reported",
+  "two_way_square_sensitivity_mean_coefficient": 0.07028850747757764,
+  "software": {
+    "python": "3.14.4",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.0"
+  },
+  "reproduction": [
+    "scan.py",
+    "sensitivities.py",
+    "verify.py",
+    "assemble.py"
+  ]
+}

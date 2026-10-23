@@ -1,0 +1,512 @@
+{
+  "unit": "vacuum-mainline057-check-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "completion": "independent057-scope-complete",
+  "scientific_arithmetic_comparisons": 77407,
+  "scientific_arithmetic_mismatches": 0,
+  "card_and_ancillary_comparisons": 255,
+  "card_rounding_mismatches": 4,
+  "provenance_comparisons": 4372,
+  "provenance_mismatches": 0,
+  "total_comparisons": 82034,
+  "records": 77,
+  "subset_bills": 1232,
+  "discrepancy_fields": 3193,
+  "discrepancy_categories": [
+    "CBE-denominator",
+    "direct048-vs-transfer",
+    "least-set-vs-all-axes",
+    "printed-rounding",
+    "source-selection",
+    "transfer-range-scope"
+  ],
+  "all_stored_cases_negative_after_declared_mga": true,
+  "R10": {
+    "P2": {
+      "payload_kg": 118.69482555678769,
+      "mga_total_kg": 707.3887274045466,
+      "payload_with_mga_kg": -588.6939018477589,
+      "hardware_kg": 4491.189196984712,
+      "rows": [
+        {
+          "item": "faces",
+          "kg": 3764.2423138685167,
+          "mga_added_kg": 564.6363470802775
+        },
+        {
+          "item": "core",
+          "kg": 455.0208267305213,
+          "mga_added_kg": 68.2531240095782
+        },
+        {
+          "item": "charged_joining",
+          "kg": 215.61404896989347,
+          "mga_added_kg": 64.68421469096803
+        },
+        {
+          "item": "coating",
+          "kg": 10.471204774568298,
+          "mga_added_kg": 1.04712047745683
+        },
+        {
+          "item": "mooring_pad",
+          "kg": 33.13752886824479,
+          "mga_added_kg": 4.970629330236719
+        },
+        {
+          "item": "gas",
+          "kg": 48.89442150186961,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "systems",
+          "kg": 100.0,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "extra_service",
+          "kg": 0.0,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "water",
+          "kg": 125.66370614359174,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "contamination",
+          "kg": 5.0,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "weather_headroom",
+          "kg": 0.0,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "absorbed_water",
+          "kg": 0.13690315860808328,
+          "mga_added_kg": 0.027380631721616658
+        },
+        {
+          "item": "structural_primer",
+          "kg": 12.566370614359172,
+          "mga_added_kg": 3.7699111843077517
+        },
+        {
+          "item": "desiccant",
+          "kg": 0.0,
+          "mga_added_kg": 0.0
+        }
+      ]
+    },
+    "P3": {
+      "payload_kg": 30.86270972451348,
+      "mga_total_kg": 680.5946811978806,
+      "payload_with_mga_kg": -649.7319714733671,
+      "hardware_kg": 4455.920579701701,
+      "rows": [
+        {
+          "item": "SiC_tubes",
+          "kg": 4182.24278262534,
+          "mga_added_kg": 627.336417393801
+        },
+        {
+          "item": "joint_sleeves_and_allowance",
+          "kg": 34.31339981976542,
+          "mga_added_kg": 10.294019945929627
+        },
+        {
+          "item": "joint_bond_and_installation",
+          "kg": 10.106878232617529,
+          "mga_added_kg": 3.0320634697852586
+        },
+        {
+          "item": "nodes",
+          "kg": 5.04,
+          "mga_added_kg": 1.512
+        },
+        {
+          "item": "PBO_two_plies",
+          "kg": 95.3289394603725,
+          "mga_added_kg": 14.299340919055874
+        },
+        {
+          "item": "barrier_and_protection",
+          "kg": 95.75105069536085,
+          "mga_added_kg": 19.15021013907217
+        },
+        {
+          "item": "systems",
+          "kg": 100.0,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "vacuum_service",
+          "kg": 50.0,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "gas",
+          "kg": 48.89442150186961,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "exterior_water",
+          "kg": 125.66370614359174,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "contamination",
+          "kg": 5.0,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "mooring_load_introduction",
+          "kg": 33.13752886824479,
+          "mga_added_kg": 4.970629330236719
+        },
+        {
+          "item": "sag_lift_debit",
+          "kg": 73.10073311528532,
+          "mga_added_kg": 0.0
+        },
+        {
+          "item": "weather_headroom",
+          "kg": 0.0,
+          "mga_added_kg": 0.0
+        }
+      ]
+    }
+  },
+  "all_endpoint_cases": [
+    {
+      "lead": "P2",
+      "R_m": 10,
+      "weather": "ISA",
+      "payload_no_mga_kg": 126.88255993918938,
+      "mga_kg": 706.0916815382309,
+      "payload_sourced_kg": -579.2091215990415,
+      "tolerance_pct": 2.830303781911686,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -609.2091215990415,
+      "corrected_coating_payload_kg": -579.1139288283637
+    },
+    {
+      "lead": "P3",
+      "R_m": 10,
+      "weather": "ISA",
+      "payload_no_mga_kg": 30.86270972451348,
+      "mga_kg": 680.5946811978806,
+      "payload_sourced_kg": -649.7319714733671,
+      "tolerance_pct": 0.6926225270958389,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -694.7319714733671,
+      "corrected_coating_payload_kg": -649.7319714733671
+    },
+    {
+      "lead": "P2",
+      "R_m": 10,
+      "weather": "optimistic",
+      "payload_no_mga_kg": -21.532829890009452,
+      "mga_kg": 720.0740488489257,
+      "payload_sourced_kg": -741.6068787389352,
+      "tolerance_pct": -0.47055228444212344,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -771.6068787389352,
+      "corrected_coating_payload_kg": -741.5116859682573
+    },
+    {
+      "lead": "P3",
+      "R_m": 10,
+      "weather": "optimistic",
+      "payload_no_mga_kg": -76.4142290116306,
+      "mga_kg": 688.8205010498423,
+      "payload_sourced_kg": -765.2347300614729,
+      "tolerance_pct": -1.6948233469039786,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -810.2347300614729,
+      "corrected_coating_payload_kg": -765.2347300614729
+    },
+    {
+      "lead": "P2",
+      "R_m": 12,
+      "weather": "ISA",
+      "payload_no_mga_kg": 386.2643677288288,
+      "mga_kg": 1203.1020463437585,
+      "payload_sourced_kg": -816.8376786149297,
+      "tolerance_pct": 5.0229133754765805,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -846.8376786149297,
+      "corrected_coating_payload_kg": -816.7006010251536
+    },
+    {
+      "lead": "P3",
+      "R_m": 12,
+      "weather": "ISA",
+      "payload_no_mga_kg": 231.55749799660043,
+      "mga_kg": 1169.4034082135954,
+      "payload_sourced_kg": -937.845910216995,
+      "tolerance_pct": 3.019618641320221,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -982.845910216995,
+      "corrected_coating_payload_kg": -937.845910216995
+    },
+    {
+      "lead": "P2",
+      "R_m": 12,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 129.72865851651113,
+      "mga_kg": 1227.2762741037557,
+      "payload_sourced_kg": -1097.5476155872445,
+      "tolerance_pct": 1.6523937755717502,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -1127.5476155872445,
+      "corrected_coating_payload_kg": -1097.4105379974683
+    },
+    {
+      "lead": "P3",
+      "R_m": 12,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 46.25887199766839,
+      "mga_kg": 1183.5948476766475,
+      "payload_sourced_kg": -1137.3359756789791,
+      "tolerance_pct": 0.5961552512340016,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -1182.3359756789791,
+      "corrected_coating_payload_kg": -1137.3359756789791
+    },
+    {
+      "lead": "P2",
+      "R_m": 15,
+      "weather": "ISA",
+      "payload_no_mga_kg": 1030.5183415042975,
+      "mga_kg": 2317.0890412714475,
+      "payload_sourced_kg": -1286.57069976715,
+      "tolerance_pct": 6.91050871596743,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -1316.57069976715,
+      "corrected_coating_payload_kg": -1286.3565160331248
+    },
+    {
+      "lead": "P3",
+      "R_m": 15,
+      "weather": "ISA",
+      "payload_no_mga_kg": 727.1995633820934,
+      "mga_kg": 2271.5111094632225,
+      "payload_sourced_kg": -1544.311546081129,
+      "tolerance_pct": 4.874337780562415,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -1589.311546081129,
+      "corrected_coating_payload_kg": -1544.311546081129
+    },
+    {
+      "lead": "P2",
+      "R_m": 15,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 529.2578907418883,
+      "mga_kg": 2364.3413362970264,
+      "payload_sourced_kg": -1835.083445555138,
+      "tolerance_pct": 3.475826394635836,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -1865.083445555138,
+      "corrected_coating_payload_kg": -1834.8692618211128
+    },
+    {
+      "lead": "P3",
+      "R_m": 15,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 365.43647380825496,
+      "mga_kg": 2299.1842778653986,
+      "payload_sourced_kg": -1933.7478040571436,
+      "tolerance_pct": 2.420634798862731,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -1978.7478040571436,
+      "corrected_coating_payload_kg": -1933.7478040571436
+    },
+    {
+      "lead": "P2",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_no_mga_kg": 2994.2987148265674,
+      "mga_kg": 5417.133249971071,
+      "payload_sourced_kg": -2422.834535144503,
+      "tolerance_pct": 8.528960566652094,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -2452.834535144503,
+      "corrected_coating_payload_kg": -2422.453764061792
+    },
+    {
+      "lead": "P3",
+      "R_m": 20,
+      "weather": "ISA",
+      "payload_no_mga_kg": 2234.491454095696,
+      "mga_kg": 5356.140949802397,
+      "payload_sourced_kg": -3121.6494957067007,
+      "tolerance_pct": 6.3421440815098675,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -3166.6494957067007,
+      "corrected_coating_payload_kg": -3121.6494957067007
+    },
+    {
+      "lead": "P2",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 1805.2925267181417,
+      "mga_kg": 5529.284115175259,
+      "payload_sourced_kg": -3723.9915884571174,
+      "tolerance_pct": 5.035162797261613,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -3753.9915884571174,
+      "corrected_coating_payload_kg": -3723.610817374406
+    },
+    {
+      "lead": "P3",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 1377.3304461110674,
+      "mga_kg": 5421.631158046732,
+      "payload_sourced_kg": -4044.3007119356644,
+      "tolerance_pct": 3.863102139843864,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -4089.3007119356644,
+      "corrected_coating_payload_kg": -4044.3007119356644
+    },
+    {
+      "lead": "P2",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_no_mga_kg": 11637.148070443916,
+      "mga_kg": 18046.87877364376,
+      "payload_sourced_kg": -6409.7307031998425,
+      "tolerance_pct": 9.880271134102417,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -6439.7307031998425,
+      "corrected_coating_payload_kg": -6408.8739682637415
+    },
+    {
+      "lead": "P3",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_no_mga_kg": 8895.646174059482,
+      "mga_kg": 17987.545170522273,
+      "payload_sourced_kg": -9091.89899646279,
+      "tolerance_pct": 7.506909291795742,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -9136.89899646279,
+      "corrected_coating_payload_kg": -9091.89899646279
+    },
+    {
+      "lead": "P2",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 7618.783532170361,
+      "mga_kg": 18426.362494163535,
+      "payload_sourced_kg": -10807.578961993175,
+      "tolerance_pct": 6.332846634748404,
+      "zero_allocated_hardware_kg": 100.0,
+      "extra_30pct_allocation_kg": 30.0,
+      "payload_plus_30pct_allocation_kg": -10837.578961993175,
+      "corrected_coating_payload_kg": -10806.722227057073
+    },
+    {
+      "lead": "P3",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_no_mga_kg": 6003.914086753954,
+      "mga_kg": 18208.218728954125,
+      "payload_sourced_kg": -12204.304642200172,
+      "tolerance_pct": 5.006628014259492,
+      "zero_allocated_hardware_kg": 150.0,
+      "extra_30pct_allocation_kg": 45.0,
+      "payload_plus_30pct_allocation_kg": -12249.304642200172,
+      "corrected_coating_payload_kg": -12204.304642200172
+    }
+  ],
+  "transfer_error_range": {
+    "all_96_min_signed_kg": -9.191496887668109,
+    "all_96_max_signed_kg": 160.75474357831263,
+    "all_96_min_absolute_kg": 0.15428700050961197,
+    "all_96_max_absolute_kg": 160.75474357831263,
+    "endpoint_masks_11_15_min_absolute_kg": 0.19109963761638937,
+    "endpoint_masks_11_15_max_absolute_kg": 9.191496887668109,
+    "largest": {
+      "R_m": 15,
+      "weather": "optimistic",
+      "mask": 0,
+      "payload_048_kg": -9978.145886096892,
+      "payload_040_transfer_kg": -9817.39114251858,
+      "diff_kg": 160.75474357831263
+    },
+    "smallest": {
+      "R_m": 10,
+      "weather": "ISA",
+      "mask": 3,
+      "payload_048_kg": -65.40517261005516,
+      "payload_040_transfer_kg": -65.55945961056477,
+      "diff_kg": -0.15428700050961197
+    }
+  },
+  "ancillary_thermal": [
+    {
+      "model": "owner_table",
+      "payload_kg": 118.69482529221204,
+      "loss_from_owner_kg": 2.645756467245519e-07
+    },
+    {
+      "model": "forced_conduction",
+      "payload_kg": 118.08857781040842,
+      "loss_from_owner_kg": 0.6062477463792675
+    },
+    {
+      "model": "mixed_conduction",
+      "payload_kg": 118.59492613075417,
+      "loss_from_owner_kg": 0.09989942603351665
+    },
+    {
+      "model": "forced_gap",
+      "payload_kg": 118.18812509607415,
+      "loss_from_owner_kg": 0.5067004607135459
+    },
+    {
+      "model": "mixed_gap",
+      "payload_kg": 118.69299673885962,
+      "loss_from_owner_kg": 0.0018288179280716577
+    }
+  ],
+  "ancillary_week_aloft": {
+    "payload_kg": 1.1155442690551354,
+    "total_charged_kg": 4888.326605917906
+  },
+  "qualified_hull_SF": null,
+  "actual_failure_probability": null,
+  "qualified_maturity": null,
+  "global_continuous_radius_feasibility": null,
+  "global_reoptimized_feasibility": null,
+  "time_budget": null,
+  "next": "none",
+  "owner_executable_access": false,
+  "administrative_completed_utc": "2026-10-20T14:18:55.981824+00:00",
+  "nfi_count": 16,
+  "input_pin_count": 36,
+  "execution_attempts": 6,
+  "peak_own_cpu_cores": 1
+}

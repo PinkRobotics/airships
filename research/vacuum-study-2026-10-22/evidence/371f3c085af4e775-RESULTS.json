@@ -1,0 +1,1919 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-008b",
+  "unit": "vacuum-mainline008b-table-update-1019",
+  "status": "ESTIMATE",
+  "started_at": "2026-10-19T23:08:47-07:00",
+  "ended_at": "2026-10-19T23:10:51.768645-07:00",
+  "measurements_note": "Times are measurements only; no budget, no cap. Source reading preceded the start stamp.",
+  "case": {
+    "R_m": 10.0,
+    "p_external_Pa": 95460.83791390515,
+    "kd_levels": {
+      "conservative_SP-8032": 0.140725695373,
+      "central_0.20": 0.2,
+      "optimistic_0.90": 0.9
+    },
+    "E_al_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_al_Pa": 276000000.0,
+    "rho_al": 2700.0,
+    "P2E_tf_al_m": 0.000336094970395,
+    "P2E_sep_m": 0.113768147479
+  },
+  "inputs": {
+    "005_required_figures": {
+      "P1": {
+        "E_over_rho2_Pa_m6_kg2": 10924000.0,
+        "sigma_over_rho_Pa_m3_kg": 252540.0
+      },
+      "P1-A": {
+        "E_over_rho2_Pa_m6_kg2": 3390400.0,
+        "sigma_over_rho_Pa_m3_kg": 140690.0
+      },
+      "P3": {
+        "E_over_rho_Pa_m3_kg": 768410000.0,
+        "sigma_over_rho_Pa_m3_kg": 1442800.0
+      },
+      "P3-A": {
+        "E_over_rho_Pa_m3_kg": 265750000.0,
+        "sigma_over_rho_Pa_m3_kg": 440870.0
+      }
+    },
+    "007_rows": {
+      "007-4kg-leastfactor": {
+        "rho_core": 4.0,
+        "tf_al": 0.000532532408361,
+        "sep": 0.189070201186,
+        "SF_b_al": 0.615871169453,
+        "SF_y_al": 0.615871169453
+      },
+      "007-4kg-bucklingmax": {
+        "rho_core": 4.0,
+        "tf_al": 0.000336344114183,
+        "sep": 0.453728210033,
+        "SF_b_al": 0.933469986989,
+        "SF_y_al": 0.388980350657
+      },
+      "007-1kg-leastfactor": {
+        "rho_core": 1.0,
+        "tf_al": 0.000637294958154,
+        "sep": 0.189070201186,
+        "SF_b_al": 0.737028554512,
+        "SF_y_al": 0.737028554512
+      },
+      "007-1kg-bucklingmax": {
+        "rho_core": 1.0,
+        "tf_al": 0.000336157221732,
+        "sep": 1.81491284013,
+        "SF_b_al": 3.73180518599,
+        "SF_y_al": 0.388764210437
+      }
+    },
+    "catalog_cores_EcGc_Pa2": [
+      {
+        "name": "Hexcel HRH-10-4.8-32",
+        "rho": 32,
+        "EcGc": 1064000000000000.0,
+        "src": "Hexcel HexWeb HRH-10 datasheet"
+      },
+      {
+        "name": "Divinycell H35",
+        "rho": 38,
+        "EcGc": 480000000000000.0,
+        "src": "DIAB Divinycell H rev9 SI"
+      },
+      {
+        "name": "Hexcel HRH-10-6.4-24",
+        "rho": 24,
+        "EcGc": 369000000000000.0,
+        "src": "Hexcel HexWeb HRH-10 datasheet"
+      },
+      {
+        "name": "ROHACELL 31 IG-F",
+        "rho": 32,
+        "EcGc": 221000000000000.0,
+        "src": "Evonik ROHACELL IG-F Apr 2022"
+      }
+    ],
+    "best_catalog_core": "Hexcel HRH-10-4.8-32"
+  },
+  "formulas": {
+    "SF_b_sandwich": "kd*4*tf*(d+tf)*E/(R^2*sqrt(1-nu^2))/p; at equal face mass scales as (E/rho)",
+    "SF_y_sandwich": "4*sigma*tf/R/p; at equal face mass scales as (sigma_c/rho)",
+    "kd_scaling": "SF_b(kd) = SF_b(0.2)*kd/0.2 (linear in kd; required E as 1/kd)",
+    "P1_equal_mass": "at fixed shell mass t follows 1/rho: SF_b follows E/rho^2, SF_y follows sigma/rho (005)",
+    "P3_equal_mass": "at fixed member mass and outer radius the wall follows 1/rho: SF_b follows E/rho, SF_y follows sigma/rho (005)",
+    "wrinkling": "sigma_f = pR/(4*tf); sigma_wr = 0.5*(E_f*Ec*Gc)^(1/3); require Ec*Gc >= (2*sigma_f)^3/E_f; SF_wr = (avail/req)^(1/3)",
+    "tf_equal_mass": "tf_c = tf_al * 2700/rho_c"
+  },
+  "checks": [
+    {
+      "check": "reproduce SF_b_al P2-E kd0.2 from formula",
+      "pass": true,
+      "detail": "0.233885578994 vs sealed 0.233885578993"
+    },
+    {
+      "check": "reproduce SF_y_al P2-E from formula",
+      "pass": true,
+      "detail": "0.388692217065 vs sealed 0.388692217064"
+    },
+    {
+      "check": "Al P2-E SF_b at kd=0.140725695373",
+      "pass": true,
+      "detail": "0.164568553708 vs 004b 0.164568553708"
+    },
+    {
+      "check": "Al P2-E SF_b at kd=0.2",
+      "pass": true,
+      "detail": "0.233885578993 vs 004b 0.233885578993"
+    },
+    {
+      "check": "Al P2-E SF_b at kd=0.9",
+      "pass": true,
+      "detail": "1.052485105468 vs 004b 1.05248510547"
+    },
+    {
+      "check": "reproduce 007-4kg-leastfactor SF_y_al",
+      "pass": true,
+      "detail": "0.615871169454 vs 007 0.615871169453"
+    },
+    {
+      "check": "reproduce 007-1kg-leastfactor SF_y_al",
+      "pass": true,
+      "detail": "0.737028554512 vs 007 0.737028554512"
+    },
+    {
+      "check": "reproduce 005 P1 E required",
+      "pass": true,
+      "detail": "E/ho^2 1.0924e+07 vs 1.0924e+07"
+    },
+    {
+      "check": "reproduce 005 P1 sigma required",
+      "pass": true,
+      "detail": "sigma/rho 2.5254e+05 vs 2.5254e+05"
+    },
+    {
+      "check": "candidate count",
+      "pass": true,
+      "detail": "15"
+    },
+    {
+      "check": "008 P2-E agreement SiC (monolithic alpha Si",
+      "pass": true,
+      "detail": "SF_b 1.2121884730/1.2121884730 SF_y 4.7836945368/4.7836945368"
+    },
+    {
+      "check": "008 P2-E agreement CNT-yarn composite quasi",
+      "pass": true,
+      "detail": "SF_b 1.1783992473/1.1783992473 SF_y 3.2592204536/3.2592204536"
+    },
+    {
+      "check": "008 P2-E agreement Graphene composite quasi",
+      "pass": true,
+      "detail": "SF_b 0.9165327479/0.9165327479 SF_y 2.2814543175/2.2814543176"
+    },
+    {
+      "check": "008 P2-E agreement CFRP quasi-isotropic M55",
+      "pass": true,
+      "detail": "SF_b 0.7544629327/0.7544629327 SF_y 0.8114928975/0.8114928975"
+    },
+    {
+      "check": "008 P2-E agreement Beryllium S-200F",
+      "pass": true,
+      "detail": "SF_b 1.5011320141/1.5011320141 SF_y 0.5816680828/0.5816680828"
+    },
+    {
+      "check": "008 P2-E agreement CFRP quasi-isotropic K13",
+      "pass": true,
+      "detail": "SF_b 1.0998392974/1.0998392974 SF_y 0.4780189999/0.4780189999"
+    },
+    {
+      "check": "008 P2-E agreement Boron/epoxy quasi-isotro",
+      "pass": true,
+      "detail": "SF_b 0.3941090816/0.3941090816 SF_y 1.6160301416/1.6160301416"
+    },
+    {
+      "check": "008 P2-E agreement AlBeMet 162 (AM162, HIP)",
+      "pass": true,
+      "detail": "SF_b 0.8541324014/0.8541324014 SF_y 0.3543543242/0.3543543242"
+    },
+    {
+      "check": "008 P2-E agreement CFRP quasi-isotropic T70",
+      "pass": true,
+      "detail": "SF_b 0.3193081831/0.3193081831 SF_y 1.2756518765/1.2756518765"
+    },
+    {
+      "check": "008 P2-E agreement Al-Li 2195-T8",
+      "pass": true,
+      "detail": "SF_b 0.2570350142/0.2570350142 SF_y 0.7857407244/0.7857407244"
+    },
+    {
+      "check": "008 P2-E agreement Ti-6Al-4V (annealed)",
+      "pass": true,
+      "detail": "SF_b 0.2354434011/0.2354434011 SF_y 0.8325849090/0.8325849090"
+    },
+    {
+      "check": "008 P2-E agreement 6061-T6 (baseline)",
+      "pass": true,
+      "detail": "SF_b 0.2338855790/0.2338855790 SF_y 0.3886922171/0.3886922171"
+    },
+    {
+      "check": "008 P2-E agreement 7075-T6",
+      "pass": true,
+      "detail": "SF_b 0.2338626264/0.2338626264 SF_y 0.6806474032/0.6806474032"
+    },
+    {
+      "check": "008 P2-E agreement Mg AZ31B",
+      "pass": true,
+      "detail": "SF_b 0.2330168003/0.2330168003 SF_y 0.2083814207/0.2083814207"
+    },
+    {
+      "check": "008 P2-E agreement Metallic glass Vitreloy ",
+      "pass": true,
+      "detail": "SF_b 0.1437698428/0.1437698428 SF_y 1.1804910684/1.1804910684"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+      "tag": "QUESTIONABLE",
+      "rho": 3100.0,
+      "E_GPa": 410.0,
+      "sigma_c_MPa": 3900,
+      "source": "Saint-Gobain Hexoloy SA data https://www.ceramicsrefractories.saint-gobain.com/pt/files/4731/view (compressive 3900 MPa, flexural 380 MPa); MatWeb alpha SiC https://www.matweb.com/search/datasheet_print.aspx?matguid=dd2598e783ba4457845586b58c8ea9fb (density 3.10 g/cc, E 410 GPa)",
+      "E_over_rho_Pa_per_kg_m3": 132258064.51612903,
+      "sigma_over_rho_Pa_per_kg_m3": 1258064.5161290322,
+      "E_over_rho2_Pa_m6_kg2": 42663.891779396465,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.00029272787744080643,
+        "SF_b_kd_conservative_SP8032": 0.8529303289210136,
+        "SF_b_kd_020": 1.2121884729868018,
+        "SF_b_kd_090": 5.4548481284406085,
+        "SF_y": 4.7836945367974755
+      },
+      "P1_base": {
+        "SF_b": 0.0039055192035331804,
+        "SF_y": 4.9816445558289075
+      },
+      "P1A": {
+        "SF_b": 0.012583734007608679,
+        "SF_y": 8.942103320271748
+      },
+      "P3_base": {
+        "SF_b": 0.17211913498799994,
+        "SF_y": 0.8719604353541948
+      },
+      "P3A": {
+        "SF_b": 0.49767851181986467,
+        "SF_y": 2.853595200691887
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 815269447.0755407,
+        "req_EcGc_Pa2": 1.0573277521600714e+16,
+        "SF_wr_best_catalog": 0.465133192213035,
+        "wrinkle_miss_vs_best_catalog": 9.93729090376007,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.10063104820868435,
+          "Divinycell H35": 0.04539746535730121,
+          "Hexcel HRH-10-6.4-24": 0.0348993014934253,
+          "ROHACELL 31 IG-F": 0.0209017496749241
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0004638185492176452,
+          "SF_b_at_020": 3.191953670979311,
+          "SF_y": 7.579620633871073,
+          "sigma_f_Pa": 514537625.08488256,
+          "req_EcGc_Pa2": 2658015708233776.0,
+          "SF_wr_best_catalog": 0.7369896037621051,
+          "wrinkle_miss_vs_best_catalog": 2.498135064129489,
+          "overall_kd020": {
+            "least_SF": 0.7369896037621051,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.3568712433598897
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.00029294487364325806,
+          "SF_b_at_020": 4.838013369524898,
+          "SF_y": 4.787240640975,
+          "sigma_f_Pa": 814665543.7820983,
+          "req_EcGc_Pa2": 1.0549798749631834e+16,
+          "SF_wr_best_catalog": 0.46547799072428997,
+          "wrinkle_miss_vs_best_catalog": 9.915224388751724
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0005550633506502581,
+          "SF_b_at_020": 3.819891426774587,
+          "SF_y": 9.070723093748668,
+          "sigma_f_Pa": 429954697.07229155,
+          "req_EcGc_Pa2": 1550865816847715.8,
+          "SF_wr_best_catalog": 0.881974038228132,
+          "wrinkle_miss_vs_best_catalog": 1.4575806549320636,
+          "overall_kd020": {
+            "least_SF": 0.881974038228132,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.1338202222017553
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.00029278209634722583,
+          "SF_b_at_020": 19.341300345947516,
+          "SF_y": 4.7845805702449855,
+          "sigma_f_Pa": 815118471.2528757,
+          "req_EcGc_Pa2": 1.0567404566285506e+16,
+          "SF_wr_best_catalog": 0.46521934394289977,
+          "wrinkle_miss_vs_best_catalog": 9.931771208914949
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.465133192213035,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 2.1499218218380585
+      }
+    },
+    {
+      "name": "CNT-yarn composite quasi-isotropic",
+      "tag": "PROJECTION",
+      "rho": 1400.0,
+      "E_GPa": 180.0,
+      "sigma_c_MPa": 1200,
+      "source": "PROJECTION from UD CNT-yarn laminate report https://chemrxiv.org/engage/chemrxiv/article-details/639c91d7e8047a61d0eb2d2f (specific modulus 256 GPa per g/cc, specific tensile strength 1.71 GPa per g/cc, unidirectional)",
+      "E_over_rho_Pa_per_kg_m3": 128571428.57142857,
+      "sigma_over_rho_Pa_per_kg_m3": 857142.8571428572,
+      "E_over_rho2_Pa_m6_kg2": 91836.73469387754,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0006481831571903571,
+        "SF_b_kd_conservative_SP8032": 0.8291552674876752,
+        "SF_b_kd_020": 1.1783992472589468,
+        "SF_b_kd_090": 5.302796612665261,
+        "SF_y": 3.2592204536422362
+      },
+      "P1_base": {
+        "SF_b": 0.008406877947077769,
+        "SF_y": 3.3940874995757393
+      },
+      "P1A": {
+        "SF_b": 0.027087286070634008,
+        "SF_y": 6.09242204238295
+      },
+      "P3_base": {
+        "SF_b": 0.16732138906498947,
+        "SF_y": 0.5940829339775833
+      },
+      "P3A": {
+        "SF_b": 0.48380594006181965,
+        "SF_y": 1.9442077191527143
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 368186201.9050829,
+        "req_EcGc_Pa2": 2218298617946074.0,
+        "SF_wr_best_catalog": 0.7827814759236412,
+        "wrinkle_miss_vs_best_catalog": 2.084867122129769,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.4796468750384739,
+          "Divinycell H35": 0.2163820488895371,
+          "Hexcel HRH-10-6.4-24": 0.16634370008383165,
+          "ROHACELL 31 IG-F": 0.09962590167622438
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0010270267875533573,
+          "SF_b_at_020": 3.102979352624487,
+          "SF_y": 5.164137135164908,
+          "sigma_f_Pa": 232371830.68349534,
+          "req_EcGc_Pa2": 557657978806300.0,
+          "SF_wr_best_catalog": 1.2402937898894435,
+          "wrinkle_miss_vs_best_catalog": 0.5241146417352444,
+          "overall_kd020": {
+            "least_SF": 1.2402937898894435,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 0.8062605877347313
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0006486636487814999,
+          "SF_b_at_020": 4.703155853998072,
+          "SF_y": 3.261636480664286,
+          "sigma_f_Pa": 367913471.3854638,
+          "req_EcGc_Pa2": 2213372716086103.8,
+          "SF_wr_best_catalog": 0.783361743881411,
+          "wrinkle_miss_vs_best_catalog": 2.0802375151185184
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0012290688478684287,
+          "SF_b_at_020": 3.7134136169690235,
+          "SF_y": 6.180053096839752,
+          "sigma_f_Pa": 194173089.00038972,
+          "req_EcGc_Pa2": 325375314428733.9,
+          "SF_wr_best_catalog": 1.4842908459956676,
+          "wrinkle_miss_vs_best_catalog": 0.30580386694429873,
+          "overall_kd020": {
+            "least_SF": 1.4842908459956676,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 0.6737224060215748
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0006483032133402858,
+          "SF_b_at_020": 18.80217002271553,
+          "SF_y": 3.2598241247822983,
+          "sigma_f_Pa": 368118019.27549225,
+          "req_EcGc_Pa2": 2217066458038006.8,
+          "SF_wr_best_catalog": 0.7829264623047163,
+          "wrinkle_miss_vs_best_catalog": 2.0837090771033897
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.7827814759236412,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.2774957389226058
+      }
+    },
+    {
+      "name": "Graphene composite quasi-isotropic",
+      "tag": "PROJECTION",
+      "rho": 1500.0,
+      "E_GPa": 150.0,
+      "sigma_c_MPa": 900,
+      "source": "PROJECTION; monolayer basis in Lee et al., Science 2008 (graphene E ~1.0 TPa, DOI 10.1126/science.1157996) and graphene-reinforced carbon fibre https://www.science.org/doi/10.1126/sciadv.aaz4191",
+      "E_over_rho_Pa_per_kg_m3": 100000000.0,
+      "sigma_over_rho_Pa_per_kg_m3": 600000.0,
+      "E_over_rho2_Pa_m6_kg2": 66666.66666666667,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.000604970946711,
+        "SF_b_kd_conservative_SP8032": 0.6448985413793029,
+        "SF_b_kd_020": 0.9165327478680697,
+        "SF_b_kd_090": 4.124397365406314,
+        "SF_y": 2.2814543175495654
+      },
+      "P1_base": {
+        "SF_b": 0.006102770657878677,
+        "SF_y": 2.3758612497030174
+      },
+      "P1A": {
+        "SF_b": 0.01966336322164543,
+        "SF_y": 4.264695429668064
+      },
+      "P3_base": {
+        "SF_b": 0.1301388581616585,
+        "SF_y": 0.4158580537843083
+      },
+      "P3A": {
+        "SF_b": 0.37629350893697083,
+        "SF_y": 1.3609454034069
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 394485216.3268745,
+        "req_EcGc_Pa2": 3274092347916034.5,
+        "SF_wr_best_catalog": 0.6875172001458262,
+        "wrinkle_miss_vs_best_catalog": 3.0771544623271,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.3249755617544624,
+          "Divinycell H35": 0.14660551658096047,
+          "Hexcel HRH-10-6.4-24": 0.11270299087161337,
+          "ROHACELL 31 IG-F": 0.06749962325915056
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0009585583350498001,
+          "SF_b_at_020": 2.4134283853746012,
+          "SF_y": 3.614895994615435,
+          "sigma_f_Pa": 248969818.58945933,
+          "req_EcGc_Pa2": 823073911867899.4,
+          "SF_wr_best_catalog": 1.0893503998378051,
+          "wrinkle_miss_vs_best_catalog": 0.7735657066427626,
+          "overall_kd020": {
+            "least_SF": 1.0893503998378051,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 0.9179782741612721
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0006054194055294,
+          "SF_b_at_020": 3.658010108665167,
+          "SF_y": 2.283145536465,
+          "sigma_f_Pa": 394193005.05585396,
+          "req_EcGc_Pa2": 3266821975272855.0,
+          "SF_wr_best_catalog": 0.6880268496635152,
+          "wrinkle_miss_vs_best_catalog": 3.070321405331631
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0011471309246772002,
+          "SF_b_at_020": 2.8882105909759073,
+          "SF_y": 4.326037167787827,
+          "sigma_f_Pa": 208042595.35756043,
+          "req_EcGc_Pa2": 480236889007424.3,
+          "SF_wr_best_catalog": 1.3036530858588768,
+          "wrinkle_miss_vs_best_catalog": 0.4513504595934439,
+          "overall_kd020": {
+            "least_SF": 1.3036530858588768,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 0.7670752371526638
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0006050829991176,
+          "SF_b_at_020": 14.623910017667635,
+          "SF_y": 2.2818768873476087,
+          "sigma_f_Pa": 394412163.50945604,
+          "req_EcGc_Pa2": 3272273744553181.5,
+          "SF_wr_best_catalog": 0.6876445417268956,
+          "wrinkle_miss_vs_best_catalog": 3.075445248640208
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.6875172001458262,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.4545090650646915
+      }
+    },
+    {
+      "name": "CFRP quasi-isotropic M55J/epoxy",
+      "tag": "QUESTIONABLE",
+      "rho": 1640.0,
+      "E_GPa": 135.0,
+      "sigma_c_MPa": 350,
+      "source": "Toray M55J data sheet https://www.toraycma.com/wp-content/uploads/M55J-Technical-Data-Sheet-1.pdf.pdf (fibre 540 GPa, 1.93 g/cc in Toray carbon-fibre card); QI reduction stated in sigma_c_basis",
+      "E_over_rho_Pa_per_kg_m3": 82317073.17073171,
+      "sigma_over_rho_Pa_per_kg_m3": 213414.63414634147,
+      "E_over_rho2_Pa_m6_kg2": 50193.33729922665,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0005533270854064024,
+        "SF_b_kd_conservative_SP8032": 0.5308616041841823,
+        "SF_b_kd_020": 0.7544629326962768,
+        "SF_b_kd_090": 3.3950831971332462,
+        "SF_y": 0.8114928975023861
+      },
+      "P1_base": {
+        "SF_b": 0.004594776391360917,
+        "SF_y": 0.8450725989797319
+      },
+      "P1A": {
+        "SF_b": 0.014804547339318857,
+        "SF_y": 1.5169140247803077
+      },
+      "P3_base": {
+        "SF_b": 0.10712649909648718,
+        "SF_y": 0.14791699067531291
+      },
+      "P3A": {
+        "SF_b": 0.30975380308836015,
+        "SF_y": 0.4840761089353811
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 431303836.5173828,
+        "req_EcGc_Pa2": 4754514567073629.0,
+        "SF_wr_best_catalog": 0.60712551079992,
+        "wrinkle_miss_vs_best_catalog": 4.468528728452659,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.22378730467427818,
+          "Divinycell H35": 0.10095667880042625,
+          "Hexcel HRH-10-6.4-24": 0.07761044682782768,
+          "ROHACELL 31 IG-F": 0.04648213753102958
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0008767301844967684,
+          "SF_b_at_020": 1.9866636099120192,
+          "SF_y": 1.285786176946547,
+          "sigma_f_Pa": 272207001.65780884,
+          "req_EcGc_Pa2": 1195237179624770.0,
+          "SF_wr_best_catalog": 0.9619721772798469,
+          "wrinkle_miss_vs_best_catalog": 1.1233432139330546,
+          "overall_kd020": {
+            "least_SF": 0.9619721772798469,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.0395311045561462
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.000553737261154939,
+          "SF_b_at_020": 3.011166857742668,
+          "SF_y": 0.8120944489458842,
+          "sigma_f_Pa": 430984352.19440037,
+          "req_EcGc_Pa2": 4743956803587803.0,
+          "SF_wr_best_catalog": 0.6075755667747964,
+          "wrinkle_miss_vs_best_catalog": 4.458606018409589
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0010492051140340245,
+          "SF_b_at_020": 2.3774904254984603,
+          "SF_y": 1.538732732444857,
+          "sigma_f_Pa": 227459904.2575994,
+          "req_EcGc_Pa2": 697382065562457.5,
+          "SF_wr_best_catalog": 1.1512163557363877,
+          "wrinkle_miss_vs_best_catalog": 0.6554342721451668,
+          "overall_kd020": {
+            "least_SF": 1.1512163557363877,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 0.868646449485457
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0005534295723636586,
+          "SF_b_at_020": 12.03797470966543,
+          "SF_y": 0.8116432018004707,
+          "sigma_f_Pa": 431223965.4370052,
+          "req_EcGc_Pa2": 4751873659224488.0,
+          "SF_wr_best_catalog": 0.607237962273769,
+          "wrinkle_miss_vs_best_catalog": 4.466046672203466
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.60712551079992,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.647105882081033
+      }
+    },
+    {
+      "name": "Beryllium S-200F",
+      "tag": "QUESTIONABLE",
+      "rho": 1850.0,
+      "E_GPa": 303.0,
+      "sigma_c_MPa": 283,
+      "source": "Materion beryllium data sheet https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4 (S-200F density 1.85 g/cc, E 303 GPa); Brush/Materion Beryllium Guide MB-001 compressive-yield note",
+      "E_over_rho_Pa_per_kg_m3": 163783783.7837838,
+      "sigma_over_rho_Pa_per_kg_m3": 152972.97297297296,
+      "E_over_rho2_Pa_m6_kg2": 88531.7750182615,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0004905169838197297,
+        "SF_b_kd_conservative_SP8032": 1.056239232637453,
+        "SF_b_kd_020": 1.5011320140758115,
+        "SF_b_kd_090": 6.7550940633411525,
+        "SF_y": 0.5816680827626368
+      },
+      "P1_base": {
+        "SF_b": 0.00810433678307044,
+        "SF_y": 0.6057375978972557
+      },
+      "P1A": {
+        "SF_b": 0.026112486732616062,
+        "SF_y": 1.0873052311676235
+      },
+      "P3_base": {
+        "SF_b": 0.2131463460701758,
+        "SF_y": 0.10602507137023355
+      },
+      "P3A": {
+        "SF_b": 0.6163077470697415,
+        "SF_y": 0.34697977402175917
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 486531766.8031453,
+        "req_EcGc_Pa2": 3040751736321800.0,
+        "SF_wr_best_catalog": 0.7046717938507411,
+        "wrinkle_miss_vs_best_catalog": 2.857849376242293,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.34991347280690915,
+          "Divinycell H35": 0.15785570201815452,
+          "Hexcel HRH-10-6.4-24": 0.12135157092645628,
+          "ROHACELL 31 IG-F": 0.0726793961375253
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0007772094608511893,
+          "SF_b_at_020": 3.952804328478401,
+          "SF_y": 0.9216356454740252,
+          "sigma_f_Pa": 307062776.2603331,
+          "req_EcGc_Pa2": 764414427169869.6,
+          "SF_wr_best_catalog": 1.1165313394674472,
+          "wrinkle_miss_vs_best_catalog": 0.7184346120017572,
+          "overall_kd020": {
+            "least_SF": 0.9216356454740252,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 1.0850274779527105
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0004908805990778919,
+          "SF_b_at_020": 5.991227367165111,
+          "SF_y": 0.5820992674050405,
+          "sigma_f_Pa": 486171372.90221995,
+          "req_EcGc_Pa2": 3033999514365530.0,
+          "SF_wr_best_catalog": 0.7051941598945126,
+          "wrinkle_miss_vs_best_catalog": 2.851503302975122
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0009301061551436757,
+          "SF_b_at_020": 4.730420589544324,
+          "SF_y": 1.102944611246806,
+          "sigma_f_Pa": 256585867.6076579,
+          "req_EcGc_Pa2": 446010985311570.94,
+          "SF_wr_best_catalog": 1.3361812015413994,
+          "wrinkle_miss_vs_best_catalog": 0.4191832568717772,
+          "overall_kd020": {
+            "least_SF": 1.102944611246806,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 0.906663843136752
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0004906078371223784,
+          "SF_b_at_020": 23.951593164071856,
+          "SF_y": 0.5817758190264624,
+          "sigma_f_Pa": 486441668.3283291,
+          "req_EcGc_Pa2": 3039062742626554.5,
+          "SF_wr_best_catalog": 0.7048023127968053,
+          "wrinkle_miss_vs_best_catalog": 2.8562619761527768
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.5816680827626368,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 1.7191935222756123
+      }
+    },
+    {
+      "name": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "tag": "QUESTIONABLE",
+      "rho": 1750.0,
+      "E_GPa": 210.0,
+      "sigma_c_MPa": 220,
+      "source": "Mitsubishi Chemical K13D2U tow data https://www.m-chemical.co.jp/carbon-fiber/en/product/tow/ (935 GPa, 3.70 GPa, 2.20 g/cc); QI reduction stated in sigma_c_basis",
+      "E_over_rho_Pa_per_kg_m3": 120000000.0,
+      "sigma_over_rho_Pa_per_kg_m3": 125714.28571428571,
+      "E_over_rho2_Pa_m6_kg2": 68571.42857142857,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0005185465257522857,
+        "SF_b_kd_conservative_SP8032": 0.7738782496551636,
+        "SF_b_kd_020": 1.0998392974416837,
+        "SF_b_kd_090": 4.9492768384875765,
+        "SF_y": 0.47801899986752794
+      },
+      "P1_base": {
+        "SF_b": 0.0062771355338180675,
+        "SF_y": 0.49779949993777506
+      },
+      "P1A": {
+        "SF_b": 0.020225173599406725,
+        "SF_y": 0.8935552328828326
+      },
+      "P3_base": {
+        "SF_b": 0.15616662979399018,
+        "SF_y": 0.08713216365004554
+      },
+      "P3A": {
+        "SF_b": 0.451552210724365,
+        "SF_y": 0.2851504654757314
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 460232752.38135356,
+        "req_EcGc_Pa2": 3713669561293649.5,
+        "SF_wr_best_catalog": 0.6592439051090557,
+        "wrinkle_miss_vs_best_catalog": 3.49029094106546,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.28650906668964854,
+          "Divinycell H35": 0.12925221053668354,
+          "Hexcel HRH-10-6.4-24": 0.09936263685007547,
+          "ROHACELL 31 IG-F": 0.05950987193459805
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0008216214300426857,
+          "SF_b_at_020": 2.8961140624495214,
+          "SF_y": 0.7574067798241865,
+          "sigma_f_Pa": 290464788.3543692,
+          "req_EcGc_Pa2": 933579205590904.5,
+          "SF_wr_best_catalog": 1.044552211157572,
+          "wrinkle_miss_vs_best_catalog": 0.8774240654049854,
+          "overall_kd020": {
+            "least_SF": 0.7574067798241865,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 1.3202944925210804
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0005189309190252,
+          "SF_b_at_020": 4.3896121303982,
+          "SF_y": 0.4783733504974286,
+          "sigma_f_Pa": 459891839.2318296,
+          "req_EcGc_Pa2": 3705423073804858.0,
+          "SF_wr_best_catalog": 0.6597325959202921,
+          "wrinkle_miss_vs_best_catalog": 3.4825404828993025
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0009832550782947428,
+          "SF_b_at_020": 3.4658527091710885,
+          "SF_y": 0.906407787536497,
+          "sigma_f_Pa": 242716361.2504872,
+          "req_EcGc_Pa2": 544713137994532.5,
+          "SF_wr_best_catalog": 1.2500419641090985,
+          "wrinkle_miss_vs_best_catalog": 0.5119484379647862,
+          "overall_kd020": {
+            "least_SF": 0.906407787536497,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 1.1032561875023987
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0005186425706722286,
+          "SF_b_at_020": 17.548692021201163,
+          "SF_y": 0.47810753830140373,
+          "sigma_f_Pa": 460147524.09436536,
+          "req_EcGc_Pa2": 3711606793590414.0,
+          "SF_wr_best_catalog": 0.6593660099250066,
+          "wrinkle_miss_vs_best_catalog": 3.4883522496150507
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.47801899986752794,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 2.091967056282548
+      }
+    },
+    {
+      "name": "Boron/epoxy quasi-isotropic",
+      "tag": "QUESTIONABLE",
+      "rho": 2000.0,
+      "E_GPa": 86.0,
+      "sigma_c_MPa": 850,
+      "source": "Boron fibre review https://www.compositesworld.com/articles/boron-fiber-the-original-high-performance-fiber ; unidirectional boron/epoxy property table (E1 204 GPa, compressive 2500 MPa) in composites textbook extract https://structures.dhu.edu.cn/_upload/article/files/79/64/d90aa6424b14824d25a678e990c0/4ff4b286-e563-4c01-a7f0-ac45163b28a4.pdf",
+      "E_over_rho_Pa_per_kg_m3": 43000000.0,
+      "sigma_over_rho_Pa_per_kg_m3": 425000.0,
+      "E_over_rho2_Pa_m6_kg2": 21500.0,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.00045372821003325,
+        "SF_b_kd_conservative_SP8032": 0.2773063727931003,
+        "SF_b_kd_020": 0.39410908158326996,
+        "SF_b_kd_090": 1.7734908671247147,
+        "SF_y": 1.6160301415976086
+      },
+      "P1_base": {
+        "SF_b": 0.0019681435371658733,
+        "SF_y": 1.6829017185396373
+      },
+      "P1A": {
+        "SF_b": 0.006341434638980651,
+        "SF_y": 3.0208259293482125
+      },
+      "P3_base": {
+        "SF_b": 0.05595970900951315,
+        "SF_y": 0.2945661214305517
+      },
+      "P3A": {
+        "SF_b": 0.16180620884289745,
+        "SF_y": 0.9640029940798875
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 525980288.4358326,
+        "req_EcGc_Pa2": 1.3536299112831148e+16,
+        "SF_wr_best_catalog": 0.4283649171825128,
+        "wrinkle_miss_vs_best_catalog": 12.722085632360102,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.0786034639993606,
+          "Divinycell H35": 0.03546020932301982,
+          "Hexcel HRH-10-6.4-24": 0.027260035917071487,
+          "ROHACELL 31 IG-F": 0.016326471375807044
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0007189187512873501,
+          "SF_b_at_020": 1.0377742057110784,
+          "SF_y": 2.5605513295192663,
+          "sigma_f_Pa": 331959758.1192791,
+          "req_EcGc_Pa2": 3402889558110178.0,
+          "SF_wr_best_catalog": 0.6787313738627655,
+          "wrinkle_miss_vs_best_catalog": 3.198204471908062,
+          "overall_kd020": {
+            "least_SF": 0.6787313738627655,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.4733369319718417
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.00045406455414705,
+          "SF_b_at_020": 1.5729443467260216,
+          "SF_y": 1.6172280883293748,
+          "sigma_f_Pa": 525590673.4078053,
+          "req_EcGc_Pa2": 1.3506240724642298e+16,
+          "SF_wr_best_catalog": 0.4286824597449252,
+          "wrinkle_miss_vs_best_catalog": 12.693835267520956
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0008603481935079001,
+          "SF_b_at_020": 1.24193055411964,
+          "SF_y": 3.0642763271830433,
+          "sigma_f_Pa": 277390127.1434139,
+          "req_EcGc_Pa2": 1985475510108214.0,
+          "SF_wr_best_catalog": 0.8122549458256709,
+          "wrinkle_miss_vs_best_catalog": 1.8660484117558402,
+          "overall_kd020": {
+            "least_SF": 0.8122549458256709,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.2311405490839862
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.00045381224933820004,
+          "SF_b_at_020": 6.2882813075970825,
+          "SF_y": 1.6163294618712227,
+          "sigma_f_Pa": 525882884.6792746,
+          "req_EcGc_Pa2": 1.3528780339237954e+16,
+          "SF_wr_best_catalog": 0.4284442587114478,
+          "wrinkle_miss_vs_best_catalog": 12.715019115825145
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.39410908158326996,
+        "limiting_property": "buckling E/rho (kd 0.20)",
+        "factor_needed": 2.537368578218651
+      }
+    },
+    {
+      "name": "AlBeMet 162 (AM162, HIP)",
+      "tag": "QUESTIONABLE",
+      "rho": 2071.0,
+      "E_GPa": 193.0,
+      "sigma_c_MPa": 193,
+      "source": "Materion AlBeMet technical data sheet https://web.archive.org/web/20171024043552/https://materion.com/[private path] (density 2.071 g/cc, E 193 GPa, HIP yield 193 MPa)",
+      "E_over_rho_Pa_per_kg_m3": 93191694.83341381,
+      "sigma_over_rho_Pa_per_kg_m3": 93191.69483341381,
+      "E_over_rho2_Pa_m6_kg2": 44998.404072145735,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.00043817306618372764,
+        "SF_b_kd_conservative_SP8032": 0.6009918806673369,
+        "SF_b_kd_020": 0.8541324014415135,
+        "SF_b_kd_090": 3.8435958064868108,
+        "SF_y": 0.3543543242290891
+      },
+      "P1_base": {
+        "SF_b": 0.004119224100342891,
+        "SF_y": 0.3690175609147613
+      },
+      "P1A": {
+        "SF_b": 0.013272299454974556,
+        "SF_y": 0.6623903250651348
+      },
+      "P3_base": {
+        "SF_b": 0.12127860755770202,
+        "SF_y": 0.06459086140380775
+      },
+      "P3A": {
+        "SF_b": 0.35067429852648657,
+        "SF_y": 0.21138134786538848
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 544652588.6753048,
+        "req_EcGc_Pa2": 6697171098347530.0,
+        "SF_wr_best_catalog": 0.541605930545914,
+        "wrinkle_miss_vs_best_catalog": 6.29433373904843,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.1588730501842088,
+          "Divinycell H35": 0.07167205271468066,
+          "Hexcel HRH-10-6.4-24": 0.05509789052441076,
+          "ROHACELL 31 IG-F": 0.03299900760405089
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0006942720920206181,
+          "SF_b_at_020": 2.2491148159212844,
+          "SF_y": 0.5614638073078859,
+          "sigma_f_Pa": 343744329.5325135,
+          "req_EcGc_Pa2": 1683601508025301.5,
+          "SF_wr_best_catalog": 0.8581583658846295,
+          "wrinkle_miss_vs_best_catalog": 1.582332244384682,
+          "overall_kd020": {
+            "least_SF": 0.5614638073078859,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 1.781058702242649
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0004384978794273781,
+          "SF_b_at_020": 3.408961617442671,
+          "SF_y": 0.3546170034908619,
+          "sigma_f_Pa": 544249142.3137825,
+          "req_EcGc_Pa2": 6682299517351622.0,
+          "SF_wr_best_catalog": 0.5420074175213986,
+          "wrinkle_miss_vs_best_catalog": 6.2803566892402465
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0008308529150245292,
+          "SF_b_at_020": 2.6915724000886048,
+          "SF_y": 0.6719178926308148,
+          "sigma_f_Pa": 287237476.65700513,
+          "req_EcGc_Pa2": 982326786068813.2,
+          "SF_wr_best_catalog": 1.0269797505078984,
+          "wrinkle_miss_vs_best_catalog": 0.9232394605909899,
+          "overall_kd020": {
+            "least_SF": 0.6719178926308148,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 1.4882770811246275
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.00043825422437295994,
+          "SF_b_at_020": 13.628269596377852,
+          "SF_y": 0.35441995755519756,
+          "sigma_f_Pa": 544551727.0853889,
+          "req_EcGc_Pa2": 6693451136725549.0,
+          "SF_wr_best_catalog": 0.5417062465169148,
+          "wrinkle_miss_vs_best_catalog": 6.290837534516493
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.3543543242290891,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 2.822034138218962
+      }
+    },
+    {
+      "name": "CFRP quasi-isotropic T700/epoxy",
+      "tag": "QUESTIONABLE",
+      "rho": 1550.0,
+      "E_GPa": 54.0,
+      "sigma_c_MPa": 520,
+      "source": "Toray T700S data sheet https://www.rockwestcomposites.com/downloads/T700SDataSheet.pdf (fibre 230 GPa, 1.80 g/cc; composite tensile modulus 134 GPa); QI reduction stated in sigma_c_basis",
+      "E_over_rho_Pa_per_kg_m3": 34838709.67741936,
+      "sigma_over_rho_Pa_per_kg_m3": 335483.87096774194,
+      "E_over_rho2_Pa_m6_kg2": 22476.58688865765,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0005854557548816129,
+        "SF_b_kd_conservative_SP8032": 0.22467433054504748,
+        "SF_b_kd_020": 0.3193081831282307,
+        "SF_b_kd_090": 1.4368868240770383,
+        "SF_y": 1.2756518764793268
+      },
+      "P1_base": {
+        "SF_b": 0.0020575418243004074,
+        "SF_y": 1.328438548221042
+      },
+      "P1A": {
+        "SF_b": 0.006629479379618231,
+        "SF_y": 2.3845608854057994
+      },
+      "P3_base": {
+        "SF_b": 0.045338698972448764,
+        "SF_y": 0.23252278276111862
+      },
+      "P3A": {
+        "SF_b": 0.13109580311352534,
+        "SF_y": 0.7609587201845033
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 407634723.53777033,
+        "req_EcGc_Pa2": 1.0034823573741418e+16,
+        "SF_wr_best_catalog": 0.47330812759750523,
+        "wrinkle_miss_vs_best_catalog": 9.431225163290806,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.10603076299061376,
+          "Divinycell H35": 0.047833426913058835,
+          "Hexcel HRH-10-6.4-24": 0.036771946939413984,
+          "ROHACELL 31 IG-F": 0.022023306974554173
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0009276370984352904,
+          "SF_b_at_020": 0.8408073084530868,
+          "SF_y": 2.0212321690322863,
+          "sigma_f_Pa": 257268812.54244128,
+          "req_EcGc_Pa2": 2522653797166315.5,
+          "SF_wr_best_catalog": 0.7499425438890314,
+          "wrinkle_miss_vs_best_catalog": 2.3709152229006722,
+          "overall_kd020": {
+            "least_SF": 0.7499425438890314,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.3334354853562882
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0005858897472865161,
+          "SF_b_at_020": 1.2744035217285097,
+          "SF_y": 1.27659750426,
+          "sigma_f_Pa": 407332771.89104915,
+          "req_EcGc_Pa2": 1.0012540479974658e+16,
+          "SF_wr_best_catalog": 0.47365898610533186,
+          "wrinkle_miss_vs_best_catalog": 9.41028240599122
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0011101267013005163,
+          "SF_b_at_020": 1.0062153026625742,
+          "SF_y": 2.4188594916663115,
+          "sigma_f_Pa": 214977348.53614578,
+          "req_EcGc_Pa2": 1471886539137878.5,
+          "SF_wr_best_catalog": 0.8974751482198544,
+          "wrinkle_miss_vs_best_catalog": 1.3833520104679309,
+          "overall_kd020": {
+            "least_SF": 0.8974751482198544,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.114236981362107
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0005855641926944517,
+          "SF_b_at_020": 5.094781554542273,
+          "SF_y": 1.2758881520653296,
+          "sigma_f_Pa": 407559235.62643784,
+          "req_EcGc_Pa2": 1.0029249704113558e+16,
+          "SF_wr_best_catalog": 0.4733957934846838,
+          "wrinkle_miss_vs_best_catalog": 9.425986564016501
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.3193081831282307,
+        "limiting_property": "buckling E/rho (kd 0.20)",
+        "factor_needed": 3.1317706618198717
+      }
+    },
+    {
+      "name": "Al-Li 2195-T8",
+      "tag": "QUESTIONABLE",
+      "rho": 2710.0,
+      "E_GPa": 76.0,
+      "sigma_c_MPa": 560,
+      "source": "MatWeb 2195 composition/density sheet https://www.matweb.com/search/datasheet_print.aspx?matguid=4363dafc7f5545688506d8b4af1e9468 ; MakeItFrom 2195-T8 https://www.makeitfrom.com/compare/2195-2195-T8-Aluminum/B390.0-B390.0-F-SC174B-A23900-Cast-Aluminum (E 76 GPa, yield 560 MPa)",
+      "E_over_rho_Pa_per_kg_m3": 28044280.44280443,
+      "sigma_over_rho_Pa_per_kg_m3": 206642.0664206642,
+      "E_over_rho2_Pa_m6_kg2": 10348.442967824512,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.000334854767552214,
+        "SF_b_kd_conservative_SP8032": 0.18085715551596687,
+        "SF_b_kd_020": 0.2570350141622631,
+        "SF_b_kd_090": 1.156657563730184,
+        "SF_y": 0.7857407243713139
+      },
+      "P1_base": {
+        "SF_b": 0.0009473126114815556,
+        "SF_y": 0.8182547969456886
+      },
+      "P1A": {
+        "SF_b": 0.003052277892822237,
+        "SF_y": 1.4687757937356187
+      },
+      "P3_base": {
+        "SF_b": 0.03649650634791899,
+        "SF_y": 0.1432229459527753
+      },
+      "P3A": {
+        "SF_b": 0.10552880693435344,
+        "SF_y": 0.4687142840761771
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 712703290.8305533,
+        "req_EcGc_Pa2": 3.810681811076884e+16,
+        "SF_wr_best_catalog": 0.3033749005501059,
+        "wrinkle_miss_vs_best_catalog": 35.81467867553462,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.027921512546840475,
+          "Divinycell H35": 0.01259617107376262,
+          "Hexcel HRH-10-6.4-24": 0.009683306512955014,
+          "ROHACELL 31 IG-F": 0.005799487098544873
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0005305673441235055,
+          "SF_b_at_020": 0.6768286246806999,
+          "SF_y": 1.2449826303718594,
+          "sigma_f_Pa": 449805472.2516232,
+          "req_EcGc_Pa2": 9579671102201112.0,
+          "SF_wr_best_catalog": 0.48068843826003954,
+          "wrinkle_miss_vs_best_catalog": 9.003450284023602,
+          "overall_kd020": {
+            "least_SF": 0.48068843826003954,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 2.080349599461402
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0003351029919904428,
+          "SF_b_at_020": 1.0258626135001945,
+          "SF_y": 0.7863231859904058,
+          "sigma_f_Pa": 712175362.4675763,
+          "req_EcGc_Pa2": 3.802219900462558e+16,
+          "SF_wr_best_catalog": 0.3035997892826518,
+          "wrinkle_miss_vs_best_catalog": 35.73514944043758
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0006349433162419927,
+          "SF_b_at_020": 0.8099778779120625,
+          "SF_y": 1.4899020996071233,
+          "sigma_f_Pa": 375863622.27932584,
+          "req_EcGc_Pa2": 5589426880746223.0,
+          "SF_wr_best_catalog": 0.575251972154862,
+          "wrinkle_miss_vs_best_catalog": 5.253220752581036,
+          "overall_kd020": {
+            "least_SF": 0.575251972154862,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.7383686600048591
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0003349167891794834,
+          "SF_b_at_020": 4.101170337058082,
+          "SF_y": 0.7858862588651051,
+          "sigma_f_Pa": 712571308.7404171,
+          "req_EcGc_Pa2": 3.808565157659699e+16,
+          "SF_wr_best_catalog": 0.30343109149265207,
+          "wrinkle_miss_vs_best_catalog": 35.794785316350556
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.2570350141622631,
+        "limiting_property": "buckling E/rho (kd 0.20)",
+        "factor_needed": 3.8905205318397287
+      }
+    },
+    {
+      "name": "Ti-6Al-4V (annealed)",
+      "tag": "QUESTIONABLE",
+      "rho": 4430.0,
+      "E_GPa": 113.8,
+      "sigma_c_MPa": 970,
+      "source": "ASM MatWeb Ti-6Al-4V annealed data sheet (density 4.43 g/cc, E 113.8 GPa, compressive yield 970 MPa)",
+      "E_over_rho_Pa_per_kg_m3": 25688487.584650114,
+      "sigma_over_rho_Pa_per_kg_m3": 218961.62528216705,
+      "E_over_rho2_Pa_m6_kg2": 5798.755662449235,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0002048434356809255,
+        "SF_b_kd_conservative_SP8032": 0.16566468173581192,
+        "SF_b_kd_020": 0.2354434011453416,
+        "SF_b_kd_090": 1.0594953051540372,
+        "SF_y": 0.8325849089627835
+      },
+      "P1_base": {
+        "SF_b": 0.0005308271386350454,
+        "SF_y": 0.8670374011331553
+      },
+      "P1A": {
+        "SF_b": 0.0017103455823646871,
+        "SF_y": 1.556341071022582
+      },
+      "P3_base": {
+        "SF_b": 0.033430704421663064,
+        "SF_y": 0.1517615922388183
+      },
+      "P3A": {
+        "SF_b": 0.09666411132511803,
+        "SF_y": 0.4966580290837822
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 1165046338.8853693,
+        "req_EcGc_Pa2": 1.1116736797089435e+17,
+        "SF_wr_best_catalog": 0.2123186291860179,
+        "wrinkle_miss_vs_best_catalog": 104.48060899520146,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.009571154012376857,
+          "Divinycell H35": 0.004317813840170011,
+          "Hexcel HRH-10-6.4-24": 0.0033193193896306956,
+          "ROHACELL 31 IG-F": 0.0019879934555782756
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.00032456828500557563,
+          "SF_b_at_020": 0.619973251141376,
+          "SF_y": 1.3192058370116524,
+          "sigma_f_Pa": 735290864.2342032,
+          "req_EcGc_Pa2": 2.794635908364085e+16,
+          "SF_wr_best_catalog": 0.3364125050947751,
+          "wrinkle_miss_vs_best_catalog": 26.265375078609818,
+          "overall_kd020": {
+            "least_SF": 0.3364125050947751,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 2.9725411060991243
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.00020499528403930022,
+          "SF_b_at_020": 0.9396874726096975,
+          "SF_y": 0.8332020957001693,
+          "sigma_f_Pa": 1164183341.5982888,
+          "req_EcGc_Pa2": 1.1092051232205349e+17,
+          "SF_wr_best_catalog": 0.21247601882941602,
+          "wrinkle_miss_vs_best_catalog": 104.24860180644124
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.00038841904898776527,
+          "SF_b_at_020": 0.7419376190813955,
+          "SF_y": 1.5787268821498088,
+          "sigma_f_Pa": 614419131.6226618,
+          "req_EcGc_Pa2": 1.630579265348658e+16,
+          "SF_wr_best_catalog": 0.4025933257596613,
+          "wrinkle_miss_vs_best_catalog": 15.324993095382125,
+          "overall_kd020": {
+            "least_SF": 0.4025933257596613,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 2.4838961205158587
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.00020488137667638826,
+          "SF_b_at_020": 3.7566613092789543,
+          "SF_y": 0.8327391199124081,
+          "sigma_f_Pa": 1164830589.5645936,
+          "req_EcGc_Pa2": 1.1110561975864251e+17,
+          "SF_wr_best_catalog": 0.21235795473296465,
+          "wrinkle_miss_vs_best_catalog": 104.42257496113018
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.2123186291860179,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 4.70990230030109
+      }
+    },
+    {
+      "name": "6061-T6 (baseline)",
+      "tag": "QUESTIONABLE",
+      "rho": 2700.0,
+      "E_GPa": 68.9,
+      "sigma_c_MPa": 276,
+      "source": "Pinned COMMON.md (MAINLINE-001/002); ASM MatWeb 6061-T6 data sheet (AA typical values)",
+      "E_over_rho_Pa_per_kg_m3": 25518518.51851852,
+      "sigma_over_rho_Pa_per_kg_m3": 102222.22222222222,
+      "E_over_rho2_Pa_m6_kg2": 9451.303155006859,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.000336094970395,
+        "SF_b_kd_conservative_SP8032": 0.16456855370753323,
+        "SF_b_kd_020": 0.233885578993,
+        "SF_b_kd_090": 1.0524851054685,
+        "SF_y": 0.388692217064
+      },
+      "P1_base": {
+        "SF_b": 0.0008651870335963804,
+        "SF_y": 0.40477636106051407
+      },
+      "P1A": {
+        "SF_b": 0.0027876661028217492,
+        "SF_y": 0.7265777398693739
+      },
+      "P3_base": {
+        "SF_b": 0.03320950861977137,
+        "SF_y": 0.070849890644734
+      },
+      "P3A": {
+        "SF_b": 0.09602452876206403,
+        "SF_y": 0.23186477243228665
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 710073389.3883741,
+        "req_EcGc_Pa2": 4.15700433375464e+16,
+        "SF_wr_best_catalog": 0.29470469194142845,
+        "wrinkle_miss_vs_best_catalog": 39.069589602957144,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.025595354600917306,
+          "Divinycell H35": 0.011546776511692017,
+          "Hexcel HRH-10-6.4-24": 0.008876584443363238,
+          "ROHACELL 31 IG-F": 0.0053163283522581995
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.000532532408361,
+          "SF_b_at_020": 0.615871169453,
+          "SF_y": 0.615871169453,
+          "sigma_f_Pa": 448145673.4610268,
+          "req_EcGc_Pa2": 1.0450291119042648e+16,
+          "SF_wr_best_catalog": 0.466950752551905,
+          "wrinkle_miss_vs_best_catalog": 9.82170217955136,
+          "overall_kd020": {
+            "least_SF": 0.466950752551905,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 2.1415534604772755
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.000336344114183,
+          "SF_b_at_020": 0.933469986989,
+          "SF_y": 0.388980350657,
+          "sigma_f_Pa": 709547409.1005372,
+          "req_EcGc_Pa2": 4.1477733874727064e+16,
+          "SF_wr_best_catalog": 0.2949231535363918,
+          "wrinkle_miss_vs_best_catalog": 38.982832589029194
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.000637294958154,
+          "SF_b_at_020": 0.737028554512,
+          "SF_y": 0.737028554512,
+          "sigma_f_Pa": 374476671.6436088,
+          "req_EcGc_Pa2": 6097405377412118.0,
+          "SF_wr_best_catalog": 0.5588117373427798,
+          "wrinkle_miss_vs_best_catalog": 5.730644151703118,
+          "overall_kd020": {
+            "least_SF": 0.5588117373427798,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.789511445760116
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.000336157221732,
+          "SF_b_at_020": 3.73180518599,
+          "SF_y": 0.388764210437,
+          "sigma_f_Pa": 709941894.3170208,
+          "req_EcGc_Pa2": 4.154695314564764e+16,
+          "SF_wr_best_catalog": 0.2947592769924096,
+          "wrinkle_miss_vs_best_catalog": 39.047888294781615
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.233885578993,
+        "limiting_property": "buckling E/rho (kd 0.20)",
+        "factor_needed": 4.275594948202981
+      }
+    },
+    {
+      "name": "7075-T6",
+      "tag": "QUESTIONABLE",
+      "rho": 2810.0,
+      "E_GPa": 71.7,
+      "sigma_c_MPa": 503,
+      "source": "ASM MatWeb 7075-T6 data sheet; density 2.81 g/cc, E 71.7 GPa, tensile yield 503 MPa",
+      "E_over_rho_Pa_per_kg_m3": 25516014.234875444,
+      "sigma_over_rho_Pa_per_kg_m3": 179003.5587188612,
+      "E_over_rho2_Pa_m6_kg2": 9080.432112055318,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0003229382277816726,
+        "SF_b_kd_conservative_SP8032": 0.16455240361884704,
+        "SF_b_kd_020": 0.23386262641331174,
+        "SF_b_kd_090": 1.0523818188599028,
+        "SF_y": 0.680647403159805
+      },
+      "P1_base": {
+        "SF_b": 0.0008312369198146574,
+        "SF_y": 0.708812697865135
+      },
+      "P1A": {
+        "SF_b": 0.00267827752243255,
+        "SF_y": 1.272326097937744
+      },
+      "P3_base": {
+        "SF_b": 0.03320624957363314,
+        "SF_y": 0.12406678591548462
+      },
+      "P3A": {
+        "SF_b": 0.09601510530526979,
+        "SF_y": 0.40602345071985213
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 739002305.2523448,
+        "req_EcGc_Pa2": 4.503064946743978e+16,
+        "SF_wr_best_catalog": 0.2869532441792775,
+        "wrinkle_miss_vs_best_catalog": 42.32203897315768,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.023628351191544425,
+          "Divinycell H35": 0.010659406552576432,
+          "Hexcel HRH-10-6.4-24": 0.008194418787293132,
+          "ROHACELL 31 IG-F": 0.004907768433582066
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0005116859439767616,
+          "SF_b_at_020": 0.6158107303607078,
+          "SF_y": 1.0784654123912003,
+          "sigma_f_Pa": 466403460.1575872,
+          "req_EcGc_Pa2": 1.1320252721249244e+16,
+          "SF_wr_best_catalog": 0.4546688158712954,
+          "wrinkle_miss_vs_best_catalog": 10.639335264331995,
+          "overall_kd020": {
+            "least_SF": 0.4546688158712954,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 2.199403093180407
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.00032317761861,
+          "SF_b_at_020": 0.9333783800401867,
+          "SF_y": 0.6811519601671975,
+          "sigma_f_Pa": 738454896.1379665,
+          "req_EcGc_Pa2": 4.493065546384945e+16,
+          "SF_wr_best_catalog": 0.2871659597047424,
+          "wrinkle_miss_vs_best_catalog": 42.228059646475046
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0006123474686888968,
+          "SF_b_at_020": 0.7369562255265927,
+          "SF_y": 1.2906267469734736,
+          "sigma_f_Pa": 389733128.6364966,
+          "req_EcGc_Pa2": 6604999710527932.0,
+          "SF_wr_best_catalog": 0.5441136340911685,
+          "wrinkle_miss_vs_best_catalog": 6.207706494857079,
+          "overall_kd020": {
+            "least_SF": 0.5441136340911685,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 1.8378513923296504
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.00032299804223359435,
+          "SF_b_at_020": 3.7314389618034496,
+          "SF_y": 0.6807734723225665,
+          "sigma_f_Pa": 738865452.9743809,
+          "req_EcGc_Pa2": 4.500563707259847e+16,
+          "SF_wr_best_catalog": 0.2870063935111037,
+          "wrinkle_miss_vs_best_catalog": 42.29853108326924
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.23386262641331174,
+        "limiting_property": "buckling E/rho (kd 0.20)",
+        "factor_needed": 4.276014578886466
+      }
+    },
+    {
+      "name": "Mg AZ31B",
+      "tag": "QUESTIONABLE",
+      "rho": 1770.0,
+      "E_GPa": 45.0,
+      "sigma_c_MPa": 97,
+      "source": "AZ31 property table in https://zenodo.org/records/5519242/files/E27900610521.pdf (compressive yield 97 MPa); density 1.77 g/cc, E 45 GPa (ASM MatWeb AZ31B)",
+      "E_over_rho_Pa_per_kg_m3": 25423728.813559324,
+      "sigma_over_rho_Pa_per_kg_m3": 54802.259887005646,
+      "E_over_rho2_Pa_m6_kg2": 14363.688595231255,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.0005126872429754237,
+        "SF_b_kd_conservative_SP8032": 0.16395725628287364,
+        "SF_b_kd_020": 0.23301680030544145,
+        "SF_b_kd_090": 1.0485756013744865,
+        "SF_y": 0.20838142071780397
+      },
+      "P1_base": {
+        "SF_b": 0.0013148744594682585,
+        "SF_y": 0.21700427610281794
+      },
+      "P1A": {
+        "SF_b": 0.004236576390759573,
+        "SF_y": 0.38952491212599083
+      },
+      "P3_base": {
+        "SF_b": 0.03308615038008267,
+        "SF_y": 0.03798326856598672
+      },
+      "P3A": {
+        "SF_b": 0.09566784125516209,
+        "SF_y": 0.1243048061492178
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 465492555.2657119,
+        "req_EcGc_Pa2": 1.793146166193726e+16,
+        "SF_wr_best_catalog": 0.3900395487507236,
+        "wrinkle_miss_vs_best_catalog": 16.852877501820732,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.05933704792501833,
+          "Divinycell H35": 0.02676859304888045,
+          "Hexcel HRH-10-6.4-24": 0.020578355906326846,
+          "ROHACELL 31 IG-F": 0.01232470638292204
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.0008123375720761018,
+          "SF_b_at_020": 0.6135834878071019,
+          "SF_y": 0.33017411626901805,
+          "sigma_f_Pa": 293784385.935562,
+          "req_EcGc_Pa2": 4507789251880462.0,
+          "SF_wr_best_catalog": 0.6180059761327227,
+          "wrinkle_miss_vs_best_catalog": 4.236644033722238,
+          "overall_kd020": {
+            "least_SF": 0.33017411626901805,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 3.0287050096477692
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.0005130672928215255,
+          "SF_b_at_020": 0.9300025699996187,
+          "SF_y": 0.20853589174868642,
+          "sigma_f_Pa": 465147745.96590763,
+          "req_EcGc_Pa2": 1.7891643478921694e+16,
+          "SF_wr_best_catalog": 0.3903286811067698,
+          "wrinkle_miss_vs_best_catalog": 16.815454397482796
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0009721448514213559,
+          "SF_b_at_020": 0.7342908282142137,
+          "SF_y": 0.39512768858325714,
+          "sigma_f_Pa": 245490262.52192134,
+          "req_EcGc_Pa2": 2630148587398822.0,
+          "SF_wr_best_catalog": 0.7395833314832472,
+          "wrinkle_miss_vs_best_catalog": 2.4719441610891186,
+          "overall_kd020": {
+            "least_SF": 0.39512768858325714,
+            "limiting_property": "yield sigma_c/rho",
+            "factor_needed": 2.5308274486800246
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0005127822026420339,
+          "SF_b_at_020": 3.7179432248307545,
+          "SF_y": 0.20842001701762525,
+          "sigma_f_Pa": 465406352.94115806,
+          "req_EcGc_Pa2": 1.792150158353567e+16,
+          "SF_wr_best_catalog": 0.3901117916746926,
+          "wrinkle_miss_vs_best_catalog": 16.84351652587939
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.20838142071780397,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 4.798892322335341
+      }
+    },
+    {
+      "name": "Metallic glass Vitreloy 1 (Zr41.2Ti13.8Cu12.5Ni10Be22.5)",
+      "tag": "QUESTIONABLE",
+      "rho": 6120.0,
+      "E_GPa": 96.0,
+      "sigma_c_MPa": 1900,
+      "source": "Review of Zr-based bulk metallic glasses https://www.mdpi.com/2075-4701/5/3/1262 (E 70-96 GPa, compressive ultimate 1400-1900 MPa for Vitreloy 1); density 6.12 g/cc typical for Vitreloy 1",
+      "E_over_rho_Pa_per_kg_m3": 15686274.509803921,
+      "sigma_over_rho_Pa_per_kg_m3": 310457.5163398693,
+      "E_over_rho2_Pa_m6_kg2": 2563.116749967961,
+      "P2E": {
+        "tf_at_equal_face_mass_m": 0.00014827719282132351,
+        "SF_b_kd_conservative_SP8032": 0.1011605555104789,
+        "SF_b_kd_020": 0.14376984280283447,
+        "SF_b_kd_090": 0.6469642926127551,
+        "SF_y": 1.180491068448849
+      },
+      "P1_base": {
+        "SF_b": 0.00023463170541632744,
+        "SF_y": 1.2293399712515614
+      },
+      "P1A": {
+        "SF_b": 0.0007559924345115506,
+        "SF_y": 2.206677918401232
+      },
+      "P3_base": {
+        "SF_b": 0.020413938535162116,
+        "SF_y": 0.2151770975463469
+      },
+      "P3A": {
+        "SF_b": 0.0590264327744268,
+        "SF_y": 0.7041928830264461
+      },
+      "WRINKLING_P2E": {
+        "sigma_f_Pa": 1609499682.613648,
+        "req_EcGc_Pa2": 3.474492992347279e+17,
+        "SF_wr_best_catalog": 0.14521675548899626,
+        "wrinkle_miss_vs_best_catalog": 326.55009326572167,
+        "margins_vs_each_catalog": {
+          "Hexcel HRH-10-4.8-32": 0.0030623173002320226,
+          "Divinycell H35": 0.0013814965264204613,
+          "Hexcel HRH-10-6.4-24": 0.0010620254546857297,
+          "ROHACELL 31 IG-F": 0.0006360640257060874
+        }
+      },
+      "rows_007": {
+        "007-4kg-leastfactor": {
+          "tf_c_m": 0.00023494076839455883,
+          "SF_b_at_020": 0.3785770016273884,
+          "SF_y": 1.8704527205254158,
+          "sigma_f_Pa": 1015796859.8449941,
+          "req_EcGc_Pa2": 8.734526198655099e+16,
+          "SF_wr_best_catalog": 0.23009159715790883,
+          "wrinkle_miss_vs_best_catalog": 82.0914116414953,
+          "overall_kd020": {
+            "least_SF": 0.23009159715790883,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 4.346095260983013
+          }
+        },
+        "007-4kg-bucklingmax": {
+          "tf_c_m": 0.00014838710919838234,
+          "SF_b_at_020": 0.5738055072415948,
+          "SF_y": 1.1813661544889706,
+          "sigma_f_Pa": 1608307460.6278844,
+          "req_EcGc_Pa2": 3.4667776147353574e+17,
+          "SF_wr_best_catalog": 0.145324403194944,
+          "wrinkle_miss_vs_best_catalog": 325.824963790917
+        },
+        "007-1kg-leastfactor": {
+          "tf_c_m": 0.0002811595403620588,
+          "SF_b_at_020": 0.45305264172171095,
+          "SF_y": 2.2384179245089517,
+          "sigma_f_Pa": 848813789.0588467,
+          "req_EcGc_Pa2": 5.09631228509791e+16,
+          "SF_wr_best_catalog": 0.2753564148962233,
+          "wrinkle_miss_vs_best_catalog": 47.89767185242397,
+          "overall_kd020": {
+            "least_SF": 0.2753564148962233,
+            "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+            "factor_needed": 3.6316568124148527
+          }
+        },
+        "007-1kg-bucklingmax": {
+          "tf_c_m": 0.0001483046566464706,
+          "SF_b_at_020": 2.29394666943806,
+          "SF_y": 1.180709718398817,
+          "sigma_f_Pa": 1609201627.1185803,
+          "req_EcGc_Pa2": 3.472563075909791e+17,
+          "SF_wr_best_catalog": 0.14524365246151974,
+          "wrinkle_miss_vs_best_catalog": 326.3687101418976
+        }
+      },
+      "overall_P2E_kd020": {
+        "least_SF": 0.14376984280283447,
+        "limiting_property": "buckling E/rho (kd 0.20)",
+        "factor_needed": 6.955561615041876
+      }
+    }
+  ],
+  "best_three": {
+    "P2E_kd020_all": [
+      {
+        "name": "CNT-yarn composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "least_SF": 0.7827814759236412,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.2774957389226058,
+        "SF_b_kd020": 1.1783992472589468,
+        "SF_y": 3.2592204536422362,
+        "SF_wr": 0.7827814759236412
+      },
+      {
+        "name": "Graphene composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "least_SF": 0.6875172001458262,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.4545090650646915,
+        "SF_b_kd020": 0.9165327478680697,
+        "SF_y": 2.2814543175495654,
+        "SF_wr": 0.6875172001458262
+      },
+      {
+        "name": "CFRP quasi-isotropic M55J/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.60712551079992,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.647105882081033,
+        "SF_b_kd020": 0.7544629326962768,
+        "SF_y": 0.8114928975023861,
+        "SF_wr": 0.60712551079992
+      }
+    ],
+    "P2E_kd020_available_today": [
+      {
+        "name": "CFRP quasi-isotropic M55J/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.60712551079992,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.647105882081033,
+        "SF_b_kd020": 0.7544629326962768,
+        "SF_y": 0.8114928975023861,
+        "SF_wr": 0.60712551079992
+      },
+      {
+        "name": "Beryllium S-200F",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.5816680827626368,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 1.7191935222756123,
+        "SF_b_kd020": 1.5011320140758115,
+        "SF_y": 0.5816680827626368,
+        "SF_wr": 0.7046717938507411
+      },
+      {
+        "name": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.47801899986752794,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 2.091967056282548,
+        "SF_b_kd020": 1.0998392974416837,
+        "SF_y": 0.47801899986752794,
+        "SF_wr": 0.6592439051090557
+      }
+    ],
+    "row_007_1kg_leastfactor_all": [
+      {
+        "name": "CNT-yarn composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "least_SF": 1.4842908459956676,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 0.6737224060215748,
+        "SF_b_kd020": 3.7134136169690235,
+        "SF_y": 6.180053096839752,
+        "SF_wr": 1.4842908459956676
+      },
+      {
+        "name": "Graphene composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "least_SF": 1.3036530858588768,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 0.7670752371526638,
+        "SF_b_kd020": 2.8882105909759073,
+        "SF_y": 4.326037167787827,
+        "SF_wr": 1.3036530858588768
+      },
+      {
+        "name": "CFRP quasi-isotropic M55J/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 1.1512163557363877,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 0.868646449485457,
+        "SF_b_kd020": 2.3774904254984603,
+        "SF_y": 1.538732732444857,
+        "SF_wr": 1.1512163557363877
+      }
+    ],
+    "row_007_4kg_leastfactor_all": [
+      {
+        "name": "CNT-yarn composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "least_SF": 1.2402937898894435,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 0.8062605877347313,
+        "SF_b_kd020": 3.102979352624487,
+        "SF_y": 5.164137135164908,
+        "SF_wr": 1.2402937898894435
+      },
+      {
+        "name": "Graphene composite quasi-isotropic",
+        "tag": "PROJECTION",
+        "least_SF": 1.0893503998378051,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 0.9179782741612721,
+        "SF_b_kd020": 2.4134283853746012,
+        "SF_y": 3.614895994615435,
+        "SF_wr": 1.0893503998378051
+      },
+      {
+        "name": "CFRP quasi-isotropic M55J/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.9619721772798469,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.0395311045561462,
+        "SF_b_kd020": 1.9866636099120192,
+        "SF_y": 1.285786176946547,
+        "SF_wr": 0.9619721772798469
+      }
+    ],
+    "row_007_1kg_leastfactor_available_today": [
+      {
+        "name": "CFRP quasi-isotropic M55J/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 1.1512163557363877,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 0.868646449485457,
+        "SF_b_kd020": 2.3774904254984603,
+        "SF_y": 1.538732732444857,
+        "SF_wr": 1.1512163557363877
+      },
+      {
+        "name": "Beryllium S-200F",
+        "tag": "QUESTIONABLE",
+        "least_SF": 1.102944611246806,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 0.906663843136752,
+        "SF_b_kd020": 4.730420589544324,
+        "SF_y": 1.102944611246806,
+        "SF_wr": 1.3361812015413994
+      },
+      {
+        "name": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.906407787536497,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 1.1032561875023987,
+        "SF_b_kd020": 3.4658527091710885,
+        "SF_y": 0.906407787536497,
+        "SF_wr": 1.2500419641090985
+      }
+    ],
+    "row_007_4kg_leastfactor_available_today": [
+      {
+        "name": "CFRP quasi-isotropic M55J/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.9619721772798469,
+        "limiting_property": "face wrinkling vs best catalog core Ec*Gc",
+        "factor_needed": 1.0395311045561462,
+        "SF_b_kd020": 1.9866636099120192,
+        "SF_y": 1.285786176946547,
+        "SF_wr": 0.9619721772798469
+      },
+      {
+        "name": "Beryllium S-200F",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.9216356454740252,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 1.0850274779527105,
+        "SF_b_kd020": 3.952804328478401,
+        "SF_y": 0.9216356454740252,
+        "SF_wr": 1.1165313394674472
+      },
+      {
+        "name": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+        "tag": "QUESTIONABLE",
+        "least_SF": 0.7574067798241865,
+        "limiting_property": "yield sigma_c/rho",
+        "factor_needed": 1.3202944925210804,
+        "SF_b_kd020": 2.8961140624495214,
+        "SF_y": 0.7574067798241865,
+        "SF_wr": 1.044552211157572
+      }
+    ]
+  },
+  "catalog_cores_note": "All catalog Ec*Gc products QUESTIONABLE (007); HRH-10 sheets have no continuum Ec on the datasheets (007); no catalog structural core exists at 1-4 kg/m3 (007)."
+}

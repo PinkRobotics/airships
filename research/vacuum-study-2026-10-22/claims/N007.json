@@ -1,0 +1,88 @@
+{
+  "id": "N007",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N007",
+    "report": "rpt-1228-mainline013-independent-check-1020",
+    "card": "CHECK-MAINLINE-013",
+    "file": "evidence/ef406b56c4cff82e-NFI.json",
+    "row_id": "NFI-CHECK013-S200F-GRADE",
+    "fields": {
+      "id": "NFI-CHECK013-S200F-GRADE",
+      "kind": "source correction",
+      "row": "ideal_lattice_PROJECTION.strut_references[2]",
+      "field": "S_Pa_per_kg_m3",
+      "card_value": 163783783.7837838,
+      "checker_value": 156756756.75675675,
+      "source": "sources/s200.pdf p2, Materion material-property comparison",
+      "issue": "S200F is 290 GPa; 303 GPa belongs to S200FH. Density remains 1850 kg/m3.",
+      "effects": {
+        "Q_first_density_card": 4.817515578142902,
+        "Q_first_density_corrected": 5.29333338323427,
+        "B_first_density_card": 8.823966274563121,
+        "B_first_density_corrected": 9.21851132665868,
+        "Q_classical_card": 1.96042850745283,
+        "Q_classical_corrected": 2.0674778788188943,
+        "ideal_fraction_at_5_card": 0.9820880639067651,
+        "ideal_fraction_at_5_corrected": 1.0261127012543099
+      },
+      "proposed_fix": "Use 290 GPa for the named grade and update its projection, or explicitly source and label S200FH. No 76-core arithmetic changes.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    }
+  },
+  "claim": "S200F is 290 GPa; 303 GPa belongs to S200FH. Density remains 1850 kg/m3.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/6"
+    },
+    {
+      "report": "rpt-1228-mainline013-independent-check-1020",
+      "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+      "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+      "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+      "bytes": 6151,
+      "selector": "source row ID: NFI-CHECK013-S200F-GRADE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline013-independent-check-1020",
+          "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+          "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+          "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+          "bytes": 6151,
+          "selector": "source row ID: NFI-CHECK013-S200F-GRADE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/6"
+          }
+        ]
+      }
+    }
+  ]
+}

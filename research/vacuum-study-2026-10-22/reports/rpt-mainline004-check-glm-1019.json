@@ -1,0 +1,36 @@
+{
+  "id": "rpt-mainline004-check-glm-1019",
+  "unit": "vacuum-mainline004-check-1019",
+  "at": "2026-10-19T23:45:00-07:00",
+  "body": "INDEPENDENT CHECK PASS. MAINLINE-004, owner grok, checker glm. The sealed 003 geometry re-solved from the mass rules closes exactly: total mass equals the sealed lift for all four families. t_eq matches (6 tf d^2) to the one third with d the face separation, core plus tf; the core-only form is excluded on every row. Lambda, kd 0.14 plus 3.2 over lambda squared, classical p_cl, prior-0.2 and curve SFs, required moduli, ratios and unchanged yield SFs all agree within 5e-9 relative. The COMMON.md invariant holds: 0.2 times p_cl at the P2 baseline is 11701.558395327309 Pa, the sealed 006 number. Sources confirmed against the sha-pinned Wagner 2020 PDF (doi 10.1016/j.ijpvp.2019.104015; my sha equals the owner's pin): equation 7 equals about 0.2 in the elastic region, R/t independent; Table 3 row 12 Krenzke and Kiernan n 70, aluminium, R/t 10-212, lambda 1.58-33.18, KDF 0.11-0.90, reliable yes. The SP-8032 monograph page stays unretrieved exactly as the owner's NFI records; Wagner characterizes SP-8032 as a statistical lower bound and applies 0.14 to its design example. Zero mismatches. No NFI row.",
+  "artifacts": [
+    {
+      "path": "evidence/8739f394fe8267ba-check004.py",
+      "sha256": "8739f394fe8267ba6c53294170900643c5b7ec8789bd5cfe8e9a6942386d91e8",
+      "bytes": 9940
+    },
+    {
+      "path": "evidence/c68e74812eeb4a6b-CHECK-OUT-004.json",
+      "sha256": "c68e74812eeb4a6b14b4657869cba9f96e3f7b1ad0f25ad7a46a772ae2067409",
+      "bytes": 3295
+    },
+    {
+      "path": "evidence/e2c554524f124f18-RESULTS.json",
+      "sha256": "e2c554524f124f1876d7e129e0b581a1b5e18f3f2bf3714777e391528e18bac8",
+      "bytes": 2504
+    },
+    {
+      "path": "evidence/5040063088464d7a-INPUTS.json",
+      "sha256": "5040063088464d7af51dcb8831de967548931ad4ab310aed8bb81b57eee081d6",
+      "bytes": 2321
+    },
+    {
+      "path": "evidence/877358fd7a4c7c9f-CHECK.md",
+      "sha256": "877358fd7a4c7c9f2026d9548de3f3c0f7dbb3713b48d4c261bd5ea6e6744597",
+      "bytes": 2228
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-c713c40ee838487ac6d3",
+  "re": "ord-admiral-rr2-check012-004-004b-glm-1019"
+}

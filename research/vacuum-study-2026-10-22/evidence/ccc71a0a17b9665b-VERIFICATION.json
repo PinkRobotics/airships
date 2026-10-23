@@ -1,0 +1,69 @@
+{
+  "unit": "vacuum-mainline062-buildable-shape-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "owner_bookkeeping_status": "pass",
+  "external_independent_review": "pending REVIEW-A",
+  "physical_qualification": "open",
+  "measured_at": "2026-10-20T16:35:37.239270+00:00",
+  "checks": [
+    {
+      "check": "strict JSON syntax and finite numeric literals in new outputs",
+      "status": "pass",
+      "inherited_input_exceptions": [
+        {
+          "path": "inputs/037b/RESULTS.json",
+          "nonstandard_literal": "Infinity",
+          "disposition": "Pinned incoming file preserved verbatim. New results and selected numeric bills contain only finite numbers."
+        }
+      ]
+    },
+    {
+      "check": "owned input/source byte pins",
+      "status": "pass",
+      "count": 57
+    },
+    {
+      "check": "six full mass accounts, CSV agreement and concept payload sign",
+      "status": "pass",
+      "cases": 6,
+      "maximum_decimal_closure_error_kg": "7.8795E-12"
+    },
+    {
+      "check": "source selection, geometry reconstruction, shape sums, ratio identity and stock minimum",
+      "status": "pass",
+      "cases": [
+        {
+          "R_m": 10,
+          "source": "048",
+          "mask": 15,
+          "rectangular_blank_stock_kg": 3976.5898261054945,
+          "net_geometric_yield": 0.9464265851954633
+        },
+        {
+          "R_m": 20,
+          "source": "040 with 048 finish transfer",
+          "mask": 15,
+          "rectangular_blank_stock_kg": 33800.55549193843,
+          "net_geometric_yield": 0.8942436040997993
+        },
+        {
+          "R_m": 30,
+          "source": "040 with 048 finish transfer",
+          "mask": 15,
+          "rectangular_blank_stock_kg": 121276.55836358079,
+          "net_geometric_yield": 0.8427969233787632
+        }
+      ]
+    },
+    {
+      "check": "six cost sums, contingency, full-blank purchase takeoff and CSV agreement",
+      "status": "pass",
+      "maximum_decimal_closure_error_USD": "2.7587E-7"
+    },
+    {
+      "check": "precedent source links, explicit unknowns, 16 open NFIs and no new FE claim",
+      "status": "pass"
+    }
+  ],
+  "limits": "These arithmetic/pin checks do not validate the fixed-C scaling, material laws, fabrication capability, quoted costs or flight feasibility."
+}

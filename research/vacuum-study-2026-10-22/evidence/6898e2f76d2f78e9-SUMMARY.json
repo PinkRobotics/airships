@@ -1,0 +1,68 @@
+{
+  "name": "pilot-perfect-345",
+  "analysis": "static",
+  "amplitude_mm": 0.0,
+  "width_mm": 354.90995716374766,
+  "meridian": "W",
+  "yield_MPa": 345.0,
+  "nu": 0.0768,
+  "ntheta": 256,
+  "nface": 1,
+  "ncore": 4,
+  "grading": 1.5,
+  "increments": 132,
+  "endpoint_kPa": 109.677384,
+  "endpoint_kind": "last_converged_static_increment",
+  "first_yield_bracket_kPa": [
+    109.51875,
+    109.645308
+  ],
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 80.97057629881945,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        80.1,
+        81.0
+      ]
+    },
+    "300.0": {
+      "p_kPa": 95.27545844469562,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        94.5,
+        95.4
+      ]
+    },
+    "341.5897774303177": {
+      "p_kPa": 108.50052900652263,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        108.0,
+        108.89999999999999
+      ]
+    },
+    "345.0": {
+      "p_kPa": 109.58510906232094,
+      "kind": "last_two_elastic_points_extrapolation",
+      "bracket_kPa": [
+        109.51875,
+        109.645308
+      ],
+      "inside_native_bracket": true
+    }
+  },
+  "endpoint_max_mises_MPa": 345.0001135409458,
+  "endpoint_max_peeq": 3.341924e-06,
+  "endpoint_pole_uy_mm": -21.92415,
+  "solver": {
+    "returncode": 201,
+    "elapsed_s": 212.40523651894182,
+    "ended_at": "2026-10-20T10:56:52.210585+00:00"
+  },
+  "errors": [
+    " *ERROR: increment size smaller than minimum"
+  ],
+  "eigen_kPa": [],
+  "peeq_detection_threshold": 1e-10
+}

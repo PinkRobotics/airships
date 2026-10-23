@@ -1,0 +1,36 @@
+{
+  "id": "E-08c4b8dcb40b9bced2ad",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-08c4b8dcb40b9bced2ad",
+    "report": "rpt-check060-opus-1020",
+    "file": "evidence/b26e733d4a0f5155-NFI.json",
+    "snapshot": "evidence/b26e733d4a0f5155-NFI.json",
+    "source_sha256": "b26e733d4a0f51555aa40af691ef7af0a6fc08301e13807d524f9e762180129f",
+    "source_json_pointer": "/rows/0",
+    "row_id": "C060-01-MEMBER-LOAD",
+    "fields": {
+      "id": "C060-01-MEMBER-LOAD",
+      "state": "fix",
+      "note": "Restate the member load as 051's FE axial force, 701.4 kN (157.7 klb), 1.30x NG-2's 121.7 klb collapse. The printed 775 kN (174 klb, 1.43x) is peak combined stress x area. The conclusion that it exceeds every sourced strut test stands."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Restate the member load as 051's FE axial force, 701.4 kN (157.7 klb), 1.30x NG-2's 121.7 klb collapse. The printed 775 kN (174 klb, 1.43x) is peak combined stress x area. The conclusion that it exceeds every sourced strut test stands.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q3",
+  "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+  "sources": [
+    {
+      "report": "rpt-check060-opus-1020",
+      "artifact": "evidence/b26e733d4a0f5155-NFI.json",
+      "snapshot": "evidence/b26e733d4a0f5155-NFI.json",
+      "sha256": "b26e733d4a0f51555aa40af691ef7af0a6fc08301e13807d524f9e762180129f",
+      "bytes": 3181,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

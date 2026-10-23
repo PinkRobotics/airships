@@ -1,0 +1,43 @@
+{
+  "id": "E-7d8b9d4b65049917f7d9",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-7d8b9d4b65049917f7d9",
+    "report": "rpt-ref-3692687111eb9cac0c5d",
+    "file": "evidence/038b8c48cc2481f2-NFI.json",
+    "snapshot": "evidence/038b8c48cc2481f2-NFI.json",
+    "source_sha256": "038b8c48cc2481f27088dd50f8554c8103bf7b00ce1a5e5e48d2e39de36429ac",
+    "source_json_pointer": "/items/8",
+    "row_id": "NFI-A1-COST-VALIDITY",
+    "fields": {
+      "id": "NFI-A1-COST-VALIDITY",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The cost ranges reproduce only the stated planning assumptions. They are not quotes, measured confidence intervals or complete qualified-flight program totals.",
+      "evidence_needed": "Supplier quotations, measured labor/yield, required article count and full-scale qualification/facility/program scope.",
+      "claims": [
+        "A1-13",
+        "A1-14",
+        "A1-15"
+      ]
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The cost ranges reproduce only the stated planning assumptions. They are not quotes, measured confidence intervals or complete qualified-flight program totals.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/038b8c48cc2481f2-NFI.json",
+      "snapshot": "evidence/038b8c48cc2481f2-NFI.json",
+      "sha256": "038b8c48cc2481f27088dd50f8554c8103bf7b00ce1a5e5e48d2e39de36429ac",
+      "bytes": 5958,
+      "selector": "/items/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

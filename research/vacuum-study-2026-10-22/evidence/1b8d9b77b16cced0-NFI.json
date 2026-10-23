@@ -1,0 +1,21 @@
+{
+  "unit": "vacuum-review-c-064-1020",
+  "tag": "QUESTIONABLE",
+  "issues": [
+    {
+      "id": "NFIC-SPECIMEN-MATERIAL",
+      "status": "open",
+      "statement": "CR-1457 section 6.2 does not name the face alloy or the core of the plotted points. The 2014-T6 and glass-fabric sentence comes from a public account of the flight bulkhead, about 33 feet. SDL 468 was not opened. This is not a demonstrated mismatch."
+    },
+    {
+      "id": "NFIC-UNOPENED-FLOORS",
+      "status": "open",
+      "statement": "SP-8032, the Lee hemisphere series, the 2024 foam-core note, and Yao 1962 were not reopened. Their claims cannot be checked from those sources here. CR-1457 lists Yao as reference 6-1, a 1962 sandwich-sphere buckling paper, and treats the 0.20 factor as empirical on top of classical theory."
+    },
+    {
+      "id": "NFIC-SAME-MODEL",
+      "status": "open",
+      "statement": "The numerical check re-executed this seat's copy of model63.py. Its hash matches the copy 064 pinned. The route did not rebuild the mass account from the handbook equations, and it did not run 064's driver."
+    }
+  ]
+}

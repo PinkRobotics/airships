@@ -1,0 +1,36 @@
+{
+  "id": "E-7d3eabc4528d59f27a71",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-7d3eabc4528d59f27a71",
+    "report": "rpt-mainline055-opus-gamma-test-1020",
+    "file": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "source_sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+    "source_json_pointer": "/rows/3",
+    "row_id": "N055-04-CORE-LAW",
+    "fields": {
+      "id": "N055-04-CORE-LAW",
+      "state": "carried from CHECK-029 C029-10",
+      "note": "The homogenized CR III core with E_in 0.01 MPa loses ellipticity at about 0.088 MPa shear, and these paths pass that at 7-11 kPa. So an FE on a mesh fine enough to resolve the dimple flank cannot predict the core's response there. The test, not the FE, has to supply it. The pre-test FE needs a sourced in-plane core law or a cell model."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The homogenized CR III core with E_in 0.01 MPa loses ellipticity at about 0.088 MPa shear, and these paths pass that at 7-11 kPa. So an FE on a mesh fine enough to resolve the dimple flank cannot predict the core's response there. The test, not the FE, has to supply it. The pre-test FE needs a sourced in-plane core law or a cell model.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-mainline055-opus-gamma-test-1020",
+      "artifact": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+      "bytes": 5596,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

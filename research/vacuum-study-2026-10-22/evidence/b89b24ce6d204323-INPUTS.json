@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-011b",
+  "unit": "vacuum-mainline011b-p3-global-arcs-1019",
+  "pins": [
+    {
+      "path": "unpublished-local-ref:786479f234a43198",
+      "sha256": "23f16c8770f9f2f26243b67d5fc5329bffb8fbc901664d7be1bf79b2b993695f",
+      "bytes": 2180,
+      "match": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063,
+      "match": true
+    }
+  ],
+  "constants": {
+    "R_m": 10.0,
+    "p_ext_Pa": 95460.8379139,
+    "lift_mass_kg": 4889.44215019,
+    "film_kg": 97.515,
+    "node_kg": 0.02,
+    "systems_kg": 50.0,
+    "sigma_film_Pa": 1500000000.0,
+    "t_film_m": 8e-05,
+    "rho_film": 970.0,
+    "C_local": 0.6,
+    "joint_frac": 0.05,
+    "C_two_way": 4.0,
+    "C_triangular": 4.898979485566356,
+    "s_grid": "0.40 to 3.00 step 0.02",
+    "n_ro": 4000
+  },
+  "materials": {
+    "6061-T6": {
+      "rho": 2700.0,
+      "E_Pa": 68900000000.0,
+      "sigma_Pa": 276000000.0,
+      "questionable": true
+    },
+    "CFRP-QI-M55J-epoxy": {
+      "rho": 1640.0,
+      "E_Pa": 135000000000.0,
+      "sigma_Pa": 350000000.0,
+      "questionable": true
+    },
+    "CFRP-QI-T700-epoxy": {
+      "rho": 1550.0,
+      "E_Pa": 54000000000.0,
+      "sigma_Pa": 520000000.0,
+      "questionable": true
+    },
+    "CFRP-QI-K13D2U-epoxy": {
+      "rho": 1750.0,
+      "E_Pa": 210000000000.0,
+      "sigma_Pa": 220000000.0,
+      "questionable": true
+    },
+    "SiC-alpha-Hexoloy-SA": {
+      "rho": 3100.0,
+      "E_Pa": 410000000000.0,
+      "sigma_Pa": 3900000000.0,
+      "questionable": true
+    },
+    "CNT-yarn-QI-PROJECTION": {
+      "rho": 1400.0,
+      "E_Pa": 180000000000.0,
+      "sigma_Pa": 1200000000.0,
+      "questionable": true
+    }
+  },
+  "p2e_pinned": {
+    "SF_b_kd0.2": 0.233885578993,
+    "SF_b_curve": 0.164568553708,
+    "kd_curve": 0.140725695373,
+    "kd_prior": 0.2
+  },
+  "published_011_6061": {
+    "s": 3.0,
+    "r_o": 0.0866221663456903,
+    "t_w": 0.002251568619368413,
+    "A_m2": 0.0012095192717366963,
+    "I_m4": 4.421336454767768e-06,
+    "m_nodes_kg": 3.264532203083054,
+    "m_tube_kg": 4738.662617986916,
+    "SF_least": 0.23313387024769294,
+    "SF_euler": 0.23329934624064913,
+    "SF_yield": 0.23313387024769294,
+    "SF_local": 0.9076594005918152,
+    "SF_film": 0.8380399936585017,
+    "binding": "yield"
+  },
+  "decisions": [
+    "Scored grid is equilateral triangular. Two-way is reported and re-optimised beside it.",
+    "Scored members are arcs. Straight chords are unscored.",
+    "Perry a0=s/1000 is an extra scored mode.",
+    "Design k=0.2. Also re-optimised: k=1, k=0.4, k=0.5.",
+    "Joints are 5 percent of tube mass. 6061 is repeated with joints off.",
+    "SiC primary allowable is 3900 MPa. A 380 MPa flexural scan is separate."
+  ]
+}

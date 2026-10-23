@@ -1,0 +1,19 @@
+{
+  "P": {
+    "rc": 0,
+    "status": "STATUS PASS rc=0 manager_rc=0 regenerate and check passed; delta exactly the three allowed paths; tmp, home, bin and short TMP removed; src kept",
+    "src_kept": true
+  },
+  "X": {
+    "rc": 12,
+    "status": "STATUS REFUSED rc=12 worktree delta [other.txt\nshard.json] is not exactly the reviewed shard",
+    "src_kept": true
+  },
+  "Q": {
+    "rc": 22,
+    "status": "STATUS FAIL rc=22 post-run delta [ledger.json ledger.md other.txt shard.json ] is not exactly the three allowed paths",
+    "src_kept": true
+  },
+  "units_left": "",
+  "cache_left": []
+}

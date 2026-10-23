@@ -1,0 +1,70 @@
+{
+  "id": "N100",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N100",
+    "report": "rpt-ref-2898e43e4928e833af6d",
+    "card": "MAINLINE-027",
+    "file": "evidence/fecbe3eb74d15e6e-NFI.json",
+    "row_id": "NFI-027-PANEL-GAUGE",
+    "fields": {
+      "id": "NFI-027-PANEL-GAUGE",
+      "tag": "PROJECTION",
+      "issue": "The large 020 panel is 0.6096×1.8288 m; its quoted stock maximum begins at 0.059 in (1.4986 mm). At R = 20 the enhanced aluminium face is only 1.423 mm. The conservative small panel is an assumed 0.3048×0.6096 m. Some severe-budget faces are far below the supplier's stated sheet gauge.",
+      "next_evidence": "Supplier-confirm panel dimensions at each minimum gauge, shaping yield, thickness distribution and installed geometry; re-run with procurement bounds."
+    }
+  },
+  "claim": "The large 020 panel is 0.6096×1.8288 m; its quoted stock maximum begins at 0.059 in (1.4986 mm). At R = 20 the enhanced aluminium face is only 1.423 mm. The conservative small panel is an assumed 0.3048×0.6096 m. Some severe-budget faces are far below the supplier's stated sheet gauge.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/99"
+    },
+    {
+      "report": "rpt-ref-2898e43e4928e833af6d",
+      "artifact": "evidence/fecbe3eb74d15e6e-NFI.json",
+      "snapshot": "evidence/fecbe3eb74d15e6e-NFI.json",
+      "sha256": "fecbe3eb74d15e6eb02d317fe993d19c3a23cc960b2b7d286b1c08ad909cac31",
+      "bytes": 8518,
+      "selector": "source row ID: NFI-027-PANEL-GAUGE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-2898e43e4928e833af6d",
+          "artifact": "evidence/fecbe3eb74d15e6e-NFI.json",
+          "snapshot": "evidence/fecbe3eb74d15e6e-NFI.json",
+          "sha256": "fecbe3eb74d15e6eb02d317fe993d19c3a23cc960b2b7d286b1c08ad909cac31",
+          "bytes": 8518,
+          "selector": "source row ID: NFI-027-PANEL-GAUGE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/99"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "C027",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C027",
+    "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+    "file": "evidence/1c1bd18f1657b61c-NFI.json",
+    "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+    "source_sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+    "source_json_pointer": "/rows/5",
+    "row_id": "N039-06",
+    "fields": {
+      "id": "N039-06",
+      "issue": "Transfer bending is a simply supported bound",
+      "detail": "Bays carry the lattice's pressure share to the lines by bending, taken as the centre moment of a simply supported equilateral triangle, (1+nu) q a_t^2/54. It adds 45 MPa face stress at the Be-frame bay point. Continuous bays would see less.",
+      "to_close": "Plate FE of a continuous bay over the frame.",
+      "tag": "QUESTIONABLE"
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "Transfer bending is a simply supported bound",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/737"
+    },
+    {
+      "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+      "artifact": "evidence/1c1bd18f1657b61c-NFI.json",
+      "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+      "sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+      "bytes": 6701,
+      "selector": "/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline039-opus-stiffened-sandwich-1020",
+          "artifact": "evidence/1c1bd18f1657b61c-NFI.json",
+          "snapshot": "evidence/1c1bd18f1657b61c-NFI.json",
+          "sha256": "1c1bd18f1657b61cdd6ed9eb44c1c7500cd7d67ece283ee7321041366ee5c2d9",
+          "bytes": 6701,
+          "selector": "/rows/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/737"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-219592c41c9dbc5d7ddc",
+  "unit": "vacuum-mainline064-gamma-sources-1020",
+  "at": "2026-10-20T17:17:16-07:00",
+  "body": "MAINLINE-064 is filed. A published knockdown does not close any cell. Sandwich gamma is CR-1457 0.20 for hemispheres at Vc below 2, admissible with a named limit: a 1969 floor from two 1964 aluminum-face glass-honeycomb 55-inch points, not bonded beryllium on CR-III, not a closed 20-30 m sphere, amplitude and specimen Vc unreported. The favorable ramp (0.594-0.604) is not admissible. Gamma is that point, not a range or an amplitude function. 10.2514/3.5568 and 10.2514/3.1932 are not sphere tests.\n\nsimjob simjob-20261020t170832-d919922bc1af exited 0. Gamma held at 0.20, other inputs endpoint, Q 0.82 and 0.33. Every concept and TRL 7 payload is negative. QUESTIONABLE. PROJECTION. No qualified hull safety factor. Face starts at 1850 kg/m3.\n\nQ 0.82, Vc 1.04-1.07. R20 ISA: factor 1.527, concept -12.4 t, TRL 7 -7.8 t, closure 1211 kg/m3. R20 optimistic: 1.605, -13.9 t, -9.2 t, 1153. R30 ISA: 1.495, -40.2 t, -25.0 t, 1238. R30 optimistic: 1.570, -45.2 t, -29.7 t, 1178.\n\nQ 0.33 leaves Vc 0.9-1.1 (optima 1.60-1.64). Gamma stays 0.20. Face wrinkling binds. R20 ISA: 2.118, -29.4 t, -23.3 t, 873. R20 optimistic: 2.221, -31.3 t, -25.1 t, 833. R30 ISA: 2.080, -97.9 t, -77.6 t, 889. R30 optimistic: 2.181, -104.4 t, -83.8 t, 848.\n\n063's ramp has positive TRL 7 at R20 ISA and both R30 weathers, only while the ramp is used.\n\nT7 must measure this product form at Vc 0.9-1.1, external pressure, elastic, amplitude, ribbon and cure recorded, and show whether gamma can stand above 0.20. Until then P2 carries 0.20.",
+  "artifacts": [
+    {
+      "path": "evidence/032c3e9453a6a1c5-CARD.md",
+      "sha256": "032c3e9453a6a1c5690a602ccfda319bb72e30691b52e42ed822016cca215400",
+      "bytes": 6868
+    },
+    {
+      "path": "evidence/e79036da6905d92f-RESULTS.json",
+      "sha256": "e79036da6905d92f57803bcc2f300059f724c50f61250ca2d1ad870ed87e8c04",
+      "bytes": 14776
+    },
+    {
+      "path": "evidence/6169618655e02cec-NFI.json",
+      "sha256": "6169618655e02cec0a90c9b86050e9a4dd7219e527709505acb4994527551bac",
+      "bytes": 3538
+    },
+    {
+      "path": "evidence/c2b81400656fe59b-INPUTS.json",
+      "sha256": "c2b81400656fe59bc0cd9ef04a6c8ab48e576a9d7b3c9f35cad2474f8c457ef0",
+      "bytes": 8935
+    },
+    {
+      "path": "evidence/e6aa14705493cfad-RUN.json",
+      "sha256": "e6aa14705493cfad0ed7237ec4498dcba6a38711371e7c4e4e09dce4a9818285",
+      "bytes": 27402
+    }
+  ],
+  "from": "ref-5ad28e8f7a8e27ce8bc1",
+  "from_seat": "ref-5ad28e8f7a8e27ce8bc1",
+  "re": "ord-admiral-rr2-mainline064-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline064-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

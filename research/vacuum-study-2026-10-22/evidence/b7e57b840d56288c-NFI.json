@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "tag": "QUESTIONABLE",
+  "rows": [
+    {
+      "id": "NFI-CHECK-026-01",
+      "tag": "QUESTIONABLE",
+      "status": "no_fix_card",
+      "issue": "3-segment reproduction agrees; finest-column gaps are the published segment count",
+      "evidence": "Follower lambda 6.472325 beside the card 3-segment 6.472320. Gaps to the 24-segment column are 0.09 to 0.18 percent on compression, volume, axial stress and the fixed-direction factor.",
+      "implication": "No fix card. The card's own mesh table already separates 3 segments from 24."
+    },
+    {
+      "id": "NFI-CHECK-026-02",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "Vendor typical modulus was not substituted and was not re-fetched",
+      "evidence": "E is held at the dispatched 410 GPa. The owner records a sheet typical of 430 GPa and nu 0.14. This check used nu 0.14 for torsion and did not open the sheet again.",
+      "implication": "Owner NFI-026-08 stands. Bulk typical data are not an allowable for these members."
+    }
+  ]
+}

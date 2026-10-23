@@ -1,0 +1,116 @@
+{
+  "id": "rpt-ref-244f32e2449e729d312f",
+  "kind": "report",
+  "from": "ref-baa4584cf36c531365e7",
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-mainline034-dispatch-1019",
+  "unit": "vacuum-mainline034-holding-the-vacuum-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline034-dispatch-1019"
+    }
+  ],
+  "at": "2026-10-20T02:14:52-07:00",
+  "asks": "none",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline034-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "standing": "none",
+  "next": "none",
+  "body": "MAINLINE-034 complete, QUESTIONABLE/PROJECTION. For the inherited 24-hour mission, select ground evacuation then sealed service at an estimated 30–50 kg onboard for both leads; retain the existing 100 kg allowance. Assembly gas-load measurement and evacuation of every cell/bore remain conditions.\n\nConditioned source-rate hot-pressure limits are 398.2/7.76/19.49 days for P2/Kapton P3/Zylon-barrier P3. Times to 48.894 kg free gas are 464.9/13.97/35.83 days. These are conditional gas calculations, not qualified endurance; the assumed power package supports at most nine days of 5 W monitoring.\n\nBoth P3 frames are SiC; CFRP denotes end wraps. Unvented ambient air would retain 43.4/88.2/76.1 kg. Outgassing changes phase of existing onboard mass; external ingress adds mass, and getters retain it. Water beds and powered pumps are explicitly sized; the continuous P3 benchmark is 292.3 kg and its Kapton speed is 2.3% short under assumed conductance.\n\nZylon vacuum equipment plus barrier/attachment and fitting adhesive totals 91.6–111.6 kg; no payload credit. Kapton structural SF remains below one.\n\n36 numerical/source checks pass; 53 upstream/prior pins unchanged. The manifest pins 77 files, including sources, calculator, curves and delivery checks. Seventeen nonblocking physical/source NFIs remain. No upstream code inspected, imported or run. Stop-and-file instruction fulfilled; no successor named.",
+  "artifacts": [
+    {
+      "path": "evidence/a3008485baf30647-CARD.md",
+      "sha256": "a3008485baf3064770dc957ac3fada35c271c1a75bf60c929580cfc919b98791",
+      "bytes": 15156
+    },
+    {
+      "path": "evidence/fbe6e75d59c007c4-INPUTS.json",
+      "sha256": "fbe6e75d59c007c44e3240cd2763bab40fd67967c150dd1b4b8765254a2850df",
+      "bytes": 13066
+    },
+    {
+      "path": "evidence/ba3f6874ecd62222-RESULTS.json",
+      "sha256": "ba3f6874ecd62222443830370a674e49100d801c524d67cbd9b0e1b111d7f8c3",
+      "bytes": 408912
+    },
+    {
+      "path": "evidence/e2c32a737d582c44-NFI.json",
+      "sha256": "e2c32a737d582c445bc78c8524ae41b1dcf5b46c8533395af611815dc960e897",
+      "bytes": 8850
+    },
+    {
+      "path": "evidence/140e0f4488707d56-METHOD.md",
+      "sha256": "140e0f4488707d564137109dc28ea8146bce275fbce86a28fa57025b0a34173f",
+      "bytes": 4457
+    },
+    {
+      "path": "evidence/e3f01414384f0775-calculate.py",
+      "sha256": "e3f01414384f0775875ff8f86bff1be251dba4794ef2841c253cdfd04f882007",
+      "bytes": 27730
+    },
+    {
+      "path": "evidence/81de8abeb6a8bbe4-render.py",
+      "sha256": "81de8abeb6a8bbe4b345952a6f64238fa065a365b96b74b87620f04aa5d278e5",
+      "bytes": 26261
+    },
+    {
+      "path": "evidence/4688df64cd98cd2d-VALIDATION.json",
+      "sha256": "4688df64cd98cd2d6e961093675495ad29ac22d29947ebf21c1158299bde8659",
+      "bytes": 7174
+    },
+    {
+      "path": "evidence/2b3cf5e85ae6741c-RUN.json",
+      "sha256": "2b3cf5e85ae6741c0d1061294d0940b2bcd7b18f77d9f3b9dcf7077157741c1e",
+      "bytes": 296
+    },
+    {
+      "path": "evidence/7c09bb6669fc2ea1-SOURCE_CATALOG.json",
+      "sha256": "7c09bb6669fc2ea194a663e50235b545da128122dd9a69f2217e353623f99868",
+      "bytes": 6592
+    },
+    {
+      "path": "evidence/0526cf20841af463-UPSTREAM_PINS.json",
+      "sha256": "0526cf20841af46316c6338753ba59c6a507cd47fafd578f3b042956aba2ae09",
+      "bytes": 11971
+    },
+    {
+      "path": "evidence/a4bd0414bb55034d-PRIOR_CHECK_PINS.json",
+      "sha256": "a4bd0414bb55034d965e1d827721dad9cadd7c762d18ef8aa97723b1c11b7461",
+      "bytes": 1878
+    },
+    {
+      "path": "evidence/d4f3f29f90d3a4fc-DELIVERY_CHECKS.json",
+      "sha256": "d4f3f29f90d3a4fcd9a3de30613192e06c328c7064ec4cd1b3d44f1dc98556da",
+      "bytes": 8220
+    },
+    {
+      "path": "unpublished-local-ref:2e86927d9816d3a3",
+      "sha256": "64ba72bfe521d9f20903bd30f23abbf12a907123d047dcbfaf7a2c9a5283318a",
+      "bytes": 337729
+    },
+    {
+      "path": "evidence/165aa86eb4bb4fa5-pressure-and-inventory.svg",
+      "sha256": "165aa86eb4bb4fa5bc7d39532d3cb46eb32cbf2111ebd6558dcf775ad881bbbe",
+      "bytes": 154694
+    },
+    {
+      "path": "evidence/82b80326b28c6217-MANIFEST.json",
+      "sha256": "82b80326b28c62174d89b68f57906ef372605b1419510c5258f4962f1e6d4759",
+      "bytes": 27355
+    }
+  ],
+  "links_schema": 1,
+  "ingested": "2026-10-20T02:15:08-07:00"
+}

@@ -1,0 +1,85 @@
+{
+  "rows": [
+    {
+      "card_row": "SBKF laminate, Vc, rho, equivalent thickness and guideline ratios",
+      "status": "112-field reproduction plus source inputs",
+      "record": "NUMERIC-COMPARISON.json; SOURCE-CORRECTIONS.json"
+    },
+    {
+      "card_row": "021/021b lead geometry, Vc and required gamma",
+      "status": "independently reproduced",
+      "record": "LEAD-INPUT-CHECK.json"
+    },
+    {
+      "card_row": "S-II two hemispheres and six ellipsoids",
+      "status": "calibrated; revised readings",
+      "record": "DIGITIZATION.json"
+    },
+    {
+      "card_row": "CR-1457 eleven cylinders",
+      "status": "ten reproduce at graph precision; one omitted",
+      "record": "DIGITIZATION-CYLINDERS.json"
+    },
+    {
+      "card_row": "CR-1457 two cones",
+      "status": "separately digitized; not used in cylinder interpolation",
+      "record": "DIGITIZATION-CYLINDERS.json; E06"
+    },
+    {
+      "card_row": "CR-1457 lateral pressure seven cylinders",
+      "status": "ratios calculated; FPL midpoint caveat",
+      "record": "AUXILIARY.json; E08"
+    },
+    {
+      "card_row": "TN D-2926 three cylinders",
+      "status": "figure range reproduced; inelastic basis",
+      "record": "E11; sources/d2926-p29.png"
+    },
+    {
+      "card_row": "TN D-7935 three cones",
+      "status": "six measured/predicted ratios calculated",
+      "record": "AUXILIARY.json; E12"
+    },
+    {
+      "card_row": "Pineda five fairing panels",
+      "status": "ten prediction/test errors calculated",
+      "record": "AUXILIARY.json; E13"
+    },
+    {
+      "card_row": "Muc deep cylindrical panels",
+      "status": "8.49% source statement and reciprocal ratio",
+      "record": "AUXILIARY.json; E14"
+    },
+    {
+      "card_row": "Sim / EUCASS high-Vc hemisphere row",
+      "status": "classification corrected; three numeric claims unresolved",
+      "record": "NFI-C035-SIM; E15"
+    },
+    {
+      "card_row": "018 optimistic curve at SBKF and lead points",
+      "status": "reproduced arithmetic; projection",
+      "record": "AUXILIARY.json"
+    },
+    {
+      "card_row": "SBKF scaled-cylinder and sphere envelopes",
+      "status": "reproduced arithmetic; projection",
+      "record": "REPRODUCED.json; NFI-C035-TRANSFER"
+    },
+    {
+      "card_row": "CTA8.3 posttest 0.1% agreement",
+      "status": "431.6/432.0 gives -0.09259%; source chronology retained",
+      "record": "AUXILIARY.json; E05"
+    },
+    {
+      "card_row": "Sphere/cylinder handbook ratio 0.30–0.34",
+      "status": "reproduced under phi=90°, nu=0.3",
+      "record": "SOURCE-CORRECTIONS.json; E09; E10"
+    },
+    {
+      "card_row": "New egg-shaped measured vessel",
+      "status": "two ratios calculated; plastic collapse, Vc unresolved",
+      "record": "AUXILIARY.json; E17"
+    }
+  ],
+  "claim": "Every load-bearing card row has a calculation, source check, or explicit unresolved status. Not every source claim is independently reconstructible."
+}

@@ -1,0 +1,59 @@
+{
+  "id": "rep-ref-1542e20f6aa5d09ff49e",
+  "unit": "vacuum-mainline065-wrinkling-sources-1020",
+  "at": "2026-10-20T17:16:53.718042-07:00",
+  "body": "MAINLINE-065 is complete. Inputs are QUESTIONABLE. Payloads are PROJECTION. No qualified hull safety factor. Simjob simjob-20261020t171207-15195c0bf862 exited 0 after 61 s. The copied model matches 063 at the classical-cap anchor within 0.1 kg.\n\nNo published test gives an installed Q for thin SR-200 beryllium on CR-III 5056 3/8-1.0 with the processed bond. The only coefficient this hull can carry is 0.33, NASA CR-1457 equation 2.2-14, admissible with that limit: the 1969 unknown-waviness floor from FPL 1810-A (spring steel on resin paper honeycomb) and from FPL 2171 (aluminum and stainless), which was not opened. It is not a measurement of this sandwich. The cap 0.82 is the perfect-face end of equation 2.2-8 and is not admissible as an installed value. NTRS 19730016169 reached 79.8 to 91.2 ksi on 0.020 inch cross-rolled beryllium after yield, on brazed beryllium honeycomb, so it is not an elastic Q. No titanium table was found. The step from 0.82 to 0.33 is the unknown-waviness knockdown of about 0.4. Density and the bond enter only through Ec and Fc inside K-delta.\n\nAt Q=0.33, face wrinkling binds. On 063's favorable ramp the realized gamma is 0.635 to 0.643. Concept payloads are -5,926 and -7,069 kg at R 20, and -18,148 and -22,011 kg at R 30, ISA then optimistic. TRL 7 is negative in every case. Face-density factors are 1.180, 1.218, 1.161, and 1.198. Handbook gamma is realized at 0.20. Factors become 2.118, 2.221, 2.080, and 2.181, and the R 30 ISA concept deficit is -97,878 kg. The classical cap still leaves concept short, and it is the only place TRL 7 is positive. A published Q closes none of the gap. T3 still has to measure elastic wrinkling of the actual coupon, with Ec, Fc, waviness, and a specimen count, before any Q above 0.33 can be carried. This card buys nothing. Files pinned. Stopping.",
+  "artifacts": [
+    {
+      "path": "evidence/6b03b4653d5a5f67-CARD.md",
+      "sha256": "6b03b4653d5a5f673a74884546408d56f130c0208a2197eb44eb19f0bffb0a43",
+      "bytes": 8678
+    },
+    {
+      "path": "evidence/d99c711f6f90d228-RESULTS.json",
+      "sha256": "d99c711f6f90d228b2db54309ff7aed75e7f4ed602424de8e358a486570e201b",
+      "bytes": 9124
+    },
+    {
+      "path": "evidence/d3ecfdf18d20078d-NFI.json",
+      "sha256": "d3ecfdf18d20078d65bac3584648183a20076d97ebe52685b95e121b8865eaf6",
+      "bytes": 3537
+    },
+    {
+      "path": "evidence/85e479effa999c33-INPUTS.json",
+      "sha256": "85e479effa999c33d8446390071c9fb4805c136e20cf2d7dffb6908306c49308",
+      "bytes": 4119
+    },
+    {
+      "path": "evidence/b96c51e30f14bb61-CALCULATIONS.json",
+      "sha256": "b96c51e30f14bb61c224cc5ba95526217b8ae284ecc16f39769faaa0f1cfdd3a",
+      "bytes": 33410
+    },
+    {
+      "path": "evidence/70ef7b48893bcd5b-run65.py",
+      "sha256": "70ef7b48893bcd5bcb88d567e9e26c5bd6da8c71d36a10b4d1431f4108e76e7f",
+      "bytes": 6769
+    },
+    {
+      "path": "evidence/2c44efb4bb78a17d-model63.py",
+      "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+      "bytes": 19294
+    },
+    {
+      "path": "evidence/194954ccad05e1d1-model61.py",
+      "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+      "bytes": 18948
+    }
+  ],
+  "from": "ref-72d760dc6540b4541734",
+  "from_seat": "ref-72d760dc6540b4541734",
+  "re": "ord-admiral-rr2-mainline065-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline065-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

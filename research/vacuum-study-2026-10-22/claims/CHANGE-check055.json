@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check055",
+  "kind": "filed_change",
+  "label": "check055",
+  "claim": "5052-O rig reach is .575038/.856084; direct elastic/core/face limits are 5.7754/2.2998/1.2220 mm, with tooling and statistics gaps.",
+  "report": "rpt-ref-886d25bd397d38c2f48f",
+  "source_report_body": "CHECK-055 complete under the untimed replacement order; revise, nonblocking. No foreign owner/predecessor code read or run. Independent Q8 FE covers all 23 records (20 distinct models); sampled pressure maxima agree within 0.001127%. The 5m Be cap/sphere difference remains +1.385% after refinement. Pre-test gammas .469277/.510830 are corroborated.\n\nCorrect the rig denominator: proposed 5052-O reaches gamma .575038 at sea level and .856084 with 5m water, versus .592911/.882692. The 3.103mm gauge/.985993 yield-ratio match reproduces but does not preserve all similarity groups.\n\nDirect dimple limits are 5.7754mm (elastic), 2.2998mm (typical core), 1.2220mm (face yield), versus interpolated 5.8233/2.3773/1.2711. Finer edge diagnostics cross yield/crush near 52.67/53.79kPa; reinforcement remains unmodeled.\n\nB's USD 420000–1558000 build-up matches. D's 6m cap cannot reuse B's 5.4m mould/5m tank unchanged; its price omits that upgrade. Correct SR200 elongation from 2–3% to 10% minimum over one inch, and the C365 crush reference to D7336. The n=3/CV=10% planning mean is finite, 1.467374; different seeded amplitudes are not iid replicates. The primary DIC award is USD 530000, with separate rental scope.\n\n735 scalar, 207 FE summary and 3985 path comparisons; 17 headline differences and 14 nonblocking NFIs. Qualified gamma, tolerances and installed-hull SF remain unknown. Stop and file; no successor.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/852027a5302b254c-CARD.md",
+      "snapshot": "evidence/852027a5302b254c-CARD.md",
+      "sha256": "852027a5302b254cc31f5389d306d077a51ddfe4d05e68cfd9e516bcde54f9f6",
+      "bytes": 8313,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

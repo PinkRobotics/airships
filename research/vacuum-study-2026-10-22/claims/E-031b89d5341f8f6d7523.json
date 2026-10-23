@@ -1,0 +1,37 @@
+{
+  "id": "E-031b89d5341f8f6d7523",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-031b89d5341f8f6d7523",
+    "report": "rpt-mainline055-opus-gamma-test-1020",
+    "file": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "source_sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+    "source_json_pointer": "/rows/2",
+    "row_id": "N055-03-STAND-IN-LIMITS",
+    "fields": {
+      "id": "N055-03-STAND-IN-LIMITS",
+      "state": "computed",
+      "note": "The p_cl-matched 5052-O face (3.103 mm on a 20.929 mm core, h held) reproduces beryllium's elastic gamma within +2.8% and its core-shear onset within +2.6%. Its outer face reaches yield at 0.88 of beryllium's pressure; the operating-stress ratio matches to 0.99. Not matched: biaxial membrane stiffness (+31%, from nu 0.33 against 0.0752), the wrinkle margin (x4.0, so wrinkling is suppressed), beryllium's low-ductility fracture, and the line's Be compression premise (the match uses the 345 MPa tensile proxy). A Be confirmation article is needed before any qualification claim.",
+      "proposed_fix": "Re-match the stand-in thickness after 038 T1 measures SR-200 compression."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The p_cl-matched 5052-O face (3.103 mm on a 20.929 mm core, h held) reproduces beryllium's elastic gamma within +2.8% and its core-shear onset within +2.6%. Its outer face reaches yield at 0.88 of beryllium's pressure; the operating-stress ratio matches to 0.99. Not matched: biaxial membrane stiffness (+31%, from nu 0.33 against 0.0752), the wrinkle margin (x4.0, so wrinkling is suppressed), beryllium's low-ductility fracture, and the line's Be compression premise (the match uses the 345 MPa tensile proxy). A Be confirmation article is needed before any qualification claim.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-mainline055-opus-gamma-test-1020",
+      "artifact": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+      "bytes": 5596,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

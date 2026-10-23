@@ -1,0 +1,42 @@
+{
+  "id": "E-66511a50319ddba54521",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-66511a50319ddba54521",
+    "report": "rpt-ref-9a28294ab892bcd529f5",
+    "file": "evidence/105e2c83175a7607-NFI.json",
+    "snapshot": "evidence/105e2c83175a7607-NFI.json",
+    "source_sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+    "source_json_pointer": "/items/6",
+    "row_id": "NFI-CHECK049-PROVENANCE",
+    "fields": {
+      "id": "NFI-CHECK049-PROVENANCE",
+      "kind": "metadata correction",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "row": "COMPUTE.faces and COMPUTE.cores",
+      "field": "nested source/family/nu_basis/strength_basis",
+      "owner": "copied Be and aluminum descriptions",
+      "checker": "actual CFRP/aramid top-level properties differ",
+      "fix": "Replace stale copied provenance. Use the printed HRH-49 30 psi W minimum, or explicitly retain the conservative 28.571 psi projection."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-CHECK049-PROVENANCE\", \"kind\": \"metadata correction\", \"blocking\": false, \"tag\": \"QUESTIONABLE\", \"row\": \"COMPUTE.faces and COMPUTE.cores\", \"field\": \"nested source/family/nu_basis/strength_basis\", \"owner\": \"copied Be and aluminum descriptions\", \"checker\": \"actual CFRP/aramid top-level properties differ\", \"fix\": \"Replace stale copied provenance. Use the printed HRH-49 30 psi W minimum, or explicitly retain the conservative 28.571 psi projection.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-9a28294ab892bcd529f5",
+      "artifact": "evidence/105e2c83175a7607-NFI.json",
+      "snapshot": "evidence/105e2c83175a7607-NFI.json",
+      "sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+      "bytes": 8601,
+      "selector": "/items/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

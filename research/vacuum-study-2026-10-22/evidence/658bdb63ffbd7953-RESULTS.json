@@ -1,0 +1,44 @@
+{
+  "unit": "vacuum-mainline053-thermal-table-settled-1020",
+  "order": "ord-admiral-rr2-mainline053-fold-chk048-complete-1020",
+  "prior_report": "rpt-ref-3fb9907ba4e1c52825f0",
+  "completed_checker_report": "rpt-ref-5c8405d45d6cb50633f1",
+  "step2": "Confirmed: the completed independent CHECK-048 reproduces the owner's tables once the previously unwritten convection and conductance terms are supplied.",
+  "step3": {
+    "best_supported_installed_boundary": null,
+    "owner_numerically_correct_for_declared_equations": true,
+    "owner_physically_selected": false,
+    "check040_physically_selected": false,
+    "model_form_judgment": "Retain buoyancy and radiative transfer as relevant mechanisms, but require appropriate local flow and measured bonded-panel transport before choosing coefficients.",
+    "common_limitations": [
+      "Forced-correlation Reynolds extrapolation and local use of an average coefficient",
+      "Zero adhesive/contact thermal resistance",
+      "Fixed dry optics and unvalidated joint sky/ground/wind/wetting mission",
+      "No measured full-hull thermal field"
+    ],
+    "owner_specific": [
+      "Natural floor coefficient/max-combination lacks full-scale validation",
+      "Effective gap coefficient .20 is not a measured cell transport property"
+    ],
+    "check040_specific": [
+      "Forced-only flow has no demonstrated negligibility of buoyancy",
+      "Zero gap augmentation has no demonstrated radiation negligibility"
+    ],
+    "selected_consequence": "Carry existing four alternatives. No uniquely justified new table or payload credit.",
+    "physical_bounds": false,
+    "installed_hull_SF": null
+  },
+  "step4": "Existing conditional four-model consequences retained without claiming a uniquely better-supported coefficient set.",
+  "numerical_change_from_prior053": false,
+  "source_and_status_addendum": true,
+  "prior_artifacts_modified": false,
+  "numerical_reruns": 0,
+  "crosschecks": 36,
+  "maximum_crosscheck_payload_difference_kg": 6.167187166283838e-05,
+  "coverage": {
+    "thermal": 103714,
+    "legacy_reconciled": 26,
+    "account": 1714368
+  },
+  "no_time_budget": true
+}

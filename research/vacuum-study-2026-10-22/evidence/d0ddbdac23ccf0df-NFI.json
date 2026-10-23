@@ -1,0 +1,80 @@
+[
+  {
+    "NFI_id": "NFI-AL-YIELD-CARRY",
+    "gap": "276 MPa remains the inherited AA typical tensile yield, transferred to compression. Strength safety factors are QUESTIONABLE.",
+    "direction": "A compression yield or a design allowable can replace the transfer.",
+    "effect": "Yield cannot reach safety factor 1 on this ceiling. The all-face factor on 276 MPa is 1.28636483585. At the named least-factor peak the factor is 1.35679953494. Where buckling safety factor first reaches 1 the strength factor is 2.57095082176."
+  },
+  {
+    "NFI_id": "NFI-DENSITY",
+    "gap": "This card is the density trade NFI-DENSITY asked for. The least stated safety factor still rises as density falls through 1 kg/m3. There is no interior peak on 0.25 to 64 kg/m3.",
+    "direction": "Do not treat 1 kg/m3 as a proved best density. No sourced structural core was retrieved there.",
+    "effect": "The named-set high is 0.737028554512 at 1 kg/m3, still below 1. Buckling safety factor reaches 1 at 3.73369568197 kg/m3 and yield governs that point."
+  },
+  {
+    "NFI_id": "NFI-SAND",
+    "gap": "Buckling still uses the inherited sandwich extrapolation and omits core shear from the stated safety factor.",
+    "direction": "MAINLINE-007b replaces it with a published sandwich-shell formula that includes transverse shear.",
+    "effect": "The stated buckling pressure can fall once shear is inside the model."
+  },
+  {
+    "NFI_id": "NFI-SHEAR",
+    "gap": "The shear target uses the advisory crimping formula p=2*Gc*d/R. It is not a measured sandwich-shell limit.",
+    "direction": "MAINLINE-007b cites a sourced formula. Catalog G at 16 to 38 kg/m3 already clears this advisory target.",
+    "effect": "Advisory crimp does not bind the catalog cores retrieved here. A real shear interaction might."
+  },
+  {
+    "NFI_id": "NFI-WRINKLE",
+    "gap": "The wrinkling target uses the advisory one-half cube-root formula. The equal Ec and Gc square root is not used as a result.",
+    "direction": "MAINLINE-007b cites a sourced wrinkling formula and keeps Ec and Gc separate.",
+    "effect": "Catalog foams and aramid honeycomb miss this product by about 40 to 180 times. Aluminium honeycomb has no retrieved Ec, so its product is open."
+  },
+  {
+    "NFI_id": "NFI-CRUSH",
+    "gap": "Crush is stated as about p/2 and tagged QUESTIONABLE. It is the brief's approximation, not an equilibrium solution, and it is outside the least stated safety factor.",
+    "direction": "Keep it tagged until a sourced crush model replaces it.",
+    "effect": "Catalog compressive strengths at 16 to 38 kg/m3 clear p/2 by about 7 to 27 times."
+  },
+  {
+    "NFI_id": "NFI-KD",
+    "gap": "Knockdown remains 0.2. MAINLINE-004 owns the curve.",
+    "direction": "Multiply this card's buckling pressure and buckling safety factor by kd/0.2. Divide the modulus factor by that same ratio.",
+    "effect": "Yield, membrane stress, crimp modulus, wrinkling product, and crush do not move with kd."
+  },
+  {
+    "NFI_id": "NFI-MASS",
+    "gap": "Joint fraction 5 percent, systems 100 kg, and zero residual gas are unchanged inherited numbers.",
+    "direction": "Replace them with a parts list.",
+    "effect": "They set the structural mass on the ceiling."
+  },
+  {
+    "NFI_id": "NFI-GEOM",
+    "gap": "External area and external volume ignore wall and core intrusion.",
+    "direction": "Inner and outer mould lines.",
+    "effect": "A smaller displaced volume lowers the ceiling. At 1 kg/m3 the buckling-peak core is 1.81457668291 m, which is not a thin wall on a 10 m radius."
+  },
+  {
+    "NFI_id": "NFI-RULE",
+    "gap": "The splits are an optimum of knocked-down buckling and QUESTIONABLE yield on the ceiling. They are not an optimum once shear, wrinkling, or crush enter the stated factor.",
+    "direction": "Recompute after MAINLINE-007b.",
+    "effect": "Another limit would move both thicknesses."
+  },
+  {
+    "NFI_id": "NFI-CORE-FLOOR",
+    "gap": "No catalog structural core with sourced Gc, Ec, and compressive strength was retrieved at 8, 6, 4, 3, 2, or 1 kg/m3.",
+    "direction": "Do not extrapolate a honeycomb or foam modulus below the catalog floor.",
+    "effect": "The low-density safety factors are geometry of the stated model, not a claim that a core exists."
+  },
+  {
+    "NFI_id": "NFI-DATASHEET",
+    "gap": "Plascore PAMG-XR1 5052 prints 100 psi and 0.55 MPa in one bare-compression minimum cell. Those are not the same number. Divinycell H35 prints 0.45 MPa on a rev7 sheet and 0.50 MPa nominal on rev9. The psi column and the rev9 nominal were used.",
+    "direction": "Keep both readings. Do not pick a silent third value.",
+    "effect": "The crush margins move by that disagreement and still clear p/2."
+  },
+  {
+    "NFI_id": "NFI-MICROLATTICE",
+    "gap": "Schaedler et al. 2011 place a nickel microlattice at or above 0.9 kg/m3. The open abstract has no usable modulus or strength.",
+    "direction": "A later card can read the paper. This card does not invent the coefficient.",
+    "effect": "No crush, crimp, or wrinkling margin is reported for it. A usable-core projection is not claimed."
+  }
+]

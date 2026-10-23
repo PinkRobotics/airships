@@ -1,0 +1,83 @@
+{
+  "id": "rpt-1228-mainline056-crushable-benchmark-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline056-fe-benchmark-crushable-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline056-dispatch-1019"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline056-dispatch-1019",
+  "completion": "none",
+  "body": "MAINLINE056 complete; QUESTIONABLE/PROJECTION. Corrected provenance: 6.03 MPa is the paper's pressure simulation, not a measured pressure test. Owned DF/J2 extension reuses pinned CHECK029 Q8 code. Refined indentation with the midsurface-radius reading gives 6.159021 MPa (+2.140%); four refined-contact indentation/radius scenarios span 6.1590–6.5023 MPa. Contact mesh refinement changes the peak -0.1156%; doubling contact penalty changes it −0.0105%. Linear gaps are +1.977% midsurface and +9.764% outer-radius. Guarded reference paths yield in the foam, then faces, before the implied virgin shear screen and turning point; no sourced PVC80 shear-rupture criterion was recovered. Gaussian early turns are distinguished from larger later peaks. Steel-axis, foam-flow, densification and imported-history uncertainties prevent unique calibration. Directional CR III crush/shear law requirements are sourced. No P2 gamma released. Raw paths, saved states, mesh/step/material checks, source snapshots, receipts and NFIs are pinned. All scopes released; no successor named.",
+  "priority": 4,
+  "at": "2026-10-20T14:46:22.382112+00:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline056-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/f5b564329a854cb1-CARD.md",
+      "sha256": "f5b564329a854cb169e29eef96ad49ef290b29ac1bbd5b1a6a11bec2bf5a1e5c",
+      "bytes": 10449
+    },
+    {
+      "path": "evidence/6fa69481a000b1f5-RESULTS.json",
+      "sha256": "6fa69481a000b1f5cabd5d769ddaab3ea2727464d46cb5f59956a914ef537647",
+      "bytes": 467810
+    },
+    {
+      "path": "evidence/298ddfd71d18cdeb-NFI.json",
+      "sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+      "bytes": 5002
+    },
+    {
+      "path": "evidence/609be755745e366f-INPUTS.json",
+      "sha256": "609be755745e366f347d17d4ca65716de21d32ba9f6c9a0f82cf6593896784ad",
+      "bytes": 43259
+    },
+    {
+      "path": "evidence/a8f73c4c084d8eb7-METHOD.md",
+      "sha256": "a8f73c4c084d8eb7cef0f217f8b87bccfcf9d1e5a1d64eff41e0854d17712715",
+      "bytes": 10445
+    },
+    {
+      "path": "evidence/a54c0fbffdaefa70-HONEYCOMB-TRANSFER.md",
+      "sha256": "a54c0fbffdaefa700ebd0bd84690debb79faec17bbd80c38b8b341cbc62e2569",
+      "bytes": 4297
+    },
+    {
+      "path": "evidence/d0a5946d1b55f9f7-VERIFICATION.json",
+      "sha256": "d0a5946d1b55f9f7a2b282fd713b1847959761f8bf39b2006194a0f307221df2",
+      "bytes": 9040
+    },
+    {
+      "path": "evidence/9ebc584f823b6187-EVIDENCE-AUDIT.json",
+      "sha256": "9ebc584f823b61876b806318e59e0d51b2db050db34557db09085fa0029930a6",
+      "bytes": 48874
+    },
+    {
+      "path": "evidence/f6f41feddb7746ac-ARTIFACT-MANIFEST.json",
+      "sha256": "f6f41feddb7746ac4bb3e316e96d57260ceb2ed85a087bdac713480068c600b8",
+      "bytes": 117015
+    }
+  ],
+  "ingested": "2026-10-20T07:47:57-07:00"
+}

@@ -1,0 +1,138 @@
+{
+  "unit": "vacuum-mainline052-p3-common-account-1020",
+  "rows": [
+    {
+      "id": "NFI052-01",
+      "title": "Full-member compression distribution",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "3.9 GPa is typical catalog compression, not a fitted scale at a known reference size. The 1 GPa baseline is only a ranking target.",
+      "proposed_fix": "Measure the actual full-length/full-wall production tube population in compression, including finish, joints and proof history."
+    },
+    {
+      "id": "NFI052-02",
+      "title": "Linear frame and local shell interaction",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Constant-g/R scaling retains checked linear fields. The 0.2 eigen knockdown and local peak substitution do not qualify imperfections or nonlinear collapse.",
+      "proposed_fix": "Validate joints, geometric imperfections and coupled local/global behavior for the final resized sections."
+    },
+    {
+      "id": "NFI052-03",
+      "title": "Rigid joints",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Sleeve sizing does not demonstrate rotational stiffness, peel, torsion, fatigue or temperature-dependent bond behavior.",
+      "proposed_fix": "Demonstrate the assembled joint stiffness and multiaxial load envelope at the actual installation."
+    },
+    {
+      "id": "NFI052-04",
+      "title": "PBO effective ply strength",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "The 10 m least root requires about 5.343 GPa effective ply strength; 60% of yarn strength does not close this radius even with the other endpoints.",
+      "proposed_fix": "Measure biaxial crossply strength, construction efficiency, seams, attachments and sustained load."
+    },
+    {
+      "id": "NFI052-05",
+      "title": "Ten-year retention",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Warehouse extrapolation and .995/year protection target are not measured installed life. OD4 and white mass do not establish a durable coating.",
+      "proposed_fix": "Qualify combined light, humidity, stress, temperature, abrasion, fatigue and repair histories."
+    },
+    {
+      "id": "NFI052-06",
+      "title": "Humidity criterion and service",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "5% of cold saturation is a design target; h=2 shortens the nominal first interval. Initial fill is assumed dry.",
+      "proposed_fix": "Measure the complete internal dewpoint distribution and establish an operating interval including uncertainty."
+    },
+    {
+      "id": "NFI052-07",
+      "title": "Barrier leakage and conditioning",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "OD3 coupon gas/WVTR and old outgassing inventories are transferred to installed OD4; 90% removal is assumed demonstrated.",
+      "proposed_fix": "Measure whole-hull leak acceptance, installed WVTR and a compatible conditioning endpoint."
+    },
+    {
+      "id": "NFI052-08",
+      "title": "Onboard pumping and energy",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "15–148 pump units arise from constant nominal-speed and 1000 W planning assumptions; this is not optimized or qualified hardware.",
+      "proposed_fix": "Obtain installed wet-speed curves near 32.5 Pa and a complete power/heat/plumbing design; recalculate changed barrier and power architectures explicitly."
+    },
+    {
+      "id": "NFI052-09",
+      "title": "Load introduction and wind",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Uniform pressure envelope and a P2-sized pad mass do not establish P3 attachment strength or nonuniform wind loading.",
+      "proposed_fix": "Resolve full wind, gust, mooring, payload, cable and landing load paths on the discrete frame."
+    },
+    {
+      "id": "NFI052-10",
+      "title": "Damage tolerance",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "045 reports cascading member loss and running tears in predecessor configurations. No damage-tolerance repair is qualified or silently assigned zero cost here.",
+      "proposed_fix": "Demonstrate residual strength, tear arrest, impact resistance and realistic protection/inspection; carry all added mass."
+    },
+    {
+      "id": "NFI052-11",
+      "title": "Size scaling and optimality",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Only the two checked f5 gyration families are assessed. Larger manufactured tubes and thermal interactions are not validated.",
+      "proposed_fix": "Search further sections/topologies using independently checked force/eigen solutions and manufacturing limits before claiming a global radius minimum."
+    },
+    {
+      "id": "NFI052-12",
+      "title": "Installed inventory",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Systems100, node, installation and mooring lines are planning allowances. The 10 m full-endpoint margin is only about 31 kg.",
+      "proposed_fix": "Replace allowances with a component bill including sensors, fixtures, mounting, valves, access, repair and handling hardware."
+    },
+    {
+      "id": "NFI052-13",
+      "title": "Gas and water location",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Bores must be vented. Material water is counted once in material mass; exterior .1 kg/m² water is separate. More external water can erase the margin.",
+      "proposed_fix": "Verify bore venting, actual liquid retention/drainage and material moisture at launch."
+    },
+    {
+      "id": "NFI052-14",
+      "title": "P2 comparability",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "P2 endpoints have different unqualified material, thermal, bond and life assumptions. 048 stopped at radius15.",
+      "proposed_fix": "Do not rank confidence from payload or axis count; any larger-radius 048 extension needs its own thermal and mechanical calculation."
+    },
+    {
+      "id": "NFI052-15",
+      "title": "Reliability aggregation",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Only an intact-member compression hazard envelope is reported. Independence, compression m=10, load sharing and reference volume are hypothetical.",
+      "proposed_fix": "Calibrate failure mechanisms and common causes before assembling a hull probability; do not substitute either number for installed reliability."
+    }
+  ],
+  "inherited_registers": [
+    "inputs/034/NFI.json",
+    "inputs/check041/NFI.json",
+    "inputs/check046/NFI.json",
+    "inputs/043fold/NFI.json",
+    "inputs/check043/NFI.json",
+    "inputs/045/NFI.json",
+    "inputs/048/NFI.json",
+    "inputs/check037/NFI.json",
+    "inputs/041/NFI.json",
+    "inputs/043/NFI.json",
+    "inputs/046/NFI.json"
+  ]
+}

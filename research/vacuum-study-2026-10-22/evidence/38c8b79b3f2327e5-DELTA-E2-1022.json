@@ -1,0 +1,145 @@
+{
+  "id": "DELTA-E2-1022",
+  "expected_version": 9,
+  "at": "2026-10-22T10:23:31-07:00",
+  "meaning": "On the held version 9 bytes, record E2 as a scoped arithmetic check, correct 069's modulus to 293.6 GPa, reject the join that 069's float survives, and set PE-REVIEW-G to corrected. Do not rebuild.",
+  "amend_findings": [
+    {
+      "id": "PE-REVIEW-G",
+      "reason": "Sciences held version 9 because E2 was not incorporated. The broad pass and the reproduced status withdraw. rpt-sciences-g6-review-e2-admission-limits-1022 is the scoped check. 073's equibiaxial result supersedes the surviving-float join.",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-review-e2-admission-limits-1022",
+          "artifact": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+          "snapshot": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+          "sha256": "dc8a39879661dd0fe1da1dc5bf4c41a040f64e0f0c313446759529132bd1d478",
+          "bytes": 1546,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-sciences-g6-delta-e-admission-held-1022",
+          "artifact": "evidence/3e856b15cc738c57-rpt-sciences-g6-delta-e-admission-held-1022.json",
+          "snapshot": "evidence/3e856b15cc738c57-rpt-sciences-g6-delta-e-admission-held-1022.json",
+          "sha256": "3e856b15cc738c570e71e3fc18cddca2af56190cbcbfd4e1e0283200ceef186b",
+          "bytes": 1672,
+          "selector": "/body"
+        }
+      ],
+      "changes": {
+        "claim": "The earlier pass line is withdrawn. E2 (rpt-sciences-g6-review-e2-admission-limits-1022) is a scoped arithmetic check. Stress was inverted from the owner's margins. Thermal was scaled from the owner's baseline. Growth and joining were unchecked. Closure roots were not independently optimized. Direct film DOI validation was not demonstrated. The join modulus is corrected to 069's 293.6 GPa; 290 GPa is rejected. The join that 069's float survives is rejected: 073's equibiaxial result supersedes it. Twenty-eight load-bearing numbers were re-derived and the owner code was not run. That re-derivation is not an absence of mismatch. Unity knockdown at Vc at or above 2 stays admissible only with the named limit that it is not this film on CR-III and not a closed 20 to 30 m sphere. Five NFI rows remain.",
+        "numerical_status": "corrected",
+        "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. The broad pass is withdrawn by DELTA-E2-1022. E2 is a scoped arithmetic check, not an absence of mismatch.",
+        "sources": [
+          {
+            "report": "rpt-ref-0ab5b482cbff0900b309",
+            "artifact": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+            "snapshot": "evidence/a71e87eb2e42f395-rpt-ref-0ab5b482cbff0900b309.json",
+            "sha256": "a71e87eb2e42f39557ed23b088842a797145505322e23b751a1c7704abfee89f",
+            "bytes": 3209,
+            "selector": "/body"
+          },
+          {
+            "report": "rpt-ref-0ab5b482cbff0900b309",
+            "artifact": "evidence/8336422a6798a57c-NFI.json",
+            "snapshot": "evidence/8336422a6798a57c-NFI.json",
+            "sha256": "8336422a6798a57cad26b532b6ec071851df5812a9f44e9fd13ab39e5c1b88c3",
+            "bytes": 1792,
+            "selector": "/rows"
+          },
+          {
+            "report": "rpt-sciences-g6-review-e2-admission-limits-1022",
+            "artifact": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+            "snapshot": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+            "sha256": "dc8a39879661dd0fe1da1dc5bf4c41a040f64e0f0c313446759529132bd1d478",
+            "bytes": 1546,
+            "selector": "/body"
+          },
+          {
+            "report": "rpt-sciences-g6-delta-e-admission-held-1022",
+            "artifact": "evidence/3e856b15cc738c57-rpt-sciences-g6-delta-e-admission-held-1022.json",
+            "snapshot": "evidence/3e856b15cc738c57-rpt-sciences-g6-delta-e-admission-held-1022.json",
+            "sha256": "3e856b15cc738c570e71e3fc18cddca2af56190cbcbfd4e1e0283200ceef186b",
+            "bytes": 1672,
+            "selector": "/body"
+          }
+        ]
+      }
+    },
+    {
+      "id": "PE069",
+      "reason": "The graphite join gave this design point 290 GPa. 069's modulus is 293.6 GPa. The float does not survive 073.",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-review-e2-admission-limits-1022",
+          "artifact": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+          "snapshot": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+          "sha256": "dc8a39879661dd0fe1da1dc5bf4c41a040f64e0f0c313446759529132bd1d478",
+          "bytes": 1546,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+          "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+          "bytes": 1276,
+          "selector": "/body"
+        }
+      ],
+      "changes": {
+        "claim": "069 design point, bill arithmetic reproduced, physical float not independently closed. R30 optimistic concept: face 3.216 mm at 1013.825 kg/m3, core 178.708 mm, payload +5.031 kg, buckling and wrinkling at 1.000, thermal 1.071, gamma 0.20, Q 0.33, Vc filed 1.322817. The same hull is +1499 kg in ISA and +11607 / +13101 kg at TRL 7. The graphite paragraph on this page does not stand on CR-III. simjob-20261020t185846-4e60751d4d81 exited 0. Modulus on this design point is 293.6 GPa. A join figure of 290 GPa is rejected. 073's equibiaxial result supersedes any claim that this float survives.",
+        "sources": [
+          {
+            "report": "rpt-ref-aa9fcf4d7d90bf834644",
+            "artifact": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+            "snapshot": "evidence/1de87d6027bbe887-rpt-ref-aa9fcf4d7d90bf834644.json",
+            "sha256": "1de87d6027bbe88739d06f40bc4d6163532a1b74238f733b79865cd1d8e02417",
+            "bytes": 4896,
+            "selector": "/body"
+          },
+          {
+            "report": "rpt-ref-3d309c9998ff4bbe5e81",
+            "artifact": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+            "snapshot": "evidence/bcd44fdbd97c2b4d-RESULTS.json",
+            "sha256": "bcd44fdbd97c2b4daf116c52db95b8a1add33448629979b88b0a6f595f2f5206",
+            "bytes": 6467,
+            "selector": "/independent"
+          },
+          {
+            "report": "rpt-sciences-g6-review-e2-admission-limits-1022",
+            "artifact": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+            "snapshot": "evidence/dc8a39879661dd0f-rpt-sciences-g6-review-e2-admission-limits-1022.json",
+            "sha256": "dc8a39879661dd0fe1da1dc5bf4c41a040f64e0f0c313446759529132bd1d478",
+            "bytes": 1546,
+            "selector": "/body"
+          },
+          {
+            "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+            "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+            "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+            "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+            "bytes": 1276,
+            "selector": "/body"
+          }
+        ]
+      }
+    }
+  ],
+  "set_sections": {
+    "current_notes": [
+      "All requested Piece A cards/checks/reviews have filed. No additional running scientific unit is evidenced by the queue snapshot; this is not live-seat telemetry.",
+      "Sciences admissions and original 061/062 pending-review fields are historical snapshots. Current review status is REVIEW-A complete.",
+      "057 direct-048 maturity correction, 061 corrected 5% hardware rate, and 061 changed large-radius cure geometry are separate accounts.",
+      "The legacy finding direct pin is additional to its exact 030d NFI witness; original source fields are never replaced.",
+      "Piece B (063) and REVIEW-B are version 6. Endpoint and handbook numbers reproduce against 061. Swap magnitudes are unreviewed. The 030e seat's version 5 file was not overwritten.",
+      "DELTA-E2-1022 amends PE-REVIEW-G and PE069 on the held version 9 bytes. E2 is a scoped arithmetic check. 069's modulus is 293.6 GPa. The join that 069's float survives is rejected. No rebuild and no new sweep."
+    ]
+  },
+  "append_administration": [
+    {
+      "id": "ADMIN-DELTA-E2-1022",
+      "at": "2026-10-22T10:23:31-07:00",
+      "note": "Version 10 written by amending the held version 9 bytes 3ece1a1eab4a6fc21f2132b526a714ff64c237a330b16103ab16c2d1b04f2a07. No rebuild. The live file on ref-08887151c61d86c0cd02 was not written. References rpt-sciences-g6-review-e2-admission-limits-1022."
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline032-check-1020",
+  "tag": "QUESTIONABLE",
+  "blocks_progress": false,
+  "prior_032_findings_retained": [
+    {
+      "id": "NFI-032-CHECK-FC",
+      "status": "qualification",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "60 psi typical and 35 psi stabilized compression are used as Fc scenarios.",
+      "checked": "The correct Fc is min(compression, core tension, facing-core bond). Neither scenario establishes the bonded sandwich value. Typical crush 35 psi happens to equal minimum-average stabilized compression numerically, but represents a different property.",
+      "followup": "Preserve the conditional labels; supply matching core tensile and Be-bond flatwise data before converting the scenario into an allowable.",
+      "source_audit_ids": [
+        "NASA-FC",
+        "HEXCEL-5056"
+      ],
+      "owner_nfi_ids": [
+        "fc-is-the-lower-of-three"
+      ]
+    },
+    {
+      "id": "NFI-032-CHECK-MINIMUM-AVERAGE",
+      "status": "qualification",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "Owner calls 35 psi the stabilized minimum.",
+      "checked": "Table II labels min as minimum average for a product type, not a guaranteed pointwise or full-hull minimum. Ec is typical. Pairing these values is a scenario, not a statistical lower tolerance bound.",
+      "followup": "Use the precise source label and a qualified statistical/material basis for any design allowable.",
+      "source_audit_ids": [
+        "HEXCEL-5056"
+      ],
+      "owner_nfi_ids": []
+    },
+    {
+      "id": "NFI-032-CHECK-THICKNESS",
+      "status": "open",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "The table's compression data are from a 0.625 inch specimen.",
+      "checked": "0.625 inch is 15.875 mm; the requested cores are 20.21 and 30.12 mm. No matching thickness/bonded-state validation was supplied.",
+      "followup": "Retain QUESTIONABLE until relevant properties are measured or supported for the actual construction.",
+      "source_audit_ids": [
+        "HEXCEL-5056"
+      ],
+      "owner_nfi_ids": [
+        "sheet-thickness"
+      ]
+    },
+    {
+      "id": "NFI-032-CHECK-ETA",
+      "status": "open",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "The map assumes elastic eta=1.",
+      "checked": "Relative to sqrt(Ef*Ec*tf/tc), the effective coefficient is 0.82*sqrt(eta)/(1+0.64*Kdelta). For a fixed target Q, amplitude changes with eta. Plasticity in the nearly strength-limited faces is not calibrated.",
+      "followup": "Use a measured constitutive/plasticity basis self-consistently; supplemental eta cases here are PROJECTION, not new material data.",
+      "source_audit_ids": [
+        "NASA-EQ2212",
+        "NASA-DESIGN033"
+      ],
+      "owner_nfi_ids": [
+        "eta"
+      ],
+      "sensitivity_projection": {
+        "Be S-200F": {
+          "minimum_eta_for_target_Q_even_at_zero_waviness": 0.20470107079119573,
+          "eta_sensitivity_projection": [
+            {
+              "eta": 1.0,
+              "delta_mm_at_60psi": 0.15286876684636114,
+              "target_possible": true
+            },
+            {
+              "eta": 0.9,
+              "delta_mm_at_60psi": 0.13854210498572647,
+              "target_possible": true
+            },
+            {
+              "eta": 0.8,
+              "delta_mm_at_60psi": 0.12339481628518875,
+              "target_possible": true
+            },
+            {
+              "eta": 0.6,
+              "delta_mm_at_60psi": 0.08994037941380915,
+              "target_possible": true
+            },
+            {
+              "eta": 0.5,
+              "delta_mm_at_60psi": 0.07109846696731308,
+              "target_possible": true
+            }
+          ]
+        },
+        "SR-200": {
+          "minimum_eta_for_target_Q_even_at_zero_waviness": 0.5515779298036882,
+          "eta_sensitivity_projection": [
+            {
+              "eta": 1.0,
+              "delta_mm_at_60psi": 0.06522290640394086,
+              "target_possible": true
+            },
+            {
+              "eta": 0.9,
+              "delta_mm_at_60psi": 0.05221551281373981,
+              "target_possible": true
+            },
+            {
+              "eta": 0.8,
+              "delta_mm_at_60psi": 0.038463059669461404,
+              "target_possible": true
+            },
+            {
+              "eta": 0.6,
+              "delta_mm_at_60psi": 0.008089269043450881,
+              "target_possible": true
+            },
+            {
+              "eta": 0.5,
+              "delta_mm_at_60psi": 0.0,
+              "target_possible": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "NFI-032-CHECK-WAVELENGTH",
+      "status": "open",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "Amplitude/cell ratios are supplied beside inherited dimpling margins.",
+      "checked": "Those ratios do not identify wavelength or mode separation. CR-1457 explicitly allows dimples to precipitate wrinkling. Dimpling uses a different biaxial factor (0.5) from wrinkling's cubic root.",
+      "followup": "Measure the directional waveform spectrum and use a coupled assessment or matching experiment; do not apply the wrinkling multiplier to the dimpling formula.",
+      "source_audit_ids": [
+        "NASA-DIMPLING",
+        "FPL1810A",
+        "FPL1810"
+      ],
+      "owner_nfi_ids": [
+        "wavelength-versus-cell"
+      ]
+    },
+    {
+      "id": "NFI-032-CHECK-SHOP-METRIC",
+      "status": "open",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "Commercial panel bows and core flatness are compared to the waviness amplitudes; Be class values were not read.",
+      "checked": "Quoted product numbers reproduce, but geometry, material, ± convention, hold-down, wavelength and load state differ. The primary SAE public record does not verify the three-class claim or give flatness numbers.",
+      "followup": "Obtain Be-specific finished/bonded-panel metrology near the relevant wavelengths; retain unverified SAE details as such.",
+      "source_audit_ids": [
+        "FLATIRON",
+        "HONYLITE",
+        "QC",
+        "INDY",
+        "SAE",
+        "HEXCEL-TELEGRAPH"
+      ],
+      "owner_nfi_ids": [
+        "shop-flatness-is-not-delta"
+      ]
+    },
+    {
+      "id": "NFI-032-CHECK-BIAXIAL-TRANSFER",
+      "status": "open",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "b=0.6823 is applied to the uniaxial stress containing waviness.",
+      "checked": "The algebra is correct for equal directional uniaxial capacities and does not count waviness twice. The handbook's flat-plate rule alone does not validate the loaded curved Be sandwich or establish equal directional capacity.",
+      "followup": "Retain the algebraic result and QUESTIONABLE transfer; validate the actual biaxial construction and relevant directional capacities.",
+      "source_audit_ids": [
+        "NASA-BIAXIAL"
+      ],
+      "owner_nfi_ids": [
+        "biaxial-on-a-shell"
+      ]
+    },
+    {
+      "id": "NFI-032-CHECK-DESIGN033",
+      "status": "projection",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "PROJECTION",
+      "reported": "The 0.33 design coefficient is inverted as an illustrative wave amplitude.",
+      "checked": "The arithmetic is correct but this is not a measured defect distribution or proof of why the empirical knockdown has that value. The owner already tags these rows PROJECTION.",
+      "followup": "Keep the existing projection label and source-test limitations.",
+      "source_audit_ids": [
+        "NASA-DESIGN033"
+      ],
+      "owner_nfi_ids": [
+        "design-0-33-is-not-a-measured-wave"
+      ]
+    },
+    {
+      "id": "NFI-032-CHECK-LEAD-RANGE",
+      "status": "correction",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "CARD says lead amplitudes span 0.0046–0.024 of the 9.525 mm cell.",
+      "checked": "The lead-only ratios are 0.006847549228760197 and 0.01604921436707204. The printed endpoints are the two cross-Q rows among all four 60 psi cases. The underlying four rows are correct.",
+      "followup": "Change the label to all four typical-strength cases, or use the lead-only range.",
+      "source_audit_ids": [],
+      "owner_nfi_ids": [],
+      "exact_values": {
+        "id": "NFI-032-CHECK-LEAD-RANGE",
+        "field": "CARD lead amplitude / 9.525 mm cell range",
+        "reported": [
+          0.0046,
+          0.024
+        ],
+        "checked": [
+          0.006847549228760197,
+          0.01604921436707204
+        ],
+        "all_four_typical_rows": [
+          0.004594587314516719,
+          0.02391896767621028
+        ],
+        "reason": "The reported endpoints round the two cross-Q rows; the lead-specific range uses Q .371 on S-200F and Q .609 on SR-200."
+      }
+    },
+    {
+      "id": "NFI-032-CHECK-ROUNDED-TARGET",
+      "status": "qualification",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "The specified brief rounds both geometry and required Q; many decimal digits are displayed.",
+      "checked": "Using the full pinned 021/021b geometry and required Q gives conditional 60 psi amplitudes 0.15313481918912647 and 0.06513526466329604 mm. The brief-based rows differ by -0.1737373278% and +0.1345534421%, respectively. This is intentional input precision, not an error in the requested calculation.",
+      "followup": "Use the full-input supplemental rows when interpreting the precise upstream SF=1 threshold; do not interpret decimal output as metrological accuracy.",
+      "source_audit_ids": [],
+      "owner_nfi_ids": [],
+      "exact_values": {
+        "Be S-200F": {
+          "tf_m": 0.0008434480441930918,
+          "tc_m": 0.02021337638749162,
+          "Q_needed": 0.37068071372338524,
+          "Q_needed_from_membrane_stress": 0.37068071372338524,
+          "pressure_Pa": 95460.83791390515,
+          "radius_m": 10.0,
+          "stress_Pa": 282948186.8240931,
+          "intracell_uniaxial_critical_Pa": 5103736594.681676,
+          "intracell_equibiaxial_factor": 0.5,
+          "intracell_critical_Pa": 2551868297.340838,
+          "intracell_SF": 9.018853684781929,
+          "actual_input_amplitude_60psi": {
+            "Q": 0.37068071372338524,
+            "is_that_leads_Q": true,
+            "delta_m": 0.00015313481918912647,
+            "delta_mm": 0.15313481918912647,
+            "delta_over_tf": 0.1815580938783576,
+            "delta_over_cell_3_8_in": 0.016077146371561837,
+            "delta_over_card_9_5_mm": 0.016119454651486998,
+            "delta_over_tc": 0.007575914891877682,
+            "K_delta": 1.8939787229694207
+          },
+          "brief_amplitude_60psi": {
+            "Q": 0.371,
+            "is_that_leads_Q": true,
+            "delta_m": 0.00015286876684636114,
+            "delta_mm": 0.15286876684636114,
+            "delta_over_tf": 0.18125298416689725,
+            "delta_over_cell_3_8_in": 0.01604921436707204,
+            "delta_over_card_9_5_mm": 0.016091449141722225,
+            "delta_over_tc": 0.007564016172506737,
+            "K_delta": 1.8910040431266844
+          },
+          "brief_minus_actual_amplitude_mm": -0.00026605234276533274,
+          "brief_over_actual_minus_one_percent": -0.17373732778352968
+        },
+        "SR-200": {
+          "tf_m": 0.0006917479988347394,
+          "tc_m": 0.030118230884842855,
+          "Q_needed": 0.6092014443376216,
+          "Q_needed_from_membrane_stress": 0.6092014443376215,
+          "pressure_Pa": 95460.83791390515,
+          "radius_m": 10.0,
+          "stress_Pa": 344998605.25332373,
+          "intracell_uniaxial_critical_Pa": 3432949414.9782996,
+          "intracell_equibiaxial_factor": 0.5,
+          "intracell_critical_Pa": 1716474707.4891498,
+          "intracell_SF": 4.975309121115971,
+          "actual_input_amplitude_60psi": {
+            "Q": 0.6092014443376216,
+            "is_that_leads_Q": true,
+            "delta_m": 6.513526466329605e-05,
+            "delta_mm": 0.06513526466329604,
+            "delta_over_tf": 0.0941603947868551,
+            "delta_over_cell_3_8_in": 0.006838347996146567,
+            "delta_over_card_9_5_mm": 0.006856343648768005,
+            "delta_over_tc": 0.002162652411834577,
+            "K_delta": 0.5406631029586443
+          },
+          "brief_amplitude_60psi": {
+            "Q": 0.609,
+            "is_that_leads_Q": true,
+            "delta_m": 6.522290640394087e-05,
+            "delta_mm": 0.06522290640394086,
+            "delta_over_tf": 0.09429363366190671,
+            "delta_over_cell_3_8_in": 0.006847549228760197,
+            "delta_over_card_9_5_mm": 0.006865569095151671,
+            "delta_over_tc": 0.00216543513957307,
+            "K_delta": 0.5413587848932675
+          },
+          "brief_minus_actual_amplitude_mm": 8.764174064482266e-05,
+          "brief_over_actual_minus_one_percent": 0.13455344212980336
+        }
+      }
+    }
+  ],
+  "prior_032_original_owner_dispositions": [
+    {
+      "id": "fc-is-the-lower-of-three",
+      "status": "confirmed_open",
+      "original": {
+        "id": "fc-is-the-lower-of-three",
+        "tag": "QUESTIONABLE",
+        "note": "Fc is the lower of flatwise compression, flatwise tension and the face-to-core bond. The sheet prints stabilised compression, 60 psi typical and 35 psi minimum. It does not print flatwise tension or a beryllium bond. A weaker bond lowers the allowed amplitude in proportion. The crush column, 35 psi, is not that peak."
+      }
+    },
+    {
+      "id": "sheet-thickness",
+      "status": "confirmed_open",
+      "original": {
+        "id": "sheet-thickness",
+        "tag": "QUESTIONABLE",
+        "note": "Table II says the test thickness is 0.625 inch. The lead cores are 20.21 mm and 30.12 mm. Ec is typical only. No minimum modulus is printed."
+      }
+    },
+    {
+      "id": "eta",
+      "status": "confirmed_open",
+      "original": {
+        "id": "eta",
+        "tag": "QUESTIONABLE",
+        "note": "The page says elastic cases use eta = 1, and inelastic cases use section 9. The map uses eta = 1. The 021 faces sit at compression safety factor about 1, so a plasticity factor may apply. It is not in this Q map."
+      }
+    },
+    {
+      "id": "wavelength-versus-cell",
+      "status": "confirmed_open",
+      "original": {
+        "id": "wavelength-versus-cell",
+        "tag": "QUESTIONABLE",
+        "note": "Section 2.2.2 does not print the critical half-wavelength. FPL 1810-A says cell size changes that wavelength. Delta over the 9.525 mm cell is an amplitude ratio, not a separation of modes."
+      }
+    },
+    {
+      "id": "shop-flatness-is-not-delta",
+      "status": "confirmed_open",
+      "original": {
+        "id": "shop-flatness-is-not-delta",
+        "tag": "QUESTIONABLE",
+        "note": "AMS7902H defines three flatness classes. The class numbers were not read. Bonded-panel numbers found here are long-wave bows or an architectural wave. Hexcel's design note that a large cell telegraphs into a thin face gives no depth. None of those is the Fourier component in equation 2.2-13."
+      }
+    },
+    {
+      "id": "biaxial-on-a-shell",
+      "status": "confirmed_open",
+      "original": {
+        "id": "biaxial-on-a-shell",
+        "tag": "QUESTIONABLE",
+        "note": "Equation 2.2-15 is recommended for biaxial compression. The foam section bases its interaction on flat plates of large aspect ratio. The honeycomb page does not show a biaxial waviness test. The hull radius is 10 m."
+      }
+    },
+    {
+      "id": "design-0-33-is-not-a-measured-wave",
+      "status": "confirmed_open",
+      "original": {
+        "id": "design-0-33-is-not-a-measured-wave",
+        "tag": "PROJECTION",
+        "note": "Inverting equation 2.2-12 at Q 0.33 is stored so the design value can be seen as an amplitude. The handbook selected 0.33 from a test plot."
+      }
+    },
+    {
+      "id": "kommers",
+      "status": "author_correction_verified",
+      "original": {
+        "id": "kommers",
+        "tag": "QUESTIONABLE",
+        "note": "The card names Norris, Ericksen and Kommers. FPL Report 1810 is Norris, Ericksen and March. Kommers was not found on it."
+      }
+    }
+  ],
+  "new_findings": [
+    {
+      "id": "NFI-032B-CHECK-CSO-TEMPLATE",
+      "status": "correction_needed",
+      "tag": "QUESTIONABLE",
+      "blocks_progress": false,
+      "claim": "CARD attributes 3 um to the completed CSO surface against its template.",
+      "evidence": "Woody p.684 assigns 3 um to parabolic-template adjustment; the laboratory surface estimate is 10 um.",
+      "disposition": "Relabel the 3 um result and its ratios. Numeric conversion passes; surface attribution does not."
+    },
+    {
+      "id": "NFI-032B-CHECK-COUPON-IDENTITY",
+      "status": "resolved_in_this_check",
+      "tag": "ADDITION",
+      "blocks_progress": false,
+      "claim": "The source text pages do not name the face thicknesses.",
+      "evidence": "ER-1001 Fig.22 maps Fig.25 specimen30 to .008-in H19/Crest471/3/16-in core. Fig.30 gives .008-in face/APS/.015-in fillet for specimen32.",
+      "disposition": "The report's figures fill the identity gap. They do not establish Be or CR-III equivalence."
+    },
+    {
+      "id": "NFI-032B-CHECK-METRIC",
+      "status": "open_qualification",
+      "tag": "QUESTIONABLE",
+      "blocks_progress": false,
+      "claim": "Numerical depth/RMS/slope-to-delta comparisons can be mistaken for modal comparisons.",
+      "evidence": "Dimple depth is not zero-to-peak Fourier amplitude; RMS requires a spatial model. A sine uses depth/2 or sqrt(2)*RMS.",
+      "disposition": "Keep number-only labels and metrology bandwidth. Single-sine examples are projections, not fitted measurements."
+    },
+    {
+      "id": "NFI-032B-CHECK-MISSED-RION",
+      "status": "omitted_evidence_added",
+      "tag": "QUESTIONABLE",
+      "blocks_progress": false,
+      "claim": "032b did not retrieve the Rion thin-face waviness experiment.",
+      "evidence": "Rion 2008 thesis has direct cell-depth measurements near its own calculated wrinkle half-wavelength; detailed values and material scope are in CHECK/RESULTS.",
+      "disposition": "Evidence exists for a different system; no measured Be/CR-III modal amplitude follows. Preserve the empirical shape conversion."
+    },
+    {
+      "id": "NFI-032B-CHECK-WAVELENGTH",
+      "status": "partly_addressed",
+      "tag": "PROJECTION",
+      "blocks_progress": false,
+      "claim": "The target wrinkle wavelength was not computed in 032/032b.",
+      "evidence": "Elastic symmetric flat-panel Eq.19 gives full periods 38.5470 and 36.7051 mm at nu=0; alternative nu=.33 is only sensitivity.",
+      "disposition": "A conditional band is now specified. Curvature, biaxiality, material tangent properties, other modes and actual measured spectrum remain unresolved."
+    },
+    {
+      "id": "NFI-032B-CHECK-HISTORICAL-EVIDENCE",
+      "status": "open_qualification",
+      "tag": "QUESTIONABLE",
+      "blocks_progress": false,
+      "claim": "The 'exceeded today' field includes a 1969 honeycomb vendor RMS.",
+      "evidence": "Von Hoerner p.2 attributes the .008-in figure to discussions with Rohr; no new honeycomb-cell measurements are supplied there.",
+      "disposition": "Label it historical whole-surface capability evidence; do not infer a current production distribution or wrinkle-band exceedance."
+    }
+  ],
+  "combined_finding_records": 16,
+  "owner_032b_dispositions": [
+    {
+      "id": "ams7902-class-table-unread",
+      "status": "confirmed_open",
+      "note": "G preview has three pages and no 3.5.5. H public listing does not supply class values."
+    },
+    {
+      "id": "no-beryllium-face-at-wrinkle-wavelength",
+      "status": "confirmed_open_for_target_system",
+      "note": "No matching Be/CR-III measurement retrieved. Conditional wavelength projection and different-material Rion data added."
+    },
+    {
+      "id": "optical-bench-and-space-mirror-unread",
+      "status": "not_closed",
+      "note": "A 2022 CFRP mirror abstract lead has global optical RMS; full methods and target-band measurements were not obtained."
+    },
+    {
+      "id": "hexcel-telegraph-depth-still-unprinted",
+      "status": "retained",
+      "note": "Earlier primary-source audit retained; this pass does not manufacture a Hexcel amplitude."
+    },
+    {
+      "id": "three-eighths-slope-is-not-a-depth",
+      "status": "confirmed",
+      "note": "Slope conversions pass as projections. Figure 30 supplies the omitted face thickness."
+    },
+    {
+      "id": "transfer-to-the-lead-faces",
+      "status": "confirmed_open",
+      "note": "Different faces, core and processes. Actual minimum compression/tension/bond strength remains unestablished."
+    },
+    {
+      "id": "panel-rms-is-not-delta",
+      "status": "confirmed",
+      "note": "Historical RMS and bow cannot identify a modal component without spatial information."
+    }
+  ],
+  "next_job": "none"
+}

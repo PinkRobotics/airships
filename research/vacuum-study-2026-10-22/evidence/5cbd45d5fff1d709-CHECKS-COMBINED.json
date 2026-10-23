@@ -1,0 +1,317 @@
+{
+  "tag": "QUESTIONABLE",
+  "all_passed": true,
+  "suites": [
+    {
+      "path": "CHECKS.json",
+      "sha256": "d364de38edd05aebe4353c98f48117e21a792d044bbfce772bddad55d8d6e50d",
+      "bytes": 2938,
+      "result": {
+        "schema": 1,
+        "tag": "QUESTIONABLE",
+        "checks": [
+          {
+            "check": "geodesic counts and nearest frequency",
+            "pass": true,
+            "rows": [
+              {
+                "frequency": 4,
+                "nodes": 162,
+                "edges": 480,
+                "mean_arc_m": 2.994744726728938
+              },
+              {
+                "frequency": 5,
+                "nodes": 252,
+                "edges": 750,
+                "mean_arc_m": 2.3995688318787853
+              },
+              {
+                "frequency": 6,
+                "nodes": 362,
+                "edges": 1080,
+                "mean_arc_m": 2.0013435607236976
+              },
+              {
+                "frequency": 7,
+                "nodes": 492,
+                "edges": 1470,
+                "mean_arc_m": 1.7163159534986403
+              },
+              {
+                "frequency": 8,
+                "nodes": 642,
+                "edges": 1920,
+                "mean_arc_m": 1.5022749142809506
+              }
+            ]
+          },
+          {
+            "check": "autodiff zero-state Hessian versus independent textbook 3D beam stiffness",
+            "pass": true,
+            "relative_error": 1.1334277554802051e-16,
+            "rigid_mode_residual": 4.0277121213859594e-17
+          },
+          {
+            "check": "finite rigid rotation and translation produce zero beam strain energy",
+            "pass": true,
+            "energy_J": 9.72606221579348e-22
+          },
+          {
+            "check": "closed-film pressure virtual work, conservative Hessian, force/moment balance and objectivity",
+            "pass": true,
+            "gradient_relative_error": 4.850424460512885e-10,
+            "Hessian_relative_error": 1.2120635221937182e-10,
+            "net_force_gradient": [
+              1.0658141036401503e-14,
+              -1.0658141036401503e-14,
+              -2.1316282072803006e-14
+            ],
+            "net_moment_gradient": [
+              1.678954868174998e-15,
+              -2.7166060422842498e-15,
+              1.0376511741092518e-15
+            ]
+          },
+          {
+            "check": "Euler pin-pin column convergence to pi²EI/L²",
+            "pass": true,
+            "rows": [
+              {
+                "elements": 4,
+                "computed_N": 5298174.312128787,
+                "Euler_N": 5034436.00756038,
+                "relative_error": 0.052386862038238835
+              },
+              {
+                "elements": 8,
+                "computed_N": 5099461.009880526,
+                "Euler_N": 5034436.00756038,
+                "relative_error": 0.01291604505896915
+              },
+              {
+                "elements": 16,
+                "computed_N": 5050631.155659447,
+                "Euler_N": 5034436.00756038,
+                "relative_error": 0.0032168743578717685
+              },
+              {
+                "elements": 32,
+                "computed_N": 5038480.916315561,
+                "Euler_N": 5034436.00756038,
+                "relative_error": 0.0008034482410952393
+              }
+            ]
+          },
+          {
+            "check": "uniform expansion pressure work equals 3pV",
+            "pass": true
+          }
+        ],
+        "passed": 6,
+        "numpy": "2.3.5",
+        "scipy": "1.17.1",
+        "torch": "2.12.0+cu130",
+        "started_utc": "2026-10-20T07:53:05.575176+00:00",
+        "ended_utc": "2026-10-20T07:53:06.391985+00:00",
+        "elapsed_seconds": 0.8168106488883495
+      }
+    },
+    {
+      "path": "NONLINEAR-CHECKS.json",
+      "sha256": "227c56761faa97c9da42100147d9c1fcc038606de38889c503ab375239f0dc7f",
+      "bytes": 1326,
+      "result": {
+        "tag": "QUESTIONABLE",
+        "checks": [
+          {
+            "check": "finite-state energy/gradient/Hessian directional differences",
+            "gradient_relative_error": 2.2105646860916106e-11,
+            "Hessian_relative_error": 3.1989992988799933e-10,
+            "pass": true
+          },
+          {
+            "check": "Hermite compression stiffness independently integrated; Euler column convergence",
+            "pass": true,
+            "rows": [
+              {
+                "elements": 4,
+                "lambda_N": 5037014.346348298,
+                "relative_Euler_error": 0.0005121405424650671
+              },
+              {
+                "elements": 8,
+                "lambda_N": 5034600.966321252,
+                "relative_Euler_error": 3.2766085540592016e-05
+              },
+              {
+                "elements": 16,
+                "lambda_N": 5034446.3795443,
+                "relative_Euler_error": 2.0602077184239675e-06
+              }
+            ]
+          },
+          {
+            "check": "near-critical tangent eigenvalues, ordinary versus shift-invert generalized solvers",
+            "pass": true,
+            "ordinary": [
+              -1.0630603917145916e-05,
+              0.0050164856571854296,
+              0.0050164857019366176
+            ],
+            "shift_invert": [
+              -1.0630603902137329e-05,
+              0.0050164856572107045,
+              0.005016485701478447
+            ],
+            "max_difference": 4.581708276663043e-13
+          }
+        ],
+        "elapsed_seconds": 13.188915053848177
+      }
+    },
+    {
+      "path": "MIXED-CHECKS.json",
+      "sha256": "c4486c077c4d2c79d6de8b8d4ae53e9edfa0aa4d636d9a9617a5a9e6d6bee0ce",
+      "bytes": 718,
+      "result": {
+        "tag": "QUESTIONABLE",
+        "pass": true,
+        "checks": [
+          {
+            "segments": 6,
+            "pressure_matrix_relative_error": 3.492071981793455e-16,
+            "mixed_solve_relative_residual": 6.695254275308583e-13,
+            "mixed_factor_seconds": 1.6079812753014266,
+            "mixed_factor_nonzeros": 27605817,
+            "ordinary_factor_seconds": 4.76420056540519,
+            "ordinary_factor_nonzeros": 59354469,
+            "solution_relative_difference": 1.2519084769181595e-12
+          },
+          {
+            "segments": 12,
+            "pressure_matrix_relative_error": 3.0495112788258334e-16,
+            "mixed_solve_relative_residual": 5.653428352782652e-12,
+            "mixed_factor_seconds": 4.284085716120899,
+            "mixed_factor_nonzeros": 64822471
+          }
+        ]
+      }
+    },
+    {
+      "path": "PURE-BENDING-CHECKS.json",
+      "sha256": "404291bb19b62ea65d4390c82dc5310af88b22abc711ba0d217465d0561d54ab",
+      "bytes": 2803,
+      "result": {
+        "tag": "QUESTIONABLE",
+        "pass": true,
+        "check": "finite-rotation pure end-moment equilibrium and quadratic mesh convergence to circular cantilever",
+        "rows": [
+          {
+            "rotation_rad": 0.5,
+            "elements": 4,
+            "relative_force_equilibrium_error": 2.0469864271113491e-13,
+            "relative_energy_error": -2.220446049250313e-16,
+            "tip_position": [
+              1.9573302521904858,
+              0.49978846705837415,
+              0.0
+            ],
+            "exact_circle_tip": [
+              1.9560561975051483,
+              0.49946314748727916,
+              0.0
+            ],
+            "tip_error_over_length": 0.000644574882585354
+          },
+          {
+            "rotation_rad": 0.5,
+            "elements": 8,
+            "relative_force_equilibrium_error": 4.998153168065109e-13,
+            "relative_energy_error": 0.0,
+            "tip_position": [
+              1.9563746023030684,
+              0.4995444495801062,
+              0.0
+            ],
+            "exact_circle_tip": [
+              1.9560561975051483,
+              0.49946314748727916,
+              0.0
+            ],
+            "tip_error_over_length": 0.00016108863896968192
+          },
+          {
+            "rotation_rad": 0.5,
+            "elements": 16,
+            "relative_force_equilibrium_error": 1.83420306430819e-12,
+            "relative_energy_error": -2.220446049250313e-16,
+            "tip_position": [
+              1.9561357919026676,
+              0.4994834712736602,
+              0.0
+            ],
+            "exact_circle_tip": [
+              1.9560561975051483,
+              0.49946314748727916,
+              0.0
+            ],
+            "tip_error_over_length": 4.026871846706224e-05
+          },
+          {
+            "rotation_rad": 1.0,
+            "elements": 4,
+            "relative_force_equilibrium_error": 9.290352645654765e-14,
+            "relative_energy_error": 0.0,
+            "tip_position": [
+              1.7210792860731952,
+              0.9402298992003599,
+              0.0
+            ],
+            "exact_circle_tip": [
+              1.7166008090081089,
+              0.9377832960289949,
+              0.0
+            ],
+            "tip_error_over_length": 0.002501567362415758
+          },
+          {
+            "rotation_rad": 1.0,
+            "elements": 8,
+            "relative_force_equilibrium_error": 1.7701062510834367e-13,
+            "relative_energy_error": -5.551115123125783e-16,
+            "tip_position": [
+              1.717718897182856,
+              0.9383941103827242,
+              0.0
+            ],
+            "exact_circle_tip": [
+              1.7166008090081089,
+              0.9377832960289949,
+              0.0
+            ],
+            "tip_error_over_length": 0.0006245366104597424
+          },
+          {
+            "rotation_rad": 1.0,
+            "elements": 16,
+            "relative_force_equilibrium_error": 2.5853105597936766e-12,
+            "relative_energy_error": 0.0,
+            "tip_position": [
+              1.7168802355063857,
+              0.9379359474207319,
+              0.0
+            ],
+            "exact_circle_tip": [
+              1.7166008090081089,
+              0.9377832960289949,
+              0.0
+            ],
+            "tip_error_over_length": 0.00015608078329414248
+          }
+        ],
+        "elapsed_seconds": 1.0368283898569643
+      }
+    }
+  ]
+}

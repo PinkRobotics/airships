@@ -1,0 +1,233 @@
+{
+  "source": "sources/cr1457-p355.png",
+  "image_pixels": [
+    1849,
+    2400
+  ],
+  "corners": [
+    [
+      [
+        384,
+        1494
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        1361,
+        1473
+      ],
+      [
+        500,
+        0
+      ]
+    ],
+    [
+      [
+        358,
+        517
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        1335,
+        491
+      ],
+      [
+        500,
+        1
+      ]
+    ]
+  ],
+  "homography": [
+    [
+      0.514914047048709,
+      -0.013702932674786492,
+      -177.2548126505732
+    ],
+    [
+      -2.202586212871124e-05,
+      -0.0010247270142738488,
+      1.5394000903825553
+    ],
+    [
+      5.236849542844252e-06,
+      -2.7819492348441226e-07,
+      1.0
+    ]
+  ],
+  "points": [
+    {
+      "id": "hemisphere_low",
+      "pixel": [
+        848,
+        1279
+      ],
+      "R_over_rho": 240.8822354857385,
+      "gamma": 0.20924154855137464,
+      "owner_R_over_rho": 240,
+      "owner_gamma": 0.22,
+      "gamma_delta": -0.010758451448625361,
+      "R_over_rho_delta": 0.8822354857385051,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    },
+    {
+      "id": "hemisphere_high",
+      "pixel": [
+        847,
+        1267
+      ],
+      "R_over_rho": 240.5336373228441,
+      "gamma": 0.22151059959621644,
+      "owner_R_over_rho": 240,
+      "owner_gamma": 0.24,
+      "gamma_delta": -0.01848940040378355,
+      "R_over_rho_delta": 0.5336373228441005,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    },
+    {
+      "id": "ellipsoid_room_low_left",
+      "pixel": [
+        843,
+        1113
+      ],
+      "R_over_rho": 240.57878105743913,
+      "gamma": 0.37875631447005076,
+      "owner_R_over_rho": 240,
+      "owner_gamma": 0.39,
+      "gamma_delta": -0.011243685529949254,
+      "R_over_rho_delta": 0.5787810574391301,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    },
+    {
+      "id": "ellipsoid_room_high_left",
+      "pixel": [
+        859,
+        925
+      ],
+      "R_over_rho": 251.3152819038903,
+      "gamma": 0.5701891440591214,
+      "owner_R_over_rho": 240,
+      "owner_gamma": 0.58,
+      "gamma_delta": -0.009810855940878604,
+      "R_over_rho_delta": 11.315281903890309,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    },
+    {
+      "id": "ellipsoid_thermal_low",
+      "pixel": [
+        862,
+        1092
+      ],
+      "R_over_rho": 250.58244724061294,
+      "gamma": 0.3997288889401191,
+      "owner_R_over_rho": 245,
+      "owner_gamma": 0.41,
+      "gamma_delta": -0.010271111059880877,
+      "R_over_rho_delta": 5.582447240612936,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    },
+    {
+      "id": "ellipsoid_thermal_high",
+      "pixel": [
+        857,
+        896
+      ],
+      "R_over_rho": 250.68611041371432,
+      "gamma": 0.5998260287199091,
+      "owner_R_over_rho": 245,
+      "owner_gamma": 0.61,
+      "gamma_delta": -0.010173971280090899,
+      "R_over_rho_delta": 5.686110413714317,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    },
+    {
+      "id": "ellipsoid_room_low_right",
+      "pixel": [
+        1311,
+        1031
+      ],
+      "R_over_rho": 480.50866153901325,
+      "gamma": 0.4510632279147419,
+      "owner_R_over_rho": 480,
+      "owner_gamma": 0.46,
+      "gamma_delta": -0.008936772085258116,
+      "R_over_rho_delta": 0.5086615390132465,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    },
+    {
+      "id": "ellipsoid_room_high_right",
+      "pixel": [
+        1297,
+        520
+      ],
+      "R_over_rho": 480.2705671781129,
+      "gamma": 0.971516313513905,
+      "owner_R_over_rho": 480,
+      "owner_gamma": 0.99,
+      "gamma_delta": -0.018483686486094997,
+      "R_over_rho_delta": 0.27056717811291264,
+      "read_uncertainty_gamma": 0.01,
+      "read_uncertainty_R_over_rho": 5
+    }
+  ],
+  "grid_checks": [
+    {
+      "pixel": [
+        960,
+        1091
+      ],
+      "expected": [
+        300,
+        0.4
+      ],
+      "got": [
+        300.69234296348895,
+        0.39839612071543545
+      ]
+    },
+    {
+      "pixel": [
+        768,
+        1291
+      ],
+      "expected": [
+        200,
+        0.2
+      ],
+      "got": [
+        199.77695619303174,
+        0.19883337573359725
+      ]
+    },
+    {
+      "pixel": [
+        564,
+        902
+      ],
+      "expected": [
+        100,
+        0.6
+      ],
+      "got": [
+        100.52498064050154,
+        0.6010493105536876
+      ]
+    }
+  ],
+  "note": "Pixel precision is audit information; report rounded graph reads, not specimen precision."
+}

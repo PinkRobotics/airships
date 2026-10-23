@@ -1,0 +1,33 @@
+CHECK-049 independent method.
+
+No MAINLINE-049 or predecessor executable was read, copied, imported or run. Pinned non-code inputs, written methods, data tables and published output geometries were frozen locally. The checker programs were written from those equations. Source pins and the deliberate code exclusions are recorded separately. Acknowledged earlier exposure includes this seat's material research and earlier independent checks.
+
+There are three distinct numerical bases:
+
+1. Fixed-geometry bookkeeping uses the published geometry as an input and independently takes off all face, core, joining, pad, finish, primer, water, gas, systems, contamination and weather terms.
+2. Conditional mechanics and searches use an explicitly pinned upstream thermal table where one exists: reference040 on the aluminum core at R15/20/30, and the folded finishes on that core at R15. The table is an input, not independently validated heat physics.
+3. The complete 648-case matrix is reoptimized with the checker's fully specified heat balance. Differences here are model-dependence results, not automatically arithmetic errors in the owner program.
+
+The published non-code pins contain no MAINLINE-049 thermal tables for every new radius/core/finish combination. The written thermal boundary description is insufficient to recover those tables uniquely. CHECK-040 had already recorded the same limitation. The checker did not read owner code to resolve it and did not tune a boundary parameter to force agreement.
+
+The independent heat balance uses a spherical diameter 2R, 2 m/s air speed, density from the specified lift/volume, viscosity 1.79e−5 Pa s, air conductivity .0257 W/mK, Pr=.71, and h=(k/D)[2+(.4 sqrt(Re)+.06 Re^(2/3))Pr^.4]. The air is 284.9 K. At surface coordinate x=cos(theta), the sky view is (1+x)/2 and the ground view is (1−x)/2; ground is at air temperature. Sky is 275 K by day and 260 K by night. Solar absorption is alpha×970×max(x,0) by day and zero at night. Exterior radiation uses epsilon sigma times the difference of fourth powers. Core conductance is k_core/tc.
+
+For the evacuated spherical cavity, uniform inner emissivity .2 gives local exchange .2 sigma[T_inner^4−mean(T_inner^4)]. Coupled outer/inner node balances are solved by Newton steps with the enclosure's rank-one Jacobian correction. This is a documented boundary interpretation, not an assertion that it is the operating envelope or the owner's unpublished boundary convention. No boundary choice was fitted to a floating result. Alternative diameter/minimum-h trials are retained only as diagnostics and are not adopted.
+
+Gauss-Legendre quadrature uses 128 points. The mean face-temperature field is projected into degrees 2–6 after removing its constant term. Analytic meridional derivatives of the Legendre polynomials give curvature. Both day and night are solved; the folded account uses the maximum gradient and curvature, whereas the old-paint comparator retains the written 040 day-only convention. A 241-point log-thickness table and 1.002 stress guard reproduce the stated numerical convention. Direct 256/512-point checks verify convergence of this independent interpretation; they do not close the owner's missing boundary specification.
+
+For each geometry, global, compression, crimp, crush, wrinkle, dimpling, scarf, core-wall and edge screens are calculated explicitly. The source gamma branch switch at Vc=2 and the beta root of beta³+beta=1 are retained. Cure compression is excluded from global/crimp except in the named sensitivity. Edge/scarf coincidence adds their demands only in its named row. Signed mass balance is lift minus all charges; negative payload is a deficit.
+
+The joining length is A[1/(a−r tf)+1/(b−r tf)], with the pinned stock sizes and scarf ratio. Both face/core films, scarf films, core splice and seals are charged. The floor convention uses max(actual, .05 structural mass). The structural primer is outside that floor, as declared upstream.
+
+Water is reconstructed separately for faces, core, face/core film, seam polymers, primer and finish. The baked route retains ten percent; dry gas retains all. Exterior liquid water is a distinct .1 or 1 kg/m² charge. Volatile release is finite, proportional to 1−exp(−1) over 24 h. The folded account retains 048's .001 nominal core volatile fraction, while the old-paint comparator uses the core-specific nominal fraction. Those two conventions are explicit, not silently equated.
+
+The no-backpressure gas calculation includes initial dry gas, humid external leakage, outer-scarf permeation and material release. It retains the larger of the one-percent lift reserve and external gas aboard. Release changes phase without a second vehicle-mass debit. The primary checker generalizes the permeation gap to the face-specific scarf film. A separate exact reconstruction shows that the owner retained the old 70 g/m² gap even for a 146 g/m² CFRP scarf. The pressure-factor difference is below .000057, and the gas reserve dominates either way. Full-area CFRP permeation remains unmeasured.
+
+Geometry searches use a fresh logarithmic core grid and a 42-step upper-sided face-gauge bisection, then refine all detected local maxima and feasibility boundaries. They do not start at owner optima. All 16 named axis subsets are eligible. Least usage is found by bracketing within the first floating subset cardinality. A favorable split-modulus bound, using full elastic and baseline thermal modulus, independently excludes every Be subset with fewer than two axes in the primary cases.
+
+The additional modulus sensitivity scans the whole interval [1,8] before refining the first crossing. This matters because modulus also raises thermal stress. Testing only a high endpoint cannot rule out an interior positive interval. The AlBeMet R15 old-coating witness was reoptimized on a 3000-point grid, and both crossings were refined.
+
+The density correction holds the stated constituent densities fixed: rho=.6×2200+.4×1200=1800 kg/m³ and fibre mass fraction=.6×2200/1800=11/15. The original 67 wt% mixture instead has rho=1725.490196 and Vf=.525490196. Both fixed-geometry corrections and reoptimized corrections are supplied. The extra 3 GPa matrix rule-of-mixtures row is a separate projection; it is not silently substituted for the owner's modulus.
+
+All scientific programs ran through simjob at one core and 1 GiB per admission, with thread counts fixed at one. Every admission has source snapshots, start/end timestamps and release evidence. No capacity refusal occurred. A supplemental schema-selection error was corrected and rerun; its failed trace is retained. Times are measurements, not task or phase budgets. No other seat was contacted, restored or woken.

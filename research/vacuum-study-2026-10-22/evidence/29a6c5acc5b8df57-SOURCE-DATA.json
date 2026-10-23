@@ -1,0 +1,244 @@
+{
+  "core": {
+    "source": "Bianchi, Aglietti, Richardson (2012), doi:10.1007/s10443-010-9184-5",
+    "url": "https://link.springer.com/article/10.1007/s10443-010-9184-5",
+    "page": "printed 107, PDF page 11, Fig.10",
+    "test": "5056 honeycomb 5.3 pcf, R=-1, room temperature, shear ultimate failure",
+    "transfer": "PROJECTION: normalized strength transfer to 1.0 pcf CR-III; not an allowable",
+    "digitization_uncertainty_absolute_fraction": 0.03,
+    "fits": {
+      "W": {
+        "a": 1.5892021174342736,
+        "b": 0.21320432360484085,
+        "minimum_test_level": 0.3469387755102041,
+        "maximum_test_level": 0.8612244897959184,
+        "shortest_test_N": 2294.4419971846087,
+        "longest_test_N": 725566.2670249023,
+        "cap_N": 718394.0
+      },
+      "L": {
+        "a": 1.2274834214755124,
+        "b": 0.15657139592151126,
+        "minimum_test_level": 0.20612244897959184,
+        "maximum_test_level": 0.6938775510204082,
+        "shortest_test_N": 2399.9839277615215,
+        "longest_test_N": 4129385.3878980554,
+        "cap_N": 4129385.3878980554
+      }
+    },
+    "digitized": [
+      {
+        "direction": "W",
+        "x_pixel": 249,
+        "y_pixel": 100,
+        "N_graphical": 2294.4419971846087,
+        "normalized_amplitude": 0.8612244897959184
+      },
+      {
+        "direction": "W",
+        "x_pixel": 255,
+        "y_pixel": 100,
+        "N_graphical": 2510.3806766879807,
+        "normalized_amplitude": 0.8612244897959184
+      },
+      {
+        "direction": "W",
+        "x_pixel": 378,
+        "y_pixel": 180,
+        "N_graphical": 15867.950365132947,
+        "normalized_amplitude": 0.6979591836734694
+      },
+      {
+        "direction": "W",
+        "x_pixel": 406,
+        "y_pixel": 180,
+        "N_graphical": 24144.182212566393,
+        "normalized_amplitude": 0.6979591836734694
+      },
+      {
+        "direction": "W",
+        "x_pixel": 497,
+        "y_pixel": 278,
+        "N_graphical": 94462.71347141956,
+        "normalized_amplitude": 0.49795918367346936
+      },
+      {
+        "direction": "W",
+        "x_pixel": 512,
+        "y_pixel": 278,
+        "N_graphical": 118281.45730152677,
+        "normalized_amplitude": 0.49795918367346936
+      },
+      {
+        "direction": "W",
+        "x_pixel": 633,
+        "y_pixel": 352,
+        "N_graphical": 725566.2670249023,
+        "normalized_amplitude": 0.3469387755102041
+      },
+      {
+        "direction": "L",
+        "x_pixel": 252,
+        "y_pixel": 182,
+        "N_graphical": 2399.9839277615215,
+        "normalized_amplitude": 0.6938775510204082
+      },
+      {
+        "direction": "L",
+        "x_pixel": 267,
+        "y_pixel": 182,
+        "N_graphical": 3005.1391289089224,
+        "normalized_amplitude": 0.6938775510204082
+      },
+      {
+        "direction": "L",
+        "x_pixel": 409,
+        "y_pixel": 268,
+        "N_graphical": 25254.789325773792,
+        "normalized_amplitude": 0.5183673469387755
+      },
+      {
+        "direction": "L",
+        "x_pixel": 436,
+        "y_pixel": 268,
+        "N_graphical": 37855.1524925863,
+        "normalized_amplitude": 0.5183673469387755
+      },
+      {
+        "direction": "L",
+        "x_pixel": 446,
+        "y_pixel": 268,
+        "N_graphical": 43977.36120937379,
+        "normalized_amplitude": 0.5183673469387755
+      },
+      {
+        "direction": "L",
+        "x_pixel": 591,
+        "y_pixel": 357,
+        "N_graphical": 386580.17945390067,
+        "normalized_amplitude": 0.336734693877551
+      },
+      {
+        "direction": "L",
+        "x_pixel": 596,
+        "y_pixel": 357,
+        "N_graphical": 416669.45700453233,
+        "normalized_amplitude": 0.336734693877551
+      },
+      {
+        "direction": "L",
+        "x_pixel": 749,
+        "y_pixel": 421,
+        "N_graphical": 4129385.3878980554,
+        "normalized_amplitude": 0.20612244897959184
+      }
+    ],
+    "low_stress_policy": "finite semilog extrapolation, explicitly marked; also retain tested-horizon cap. Neither is an installed-life guarantee.",
+    "high_stress_policy": "report fit extrapolation explicitly; static overload is separate",
+    "mean_stress_policy": "Goodman using absolute shear mean and static shear strength, PROJECTION"
+  },
+  "pad": {
+    "source": "G.T. Yahr, Fatigue Design Curves for 6061-T6 Aluminum, Table 1",
+    "url": "https://www.osti.gov/servlets/purl/10157028",
+    "page": "PDF page 12",
+    "N": [
+      100,
+      200,
+      500,
+      1000,
+      2000,
+      5000,
+      7000,
+      10000,
+      20000,
+      50000,
+      100000,
+      200000,
+      500000,
+      1000000.0,
+      2000000.0,
+      5000000.0,
+      10000000.0,
+      20000000.0,
+      50000000.0,
+      100000000.0,
+      200000000.0,
+      500000000.0,
+      1000000000.0
+    ],
+    "Sa_maximum_mean_MPa": [
+      420.28,
+      325.43,
+      239.94,
+      184.71,
+      137.89,
+      95.01,
+      75.36,
+      63.02,
+      53.37,
+      49.5,
+      47.5,
+      37.68,
+      30.06,
+      26.68,
+      24.48,
+      22.68,
+      21.79,
+      21.18,
+      20.66,
+      20.39,
+      20.21,
+      20.06,
+      19.97
+    ],
+    "note": "Original ORNL design-curve construction; factors on stress/life already included. No further Goodman correction to this column. Local notch, finish, corrosion and pad support remain unqualified.",
+    "best_fit_zero_mean": "Sa_MPa=14479/sqrt(N)+96.5; not used as the design curve"
+  },
+  "Be": {
+    "source": "Brush Wellman author D.E. Dombrowski et al., IAEA vol.5, printed pp60-61, Figs29-30",
+    "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf",
+    "manufacturer_record": "TM-778 (1985), reported by its manufacturer; original internal report not obtained",
+    "grade_form": "smooth S-200F VHP block specimen, R=-1 rotating beam",
+    "runout_screen_MPa": 262.0,
+    "cap_N": 10000000.0,
+    "qualification": "NOT an SR200 sheet curve; cap is a conditional bookkeeping rule, not a confidence bound. Figure directions override inconsistent adjacent prose."
+  },
+  "AF163": {
+    "url": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=TDS_AF163-2_R1.pdf",
+    "page": "printed p9 / PDF p9",
+    "wide_area_maximum_psi": 1500,
+    "wide_area_R": 0.1,
+    "wide_area_runout_N": 10000000.0,
+    "double_lap_Ti_AF163_2K_006": [
+      [
+        4500,
+        15800.0
+      ],
+      [
+        4000,
+        52800.0
+      ],
+      [
+        3500,
+        475000.0
+      ],
+      [
+        3000,
+        2670000.0
+      ]
+    ],
+    "double_lap_runout": [
+      2200,
+      10300000.0
+    ],
+    "transfer": "Not the 0.015 lb/ft2 U-film Be/honeycomb joint; no peel or environmental life qualification."
+  },
+  "scarf": {
+    "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexBond_312_DataSheet_eu.pdf",
+    "product": "HexBond312 unsupported 70 g/m2",
+    "cure_C": 120,
+    "room_temperature_Al_lap_shear_MPa": 37,
+    "SN": null,
+    "note": "No S-N in opened datasheet; static 10 MPa seam screen is not a fatigue curve."
+  }
+}

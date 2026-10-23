@@ -1,0 +1,37 @@
+{
+  "id": "E-62f2b34fc9f1f9e9eeda",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-62f2b34fc9f1f9e9eeda",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1045~1NFI.json/items/8",
+    "row_id": "NFI-045-CASCADE",
+    "fields": {
+      "id": "NFI-045-CASCADE",
+      "tag": "QUESTIONABLE",
+      "claim": "The lost-member screen is linear, rigid-jointed, on f4/f5 geodesics not at 022d's spacing, with lumped pressure loads; joint stiffness is unknown and no nonlinear collapse was run. 026b's discrete model is the place to repeat it.",
+      "needed_to_ground": "A nonlinear frame analysis with one member removed, on 026b's model with the real joint stiffness."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The lost-member screen is linear, rigid-jointed, on f4/f5 geodesics not at 022d's spacing, with lumped pressure loads; joint stiffness is unknown and no nonlinear collapse was run. 026b's discrete model is the place to repeat it.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1045~1NFI.json/items/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,1258 @@
+{
+  "count": 71,
+  "note": "Includes non-material graph refinements and alternative conventions; these are not all arithmetic failures.",
+  "arithmetic_comparison": "NUMERIC-COMPARISON.json",
+  "categories": {
+    "graph_read_refinement": 36,
+    "omission": 1,
+    "source_formula_refinement": 10,
+    "graph_read_propagation": 6,
+    "source_inconsistency": 1,
+    "source_description": 1,
+    "input_qualification": 1,
+    "alternative_convention": 1,
+    "unsupported_inference": 3,
+    "scope_qualification": 2,
+    "basis_qualification": 2,
+    "misclassification": 1,
+    "unreproduced_claim": 3,
+    "literature_omission": 2,
+    "lead_closed": 1
+  },
+  "rows": [
+    {
+      "id": "C035-M001",
+      "row": "RESULTS.json/analysis/SII: hemisphere_low",
+      "field": "gamma",
+      "card_value": 0.22,
+      "checker_value": 0.20924154855137464,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M002",
+      "row": "RESULTS.json/analysis/SII: hemisphere_low",
+      "field": "R_over_rho",
+      "card_value": 240,
+      "checker_value": 240.8822354857385,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M003",
+      "row": "RESULTS.json/analysis/SII: hemisphere_high",
+      "field": "gamma",
+      "card_value": 0.24,
+      "checker_value": 0.22151059959621644,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M004",
+      "row": "RESULTS.json/analysis/SII: hemisphere_high",
+      "field": "R_over_rho",
+      "card_value": 240,
+      "checker_value": 240.5336373228441,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M005",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_low_left",
+      "field": "gamma",
+      "card_value": 0.39,
+      "checker_value": 0.37875631447005076,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M006",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_low_left",
+      "field": "R_over_rho",
+      "card_value": 240,
+      "checker_value": 240.57878105743913,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M007",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_high_left",
+      "field": "gamma",
+      "card_value": 0.58,
+      "checker_value": 0.5701891440591214,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M008",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_high_left",
+      "field": "R_over_rho",
+      "card_value": 240,
+      "checker_value": 251.3152819038903,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M009",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_thermal_low",
+      "field": "gamma",
+      "card_value": 0.41,
+      "checker_value": 0.3997288889401191,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M010",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_thermal_low",
+      "field": "R_over_rho",
+      "card_value": 245,
+      "checker_value": 250.58244724061294,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M011",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_thermal_high",
+      "field": "gamma",
+      "card_value": 0.61,
+      "checker_value": 0.5998260287199091,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M012",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_thermal_high",
+      "field": "R_over_rho",
+      "card_value": 245,
+      "checker_value": 250.68611041371432,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M013",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_low_right",
+      "field": "gamma",
+      "card_value": 0.46,
+      "checker_value": 0.4510632279147419,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M014",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_low_right",
+      "field": "R_over_rho",
+      "card_value": 480,
+      "checker_value": 480.50866153901325,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M015",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_high_right",
+      "field": "gamma",
+      "card_value": 0.99,
+      "checker_value": 0.971516313513905,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": false
+    },
+    {
+      "id": "C035-M016",
+      "row": "RESULTS.json/analysis/SII: ellipsoid_room_high_right",
+      "field": "R_over_rho",
+      "card_value": 480,
+      "checker_value": 480.2705671781129,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "proposed_fix": "Use calibrated rounded graph values; do not report pixel precision as specimen precision.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_uncertainty": 5,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M017",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/0",
+      "field": "R_over_rho",
+      "card_value": 1050,
+      "checker_value": 1050.3496054517839,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 52.5174802725892,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M018",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/0",
+      "field": "gamma",
+      "card_value": 0.42,
+      "checker_value": 0.41543028311815966,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M019",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/1",
+      "field": "R_over_rho",
+      "card_value": 1300,
+      "checker_value": 1268.5737312077472,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 63.42868656038736,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M020",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/1",
+      "field": "gamma",
+      "card_value": 0.44,
+      "checker_value": 0.4379365484520139,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M021",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/2",
+      "field": "R_over_rho",
+      "card_value": 180,
+      "checker_value": 175.2345342714451,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 8.761726713572257,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M022",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/2",
+      "field": "gamma",
+      "card_value": 0.545,
+      "checker_value": 0.5407773336285999,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M023",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/3",
+      "field": "R_over_rho",
+      "card_value": 270,
+      "checker_value": 260.575729547736,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 13.0287864773868,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M024",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/3",
+      "field": "gamma",
+      "card_value": 0.69,
+      "checker_value": 0.6905307243826567,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M025",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/4",
+      "field": "R_over_rho",
+      "card_value": 270,
+      "checker_value": 257.95690071356967,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 12.897845035678484,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M026",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/4",
+      "field": "gamma",
+      "card_value": 0.58,
+      "checker_value": 0.5796031199586539,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M027",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/5",
+      "field": "R_over_rho",
+      "card_value": 270,
+      "checker_value": 257.9407408634483,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 12.897037043172416,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M028",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/5",
+      "field": "gamma",
+      "card_value": 0.57,
+      "checker_value": 0.5693303261929992,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M029",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/6",
+      "field": "R_over_rho",
+      "card_value": 410,
+      "checker_value": 407.26700134473447,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 20.363350067236723,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M030",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/6",
+      "field": "gamma",
+      "card_value": 0.49,
+      "checker_value": 0.4889390695977913,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M031",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/7",
+      "field": "R_over_rho",
+      "card_value": 105,
+      "checker_value": 106.50858625915266,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 5.325429312957634,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M032",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/7",
+      "field": "gamma",
+      "card_value": 0.76,
+      "checker_value": 0.759784568251671,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M033",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/8",
+      "field": "R_over_rho",
+      "card_value": 105,
+      "checker_value": 106.4113784769224,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 5.32056892384612,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M034",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/8",
+      "field": "gamma",
+      "card_value": 0.63,
+      "checker_value": 0.6293778869744013,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M035",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/9",
+      "field": "R_over_rho",
+      "card_value": 105,
+      "checker_value": 106.39378064439178,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 5.319689032219589,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M036",
+      "row": "RESULTS.json/analysis/CR1457_cylinder_points_eye_read/9",
+      "field": "gamma",
+      "card_value": 0.61,
+      "checker_value": 0.6057572180713116,
+      "category": "graph_read_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Retain approximately 5% in R/rho and 0.01 in gamma; these existing points agree at graph precision.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "read_uncertainty": 0.01,
+      "within_checker_read_uncertainty": true
+    },
+    {
+      "id": "C035-M037",
+      "row": "CARD §1 / CR-1457 axial set",
+      "field": "cylinder_point_count",
+      "card_value": 10,
+      "checker_value": 11,
+      "category": "omission",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "proposed_fix": "Add the Baker point near R/rho=121, gamma=0.61.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff",
+      "omitted_point": {
+        "R_over_rho": 120.82737939802395,
+        "gamma": 0.6087704002396715
+      }
+    },
+    {
+      "id": "C035-M038",
+      "row": "RESULTS-ANALYSIS.json/sbkf/0 (CTA8.1)",
+      "field": "CR1457_cyl_curve",
+      "card_value": 0.4239284273430999,
+      "checker_value": 0.43966118232475854,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Replace the declared three-node eye fit with CR-1457's 0.75*SP-8007 expression.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M039",
+      "row": "RESULTS-ANALYSIS.json/sbkf/0 (CTA8.1)",
+      "field": "beat_CR1457_curve",
+      "card_value": 2.0522332164714188,
+      "checker_value": 1.9787964800526077,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Propagate the exact handbook curve; the original division itself reproduces.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M040",
+      "row": "RESULTS-ANALYSIS.json/sbkf/1 (CTA8.2)",
+      "field": "CR1457_cyl_curve",
+      "card_value": 0.4062154225642865,
+      "checker_value": 0.4202711632928755,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Replace the declared three-node eye fit with CR-1457's 0.75*SP-8007 expression.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M041",
+      "row": "RESULTS-ANALYSIS.json/sbkf/1 (CTA8.2)",
+      "field": "beat_CR1457_curve",
+      "card_value": 1.907854692241161,
+      "checker_value": 1.8440475285712707,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Propagate the exact handbook curve; the original division itself reproduces.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M042",
+      "row": "RESULTS-ANALYSIS.json/sbkf/2 (CTA8.2B)",
+      "field": "CR1457_cyl_curve",
+      "card_value": 0.4062154225642865,
+      "checker_value": 0.4202711632928755,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Replace the declared three-node eye fit with CR-1457's 0.75*SP-8007 expression.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M043",
+      "row": "RESULTS-ANALYSIS.json/sbkf/2 (CTA8.2B)",
+      "field": "beat_CR1457_curve",
+      "card_value": 1.7749203007817769,
+      "checker_value": 1.7155590556127562,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Propagate the exact handbook curve; the original division itself reproduces.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M044",
+      "row": "RESULTS-ANALYSIS.json/sbkf/3 (CTA8.3)",
+      "field": "CR1457_cyl_curve",
+      "card_value": 0.40215157376289395,
+      "checker_value": 0.4157418475495325,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Replace the declared three-node eye fit with CR-1457's 0.75*SP-8007 expression.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M045",
+      "row": "RESULTS-ANALYSIS.json/sbkf/3 (CTA8.3)",
+      "field": "beat_CR1457_curve",
+      "card_value": 2.1484436624619776,
+      "checker_value": 2.0782127300693753,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Propagate the exact handbook curve; the original division itself reproduces.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M046",
+      "row": "RESULTS-ANALYSIS.json/leads/0 (021 rev1)",
+      "field": "CR1457_cyl_curve",
+      "card_value": 0.31536697036159655,
+      "checker_value": 0.3143152974553026,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Replace the declared three-node eye fit with CR-1457's 0.75*SP-8007 expression.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M047",
+      "row": "RESULTS-ANALYSIS.json/leads/0 (021 rev1)",
+      "field": "need_over_SII_hemisphere",
+      "card_value": [
+        2.4804999999999997,
+        2.706
+      ],
+      "checker_value": [
+        2.687546334510344,
+        2.845132833901926
+      ],
+      "category": "graph_read_propagation",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Use revised graph centers and display their read uncertainty; this is a numerical comparison, not a transferable allowable.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_envelope": [
+        2.571458935523094,
+        2.9879310029880446
+      ]
+    },
+    {
+      "id": "C035-M048",
+      "row": "RESULTS-ANALYSIS.json/leads/0 (021 rev1)",
+      "field": "old_sandwich_cylinders_interpolated",
+      "card_value": 0.427464683312783,
+      "checker_value": 0.4232368749594565,
+      "category": "graph_read_propagation",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Retain as a two-point log interpolation with graph uncertainty, not a record envelope.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff"
+    },
+    {
+      "id": "C035-M049",
+      "row": "RESULTS-ANALYSIS.json/leads/0 (021 rev1)",
+      "field": "need_over_old_cylinders",
+      "card_value": 1.3926764554825093,
+      "checker_value": 1.4065882138862025,
+      "category": "graph_read_propagation",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Retain as a two-point log interpolation with graph uncertainty, not a record envelope.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff"
+    },
+    {
+      "id": "C035-M050",
+      "row": "RESULTS-ANALYSIS.json/leads/1 (021b)",
+      "field": "CR1457_cyl_curve",
+      "card_value": 0.3550388086367102,
+      "checker_value": 0.3614723117207017,
+      "category": "source_formula_refinement",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Replace the declared three-node eye fit with CR-1457's 0.75*SP-8007 expression.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M051",
+      "row": "RESULTS-ANALYSIS.json/leads/1 (021b)",
+      "field": "need_over_SII_hemisphere",
+      "card_value": [
+        1.9509583333333333,
+        2.1283181818181816
+      ],
+      "checker_value": [
+        2.113804038513368,
+        2.2377486844350916
+      ],
+      "category": "graph_read_propagation",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Use revised graph centers and display their read uncertainty; this is a numerical comparison, not a transferable allowable.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII",
+      "read_envelope": [
+        2.0224991893099147,
+        2.350062039792199
+      ]
+    },
+    {
+      "id": "C035-M052",
+      "row": "RESULTS-ANALYSIS.json/leads/1 (021b)",
+      "field": "old_sandwich_cylinders_interpolated",
+      "card_value": 0.45579670740055106,
+      "checker_value": 0.4527685688227139,
+      "category": "graph_read_propagation",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Retain as a two-point log interpolation with graph uncertainty, not a record envelope.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff"
+    },
+    {
+      "id": "C035-M053",
+      "row": "RESULTS-ANALYSIS.json/leads/1 (021b)",
+      "field": "need_over_old_cylinders",
+      "card_value": 1.0272781536100974,
+      "checker_value": 1.034148640700676,
+      "category": "graph_read_propagation",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E06",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Retain as a two-point log interpolation with graph uncertainty, not a record envelope.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff"
+    },
+    {
+      "id": "C035-M054",
+      "row": "CARD §1 CTA8.3",
+      "field": "gamma",
+      "card_value": 0.864,
+      "checker_value": 0.8653048797586761,
+      "category": "source_inconsistency",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E05",
+        "AUXILIARY.json"
+      ],
+      "proposed_fix": "Retain the printed 0.864 and the load-derived 0.865305 as alternatives; do not silently correct the source.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-CTA83"
+    },
+    {
+      "id": "C035-M055",
+      "row": "CARD §4 best results",
+      "field": "manufacturing",
+      "card_value": "Autoclave or AFP",
+      "checker_value": "CTA8.1: hand-laid IM7/MTM45, out-of-autoclave; other articles require their own process descriptions.",
+      "category": "source_description",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E01"
+      ],
+      "proposed_fix": "Correct the CTA8.1 fabrication description.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M056",
+      "row": "CARD §2 Vc map / CTA8.1",
+      "field": "nominal_vs_measured_ply_in",
+      "card_value": 0.0052,
+      "checker_value": 0.005679,
+      "category": "input_qualification",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E01",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "Label the original point nominal. Measured thickness with the same assumed moduli gives Vc_iso=0.573914 and R/rho=331.317.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SCALAR"
+    },
+    {
+      "id": "C035-M057",
+      "row": "CARD §2 Vc conventions / CTA8.1",
+      "field": "Vc_axial",
+      "card_value": 0.41272400203727116,
+      "checker_value": 0.4002161546169835,
+      "category": "alternative_convention",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "METHOD.md",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "proposed_fix": "State that 0.412724 substitutes nu_xy into an isotropic equation; reciprocal orthotropic denominator gives 0.400216. Neither is a validated anisotropic shell scalar.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SCALAR"
+    },
+    {
+      "id": "C035-M058",
+      "row": "CARD §2 and §3",
+      "field": "SBKF_baseline_equivalence",
+      "card_value": "Shear-inclusive eigenvalue makes gamma directly the same basis; classical baseline and Kc identical.",
+      "checker_value": "Isotropic ideal-shell resultant coincidence does not identify anisotropic combined-load FE denominators or shear corrections.",
+      "category": "unsupported_inference",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E01",
+        "E04",
+        "E05",
+        "METHOD.md"
+      ],
+      "proposed_fix": "Tag all cross-geometry uses PROJECTION and retain actual specimen denominators.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-BASELINE"
+    },
+    {
+      "id": "C035-M059",
+      "row": "CARD §3 handbook sphere/cylinder comparison",
+      "field": "meaning_of_ratio",
+      "card_value": "0.30–0.34 sphere penalty",
+      "checker_value": {
+        "021_rev1": 0.3382731044584717,
+        "021b": 0.2958396974864057,
+        "scope": "SP-8032 phi=90 degrees, nu=0.3 cap formula divided by SP-8007; no established sandwich-shell transfer law"
+      },
+      "category": "scope_qualification",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E09",
+        "E10",
+        "METHOD.md"
+      ],
+      "proposed_fix": "Preserve the arithmetic; explicitly state cap geometry and label the transfer PROJECTION.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-TRANSFER"
+    },
+    {
+      "id": "C035-M060",
+      "row": "CARD §1 TN D-2926",
+      "field": "denominator",
+      "card_value": "Small deflection, about 0.87–0.92; CR-1457 reads 0.62–0.80.",
+      "checker_value": "Source uses stiffness at calculated inelastic buckling; test-state stiffness lowers ratios by about 6–20%.",
+      "category": "basis_qualification",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E11"
+      ],
+      "proposed_fix": "Identify inelastic normalization before comparing the two reported ranges.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-BASELINE"
+    },
+    {
+      "id": "C035-M061",
+      "row": "CARD §1 CR-1457 lateral pressure / FPL",
+      "field": "test_resolution",
+      "card_value": "Five measured/theory ratios 1.00–1.16",
+      "checker_value": "The handbook uses 52.5 psi as the midpoint of 50–55 psi onset for four tests; ratios reproduce but do not have independent pressure resolution.",
+      "category": "basis_qualification",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E08",
+        "AUXILIARY.json"
+      ],
+      "proposed_fix": "Carry the reported pressure ranges and thick-face qualification.",
+      "blocks_card": false,
+      "nfi": "ref-196608af78549ed7f1ff"
+    },
+    {
+      "id": "C035-M062",
+      "row": "CARD §1 Sim / EUCASS",
+      "field": "uniform_pressure_measured_status",
+      "card_value": "Foam-core hemispheres in the test record",
+      "checker_value": "Sim uniform-pressure results are FE; physical validation is platen compression.",
+      "category": "misclassification",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E15"
+      ],
+      "proposed_fix": "Separate measured loading cases from simulated uniform pressure.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SIM"
+    },
+    {
+      "id": "C035-M063",
+      "row": "CARD §1 Sim / EUCASS",
+      "field": "Vc",
+      "card_value": 200,
+      "checker_value": null,
+      "category": "unreproduced_claim",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E15",
+        "intake/owner/CARD.md"
+      ],
+      "proposed_fix": "No numerical credit: obtain the missing upstream input/formula chain; do not substitute an invented value.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SIM"
+    },
+    {
+      "id": "C035-M064",
+      "row": "CARD §1 Sim / EUCASS",
+      "field": "R_over_rho",
+      "card_value": 26,
+      "checker_value": null,
+      "category": "unreproduced_claim",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E15",
+        "intake/owner/CARD.md"
+      ],
+      "proposed_fix": "No numerical credit: obtain the missing upstream input/formula chain; do not substitute an invented value.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SIM"
+    },
+    {
+      "id": "C035-M065",
+      "row": "CARD §1 Sim / EUCASS",
+      "field": "crimp_normalized_ratio",
+      "card_value": [
+        1.44,
+        1.54
+      ],
+      "checker_value": null,
+      "category": "unreproduced_claim",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E15",
+        "intake/owner/CARD.md"
+      ],
+      "proposed_fix": "No numerical credit: obtain the missing upstream input/formula chain; do not substitute an invented value.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SIM"
+    },
+    {
+      "id": "C035-M066",
+      "row": "CARD Answer and §4",
+      "field": "universal_absence_at_Vc_0.9_to_2",
+      "card_value": "No measured point exists in any shell form.",
+      "checker_value": "This check did not establish a comparable elastic sphere/dome point with recoverable Vc near 1; available evidence cannot establish universal absence.",
+      "category": "unsupported_inference",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E14",
+        "E17",
+        "E18",
+        "E19",
+        "E20",
+        "E21"
+      ],
+      "proposed_fix": "Scope the negative result to verified compatible data and retain unresolved leads.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-RESTRICTED"
+    },
+    {
+      "id": "C035-M067",
+      "row": "CARD Answer / Spheres",
+      "field": "only_measured_dome_set",
+      "card_value": "Only S-II; nothing else was found.",
+      "checker_value": "Additional marine egg-shaped/ellipsoidal hydrostatic experiments exist; their material, curvature and plasticity differ.",
+      "category": "literature_omission",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E17",
+        "E18",
+        "E19",
+        "E20"
+      ],
+      "proposed_fix": "Add the new primary sources and preserve the owner's C05; do not assign unverified elastic gamma or Vc.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-YANG"
+    },
+    {
+      "id": "C035-M068",
+      "row": "CARD §1 not found",
+      "field": "foam_core_cylinder_test",
+      "card_value": "No foam-core cylinder test found.",
+      "checker_value": "DeNardo 2017 documents foam-core double-hull cylinder hydrostatic experiments; already in owner's D14.",
+      "category": "literature_omission",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E21",
+        "intake/owner/LIT-D.json"
+      ],
+      "proposed_fix": "Correct the negative claim and retain the full-text acquisition row.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-DENARDO"
+    },
+    {
+      "id": "C035-M069",
+      "row": "CARD §1 unread leads",
+      "field": "Anderson_1966_status",
+      "card_value": "Unread",
+      "checker_value": "Full thesis inspected: theoretical, no experimental comparison for complete sandwich spheres.",
+      "category": "lead_closed",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E16"
+      ],
+      "proposed_fix": "Close the unread branch without creating a measured test point.",
+      "blocks_card": false
+    },
+    {
+      "id": "C035-M070",
+      "row": "CARD §4 reading",
+      "field": "required_imperfection_control",
+      "card_value": "Beyond anything recorded for sandwich domes.",
+      "checker_value": "Not established by the non-comparable and incomplete record.",
+      "category": "unsupported_inference",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07",
+        "E17",
+        "E18",
+        "E19",
+        "E20"
+      ],
+      "proposed_fix": "Remove the universal assertion; quantify compatible imperfection tolerance.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-IMPERFECTION"
+    },
+    {
+      "id": "C035-M071",
+      "row": "CARD §4 S-II construction",
+      "field": "quality_assurance_basis",
+      "card_value": "Production-quality aerospace construction",
+      "checker_value": "CR-1457 does not establish a transferable quantified imperfection tolerance for the two hemispheres.",
+      "category": "scope_qualification",
+      "tag": "QUESTIONABLE",
+      "evidence": [
+        "E07"
+      ],
+      "proposed_fix": "Retain test identity while making imperfection quality unresolved.",
+      "blocks_card": false,
+      "nfi": "NFI-C035-SII"
+    }
+  ]
+}

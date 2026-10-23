@@ -1,0 +1,104 @@
+{
+  "id": "D229",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D229",
+    "report": "rpt-1228-mainline044-independent-check-1020",
+    "file": "evidence/a72cfaaaf4fb91a1-NFI.json",
+    "snapshot": "evidence/a72cfaaaf4fb91a1-NFI.json",
+    "source_sha256": "a72cfaaaf4fb91a16a3d9e056d8d5bbff081c963271988dfa759368816d32051",
+    "source_json_pointer": "/inherited_records_verbatim/2/record/rows/20",
+    "row_id": "NFI-028b-core-data",
+    "fields": {
+      "id": "NFI-028b-core-data",
+      "status": "OPEN",
+      "issue": "Confirm core lot, minimum properties, forming and strength after bonding on the selected low-density core.",
+      "state": "exists_today",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "name": "Hexcel CR-III 5056 3/8-1.0",
+        "family": "aluminium_honeycomb",
+        "form": "honeycomb",
+        "cell": "3/8",
+        "pcf": 1.0,
+        "rho": 16.018463373960138,
+        "s_cell_m": 0.009524999999999999,
+        "Ec_Pa": 103421359.3975254,
+        "Gc_Pa": 46884349.59354485,
+        "Gl_Pa": 103421359.3975254,
+        "crush_Pa": 241316.50526089262,
+        "shear_strength_L_Pa": 379211.65112425986,
+        "shear_strength_W_Pa": 241316.50526089262,
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "ec_source": "sheet",
+        "crush_basis": "CR-III crush column",
+        "Gc_direction": "W"
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+      "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf"
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION",
+      "status": "Check complete; findings nonblocking; inherited qualification gaps remain open."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/inherited_records_verbatim/2/record/rows",
+    "blocks_progress": false
+  },
+  "claim": "Confirm core lot, minimum properties, forming and strength after bonding on the selected low-density core.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1189"
+    },
+    {
+      "report": "rpt-1228-mainline044-independent-check-1020",
+      "artifact": "evidence/a72cfaaaf4fb91a1-NFI.json",
+      "snapshot": "evidence/a72cfaaaf4fb91a1-NFI.json",
+      "sha256": "a72cfaaaf4fb91a16a3d9e056d8d5bbff081c963271988dfa759368816d32051",
+      "bytes": 46214,
+      "selector": "/inherited_records_verbatim/2/record/rows/20"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline044-independent-check-1020",
+          "artifact": "evidence/a72cfaaaf4fb91a1-NFI.json",
+          "snapshot": "evidence/a72cfaaaf4fb91a1-NFI.json",
+          "sha256": "a72cfaaaf4fb91a16a3d9e056d8d5bbff081c963271988dfa759368816d32051",
+          "bytes": 46214,
+          "selector": "/inherited_records_verbatim/2/record/rows/20"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1189"
+          }
+        ]
+      }
+    }
+  ]
+}

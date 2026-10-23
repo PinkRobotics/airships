@@ -1,0 +1,50 @@
+{
+  "id": "rpt-mainline004b-grok-kd-range-1019",
+  "unit": "vacuum-mainline004b-kd-range-1019",
+  "at": "2026-10-19T22:51:07-07:00",
+  "body": "ESTIMATE_PENDING_UNA. MAINLINE-004b range for P2-A, P2-C, P2-K and P2-E. Every factor is QUESTIONABLE. Conservative is the sealed NASA SP-8032 row. Central is 0.20, Wagner, Huehne, Zhang and Tang 2020, doi 10.1016/j.ijpvp.2019.104015: equation 7 equals about 0.2 in the elastic region. Equation 7 was not evaluated. The lower bound 0.21 was not used. The main line carries optimistic knockdown 0.90, Wagner 2020 Table 3 row 12, Krenzke and Kiernan, reliable yes, the highest reliable upper in that table. That range mixes R/t 10-212 and reaches only lambda 33.18. These rows have lambda near 65-68. Adam's reliable upper 0.89 is not the carry. Classical 1.0 is reference only. Sim et al. 2024, doi 10.1155/2024/8765733, give small-scale foam-core factors 0.20 and 0.22, which do not support 0.90. Monocoque curves are transferred with phi = pi and t_eq. Required modulus scales as 1/kd. At 0.90 the buckling SF and required modulus are P2-A 1.038550613 and 66342457592.2 Pa; P2-C 0.878412394393 and 78436962456.1 Pa; P2-K 1.01188911831 and 68090464412.6 Pa; P2-E 1.05248510547 and 65464109318.2 Pa. P2-C is still above the QUESTIONABLE alloy modulus 68.9 GPa. Conservative SFs remain 0.162351930234, 0.137388392766, 0.158259023565, 0.164568553708. NFI-OPT-GAP is the ratio near 6.4. Strength SFs stay at the 003 values. Start 2026-10-19T22:48:41.445118-07:00. End 2026-10-19T22:48:50.520370-07:00. Elapsed 9.075277327094227 s, a measurement. Source reading preceded the stamp. The deadline 2026-10-20T07:00:00-07:00 is a door check-in, not a limit. This report leaves the caps-open order open. 008 is filed. 007 is not, so MAINLINE-009 is not started. NFI-CRUSH is already filed. Una004 is not opened.",
+  "artifacts": [
+    {
+      "path": "evidence/a97d2d3c0cd35e4e-CARD.md",
+      "sha256": "a97d2d3c0cd35e4eaae3dc2354f8668ceb337d378e87ead78d1c2a2a5fa56506",
+      "bytes": 8138
+    },
+    {
+      "path": "evidence/45c06f2f8f266e8f-RESULTS.json",
+      "sha256": "45c06f2f8f266e8f134307b03b9f20efc84d9f43220102fae3c933fd4aba4722",
+      "bytes": 9528
+    },
+    {
+      "path": "evidence/f528292663aa7701-NFI.json",
+      "sha256": "f528292663aa7701e2d2529e485ecdbfd5151a9880e99b40b033a19c7df0be60",
+      "bytes": 3253
+    },
+    {
+      "path": "evidence/5b23bfc0dd2e9a9c-INPUTS.json",
+      "sha256": "5b23bfc0dd2e9a9ce56e50e3fb1ccac15407d9de0823d306b6d0afa38a8a12a5",
+      "bytes": 2240
+    },
+    {
+      "path": "evidence/f9aaa5460bb8c299-scale.py",
+      "sha256": "f9aaa5460bb8c29916c087e1b805568188f5f8af11169dd67e9e1d83bb9aaa9a",
+      "bytes": 24062
+    },
+    {
+      "path": "evidence/77697a9ada908beb-ORIGIN.json",
+      "sha256": "77697a9ada908bebb31b1018651220c4857edbfe6fcaa0fb32647d982b8c3769",
+      "bytes": 824
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline004b-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline004b-dispatch-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "MAINLINE-004b knockdown range filed. Optimistic carry 0.90, QUESTIONABLE. Times are measurements. Caps-open order stays open."
+    }
+  ]
+}

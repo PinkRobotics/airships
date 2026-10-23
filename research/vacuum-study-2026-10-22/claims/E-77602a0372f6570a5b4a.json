@@ -1,0 +1,42 @@
+{
+  "id": "E-77602a0372f6570a5b4a",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-77602a0372f6570a5b4a",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/1",
+    "row_id": "NFI-043-CHECK-02",
+    "fields": {
+      "id": "NFI-043-CHECK-02",
+      "key": "matched_material_deck",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "issue": "The old sheet and current page differ in E, density and m; the model combines E410 and rho3100.",
+      "needed": "Select a traceable grade/batch property deck and re-close geometry, mass and mechanical screens if its values change.",
+      "disposition": "Keep inherited properties explicit; the E430 sensitivity is not a redesign.",
+      "blocks_check": false,
+      "owner": "sciences / robotics programme",
+      "execution_authorized_by_this_row": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The old sheet and current page differ in E, density and m; the model combines E410 and rho3100.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

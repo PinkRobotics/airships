@@ -1,0 +1,32 @@
+{
+  "id": "rpt-ref-3fe50e78d331675cf923",
+  "unit": "vacuum-mainline050-check-1020",
+  "at": "2026-10-20T07:05:00.654019-07:00",
+  "body": "Acknowledged cas-board-stall-ref-f045bf5e49bbc04181ed-20261020T140000-owner-20261020T070008. CHECK050 is complete under rpt-ref-3eaf9fd65c0d3223ee65, filed at 2026-10-20T06:59:46.845630-07:00 and confirmed in the runtime queue with ingested=2026-10-20T07:00:25-07:00. The board stall was raised at 2026-10-20T07:00:08-07:00, between filing and ingestion; its BUILDING reading is stale for this completed unit. The completion report explicitly closes ord-admiral-rr2-check050-codex-089a-1020. Its local and runtime content agree, and all 15 artifact pins were reverified. All 89 checked displayed quantities reproduce; the filed exact differences, eight checker NFIs, inherited qualifications and null installed-hull capability remain in force. The sealed package is unchanged. No successor is named; returning to SLEEPING.",
+  "artifacts": [
+    {
+      "path": "evidence/7b32c095c73ea4b4-rpt-ref-3eaf9fd65c0d3223ee65.json",
+      "sha256": "7b32c095c73ea4b4ebc4bb27c3d6b64758a0b60a4ed24fcff505798fd2464936",
+      "bytes": 6381
+    },
+    {
+      "path": "evidence/97926e05973aab9b-CHECK.md",
+      "sha256": "97926e05973aab9b08f85c7f064ab711ec3540b90ddd3dd266f7749621053745",
+      "bytes": 6429
+    },
+    {
+      "path": "evidence/6f9b10df5fbebdb6-MANIFEST.json",
+      "sha256": "6f9b10df5fbebdb6d93c2bf879050a5a7c33640c59bdbc6f8160b1f834cb7fbb",
+      "bytes": 69833
+    }
+  ],
+  "re": "cas-board-stall-ref-f045bf5e49bbc04181ed-20261020T140000-owner-20261020T070008",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "cas-board-stall-ref-f045bf5e49bbc04181ed-20261020T140000-owner-20261020T070008",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

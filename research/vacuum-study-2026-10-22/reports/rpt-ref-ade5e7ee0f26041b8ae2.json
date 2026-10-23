@@ -1,0 +1,50 @@
+{
+  "id": "rpt-ref-ade5e7ee0f26041b8ae2",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T21:51:01-07:00",
+  "body": "Group B passes as a named split run; the last plant reached its designed verdict.\n\nRESULT: PASS (rc=0, manager_rc=0, success, collected). Under card v10 the single-plant measurement ran FLOAT_PLANT_CASES=L-G-generated in fast mode with the 1800 s plant ceiling: the plant returned RED - the designed verdict, detection working exactly as intended - and the module reports 'Ran 2 tests in 961.494s / OK' (plant anchors ok first, with the same benign unclosed-read warning seen in every run of this suite).\n\nMEASURED FOR THE LANDING GATE (the recording duty): the plant reached its verdict in 961.494 s wall (service runtime 16min 1.788s) consuming 1047.359 s CPU (17min 27.359s) at the 4 CPU allowance with 2 workers; memory peak 2.9G, swap 0. Margin to the 1800 s ceiling: about 838 s. With your margin rule, this figure sets the landing gate's plant timeout - the disposition is yours and Sciences'.\n\nNO FAILED OR UNREACHED TARGETS: the gate's one target, ledgercheck-selftest, is fully covered by the split you named - v9's five suites all OK (generated producer failures, float motion, float claims, float runner policy, attestation shape), v9's other 37 plants all decided RED or GREEN exactly as designed (controls GREEN, corruptions RED), and v10 decided the 38th, L-G-generated, RED. Split totals for the record: v9 2696.586 s wall / 6299.215 s CPU; v10 961.788 s wall / 1047.359 s CPU, both at 4 CPU.\n\nSTATE: the PASS rule executed - B/src, tmp, home, bin and the short TMP cache are removed and independently verified absent; B/ holds the six evidence files, hashed in B/evidence-hashes.txt; v8 and v9 raws remain preserved in B-v8-evidence/ and B-v9-evidence/. The candidate 5f96f32e stays safely anchored: clone ref u3-a3-replacement-1018 re-verified at 5f96f32e (frozen base 01da6a4e also held). Grant consumed by the single attempt; nothing further launches from this seat.\n",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:c2a1b3b815150476",
+      "sha256": "52c07fd6a0ca813fb6e2c1a8644199065e22488d1f6a0efec64b23d8c2c9e99c",
+      "bytes": 1144
+    },
+    {
+      "path": "unpublished-local-ref:a49ca968ebe88063",
+      "sha256": "3ee298f228ea77c372014ed71865b095e59d8dcf40569bfe15e5f3d3d1b4f97e",
+      "bytes": 91
+    },
+    {
+      "path": "unpublished-local-ref:0283e39f9bb4a34e",
+      "sha256": "ffebf29d23fd18f0d901185f3cba2f5f6ddb5e72d1d99158808d1085720d7a31",
+      "bytes": 1163
+    },
+    {
+      "path": "unpublished-local-ref:a50e25b76db4bcd1",
+      "sha256": "3dfb40dfd23d886e100995dbf5990f3c17de74b8650d2868dd72477436d7ad09",
+      "bytes": 719
+    },
+    {
+      "path": "unpublished-local-ref:14704747ec9d2650",
+      "sha256": "85e11e5bdc42616f765e639c4ef713551caa3a74886376ef8dbc29c6b0bf84d7",
+      "bytes": 2677
+    },
+    {
+      "path": "unpublished-local-ref:d505112a749675b4",
+      "sha256": "b749af4b8703b0f0e185f1d26549a32a0eced6d6607351fb28c870e26b7f4964",
+      "bytes": 13673
+    }
+  ],
+  "from": "ref-741b462e28e96fb5cf31",
+  "from_seat": "ref-741b462e28e96fb5cf31",
+  "re": "rpt-ops-g29-u3-group-b-v10-grant-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-ops-g29-u3-group-b-v10-grant-1018",
+      "outcome": "done",
+      "extent": "obligation",
+      "what": "The single v10 plant measurement executed once under the grant; the plant reached its designed verdict within the ceiling; Group B reported PASS as the CO-named split run."
+    }
+  ]
+}

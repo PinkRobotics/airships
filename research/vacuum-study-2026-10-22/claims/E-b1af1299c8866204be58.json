@@ -1,0 +1,38 @@
+{
+  "id": "E-b1af1299c8866204be58",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-b1af1299c8866204be58",
+    "report": "rpt-ref-22285eadc9122df1c8b7",
+    "file": "evidence/84ce05528108d3ac-NFI.json",
+    "snapshot": "evidence/84ce05528108d3ac-NFI.json",
+    "source_sha256": "84ce05528108d3acd5416a915758558551c0854ffeba2edadd32c1088bfd417c",
+    "source_json_pointer": "/rows/13",
+    "row_id": "N057-C14-PROTECTION-CLASS",
+    "fields": {
+      "id": "N057-C14-PROTECTION-CLASS",
+      "state": "sensitivity; open",
+      "checker_disposition": "P3 aggregate protection contains attachment/seams alongside thermal/barrier layers. AtR10, using30% hardware forattachment/seams and20% forrest raisesMGA4.303512597kg. Need component maturity mapping.",
+      "evidence": "PROTECTION-CLASS-SENSITIVITY.json",
+      "blocking": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"N057-C14-PROTECTION-CLASS\", \"state\": \"sensitivity; open\", \"checker_disposition\": \"P3 aggregate protection contains attachment/seams alongside thermal/barrier layers. AtR10, using30% hardware forattachment/seams and20% forrest raisesMGA4.303512597kg. Need component maturity mapping.\", \"evidence\": \"PROTECTION-CLASS-SENSITIVITY.json\", \"blocking\": false}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q3",
+  "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+  "sources": [
+    {
+      "report": "rpt-ref-22285eadc9122df1c8b7",
+      "artifact": "evidence/84ce05528108d3ac-NFI.json",
+      "snapshot": "evidence/84ce05528108d3ac-NFI.json",
+      "sha256": "84ce05528108d3acd5416a915758558551c0854ffeba2edadd32c1088bfd417c",
+      "bytes": 9069,
+      "selector": "/rows/13"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

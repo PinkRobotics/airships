@@ -1,0 +1,142 @@
+{
+  "id": "rpt-ref-a53ddf165139979127c4",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline043-check-1020",
+  "re": "ord-admiral-rr2-check043-codex-1693-1020",
+  "at": "2026-10-20T04:48:08.631509-07:00",
+  "body": "CHECK MAINLINE-043 plus041 complete, QUESTIONABLE/PROJECTION. Owner code never read, copied, hashed or run. Independent arithmetic reproduces 95,644 comparisons within declared tolerances; zero numerical mismatches and 486 consistency checks pass.\n\nThe f5 own-screen compression peaks are 1.164234798/1.145747561 GPa. With hypothetical m=10 and common complete-member scale3.9 GPa, unequal-member series Pf=0.00252416976042/0.00214282731417. Assigning that scale to1cm³ instead gives0.991132667006/0.979046201667. Required complete-member scales for Pf10⁻⁶ are8.53751/8.39866 GPa. All alternate reference, scatter and tensile tables reproduce.\n\nOne labeling correction: inherited rise8 mass5446.290626kg is charged total; tubes alone5039.557739kg. Headline probabilities are unaffected. Rise8 equilibrium remains independently unverified.\n\nScalar proof conditioning reproduces but supplies no lifetime guarantee. Selected1.25× target force gives1.259378651× peak stress and member Euler ratio0.375; exceeding the combined/local/global screen is not evidence of Euler-load exceedance. Proof stress coverage, damage and fixture qualification remain open.\n\nTwenty-one source-audit rows preserve material populations, fitted/reference scales and the old-sheet/current-page property differences. Thirteen nonblocking NFIs retain calibration, tail confidence, contact, dependence, stability, manufacturing and life questions. The019 sub-unity local-wall sensitivity remains unresolved. Qualified frame/lifetime Pf stay null.\n\nAll575 package checks pass;177-file manifest. Four admitted jobs released, including two corrected checker diagnostics; no new FE solve, time budget or live own work. Previous042 report pins unchanged. Brief names no successor; stopping.",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check043-codex-1693-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "next": "none",
+  "standing": "none",
+  "deadline": "2026-10-20T07:00:00-07:00",
+  "artifacts": [
+    {
+      "path": "evidence/d306c0c3c346c304-CHECK.md",
+      "sha256": "d306c0c3c346c30481970e36b847704403801a6daec2b7002f2bffd4b3f4637b",
+      "bytes": 8358
+    },
+    {
+      "path": "evidence/68b672117e4da331-CARD.md",
+      "sha256": "68b672117e4da331224b7d6a2a72668bca02f1965e7e517ec1960e2195322723",
+      "bytes": 1469
+    },
+    {
+      "path": "evidence/c527babe18ea453c-METHOD.md",
+      "sha256": "c527babe18ea453c95f170ec70dc9c37c8eec6cd46d0e6981fedf483dba7653d",
+      "bytes": 8085
+    },
+    {
+      "path": "evidence/3e41a759ac971a64-RESULTS.json",
+      "sha256": "3e41a759ac971a64354afd84ff0e6f07f7e35eefbce7a11d2a123ce6fbd954a2",
+      "bytes": 28681
+    },
+    {
+      "path": "evidence/be7c216ed76b48a2-COMPARISONS.csv",
+      "sha256": "be7c216ed76b48a245c04c01dcdc4f09e9cb0e9f6660b2f4b780a4534a9e3b2e",
+      "bytes": 10805322
+    },
+    {
+      "path": "evidence/37517e5f3dc66819-MISMATCHES.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "evidence/dbf078007642c884-MISMATCHES.md",
+      "sha256": "dbf078007642c884a32035a427c7c3de5d637dad76ccb75ed47b4908da91272a",
+      "bytes": 2046
+    },
+    {
+      "path": "evidence/00b1485e268b733c-RISE-CHECK.json",
+      "sha256": "00b1485e268b733c58f49fee17538802432a35638f47ef66722cf2ca0abeb732",
+      "bytes": 4094
+    },
+    {
+      "path": "evidence/b02a92619e9a583a-SOURCE-AUDIT.json",
+      "sha256": "b02a92619e9a583a32ab27191136eb70d458c06da649fde09f1e09a672e197d3",
+      "bytes": 12680
+    },
+    {
+      "path": "evidence/4da90b7507aa6786-SOURCE-AUDIT.md",
+      "sha256": "4da90b7507aa678696ab599baa79930878930c7cb28824b88ed0e90f40528661",
+      "bytes": 9177
+    },
+    {
+      "path": "evidence/89a8b861a172592d-NFI.json",
+      "sha256": "89a8b861a172592d148a6a217e5be0399dd2382c4c84c7c1d8af9d345c0e1f1f",
+      "bytes": 7944
+    },
+    {
+      "path": "evidence/6e7e593b25d7deb1-CHECKS.json",
+      "sha256": "6e7e593b25d7deb1f1fff0a192dcde9c49d34f537dbbd7b2acd59ecb05c2c6c2",
+      "bytes": 50495
+    },
+    {
+      "path": "evidence/551de267438313cd-QUALIFICATION.json",
+      "sha256": "551de267438313cde2282f09a0b3dfc448a8fecd1be10e0910b336c325101de8",
+      "bytes": 543
+    },
+    {
+      "path": "evidence/4a9e883409cffba8-REVIEW-SUMMARY.json",
+      "sha256": "4a9e883409cffba8136bb7eb6bd80b98da67637aef673ffd55261d6bce63f623",
+      "bytes": 447
+    },
+    {
+      "path": "evidence/639866f0f495c534-INPUTS.json",
+      "sha256": "639866f0f495c534c930d724e058e3782cfa5945c8535788f283acaf78bdb847",
+      "bytes": 33054
+    },
+    {
+      "path": "evidence/515265ee17f4091e-SOURCE-PINS.json",
+      "sha256": "515265ee17f4091e64c1012aa3b2b46d8a49832c8c313d10887935c7fcd4a3d9",
+      "bytes": 5081
+    },
+    {
+      "path": "evidence/8e8ca1231a6c6413-EXECUTION.json",
+      "sha256": "8e8ca1231a6c6413ae3821e0a5b0300c40a00e439db41c9c9e063561725c934c",
+      "bytes": 13798
+    },
+    {
+      "path": "evidence/22f1cfe16506d7b9-CODE.json",
+      "sha256": "22f1cfe16506d7b96f0c0cbc58a0ab2a2015afe5efb9af34393850b04d01caf3",
+      "bytes": 2427
+    },
+    {
+      "path": "evidence/2ef3db414e82aae0-WORK-END.json",
+      "sha256": "2ef3db414e82aae0e85517d2c82490b9efae74ffa2bb1555937c83f279c2921a",
+      "bytes": 328
+    },
+    {
+      "path": "evidence/6376365c98c66f36-PREVIOUS-FREEZE-CHECK.json",
+      "sha256": "6376365c98c66f36c693d32cae58f7910066cd758f08b7d747770786383a5e49",
+      "bytes": 445
+    },
+    {
+      "path": "evidence/2b92819dd7da22e5-MANIFEST.json",
+      "sha256": "2b92819dd7da22e51b50745c4dcd76dd9f4d31cdf91cfddaa1570628a3fd6552",
+      "bytes": 29659
+    },
+    {
+      "path": "evidence/597c3822fdabb38f-PACKAGE-CHECK.json",
+      "sha256": "597c3822fdabb38f863d122fbe69cea59fc4fa5dd48152ea12b3b2a6acb6d07f",
+      "bytes": 329468
+    }
+  ],
+  "ingested": "2026-10-20T04:48:17-07:00"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "E-c1b93857281bdc7e9985",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-c1b93857281bdc7e9985",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1045~1NFI.json/items/1",
+    "row_id": "NFI-045-PATCH-EDGE",
+    "fields": {
+      "id": "NFI-045-PATCH-EDGE",
+      "tag": "QUESTIONABLE",
+      "claim": "The lost-core patch is read clamped (54.8 mm) and simply supported (27.1 mm); the real edge, a face continuous over intact core, lies between. The pressure that holds the face on the crushed core is a barrier this static reading ignores.",
+      "needed_to_ground": "A plate-on-crushable-foundation analysis of the dented patch, or the coupon test above."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The lost-core patch is read clamped (54.8 mm) and simply supported (27.1 mm); the real edge, a face continuous over intact core, lies between. The pressure that holds the face on the crushed core is a barrier this static reading ignores.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1045~1NFI.json/items/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

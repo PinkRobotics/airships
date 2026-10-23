@@ -1,0 +1,118 @@
+{
+  "primary_sources": [
+    {
+      "id": "MIL310",
+      "tag": "QUESTIONABLE",
+      "title": "MIL-HDBK-310, Global Climatic Data for Developing Military Products, 23 June 1997",
+      "url": "https://chet-aero.com/wp-content/uploads/2016/11/mil-hdbk-310.pdf",
+      "official_catalogue": "https://quicksearch.dla.mil/qsDocDetails.aspx?ident_number=202658",
+      "facts": {
+        "surface_hot_1_5_10_percent_C": [
+          49,
+          46,
+          45
+        ],
+        "hot_peak_RH_fraction": 0.03,
+        "surface_absolute_humidity_dewpoint_1_5_10_percent_C": [
+          31,
+          30,
+          29
+        ],
+        "joint_hot_temperature_C": 43.3,
+        "joint_dewpoint_1_5_10_percent_C": [
+          27.8,
+          24.4,
+          20
+        ],
+        "low_pressure_at_1km_1_5_10_percent_hPa": [
+          847,
+          856,
+          861
+        ]
+      },
+      "locations": [
+        "5.1.1.2 p7 and Table I p72",
+        "5.1.3.2 p9",
+        "5.1.5.2 p10",
+        "5.3.1.13.2 p44 and Table XXVI p95"
+      ],
+      "visual_audit": [
+        "sources/mil-hot-p7.png",
+        "sources/mil-hot-humid-p10.png",
+        "sources/mil-air-temperature-p89.png",
+        "sources/mil-lowpressure-p95.png"
+      ],
+      "limitations": "Marginal extremes are not a complete joint weather day. Sea-level low-pressure quantiles are absent from Table XXVI. Surface values are mapped to altitude by explicitly projected profiles. No annual/local availability inferred."
+    },
+    {
+      "id": "NCAR-BUCK",
+      "tag": "QUESTIONABLE",
+      "title": "Vömel, Water Vapor Pressure Formulations, NSF NCAR EOL",
+      "url": "https://www.eol.ucar.edu/data-software/conventions-and-standards/water-vapor-pressure-formulations",
+      "doi": "10.26023/S2SX-K278",
+      "used": "Buck 1996 updated water and ice saturation formulae",
+      "correction": "model50.py's es_water docstring says Buck (1981). Its actual coefficients are the 1996 update; numeric results use the displayed updated formula. Code was preserved after the retry request pin.",
+      "limitations": "Pure saturation curve; pressure enhancement and real-gas corrections omitted. RH in the weather grid is relative to liquid water, including below freezing."
+    },
+    {
+      "id": "DONG2020",
+      "tag": "QUESTIONABLE",
+      "title": "Dong et al., Fundamental Limits of the Dew-Harvesting Technology",
+      "url": "https://arxiv.org/pdf/1909.05757",
+      "doi": "10.1080/15567265.2020.1722300",
+      "used": "Equations 1--3: coupled radiative/convection/latent-energy balance and Lewis heat/mass analogy; Le=.87, exponent -2/3.",
+      "limitations": "The paper's condenser and spectral atmosphere are not this sphere. Our grey-sky, two-skin enthalpy model is a new PROJECTION; no experimental deposition result is transferred as a hull measurement."
+    },
+    {
+      "id": "NIST-BE",
+      "tag": "QUESTIONABLE",
+      "title": "NIST-JANAF Be(cr) heat-capacity table",
+      "url": "https://janaf.nist.gov/tables/Be-002.html",
+      "web_read": true,
+      "raw_download_status": "403",
+      "used": "Room-temperature scale for a rounded 1825 J/(kg K) heat capacity; table varies with temperature.",
+      "limitations": "Fixed room-temperature capacity is a planning approximation, especially for the cold frost case."
+    },
+    {
+      "id": "NIST-AL",
+      "tag": "QUESTIONABLE",
+      "title": "NIST Chemistry WebBook aluminum solid Shomate heat capacity",
+      "url": "https://webbook.nist.gov/cgi/cbook.cgi?ID=C7429905&Mask=42",
+      "web_read": true,
+      "used": "Room-temperature scale for rounded 900 J/(kg K) aluminum-core capacity.",
+      "limitations": "Constant capacity and bulk-metal transfer to honeycomb; polymer heat capacity omitted."
+    }
+  ],
+  "download_pins": [
+    {
+      "url": "https://chet-aero.com/wp-content/uploads/2016/11/mil-hdbk-310.pdf",
+      "path": "unpublished-local-ref:42a75d7c161d6fd2",
+      "sha256": "51a399898bec1bbc457794b7a5e20d9c459014dcdb3563772597ebeb8aa86665",
+      "bytes": 526195,
+      "retrieved_at": "2026-10-20T11:54:27.475683+00:00",
+      "classification": "Original US DoD handbook, public mirror; official DLA catalogue confirms document identity/date."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1909.05757",
+      "path": "unpublished-local-ref:d6548870bdda87b1",
+      "sha256": "19c8fa54dd34865b1412b20c48a59de4f05b78e7c804be235be84f9b35d1d2c3",
+      "bytes": 1826832,
+      "retrieved_utc": "2026-10-20T12:10:08.131585+00:00"
+    },
+    {
+      "url": "https://www.eol.ucar.edu/data-software/conventions-and-standards/water-vapor-pressure-formulations",
+      "path": "unpublished-local-ref:5958798802787c44",
+      "sha256": "fb1d4959466099c49aead9bdc1155d23526293d636c98f0db12352d9e5b38ebe",
+      "bytes": 81705,
+      "retrieved_utc": "2026-10-20T12:10:08.522354+00:00"
+    }
+  ],
+  "inherited_material_source_registers": [
+    "inputs/040/INPUTS.json",
+    "inputs/048/COATING-EVIDENCE.md",
+    "inputs/048/SOURCE-AUDIT.md",
+    "inputs/048/WEB-FACTS.json",
+    "inputs/034/INPUTS.json"
+  ],
+  "source_ownership": "Government handbook and original research/official technical references; no secondary web result used to set a numerical input."
+}

@@ -1,0 +1,785 @@
+{
+  "worker": "A",
+  "passages": [
+    13,
+    24,
+    31,
+    32,
+    37,
+    "217-236"
+  ],
+  "sources_read": [
+    {
+      "path": "evidence/d7e6bb886c179c1c-CARD.md",
+      "sha256": "d7e6bb886c179c1cc83c7de5ff418aa5f1e37bdd3d166756d3c5ea4f04adc366"
+    },
+    {
+      "path": "evidence/d306c0c3c346c304-CHECK.md",
+      "sha256": "d306c0c3c346c30481970e36b847704403801a6daec2b7002f2bffd4b3f4637b"
+    },
+    {
+      "path": "evidence/68b672117e4da331-CARD.md",
+      "sha256": "68b672117e4da331224b7d6a2a72668bca02f1965e7e517ec1960e2195322723"
+    },
+    {
+      "path": "evidence/00b1485e268b733c-RISE-CHECK.json",
+      "sha256": "00b1485e268b733c58f49fee17538802432a35638f47ef66722cf2ca0abeb732"
+    },
+    {
+      "path": "evidence/dbf078007642c884-MISMATCHES.md",
+      "sha256": "dbf078007642c884a32035a427c7c3de5d637dad76ccb75ed47b4908da91272a"
+    },
+    {
+      "path": "evidence/3200c54e4337d87c-CHECK.md",
+      "sha256": "3200c54e4337d87cdb35f817ec4e696f66513f32950b696210f042ac13a424f2"
+    },
+    {
+      "path": "evidence/954a71fafc161ef1-PRIOR-EXPOSURE.json",
+      "sha256": "954a71fafc161ef14f446c69840a745fab11008b60248f5830997ad52c45bc53"
+    },
+    {
+      "path": "evidence/27c2e9fb9c418d52-CARD.md",
+      "sha256": "27c2e9fb9c418d528f5145a4f2b6d0dbc352fd558f71c56947a1166e776d559d"
+    },
+    {
+      "path": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv",
+      "sha256": "05ec78b6ec5d7d5efb0bb987fef76de1008f2443aecfaa2a78287fbbfe0cccd0"
+    },
+    {
+      "path": "evidence/9398e5577489bda5-RESULTS.json",
+      "sha256": "9398e5577489bda550a54b582adeda7b0291be54ef326107ac0291c56a59a494"
+    },
+    {
+      "path": "evidence/cb0e401429d9e580-CARD.md",
+      "sha256": "cb0e401429d9e580034082d3656a6af1128be5be0f3e7463fbe4d9c33209b8f4"
+    },
+    {
+      "path": "evidence/aad6f5987d63ba88-RESULTS.json",
+      "sha256": "aad6f5987d63ba8894eb8e2656b7863346d3897c33bb6b3ff46081a2603fd5ed"
+    },
+    {
+      "path": "evidence/eb94630169fed813-ALTERNATE-FIBRES.csv",
+      "sha256": "eb94630169fed81368fdd353109c7d12f670c35ab0538fc15ca0c266c2f518ea"
+    },
+    {
+      "path": "evidence/d470b81aa125e59e-rpt-ref-e999413f5ed23130ebf6--CARD--d470b81aa125.md",
+      "sha256": "d470b81aa125e59efb7e82ba8cfc549fc879914dc168f9a61367abd60d9120f0"
+    },
+    {
+      "path": "evidence/c82b7ee0bee5d144-report.json",
+      "sha256": "c82b7ee0bee5d14471075a4ede601a06c5d2f11a1d512a6e946138e7ce1887f1"
+    },
+    {
+      "path": "evidence/8d49e5a23af0bf19-report.json",
+      "sha256": "8d49e5a23af0bf19b3f5a452a672b2de0071066aaf291bd7b033d91f3da26f6b"
+    },
+    {
+      "path": "evidence/e4361618638fa2c6-report.json",
+      "sha256": "e4361618638fa2c65717786ffb591347905fdc84475513057a0914b1f9a9a90c"
+    },
+    {
+      "path": "evidence/c6133bdfe3dfed3c-report.json",
+      "sha256": "c6133bdfe3dfed3c2efa3be162715e2f7a2b21860d516f054f98a54f82722c8c"
+    },
+    {
+      "path": "evidence/7f6e1ed81c6fb63c-report.json",
+      "sha256": "7f6e1ed81c6fb63c8febe91f41a2394583559e9509dc338f2ac3a836f5292d20"
+    }
+  ],
+  "items": [
+    {
+      "line": 13,
+      "passage": "top table: intact 5% SF",
+      "card_value": "1.143285",
+      "source_value": "1.143284618673",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': \"Closed f5 SF, 5% / 019 | 1.143284618673 / 1.083205354425\"; also 051 CARD.md table \"1.143284619\"",
+      "status": "ROUNDING",
+      "note": "1.143284618673 -> 1.143285 (6 dp)"
+    },
+    {
+      "line": 13,
+      "passage": "top table: intact 019 SF",
+      "card_value": "1.083205",
+      "source_value": "1.083205354425",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': same row",
+      "status": "ROUNDING",
+      "note": "1.083205354425 -> 1.083205"
+    },
+    {
+      "line": 13,
+      "passage": "top table: local 5%",
+      "card_value": "1.033223",
+      "source_value": "1.033222935398",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': \"Peak-compression local-wall sensitivity, f5 | 1.033222935398 / 0.978132016803\"; 051 CARD.md \"1.033222935\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 13,
+      "passage": "top table: local 019",
+      "card_value": "0.978132",
+      "source_value": "0.978132016803",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': same row",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 13,
+      "passage": "top table: warehouse film 5%",
+      "card_value": "0.985018",
+      "source_value": "0.9850184411834141",
+      "source": "evidence/aad6f5987d63ba88-RESULTS.json scenario light_blocked_warehouse_endpoint_exponential, point 041-5, age_years 10: \"film_SF\": 0.9850184411834141; ALTERNATE-FIBRES.csv row protected_PBO_warehouse_extrapolation,041-5 same value; 046 CARD.md line 119 \"0.9850\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 13,
+      "passage": "top table: warehouse film 019",
+      "card_value": "0.933256",
+      "source_value": "0.9332560171569949",
+      "source": "evidence/aad6f5987d63ba88-RESULTS.json same scenario, point 041-019: \"film_SF\": 0.9332560171569949",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 13,
+      "passage": "top table: warehouse film label",
+      "card_value": "\"warehouse film 0.985018/0.933256\"",
+      "source_value": null,
+      "source": "046 CARD.md lines 110-119: \"Warehouse exponential is an endpoint extrapolation, not a match to the early part of its source curve\"; scenario row at Years=10",
+      "status": "WORDING",
+      "note": "Value is the TEN-YEAR light-blocked warehouse-endpoint-exponential film SF (PROJECTION, PBO). Line 13 omits \"ten-year\" and \"extrapolation\" (lines 133 and 151 of the same CARD supply it). Minor omission, not a misstatement of the value."
+    },
+    {
+      "line": 24,
+      "passage": "own-screen Pf member-scale 5%",
+      "card_value": "0.002524",
+      "source_value": "0.00252417 (fold CARD); 0.00252416976042 (CHECK-043 CARD)",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md table \"Frame Pf\" rows 041 5%/019 own screen: \"0.00252417\"; evidence/d306c0c3c346c304-CHECK.md table \"0.00252416976042\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 24,
+      "passage": "own-screen Pf member-scale 019",
+      "card_value": "0.002143",
+      "source_value": "0.00214283 (fold CARD); 0.00214282731417 (CHECK-043)",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md table \"Frame Pf\" rows 041 5%/019 own screen: \"0.00214283\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 24,
+      "passage": "assumed member scale",
+      "card_value": "3.9 GPa",
+      "source_value": "3.9 GPa",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md \"common complete-member scale ... assumed 3.9 GPa\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 24,
+      "passage": "Weibull m",
+      "card_value": "m=10",
+      "source_value": "m=10",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md \"hypothetical compression m=10\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 24,
+      "passage": "1 cm3 interpretation Pf 5%",
+      "card_value": "0.991133",
+      "source_value": "0.991133 (fold CARD); 0.991132667006 (CHECK-043)",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md table \"Frame Pf\" rows 041 5%/019 own screen: \"0.991133\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 24,
+      "passage": "1 cm3 interpretation Pf 019",
+      "card_value": "0.979046",
+      "source_value": "0.979046 (fold CARD); 0.979046201667 (CHECK-043)",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md table \"Frame Pf\" rows 041 5%/019 own screen: \"0.979046\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 31,
+      "passage": "proof force factor",
+      "card_value": "1.25x target force",
+      "source_value": "1.25",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"1.259378651x the target stress for 1.25x target force\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 31,
+      "passage": "member Euler ratio",
+      "card_value": "0.375",
+      "source_value": "0.37500000000024",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"Its individual-member Euler ratio is only 0.37500000000024\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 31,
+      "passage": "Pf 1e-6 member scale 5%",
+      "card_value": "8.53751 GPa",
+      "source_value": "8.53751",
+      "source": "evidence/d306c0c3c346c304-CHECK.md table \"4.27868 / 8.53751 GPa\"; 8.53751 also in c43 CARD.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 31,
+      "passage": "Pf 1e-6 member scale 019",
+      "card_value": "8.39866 GPa",
+      "source_value": "8.39866",
+      "source": "evidence/d306c0c3c346c304-CHECK.md table \"4.20909 / 8.39866 GPa\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 31,
+      "passage": "rise 8 total mass",
+      "card_value": "5446.291 kg",
+      "source_value": "5446.290625692647 (independent); 5446.29062569268 (inherited field); 5446.290626 in c43 CARD.md",
+      "source": "evidence/00b1485e268b733c-RISE-CHECK.json labeling_finding.current_value_kg 5446.29062569268; evidence/d306c0c3c346c304-CHECK.md \"5,446.290626 kg is charged total\" (c43 CARD.md)",
+      "status": "ROUNDING",
+      "note": "5446.2906 -> 5446.291"
+    },
+    {
+      "line": 31,
+      "passage": "rise 8 tube mass",
+      "card_value": "5039.558 kg",
+      "source_value": "5039.557738754902",
+      "source": "evidence/00b1485e268b733c-RISE-CHECK.json derived.rise8_m12.tube_mass_kg 5039.557738754902",
+      "status": "ROUNDING",
+      "note": "5039.5577 -> 5039.558"
+    },
+    {
+      "line": 31,
+      "passage": "Euler wording",
+      "card_value": "\"At 1.25x target force the member Euler ratio is 0.375, not buckling.\"",
+      "source_value": null,
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"Exceeding the source combined/local/global screen therefore does not demonstrate that this individual member has crossed its Euler load. The unsupported assembly and local wall still require separate assessment.\"",
+      "status": "WORDING",
+      "note": "Source says only that the INDIVIDUAL selected-section member (ratio 0.375 < 1) is not shown to have crossed Euler load; \"not buckling\" without the scope \"individual member, selected-section example\" reads broader than the source (assembly/local wall unassessed). Card line 227 states the scope correctly. Minor."
+    },
+    {
+      "line": 32,
+      "passage": "fixed f5 screen 5%",
+      "card_value": "1.143285",
+      "source_value": "1.143284618673",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': \"Closed f5 SF, 5% / 019 | 1.143284618673 / 1.083205354425 | Reproduced\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 32,
+      "passage": "fixed f5 screen 019",
+      "card_value": "1.083205",
+      "source_value": "1.083205354425",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': \"Closed f5 SF, 5% / 019 | 1.143284618673 / 1.083205354425 | Reproduced\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 32,
+      "passage": "local sensitivity 5%",
+      "card_value": "1.033223",
+      "source_value": "1.033222935398",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': \"Peak-compression local-wall sensitivity, f5 | 1.033222935398 / 0.978132016803 | Reproduced\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 32,
+      "passage": "local sensitivity 019",
+      "card_value": "0.978132",
+      "source_value": "0.978132016803",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table 'Priority quantity': \"Peak-compression local-wall sensitivity, f5 | 1.033222935398 / 0.978132016803 | Reproduced\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 32,
+      "passage": "nine differing printed cells",
+      "card_value": "Nine printed cells differ",
+      "source_value": "9 (three nonlinear midpoint + six film)",
+      "source": "evidence/3200c54e4337d87c-CHECK.md \"89 match the displayed precision; three nonlinear midpoint cells and six film cells differ\" (98 numeric cells)",
+      "status": "MATCH",
+      "note": "89+9=98"
+    },
+    {
+      "line": 32,
+      "passage": "m24 bracket corroboration (m24)",
+      "card_value": "m24 bracket corroborated",
+      "source_value": null,
+      "source": "evidence/3200c54e4337d87c-CHECK.md \"m24 ... Independent bracket contained in owner bracket\"; \"the reported 5.43 sign bracket is independently corroborated\"",
+      "status": "MATCH",
+      "note": "Claim supported for m24; m6 differs and m12 contained, not asserted by card."
+    },
+    {
+      "line": 32,
+      "passage": "prior exposure disclosure",
+      "card_value": "prior postprocessor exposure is disclosed",
+      "source_value": null,
+      "source": "evidence/954a71fafc161ef1-PRIOR-EXPOSURE.json owner_files_read_before_this_check [force_stats.py, score.py]; CHECK.md \"This is not a blind review\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "target rows filed",
+      "card_value": "All 288",
+      "source_value": "288 rows (289 lines incl header in TARGET-SURFACE.csv); 'completed': '288-row reliability target surface'",
+      "source": "evidence/9398e5577489bda5-RESULTS.json completed[0]; CSV line count 289",
+      "status": "MATCH",
+      "note": "m=5..40 (36) x 2 reserves x 2 loads x 2 targets = 288"
+    },
+    {
+      "line": 37,
+      "passage": "assumed member scale",
+      "card_value": "3.9 GPa",
+      "source_value": "3.9 GPa",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"whole-member scale 3.9 GPa\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "m",
+      "card_value": "m10",
+      "source_value": "m=10",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"compression m=10\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "q1 Pf 5%",
+      "card_value": "0.000643916",
+      "source_value": "0.000643916 (CARD); 0.0006439158267920496 (RESULTS.json hypothetical_whole_3p9_m10_Pf)",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"frame Pf at operating pressure q=1 is 0.000643916 / 0.000947308\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "q1 Pf 019",
+      "card_value": "0.000947308",
+      "source_value": "0.000947308; 0.0009473076803051309",
+      "source": "evidence/9398e5577489bda5-RESULTS.json target_summary 019 operating",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "threshold",
+      "card_value": "1e-3",
+      "source_value": "1e-3",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"Both meet 1e-3 within that restricted model\"",
+      "status": "MATCH",
+      "note": "0.000643916<0.001, 0.000947308<0.001; own-screen 0.00252417/0.00214283 > 0.001"
+    },
+    {
+      "line": 37,
+      "passage": "own-screen scale 5% Pf1e-3",
+      "card_value": "4.278678",
+      "source_value": "4.2786780446331525",
+      "source": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv row 5,own_screen,m10,0.001 equal_complete_member_scale_GPa",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "own-screen scale 019 Pf1e-3",
+      "card_value": "4.209090",
+      "source_value": "4.209089622520025",
+      "source": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv row 019,own_screen,m10,0.001; CARD prints \"4.209090\"",
+      "status": "ROUNDING",
+      "note": "4.2090896 -> 4.209090"
+    },
+    {
+      "line": 37,
+      "passage": "f5 stress amplification",
+      "card_value": "2.427/2.480",
+      "source_value": "2.427/2.480",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"Its f5 peak stress factors are 2.427/2.480\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "f4 stress factor",
+      "card_value": "3.27",
+      "source_value": "3.27",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"the larger 3.27 stress factor belongs to f4\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 37,
+      "passage": "typographic",
+      "card_value": "\"041d amage\", \"f5stress\", \"3.27f4factor\" (line 233)",
+      "source_value": null,
+      "source": "typo only; source says \"041 hail probabilities\" / \"f5 peak stress factors\"",
+      "status": "WORDING",
+      "note": "Spacing typos, no change of meaning. Line 37 says \"041d amage\" where the 051 CARD says unfinished/null \"041-section hail calculation\" (RESULTS.json incomplete[]) - \"damage\" is a loose paraphrase of hail-probability."
+    },
+    {
+      "line": 221,
+      "passage": "table peak compression 5%",
+      "card_value": "1.164235",
+      "source_value": "1.164234798 (c43 table 1164.234798 MPa)",
+      "source": "evidence/d306c0c3c346c304-CHECK.md table \"041 f5, 5% reserve | 1014.552361 | 1164.234798\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 222,
+      "passage": "table peak compression 019",
+      "card_value": "1.145748",
+      "source_value": "1.145747561",
+      "source": "evidence/d306c0c3c346c304-CHECK.md table \"041 f5, 019 reserve | 1055.262 | 1145.747561\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 221,
+      "passage": "table Pf member-scale 5%",
+      "card_value": "0.002524170",
+      "source_value": "0.00252416976042",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"5%, own screen | 0.00252416976042\"",
+      "status": "ROUNDING",
+      "note": "9-dp rounding"
+    },
+    {
+      "line": 221,
+      "passage": "table Pf 1cm3 5%",
+      "card_value": "0.991132667",
+      "source_value": "0.991132667006",
+      "source": "evidence/d306c0c3c346c304-CHECK.md same row",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 222,
+      "passage": "table Pf member-scale 019",
+      "card_value": "0.002142827",
+      "source_value": "0.00214282731417",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"019, own screen | 0.00214282731417\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 222,
+      "passage": "table Pf 1cm3 019",
+      "card_value": "0.979046202",
+      "source_value": "0.979046201667",
+      "source": "evidence/d306c0c3c346c304-CHECK.md same row",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 221,
+      "passage": "table scale Pf1e-6 5%",
+      "card_value": "8.53751",
+      "source_value": "8.53751",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"4.27868 / 8.53751 GPa\"; 051 CSV 8.537511676",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 222,
+      "passage": "table scale Pf1e-6 019",
+      "card_value": "8.39866",
+      "source_value": "8.39866",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"4.20909 / 8.39866 GPa\"; 051 CSV 8.398657582",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 219,
+      "passage": "frame size",
+      "card_value": "750-member",
+      "source_value": "750",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md \"750 actual\" members",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 219,
+      "passage": "scales",
+      "card_value": "m=10 and 3.9 GPa",
+      "source_value": "m=10; 3.9 GPa",
+      "source": "evidence/d7e6bb886c179c1c-CARD.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 225,
+      "passage": "partial-051 rows",
+      "card_value": "288-row",
+      "source_value": "288",
+      "source": "evidence/9398e5577489bda5-RESULTS.json",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 225,
+      "passage": "q",
+      "card_value": "q=1",
+      "source_value": "q=1.0",
+      "source": "evidence/9398e5577489bda5-RESULTS.json target_summary operating q 1.0",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 225,
+      "passage": "Pf q=1 5%/019",
+      "card_value": "0.000643916/0.000947308",
+      "source_value": "0.000643916 / 0.000947308",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"0.000643916 / 0.000947308\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 225,
+      "passage": "meet threshold",
+      "card_value": "10^-3",
+      "source_value": "1e-3",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 225,
+      "passage": "own-screen scales Pf1e-3",
+      "card_value": "4.278678/4.209090",
+      "source_value": "4.2786780446 / 4.2090896225",
+      "source": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 225,
+      "passage": "1 cm3 coupon targets Pf1e-3",
+      "card_value": "9.088382/8.907641 GPa",
+      "source_value": "9.088381902224079 / 8.907641390061102",
+      "source": "evidence/05ec78b6ec5d7d5e-TARGET-SURFACE.csv coupon_1cm3_scale_GPa m=10 Pf 0.001 own_screen; CARD.md \"9.088382 / 8.907641 GPa\"",
+      "status": "ROUNDING",
+      "note": "card sentence does not state Pf level for the coupon targets; they are the Pf=1e-3 values (Pf1e-6 coupon targets are 18.134612/17.773969)."
+    },
+    {
+      "line": 233,
+      "passage": "construction families",
+      "card_value": "14",
+      "source_value": "14",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"14 construction/evidence families\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 233,
+      "passage": "composite compression averages",
+      "card_value": "890/1450 MPa",
+      "source_value": "890 and 1,450 MPa",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md \"composite compression averages of 890 and 1,450 MPa\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 233,
+      "passage": "f5 stress factors",
+      "card_value": "2.427/2.480",
+      "source_value": "2.427/2.480",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 233,
+      "passage": "f4 stress factor",
+      "card_value": "3.27",
+      "source_value": "3.27",
+      "source": "evidence/27c2e9fb9c418d52-CARD.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 233,
+      "passage": "status",
+      "card_value": "\"The assignment stays PENDING\"",
+      "source_value": null,
+      "source": "evidence/9398e5577489bda5-RESULTS.json status \"PARTIAL_HELD_RESOURCE_ADMISSION\", work_complete false; CARD \"PARTIAL / HELD\"",
+      "status": "WORDING",
+      "note": "Source status is PARTIAL / HELD (resource refusal), card says PENDING; consistent in substance but a different status word. Low."
+    },
+    {
+      "line": 227,
+      "passage": "proof factor",
+      "card_value": "1.25x",
+      "source_value": "1.25",
+      "source": "evidence/d306c0c3c346c304-CHECK.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 227,
+      "passage": "stress factor",
+      "card_value": "1.259378651x",
+      "source_value": "1.259378651",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"1.259378651x the target stress for 1.25x target force\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 227,
+      "passage": "Euler ratio",
+      "card_value": "0.375",
+      "source_value": "0.37500000000024",
+      "source": "evidence/d306c0c3c346c304-CHECK.md",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 227,
+      "passage": "f5 proof examples exceed screens",
+      "card_value": "\"The separate f5 proof examples also exceed their respective screens\"",
+      "source_value": null,
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"f5 proof examples reproduce 1.429105773 / 1.354006693 pressure multipliers and roughly 1.00213 / 0.94965 MN ...; both exceed their source screens\"; fold CARD \"Both exceed the corresponding source screen\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 227,
+      "passage": "unresolved list",
+      "card_value": "\"rejection population and proof damage remain unresolved\"",
+      "source_value": null,
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"owner rejection fractions are per member ... not frame rejection rates\"; \"does not cover proof damage\"",
+      "status": "MATCH",
+      "note": "Loose but supported."
+    },
+    {
+      "line": 229,
+      "passage": "rise 8 charged total",
+      "card_value": "5446.290626 kg",
+      "source_value": "5446.290625692647 / 5446.29062569268",
+      "source": "evidence/00b1485e268b733c-RISE-CHECK.json",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 229,
+      "passage": "rise 8 tube mass",
+      "card_value": "5039.557739 kg",
+      "source_value": "5039.557738754902",
+      "source": "evidence/00b1485e268b733c-RISE-CHECK.json",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 229,
+      "passage": "difference",
+      "card_value": "406.732887 kg",
+      "source_value": "406.732886937778",
+      "source": "evidence/d306c0c3c346c304-CHECK.md \"The 406.732886937778 kg difference\"; RISE-CHECK excess 406.73288693777795",
+      "status": "DERIVED-OK",
+      "note": "python: 5446.29062569268-5039.557738754902=406.73288693777795; card-rounded 5446.290626-5039.557739=406.732887"
+    },
+    {
+      "line": 235,
+      "passage": "m24 bracket lower",
+      "card_value": "5.430900815498",
+      "source_value": "5.430900815498",
+      "source": "evidence/3200c54e4337d87c-CHECK.md table \"24 | ... | [5.430900815498, 5.430922833327]\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 235,
+      "passage": "m24 bracket upper",
+      "card_value": "5.430922833327",
+      "source_value": "5.430922833327",
+      "source": "evidence/3200c54e4337d87c-CHECK.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 235,
+      "passage": "differing cells",
+      "card_value": "nine; three nonlinear midpoints and six film values",
+      "source_value": "9 = 3 + 6",
+      "source": "evidence/3200c54e4337d87c-CHECK.md",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 235,
+      "passage": "film multipliers (checker)",
+      "card_value": "7.151119777/2.046193535",
+      "source_value": "7.151119777417 / 2.046193535357 (Independent value, rigid / pinned perfect linear lambda)",
+      "source": "evidence/3200c54e4337d87c-CHECK.md film table \"Perfect linear lambda | 7.155002496828 | 7.151119777417\"",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 235,
+      "passage": "film multipliers (owner)",
+      "card_value": "7.155002497/2.047133403",
+      "source_value": "7.155002496828 / 2.047133403424 (Owner raw value)",
+      "source": "evidence/3200c54e4337d87c-CHECK.md",
+      "status": "ROUNDING",
+      "note": ""
+    },
+    {
+      "line": 235,
+      "passage": "film multipliers context",
+      "card_value": "\"film multipliers\"",
+      "source_value": null,
+      "source": "evidence/3200c54e4337d87c-CHECK.md \"Film tangent case at m6\"",
+      "status": "WORDING",
+      "note": "Values are m6-mesh film-tangent perfect linear lambdas; card does not say which side is owner/independent nor that they are m6. Minor omission."
+    },
+    {
+      "line": 235,
+      "passage": "zero-start nonlinear",
+      "card_value": "zero-start m24 nonlinear bracket",
+      "source_value": null,
+      "source": "evidence/3200c54e4337d87c-CHECK.md \"Independent nonlinear continuations start from zero displacement\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 235,
+      "passage": "did not rerun optimization",
+      "card_value": "did not rerun optimization",
+      "source_value": null,
+      "source": "evidence/3200c54e4337d87c-CHECK.md \"the full optimization search has not been repeated\"",
+      "status": "MATCH",
+      "note": ""
+    },
+    {
+      "line": 235,
+      "passage": "bare-pin claim",
+      "card_value": "\"Bare-pin mechanisms do not become a stable practical frame.\"",
+      "source_value": null,
+      "source": "evidence/3200c54e4337d87c-CHECK.md \"supports zero positive stable margin for the prescribed bare pinned configuration. It does not classify every rearranged shape.\"",
+      "status": "WORDING",
+      "note": "Source: zero positive stable margin for the PRESCRIBED bare pinned configuration (480 members, six whole-frame null motions); explicitly does not classify other arrangements, and says nothing about \"practical frame\". Card sentence is broader/different in phrasing."
+    }
+  ],
+  "summary": {
+    "numbers": 70,
+    "match": 70,
+    "mismatch": 0,
+    "untraceable": 0,
+    "wording": 6,
+    "exact_match": 40,
+    "rounding": 29,
+    "derived_ok": 1
+  }
+}

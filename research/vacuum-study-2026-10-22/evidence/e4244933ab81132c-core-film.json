@@ -1,0 +1,1964 @@
+{
+  "topic": "core-film",
+  "searched": [
+    "Seat files catalog.json, metal-lattice.json, ceramic-carbon-lattice.json (read; reused: HRH-10 3/8-1.5, A1-23-19, Meza 2014, Zhu 2015, Maloney 2013 records).",
+    "Hexcel CR III datasheet https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf: opened, tables parsed (48 rows 5052/5056). 5056 3/8-1.0 row confirmed.",
+    "Hexcel 'HexWeb Honeycomb Attributes and Properties' 2016 edition (ATA 377 FB17c) from hexcel.com/wp-content/uploads/2026/01: opened; 5052/5056 tables p.26-27, HRH-10, HRH-36, HRH-49 tables, shear-vs-density figures (plots only, not read off).",
+    "TSB 120 (11/99) = 1999 edition of 'HexWeb Honeycomb Attributes and Properties': opened via pccomposites.com copy (sha256 identical to the Hexcel-hosted copy captured 2006-03-12 on the Wayback Machine). Tables printed pp.16-17 identical to 2016 for modulus and crush columns at <= 3.2 pcf (differences only in a few bare-strength cells at 4.5-6.9 pcf and one typo, 5052 3/16-2.0 W modulus 14.3 vs 13.3).",
+    "Hexcel CR III Data Sheet 2100 (12/98) from Wayback capture 2001-07-22 and Data Sheet 2100/January 2004 from Wayback capture 2006-03-12: opened, 5056 3/8-1.0 row identical.",
+    "Hexcel TSB 120 earlier editions (1981 revision, 1984, 1987, 1992) and the 1970s-80s Hexcel tables: NOT FOUND online. Cited by DTIC ADA168713 (1981 revision, read), an LS-DYNA slide deck (1984 revision, read), Sandia SAND2006-4455 (opened; dated 1992 in its reference list) and, per a search summary only, a Springer article (1987); none reproduces the low-density aluminium rows.",
+    "NASA NTRS: API search (several queries) and DTIC/archive.org advanced search for 1950s-1980s aluminium honeycomb reports. Opened: NASA TM-88893 (1986, Hexcel 5052 1/4-1.6 properties, used), DTIC AD0066561 (1954 Hexcel aluminium honeycomb sandwich development, used for adhesive weights), DTIC ADA168713 (Hexcel 1986 report; cores of 3.6-4.8 pcf only, not used), DTIC ADA207355, AD0432259, ADA083715, AD0402170, ADA122004 (OCR grepped, no usable low-density modulus values).",
+    "MIL-HDBK-23 / 23A (1968) and MIL-C-7438 minima: searched; no downloadable text found (SAE Mobilus listing and NYPL catalogue record only). NOT FOUND.",
+    "Wayback Machine: CDX queries for hexcel.com/NR and hexcelcomposites.com techdata worked intermittently (HTTP 429 and 'temporarily offline' at times). Older 3M and Cytec film-adhesive sheets could not be retrieved.",
+    "Hexcel Redux 312 product data: 2006-03-12 and 2010-12-01 Wayback captures opened (0.015, 0.02, 0.03, 0.06 psf). Redux 335/340/382H/398-5/100/200/609/610/HP655 2001 sheets opened for weights (Redux 335U 150-300 g/m2).",
+    "3M Scotch-Weld AF 163-2 Technical Datasheet (November 2009): opened (0.015 lb/ft2 2U film, 'available for reticulation'). 3M product pages and distributor listings: search results only. First-offered date of 0.015: NOT FOUND.",
+    "Cytec FM 300-2 TDS (AEAD-00004 Rev 02, 27 Sep 2011) and Solvay FM 300 TDS (2018): opened (0.030 psf lightest). FM 73: no data sheet found; Biesterfeld distributor table (100-420 gsm) opened; Boeing shop listing timed out.",
+    "Henkel Loctite EA 9696 AERO bulletin: opened (reticulatable; .030NW and .060NW supported forms); Henkel selector guide downloaded (1 MB, not read in detail).",
+    "Reticulation: Boeing US 4,155,800 (priority 1975-01-27) and US 4,249,974 (priority 1978-08-24) from patents.google.com: opened (4,155,800 read for weights). Missouri S&T / imechanica FM 300-2U reticulation study: search result only.",
+    "Rion, Leterrier, Manson 2008 (doi 10.1016/j.compositesa.2008.05.022): full text opened from EPFL Infoscience (8-80 g/m2, eqs. 15-19). Okada and Kortschot 2002 (Compos. Sci. Technol. 62:1811, doi 10.1016/s0266-3538(02)00099-4): ScienceDirect 403; seen only as a citation in Rion. MDPI 'Sandwich Panels Bond with Advanced Adhesive Films' (doi 10.3390/jcs3030079, steel-faced boards): abstract only; a '50 percent adhesive saving' claim in a search summary could not be verified and is not recorded.",
+    "Hexcel edge-coating patents US 7,507,461 / 7,938,922 (priority 2004-09-01): opened, edge-coat loadings 1.1-6.2 g/sq ft with peel data.",
+    "Carbon honeycomb: ACP Composites APEX Carbon Core data sheet (opened). Kondratiev et al. 2023 (PMC10255388) opened for Ultracor UCF-145/121 specific moduli. Ultracor/Knowde datasheets: not retrievable (empty or blocked). Plascore/Hexcel carbon honeycomb sheets: none found.",
+    "Micro/nano-lattices: Zheng 2014 (doi 10.1126/science.1252291) full text blocked by HTTP 429 at MIT DSpace again; Schaedler 2011 and Meza 2014 shear modulus: none reported in earlier files.",
+    "Limits: MIT OCW 3.054 Lecture 5 (Gibson-Ashby out-of-plane formulas) opened; MakeItFrom 5056-H392 page opened (E 67 GPa, G 25 GPa, 2.7 g/cm3); NASA TM-2018-219753 opened (foil 8.2-8.3 Msi); Hexcel IM7 and HexPly 8552 sheets opened. Wikipedia Hashin-Shtrikman pages returned 404; Berger 2017 seen only in search results."
+  ],
+  "rows": [
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, W direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 2.927,
+      "value_as_printed": "W direction plate shear modulus 6.8 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (Hexcel 'typ'; tested at 0.625 in thickness, MIL-STD-401 / AMS-STD-401 plate shear)",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table II (5056), printed page 5; row cell 3/8, 1.0 pcf",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Hexcel-hosted file is the 2017-copyright datasheet uploaded 2025-12; table values identical to the 2016, 2004 and 1998/99 editions for this row. Derived: 6.8 ksi = 46.88 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 46.88,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, L direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "L direction plate shear modulus 15.0 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table II (5056), printed page 5; row cell 3/8, 1.0 pcf",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Hexcel-hosted file is the 2017-copyright datasheet uploaded 2025-12; table values identical to the 2016, 2004 and 1998/99 editions for this row. Derived: 15.0 ksi = 103.4 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Stabilized compressive (through-thickness) modulus per density, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "Stabilized compressive modulus 15 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (stabilized, bonded between facings; no minimum printed)",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table II (5056), printed page 5; row cell 3/8, 1.0 pcf",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Hexcel-hosted file is the 2017-copyright datasheet uploaded 2025-12; table values identical to the 2016, 2004 and 1998/99 editions for this row. Derived: 15 ksi = 103.4 MPa divided by 16.018 kg/m3. The Modulus column sits between the stabilized-strength and crush columns.",
+      "raw": {
+        "E_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "property": "Crush strength per density, aluminium honeycomb",
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "value": 15.06,
+      "value_as_printed": "Crush strength 35 psi (typ) at nominal 1.0 pcf",
+      "basis": "typical (preliminary-design value; Hexcel states +/-20 percent below 3 pcf)",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table II (5056), printed page 5; row cell 3/8, 1.0 pcf",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Hexcel-hosted file is the 2017-copyright datasheet uploaded 2025-12; table values identical to the 2016, 2004 and 1998/99 editions for this row. Derived: 35 psi = 241.3 kPa divided by 16.018 kg/m3.",
+      "raw": {
+        "crush_kPa": 241.3,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, W direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 2.927,
+      "value_as_printed": "W direction plate shear modulus 6.8 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (Hexcel 'typ'; tested at 0.625 in thickness, MIL-STD-401 / AMS-STD-401 plate shear)",
+      "year": 2016,
+      "era": "~2016",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties (code ATA 377 FB17c, (c) 2016)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2016,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWebHoneycombAttributesandProperties.pdf",
+        "doi": null,
+        "location": "Mechanical Property Tables, 'HexWeb CR III 5056 Hexagonal Aluminum Honeycomb', printed page 27, row 3/8 / 1.0",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "(c) 2016 guide; 5056 table identical to the 2026-hosted datasheet for this row. Derived: 6.8 ksi = 46.88 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 46.88,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, L direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "L direction plate shear modulus 15.0 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical",
+      "year": 2016,
+      "era": "~2016",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties (code ATA 377 FB17c, (c) 2016)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2016,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWebHoneycombAttributesandProperties.pdf",
+        "doi": null,
+        "location": "Mechanical Property Tables, 'HexWeb CR III 5056 Hexagonal Aluminum Honeycomb', printed page 27, row 3/8 / 1.0",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "(c) 2016 guide; 5056 table identical to the 2026-hosted datasheet for this row. Derived: 15.0 ksi = 103.4 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Stabilized compressive (through-thickness) modulus per density, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "Stabilized compressive modulus 15 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (stabilized, bonded between facings; no minimum printed)",
+      "year": 2016,
+      "era": "~2016",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties (code ATA 377 FB17c, (c) 2016)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2016,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWebHoneycombAttributesandProperties.pdf",
+        "doi": null,
+        "location": "Mechanical Property Tables, 'HexWeb CR III 5056 Hexagonal Aluminum Honeycomb', printed page 27, row 3/8 / 1.0",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "(c) 2016 guide; 5056 table identical to the 2026-hosted datasheet for this row. Derived: 15 ksi = 103.4 MPa divided by 16.018 kg/m3. The Modulus column sits between the stabilized-strength and crush columns.",
+      "raw": {
+        "E_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "property": "Crush strength per density, aluminium honeycomb",
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "value": 15.06,
+      "value_as_printed": "Crush strength 35 psi (typ) at nominal 1.0 pcf",
+      "basis": "typical (preliminary-design value; Hexcel states +/-20 percent below 3 pcf)",
+      "year": 2016,
+      "era": "~2016",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties (code ATA 377 FB17c, (c) 2016)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2016,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWebHoneycombAttributesandProperties.pdf",
+        "doi": null,
+        "location": "Mechanical Property Tables, 'HexWeb CR III 5056 Hexagonal Aluminum Honeycomb', printed page 27, row 3/8 / 1.0",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "(c) 2016 guide; 5056 table identical to the 2026-hosted datasheet for this row. Derived: 35 psi = 241.3 kPa divided by 16.018 kg/m3.",
+      "raw": {
+        "crush_kPa": 241.3,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, W direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 2.927,
+      "value_as_printed": "W direction plate shear modulus 6.8 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (Hexcel 'typ'; tested at 0.625 in thickness, MIL-STD-401 / AMS-STD-401 plate shear)",
+      "year": 2004,
+      "era": "~2006",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100/January 2004), Wayback capture 2006-03-12 of hexcel.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2004,
+        "url": "https://web.archive.org/web/20060312094439/http://www.hexcel.com/NR/rdonlyres/EDAE4984-45BC-4FFB-A7C8-1EEFB6439FC3/0/HexWeb_CR3_us.pdf",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100/January 2004, read from the Wayback capture dated 2006-03-12. Identical row. Derived: 6.8 ksi = 46.88 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 46.88,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, L direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "L direction plate shear modulus 15.0 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical",
+      "year": 2004,
+      "era": "~2006",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100/January 2004), Wayback capture 2006-03-12 of hexcel.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2004,
+        "url": "https://web.archive.org/web/20060312094439/http://www.hexcel.com/NR/rdonlyres/EDAE4984-45BC-4FFB-A7C8-1EEFB6439FC3/0/HexWeb_CR3_us.pdf",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100/January 2004, read from the Wayback capture dated 2006-03-12. Identical row. Derived: 15.0 ksi = 103.4 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Stabilized compressive (through-thickness) modulus per density, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "Stabilized compressive modulus 15 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (stabilized, bonded between facings; no minimum printed)",
+      "year": 2004,
+      "era": "~2006",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100/January 2004), Wayback capture 2006-03-12 of hexcel.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2004,
+        "url": "https://web.archive.org/web/20060312094439/http://www.hexcel.com/NR/rdonlyres/EDAE4984-45BC-4FFB-A7C8-1EEFB6439FC3/0/HexWeb_CR3_us.pdf",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100/January 2004, read from the Wayback capture dated 2006-03-12. Identical row. Derived: 15 ksi = 103.4 MPa divided by 16.018 kg/m3. The Modulus column sits between the stabilized-strength and crush columns.",
+      "raw": {
+        "E_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "property": "Crush strength per density, aluminium honeycomb",
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "value": 15.06,
+      "value_as_printed": "Crush strength 35 psi (typ) at nominal 1.0 pcf",
+      "basis": "typical (preliminary-design value; Hexcel states +/-20 percent below 3 pcf)",
+      "year": 2004,
+      "era": "~2006",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100/January 2004), Wayback capture 2006-03-12 of hexcel.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2004,
+        "url": "https://web.archive.org/web/20060312094439/http://www.hexcel.com/NR/rdonlyres/EDAE4984-45BC-4FFB-A7C8-1EEFB6439FC3/0/HexWeb_CR3_us.pdf",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100/January 2004, read from the Wayback capture dated 2006-03-12. Identical row. Derived: 35 psi = 241.3 kPa divided by 16.018 kg/m3.",
+      "raw": {
+        "crush_kPa": 241.3,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, W direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 2.927,
+      "value_as_printed": "W direction plate shear modulus 6.8 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (Hexcel 'typ'; tested at 0.625 in thickness, MIL-STD-401 / AMS-STD-401 plate shear)",
+      "year": 1998,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100 (12/98)), Wayback capture 2001-07-22 of hexcelcomposites.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1998,
+        "url": "https://web.archive.org/web/20010722033315/http://www.hexcelcomposites.com:80/downloads/techdata/HCCRISGU.PDF",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100 (12/98); closest dated edition found to 1996 (two years later). Also printed identically in TSB 120 (11/99), printed page 17. Pre-1998 editions (TSB 120 of 1981, 1984, 1987, 1992) are cited by other documents but were not found online. Derived: 6.8 ksi = 46.88 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 46.88,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, L direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "L direction plate shear modulus 15.0 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical",
+      "year": 1998,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf, foil .0007 in",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100 (12/98)), Wayback capture 2001-07-22 of hexcelcomposites.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1998,
+        "url": "https://web.archive.org/web/20010722033315/http://www.hexcelcomposites.com:80/downloads/techdata/HCCRISGU.PDF",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100 (12/98); closest dated edition found to 1996 (two years later). Also printed identically in TSB 120 (11/99), printed page 17. Pre-1998 editions (TSB 120 of 1981, 1984, 1987, 1992) are cited by other documents but were not found online. Derived: 15.0 ksi = 103.4 MPa divided by 16.018 kg/m3.",
+      "raw": {
+        "G_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Stabilized compressive (through-thickness) modulus per density, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "Stabilized compressive modulus 15 ksi (typ) at nominal 1.0 pcf",
+      "basis": "typical (stabilized, bonded between facings; no minimum printed)",
+      "year": 1998,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100 (12/98)), Wayback capture 2001-07-22 of hexcelcomposites.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1998,
+        "url": "https://web.archive.org/web/20010722033315/http://www.hexcelcomposites.com:80/downloads/techdata/HCCRISGU.PDF",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100 (12/98); closest dated edition found to 1996 (two years later). Also printed identically in TSB 120 (11/99), printed page 17. Pre-1998 editions (TSB 120 of 1981, 1984, 1987, 1992) are cited by other documents but were not found online. Derived: 15 ksi = 103.4 MPa divided by 16.018 kg/m3. The Modulus column sits between the stabilized-strength and crush columns.",
+      "raw": {
+        "E_MPa": 103.42,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "property": "Crush strength per density, aluminium honeycomb",
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "value": 15.06,
+      "value_as_printed": "Crush strength 35 psi (typ) at nominal 1.0 pcf",
+      "basis": "typical (preliminary-design value; Hexcel states +/-20 percent below 3 pcf)",
+      "year": 1998,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data (Data Sheet 2100 (12/98)), Wayback capture 2001-07-22 of hexcelcomposites.com",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1998,
+        "url": "https://web.archive.org/web/20010722033315/http://www.hexcelcomposites.com:80/downloads/techdata/HCCRISGU.PDF",
+        "doi": null,
+        "location": "Table II (5056), row 3/8 - 5056 - .0007, 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007* 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Data Sheet 2100 (12/98); closest dated edition found to 1996 (two years later). Also printed identically in TSB 120 (11/99), printed page 17. Pre-1998 editions (TSB 120 of 1981, 1984, 1987, 1992) are cited by other documents but were not found online. Derived: 35 psi = 241.3 kPa divided by 16.018 kg/m3.",
+      "raw": {
+        "crush_kPa": 241.3,
+        "rho_kg_m3": 16.018
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Plate shear modulus per density, W direction, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 2.917,
+      "value_as_printed": "Plate shear modulus 75.8 (11.0) [kPa as printed, psi in brackets]",
+      "basis": "typical (manufacturer value quoted by NASA)",
+      "year": 1986,
+      "era": "earlier",
+      "material_or_product": "Hexcel 114-5052-0.0007 aluminium honeycomb (1/4 in cell, 1.6 pcf class)",
+      "density_kg_m3": 26.0,
+      "source": {
+        "title": "Mechanical properties characterization of composite sandwich materials intended for space antenna applications (NASA TM-88893)",
+        "org_or_authors": "Kenneth J. Bowles and Raymond D. Vannucci, NASA Lewis Research Center",
+        "year": 1986,
+        "url": "https://ntrs.nasa.gov/api/citations/19880000739/downloads/19880000739.pdf",
+        "doi": null,
+        "location": "Table I (printed page 10), column 'Hexcel 5052 hexagonal aluminum honeycomb'",
+        "quote": "Plate shear modulus, kPa (psi): 75.8 (11.0) | Canpress ion modu1 us (stabi1 i zed), kPa (psi): 137.9 (20.0) | Crushing streggth, kPa (psi): 278.5 (40.0) | Density, g/an (lblin.3): 0.026 (0.0009) (OCR of Table I, column 'Hexcel 5052 hexagonal aluminum honeycomb')"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Hexcel designation 114-5052-0.0007 (1/4 in cell, 5052, foil .0007 in; the 1.6 pcf row of the Hexcel tables). The NASA table prints kPa for what are MPa (75.8 kPa should read 75.8 MPa = 11.0 ksi); the psi column is correct and matches the 1/4-1.6 row of every later Hexcel table (W modulus 11.0 ksi, stabilized modulus 20 ksi, crush 40 psi). The NASA table gives the plate shear modulus without saying L or W; 11.0 ksi is the W value in the Hexcel tables, so it is taken as W. Source values are the manufacturer's, quoted by NASA; the primary edition (Hexcel TSB 120, then current) was not seen. Density uses the printed 0.026 g/cm3 (26 kg/m3; nominal 1.6 pcf = 25.63). Derived: 75.8 MPa / 26 kg/m3.",
+      "raw": {
+        "G_MPa": 75.8,
+        "rho_kg_m3": 26.0
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Stabilized compressive modulus per density, aluminium honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 5.304,
+      "value_as_printed": "Compression modulus (stabilized) 137.9 (20.0)",
+      "basis": "typical (manufacturer value quoted by NASA)",
+      "year": 1986,
+      "era": "earlier",
+      "material_or_product": "Hexcel 114-5052-0.0007 aluminium honeycomb (1/4 in cell, 1.6 pcf class)",
+      "density_kg_m3": 26.0,
+      "source": {
+        "title": "Mechanical properties characterization of composite sandwich materials intended for space antenna applications (NASA TM-88893)",
+        "org_or_authors": "Kenneth J. Bowles and Raymond D. Vannucci, NASA Lewis Research Center",
+        "year": 1986,
+        "url": "https://ntrs.nasa.gov/api/citations/19880000739/downloads/19880000739.pdf",
+        "doi": null,
+        "location": "Table I (printed page 10)",
+        "quote": "Plate shear modulus, kPa (psi): 75.8 (11.0) | Canpress ion modu1 us (stabi1 i zed), kPa (psi): 137.9 (20.0) | Crushing streggth, kPa (psi): 278.5 (40.0) | Density, g/an (lblin.3): 0.026 (0.0009) (OCR of Table I, column 'Hexcel 5052 hexagonal aluminum honeycomb')"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Hexcel designation 114-5052-0.0007 (1/4 in cell, 5052, foil .0007 in; the 1.6 pcf row of the Hexcel tables). The NASA table prints kPa for what are MPa (75.8 kPa should read 75.8 MPa = 11.0 ksi); the psi column is correct and matches the 1/4-1.6 row of every later Hexcel table (W modulus 11.0 ksi, stabilized modulus 20 ksi, crush 40 psi). The NASA table gives the plate shear modulus without saying L or W; 11.0 ksi is the W value in the Hexcel tables, so it is taken as W. Source values are the manufacturer's, quoted by NASA; the primary edition (Hexcel TSB 120, then current) was not seen. Density uses the printed 0.026 g/cm3 (26 kg/m3; nominal 1.6 pcf = 25.63). Derived: 137.9 MPa / 26 kg/m3.",
+      "raw": {
+        "E_MPa": 137.9,
+        "rho_kg_m3": 26.0
+      }
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "property": "Crush strength per density, aluminium honeycomb",
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "value": 10.71,
+      "value_as_printed": "Crushing strength 278.5 (40.0)",
+      "basis": "typical (manufacturer value quoted by NASA)",
+      "year": 1986,
+      "era": "earlier",
+      "material_or_product": "Hexcel 114-5052-0.0007 aluminium honeycomb (1/4 in cell, 1.6 pcf class)",
+      "density_kg_m3": 26.0,
+      "source": {
+        "title": "Mechanical properties characterization of composite sandwich materials intended for space antenna applications (NASA TM-88893)",
+        "org_or_authors": "Kenneth J. Bowles and Raymond D. Vannucci, NASA Lewis Research Center",
+        "year": 1986,
+        "url": "https://ntrs.nasa.gov/api/citations/19880000739/downloads/19880000739.pdf",
+        "doi": null,
+        "location": "Table I (printed page 10)",
+        "quote": "Plate shear modulus, kPa (psi): 75.8 (11.0) | Canpress ion modu1 us (stabi1 i zed), kPa (psi): 137.9 (20.0) | Crushing streggth, kPa (psi): 278.5 (40.0) | Density, g/an (lblin.3): 0.026 (0.0009) (OCR of Table I, column 'Hexcel 5052 hexagonal aluminum honeycomb')"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Hexcel designation 114-5052-0.0007 (1/4 in cell, 5052, foil .0007 in; the 1.6 pcf row of the Hexcel tables). The NASA table prints kPa for what are MPa (75.8 kPa should read 75.8 MPa = 11.0 ksi); the psi column is correct and matches the 1/4-1.6 row of every later Hexcel table (W modulus 11.0 ksi, stabilized modulus 20 ksi, crush 40 psi). The NASA table gives the plate shear modulus without saying L or W; 11.0 ksi is the W value in the Hexcel tables, so it is taken as W. Source values are the manufacturer's, quoted by NASA; the primary edition (Hexcel TSB 120, then current) was not seen. Density uses the printed 0.026 g/cm3 (26 kg/m3; nominal 1.6 pcf = 25.63). Derived: 278.5 kPa / 26 kg/m3 (40 psi).",
+      "raw": {
+        "crush_kPa": 278.5,
+        "rho_kg_m3": 26.0
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Best plate shear modulus per density, W direction, in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 3.145,
+      "value_as_printed": "W modulus 19.0 ksi (typ) at 2.6 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5052, 5/32 in cell, 2.6 pcf",
+      "density_kg_m3": 41.65,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table I / II, row 5052 5/32 / 2.6 pcf",
+        "quote": "5/32 2.6 220 150 240 160 55 90 165 120 37.0 100 70 19.0"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). Compare 5056 3/8-1.0: 2.93; the gain is 7 percent.",
+      "raw": {
+        "value": 131.0,
+        "rho_kg_m3": 41.65
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Best plate shear modulus per density, L direction, in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "L modulus 15.0 ksi (typ) at 1.0 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table I / II, row 5056 3/8 / 1.0 pcf",
+        "quote": "3/8 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). The lead design's own row is the best L value; 5056 1/8-3.1 gives 6.25.",
+      "raw": {
+        "value": 103.42,
+        "rho_kg_m3": 16.02
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Best stabilized compressive modulus per density in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 13.47,
+      "value_as_printed": "Stabilized modulus 97 ksi (typ) at 3.1 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 1/8 in cell, 3.1 pcf",
+      "density_kg_m3": 49.66,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table I / II, row 5056 1/8 / 3.1 pcf",
+        "quote": "1/8 3.1 320 250 350 260 97 170 250 200 45.0 155 110 20.0"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). Modulus per density rises with density in the tables (15 ksi/pcf at 1.0, 31 ksi/pcf at 3.1), so the lightest core is not the best per kg.",
+      "raw": {
+        "value": 668.79,
+        "rho_kg_m3": 49.66
+      }
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "property": "Best crush strength per density in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "value": 23.6,
+      "value_as_printed": "Crush strength 170 psi (typ) at 3.1 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 1/8 in cell, 3.1 pcf",
+      "density_kg_m3": 49.66,
+      "source": {
+        "title": "HexWeb CR III Corrosion Resistant Specification Grade Aluminum Honeycomb, Product Data Sheet (code ATA 361 US DC17 - DS 2100)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "doi": null,
+        "location": "Table I / II, row 5056 1/8 / 3.1 pcf",
+        "quote": "1/8 3.1 320 250 350 260 97 170 250 200 45.0 155 110 20.0"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). Hexcel: crush values vary as much as +/-20 percent below 3 pcf and are for preliminary design. The lead design's 3/8-1.0 row gives 15.06.",
+      "raw": {
+        "value": 1172.11,
+        "rho_kg_m3": 49.66
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Best plate shear modulus per density, W direction, in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 3.145,
+      "value_as_printed": "W modulus 19.0 ksi (typ) at 2.6 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 1999,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5052, 5/32 in cell, 2.6 pcf",
+      "density_kg_m3": 41.65,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties, TSB 120 (11/99)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1999,
+        "url": "https://www.pccomposites.com/wp-content/uploads/2015/07/PCHC4-4TY4_TDS.pdf (same sha256 as the Hexcel-hosted file captured 2006-03-12: https://web.archive.org/web/20060312081112/http://www.hexcel.com/NR/rdonlyres/599A3453-316D-46D6-9AEE-C337D8B547CA/0/HexwebAttributesandProperties.pdf)",
+        "doi": null,
+        "location": "printed pages 16-17 (5052 and 5056 hexagonal tables), row 5052 5/32 / 2.6 pcf",
+        "quote": "5/32 - 5052 - .0007 2.6 220 150 240 160 55 90 165 120 37.0 100 70 19.0"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). Compare 5056 3/8-1.0: 2.93; the gain is 7 percent.",
+      "raw": {
+        "value": 131.0,
+        "rho_kg_m3": 41.65
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "property": "Best plate shear modulus per density, L direction, in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.456,
+      "value_as_printed": "L modulus 15.0 ksi (typ) at 1.0 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 1999,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 3/8 in cell, 1.0 pcf",
+      "density_kg_m3": 16.02,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties, TSB 120 (11/99)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1999,
+        "url": "https://www.pccomposites.com/wp-content/uploads/2015/07/PCHC4-4TY4_TDS.pdf (same sha256 as the Hexcel-hosted file captured 2006-03-12: https://web.archive.org/web/20060312081112/http://www.hexcel.com/NR/rdonlyres/599A3453-316D-46D6-9AEE-C337D8B547CA/0/HexwebAttributesandProperties.pdf)",
+        "doi": null,
+        "location": "printed pages 16-17 (5052 and 5056 hexagonal tables), row 5056 3/8 / 1.0 pcf",
+        "quote": "3/8 - 5056 - .0007 1.0 55 25 60 35 15 35 55 45 15.0 35 25 6.8"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). The lead design's own row is the best L value; 5056 1/8-3.1 gives 6.25.",
+      "raw": {
+        "value": 103.42,
+        "rho_kg_m3": 16.02
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Best stabilized compressive modulus per density in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 13.47,
+      "value_as_printed": "Stabilized modulus 97 ksi (typ) at 3.1 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 1999,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 1/8 in cell, 3.1 pcf",
+      "density_kg_m3": 49.66,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties, TSB 120 (11/99)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1999,
+        "url": "https://www.pccomposites.com/wp-content/uploads/2015/07/PCHC4-4TY4_TDS.pdf (same sha256 as the Hexcel-hosted file captured 2006-03-12: https://web.archive.org/web/20060312081112/http://www.hexcel.com/NR/rdonlyres/599A3453-316D-46D6-9AEE-C337D8B547CA/0/HexwebAttributesandProperties.pdf)",
+        "doi": null,
+        "location": "printed pages 16-17 (5052 and 5056 hexagonal tables), row 5056 1/8 / 3.1 pcf",
+        "quote": "1/8 - 5056 - .0007 3.1 320 250 350 260 97 170 250 200 45.0 155 110 20.0"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). Modulus per density rises with density in the tables (15 ksi/pcf at 1.0, 31 ksi/pcf at 3.1), so the lightest core is not the best per kg.",
+      "raw": {
+        "value": 668.79,
+        "rho_kg_m3": 49.66
+      }
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "property": "Best crush strength per density in the 16-50 kg/m3 window (aluminium honeycomb)",
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "value": 23.6,
+      "value_as_printed": "Crush strength 170 psi (typ) at 3.1 pcf",
+      "basis": "typical (best of all 5052/5056 Hexcel rows with nominal density 1.0 to 3.1 pcf = 16 to 50 kg/m3)",
+      "year": 1999,
+      "era": "~1996",
+      "material_or_product": "Hexcel HexWeb CR III 5056, 1/8 in cell, 3.1 pcf",
+      "density_kg_m3": 49.66,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties, TSB 120 (11/99)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 1999,
+        "url": "https://www.pccomposites.com/wp-content/uploads/2015/07/PCHC4-4TY4_TDS.pdf (same sha256 as the Hexcel-hosted file captured 2006-03-12: https://web.archive.org/web/20060312081112/http://www.hexcel.com/NR/rdonlyres/599A3453-316D-46D6-9AEE-C337D8B547CA/0/HexwebAttributesandProperties.pdf)",
+        "doi": null,
+        "location": "printed pages 16-17 (5052 and 5056 hexagonal tables), row 5056 1/8 / 3.1 pcf",
+        "quote": "1/8 - 5056 - .0007 3.1 320 250 350 260 97 170 250 200 45.0 155 110 20.0"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Selection done by this worker by parsing every row of both alloy tables at <= 3.2 pcf and ranking the ratio property/density (not a Hexcel statement). Hexcel: crush values vary as much as +/-20 percent below 3 pcf and are for preliminary design. The lead design's 3/8-1.0 row gives 15.06.",
+      "raw": {
+        "value": 1172.11,
+        "rho_kg_m3": 49.66
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, L direction, aramid (Nomex) honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.8609,
+      "value_as_printed": "L modulus 3.0 ksi (typ) at nominal 1.5 pcf",
+      "basis": "typical",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb HRH-10, 3/8 in cell, 1.5 pcf",
+      "density_kg_m3": 24.03,
+      "source": {
+        "title": "HexWeb HRH-10 Aramid Fiber/Phenolic Resin Honeycomb Product Data Sheet (copyright 2017; ATU 123 US NV17 - DS 4000); reused from this seat's catalog.json record hrh10-3_8-1.5",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWeb_HRH10_DataSheet_us.pdf",
+        "doi": null,
+        "location": "page 4, table 'Mechanical Properties of HexWeb HRH-10 at Room Temperature', row 'HRH-10 - 3/8 - 1.5'",
+        "quote": "HRH-10 - 3/8 - 1.5 95 75 105 80 6 70 55 3.0 35 25 1.5"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Aramid honeycomb is about 7.5 times lower than aluminium per density (L). The 1999 TSB 120 (printed) and 2016 guide rows for HRH-10 3/8-1.5 are identical (95 75 105 80 6 70 55 3.0 35 25 1.5), so aramid has not moved either.",
+      "raw": {
+        "G_MPa": 20.68,
+        "rho_kg_m3": 24.03
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, W direction, aramid (Nomex) honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.4304,
+      "value_as_printed": "W modulus 1.5 ksi (typ) at nominal 1.5 pcf",
+      "basis": "typical",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb HRH-10, 3/8 in cell, 1.5 pcf",
+      "density_kg_m3": 24.03,
+      "source": {
+        "title": "HexWeb HRH-10 Aramid Fiber/Phenolic Resin Honeycomb Product Data Sheet (copyright 2017; ATU 123 US NV17 - DS 4000); reused from this seat's catalog.json record hrh10-3_8-1.5",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWeb_HRH10_DataSheet_us.pdf",
+        "doi": null,
+        "location": "page 4, table 'Mechanical Properties of HexWeb HRH-10 at Room Temperature', row 'HRH-10 - 3/8 - 1.5'",
+        "quote": "HRH-10 - 3/8 - 1.5 95 75 105 80 6 70 55 3.0 35 25 1.5"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Same row as above.",
+      "raw": {
+        "G_MPa": 10.34,
+        "rho_kg_m3": 24.03
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, L direction, aramid honeycomb (A1, 23 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.6957,
+      "value_as_printed": "L modulus 16 MPa (typ) at 23 kg/m3",
+      "basis": "typical",
+      "year": 2007,
+      "era": "~2006",
+      "material_or_product": "Hexcel HexWeb A1-23-19",
+      "density_kg_m3": 23.0,
+      "source": {
+        "title": "HexWeb A1 and A10 High strength aramid honeycomb, Product Data, Publication ATU 262d (March 2007); reused from catalog.json record hexcel-a1-23-19",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2007,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/A1A10_eu.pdf",
+        "doi": null,
+        "location": "page 2, 'Typical Mechanical Properties' table, row 'A1-23-19'",
+        "quote": "A1-23-19 0.60 38 0.50 16 0.25 11"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Lightest aramid honeycomb found. Derived 16 MPa / 23 kg/m3.",
+      "raw": {
+        "G_MPa": 16.0,
+        "rho_kg_m3": 23.0
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, W direction, aramid honeycomb (A1, 23 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.4783,
+      "value_as_printed": "W modulus 11 MPa (typ) at 23 kg/m3",
+      "basis": "typical",
+      "year": 2007,
+      "era": "~2006",
+      "material_or_product": "Hexcel HexWeb A1-23-19",
+      "density_kg_m3": 23.0,
+      "source": {
+        "title": "HexWeb A1 and A10 High strength aramid honeycomb, Product Data, Publication ATU 262d (March 2007); reused from catalog.json record hexcel-a1-23-19",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2007,
+        "url": "https://www.hexcel.com/wp-content/uploads/2025/12/A1A10_eu.pdf",
+        "doi": null,
+        "location": "page 2, 'Typical Mechanical Properties' table, row 'A1-23-19'",
+        "quote": "A1-23-19 0.60 38 0.50 16 0.25 11"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Derived 11 MPa / 23 kg/m3.",
+      "raw": {
+        "G_MPa": 11.0,
+        "rho_kg_m3": 23.0
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, L direction, para-aramid honeycomb HRH-36 (48 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 1.951,
+      "value_as_printed": "L modulus 13.6 ksi (typ) at nominal 3.0 pcf",
+      "basis": "typical",
+      "year": 2016,
+      "era": "~2016",
+      "material_or_product": "Hexcel HexWeb HRH-36-1/8-3.0 (1.4 mil)",
+      "density_kg_m3": 48.06,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties (code ATA 377 FB17c, (c) 2016)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2016,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWebHoneycombAttributesandProperties.pdf",
+        "doi": null,
+        "location": "HexWeb HRH-36 Para-Aramid/Phenolic Core table, row HRH-36-1/8-3.0 (1.4 mil); columns read as bare, stabilized, L strength, L modulus ksi, W strength, W modulus ksi",
+        "quote": "HRH-36-1/8-3.0 (1.4 mil) 275 385 215 13.6 120 6.9"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Best aramid per density found, still about half of aluminium. Column assignment of the printed row is the worker's reading of the table header (strength columns carry no min value in this table).",
+      "raw": {
+        "G_MPa": 93.77,
+        "rho_kg_m3": 48.06
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, W direction, para-aramid honeycomb HRH-36 (48 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.99,
+      "value_as_printed": "W modulus 6.9 ksi (typ) at nominal 3.0 pcf",
+      "basis": "typical",
+      "year": 2016,
+      "era": "~2016",
+      "material_or_product": "Hexcel HexWeb HRH-36-1/8-3.0 (1.4 mil)",
+      "density_kg_m3": 48.06,
+      "source": {
+        "title": "HexWeb Honeycomb Attributes and Properties (code ATA 377 FB17c, (c) 2016)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2016,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWebHoneycombAttributesandProperties.pdf",
+        "doi": null,
+        "location": "HexWeb HRH-36 Para-Aramid/Phenolic Core table, row HRH-36-1/8-3.0 (1.4 mil); columns read as bare, stabilized, L strength, L modulus ksi, W strength, W modulus ksi",
+        "quote": "HRH-36-1/8-3.0 (1.4 mil) 275 385 215 13.6 120 6.9"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Same row.",
+      "raw": {
+        "G_MPa": 47.57,
+        "rho_kg_m3": 48.06
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Stabilized compressive modulus per density, aramid (Nomex) honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 1.722,
+      "value_as_printed": "Modulus 6 ksi (typ) at nominal 1.5 pcf",
+      "basis": "typical",
+      "year": 2017,
+      "era": "today",
+      "material_or_product": "Hexcel HexWeb HRH-10, 3/8 in cell, 1.5 pcf",
+      "density_kg_m3": 24.03,
+      "source": {
+        "title": "HexWeb HRH-10 Aramid Fiber/Phenolic Resin Honeycomb Product Data Sheet (copyright 2017; ATU 123 US NV17 - DS 4000); reused from this seat's catalog.json record hrh10-3_8-1.5",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2017,
+        "url": "https://hexcel.com/wp-content/uploads/2026/01/HexWeb_HRH10_DataSheet_us.pdf",
+        "doi": null,
+        "location": "page 4, table 'Mechanical Properties of HexWeb HRH-10 at Room Temperature', row 'HRH-10 - 3/8 - 1.5'",
+        "quote": "HRH-10 - 3/8 - 1.5 95 75 105 80 6 70 55 3.0 35 25 1.5"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Aluminium 5056 3/8-1.0 is about 3.8 times higher per density. Derived 41.4 MPa / 24.03 kg/m3.",
+      "raw": {
+        "E_MPa": 41.37,
+        "rho_kg_m3": 24.03
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, L (parallel to adhesive strips), carbon-fibre honeycomb UCF-145-3/8-0.8 (12.8 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 10.22,
+      "value_as_printed": "Specific modulus of elasticity in shear L: 1042 km",
+      "basis": "reported specific modulus (source does not say typical, minimum or single test)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Ultracor UCF-145-3/8-0.8 carbon honeycomb, +/-30 deg reinforcement, as quoted by Kondratiev et al.",
+      "density_kg_m3": 12.8,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 1 (Specific physico-mechanical characteristics of carbon fibre honeycomb cores with a reinforcement pattern of +/-30 deg produced by a number of companies)",
+        "quote": "UCF-145-3/8-0.8 UCF-121-1/4-3.0 | Density, kg/m3 12.8 48.05 | Specific modulus of elasticity in shear, parallel to adhesive strips, km 1042. 397 | perpendicular to adhesive strips, km 659 279"
+      },
+      "state": "exists today (per secondary source; current availability not confirmed)",
+      "tag": "QUESTIONABLE",
+      "note": "Secondary: the paper quotes UCF grades from its ref. 33 (Slyvynskyi V.I. et al., 'Carbon honeycomb plastic as light-weight and durable structural material', IAC 2012, Naples), which was not opened. The paper gives 'specific modulus of elasticity in shear' in km (= G/(g*rho)); converted here with g = 9.80665 m/s2 to MJ/kg (= G/rho). 'Parallel to adhesive strips' is read as the L (ribbon) direction and 'perpendicular' as W; this mapping is the worker's reading. The test method of the quoted values is not stated. Availability of the 0.8 pcf grade today was not confirmed (the Ultracor owner and catalogue were not reached). Highest shear modulus per density found at 10-50 kg/m3 for any class: about 1.6 times aluminium 5056 3/8-1.0 in both L and W.",
+      "raw": {
+        "specific_km": 1042,
+        "G_MPa_implied": 130.8,
+        "rho_kg_m3": 12.8
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, W (perpendicular to adhesive strips), carbon-fibre honeycomb UCF-145-3/8-0.8 (12.8 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.463,
+      "value_as_printed": "Specific modulus of elasticity in shear W: 659 km",
+      "basis": "reported specific modulus (source does not say typical, minimum or single test)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Ultracor UCF-145-3/8-0.8 carbon honeycomb, +/-30 deg reinforcement, as quoted by Kondratiev et al.",
+      "density_kg_m3": 12.8,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 1 (Specific physico-mechanical characteristics of carbon fibre honeycomb cores with a reinforcement pattern of +/-30 deg produced by a number of companies)",
+        "quote": "UCF-145-3/8-0.8 UCF-121-1/4-3.0 | Density, kg/m3 12.8 48.05 | Specific modulus of elasticity in shear, parallel to adhesive strips, km 1042. 397 | perpendicular to adhesive strips, km 659 279"
+      },
+      "state": "exists today (per secondary source; current availability not confirmed)",
+      "tag": "QUESTIONABLE",
+      "note": "Secondary: the paper quotes UCF grades from its ref. 33 (Slyvynskyi V.I. et al., 'Carbon honeycomb plastic as light-weight and durable structural material', IAC 2012, Naples), which was not opened. The paper gives 'specific modulus of elasticity in shear' in km (= G/(g*rho)); converted here with g = 9.80665 m/s2 to MJ/kg (= G/rho). 'Parallel to adhesive strips' is read as the L (ribbon) direction and 'perpendicular' as W; this mapping is the worker's reading. The test method of the quoted values is not stated. Availability of the 0.8 pcf grade today was not confirmed (the Ultracor owner and catalogue were not reached). Highest shear modulus per density found at 10-50 kg/m3 for any class: about 1.6 times aluminium 5056 3/8-1.0 in both L and W.",
+      "raw": {
+        "specific_km": 659,
+        "G_MPa_implied": 82.7,
+        "rho_kg_m3": 12.8
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, L (parallel to adhesive strips), carbon-fibre honeycomb UCF-121-1/4-3.0 (48 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 3.893,
+      "value_as_printed": "Specific modulus of elasticity in shear L: 397 km",
+      "basis": "reported specific modulus (basis not stated)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Ultracor UCF-121-1/4-3.0 carbon honeycomb, +/-30 deg reinforcement, as quoted by Kondratiev et al.",
+      "density_kg_m3": 48.05,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 1",
+        "quote": "UCF-121-1/4-3.0 | Density, kg/m3 48.05 | Specific modulus of elasticity in shear parallel 397 | perpendicular 279 (km)"
+      },
+      "state": "exists today (per secondary source; current availability not confirmed)",
+      "tag": "QUESTIONABLE",
+      "note": "Secondary: the paper quotes UCF grades from its ref. 33 (Slyvynskyi V.I. et al., 'Carbon honeycomb plastic as light-weight and durable structural material', IAC 2012, Naples), which was not opened. The paper gives 'specific modulus of elasticity in shear' in km (= G/(g*rho)); converted here with g = 9.80665 m/s2 to MJ/kg (= G/rho). 'Parallel to adhesive strips' is read as the L (ribbon) direction and 'perpendicular' as W; this mapping is the worker's reading. The test method of the quoted values is not stated. Availability of the 0.8 pcf grade today was not confirmed (the Ultracor owner and catalogue were not reached). At 48 kg/m3 the carbon grade is below aluminium 5056 per density (L 3.89 vs 6.46); the carbon advantage appears only at the lowest density.",
+      "raw": {
+        "specific_km": 397,
+        "rho_kg_m3": 48.05
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, W (perpendicular to adhesive strips), carbon-fibre honeycomb UCF-121-1/4-3.0 (48 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 2.736,
+      "value_as_printed": "Specific modulus of elasticity in shear W: 279 km",
+      "basis": "reported specific modulus (basis not stated)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Ultracor UCF-121-1/4-3.0 carbon honeycomb, +/-30 deg reinforcement, as quoted by Kondratiev et al.",
+      "density_kg_m3": 48.05,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 1",
+        "quote": "UCF-121-1/4-3.0 | Density, kg/m3 48.05 | Specific modulus of elasticity in shear parallel 397 | perpendicular 279 (km)"
+      },
+      "state": "exists today (per secondary source; current availability not confirmed)",
+      "tag": "QUESTIONABLE",
+      "note": "Secondary: the paper quotes UCF grades from its ref. 33 (Slyvynskyi V.I. et al., 'Carbon honeycomb plastic as light-weight and durable structural material', IAC 2012, Naples), which was not opened. The paper gives 'specific modulus of elasticity in shear' in km (= G/(g*rho)); converted here with g = 9.80665 m/s2 to MJ/kg (= G/rho). 'Parallel to adhesive strips' is read as the L (ribbon) direction and 'perpendicular' as W; this mapping is the worker's reading. The test method of the quoted values is not stated. Availability of the 0.8 pcf grade today was not confirmed (the Ultracor owner and catalogue were not reached). At 48 kg/m3 the carbon grade is below aluminium 5056 per density (L 3.89 vs 6.46); the carbon advantage appears only at the lowest density.",
+      "raw": {
+        "specific_km": 279,
+        "rho_kg_m3": 48.05
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, L (xz plane), experimental carbon-fibre honeycomb series 3 (4 x 0.02 mm IMS-65 + ENFB prepreg) (40 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.374,
+      "value_as_printed": "G/(g*rho) = 650 km",
+      "basis": "averaged value of pilot samples (laboratory)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Experimental carbon-fibre honeycomb core, IMS-65 + ENFB epoxy, 4 plies of 0.02 mm, 40 kg/m3",
+      "density_kg_m3": 40,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 4 (Results of experimental studies ... four series of pilot samples)",
+        "quote": "3 (4 x 0.02) IMS-65 + ENFB 40 6.3 3.9 650 422 | 4 (4 x 0.02) IMS-65 + ENFB 40 6.9 4.18 660 452 (density kg/m3; specific shear strengths km; specific shear moduli Gxz/(g rho), Gyz/(g rho) km)"
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "Pilot batch made by the paper's authors; Specific modulus is as printed, converted to MJ/kg by g = 9.80665.",
+      "raw": {
+        "specific_km": 650,
+        "rho_kg_m3": 40
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, W (yz plane), experimental carbon-fibre honeycomb series 3 (4 x 0.02 mm IMS-65 + ENFB prepreg) (40 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 4.138,
+      "value_as_printed": "G/(g*rho) = 422 km",
+      "basis": "averaged value of pilot samples (laboratory)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Experimental carbon-fibre honeycomb core, IMS-65 + ENFB epoxy, 4 plies of 0.02 mm, 40 kg/m3",
+      "density_kg_m3": 40,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 4 (Results of experimental studies ... four series of pilot samples)",
+        "quote": "3 (4 x 0.02) IMS-65 + ENFB 40 6.3 3.9 650 422 | 4 (4 x 0.02) IMS-65 + ENFB 40 6.9 4.18 660 452 (density kg/m3; specific shear strengths km; specific shear moduli Gxz/(g rho), Gyz/(g rho) km)"
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "Pilot batch made by the paper's authors; Specific modulus is as printed, converted to MJ/kg by g = 9.80665.",
+      "raw": {
+        "specific_km": 422,
+        "rho_kg_m3": 40
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, L (xz plane), experimental carbon-fibre honeycomb series 4 (4 x 0.02 mm IMS-65 + ENFB prepreg) (40 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 6.472,
+      "value_as_printed": "G/(g*rho) = 660 km",
+      "basis": "averaged value of pilot samples (laboratory)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Experimental carbon-fibre honeycomb core, IMS-65 + ENFB epoxy, 4 plies of 0.02 mm, 40 kg/m3",
+      "density_kg_m3": 40,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 4 (Results of experimental studies ... four series of pilot samples)",
+        "quote": "3 (4 x 0.02) IMS-65 + ENFB 40 6.3 3.9 650 422 | 4 (4 x 0.02) IMS-65 + ENFB 40 6.9 4.18 660 452 (density kg/m3; specific shear strengths km; specific shear moduli Gxz/(g rho), Gyz/(g rho) km)"
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "Pilot batch made by the paper's authors; Specific modulus is as printed, converted to MJ/kg by g = 9.80665.",
+      "raw": {
+        "specific_km": 660,
+        "rho_kg_m3": 40
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Specific shear modulus, W (yz plane), experimental carbon-fibre honeycomb series 4 (4 x 0.02 mm IMS-65 + ENFB prepreg) (40 kg/m3)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 4.433,
+      "value_as_printed": "G/(g*rho) = 452 km",
+      "basis": "averaged value of pilot samples (laboratory)",
+      "year": 2023,
+      "era": "today",
+      "material_or_product": "Experimental carbon-fibre honeycomb core, IMS-65 + ENFB epoxy, 4 plies of 0.02 mm, 40 kg/m3",
+      "density_kg_m3": 40,
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table 4 (Results of experimental studies ... four series of pilot samples)",
+        "quote": "3 (4 x 0.02) IMS-65 + ENFB 40 6.3 3.9 650 422 | 4 (4 x 0.02) IMS-65 + ENFB 40 6.9 4.18 660 452 (density kg/m3; specific shear strengths km; specific shear moduli Gxz/(g rho), Gyz/(g rho) km)"
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "Pilot batch made by the paper's authors; Specific modulus is as printed, converted to MJ/kg by g = 9.80665.",
+      "raw": {
+        "specific_km": 452,
+        "rho_kg_m3": 40
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, L direction, commercial carbon honeycomb (outside the 10-50 kg/m3 window)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 4.891,
+      "value_as_printed": "Shear Modulus L-Direction 50 ksi",
+      "basis": "typical (nominal, ASTM C273, 0.5 in thick)",
+      "year": 2025,
+      "era": "today",
+      "material_or_product": "ACP Composites APEX Carbon Core",
+      "density_kg_m3": 70.5,
+      "source": {
+        "title": "APEX Carbon Core Product Data Sheet (Revision A, 8 May 2025)",
+        "org_or_authors": "ACP Composites, Inc.",
+        "year": 2025,
+        "url": "https://acpcomposites.com/wp-content/uploads/2025/05/CR-CX_Carbon-Core.pdf",
+        "doi": null,
+        "location": "page 1, Mechanical Properties table",
+        "quote": "Density (Nominal) 4.4 PCF | Shear Modulus L-Direction* 50 ksi | Shear Modulus W-Direction* 12 ksi | * Tested at 0.5-inch thickness"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Density 70.5 kg/m3 is above the 50 kg/m3 window; L is 0.76 of aluminium 5056 3/8-1.0 per density. The data sheet states that properties are nominal and vary by lot.",
+      "raw": {
+        "G_MPa": 344.7,
+        "rho_kg_m3": 70.5
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Plate shear modulus per density, W direction, commercial carbon honeycomb (outside the 10-50 kg/m3 window)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 1.174,
+      "value_as_printed": "Shear Modulus W-Direction 12 ksi",
+      "basis": "typical (nominal, ASTM C273, 0.5 in thick)",
+      "year": 2025,
+      "era": "today",
+      "material_or_product": "ACP Composites APEX Carbon Core",
+      "density_kg_m3": 70.5,
+      "source": {
+        "title": "APEX Carbon Core Product Data Sheet (Revision A, 8 May 2025)",
+        "org_or_authors": "ACP Composites, Inc.",
+        "year": 2025,
+        "url": "https://acpcomposites.com/wp-content/uploads/2025/05/CR-CX_Carbon-Core.pdf",
+        "doi": null,
+        "location": "page 1, Mechanical Properties table",
+        "quote": "Density (Nominal) 4.4 PCF | Shear Modulus L-Direction* 50 ksi | Shear Modulus W-Direction* 12 ksi | * Tested at 0.5-inch thickness"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "W is 0.40 of aluminium 5056 3/8-1.0 per density.",
+      "raw": {
+        "G_MPa": 82.74,
+        "rho_kg_m3": 70.5
+      }
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "property": "Shear modulus per density of micro/nano-lattices (Schaedler 2011, Zheng 2014, Meza 2014)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": null,
+      "value_as_printed": "not printed in any page opened",
+      "basis": "none",
+      "year": null,
+      "era": "today",
+      "material_or_product": "Ni-P hollow microlattice; Al2O3 octet nanolattice; polymer/metal/ceramic octet microlattices",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Zheng et al. 2014 Science 344:1373, 'Ultralight, ultrastiff mechanical metamaterials' (abstract only via OpenAlex/PubMed; full text blocked by HTTP 429)",
+        "org_or_authors": "X. Zheng et al.",
+        "year": 2014,
+        "url": "https://doi.org/10.1126/science.1252291",
+        "doi": "10.1126/science.1252291",
+        "location": "abstract",
+        "quote": "a class of microarchitected materials that maintain a nearly constant stiffness per unit mass density, even at ultralow density"
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "No shear-modulus value for any lattice was found; Meza 2014 and Maloney 2013 report compressive modulus only. Lattices exist only in the lab at 0.3-258 kg/m3 (see compressive rows)."
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Compressive Young modulus per density, hollow alumina octet nanolattice (lightest point)",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.6727,
+      "value_as_printed": "E about 3.7e-3 GPa (figure, read by eye) at 5.5 kg/m3",
+      "basis": "single test (figure read, +/-25 percent; density derived from relative density 0.0019 x 2900)",
+      "year": 2014,
+      "era": "today",
+      "material_or_product": "Hollow Al2O3 octet-truss nanolattice, ALD on two-photon polymer template",
+      "density_kg_m3": 5.5,
+      "source": {
+        "title": "Strong, lightweight, and recoverable three-dimensional ceramic nanolattices (Science 345:1322); reused from ceramic-carbon-lattice.json",
+        "org_or_authors": "L. R. Meza, S. Das, J. R. Greer",
+        "year": 2014,
+        "url": "http://faculty.washington.edu/lmeza/wordpress/wp-content/uploads/2018/12/Strong-Lightweight-and-Recoverable-Three-Dimensional-Ceramic-Nanolattices-LR-Meza-et-al.pdf",
+        "doi": "10.1126/science.1255908",
+        "location": "Fig. 4A lowest point (read by eye, +/-25 percent); relative density from SM Table S1",
+        "quote": "We discovered that the strength and Young's modulus of all our octet-truss nanolattices follow a power law scaling with relative density"
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "About one tenth of aluminium honeycomb per density (0.67 vs 6.46). Values reused from ceramic-carbon-lattice.json record meza2014-hollow-alumina-octet-lightest-E.",
+      "raw": {
+        "E_MPa": 3.7,
+        "rho_kg_m3": 5.5
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Compressive Young modulus per density, 3D-printed graphene aerogel microlattice",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.1958,
+      "value_as_printed": "E about 4.7 MPa (figure, read by eye) at about 24 mg/cm3",
+      "basis": "single test (figure read)",
+      "year": 2015,
+      "era": "today",
+      "material_or_product": "3D-printed graphene aerogel microlattice (24 kg/m3)",
+      "density_kg_m3": 24,
+      "source": {
+        "title": "Highly compressible 3D periodic graphene aerogel microlattices (Nat. Commun. 6:6962); reused from ceramic-carbon-lattice.json",
+        "org_or_authors": "C. Zhu, T. Y.-J. Han, E. B. Duoss, A. M. Golobic, J. D. Kuntz, C. M. Spadaccini, M. A. Worsley",
+        "year": 2015,
+        "url": "https://www.nature.com/articles/ncomms7962.pdf",
+        "doi": "10.1038/ncomms7962",
+        "location": "Fig. 5d (read by eye)",
+        "quote": "Figure 5d shows the Young's modulus as a function of density for our graphene microlattices (printed) and standard graphene aerogels (bulk)"
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "Reused from ceramic-carbon-lattice.json record zhu2015-printed-graphene-aerogel-24.",
+      "raw": {
+        "E_MPa": 4.7,
+        "rho_kg_m3": 24
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Compressive modulus per density, hollow Ni-P microlattice",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": 0.00375,
+      "value_as_printed": "E about 1.35e-2 MPa (figure) at 3.6 kg/m3",
+      "basis": "single test (figure read, +/-30-50 percent)",
+      "year": 2013,
+      "era": "~2016",
+      "material_or_product": "Hollow-tube Ni-P microlattice",
+      "density_kg_m3": 3.6,
+      "source": {
+        "title": "Microlattices as architected thin films: Analysis of mechanical properties and high strain elastic recovery (APL Mater. 1:022106); reused from metal-lattice.json",
+        "org_or_authors": "K. J. Maloney, C. S. Roper, A. J. Jacobsen, W. B. Carter, L. Valdevit, T. A. Schaedler",
+        "year": 2013,
+        "url": "https://escholarship.org/uc/item/3394x1qn",
+        "doi": "10.1063/1.4818168",
+        "location": "Fig. 2(a) (read by eye, order-of-magnitude)",
+        "quote": "The compressive modulus E and compressive collapse strength sigma_pl are plotted versus density in Fig. 2."
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "Reused from metal-lattice.json record ni-p-microlattice-maloney2013-3p6. Ultralight metal lattices are about 1000 times below aluminium honeycomb per density in modulus because the lattice is a thin-wall tube network loaded off its tube axes.",
+      "raw": {
+        "E_MPa": 0.0135,
+        "rho_kg_m3": 3.6
+      }
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "property": "Through-thickness compressive modulus per density, carbon-fibre honeycomb",
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "value": null,
+      "value_as_printed": "not found",
+      "basis": "none",
+      "year": null,
+      "era": "today",
+      "material_or_product": "Ultracor UCF, Hexcel, Plascore carbon honeycomb",
+      "density_kg_m3": null,
+      "source": {
+        "title": "(no page found with a through-thickness modulus for carbon honeycomb)",
+        "org_or_authors": "",
+        "year": null,
+        "url": "",
+        "doi": null,
+        "location": "",
+        "quote": ""
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "The ACP APEX sheet and the Kondratiev paper give shear and strength but no compressive modulus."
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Optimum uncured film-adhesive (tape) weight for an aluminium honeycomb sandwich bond, 1954",
+      "units": "g/m2",
+      "value": 244.1,
+      "value_as_printed": "0.05 lbs. per square foot (strength-weight optimum); 0.07 lb/sq ft recommended compromise",
+      "basis": "design optimum from a test programme (flatwise tensile and climbing-drum peel vs weight)",
+      "year": 1954,
+      "era": "earlier",
+      "material_or_product": "FM-47 adhesive tape (Bloomingdale Rubber Co.) plus core primer",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Aluminum Honeycomb Sandwich Development (Wright Air Development Center / Air Materiel Command contract AF 33(600)-23626; DTIC AD0066561)",
+        "org_or_authors": "Hexcel Products Company (division of California Reinforced Plastics Co.), Oakland, California",
+        "year": 1954,
+        "url": "https://archive.org/details/DTIC_AD0066561 (OCR text https://archive.org/download/DTIC_AD0066561/DTIC_AD0066561_djvu.txt)",
+        "doi": null,
+        "location": "Section I, Part D (Table 12 discussion), OCR line ~5015; 'Adhesive Weight' program, tape weights in lb/sq ft of uncured FM-47 tape",
+        "quote": "the optimum tape weight, from a \"strength-weight\" standpoint, was 0.05 lbs. per square foot ... a tape weighing 0.07 lbs. per sq. ft. would offer the best compromise between strength-weight ratio and general dependability of the bond"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Per bond line basis is not stated in the OCR text. Reading of the OCR is the worker's. 0.05 lb/ft2 = 244 g/m2; the 0.07 compromise = 342 g/m2.",
+      "raw": {
+        "lb_ft2": 0.05
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Typical total cured adhesive weight in a 1954 honeycomb sandwich panel",
+      "units": "g/m2",
+      "value": 683.5,
+      "value_as_printed": "approximately 0.14 lbs per square foot (OCR 'O.lU')",
+      "basis": "typical (as stated)",
+      "year": 1954,
+      "era": "earlier",
+      "material_or_product": "FM-47 tape + core primer, cured, per sq ft of panel",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Aluminum Honeycomb Sandwich Development (Wright Air Development Center / Air Materiel Command contract AF 33(600)-23626; DTIC AD0066561)",
+        "org_or_authors": "Hexcel Products Company (division of California Reinforced Plastics Co.), Oakland, California",
+        "year": 1954,
+        "url": "https://archive.org/details/DTIC_AD0066561 (OCR text https://archive.org/download/DTIC_AD0066561/DTIC_AD0066561_djvu.txt)",
+        "doi": null,
+        "location": "Section I, Part A, page 3-4 (discussion of Figures 15-18); OCR line ~1369",
+        "quote": "Ordinarily, the cured weight of adhesive in a typical sandwich bond la approximately O.lU lbs per square foot [OCR; read as 0.14]"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "OCR reads 'O.lU'; interpreted as 0.14. It is stated per square foot of panel (total cured adhesive, tape + core primer, apparently both faces), so about half is the per-bond value. 0.14 lb/ft2 = 683 g/m2 per panel.",
+      "raw": {
+        "lb_ft2": 0.14
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Lightest sheet film adhesive sold for honeycomb, mid-1970s",
+      "units": "g/m2",
+      "value": 146.5,
+      "value_as_printed": "0.03 lbs. per square foot (lower end of 0.03-0.12)",
+      "basis": "catalogue range quoted by the patent (unsupported/thin films; 3M AF-453 and a B. F. Goodrich adhesive named at 0.03)",
+      "year": 1975,
+      "era": "earlier",
+      "material_or_product": "3M AF-453 and B. F. Goodrich film adhesives, 0.03 lb/ft2",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Apparatus for reticulating an adhesive to conform to a surface of an apertured workpiece (US patent 4,155,800; priority 1975-01-27, filed 1976-11-22, granted 1979-05-22)",
+        "org_or_authors": "Paul H. Wilson, The Boeing Company",
+        "year": 1979,
+        "url": "https://patents.google.com/patent/US4155800A/en",
+        "doi": null,
+        "location": "Description, discussion of adhesive film weights (and Summary)",
+        "quote": "The adhesives are sold in sheet form in weights on the order of 0.03 lbs. per square foot up to 0.12 lbs. per square foot or greater. Prior art application techniques require the heavier adhesive films, on the order of 0.08 lbs. per square foot up to or exceeding 0.12 lbs. per square foot."
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "0.03 lb/ft2 = 146 g/m2. Priority date 1975; patent granted 1979.",
+      "raw": {
+        "lb_ft2": 0.03
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Film adhesive weight needed after reticulation (Boeing process), mid-1970s",
+      "units": "g/m2",
+      "value": 97.65,
+      "value_as_printed": "0.02 to 0.03 lbs. per square foot, equivalent bond strength to 0.08 lb/ft2 and up",
+      "basis": "claimed by the patent (no test data in the passage read)",
+      "year": 1975,
+      "era": "earlier",
+      "material_or_product": "Reticulated thermosetting film on honeycomb edges",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Apparatus for reticulating an adhesive to conform to a surface of an apertured workpiece (US patent 4,155,800; priority 1975-01-27, filed 1976-11-22, granted 1979-05-22)",
+        "org_or_authors": "Paul H. Wilson, The Boeing Company",
+        "year": 1979,
+        "url": "https://patents.google.com/patent/US4155800A/en",
+        "doi": null,
+        "location": "Description, same passage",
+        "quote": "a major advantage of the present invention is that adhesive having a weight on the order of 0.02 to 0.03 lbs. per square foot applied in accordance with this invention will have bond strengths equivalent to adhesives having a weight on the order of 0.08 lbs. per square foot and up."
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Earliest reticulation source found: the Boeing method (heat film to sag temperature, air jet bursts the film over the cells, adhesive retracts onto cell edges), priority January 1975, so reticulation was in use by then. Lower end 0.02 lb/ft2 = 98 g/m2; upper 0.03 = 146 g/m2. A claim of equal bond strength, not a measured table.",
+      "raw": {
+        "lb_ft2_low": 0.02,
+        "lb_ft2_high": 0.03
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Lightest Hexcel unsupported film adhesive in the 2001 data-sheet set opened (Redux 335U)",
+      "units": "g/m2",
+      "value": 150.0,
+      "value_as_printed": "150 g/m2 (range 100 to 300 g/m2)",
+      "basis": "nominal film weight",
+      "year": 2001,
+      "era": "~2006",
+      "material_or_product": "Hexcel Redux 335U (120 C cure)",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Redux 335 Product Data (Wayback capture 2001-07-23 of hexcelcomposites.com techdata REDUX3_4.PDF)",
+        "org_or_authors": "Hexcel Composites",
+        "year": 2001,
+        "url": "https://web.archive.org/web/20010723153723/http://www.hexcelcomposites.com:80/downloads/techdata/REDUX3_4.PDF",
+        "doi": null,
+        "location": "page 1-2, forms table",
+        "quote": "Redux 335U 150 None 50 | Redux 335U 300 None 50 (areal weights g/m2)"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "Only the 2001 Hexcel Redux sheets that were opened (100, 140, 200, 335, 340, 382H, 398/5, 609, 610, HP655) were checked; the 2001 capture list had no Redux 312 sheet, so the 312 history starts in 2006. Not a statement that 150 g/m2 was the lightest film on the market in 2001."
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Lightest Hexcel film adhesive, Redux 312 at 0.015 psf",
+      "units": "g/m2",
+      "value": 73.24,
+      "value_as_printed": "0.015 psf",
+      "basis": "nominal film weight",
+      "year": 2006,
+      "era": "~2006",
+      "material_or_product": "Hexcel Redux 312 (250 F cure), unsupported",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Redux 312 Product Data (Wayback capture 2006-03-12 of hexcel.com Redux312.pdf)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2006,
+        "url": "https://web.archive.org/web/20060312090454/http://www.hexcel.com/NR/rdonlyres/1AB2EA01-D1C7-4174-8A07-1410E647B39E/0/Redux312.pdf",
+        "doi": null,
+        "location": "page 1, forms table; page 2, metal and honeycomb bonding strengths",
+        "quote": "Redux 312 0.015 | Redux 312UL 0.02 | Redux 312L 0.03 | Redux 312 0.06 | Redux 312/5 0.06 (areal weights psf, roll width 21 in)"
+      },
+      "state": "historical",
+      "tag": "QUESTIONABLE",
+      "note": "73.2 g/m2. Same table in the 2010-12-01 capture (https://web.archive.org/web/20101201002513/http://hexcel.com/NR/rdonlyres/1AB2EA01-D1C7-4174-8A07-1410E647B39E/0/312_us.pdf). The sheet's bond-strength table has no flatwise value for 0.015 psf (blank cell): flatwise tensile on Hexcel 5052 7.9-1/4-40 core is 800 psi at 0.02 psf, 1020 at 0.03, 1320 at 0.06. Undated sheet; the capture date is the latest date it existed.",
+      "raw": {
+        "psf": 0.015
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "3M AF 163-2U at 0.015 lb/ft2, lightest structural film adhesive found in current catalogues",
+      "units": "g/m2",
+      "value": 73.24,
+      "value_as_printed": "0.015 lb/ft2 (2.5 mil), tolerance +/-0.005",
+      "basis": "nominal film weight (tolerance +/-33 percent at this weight)",
+      "year": 2009,
+      "era": "~2016",
+      "material_or_product": "3M Scotch-Weld AF 163-2U (250 F cure, unsupported, reticulatable)",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Scotch-Weld Structural Adhesive Film AF 163-2, Technical Datasheet (November 2009)",
+        "org_or_authors": "3M Company",
+        "year": 2009,
+        "url": "https://cdn.shopify.com/s/files/1/1604/3169/files/af163_2.pdf (same sheet at https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf)",
+        "doi": null,
+        "location": "page 1, product table; Advantages list",
+        "quote": "Scotch-Weld AF 163-2U Film 0.015 Red 2.5 (weight +/-.005 lb/ft2; thickness mils) ... Unsupported versions available for reticulation (Scotch-Weld AF 163-2U Film)"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "73.2 g/m2. A 3M catalogue page titled 'AF 163-2U, .015 wt, 48 in x 2 yd' (3m.com/3M/en_US/p/dc/v000180299/) and distributor pages (PC Composites, Aerospheres) appeared in search results but were not opened, so current availability is indicated, not confirmed. WHEN 0.015 WAS FIRST OFFERED: NOT FOUND; the 2009 sheet is the oldest 3M source read. Wayback was rate-limited or offline when searched for older 3M sheets.",
+      "raw": {
+        "lb_ft2": 0.015
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Cytec FM 300-2U/2M lightest weight, 0.030 psf",
+      "units": "g/m2",
+      "value": 147.0,
+      "value_as_printed": "0.030 psf (147 gsm)",
+      "basis": "nominal film weight",
+      "year": 2011,
+      "era": "~2016",
+      "material_or_product": "Cytec FM 300-2U (121 C cure, unsupported)",
+      "density_kg_m3": null,
+      "source": {
+        "title": "FM 300-2 Film Adhesive Technical Data Sheet (AEAD-00004 Rev 02, 27 September 2011)",
+        "org_or_authors": "Cytec Engineered Materials",
+        "year": 2011,
+        "url": "https://www.pccomposites.com/wp-content/uploads/2015/07/PCA250-2M06_TDS.pdf",
+        "doi": null,
+        "location": "page 2, Table 1 Product description",
+        "quote": "FM 300-2M film adhesive 0.030 (147) 0.005 (0.13) Red | FM 300-2U film adhesive 0.030 (147) 0.005 (0.13) Red (nominal weight psf (gsm), thickness in (mm); tolerance +/- 0.005 psf)"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "Lightest FM 300-2 form is twice the AF 163-2U / Redux 312 0.015 psf.",
+      "raw": {
+        "psf": 0.03
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Solvay FM 300U lightest weight, 0.03 psf, reticulatable",
+      "units": "g/m2",
+      "value": 146.0,
+      "value_as_printed": "0.03 psf (146 gsm)",
+      "basis": "nominal film weight",
+      "year": 2018,
+      "era": "~2016",
+      "material_or_product": "Solvay (Cytec) FM 300U (177 C cure)",
+      "density_kg_m3": null,
+      "source": {
+        "title": "FM 300 Adhesive Film Technical Data Sheet (TDS FM 300_2018_06_14)",
+        "org_or_authors": "Solvay",
+        "year": 2018,
+        "url": "https://www.integralproducts.com/Asset/FM_300_CM_EN--1-.pdf",
+        "doi": null,
+        "location": "product table",
+        "quote": "FM 300U 0.03 (146) 0.005 (0.13) Green Unsupported Can be reticulated."
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "FM 73: the distributor table at Biesterfeld (http://www.biesterfeld.com/en/de/product/adhesive-films-for-aviation/) lists FM 73-Series nominal weight 100 - 420 gsm (so the lightest FM 73 form is about 100 gsm = 0.02 psf; undated distributor page, no Cytec/Solvay FM 73 data sheet was found)."
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Henkel Loctite EA 9696 lightest weight, 0.030 psf supported (NW)",
+      "units": "g/m2",
+      "value": 146.5,
+      "value_as_printed": "0.030 psf (.030NW) and 0.060 psf (.060NW)",
+      "basis": "nominal film weight (value read from the test-data column headings; the bulletin has no weight table)",
+      "year": null,
+      "era": "today",
+      "material_or_product": "Henkel Loctite (Hysol) EA 9696 AERO, supported on non-woven nylon",
+      "density_kg_m3": null,
+      "source": {
+        "title": "LOCTITE EA 9696 AERO Technical Process Bulletin (known as Hysol EA 9696)",
+        "org_or_authors": "Henkel Corporation",
+        "year": null,
+        "url": "https://www.aero-consultants.ch/view/data/3285/Aero%20Consultings/PDF/LOCTITE_EA_9696_AERO.pdf",
+        "doi": null,
+        "location": "page 1 features; page 3 test-data columns EA 9696 .030NW and .060NW",
+        "quote": "Reticulatable ... EA 9696 .030NW  EA 9696 .060NW"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "The bulletin is undated in the text extracted. EA 9696 is supported (carrier), so it is not a candidate for the lightest film; no 0.015 form found. The TDS download pages at Silmid need a login.",
+      "raw": {
+        "psf": 0.03
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Adhesive deposited selectively on honeycomb cell edges (transfer from film in a warm oven), lab minimum",
+      "units": "g/m2",
+      "value": 8.0,
+      "value_as_printed": "8 g/m2 (range 8 to 80 g/m2)",
+      "basis": "laboratory-controlled deposited amount (single test panels)",
+      "year": 2008,
+      "era": "~2016",
+      "material_or_product": "EH84 (Hexcel) / VTA 260 (ACG) epoxy film transferred onto Euro-Composites ECA 29 kg/m3 Nomex honeycomb, 3.2 mm cells, CFRP skins",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Prediction of the adhesive fillet size for skin to honeycomb core bonding in ultra-light sandwich structures",
+        "org_or_authors": "Julien Rion, Yves Leterrier, Jan-Anders E. Manson (EPFL), Composites Part A 39 (2008) 1547-1555",
+        "year": 2008,
+        "url": "https://infoscience.epfl.ch/bitstreams/28b8cc7a-f046-4da3-9fcc-5d5ad3c52a9d/download",
+        "doi": "10.1016/j.compositesa.2008.05.022",
+        "location": "Abstract; section 4.1 Adhesive deposition method; Conclusions",
+        "quote": "A method was developed for tailoring the amount of adhesive between 8 and 80 g/m2. ... When adhesive films were used for bonding, up to 50% of the adhesive did not form the menisci whereas 100% did when the newly developed adhesive deposition method on honeycomb was used, which allowed better bonding with lower weight."
+      },
+      "state": "in the lab",
+      "tag": "QUESTIONABLE",
+      "note": "8 g/m2 is 9 times lighter than the 73 g/m2 film. Failure moves into the adhesive meniscus when adhesive weight is low, and debonding energy rises with meniscus size until failure moves into the core (paper's literature review, citing Rion et al.). In the 50 g/m2 film-on-prepreg case half of the resin stayed on the skin outside the menisci (about 25 g/m2); the model's fixed non-meniscus term was M0 = 4.85 g/m2 for the 8-80 g/m2 deposition. The paper used Nomex core, not aluminium; the bond strength at 8 g/m2 was not reported as a number in the pages read.",
+      "raw": {
+        "g_m2_low": 8,
+        "g_m2_high": 80
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Least edge-coat adhesive that held full peel strength, HRH-36 core with prepreg skins (Hexcel patent)",
+      "units": "g/m2",
+      "value": 32.29,
+      "value_as_printed": "at least 3.0 g/sq. ft. (peel 59 at 3.4, 71 at 3.8, 76 at 6.2 g/sq ft)",
+      "basis": "patent example set (single panels, climbing-drum peel in-lb/3 in)",
+      "year": 2004,
+      "era": "~2006",
+      "material_or_product": "Polyamide (NYSOL 1020) edge coating on HRH-36 2.5 pcf Nomex-type honeycomb with self-adhesive carbon prepreg",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Edge coating for honeycomb used in panels with composite face sheets (US patent 7,507,461; priority 2004-09-01; also 7,938,922)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2004,
+        "url": "https://patents.google.com/patent/US7507461B2/en",
+        "doi": null,
+        "location": "Example with HRH-36 (2.5 pcf) core (text of US7938922B2 reads the same)",
+        "quote": "the edges of six different cores were coated with 1.1, 2.3, 3.4, 3.8, 4.0 and 6.2 g/sq. ft. of polyamide adhesive ... the resulting panels had peel strengths of 26, 30, 59, 71, 71 and 76 in-lbs/3 in width ... it is preferred ... that the edge of the honeycomb be coated with at least 3.0 g/sq. ft. of polyamide adhesive."
+      },
+      "state": "exists today (patent example; commercial status of the coating not checked)",
+      "tag": "QUESTIONABLE",
+      "note": "3.0 g/ft2 = 32.3 g/m2 (the patent also gives 2 to 4 g/ft2 = 21.5 to 43 g/m2). 26 in-lb at 1.1 g/ft2 (11.8 g/m2) and 30 at 2.3 (24.8 g/m2) show the cliff below about 3 g/ft2 for this core and skin.",
+      "raw": {
+        "g_ft2": 3.0
+      }
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "property": "Cytec/Solvay FM 73-series lightest nominal weight (distributor table)",
+      "units": "g/m2",
+      "value": 100.0,
+      "value_as_printed": "100 - 420 gsm",
+      "basis": "nominal film weight range; lower end taken",
+      "year": null,
+      "era": "today",
+      "material_or_product": "Cytec/Solvay FM 73 series (250 F cure)",
+      "density_kg_m3": null,
+      "source": {
+        "title": "Adhesive Films for Aviation (distributor product table)",
+        "org_or_authors": "Biesterfeld (distributor of Cytec/Solvay films)",
+        "year": null,
+        "url": "http://www.biesterfeld.com/en/de/product/adhesive-films-for-aviation/",
+        "doi": null,
+        "location": "product table, row FM 73-Series",
+        "quote": "FM 73-Series | 100 - 420 (nominal weight gsm) | 0.18 - 0.38 (nominal thickness mm) | BR 127"
+      },
+      "state": "exists today",
+      "tag": "QUESTIONABLE",
+      "note": "About 0.020 psf. Undated distributor page; no manufacturer data sheet for FM 73 was found. Boeing shop part numbers such as FM73M-03PSF-BMS-36IN (0.03 psf) were seen in search results only.",
+      "raw": {
+        "gsm": 100
+      }
+    }
+  ],
+  "limits": [
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "limit_value": 4.63,
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "what": "Gibson-Ashby estimate G13 = G23 = 0.5 Gs (rho*/rho_s) for a regular-hexagon honeycomb of uniform wall thickness, evaluated for 5056 (Gs = 25 GPa, rho_s = 2700 kg/m3), i.e. G*/rho* = 0.5 Gs/rho_s",
+      "source": {
+        "title": "Lecture 5, Honeycombs: Out of plane behavior (MIT 3.054 Cellular Solids, Spring 2015; formulas of Gibson and Ashby, Cellular Solids, 2nd ed., Cambridge, 1997)",
+        "org_or_authors": "MIT OpenCourseWare (after L. J. Gibson and M. F. Ashby)",
+        "year": 2015,
+        "url": "https://ocw.mit.edu/courses/3-054-cellular-solids-structure-properties-and-applications-spring-2015/9a61d6b13da64cbfe1f642e4747951eb_MIT3_054S15_L5_outpl_trans.pdf",
+        "doi": null,
+        "location": "page 5 'Shear moduli' and page 2 'Young's modulus E3'",
+        "quote": "E3 = Es (rho*/rho_s) ... G13 = Gs (t/l) cos(theta)/(h/l + sin(theta)) = (1/sqrt(3)) Gs (t/l) for regular hexagons (= G23)"
+      },
+      "note": "Derived: rho*/rho_s = (2/sqrt 3)(t/l) so (1/sqrt 3)(t/l) = 0.5 rho*/rho_s. Lecture calls it an estimate ('exact solution requires numerical methods'), not a bound. CR III 5056 3/8-1.0 measured: W 2.93 (63 percent of the estimate), L 6.46 (139 percent); the mean of L and W 4.69 is 101 percent. The honeycomb sits AT the regular-hexagon estimate on average; L exceeds it because expanded honeycomb has double-thickness walls along the ribbon, W falls below it. Parent values are from a web property page (5056-H392, rounded density 2.7); the NASA foil test (5052-H39 foil 8.2-8.3 Msi vs 10 Msi cited) suggests thin foil is about 17 percent softer, which would lower the estimate to about 3.95.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "limit_value": 9.259,
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "what": "Voigt (sheet-parallel) upper limit for ONE shear direction: G* = Gs x (solid fraction), reached only if all cell-wall material lay in planes parallel to the shear plane; G*/rho* = Gs/rho_s for 5056",
+      "source": {
+        "title": "5056-H392 Aluminum (property page)",
+        "org_or_authors": "MakeItFrom.com",
+        "year": null,
+        "url": "https://www.makeitfrom.com/material-properties/5056-H392-Aluminum",
+        "doi": null,
+        "location": "properties list",
+        "quote": "Elastic (Young's, Tensile) Modulus 67 GPa | Poisson's Ratio 0.33 | Shear Modulus 25 GPa | Density 2.7 g/cm3"
+      },
+      "note": "Derived arithmetic (rule of mixtures; no source page for the bound itself was opened). Measured L is 70 percent and W 32 percent of this limit, so L could gain at most 1.4 times and only at the cost of W. The isotropic Hashin-Shtrikman upper bound for a porous solid was NOT evaluated because its formula was not read from a page (lead: Berger, Wadley, McMeeking, Nature 543:533, 2017, doi 10.1038/nature21075, which builds cubic+octet foam at the isotropic bound; only its abstract was seen via a search tool).",
+      "tag": "PROJECTION"
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "limit_value": 24.81,
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "what": "Gibson-Ashby axial limit E3* = Es (rho*/rho_s), i.e. E*/rho* = Es/rho_s = 67 GPa / 2700 kg/m3 for 5056 (cell walls extend or contract axially)",
+      "source": {
+        "title": "Lecture 5, Honeycombs: Out of plane behavior (MIT 3.054 Cellular Solids, Spring 2015; formulas of Gibson and Ashby, Cellular Solids, 2nd ed., Cambridge, 1997)",
+        "org_or_authors": "MIT OpenCourseWare (after L. J. Gibson and M. F. Ashby)",
+        "year": 2015,
+        "url": "https://ocw.mit.edu/courses/3-054-cellular-solids-structure-properties-and-applications-spring-2015/9a61d6b13da64cbfe1f642e4747951eb_MIT3_054S15_L5_outpl_trans.pdf",
+        "doi": null,
+        "location": "page 2",
+        "quote": "E3 = Es (rho*/rho_s) = Es (t/l)(h/l + 2)/(2 (h/l + sin(theta)) cos(theta))"
+      },
+      "note": "Measured stabilized modulus of CR III 5056 3/8-1.0 is 6.46 MJ/kg = 26 percent of the limit; 5056 1/8-3.1 (97 ksi) is 13.47 = 54 percent. Hexcel's own tables therefore show 1.0 pcf core delivering about a quarter of the ideal axial stiffness (cause not established here; the tables give no explanation). With the measured foil modulus (about 57 GPa, NASA 2018) the limit is 21.2 MJ/kg and the 3/8-1.0 core reaches 30 percent.",
+      "tag": "PROJECTION"
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "limit_value": 24.81,
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "what": "Parent-material ratio Es/rho_s for 5056 aluminium (web property page: 67 GPa, 2.7 g/cm3)",
+      "source": {
+        "title": "5056-H392 Aluminum (property page)",
+        "org_or_authors": "MakeItFrom.com",
+        "year": null,
+        "url": "https://www.makeitfrom.com/material-properties/5056-H392-Aluminum",
+        "doi": null,
+        "location": "properties list",
+        "quote": "Elastic (Young's, Tensile) Modulus 67 GPa | Poisson's Ratio 0.33 | Shear Modulus 25 GPa | Density 2.7 g/cm3"
+      },
+      "note": "Foil (H39, 0.0016 in) measured 8.2-8.3 Msi = 56.5-57.2 GPa in NASA TM-2018-219753 for 5052, i.e. 17 percent below the cited 10 Msi; Es/rho_s for foil is then about 21 MJ/kg.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "limit_value": 9.259,
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "what": "Parent-material ratio Gs/rho_s for 5056 aluminium (25 GPa / 2700 kg/m3)",
+      "source": {
+        "title": "5056-H392 Aluminum (property page)",
+        "org_or_authors": "MakeItFrom.com",
+        "year": null,
+        "url": "https://www.makeitfrom.com/material-properties/5056-H392-Aluminum",
+        "doi": null,
+        "location": "properties list",
+        "quote": "Elastic (Young's, Tensile) Modulus 67 GPa | Poisson's Ratio 0.33 | Shear Modulus 25 GPa | Density 2.7 g/cm3"
+      },
+      "note": "Web property page value; not a mill certificate.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "limit_value": 155.1,
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "what": "Parent ratio E/rho for carbon: IM7 fibre 276 GPa / 1780 kg/m3 = 155 MJ/kg; HexPly 8552/IM7 0-degree laminate 164 GPa / 1570 kg/m3 = 104.5 MJ/kg",
+      "source": {
+        "title": "IM7 HexTow DataSheet (fibre) and HexPly 8552 Product Data (laminate)",
+        "org_or_authors": "Hexcel Corporation",
+        "year": 2025,
+        "url": "https://hexcel.com/wp-content/uploads/2025/12/IM7_HexTow_DataSheet.pdf ; https://hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf",
+        "doi": null,
+        "location": "IM7 sheet: fibre tensile modulus and density; 8552 sheet: 0 deg tensile modulus 164 GPa, nominal laminate density 1.57 g/cm3",
+        "quote": "Tensile Modulus (Chord 6000-1000) 40.0 Msi 276 GPa | Density 0.0643 lb/in3 1.78 g/cm3 | 0 deg Tensile Modulus 164 GPa | Nominal Laminate Density 1.57 g/cm3"
+      },
+      "note": "Both are about 4 to 6 times aluminium (24.8). A carbon honeycomb through-thickness modulus per density could therefore in principle reach about 100 MJ/kg (all fibres along the thickness), but no carbon honeycomb through-thickness modulus was found to compare. Shear modulus of a carbon wall laminate (G/rho) is NOT on those sheets.",
+      "tag": "PROJECTION"
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "limit_value": 3.55,
+      "units": "MJ/kg (= MPa per kg/m3)",
+      "what": "Parent ratio for the UD carbon tape used in Kondratiev's honeycomb finite-element model: G12 = 5.5 GPa, rho = 1550 kg/m3 (E1 115 GPa)",
+      "source": {
+        "title": "Effect of Ply Orientation on the Mechanical Performance of Carbon Fibre Honeycomb Cores",
+        "org_or_authors": "Kondratiev A., Pistek V., Gajdachuk V., Kharchenko M., Nabokina T., Kucera L., Kucera P. (Polymers 15(11), 2503)",
+        "year": 2023,
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10255388/",
+        "doi": "10.3390/polym15112503",
+        "location": "Table of CMU-4E material properties",
+        "quote": "CMU-4E 0.1 mm: E1 115 GPa, E2 28.3 GPa, G12 5.5 GPa, nu12 0.25, density 1550 kg/m3"
+      },
+      "note": "UD in-plane shear is the weak constant; a +/-45 laminate wall is much stiffer in shear (value not recorded). Measured UCF-145 L specific modulus 10.2 MJ/kg is far above this ratio, consistent with +/-30 deg wall layup, but the layup's G was not read.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "limit_value": 13.81,
+      "units": "kJ/kg (= kPa per kg/m3)",
+      "what": "Gibson-Ashby plastic-collapse estimate for regular hexagons, 5.6 sigma_ys (t/l)^(5/3), per density, for 5052 at 1.0 pcf (yield 37 ksi = 255 MPa from NASA Table II, bulk H38; rho_s 2680 assumed)",
+      "source": {
+        "title": "Lecture 5, Honeycombs: Out of plane behavior (MIT 3.054 Cellular Solids, Spring 2015; formulas of Gibson and Ashby, Cellular Solids, 2nd ed., Cambridge, 1997)",
+        "org_or_authors": "MIT OpenCourseWare (after L. J. Gibson and M. F. Ashby)",
+        "year": 2015,
+        "url": "https://ocw.mit.edu/courses/3-054-cellular-solids-structure-properties-and-applications-spring-2015/9a61d6b13da64cbfe1f642e4747951eb_MIT3_054S15_L5_outpl_trans.pdf",
+        "doi": null,
+        "location": "page 8 'Compressive strength: plastic collapse' and page 6 'elastic buckling'",
+        "quote": "Regular hexagons: (sigma_pl)3 = 5.6 sigma_ys (t/l)^(5/3) (exact calculation); (sigma_el)3 = 5.2 Es (t/l)^3"
+      },
+      "note": "Derived and rough: t/l = 0.866 x 16.02/2680 = 0.00518; estimate = 221 kPa = 13.8 kJ/kg, against the bare compressive strength of 5052 3/8-1.0 of 345 kPa (50 psi typ; 21.5 kJ/kg) and crush 172 kPa (25 psi). The tables lie within a factor of 1.6 of the estimate, so crush and bare strength per density are not obviously far below a wall-plasticity limit, but the yield of the 5056/H39 foil was not sourced, and elastic buckling by the same notes (5.2 Es (t/l)^3 = 48 kPa) is lower than the measured values, showing the idealisation (uniform wall, simple supports) is not tight.",
+      "tag": "PROJECTION"
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "limit_value": 11.54,
+      "units": "g/m2",
+      "what": "Adhesive mass in menisci for a hexagonal 3/8 in cell (corner-to-corner d = 11.0 mm), triangular fillet legs L1 = L2 = 0.3 mm, alpha = 0.52 (Rion's fitted shape factor for Nomex/CFRP), adhesive density 1200 kg/m3 (ASSUMED)",
+      "source": {
+        "title": "Prediction of the adhesive fillet size for skin to honeycomb core bonding in ultra-light sandwich structures",
+        "org_or_authors": "Julien Rion, Yves Leterrier, Jan-Anders E. Manson (EPFL), Composites Part A 39 (2008) 1547-1555",
+        "year": 2008,
+        "url": "https://infoscience.epfl.ch/bitstreams/28b8cc7a-f046-4da3-9fcc-5d5ad3c52a9d/download",
+        "doi": "10.1016/j.compositesa.2008.05.022",
+        "location": "eqs. (15)-(17), section 3; Fig. 5",
+        "quote": "the adhesive areal weight depends on the size of the fillet according to: M = alpha (4 L1 L2/(sqrt3 d) - 16 L1 tan(pi/6) L2^2/(3 sqrt3 d^2)) rho"
+      },
+      "note": "PROJECTION by the worker using Rion's equation 17, not a measurement. With legs of 0.5 mm the mass is 32 g/m2. Scales as L^2 / d. Rion found the menisci must be large enough that failure leaves the meniscus; no minimum fillet giving a stated flatwise strength was found in any page read. The needed fillet for an aluminium core with a given face sheet is therefore UNKNOWN; current film (73 g/m2) is 2 to 6 times the fillet-mass estimate for 0.3-0.5 mm fillets, while the deposition method (8 g/m2) is below it.",
+      "tag": "PROJECTION"
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "limit_value": 0.07,
+      "units": "g/m2",
+      "what": "Pure footprint floor: adhesive only on the cell-edge area (solid fraction rho*/rho_s = 0.006 for 16 kg/m3 core) as a 10 micron layer of 1200 kg/m3 adhesive",
+      "source": {
+        "title": "worker arithmetic (no source page)",
+        "org_or_authors": "",
+        "year": null,
+        "url": "",
+        "doi": null,
+        "location": "",
+        "quote": ""
+      },
+      "note": "Shows that the mass of the bond line itself is negligible (under 0.1 g/m2); the practical floor is set by fillet geometry, wetting and handling, not by physics of bonding. 0.006 x 10e-6 m x 1200 kg/m3 = 7e-5 kg/m2. Assumptions are the worker's.",
+      "tag": "PROJECTION"
+    }
+  ],
+  "trends": [
+    {
+      "property_id": "core_shear_modulus_per_density",
+      "summary": "Aluminium honeycomb (CR III 5056 3/8-1.0): W 2.93 and L 6.46 MJ/kg in the Hexcel tables of 1998, 1999, 2004, 2016 and 2026, all identical. The 1986 NASA quotation of the 1/4-1.6 row (W 11.0 ksi) equals the 2026 row. Implied rate 1986-2026: 0.0 percent per year (published typical values unchanged; Hexcel may simply not have re-tested, which these sheets cannot show).",
+      "implied_rate_percent_per_year": 0.0,
+      "period": "1986-2026",
+      "near_physical_limit": "Average of L and W equals the regular-hexagon estimate (0.5 Gs/rho_s = 4.63 MJ/kg); L is 70 percent and W 32 percent of the sheet-parallel limit 9.26 MJ/kg. Not far below the limit for the average, but one direction could in principle gain up to 1.4 times at the cost of the other.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "core_shear_modulus_per_density_best_any",
+      "summary": "Best of any class at 10-50 kg/m3: Ultracor UCF-145-3/8-0.8 carbon honeycomb, L 10.2 and W 6.46 MJ/kg at 12.8 kg/m3 (secondary source, 2012 paper quoted in 2023); lab carbon batch at 40 kg/m3: L 6.4, W 4.1-4.4. Aluminium 6.46 L / 2.93 W; aramid HRH-10 0.86 / 0.43; HRH-36 1.95 / 0.99. Micro/nano-lattices: no shear value found. No history for carbon found, so no rate.",
+      "implied_rate_percent_per_year": null,
+      "period": "n/a",
+      "near_physical_limit": "Unknown for carbon (wall-laminate shear modulus not sourced).",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "core_compressive_modulus_per_density",
+      "summary": "Aluminium 5056 3/8-1.0: 6.46 MJ/kg in every edition 1998-2026; 1986 5052 1/4-1.6 gives 5.30 (20 ksi at the printed 26 kg/m3); the same row in the 2026 sheet (20 ksi at 25.63 kg/m3) gives 5.38. Rate 0.0 percent per year. Best in the 16-50 kg/m3 window is 5056 1/8-3.1 (13.5 MJ/kg). Aramid HRH-10 1.72; lattices 0.0038-0.67 (lab only).",
+      "implied_rate_percent_per_year": 0.0,
+      "period": "1986-2026",
+      "near_physical_limit": "1.0 pcf core is at 26 percent and 3.1 pcf core at 54 percent of Es/rho_s = 24.8 MJ/kg (Gibson-Ashby axial limit); a gap of 1.9-3.8 times exists in principle, cause not established.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "core_crush_per_density",
+      "summary": "Aluminium 5056 3/8-1.0: 15.07 kJ/kg (crush 35 psi) in every edition 1998-2026. 1986 5052 1/4-1.6: 10.7 kJ/kg (40 psi at the printed 26 kg/m3); the 2026 row of the same designation gives 10.8. Rate 0.0 percent per year. Best in the 16-50 kg/m3 window: 5056 1/8-3.1 23.6 kJ/kg. Hexcel gives crush as +/-20 percent preliminary values.",
+      "implied_rate_percent_per_year": 0.0,
+      "period": "1986-2026",
+      "near_physical_limit": "Within 1.6 times of a wall-plasticity estimate (221 kPa vs 345 kPa bare); estimate is rough.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "property_id": "film_adhesive_areal_mass",
+      "summary": "Lightest sourced film: 244 g/m2 optimum tape (1954, FM-47), 146 g/m2 sheet film with 98-146 g/m2 after reticulation (mid-1970s), 73 g/m2 (Redux 312 by 2006, AF 163-2U by 2009), unchanged to 2026 (FM 300U/2U are 146-147 g/m2). Rate 1975-2009: -2.0 percent per year; 1954-2009: -2.2 percent per year; 2009-2026: 0.0 percent per year. Lab deposition 8 g/m2 (2008) is 9 times lighter than the film but on Nomex core.",
+      "implied_rate_percent_per_year": -2.04,
+      "period": "1975-2009",
+      "near_physical_limit": "No: a 0.3-0.5 mm fillet needs about 12-32 g/m2 by Rion's geometry (projection) and 8 g/m2 was deposited in the lab; the footprint-only floor is under 0.1 g/m2.",
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "gaps": [
+    "No aluminium honeycomb values at 1.0 pcf (or any pcf) before 1986. The 1986 NASA table quotes the 1/4-1.6 row, equal to today's. TSB 120 1981/1984/1987/1992 editions and MIL-HDBK-23A (1968) were not found, so the 30-year (about 1996) point is 1998-99 (Data Sheet 2100 12/98, TSB 120 11/99) and the 20-year point 2004; nothing earlier than 1986.",
+    "No evidence that Hexcel re-tested: identical printed values over 28 to 40 years may reflect unchanged tables, not unchanged material. No minimum values for stabilized modulus are printed. Crush values are +/-20 percent preliminary values.",
+    "Stabilized compressive modulus and plate shear modulus per density were not found for Plascore, Euro-Composites, Alcore or Hexcel Flex-Core at 16-50 kg/m3 beyond what catalog.json holds (Plascore PAMG-XR1 gives shear only).",
+    "Carbon honeycomb: only one secondary source (Kondratiev et al. 2023, quoting a 2012 conference paper) for UCF-145-3/8-0.8 (12.8 kg/m3) and UCF-121-1/4-3.0; no primary datasheet for any Ultracor UCF grade, no through-thickness modulus, no crush value, no history. Current availability of the 0.8 pcf grade not confirmed.",
+    "Micro/nano-lattices: no shear modulus anywhere; Zheng 2014 and Schaedler 2011 numbers not read (full texts blocked); compressive moduli are figure readings from earlier sourcing files.",
+    "Hashin-Shtrikman bound formula not read from any page; not evaluated numerically. Only the Voigt rule-of-mixtures limit and the Gibson-Ashby estimate are given (the Gibson-Ashby G13 formula is an estimate, not a bound). Carbon-wall G/rho not sourced. Parent 5056 properties are from a web property page, not a handbook; foil modulus measured for 5052 only.",
+    "Film adhesive: date of first offering of AF 163-2U 0.015 lb/ft2 not found (oldest 3M source read is November 2009); FM 73 lightest weight and Cytec FM 300/73 history before 2011 not found; EA 9696 TDS not obtained; no film lighter than 0.015 psf found; no reticulated-fillet mass measurement for aluminium honeycomb found (Boeing 1975 patent claims 0.02-0.03 lb/ft2 without a table); Okada and Kortschot (2002) not opened; no minimum-fillet theory giving least adhesive for a stated flatwise strength found (Rion gives only fillet-mass geometry).",
+    "1954 Hexcel report: 'O.lU lbs per square foot' is OCR text and read as 0.14; the basis of the 0.05 lb/ft2 tape weight (per bond or per panel) is not stated in the text read.",
+    "Shear-modulus-vs-density figures in the 2016 guide were not read off; only table rows are recorded."
+  ]
+}

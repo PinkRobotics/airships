@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-005b",
+  "unit": "vacuum-mainline005b-nfi-crush-1019",
+  "NFI": [
+    {
+      "NFI_id": "NFI-005B-MODEL",
+      "gap": "The p/2 core stress is the brief's example model, QUESTIONABLE, with no pinned sandwich reference. Local face bending and load spreading are ignored.",
+      "direction": "Pin a sandwich core-crush reference and re-derive the factor.",
+      "effect": "Required core strength scales linearly with whatever factor replaces 1/2."
+    },
+    {
+      "NFI_id": "NFI-005B-STRAIN",
+      "gap": "Foam strengths are quoted at 1% and 10% strain by different sources. The incumbent 16 kg/m3 passes on one definition and fails on the other.",
+      "direction": "The checker names the governing strain definition for a vacuum shell core.",
+      "effect": "Lowest passing density moves between about 11 and about 22 kg/m3 on that choice."
+    },
+    {
+      "NFI_id": "NFI-005B-007",
+      "gap": "MAINLINE-007 is not filed yet, so its rows have no crush numbers here, only the ready formula.",
+      "direction": "Apply p/2 at 007's external pressure when that card lands.",
+      "effect": "None until 007 exists."
+    },
+    {
+      "NFI_id": "NFI-005B-CREEP",
+      "gap": "EPS at 10% strain is a short-term value; sustained vacuum loading creeps. No creep derate is applied.",
+      "direction": "Derate foam allowables for sustained load before any density near 11 kg/m3 is relied on.",
+      "effect": "The practical lowest density is higher than 11 kg/m3."
+    }
+  ]
+}

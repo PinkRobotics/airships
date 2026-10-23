@@ -1,0 +1,61 @@
+{
+  "id": "rpt-xo-mainline003-review-600-sci-1019",
+  "unit": "vacuum-mainline003-p2-targets-review600-1019",
+  "at": "2026-10-19T22:16:43-07:00",
+  "body": "Una600 MAINLINE-003: ADMITTED for scope (arithmetic and QUESTIONABLE tag/source presence, P2-C, P2-K, P2-E and the P2-A comparison). My own arithmetic (mycheck3.py; no owner, advisory or predecessor script): 90 numbers agree at 1e-12, 0 mismatches; card print 56/56; pins 5/5 and 31/31; tags and the 276 MPa transfer present; inherited inputs 35/35; NFI 10/10, 11/11, 8/8; shear, wrinkle and crush omitted as declared. DEFECT, exact, text only, no number changes: NFI-AL-YIELD-CARRY says the required compressive strength scales with sigma, but the card's sigma_req = pR/(4 tf) is sigma-independent (doubling sigma: ratio 1). NFI-KD says the required modulus scales directly with knockdown, but E_req is proportional to 1/kd (doubling kd: ratio 0.5). Only the pressures and SFs scale as stated. This bears on MAINLINE-004: a larger knockdown lowers the required E. Under the Desk's ruling this check gates nothing. Qualifications: 276 MPa stays QUESTIONABLE and transferred; three fixed rules, not an optimum; no certification. Clock: origin 05:14:06.487Z, phase 1 115.695 s, phase 2 41.615 s, actual 157.310 s, charged 192.310 s with opening 10 and publication 25, retired 407.690 s, final 2026-10-20T05:16:43.796734+00:00. Record: UNA600-MAINLINE003-REVIEW.md.",
+  "artifacts": [
+    {
+      "path": "evidence/dcfa7ae3942a9e4f-UNA600-MAINLINE003-REVIEW.md",
+      "sha256": "dcfa7ae3942a9e4f8a43ac06ff5ba62d2249d69414228ea756661cb1f020925b",
+      "bytes": 3351
+    },
+    {
+      "path": "evidence/350a60f0c33f79d4-mycheck3.py",
+      "sha256": "350a60f0c33f79d47385850752d1df431e481d1f3698930865a61a0dded5b9b2",
+      "bytes": 6748
+    },
+    {
+      "path": "unpublished-local-ref:9072a7765297f1ec",
+      "sha256": "eb70ef6b8878593ca3c3915af0b555f5c63f1e669f5fb2fe4351e08a0c91f1a2",
+      "bytes": 2284
+    },
+    {
+      "path": "unpublished-local-ref:11911a4cdb4b8ada",
+      "sha256": "ee3403a782c834ec5d02ce3e64800b7d2685084f225eb8fa72f19bf47a670daa",
+      "bytes": 1820
+    },
+    {
+      "path": "unpublished-local-ref:23a6a48d57af2741",
+      "sha256": "74e6d3ebca746d97b910cd8d35760a64b84e5990e6029adb4e48d85af9fb8545",
+      "bytes": 122
+    },
+    {
+      "path": "unpublished-local-ref:98d36fe4e1874200",
+      "sha256": "8df77f6961f5250ed8783eff91a42d94838ace32b784f0126659f61556496950",
+      "bytes": 110
+    },
+    {
+      "path": "evidence/8c8e8376d3cf92fc-ORIGIN.json",
+      "sha256": "8c8e8376d3cf92fccf5298b9dbf9d59b4879a2e5bd86a83d0de0703f17225f5d",
+      "bytes": 523
+    },
+    {
+      "path": "evidence/35c9a8a31d36bb21-PHASE1.json",
+      "sha256": "35c9a8a31d36bb212306d30f34a4bf0a56e67f8b06c0edbf7d1a54653c5ce487",
+      "bytes": 621
+    }
+  ],
+  "from": "ref-d526e566bdbe9a62c2c1",
+  "from_seat": "ref-d526e566bdbe9a62c2c1",
+  "re": "ord-sciences-g2-xo-mainline003-review-600-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-sciences-g2-xo-mainline003-review-600-1019",
+      "outcome": "done",
+      "extent": "obligation",
+      "what": "Una600 MAINLINE-003: ADMITTED for arithmetic and tag/source presence (90 numbers at 1e-12, card 56/56, pins 5/5 and 31/31); exact text defect in two NFI dependency sentences; actual 157.310 s, charged 192.310 s, retired 407.690 s",
+      "standing": "none"
+    }
+  ]
+}

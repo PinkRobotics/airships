@@ -1,0 +1,64 @@
+{
+  "id": "rpt-ref-d458cd5a32d90025482b",
+  "unit": "vacuum-mainline018b-check-1020",
+  "at": "2026-10-20T00:56:33-07:00",
+  "body": "MAINLINE-018b checked: 72/75 numeric comparisons reproduce. EUCASS gives linear/nonlinear-perfect/imperfect pressures 27.53/12.45/6.03 MPa flat and 27.56/12.44/5.63 dimple; Sim journal corroborates the linear/imperfect pairs. H80/H35 shear 27/12 MPa and compression modulus 90/40 MPa match the 2012 average-data sheet.\n\nThe same unequal-face omission found in 018 changes three dimple fields: sigma0=19,113,852,932.306 Pa, Vc=197.187580270942, classical pressure=767.549432149391 MPa. Crimp pressure and gamma are unchanged. At Gc=20 MPa, gamma is 1.539972862054 flat and 1.446377302132 dimple; at 27 MPa, 1.140720638559 and 1.071390594172.\n\nOwn-face-bending fractions 0.004723195064743 and 0.004538262400473 reproduce. They measure facings-only rigidity, not the isolated effect on collapse pressure. H80/H35 rows are denominator-only sensitivities, not new collapse simulations.\n\nLead-least-times-gamma products reproduce but are not all-mode least factors: unchanged wrinkling limits any uncapped crimp increase to 0.650414127459. With the declared cap, the carry remains 0.650411843681.\n\nThese high-Vc numerical cases do not calibrate the continuous optimistic curve or test its moderate-Vc segment. Correction and interpretation limits are in NFI. QUESTIONABLE/PROJECTION; no certification. Assigned check complete.",
+  "artifacts": [
+    {
+      "path": "evidence/5adcc356a8a74ca6-CARD.md",
+      "sha256": "5adcc356a8a74ca6904613b30498171515efef32c9da7daf7a294ab119da8c53",
+      "bytes": 5669
+    },
+    {
+      "path": "evidence/12fd40a1b162eade-RESULTS.json",
+      "sha256": "12fd40a1b162eade5953c9265af206dafb23c5c1a102c0907a673ca20df302f2",
+      "bytes": 24781
+    },
+    {
+      "path": "evidence/2724e8c373285e8e-INPUTS.json",
+      "sha256": "2724e8c373285e8e810ffdeaf087c39281ce70e676e3c447192b5ba9a6cb4582",
+      "bytes": 17053
+    },
+    {
+      "path": "evidence/5a57f039d53fb3e4-NFI.json",
+      "sha256": "5a57f039d53fb3e4a4b4eec61fa32adfdc8d8996c2ebac404e5bae9637b99a3c",
+      "bytes": 5713
+    },
+    {
+      "path": "evidence/f5a4c281e69ca41e-recalculate.py",
+      "sha256": "f5a4c281e69ca41e60c6a282eac4ff3a5b1216742b5d9090feee3f8f4d518e35",
+      "bytes": 6440
+    },
+    {
+      "path": "unpublished-local-ref:e65a714b3788390d",
+      "sha256": "a6af91db293b693fb5c111ddcc3f8c802ca0428afb7f8273a3fc2ae97fe3506c",
+      "bytes": 2142405
+    },
+    {
+      "path": "unpublished-local-ref:bf367900967cd372",
+      "sha256": "bb8ab0bc8bf24db27567d3dabb50585b22c7f61924090c9ce94b4679ef3e7fa8",
+      "bytes": 452498
+    },
+    {
+      "path": "unpublished-local-ref:03806c1fdf68a273",
+      "sha256": "712059c49e3cbfb20a752cffc41d1419d5cfd8cebf22f66fae3446292d488e3b",
+      "bytes": 471949
+    },
+    {
+      "path": "unpublished-local-ref:a184cf3a7a22d45f",
+      "sha256": "456b0430121cb1ff8091b7b52e531770757043d6705d2ba374afa33216632b7f",
+      "bytes": 88813
+    }
+  ],
+  "from": "ref-baa4584cf36c531365e7",
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "re": "ord-admiral-rr2-check018b-after-009e-codex-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check018b-after-009e-codex-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

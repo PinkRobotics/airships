@@ -1,0 +1,40 @@
+{
+  "id": "E-de39e6768cf5cdd7827d",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-de39e6768cf5cdd7827d",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/0",
+    "row_id": "C055-01",
+    "fields": {
+      "id": "C055-01",
+      "title": "Rig gamma uses the Be denominator for the proposed aluminium article",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The article definition requires its own Kc*p_classical. Be p_H=169.207732590530 kPa; 5052-O p_H=174.466866567275 kPa. Sea-level/5m-water gamma is 0.575037552829/0.856083753548 for 5052-O, versus card 0.592910711208/0.882692312307. The latter reproduces on the Be reference.",
+      "proposed_fix": "Label a Be-equivalent reference separately; report measured article gamma against its own section. Specify whether water head is measured above the pole."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Rig gamma uses the Be denominator for the proposed aluminium article",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

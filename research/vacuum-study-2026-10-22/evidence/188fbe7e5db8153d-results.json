@@ -1,0 +1,75 @@
+{
+  "U": {
+    "acts": "",
+    "expect": 0,
+    "rc": 0,
+    "as_expected": true,
+    "status": "STATUS PASS rc=0 manager_rc=0 regenerate and check passed; HEAD, index, untracked and shard unchanged; delta within the allowed set; tmp, home, bin and short TMP removed; src kept"
+  },
+  "J": {
+    "acts": "J",
+    "expect": 0,
+    "rc": 0,
+    "as_expected": true,
+    "status": "STATUS PASS rc=0 manager_rc=0 regenerate and check passed; HEAD, index, untracked and shard unchanged; delta within the allowed set; tmp, home, bin and short TMP removed; src kept"
+  },
+  "M": {
+    "acts": "M",
+    "expect": 0,
+    "rc": 0,
+    "as_expected": true,
+    "status": "STATUS PASS rc=0 manager_rc=0 regenerate and check passed; HEAD, index, untracked and shard unchanged; delta within the allowed set; tmp, home, bin and short TMP removed; src kept"
+  },
+  "B": {
+    "acts": "JM",
+    "expect": 0,
+    "rc": 0,
+    "as_expected": true,
+    "status": "STATUS PASS rc=0 manager_rc=0 regenerate and check passed; HEAD, index, untracked and shard unchanged; delta within the allowed set; tmp, home, bin and short TMP removed; src kept"
+  },
+  "T": {
+    "acts": "T",
+    "expect": 22,
+    "rc": 22,
+    "as_expected": true,
+    "status": "STATUS FAIL rc=22 post-run delta [other.txt shard.json ] must contain the shard and otherwise only the generated ledger files"
+  },
+  "N": {
+    "acts": "N",
+    "expect": 22,
+    "rc": 22,
+    "as_expected": true,
+    "status": "STATUS FAIL rc=22 post-run untracked [new-untracked.txt]"
+  },
+  "S": {
+    "acts": "S",
+    "expect": 22,
+    "rc": 22,
+    "as_expected": true,
+    "status": "STATUS FAIL rc=22 post-run shard drift"
+  },
+  "G": {
+    "acts": "G",
+    "expect": 22,
+    "rc": 22,
+    "as_expected": true,
+    "status": "STATUS FAIL rc=22 post-run git rev-parse failed"
+  },
+  "H": {
+    "acts": "H",
+    "expect": 22,
+    "rc": 22,
+    "as_expected": true,
+    "status": "STATUS FAIL rc=22 post-run HEAD drift [0f0ecef605e146be95e6e2371d854cabaa6db671]"
+  },
+  "I": {
+    "acts": "JI",
+    "expect": 22,
+    "rc": 22,
+    "as_expected": true,
+    "status": "STATUS FAIL rc=22 post-run index drift [60f4735f9b2220d5855d6190e0ea0ddce1a321da]"
+  },
+  "units_left": "",
+  "cache_left": [],
+  "all_as_expected": true
+}

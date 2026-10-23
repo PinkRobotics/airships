@@ -1,0 +1,88 @@
+{
+  "id": "N010",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N010",
+    "report": "rpt-1228-mainline013-independent-check-1020",
+    "card": "CHECK-MAINLINE-013",
+    "file": "evidence/ef406b56c4cff82e-NFI.json",
+    "row_id": "NFI-CHECK013-MEZA-SPECIMEN-NOTE",
+    "fields": {
+      "id": "NFI-CHECK013-MEZA-SPECIMEN-NOTE",
+      "kind": "metadata correction",
+      "row": "meza2015-hier-hollow-alumina-heaviest-halfcell",
+      "field": "notes specimen geometry",
+      "card_value": {
+        "geometry": "octahedron-of-octahedra",
+        "base_cell_um": 12,
+        "N": 20,
+        "relative_density": 0.000104
+      },
+      "checker_value": {
+        "geometry": "octahedron-of-octets",
+        "base_cell_um": 8,
+        "N": 10,
+        "relative_density": 0.00182
+      },
+      "source": "sources/meza2015-si.pdf Table S1 p10",
+      "issue": "Architecture field is correct; notes copy the lightest specimen into the heaviest record.",
+      "proposed_fix": "Correct notes only. The calculated high-density geometry and core margins do not change.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    }
+  },
+  "claim": "Architecture field is correct; notes copy the lightest specimen into the heaviest record.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/9"
+    },
+    {
+      "report": "rpt-1228-mainline013-independent-check-1020",
+      "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+      "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+      "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+      "bytes": 6151,
+      "selector": "source row ID: NFI-CHECK013-MEZA-SPECIMEN-NOTE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline013-independent-check-1020",
+          "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+          "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+          "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+          "bytes": 6151,
+          "selector": "source row ID: NFI-CHECK013-MEZA-SPECIMEN-NOTE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/9"
+          }
+        ]
+      }
+    }
+  ]
+}

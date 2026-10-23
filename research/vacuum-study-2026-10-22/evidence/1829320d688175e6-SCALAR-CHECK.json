@@ -1,0 +1,2980 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "independent_FE": true,
+  "checks": [
+    {
+      "row": "selected-m6",
+      "field": "perfect_linear",
+      "owner": 5.6721919230871425,
+      "checker": 5.67219192308717,
+      "error": 2.7533531010703882e-14,
+      "tolerance": 1.1444383846174283e-06,
+      "match": true
+    },
+    {
+      "row": "selected-m6",
+      "field": "screened_linear_k0p2",
+      "owner": 1.1344383846174286,
+      "checker": 1.134438384617434,
+      "error": 5.329070518200751e-15,
+      "tolerance": 2.3688767692348573e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m12",
+      "field": "perfect_linear",
+      "owner": 5.668143555325563,
+      "checker": 5.668143555325767,
+      "error": 2.042810365310288e-13,
+      "tolerance": 1.1436287110651125e-06,
+      "match": true
+    },
+    {
+      "row": "selected-m12",
+      "field": "screened_linear_k0p2",
+      "owner": 1.1336287110651126,
+      "checker": 1.1336287110651535,
+      "error": 4.085620730620576e-14,
+      "tolerance": 2.3672574221302253e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "perfect_linear",
+      "owner": 5.66725307961362,
+      "checker": 5.6672530796115055,
+      "error": -2.114752817305998e-12,
+      "tolerance": 1.1434506159227239e-06,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "screened_linear_k0p2",
+      "owner": 1.133450615922724,
+      "checker": 1.1334506159223012,
+      "error": -4.227729277772596e-13,
+      "tolerance": 2.366901231845448e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/compression_axial",
+      "owner": 4.455477844109547,
+      "checker": 4.455477844117971,
+      "error": 8.424372310855688e-12,
+      "tolerance": 9.010955688219094e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/euler",
+      "owner": 4.087034805617741,
+      "checker": 4.08703480561999,
+      "error": 2.2497559371004172e-12,
+      "tolerance": 8.274069611235481e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/local_axial",
+      "owner": 1.2831618484974212,
+      "checker": 1.2831618484998475,
+      "error": 2.426281398015817e-12,
+      "tolerance": 2.666323696994842e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.128942717968899,
+      "checker": 3.128942718042074,
+      "error": 7.317524364225392e-11,
+      "tolerance": 6.357885435937798e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.681993771646338,
+      "checker": 3.681993771712046,
+      "error": 6.570832766783496e-11,
+      "tolerance": 7.463987543292675e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/film",
+      "owner": 1.2278771857790438,
+      "checker": 1.2278771857790443,
+      "error": 4.440892098500626e-16,
+      "tolerance": 2.555754371558088e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/global_perfect_linear",
+      "owner": 5.66725307961362,
+      "checker": 5.6672530796115055,
+      "error": -2.114752817305998e-12,
+      "tolerance": 1.1434506159227239e-06,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/global_k0p2",
+      "owner": 1.133450615922724,
+      "checker": 1.1334506159223012,
+      "error": -4.227729277772596e-13,
+      "tolerance": 2.366901231845448e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.2183148090122975,
+      "checker": 1.2183148089182687,
+      "error": -9.402878475839316e-11,
+      "tolerance": 2.536629618024595e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.2183136053490442,
+      "checker": 1.218313605255014,
+      "error": -9.403011702602271e-11,
+      "tolerance": 2.5366272106980884e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/tube",
+      "owner": 4361.908696541518,
+      "checker": 4361.9086965415245,
+      "error": 6.366462912410498e-12,
+      "tolerance": 0.0008733817393083036,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/film",
+      "owner": 214.54155754530413,
+      "checker": 214.54155754530413,
+      "error": 0.0,
+      "tolerance": 4.390831150906082e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/joint",
+      "owner": 48.98978474983017,
+      "checker": 48.98978474983017,
+      "error": 0.0,
+      "tolerance": 1.0797956949966035e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/nodes",
+      "owner": 3.24,
+      "checker": 3.24,
+      "error": 0.0,
+      "tolerance": 1.648e-06,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 90.73389245516228,
+      "checker": 90.73389245516229,
+      "error": 1.4210854715202004e-14,
+      "tolerance": 1.9146778491032454e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/reserve",
+      "owner": 244.4721075095,
+      "checker": 244.4721075095,
+      "error": 0.0,
+      "tolerance": 4.989442150189999e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/total_with_reserve_and_sag",
+      "owner": 5063.8860388013145,
+      "checker": 5063.886038801321,
+      "error": 6.366462912410498e-12,
+      "tolerance": 0.0010137772077602628,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "mass_kg/headroom",
+      "owner": -174.44388861131483,
+      "checker": -174.4438886113212,
+      "error": -6.366462912410498e-12,
+      "tolerance": 3.588877772226296e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "least_screened_SF",
+      "owner": 1.133450615922724,
+      "checker": 1.1334506159223012,
+      "error": -4.227729277772596e-13,
+      "tolerance": 2.366901231845448e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "least_without_global_knockdown",
+      "owner": 1.2183136053490442,
+      "checker": 1.218313605255014,
+      "error": -9.403011702602271e-11,
+      "tolerance": 2.5366272106980884e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1124801617.9144232,
+      "checker": 1124801617.8921895,
+      "error": -0.02223372459411621,
+      "tolerance": 224.96032359288463,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "max_tension_at_screened_limit_Pa",
+      "owner": 0.0,
+      "checker": 0.0,
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 922305654.6107459,
+      "checker": 922305654.6824642,
+      "error": 0.07171833515167236,
+      "tolerance": 184.4611309321492,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 3356.558523283245,
+      "checker": 3356.558522017049,
+      "error": -1.2661957953241654e-06,
+      "tolerance": 0.000671321704656649,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3356.558523283245,
+      "checker": 3356.558522017049,
+      "error": -1.2661957953241654e-06,
+      "tolerance": 0.000671321704656649,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 1118.6565862214484,
+      "checker": 1118.6565870486957,
+      "error": 8.272472769021988e-07,
+      "tolerance": 0.00022374131724428966,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "joint_end_peak_compression_N",
+      "owner": 856809.2555748477,
+      "checker": 856809.2555732289,
+      "error": -1.6187550500035286e-06,
+      "tolerance": 0.17136186111496954,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "local_peak_sensitivity",
+      "owner": 1.131896887260336,
+      "checker": 1.1318968872812607,
+      "error": 2.092459538971525e-11,
+      "tolerance": 2.3637937745206722e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/compression_axial",
+      "owner": 4.305459078632502,
+      "checker": 4.305459078614929,
+      "error": -1.7573498212186678e-11,
+      "tolerance": 8.710918157265004e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/euler",
+      "owner": 4.108100293978134,
+      "checker": 4.10810029400134,
+      "error": 2.3206325749924872e-11,
+      "tolerance": 8.316200587956268e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/local_axial",
+      "owner": 1.129787212275204,
+      "checker": 1.1297872122705925,
+      "error": -4.61142235508305e-12,
+      "tolerance": 2.3595744245504078e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.088706331254077,
+      "checker": 3.088706331299655,
+      "error": 4.5578207874541476e-11,
+      "tolerance": 6.277412662508154e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.706856310049484,
+      "checker": 3.706856310091376,
+      "error": 4.1891823343576107e-11,
+      "tolerance": 7.513712620098968e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/film",
+      "owner": 1.129787212275204,
+      "checker": 1.1297872122752044,
+      "error": 4.440892098500626e-16,
+      "tolerance": 2.3595744245504078e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/global_perfect_linear",
+      "owner": 5.669615429807307,
+      "checker": 5.669615429819137,
+      "error": 1.1829648371985968e-11,
+      "tolerance": 1.1439230859614613e-06,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/global_k0p2",
+      "owner": 1.1339230859614615,
+      "checker": 1.1339230859638274,
+      "error": 2.3658852654762086e-12,
+      "tolerance": 2.367846171922923e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.1297872122752037,
+      "checker": 1.129787212275201,
+      "error": -2.6645352591003757e-15,
+      "tolerance": 2.3595744245504075e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.1297872122752037,
+      "checker": 1.1297872122752035,
+      "error": -2.220446049250313e-16,
+      "tolerance": 2.3595744245504075e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/tube",
+      "owner": 4216.881526193764,
+      "checker": 4216.8815261937125,
+      "error": -5.184119800105691e-11,
+      "tolerance": 0.0008443763052387529,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/film",
+      "owner": 197.4027297058248,
+      "checker": 197.4027297058248,
+      "error": 0.0,
+      "tolerance": 4.0480545941164955e-05,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/joint",
+      "owner": 36.7118943257464,
+      "checker": 36.71189432568185,
+      "error": -6.45528075438051e-11,
+      "tolerance": 8.34237886514928e-06,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/nodes",
+      "owner": 3.24,
+      "checker": 3.24,
+      "error": 0.0,
+      "tolerance": 1.648e-06,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 90.73389245516228,
+      "checker": 90.73389245516229,
+      "error": 1.4210854715202004e-14,
+      "tolerance": 1.9146778491032454e-05,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/reserve",
+      "owner": 244.4721075095,
+      "checker": 244.4721075095,
+      "error": 0.0,
+      "tolerance": 4.989442150189999e-05,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/total_with_reserve_and_sag",
+      "owner": 4889.442150189998,
+      "checker": 4889.442150189881,
+      "error": -1.1641532182693481e-10,
+      "tolerance": 0.0009788884300379994,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "mass_kg/headroom",
+      "owner": 1.8189894035458565e-12,
+      "checker": 1.1823431123048067e-10,
+      "error": 1.1641532182693481e-10,
+      "tolerance": 1.0000000000003638e-06,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "least_screened_SF",
+      "owner": 1.1297872122752037,
+      "checker": 1.1297872122705925,
+      "error": -4.611200310478125e-12,
+      "tolerance": 2.3595744245504075e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "least_without_global_knockdown",
+      "owner": 1.1297872122752037,
+      "checker": 1.1297872122705925,
+      "error": -4.611200310478125e-12,
+      "tolerance": 2.3595744245504075e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1157053335.762371,
+      "checker": 1157053335.743286,
+      "error": -0.019085168838500977,
+      "tolerance": 231.4106671624742,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "max_tension_at_screened_limit_Pa",
+      "owner": 0.0,
+      "checker": 0.0,
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 954589304.3457026,
+      "checker": 954589304.3031814,
+      "error": -0.04252123832702637,
+      "tolerance": 190.91786087914053,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 3415.6280758615844,
+      "checker": 3415.6280768450742,
+      "error": 9.83489826467121e-07,
+      "tolerance": 0.0006831356151723169,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3415.6280758615844,
+      "checker": 3415.6280768450742,
+      "error": 9.83489826467121e-07,
+      "tolerance": 0.0006831356151723169,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 1133.8433142829454,
+      "checker": 1133.843314807833,
+      "error": 5.248875822871923e-07,
+      "tolerance": 0.00022677866285658905,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "joint_end_peak_compression_N",
+      "owner": 857183.4962175267,
+      "checker": 857183.496221015,
+      "error": 3.4882687032222748e-06,
+      "tolerance": 0.17143670924350532,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "local_peak_sensitivity",
+      "owner": 1.0042587515959494,
+      "checker": 1.0042587516074093,
+      "error": 1.1459944104785791e-11,
+      "tolerance": 2.1085175031918987e-07,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "joint/area_minmax_m2/0",
+      "owner": 0.0005760788813401174,
+      "checker": 0.0005760788813593698,
+      "error": 1.92523948172596e-14,
+      "tolerance": 1.1621577626802347e-10,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "joint/area_minmax_m2/1",
+      "owner": 0.0006939915316911871,
+      "checker": 0.0006939915316605201,
+      "error": -3.066698370940424e-14,
+      "tolerance": 1.397983063382374e-10,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "joint/overlap_minmax_m/0",
+      "owner": 0.03326509003484662,
+      "checker": 0.03326509003595835,
+      "error": 1.1117287646023044e-12,
+      "tolerance": 6.6540180069693246e-09,
+      "match": true
+    },
+    {
+      "row": "f4-5-m24",
+      "field": "joint/overlap_minmax_m/1",
+      "owner": 0.04007386054258031,
+      "checker": 0.04007386054080952,
+      "error": -1.7707918464893169e-12,
+      "tolerance": 8.015772108516062e-09,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/compression_axial",
+      "owner": 4.150669467760327,
+      "checker": 4.150669467778642,
+      "error": 1.8315127192636282e-11,
+      "tolerance": 8.401338935520654e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/euler",
+      "owner": 3.8729916775907216,
+      "checker": 3.8729916776053126,
+      "error": 1.4590995078833657e-11,
+      "tolerance": 7.845983355181443e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/local_axial",
+      "owner": 1.0685075859058633,
+      "checker": 1.0685075859105782,
+      "error": 4.714895140978115e-12,
+      "tolerance": 2.2370151718117264e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 2.9424533019881776,
+      "checker": 2.9424533020228774,
+      "error": 3.469979859005434e-11,
+      "tolerance": 5.984906603976355e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.491667096672215,
+      "checker": 3.491667096709251,
+      "error": 3.703570783386567e-11,
+      "tolerance": 7.08333419334443e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/film",
+      "owner": 1.0685075859058633,
+      "checker": 1.0685075859058637,
+      "error": 4.440892098500626e-16,
+      "tolerance": 2.2370151718117264e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/global_perfect_linear",
+      "owner": 5.359726935644169,
+      "checker": 5.3597269356504835,
+      "error": 6.31494856406789e-12,
+      "tolerance": 1.0819453871288335e-06,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/global_k0p2",
+      "owner": 1.0719453871288338,
+      "checker": 1.0719453871300968,
+      "error": 1.262989712813578e-12,
+      "tolerance": 2.2438907742576675e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.068507585905863,
+      "checker": 1.0685075859058608,
+      "error": -2.220446049250313e-15,
+      "tolerance": 2.2370151718117261e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.068507585905863,
+      "checker": 1.0685075859058628,
+      "error": -2.220446049250313e-16,
+      "tolerance": 2.2370151718117261e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/tube",
+      "owner": 4064.268972175012,
+      "checker": 4064.2689721749252,
+      "error": -8.685674401931465e-11,
+      "tolerance": 0.0008138537944350024,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/film",
+      "owner": 186.69561124207445,
+      "checker": 186.69561124207445,
+      "error": 0.0,
+      "tolerance": 3.833912224841488e-05,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/joint",
+      "owner": 33.20473024609435,
+      "checker": 33.20473024604675,
+      "error": -4.759925786856911e-11,
+      "tolerance": 7.64094604921887e-06,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/nodes",
+      "owner": 3.24,
+      "checker": 3.24,
+      "error": 0.0,
+      "tolerance": 1.648e-06,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 90.73389245516228,
+      "checker": 90.73389245516229,
+      "error": 1.4210854715202004e-14,
+      "tolerance": 1.9146778491032454e-05,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/reserve",
+      "owner": 411.2989440716474,
+      "checker": 411.2989440716474,
+      "error": 0.0,
+      "tolerance": 8.325978881432947e-05,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/total_with_reserve_and_sag",
+      "owner": 4889.442150189991,
+      "checker": 4889.442150189856,
+      "error": -1.3460521586239338e-10,
+      "tolerance": 0.000978888430037998,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "mass_kg/headroom",
+      "owner": 9.094947017729282e-12,
+      "checker": 1.4370016288012266e-10,
+      "error": 1.3460521586239338e-10,
+      "tolerance": 1.000000000001819e-06,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "least_screened_SF",
+      "owner": 1.068507585905863,
+      "checker": 1.0685075859058608,
+      "error": -2.220446049250313e-15,
+      "tolerance": 2.2370151718117261e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "least_without_global_knockdown",
+      "owner": 1.068507585905863,
+      "checker": 1.0685075859058608,
+      "error": -2.220446049250313e-15,
+      "tolerance": 2.2370151718117261e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1136748321.454568,
+      "checker": 1136748321.441635,
+      "error": -0.012933015823364258,
+      "tolerance": 227.3496643009136,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "max_tension_at_screened_limit_Pa",
+      "owner": 0.0,
+      "checker": 0.0,
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 990091640.4569391,
+      "checker": 990091640.3949256,
+      "error": -0.06201350688934326,
+      "tolerance": 198.01832810138782,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 3382.2579566873505,
+      "checker": 3382.2579567261814,
+      "error": 3.883087629219517e-08,
+      "tolerance": 0.0006764615913374701,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3382.2579566873505,
+      "checker": 3382.2579567261814,
+      "error": 3.883087629219517e-08,
+      "tolerance": 0.0006764615913374701,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 1125.2072741544507,
+      "checker": 1125.207273451495,
+      "error": -7.029557309579104e-07,
+      "tolerance": 0.00022505145483089014,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "joint_end_peak_compression_N",
+      "owner": 856971.0645169409,
+      "checker": 856971.0645131412,
+      "error": -3.7996796891093254e-06,
+      "tolerance": 0.17139422290338815,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "local_peak_sensitivity",
+      "owner": 0.9485201704047508,
+      "checker": 0.9485201704148807,
+      "error": 1.0129896921284853e-11,
+      "tolerance": 1.9970403408095016e-07,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "joint/area_minmax_m2/0",
+      "owner": 0.0005447935102985657,
+      "checker": 0.0005447935102982778,
+      "error": -2.8785567679490143e-16,
+      "tolerance": 1.0995870205971312e-10,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "joint/area_minmax_m2/1",
+      "owner": 0.000656126861970443,
+      "checker": 0.0006561268619296095,
+      "error": -4.0833439060583565e-14,
+      "tolerance": 1.3222537239408858e-10,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "joint/overlap_minmax_m/0",
+      "owner": 0.03180801741091566,
+      "checker": 0.03180801741089883,
+      "error": -1.682681771697503e-14,
+      "tolerance": 6.362603482183132e-09,
+      "match": true
+    },
+    {
+      "row": "f4-019-m24",
+      "field": "joint/overlap_minmax_m/1",
+      "owner": 0.038308287407959656,
+      "checker": 0.03830828740557558,
+      "error": -2.3840721063983494e-12,
+      "tolerance": 7.66265748159193e-09,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/compression_axial",
+      "owner": 4.249977977462737,
+      "checker": 4.249977977499354,
+      "error": 3.661693170897706e-11,
+      "tolerance": 8.599955954925474e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/euler",
+      "owner": 4.955475535241403,
+      "checker": 4.955475535270383,
+      "error": 2.8980373656395386e-11,
+      "tolerance": 1.0010951070482804e-06,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/local_axial",
+      "owner": 1.143284618672854,
+      "checker": 1.1432846186827044,
+      "error": 9.850342763684239e-12,
+      "tolerance": 2.386569237345708e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.35691722054812,
+      "checker": 3.356917221003482,
+      "error": 4.553619703528966e-10,
+      "tolerance": 6.81383444109624e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 4.533559726911389,
+      "checker": 4.5335597272884725,
+      "error": 3.7708325351104577e-10,
+      "tolerance": 9.167119453822778e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/film",
+      "owner": 1.1432846186728538,
+      "checker": 1.1432846186728536,
+      "error": -2.220446049250313e-16,
+      "tolerance": 2.3865692373457074e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/global_perfect_linear",
+      "owner": 5.717453707873952,
+      "checker": 5.717453707872484,
+      "error": -1.468158927764307e-12,
+      "tolerance": 1.1534907415747902e-06,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/global_k0p2",
+      "owner": 1.1434907415747906,
+      "checker": 1.1434907415744968,
+      "error": -2.937650123158164e-13,
+      "tolerance": 2.3869814831495813e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.1432846186728538,
+      "checker": 1.143284618672847,
+      "error": -6.8833827526759706e-15,
+      "tolerance": 2.3865692373457074e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.1432846186728538,
+      "checker": 1.1432846186728536,
+      "error": -2.220446049250313e-16,
+      "tolerance": 2.3865692373457074e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/tube",
+      "owner": 4263.217784337443,
+      "checker": 4263.217784337429,
+      "error": -1.3642420526593924e-11,
+      "tolerance": 0.0008536435568674886,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/film",
+      "owner": 160.8308667208401,
+      "checker": 160.8308667208401,
+      "error": 0.0,
+      "tolerance": 3.316617334416802e-05,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/joint",
+      "owner": 42.78065850692438,
+      "checker": 42.7806585069622,
+      "error": 3.781508439715253e-11,
+      "tolerance": 9.556131701384876e-06,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/nodes",
+      "owner": 5.04,
+      "checker": 5.04,
+      "error": 0.0,
+      "tolerance": 2.008e-06,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 73.10073311528532,
+      "checker": 73.10073311528532,
+      "error": 0.0,
+      "tolerance": 1.5620146623057062e-05,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/reserve",
+      "owner": 244.4721075095,
+      "checker": 244.4721075095,
+      "error": 0.0,
+      "tolerance": 4.989442150189999e-05,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/total_with_reserve_and_sag",
+      "owner": 4889.442150189992,
+      "checker": 4889.442150190017,
+      "error": 2.4556356947869062e-11,
+      "tolerance": 0.0009788884300379983,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "mass_kg/headroom",
+      "owner": 7.275957614183426e-12,
+      "checker": -1.7280399333685637e-11,
+      "error": -2.4556356947869062e-11,
+      "tolerance": 1.0000000000014552e-06,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "least_screened_SF",
+      "owner": 1.1432846186728538,
+      "checker": 1.143284618672847,
+      "error": -6.8833827526759706e-15,
+      "tolerance": 2.3865692373457074e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "least_without_global_knockdown",
+      "owner": 1.1432846186728538,
+      "checker": 1.143284618672847,
+      "error": -6.8833827526759706e-15,
+      "tolerance": 2.3865692373457074e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1164234798.458805,
+      "checker": 1164234798.3547878,
+      "error": -0.10401725769042969,
+      "tolerance": 232.84695970176102,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "max_tension_at_screened_limit_Pa",
+      "owner": 0.0,
+      "checker": 0.0,
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 958411558.4904053,
+      "checker": 958411558.4498912,
+      "error": -0.04051411151885986,
+      "tolerance": 191.68231170808107,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 3079.005317365151,
+      "checker": 3079.0053192543833,
+      "error": 1.889232407847885e-06,
+      "tolerance": 0.0006158110634730302,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3079.005317365151,
+      "checker": 3079.0053192543833,
+      "error": 1.889232407847885e-06,
+      "tolerance": 0.0006158110634730302,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 778.9601683342771,
+      "checker": 778.9601687892427,
+      "error": 4.549656296148896e-07,
+      "tolerance": 0.0001558020336668554,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "joint_end_peak_compression_N",
+      "owner": 701228.0448000691,
+      "checker": 701228.044794025,
+      "error": -6.044050678610802e-06,
+      "tolerance": 0.1402456189600138,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "local_peak_sensitivity",
+      "owner": 1.0332229353106797,
+      "checker": 1.0332229353980462,
+      "error": 8.736655843222252e-11,
+      "tolerance": 2.1664458706213593e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "joint/area_minmax_m2/0",
+      "owner": 0.0004412259321458371,
+      "checker": 0.0004412259321461365,
+      "error": 2.9940242993187205e-16,
+      "tolerance": 8.924518642916741e-11,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "joint/area_minmax_m2/1",
+      "owner": 0.0005694109519279561,
+      "checker": 0.0005694109519040441,
+      "error": -2.3911970493950552e-14,
+      "tolerance": 1.148821903855912e-10,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "joint/overlap_minmax_m/0",
+      "owner": 0.028625816567310232,
+      "checker": 0.028625816567329643,
+      "error": 1.941155569618047e-14,
+      "tolerance": 5.726163313462046e-09,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "joint/overlap_minmax_m/1",
+      "owner": 0.03694334888080828,
+      "checker": 0.03694334887925364,
+      "error": -1.5546383624887028e-12,
+      "tolerance": 7.3896697761616566e-09,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/compression_axial",
+      "owner": 4.095224057357059,
+      "checker": 4.095224057346923,
+      "error": -1.0135892125617829e-11,
+      "tolerance": 8.290448114714117e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/euler",
+      "owner": 4.662902612689561,
+      "checker": 4.662902612678426,
+      "error": -1.113509284778047e-11,
+      "tolerance": 9.425805225379122e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/local_axial",
+      "owner": 1.0832053544272742,
+      "checker": 1.0832053544245932,
+      "error": -2.680966559864828e-12,
+      "tolerance": 2.2664107088545483e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.2074150473343415,
+      "checker": 3.207415047400617,
+      "error": 6.62754295888135e-11,
+      "tolerance": 6.514830094668683e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 4.2632970534042345,
+      "checker": 4.263297053452065,
+      "error": 4.7830184257691144e-11,
+      "tolerance": 8.626594106808468e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/film",
+      "owner": 1.0832053544272742,
+      "checker": 1.0832053544272737,
+      "error": -4.440892098500626e-16,
+      "tolerance": 2.2664107088545483e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/global_perfect_linear",
+      "owner": 5.4170340027228825,
+      "checker": 5.417034002723027,
+      "error": 1.4477308241112041e-13,
+      "tolerance": 1.0934068005445764e-06,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/global_k0p2",
+      "owner": 1.0834068005445765,
+      "checker": 1.0834068005446056,
+      "error": 2.90878432451791e-14,
+      "tolerance": 2.266813601089153e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.083205354427274,
+      "checker": 1.0832053544272682,
+      "error": -5.773159728050814e-15,
+      "tolerance": 2.266410708854548e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.083205354427274,
+      "checker": 1.0832053544272737,
+      "error": -2.220446049250313e-16,
+      "tolerance": 2.266410708854548e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/tube",
+      "owner": 4108.7650161525835,
+      "checker": 4108.7650161526235,
+      "error": 4.001776687800884e-11,
+      "tolerance": 0.0008227530032305167,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/film",
+      "owner": 152.37925285081053,
+      "checker": 152.37925285081053,
+      "error": 0.0,
+      "tolerance": 3.1475850570162107e-05,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/joint",
+      "owner": 38.85820399967597,
+      "checker": 38.85820399962773,
+      "error": -4.82387463307532e-11,
+      "tolerance": 8.771640799935195e-06,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/nodes",
+      "owner": 5.04,
+      "checker": 5.04,
+      "error": 0.0,
+      "tolerance": 2.008e-06,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 73.10073311528532,
+      "checker": 73.10073311528532,
+      "error": 0.0,
+      "tolerance": 1.5620146623057062e-05,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/reserve",
+      "owner": 411.2989440716474,
+      "checker": 411.2989440716474,
+      "error": 0.0,
+      "tolerance": 8.325978881432947e-05,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/total_with_reserve_and_sag",
+      "owner": 4889.442150190002,
+      "checker": 4889.442150189994,
+      "error": -8.185452315956354e-12,
+      "tolerance": 0.0009788884300380002,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "mass_kg/headroom",
+      "owner": -2.7284841053187847e-12,
+      "checker": 5.4569682106375694e-12,
+      "error": 8.185452315956354e-12,
+      "tolerance": 1.0000000000005457e-06,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "least_screened_SF",
+      "owner": 1.083205354427274,
+      "checker": 1.0832053544245932,
+      "error": -2.680744515259903e-12,
+      "tolerance": 2.266410708854548e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "least_without_global_knockdown",
+      "owner": 1.083205354427274,
+      "checker": 1.0832053544245932,
+      "error": -2.680744515259903e-12,
+      "tolerance": 2.266410708854548e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1145747560.8296587,
+      "checker": 1145747560.8127284,
+      "error": -0.016930341720581055,
+      "tolerance": 229.14951217593173,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "max_tension_at_screened_limit_Pa",
+      "owner": 0.0,
+      "checker": 0.0,
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 994249645.0133489,
+      "checker": 994249644.959793,
+      "error": -0.053555965423583984,
+      "tolerance": 198.84992901266978,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 3051.7873442830733,
+      "checker": 3051.787345564843,
+      "error": 1.2817695278499741e-06,
+      "tolerance": 0.0006103674688566147,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3051.7873442830733,
+      "checker": 3051.787345564843,
+      "error": 1.2817695278499741e-06,
+      "tolerance": 0.0006103674688566147,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 776.1712822060581,
+      "checker": 776.1712818955439,
+      "error": -3.105142241111025e-07,
+      "tolerance": 0.0001552442564412116,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "joint_end_peak_compression_N",
+      "owner": 701361.7449608342,
+      "checker": 701361.7449625769,
+      "error": 1.7427373677492142e-06,
+      "tolerance": 0.1402723589921668,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "local_peak_sensitivity",
+      "owner": 0.9781320167916636,
+      "checker": 0.9781320168028794,
+      "error": 1.1215806061670719e-11,
+      "tolerance": 2.0562640335833273e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "joint/area_minmax_m2/0",
+      "owner": 0.00041794007073546685,
+      "checker": 0.0004179400707006193,
+      "error": -3.4847558866291095e-14,
+      "tolerance": 8.458801414709336e-11,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "joint/area_minmax_m2/1",
+      "owner": 0.0005393895829787161,
+      "checker": 0.0005393895829498602,
+      "error": -2.885593240048445e-14,
+      "tolerance": 1.0887791659574322e-10,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "joint/overlap_minmax_m/0",
+      "owner": 0.02744044112698366,
+      "checker": 0.02744044112469571,
+      "error": -2.2879476091475226e-12,
+      "tolerance": 5.4890882253967315e-09,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "joint/overlap_minmax_m/1",
+      "owner": 0.03541547965712309,
+      "checker": 0.035415479655223035,
+      "error": -1.9000565010252046e-12,
+      "tolerance": 7.084095931424619e-09,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/compression_axial",
+      "owner": 4.722024847297573,
+      "checker": 4.723574948355745,
+      "error": 0.0015501010581724373,
+      "tolerance": 9.544049694595144e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/euler",
+      "owner": 4.371078472497768,
+      "checker": 4.371039181130254,
+      "error": -3.929136751423812e-05,
+      "tolerance": 8.842156944995536e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/local_axial",
+      "owner": 1.3599264419459949,
+      "checker": 1.3603728655640117,
+      "error": 0.0004464236180168335,
+      "tolerance": 2.81985288389199e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.2136674583707006,
+      "checker": 3.2141803373134232,
+      "error": 0.0005128789427226721,
+      "tolerance": 6.527334916741401e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.8090149583626274,
+      "checker": 3.8095368705754464,
+      "error": 0.0005219122128190534,
+      "tolerance": 7.718029916725254e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/film",
+      "owner": 1.2278771857790438,
+      "checker": 1.2278771857790443,
+      "error": 4.440892098500626e-16,
+      "tolerance": 2.555754371558088e-07,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/global_perfect_linear",
+      "owner": 7.155002496828368,
+      "checker": 7.151119777416943,
+      "error": -0.0038827194114254837,
+      "tolerance": 1.4410004993656735e-06,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/global_k0p2",
+      "owner": 1.4310004993656738,
+      "checker": 1.4302239554833887,
+      "error": -0.0007765438822850967,
+      "tolerance": 2.9620009987313475e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.21800846266563,
+      "checker": 1.2180486463627387,
+      "error": 4.018369710867553e-05,
+      "tolerance": 2.53601692533126e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/tube",
+      "owner": 4361.908696541518,
+      "checker": 4361.9086965415245,
+      "error": 6.366462912410498e-12,
+      "tolerance": 0.0008733817393083036,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/film",
+      "owner": 214.54155754530413,
+      "checker": 214.54155754530413,
+      "error": 0.0,
+      "tolerance": 4.390831150906082e-05,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/joint",
+      "owner": 48.98978474983017,
+      "checker": 48.98978474983017,
+      "error": 0.0,
+      "tolerance": 1.0797956949966035e-05,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/nodes",
+      "owner": 3.24,
+      "checker": 3.24,
+      "error": 0.0,
+      "tolerance": 1.648e-06,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 90.73389245516228,
+      "checker": 90.73389245516229,
+      "error": 1.4210854715202004e-14,
+      "tolerance": 1.9146778491032454e-05,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/reserve",
+      "owner": 244.4721075095,
+      "checker": 244.4721075095,
+      "error": 0.0,
+      "tolerance": 4.989442150189999e-05,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/total_with_reserve_and_sag",
+      "owner": 5063.8860388013145,
+      "checker": 5063.886038801321,
+      "error": 6.366462912410498e-12,
+      "tolerance": 0.0010137772077602628,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "mass_kg/headroom",
+      "owner": -174.44388861131483,
+      "checker": -174.4438886113212,
+      "error": -6.366462912410498e-12,
+      "tolerance": 3.588877772226296e-05,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "least_screened_SF",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "least_without_global_knockdown",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1219803097.2333062,
+      "checker": 1219795548.4029229,
+      "error": -7548.830383300781,
+      "tolerance": 243.96061945666122,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "max_tension_at_screened_limit_Pa",
+      "owner": 0.0,
+      "checker": 0.0,
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "match": true
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 922975037.6516206,
+      "checker": 922944326.4856434,
+      "error": -30711.16597723961,
+      "tolerance": 184.59500754032413,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 6679.2376026155025,
+      "checker": 6672.562964294968,
+      "error": -6.674638320534541,
+      "tolerance": 0.0013358575205231003,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 6679.2376026155025,
+      "checker": 6672.562964294968,
+      "error": -6.674638320534541,
+      "tolerance": 0.0013358575205231003,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 687.9423727773446,
+      "checker": 687.660501788966,
+      "error": -0.28187098837861413,
+      "tolerance": 0.00013759847455546893,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_compression_N",
+      "owner": 808444.4233762323,
+      "checker": 808179.1220801072,
+      "error": -265.3012961250497,
+      "tolerance": 0.16168889467524644,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "local_peak_sensitivity",
+      "owner": 1.1261310046872637,
+      "checker": 1.1261741129119704,
+      "error": 4.310822470676712e-05,
+      "tolerance": 2.3522620093745274e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/compression_axial",
+      "owner": 4.697962393436108,
+      "checker": 4.698063953394766,
+      "error": 0.00010155995865801515,
+      "tolerance": 9.495924786872216e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/euler",
+      "owner": 4.324473045410588,
+      "checker": 4.32451519806209,
+      "error": 4.215265150175895e-05,
+      "tolerance": 8.748946090821176e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/local_axial",
+      "owner": 1.352996540405337,
+      "checker": 1.3530257893139488,
+      "error": 2.9248908611778646e-05,
+      "tolerance": 2.805993080810674e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.235176366802241,
+      "checker": 3.235307080088968,
+      "error": 0.00013071328672698002,
+      "tolerance": 6.570352733604482e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.826573697366808,
+      "checker": 3.8267230143833513,
+      "error": 0.0001493170165431934,
+      "tolerance": 7.753147394733616e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/film",
+      "owner": 1.2278771857790438,
+      "checker": 1.2278771857790443,
+      "error": 4.440892098500626e-16,
+      "tolerance": 2.555754371558088e-07,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/global_perfect_linear",
+      "owner": 2.0471334034237882,
+      "checker": 2.0461935353568275,
+      "error": -0.0009398680669607806,
+      "tolerance": 4.1942668068475765e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/global_k0p2",
+      "owner": 0.4094266806847577,
+      "checker": 0.4092387070713655,
+      "error": -0.00018797361339217833,
+      "tolerance": 9.188533613695154e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.3529965404043838,
+      "checker": 1.3530257893133506,
+      "error": 2.924890896682797e-05,
+      "tolerance": 2.8059930808087676e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.3529965404043838,
+      "checker": 1.3530257893133506,
+      "error": 2.924890896682797e-05,
+      "tolerance": 2.8059930808087676e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/tube",
+      "owner": 4361.908696541518,
+      "checker": 4361.9086965415245,
+      "error": 6.366462912410498e-12,
+      "tolerance": 0.0008733817393083036,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/film",
+      "owner": 214.54155754530413,
+      "checker": 214.54155754530413,
+      "error": 0.0,
+      "tolerance": 4.390831150906082e-05,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/joint",
+      "owner": 48.98978474983017,
+      "checker": 48.98978474983017,
+      "error": 0.0,
+      "tolerance": 1.0797956949966035e-05,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/nodes",
+      "owner": 3.24,
+      "checker": 3.24,
+      "error": 0.0,
+      "tolerance": 1.648e-06,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/systems",
+      "owner": 100.0,
+      "checker": 100.0,
+      "error": 0.0,
+      "tolerance": 2.1e-05,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/sag_lift_loss",
+      "owner": 90.73389245516228,
+      "checker": 90.73389245516229,
+      "error": 1.4210854715202004e-14,
+      "tolerance": 1.9146778491032454e-05,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/reserve",
+      "owner": 244.4721075095,
+      "checker": 244.4721075095,
+      "error": 0.0,
+      "tolerance": 4.989442150189999e-05,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/total_with_reserve_and_sag",
+      "owner": 5063.8860388013145,
+      "checker": 5063.886038801321,
+      "error": 6.366462912410498e-12,
+      "tolerance": 0.0010137772077602628,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "mass_kg/headroom",
+      "owner": -174.44388861131483,
+      "checker": -174.4438886113212,
+      "error": -6.366462912410498e-12,
+      "tolerance": 3.588877772226296e-05,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "least_screened_SF",
+      "owner": 0.4094266806847577,
+      "checker": 0.4092387070713655,
+      "error": -0.00018797361339217833,
+      "tolerance": 9.188533613695154e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "least_without_global_knockdown",
+      "owner": 1.2278771857790438,
+      "checker": 1.2278771857790443,
+      "error": 4.440892098500626e-16,
+      "tolerance": 2.555754371558088e-07,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 397811269.07131135,
+      "checker": 397606112.9345753,
+      "error": -205156.13673603535,
+      "tolerance": 79.56225382426226,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "max_tension_at_screened_limit_Pa",
+      "owner": 0.0,
+      "checker": 0.0,
+      "error": 0.0,
+      "tolerance": 1e-08,
+      "match": true
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 924456630.3459938,
+      "checker": 924410605.3951554,
+      "error": -46024.95083832741,
+      "tolerance": 184.89132607919876,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 6692.441721260311,
+      "checker": 6689.835157683103,
+      "error": -2.6065635772083624,
+      "tolerance": 0.0013384983442520622,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3.3466372588819946e-07,
+      "checker": 2.53743122515248e-07,
+      "error": -8.092060337295144e-08,
+      "tolerance": 1.0000066932745177e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 2.625217803142732e-07,
+      "checker": 1.5962427823978942e-07,
+      "error": -1.0289750207448378e-07,
+      "tolerance": 1.0000052504356063e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_compression_N",
+      "owner": 812585.1880328903,
+      "checker": 812567.6220484944,
+      "error": -17.56598439591471,
+      "tolerance": 0.16251704760657806,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "local_peak_sensitivity",
+      "owner": 1.1264167399330658,
+      "checker": 1.1264753682334439,
+      "error": 5.862830037806077e-05,
+      "tolerance": 2.3528334798661317e-07,
+      "match": false
+    },
+    {
+      "row": "selected-m24",
+      "field": "tube_mass_change_kg",
+      "owner": 178.3186735899908,
+      "checker": 178.31867358999625,
+      "error": 5.4569682106375694e-12,
+      "tolerance": 3.567373471799816e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "total_mass_excess_kg",
+      "owner": 174.44388861131483,
+      "checker": 174.4438886113212,
+      "error": 6.366462912410498e-12,
+      "tolerance": 3.4898777722262964e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "total_mass_excess_019_kg",
+      "owner": 341.2707251734622,
+      "checker": 341.2707251734686,
+      "error": 6.366462912410498e-12,
+      "tolerance": 6.826414503469244e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/nodes",
+      "owner": 162.0,
+      "checker": 162.0,
+      "error": 0.0,
+      "tolerance": 3.241e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/members",
+      "owner": 480.0,
+      "checker": 480.0,
+      "error": 0.0,
+      "tolerance": 9.601e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/faces",
+      "owner": 320.0,
+      "checker": 320.0,
+      "error": 0.0,
+      "tolerance": 6.400999999999999e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/DOF",
+      "owner": 67212.0,
+      "checker": 67212.0,
+      "error": 0.0,
+      "tolerance": 0.01344241,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/arc_min_m",
+      "owner": 2.5386575912848888,
+      "checker": 2.538657591284888,
+      "error": -8.881784197001252e-16,
+      "tolerance": 5.177315182569777e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/arc_mean_m",
+      "owner": 2.994744726728938,
+      "checker": 2.994744726728938,
+      "error": 0.0,
+      "tolerance": 6.089489453457876e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/arc_max_m",
+      "owner": 3.2636622180660866,
+      "checker": 3.2636622180660857,
+      "error": -8.881784197001252e-16,
+      "tolerance": 6.627324436132173e-07,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/total_arc_m",
+      "owner": 1437.4774688298903,
+      "checker": 1437.4774688298903,
+      "error": 0.0,
+      "tolerance": 0.00028750549376597805,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/cap_mean_sag_m",
+      "owner": 0.06185701740476088,
+      "checker": 0.061857017404760885,
+      "error": 6.938893903907228e-18,
+      "tolerance": 2.2371403480952175e-08,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/sag_lift_debit_kg",
+      "owner": 90.73389245516228,
+      "checker": 90.73389245516229,
+      "error": 1.4210854715202004e-14,
+      "tolerance": 1.8156778491032455e-05,
+      "match": true
+    },
+    {
+      "row": "selected-m24",
+      "field": "geometry/area",
+      "owner": 1256.637061435917,
+      "checker": 1256.6370614359173,
+      "error": 2.2737367544323206e-13,
+      "tolerance": 0.0002513374122871834,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/nodes",
+      "owner": 252.0,
+      "checker": 252.0,
+      "error": 0.0,
+      "tolerance": 5.041e-05,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/members",
+      "owner": 750.0,
+      "checker": 750.0,
+      "error": 0.0,
+      "tolerance": 0.00015000999999999998,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/faces",
+      "owner": 500.0,
+      "checker": 500.0,
+      "error": 0.0,
+      "tolerance": 0.00010000999999999999,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/DOF",
+      "owner": 105012.0,
+      "checker": 105012.0,
+      "error": 0.0,
+      "tolerance": 0.02100241,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/arc_min_m",
+      "owner": 1.984730270495083,
+      "checker": 1.9847302704950829,
+      "error": -2.220446049250313e-16,
+      "tolerance": 4.069460540990166e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/arc_mean_m",
+      "owner": 2.399568831878784,
+      "checker": 2.3995688318787836,
+      "error": -4.440892098500626e-16,
+      "tolerance": 4.899137663757568e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/arc_max_m",
+      "owner": 2.6234981973919025,
+      "checker": 2.623498197391903,
+      "error": 4.440892098500626e-16,
+      "tolerance": 5.346996394783805e-07,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/total_arc_m",
+      "owner": 1799.676623909088,
+      "checker": 1799.6766239090878,
+      "error": -2.2737367544323206e-13,
+      "tolerance": 0.00035994532478181757,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/cap_mean_sag_m",
+      "owner": 0.04983576917354787,
+      "checker": 0.04983576917354787,
+      "error": 0.0,
+      "tolerance": 1.9967153834709573e-08,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/sag_lift_debit_kg",
+      "owner": 73.10073311528532,
+      "checker": 73.10073311528532,
+      "error": 0.0,
+      "tolerance": 1.4630146623057063e-05,
+      "match": true
+    },
+    {
+      "row": "f5-5-m24",
+      "field": "geometry/area",
+      "owner": 1256.6370614359173,
+      "checker": 1256.6370614359173,
+      "error": 0.0,
+      "tolerance": 0.0002513374122871834,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/nodes",
+      "owner": 252.0,
+      "checker": 252.0,
+      "error": 0.0,
+      "tolerance": 5.041e-05,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/members",
+      "owner": 750.0,
+      "checker": 750.0,
+      "error": 0.0,
+      "tolerance": 0.00015000999999999998,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/faces",
+      "owner": 500.0,
+      "checker": 500.0,
+      "error": 0.0,
+      "tolerance": 0.00010000999999999999,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/DOF",
+      "owner": 105012.0,
+      "checker": 105012.0,
+      "error": 0.0,
+      "tolerance": 0.02100241,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/arc_min_m",
+      "owner": 1.984730270495083,
+      "checker": 1.9847302704950829,
+      "error": -2.220446049250313e-16,
+      "tolerance": 4.069460540990166e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/arc_mean_m",
+      "owner": 2.399568831878784,
+      "checker": 2.3995688318787836,
+      "error": -4.440892098500626e-16,
+      "tolerance": 4.899137663757568e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/arc_max_m",
+      "owner": 2.6234981973919025,
+      "checker": 2.623498197391903,
+      "error": 4.440892098500626e-16,
+      "tolerance": 5.346996394783805e-07,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/total_arc_m",
+      "owner": 1799.676623909088,
+      "checker": 1799.6766239090878,
+      "error": -2.2737367544323206e-13,
+      "tolerance": 0.00035994532478181757,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/cap_mean_sag_m",
+      "owner": 0.04983576917354787,
+      "checker": 0.04983576917354787,
+      "error": 0.0,
+      "tolerance": 1.9967153834709573e-08,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/sag_lift_debit_kg",
+      "owner": 73.10073311528532,
+      "checker": 73.10073311528532,
+      "error": 0.0,
+      "tolerance": 1.4630146623057063e-05,
+      "match": true
+    },
+    {
+      "row": "f5-019-m24",
+      "field": "geometry/area",
+      "owner": 1256.6370614359173,
+      "checker": 1256.6370614359173,
+      "error": 0.0,
+      "tolerance": 0.0002513374122871834,
+      "match": true
+    }
+  ],
+  "count": 261,
+  "mismatches": [
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/compression_axial",
+      "owner": 4.722024847297573,
+      "checker": 4.723574948355745,
+      "error": 0.0015501010581724373,
+      "tolerance": 9.544049694595144e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/euler",
+      "owner": 4.371078472497768,
+      "checker": 4.371039181130254,
+      "error": -3.929136751423812e-05,
+      "tolerance": 8.842156944995536e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/local_axial",
+      "owner": 1.3599264419459949,
+      "checker": 1.3603728655640117,
+      "error": 0.0004464236180168335,
+      "tolerance": 2.81985288389199e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.2136674583707006,
+      "checker": 3.2141803373134232,
+      "error": 0.0005128789427226721,
+      "tolerance": 6.527334916741401e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.8090149583626274,
+      "checker": 3.8095368705754464,
+      "error": 0.0005219122128190534,
+      "tolerance": 7.718029916725254e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/global_perfect_linear",
+      "owner": 7.155002496828368,
+      "checker": 7.151119777416943,
+      "error": -0.0038827194114254837,
+      "tolerance": 1.4410004993656735e-06,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/global_k0p2",
+      "owner": 1.4310004993656738,
+      "checker": 1.4302239554833887,
+      "error": -0.0007765438822850967,
+      "tolerance": 2.9620009987313475e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.21800846266563,
+      "checker": 1.2180486463627387,
+      "error": 4.018369710867553e-05,
+      "tolerance": 2.53601692533126e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "least_screened_SF",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "least_without_global_knockdown",
+      "owner": 1.2180059022729846,
+      "checker": 1.21804608480372,
+      "error": 4.01825307354553e-05,
+      "tolerance": 2.536011804545969e-07,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 1219803097.2333062,
+      "checker": 1219795548.4029229,
+      "error": -7548.830383300781,
+      "tolerance": 243.96061945666122,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 922975037.6516206,
+      "checker": 922944326.4856434,
+      "error": -30711.16597723961,
+      "tolerance": 184.59500754032413,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 6679.2376026155025,
+      "checker": 6672.562964294968,
+      "error": -6.674638320534541,
+      "tolerance": 0.0013358575205231003,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 6679.2376026155025,
+      "checker": 6672.562964294968,
+      "error": -6.674638320534541,
+      "tolerance": 0.0013358575205231003,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 687.9423727773446,
+      "checker": 687.660501788966,
+      "error": -0.28187098837861413,
+      "tolerance": 0.00013759847455546893,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "joint_end_peak_compression_N",
+      "owner": 808444.4233762323,
+      "checker": 808179.1220801072,
+      "error": -265.3012961250497,
+      "tolerance": 0.16168889467524644,
+      "match": false
+    },
+    {
+      "row": "film-rigid-m6",
+      "field": "local_peak_sensitivity",
+      "owner": 1.1261310046872637,
+      "checker": 1.1261741129119704,
+      "error": 4.310822470676712e-05,
+      "tolerance": 2.3522620093745274e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/compression_axial",
+      "owner": 4.697962393436108,
+      "checker": 4.698063953394766,
+      "error": 0.00010155995865801515,
+      "tolerance": 9.495924786872216e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/euler",
+      "owner": 4.324473045410588,
+      "checker": 4.32451519806209,
+      "error": 4.215265150175895e-05,
+      "tolerance": 8.748946090821176e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/local_axial",
+      "owner": 1.352996540405337,
+      "checker": 1.3530257893139488,
+      "error": 2.9248908611778646e-05,
+      "tolerance": 2.805993080810674e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/perry_with_FE_bending",
+      "owner": 3.235176366802241,
+      "checker": 3.235307080088968,
+      "error": 0.00013071328672698002,
+      "tolerance": 6.570352733604482e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/tension_with_FE_bending",
+      "owner": 3.826573697366808,
+      "checker": 3.8267230143833513,
+      "error": 0.0001493170165431934,
+      "tolerance": 7.753147394733616e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/global_perfect_linear",
+      "owner": 2.0471334034237882,
+      "checker": 2.0461935353568275,
+      "error": -0.0009398680669607806,
+      "tolerance": 4.1942668068475765e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/global_k0p2",
+      "owner": 0.4094266806847577,
+      "checker": 0.4092387070713655,
+      "error": -0.00018797361339217833,
+      "tolerance": 9.188533613695154e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/joint_axial_bending",
+      "owner": 1.3529965404043838,
+      "checker": 1.3530257893133506,
+      "error": 2.924890896682797e-05,
+      "tolerance": 2.8059930808087676e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "modes/joint_bond_axial_bending_torsion",
+      "owner": 1.3529965404043838,
+      "checker": 1.3530257893133506,
+      "error": 2.924890896682797e-05,
+      "tolerance": 2.8059930808087676e-07,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "least_screened_SF",
+      "owner": 0.4094266806847577,
+      "checker": 0.4092387070713655,
+      "error": -0.00018797361339217833,
+      "tolerance": 9.188533613695154e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "required_SiC_extreme_compression_at_screened_limit_Pa",
+      "owner": 397811269.07131135,
+      "checker": 397606112.9345753,
+      "error": -205156.13673603535,
+      "tolerance": 79.56225382426226,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "operating_FE_extreme_compression_Pa",
+      "owner": 924456630.3459938,
+      "checker": 924410605.3951554,
+      "error": -46024.95083832741,
+      "tolerance": 184.89132607919876,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "operating_FE_peak_bending_moment_Nm",
+      "owner": 6692.441721260311,
+      "checker": 6689.835157683103,
+      "error": -2.6065635772083624,
+      "tolerance": 0.0013384983442520622,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_moment_Nm",
+      "owner": 3.3466372588819946e-07,
+      "checker": 2.53743122515248e-07,
+      "error": -8.092060337295144e-08,
+      "tolerance": 1.0000066932745177e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_torsion_Nm",
+      "owner": 2.625217803142732e-07,
+      "checker": 1.5962427823978942e-07,
+      "error": -1.0289750207448378e-07,
+      "tolerance": 1.0000052504356063e-08,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "joint_end_peak_compression_N",
+      "owner": 812585.1880328903,
+      "checker": 812567.6220484944,
+      "error": -17.56598439591471,
+      "tolerance": 0.16251704760657806,
+      "match": false
+    },
+    {
+      "row": "film-pinned-m6",
+      "field": "local_peak_sensitivity",
+      "owner": 1.1264167399330658,
+      "checker": 1.1264753682334439,
+      "error": 5.862830037806077e-05,
+      "tolerance": 2.3528334798661317e-07,
+      "match": false
+    }
+  ],
+  "scores": {
+    "selected-m24": {
+      "modes": {
+        "compression_axial": 4.455477844117971,
+        "euler": 4.08703480561999,
+        "local_axial": 1.2831618484998475,
+        "perry_with_FE_bending": 3.128942718042074,
+        "tension_with_FE_bending": 3.681993771712046,
+        "film": 1.2278771857790443,
+        "global_perfect_linear": 5.6672530796115055,
+        "global_k0p2": 1.1334506159223012,
+        "joint_axial_bending": 1.2183148089182687,
+        "joint_bond_axial_bending_torsion": 1.218313605255014
+      },
+      "least_screened_SF": 1.1334506159223012,
+      "least_without_global_knockdown": 1.218313605255014,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1124801617.8921895,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 922305654.6824642,
+      "operating_FE_peak_bending_moment_Nm": 3356.558522017049,
+      "joint_end_peak_moment_Nm": 3356.558522017049,
+      "joint_end_peak_torsion_Nm": 1118.6565870486957,
+      "joint_end_peak_compression_N": 856809.2555732289,
+      "mass_kg": {
+        "tube": 4361.9086965415245,
+        "film": 214.54155754530413,
+        "joint": 48.98978474983017,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 5063.886038801321,
+        "headroom": -174.4438886113212
+      },
+      "joint": {
+        "original_area_m2": 0.0007479081280226595,
+        "original_overlap_m": 0.04402043674327406,
+        "max_axial_bending_stress_at_1_Pa": 1206584693.2495227,
+        "max_bond_shear_at_1_Pa": 23721314.344142724
+      },
+      "local_peak_sensitivity": 1.1318968872812607
+    },
+    "f4-5-m24": {
+      "modes": {
+        "compression_axial": 4.305459078614929,
+        "euler": 4.10810029400134,
+        "local_axial": 1.1297872122705925,
+        "perry_with_FE_bending": 3.088706331299655,
+        "tension_with_FE_bending": 3.706856310091376,
+        "film": 1.1297872122752044,
+        "global_perfect_linear": 5.669615429819137,
+        "global_k0p2": 1.1339230859638274,
+        "joint_axial_bending": 1.129787212275201,
+        "joint_bond_axial_bending_torsion": 1.1297872122752035
+      },
+      "least_screened_SF": 1.1297872122705925,
+      "least_without_global_knockdown": 1.1297872122705925,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1157053335.743286,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 954589304.3031814,
+      "operating_FE_peak_bending_moment_Nm": 3415.6280768450742,
+      "joint_end_peak_moment_Nm": 3415.6280768450742,
+      "joint_end_peak_torsion_Nm": 1133.843314807833,
+      "joint_end_peak_compression_N": 857183.496221015,
+      "mass_kg": {
+        "tube": 4216.8815261937125,
+        "film": 197.4027297058248,
+        "joint": 36.71189432568185,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 4889.442150189881,
+        "headroom": 1.1823431123048067e-10
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0005760788813593698,
+          0.0006939915316605201
+        ],
+        "overlap_minmax_m": [
+          0.03326509003595835,
+          0.04007386054080952
+        ]
+      },
+      "local_peak_sensitivity": 1.0042587516074093
+    },
+    "f4-019-m24": {
+      "modes": {
+        "compression_axial": 4.150669467778642,
+        "euler": 3.8729916776053126,
+        "local_axial": 1.0685075859105782,
+        "perry_with_FE_bending": 2.9424533020228774,
+        "tension_with_FE_bending": 3.491667096709251,
+        "film": 1.0685075859058637,
+        "global_perfect_linear": 5.3597269356504835,
+        "global_k0p2": 1.0719453871300968,
+        "joint_axial_bending": 1.0685075859058608,
+        "joint_bond_axial_bending_torsion": 1.0685075859058628
+      },
+      "least_screened_SF": 1.0685075859058608,
+      "least_without_global_knockdown": 1.0685075859058608,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1136748321.441635,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 990091640.3949256,
+      "operating_FE_peak_bending_moment_Nm": 3382.2579567261814,
+      "joint_end_peak_moment_Nm": 3382.2579567261814,
+      "joint_end_peak_torsion_Nm": 1125.207273451495,
+      "joint_end_peak_compression_N": 856971.0645131412,
+      "mass_kg": {
+        "tube": 4064.2689721749252,
+        "film": 186.69561124207445,
+        "joint": 33.20473024604675,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 411.2989440716474,
+        "total_with_reserve_and_sag": 4889.442150189856,
+        "headroom": 1.4370016288012266e-10
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0005447935102982778,
+          0.0006561268619296095
+        ],
+        "overlap_minmax_m": [
+          0.03180801741089883,
+          0.03830828740557558
+        ]
+      },
+      "local_peak_sensitivity": 0.9485201704148807
+    },
+    "f5-5-m24": {
+      "modes": {
+        "compression_axial": 4.249977977499354,
+        "euler": 4.955475535270383,
+        "local_axial": 1.1432846186827044,
+        "perry_with_FE_bending": 3.356917221003482,
+        "tension_with_FE_bending": 4.5335597272884725,
+        "film": 1.1432846186728536,
+        "global_perfect_linear": 5.717453707872484,
+        "global_k0p2": 1.1434907415744968,
+        "joint_axial_bending": 1.143284618672847,
+        "joint_bond_axial_bending_torsion": 1.1432846186728536
+      },
+      "least_screened_SF": 1.143284618672847,
+      "least_without_global_knockdown": 1.143284618672847,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1164234798.3547878,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 958411558.4498912,
+      "operating_FE_peak_bending_moment_Nm": 3079.0053192543833,
+      "joint_end_peak_moment_Nm": 3079.0053192543833,
+      "joint_end_peak_torsion_Nm": 778.9601687892427,
+      "joint_end_peak_compression_N": 701228.044794025,
+      "mass_kg": {
+        "tube": 4263.217784337429,
+        "film": 160.8308667208401,
+        "joint": 42.7806585069622,
+        "nodes": 5.04,
+        "systems": 100.0,
+        "sag_lift_loss": 73.10073311528532,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 4889.442150190017,
+        "headroom": -1.7280399333685637e-11
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0004412259321461365,
+          0.0005694109519040441
+        ],
+        "overlap_minmax_m": [
+          0.028625816567329643,
+          0.03694334887925364
+        ]
+      },
+      "local_peak_sensitivity": 1.0332229353980462
+    },
+    "f5-019-m24": {
+      "modes": {
+        "compression_axial": 4.095224057346923,
+        "euler": 4.662902612678426,
+        "local_axial": 1.0832053544245932,
+        "perry_with_FE_bending": 3.207415047400617,
+        "tension_with_FE_bending": 4.263297053452065,
+        "film": 1.0832053544272737,
+        "global_perfect_linear": 5.417034002723027,
+        "global_k0p2": 1.0834068005446056,
+        "joint_axial_bending": 1.0832053544272682,
+        "joint_bond_axial_bending_torsion": 1.0832053544272737
+      },
+      "least_screened_SF": 1.0832053544245932,
+      "least_without_global_knockdown": 1.0832053544245932,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1145747560.8127284,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 994249644.959793,
+      "operating_FE_peak_bending_moment_Nm": 3051.787345564843,
+      "joint_end_peak_moment_Nm": 3051.787345564843,
+      "joint_end_peak_torsion_Nm": 776.1712818955439,
+      "joint_end_peak_compression_N": 701361.7449625769,
+      "mass_kg": {
+        "tube": 4108.7650161526235,
+        "film": 152.37925285081053,
+        "joint": 38.85820399962773,
+        "nodes": 5.04,
+        "systems": 100.0,
+        "sag_lift_loss": 73.10073311528532,
+        "reserve": 411.2989440716474,
+        "total_with_reserve_and_sag": 4889.442150189994,
+        "headroom": 5.4569682106375694e-12
+      },
+      "joint": {
+        "area_minmax_m2": [
+          0.0004179400707006193,
+          0.0005393895829498602
+        ],
+        "overlap_minmax_m": [
+          0.02744044112469571,
+          0.035415479655223035
+        ]
+      },
+      "local_peak_sensitivity": 0.9781320168028794
+    },
+    "film-rigid-m6": {
+      "modes": {
+        "compression_axial": 4.723574948355745,
+        "euler": 4.371039181130254,
+        "local_axial": 1.3603728655640117,
+        "perry_with_FE_bending": 3.2141803373134232,
+        "tension_with_FE_bending": 3.8095368705754464,
+        "film": 1.2278771857790443,
+        "global_perfect_linear": 7.151119777416943,
+        "global_k0p2": 1.4302239554833887,
+        "joint_axial_bending": 1.2180486463627387,
+        "joint_bond_axial_bending_torsion": 1.21804608480372
+      },
+      "least_screened_SF": 1.21804608480372,
+      "least_without_global_knockdown": 1.21804608480372,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 1219795548.4029229,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 922944326.4856434,
+      "operating_FE_peak_bending_moment_Nm": 6672.562964294968,
+      "joint_end_peak_moment_Nm": 6672.562964294968,
+      "joint_end_peak_torsion_Nm": 687.660501788966,
+      "joint_end_peak_compression_N": 808179.1220801072,
+      "mass_kg": {
+        "tube": 4361.9086965415245,
+        "film": 214.54155754530413,
+        "joint": 48.98978474983017,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 5063.886038801321,
+        "headroom": -174.4438886113212
+      },
+      "joint": {
+        "original_area_m2": 0.0007479081280226595,
+        "original_overlap_m": 0.04402043674327406,
+        "max_axial_bending_stress_at_1_Pa": 1206848350.753168,
+        "max_bond_shear_at_1_Pa": 23726524.275686204
+      },
+      "local_peak_sensitivity": 1.1261741129119704
+    },
+    "film-pinned-m6": {
+      "modes": {
+        "compression_axial": 4.698063953394766,
+        "euler": 4.32451519806209,
+        "local_axial": 1.3530257893139488,
+        "perry_with_FE_bending": 3.235307080088968,
+        "tension_with_FE_bending": 3.8267230143833513,
+        "film": 1.2278771857790443,
+        "global_perfect_linear": 2.0461935353568275,
+        "global_k0p2": 0.4092387070713655,
+        "joint_axial_bending": 1.3530257893133506,
+        "joint_bond_axial_bending_torsion": 1.3530257893133506
+      },
+      "least_screened_SF": 0.4092387070713655,
+      "least_without_global_knockdown": 1.2278771857790443,
+      "required_SiC_extreme_compression_at_screened_limit_Pa": 397606112.9345753,
+      "max_tension_at_screened_limit_Pa": 0.0,
+      "operating_FE_extreme_compression_Pa": 924410605.3951554,
+      "operating_FE_peak_bending_moment_Nm": 6689.835157683103,
+      "joint_end_peak_moment_Nm": 2.53743122515248e-07,
+      "joint_end_peak_torsion_Nm": 1.5962427823978942e-07,
+      "joint_end_peak_compression_N": 812567.6220484944,
+      "mass_kg": {
+        "tube": 4361.9086965415245,
+        "film": 214.54155754530413,
+        "joint": 48.98978474983017,
+        "nodes": 3.24,
+        "systems": 100.0,
+        "sag_lift_loss": 90.73389245516229,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 5063.886038801321,
+        "headroom": -174.4438886113212
+      },
+      "joint": {
+        "original_area_m2": 0.0007479081280226595,
+        "original_overlap_m": 0.04402043674327406,
+        "max_axial_bending_stress_at_1_Pa": 1086453792.3892884,
+        "max_bond_shear_at_1_Pa": 21359533.741530906
+      },
+      "local_peak_sensitivity": 1.1264753682334439
+    }
+  },
+  "film_direction_caveat": "Own mesh's first cell edge sets each axial direction; an exact owner direction field is not supplied as data",
+  "prior_owner_postprocessor_exposure": "Disclosed in PRIOR-EXPOSURE.json; no owner program executed"
+}

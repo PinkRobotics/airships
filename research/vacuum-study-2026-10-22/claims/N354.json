@@ -1,0 +1,70 @@
+{
+  "id": "N354",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N354",
+    "report": "rpt-mainline017-improvement-directions-lead4f19-1019",
+    "card": "MAINLINE-017",
+    "file": "evidence/9f3c760a855408f0-NFI.json",
+    "row_id": "NFI-017-COMBO",
+    "fields": {
+      "NFI_id": "NFI-017-COMBO",
+      "gap": "The cheapest combination is a product-minimising differential-evolution search on a 900-point depth grid, seeded, not a proof of global optimality. In all three P2 points it returns face density alone, at products 1.474, 1.657 and 1.685 on the grid against continuous single factors 1.459, 1.637 and 1.655.",
+      "direction": "An analytic product bound if a later card needs to beat these products.",
+      "effect": "Split statements read as 'cheapest found'."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-017-COMBO\", \"gap\": \"The cheapest combination is a product-minimising differential-evolution search on a 900-point depth grid, seeded, not a proof of global optimality. In all three P2 points it returns face density alone, at products 1.474, 1.657 and 1.685 on the grid against continuous single factors 1.459, 1.637 and 1.655.\", \"direction\": \"An analytic product bound if a later card needs to beat these products.\", \"effect\": \"Split statements read as 'cheapest found'.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/353"
+    },
+    {
+      "report": "rpt-mainline017-improvement-directions-lead4f19-1019",
+      "artifact": "evidence/9f3c760a855408f0-NFI.json",
+      "snapshot": "evidence/9f3c760a855408f0-NFI.json",
+      "sha256": "9f3c760a855408f024f091f11cfec79aea7683015f2e96013ff9fcd2eb6bf0f5",
+      "bytes": 3282,
+      "selector": "source row ID: NFI-017-COMBO"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline017-improvement-directions-lead4f19-1019",
+          "artifact": "evidence/9f3c760a855408f0-NFI.json",
+          "snapshot": "evidence/9f3c760a855408f0-NFI.json",
+          "sha256": "9f3c760a855408f024f091f11cfec79aea7683015f2e96013ff9fcd2eb6bf0f5",
+          "bytes": 3282,
+          "selector": "source row ID: NFI-017-COMBO"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/353"
+          }
+        ]
+      }
+    }
+  ]
+}

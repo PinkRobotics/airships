@@ -1,0 +1,3147 @@
+{
+  "id": "DELTA-REVIEW-B-063",
+  "expected_version": 5,
+  "at": "2026-10-20T14:41:06-07:00",
+  "meaning": "Append 063 and REVIEW-B. Do not rebuild version 5.",
+  "append_findings": [
+    {
+      "id": "RB063-CLOSURE",
+      "kind": "review_b",
+      "claim": "R20 and R30 endpoint and handbook density factors and concept and TRL7 payloads match 061 within 0.01 kg and 1e-6 on the factor.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "REVIEW-B numerical check only. No installed hull safety factor is released.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-23efd7d4ece46db2d839",
+          "artifact": "evidence/29c73e36e790ed68-RESULTS.json",
+          "snapshot": "evidence/29c73e36e790ed68-RESULTS.json",
+          "sha256": "29c73e36e790ed680746da56eba499655feb4d813a22010be49b2049db2f8ef4",
+          "bytes": 907616,
+          "selector": "/p2"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-RANK",
+      "kind": "review_b",
+      "claim": "Log shares, the 95.7% R30 pair share and interaction ratios 1.532 to 1.553 match the stored factors. Gamma then Q survives both sequential orders and the two-factor Shapley split. Film cannot pass Q.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "REVIEW-B numerical check only. No installed hull safety factor is released.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-DIRECTION",
+      "kind": "review_b",
+      "claim": "Handbook closure is 1850/2.1435 = 863 kg/m3 in ISA and 1850/2.2480 = 823 kg/m3 in optimistic weather. Modulus alone is 625.64 GPa. The card's 626 GPa is that figure rounded.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "REVIEW-B numerical check only. No installed hull safety factor is released.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-23efd7d4ece46db2d839",
+          "artifact": "evidence/29c73e36e790ed68-RESULTS.json",
+          "snapshot": "evidence/29c73e36e790ed68-RESULTS.json",
+          "sha256": "29c73e36e790ed680746da56eba499655feb4d813a22010be49b2049db2f8ef4",
+          "bytes": 907616,
+          "selector": "/p2"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-ADMISSIBILITY",
+      "kind": "review_b",
+      "claim": "The admissibility readings match 017b's card and 040's E_full_Pa and strength_full_Pa. The favorable ramp is not the CR-1457 step.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "REVIEW-B numerical check only. No installed hull safety factor is released.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/8f23c591f42c4336-CARD.md",
+          "snapshot": "evidence/8f23c591f42c4336-CARD.md",
+          "sha256": "8f23c591f42c4336587e664b50c38032ec47108871399194040a7089c5747bf2",
+          "bytes": 9701,
+          "selector": ""
+        },
+        {
+          "report": "017b",
+          "artifact": "evidence/e8fe539b269713c0-CARD.md",
+          "snapshot": "evidence/e8fe539b269713c0-CARD.md",
+          "sha256": "e8fe539b269713c05c5f1cdd43bcd3df67bd6cc57acafe9fcd2e9745d11f986d",
+          "bytes": 20556,
+          "selector": ""
+        },
+        {
+          "report": "040",
+          "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+          "bytes": 22506,
+          "selector": "/E_full_Pa"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-TRIALS",
+      "kind": "review_b",
+      "claim": "T3 is 6-18 kUSD with an 18-45 biaxial follow-on. T7 is 30-90. T2 is 12-35. T1 is 5-15.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "REVIEW-B numerical check only. No installed hull safety factor is released.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/8f23c591f42c4336-CARD.md",
+          "snapshot": "evidence/8f23c591f42c4336-CARD.md",
+          "sha256": "8f23c591f42c4336587e664b50c38032ec47108871399194040a7089c5747bf2",
+          "bytes": 9701,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-5c199e3419b77f1f656c",
+          "artifact": "evidence/12e05a37746a21db-GROUND-FIRST.json",
+          "snapshot": "evidence/12e05a37746a21db-GROUND-FIRST.json",
+          "sha256": "12e05a37746a21db98c385ad6ab737b3c8cede7d515271810ce9dde417e2113f",
+          "bytes": 23735,
+          "selector": "/grounding_plan_038/tests"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-SWAPS",
+      "kind": "review_b",
+      "claim": "The one-at-a-time gamma, Q, film and modulus swap factors were not re-optimized. No mismatch was demonstrated. The complement was not run.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "REVIEW-B numerical check only. No installed hull safety factor is released.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/3d15212f5b548372-NFI.json",
+          "snapshot": "evidence/3d15212f5b548372-NFI.json",
+          "sha256": "3d15212f5b54837283ba7c9b4ca3c9102ea648af3afc06b5734e26b5760e3c05",
+          "bytes": 714,
+          "selector": "/issues/0"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/57bd99088326aba1-REVIEW.md",
+          "snapshot": "evidence/57bd99088326aba1-REVIEW.md",
+          "sha256": "57bd99088326aba1b924b6c403d4712343755d261dd98b590e31813238e39d5f",
+          "bytes": 4738,
+          "selector": ""
+        }
+      ]
+    }
+  ],
+  "amend_findings": [],
+  "append_register_rows": [
+    {
+      "rid": "R119",
+      "topic": "Piece B",
+      "topic_name": "063 favorable-input spread and REVIEW-B",
+      "gap": "Which optimistic inputs carry P2's R20-30 gap",
+      "unknown": "Swap magnitudes were not re-optimized. Installed qualification remains open.",
+      "today": [
+        "R20 and R30 endpoint and handbook density factors and concept and TRL7 payloads match 061 within 0.01 kg and 1e-6 on the factor.",
+        "Log shares, the 95.7% R30 pair share and interaction ratios 1.532 to 1.553 match the stored factors. Gamma then Q survives both sequential orders and the two-factor Shapley split. Film cannot pass Q.",
+        "The one-at-a-time gamma, Q, film and modulus swap factors were not re-optimized. No mismatch was demonstrated. The complement was not run."
+      ],
+      "needed": [
+        "A second optimizer, or the complement case, before the swap factors are treated as reproduced."
+      ],
+      "owners": [
+        "rep-ref-a76ea3d6778b4cf194ac",
+        "rpt-ref-af391e597aed690513ec"
+      ],
+      "states": [
+        "QUESTIONABLE",
+        "PROJECTION"
+      ],
+      "directions": [
+        "Measure Q on this sandwich (T3) and run the named gamma shell (T7). If the coefficients return at the handbook, the closing move in this model is a face near 860 kg/m3."
+      ],
+      "check_outcome": "REVIEW-B: closure, rank, direction, admissibility and trial prices reproduced; swaps unreviewed",
+      "sources": [],
+      "finding_ids": [
+        "RB063-CLOSURE",
+        "RB063-RANK",
+        "RB063-DIRECTION",
+        "RB063-ADMISSIBILITY",
+        "RB063-TRIALS",
+        "RB063-SWAPS"
+      ]
+    }
+  ],
+  "append_source_catalog": [],
+  "append_administration": [
+    {
+      "id": "ADMIN-REVIEW-B-063",
+      "at": "2026-10-20T14:41:06-07:00",
+      "note": "Version 6 written in ref-ce1f0d48827818dfeb7e's outputs. Version 5 in the 030e seat was left byte-unchanged."
+    }
+  ],
+  "append_changes": [
+    {
+      "id": "RB063-CLOSURE",
+      "kind": "filed_change",
+      "label": "review-b-closure",
+      "claim": "R20 and R30 endpoint and handbook density factors and concept and TRL7 payloads match 061 within 0.01 kg and 1e-6 on the factor.",
+      "report": "rpt-ref-af391e597aed690513ec",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-23efd7d4ece46db2d839",
+          "artifact": "evidence/29c73e36e790ed68-RESULTS.json",
+          "snapshot": "evidence/29c73e36e790ed68-RESULTS.json",
+          "sha256": "29c73e36e790ed680746da56eba499655feb4d813a22010be49b2049db2f8ef4",
+          "bytes": 907616,
+          "selector": "/p2"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-RANK",
+      "kind": "filed_change",
+      "label": "review-b-rank",
+      "claim": "Log shares, the 95.7% R30 pair share and interaction ratios 1.532 to 1.553 match the stored factors. Gamma then Q survives both sequential orders and the two-factor Shapley split. Film cannot pass Q.",
+      "report": "rpt-ref-af391e597aed690513ec",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-DIRECTION",
+      "kind": "filed_change",
+      "label": "review-b-direction",
+      "claim": "Handbook closure is 1850/2.1435 = 863 kg/m3 in ISA and 1850/2.2480 = 823 kg/m3 in optimistic weather. Modulus alone is 625.64 GPa. The card's 626 GPa is that figure rounded.",
+      "report": "rpt-ref-af391e597aed690513ec",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-23efd7d4ece46db2d839",
+          "artifact": "evidence/29c73e36e790ed68-RESULTS.json",
+          "snapshot": "evidence/29c73e36e790ed68-RESULTS.json",
+          "sha256": "29c73e36e790ed680746da56eba499655feb4d813a22010be49b2049db2f8ef4",
+          "bytes": 907616,
+          "selector": "/p2"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-ADMISSIBILITY",
+      "kind": "filed_change",
+      "label": "review-b-admissibility",
+      "claim": "The admissibility readings match 017b's card and 040's E_full_Pa and strength_full_Pa. The favorable ramp is not the CR-1457 step.",
+      "report": "rpt-ref-af391e597aed690513ec",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/8f23c591f42c4336-CARD.md",
+          "snapshot": "evidence/8f23c591f42c4336-CARD.md",
+          "sha256": "8f23c591f42c4336587e664b50c38032ec47108871399194040a7089c5747bf2",
+          "bytes": 9701,
+          "selector": ""
+        },
+        {
+          "report": "017b",
+          "artifact": "evidence/e8fe539b269713c0-CARD.md",
+          "snapshot": "evidence/e8fe539b269713c0-CARD.md",
+          "sha256": "e8fe539b269713c05c5f1cdd43bcd3df67bd6cc57acafe9fcd2e9745d11f986d",
+          "bytes": 20556,
+          "selector": ""
+        },
+        {
+          "report": "040",
+          "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+          "bytes": 22506,
+          "selector": "/E_full_Pa"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-TRIALS",
+      "kind": "filed_change",
+      "label": "review-b-trials",
+      "claim": "T3 is 6-18 kUSD with an 18-45 biaxial follow-on. T7 is 30-90. T2 is 12-35. T1 is 5-15.",
+      "report": "rpt-ref-af391e597aed690513ec",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/8f23c591f42c4336-CARD.md",
+          "snapshot": "evidence/8f23c591f42c4336-CARD.md",
+          "sha256": "8f23c591f42c4336587e664b50c38032ec47108871399194040a7089c5747bf2",
+          "bytes": 9701,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-5c199e3419b77f1f656c",
+          "artifact": "evidence/12e05a37746a21db-GROUND-FIRST.json",
+          "snapshot": "evidence/12e05a37746a21db-GROUND-FIRST.json",
+          "sha256": "12e05a37746a21db98c385ad6ab737b3c8cede7d515271810ce9dde417e2113f",
+          "bytes": 23735,
+          "selector": "/grounding_plan_038/tests"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+          "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+          "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+          "bytes": 12943,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "RB063-SWAPS",
+      "kind": "filed_change",
+      "label": "review-b-swaps",
+      "claim": "The one-at-a-time gamma, Q, film and modulus swap factors were not re-optimized. No mismatch was demonstrated. The complement was not run.",
+      "report": "rpt-ref-af391e597aed690513ec",
+      "sources": [
+        {
+          "report": "rep-ref-a76ea3d6778b4cf194ac",
+          "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+          "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+          "bytes": 27804,
+          "selector": "/cases"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/3d15212f5b548372-NFI.json",
+          "snapshot": "evidence/3d15212f5b548372-NFI.json",
+          "sha256": "3d15212f5b54837283ba7c9b4ca3c9102ea648af3afc06b5734e26b5760e3c05",
+          "bytes": 714,
+          "selector": "/issues/0"
+        },
+        {
+          "report": "rpt-ref-af391e597aed690513ec",
+          "artifact": "evidence/57bd99088326aba1-REVIEW.md",
+          "snapshot": "evidence/57bd99088326aba1-REVIEW.md",
+          "sha256": "57bd99088326aba1b924b6c403d4712343755d261dd98b590e31813238e39d5f",
+          "bytes": 4738,
+          "selector": ""
+        }
+      ]
+    }
+  ],
+  "append_nfi_rows": [
+    {
+      "uid": "RB063-SWAPS",
+      "report": "rpt-ref-af391e597aed690513ec",
+      "file": "evidence/3d15212f5b548372-NFI.json",
+      "snapshot": "evidence/3d15212f5b548372-NFI.json",
+      "source_sha256": "3d15212f5b54837283ba7c9b4ca3c9102ea648af3afc06b5734e26b5760e3c05",
+      "source_json_pointer": "/issues/0",
+      "row_id": "NFI-B-SWAPS",
+      "fields": {
+        "id": "NFI-B-SWAPS",
+        "status": "open",
+        "statement": "Swap density factors and payloads for gamma, Q, film and modulus are not in 061. This review did not re-optimize them. No numerical mismatch was demonstrated."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    }
+  ],
+  "append_ledger_rows": {
+    "optimism": [
+      {
+        "id": "E-OPT-B063",
+        "lead": "P2",
+        "name": "Concept float at R20-30 rests on the favorable gamma ramp and Q=0.82 together. Handbook closure is a face near 863 kg/m3 (ISA) or 823 kg/m3 (optimistic). Swap magnitudes unreviewed.",
+        "tag": "PROJECTION",
+        "physical_qualification": "open",
+        "finding_id": "RB063-DIRECTION",
+        "evidence_category": "conditional calculation",
+        "sources": [
+          {
+            "report": "rep-ref-a76ea3d6778b4cf194ac",
+            "artifact": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+            "snapshot": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+            "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+            "bytes": 27804,
+            "selector": "/cases"
+          },
+          {
+            "report": "rpt-ref-23efd7d4ece46db2d839",
+            "artifact": "evidence/29c73e36e790ed68-RESULTS.json",
+            "snapshot": "evidence/29c73e36e790ed68-RESULTS.json",
+            "sha256": "29c73e36e790ed680746da56eba499655feb4d813a22010be49b2049db2f8ef4",
+            "bytes": 907616,
+            "selector": "/p2"
+          },
+          {
+            "report": "rpt-ref-af391e597aed690513ec",
+            "artifact": "evidence/7652ed95209aff33-RESULTS.json",
+            "snapshot": "evidence/7652ed95209aff33-RESULTS.json",
+            "sha256": "7652ed95209aff331a0933de25bc58c5bda333472e9834c7681a47c4c392bb3b",
+            "bytes": 12943,
+            "selector": ""
+          }
+        ]
+      }
+    ]
+  },
+  "set_sections": {
+    "card_template": "# MAINLINE-030e — morning design register\n\n**Neither assessed lead floats with concept-stage mass growth.** Hypothetical TRL7 cases can float; that maturity is not achieved hardware.\n\n**{{record_header}}**\n\n## Piece B, version 6\n\nQUESTIONABLE / PROJECTION. 063 and REVIEW-B are appended. No qualified hull safety factor.\n\nP2's apparent concept float at R 20-30 rests on the favorable gamma ramp and Q = 0.82 together. REVIEW-B reproduced the endpoint and handbook closures against 061, the log-share arithmetic, and a rank that survives both orders of the gamma and Q swaps: gamma, then Q, then bond film, then modulus, then strength. The R 30 pair returns 95.7% of the log-spread. Handbook closure is face density divided by 2.1435 (863 kg/m3, ISA) or 2.2480 (823 kg/m3, optimistic). Modulus alone is 625.64 GPa in ISA and does not close in optimistic weather. The one-at-a-time swap magnitudes were not re-optimized and are UNREVIEWED. No fix was demonstrated.\n\n| Lead / decision | Current result | Qualification |\n| --- | --- | --- |\n| P2 growth | All evaluated concept-growth cases remain negative; direct-048 R12 ISA crosses at TRL7 | Earlier corrected table +1.256483 kg; 061's 5% hardware column gives +4.615730 kg in its stated account |\n| P3 growth | Concept growth defeats the assessed family; 061 finds no finite named-lever combination | Fixed g/R and tube-shell lower-bound scope; no universal architecture proof |\n| P2 future targets | R30 favorable density factors 1.0593 ISA / 1.1001 optimistic | Witnesses reproduce; best-product ranking remains unresolved |\n| Weather | 058 sampled day fractions decrease when hardware is charged | All review fixes UNREVIEWED; continuous operating availability is unknown |\n| Shape / gamma | 047/062 tolerances are model-only; 056's 6.03 MPa target is simulated | No P2 gamma or physical hull tolerance released |\n| Dry cavity / water | Seven-day R10 favorable margin only +1.115544 kg before growth | Assembled barrier, transport, retention and drying remain unqualified |\n\n**First three tests remain:** T1 finished-sheet compression/specification; T2 weighed curved sealed scarf with full-blank extension; T3 same-batch wrinkle coupons. The expanded ground-first list is preserved.\n\n**Process v2:** from Piece A on, one review and one register per piece. This is the last full register migration; later pieces append deltas to the stable claim record.\n\n{{coverage_summary}}\n\n[Register](REGISTER.md) · [claim record](CLAIM-RECORD.json) · [review state](REVIEW-STATE.md) · [qualification](QUALIFICATION.md) · [ground-first](GROUND-FIRST.md)\n\n## Changes since 030d\n\n{{change_lines}}\n\n## Mass growth changes the design point\n\nThe table uses CHECK-057's all-four-endpoint actual-joining P2 bills: direct 048 at R10–15, 040 with transferred 048 finish at R20–30. P3 uses 052's all-four ground-service endpoints. The finish-denominator amendment is applied using CHECK-057's exact correction entries. These are different points from 030d's named G+Q+film endpoint and from 061's seven-day P3 account. [rpt-ref-22285eadc9122df1c8b7](evidence/c34bf29324b228ac-CHECK.md)\n\n| Lead | R m | Weather | Flat growth tolerance | Before growth kg | Concept MGA kg | After growth kg |\n| --- | --- | --- | --- | --- | --- | --- |\n| P2 | 10 | ISA | 2.8388% | +127.253 | 705.969 | -578.717 |\n| P2 | 10 | optimistic | -0.4546% | -20.801 | 719.896 | -740.697 |\n| P2 | 12 | ISA | 5.0502% | +388.264 | 1202.716 | -814.452 |\n| P2 | 12 | optimistic | 1.6868% | +132.389 | 1226.789 | -1094.400 |\n| P2 | 15 | ISA | 6.9665% | +1038.319 | 2315.809 | -1277.490 |\n| P2 | 15 | optimistic | 3.5383% | +538.449 | 2362.848 | -1824.399 |\n| P2 | 20 | ISA | 8.5290% | +2994.299 | 5416.752 | -2422.454 |\n| P2 | 20 | optimistic | 5.0352% | +1805.293 | 5528.903 | -3723.611 |\n| P2 | 30 | ISA | 9.8803% | +11637.148 | 18046.022 | -6408.874 |\n| P2 | 30 | optimistic | 6.3328% | +7618.784 | 18425.506 | -10806.722 |\n| P3 | 10 | ISA | 0.6926% | +30.863 | 680.595 | -649.732 |\n| P3 | 10 | optimistic | -1.6948% | -76.414 | 688.821 | -765.235 |\n| P3 | 12 | ISA | 3.0196% | +231.557 | 1169.403 | -937.846 |\n| P3 | 12 | optimistic | 0.5962% | +46.259 | 1183.595 | -1137.336 |\n| P3 | 15 | ISA | 4.8743% | +727.200 | 2271.511 | -1544.312 |\n| P3 | 15 | optimistic | 2.4206% | +365.436 | 2299.184 | -1933.748 |\n| P3 | 20 | ISA | 6.3421% | +2234.491 | 5356.141 | -3121.649 |\n| P3 | 20 | optimistic | 3.8631% | +1377.330 | 5421.631 | -4044.301 |\n| P3 | 30 | ISA | 7.5069% | +8895.646 | 17987.545 | -9091.899 |\n| P3 | 30 | optimistic | 5.0066% | +6003.914 | 18208.219 | -12204.305 |\n\nThe concept account carries calculated structure at 15%, estimated hardware at 30% and thermal items at 20%, with the specified exclusions and embedded margins credited. The coating's extra 10% is applied to the unmarginated basis: `m × 0.10 / 1.10`, not `m × 0.10`. At the named R10 P2 endpoint this changes MGA 707.388727 to 707.293535 kg. A negative flat-growth tolerance means the un-grown point already has a deficit. [rpt-mainline057-opus-mass-growth-1020](evidence/72231da907e3d985-CARD.md) [rpt-ref-22285eadc9122df1c8b7](evidence/c34bf29324b228ac-CHECK.md)\n\nKeep three maturity changes distinct: CHECK-057's direct-048 correction changes R12 ISA from −0.839968 to +1.256483 kg under the earlier table; 061 and REVIEW-A2 correct NASA's TRL7 hardware rate from 6% to 5% (battery remains 6%), giving +4.615730 kg in the declared R12 account; 061's larger-radius cure/geometry scenario is separate, with R20 optimistic −29.884305 kg versus +14.701407 kg on the frozen earlier geometry. None establishes TRL7 maturity. [rpt-ref-23efd7d4ece46db2d839](evidence/4dec37167ccb479e-REVIEW.md) [rpt-1228-review-a-058-061-1020](evidence/887001b91192287a-REVIEW.md)\n\n061's favorable density-only witnesses reproduce at R12/20/30: 1.122180/1.076600/1.059313 ISA and 1.166365/1.118320/1.100118 optimistic. The R30 handbook witnesses are 2.143497/2.248021. They require replacement faces retaining the other declared properties. REVIEW-A2 did not independently establish best-product ranking; carry it as unresolved. P3's no-finite-combination result is confined to the fixed g/R family and named levers. [rpt-1228-review-a-058-061-1020](evidence/887001b91192287a-REVIEW.md)\n\n## Weather levers: bill, band and reviewed corrections\n\nLondon Heathrow station 03772099999, 2014–2023: 87,648 processed hours, 87,354 complete T/dewpoint/pressure hours and 3,559 complete 24-hour UTC days; 93 calendar days are excluded. These are sampled conditional coverage counts, not flight availability. [rpt-mainline058-opus-flyable-band-1020](evidence/4f1328c26181ad6a-CARD.md) [rpt-1228-review-a-058-061-1020](evidence/887001b91192287a-REVIEW.md)\n\n| Lead | R m | Lever | Mass kg | Band effect | Scope |\n| --- | --- | --- | --- | --- | --- |\n| P2 | 10 | Relief sizing | -225.219 before hardware | 11.921 K hot-edge gain | 5 kg valve plus matched ballast/bladder; complete hardware below |\n| P2 | 10 | AlAOC low-emittance finish | +9.824 | -11.123 K cold-edge change | epsilon .05; installed Be transfer open |\n| P2 | 12 | Relief sizing | -394.607 before hardware | 12.104 K hot-edge gain | 5 kg valve plus matched ballast/bladder; complete hardware below |\n| P2 | 12 | AlAOC low-emittance finish | +20.475 | -11.019 K cold-edge change | epsilon .05; installed Be transfer open |\n| P2 | 15 | Relief sizing | -770.915 before hardware | 12.086 K hot-edge gain | 5 kg valve plus matched ballast/bladder; complete hardware below |\n| P2 | 15 | AlAOC low-emittance finish | +47.591 | -10.885 K cold-edge change | epsilon .05; installed Be transfer open |\n| P2 | 20 | Relief sizing | -1828.093 before hardware | 12.055 K hot-edge gain | 5 kg valve plus matched ballast/bladder; complete hardware below |\n| P2 | 20 | AlAOC low-emittance finish | +142.414 | -10.772 K cold-edge change | epsilon .05; installed Be transfer open |\n| P2 | 30 | Relief sizing | -6174.518 before hardware | 12.026 K hot-edge gain | 5 kg valve plus matched ballast/bladder; complete hardware below |\n| P2 | 30 | AlAOC low-emittance finish | +667.108 | -10.767 K cold-edge change | epsilon .05; installed Be transfer open |\n| P3 | 10 | Relief sizing | -122.049 before hardware | Exact hot-edge arrays retained in WEATHER-058.json | at least valve mass; matched bladder unresolved |\n| P3 | 12 | Relief sizing | -210.724 before hardware | Exact hot-edge arrays retained in WEATHER-058.json | at least valve mass; matched bladder unresolved |\n| P3 | 15 | Relief sizing | -411.223 before hardware | Exact hot-edge arrays retained in WEATHER-058.json | at least valve mass; matched bladder unresolved |\n| P3 | 20 | Relief sizing | -973.927 before hardware | Exact hot-edge arrays retained in WEATHER-058.json | at least valve mass; matched bladder unresolved |\n| P3 | 30 | Relief sizing | -3284.227 before hardware | Exact hot-edge arrays retained in WEATHER-058.json | at least valve mass; matched bladder unresolved |\n\nComplete P2 bills for the cited three-axis configurations follow. These include the stated valve/bladder hardware; the cold/hot band is conditional on the specified optics and operating model. [rpt-mainline058-opus-flyable-band-1020](evidence/4f1328c26181ad6a-CARD.md)\n\n| R m | Finish | Hull kg | Hardware kg | Whole bill kg | Worst-corner width K |\n| --- | --- | --- | --- | --- | --- |\n| 10 | AlAOC | 4808.660 | 15.531 | 4824.191 | 25.728 |\n| 10 | MLCCAg | 4798.836 | 11.445 | 4810.281 | 15.343 |\n| 12 | AlAOC | 8193.496 | 25.470 | 8218.966 | 29.215 |\n| 12 | MLCCAg | 8173.021 | 18.550 | 8191.572 | 19.033 |\n| 15 | AlAOC | 15836.429 | 48.163 | 15884.592 | 31.700 |\n| 15 | MLCCAg | 15788.838 | 34.983 | 15823.821 | 21.761 |\n| 20 | AlAOC | 37250.915 | 112.743 | 37363.658 | 33.471 |\n| 20 | MLCCAg | 37108.501 | 82.462 | 37190.964 | 23.826 |\n| 30 | AlAOC | 125113.860 | 380.737 | 125494.597 | 34.626 |\n| 30 | MLCCAg | 124446.752 | 282.377 | 124729.128 | 25.331 |\n\n**REVIEW-A2 corrections — UNREVIEWED.** Original values remain beside proposed corrections. P3 valve-only fractions are upper bounds until matched bladder mass is charged. The spot checks do not establish replacement minimum radii or least-optimism selections. [rpt-1228-review-a-058-061-1020](evidence/887001b91192287a-REVIEW.md)\n\n| Fix | R m | Case | Original | Correction | Hardware kg | Status |\n| --- | --- | --- | --- | --- | --- | --- |\n| F-A2-058-P2-HARDWARE | 10 | MLCCAg | 63.979% | 61.253% | 11.444985 | UNREVIEWED |\n| F-A2-058-P2-HARDWARE | 10 | AlAOC | 83.647% | 79.854% | 15.531414 | UNREVIEWED |\n| F-A2-058-P2-HARDWARE | 12 | AlAOC | 95.785% | 94.156% | 25.469929 | UNREVIEWED |\n| F-A2-058-P2-HARDWARE | 20 | AlAOC | 99.269% | 98.960% | 112.742586 | UNREVIEWED |\n| F-A2-058-P3-HARDWARE | 10 | P3 standard-pressure | 77.747% | 76.482% upper bound | 5.000000 | UNREVIEWED |\n| F-A2-058-P3-HARDWARE | 12 | P3 standard-pressure | 96.994% | 96.881% upper bound | 5.000000 | UNREVIEWED |\n| F-A2-058-P3-HARDWARE | 15 | P3 standard-pressure | 99.635% | 99.607% upper bound | 5.000000 | UNREVIEWED |\n\nCHECK-050 and its convention addendum reproduce the fixed-hull/dew maps and the 32 frozen-thermal endpoint geometries per radius. The sampled gas supplement is not an all-weather maximum; the wider sweep remains separate. R10's exact supplement is 102.491169 Pa and 3.192390 kg. Admitted air, ballast recovery, altitude history, ground service and missing weather remain operational gaps. [rpt-ref-3eaf9fd65c0d3223ee65](evidence/97926e05973aab9b-CHECK.md) [rpt-ref-a7ed312f50c1bd796c58](evidence/1d43f24f0ab2c0ea-ADDENDUM.md)\n\n## Water and dry service\n\nCHECK-059 replaces bulk mass/rate interpretations with local 99%-removal times of 0.310–5.346 h under held weather; the nominal bulk times still leave 11.707–13.562 kg. P3's 55.150/171.424 kg node/bay ponds do not reproduce; the checker's 110.766/117.094 kg surrogate does not establish the real frame either. Ultra-Ever Dry needs bottom and top coats: under the same assumed density 32.67–94.25 kg at R10, with $16,861.93 if the bottom-coat price is used for both. The 0.1 kg/m² exterior allowance remains provisional. [rpt-ref-3bba4f0f54c6a95070dd](evidence/af7ce4067a35e5c5-CARD.md)\n\n054/ CHECK-054 one-, seven- and thirty-day favorable endpoint accounts are preserved in full. Selected rows below precede concept growth; source WVTR/capacity/heat and hardware conditions remain essential. [rpt-ref-71723c1ae93445240630](evidence/d63503565eee22e5-CARD.md) [rpt-ref-02edbc8231269239b47f](evidence/b01c909635efef65-CARD.md)\n\n| R m | Weather | Days | Barrier | Capture kg | Payload kg |\n| --- | --- | --- | --- | --- | --- |\n| 10 | ISA | 1 | MET | 0.000000 | +30.710562 |\n| 10 | ISA | 1 | SIOX | 0.000000 | +28.349436 |\n| 10 | ISA | 7 | SIOX | 27.233891 | +1.115544 |\n| 10 | ISA | 30 | SIOX | 83.777748 | -55.428312 |\n\nThe seven-day SIOX/3A R10 row has 17.164891 kg dry beads, 27.233891 kg capture system and 2.513274 kg barrier increment. It requires a 6 wt% working capacity with bed at or below 333 K, about 277.023 m³/h effective water conductance and 16.539 W peak heat rejection. Thirty-day R12 ISA FOIL30 is +47.344558 kg, correcting the report-only +47.35 rounding. None is an assembled dry-service demonstration. [rpt-ref-02edbc8231269239b47f](evidence/b01c909635efef65-CARD.md)\n\n## Gamma, shape and build route\n\n047's regularized model uses unsourced in-plane core moduli and a tensile face proxy. CHECK-047 reproduces direct estimates 1.2179/.7469 mm at SF1/1.05; the tested brackets are 1.209–1.227/.738–.756 mm. These are not physical manufacturing tolerances. CHECK-055's separate original-section direct elastic/core/face limits are 5.7754/2.2998/1.2220 mm; do not interchange those models. 055's pre-test gammas .469277/.510830 reproduce, but the 5052-O rig reaches .575038/.856084 at sea level/5 m water, correcting .592911/.882692. The $0.420–1.558M build-up is unquoted; tooling size, transfer and statistics remain open. [rpt-ref-a18ff970381ef39185d1](evidence/ed8fbe522708eccf-CHECK.md) [rpt-ref-886d25bd397d38c2f48f](evidence/852027a5302b254c-CARD.md)\n\n056 independently reproduces frozen-state pressure 6.159020624266 MPa and both elastic/prestress radius cases; the path range is 6.159021–6.502272 MPa. The 6.03 MPa source target is a simulation. REVIEW-A1 does not independently rerun the plastic/contact history or establish physical instability, and no P2 gamma is released. [rpt-ref-3692687111eb9cac0c5d](evidence/2f669714b5e7ca5b-REVIEW.md)\n\n062's SR-200 290 GPa modulus and light 2U film identity are sourced with explicit limits. Closed-form transferred amplitudes and cost arithmetic reproduce; shop caps, supplier-formed panels/jigs/closure and prices are proposals. Full qualification costs and a cheapest feasible route remain unknown. [rpt-1228-mainline062-buildable-shape-1020](evidence/99444f4ab94b0224-REVIEW.md) [rpt-ref-3692687111eb9cac0c5d](evidence/2f669714b5e7ca5b-REVIEW.md)\n\n| R m | SF1.05 amplitude mm | Proposed shop cap mm | First-shell account | Qualification |\n| --- | --- | --- | --- | --- |\n| 10 | 0.792570 | 0.6 | $66,519,656.56–$477,421,594.60 | model-only / unquoted |\n| 20 | 1.628413 | 1.2 | $522,773,952.34–$3,813,773,030.71 | model-only / unquoted |\n| 30 | 2.485983 | 1.8 | $1,834,656,370.48–$13,448,336,376.35 | model-only / unquoted |\n\n**REVIEW-A1 coating corrections — UNREVIEWED.** The six 062 fields share the inherited denominator error. All payloads remain negative. [rpt-ref-3692687111eb9cac0c5d](evidence/2f669714b5e7ca5b-REVIEW.md)\n\n| R m | Weather | Original payload kg | Correction kg | Increase kg | Status |\n| --- | --- | --- | --- | --- | --- |\n| 10 | ISA | -611.484348 | -611.389155 | 0.095193 | UNREVIEWED |\n| 10 | optimistic | -773.465088 | -773.369895 | 0.095193 | UNREVIEWED |\n| 20 | ISA | -2553.524790 | -2553.144018 | 0.380771 | UNREVIEWED |\n| 20 | optimistic | -3854.681843 | -3854.301072 | 0.380771 | UNREVIEWED |\n| 30 | ISA | -6703.783776 | -6702.927041 | 0.856735 | UNREVIEWED |\n| 30 | optimistic | -11101.632034 | -11100.775299 | 0.856735 | UNREVIEWED |\n\n## P3 frames, thermal settlement and Be-free comparison\n\n051 and CHECK-051 reproduce the completed frame/material, reliability, hail and member-loss calculations. Hexoloy mechanical SF is 1.053993/0.997807 at the two reference sections; operating m10 scales are 3.727343/3.873840 GPa. The assumed 3.9 GPa population is not a measured complete-member distribution. Carbon's K13D2U ceilings 1.135743/1.075982 do not overcome missing compression evidence. CHECK-060's sourced-compression whole-bill M55J R10 deficit is about 469.9 kg; corrected reliability accounting worsens some carbon rows. The axial load is about 701 kN, not 775 kN. Carbon remains an alternative beside SiC, with no qualified winner. [rpt-ref-43804748980d8ca4b5f6](evidence/4512285d11dbe992-CHECK.md) [rpt-check060-opus-1020](evidence/4a6c30a727a5eed2-CHECK.md)\n\nCHECK-052 reproduces the common ground-service account and 15.551810 h schedule; 288 f5-5 labels and the 52.426 kg family difference are corrected. The earlier favorable P3 ground-service floats do not survive concept growth. [rpt-1228-mainline052-independent-check-1020](evidence/754a25a154ccf2b5-CARD.md)\n\n053, its CHECK-048 fold and CHECK-053 settle the numerical difference into four explicit boundary alternatives. Maximum resized loss is 4.388925 kg; no endpoint float sign or minimum/tied set changes. The 288 frozen scarf and 85 global crossings remain geometry-specific. SolarWhite's 285 g/m²/.18/.89 aluminum-source correction, classical CCAg normal-emittance caveat and twelve null-field witnesses are carried. Physical boundary selection remains open. [rpt-ref-a1657be60b663f493887](evidence/a0cad7c8a29508b2-CARD.md) [rpt-ref-b71dd9842c7ae7b18ee8](evidence/af548217596299b5-CARD.md)\n\n049's sourced Be-free no-float result survives CHECK-049. Its '60% Vf' projection requires density 1800 kg/m³ and fibre mass fraction .733333. The published R30 ISA least geometry then carries −4354.509 kg; independent reoptimization gives usage .783530 and endpoint +12.444 t. The missed AlBeMet hypothetical modulus interval [3.155175,3.733361] has a +10.529 kg x3.3 witness, not a sourced material capability. [rpt-ref-9a28294ab892bcd529f5](evidence/8c16207f5ecc987c-CARD.md)\n\n## Qualification and review state\n\nSciences' confidence table is preserved in [QUALIFICATION.md](QUALIFICATION.md) and attached to the claim record. Numerical status and physical qualification are separate fields. The 34 REVIEW-A claims comprise 29 reproduced, three differing and two evidence-limited claims. Eight correction groups (six 062 fields and two 058 hardware groups) remain UNREVIEWED; no second fix-review is claimed.\n\nMAINLINE-014 has no surviving check: its GLM-wall check was withdrawn and never re-homed. The requested early cards 004b, 007, 009, 013, 017 and 017b remain listed as superseded by later checked work, alongside 009b/009c and 022 history. Historical overlapping check labels are retained rather than silently erased. 056/058 are covered by REVIEW-A, with no separate checks. Full coverage and exact report IDs are in [REVIEW-STATE.md](REVIEW-STATE.md).\n\n**PENDING:** no additional running scientific unit is evidenced by the final queue scan. This describes received filings, not live-seat telemetry. Physical/source NFIs remain open and are not running jobs.\n\n## Preserved history and incremental handoff\n\nThe original 030d files, source findings, correction/optimism ledgers and ground-first routes remain byte-pinned in the intake. [030D-ANNOTATED.md](030D-ANNOTATED.md) corrects all ten CHECK-030d wording items and 22 token occurrences while labeling the old scientific/pending statements as historical. Current statements above and the claim record supersede its old partial/pending summaries.\n\nThe canonical source is [CLAIM-RECORD.json](CLAIM-RECORD.json). [METHOD.md](METHOD.md) describes immutable version-checked deltas; the morning card, snapshot and ledgers are deterministic renders of that record. No scientific model was rerun for this register.\n",
+    "current_notes": [
+      "All requested Piece A cards/checks/reviews have filed. No additional running scientific unit is evidenced by the queue snapshot; this is not live-seat telemetry.",
+      "Sciences admissions and original 061/062 pending-review fields are historical snapshots. Current review status is REVIEW-A complete.",
+      "057 direct-048 maturity correction, 061 corrected 5% hardware rate, and 061 changed large-radius cure geometry are separate accounts.",
+      "The legacy finding direct pin is additional to its exact 030d NFI witness; original source fields are never replaced.",
+      "Piece B (063) and REVIEW-B are version 6. Endpoint and handbook numbers reproduce against 061. Swap magnitudes are unreviewed. The 030e seat's version 5 file was not overwritten."
+    ],
+    "review_state": [
+      {
+        "card": "001",
+        "owner_reports": [
+          "rpt-mainline-grok-estimates-card-1019"
+        ],
+        "coverage_reports": [
+          "rpt-admiral-rr2-sciences-mainline-card-yield-missing-1019",
+          "rpt-xo-h1-mainline-estimates-review-600-sci-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "002",
+        "owner_reports": [
+          "rpt-mainline002-grok-strength-card-1019"
+        ],
+        "coverage_reports": [
+          "rpt-admiral-rr2-co-mainline002-strength-questionable-not-objection-1019",
+          "rpt-admiral-rr2-sciences-mainline003-feasibility-core-limits-1019",
+          "rpt-xo-h1-mainline002-review-600-sci-1019",
+          "rpt-xo-h1-mainline002-review-600-source-objection-correction-sci-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "003",
+        "owner_reports": [
+          "rpt-mainline003-grok-p2-targets-1019"
+        ],
+        "coverage_reports": [
+          "rpt-xo-mainline003-review-600-sci-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "004",
+        "owner_reports": [
+          "rpt-mainline004-grok-knockdown-card-1019",
+          "rpt-mainline004-grok-strike-measured-1019"
+        ],
+        "coverage_reports": [
+          "rpt-mainline004-check-glm-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "004b",
+        "owner_reports": [
+          "rpt-mainline004b-grok-kd-range-1019"
+        ],
+        "coverage_reports": [
+          "rpt-mainline004b-check-glm-1019"
+        ],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "018",
+          "018b",
+          "035"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "005",
+        "owner_reports": [
+          "rpt-ref-eb07faa637b7487d6dc5"
+        ],
+        "coverage_reports": [
+          "rpt-ref-78794352b6bc0d9b9309"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "005b",
+        "owner_reports": [
+          "rpt-ref-9dd3721f6f2e5595ab9a"
+        ],
+        "coverage_reports": [
+          "rpt-ref-40cc094053ddae09d5ac"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "006",
+        "owner_reports": [
+          "rpt-mainline006-grok-float-margin-1019"
+        ],
+        "coverage_reports": [
+          "rpt-ref-abc18453b6845bec0152",
+          "rpt-mainline006-check-lead4f19-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "007",
+        "owner_reports": [
+          "rpt-ref-05310d05f1fb52d6522e"
+        ],
+        "coverage_reports": [
+          "rpt-1228-mainline013-independent-check-1020",
+          "rpt-ref-650cc5448a49ba2d595f",
+          "rpt-mainline007-check-lead4f19-1019"
+        ],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "007b",
+          "018",
+          "033"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "007b",
+        "owner_reports": [
+          "rpt-ref-3dd5ab5528276031581d"
+        ],
+        "coverage_reports": [
+          "rpt-1228-mainline013-independent-check-1020",
+          "rpt-ref-634f29e75c3b83c462be",
+          "rpt-mainline007b-check-lead4f19-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "008",
+        "owner_reports": [
+          "rpt-ref-45da79edf548b064b228"
+        ],
+        "coverage_reports": [
+          "rpt-ref-f08b92e3e640a19fb4ea"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "008b",
+        "owner_reports": [
+          "rpt-ref-cc9cef5e55adca018a8f"
+        ],
+        "coverage_reports": [
+          "rpt-ref-c49d322288a0b11e4381"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "009",
+        "owner_reports": [
+          "rpt-ref-d5b4aaa267b71d82fe25",
+          "rpt-ref-77cc6940cedb995b9fed"
+        ],
+        "coverage_reports": [],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "009d",
+          "009e",
+          "021"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "009b",
+        "owner_reports": [
+          "rpt-ref-4cf8e997553f99110e55"
+        ],
+        "coverage_reports": [],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "009d",
+          "009e",
+          "021"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "009c",
+        "owner_reports": [
+          "rpt-ref-5900af7ac39cbc3d300c"
+        ],
+        "coverage_reports": [],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "009c5",
+          "014b",
+          "021"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "009c5",
+        "owner_reports": [
+          "rpt-ref-656730310661fdf86af6"
+        ],
+        "coverage_reports": [
+          "rpt-1228-mainline009c5-independent-check-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "009d",
+        "owner_reports": [
+          "rpt-ref-9c23c1ab945493363f3b",
+          "rpt-ref-97d44a4ca48aaf42376d"
+        ],
+        "coverage_reports": [
+          "rpt-ref-444cea756201354c34c3"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "009e",
+        "owner_reports": [
+          "rpt-ref-7ac2cd1d78b6597d7820"
+        ],
+        "coverage_reports": [
+          "rpt-ref-0d85ae067b41baf8d095"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "010",
+        "owner_reports": [
+          "rpt-ref-58b2bed18db2449100f2"
+        ],
+        "coverage_reports": [
+          "rpt-ref-7d4d494ebf14f37f5ea0"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "011",
+        "owner_reports": [
+          "rpt-ref-f21d4bd21d2026511818"
+        ],
+        "coverage_reports": [
+          "rpt-ref-3484d24f707ffbfe30ee"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "011b",
+        "owner_reports": [
+          "rpt-mainline011b-grok-p3-global-arcs-1019"
+        ],
+        "coverage_reports": [
+          "rpt-check011b-opus-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "012",
+        "owner_reports": [
+          "rpt-mainline012-grok-equal-margin-1019"
+        ],
+        "coverage_reports": [
+          "rpt-mainline012-check-glm-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "013",
+        "owner_reports": [
+          "rpt-ref-44f9940325e236cb80b3"
+        ],
+        "coverage_reports": [
+          "rpt-1228-mainline013-independent-check-1020"
+        ],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "018",
+          "018b",
+          "033"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "014",
+        "owner_reports": [
+          "rpt-mainline014-grok-balanced-sandwich-1019"
+        ],
+        "coverage_reports": [],
+        "gap_list": true,
+        "status": "UNCOVERED: check withdrawn at the GLM wall and never re-homed",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "ord-admiral-rr2-mainline030e-dispatch-1020",
+            "artifact": "withheld-source:2366dcfb9df13933",
+            "snapshot": "withheld-source:2366dcfb9df13933",
+            "sha256": "9dced23aed1e9980acf56b6e25c46c4effe6e7d560ea0ecf504baf1c1695f33c",
+            "bytes": 7386,
+            "selector": "The review state"
+          }
+        ]
+      },
+      {
+        "card": "014b",
+        "owner_reports": [
+          "rpt-mainline014b-grok-metal-honeycomb-1019"
+        ],
+        "coverage_reports": [
+          "rpt-1228-mainline014b-independent-check-1019"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "015",
+        "owner_reports": [
+          "rpt-ref-06668dbf12580ed0ffc3"
+        ],
+        "coverage_reports": [
+          "rpt-ref-88e650e7f8b713866e0b"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "015b",
+        "owner_reports": [
+          "rpt-ref-74e882831c201b1a953c"
+        ],
+        "coverage_reports": [
+          "rpt-ref-a5374575ee8867fc8d2e"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "016",
+        "owner_reports": [
+          "ref-0c9ab80606a173c6adb6"
+        ],
+        "coverage_reports": [
+          "rpt-ref-e5b19d75c664308465ef"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "017",
+        "owner_reports": [
+          "rpt-mainline017-improvement-directions-lead4f19-1019"
+        ],
+        "coverage_reports": [
+          "rpt-ref-6936f2b720197d97b0f2"
+        ],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "033",
+          "061"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "017b",
+        "owner_reports": [
+          "rpt-ref-6ba73ec8a89453b26832"
+        ],
+        "coverage_reports": [],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "033",
+          "061"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "018",
+        "owner_reports": [
+          "rpt-ref-089ed1faaaf72118b83f"
+        ],
+        "coverage_reports": [
+          "rpt-ref-62323cf6831eb964377f"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "018b",
+        "owner_reports": [
+          "rpt-ref-ab7c8365b0b450980f1f",
+          "rpt-ref-e7b92f5d778c0b12a256"
+        ],
+        "coverage_reports": [
+          "rpt-ref-d458cd5a32d90025482b"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "019",
+        "owner_reports": [
+          "rpt-ref-d7f99cd71e977826da48"
+        ],
+        "coverage_reports": [
+          "rpt-check019-opus-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "020",
+        "owner_reports": [
+          "rpt-ref-3e02218a03708a878faa"
+        ],
+        "coverage_reports": [
+          "rpt-ref-35706d7a2ae7e951590b"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "021",
+        "owner_reports": [
+          "rpt-ref-fe49179fb6a8ad8c986e",
+          "rpt-ref-769a7442efd5a04681e9"
+        ],
+        "coverage_reports": [
+          "rpt-ref-e92af61311c9bf4a89cd"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "021b",
+        "owner_reports": [
+          "rpt-ref-1080d4f6a1af4cfa8c67"
+        ],
+        "coverage_reports": [
+          "rpt-ref-444ac46ffbede876f9cd"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "022",
+        "owner_reports": [
+          "rpt-mainline022-grok-p3-margin-budget-1020",
+          "rpt-mainline022-grok-p3-optimistic-floating-point-1020"
+        ],
+        "coverage_reports": [],
+        "status": "SUPERSEDED; no current standalone release",
+        "superseded_by_checked_work": [
+          "022b",
+          "022c",
+          "022d"
+        ],
+        "gap_list": true,
+        "meaning": "Retained in the requested early-card gap inventory. Historical/overlapping check records remain listed; later checked work supplies the current basis.",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "022b",
+        "owner_reports": [
+          "rpt-mainline022b-grok-equilibrium-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-f6de390e1555b4ca8e78"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "022c",
+        "owner_reports": [
+          "rpt-mainline022c-grok-sag-in-scan-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-f6de390e1555b4ca8e78"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "022d",
+        "owner_reports": [
+          "rpt-ref-6c81b0b188ad134a3ea2"
+        ],
+        "coverage_reports": [
+          "rpt-ref-4b8e7b08241bb7a45536"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "023",
+        "owner_reports": [
+          "rpt-ref-a4768f77870336c8cdbb",
+          "rpt-ref-59bfd43c34a09e9f120a"
+        ],
+        "coverage_reports": [
+          "rpt-ref-f4daf73c940b6f527d37"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "024",
+        "owner_reports": [
+          "rpt-ref-4f09fd6b4c4dd848ebb0",
+          "rpt-ref-2bb3c2b520a8e5f8c750"
+        ],
+        "coverage_reports": [
+          "rpt-ref-7d6892c4e55be16ad523"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "025",
+        "owner_reports": [
+          "rpt-ref-58c781cbea9c220eb5b4"
+        ],
+        "coverage_reports": [
+          "rpt-ref-a8b77f7de2ffc56af7b4"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "026",
+        "owner_reports": [
+          "rpt-ref-7ce5b278fa083d87105b"
+        ],
+        "coverage_reports": [
+          "rpt-check026-grok-p3-lattice-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "026b",
+        "owner_reports": [
+          "rpt-ref-8befdd4c89803adc44a8"
+        ],
+        "coverage_reports": [
+          "rpt-ref-b92330879d6ba35bd62c"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "027",
+        "owner_reports": [
+          "rpt-ref-2898e43e4928e833af6d"
+        ],
+        "coverage_reports": [
+          "rpt-ref-7b45cb6b4d7f92067f8b"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "028",
+        "owner_reports": [
+          "rpt-ref-2519e14e5d71b9eb18f3"
+        ],
+        "coverage_reports": [
+          "rpt-ref-68dff0680696fe9b4cb4"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "028b",
+        "owner_reports": [
+          "rpt-ref-d907de1e97319ecc3f9a"
+        ],
+        "coverage_reports": [
+          "rpt-ref-aae116a5fcd787ed9abc"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "029",
+        "owner_reports": [
+          "rpt-1228-mainline029-crimp-gamma-fe-1020"
+        ],
+        "coverage_reports": [
+          "rpt-check029-opus-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "030d",
+        "owner_reports": [
+          "rpt-ref-e999413f5ed23130ebf6"
+        ],
+        "coverage_reports": [
+          "rpt-ref-158a1f387003d2ecc887"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "030e",
+        "owner_reports": [],
+        "coverage_reports": [],
+        "status": "Current register: package validation only; no independent register review is claimed",
+        "gap_list": true,
+        "physical_qualification": "open",
+        "meaning": "PROCESS-v2 requires one piece review followed by one register; no additional review dispatch is requested",
+        "evidence": [
+          {
+            "report": "rpt-sciences-g4-night-process-review-1020",
+            "artifact": "evidence/de76a95f28d91662-REVIEW.md",
+            "snapshot": "evidence/de76a95f28d91662-REVIEW.md",
+            "sha256": "de76a95f28d91662330c2f0b4b4ef68815dcd2e362fbeb0652c720336cdbf77c",
+            "bytes": 17789,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "031",
+        "owner_reports": [
+          "rpt-ref-9a0319231d2fe686eb92"
+        ],
+        "coverage_reports": [
+          "rpt-ref-be337d7d2ce1259d0aff"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "032",
+        "owner_reports": [
+          "rpt-mainline032-grok-wrinkle-waviness-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-a30a669ed3e245f1473b",
+          "rpt-ref-7427b639691bfaf71f29"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "032b",
+        "owner_reports": [
+          "rpt-mainline032b-grok-measured-flatness-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-7427b639691bfaf71f29"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "033",
+        "owner_reports": [
+          "rpt-ref-5b1ba7a48fcb57c8e35e"
+        ],
+        "coverage_reports": [
+          "rpt-ref-d2ffe81a7858ecabf149"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "034",
+        "owner_reports": [
+          "rpt-ref-244f32e2449e729d312f"
+        ],
+        "coverage_reports": [
+          "rpt-ref-025def9d3634f5e320d7"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "035",
+        "owner_reports": [
+          "rpt-mainline035-opus-knockdown-tests-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-d3afcdc3514000cb6fc2"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "036",
+        "owner_reports": [
+          "rpt-ref-5f14d083ceae03234596"
+        ],
+        "coverage_reports": [
+          "rpt-ref-f182f16ed5be422b7811"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "037",
+        "owner_reports": [
+          "rpt-ref-8c5de04c9c33dbcf7447"
+        ],
+        "coverage_reports": [
+          "rpt-ref-bba592d71d65b13cc2e5"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "037b",
+        "owner_reports": [
+          "rpt-ref-d6eac96dde8db1968e86"
+        ],
+        "coverage_reports": [
+          "rpt-ref-4bf25e71ae0c2ca315e2"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "038",
+        "owner_reports": [
+          "rpt-ref-536c47263ffe5f46fd19"
+        ],
+        "coverage_reports": [
+          "rpt-ref-2beb70a569266cf0297d"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "039",
+        "owner_reports": [
+          "rpt-mainline039-opus-stiffened-sandwich-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-20ab4b33b504a00ad3b6"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "040",
+        "owner_reports": [
+          "rpt-ref-b10363665c6202d8ef75",
+          "rpt-ref-378f34abc5a6eea5b053"
+        ],
+        "coverage_reports": [
+          "rpt-ref-593068c3ed82fd458128"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "041",
+        "owner_reports": [
+          "rpt-ref-c7dfc45babe1b96007db"
+        ],
+        "coverage_reports": [
+          "rpt-ref-52963d63a80d69bb90bd"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "042",
+        "owner_reports": [
+          "rpt-mainline042-opus-build-route-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-049190971618f3ca1e72"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "043",
+        "owner_reports": [
+          "rpt-ref-8cb22d2e233e57207cf6",
+          "rpt-ref-14993e3c2e5e64177c8f"
+        ],
+        "coverage_reports": [
+          "rpt-ref-a53ddf165139979127c4"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "044",
+        "owner_reports": [
+          "rpt-ref-29830021a6e140ff7411"
+        ],
+        "coverage_reports": [
+          "rpt-1228-mainline044-independent-check-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "045",
+        "owner_reports": [
+          "rpt-ref-57c98dcce7960aca042a"
+        ],
+        "coverage_reports": [
+          "rpt-ref-e0fc07c506c86dae19c1"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "046",
+        "owner_reports": [
+          "rpt-ref-b6da4592385c83f4db2a"
+        ],
+        "coverage_reports": [
+          "rpt-ref-982a0ff761f72abce96c"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "047",
+        "owner_reports": [
+          "rpt-ref-e23aa05d834f8e89bb2c"
+        ],
+        "coverage_reports": [
+          "rpt-ref-a18ff970381ef39185d1"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "048",
+        "owner_reports": [
+          "rpt-ref-2092a3e39c7141afde61"
+        ],
+        "coverage_reports": [
+          "rpt-ref-29ebe6d900e7cbd982ea",
+          "rpt-ref-5c8405d45d6cb50633f1",
+          "rpt-ref-0faaf1787ac688f46f7f"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "049",
+        "owner_reports": [
+          "rpt-ref-06643b916584f58fd9e4"
+        ],
+        "coverage_reports": [
+          "rpt-ref-9a28294ab892bcd529f5"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "050",
+        "owner_reports": [
+          "rpt-1228-mainline050-flyable-weather-1020",
+          "rpt-1228-mainline050-dew-conventions-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-3eaf9fd65c0d3223ee65",
+          "rpt-ref-a7ed312f50c1bd796c58"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "051",
+        "owner_reports": [
+          "rpt-ref-8d5027d15bbe034522e3",
+          "rpt-ref-17635c55001d23054259"
+        ],
+        "coverage_reports": [
+          "rpt-ref-43804748980d8ca4b5f6"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "052",
+        "owner_reports": [
+          "rpt-ref-d7b2450119f373b2d1db"
+        ],
+        "coverage_reports": [
+          "rpt-1228-mainline052-independent-check-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "053",
+        "owner_reports": [
+          "rpt-ref-3fb9907ba4e1c52825f0"
+        ],
+        "coverage_reports": [
+          "rpt-ref-b71dd9842c7ae7b18ee8"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "054",
+        "owner_reports": [
+          "rpt-ref-71723c1ae93445240630"
+        ],
+        "coverage_reports": [
+          "rpt-ref-02edbc8231269239b47f"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "055",
+        "owner_reports": [
+          "rpt-mainline055-opus-gamma-test-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-886d25bd397d38c2f48f"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "056",
+        "owner_reports": [
+          "rpt-1228-mainline056-crushable-benchmark-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-3692687111eb9cac0c5d"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ],
+        "scope": "REVIEW-A covers listed load-bearing claims only; fixes remain UNREVIEWED"
+      },
+      {
+        "card": "057",
+        "owner_reports": [
+          "rpt-mainline057-opus-mass-growth-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-22285eadc9122df1c8b7"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "058",
+        "owner_reports": [
+          "rpt-mainline058-opus-flyable-band-1020"
+        ],
+        "coverage_reports": [
+          "rpt-1228-review-a-058-061-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ],
+        "scope": "REVIEW-A covers listed load-bearing claims only; fixes remain UNREVIEWED"
+      },
+      {
+        "card": "059",
+        "owner_reports": [
+          "rpt-ref-4fb99766fa9a4406a85a"
+        ],
+        "coverage_reports": [
+          "rpt-ref-3bba4f0f54c6a95070dd"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "060",
+        "owner_reports": [
+          "rpt-ref-93808d41af02a0580060"
+        ],
+        "coverage_reports": [
+          "rpt-check060-opus-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ]
+      },
+      {
+        "card": "061",
+        "owner_reports": [
+          "rpt-ref-23efd7d4ece46db2d839"
+        ],
+        "coverage_reports": [
+          "rpt-1228-review-a-058-061-1020"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ],
+        "scope": "REVIEW-A covers listed load-bearing claims only; fixes remain UNREVIEWED"
+      },
+      {
+        "card": "062",
+        "owner_reports": [
+          "rpt-1228-mainline062-buildable-shape-1020"
+        ],
+        "coverage_reports": [
+          "rpt-ref-3692687111eb9cac0c5d"
+        ],
+        "gap_list": false,
+        "status": "COVERED in the named check's stated scope",
+        "physical_qualification": "open",
+        "evidence": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "snapshot": "evidence/f194497d7f65bbd4-rpt-ref-e999413f5ed23130ebf6--SOURCE-INDEX--f194497d7f65.json",
+            "sha256": "f194497d7f65bbd42194187ec91398795ae4b69ccf4b4d2c11f8e1e4b589ec72",
+            "bytes": 1189636,
+            "selector": ""
+          },
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "snapshot": "evidence/326fbb8a756cc962-rpt-ref-e999413f5ed23130ebf6--CHECK-VERDICTS--326fbb8a756c.json",
+            "sha256": "326fbb8a756cc962c48e9c6818bee8dc8ac7835b229067d20b15d904207b38c0",
+            "bytes": 598556,
+            "selector": ""
+          }
+        ],
+        "scope": "REVIEW-A covers listed load-bearing claims only; fixes remain UNREVIEWED"
+      },
+      {
+        "card": "063",
+        "owner_reports": [
+          "rep-ref-a76ea3d6778b4cf194ac"
+        ],
+        "coverage_reports": [
+          "rpt-ref-af391e597aed690513ec"
+        ],
+        "gap_list": false,
+        "status": "REVIEW-B complete on the load-bearing arithmetic; swap magnitudes UNREVIEWED; no second round",
+        "physical_qualification": "open",
+        "superseded_by_checked_work": []
+      }
+    ],
+    "queue_cutoff": "2026-10-20T14:41:06-07:00"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "rpt-ref-3692687111eb9cac0c5d",
+  "kind": "report",
+  "from": "ref-ce954c431f4ca652498f",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-review-a-056-062-1020",
+  "re": "ord-admiral-rr2-review-a1-dispatch-1020",
+  "at": "2026-10-20T10:18:06.950100-07:00",
+  "body": "REVIEW-A1 complete for MAINLINE-056 and 062; closes ord-admiral-rr2-review-a1-dispatch-1020. Seventeen load-bearing claims were listed first: sixteen reproduce within their stated conditional scope; one differs. No owners’ code was read or run.\n\n056: independent frozen-state force equilibrium gives 6.159020624266 MPa, within 9.16e-11 MPa of the saved value. Raw-path maxima and fresh elastic/prestress eigenproblems reproduce the peak range and both radius-reading gaps. This does not independently recreate plastic/contact history or establish physical instability. The paper’s 6.03 MPa is simulated, not measured.\n\n062: all three cure-debited SF1.05 amplitudes and six conditional cost totals reproduce. Source checks retain the tensile/compressive, adhesive/process, and RMS/local-defect distinctions. One inherited coating-growth denominator error produces six UNREVIEWED correction rows: payload rises 0.095–0.857 kg, with all six cases still negative. No float/no-float decision changes.\n\nEleven NFIs preserve physical/source gaps, including installed constitutive behavior, tolerance transfer, thin-stock layout, supplier prices and undocumented facility scaling. Numerical status remains separate from physical qualification; all scientific claims remain QUESTIONABLE/PROJECTION.\n\nTen package checks passed; all final numerical checks passed and reservations were released. An initial reviewer comparison-adapter failure and its corrected run are retained in EXECUTION. Evidence, inputs, methods, corrections and manifest are pinned. No further action requested; stopping.",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "completion": "REVIEW-A1 filed in one round with pinned evidence, unreviewed corrections and unresolved NFIs; closes the cited dispatch; stop.",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-a1-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-review-a1-dispatch-1020"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/2f669714b5e7ca5b-REVIEW.md",
+      "sha256": "2f669714b5e7ca5b2f88ba56075850e9619dd847daa784b02de8a2ef23b45e3b",
+      "bytes": 11454
+    },
+    {
+      "path": "evidence/c1510bcf5c641de7-CARD.md",
+      "sha256": "c1510bcf5c641de783edbf1cd884166a7374ea0da7fcdb0483a639c1c4334236",
+      "bytes": 378
+    },
+    {
+      "path": "evidence/8edf42ff4ed7d253-RESULTS.json",
+      "sha256": "8edf42ff4ed7d25368afad1b0eb67f5c257f89b3a7b4fd6234e67e0a966b64ba",
+      "bytes": 15112
+    },
+    {
+      "path": "evidence/9dca16514a02bee9-INPUTS.json",
+      "sha256": "9dca16514a02bee9fd82abbd64bec5128ba50bf5de30a07cea909e796ab39c85",
+      "bytes": 36918
+    },
+    {
+      "path": "evidence/038b8c48cc2481f2-NFI.json",
+      "sha256": "038b8c48cc2481f27088dd50f8554c8103bf7b00ce1a5e5e48d2e39de36429ac",
+      "bytes": 5958
+    },
+    {
+      "path": "evidence/0063cb5be8f2809e-FIXES.json",
+      "sha256": "0063cb5be8f2809e9e0eb10a140e94dbd3bf72fefc5c1a424b7af4fefbf4b930",
+      "bytes": 4105
+    },
+    {
+      "path": "evidence/50baad56ba89f51b-LOAD-BEARING.md",
+      "sha256": "50baad56ba89f51b4d100e1a385f38585698ab948263a6a806e187155940d7d2",
+      "bytes": 2450
+    },
+    {
+      "path": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "sha256": "0a58772dc43eef58cdd741ae5a44b971bafea7dbfcebefc55d5b366e716ca00e",
+      "bytes": 10860
+    },
+    {
+      "path": "evidence/ee6e747e19fe94b7-METHOD.md",
+      "sha256": "ee6e747e19fe94b735037f69bb7c07fe46830804c6886a78eb02a0276c61565f",
+      "bytes": 5715
+    },
+    {
+      "path": "evidence/ebd5b7692388b968-FIELD-CHECK.json",
+      "sha256": "ebd5b7692388b968ec3498cc640c4f25f92ec2b53e6f529412a6ff81069c9f52",
+      "bytes": 11225
+    },
+    {
+      "path": "evidence/7c15280c1687253b-LINEAR-CHECK.json",
+      "sha256": "7c15280c1687253b66dd61ab2678962858574aa8c2f03c8686ab208bb37ebf2d",
+      "bytes": 1742
+    },
+    {
+      "path": "evidence/3145170d4c6a8ead-ACCOUNT-CHECK.json",
+      "sha256": "3145170d4c6a8ead81f55080f5548c1315f1b4c1942f78257ef147640d526c0d",
+      "bytes": 19954
+    },
+    {
+      "path": "evidence/bb6c7c74d5e7c4f0-VALIDATION.json",
+      "sha256": "bb6c7c74d5e7c4f06ba80483cbc7478d8de2add435c00152ffdc5e7cc8f44670",
+      "bytes": 2765
+    },
+    {
+      "path": "evidence/d4f6a253a6ad57a6-EXECUTION.json",
+      "sha256": "d4f6a253a6ad57a687481d040e48636c9ba63f31b6b7389a0561657deb53a45a",
+      "bytes": 2375
+    },
+    {
+      "path": "evidence/b7cc3db40b9dce63-MANIFEST.json",
+      "sha256": "b7cc3db40b9dce630a111eb434ec8811e57fb56a4356d6fe0eae69faef240ff3",
+      "bytes": 26562
+    }
+  ],
+  "from_seat": "ref-ce954c431f4ca652498f",
+  "ingested": "2026-10-20T10:18:21-07:00"
+}

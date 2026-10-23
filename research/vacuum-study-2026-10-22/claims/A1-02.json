@@ -1,0 +1,35 @@
+{
+  "id": "A1-02",
+  "kind": "review_claim",
+  "claim": "Refined midsurface indentation peak 6.159021 MPa; scenario range 6.1590–6.5023 MPa.",
+  "original": {
+    "id": "A1-02",
+    "card": "056",
+    "claim": "Refined midsurface indentation peak 6.159021 MPa; scenario range 6.1590–6.5023 MPa.",
+    "why_load_bearing": "Determines claimed agreement and ambiguity with the benchmark.",
+    "disposition": "reproduces",
+    "reviewer_finding": "Independent force equilibrium at the saved refined state gives 6.159020624266 MPa; original 6.159020624174. Independent raw-path maxima give 6.159020624–6.502271779 MPa. Scope: frozen-state equilibrium and sampled maxima, not a rerun of contact/plastic history or proof of physical instability.",
+    "evidence": [
+      "FIELD-CHECK.json",
+      "check_field_a1.py"
+    ],
+    "tag": "QUESTIONABLE / PROJECTION",
+    "physical_qualification": "open; no new hull/material qualification"
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "snapshot": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "sha256": "0a58772dc43eef58cdd741ae5a44b971bafea7dbfcebefc55d5b366e716ca00e",
+      "bytes": 10860,
+      "selector": "/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,113 @@
+{
+  "id": "rpt-1228-mainline044-independent-check-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline044-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check044-codex-1228-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-check044-codex-1228-1020",
+  "completion": "none",
+  "body": "CHECK-044 complete: independent arithmetic from pinned inputs, without reading or running owner code. All 25,663 field comparisons match, including 19,619 numerical values; seven conservation/allocation/evidence checks pass.\n\nMooring core SF=0.714285714; plate-only index=949.846393 days. Rigid ambient minimum-L thermal index=3697.149914 days; free-edge 200°F minimum-W index=18816.049843 days. The relative strict-pad/60:1-scarf addition reproduces +36.661200272 kg.\n\nOne exact source-label correction: RESULTS.mass_options.AF015_to_AF060 calls the 0.060 fatigue-test film U; the cited titanium double-lap series is AF163-2K. Numeric mass is unchanged. The +36.661 kg account needs explicit credit for 3.414034 kg of old plates; without that credit, the conditional addition is +40.075234 kg.\n\nAll 1113 ordinary cycle rows and nine annual summaries reproduce. Separate vent/commissioning records, recovered pressure/face/Goodman conventions and explicit source tags are supplied. Static-invalid vent indices and dense-core/mean-stress extrapolations remain qualified as projections.\n\nFive checker NFIs are nonblocking. All 19 owner NFIs, 13 inherited 037b items and other inherited qualifications remain attached. Qualified installed-hull life stays null. CHECK.md names no successor; this seat stops after filing.",
+  "priority": 4,
+  "at": "2026-10-20T11:46:15.247371+00:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check044-codex-1228-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/2399ea5ea229c75e-CARD.md",
+      "sha256": "2399ea5ea229c75ece1dfb8dbc67457482cddf570cfbdd32129818eed2853928",
+      "bytes": 6681
+    },
+    {
+      "path": "evidence/247ce0fe0e314a8e-RESULTS.json",
+      "sha256": "247ce0fe0e314a8e402743e76b03237a9501719e95d1031dd93d9ca8f66b9576",
+      "bytes": 2512
+    },
+    {
+      "path": "evidence/a72cfaaaf4fb91a1-NFI.json",
+      "sha256": "a72cfaaaf4fb91a16a3d9e056d8d5bbff081c963271988dfa759368816d32051",
+      "bytes": 46214
+    },
+    {
+      "path": "evidence/791d42d459424af1-INPUTS.json",
+      "sha256": "791d42d459424af15572b037883cd2c3af0b2478fd1130ce79e3d8940d6a7a6f",
+      "bytes": 95595
+    },
+    {
+      "path": "evidence/dc1ed75c3912baa6-METHOD.md",
+      "sha256": "dc1ed75c3912baa61b590d9b9ccc1dd064c5469652788ae77004cee2041672ff",
+      "bytes": 7488
+    },
+    {
+      "path": "evidence/82200d79c8be5635-SOURCE-AUDIT.json",
+      "sha256": "82200d79c8be5635cb04e1f1f1969a32c095b73c9039dcb622d3bd35044326a3",
+      "bytes": 6440
+    },
+    {
+      "path": "evidence/56029fb124bb61fc-SOURCE-MISMATCHES.json",
+      "sha256": "56029fb124bb61fc93d69b67ae80713f63174faaceef90818d5abe7ad9204db6",
+      "bytes": 890
+    },
+    {
+      "path": "evidence/6a4b2dfa2440b6a0-AUDIT.json",
+      "sha256": "6a4b2dfa2440b6a0219149ddc2277d162128956f293e0ac4b6931b8e593e4ef9",
+      "bytes": 5802845
+    },
+    {
+      "path": "evidence/37517e5f3dc66819-MISMATCHES.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "evidence/ddaafb214ae4ef7f-VERIFICATION.json",
+      "sha256": "ddaafb214ae4ef7f3f265542e2e8f05bd867db94249a335d9bca5d88ce1fb4b1",
+      "bytes": 1961
+    },
+    {
+      "path": "evidence/f92afb58bcdf85d5-PACKAGE-VALIDATION.json",
+      "sha256": "f92afb58bcdf85d551b47c32ae0ac51d7b525819f700e6c4f53477a694866f12",
+      "bytes": 712
+    },
+    {
+      "path": "evidence/78a1fb656f7942e3-SUPPLEMENTAL-RESULTS.json",
+      "sha256": "78a1fb656f7942e3aa207df5f8de8c2296c74996f7c24e2cbee5125f52629b38",
+      "bytes": 1648
+    },
+    {
+      "path": "evidence/f562eb932eaf22f1-VENT-CYCLES-INDEPENDENT.json",
+      "sha256": "f562eb932eaf22f1bb56c1e1f65147c82944a04d2718f59cc211df75d42725c0",
+      "bytes": 4703
+    },
+    {
+      "path": "evidence/d94889d82cc1c02f-check044.py",
+      "sha256": "d94889d82cc1c02f25670bd6a329473bf4126adc4e8336af3f756925a1ceb2d0",
+      "bytes": 30403
+    },
+    {
+      "path": "evidence/846c933e1c79140b-MANIFEST.json",
+      "sha256": "846c933e1c79140b507daf3a6865d68a7e1bfeec3d622ee6f8fe1c7f0a145736",
+      "bytes": 46433
+    }
+  ],
+  "ingested": "2026-10-20T04:48:17-07:00"
+}

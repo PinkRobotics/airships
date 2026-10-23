@@ -1,0 +1,40 @@
+{
+  "id": "rpt-ref-e7b92f5d778c0b12a256",
+  "unit": "vacuum-mainline018b-crimp-gamma-measured-1020",
+  "at": "2026-10-20T00:36:22-07:00",
+  "body": "MAINLINE-018b, narrowed. QUESTIONABLE. Not a certification.\n\nFigure 15 of EUCASS 2023-367, page 10, prints the bars. Linear perfect pressure is 27.53 MPa flat and 27.56 MPa dimple. Imperfect collapse is 6.03 MPa flat and 5.63 MPa dimple. Sections 3.2.1 and 3.2.2 give the nonlinear perfect loads as 12.45 and 12.44 MPa. The Sim 2024 journal file was not opened.\n\nHandbook crimp pressure is 3.9156534174 MPa flat and 3.89248364981 MPa dimple. Collapse over that pressure is 1.53997286205 and 1.44637730213. The checker's unequal-face correction does not change these pressures.\n\nOwn-face bending is 0.00472319506474 of the flexural rigidity on the flat shell and 0.00453826240047 on the dimple. That share does not multiply the crimp pressure by about 1.5. It is not the source of the excess. Linear pressure over crimp pressure is 7.03075504019 and 7.08031233513, and the paper does not split that mix.\n\nThe 009c-5 least factor times the measured ratios is 1.00161658843 and 0.940740927738. Transfer onto the 10 m sphere is QUESTIONABLE. These shells are at R/tc 13.17. The lead core is at 484.442002966.\n\nThe run that fits this host is one flat shell at R/tc 40, where Vc is 66.3594394021, with the paper's element sizes, two linear solves and one collapse at mu 0.50. The count is 265752.062471 elements and 12.5589531242 GiB at 10 kB per degree of freedom. R/tc 100 is 77.4202492434 GiB and does not fit the 44 GiB free. Swap is full. CPU only. The run is sized, not executed. P3 stays PENDING-011b.",
+  "artifacts": [
+    {
+      "path": "evidence/77aa11f7eb094ea3-NARROW-CARD.md",
+      "sha256": "77aa11f7eb094ea3f4da5d973a2000d127fe2af8a2e8e205905e35aea374c3ef",
+      "bytes": 2846,
+      "match": true
+    },
+    {
+      "path": "evidence/57681434994a149b-NARROW-RESULTS.json",
+      "sha256": "57681434994a149b75d81db138bb0ef949028b8c19b967215d3a68c67a898fc5",
+      "bytes": 2829,
+      "match": true
+    },
+    {
+      "path": "evidence/c4dea6ad3933b555-NARROW-NFI.json",
+      "sha256": "c4dea6ad3933b5556da989101d027599208657839cbee6e24d9c851a85e91b0c",
+      "bytes": 1252,
+      "match": true
+    },
+    {
+      "path": "evidence/fc03149278b0fecc-NARROW-INPUTS.json",
+      "sha256": "fc03149278b0fecc4104b9881f5850b95b259573db581a8f445b43be6bc700c6",
+      "bytes": 726,
+      "match": true
+    },
+    {
+      "path": "evidence/5a5c3db8b193871c-narrow.py",
+      "sha256": "5a5c3db8b193871c0bda5d1bcab841c4e396735dccb72f55c16edc7d8cc71c2c",
+      "bytes": 5874,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline018b-narrowed-after-chk018-1020"
+}

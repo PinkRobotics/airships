@@ -1,0 +1,140 @@
+{
+  "unit": "vacuum-mainline072-graphite-matched-core-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "model": "071's model copy (sha 14a9a58a… patched for CORE_ALPHA, CORE_WALL_E/RHO/YIELD). Reproductions: 071 beryllium baseline worst 0.00099 kg; 071 graphite rows at 070 gamma-step geometry worst 0.0 kg. One simjob, simjob-20261022t094610-ac2b68c457b0, exit 0, 125 s. No finite-element run.",
+  "conventions": "Face keeps 070/071's graphite film: 969 GPa, 2250 kg/m3, 1.29 GPa, signed expansion -1.0e-6/K. BETA 1. Gamma is the CR-1457 step (0.20 below Vc 2, 1 above). Q 0.33. Bond screen 25 psi, scarf 10 MPa. Core alpha is the published through-thickness family value where one exists; the interface term then sees the face's and the core's signed expansion. Raw rows in RUN.json.",
+  "core_table": {
+    "note": "All values QUESTIONABLE. pcf = 16.018463 kg/m3; 1e-6/F = 1.8e-6/K. G is the W (minimum) plate shear modulus; Ec is the stabilized compressive modulus.",
+    "rows": [
+      {
+        "core": "CR-III 5056 3/8-1.0 (aluminium)",
+        "rho_kg_m3": 16.0,
+        "Ec_MPa": 103.4,
+        "G_W_MPa": 46.9,
+        "W_shear_strength_MPa": 0.241,
+        "flatwise_MPa": 0.241,
+        "alpha_t_t_1e-6_per_K": 23.76,
+        "readiness": "production; the installed baseline",
+        "source": "Hexcel HexWeb Attributes and Properties, CR III 5056 table and the t-t CTE table (13.2e-6/F)"
+      },
+      {
+        "core": "UCF-51 3/8-2.0 (carbon XN50 ±45 polycyanate)",
+        "rho_kg_m3": 32.0,
+        "Ec_MPa": null,
+        "G_W_MPa": null,
+        "W_shear_strength_MPa": null,
+        "flatwise_MPa": 1.41,
+        "alpha_t_t_1e-6_per_K": 4.5,
+        "readiness": "production; satellite panel stock. G_L 331 MPa. W modulus and Ec not published",
+        "source": "Ultracor UCF-51 datasheet (lookpolymers copy): 4.50 µm/m-C across thickness"
+      },
+      {
+        "core": "UCF-355 3/8-3.5 (carbon T300 ±45 polycyanate)",
+        "rho_kg_m3": 56.0,
+        "Ec_MPa": 73.1,
+        "G_W_MPa": 161.0,
+        "W_shear_strength_MPa": 1.63,
+        "flatwise_MPa": 2.83,
+        "alpha_t_t_1e-6_per_K": 4.5,
+        "alpha_basis": "cross-grade family value from UCF-51, same maker and construction, different fiber",
+        "readiness": "production; satellite panel stock",
+        "source": "Ultracor UCF-355 datasheet (lookpolymers copy); bare/stabilized basis not stated"
+      },
+      {
+        "core": "UQF-95 1/4-3.0 (quartz Astroquartz II ±45 polycyanate)",
+        "rho_kg_m3": 48.0,
+        "Ec_MPa": 172.0,
+        "G_W_MPa": null,
+        "W_shear_strength_MPa": null,
+        "flatwise_MPa": 1.55,
+        "alpha_t_t_1e-6_per_K": null,
+        "readiness": "production; radome stock. G_L 117 MPa. W modulus and any CTE not published",
+        "source": "Ultracor UQF-95 datasheet (lookpolymers copy)"
+      },
+      {
+        "core": "HRH-327 1/8-3.2 (glass fabric / polyimide)",
+        "rho_kg_m3": 51.3,
+        "Ec_MPa": 186.2,
+        "G_W_MPa": 51.7,
+        "W_shear_strength_MPa": 0.655,
+        "flatwise_MPa": 2.14,
+        "alpha_t_t_1e-6_per_K": 14.76,
+        "readiness": "production; 500 F service",
+        "source": "Hexcel HRH-327 table; family t-t CTE 8.2e-6/F"
+      },
+      {
+        "core": "HRP 1/4-3.5 (glass / phenolic)",
+        "rho_kg_m3": 56.1,
+        "Ec_MPa": 317.2,
+        "G_W_MPa": 34.5,
+        "W_shear_strength_MPa": 0.862,
+        "flatwise_MPa": 3.14,
+        "alpha_t_t_1e-6_per_K": 14.76,
+        "readiness": "production",
+        "source": "Hexcel HRP table; family t-t CTE 8.2e-6/F"
+      },
+      {
+        "core": "HRH-49 1/4-2.1 (Kevlar 49 fabric / epoxy)",
+        "rho_kg_m3": 33.6,
+        "Ec_MPa": 172.4,
+        "G_W_MPa": 9.0,
+        "W_shear_strength_MPa": 0.276,
+        "flatwise_MPa": 0.896,
+        "alpha_t_t_1e-6_per_K": 4.86,
+        "readiness": "production; preliminary data (Hexcel p-flag)",
+        "source": "Hexcel HRH-49 table; family t-t CTE 2.7e-6/F"
+      },
+      {
+        "core": "HRH-10 (aramid paper / phenolic)",
+        "alpha_t_t_1e-6_per_K": 34.9,
+        "readiness": "production; fails the 12.2e-6 screen",
+        "source": "Hexcel family t-t CTE 19.4e-6/F"
+      },
+      {
+        "core": "Ti-6Al-4V honeycomb",
+        "rho_kg_m3": null,
+        "alpha_1e-6_per_K": 8.6,
+        "readiness": "alloy CTE published; braze-formed panels in literature; no catalog core table was opened",
+        "source": "Ti-6Al-4V density 4430 and CTE from alloy data sheets"
+      },
+      {
+        "core": "Beryllium honeycomb",
+        "rho_kg_m3": null,
+        "alpha_1e-6_per_K": 11.3,
+        "readiness": "brazed panels demonstrated 1972 (NASA NTRS 19730016169); not a catalog product",
+        "source": "alloy CTE 11.3e-6 (the model's own installed beryllium value)"
+      },
+      {
+        "core": "CFOAM carbon foam",
+        "rho_kg_m3": 480.0,
+        "alpha_1e-6_per_K": 5.0,
+        "readiness": "production; 30x the hull core density - not a hull core at this density",
+        "source": "CFOAM spec sheets, CTE 5.0 ppm/C ASTM E228"
+      },
+      {
+        "core": "Invar 36 honeycomb",
+        "alpha_1e-6_per_K": 1.2,
+        "readiness": "demonstration panels 1963 (DTIC AD0444184); not a catalog product",
+        "source": "Invar 36 alloy CTE"
+      }
+    ]
+  },
+  "wall_moduli_for_kb": {
+    "construction": "kb = 0.5·E_wall·(rho_core/rho_wall), version 7's installed regularization (aluminium: 67 GPa, 2700). Not a measured interface modulus.",
+    "carbon": "±45 carbon laminate in-plane modulus 35 GPa (datasheet range 20-47)",
+    "glass": "glass fabric laminate ~25 GPa",
+    "kevlar": "Kevlar 49 fabric laminate ~29 GPa",
+    "tag": "QUESTIONABLE",
+    "sensitivity": "kb x[0.5,2] on the setting case, RUN.json kb_sensitivity"
+  },
+  "sweep_findings": {
+    "CR-III at the published family CTE 23.76e-6": "interface margin 0.5325 at 070 geometry (0.5359 on the installed 23.6). The aluminium core stays infeasible on the published value; the convention does not change the verdict.",
+    "UCF-355 carbon (mismatch 5.5e-6)": "No feasible geometry in any of the 8 cases. The interface shear stays above the 25 psi screen because the core's own bond-shear stiffness (kb 632 MPa, G 161 MPa; sqrt(2·kb·G) = 4.5e8 Pa, 3.3x CR-III) eats the expansion gain. Release needs alpha_core <= 2.99e-6 (scale 0.725), or a wall modulus below ~18 GPa (at half the base wall modulus the interface margin reaches 1.025 and a geometry exists). At its released expansion the density factor to float is 4.69-5.40.",
+    "HRH-327 glass (mismatch 15.76e-6)": "No feasible geometry. Release needs alpha_core <= 8.76e-6 - below every published glass family value. Robust to kb: even at half kb the release only reaches 12.8e-6. At its released expansion the density factor to float is 2.79-3.23.",
+    "HRH-49 Kevlar (mismatch 5.86e-6)": "FEASIBLE in all 8 cases - the first core whose published expansion the graphite film can actually carry (interface margin 3.86 at stated density; 2.73-5.45 across kb x[0.5,2]). The cost is mechanical: W shear modulus 9.0 MPa (0.19x CR-III) drives the core to 108-166 mm and 18.2-63.2 t; scarf shear and core shear crimping co-bind at 1. Payloads -27250/-29373/-90223/-97399 kg at concept (R20 ISA, R20 opt, R30 ISA, R30 opt), -21402/-23377/-70681/-77357 at TRL 7. Vc 17.5-18.0, so gamma is the CR-1457 step's 1. The face-density factor to float is 2.673/3.038/2.673/2.927 at concept (to 842/741/842/769 kg/m3) and 2.219/2.408/2.160/2.340 at TRL 7 (to 1014/934/1042/961 kg/m3)."
+  },
+  "answer": "No real core makes the graphite route feasible. The aluminium core fails on expansion at either CTE convention. The glass core fails on expansion at its own stiffness. The carbon core carries the expansion but its own interface stiffness keeps the bond over the screen unless the wall laminate measures below ~18 GPa - a value the maker does not publish. The Kevlar core HRH-49 releases the thermal interface at its real published CTE, converting the problem from thermal to mechanical: at concept the route needs a face at 741-842 kg/m3 and at TRL 7 934-1042 kg/m3, all at constant 969 GPa - factors 2.16-3.04 over the film's 2250, and worse than CR-III's gamma-step 1.067-1.248. The route's named needs: (1) a measured ±45 wall-laminate modulus and core in-plane CTE for the Ultracor carbon grades - the interface releases below ~18 GPa or ~3e-6; (2) if the core is Kevlar, the remaining gap is face density, 741-1042 kg/m3, bound by scarf shear and crimping, not by the interface.",
+  "started": "2026-10-22T09:44:07-07:00",
+  "completed": "2026-10-22T10:02:00-07:00"
+}

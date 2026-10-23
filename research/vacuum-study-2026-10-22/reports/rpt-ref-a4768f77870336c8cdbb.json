@@ -1,0 +1,40 @@
+{
+  "id": "rpt-ref-a4768f77870336c8cdbb",
+  "unit": "vacuum-mainline023-p3-nodes-1020",
+  "at": "2026-10-20T00:57:42-07:00",
+  "body": "LOAD FIX on MAINLINE-023. Equilateral member force is p R s / (2 sqrt(3)): 562.2 kN at s 2.04 m. p R s / 2 is 973.7 kN, the two-way value, and the first filing used it. Yield, Euler, local and Perry were low by sqrt(3). Global does not use N and stays 1.2255279468805444 at the filed radius.\n\nnodes.py was re-run. arcs.py was not. A sleeve end is C N squared over r. With N proportional to s the joint total is independent of s at fixed radius: titanium 157.7 kg, Invar 858.6 kg, CFRP 31.0 kg. The braze needs the tube area. The CFRP wrap is 0.015 kg per end and 31.0 kg, 0.14 times 225.5 kg. Frozen least SF 1.232, film. Re-optimised least SF 1.466 at k 0.2 and 2.061 at k 0.4. It is the lightest. The coupon exists today. The joint is a PROJECTION.\n\nThe titanium sleeve is 0.075 kg per end and 157.7 kg. Frozen least SF 1.232. Invar is 858.6 kg, 3.81 times the allowance, and now closes at frozen SF 1.054. The braze is 0.062 kg per end and 130.6 kg. The pin is 0.202 kg and bears at 11.9 GPa. It does not fit. Wall stress is 824.7 MPa: SF 4.73 on 3900 MPa and 0.461 on 380 MPa. The 5 percent search moves to s 1.78 m, least SF 1.406, global. These paths were rewritten for this fix. NFI-023-EQUILIBRIUM-FORCE. No next job is named.",
+  "artifacts": [
+    {
+      "path": "evidence/9b6aed2278fd61f1-CARD.md",
+      "sha256": "9b6aed2278fd61f1bd6d6f3fe1efbab62f5b056d7b64603bb37cb9f2dfee72a5",
+      "bytes": 4245,
+      "match": true
+    },
+    {
+      "path": "evidence/ea53ee947d730681-RESULTS.json",
+      "sha256": "ea53ee947d730681e531e43414c0642b2c94893ca679557297f66bb00d12ff80",
+      "bytes": 33860,
+      "match": true
+    },
+    {
+      "path": "evidence/30c19a9c27a07c4b-NFI.json",
+      "sha256": "30c19a9c27a07c4b94883e6b671a925d2907830932e85e3cb18763bd1c2e8dec",
+      "bytes": 5912,
+      "match": true
+    },
+    {
+      "path": "evidence/8263a02faa2af71e-INPUTS.json",
+      "sha256": "8263a02faa2af71e5a502a38f1a594a462322796c572596278fb23c0088a310f",
+      "bytes": 4497,
+      "match": true
+    },
+    {
+      "path": "evidence/3ef49ed23ca377f6-nodes.py",
+      "sha256": "3ef49ed23ca377f64ef0cf6b959f13dc2bd7e115492d089bf4658beac25743ae",
+      "bytes": 18806,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-mainline023-load-562kn-1020"
+}

@@ -1,0 +1,2003 @@
+[
+  {
+    "id": "BS-1",
+    "topic": "Be sheet spec",
+    "finding": "Materion SR-200 sheet 0.8 mm (0.0315 in, my unit conversion) falls in the 'over 0.025 in to 0.034 in' class with a thickness tolerance of +/-0.004 in (+/-0.102 mm); width +0.125/-0 in, length +0.250/-0 in, edgewise curvature 1/16 in per foot.",
+    "values": [
+      {
+        "quantity": "thickness tolerance, nominal >0.025 to 0.034 in (0.63-0.86 mm)",
+        "value": "+/-0.004 (+/-0.102)",
+        "unit": "in (mm)",
+        "quote": "Over 0.025” to 0.034” (0.63 to 0.86 mm) 0.004”/0.004” (0.102/0.102 mm)",
+        "location": "Tolerances table, p.2"
+      },
+      {
+        "quantity": "thickness tolerance, nominal 0.020-0.025 in (0.51-0.63 mm)",
+        "value": "+/-0.003 (+/-0.076)",
+        "unit": "in (mm)",
+        "quote": null,
+        "location": "Tolerances table, p.2 (row not quoted)"
+      },
+      {
+        "quantity": "width tolerance",
+        "value": "+0.125 / -0 (+3.18 / -0)",
+        "unit": "in (mm)",
+        "quote": "will not vary more than plus 0.125” (3.18 mm), minus 0 inches/mm",
+        "location": "Tolerances, p.2"
+      },
+      {
+        "quantity": "length tolerance",
+        "value": "+0.250 / -0 (+6.35 / -0)",
+        "unit": "in (mm)",
+        "quote": "will not vary more than plus 0.250” (6.35 mm), minus 0 inches/mm",
+        "location": "Tolerances, p.2"
+      },
+      {
+        "quantity": "edgewise curvature (depth of arc)",
+        "value": "1/16 in per 12 in (1.59 mm per 305 mm)",
+        "unit": "in/ft",
+        "quote": "Maximum edgewise curvature (depth of arc) will not exceed 1/16” (1.59 mm)",
+        "location": "Tolerances, p.2"
+      },
+      {
+        "quantity": "thickness not measured within this distance of any edge (sheets >=1 in wide)",
+        "value": "0.375 (9.52)",
+        "unit": "in (mm)",
+        "quote": "will not be conducted closer than 0.375” (9.52 mm)",
+        "location": "Tolerances, p.2"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Materion, SR-200 Structural-Grade Beryllium data sheet DS-HPP-613 (4.9.2024)",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "local_path": "unpublished-local-ref:279a87689549d44d",
+        "pages_read": "all 3 pages"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Datasheet gives no statement of attainable thickness tolerance after chemical milling or of residual stress/oil-can behaviour in 0.8 mm gauge."
+  },
+  {
+    "id": "BS-2",
+    "topic": "Be sheet spec",
+    "finding": "SR-200 flatness for sheet <=0.040 in thick is Type 1 2%, Type 2 1%, Type 3 0.030 in/ft (type 4 not applicable); measured against a straight edge, sheet may be restrained during measurement.",
+    "values": [
+      {
+        "quantity": "flatness, thickness <=0.040 in, Type 1",
+        "value": "2",
+        "unit": "% of span",
+        "quote": null,
+        "location": "Flatness table, p.2 (table cell; not quotable in <=15 words)"
+      },
+      {
+        "quantity": "flatness, thickness <=0.040 in, Type 2",
+        "value": "1",
+        "unit": "% of span",
+        "quote": null,
+        "location": "Flatness table, p.2"
+      },
+      {
+        "quantity": "flatness, thickness <=0.040 in, Type 3",
+        "value": "0.030 (0.762 mm per 304 mm)",
+        "unit": "in per ft",
+        "quote": null,
+        "location": "Flatness table, p.2"
+      },
+      {
+        "quantity": "flatness measurement condition",
+        "value": "sheet may be restrained",
+        "unit": "-",
+        "quote": "Flatness measurements may be made with the sheet restrained.",
+        "location": "p.2"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Materion, SR-200 Structural-Grade Beryllium data sheet DS-HPP-613 (4.9.2024)",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "local_path": "unpublished-local-ref:279a87689549d44d",
+        "pages_read": "all 3 pages"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Which flatness type a 0.8 mm sheet is normally supplied to is not stated in the data sheet; the flatness limits are for sheet measured on a surface/straight edge, not after forming."
+  },
+  {
+    "id": "BS-3",
+    "topic": "Be sheet spec",
+    "finding": "Materion lists SR-200 as made to order 0.059-0.250 in thick up to 24 x 72 in (the 0.6096 x 1.8288 m blank size); sheets 0.020-0.058 in thick (which includes 0.8 mm) are available only at narrower widths and shorter lengths, so a 24 x 72 in blank at 0.8 mm is not what the data sheet offers.",
+    "values": [
+      {
+        "quantity": "maximum sheet size (thicker gauges)",
+        "value": "24 x 72 (61 x 183 cm)",
+        "unit": "in",
+        "quote": "with maximum dimensions of 24” x 72” (61 x 183 cm)",
+        "location": "Forms Available, p.3"
+      },
+      {
+        "quantity": "thin-gauge size limit",
+        "value": "0.020-0.058 in thick: narrower widths, shorter lengths (no numbers given)",
+        "unit": "-",
+        "quote": "Sheets 0.020\" to 0.058\" thick are available at narrower widths and shorter lengths.",
+        "location": "Forms Available, p.3"
+      },
+      {
+        "quantity": "standard condition",
+        "value": "hot rolled, ground, stress relieved, etched",
+        "unit": "-",
+        "quote": "The standard condition of sheet is hot rolled, ground, stress relieved and etched.",
+        "location": "Forms Available, p.3"
+      },
+      {
+        "quantity": "minimum tensile (ASTM E8)",
+        "value": "UTS 483 MPa (70 ksi); YS 345 MPa (50 ksi); elongation 10% in 1 in",
+        "unit": "-",
+        "quote": null,
+        "location": "Mechanical Properties table, p.1"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Materion, SR-200 Structural-Grade Beryllium data sheet DS-HPP-613 (4.9.2024)",
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "local_path": "unpublished-local-ref:279a87689549d44d",
+        "pages_read": "all 3 pages"
+      },
+      {
+        "citation": "General Electric, Study of Technology Requirements for Structures of Large Launch Vehicles, Vol 3 (NASA CR-1334?, 1 Jul 1969), sect. 2.4",
+        "url": "https://ntrs.nasa.gov/citations/19690022245",
+        "local_path": "unpublished-local-ref:200a3b83c39e6121",
+        "pages_read": "sect. 2.4.3-2.4.7 (cross-rolled sheet to 36 x 96 in, 0.020-0.250 in, available)"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Actual maximum size for 0.031 in SR-200 is null (not stated). Older sources: KBI supplied 40 x 21 in pieces at 0.031 in (LMSC, BF-6) and 36 x 96 in CRS sheet at 0.030 in described as commercially available in 1972 (Solar report sect. 7.1) - different era, different producers."
+  },
+  {
+    "id": "BS-4",
+    "topic": "Be sheet spec",
+    "finding": "In 1971-72 practice, Be sheet thickness variation was within +/-0.005 in spec limits but with crowning; Lockheed planned ~50% attrition and the actual average attrition was double the planned rate; ingot-sheet foil (0.006 in) arrived with 0.005-0.009 in thickness, RMS 80-200 surface and up to 0.87 in flatness variation.",
+    "values": [
+      {
+        "quantity": "sheet thickness spec limit (KBI, nominal 0.036 in order)",
+        "value": "+/-0.0127 cm (+/-0.005 in)",
+        "unit": "cm (in)",
+        "quote": "thickness variations that are well within the specification limits of ±0.0127 cm",
+        "location": "Sect. 1.1, p.1-3"
+      },
+      {
+        "quantity": "crowning",
+        "value": "present",
+        "unit": "-",
+        "quote": "a tendency toward crown-",
+        "location": "Sect. 1.1, p.1-3"
+      },
+      {
+        "quantity": "planned attrition",
+        "value": "~50",
+        "unit": "%",
+        "quote": "The average attrition rate employed was approximately 50 percent.",
+        "location": "Sect. 1.1, p.1-1"
+      },
+      {
+        "quantity": "actual attrition vs plan",
+        "value": "double the planned rate",
+        "unit": "-",
+        "quote": "actual average attrition rate which was double the planned rate",
+        "location": "Sect. 1.1, p.1-3"
+      },
+      {
+        "quantity": "0.031 in re-order size (KBI)",
+        "value": "102 x 53 cm (40 x 21 in), nominal 0.079 cm (0.031 in)",
+        "unit": "cm (in)",
+        "quote": "four pieces 102 cm by 53 cm (40 in. by 21 in.)",
+        "location": "Sect. 1.1, p.1-3"
+      },
+      {
+        "quantity": "Y-12 ingot-foil flatness variation, full-size 0.006 in sheet",
+        "value": "up to 0.87",
+        "unit": "in",
+        "quote": "The full size sheets varied in flatness up to 0.87 inches",
+        "location": "Sect. 3.1.1, p.8"
+      },
+      {
+        "quantity": "Y-12 ingot foil surface finish",
+        "value": "RMS 80 to RMS 200",
+        "unit": "microinch RMS",
+        "quote": "Surface finish varied from RMS80 to RMS2OO.",
+        "location": "Sect. 2.0, p.2"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Lockheed, NASA CR-61384, Manufacture, Assembly, and Delivery of Beryllium Test Panels (15 Mar 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720016923",
+        "local_path": "unpublished-local-ref:ae01ac137db5a41f",
+        "pages_read": "sect. 1.1 (p.1-1 to 1-3), 1.3.1, 5"
+      },
+      {
+        "citation": "Boeing, NASA CR-61637, R&D for Fabricating a Beryllium and Beryllium-Titanium Composite Panel, Vol II (Apr 1968)",
+        "url": "https://ntrs.nasa.gov/citations/19680014322",
+        "local_path": "unpublished-local-ref:1e27ca545f4ae53e",
+        "pages_read": "sect. 1.0-3.1.1 (p.1-14)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No modern (SR-200) flatness/oil-can statistics for 0.8 mm; the CR61637 foil is Y-12 ingot sheet, a different product from hot-pressed-block SR-200."
+  },
+  {
+    "id": "BS-5",
+    "topic": "Be sheet spec",
+    "finding": "Thin Be sheet can be chemically milled: caustic (18-20% NaOH at 190 F) removed ~0.001 in per 3 min (about twice HNO3-HF) taking 0.019-0.023 in sheet to 0.016 +/-0.002 in with a 0.001-0.002 in top-to-bottom taper that was countered by flipping the panel; but HNO3-HF undercut brazed joints and Solar declined to etch 0.030 in sheets down to 0.020 in citing risk and cost.",
+    "values": [
+      {
+        "quantity": "etch rate, caustic bath (large panel, as measured)",
+        "value": "0.001 in per 3 min (0.003 cm)",
+        "unit": "in/min",
+        "quote": "averaged 0.003 cm (0.001 inch) for each three minutes in the bath",
+        "location": "Chem-Milling of Beryllium Panels, p.111"
+      },
+      {
+        "quantity": "taper developed top to bottom of panel",
+        "value": "0.001-0.002 in (0.003-0.005 cm)",
+        "unit": "in",
+        "quote": "taper from top to bottom that developed",
+        "location": "p.111"
+      },
+      {
+        "quantity": "caustic bath",
+        "value": "18-20% NaOH, 361 K (190 F)",
+        "unit": "%, temperature",
+        "quote": null,
+        "location": "Sect. D Cleaning and Chem-Milling, p.86-87 (OCR garbled; read as 18-20% caustic at 190 F)"
+      },
+      {
+        "quantity": "sheet before/after",
+        "value": "0.019-0.023 in (0.048-0.058 cm) to 0.016 +/-0.002 in (0.041 cm)",
+        "unit": "in",
+        "quote": "chem-milled to the required thickness",
+        "location": "p.87"
+      },
+      {
+        "quantity": "Solar decision on etching 0.030 in sheet to 0.020 in",
+        "value": "not done",
+        "unit": "-",
+        "quote": "Added risk involved in etching these large sheets.",
+        "location": "Sect. 7.1 (Task 22), p.87"
+      },
+      {
+        "quantity": "JPL practice: milled depth after machining",
+        "value": "0.025-0.050 mm (1-2 mils) from all surfaces",
+        "unit": "mm",
+        "quote": "chemically milling 0. 025 to 0. 050 mm (1 to 2 mils) from all surfaces",
+        "location": "Sect. IV-B-1, p.5"
+      },
+      {
+        "quantity": "JPL as-rolled vs chemically milled elongation (cross-rolled sheet specimens)",
+        "value": "1% vs 20%",
+        "unit": "%",
+        "quote": "Elongation 1% 20%",
+        "location": "Sect. IV-B-1, table, p.5"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Martin Marietta, Fabrication of a Vacuum Brazed Beryllium Heat Shield Panel (June 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720023297",
+        "local_path": "unpublished-local-ref:40b4a6ae8de82c23",
+        "pages_read": "sect. D cleaning and chem-milling and p.111-112"
+      },
+      {
+        "citation": "Vogan & Grant, Solar Div. Intl Harvester RDR 1550-12 / NASA N73-24896, Development of Beryllium Honeycomb Sandwich Composite (1972)",
+        "url": "https://ntrs.nasa.gov/citations/19730016169",
+        "local_path": "unpublished-local-ref:2bf8af3fe796c620",
+        "pages_read": "sect. 7.1 (Task 22) text on etching, p.87"
+      },
+      {
+        "citation": "Stevens & Layman, JPL TM 33-517, Adhesively Bonded Beryllium Propulsion Structure, Mariner Mars 1971 (1 Jan 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720007221",
+        "local_path": "unpublished-local-ref:b9eb9e624cb3da34",
+        "pages_read": "sect. IV-B"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No source gives achievable thickness uniformity of a full 0.6 x 1.8 m sheet after milling; Martin Marietta OCR is garbled in places (chemical concentrations read by me); no hydrogen/etch-pit data."
+  },
+  {
+    "id": "BF-1",
+    "topic": "Be forming",
+    "finding": "NASA/Lockheed forming study (cross-rolled hot-pressed sheet): optimum forming temperature 1350 +/-25 F in heated ceramic (Glassrock) dies; compound-curve spherical segments (12 in radius, blanks 18 in dia, 0.020-0.120 in) formed with R/t up to 100 and max shrinkage 6% / stretch 5.5%; R/t ~50 judged satisfactory for unsupported edges, thinner/larger R/t wrinkled at the edge; punch travel <=1 in/min.",
+    "values": [
+      {
+        "quantity": "optimum forming temperature",
+        "value": "1350 +/-25 F (732 +/-14 C, my conversion)",
+        "unit": "F",
+        "quote": "The optimum forming temperature appears to be 1350 ± 25°F.",
+        "location": "Sect. IV conclusion a, p.79"
+      },
+      {
+        "quantity": "max R/t for compound curves, unrestrained edges",
+        "value": "100",
+        "unit": "ratio",
+        "quote": "shrinkage appear to be 100 and 6 percent",
+        "location": "Sect. IV j, p.80"
+      },
+      {
+        "quantity": "max shrinkage",
+        "value": "6",
+        "unit": "%",
+        "quote": "shrinkage appear to be 100 and 6 percent",
+        "location": "Sect. IV j, p.80 (OCR 'G' on p.62 read as 6)"
+      },
+      {
+        "quantity": "max measured elongation (0.120 in, 12 in radius)",
+        "value": "5.5",
+        "unit": "%",
+        "quote": null,
+        "location": "p.62 (OCR line 'G and 5.5 percent')"
+      },
+      {
+        "quantity": "R/t judged satisfactory for unsupported hemispherical segments (3 in radius punch trial)",
+        "value": "~50",
+        "unit": "ratio",
+        "quote": "approximately 50 appeared to be satisfactory for the forming of unsupported hemispherical segments",
+        "location": "p.53"
+      },
+      {
+        "quantity": "preheat before transfer to die",
+        "value": "1350 F in adjacent oven",
+        "unit": "F",
+        "quote": "were preheated to 1350°F in an oven",
+        "location": "p.57"
+      },
+      {
+        "quantity": "punch travel rate (curved channels)",
+        "value": "<=1",
+        "unit": "in/min",
+        "quote": "not exceeding 1 inch per minute",
+        "location": "Sect. IV l, p.80"
+      },
+      {
+        "quantity": "minimum 90-degree bend radius, all gauges to 0.120 in",
+        "value": "5t",
+        "unit": "x thickness",
+        "quote": null,
+        "location": "Sect. IV b, p.79"
+      },
+      {
+        "quantity": "die material",
+        "value": "Glassrock ceramic, nichrome wire heaters 1/2 in from surface, stainless buffer plates against galling",
+        "unit": "-",
+        "quote": "a ceramic material with very stable thermal characteristics",
+        "location": "Sect. II p.2-4; Sect. IV d p.79"
+      },
+      {
+        "quantity": "blank forming time (bend specimens)",
+        "value": "1",
+        "unit": "min",
+        "quote": null,
+        "location": "Sect. III.A.1 (p.5-7; text: nominal forming time 1 minute)"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Williams & Ingels, NASA TM X-53453 Vol II, Forming Techniques for Beryllium Alloys (Lockheed/MSFC, 1966)",
+        "url": "https://ntrs.nasa.gov/citations/19670010329",
+        "local_path": "unpublished-local-ref:0acc62b9e7dbf2b6",
+        "pages_read": "pp.1-10 (intro, forming parameters), 53-62 (compound curves), 76-81 (conclusions)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Springback not tabulated in readable form (tables OCR-garbled); the spherical die fused shut so the hemispherical-gore forming was never done; no contour-accuracy number; largest spherical segment tested was 18 in diameter at 12 in radius, far smaller than 0.6 x 1.8 m at 10 m radius."
+  },
+  {
+    "id": "BF-2",
+    "topic": "Be forming",
+    "finding": "Survey (NASA TM X-53453 Vol I): bend limit depends on temperature and rate - 0.060 in sheet at 4.5 in/min brake rate bends 90 degrees crack-free at 6t at 1400 F, 8t at 1250 F, 10t at 1000 F; at 0.001-0.005 in/in/min creep rate 4t at 1350 F; slower strain rates give larger total deformation; Minuteman 0.060 in skins were creep formed at ~1250 F in 3-4 steps in stainless-clad steel dies; explosive forming shattered Be; shear forming of hollow hemispheres had not succeeded.",
+    "values": [
+      {
+        "quantity": "brake forming 90-degree bend, 0.060 in, 4.5 in/min, 1400 F",
+        "value": "6t crack-free",
+        "unit": "x thickness",
+        "quote": "At 1400°F, crack-free 90-degree bends can be made over a 6t",
+        "location": "p.41"
+      },
+      {
+        "quantity": "same, 1250 F",
+        "value": "8t",
+        "unit": "x thickness",
+        "quote": "At 1250°F, the radius of the bend must be increased to 8t",
+        "location": "p.41"
+      },
+      {
+        "quantity": "same, 1000 F",
+        "value": "10t",
+        "unit": "x thickness",
+        "quote": null,
+        "location": "p.41 (text: 'bend radius must be 10t (0.600 inch)')"
+      },
+      {
+        "quantity": "creep bending strain rate and bend radius at 1350 F",
+        "value": "0.001-0.005 in/in/min -> 4t",
+        "unit": "in/in/min",
+        "quote": "creep bending at 1350°F at a strain rate of 0. 001 to 0. 005",
+        "location": "p.43"
+      },
+      {
+        "quantity": "rate effect",
+        "value": "lower rate, greater total deformation",
+        "unit": "-",
+        "quote": "The lower the rate of deformation, the greater the total deformation obtained without fracture.",
+        "location": "p.43"
+      },
+      {
+        "quantity": "Minuteman skin sections: creep form temperature and steps",
+        "value": "~1250 F (OCR '1Z50'), 3 or 4 steps; 0.060 in thick; 36 in major diameter cone",
+        "unit": "F",
+        "quote": "in 3 or 4 steps using stainless clad carbon steel forming dies",
+        "location": "p.43-44"
+      },
+      {
+        "quantity": "explosive forming result",
+        "value": "failed at 600 and 775 F blank temperature",
+        "unit": "-",
+        "quote": "the beryllium shattered even though the blanks were",
+        "location": "p.43"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "NASA TM X-53453 Vol I, The Fabrication of Beryllium: A Survey of Current Technology (MSFC, July 1966)",
+        "url": "https://ntrs.nasa.gov/citations/19660024248",
+        "local_path": "unpublished-local-ref:7ac2cd966cc328dc",
+        "pages_read": "sect. on forming (report pp.40-44), cross-roll sheet manufacture pp.27-30"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Survey is a 1966 compilation; no die-atmosphere detail beyond argon anneals; no contour accuracy values."
+  },
+  {
+    "id": "BF-3",
+    "topic": "Be forming",
+    "finding": "Boeing hot vacuum-diaphragm (creep) forming of a 0.025 x 46 x 41 in Y-12 wrought Be ingot sheet at 1300 F in an integrally heated ceramic die gave a part 'net to the die' at the edges with the centre raised slightly; the sheet's 12-14 in x 4-5 in x 0.5 in deep oil-can areas were removed, leaving one 0.10 in deep wrinkle that a longer soak was expected to remove.",
+    "values": [
+      {
+        "quantity": "creep forming temperature selected",
+        "value": "1300 (704 C, my conversion)",
+        "unit": "F",
+        "quote": "the selected creep forming temperature for Y-12 wrought beryllium",
+        "location": "Sect. 2.0, p.2"
+      },
+      {
+        "quantity": "vacuum schedule",
+        "value": "1/2 in Hg for 30 min, then to 27 in Hg over 10 min",
+        "unit": "in Hg",
+        "quote": "vacuum level at 1/2-inch Hg for 30 minutes",
+        "location": "p.2"
+      },
+      {
+        "quantity": "soak/cool",
+        "value": "power off, cool with insulation in place",
+        "unit": "-",
+        "quote": null,
+        "location": "p.2 step 7"
+      },
+      {
+        "quantity": "outcome",
+        "value": "edges net, centre raised slightly; residual wrinkle 0.10 in deep x 1.0 in wide x 14 in long",
+        "unit": "-",
+        "quote": "Post-analysis is that this wrinkle may be removed if a longer",
+        "location": "p.2-6"
+      },
+      {
+        "quantity": "contour claim",
+        "value": "closely approximated die without preflattening",
+        "unit": "-",
+        "quote": "The hot formed 0.025-inch thick beryllium sheet closely approximated the die contour without preflattening.",
+        "location": "Sect. 1.0, p.1"
+      },
+      {
+        "quantity": "ingot sheet vs powder sheet bend-test temperature",
+        "value": "ingot-foil 0.006 in sheet: 700 F needed for 0.036 in radius without microcracks (OCR-damaged sentence)",
+        "unit": "F",
+        "quote": null,
+        "location": "Sect. 3.1.2, p.14 (OCR garbled)"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Boeing, NASA CR-61637, R&D for Fabricating a Beryllium and Beryllium-Titanium Composite Panel, Vol II (Apr 1968)",
+        "url": "https://ntrs.nasa.gov/citations/19680014322",
+        "local_path": "unpublished-local-ref:1e27ca545f4ae53e",
+        "pages_read": "sect. 1.0-3.1.2, pp.1-15"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Only qualitative contour statement ('net to the die'); no measured deviation; thickness 0.025 in ingot-sheet, flat-ish elliptical contour, not doubly-curved sphere; report is Vol II (die design in Vol I, not read)."
+  },
+  {
+    "id": "BF-4",
+    "topic": "Be forming",
+    "finding": "Solar Div. creep formed brazed all-Be honeycomb panels and loose Be core/face sheets to a 10 ft (3.05 m) radius at 1250-1300 F under gentle vacuum into a female die, in a purged vacuum bag / circulating furnace; a 1 x 2 ft panel conformed to the die within 0.003 in, loose details were stress-free and dimensionally stable at 1300 F.",
+    "values": [
+      {
+        "quantity": "creep forming temperature, demonstration panel",
+        "value": "1250 (677 C, my conversion)",
+        "unit": "F",
+        "quote": "Creep forming process was done at 1250°F in a simple vacuum bagged die",
+        "location": "Sect. 6.3, p.70"
+      },
+      {
+        "quantity": "die radius",
+        "value": "10 ft (3.048 m, my conversion)",
+        "unit": "ft",
+        "quote": null,
+        "location": "Sect. 6.3, p.70"
+      },
+      {
+        "quantity": "conformance to die after cooling",
+        "value": "within 0.003 in",
+        "unit": "in",
+        "quote": "conformed to the die within 0. 003 inch at room temperature",
+        "location": "Sect. 6.3, p.70"
+      },
+      {
+        "quantity": "oxidation control",
+        "value": "cycle purge before test prevented oxidation at 1250 F",
+        "unit": "-",
+        "quote": "Cycle purging prior to the test prevented oxidation at the 1250°F forming temperature.",
+        "location": "Sect. 6.3, p.70"
+      },
+      {
+        "quantity": "later panel forming method",
+        "value": "gentle vacuum into female die at controlled 1250 F; 32 x 44 in test panel",
+        "unit": "-",
+        "quote": "gentle vacuum pressure into a female die",
+        "location": "Sect. 7.7.1, p.98"
+      },
+      {
+        "quantity": "loose details formed at 1300 F",
+        "value": "face sheets and core blankets conformed to 10 ft radius, stress free",
+        "unit": "-",
+        "quote": "all details conformed to the 10ft. radius in the stress free condition",
+        "location": "Sect. 7.7.2, p.98"
+      },
+      {
+        "quantity": "brazed flat panel flatness",
+        "value": "within 0.010 in TIR over 10 sq ft (32 x 41 in)",
+        "unit": "in",
+        "quote": "flat within 0. 010 inch TIR over the 10 square feet surface",
+        "location": "Sect. 6.4 (Task 16), p.73"
+      },
+      {
+        "quantity": "second, larger panel (32 x 47 in)",
+        "value": "both face sheets wrinkled in brazing from non-uniform edge cooling",
+        "unit": "-",
+        "quote": "non-uniform cooling of the periphery resulting from the increased panel size",
+        "location": "p.73"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Vogan & Grant, Solar Div. Intl Harvester RDR 1550-12 / NASA N73-24896, Development of Beryllium Honeycomb Sandwich Composite (1972)",
+        "url": "https://ntrs.nasa.gov/citations/19730016169",
+        "local_path": "unpublished-local-ref:2bf8af3fe796c620",
+        "pages_read": "abstract, sect. 6.3, 6.4, 7.7-7.8 (pp.70-73, 97-101)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Cylindrical (single-curvature) 10 ft radius only, not spherical; panels brazed (AgCuSn) not adhesive bonded; 0.003 in figure is for a 1 x 2 ft panel only; no contour measurement of the 32 x 44 in panel given (qualitative 'matched the fixture closely')."
+  },
+  {
+    "id": "BF-5",
+    "topic": "Be forming",
+    "finding": "Lockheed (1972) found large 39 in Be panel skins difficult to hot-form because of thermal gradients over the part length (severe warpage when rubber-formed one arc at a time), solved only with a full-size integrally heated cast ceramic (Pyro-Form) die; it recommended forming skins in roughly square sections and splicing; tools were high-alloy steels (17-7PH) with CTE matched to Be above 1300 F.",
+    "values": [
+      {
+        "quantity": "difficulty with size",
+        "value": "larger skins much harder to form",
+        "unit": "-",
+        "quote": "larger parts, for example the panel skins, proved to be much more difficult to form",
+        "location": "Sect. 5, p.5-1"
+      },
+      {
+        "quantity": "warpage cause",
+        "value": "large thermal gradients over part length",
+        "unit": "-",
+        "quote": "due to the large thermal gradients over the length of the part",
+        "location": "Sect. 1.3.1, p.1-26"
+      },
+      {
+        "quantity": "recommended remedy",
+        "value": "form roughly square sections and splice by brazing",
+        "unit": "-",
+        "quote": "forming the skins in roughly square sections and splicing them by brazing",
+        "location": "Sect. 5, p.5-1"
+      },
+      {
+        "quantity": "forming/brazing temperature",
+        "value": "above 978 K (1300 F)",
+        "unit": "K (F)",
+        "quote": "temperatures above 978 K (1300 F)",
+        "location": "Sect. 1.2, p.1-9"
+      },
+      {
+        "quantity": "die material actually used for skins",
+        "value": "cast ceramic Pyro-Form, integrally heated",
+        "unit": "-",
+        "quote": "the die was cast from the ceramic material Pyro-Form",
+        "location": "Sect. 1.3.1, p.1-26"
+      },
+      {
+        "quantity": "ceramic die precedent",
+        "value": "in use at LMSC for Agena skin panels",
+        "unit": "-",
+        "quote": "Similar ceramic dies have been in use at LMSC for some years",
+        "location": "p.1-26"
+      },
+      {
+        "quantity": "room-temp tensile elongation vs formability",
+        "value": "11.5-27% elongation sheets formed no easier",
+        "unit": "%",
+        "quote": "It was concluded that the room temperature tensile coupon pull is not indicative of formability.",
+        "location": "Sect. 5, p.5-2"
+      },
+      {
+        "quantity": "full-size panel skin width",
+        "value": "99 cm (39 in)",
+        "unit": "cm (in)",
+        "quote": null,
+        "location": "Sect. 1.3.1, p.1-23"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Lockheed, NASA CR-61384, Manufacture, Assembly, and Delivery of Beryllium Test Panels (15 Mar 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720016923",
+        "local_path": "unpublished-local-ref:ae01ac137db5a41f",
+        "pages_read": "contents, intro, sect. 1.1-1.3.1, 3, 5"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Panel skins are corrugated (arcs on 3 in centres), not a doubly curved sphere; no contour accuracy quoted beyond 'accepted as fully qualified'."
+  },
+  {
+    "id": "BF-6",
+    "topic": "Be forming",
+    "finding": "Martin Marietta (1972) hot-formed Be in integrally heated cast ceramic dies (Thermosil Castable 120 / fused silica) inside a sealed 0.002 in Inconel/CRES retort within a vacuum chamber with argon purge; ~1-2 kW per sq ft heats a vacuum creep-form fixture; vacuum alone gave only ~40% of corrugation depth on stainless trials, so a steel male plug assist was added.",
+    "values": [
+      {
+        "quantity": "Be must be hot formed",
+        "value": "yes (brittle at room temperature)",
+        "unit": "-",
+        "quote": "Beryllium must be formed hot in order to overcome the brittle nature of the material",
+        "location": "Sect. II.B, p.7"
+      },
+      {
+        "quantity": "heating power for vacuum creep form fixture",
+        "value": "1-2 kW per sq ft",
+        "unit": "kW/ft2",
+        "quote": "From one to two KW per square foot is generally all the heat required",
+        "location": "Die preparation, p.17-19"
+      },
+      {
+        "quantity": "atmosphere / health control",
+        "value": "Be sealed in evacuated retort; beryllium count reported zero",
+        "unit": "-",
+        "quote": "captured in a hermetrically sealed retort, oxidation is decreased",
+        "location": "p.31"
+      },
+      {
+        "quantity": "die cast material",
+        "value": "Thermosil Castable 120",
+        "unit": "-",
+        "quote": "Castable 120",
+        "location": "p.15-17"
+      },
+      {
+        "quantity": "die size made",
+        "value": "94 x 129 cm (37 x 51 in)",
+        "unit": "cm (in)",
+        "quote": null,
+        "location": "p.31-32"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Martin Marietta, Fabrication of a Vacuum Brazed Beryllium Heat Shield Panel (June 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720023297",
+        "local_path": "unpublished-local-ref:40b4a6ae8de82c23",
+        "pages_read": "intro, sect. II.A-B, die prep, forming trials (OCR with split letters; read approximately 35 of 166 pages)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Forming temperature for Be in this report not captured cleanly (OCR); corrugated heat-shield panel, not doubly curved."
+  },
+  {
+    "id": "BF-7",
+    "topic": "Be forming",
+    "finding": "JPL's 1967 review: complex Be sheet components are hot formed at about 1350 F in ceramic dies (ductility from added prism slip above 940 F), channels almost 8 ft long, 'domes, double convex sheets, and cylindrical sections' have been made, bends 5-6t for powder sheet and 3-4t for ingot sheet; GE (1969) adds that creep forming of cylinders at 1300 F gives uniform contour, no springback and no residual stress, and Republic hot-formed 0.050-0.100 in box-beam parts to +/-0.005 in tolerance in one integrally heated ceramic die.",
+    "values": [
+      {
+        "quantity": "hot-forming temperature",
+        "value": "about 1350 F",
+        "unit": "F",
+        "quote": "Fairly complex sheet metal components may be made by hot-forming at about 1350°F",
+        "location": "Sect. II (p.3), JPL TM 33-356"
+      },
+      {
+        "quantity": "ductility threshold",
+        "value": "prism slip possible above 940 F",
+        "unit": "F",
+        "quote": "additional prism slip becomes possible above 940°F",
+        "location": "p.3"
+      },
+      {
+        "quantity": "doubly curved parts made",
+        "value": "domes, double convex sheets, cylindrical sections (refs 39-41, not opened)",
+        "unit": "-",
+        "quote": "such as domes, double convex sheets, and cylindrical sections",
+        "location": "p.3"
+      },
+      {
+        "quantity": "bend radius powder sheet",
+        "value": "5T-6T",
+        "unit": "x thickness",
+        "quote": "Bends with a 5T-6T radius (T = thickness) are possible with powder sheet",
+        "location": "p.3"
+      },
+      {
+        "quantity": "creep forming advantage (GE 1969)",
+        "value": "uniform contour, no springback, no residual stress",
+        "unit": "-",
+        "quote": "The advantages of creep forming are uniformity of contour,",
+        "location": "sect. 2.4.3.2, p.2-15"
+      },
+      {
+        "quantity": "residual stress",
+        "value": "absence of residual stresses",
+        "unit": "-",
+        "quote": "absence of residual stresses",
+        "location": "sect. 2.4.3.2, p.2-15"
+      },
+      {
+        "quantity": "hot-formed Be box-beam part tolerance (Republic)",
+        "value": "0.005",
+        "unit": "in",
+        "quote": "economically to a tolerance of 0. 005 inch",
+        "location": "sect. 2.4.5.2, p.2-23"
+      },
+      {
+        "quantity": "powder-sheet forming window (GE)",
+        "value": "forms above 800 F; powder sheet limited to 1000-1400 F; ingot sheet 500-700 F",
+        "unit": "F",
+        "quote": null,
+        "location": "sect. 2.4.3.2, p.2-15"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "R. G. Moss, JPL TM 33-356, Review of Beryllium Technology for Spacecraft Applications (1 Nov 1967)",
+        "url": "https://ntrs.nasa.gov/citations/19680023546",
+        "local_path": "unpublished-local-ref:960ea254a786acf3",
+        "pages_read": "sect. II-C (state of the art, pp.2-8; non-layout text)"
+      },
+      {
+        "citation": "General Electric, Study of Technology Requirements for Structures of Large Launch Vehicles, Vol 3 (NASA CR-1334?, 1 Jul 1969), sect. 2.4",
+        "url": "https://ntrs.nasa.gov/citations/19690022245",
+        "local_path": "unpublished-local-ref:200a3b83c39e6121",
+        "pages_read": "sect. 2.4.3.2, 2.4.5.2"
+      },
+      {
+        "citation": "ASM Handbook, Forming of Beryllium (search-tool summary only; page itself returned HTTP 404 on fetch)",
+        "url": "https://www.asminternational.org/?p=23961",
+        "local_path": null,
+        "pages_read": "search-result snippet only: slow-speed equipment, heated dies, preheating, stress relief ~705-790 C (1300-1450 F); not opened"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Refs 39-41 (the actual dome / double-convex parts) are not opened, so size and contour accuracy of those parts is null. ASM stress-relief figures are snippet only."
+  },
+  {
+    "id": "BB-1",
+    "topic": "Be bonding",
+    "finding": "NASA's 1966 Be fabrication program prescribed an alkaline-clean (not acid-etch) bond prep after a mandatory 0.002 in etch of all surfaces: trichloroethylene vapour degrease, 3 min in 20 wt% NaOH at 180 F (or 7.5% Prebond 700 at 200 F, 10 min), DI rinse with water-break check, dry 290 F 30 min, bond immediately.",
+    "values": [
+      {
+        "quantity": "alkaline clean",
+        "value": "20 wt% NaOH, 180 +/-5 F, 3 min",
+        "unit": "-",
+        "quote": "20 percent (by weight) solution of sodium hydroxide and water",
+        "location": "Vol IV sect. B, p.5-6"
+      },
+      {
+        "quantity": "alternative",
+        "value": "7.5 wt% Prebond 700 at 200 +/-5 F, 10 min",
+        "unit": "-",
+        "quote": null,
+        "location": "Vol IV p.6; Vol VI p.174"
+      },
+      {
+        "quantity": "dry",
+        "value": "forced-air oven 290 +/-5 F, 30 +/-5 min",
+        "unit": "F",
+        "quote": "Dry the part in a forced-air drying oven",
+        "location": "Vol IV p.6"
+      },
+      {
+        "quantity": "timing",
+        "value": "start bonding immediately after cleaning",
+        "unit": "-",
+        "quote": "bonding operation be initiated immediately after the completion of the cleaning process",
+        "location": "Vol IV p.6"
+      },
+      {
+        "quantity": "prior etch",
+        "value": "3% HF / 45% HNO3 removing >=0.002 in per surface; 'etching is mandatory'",
+        "unit": "in",
+        "quote": "This etching is mandatory",
+        "location": "Vol VI p.173-175"
+      },
+      {
+        "quantity": "rationale",
+        "value": "neutral, bond-compatible cleaning to avoid out-gassing during cure",
+        "unit": "-",
+        "quote": "bond compatible\" cleaning process is indicated",
+        "location": "Vol IV p.5"
+      },
+      {
+        "quantity": "Boeing alternative cleaning (BAC 5833) for brazing",
+        "value": "HNO3-HF pickle removing 0.5 mil/side, then 1-3 min sulfuric-chromic-phosphoric brighten",
+        "unit": "-",
+        "quote": "Lightly pickle in sulfuric-chromic-phosphoric acid solution for 1 to 3 minutes to brighten surface.",
+        "location": "CR-61637 p.14"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "NASA TM X-53453 Vol IV, Surface Treatments for Beryllium Alloys (MSFC, 1966)",
+        "url": "https://ntrs.nasa.gov/citations/19670010327",
+        "local_path": "unpublished-local-ref:24121a05130be0ae",
+        "pages_read": "sect. B Bonding, pp.5-6"
+      },
+      {
+        "citation": "NASA TM X-53453 Vol VI, Joining Techniques for Beryllium Alloys (MSFC, 1966)",
+        "url": "https://ntrs.nasa.gov/citations/19670012191",
+        "local_path": "unpublished-local-ref:c3acb8971c029093",
+        "pages_read": "adhesive bonding section pp.163-189 (report pagination)"
+      },
+      {
+        "citation": "Boeing, NASA CR-61637, R&D for Fabricating a Beryllium and Beryllium-Titanium Composite Panel, Vol II (Apr 1968)",
+        "url": "https://ntrs.nasa.gov/citations/19680014322",
+        "local_path": "unpublished-local-ref:1e27ca545f4ae53e",
+        "pages_read": "p.13-14"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No Materion/modern surface-prep guide located; the 'Prebond 700' and BAC 5833 recipes are 1960s and 'water-break' pass criterion is the only quantitative check given."
+  },
+  {
+    "id": "BB-2",
+    "topic": "Be bonding",
+    "finding": "The only systematic Be-to-Be adhesive test (NASA TM X-53453 Vol VI): double-lap shear specimens in 4 gauges (0.020-0.120 in) with 6 film/paste adhesives; ~45% failed in the Be (bearing or net tension) so bond strength exceeded Be strength in thin gauge, but results were scattered and, except Epon VI, below vendor aluminium-to-aluminium values; ~80% of 0.120 in specimens failed in the adhesive.",
+    "values": [
+      {
+        "quantity": "test matrix",
+        "value": "5 specimens x 4 gauges x 6 adhesives; double lap shear; overlap 0.200-0.500 in",
+        "unit": "-",
+        "quote": "the double lap shear type of joint was selected for this investigation",
+        "location": "p.164-166"
+      },
+      {
+        "quantity": "vendor shear strengths on aluminium (not Be), cure",
+        "value": "NARMCO 7343/7139 1600 psi (290 F 1 h); BR-90 5100-5600 psi (130 F 16 h); Epon VI 3800 psi (200 F 0.75 h); FM-1000 7000 psi (350 F 1 h); Imidite-850 3000 psi (430/650/750 F); NARMCO 402 4600 psi (350 F 1 h)",
+        "unit": "psi",
+        "quote": "Table XII presents the cure cycles and shear strengths of the selected adhesives.",
+        "location": "Table XII, p.164 (read from page image)"
+      },
+      {
+        "quantity": "failure in Be rather than adhesive",
+        "value": "~45 of specimens",
+        "unit": "%",
+        "quote": "Approximately 45 percent of the specimens failed either in bearing or net tension",
+        "location": "p.184"
+      },
+      {
+        "quantity": "scatter",
+        "value": "considerable within each set",
+        "unit": "-",
+        "quote": "included considerable \"data scatter\"",
+        "location": "p.184-188"
+      },
+      {
+        "quantity": "measured apparent bond strength vs vendor",
+        "value": "less than published except Epon VI (Epon VI roughly 3,000-4,400 psi plotted by my chart reading, vendor 3800)",
+        "unit": "psi",
+        "quote": null,
+        "location": "Fig. 109, p.170 (read from chart; approximate)"
+      },
+      {
+        "quantity": "conclusion",
+        "value": "adhesive bonding feasible on laboratory scale; optimisation needed",
+        "unit": "-",
+        "quote": "adhesive bonding may be the only practical joining method",
+        "location": "p.163, 229"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "NASA TM X-53453 Vol VI, Joining Techniques for Beryllium Alloys (MSFC, 1966)",
+        "url": "https://ntrs.nasa.gov/citations/19670012191",
+        "local_path": "unpublished-local-ref:c3acb8971c029093",
+        "pages_read": "adhesive bonding section pp.163-189 and conclusions p.229; Table XII and Fig 109 read as page images"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Table XIV (failure modes) and per-specimen strengths not extracted; chart values are my approximate reading of Fig 109; no honeycomb or peel data; adhesive generations are 1960s epoxies not AF 163-2."
+  },
+  {
+    "id": "BB-3",
+    "topic": "Be bonding",
+    "finding": "JPL's Mariner 9 truss bonded extruded Be tubes to Mg and steel end fittings with room-temperature-cure Hysol EA 913 (Epon 913) paste: Be surfaces degreased in oxalic acid then given a Berylcoat-D conversion coating (metal-dissolving preps rejected for toxic-salt safety); 43 pull specimens: Be tubes mostly failed first at 21,360-35,600 N, bond-line (Mg side) failures at 22,962-24,297 N.",
+    "values": [
+      {
+        "quantity": "adhesive",
+        "value": "EA 913, 2-part RT cure paste; 3,300 psi (2,280 N/cm2) shear; T-peel 9 lbf/in (15.8 N/cm)",
+        "unit": "psi",
+        "quote": "(3, 300 psi) in shear",
+        "location": "Sect. IV-E, p.8"
+      },
+      {
+        "quantity": "cure",
+        "value": "72 h room temperature then 4 h at 53 C (125 F)",
+        "unit": "-",
+        "quote": "allowed to cure for 72 h at room",
+        "location": "Sect. IV-E, p.9"
+      },
+      {
+        "quantity": "Be surface prep",
+        "value": "oxalic acid bath, water-break test, Berylcoat-D conversion coat",
+        "unit": "-",
+        "quote": "pickled in a solution of Berylcoat-D to generate a conversion coating",
+        "location": "Sect. IV-B-4, p.7"
+      },
+      {
+        "quantity": "reason",
+        "value": "metal-dissolving preps rejected for safety",
+        "unit": "-",
+        "quote": "that dissolve metal into solution, creating toxic salts,",
+        "location": "p.7"
+      },
+      {
+        "quantity": "bondline gap",
+        "value": "0.05-0.25 mm (2-10 mil), set by 0.127 mm (5 mil) Al wires, pressure injected at 89.8 N/cm2 (130 psi)",
+        "unit": "mm",
+        "quote": null,
+        "location": "Sect. IV-C, E, p.7-9"
+      },
+      {
+        "quantity": "test result",
+        "value": "43 specimens; Be tube fracture predominated",
+        "unit": "-",
+        "quote": "In the first group, beryllium tube failure predominated.",
+        "location": "Sect. IV-F, p.9-10"
+      },
+      {
+        "quantity": "Mg-adhesive interface failures",
+        "value": "22,962-24,297 N (5,160-5,460 lbf)",
+        "unit": "N",
+        "quote": "Magnesium-to-adhesive bond line failure occurred in the remaining three specimens",
+        "location": "p.10"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Stevens & Layman, JPL TM 33-517, Adhesively Bonded Beryllium Propulsion Structure, Mariner Mars 1971 (1 Jan 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720007221",
+        "local_path": "unpublished-local-ref:b9eb9e624cb3da34",
+        "pages_read": "all 34 pages"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Annular lap bond (tube/fitting), not a sheet-to-core joint; no Be-to-honeycomb data."
+  },
+  {
+    "id": "BB-4",
+    "topic": "Be bonding",
+    "finding": "Be-faced / all-Be honeycomb sandwich panels actually built in the sources: Solar all-Be brazed panels 18 x 18 in, then three 10 sq ft (32 x 41, 32 x 47 in) with 0.020 in CRS faces cut from 0.020-0.030 in x 36 x 96 in sheet, 0.71 lb/ft2; Aeronca Be-face/Inconel-core honeycomb; Be core can be adhesive bonded to Be faces below ~700 F and under ~5000 psi shear; Boeing planned adhesive-bonded Be solar-array panel sections up to 13 x 8.5 ft; edge U-channels on the Solar panels were meant to be adhesive bonded (not possible on the wrinkled panel A).",
+    "values": [
+      {
+        "quantity": "Solar panel sizes",
+        "value": "18 x 18 x 0.5 in; follow-on 31 x 52 in; later 10 sq ft (32 x 41 in and 32 x 47 in)",
+        "unit": "in",
+        "quote": "Face sheets were cut into 32 x 41 and 47 inch faces",
+        "location": "SOLAR sect. 6.4, p.72-73; GE sect. 2.4.5.4, p.2-26"
+      },
+      {
+        "quantity": "face sheet source",
+        "value": "0.020 x 36 x 96 in CRS Be sheets (later 0.030 x 36 x 96 in)",
+        "unit": "in",
+        "quote": "from large 0. 020 inch by 36 inch by 96 inch CRS beryllium sheets",
+        "location": "SOLAR p.72-73"
+      },
+      {
+        "quantity": "areal weight (0.020 in faces)",
+        "value": "0.71 lb/ft2 total: core 0.22, braze 0.11, faces 0.38",
+        "unit": "lb/ft2",
+        "quote": null,
+        "location": "GE sect. 2.4.5.4, p.2-26"
+      },
+      {
+        "quantity": "adhesive bonding limits for Be honeycomb (GE)",
+        "value": "<700 F and shear <5000 psi",
+        "unit": "-",
+        "quote": "can be adhesively bonded to beryllium face sheets",
+        "location": "GE sect. 2.4.5.4, p.2-26"
+      },
+      {
+        "quantity": "temperature-cured epoxy on Be, joint shear strength (GE Table 2-4)",
+        "value": "3,000-5,000 psi (OCR '3 9 000-5,000')",
+        "unit": "psi",
+        "quote": null,
+        "location": "GE Table 2-4, p.2-20 (OCR ambiguous)"
+      },
+      {
+        "quantity": "other builders",
+        "value": "Solar, McDonnell-Douglas and Aeronca produced Be honeycomb structures",
+        "unit": "-",
+        "quote": "Solar, McDonnell-Douglas, and Aeronca have successfully produced beryllium honeycomb structures.",
+        "location": "GE sect. 2.4.1, p.2-22"
+      },
+      {
+        "quantity": "Be-faced/Inconel-core honeycomb (Aeronca)",
+        "value": "reached theoretical buckling stress before brittle failure",
+        "unit": "-",
+        "quote": "beryllium face sheet/inconel core honeycomb",
+        "location": "GE p.2-22"
+      },
+      {
+        "quantity": "Boeing solar array (adhesive bonded Be)",
+        "value": "panel sections as large as 13 x 8.5 ft planned",
+        "unit": "ft",
+        "quote": "sections as large as 13 X 8.5 ft",
+        "location": "JPL356 Sect. II, joining paragraph"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Vogan & Grant, Solar Div. Intl Harvester RDR 1550-12 / NASA N73-24896, Development of Beryllium Honeycomb Sandwich Composite (1972)",
+        "url": "https://ntrs.nasa.gov/citations/19730016169",
+        "local_path": "unpublished-local-ref:2bf8af3fe796c620",
+        "pages_read": "abstract, sect. 6.3-6.4, 7.1, 7.7"
+      },
+      {
+        "citation": "General Electric, Study of Technology Requirements for Structures of Large Launch Vehicles, Vol 3 (NASA CR-1334?, 1 Jul 1969), sect. 2.4",
+        "url": "https://ntrs.nasa.gov/citations/19690022245",
+        "local_path": "unpublished-local-ref:200a3b83c39e6121",
+        "pages_read": "sect. 2.4.1, 2.4.5.4, Table 2-4"
+      },
+      {
+        "citation": "R. G. Moss, JPL TM 33-356, Review of Beryllium Technology for Spacecraft Applications (1 Nov 1967)",
+        "url": "https://ntrs.nasa.gov/citations/19680023546",
+        "local_path": "unpublished-local-ref:960ea254a786acf3",
+        "pages_read": "bonding paragraph"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No source found of an adhesive-bonded Be-faced Al-honeycomb sandwich with measured Be-to-adhesive flatwise tension, peel or surface-prep data; Kurson et al., 'Beryllium-Faced Sandwich Structures', Mater. Res. Stand. 3 (1963) 825-831 is cited in JPL TM 33-356 but not opened. DTIC AD0431509 (1962 McDonnell adhesive-bonded Be panels) returned 'request blocked' and was not read. Solar panels are brazed, not adhesive bonded."
+  },
+  {
+    "id": "BB-5",
+    "topic": "Be bonding",
+    "finding": "Master Bond lists EP13, EP38, EP126 and EP51ND as epoxies for beryllium substrates but gives no strength numbers and no surface-prep steps.",
+    "values": [
+      {
+        "quantity": "vendor-listed adhesives for Be",
+        "value": "EP13 (heat cure, -60 to +500 F), EP38 (-60 to +250 F), EP126 (500 F continuous), EP51ND (5-min paste)",
+        "unit": "-",
+        "quote": null,
+        "location": "Master Bond 'Adhesives for Bonding Beryllium Substrates' page (read via fetch summary)"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Master Bond, Adhesives for Bonding Beryllium Substrates",
+        "url": "https://www.masterbond.com/node/3571",
+        "local_path": null,
+        "pages_read": "fetched via summarising fetch tool only; not downloaded"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": "No numbers, no surface prep; marketing page."
+  },
+  {
+    "id": "CF-1",
+    "topic": "cure facility",
+    "finding": "Largest autoclaves found: Spirit AeroSystems (Wichita) 30 ft diameter x 120 ft long, >78,000 ft3 (2016); ASC Process Systems 2,321 m3 (82,000 ft3), 232 C, 10.2 bar (2006, for Boeing 787 parts); HITCO 20 ft x 50 ft (2010); DLR BALU 5.8 m load diameter x 20 m load length.",
+    "values": [
+      {
+        "quantity": "Spirit AeroSystems autoclave diameter",
+        "value": "30 ft (9.14 m, my conversion)",
+        "unit": "ft",
+        "quote": "a 30-foot diameter and an internal volume of more than 78,000 cubic feet",
+        "location": "press release 12 Jul 2016"
+      },
+      {
+        "quantity": "Spirit autoclave length",
+        "value": "120 ft (36.6 m, my conversion)",
+        "unit": "ft",
+        "quote": "The autoclave, which is 120 feet long, is one of nearly 40",
+        "location": "press release"
+      },
+      {
+        "quantity": "ASC Process Systems autoclave volume",
+        "value": "2,321 m3 (82,000 ft3); 232 C; 10.2 bar",
+        "unit": "m3",
+        "quote": "built an autoclave with an internal volume of 2,321 m³ (82,000 ft³)",
+        "location": "Guinness record page"
+      },
+      {
+        "quantity": "ASC autoclave conditions",
+        "value": "232 C (450 F), 10.2 bar",
+        "unit": "C, bar",
+        "quote": "temperatures of up to 232° C (450° F) and pressures of up to 10.2 bar",
+        "location": "Guinness record page"
+      },
+      {
+        "quantity": "HITCO (Gardena) autoclave built by Thermal Equipment Corp.",
+        "value": "20 ft (6.1 m) diameter x 50 ft (15.2 m) long",
+        "unit": "ft (m)",
+        "quote": "20-ft/6.1m diameter by 50-ft/15.2m long aerospace-quality autoclave system",
+        "location": "CompositesWorld 3 Jan 2010"
+      },
+      {
+        "quantity": "DLR BALU (Stade) research autoclave",
+        "value": "load length 20 m, load diameter 5.8 m",
+        "unit": "m",
+        "quote": "has a load length of 20 metres and a load diameter of 5.8 metres",
+        "location": "DLR page"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Spirit AeroSystems press release 12 Jul 2016, via Airframer",
+        "url": "https://www.airframer.com/news/release/34303",
+        "local_path": "unpublished-local-ref:cf9561bf8f5f2819",
+        "pages_read": "full page"
+      },
+      {
+        "citation": "Guinness World Records, Largest autoclave (ASC Process Systems, Aug 2006)",
+        "url": "https://www.guinnessworldrecords.com/world-records/largest-autoclave-",
+        "local_path": "unpublished-local-ref:8d99cbd0f8e6d7eb",
+        "pages_read": "full page"
+      },
+      {
+        "citation": "CompositesWorld 3 Jan 2010, HITCO installs large Thermal Equipment autoclave",
+        "url": "https://www.compositesworld.com/news/hitco-installs-large-thermal-equipment-autoclave",
+        "local_path": "unpublished-local-ref:00e4efbf1b2d7404",
+        "pages_read": "lead paragraph"
+      },
+      {
+        "citation": "DLR, BALU research autoclave page",
+        "url": "https://www.dlr.de/en/research-and-transfer/research-infrastructure/research-autoclave-balu",
+        "local_path": "unpublished-local-ref:eb90496805f3257b",
+        "pages_read": "full page"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Spirit and ASC vessels may be the same or different units (not stated); Guinness gives volume only. A 2011 DLR release (via Airframer, not opened) reportedly quotes 27 m x 6.5 m for BALU - conflicts with the current DLR page (not resolved). No autoclave anywhere approaches a 20 m sphere diameter; no oven larger than the autoclaves was found."
+  },
+  {
+    "id": "CF-2",
+    "topic": "cure facility",
+    "finding": "NASA treats 10 m diameter barrel structures as beyond autoclave capacity: current launch-vehicle composite parts top out at 5.48 m diameter, a 10 m interstage would be cured out of autoclave, and NASA's 10 m barrel demonstration used 1/16th-arc 1.8 x 2.4 m aluminium-honeycomb sandwich panels with a 176 C autoclave cure at HITCO to simulate larger sections.",
+    "values": [
+      {
+        "quantity": "largest current launch-vehicle composite diameter",
+        "value": "5.48",
+        "unit": "m",
+        "quote": "Current launch vehicle composite components are at a maximum of 5.48 meters in diameter.",
+        "location": "Sect. 1, N2015"
+      },
+      {
+        "quantity": "designs split to fit autoclaves",
+        "value": "scrapped/redesigned in multiple sections",
+        "unit": "-",
+        "quote": "built in multiple sections in order to be cured in more nominally sized autoclaves",
+        "location": "N2015 sect. 1"
+      },
+      {
+        "quantity": "OoA cure reason (heavy-lift fairing)",
+        "value": "size of structure",
+        "unit": "-",
+        "quote": "Out of Autoclave cure required due to size of structure",
+        "location": "N2013 slide 5"
+      },
+      {
+        "quantity": "OoA max cure temperature",
+        "value": "177",
+        "unit": "C",
+        "quote": "Maximum cure-temperature of 177°C due to tooling",
+        "location": "N2013 slide 5"
+      },
+      {
+        "quantity": "10 m barrel segment panels",
+        "value": "1/16th arc of a 10 m cylindrical barrel; Al honeycomb core; 1.8 x 2.4 m",
+        "unit": "m",
+        "quote": "segments of a 1/16th arc from a 10m cylindrical barrel",
+        "location": "N2015 abstract; N2012 abstract"
+      },
+      {
+        "quantity": "Ares V interstage size",
+        "value": "10 m diameter x 12 m height",
+        "unit": "m",
+        "quote": "planned to be 10 m in diameter and 12 meters in height",
+        "location": "N2012 sect. 1"
+      },
+      {
+        "quantity": "OoA concern",
+        "value": "void removal without autoclave pressure",
+        "unit": "-",
+        "quote": "Manufacturing autoclave quality structures without autoclave pressure places added criticality to void removal.",
+        "location": "N2012 sect. 1"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Stavana et al. (HITCO/NASA), Large Scale Composite Manufacturing for Heavy Lift Launch Vehicles (2015)",
+        "url": "https://ntrs.nasa.gov/citations/20150007663",
+        "local_path": "unpublished-local-ref:523e0035e17a51e4",
+        "pages_read": "all 15 pages"
+      },
+      {
+        "citation": "NASA Composites for Exploration presentation (2013)",
+        "url": "https://ntrs.nasa.gov/citations/20130013656",
+        "local_path": "unpublished-local-ref:7c8c95d02d61030f",
+        "pages_read": "slides 1-14"
+      },
+      {
+        "citation": "NASA, Face-Sheet Quality Analysis and Thermo-Physical Property Characterization of OOA and Autoclave Panels (2012)",
+        "url": "https://ntrs.nasa.gov/citations/20120012919",
+        "local_path": "unpublished-local-ref:ba7065abeb150428",
+        "pages_read": "pp.1-3"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "NASA full 10 m barrel was never built; no out-of-autoclave oven size or heat-up uniformity figures for a 20 m shell found; the NTRS 1992 tech brief 'Curing a large composite cylinder without an autoclave' (19920000555) has abstract only (no full text available)."
+  },
+  {
+    "id": "RA-1",
+    "topic": "RT adhesive",
+    "finding": "Henkel/Hysol EA 9394 (2-part RT-cure paste): 4,200 psi lap shear at 77 F on phosphoric-anodised 2024-T3 after 5 days RT, falling to 2,300 psi at 250 F and 1,200 psi at 350 F; T-peel 5 lb/in; 90 min pot life per 450 g mass, mixes limited to 450 g; Tg dry 172 F.",
+    "values": [
+      {
+        "quantity": "cure",
+        "value": "3-5 days at 77 F (25 C); 1 h at 150 F gives full cure",
+        "unit": "-",
+        "quote": "may be cured for 3 to 5 days @ 77°F/25°C",
+        "location": "Curing, p.3"
+      },
+      {
+        "quantity": "lap shear 77 F",
+        "value": "4,200 (28.9 MPa)",
+        "unit": "psi",
+        "quote": "77/ 25 4,200 28.9",
+        "location": "Bond Strength, p.3"
+      },
+      {
+        "quantity": "lap shear 250 F",
+        "value": "2,300 (15.8 MPa)",
+        "unit": "psi",
+        "quote": "250/121 2,300 15.8",
+        "location": "p.3"
+      },
+      {
+        "quantity": "lap shear 350 F",
+        "value": "1,200 (8.3 MPa)",
+        "unit": "psi",
+        "quote": "350/177 1,200 8.3",
+        "location": "p.3"
+      },
+      {
+        "quantity": "lap shear -67 F",
+        "value": "3,300 (22.7 MPa)",
+        "unit": "psi",
+        "quote": null,
+        "location": "p.3"
+      },
+      {
+        "quantity": "T-peel 77 F (5 d RT cure)",
+        "value": "5 (22 N/25 mm)",
+        "unit": "lb/in",
+        "quote": "77/25 5 22",
+        "location": "p.4"
+      },
+      {
+        "quantity": "pot life, 450 g mass",
+        "value": "90",
+        "unit": "min at 75 F",
+        "quote": "Pot Life (450 gram mass) 90 minutes @ 75°F/25°C",
+        "location": "p.2"
+      },
+      {
+        "quantity": "max mix batch",
+        "value": "450",
+        "unit": "g",
+        "quote": "Do not mix quantities greater than 450 grams",
+        "location": "p.2"
+      },
+      {
+        "quantity": "Tg dry / wet",
+        "value": "172 F (78 C) / 154 F (68 C)",
+        "unit": "F",
+        "quote": "Tg dry 172°F 78°C",
+        "location": "p.4"
+      },
+      {
+        "quantity": "large-assembly warning",
+        "value": "carbonate formation in humid open times",
+        "unit": "-",
+        "quote": "Special precautions are recommended to minimize carbonate formation in large assemblies",
+        "location": "p.3"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Henkel, Technical Process Bulletin LOCTITE EA 9394 AERO (Hysol EA 9394)",
+        "url": "https://datasheets.tdx.henkel.com/LOCTITE-EA-9394-AERO-en_US.pdf",
+        "local_path": "unpublished-local-ref:87589549ebc92c7b",
+        "pages_read": "pp.1-5 of 6 (to compressive properties)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Strength on Be is null (aluminium adherends only); heat-up/RT cure time for large mass not given; page 6 (compressive properties, storage) not read."
+  },
+  {
+    "id": "RA-2",
+    "topic": "RT adhesive",
+    "finding": "Henkel/Hysol EA 9309.3NA (toughened 2-part paste, 5 mil glass beads): 4,753 psi lap shear at 77 F after 72 h RT on clad FPL aluminium but only 934 psi at 180 F (service temperature ~180 F); pot life 35 min per 450 g; Tg dry 142 F after RT cure.",
+    "values": [
+      {
+        "quantity": "cure",
+        "value": "3-5 days at 77 F or 1 h at 180 F",
+        "unit": "-",
+        "quote": "3 to 5 days @ 77°F/25°C or 1 hour @ 180°F/82°C",
+        "location": "Curing, p.2"
+      },
+      {
+        "quantity": "lap shear 77 F (clad/FPL, 72 h RT, 10 psi)",
+        "value": "4,753 (32.8 MPa)",
+        "unit": "psi",
+        "quote": "77/25 4753 32.8 5000 34.5",
+        "location": "p.2 table"
+      },
+      {
+        "quantity": "lap shear 180 F (same cure)",
+        "value": "934 (6.4 MPa)",
+        "unit": "psi",
+        "quote": "180/82 934 6.4 1000 6.9",
+        "location": "p.2 table"
+      },
+      {
+        "quantity": "service temperature",
+        "value": "approximately 180 F (82 C)",
+        "unit": "F",
+        "quote": "using test method ASTM D1002 and is approximately 180°F/82°C",
+        "location": "p.3"
+      },
+      {
+        "quantity": "pot life 450 g",
+        "value": "35",
+        "unit": "min at 77 F",
+        "quote": "Pot Life (450 gram mass) 35 minutes @ 77°F/25°C",
+        "location": "p.1"
+      },
+      {
+        "quantity": "Tg dry after 72 h RT cure",
+        "value": "142 F (61 C)",
+        "unit": "F",
+        "quote": "Tg dry (DMTA) 142°F 61°C",
+        "location": "p.4"
+      },
+      {
+        "quantity": "bondline control",
+        "value": "5 mil (0.13 mm) glass beads",
+        "unit": "mil",
+        "quote": "It contains 5 mil/0.13 mm glass beads for bondline thickness control",
+        "location": "p.1"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Henkel, Technical Process Bulletin LOCTITE EA 9309.3NA AERO (copy hosted by Pacific Coast Composites)",
+        "url": "https://www.pccomposites.com/wp-content/uploads/2015/07/PCRS9309-3NAQT_TDS.pdf",
+        "local_path": "unpublished-local-ref:07d94572be162ea6",
+        "pages_read": "pp.1-4 of 5"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Strength on Be is null; a 2-part RT paste has a 35 min pot life, so an assembly-scale application would be batch limited (source states only batch/pot figures)."
+  },
+  {
+    "id": "RA-3",
+    "topic": "RT adhesive",
+    "finding": "Other RT-cure data: 3M Scotch-Weld DP490 reaches 23 MPa (3,336 psi) lap shear on sand-blasted aluminium after 7 days at 23 C with a 90 min worklife, cures in 48 h at 24 C; Epon 913 (EA 913) 3,300 psi was used on Be (see BB-3). Henkel EA 9696 (250 F film) and 3M EC-2216 data sheets could not be retrieved.",
+    "values": [
+      {
+        "quantity": "DP490 lap shear, aluminium sandblasted, 7 d at 23 C",
+        "value": "23 (3,336 psi)",
+        "unit": "MPa",
+        "quote": "23 MPa (3336 lb/in²)",
+        "location": "Typical Performance Characteristics, p.1-2"
+      },
+      {
+        "quantity": "DP490 worklife",
+        "value": "90",
+        "unit": "min",
+        "quote": "90 minute worklife",
+        "location": "Product Features, p.1"
+      },
+      {
+        "quantity": "DP490 RT cure time",
+        "value": "48 h at 24 C (75 F)",
+        "unit": "h",
+        "quote": "These products will cure in 48 hours @ 24 °C (75 °F).",
+        "location": "Directions, p.4"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "3M, Scotch-Weld Epoxy Adhesive DP490 Technical Data Sheet (rev. May 2026)",
+        "url": "https://multimedia.3m.com/mws/media/2409614O/3m-scotch-weld-epoxy-adhesive-dp490.pdf",
+        "local_path": "unpublished-local-ref:1c3e0a0521fd5f4f",
+        "pages_read": "pp.1-4 of 5"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "EA 9696 AERO TDS (guessed URLs returned errors) and EC-2216 B/A TDS (host blocked) not obtained; 3M AF 163-2 data are in LC-1. No RT-cure structural film adhesive with strength data was found."
+  },
+  {
+    "id": "LC-1",
+    "topic": "local cure",
+    "finding": "3M AF 163-2 allows cure from 225-300 F in 60-90 min but also 200 F for 2-6 h (4,120-4,700 psi at 75 F, 1,750-3,280 psi at 180 F on aluminium); 20-80 psi pressure recommended, vacuum-only cure works for K film at 8-12 in Hg; 20-day room-temperature out-time; hot-entry at >=300 F causes porosity; heat-up 1-20 F/min used. All data are on aluminium adherends, not Be.",
+    "values": [
+      {
+        "quantity": "designed cure window",
+        "value": "225-300 F",
+        "unit": "F",
+        "quote": "short cure times in the 225 to 300°F temperature range",
+        "location": "VI Cure Conditions, p.19"
+      },
+      {
+        "quantity": "long low-temperature cure",
+        "value": "200 F for 6 h gives useful performance",
+        "unit": "-",
+        "quote": "longer cure times at 200°F (6 hrs.) to obtain",
+        "location": "p.19"
+      },
+      {
+        "quantity": "200 F cure strength (AF 163-2K 0.06, 50 psi)",
+        "value": "2 h/4 h/6 h: 4,120/4,580/4,700 psi at 75 F; 1,750/2,880/3,280 psi at 180 F",
+        "unit": "psi",
+        "quote": "Typical Metal to Metal 200°F Cure Performance",
+        "location": "V, p.15"
+      },
+      {
+        "quantity": "cure time at 225-250 F",
+        "value": "90 min",
+        "unit": "min",
+        "quote": "a cure time of 90 minutes at temperature is suggested",
+        "location": "VI.D, p.19"
+      },
+      {
+        "quantity": "cure pressure",
+        "value": "20-80 psi",
+        "unit": "psi",
+        "quote": "Positive pressure between 20 and 80 psi have been used successfully",
+        "location": "VI.F, p.20"
+      },
+      {
+        "quantity": "why pressure",
+        "value": "to keep parts aligned, overcome distortions and thermal expansion",
+        "unit": "-",
+        "quote": "pressure is required to keep parts in alignment and to",
+        "location": "VI.F, p.20"
+      },
+      {
+        "quantity": "vacuum-only cure level (AF 163-2K)",
+        "value": "8-12 in Hg; higher vacuum gives porosity",
+        "unit": "in Hg",
+        "quote": "Higher vacuum levels yield excessive porosity and corresponding strength reductions.",
+        "location": "VI.F.2, p.20"
+      },
+      {
+        "quantity": "hot entry",
+        "value": "porosity at >=300 F",
+        "unit": "-",
+        "quote": "hot entry cures at 300°F and above can be expected to produce reduced performance",
+        "location": "VI.E, p.19"
+      },
+      {
+        "quantity": "rise rate range used",
+        "value": "1-20 F/min",
+        "unit": "F/min",
+        "quote": "Bond line temperature rise rates between 1°F/min. and 20°F/min. have been used",
+        "location": "VI.E, p.19"
+      },
+      {
+        "quantity": "out-time",
+        "value": "20 days at <=80 F",
+        "unit": "days",
+        "quote": "can be left out of cold storage (80°F maximum) for 20 days",
+        "location": "Storage, p.20"
+      },
+      {
+        "quantity": "honeycomb flatwise tensile, AF 163-2U 0.03 lb/ft2, 75 F, 235 F cure, FPL-etched Al skins, 1/4 in cell 5052 core",
+        "value": "800",
+        "unit": "psi",
+        "quote": null,
+        "location": "II.J.3, p.8"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "3M, Scotch-Weld Structural Adhesive Film AF 163-2 Technical Datasheet (Nov 2009)",
+        "url": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf",
+        "local_path": "unpublished-local-ref:c37aaaac40d683fa",
+        "pages_read": "pp.1-21 (read tables I-VII and application notes; not every table)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "No AF 163-2 data on Be adherends; AF 163-2U vacuum-cure data not given (only K, M, OST); the datasheet gives no data for a very large bond line area with local cure."
+  },
+  {
+    "id": "LC-2",
+    "topic": "local cure",
+    "finding": "Heat-blanket local cure: a trade article (Heatcon data) measured temperature spread at a 250 F setpoint on a stiffened panel of 22 F (12 C) horizontal / 28 F (16 C) vertical for a resistive 5 W/in2 blanket versus 7 F (4 C) / 9 F (5 C) for a smart-susceptor blanket; standard blankets are advised for repairs <=4 sq ft and uniformity worsens with blanket size, heat sinks need caul plates/insulation, and a blanket should overlap the patch by >=2 in.",
+    "values": [
+      {
+        "quantity": "resistive blanket, horizontal, 250 F setpoint",
+        "value": "hottest 261 F, coldest 239 F, delta 22 F (12 C)",
+        "unit": "F",
+        "quote": "Resistive 5WSI Horizontal 250°F (121°C) 261°F (127°C) 239°F (115°C) 22°F (12°C)",
+        "location": "Table 1"
+      },
+      {
+        "quantity": "resistive blanket, vertical",
+        "value": "hottest 267 F, coldest 239 F, delta 28 F (16 C)",
+        "unit": "F",
+        "quote": "Resistive 5WSI Vertical 250°F (121°C) 267°F (131°C) 239°F (115°C) 28°F (16°C)",
+        "location": "Table 1"
+      },
+      {
+        "quantity": "smart susceptor, horizontal",
+        "value": "delta 7 F (4 C)",
+        "unit": "F",
+        "quote": "Smart Susceptor Horizontal 250°F (121°C) 253°F (123°C) 247°F (119°C) 7°F (4°C)",
+        "location": "Table 1"
+      },
+      {
+        "quantity": "smart susceptor, vertical",
+        "value": "delta 9 F (5 C)",
+        "unit": "F",
+        "quote": "Smart Susceptor Vertical 250°F (121°C) 255°F (124°C) 246°F (119°C) 9°F (5°C)",
+        "location": "Table 1"
+      },
+      {
+        "quantity": "typical blanket use",
+        "value": "small- to medium-size repairs, <=4 sq ft (0.38 m2) flat or gently contoured",
+        "unit": "-",
+        "quote": "small- to medium-size repairs",
+        "location": "text"
+      },
+      {
+        "quantity": "size effect",
+        "value": "uniformity harder as blanket grows; overlap two blankets by 4 in (102 mm)",
+        "unit": "-",
+        "quote": "more difficult to maintain temperature uniformity as the size of the blanket increases",
+        "location": "text"
+      },
+      {
+        "quantity": "vertical placement",
+        "value": "top hotter than bottom (convective)",
+        "unit": "-",
+        "quote": "thermal gradient from top (hotter) to bottom (cooler) due to convective heating effects",
+        "location": "text"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "CompositesWorld, 'Alternate heat sources for hot bonded composite repairs' (Heatcon-sourced trade article)",
+        "url": "https://www.compositesworld.com/articles/alternate-heat-sources-for-hot-bonded-composite-repairs",
+        "local_path": "unpublished-local-ref:e87777d4bb9377d9",
+        "pages_read": "full article"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Vendor-sourced trade article, not a standard; FAA DOT/FAA/AR-03/74 (bonded sandwich repair) could not be downloaded (host unreachable) so it is unread; no data on scarf-joint local cure of a 30:1 scarf in a rigid Be shell or on cure-gradient limits for AF 163-2U."
+  },
+  {
+    "id": "AJ-1",
+    "topic": "assembly jig",
+    "finding": "JUNO's 35.4 m acrylic sphere (263 spherical panels, 120 mm thick) is bonded in place, layer by layer from the top, to a diameter spec of 35,400 +/-50 mm with each panel within 6 mm of the true sphere, in a 21 +/-1 C environment, with 24 h cement polymerisation then annealing and per-layer roundness checks.",
+    "values": [
+      {
+        "quantity": "vessel diameter requirement",
+        "value": "35,400 +/-50",
+        "unit": "mm",
+        "quote": "The CD acrylic vessel diameter is required to be 35,400 ± 50 mm.",
+        "location": "sect. 4.2.1"
+      },
+      {
+        "quantity": "panel deviation from true sphere",
+        "value": "<6",
+        "unit": "mm",
+        "quote": "a spherical panel and a standard sphere is required to be less than 6 mm",
+        "location": "sect. 4.2.1"
+      },
+      {
+        "quantity": "panel count/layers",
+        "value": "263 panels in 23 layers",
+        "unit": "-",
+        "quote": "panels will be bonded layer by layer from top to bottom",
+        "location": "sect. 4.2.3"
+      },
+      {
+        "quantity": "bond cure",
+        "value": "~24 h polymerisation then anneal",
+        "unit": "h",
+        "quote": "cement is poured into the bond gaps and then polymerized for about 24",
+        "location": "sect. 4.2.3"
+      },
+      {
+        "quantity": "installation environment",
+        "value": "21 +/-1",
+        "unit": "C",
+        "quote": "The environmental temperature surrounding the acrylic is required to be 21 ± 1 °C",
+        "location": "sect. 6.3"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "JUNO Collab., The Design and Technology Development of the JUNO Central Detector, arXiv:2311.17314",
+        "url": "https://arxiv.org/pdf/2311.17314",
+        "local_path": "unpublished-local-ref:aaab5e5e28b7470d",
+        "pages_read": "sect. 4.2.1-4.2.3 (pp.27-29) and 6.3 (p.36) of 46 pages"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Final as-built roundness is not in this design paper; vessel is acrylic cast-panel bonded with polymerisable cement, not a film-adhesive sandwich; supports (stainless truss/scaffold) described only qualitatively."
+  },
+  {
+    "id": "AJ-2",
+    "topic": "assembly jig",
+    "finding": "SNO's 12 m acrylic sphere (122 panels, 5.6 cm thick) was dry-assembled hemisphere by hemisphere on a special framework to prove fit within a specified +/-25 mm on spherical curvature; during construction curvature was typically held to +/-6 mm; panels were bonded with a room-temperature-cure partially-polymerised adhesive in ~3 mm thick bonds allowing for 20% shrinkage; over 500 m of bond, all >27.5 MPa.",
+    "values": [
+      {
+        "quantity": "specified curvature tolerance",
+        "value": "+/-25",
+        "unit": "mm",
+        "quote": "tolerance of ±25 mm on the spherical curvature",
+        "location": "sect. 3 acrylic vessel, p.181"
+      },
+      {
+        "quantity": "achieved curvature",
+        "value": "typically +/-6",
+        "unit": "mm",
+        "quote": "typically maintained to ±6 mm",
+        "location": "p.181"
+      },
+      {
+        "quantity": "adhesive",
+        "value": "partially polymerised, RT cure; ~3 mm bonds; 20% shrinkage allowance",
+        "unit": "-",
+        "quote": "partially polymerized adhesive that cures at room",
+        "location": "p.181"
+      },
+      {
+        "quantity": "bond strength",
+        "value": ">27.5",
+        "unit": "MPa",
+        "quote": "All bond strengths exceeded 27.5 MPa.",
+        "location": "p.181"
+      },
+      {
+        "quantity": "panels",
+        "value": "122 panels, nominally 5.6 cm thick, 12 m sphere",
+        "unit": "-",
+        "quote": null,
+        "location": "p.180-181"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Boger et al., The Sudbury Neutrino Observatory, NIM A 449 (2000) 172-207",
+        "url": "https://www.hep.upenn.edu/SNO/papers/sno_nim.pdf",
+        "local_path": "unpublished-local-ref:9f3465092d7e8cac",
+        "pages_read": "pp.180-181 (acrylic vessel section, non-layout text)"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Hemispheres were built in situ on supports; jig/scaffold details and any rotating fixture not given in the pages read."
+  },
+  {
+    "id": "AJ-3",
+    "topic": "assembly jig",
+    "finding": "Moss-type LNG tank spheres (radius 18.3 m, aluminium plates up to 7 cm thick pressed to shape, milled, welded) had a stringent tolerance of under two centimetres from design; sub-assemblies had to be measured to 2-3 mm, and sub-assemblies stored for two years on improper supports deformed significantly. No published sphericity tolerance as a standard was found.",
+    "values": [
+      {
+        "quantity": "sphere radius",
+        "value": "18.3",
+        "unit": "m",
+        "quote": null,
+        "location": "Tank Component Survey, p.1-2"
+      },
+      {
+        "quantity": "tolerance on design values",
+        "value": "<2 (less than two centimetres)",
+        "unit": "cm",
+        "quote": "Stringent tolerances, permitting less than two centimetres deviation from the design values",
+        "location": "Tank Component Survey"
+      },
+      {
+        "quantity": "sub-assembly measurement accuracy required / achieved",
+        "value": "2-3 mm required; photogrammetry 3 mm",
+        "unit": "mm",
+        "quote": "required to an accuracy of 2- 3 millimetres",
+        "location": "Tank Component Survey"
+      },
+      {
+        "quantity": "sub-assembly distortion in storage",
+        "value": "significant deformations (improper support)",
+        "unit": "-",
+        "quote": "significant deformations were encountered",
+        "location": "Tank Component Survey"
+      },
+      {
+        "quantity": "plates",
+        "value": "pressed to spherical shape, milled, welded; up to 7 cm thick",
+        "unit": "cm",
+        "quote": "pressed into spherical shape , milled to proper dimension and welded together",
+        "location": "Tank Component Survey"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "W. Faig, Precision Photogrammetry for Industrial Purposes, ISPRS XIV Congress Hamburg 1980, Commission V",
+        "url": "https://www.isprs.org/proceedings/XXIII/congress/part5/183_XXIII-B5.pdf",
+        "local_path": "unpublished-local-ref:d5b00e66242c8f42",
+        "pages_read": "all 8 pages"
+      },
+      {
+        "citation": "US patent 3,945,236 (LNG sphere segments 12 ft x 50 ft; qualitative 'substantially closer tolerances', no numbers); US patent 4,019,034 snippet: Norway limit of 5 per mille on max-min diameter difference",
+        "url": "https://patents.google.com/patent/US3945236",
+        "local_path": null,
+        "pages_read": "fetched via summarising fetch tool / search snippet only; not downloaded"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "The <2 cm figure is quoted via Faig from his ref [6] (not opened); no code (IGC/DNV/ASME) sphericity tolerance retrieved; Norway 5 per mille is patent-snippet only."
+  },
+  {
+    "id": "AJ-4",
+    "topic": "assembly jig",
+    "finding": "JT-60SA cryostat top lid (two welded halves, 34 mm thick) was built to spherical radius 8 m +/-8 mm and outer diameter 11.5 m +/-5 mm using a reversible jig for flat-position welding; more than 20 mm of welding distortion occurred at the top side and was corrected, tolerance fulfilled in the mock-up.",
+    "values": [
+      {
+        "quantity": "spherical radius tolerance",
+        "value": "8 m +/-8 mm",
+        "unit": "mm",
+        "quote": "Dimensional tolerances were; spherical radius 8m±8mm, & outer diameter 11.5m±5mm",
+        "location": "poster, 'Manufacturing of the Cryostat Top Lid'"
+      },
+      {
+        "quantity": "distortion observed",
+        "value": ">20",
+        "unit": "mm",
+        "quote": "Over 20 mm of welding distortion was",
+        "location": "poster"
+      },
+      {
+        "quantity": "jig",
+        "value": "reversible jig for flat-position welding of 34 mm shell",
+        "unit": "-",
+        "quote": "reversible jig was introduced to allow",
+        "location": "poster"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Shibama et al., Development of the Thermal Insulation Devices for the JT-60SA Tokamak (IAEA poster #849)",
+        "url": "https://conferences.iaea.org/event/214/contributions/17269/attachments/10004/14080/849_Y.Shibama_IAEA.poster.pdf",
+        "local_path": "unpublished-local-ref:8210472a1296a04b",
+        "pages_read": "single poster"
+      }
+    ],
+    "confidence": "read in full",
+    "missing": "Stainless welded shell (not bonded); spherical cap, not full sphere."
+  },
+  {
+    "id": "AJ-5",
+    "topic": "assembly jig",
+    "finding": "A 200 ft nuclear containment sphere patent (US 4,230,255) holds the shell round during assembly with four concentric support rings, a hydraulically tensioned girdling cable and laser/mirror sighting, but states no numeric tolerance; NASA's tolerance-buildup practice uses master gauges/jigs and root-sum-square of segment tolerances.",
+    "values": [
+      {
+        "quantity": "ring/cable method (200 ft sphere)",
+        "value": "4 steel rings, girdling cable, optical alignment; no numbers",
+        "unit": "-",
+        "quote": null,
+        "location": "patent summary (fetch tool)"
+      },
+      {
+        "quantity": "NASA practice",
+        "value": "use master gauges, tooling, jigs and fixtures to transfer dimensions",
+        "unit": "-",
+        "quote": "Use master gauges, tooling, jigs, and fixtures to transfer precise dimensions",
+        "location": "PD-ED-1219 p.1"
+      },
+      {
+        "quantity": "segment tolerance stacking (SRB)",
+        "value": "root sum square of segment tolerances",
+        "unit": "-",
+        "quote": "the root sum square of the tolerances of segments is used",
+        "location": "PD-ED-1219 p.2"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "NASA Preferred Practice PD-ED-1219, Tolerance Buildup Practices",
+        "url": "https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/1219.pdf",
+        "local_path": "unpublished-local-ref:e73ea8fdc6a84a9f",
+        "pages_read": "pp.1-3 of 6"
+      },
+      {
+        "citation": "US patent 4,230,255, Protective shell for nuclear reactor and method for assembling the shell",
+        "url": "https://patents.google.com/patent/US4230255",
+        "local_path": null,
+        "pages_read": "fetched via summarising fetch tool only; not downloaded"
+      }
+    ],
+    "confidence": "snippet only",
+    "missing": "No rotating-fixture or internal-mandrel source found for large bonded spheres; patent has no numbers."
+  },
+  {
+    "id": "SF-1",
+    "topic": "Be safety",
+    "finding": "OSHA 29 CFR 1910.1024 (and construction 1926.1124, same limits): 0.2 ug/m3 8-h TWA PEL, 2.0 ug/m3 15-min STEL, 0.1 ug/m3 action level; processing material with >=0.1% Be creates beryllium work areas/regulated areas; required controls include substitution, enclosure, local exhaust or wet methods; dry sweeping/compressed-air cleaning restricted. Text identical in length between the 2024-01-01 and 2026-10-01 eCFR snapshots.",
+    "values": [
+      {
+        "quantity": "TWA PEL",
+        "value": "0.2",
+        "unit": "ug/m3 (8 h)",
+        "quote": "0.2 µg/m 3 calculated as an 8-hour TWA",
+        "location": "1910.1024(c)(1)"
+      },
+      {
+        "quantity": "STEL",
+        "value": "2.0",
+        "unit": "ug/m3 (15 min)",
+        "quote": "in excess of 2.0 µg/m 3 as determined over a sampling period of 15 minutes",
+        "location": "1910.1024(c)(2)"
+      },
+      {
+        "quantity": "action level",
+        "value": "0.1",
+        "unit": "ug/m3 (8 h TWA)",
+        "quote": "Action level means a concentration of airborne beryllium of 0.1 micrograms per cubic meter",
+        "location": "1910.1024(b)"
+      },
+      {
+        "quantity": "beryllium work area trigger",
+        "value": "materials >=0.1% Be by weight processed in Appendix A operations or exposure >= action level",
+        "unit": "-",
+        "quote": "materials that contain at least 0.1 percent beryllium by weight are processed",
+        "location": "1910.1024(b)"
+      },
+      {
+        "quantity": "engineering controls menu",
+        "value": "substitution, isolation (enclosure), local exhaust ventilation, process control (wet methods)",
+        "unit": "-",
+        "quote": "Process control, such as wet methods and automation",
+        "location": "1910.1024(f)(2)(ii)"
+      },
+      {
+        "quantity": "local exhaust",
+        "value": "at points of operation, handling, transfer",
+        "unit": "-",
+        "quote": "Local exhaust ventilation, such as at the points of operation",
+        "location": "1910.1024(f)(2)(ii)(C)"
+      },
+      {
+        "quantity": "housekeeping",
+        "value": "no dry sweeping/brushing unless HEPA vacuum etc. not safe",
+        "unit": "-",
+        "quote": "The employer must not allow dry sweeping or brushing for cleaning surfaces",
+        "location": "1910.1024(j)(2)(ii)"
+      },
+      {
+        "quantity": "exemption for unprocessed articles",
+        "value": "articles not processed by the employer",
+        "unit": "-",
+        "quote": "that contain beryllium and that the employer does not process",
+        "location": "1910.1024(a)(2)"
+      },
+      {
+        "quantity": "construction standard scope",
+        "value": "same PEL text",
+        "unit": "-",
+        "quote": "occupational exposure to beryllium in all forms, compounds, and mixtures in construction",
+        "location": "1926.1124(a)(1)"
+      },
+      {
+        "quantity": "Appendix A operations list",
+        "value": "Table A.1 includes chemical milling, grinding, deburring, CNC machining, filing among beryllium-metal operations (column assignment scrambled in my text extraction)",
+        "unit": "-",
+        "quote": "Table A.1—Operations for Establishing Beryllium Work Areas",
+        "location": "Appendix A"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "29 CFR 1910.1024 Beryllium (eCFR text as of 2026-10-01 snapshot; 2024-01-01 snapshot has identical length)",
+        "url": "https://www.ecfr.gov/current/title-29/section-1910.1024",
+        "local_path": "unpublished-local-ref:0d5401c0e2f8dc44",
+        "pages_read": "full section text"
+      },
+      {
+        "citation": "29 CFR 1926.1124 Beryllium, construction (eCFR text as of 2026-10-01)",
+        "url": "https://www.ecfr.gov/current/title-29/section-1926.1124",
+        "local_path": "unpublished-local-ref:52a2dc3fa7088b5c",
+        "pages_read": "(a) and (c) paragraphs"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Appendix A column mapping (which operations apply to Be metal vs alloys) not verified; whether sanding/scarfing of Be sheet specifically is listed is unconfirmed; a shipyard standard (1915.1024) not opened; OSHA/Materion guidance docs could not be downloaded (hosts blocked); no site-specific rule on field (outdoor) beryllium machining. eCFR comparison between snapshots was by text length and PEL paragraph only."
+  },
+  {
+    "id": "SF-2",
+    "topic": "Be safety",
+    "finding": "Practice in the sources keeps dust-producing Be work at the supplier: JPL had Nuclear Metals do all dust/fume-producing operations (extrude, cut, chemically mill, inspect) and bagged the tubes, and kept metal-dissolving prep off site; Martin Marietta sealed Be in an evacuated retort for hot forming and reported a zero Be count.",
+    "values": [
+      {
+        "quantity": "JPL handling",
+        "value": "supplier performed all operations that might produce dust or fumes",
+        "unit": "-",
+        "quote": "Nuclear Metals performed all operations that might result in the",
+        "location": "Sect. IV-B-3, p.6"
+      },
+      {
+        "quantity": "Martin Marietta retort",
+        "value": "0.002 in Inconel/CRES retort, seam welded, evacuated",
+        "unit": "in",
+        "quote": "captured in a hermetrically sealed retort, oxidation is decreased",
+        "location": "p.31"
+      }
+    ],
+    "sources": [
+      {
+        "citation": "Stevens & Layman, JPL TM 33-517, Adhesively Bonded Beryllium Propulsion Structure, Mariner Mars 1971 (1 Jan 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720007221",
+        "local_path": "unpublished-local-ref:b9eb9e624cb3da34",
+        "pages_read": "p.6-7"
+      },
+      {
+        "citation": "Martin Marietta, Fabrication of a Vacuum Brazed Beryllium Heat Shield Panel (June 1972)",
+        "url": "https://ntrs.nasa.gov/citations/19720023297",
+        "local_path": "unpublished-local-ref:40b4a6ae8de82c23",
+        "pages_read": "p.31"
+      }
+    ],
+    "confidence": "partial",
+    "missing": "Implication for the card: scarfing/sanding Be sheet at 30:1 is a listed-type dust operation under the OSHA standard; no source gives a field-expedient method (wet scarf, enclosure) with measured exposures."
+  },
+  {
+    "id": "GAPS",
+    "topic": "n/a (gaps)",
+    "finding": "Items searched for and not found, or only found at lower fidelity.",
+    "values": [],
+    "sources": [],
+    "confidence": "partial",
+    "missing": "GAPS: (1) Materion Beryllium Design Guide / joining guide: not retrievable (searches returned only the SR-200 datasheet and safety pages; berylliumsafety.com PDFs blocked by TLS). (2) Doubly curved Be sheet parts with measured contour accuracy: none found; only cylindrical 10 ft radius creep-formed 1 x 2 ft panel (0.003 in), 12 in radius spherical segments (R/t<=100, 6% shrink), Republic parts at +/-0.005 in, Boeing 'net to the die'. Refs 39-41 in JPL TM 33-356 for domes were not opened. (3) No Be-to-AF 163-2 or Be-to-honeycomb adhesive strengths; the only Be adhesive data are 1960s epoxy double-lap shear (chart only) and Epon 913 tube joints. DTIC AD0431509 was blocked; Kurson 1963 not opened. (4) No hot-forming strain-rate or springback numbers for SR-200 specifically; the 1966 NASA work used older cross-rolled sheet. (5) Largest oven/autoclave beyond 9 m x 36 m not found; no heat-blanket data on Be or on 30:1 scarfs; FAA AR-03/74 unread. (6) No jig/mandrel/rotating-fixture source for large bonded sandwich spheres; no published Moss-sphere sphericity standard (ASME/IGC/DNV not retrieved). (7) Henkel EA 9696 and 3M EC-2216 data sheets not obtained. (8) OSHA: Appendix A column mapping not verified; no source on scarfing specifically. (9) R/t of the card geometry was not computed (instruction: unit conversions only); tested R/t in sources is <=100."
+  }
+]

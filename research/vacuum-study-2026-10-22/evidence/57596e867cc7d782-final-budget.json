@@ -1,0 +1,71 @@
+{
+  "unit": "h1-stvk-interface-1019",
+  "status": "CLOSED_FIRST_BLOCKER",
+  "origin_monotonic": 2014112.830277349,
+  "origin_utc": "2026-10-19T08:29:47.649976+00:00",
+  "final_sample_monotonic": 2015903.268975418,
+  "final_sample_utc": "2026-10-19T08:59:38.088669+00:00",
+  "actual_elapsed_seconds": 1790.4386980689596,
+  "actual_elapsed_ceiling_seconds": 7165,
+  "opening_charge_seconds": 10,
+  "closing_publication_allowance_seconds": 25,
+  "charged_seconds": 1825.4386980689596,
+  "ceiling_seconds": 7200,
+  "retired_seconds": 5374.56130193104,
+  "phases": {
+    "retained_source_binding_artifact_pack_and_freeze": {
+      "actual_seconds": 1446.8082599379122,
+      "cap_seconds": 3590,
+      "phase_cap_met": true
+    },
+    "one_offline_test_including_admission_reap_collection": {
+      "actual_seconds": 126.58359161391854,
+      "cap_seconds": 600,
+      "test_invocations": 0,
+      "reserve_seconds": 60,
+      "reserve_excess_seconds": 66.58359161391854,
+      "first_deadline_observation_excess_seconds": 11.19823779794388,
+      "phase_cap_met": true
+    },
+    "one_native_batch_including_admission_backstop_collection": {
+      "actual_seconds": 0,
+      "cap_seconds": 2000,
+      "invocations": 0,
+      "status": "NOT_RUN",
+      "phase_cap_met": true
+    },
+    "cleanup_resource_closure": {
+      "actual_seconds": 0.0004006139934062958,
+      "cap_seconds": 200,
+      "phase_cap_met": true
+    },
+    "filing_carry_final_debit": {
+      "actual_seconds": 217.04644590313546,
+      "cap_seconds": 775,
+      "phase_cap_met": true
+    }
+  },
+  "phase_sum_seconds": 1790.4386980689596,
+  "all_named_phase_caps_met": true,
+  "whole_ceiling_met": true,
+  "admission_reserve_met": false,
+  "admission_reserve_qualification": "No payload ran. First observation was11.198s beyond60s total admission/collection reserve; subsequent blocker recording/phase closure makes that phase126.584s. The reserve was exceeded, the600s phase cap was not. No late admission can fit frozen controls or revive this unit.",
+  "final_sample_scope": "After RETURN/CARRY/manifest, outbox atomic submission, state atomic write and immutable evidence verification. Includes every intake/preparation/reasoning/admission wait/closure/filing interval without pauses. Final-budget own write and harness final publication use25s allowance, not measured as actual elapsed.",
+  "publication_tail_audit": "Owner record; final outbox/state/budget are not independent Una audit.",
+  "outbox": {
+    "path": "unpublished-local-ref:dd580f7a4b12b23f",
+    "sha256": "5daf00a28a7d2429be4a962c1755f3896dbad04dbe2f679d28cfc04adb0146c7",
+    "bytes": 6234
+  },
+  "state": {
+    "path": "unpublished-local-ref:2e803289b73b6429",
+    "sha256": "0a5d87f82ae877d5a43ddaf516387c0e9b2bb2a66895c7a9e15377415f6cd243",
+    "bytes": 1273
+  },
+  "native_test_simjob_counts": {
+    "offline": 0,
+    "native": 0,
+    "simjob": 0
+  },
+  "no_reuse_of_retired_allocation": true
+}

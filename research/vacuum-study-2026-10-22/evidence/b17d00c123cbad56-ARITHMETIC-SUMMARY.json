@@ -1,0 +1,39 @@
+{
+  "checks": 3796,
+  "matched": 3780,
+  "mismatches": 16,
+  "by_artifact": {
+    "upstream041": 8,
+    "POINTS.json": 70,
+    "BARRIERS.json": 13,
+    "AGE-SF.csv": 480,
+    "ALTERNATE-AGE.csv": 36,
+    "ALTERNATE-FIBRES.csv": 264,
+    "CROSSINGS.csv": 60,
+    "ENVIRONMENT.csv": 1134,
+    "EXPOSURE-SENSITIVITY.csv": 56,
+    "FATIGUE.csv": 80,
+    "LIGHT-SENSITIVITY.csv": 36,
+    "MODEL-FORM.csv": 12,
+    "MOISTURE.csv": 52,
+    "PACKAGE-MASS.csv": 224,
+    "PEAK-SERVICE-SF.csv": 96,
+    "POINT-BARRIERS.csv": 24,
+    "REPLACEMENT.csv": 288,
+    "UHMWPE-CREEP.csv": 56,
+    "LIGHT-LIMITS.json": 36,
+    "UHMWPE-SENSITIVITY.json": 9,
+    "SCENARIOS.json": 7,
+    "FATIGUE-MODEL.json": 7,
+    "SERVICE.json": 22,
+    "RESULTS.json": 726
+  },
+  "mismatch_fields": {
+    "remaining_unallocated_systems_kg": 4,
+    "package_shortfall_over_existing_100kg": 8,
+    "seam_installation_scaled_kg": 4
+  },
+  "tolerances": "abs delta <= 2e-10*max(abs(independent),1e-4)+2e-11",
+  "owner_code_accessed": false,
+  "certification": false
+}

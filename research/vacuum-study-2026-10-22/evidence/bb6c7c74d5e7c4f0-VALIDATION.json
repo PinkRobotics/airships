@@ -1,0 +1,98 @@
+{
+  "unit": "vacuum-review-a-056-062-1020",
+  "status": "PASS",
+  "scope": "Review-package consistency; not a second review of corrections or physical qualification",
+  "measured_at": "2026-10-20T10:16:59.169766-07:00",
+  "checks": [
+    {
+      "check": "Independent pressure/state equilibrium agrees",
+      "passed": true,
+      "evidence": {
+        "difference_MPa": 9.155520785952831e-11,
+        "relative_residual": 1.1665020696496126e-08
+      }
+    },
+    {
+      "check": "State layout and material surface consistent",
+      "passed": true,
+      "evidence": {
+        "other_conventions_min_residual": 21.036234225279134,
+        "foam_yield_ratio": 1.0000000000057423,
+        "extrapolated_points": 1543
+      }
+    },
+    {
+      "check": "Four raw path maxima are followed by lower pressure samples",
+      "passed": true,
+      "evidence": {
+        "scope": "Sampled peak, not physical/stability qualification"
+      }
+    },
+    {
+      "check": "Both independent linear anchors agree",
+      "passed": true,
+      "evidence": {
+        "max_difference_MPa": 9.069722750609799e-11,
+        "max_eigen_residual": 8.343813986148722e-11
+      }
+    },
+    {
+      "check": "Three shape targets and their no-cure/calibration controls reproduce",
+      "passed": true,
+      "evidence": {
+        "max_difference_mm": 6.217248937900877e-15,
+        "comparisons": 12
+      }
+    },
+    {
+      "check": "Cost endpoints reproduce conditional arithmetic",
+      "passed": true,
+      "evidence": {
+        "max_total_difference_USD": 0.0,
+        "hall_and_handling": "Supplied allowances; source/scale gap retained as NFI"
+      }
+    },
+    {
+      "check": "Six payload corrections preserve no-float sign and remain unreviewed",
+      "passed": true,
+      "evidence": {
+        "payload_increase_kg": [
+          0.0951927706778406,
+          0.0951927706778406,
+          0.3807710827113624,
+          0.3807710827113624,
+          0.8567349361001106,
+          0.8567349361037486
+        ],
+        "independent_second_review": false
+      }
+    },
+    {
+      "check": "Exactly one permitted disposition per prelisted claim",
+      "passed": true,
+      "evidence": {
+        "claims": 17,
+        "reproduces": 16,
+        "differs": 1,
+        "cannot_be_checked_without_a_source_or_test": 0,
+        "fix_rows": 6,
+        "nfi_rows": 11
+      }
+    },
+    {
+      "check": "Filed source, evidence and dispatch pins match; no owner executable copied",
+      "passed": true,
+      "evidence": {
+        "verified_pins": 49
+      }
+    },
+    {
+      "check": "Unresolved physical/source claims separate from fixes",
+      "passed": true,
+      "evidence": {
+        "NFI_rows": 11,
+        "physical_qualification": "open"
+      }
+    }
+  ]
+}

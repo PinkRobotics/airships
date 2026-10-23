@@ -1,0 +1,70 @@
+{
+  "id": "N045",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N045",
+    "report": "rpt-ref-3dd5ab5528276031581d",
+    "card": "MAINLINE-07B",
+    "file": "evidence/07d0f8e52a240650-NFI.json",
+    "row_id": "NFI-GEOM",
+    "fields": {
+      "NFI_id": "NFI-GEOM",
+      "gap": "The handbook radius is the middle surface. These ratios use the external 10 m in both the classical pressure and the handbook pressure, so the ratio is unchanged.",
+      "direction": "An absolute pressure on the thick low-density rows still needs an inner mould line.",
+      "effect": "The reported safety-factor ratios do not move with that choice."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-GEOM\", \"gap\": \"The handbook radius is the middle surface. These ratios use the external 10 m in both the classical pressure and the handbook pressure, so the ratio is unchanged.\", \"direction\": \"An absolute pressure on the thick low-density rows still needs an inner mould line.\", \"effect\": \"The reported safety-factor ratios do not move with that choice.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/44"
+    },
+    {
+      "report": "rpt-ref-3dd5ab5528276031581d",
+      "artifact": "evidence/07d0f8e52a240650-NFI.json",
+      "snapshot": "evidence/07d0f8e52a240650-NFI.json",
+      "sha256": "07d0f8e52a240650a5322607cd0be6d7f603344bdcc852619c2437e5056ecd77",
+      "bytes": 3051,
+      "selector": "source row ID: NFI-GEOM"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-3dd5ab5528276031581d",
+          "artifact": "evidence/07d0f8e52a240650-NFI.json",
+          "snapshot": "evidence/07d0f8e52a240650-NFI.json",
+          "sha256": "07d0f8e52a240650a5322607cd0be6d7f603344bdcc852619c2437e5056ecd77",
+          "bytes": 3051,
+          "selector": "source row ID: NFI-GEOM"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/44"
+          }
+        ]
+      }
+    }
+  ]
+}

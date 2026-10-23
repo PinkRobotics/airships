@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "phase": 1,
+  "name": "intake_yield_source_assumption_and_geometry_choices",
+  "end_utc": "2026-10-19T20:08:37.450742-07:00",
+  "end_monotonic_s": 2081242.630840272,
+  "elapsed_s": 177.37589207896963,
+  "actual_max_s": 300,
+  "cumulative_max_s": 300,
+  "status": "INSIDE",
+  "sealed_pins": [
+    {
+      "path": "evidence/69d9ef27cb5c86f2-INPUTS.json",
+      "sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "bytes": 15384,
+      "match": true
+    },
+    {
+      "path": "evidence/c5df33842e36e028-POINTS.json",
+      "sha256": "c5df33842e36e02891860e4ffc2047da9b9da502c57f49bfaf7c1f56e771abd1",
+      "bytes": 7360,
+      "match": true
+    },
+    {
+      "path": "evidence/33ee112c1cb1a4b5-CARD.md",
+      "sha256": "33ee112c1cb1a4b5fe2460554b46bd68963cb980f49b06964fe672199132c4d8",
+      "bytes": 5667,
+      "match": true
+    },
+    {
+      "path": "evidence/2d0dc7b9973fdc16-NFI.json",
+      "sha256": "2d0dc7b9973fdc16d2e2213d67cbbd05f28383921151366389f7cbdb66cd48ca",
+      "bytes": 4143,
+      "match": true
+    }
+  ],
+  "yield_premise": {
+    "value_Pa": 276000000.0,
+    "kind": "tensile_yield_typical",
+    "source": "ASM MatWeb 6061-T6 sheet https://asm.matweb.com/search/specificmaterial.asp?bassnum=ma6061t6 retrieved as a search snippet this phase: Tensile Yield Strength 276 MPa, AA Typical. The same snippet gives ultimate tensile 310 MPa and modulus 68.9 GPa, and says AA typical values are not for design. Direct page fetch failed this phase.",
+    "compression_transfer": "TRANSFERRED_FROM_TENSILE_YIELD",
+    "compression_note": "The retrieved snippet states a tensile yield and a compression modulus remark. It does not state a compressive yield. Using 276 MPa as a compressive allowable is an owner transfer, not a measured compression strength.",
+    "admitted": false,
+    "QUESTIONABLE_tag": "QUESTIONABLE"
+  },
+  "alternatives": {
+    "rule": "One closed-form thickness per family spends the baseline float margin. Other allowances stay fixed. Residual margin is the computed remainder, targeted at zero. This is an allocation, not an optimum and not a search.",
+    "P1-A": "Increase shell thickness. Joints remain 10 percent of shell mass. Systems stay 200 kg.",
+    "P2-A": "Increase each face thickness. Core thickness and density stay fixed. Joints remain 5 percent of sandwich mass. Systems stay 100 kg.",
+    "P3-A": "Increase tube wall at fixed outer radius. Film, nodes and systems stay fixed."
+  },
+  "strength_models": {
+    "P1": "p_yield = 2*sigma*t/R",
+    "P2": "p_yield = 4*sigma*tf/R with both faces carrying membrane force",
+    "P3_member": "p_yield = 2*sigma*A/(R*s)",
+    "P3_film": "retained p_film = 2*sigma_film*t_film/s, distinct from aluminum",
+    "collapse": "minimum of the stated stiffness, aluminum-strength and film pressures that apply to the row"
+  }
+}

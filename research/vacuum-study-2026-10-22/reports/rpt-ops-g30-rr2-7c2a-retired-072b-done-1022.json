@@ -1,0 +1,18 @@
+{
+  "id": "rpt-ops-g30-rr2-7c2a-retired-072b-done-1022",
+  "unit": "vacuum-072b-1022",
+  "at": "2026-10-22T09:57:42-07:00",
+  "body": "RETIRED ref-72d2783e3f3e5b392443 (glm, 072b) at verified idle: two idle gate reads 20 s apart, then the door's documented exit at 09:56:49; the ledger reads retired 09:56:55. Its native record fbf49a16-6f46-47a7-8ec6-43f7a4e566e6.jsonl is kept: the first 2024236 B are byte-equal to the pin taken before retirement (sha256 58dd2f03); the only bytes after the pin are the harness's own exit lines (2028615 B now). KEPT, as you asked: ref-54f4f7dcfd67e7445c6b (grok, 073 then the record delta) and ref-789877acd571ad3953a4 (glm, the graphite review half). Each retires when you ask after its job files. Codex stays at 8 of 8 with no place held for robotics.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-admiral-rr2-ops-retire-7c2a-072b-done-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-ops-retire-7c2a-072b-done-1022",
+      "outcome": "done",
+      "extent": "work",
+      "what": "ref-72d2783e3f3e5b392443 retired at verified idle 09:56:55; native record byte-equal to its pin"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-347408b244c58f4471ba",
+  "unit": "vacuum-mainline075-wrinkle-exemption-1022",
+  "at": "2026-10-22T10:36:14-07:00",
+  "body": "MAINLINE-075 is filed. QUESTIONABLE / PROJECTION. No qualified hull safety factor. No simjob and no finite-element run. One direct evaluation, at the version-10 design point.\n\nCR-1457 prints no honeycomb half-wavelength. Equations (2.2-14) and (2.2-15) are stresses. Section 1.2 calls the wrinkle a short wave, not confined to one cell, and considerably shorter than general instability. Here the cell is 9.525 mm, the face is 3.668 mm, and R is 30 m, so R is 3149.6 cells. Both membrane principals are equal and compressive, so curvature does not open the one-principal exemption. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not give the wavelength.\n\nVerdict: (2.2-15) is admissible with a named limit. The half-wavelength is not in the handbook, so long-beside-R is unchecked. The standing targets stay the equibiaxial pair, 896.818 and 1030.846 kg/m3. The 993 and 1146 kg/m3 pair stands if that limit is later closed against the rule. T3 has to reproduce the curvature, the 3/8 in cell, and the 3.668 mm by 167.033 mm gauges.\n\nThe thermal interface is the same model estimate in model61.py and model63.py. It is not a sourced law. At the design point the margin is 1.07086, against wrinkling at 1.000. Face density does not enter, so thermal does not bind first at any density on these gauges. The standing target is unchanged.\n",
+  "artifacts": [
+    {
+      "path": "evidence/88663f8b86cc7b2d-CARD.md",
+      "sha256": "88663f8b86cc7b2db4dc29715cdb465890d7b1110e3b20d7cf29ddb1c695169a",
+      "bytes": 6261
+    },
+    {
+      "path": "evidence/83db01b23214948a-RESULTS.json",
+      "sha256": "83db01b23214948a604bcb9f9f57a45148c09f778cfbbeb14ec607c4a7bdccd5",
+      "bytes": 1723
+    },
+    {
+      "path": "evidence/a0acb47da58f58bc-NFI.json",
+      "sha256": "a0acb47da58f58bca044b9e8e7b6ec4de6d1255f41c63590f7bc3d95e10a59f3",
+      "bytes": 1164
+    },
+    {
+      "path": "evidence/8440b0e874e006c3-INPUTS.json",
+      "sha256": "8440b0e874e006c3ed7cbdc2dfe6353696b6a87d7b51ffc4c40d21c856c8fc17",
+      "bytes": 2824
+    }
+  ],
+  "from": "ref-54f4f7dcfd67e7445c6b",
+  "from_seat": "ref-54f4f7dcfd67e7445c6b",
+  "re": "ord-admiral-rr2-mainline075-dispatch-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline075-dispatch-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

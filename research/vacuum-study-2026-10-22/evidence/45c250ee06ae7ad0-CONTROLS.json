@@ -1,0 +1,363 @@
+[
+  {
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "yield_stress": 10000,
+    "pressure": 0.10023387980960043,
+    "increment": 0.047619047619047616,
+    "maximum_increment": 0.047619047619047616,
+    "cores": 4,
+    "name": "mesh256g15-a1-cap",
+    "ntheta": 256,
+    "grading": 1.5
+  },
+  {
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "yield_stress": 10000,
+    "pressure": 0.10023387980960043,
+    "increment": 0.047619047619047616,
+    "maximum_increment": 0.047619047619047616,
+    "cores": 4,
+    "name": "mesh512g2-a1-cap",
+    "ntheta": 512,
+    "grading": 2
+  },
+  {
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "yield_stress": 10000,
+    "pressure": 0.10023387980960043,
+    "increment": 0.047619047619047616,
+    "maximum_increment": 0.047619047619047616,
+    "cores": 4,
+    "name": "mesh1024g15-a1-cap",
+    "ntheta": 1024,
+    "grading": 1.5
+  },
+  {
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "yield_stress": 10000,
+    "pressure": 0.10023387980960043,
+    "increment": 0.047619047619047616,
+    "maximum_increment": 0.047619047619047616,
+    "cores": 4,
+    "name": "mesh512g15-f2c6-a1-cap",
+    "ntheta": 512,
+    "grading": 1.5,
+    "nface": 2,
+    "ncore": 6
+  },
+  {
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "yield_stress": 0,
+    "pressure": 0.10023387980960043,
+    "increment": 0.047619047619047616,
+    "maximum_increment": 0.047619047619047616,
+    "cores": 4,
+    "name": "control-StVK-a1-cap",
+    "ntheta": 512,
+    "grading": 1.5
+  },
+  {
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "yield_stress": 10000,
+    "pressure": 0.10023387980960043,
+    "increment": 0.047619047619047616,
+    "maximum_increment": 0.047619047619047616,
+    "cores": 4,
+    "name": "control-coreip1-a1-cap",
+    "ntheta": 512,
+    "grading": 1.5,
+    "inplane": 1
+  },
+  {
+    "name": "control-hardening1000-a1",
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "yield_stress": 345,
+    "hardening": 1000,
+    "ntheta": 256,
+    "grading": 1.5,
+    "cores": 4
+  },
+  {
+    "name": "eigen-W",
+    "analysis": "buckle",
+    "pressure": 0.001,
+    "yield_stress": 10000,
+    "ntheta": 512,
+    "grading": 1,
+    "nface": 2,
+    "ncore": 6,
+    "meridian": "W",
+    "cores": 1
+  },
+  {
+    "name": "sens-nu0.03-W-a0",
+    "nu": 0.03,
+    "amplitude": 0,
+    "width": 347.1529189444301,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.03-W-a1",
+    "nu": 0.03,
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.03-W-a11.8",
+    "nu": 0.03,
+    "amplitude": 11.8,
+    "width": 347.1529189444301,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.33-W-a0",
+    "nu": 0.33,
+    "amplitude": 0,
+    "width": 347.1529189444301,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.33-W-a1",
+    "nu": 0.33,
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.33-W-a11.8",
+    "nu": 0.33,
+    "amplitude": 11.8,
+    "width": 347.1529189444301,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y345-a1",
+    "amplitude": 1,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y345-a11.8",
+    "amplitude": 11.8,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y345-a46",
+    "amplitude": 46,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y300-a1",
+    "amplitude": 1,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 300,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y300-a11.8",
+    "amplitude": 11.8,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 300,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y300-a46",
+    "amplitude": 46,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 300,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y255-a1",
+    "amplitude": 1,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 255,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y255-a11.8",
+    "amplitude": 11.8,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 255,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-W-y255-a46",
+    "amplitude": 46,
+    "width": 2181.4248249368884,
+    "meridian": "W",
+    "yield_stress": 255,
+    "cores": 4
+  },
+  {
+    "name": "eigen-L",
+    "analysis": "buckle",
+    "pressure": 0.001,
+    "yield_stress": 10000,
+    "ntheta": 512,
+    "grading": 1,
+    "nface": 2,
+    "ncore": 6,
+    "meridian": "L",
+    "cores": 1
+  },
+  {
+    "name": "sens-nu0.03-L-a0",
+    "nu": 0.03,
+    "amplitude": 0,
+    "width": 347.1529189444301,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.03-L-a1",
+    "nu": 0.03,
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.03-L-a11.8",
+    "nu": 0.03,
+    "amplitude": 11.8,
+    "width": 347.1529189444301,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.33-L-a0",
+    "nu": 0.33,
+    "amplitude": 0,
+    "width": 347.1529189444301,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.33-L-a1",
+    "nu": 0.33,
+    "amplitude": 1,
+    "width": 347.1529189444301,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sens-nu0.33-L-a11.8",
+    "nu": 0.33,
+    "amplitude": 11.8,
+    "width": 347.1529189444301,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y345-a1",
+    "amplitude": 1,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y345-a11.8",
+    "amplitude": 11.8,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y345-a46",
+    "amplitude": 46,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 345,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y300-a1",
+    "amplitude": 1,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 300,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y300-a11.8",
+    "amplitude": 11.8,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 300,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y300-a46",
+    "amplitude": 46,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 300,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y255-a1",
+    "amplitude": 1,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 255,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y255-a11.8",
+    "amplitude": 11.8,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 255,
+    "cores": 4
+  },
+  {
+    "name": "sweep-fullwave-L-y255-a46",
+    "amplitude": 46,
+    "width": 2181.4248249368884,
+    "meridian": "L",
+    "yield_stress": 255,
+    "cores": 4
+  }
+]

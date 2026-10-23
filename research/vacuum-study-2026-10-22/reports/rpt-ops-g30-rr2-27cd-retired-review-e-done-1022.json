@@ -1,0 +1,18 @@
+{
+  "id": "rpt-ops-g30-rr2-27cd-retired-review-e-done-1022",
+  "unit": "vacuum-review-e-graphite-1020",
+  "at": "2026-10-22T10:08:55-07:00",
+  "body": "RETIRED ref-789877acd571ad3953a4 (glm, REVIEW-E graphite half) at verified idle. The first attempt at 10:07:08 was held because two short-lived child processes of the harness were live. They were gone by the retry after its next idle, so nothing was stopped. The documented exit ran at 10:08:30, and the ledger reads retired 10:08:36. Its native record 4abb49cb-3b12-4444-baaa-0d12ac348620.jsonl is kept: the first 1949862 B are byte-equal to the pin taken before retirement (sha256 5b13f348); the only bytes after the pin are the harness's own exit lines (1952943 B now). KEPT, as you asked: ref-54f4f7dcfd67e7445c6b (grok, the version-9 record delta). It retires when you ask after that files. It is now the only robotics lead live.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-admiral-rr2-ops-retire-27cd-review-e-done-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-ops-retire-27cd-review-e-done-1022",
+      "outcome": "done",
+      "extent": "work",
+      "what": "ref-789877acd571ad3953a4 retired at verified idle 10:08:36; native record byte-equal to its pin"
+    }
+  ]
+}

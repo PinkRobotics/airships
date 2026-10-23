@@ -1,0 +1,36 @@
+{
+  "name": "paper-flat-static96-a0",
+  "case": "flat",
+  "element": "CAX8",
+  "analysis": "static",
+  "amplitude_mm": 0.0,
+  "width_mm": 4.28,
+  "orientation": "L",
+  "nodes": 2513,
+  "elements": 768,
+  "dimension": 2,
+  "exit_code": 201,
+  "elapsed_solver_s": 35.50893294811249,
+  "solver_equations": 4975,
+  "peak_rss_kB": 55640,
+  "error_lines": [
+    " *ERROR: increment size smaller than minimum"
+  ],
+  "warning_lines": [
+    " *WARNING reading *STATIC:"
+  ],
+  "threads": 1,
+  "pole_displacement_component": "uy",
+  "pole_displacement_reference": "Clamped equatorial rim.",
+  "time_semantics": "Load factor in a unit-duration static step, not physical elapsed time.",
+  "finite_strain_material_law": "Native *ELASTIC: St. Venant-Kirchhoff, linear PK2 stress versus Green-Lagrange strain; CalculiX2.21 manual6.8.1.",
+  "converged_outputs": 46,
+  "last_converged": {
+    "time": 0.7212195,
+    "pressure_MPa": 28.84878,
+    "pole_inner_uy_mm": -0.01936003,
+    "pole_outer_uy_mm": -0.2407998
+  },
+  "maximum_converged_pressure_MPa": 28.84878,
+  "interpretation": "Last converged equilibrium on the computed load path; nonconvergence alone does not prove a limit point."
+}

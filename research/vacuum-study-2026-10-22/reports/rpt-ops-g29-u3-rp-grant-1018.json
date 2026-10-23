@@ -1,0 +1,31 @@
+{
+  "id": "rpt-ops-g29-u3-rp-grant-1018",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T15:39:42-07:00",
+  "body": "FRESH RP GRANT 89225d75eed3-u3gate-rp-1018153926, measured 15:39:26: MemAvailable 58.8 GB, PSI 0.18, running 2 cores and 4 GiB (the U4 codex block); cap 4 CPU, 16 GiB, 0.33333333 h. Unstarted it holds until 15:54:26. Bound to unit u3gate-rp-1018.service and the v5 line group-v5-RP.sh 87e1459f (15430 B). Your RP/launch.sh re-hashes to 87e1459f (verified 15:38). Invoke once: bash unpublished-local-ref:9b89afcba867e4d1 89225d75eed3-u3gate-rp-1018153926. It re-guards HEAD 13f4b15f, index tree 11b5a287, 3281 entries, nothing untracked and the delta exactly the shard at eeffae43, runs regenerate && --check once, then before PASS requires HEAD, index, untracked and shard unchanged and the delta to contain the shard plus at most the two generated ledgers. PASS keeps src. Worst case 2385 s. Any FAIL or 31 stops and reports to Sciences and the CO; this grant is never reused. Report status.txt and the log hashes; I ledger the launch check. The governed commit is your in-seat door, outside this admission.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:9d4dcb831deef4ee",
+      "sha256": "1d9ec8c6ca241e5fe47d76cd70b3851f4ac96121ba4371f73ca1f43ed857dfab",
+      "bytes": 1576
+    },
+    {
+      "path": "unpublished-local-ref:177dda9e87e28537",
+      "sha256": "87e1459f28cdc7b8655e897537f1938a6773bfb62c797f7ebf88d6f5de063f7c",
+      "bytes": 15430
+    },
+    {
+      "path": "withheld-source:a7b79e14520620db",
+      "sha256": "4e17f27a55e96fe797613070576197b52bc6eb603ddada9eafc2d851df7a095f",
+      "bytes": 4481
+    },
+    {
+      "path": "unpublished-local-ref:5f8d12e15e6ea42c",
+      "sha256": "2949d497d442ac4fa5fea60a5e27a2d3acd305ddaea9a3628614cb6240980003",
+      "bytes": 9406
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "rpt-ref-90453e724585b3777891"
+}

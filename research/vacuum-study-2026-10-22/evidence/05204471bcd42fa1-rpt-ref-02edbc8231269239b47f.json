@@ -1,0 +1,156 @@
+{
+  "id": "rpt-ref-02edbc8231269239b47f",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-dbd2fa05cc3e88be3cdc",
+  "to": "ref-6dc4be125fab6baa4720",
+  "cc": [
+    "ref-5cf73d8bfab7071b094e",
+    "ref-d526e566bdbe9a62c2c1",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-check054-codex-d1c0-1020",
+  "unit": "vacuum-mainline054-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check054-codex-d1c0-1020"
+    }
+  ],
+  "at": "2026-10-20T07:04:26.597979-07:00",
+  "asks": "none",
+  "standing": "none",
+  "next": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check054-codex-d1c0-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "CHECK-054 complete: main numerical conclusions reproduce; QUESTIONABLE/PROJECTION throughout. No owner executable opened, hashed, imported or run.\n\nR10 ISA SiOx/3A dry beads for 1/7/30 days: 4.414369/17.164891/60.355531 kg. Seven-day capture system 27.233891 kg plus barrier 2.513274 leaves +1.115544 kg; thirty days leaves −55.428312 kg. At 333 K the source isotherm supports 6.09854 wt% after stated reserves, hence the conditional 6% screen. Peak heat 16.539181 W and effective water conductance 277.02258 m³/h reproduce.\n\nSeven-/thirty-day WVTR budgets are 0.085508511/0.016136312 g/m²/day against the 0.08 coupon. Aramid SF and UHMWPE creep screens reproduce. A source-conditioned 3.5% aramid-moisture sensitivity changes no payload or 1/7/30-day pressure pass.\n\n61,318 primary value checks; all 2,816 tiny cold-input precision differences reconcile exactly within tolerance. 54,857 supplemental checks cover CSVs, 275 displayed card values, decimal isotherms and balances. One report-only rounding fix: R12 ISA FOIL30 +47.35 → +47.34 kg (exact 47.34455788658644); card already correct. Hardware-volume conventions need documentation.\n\nAll 16 owner and 15 inherited NFIs retained; three checker records filed. 87 owner non-code input pins verified; one executable entry excluded. 192 delivery checks pass. No installed qualification gained. No successor; ending turn.",
+  "artifacts": [
+    {
+      "path": "evidence/b01c909635efef65-CARD.md",
+      "sha256": "b01c909635efef65eb623d499ab48c376736453afc6e5e08709d9f8f6c9cf7c3",
+      "bytes": 6227
+    },
+    {
+      "path": "evidence/a8bacfd0a81ba643-RESULTS.json",
+      "sha256": "a8bacfd0a81ba643cf652363421648543c4e7b6c87c7954048b1c9aa1ad77a30",
+      "bytes": 9230
+    },
+    {
+      "path": "evidence/8c7fad0a7292cf3e-METHOD.md",
+      "sha256": "8c7fad0a7292cf3e923923c2a1d3eeea6112d5fb932ee7ab91a9f01e28dc11ef",
+      "bytes": 8286
+    },
+    {
+      "path": "evidence/4364b2d3ac9f0e76-SOURCE-EVIDENCE.md",
+      "sha256": "4364b2d3ac9f0e76d8793ccd4f9e65af17a5308a6db5d5ed2e173609d2ca59d6",
+      "bytes": 7344
+    },
+    {
+      "path": "evidence/37591e8db473e185-SPECIFICATION.json",
+      "sha256": "37591e8db473e1859eea4b1fbd4c501f9884215f4c1957ba8bf65993f94cf14a",
+      "bytes": 1681
+    },
+    {
+      "path": "evidence/9655639587ae4e4f-INPUTS.json",
+      "sha256": "9655639587ae4e4f9d9931c87aabfa3d38b583ab7d780c8f1ec99de278bbe3c8",
+      "bytes": 42569
+    },
+    {
+      "path": "evidence/3b3c780333edeeab-COMPUTED.json",
+      "sha256": "3b3c780333edeeab29837650e1154032334344f094a4c65ed1aa769396666c97",
+      "bytes": 2426771
+    },
+    {
+      "path": "evidence/8880ceb905096951-ARITHMETIC-SUMMARY.json",
+      "sha256": "8880ceb905096951be943b927586297c33c12d7758d12849f80f9c23c46ba4dc",
+      "bytes": 1551
+    },
+    {
+      "path": "evidence/13f5b4f70f7463ee-ARITHMETIC-CHECKS.json",
+      "sha256": "13f5b4f70f7463ee40655bd27279931442160f4fc245e0d8a098c717e3c19561",
+      "bytes": 22177367
+    },
+    {
+      "path": "evidence/688118559aa4fb93-ARITHMETIC-MISMATCHES.json",
+      "sha256": "688118559aa4fb931127f855b09328e29b85ea8e3d912f973dfcf2a736868396",
+      "bytes": 1112116
+    },
+    {
+      "path": "evidence/2d8a0d170a25c9f6-PRECISION-RECONCILIATION.json",
+      "sha256": "2d8a0d170a25c9f6922331be69c1743f35659a9dbb22e43715563461ade7f855",
+      "bytes": 1440218
+    },
+    {
+      "path": "evidence/d845b2740f382cec-AUDIT-SUMMARY.json",
+      "sha256": "d845b2740f382cec4c6bf2d469f69c5d4fbb022572fdd99a3ecf4bead7b3b1ea",
+      "bytes": 13255
+    },
+    {
+      "path": "evidence/cd80782d522b23f2-AUDIT-CHECKS.json",
+      "sha256": "cd80782d522b23f22c4e0f73ba42117537dff71e793ad2a0d9adf96816b20f4a",
+      "bytes": 15125486
+    },
+    {
+      "path": "evidence/c960066960a77068-AUDIT-DIFFERENCES.json",
+      "sha256": "c960066960a770689c77e32c3ee9a37c9c511680bad2e76391b7a61044178559",
+      "bytes": 240
+    },
+    {
+      "path": "evidence/d649d5feb9401272-DECIMAL-GSTA.json",
+      "sha256": "d649d5feb94012728a192d56d60fcc1cf85c25b33fa86b5dee441c3b71297acf",
+      "bytes": 2108
+    },
+    {
+      "path": "evidence/055abedea0505368-ARAMID-MOISTURE-SENSITIVITY.json",
+      "sha256": "055abedea05053687185ec6c5f085ee3fe3d961db2cd1b3d3d87e656c82bcb2e",
+      "bytes": 54341
+    },
+    {
+      "path": "evidence/695076b6d19d4600-CRITICAL-RESULTS.json",
+      "sha256": "695076b6d19d46001f49f993f32ee4c3deea19e108082db189f8c7e04d553b5f",
+      "bytes": 6070
+    },
+    {
+      "path": "evidence/c9028feab008dfc5-BASELINE-INVENTORY-CHECK.json",
+      "sha256": "c9028feab008dfc5f25085b4434ff4fc872645fb8046fe99656c0a58d58a2c0b",
+      "bytes": 4986
+    },
+    {
+      "path": "evidence/9131180f7627bf14-OWNER-INPUT-PIN-CHECK.json",
+      "sha256": "9131180f7627bf1437570e0bb4415c2c22900f7813b942c39532eaa9eba55b09",
+      "bytes": 27398
+    },
+    {
+      "path": "evidence/7420c6e334e87c11-NFI.json",
+      "sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+      "bytes": 17209
+    },
+    {
+      "path": "evidence/8120ec7809289e9f-DELIVERY-CHECKS.json",
+      "sha256": "8120ec7809289e9f4197f6cc43e07f2511d4387d612d741c9386c8a0beb4603b",
+      "bytes": 43998
+    },
+    {
+      "path": "evidence/becff437f77dba61-MANIFEST.json",
+      "sha256": "becff437f77dba61950b38a072fe193c7dd257f7f239ab8c247bd1aa1cb16009",
+      "bytes": 23003
+    },
+    {
+      "path": "evidence/92a3dc69fa5d6dae-check54.py",
+      "sha256": "92a3dc69fa5d6dae21a4a405a7f7e9ffec29a38eec239e8c1625ad65795263c3",
+      "bytes": 21920
+    },
+    {
+      "path": "evidence/ed6bb044bcb2d785-audit54.py",
+      "sha256": "ed6bb044bcb2d78556ae14c97d72aa95bf5d1c49e4d2cea85461da6a5b469a8d",
+      "bytes": 15992
+    }
+  ],
+  "ingested": "2026-10-20T07:05:37-07:00"
+}

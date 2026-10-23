@@ -1,0 +1,50 @@
+[
+  {
+    "model": "forced_conduction",
+    "check": "uniform environment is isothermal",
+    "maximum_error_K": 0.0,
+    "passed": true
+  },
+  {
+    "model": "forced_conduction",
+    "check": "sphere-average absorbed beam is alpha*S/4",
+    "independent_normalized_integral": 0.25,
+    "passed": true
+  },
+  {
+    "model": "mixed_conduction",
+    "check": "uniform environment is isothermal",
+    "maximum_error_K": 0.0,
+    "passed": true
+  },
+  {
+    "model": "mixed_conduction",
+    "check": "sphere-average absorbed beam is alpha*S/4",
+    "independent_normalized_integral": 0.25,
+    "passed": true
+  },
+  {
+    "model": "forced_gap",
+    "check": "uniform environment is isothermal",
+    "maximum_error_K": 0.0,
+    "passed": true
+  },
+  {
+    "model": "forced_gap",
+    "check": "sphere-average absorbed beam is alpha*S/4",
+    "independent_normalized_integral": 0.25,
+    "passed": true
+  },
+  {
+    "model": "mixed_gap",
+    "check": "uniform environment is isothermal",
+    "maximum_error_K": 0.0,
+    "passed": true
+  },
+  {
+    "model": "mixed_gap",
+    "check": "sphere-average absorbed beam is alpha*S/4",
+    "independent_normalized_integral": 0.25,
+    "passed": true
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "id": "A1-03",
+  "kind": "review_claim",
+  "claim": "Peak differences: +2.140% to 6.03 MPa, contact refinement −0.1156%, penalty doubling −0.0105%.",
+  "original": {
+    "id": "A1-03",
+    "card": "056",
+    "claim": "Peak differences: +2.140% to 6.03 MPa, contact refinement −0.1156%, penalty doubling −0.0105%.",
+    "why_load_bearing": "Supports the convergence and accuracy headline.",
+    "disposition": "reproduces",
+    "reviewer_finding": "Independent ratios: +2.139645510%, mesh −0.115571622%, penalty −0.010452458%. These reproduce the printed rounding; they are observed numerical changes, not certified error bounds.",
+    "evidence": [
+      "ACCOUNT-CHECK.json",
+      "FIELD-CHECK.json"
+    ],
+    "tag": "QUESTIONABLE / PROJECTION",
+    "physical_qualification": "open; no new hull/material qualification"
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "snapshot": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "sha256": "0a58772dc43eef58cdd741ae5a44b971bafea7dbfcebefc55d5b366e716ca00e",
+      "bytes": 10860,
+      "selector": "/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

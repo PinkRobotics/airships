@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-029 CHECK",
+  "unit": "vacuum-mainline029-check-1020",
+  "tag": "QUESTIONABLE",
+  "rows": [
+    {
+      "id": "C029-01-EUCASS-STVK-COLLAPSE",
+      "state": "demonstrated",
+      "direction": "the elastic benchmark endpoints are not structural",
+      "note": "The card's elastic imperfect endpoints (13.956916 / 13.843652 MPa) are set by the St. Venant-Kirchhoff foam collapsing under the dimple, not by shell buckling. With nu 0, StVK foam carries at most E/(3 sqrt 3) = 7.70 MPa in uniaxial compression, at stretch 1/sqrt 3 = 0.577. At each maximum the foam's most compressive principal stress is near that limit and its smallest stretch is past it: flat 96 x 2f x 12c -7.61 MPa at stretch 0.229; dimple 96 x 2f x 4c -7.48 MPa at 0.353; under displacement control at the card's mesh, a flat foam point reaches stretch 0.0096 at 13.78 MPa, and the path keeps rising to 14.219 through such states. So the endpoint depends on the core mesh and the path. At the card's mesh the flat first critical point is 13.785 (arc-length), with my load control at 14.051 and displacement control at 14.219. Refining the core (4/6/8/10/12 elements) gives 13.785/13.576/13.553/13.431/13.372 MPa, not converged; for the dimple (4/6/8/10) it gives 13.838/13.649/13.552/13.495. Meridional refinement is converged: 13.576/13.566/13.566 at 96/192/384 with 6 core elements. The lead models are not affected by this mechanism: their honeycomb normal strain stays below 1% at the limits (0.36 to 0.78%), while StVK collapse needs 42%. Their core has a different, shear instability (C029-10).",
+      "proposed_fix": "Fix card, if the EUCASS benchmark is reused: replace the StVK foam with a compressible hyperelastic or crushable-foam law and report the endpoint against core refinement. No lead number changes."
+    },
+    {
+      "id": "C029-02-EUCASS-LINEAR-GAP",
+      "state": "candidates computed; cause not established",
+      "direction": "benchmark",
+      "note": "The linear gap (30.21717 against the paper's 27.53 MPa) is not the mesh, which is converged, and not the load stiffness, which raises the value by 1.70%. It is not the through-thickness discretization either. Two candidates fit. (a) Fig. 4(a) draws the 42.80 mm radius arrow to a point inside the wall, so the reference surface is not stated. Read as the mid-surface radius, it gives 28.076 / 28.061 MPa (+2.0% / +1.8%), closing about 80% of the gap. Read at the foam/outer-face interface, it gives 29.738 / 29.715. (b) E_steel of about 187 GPa closes it (190 GPa gives 27.877, 200 GPa gives 29.049), but Table 1 states 210 GPa. A third candidate, the paper's own discretization (about 2 foam solids through 3.1 mm, 1.04 mm continuum-shell faces, tie constraints), was not tested."
+    },
+    {
+      "id": "C029-03-EUCASS-CONSTITUTIVE",
+      "state": "demonstrated in the elastic model",
+      "direction": "supports the card's NFI-029-FOAM, -FACE-PLASTICITY and -STEEL-CURVE",
+      "note": "At the paper's 6.03 MPa, my elastic imperfect flat model (96 x 2f x 4c) has the foam at -3.15 MPa principal stress and the outer face at 1015 MPa von Mises (inner face 363). The foam passes the Fig. 3 plateau, read at about 1.4 MPa, at 2.75 MPa. The face passes 750 MPa at 4.56 MPa: Fig. 5 as printed starts near 7,500 MPa, which is impossible for 201 steel, and reads about 750 MPa if the axis is off by 10. The perfect model at 12.45 MPa: outer face 1014 MPa at the clamped edge (750 MPa reached at 9.29 MPa), foam -1.11 MPa. This is consistent with the paper's note that its perfect model buckles at the bottom edge. The factor of 2.3 is constitutive, so no elastic model should be expected to close it."
+    },
+    {
+      "id": "C029-04-LEAD021B-WRINKLING",
+      "state": "demonstrated in the linear analysis with the card's in-plane core stiffness",
+      "direction": "Table 2 linear column for 021b",
+      "note": "021b's lowest linear mode is a symmetric face-wrinkling mode: the inner and outer faces move opposite, and the mode does not depend on the core shear modulus. On graded meshes it falls with refinement: 230.386 (512), 209.173 (1024), 200.792 (2048), 198.219 (4096), 197.593 kPa (8192); 4096 with grading 2.0 gives 197.582, and 2 face x 6 core gives 198.174. It converges near 197.4 kPa. That is 2.8% below the card's W value of 203.245 and 15.8% below its L value of 234.532; both global modes reproduce. The owner's uniform 512 and 1024 eigen meshes (61 and 31 mm elements) cannot resolve it. Uniform 4096 (7.7 mm) only partly resolves it: L gives 210.188, and W shows only its global 203.244. So the card's 512 to 1,024 check (at most 0.0103%) tests the global modes only. A Winkler estimate gives 677.7 MPa = 187.5 kPa for 021b, with wavelength 36.7 mm; for 021 it gives 913.4 MPa = 308.2 kPa, so 021 is unaffected (191.476 / 160.132 at graded 2048). On the static paths, graded 2048 limit points equal the 512 values (78.631 / 90.736 / 105.077 kPa). Stability of the refined static paths, and why wrinkling there cannot be separated from the core: C029-10. The mode depends on the unsourced in-plane core stiffness. With E_in 1 MPa and G_in 0.5 MPa the graded 4096 lowest mode is the global 203.251 kPa. The card's 0.01 MPa is the more realistic value: a Gibson-Ashby estimate for 1.0 pcf 5056 honeycomb gives about 0.02 MPa (QUESTIONABLE). On the static paths, meshes fine enough to resolve the wrinkle also resolve the core's loss of ellipticity (C029-10), so wrinkling at the dimple cannot be isolated in this model class.",
+      "proposed_fix": "Add the 021b wrinkling eigenpressure (about 197 kPa, about 690 MPa face membrane stress) to the 021b margin table, conditional on a sourced in-plane core stiffness."
+    },
+    {
+      "id": "C029-05-LEAD-LIMIT-POINTS",
+      "state": "demonstrated",
+      "direction": "resolves part of the card's NFI-029-LOAD-CONTROL",
+      "note": "Every one of the 14 lead endpoints is a true limit point of the axisymmetric model. Under pole displacement control the pressure peaks and then falls; for 021b W it peaks at 90.736 kPa at pole dz -80.4 mm and falls to 76.53 kPa at -140.4 mm. The card's load-control endpoints are within 0.032% of those maxima. Nonaxisymmetric modes remain unexamined (NFI-029-AXISYMMETRY)."
+    },
+    {
+      "id": "C029-06-FACE-YIELD-BELOW-OPERATING",
+      "state": "demonstrated with the line's QUESTIONABLE strengths",
+      "direction": "the elastic endpoints are not capacities",
+      "note": "Along the specified-dimple paths, the outer face first reaches 345 MPa von Mises (the line's SR-200 proxy) at lead021/W 57.6 kPa, lead021/L 59.4 kPa, lead021b/W 43.2 kPa, lead021b/L 45.0 kPa (0.45 to 0.62 of the 95.461 kPa operating pressure). It reaches 379.2 MPa at 61.8, 64.1, 46.8, 48.8 kPa, and the 241 MPa S200F specification minimum (Materion, the card's own cited datasheet) at 42.9, 43.8, 31.5, 32.5 kPa. For 021 the first yield is at the pole; for 021b it is on the dimple flank at r of about 350 to 420 mm. 021b's perfect-sphere face membrane stress at operating is 345.0 MPa (pR/4t_f), so it is sized exactly to the proxy. The card says face survival is not established. Without plasticity the faces already yield well below operating.",
+      "proposed_fix": "Fix card: run the specified-dimple paths with an elastic-plastic face, or stop them at a sourced sheet allowable (SR-200 or S-200F), and report first yield and collapse for 021 and 021b."
+    },
+    {
+      "id": "C029-07-WIDTH-CONVENTION",
+      "state": "convention stated by the card; effect computed",
+      "direction": "minor",
+      "note": "The widths 332.216 and 401.856 mm reproduce exactly with nu 0.30, the sealed 015 mapping the card cites. 015b's live nu 0.33 gives 333.964 and 403.970 mm (+0.53%), which moves the W endpoints to 78.459 and 90.499 kPa (-0.21% and -0.25%). The excluded eigen512 MODEL.json records (p_ref 1 MPa) carry the 0.33 width; with amplitude 0 this has no numerical effect."
+    },
+    {
+      "id": "C029-08-BUCKLE-LOAD-STIFFNESS",
+      "state": "inferred from agreement to print precision",
+      "direction": "documentation",
+      "note": "The card's eigenpressures are dead-load values: my eigenvalues without the pressure load stiffness match them to print precision. With the follower load stiffness they would be +1.70% for EUCASS (30.732 flat at 384) and about +0.15% for the lead (160.367 for 021 W at 512). The card does not state this. It does not change the benchmark conclusion, because the load stiffness moves away from 27.53."
+    },
+    {
+      "id": "C029-09-TRANSFER-OFFSET",
+      "state": "noted",
+      "direction": "minor",
+      "note": "Transfer40 axisymmetric eigenpressures match to 7 digits on the owner's meshes (24/48/96/192 with 1f x 2c, 384 with 2f x 4c). The static endpoints sit 0.04% to 0.13% below my displacement-control limit points at every mesh, consistent with load control stopping just short of the limit. Not a mismatch at 0.2%."
+    },
+    {
+      "id": "C029-10-CORE-LOSES-ELLIPTICITY",
+      "state": "demonstrated",
+      "direction": "numerical and modelling; extends NFI-029-HOMOGENIZATION",
+      "note": "The card's core law, C = diag(E_in, E_n, G) in the tangent/normal frame with zero Poisson coupling, loses ellipticity under transverse shear tau. The plane-wave acoustic tensor has det = E_in G + 2 tau x (E_in + G) + x^2 (E_in E_n + 4 tau^2) + 2 tau x^3 (G + E_n) + G E_n x^4, which turns negative for some x = k_n/k_t once tau exceeds 0.088 MPa (W) or 0.088 MPa (L) at the card's E_in of 0.01 MPa. The thresholds are 2.58 / 2.61 MPa at 1 MPa. The card's static paths reach 0.088 MPa at lead021-W 11.0 kPa, lead021-L 11.3 kPa, lead021b-W 7.3 kPa, lead021b-L 6.9 kPa. The discretization sees it once elements are a few millimetres long, below the 9.5 mm cell size. With the far shift (-1000, the true lowest eigenvalues) on graded 4096 x 1.35 (about 3.5 mm): stabsig-4096g135-lead021b-W-a46: 30.0 kPa lowest 0.013; 60.0 kPa lowest -569.718; 80.0 kPa lowest -1059.992; 90.7 kPa lowest -1016.326; stabsig-4096g135-lead021b-L-a46: 30.0 kPa lowest 0.017; 60.0 kPa lowest -55.528; 90.0 kPa lowest -1077.184. The negative eigenvalues come in clusters of nearly equal values on the dimple flank at r 340 to 570 mm (anti-phase for L, mixed for W). On 4096 with grading 2.0 (about 1.35 mm): -0.595 already at 30 kPa, an exact eigenpair (residual 3e-7) whose small-strain quotient 617.9 is cancelled by the initial-stress term -589.1. The core carries 99.97% of the material and 100.00% of the initial-stress energy. The 021b W lowest mode at 60 kPa (-569.7) has 99.95% of its material energy in the core. Its worst element is a core element 3.31 mm long, where the core stress reaches 0.78 MPa. The 021b L lowest mode at 60 kPa (-55.5) has 99.75% of its material energy in the core. Its worst element is a core element 3.24 mm long, where the core stress reaches 0.82 MPa. Its outer-face motion has 33 sign changes over r 302 to 409 mm, a wavelength of 6.5 mm (about two elements; inner/outer correlation -0.99). That is mesh-scale, not the 37 mm wrinkle. With E_in 1 MPa and G_in 0.5 MPa that state's lowest eigenvalue is 0.0197. Along the paths with E_in 1 MPa: stabsig-4096g135-lead021b-W-a46-ein1: 30.0 kPa lowest 0.013; 60.0 kPa lowest 0.011; 80.0 kPa lowest 0.010; 90.7 kPa lowest 0.009; stabsig-4096g135-lead021b-L-a46-ein1: 30.0 kPa lowest 0.017; 60.0 kPa lowest 0.016; 90.0 kPa lowest 0.014; 105.0 kPa lowest 0.012.",
+      "proposed_fix": "Any refinement or stability study of these lead models must first source the in-plane core stiffness, or model the cells. The card's endpoints are properties of meshes too coarse to resolve this instability."
+    },
+    {
+      "id": "C029-11-CORE-SHEAR-FAILURE",
+      "state": "demonstrated with the card's own core source (QUESTIONABLE strengths)",
+      "direction": "the elastic endpoints are not capacities",
+      "note": "This is the core sibling of the card's face stress diagnostic; the card makes no core check. Along the card's static paths (graded 512 x 1f x 4c), the core's largest transverse shear (Cauchy, current tangent/normal frame) reaches the Hexcel CR III Table II strengths (5056, 3/8 in., 1.0 pcf: W shear 35 psi typical / 25 minimum, L shear 55 / 45, crush 35) at: lead021-W: typical 26.4 kPa, minimum 20.0 kPa; at the limit 1.61 MPa = 6.7 times typical; crush at 67.3 kPa; lead021-L: typical 41.2 kPa, minimum 35.1 kPa; at the limit 1.84 MPa = 4.8 times typical; crush at 76.6 kPa; lead021b-W: typical 19.5 kPa, minimum 14.1 kPa; at the limit 1.77 MPa = 7.4 times typical; crush at 54.4 kPa; lead021b-L: typical 28.4 kPa, minimum 23.5 kPa; at the limit 2.03 MPa = 5.4 times typical; crush at 46.8 kPa. The shear peaks on the dimple flank (r 330 to 600 mm). Crush occurs under the dimple centre. Mesh check: lead021b-W: W typical shear at 19.49 kPa; lead021b-W-1024: W typical shear at 19.49 kPa; lead021b-W-2048: W typical shear at 19.49 kPa; lead021b-W-2f6c: W typical shear at 19.49 kPa.",
+      "proposed_fix": "Fix card: core admissibility (shear and crush) at the specified dimples, together with face admissibility (C029-06), before any endpoint is used as a capacity."
+    }
+  ],
+  "note": "Objections become NFI rows or proposed fix cards. None stops the card or any other card."
+}

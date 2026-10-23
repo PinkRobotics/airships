@@ -1,0 +1,61 @@
+{
+  "id": "E-4779059a1cf8c16a29a4",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-4779059a1cf8c16a29a4",
+    "report": "rpt-ref-9a28294ab892bcd529f5",
+    "file": "evidence/105e2c83175a7607-NFI.json",
+    "snapshot": "evidence/105e2c83175a7607-NFI.json",
+    "source_sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+    "source_json_pointer": "/items/0",
+    "row_id": "NFI-CHECK049-DENSITY",
+    "fields": {
+      "id": "NFI-CHECK049-DENSITY",
+      "kind": "model-input inconsistency",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "K13D2U QI at 60% Vf; all radii and variants",
+      "field": "density_kg_m3 / fibre_mass_fraction",
+      "owner": [
+        1725.4901960784314,
+        0.67
+      ],
+      "checker": [
+        1800.0,
+        0.7333333333333333
+      ],
+      "evidence": "The stated 2200/1200 constituent densities give Vf=.525490196 at 67 wt% fibre, not .6.",
+      "impact": {
+        "R": 30,
+        "weather": "ISA",
+        "kind": "least",
+        "owner_model_payload": 0.00013932210276834667,
+        "corrected_density_payload": -4354.509347291896,
+        "owner_faces": 100823.1241592386,
+        "corrected_faces": 105176.84997520573,
+        "owner_fibre": 67551.49318668987,
+        "corrected_fibre": 77129.68998181753,
+        "corrected_pitch_capacity_share": 0.055092635701298236
+      },
+      "fix": "Use one consistent volume/weight mixture and rerun geometry, water, payload and supply. Preserve the separate 33 wt% resin baseline."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-CHECK049-DENSITY\", \"kind\": \"model-input inconsistency\", \"blocking\": false, \"tag\": \"PROJECTION\", \"row\": \"K13D2U QI at 60% Vf; all radii and variants\", \"field\": \"density_kg_m3 / fibre_mass_fraction\", \"owner\": [1725.4901960784314, 0.67], \"checker\": [1800.0, 0.7333333333333333], \"evidence\": \"The stated 2200/1200 constituent densities give Vf=.525490196 at 67 wt% fibre, not .6.\", \"impact\": {\"R\": 30, \"weather\": \"ISA\", \"kind\": \"least\", \"owner_model_payload\": 0.00013932210276834667, \"corrected_density_payload\": -4354.509347291896, \"owner_faces\": 100823.1241592386, \"corrected_faces\": 105176.84997520573, \"owner_fibre\": 67551.49318668987, \"corrected_fibre\": 77129.68998181753, \"corrected_pitch_capacity_share\": 0.055092635701298236}, \"fix\": \"Use one consistent volume/weight mixture and rerun geometry, water, payload and supply. Preserve the separate 33 wt% resin baseline.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-9a28294ab892bcd529f5",
+      "artifact": "evidence/105e2c83175a7607-NFI.json",
+      "snapshot": "evidence/105e2c83175a7607-NFI.json",
+      "sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+      "bytes": 8601,
+      "selector": "/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

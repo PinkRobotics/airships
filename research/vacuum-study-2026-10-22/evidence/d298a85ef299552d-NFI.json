@@ -1,0 +1,156 @@
+{
+  "unit": "vacuum-mainline041-check-1020",
+  "all_nonblocking": true,
+  "qualified_structural_SF": null,
+  "qualified_compression_allowable_Pa": null,
+  "qualified_failure_probability": null,
+  "rows": [
+    {
+      "id": "CHECK041-NFI-01",
+      "status": "open",
+      "topic": "Prior owner-postprocessor exposure",
+      "finding": "This seat read score.py and force_stats.py during the earlier 043 fold. CHECK-041 uses an earlier independent linear core and new calculations, but cannot be described as blind.",
+      "action": "Retain the disclosure. If a blind check is required, commission it separately with a reviewer without this exposure.",
+      "evidence": [
+        "PRIOR-EXPOSURE.json",
+        "METHOD.md"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-02",
+      "status": "open",
+      "topic": "Film-tangent reproducibility",
+      "finding": "Rigid/pinned perfect multipliers are 7.151119777416943 / 2.0461935353568275 versus 7.155002496828368 / 2.0471334034237882. Direction-field ambiguity is a hypothesis, not an established cause.",
+      "action": "Supply a pinned per-cell material-direction field or an ordering-independent geometric definition, then align independent formulations. Preserve all exact differences.",
+      "evidence": [
+        "SCALAR-CHECK.json",
+        "MISMATCHES.csv",
+        "film_check.py"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-03",
+      "status": "open",
+      "topic": "Finite-rotation formulation equivalence",
+      "finding": "Independent m12/m24 brackets lie within the reported brackets. The m6 bracket is earlier and disjoint; six endpoint eigenvalues differ. Reference stiffness and objectivity tests do not prove equivalence of loaded-state formulations.",
+      "action": "Specify reference/current transverse frames and local rotation/deformation maps sufficiently for a code-independent matched benchmark; compare loaded curved-member examples and tangent matrices.",
+      "evidence": [
+        "NONLINEAR-CHECK.json",
+        "ENERGY-VALIDATION.json",
+        "nonlinear_energy.py"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-04",
+      "status": "open",
+      "topic": "First sampled loss versus physical collapse",
+      "finding": "Three independent perfect-branch continuations corroborate the fine-mesh trend. Finite sampling, ideal elastic material, and ideal rigid joints do not establish imperfection tolerance or physical collapse; resized f5 points were not independently continued nonlinearly.",
+      "action": "Treat the result as first sampled ideal tangent loss. For capacity work, evaluate manufactured imperfections, load paths, joints, and resized witnesses with a qualified model.",
+      "evidence": [
+        "NONLINEAR-CHECK.json",
+        "METHOD.md"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-05",
+      "status": "open",
+      "topic": "Uncalibrated global multiplier",
+      "finding": "The 0.2 linear multiplier is inherited. Applying it to the nonlinear result is only arithmetic; no measured knockdown distribution is established.",
+      "action": "Preserve explicit PROJECTION status and obtain geometry/joint/imperfection-specific calibration before using a qualified margin.",
+      "evidence": [
+        "SOURCES.md",
+        "NONLINEAR-CHECK.json"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-06",
+      "status": "open",
+      "topic": "Local curved-tube wall interaction",
+      "finding": "Independent peak-compression local sensitivities are 1.0332229353980462 and 0.9781320168028794. The 019 witness is below unity under that surrogate. Neither the axial-only nor peak-substitution interaction is qualified for curved ceramic tubes.",
+      "action": "Keep the sub-unity sensitivity visible and establish combined axial/bending local-wall response using geometry-resolved shell analysis and matched evidence.",
+      "evidence": [
+        "SCALAR-CHECK.json",
+        "CHECK.md"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-07",
+      "status": "open",
+      "topic": "SiC stiffness, strength and size transfer",
+      "finding": "410 GPa is a comparison input versus 430 GPa in the vendor sheet. Nominal 3.9 GPa compression and projected 15.586 MPa tension do not establish full-size member allowables or frame failure probabilities.",
+      "action": "Obtain matched finished-tube compression/tension distributions, flaw and size effects, load interaction, and joint-contact evidence. Keep probability and qualified allowable fields null.",
+      "evidence": [
+        "SOURCES.md",
+        "RESULTS.json"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-08",
+      "status": "open",
+      "topic": "Joint strength and rotational stiffness",
+      "finding": "Correlated end N/M/T sizing is reproduced. Coupon compression, prepared-aluminum lap shear, and an assumed joint density do not qualify sleeve laminates, adhesive peel, ceramic contact, or actual rotational restraint.",
+      "action": "Define the joint construction and characterize its combined-load strength, peel/contact behavior, stiffness, environment, and manufacturing variability.",
+      "evidence": [
+        "SCALAR-CHECK.json",
+        "SOURCES.md",
+        "PIN-CHECK.json"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-09",
+      "status": "open",
+      "topic": "Pressure-equilibrated skin and attachments",
+      "finding": "The film comparison assumes two taut axial tangents, perfect attachment, and zero assigned shear, coupling and prestress. Filament data do not determine the full skin. Interior kinematics are constrained by the frame.",
+      "action": "Specify laminate properties, pressure-equilibrated shape, tension-only/wrinkling behavior, seam transfer, and attachment compliance before crediting restraint.",
+      "evidence": [
+        "film_check.py",
+        "SOURCES.md"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-10",
+      "status": "open",
+      "topic": "Manufacturing and closure mass",
+      "finding": "The declared closure sums reproduce. Thin curved SiC manufacture, seams, gas barrier, coatings, attachment hardware, tolerances, inspection and assembly losses are not established by those sums.",
+      "action": "Replace projected allowances with a manufacturable bill of materials and keep both reserve conventions explicit.",
+      "evidence": [
+        "SCALAR-CHECK.json",
+        "SUPPLEMENT-CHECK.json"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-11",
+      "status": "open",
+      "topic": "Best-found scope",
+      "finding": "The fixed f4/f5 witnesses are independently evaluated; the full search is not repeated. The filed search covers a finite uniform-section family and fine-mesh witnesses inherit a coarser optimum gyration.",
+      "action": "Use best-found language. Any broader optimum claim needs additional independent search or a certificate, including relevant topology and nonuniform-section alternatives.",
+      "evidence": [
+        "COVERAGE.md",
+        "SUPPLEMENT-CHECK.json"
+      ],
+      "stops_work": false
+    },
+    {
+      "id": "CHECK041-NFI-12",
+      "status": "open",
+      "topic": "Pressure surface and sag-volume consistency",
+      "finding": "The pressure fan and circular-cap sag debit are different declared geometric surrogates. Arithmetic agreement does not establish that one pressure-equilibrated skin produces both.",
+      "action": "Use a common compatible pressure/volume/mass geometry when developing a qualified coupled model.",
+      "evidence": [
+        "METHOD.md",
+        "COVERAGE.md"
+      ],
+      "stops_work": false
+    }
+  ]
+}

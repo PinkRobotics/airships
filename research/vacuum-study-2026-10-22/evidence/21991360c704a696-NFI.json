@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-010",
+  "unit": "vacuum-mainline010-nfi-geom-1019",
+  "NFI": [
+    {
+      "NFI_id": "NFI-010-FIXEDTHICK",
+      "gap": "Levers 1 and 4 hold face and core thickness fixed while radius changes. A real design re-optimizes thickness per radius; the mass-ceiling rows of 002/003 show how much that moves things at 10 m only.",
+      "direction": "Re-run the levers with thickness re-solved at the float ceiling per radius.",
+      "effect": "Margins improve at small radius; SF rankings are not expected to flip."
+    },
+    {
+      "NFI_id": "NFI-010-SYSTEMS",
+      "gap": "Systems at 100 kg per sphere in a cluster is the mass rule read literally. A shared-systems cluster would pay it once.",
+      "direction": "Name the systems architecture before crediting any cluster margin.",
+      "effect": "Cluster margins improve by up to (n-1) x 100 kg of lift; SFs unchanged."
+    },
+    {
+      "NFI_id": "NFI-010-ISA",
+      "gap": "ISA is a standard column, not weather. The 500 m point matches the pinned case within 0.1 Pa; other altitudes are the same formula, QUESTIONABLE.",
+      "direction": "Fly a measured column when a site is named.",
+      "effect": "Lever 2 numbers move with the real lapse and pressure."
+    },
+    {
+      "NFI_id": "NFI-010-007008",
+      "gap": "MAINLINE-007 and 008 had not filed when this card closed, so lever 1 was not re-run on their best rows, as the brief's Then clause directs.",
+      "direction": "Re-run lever 1 on their best rows when they file; the script here takes any tf/core row.",
+      "effect": "None on this card's numbers."
+    }
+  ]
+}

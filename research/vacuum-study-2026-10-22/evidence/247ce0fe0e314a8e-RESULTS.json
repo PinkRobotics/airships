@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline044-check-1020",
+  "status": "CHECK COMPLETE; nonblocking qualifications retained",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "measurement_start": "2026-10-20T11:19:39.912964+00:00",
+  "measurement_end": "2026-10-20T11:46:10.743482+00:00",
+  "elapsed_seconds": 1590.830518,
+  "timing_scope": "Measured substantive evidence/arithmetic/check-card work; initial order reading precedes start. Filing follows. No budget or phase cap.",
+  "arithmetic_comparisons": {
+    "total": 25663,
+    "matched": 25663,
+    "mismatched": 0
+  },
+  "comparison_field_types": {
+    "numeric": 19619,
+    "text": 3743,
+    "null": 2296,
+    "boolean": 5
+  },
+  "source_label_mismatch_count": 1,
+  "exact_source_mismatches": "SOURCE-MISMATCHES.json",
+  "arithmetic_mismatches": "MISMATCHES.json",
+  "physical_evidence_checks": {
+    "total": 7,
+    "passed": 7,
+    "artifact": "VERIFICATION.json"
+  },
+  "coverage": {
+    "thermal_cases": 72,
+    "ordinary_component_cycle_rows": 1113,
+    "daily_topup_rows": 365,
+    "pad_baseline_rows": 4,
+    "pad_restore_rows": 8,
+    "core_sensitivity_rows": 42,
+    "life_sensitivity_rows": 36,
+    "thermal_restore_rows": 4,
+    "denser_core_rows": 4,
+    "combined_static_rows": 9,
+    "bond_contact_rows": 3,
+    "component_summary_scenarios": 9,
+    "independent_vent_records": 3,
+    "card_display_claims": 29,
+    "pin_intake_matches": 35,
+    "nested_pin_matches": 75
+  },
+  "headlines": {
+    "pad_core_static_SF": 0.7142857142857143,
+    "pad_plate_only_index_days": 949.8463929647498,
+    "rigid_ambient_min_L_index_days": 3697.149914483174,
+    "rigid_ambient_min_W_index_days": 3989.1412478726697,
+    "free_edge_200F_min_W_index_days": 18816.049843344892,
+    "relative_strict_pad_and_scarf_added_kg": 36.661200272130486,
+    "conditional_no_old_plate_credit_added_kg": 40.075233911001774,
+    "qualified_hull_life_days": null
+  },
+  "arithmetic_result": "ARITHMETIC-RESULTS.json",
+  "supplemental_result": "SUPPLEMENTAL-RESULTS.json",
+  "new_nonblocking_findings": 5,
+  "retained_044_findings": 19,
+  "retained_037b_findings": 13,
+  "owner_code_read": false,
+  "owner_code_run": false,
+  "prior_exposure": "044 card and reported outputs were folded into MAINLINE-030c; independent arithmetic begins here.",
+  "source_cutoff": "The filed MAINLINE044 evidence pinned in INTAKE-PINS.json; no later card/check is implicitly included.",
+  "qualified_hull_life_days": null,
+  "next": "none; CHECK.md names no successor",
+  "active_jobs": []
+}

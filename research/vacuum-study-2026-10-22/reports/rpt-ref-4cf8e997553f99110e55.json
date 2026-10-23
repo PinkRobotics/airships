@@ -1,0 +1,28 @@
+{
+  "id": "rpt-ref-4cf8e997553f99110e55",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-19T23:36:49-07:00",
+  "body": "MAINLINE-009b restates the filed P2 point. Geometry is unchanged: SiC faces 0.000272153646316 m, Divinycell H35 core 0.0462419048864 m, margin 0.05, moderate branch. Re-derived Vc is 1.95855162232 and Kc is 0.510362094419. gamma_d stays 0.20. Kc does not depend on knockdown.\n\nStated global safety factor is Kc times the classical factor at the same knockdown. At 0.20 it is 0.23515931325. At 0.90 it is 1.05821690962 (1.058). At 0.1407 it is 0.165434576871 (0.165). The filed rows 2.07346298088 and 0.324151379344 were classical only. Their ratio is 0.1407/0.90. Dividing the 0.90 classical factor by the 0.20 handbook factor gave 8.81726924709, which is 4.5/Kc. With Kc on every level that misread is gone, and 0.165 < 0.235 < 1.058. The knockdown gap 0.90/0.20 remains 4.5.\n\nAt 0.90 wrinkling governs, at 0.235167984044. At 0.1407 the restated global governs, at 0.165434576871. Face compression 4.44747498063, crush 10.4754999207 and crimp 1.17630177845 are unchanged. The point still does not reach 1 in every mode.\n\nFoam design Q is 0.50 and comparison Q is 0.82. Hoff and Mautner, Allen, and Plantema were not opened. QUESTIONABLE. At knockdown 0.20 the lesser factor stays 0.23515931325 at both Q values. At 0.90 and Q 0.82 the lesser factor is wrinkling 0.385675493833. At 0.1407 it stays 0.165434576871 at both. The Ec times Gc gap is 4.410944.\n\nP3 stays PENDING-011b. The SiC frame is not scored. Lattice buckling and member bending remain absent. 011b and 013 have not filed. 014 has filed, so 009c is next. Not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/564e465f8ea5aaf2-CARD.md",
+      "sha256": "564e465f8ea5aaf26536c48e185990f0977ce66e69cc56e627652a4e53af018d",
+      "bytes": 4013,
+      "match": true
+    },
+    {
+      "path": "evidence/47f87ef8ba295b43-KC-LEVELS.json",
+      "sha256": "47f87ef8ba295b43c3fd0c633d3012362c097f1bc7f38165b2c9dd8d5e8f8520",
+      "bytes": 6645,
+      "match": true
+    },
+    {
+      "path": "evidence/cb105ec356dfd542-rederive.py",
+      "sha256": "cb105ec356dfd54283b2653dab1798b6fb9db713744bf8a47943e13089dfa5ae",
+      "bytes": 13334,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009b-kc-all-levels-1019"
+}

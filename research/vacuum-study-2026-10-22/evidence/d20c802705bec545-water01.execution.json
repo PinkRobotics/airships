@@ -1,0 +1,60 @@
+{
+  "tag": "water01",
+  "command": [
+    "python3",
+    "tools/simjob.py",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "1G",
+    "--",
+    "python3",
+    ".ship/work/outputs/vacuum-mainline059-check-1020/water_check.py"
+  ],
+  "started_at": "2026-10-20T07:16:31.958117-07:00",
+  "cores": 1,
+  "memory": "1G",
+  "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+  "source_pins": [
+    {
+      "path": "evidence/015df10734ee9eb1-admit.py",
+      "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+    },
+    {
+      "path": "evidence/4cbb8498bc418169-capacity_check.py",
+      "sha256": "b2cbd9f700e1a3877f7c6bfac2606d64251f512b2fad863c709f33655ed7d1f6"
+    },
+    {
+      "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+      "sha256": "5d53a0fb4b1c422d118da286a456fa79ca47bd1de93e462ef5bf3deed250d718"
+    },
+    {
+      "path": "evidence/322edaeb9df48485-local_drying.py",
+      "sha256": "322edaeb9df48485678cb79c2ad1ecf92602f195925027017e4d309d93beb91d"
+    },
+    {
+      "path": "evidence/1bc63dd16be03461-pond_check.py",
+      "sha256": "1bc63dd16be03461c5462375e04c2e96d99ff9d5ad1686a3f9d8b86e8b53be11"
+    },
+    {
+      "path": "evidence/b145d0fca347677e-pond_validation.py",
+      "sha256": "75ea680c4bab1a854f0e43d708b020c7f9e6879cc9e5f9fef096b2edf3aca062"
+    },
+    {
+      "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+      "sha256": "d5b840b2bdcfcccd5777937ba4df5888f4d06877c54ab925f66caf1a1f4181ad"
+    },
+    {
+      "path": "evidence/8ff7ec27709b7f62-water_check.py",
+      "sha256": "7e08bab5a856ee6e5d40eb56085f5f98afedec608ded0abdd7ad3653e8d4faef"
+    },
+    {
+      "path": ".ship/work/outputs/vacuum-mainline059-check-1020/water_check.py",
+      "sha256": "7e08bab5a856ee6e5d40eb56085f5f98afedec608ded0abdd7ad3653e8d4faef"
+    }
+  ],
+  "ended_at": "2026-10-20T07:16:32.234046-07:00",
+  "exit_code": 0,
+  "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+}

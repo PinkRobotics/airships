@@ -1,0 +1,78 @@
+{
+  "id": "D051",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D051",
+    "report": "rpt-ref-b6da4592385c83f4db2a",
+    "file": "evidence/c5f35d593dd63dfb-NFI.json",
+    "snapshot": "evidence/c5f35d593dd63dfb-NFI.json",
+    "source_sha256": "c5f35d593dd63dfb5c47e3cde38389202de772bd46845c4d2ae2962d9256f224",
+    "source_json_pointer": "/new/8",
+    "row_id": "046-09",
+    "fields": {
+      "id": "046-09",
+      "topic": "Daily drying",
+      "finding": "034 water upper envelope exceeds the 5% RH budget on the chosen cold patch; initial fibre moisture can consume that budget alone.",
+      "needed": "Verify <=0.805 g/m2/day at the chosen 041 conditions or shorten/regulate drying; include all water sources and cold-patch sensitivity."
+    },
+    "inherited_document_tag": {
+      "status": "OPEN / QUESTIONABLE"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/new",
+    "blocks_progress": false
+  },
+  "claim": "034 water upper envelope exceeds the 5% RH budget on the chosen cold patch; initial fibre moisture can consume that budget alone.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1011"
+    },
+    {
+      "report": "rpt-ref-b6da4592385c83f4db2a",
+      "artifact": "evidence/c5f35d593dd63dfb-NFI.json",
+      "snapshot": "evidence/c5f35d593dd63dfb-NFI.json",
+      "sha256": "c5f35d593dd63dfb5c47e3cde38389202de772bd46845c4d2ae2962d9256f224",
+      "bytes": 8112,
+      "selector": "/new/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-b6da4592385c83f4db2a",
+          "artifact": "evidence/c5f35d593dd63dfb-NFI.json",
+          "snapshot": "evidence/c5f35d593dd63dfb-NFI.json",
+          "sha256": "c5f35d593dd63dfb5c47e3cde38389202de772bd46845c4d2ae2962d9256f224",
+          "bytes": 8112,
+          "selector": "/new/8"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1011"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "forced_conduction": {
+    "convection": "forced",
+    "gap_emissivity": 0.0,
+    "solid_density": 2700.0,
+    "quadrature": "split",
+    "nodes": 256,
+    "include_poles": true,
+    "raw_day_projection": false,
+    "raw_night_projection": false,
+    "curvature": "roots",
+    "added_resistance_m2K_W": 0.0
+  },
+  "mixed_conduction": {
+    "convection": "legacy_mixed",
+    "gap_emissivity": 0.0,
+    "solid_density": 2700.0,
+    "quadrature": "split",
+    "nodes": 256,
+    "include_poles": true,
+    "raw_day_projection": false,
+    "raw_night_projection": false,
+    "curvature": "roots",
+    "added_resistance_m2K_W": 0.0
+  },
+  "forced_gap": {
+    "convection": "forced",
+    "gap_emissivity": 0.2,
+    "solid_density": 2700.0,
+    "quadrature": "split",
+    "nodes": 256,
+    "include_poles": true,
+    "raw_day_projection": false,
+    "raw_night_projection": false,
+    "curvature": "roots",
+    "added_resistance_m2K_W": 0.0
+  },
+  "mixed_gap": {
+    "convection": "legacy_mixed",
+    "gap_emissivity": 0.2,
+    "solid_density": 2700.0,
+    "quadrature": "split",
+    "nodes": 256,
+    "include_poles": true,
+    "raw_day_projection": false,
+    "raw_night_projection": false,
+    "curvature": "roots",
+    "added_resistance_m2K_W": 0.0
+  }
+}

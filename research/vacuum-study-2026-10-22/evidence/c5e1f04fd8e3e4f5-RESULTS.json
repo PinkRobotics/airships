@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "status": "ESTIMATE_PENDING_UNA",
+  "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+  "card": "MAINLINE-004",
+  "curve": {
+    "name": "NASA SP-8032 spherical-cap lower-bound knockdown",
+    "authors": "V. I. Weingarten and P. Seide",
+    "date": "August 1969",
+    "title": "Buckling of Thin-Walled Doubly Curved Shells",
+    "publisher": "NASA Space Vehicle Design Criteria (Structures)",
+    "identifier": "NASA SP-8032",
+    "section": "4.2.1.1 Spherical caps under uniform external pressure, as reproduced by later papers",
+    "equation": "rho = 0.14 + 3.2/lambda^2 for lambda > 2",
+    "lambda": "lambda = [12(1-nu^2)]^(1/4) * sqrt(R/t) * 2*sin(phi/2)",
+    "representation": "text equation, not a figure digitization and not the monograph PDF",
+    "monograph_pdf": "NOT_RETRIEVED this clock; NTRS candidate URLs returned 404",
+    "retrieved_from": [
+      "Wagner, Huehne and Niemann, Int. J. Mechanical Sciences, 2018, Eq. (5), text via Scribd mirror of 1-s2.0-S0020740318300961",
+      "Ultimate strength models for spherical shells under external pressure: a comparative study, ResearchGate full text, Eqs. (16) and (17)"
+    ],
+    "tag": "QUESTIONABLE"
+  },
+  "mapping": {
+    "phi_rad": "pi, complete-sphere half-angle so 2*sin(phi/2)=2",
+    "thickness": "t_eq = (6*tf*d^2)^(1/3), matching inherited sandwich bending stiffness D=E*tf*d^2/(2*(1-nu^2)) to monocoque D=E*t^3/(12*(1-nu^2))",
+    "transfer": "Monolithic clamped-cap evidence applied to a complete sandwich sphere. Not validated sandwich data.",
+    "rows": [
+      "P2-A",
+      "P2-C",
+      "P2-K",
+      "P2-E"
+    ],
+    "held_fixed": "003 geometry, atmosphere, masses, core density, strength transfer, omitted core modes",
+    "density": "DEFERRED_NO_POINT"
+  },
+  "rows": [
+    {
+      "point_id": "P2-A",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0003758936444928841,
+        "core_m": 0.1,
+        "d_m": 0.10037589364449288,
+        "t_eq_m": 0.0283242462162671
+      },
+      "prior_kd": 0.2,
+      "prior_buckling_SF": 0.23078902511015878,
+      "prior_E_required_Pa": 298541059164.8068,
+      "strength_SF_QUESTIONABLE_unchanged": 0.43471919227695743,
+      "lambda": 67.95598903760522,
+      "R_over_t_eq": 353.05440870856535,
+      "knockdown": 0.14069293819919523,
+      "buckling_pressure_Pa": 15498.251297113828,
+      "buckling_SF": 0.1623519302343804,
+      "E_required_Pa": 424386700549.4303,
+      "E_ratio_to_prior": 1.4215354555808404,
+      "scaling": "E_required proportional to 1/knockdown; a larger knockdown lowers required E",
+      "held_fixed": "geometry, mass, atmosphere, classical sandwich pressure, strength transfer, omitted core modes"
+    },
+    {
+      "point_id": "P2-C",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0002,
+        "core_m": 0.1593641050163484,
+        "d_m": 0.1595641050163484,
+        "t_eq_m": 0.03126203289795851
+      },
+      "prior_kd": 0.2,
+      "prior_buckling_SF": 0.19520275430953535,
+      "prior_E_required_Pa": 352966331052.60614,
+      "strength_SF_QUESTIONABLE_unchanged": 0.23129903824973394,
+      "lambda": 64.68421473744723,
+      "R_over_t_eq": 319.8768305516378,
+      "knockdown": 0.14076480964803406,
+      "buckling_pressure_Pa": 13115.21109306497,
+      "buckling_SF": 0.13738839276576853,
+      "E_required_Pa": 501497969464.32446,
+      "E_ratio_to_prior": 1.4208096505090768,
+      "scaling": "E_required proportional to 1/knockdown; a larger knockdown lowers required E",
+      "held_fixed": "geometry, mass, atmosphere, classical sandwich pressure, strength transfer, omitted core modes"
+    },
+    {
+      "point_id": "P2-K",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0002708825134523563,
+        "core_m": 0.13544125672617813,
+        "d_m": 0.1357121392396305,
+        "t_eq_m": 0.031049637761016113
+      },
+      "prior_kd": 0.2,
+      "prior_buckling_SF": 0.22486424851387674,
+      "prior_E_required_Pa": 306407089856.919,
+      "strength_SF_QUESTIONABLE_unchanged": 0.31327432420100315,
+      "lambda": 64.9050739631473,
+      "R_over_t_eq": 322.06494893654906,
+      "knockdown": 0.14075961350962365,
+      "buckling_pressure_Pa": 15107.538996925232,
+      "buckling_SF": 0.15825902356472626,
+      "E_required_Pa": 435362221047.8294,
+      "E_ratio_to_prior": 1.420862099669847,
+      "scaling": "E_required proportional to 1/knockdown; a larger knockdown lowers required E",
+      "held_fixed": "geometry, mass, atmosphere, classical sandwich pressure, strength transfer, omitted core modes"
+    },
+    {
+      "point_id": "P2-E",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0003360949703945902,
+        "core_m": 0.1134320525081742,
+        "d_m": 0.1137681474785688,
+        "t_eq_m": 0.029663214496440944
+      },
+      "prior_kd": 0.2,
+      "prior_buckling_SF": 0.23388557899250978,
+      "prior_E_required_Pa": 294588491931.8028,
+      "strength_SF_QUESTIONABLE_unchanged": 0.3886922170642076,
+      "lambda": 66.40454602706818,
+      "R_over_t_eq": 337.11788050481925,
+      "knockdown": 0.14072569537344654,
+      "buckling_pressure_Pa": 15709.852031217544,
+      "buckling_SF": 0.16456855370771048,
+      "E_required_Pa": 418670508111.6104,
+      "E_ratio_to_prior": 1.421204560185374,
+      "scaling": "E_required proportional to 1/knockdown; a larger knockdown lowers required E",
+      "held_fixed": "geometry, mass, atmosphere, classical sandwich pressure, strength transfer, omitted core modes"
+    }
+  ],
+  "checks": {
+    "prior_sf_match": "PASS",
+    "E_scales_as_inverse_knockdown": "PASS",
+    "lambda_above_2": "PASS"
+  }
+}

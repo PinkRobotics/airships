@@ -1,0 +1,358 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "design_payload_kg": 5.0314833774391445,
+  "design_factor": 1.824771768877316,
+  "started": "2026-10-20T19:00:27.747108-07:00",
+  "rows": [
+    {
+      "id": "as_designed_frozen_geometry",
+      "kind": "frozen",
+      "payload_kg": 5.0314833774391445,
+      "delta_vs_design_payload_kg": 0.0,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.003216062671563795,
+        "tc_m": 0.17870774441772552
+      },
+      "global_buckling": 1.00000000011136,
+      "face_wrinkling": 1.0000000224810115,
+      "binding": [
+        [
+          "global_buckling",
+          1.00000000011136
+        ],
+        [
+          "face_wrinkling",
+          1.0000000224810115
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "control at the design density",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "as_designed_resized",
+      "kind": "resized",
+      "payload_kg": 5.031257045407983,
+      "delta_vs_design_payload_kg": -0.00022633203116129152,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.0032160626829137065,
+        "tc_m": 0.17870774406833156
+      },
+      "global_buckling": 1.0000000001397633,
+      "face_wrinkling": 1.0000000287608886,
+      "binding": [
+        [
+          "global_buckling",
+          1.0000000001397633
+        ],
+        [
+          "face_wrinkling",
+          1.0000000287608886
+        ],
+        [
+          "thermal_interface",
+          1.070799472108229
+        ]
+      ],
+      "route": "control at the design density",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_kc_frozen_geometry",
+      "kind": "frozen",
+      "payload_kg": 5.0314833774391445,
+      "delta_vs_design_payload_kg": 0.0,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.003216062671563795,
+        "tc_m": 0.17870774441772552
+      },
+      "global_buckling": 1.4941078816798428,
+      "face_wrinkling": 1.0000000224810115,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.0000000224810115
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ],
+        [
+          "scarf_average_shear",
+          1.2451435729207674
+        ]
+      ],
+      "route": "analysis: source kc=1-Vc/4 in CR-1457 or DOI 10.2514/3.5568 or 10.2514/3.1932",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_kc_resized",
+      "kind": "resized",
+      "payload_kg": 19048.593059821294,
+      "delta_vs_design_payload_kg": 19043.561576443855,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.0028825884632620144,
+        "tc_m": 0.13199634064942842
+      },
+      "global_buckling": 1.0000000002158138,
+      "face_wrinkling": 1.00000001648451,
+      "binding": [
+        [
+          "global_buckling",
+          1.0000000002158138
+        ],
+        [
+          "face_wrinkling",
+          1.00000001648451
+        ],
+        [
+          "thermal_interface",
+          1.0710502729928453
+        ]
+      ],
+      "route": "analysis: source kc=1-Vc/4 in CR-1457 or DOI 10.2514/3.5568 or 10.2514/3.1932",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_cure_frozen_geometry",
+      "kind": "frozen",
+      "payload_kg": 5.0314833774391445,
+      "delta_vs_design_payload_kg": 0.0,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.003216062671563795,
+        "tc_m": 0.17870774441772552
+      },
+      "global_buckling": 1.028002641605006,
+      "face_wrinkling": 1.027423567924888,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.027423567924888
+        ],
+        [
+          "global_buckling",
+          1.028002641605006
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: source the cure stress in those same documents",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_cure_resized",
+      "kind": "resized",
+      "payload_kg": 2591.72690276942,
+      "delta_vs_design_payload_kg": 2586.695419391981,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.0031410846868553596,
+        "tc_m": 0.176000456691249
+      },
+      "global_buckling": 1.000000007567542,
+      "face_wrinkling": 1.0000000003626928,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.0000000003626928
+        ],
+        [
+          "global_buckling",
+          1.000000007567542
+        ],
+        [
+          "thermal_interface",
+          1.0708129358646923
+        ]
+      ],
+      "route": "analysis: source the cure stress in those same documents",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_grad_bend_frozen_geometry",
+      "kind": "frozen",
+      "payload_kg": 5.0314833774391445,
+      "delta_vs_design_payload_kg": 0.0,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.003216062671563795,
+        "tc_m": 0.17870774441772552
+      },
+      "global_buckling": 1.00000000011136,
+      "face_wrinkling": 1.0205415743126842,
+      "binding": [
+        [
+          "global_buckling",
+          1.00000000011136
+        ],
+        [
+          "face_wrinkling",
+          1.0205415743126842
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: source the 11.3e-6 gradient and bending stress",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_grad_bend_resized",
+      "kind": "resized",
+      "payload_kg": 718.3714910725357,
+      "delta_vs_design_payload_kg": 713.3400076950966,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.003179910208362,
+        "tc_m": 0.17985551642319303
+      },
+      "global_buckling": 1.000000006628801,
+      "face_wrinkling": 1.0000000003309528,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.0000000003309528
+        ],
+        [
+          "global_buckling",
+          1.000000006628801
+        ],
+        [
+          "thermal_interface",
+          1.070793771979472
+        ]
+      ],
+      "route": "analysis: source the 11.3e-6 gradient and bending stress",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_pressure_frozen_geometry",
+      "kind": "frozen",
+      "payload_kg": 5.0314833774391445,
+      "delta_vs_design_payload_kg": 0.0,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.003216062671563795,
+        "tc_m": 0.17870774441772552
+      },
+      "global_buckling": 1.0432173837046856,
+      "face_wrinkling": 1.042310718300151,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.042310718300151
+        ],
+        [
+          "global_buckling",
+          1.0432173837046856
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: source the 1.01 floor and QWIND; 040 names unopened 014b",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_pressure_resized",
+      "kind": "resized",
+      "payload_kg": 3996.133780587639,
+      "delta_vs_design_payload_kg": 3991.1022972102,
+      "floats": true,
+      "geometry": {
+        "tf_m": 0.0031003098670847884,
+        "tc_m": 0.17453807573389682
+      },
+      "global_buckling": 1.0000000001377445,
+      "face_wrinkling": 1.0000000061545706,
+      "binding": [
+        [
+          "global_buckling",
+          1.0000000001377445
+        ],
+        [
+          "face_wrinkling",
+          1.0000000061545706
+        ],
+        [
+          "thermal_interface",
+          1.0708202708656889
+        ]
+      ],
+      "route": "analysis: source the 1.01 floor and QWIND; 040 names unopened 014b",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "today_concept_R30_optimistic",
+      "kind": "today",
+      "payload_kg": -69947.21533572263,
+      "delta_vs_design_payload_kg": -69952.24681910008,
+      "floats": false,
+      "geometry": {
+        "tf_m": 0.0032160626460264936,
+        "tc_m": 0.17870774522148639
+      },
+      "global_buckling": 1.0000000001407812,
+      "face_wrinkling": 1.000000008297952,
+      "binding": [
+        [
+          "global_buckling",
+          1.0000000001407812
+        ],
+        [
+          "face_wrinkling",
+          1.000000008297952
+        ],
+        [
+          "thermal_interface",
+          1.0707994721024836
+        ]
+      ],
+      "route": "admissible line: density 1850, gamma 0.20, Q 0.33",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "today_TRL7_R30_optimistic",
+      "kind": "today",
+      "payload_kg": -52262.177621009825,
+      "delta_vs_design_payload_kg": -52267.209104387264,
+      "floats": false,
+      "geometry": {
+        "tf_m": 0.00321606264772898,
+        "tc_m": 0.17870774809833417
+      },
+      "global_buckling": 1.0000000156565554,
+      "face_wrinkling": 1.0000000003752945,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.0000000003752945
+        ],
+        [
+          "global_buckling",
+          1.0000000156565554
+        ],
+        [
+          "thermal_interface",
+          1.0707994720881508
+        ]
+      ],
+      "route": "admissible line: density 1850, gamma 0.20, Q 0.33",
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "completed": "2026-10-20T19:00:29.634379-07:00"
+}

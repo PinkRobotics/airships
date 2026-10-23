@@ -1,0 +1,824 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline044-check-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "status": "Check complete; findings nonblocking; inherited qualification gaps remain open.",
+  "items": [
+    {
+      "id": "NFI-CHECK044-001",
+      "type": "source correction",
+      "status": "OPEN",
+      "finding": {
+        "row": "owner/RESULTS.json#/mass_options/AF015_to_AF060",
+        "field": "qualification",
+        "filed_value": "Matches U-film weight in one fatigue test, still not substrate/cure/peel geometry.",
+        "check_value": "The 0.060 lb/ft² titanium double-lap fatigue series is AF163-2K, a supported film; it is not an AF163-2U test.",
+        "source": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=TDS_AF163-2_R1.pdf",
+        "source_location": "PDF page 9, titanium double-lap tensile-shear fatigue heading",
+        "source_image": "source-pages/af163.png",
+        "classification": "SOURCE_LABEL_MISMATCH",
+        "numeric_effect": "None: added film mass remains 552.1895565892116 kg.",
+        "owner_internal_crosscheck": "owner/SOURCE-DATA.json#/AF163/double_lap_Ti_AF163_2K_006 correctly names K; CARD.md calls it supported film."
+      },
+      "evidence_needed": "Correct the AF015_to_AF060 qualification field to K supported film; preserve its existing mass and transfer limitations."
+    },
+    {
+      "id": "NFI-CHECK044-002",
+      "type": "mass account clarification",
+      "status": "OPEN",
+      "finding": "The +36.6612002721305 kg option credits removal of 3.4140336388712877 kg of old plates. The full-named 028b bill has structural/joining, systems and reserve totals but no explicit plate line.",
+      "filed_value": {
+        "relative_added_kg": 36.6612002721305,
+        "gross_kg": 4926.103350459091
+      },
+      "check_value": {
+        "relative_added_kg": 36.661200272130486,
+        "if_no_old_plate_credit_added_kg": 40.075233911001774,
+        "if_no_old_plate_credit_gross_kg": 4929.517384097963
+      },
+      "interpretation": "Relative mass arithmetic matches. The alternative applies only if the original plates are not already covered by an explicitly available part of the retained systems/other account; it is not a proven arithmetic correction.",
+      "evidence_needed": "Locate the old plate mass within the 100 kg systems allocation or provide a revised installed bill without silently spending its committed mass or fixed reserve."
+    },
+    {
+      "id": "NFI-CHECK044-003",
+      "type": "replay convention",
+      "status": "OPEN",
+      "finding": "Exact replay requires ordinary coupled cycles at p0+qVB, ground vent at 0 to p0−10, the cold-residual face envelope, the pad Goodman denominator Smin−p0/2, and N floored at one. These choices are not all explicit in the filed method/input schema.",
+      "evidence_needed": "Add explicit fields for those conventions and identify the ground top-up versus flight-pressure assumption; retain envelope and unvalidated-coupling tags.",
+      "checker_resolution": "METHOD.md and INPUTS.json make the recovered conventions explicit; all filed calculations reproduce without owner code."
+    },
+    {
+      "id": "NFI-CHECK044-004",
+      "type": "cycle ledger completeness",
+      "status": "OPEN",
+      "finding": "COMPONENT-CYCLES.csv contains 1113 ordinary records but no full-vent or commissioning stress/damage records. Those contributions appear only in aggregate summaries.",
+      "evidence_needed": "Append separately named vent and half-cycle records with endpoint pressures, temperatures, static flags and damage. Do not count the commissioning half-cycle as an annually recurring event.",
+      "checker_resolution": "VENT-CYCLES-INDEPENDENT.json supplies all three point records and the half-cycle damage; nine owner summaries reproduce."
+    },
+    {
+      "id": "NFI-CHECK044-005",
+      "type": "machine-readable tagging",
+      "status": "OPEN",
+      "finding": "SOURCE-DATA.json gives citations and transfer caveats, while some material blocks rely on the CARD/METHOD global tags instead of having their own QUESTIONABLE or PROJECTION field.",
+      "evidence_needed": "Carry explicit material/transfer tags into each source record so isolated data consumers cannot lose them.",
+      "checker_resolution": "This check's INPUTS.json and SOURCE-AUDIT.json contain explicit tags. No material is upgraded."
+    }
+  ],
+  "inherited_records_verbatim": [
+    {
+      "path": "owner/NFI.json",
+      "record": {
+        "schema": 1,
+        "unit": "vacuum-mainline044-fatigue-and-life-1020",
+        "status": "OPEN; estimate completed",
+        "tags": [
+          "QUESTIONABLE",
+          "PROJECTION"
+        ],
+        "inherited": [
+          {
+            "source": "inputs/037b/NFI.json",
+            "count": 13,
+            "disposition": "All remain open; no implicit closure."
+          },
+          {
+            "source": "inputs/028b/NFI.json",
+            "disposition": "Manufacture, joining, thin-film and installed-mode qualifications retained."
+          },
+          {
+            "source": "inputs/037-check/NFI.json",
+            "disposition": "Thermal reconstruction, load transfer and pad/support qualifications retained."
+          },
+          {
+            "source": "inputs/034-check/CARD.md",
+            "disposition": "Gas-rate, conditioning, system-power and volume conventions remain conditional."
+          },
+          {
+            "source": "inputs/036-check/CARD.md",
+            "disposition": "Finished thin-sheet compression and material-form qualifications retained."
+          }
+        ],
+        "items": [
+          {
+            "id": "NFI-044-SPECTRUM",
+            "finding": "Annual occurrences, ordinary weather range, altitude mission and handling cycles are declared scenarios, not operating records.",
+            "evidence_needed": "A defined mission plus measured pressure, face temperatures, accelerations, mooring forces and rainflow-counted histories; joint occurrence and dwell statistics."
+          },
+          {
+            "id": "NFI-044-STATIC-ENVELOPE",
+            "finding": "028b has only 607 Pa pressure-screen headroom; +2 kPa weather, sea-level descent and 70 kn uniform-pressure cases fail the static screen.",
+            "evidence_needed": "A complete operational pressure envelope and a new equilibrium, mass and buckling solution with adequate margin."
+          },
+          {
+            "id": "NFI-044-SR200-FATIGUE",
+            "finding": "The manufacturer S200F block rotating-beam data do not supply an SR200 0.8 mm processed-sheet S-N curve under biaxial compression, local bending or notch effects.",
+            "evidence_needed": "Orientation-specific fatigue and fracture data on actual thin stock after forming, machining, surface preparation, bonding and repair; defects and statistical basis."
+          },
+          {
+            "id": "NFI-044-CORE-DENSITY",
+            "finding": "The source 5056 fatigue coupons are 5.3 pcf, versus 1.0 pcf hull core. Normalization by static strength is not a validated density/cell/foil transfer.",
+            "evidence_needed": "CR-III 5056 3/8-1.0 L/W/off-axis shear S-N tests, including actual depth, foil state, curved faces and node/splice manufacturing."
+          },
+          {
+            "id": "NFI-044-MEAN-STRESS",
+            "finding": "Goodman-style correction using absolute core shear mean is an assumed transfer from fully reversed tests; creep and residual-stress relaxation are not established.",
+            "evidence_needed": "Core and adhesive fatigue under the actual residual mean, pressure-temperature sequence and sustained dwell."
+          },
+          {
+            "id": "NFI-044-LOW-STRESS-HORIZON",
+            "finding": "The decade contains over one million pad cycles. Required low-amplitude core lives extend beyond the source test range; finite semilog extrapolation does not demonstrate them.",
+            "evidence_needed": "Longer relevant-amplitude runouts and an accepted lower-bound extrapolation/scatter treatment."
+          },
+          {
+            "id": "NFI-044-THERMAL-BOUNDARY",
+            "finding": "037's complete night inner-temperature and boundary history are absent; the opposite night gradient is a projection. Cure reference changes mean but cannot remove the thermal range.",
+            "evidence_needed": "A reproducible transient thermal model and coated-panel thermal-cycle measurements."
+          },
+          {
+            "id": "NFI-044-PRESSURE-CORE-EDGE",
+            "finding": "The new coupled membrane/edge model balances pressure and thermal force but is homogenized over a short edge region. Pressure contraction may offset thermal residual extension; this is not validated relief.",
+            "evidence_needed": "Cell-resolved and curved-panel validation of free edges, splices and hardpoints during thermal cycling, pressure hold and full vent/evacuation."
+          },
+          {
+            "id": "NFI-044-AF163-015U",
+            "finding": "3M lap runouts and thicker supported-film failure curves do not qualify the actual 0.015 lb/ft2 U-film Be/core joint or the 200F cycle. Gross-area shear masks the sparse core-foot contact: a no-fillet area sensitivity gives 27.0 MPa at the 200F cold edge; effective fillet/contact area is not known.",
+            "evidence_needed": "Actual-film, actual-substrate shear/peel/mixed-mode fatigue, process repeatability and environmental retention, with weighed fillets/primer."
+          },
+          {
+            "id": "NFI-044-HEXBOND-SCARF",
+            "finding": "The face scarf uses HexBond312, a separate adhesive. Its 10 MPa screen is static and unsourced for this Be joint. No applicable S-N or crack-growth data were obtained.",
+            "evidence_needed": "30:1 and proposed 60:1 Be scarf fatigue and sustained-load tests including peel, roots, manufacturing flaws, leak integrity and repairs."
+          },
+          {
+            "id": "NFI-044-CURE-SEQUENCE",
+            "finding": "HexBond312's cited cure is 120C. A later whole-panel scarf cure could invalidate an assumed 200F face/core stress-free state.",
+            "evidence_needed": "An executable joining sequence and measured stress-free temperature/residual strain after every thermal operation."
+          },
+          {
+            "id": "NFI-044-COMBINED-SCARF",
+            "finding": "Adding the inherited local thermal envelope to 037b's cured point takes the scarf below its static screen. The extrema are conservative and not time-correlated.",
+            "evidence_needed": "A complete combined-load, layer-resolved scarf/face/core solution and strain measurements at critical locations."
+          },
+          {
+            "id": "NFI-044-PAD-ASSEMBLY",
+            "finding": "The original pad area exceeds minimum core shear strength at its design load. The 950-day plate-only index excludes assembly support, cyclic plasticity, fasteners, backing and attachment notches.",
+            "evidence_needed": "Detailed pad/insert load sharing and interaction solution, actual 6061-T6 properties/finish, local Be/core response and spectrum tests of the assembly."
+          },
+          {
+            "id": "NFI-044-PAD-INTERACTION",
+            "finding": "The resized pad uses a scalar p/2 reserve against core capacity and an extra allocation of the sum of plate/core Miner indices. Neither is a validated multiaxial failure law.",
+            "evidence_needed": "A calibrated local core shear/compression interaction and separate statistically supported component life requirements."
+          },
+          {
+            "id": "NFI-044-MASS-CLOSURE",
+            "finding": "The quantified strict pad plus 60:1 scarf candidate adds 36.66 kg to an already balanced budget; lugs, fasteners, backing, monitoring and repair margins are additional unknowns.",
+            "evidence_needed": "A complete installed bill of materials and a new floating equilibrium without silently consuming the fixed reserve or systems allocation."
+          },
+          {
+            "id": "NFI-044-VACUUM-SERVICE",
+            "finding": "Gas-cycle amplitudes use assumed leak acceptance, permeability and 90% conditioning. Full venting can change release inventory; it is not equivalent to top-up.",
+            "evidence_needed": "Whole-hull leak/outgassing tests and a defined vent/reconditioning/power service protocol."
+          },
+          {
+            "id": "NFI-044-ENVIRONMENT-AGING",
+            "finding": "Room-temperature S-N screens do not supply ten-year humidity, salt, corrosion, UV/coating damage, creep, fretting or vacuum/environmental bond retention.",
+            "evidence_needed": "Relevant environmental conditioning and fatigue/dwell testing with documented acceleration and retention factors."
+          },
+          {
+            "id": "NFI-044-INSPECTION-REPAIR",
+            "finding": "No defect detection threshold or crack/debond growth law supports an inspection interval. Plate replacement does not reset core, scarf or face damage.",
+            "evidence_needed": "Qualified NDE probability of detection, initial-defect population, growth-to-critical size and tested repair procedures with a complete mass inventory."
+          },
+          {
+            "id": "NFI-044-BUCKLING-DEGRADATION",
+            "finding": "S-N damage does not quantify evolving waviness, debond-induced buckling, impact damage, or nonlinear aerodynamic/local bending stresses. Static projected gamma is not a life property.",
+            "evidence_needed": "Cycled curved-panel and shell stability tests, validated imperfection growth and a combined-load nonlinear structural model."
+          }
+        ]
+      }
+    },
+    {
+      "path": "inputs/inputs/037b/NFI.json",
+      "record": {
+        "schema": 1,
+        "card": "MAINLINE-037b",
+        "unit": "vacuum-mainline037b-bond-temperature-1020",
+        "tag": "QUESTIONABLE",
+        "status": "OPEN",
+        "items": [
+          {
+            "id": "NFI-037b-SCREEN-PREMISE",
+            "tag": "QUESTIONABLE",
+            "claim": "037's shear-lag screen holds each face at the core's expansion (0.227 after the 250 F cure). That needs the core to carry 47 times the in-plane force at which its walls yield. CR-1457, Hexcel AGU 075b and NASA TM-4585 treat the core's in-plane stiffness and thermal force as negligible; on that premise the continuous core carries no mismatch shear and a free core edge reads 1.17 / 0.83.",
+            "needed_to_ground": "A curved Be/CR-III panel cured with AF 163-2U, cycled over 271-302 K, strain-gauged at a core splice, at a face scarf and in the field, then sectioned."
+          },
+          {
+            "id": "NFI-037b-EDGE-MODEL",
+            "tag": "QUESTIONABLE",
+            "claim": "The free-edge shear uses this seat's homogenised model: K_biax from wall stretching (uniform cell 0.5 E rho*/rho_s; doubled ribbon walls 0.45), a linear shear profile over half the core depth, and a 16 mm transfer length, about 1.7 cells. Homogenisation is marginal there and cell-scale peaks are not modelled. The W direction governs over L on both strengths.",
+            "needed_to_ground": "A cell-resolved finite-element model of a free core edge, or the panel test above."
+          },
+          {
+            "id": "NFI-037b-BALANCED-COMPRESSION",
+            "tag": "QUESTIONABLE",
+            "claim": "The cure leaves the faces in compression balanced by core tension. This card takes it as not driving global buckling or crimping, because the wall's net membrane force is unchanged (this seat's argument). It adds it in full to yield, wrinkling, dimpling and the scarf; for wrinkling that is conservative, since the core's tension near the face resists the wrinkle.",
+            "needed_to_ground": "A sandwich-shell buckling analysis with the layer-wise residual state."
+          },
+          {
+            "id": "NFI-037b-SCARF",
+            "tag": "PROJECTION",
+            "claim": "028b's fixed 30:1 scarf binds at its projected 10 MPa screen, so the cure compression costs usage (0.972 to 1.052); 028's sizing rule restores it at 30.44:1 for 0.16 kg. The 10 MPa screen is not a measured Be scarf allowable, and a filled core splice at the scarf may change the local face stress.",
+            "needed_to_ground": "A measured Be scarf allowable and the splice-at-scarf detail."
+          },
+          {
+            "id": "NFI-037b-028B-SCARF-LEVER",
+            "tag": "QUESTIONABLE",
+            "claim": "028b's faces are pinned by its fixed 30:1 scarf. Without any cure compression a 30.44:1 scarf would let them thin, to usage 0.894. 028b gives no reason for fixing 30:1, such as machining, overlap, peel or panel-edge limits. This card notes the lever and does not take it.",
+            "needed_to_ground": "028b's owner states why the scarf is fixed at 30:1, or re-runs the least set with the scarf ratio free."
+          },
+          {
+            "id": "NFI-037b-SPLICE",
+            "tag": "PROJECTION",
+            "claim": "Whether 028's filled 0.5 mm core splice carries the core's in-plane force (no free edge) is not shown; the fill's modulus and its bond to the cut cell walls are unsourced.",
+            "needed_to_ground": "Splice-fill properties and a splice coupon in in-plane tension."
+          },
+          {
+            "id": "NFI-037b-SUSTAINED-SHEAR",
+            "tag": "QUESTIONABLE",
+            "claim": "The residual is a sustained shear on the core. On the minimum-average W strength (25 psi) it reads 0.83 at a free edge after the 250 F cure. Honeycomb creep and day-night fatigue under sustained shear are not sourced.",
+            "needed_to_ground": "Sustained-load and cyclic shear data for CR-III 5056 3/8-1.0."
+          },
+          {
+            "id": "NFI-037b-STRESS-FREE-T",
+            "tag": "QUESTIONABLE",
+            "claim": "The cure-or-Tg rule (108-121 C for AF 163-2U) is sourced qualitatively; no measured stress-free temperature or relaxed fraction for AF 163 was found.",
+            "needed_to_ground": "A bimaterial-strip or panel-curvature measurement with the actual cure cycle."
+          },
+          {
+            "id": "NFI-037b-RT-PASTE",
+            "tag": "PROJECTION",
+            "claim": "Room-temperature pastes (EA 9394 class) carry no sourced honeycomb bond data, fillet mass or flatwise strength; they are priced at AF's areal weight.",
+            "needed_to_ground": "Honeycomb flatwise and climbing-drum data for a room-temperature system at a weighed areal mass."
+          },
+          {
+            "id": "NFI-037b-NONMETAL-CTE",
+            "tag": "PROJECTION",
+            "claim": "Hexcel prints only thickness-direction expansion for glass and aramid cores; their in-plane values are proxies here. The carbon core UCF-145 (12.8 kg/m3, second-hand shear data, W strength 97 kPa) has no sourced in-plane expansion or compressive modulus and is not priced.",
+            "needed_to_ground": "In-plane expansion and compressive data for candidate non-metallic cores."
+          },
+          {
+            "id": "NFI-037b-WAVINESS",
+            "tag": "QUESTIONABLE",
+            "claim": "NASA/SDSU co-cured-panel studies report the face/core cure mismatch as cell-wall distortion and face waviness. That is a source of the wrinkle coefficient's waviness (MAINLINE-032), not of bond shear.",
+            "needed_to_ground": "Measured face waviness after an AF 163-2U cure on CR-III."
+          },
+          {
+            "id": "NFI-037b-FOIL",
+            "tag": "QUESTIONABLE",
+            "claim": "5056-H39 foil properties were not sourced: the wall stiffness uses 5056-H14 bulk (67 GPa, 2700 kg/m3) and the wall allowable the measured 5052-H39 foil yield (227.5 MPa).",
+            "needed_to_ground": "5056-H39 foil modulus and yield."
+          },
+          {
+            "id": "NFI-037b-HARDPOINTS",
+            "tag": "QUESTIONABLE",
+            "claim": "Inserts, closeouts and 037's mooring pads constrain the mismatch locally; they are not scored here.",
+            "needed_to_ground": "The hard-point design."
+          }
+        ]
+      }
+    },
+    {
+      "path": "inputs/inputs/028b/NFI.json",
+      "record": {
+        "schema": 1,
+        "card": "MAINLINE-028b",
+        "unit": "vacuum-mainline028b-joining-into-021b-1020",
+        "overall_installed_hull_SF": null,
+        "rows": [
+          {
+            "id": "NFI-028b-af015_scarf-gamma",
+            "status": "OPEN",
+            "issue": "Ground gamma at the actual jointed geometry, including imperfections.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.5641635666030083,
+            "today": 0.2,
+            "improvement_factor": 2.8208178330150413,
+            "null_factor_reason": null,
+            "source": "MAINLINE-018 curve",
+            "usage": 0.9719775174295638,
+            "full": 0.5812855410551349
+          },
+          {
+            "id": "NFI-028b-af015_scarf-wrinkle",
+            "status": "OPEN",
+            "issue": "Ground wrinkling coefficient with the actual core and bond.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.43462785437520957,
+            "today": 0.33,
+            "improvement_factor": 1.3170541041673016,
+            "null_factor_reason": null,
+            "source": "Inherited CR-1457 bounds",
+            "usage": 0.30256423597576293,
+            "full": 0.82
+          },
+          {
+            "id": "NFI-028b-af015_scarf_primer5-gamma",
+            "status": "OPEN",
+            "issue": "Ground gamma at the actual jointed geometry, including imperfections.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.5785244156939786,
+            "today": 0.2,
+            "improvement_factor": 2.892622078469893,
+            "null_factor_reason": null,
+            "source": "MAINLINE-018 curve",
+            "usage": 0.9960764380867377,
+            "full": 0.580949962703325
+          },
+          {
+            "id": "NFI-028b-af015_scarf_primer5-wrinkle",
+            "status": "OPEN",
+            "issue": "Ground wrinkling coefficient with the actual core and bond.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.42895155156547243,
+            "today": 0.33,
+            "improvement_factor": 1.2998531865620375,
+            "null_factor_reason": null,
+            "source": "Inherited CR-1457 bounds",
+            "usage": 0.288121245604928,
+            "full": 0.82
+          },
+          {
+            "id": "NFI-028b-lab8_eb_eta1-gamma",
+            "status": "OPEN",
+            "issue": "Ground gamma at the actual jointed geometry, including imperfections.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.39149957705208616,
+            "today": 0.2,
+            "improvement_factor": 1.9574978852604308,
+            "null_factor_reason": null,
+            "source": "MAINLINE-018 curve",
+            "usage": 0.6514685431051914,
+            "full": 0.5607762431930751
+          },
+          {
+            "id": "NFI-028b-lab8_eb_eta1-wrinkle",
+            "status": "OPEN",
+            "issue": "Ground wrinkling coefficient with the actual core and bond.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.5970894471618662,
+            "today": 0.33,
+            "improvement_factor": 1.809361961096564,
+            "null_factor_reason": null,
+            "source": "Inherited CR-1457 bounds",
+            "usage": 0.6514685371580532,
+            "full": 0.82
+          },
+          {
+            "id": "NFI-028b-lab8_scarf-gamma",
+            "status": "OPEN",
+            "issue": "Ground gamma at the actual jointed geometry, including imperfections.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.5559108486791616,
+            "today": 0.2,
+            "improvement_factor": 2.779554243395808,
+            "null_factor_reason": null,
+            "source": "MAINLINE-018 curve",
+            "usage": 0.9578679244374443,
+            "full": 0.5814783035567451
+          },
+          {
+            "id": "NFI-028b-lab8_scarf-wrinkle",
+            "status": "OPEN",
+            "issue": "Ground wrinkling coefficient with the actual core and bond.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": 0.4379873839250472,
+            "today": 0.33,
+            "improvement_factor": 1.3272344967425673,
+            "null_factor_reason": null,
+            "source": "Inherited CR-1457 bounds",
+            "usage": 0.31102374985315945,
+            "full": 0.82
+          },
+          {
+            "id": "NFI-028b-SR200-compression",
+            "status": "OPEN",
+            "issue": "345 MPa is tensile minimum, not a published compressive minimum; measure post-form compression.",
+            "state": "exists_today",
+            "tag": "QUESTIONABLE",
+            "needed": {
+              "face_stress_scarf_Pa": 300333333.3333344,
+              "face_stress_lab_weld_Pa": 321580390.796927,
+              "assumed_compressive_Pa": 345000000.0
+            },
+            "today": {
+              "minimum_tensile_Pa": 345000000.0,
+              "minimum_compressive_Pa": null
+            },
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+            "O3_usage": 0
+          },
+          {
+            "id": "NFI-028b-sheet-anisotropy",
+            "status": "OPEN",
+            "issue": "Scalar nu=.0752 uses historical SR-200 data; a formed orthotropic shell requires its own model and properties.",
+            "state": "in_the_lab",
+            "tag": "QUESTIONABLE",
+            "needed": {
+              "nu": 0.0752,
+              "E_Pa": 290000000000.0
+            },
+            "today": {
+              "nu12": 0.0768,
+              "nu21": 0.0752
+            },
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf"
+          },
+          {
+            "id": "NFI-028b-scarf10",
+            "status": "OPEN",
+            "issue": "Measure mean-shear allowable and peel/compression failure of the exact scarf; 10 MPa is assumed.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": {
+              "average_shear_Pa": 10000000.0,
+              "ratio": 30,
+              "total_skin_seams_m": 5683.037087839708
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "MAINLINE-028 owner screen"
+          },
+          {
+            "id": "NFI-028b-stock-envelope",
+            "status": "OPEN",
+            "issue": "Confirm available raw blank sizes at 0.74–0.80 mm thickness; full published envelope belongs to thicker sheet.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": {
+              "a_m": 0.6096,
+              "b_m": 1.8288
+            },
+            "today": {
+              "thin_gauge_envelope": null
+            },
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+            "panel_search_usage": 0,
+            "panel_enlargement_factor": 1
+          },
+          {
+            "id": "NFI-028b-gauge",
+            "status": "OPEN",
+            "issue": "Map actual minimum thickness after forming and scarf preparation; nominal gauges sit at tight mode boundaries.",
+            "state": "exists_today",
+            "tag": "QUESTIONABLE",
+            "needed": {
+              "scarf_face_m": 0.0007946240669858892
+            },
+            "today": {
+              "datasheet_gauge_tolerance_in_this_band_m": 0.0001016
+            },
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+          },
+          {
+            "id": "NFI-028b-AF015-bond",
+            "status": "OPEN",
+            "issue": "Published weight exists; matched Be/low-density-aluminium-core bond strength and stiffness are unknown.",
+            "state": "exists_today",
+            "tag": "QUESTIONABLE",
+            "needed": {
+              "film_lb_ft2": 0.015,
+              "weight_per_line_kg_m2": 0.07323641454574575
+            },
+            "today": {
+              "old_film_lb_ft2": 0.03
+            },
+            "improvement_factor": 2,
+            "null_factor_reason": null,
+            "source": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf",
+            "fixed_O5_usage": 1
+          },
+          {
+            "id": "NFI-028b-primer",
+            "status": "OPEN",
+            "issue": "Actual primer coverage, surface preparation and mass must be measured; 5 g/m² is a selected sensitivity.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": {
+              "per_line_kg_m2": 0.005,
+              "two_lines_kg": 12.566370614359172
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "MAINLINE-028 sensitivity"
+          },
+          {
+            "id": "NFI-028b-lab-bond",
+            "status": "OPEN",
+            "issue": "8 g/m² deposition exists in laboratory work on other materials; transfer to Be/Al core is unqualified.",
+            "state": "in_the_lab",
+            "tag": "PROJECTION",
+            "needed": {
+              "per_line_kg_m2": 0.008,
+              "matched_strength": null
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "https://infoscience.epfl.ch/server/api/core/bitstreams/28b8cc7a-f046-4da3-9fcc-5d5ad3c52a9d/content",
+            "Be_hull_transfer": "PROJECTION"
+          },
+          {
+            "id": "NFI-028b-lab-weld",
+            "status": "OPEN",
+            "issue": "Ground parent compression retention, HAZ, brittle seam failure, distortion and final-hull access.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": {
+              "retention_needed_at_selected_point": 0.9321170747737014,
+              "retention_assumed": 1.0,
+              "filler_mass_assumed_kg": 0
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "MAINLINE-028 ideal autogenous seam"
+          },
+          {
+            "id": "NFI-028b-splice-and-seal",
+            "status": "OPEN",
+            "issue": "Weigh and qualify the core splice, seals and intersection details.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": {
+              "core_gap_m": 0.0005,
+              "splice_density_kg_m3": 500,
+              "seal_kg_per_hull_m": 0.002
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "MAINLINE-028 mass assumptions"
+          },
+          {
+            "id": "NFI-028b-unmodelled-bond-seam",
+            "status": "OPEN",
+            "issue": "Relevant flatwise, imperfection shear, peel/HAZ, local buckling, thermal/cycle and leak allowables are absent.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": {
+              "overall_installed_SF": null
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "Unknown modes listed in every point"
+          },
+          {
+            "id": "NFI-028b-019-reserve",
+            "status": "OPEN",
+            "issue": "Validate the optimistic service/environment assumptions behind the fixed mass-equivalent reserve.",
+            "state": "PROJECTION",
+            "tag": "PROJECTION",
+            "needed": {
+              "systems_excess_kg": 0.0,
+              "retained_water_kg": 125.66370614359174,
+              "contamination_kg": 5.0,
+              "temperature_pressure_loss_kg": 213.036426543752,
+              "humidity_loss_kg": 18.704389882434043,
+              "internal_gas_kg": 48.89442150186961,
+              "payload_kg": 0.0
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "Pinned MAINLINE-019 / 021b",
+            "fixed_reserve_kg": 411.2989440716474
+          },
+          {
+            "id": "NFI-028b-core-data",
+            "status": "OPEN",
+            "issue": "Confirm core lot, minimum properties, forming and strength after bonding on the selected low-density core.",
+            "state": "exists_today",
+            "tag": "QUESTIONABLE",
+            "needed": {
+              "name": "Hexcel CR-III 5056 3/8-1.0",
+              "family": "aluminium_honeycomb",
+              "form": "honeycomb",
+              "cell": "3/8",
+              "pcf": 1.0,
+              "rho": 16.018463373960138,
+              "s_cell_m": 0.009524999999999999,
+              "Ec_Pa": 103421359.3975254,
+              "Gc_Pa": 46884349.59354485,
+              "Gl_Pa": 103421359.3975254,
+              "crush_Pa": 241316.50526089262,
+              "shear_strength_L_Pa": 379211.65112425986,
+              "shear_strength_W_Pa": 241316.50526089262,
+              "tag": "QUESTIONABLE",
+              "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+              "ec_source": "sheet",
+              "crush_basis": "CR-III crush column",
+              "Gc_direction": "W"
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf"
+          },
+          {
+            "id": "NFI-028b-255-sensitivity",
+            "status": "OPEN",
+            "issue": "S-200-F 255 MPa is a compression sensitivity, not a rolled-sheet specification or certified minimum.",
+            "state": "exists_today",
+            "tag": "QUESTIONABLE",
+            "needed": {
+              "compression_Pa": 255000000.0,
+              "no_core_face_SF_upper_bound": 0.9582172954756751
+            },
+            "today": null,
+            "improvement_factor": null,
+            "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+            "source": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74"
+          }
+        ]
+      }
+    },
+    {
+      "path": "inputs/inputs/037-check/NFI.json",
+      "record": {
+        "unit": "vacuum-mainline037-check-1020",
+        "status": "Check complete; no work blocked",
+        "rows": [
+          {
+            "id": "NFI-CHECK037-HEAT-INPUTS",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "84 thermal/projection fields are not independently recoverable from supplied inputs.",
+            "proposed_fix": "Publish velocities, all optical properties, sky/ground/cavity boundary conditions, grid, weights, converged day/night profiles and residuals; rerun both P2 and P3. The declared P2 comparison supplies a reproducible starting model."
+          },
+          {
+            "id": "NFI-CHECK037-PATTERN-DEFINITION",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "Filed residual maxima do not equal extrema of the filed n=2..6 polynomial.",
+            "proposed_fix": "State whether maxima use raw or truncated temperatures; retain raw samples, area weights and projection coefficients; use analytic extrema and constant/linear-mode consistency checks."
+          },
+          {
+            "id": "NFI-CHECK037-SHELL-EQUILIBRIUM",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "The scalar bending estimate and a membrane-free kinematic trial do not establish full spherical-shell equilibrium.",
+            "proposed_fix": "Solve both curvature components, membrane/bending coupling and force/moment equilibrium with compatible thermal strains and core restraint; compare with the rough gradient screen."
+          },
+          {
+            "id": "NFI-CHECK037-P3-TUBE-IDENTITY",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "Ti/CFRP fittings were treated as tube materials in thermal CTE and mass while SiC capacities were retained.",
+            "proposed_fix": "Use SiC properties for all tubes, keep fittings separate, and rerun temperatures plus compatibility. Corrected fixed-temperature sensitivities are already tabulated."
+          },
+          {
+            "id": "NFI-CHECK037-P3-ARC-MASS",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "Every filed tube mass uses chord length; inherited capacities use arcs.",
+            "proposed_fix": "Charge each SiC tube's inherited arc length. Eight unique corrected masses and ten exact result mismatches are supplied."
+          },
+          {
+            "id": "NFI-CHECK037-STEADY-FLIGHT-LOAD",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "The 290.634 Pa flight addition omits the selected VB baseline.",
+            "proposed_fix": "For the same selected local-speed case add 189.214 Pa steady pressure; total 479.848 Pa gives conditional P2 least 1.001324769. Select EAS/TAS and dynamic-response treatment consistently."
+          },
+          {
+            "id": "NFI-CHECK037-WIND-PATCH",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "Negative mean Cp is not proof that uniform excess bounds a nonuniform buckling mode.",
+            "proposed_fix": "Compute the prestressed nonuniform pressure and hardpoint equilibrium, then compare instability/imperfection response; retain uniform excess as a screening assumption until shown."
+          },
+          {
+            "id": "NFI-CHECK037-PAD-SUPPORT",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "The filed thickness reproduces only a logarithmic term; support and boss-loading conditions are unspecified.",
+            "proposed_fix": "Select edge support versus elastic foundation and finite boss loading. The supplied simply-supported uniform-patch solution includes the nonlogarithmic term and has independent boundary-condition checks."
+          },
+          {
+            "id": "NFI-CHECK037-PAD-BOSS-FIT",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "Under recovered 25 mm boss-radius assumptions the systems pad radius is only 14.683 mm.",
+            "proposed_fix": "Define whether 25 mm is radius or diameter; enforce boss containment. The supplied 25 mm radius floor changes six-pad mass to 0.031809 kg before installation."
+          },
+          {
+            "id": "NFI-CHECK037-PAD-PRELOAD-LOADPATH",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "Load-only F/crush sizing omits possible existing p/2 compression and does not address pull/oblique mooring transfer.",
+            "proposed_fix": "Determine actual reaction direction and superpose compatible pressure loads; use available compression headroom when applicable, then check face bending, core shear, peel, local shell failure and hardware."
+          },
+          {
+            "id": "NFI-CHECK037-P3-HARDPOINTS",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "7/2/1 member counts are scalar 5% sharing counts, without a vector load path or mass.",
+            "proposed_fix": "Place attachment nodes and members, solve equilibrium and joint loads, size fittings/spreaders and weigh their mass into the same lift budget."
+          },
+          {
+            "id": "NFI-CHECK037-RESERVE-POINT-LOAD",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "The 411.299 kg reserve contains environmental lift losses and distributed masses, not one suspended payload.",
+            "proposed_fix": "Use the actual payload and equipment layout; label the 4.033 kN example as hypothetical. Do not convert buoyancy penalties into concentrated hardware weight."
+          },
+          {
+            "id": "NFI-CHECK037-RESTORATION",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "Multiplying a tube mass by reciprocal least SF is not a demonstrated structural restoration and cannot repair a separate film failure.",
+            "proposed_fix": "Recompute changed sections, Euler/local/Perry/global modes, film, fittings, sag and lift. Use the supplied corrected proportional masses only as sensitivities."
+          },
+          {
+            "id": "NFI-CHECK037-SHEAR-ALLOWABLE",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "The 241.317 kPa W value is typical core shear, not a bonded-interface or cyclic allowable; the minimum-average column is 172.369 kPa.",
+            "proposed_fix": "Choose the intended material statistic, stress-free bond temperature, finite transfer geometry and interface properties. The nominal thermal-change limits are 27.975 K typical and 19.982 K minimum-average in this screen."
+          },
+          {
+            "id": "NFI-CHECK037-CORE-CTE-LAG",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "Prescribed Al-versus-Be strain in an equivalent shear-lag formula does not include effective cellular in-plane stiffness or finite boundary conditions.",
+            "proposed_fix": "Model both adherends/core compatibility and effective thermal expansion, then compare with representative measured thermal-cycle shear and peel."
+          },
+          {
+            "id": "NFI-CHECK037-CONVECTION-OPTICS",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "No speed or validity check is provided for Whitaker; bare optics and coating durability are assumptions.",
+            "proposed_fix": "Select climate and flight/ground thermal cases, validate the applicable convection regime, and retain measured or explicitly assumed surface optics and their temperature dependence."
+          },
+          {
+            "id": "NFI-CHECK037-FILM-CONSTITUTIVE",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "Film nu is unstated, the frame is assumed rigid, and an isotropic law is applied even to the Zylon reinforcement case.",
+            "proposed_fix": "Provide membrane/laminate stiffness and CTE tensors, prestress and slip/bond conditions; solve frame-film compatibility with both directions and barrier mass."
+          },
+          {
+            "id": "NFI-CHECK037-NONUNIFORM-BOW",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "Saying uniform mismatch does not bow a member does not evaluate circumferential tube heating, asymmetric film traction or thermal imperfections.",
+            "proposed_fix": "Calculate thermal curvature and load eccentricity for actual tube and attachment temperatures and add the resulting imperfection to the member stability calculation."
+          },
+          {
+            "id": "NFI-CHECK037-COMPLETE-MODE-ACCOUNT",
+            "tag": "PROJECTION",
+            "status": "open",
+            "finding": "The seven-screen minimum omits unresolved assembly modes; the filed coated swing is 0.917 and a separate scalar scarf interaction is 0.980.",
+            "proposed_fix": "Maintain a complete mode/load-case ledger, distinguish day-rise from night-reference assembly and map core thermal shear to scarf/bond stresses before combining them. Do not present seven-screen unity as installed-hull unity."
+          },
+          {
+            "id": "NFI-CHECK037-CURRENT-GEOMETRY",
+            "tag": "QUESTIONABLE",
+            "status": "open",
+            "finding": "037 used 022c before 022d filed; several quoted high P3 factors are outside the half-wave band.",
+            "proposed_fix": "Carry the now-filed 022d in-band geometry into the next thermal/load calculation, charging both film plies and fittings. Keep this audit tied to the original 022c record."
+          }
+        ],
+        "resolved_source_findings": [
+          "FAA 78-to-70-knot history is resolved by Appendix B, not a remaining document conflict.",
+          "FAA VB lower bound includes the 0.65 VH alternative; design airspeeds are EAS.",
+          "The SR-200 manufacturer's own sheet supports typical 11.3 ppm/K thermal expansion."
+        ]
+      }
+    }
+  ],
+  "inherited_additional_qualifications": [
+    "inputs/inputs/034-check/CARD.md",
+    "inputs/inputs/036-check/CARD.md"
+  ],
+  "qualified_hull_life_days": null
+}

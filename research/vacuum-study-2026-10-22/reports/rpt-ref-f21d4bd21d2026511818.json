@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-f21d4bd21d2026511818",
+  "unit": "vacuum-mainline011-p3-frame-1019",
+  "at": "2026-10-19T23:19:04-07:00",
+  "body": "MAINLINE-011 P3-FRAME filed. At the float-mass ceiling the least limit is member yield everywhere in the P3 design space: 6061-T6 best SF 0.2331 at s=3.0 m, r_o=86.6 mm, t_w=2.25 mm (Euler tied 0.2333, local 0.908, film 0.838), a flat plateau 0.2319-0.2333 across s 1-3 m. Geometry buys nothing past the wall; the pinned r_o=0.02 frame (005's P3-A, reproduced) is Euler-bound at 0.096, so freeing the radius doubles it to 0.233. Best P3 equals P2-E's 0.2339 at kd 0.2 and beats P2-E at 004's curve kd 0.1407 (0.1646) by 1.42x; P3's member limits carry no spherical knockdown. Equal-mass tube swap: CFRP T700 QI 0.765 (best CFRP; rank flips vs 008's P2-E where M55J led - P3 is sigma/rho-bound), M55J 0.487, K13D2U 0.287; SiC (008 rank 1) 2.85 with the film the second limit (2.86 at s=0.88, binding from s=1); CNT-yarn projection 1.95. The material gap closes for P3 first: a tube material at sigma/rho about 3.3x aluminum already passes SF 1 at the ceiling. Exact annulus sections answer 005's thin-wall flag (t_w/r_o 0.019-0.076 at optima). Cross-checks 10/10 against 005, 004, 008 and the pins. All QUESTIONABLE; global-mode, local-knockdown, SiC and film objections in NFI.",
+  "artifacts": [
+    {
+      "path": "evidence/ab3fd04af99fcf37-CARD.md",
+      "sha256": "ab3fd04af99fcf371ea221a96366cc88ffe3730b6dd8caff216751b19b9462a1",
+      "bytes": 4051,
+      "match": true
+    },
+    {
+      "path": "evidence/d529b7e4efa6fadc-RESULTS.json",
+      "sha256": "d529b7e4efa6fadc53491eb6094de55986b9bf092fae6f295fd8490d86c5b538",
+      "bytes": 98848,
+      "match": true
+    },
+    {
+      "path": "evidence/0f1373271ca0676e-NFI.json",
+      "sha256": "0f1373271ca0676e10b2226955ec043374b1eb803a154ba6b2fe8820f46a0811",
+      "bytes": 3866,
+      "match": true
+    },
+    {
+      "path": "evidence/a3e6574dbff66951-INPUTS.json",
+      "sha256": "a3e6574dbff669515d8659281f1dfbce3177582cdc64542d6e2218d96afec945",
+      "bytes": 4801,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-3dada7412231c2ce03cc",
+  "re": "ord-admiral-rr2-mainline011-rotated-glm-1019"
+}

@@ -1,0 +1,240 @@
+{
+  "unit": "vacuum-mainline029-crimp-gamma-fe-1020",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "authority": "ord-admiral-rr2-mainline029-dispatch-1019",
+  "cases": {
+    "flat": {
+      "case": "flat",
+      "radius_outer_mm": 42.8,
+      "face_outer_mm": 0.42,
+      "face_inner_mm": 0.42,
+      "core_mm": 3.1,
+      "E_face_MPa": 210000.0,
+      "nu_face": 0.33,
+      "E_core_MPa": 40.0,
+      "nu_core": 0.0,
+      "G_meridian_MPa": 20.0,
+      "G_hoop_MPa": 20.0,
+      "core_kind": "isotropic",
+      "topology": "clamped_hemisphere",
+      "paper_linear_MPa": 27.53,
+      "paper_imperfect_MPa": 6.03
+    },
+    "dimple": {
+      "case": "dimple",
+      "radius_outer_mm": 42.8,
+      "face_outer_mm": 0.42,
+      "face_inner_mm": 0.4,
+      "core_mm": 3.1,
+      "E_face_MPa": 210000.0,
+      "nu_face": 0.33,
+      "E_core_MPa": 40.0,
+      "nu_core": 0.0,
+      "G_meridian_MPa": 20.0,
+      "G_hoop_MPa": 20.0,
+      "core_kind": "isotropic",
+      "topology": "clamped_hemisphere",
+      "paper_linear_MPa": 27.56,
+      "paper_imperfect_MPa": 5.63
+    },
+    "lead021": {
+      "case": "lead021",
+      "radius_outer_mm": 10000.0,
+      "face_outer_mm": 0.8434480441930918,
+      "face_inner_mm": 0.8434480441930918,
+      "core_mm": 20.21337638749162,
+      "E_face_MPa": 290000.0,
+      "nu_face": 0.33,
+      "E_core_MPa": 103.42135939752539,
+      "G_meridian_MPa": 103.4213593975254,
+      "G_hoop_MPa": 46.88434959354485,
+      "E_inplane_MPa": 0.01,
+      "G_inplane_MPa": 0.005,
+      "core_kind": "orthotropic",
+      "topology": "full_sphere",
+      "required_pressure_MPa": 0.09546083791390515,
+      "gamma_handbook_required": 0.5953179642995181,
+      "specified_dimple_mm": 11.8,
+      "equivalent_thickness_mm": 36.47148976173557
+    },
+    "lead021b": {
+      "case": "lead021b",
+      "radius_outer_mm": 10000.0,
+      "face_outer_mm": 0.6917479988347394,
+      "face_inner_mm": 0.6917479988347394,
+      "core_mm": 30.118230884842855,
+      "E_face_MPa": 290000.0,
+      "nu_face": 0.33,
+      "E_core_MPa": 103.42135939752539,
+      "G_meridian_MPa": 103.4213593975254,
+      "G_hoop_MPa": 46.88434959354485,
+      "E_inplane_MPa": 0.01,
+      "G_inplane_MPa": 0.005,
+      "core_kind": "orthotropic",
+      "topology": "full_sphere",
+      "required_pressure_MPa": 0.09546083791390515,
+      "gamma_handbook_required": 0.46822856667720764,
+      "specified_dimple_mm": 46.0,
+      "equivalent_thickness_mm": 53.364448806653826
+    },
+    "transfer40": {
+      "case": "transfer40",
+      "radius_outer_mm": 125.97,
+      "face_outer_mm": 0.42,
+      "face_inner_mm": 0.42,
+      "core_mm": 3.1,
+      "E_face_MPa": 210000.0,
+      "nu_face": 0.33,
+      "E_core_MPa": 40.0,
+      "nu_core": 0.0,
+      "G_meridian_MPa": 20.0,
+      "G_hoop_MPa": 20.0,
+      "core_kind": "isotropic",
+      "topology": "clamped_hemisphere"
+    }
+  },
+  "inherited_artifacts": "INPUT-CUSTODY.json",
+  "sources": [
+    {
+      "path": "unpublished-local-ref:2c544ff4b81ac48c",
+      "sha256": "a6af91db293b693fb5c111ddcc3f8c802ca0428afb7f8273a3fc2ae97fe3506c",
+      "bytes": 2142405,
+      "url": "https://www.eucass.eu/doi/EUCASS2023-367.pdf",
+      "use": "Geometry, elastic data, numerical benchmark and constitutive omissions"
+    },
+    {
+      "path": "unpublished-local-ref:b7a180a0ee070d39",
+      "sha256": "16b6bab5a3f1a40a21fff62379f95c804a58d93758ab2e9a489b18d911dc20c8",
+      "bytes": 5306787,
+      "url": "https://www.dhondt.de/ccx_2.21.pdf",
+      "use": "Native element, material, pressure, static and buckling syntax"
+    },
+    {
+      "path": "unpublished-local-ref:b2505e4481644878",
+      "sha256": "0467f718f7d9d3a175635718573f94f58baea1d753e83db4be8edcba9f374034",
+      "bytes": 269874,
+      "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "use": "5056 3/8-1.0 Table II: E_normal15ksi, G_L15ksi, G_W6.8ksi"
+    },
+    {
+      "path": "unpublished-local-ref:ebe945aa2d973972",
+      "sha256": "6a1a55855cc2c8b0a864289518b868a0528db319739a26eacb6a4b262f110b51",
+      "bytes": 10571741,
+      "url": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "use": "Sandwich shell handbook basis, also traced through sealed 014b/018b/021 inputs"
+    },
+    {
+      "path": "unpublished-local-ref:d6fe3fc36c8b1adc",
+      "sha256": "5276435d2644df119f7aa9a82bf299ed76c36f0c94c7789f03e97008739ff11c",
+      "bytes": 315376,
+      "url": "https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4",
+      "use": "Materion S200 nominal E290GPa; grade/strength limitations retained"
+    },
+    {
+      "path": "unpublished-local-ref:dd2c449b84fcd839",
+      "sha256": "3c354f7126d8d69fe8381dd9d1ab756c3d7287164615768ea1b1ae4f9ab7b915",
+      "bytes": 11102482,
+      "url": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+      "use": "Table 2 SR200 properties for1.96mm sheet; nu12=.0768 sensitivity only"
+    }
+  ],
+  "normalizations": "NORMALIZATIONS.json",
+  "assumptions": [
+    "Lead faces use inherited isotropic nu=0.33; the actual beryllium nu has not been established here.",
+    "Honeycomb axes 1 meridian,2 local normal,3 circumference; L and W swapped for the two runs.",
+    "Unknown in-plane moduli E1=E3=0.01 MPa, G13=0.005 MPa; all core Poisson ratios zero; explicit regularization, not sourced values.",
+    "Lead geometry is a full sphere; paper geometry is a hemisphere with the equator clamped.",
+    "Gaussian dimple applies the same stress-free radial offset to every layer; not the paper indenter-generated geometry.",
+    "Lead defect width uses MAINLINE-015 lambda_I=1 at nu_width=0.3; material nu remains0.33.",
+    "All faces and core linear elastic with finite kinematics; paper crushable-foam plasticity and steel plasticity not reproduced.",
+    "Pressure load control; convergence failure alone is not proof of physical collapse.",
+    "SR200 nu=.0768 and declared S200F nu=.03 are sensitivity variants; neither establishes an isotropic thin-gauge material law."
+  ],
+  "own_code": [
+    {
+      "path": "evidence/53f175db0854066b-axisymmetric.py",
+      "sha256": "53f175db0854066b36961abf9bf1c7a26e4f9d8d29c32c459ae1e4efdd76e36f",
+      "bytes": 11042
+    },
+    {
+      "path": "evidence/4d0343b2414a7ad4-three_dimensional.py",
+      "sha256": "4d0343b2414a7ad47c0669a56fbbd6dfca469fd309fe87eea87ac84b0eb817ea",
+      "bytes": 6054
+    },
+    {
+      "path": "unpublished-local-ref:2245681382ef7e2c",
+      "sha256": "0e34f6d3d45d0602e6aad08e689a06102a0e790791504610d8ffff8e95e5615b",
+      "bytes": 4999
+    },
+    {
+      "path": "unpublished-local-ref:db901baf0face547",
+      "sha256": "0db2bde5b3d7208aaa44f40e6cdc48fd95e80e2aed0299109d5f67a79a054fff",
+      "bytes": 4065
+    },
+    {
+      "path": "unpublished-local-ref:268bab684d072e88",
+      "sha256": "681e2e2e5c52ecbd9ed868b4607b1810b1f630157dd607f2c20fb455c7f74754",
+      "bytes": 1997
+    },
+    {
+      "path": "unpublished-local-ref:fa08fafa605fbc3c",
+      "sha256": "5d031b03164623deaf81de5643d6056bee4360c2bd53a2b66095e42cd6bdd4cd",
+      "bytes": 3888
+    },
+    {
+      "path": "unpublished-local-ref:b3837550e76364a4",
+      "sha256": "45069cd2800343e4d78c58b00a5213127c9d292bde6c107c9743b76420397fd1",
+      "bytes": 2623
+    },
+    {
+      "path": "unpublished-local-ref:ca45f2fb2a412080",
+      "sha256": "f2f490d56fe25790e9998b7eba084eb95e579325cea0b622174db317d185ab28",
+      "bytes": 29189
+    },
+    {
+      "path": "unpublished-local-ref:4cef8cfcea567bf8",
+      "sha256": "97b8e2132a50e127f705df542ff8d9f41d9a5ba2385a2a1f21788fe1b0908adb",
+      "bytes": 1853
+    },
+    {
+      "path": "unpublished-local-ref:c6a5067a615bf753",
+      "sha256": "ee5e4e99f58b659a57b28209ca1b7e8cf2e23ade49e8f6d17c23636c0927dc19",
+      "bytes": 1829
+    },
+    {
+      "path": "unpublished-local-ref:3ca874a95fad14e1",
+      "sha256": "88e108390730bef87eeb931a5ba0196c0696d0fde85a4865aacac908e94f5570",
+      "bytes": 1957
+    },
+    {
+      "path": "unpublished-local-ref:ef55cf76a1bf546b",
+      "sha256": "3bb5b887b57d3712ca791be57e2f84f707d3611f48907ba6f41ccadb7576c485",
+      "bytes": 6206
+    }
+  ],
+  "local_native_source_inspection": {
+    "path": "unpublished-local-ref:00f004695885adf5",
+    "sha256": "4fdfcd2c076a8c16aea4a3b61c5e6366d6f5e25ad618927f3090317a34653cb6",
+    "bytes": 30186,
+    "note": "Retained local CalculiX2.21 source; sigma=1 near line503. Binary consistency defects are established by runs, not a claimed source-level diagnosis."
+  },
+  "other_primary_access": [
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0263822316317342",
+      "scope": "publisher abstract only; full constitutive dataset not recovered"
+    },
+    {
+      "url": "https://cnu.elsevierpure.com/en/publications/buckling-knockdown-factors-for-hemispherical-foam-core-sandwich-s/",
+      "scope": "institutional metadata and abstract only; no full-text calibration"
+    }
+  ],
+  "finite_strain_elastic_convention": {
+    "law": "St. Venant-Kirchhoff: Green-Lagrange strain with PK2 stress",
+    "output_stress": "Cauchy (true)",
+    "source": "CalculiX2.21 manual6.8.1; the native *ELASTIC convention differs from Abaqus logarithmic-strain/Cauchy elasticity.",
+    "consequence": "Additional nonlinear benchmark mismatch; large-compression behavior is not a physical foam law.",
+    "tag": "QUESTIONABLE"
+  },
+  "source_normalization_warning": "Vc<2 for both lead points; their design gamma multiplies the handbook pressure, not p_crimp."
+}

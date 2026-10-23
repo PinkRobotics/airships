@@ -1,0 +1,108 @@
+{
+  "id": "rpt-ref-5b1ba7a48fcb57c8e35e",
+  "kind": "report",
+  "from": "ref-3f7ec48b84b54a049007",
+  "from_seat": "ref-3f7ec48b84b54a049007",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline033-optimism-vs-size-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline033-dispatch-1019"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline033-dispatch-1019",
+  "completion": "none",
+  "priority": 4,
+  "at": "2026-10-20T02:07:18-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline033-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "MAINLINE-033 complete. Primary account uses the actual 028 joining bill; the retained 027 five-percent allowance is a separate comparison.\n\nAcross R=10,15,20,30,50 m, the six-shell-mode least set is gamma+Q. Required factors fall from 1.98718/1.83621 to 1.79862/1.63551, with no strength improvement. Minimum-usage payload is zero; full-endpoint SF1 payload at R50 is 89,422.443 kg. Literal handbook gamma=.20/Q=.33 has no radius under the model's ideal envelope.\n\nFull-endpoint pair crossings: gamma+Q 6.822342 m; Q+strength 16.281907 m on the crimp gamma=1 branch; gamma+strength 103.892276 m only outside published sheet gauge. No single suffices in the searched model.\n\nWith the 10 MPa scarf screen, all three at R10 still miss by 12.7995 kg; gamma+Q first passes at 10.350852 m and carries 41,318.067 kg at R50 full endpoints. Retaining the 027 allowance moves the Q+strength shell crossing to 40.470112 m.\n\nEvery mode, factor, budget and sensitivity is filed. Independent checks: 10,289/10,289 scalar comparisons, 381 geometries, 61/61 dense-search cases. Nine NFIs; material inputs QUESTIONABLE, outputs PROJECTION, installed-hull SF unknown. Brief says stop/file; no next job is named.",
+  "artifacts": [
+    {
+      "path": "evidence/52f6c97f0861f509-CARD.md",
+      "sha256": "52f6c97f0861f50923dc1a494a41bae10e87d8b9dda1158a355ae4912fe98db2",
+      "bytes": 10767
+    },
+    {
+      "path": "evidence/08bb0e5be36beffd-METHOD.md",
+      "sha256": "08bb0e5be36beffdbf807ffb6b41b2c35779dae81b9556ed112f6d36e0f51c00",
+      "bytes": 11377
+    },
+    {
+      "path": "evidence/11569cec3e9d976c-RESULTS.json",
+      "sha256": "11569cec3e9d976c8b7b6079ce28037a6e41d04452e7aa50ba8885d5c9611967",
+      "bytes": 4397182
+    },
+    {
+      "path": "evidence/f601320c5c6ff9e9-INPUTS.json",
+      "sha256": "f601320c5c6ff9e9a94f75ed9d704685deaf57d73aeb7564cda5c5ff360b35a3",
+      "bytes": 22673
+    },
+    {
+      "path": "evidence/0b15813982c8ad84-MODEL-INPUTS.json",
+      "sha256": "0b15813982c8ad84cc2a77ef2bc424b12ad6dfd0a2ed43d1bb5cb4b3ccfbaa62",
+      "bytes": 42154
+    },
+    {
+      "path": "evidence/a4edee0295bc38f3-NFI.json",
+      "sha256": "a4edee0295bc38f39245cd5767c1f102f15cee1b49b2fbac7bb4fd14a6431bd3",
+      "bytes": 5539
+    },
+    {
+      "path": "evidence/bf3b28b960aba154-PAYLOAD-AND-MODES.csv",
+      "sha256": "bf3b28b960aba154c3508533580679c168efdd5574f6a83578a018b4453b0057",
+      "bytes": 31682
+    },
+    {
+      "path": "unpublished-local-ref:e68c956ef4787703",
+      "sha256": "1983aaea68bef1c7ac1641440953e7f7f59adb26ece4be774072e4db4fad5ee9",
+      "bytes": 196496
+    },
+    {
+      "path": "evidence/0759843451a0785d-OPTIMISM-AND-PAYLOAD.svg",
+      "sha256": "0759843451a0785defddfd65168eb075618e797ae402ccb99066d6c60f6dcf84",
+      "bytes": 34943
+    },
+    {
+      "path": "unpublished-local-ref:062c245098675d9b",
+      "sha256": "f3b1119126aafd192cbe75118e312b9494b6bbdc0597c4982fad866878c339e2",
+      "bytes": 29230
+    },
+    {
+      "path": "evidence/f66893d82eca5706-VALIDATION.json",
+      "sha256": "f66893d82eca5706b9d35ddd6daec34c03e7544f48ee2f8d8315a545a847d5aa",
+      "bytes": 2505654
+    },
+    {
+      "path": "evidence/2b59da5513d41639-SEARCH-VERIFICATION.json",
+      "sha256": "2b59da5513d41639428f2e7bfb5348a4671a5bc1dc30ff12c51c1731b810acee",
+      "bytes": 13164
+    },
+    {
+      "path": "evidence/d67ad1578f3cf223-MINIMUM-VERIFICATION.json",
+      "sha256": "d67ad1578f3cf2234ef969fe770a07ee2cb122f76999afcaec8f3b2f1d3c110b",
+      "bytes": 107043
+    },
+    {
+      "path": "evidence/b03a8c02a1533665-MANIFEST.json",
+      "sha256": "b03a8c02a1533665490a50605c5ae36754bc64cd758539f9eaaf1457e776eefc",
+      "bytes": 20602
+    }
+  ],
+  "ingested": "2026-10-20T02:08:07-07:00"
+}

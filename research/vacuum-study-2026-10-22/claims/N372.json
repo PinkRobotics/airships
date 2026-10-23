@@ -1,0 +1,145 @@
+{
+  "id": "N372",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N372",
+    "report": "rpt-ref-58c781cbea9c220eb5b4",
+    "card": "MAINLINE-025",
+    "file": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "source_sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+    "source_json_pointer": "/rows/4",
+    "row_id": "NFI-025-CONTACT",
+    "fields": {
+      "id": "NFI-025-CONTACT",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE",
+      "target_transfer": "PROJECTION",
+      "evidence_state": "PROJECTION",
+      "issue": "Unknown node/seat geometry and stress-weighted tensile regions.",
+      "factor": {
+        "original_member_end_force_N": 973700.5467217801,
+        "Ct_screen_m8": 0.005035105985369126,
+        "Ct_screen_m10_approx": 0.010912,
+        "actual_Ct": null,
+        "actual_stressed_effective_size": null,
+        "end_forces_N_by_force_rule": {
+          "equilateral_equilibrium": 562166.2727599056,
+          "legacy_pRs_over2": 973700.5467217801
+        },
+        "uniform_tensile_contact_Ct_hypotheses_by_force_rule": {
+          "equilateral_equilibrium": [
+            {
+              "m": 8,
+              "flaw_measure": "volume",
+              "Ct": 0.008721058962049048,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            },
+            {
+              "m": 8,
+              "flaw_measure": "surface",
+              "Ct": 0.009945655791219508,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            },
+            {
+              "m": 10,
+              "flaw_measure": "volume",
+              "Ct": 0.018899508770244062,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            },
+            {
+              "m": 10,
+              "flaw_measure": "surface",
+              "Ct": 0.021389725093776162,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            }
+          ],
+          "legacy_pRs_over2": [
+            {
+              "m": 8,
+              "flaw_measure": "volume",
+              "Ct": 0.005035105739357616,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            },
+            {
+              "m": 8,
+              "flaw_measure": "surface",
+              "Ct": 0.005742127048327943,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            },
+            {
+              "m": 10,
+              "flaw_measure": "volume",
+              "Ct": 0.010911636476052101,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            },
+            {
+              "m": 10,
+              "flaw_measure": "surface",
+              "Ct": 0.01234936354078376,
+              "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+            }
+          ]
+        }
+      },
+      "required_next_evidence": "Resolved three-dimensional contact model with real seat radius, compliance, friction, misalignment, residual stress and bearing width; full joint tests.",
+      "note": "Ct is positive principal tensile stress divided by mean axial compression, not bearing pressure. Full-volume caps only illustrate a hypothetical field; actual smaller hot spots require correct surface/volume/edge integration. Original unqualified force/Ct keys refer to the inherited case; the new branch-specific arrays score both demands."
+    },
+    "inherited_document_tag": {
+      "classification": "QUESTIONABLE"
+    }
+  },
+  "claim": "Unknown node/seat geometry and stress-weighted tensile regions. | Ct is positive principal tensile stress divided by mean axial compression, not bearing pressure. Full-volume caps only illustrate a hypothetical field; actual smaller hot spots require correct surface/volume/edge integration. Original unqualified force/Ct keys refer to the inherited case; the new branch-specific arrays score both demands.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/371"
+    },
+    {
+      "report": "rpt-ref-58c781cbea9c220eb5b4",
+      "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+      "bytes": 21434,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58c781cbea9c220eb5b4",
+          "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+          "bytes": 21434,
+          "selector": "/rows/4"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/371"
+          }
+        ]
+      }
+    }
+  ]
+}

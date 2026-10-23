@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-408ec9521c88e0a0d103",
+  "unit": "vacuum-review-c-064-1020",
+  "at": "2026-10-20T17:23:44.688700-07:00",
+  "body": "REVIEW-C of 064. This seat did not write it. QUESTIONABLE inputs. PROJECTION payloads. No qualified hull safety factor. No demonstrated mismatch, so no fix row.\n\nIndependent simjob simjob-20261020t172053-1b07079aefe4 exited 0 in 78 s on this seat's copy of the 063 model. 064's driver was not run. All eight cells at gamma 0.20 reproduce: factors, payloads, Vc, and the binding mode. The largest closure-density difference is 0.00012 kg/m3. Every concept and TRL 7 payload is negative. At Q 0.82, R 30 ISA is factor 1.4949, concept -40,183 kg, TRL 7 -24,952 kg, closure 1,238 kg/m3. At Q 0.33 it is 2.0802, -97,878 kg, -77,634 kg, and 889 kg/m3. Specific modulus at 293.6 GPa is 159 at 1,850 kg/m3, 237 at the first closure, and 330 at the second.\n\nCR-1457 section 6.2 reproduces: two hemisphere points, six ellipsoidal, gamma 0.20, ellipsoid 0.35, gamma 1 at Vc at least 2, and no continuous ramp. Reference 6-4 is the 55-inch title. The two DOIs are not sphere tests. The 2014-T6 glass-fabric sentence is a flight-bulkhead account. SDL 468 was not opened, so the specimen alloy is unchecked. SP-8032, the Lee series, and the 2024 note were not reopened.\n\nA published gamma of 0.20 closes no cell. Stopping.",
+  "artifacts": [
+    {
+      "path": "evidence/e248487f565f1432-REVIEW.md",
+      "sha256": "e248487f565f14322ad9c360be1c13a3638a042b1951f6923b77b47b02b0c12a",
+      "bytes": 3873
+    },
+    {
+      "path": "evidence/1b8d9b77b16cced0-NFI.json",
+      "sha256": "1b8d9b77b16cced0a8869e0dc1ab83b5e414855f6501d24b1951368c51b0fff4",
+      "bytes": 1112
+    },
+    {
+      "path": "evidence/4f053b5199c0bd56-INPUTS.json",
+      "sha256": "4f053b5199c0bd5674fd24134c0923a8c416a490d281df3c7fa75dbb8f059da7",
+      "bytes": 3888
+    },
+    {
+      "path": "evidence/ff37e70a00913fb6-CHECK.json",
+      "sha256": "ff37e70a00913fb65b42803d376d06fb121b899278dd083bcc316089702da515",
+      "bytes": 8168
+    },
+    {
+      "path": "evidence/56608e48b135ba44-check_c.py",
+      "sha256": "56608e48b135ba44c8dc7fee63081acaee94f95b35b98d201eea8c0af749737b",
+      "bytes": 4033
+    }
+  ],
+  "from": "ref-72d760dc6540b4541734",
+  "from_seat": "ref-72d760dc6540b4541734",
+  "re": "ord-admiral-rr2-review-c1-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-c1-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

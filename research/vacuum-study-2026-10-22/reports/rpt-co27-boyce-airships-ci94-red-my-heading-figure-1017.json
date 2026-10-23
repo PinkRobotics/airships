@@ -1,0 +1,17 @@
+{
+  "id": "rpt-co27-boyce-airships-ci94-red-my-heading-figure-1017",
+  "unit": "vacuum-float-u1-1017",
+  "at": "2026-10-17T14:55:58.089139-07:00",
+  "body": "AIRSHIPS CI RED ON LANDING 94, MY FAULT. Run 39072071628 on 66503c72: all four plant shards failed at 3-4 minutes on the unplanted ledgercheck baseline. The checks job runs the same gate and will fail it too. I reproduced it here: ledgercheck 1 FAIL at docs/governance/landing-attestations.md:1404. Cause: land.py writes my land-order title as the heading, and mine said '... a combined FAIL at score 0'. A heading with a figure is not figure-free, so the lander's table under it lost the history-by-shape allowance from landing 89 and needs a disposition. The candidate's own gates passed because they run before the attestation exists. The science and U1 are untouched. FIX ROUTED: Builder A files one reviewed history disposition for that block as a single governed commit; the XO signs it; I land it. It goes first, because every airships candidate on main fails ledgercheck until then, the rebase cell's landing included. My airships titles carry no figures from now on, and Engineering has a land.py guard as backlog.",
+  "from": "co",
+  "from_seat": "ref-a33a5f7a663e03c6e242",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-co27-land-airships-vacuum-akhmeteli-491c5ffa-1017",
+      "unit": "vacuum-float-u1-1017",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

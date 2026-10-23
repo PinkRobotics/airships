@@ -1,0 +1,74 @@
+{
+  "id": "N565",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N565",
+    "report": "rpt-ref-8c5de04c9c33dbcf7447",
+    "card": "rpt-ref-8c5de04c9c33dbcf7447",
+    "file": "evidence/f9ff7da1d21d1380-NFI.json",
+    "snapshot": "evidence/f9ff7da1d21d1380-NFI.json",
+    "source_sha256": "f9ff7da1d21d1380a77ae7b7e6e5f2b1935bd729c4a9f2e3861fa1c625970e89",
+    "source_json_pointer": "/rows/3",
+    "row_id": "NFI-037-MOORING-WIND",
+    "fields": {
+      "id": "NFI-037-MOORING-WIND",
+      "tag": "QUESTIONABLE",
+      "finding": "FAA-P-8110-2 Table 4 lists 70 knots. Mapped as a uniform windward excess, the floated P2 lead falls from 1.006358 to 0.998442. The flight gust, 35 ft/s at 35 knots, leaves 1.003303. The change discussion names 78 knots.",
+      "next": "The Admiral picks the mooring wind and whether the windward excess is uniform or a patch."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "FAA-P-8110-2 Table 4 lists 70 knots. Mapped as a uniform windward excess, the floated P2 lead falls from 1.006358 to 0.998442. The flight gust, 35 ft/s at 35 knots, leaves 1.003303. The change discussion names 78 knots.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/564"
+    },
+    {
+      "report": "rpt-ref-8c5de04c9c33dbcf7447",
+      "artifact": "evidence/f9ff7da1d21d1380-NFI.json",
+      "snapshot": "evidence/f9ff7da1d21d1380-NFI.json",
+      "sha256": "f9ff7da1d21d1380a77ae7b7e6e5f2b1935bd729c4a9f2e3861fa1c625970e89",
+      "bytes": 3264,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-8c5de04c9c33dbcf7447",
+          "artifact": "evidence/f9ff7da1d21d1380-NFI.json",
+          "snapshot": "evidence/f9ff7da1d21d1380-NFI.json",
+          "sha256": "f9ff7da1d21d1380a77ae7b7e6e5f2b1935bd729c4a9f2e3861fa1c625970e89",
+          "bytes": 3264,
+          "selector": "/rows/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/564"
+          }
+        ]
+      }
+    }
+  ]
+}

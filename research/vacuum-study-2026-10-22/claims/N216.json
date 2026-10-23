@@ -1,0 +1,72 @@
+{
+  "id": "N216",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N216",
+    "report": "rpt-ref-a4768f77870336c8cdbb",
+    "card": "MAINLINE-023",
+    "file": "evidence/30c19a9c27a07c4b-NFI.json",
+    "row_id": "NFI-023-TI-SLEEVE",
+    "fields": {
+      "id": "NFI-023-TI-SLEEVE",
+      "value": "AMS 4911 annealed Ti-6Al-4V, minimum yield 827 MPa, minimum ultimate 896 MPa, density 4.43 g/cm3. The pin shear is 0.6 times that yield, derived here, not a handbook shear.",
+      "state": "exists today",
+      "issue": "The sheet exists today. At 562.2 kN the sleeve is 0.075 kg per end and 157.7 kg, 0.70 times the 225.5 kg allowance. Frozen least SF is 1.232 by the film. Re-optimised least SF is 1.431 at k 0.2 and 1.995 at k 0.4.",
+      "consequence": "At the equilateral force the titanium sleeve fits inside the 5 percent allowance. The first filing's 473.1 kg was the two-way force.",
+      "next": "None."
+    }
+  },
+  "claim": "The sheet exists today. At 562.2 kN the sleeve is 0.075 kg per end and 157.7 kg, 0.70 times the 225.5 kg allowance. Frozen least SF is 1.232 by the film. Re-optimised least SF is 1.431 at k 0.2 and 1.995 at k 0.4.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/215"
+    },
+    {
+      "report": "rpt-ref-a4768f77870336c8cdbb",
+      "artifact": "evidence/30c19a9c27a07c4b-NFI.json",
+      "snapshot": "evidence/30c19a9c27a07c4b-NFI.json",
+      "sha256": "30c19a9c27a07c4b94883e6b671a925d2907830932e85e3cb18763bd1c2e8dec",
+      "bytes": 5912,
+      "selector": "source row ID: NFI-023-TI-SLEEVE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-a4768f77870336c8cdbb",
+          "artifact": "evidence/30c19a9c27a07c4b-NFI.json",
+          "snapshot": "evidence/30c19a9c27a07c4b-NFI.json",
+          "sha256": "30c19a9c27a07c4b94883e6b671a925d2907830932e85e3cb18763bd1c2e8dec",
+          "bytes": 5912,
+          "selector": "source row ID: NFI-023-TI-SLEEVE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/215"
+          }
+        ]
+      }
+    }
+  ]
+}

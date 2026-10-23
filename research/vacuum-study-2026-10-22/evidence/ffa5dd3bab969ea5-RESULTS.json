@@ -1,0 +1,2335 @@
+{
+  "schema": 1,
+  "card_checked": "MAINLINE-006",
+  "owner_report": "rpt-mainline006-grok-float-margin-1019",
+  "checker_order": "ord-admiral-rr2-check006-007-007b-muse-1019",
+  "unit": "vacuum-mainline006-check-1019",
+  "start_script": "2026-10-19T23:30:20.014579-07:00",
+  "end_script": "2026-10-19T23:30:20.016808-07:00",
+  "script_elapsed_s": 0.002223917981609702,
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_Pa": 276000000.0,
+    "R_m": 10.0,
+    "kd": 0.2,
+    "p_ext_Pa": 95460.83791390515,
+    "lift_kg": 4889.442150186961,
+    "area_m2": 1256.6370614359173,
+    "rho_al": 2700.0,
+    "n_edges_P3": 4353.118474162124
+  },
+  "families": {
+    "P1": {
+      "rows": [
+        {
+          "label": "0",
+          "geometry": {
+            "t_m": 0.0012564779436796988
+          },
+          "masses_kg": {
+            "shell": 4263.129227442691,
+            "joints": 426.31292274426914,
+            "systems_payload": 200.0
+          },
+          "structural_mass_kg": 4889.44215018696,
+          "payload_kg": 9.094947017729282e-13,
+          "float_margin": 1.8601195675014813e-16,
+          "buckling_Pa": 266.1123944669883,
+          "yield_Pa": 69357.58249111938,
+          "buckling_SF": 0.0027876603671443934,
+          "yield_SF": 0.7265553498877942,
+          "least_SF": 0.0027876603671443934,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.t_m": {
+              "card_value": 0.0012564779436796986,
+              "checker_value": 0.0012564779436796988,
+              "rel_diff": 1.7257798721246622e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4889.44215018696,
+              "checker_value": 4889.44215018696,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 9.094947017729282e-13,
+              "checker_value": 9.094947017729282e-13,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 1.8601195675014813e-16,
+              "checker_value": 1.8601195675014813e-16,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.0027876603671443925,
+              "checker_value": 0.0027876603671443934,
+              "rel_diff": 3.1114326128505626e-16,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.7265553498877941,
+              "checker_value": 0.7265553498877942,
+              "rel_diff": 1.5280639318072797e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.0027876603671443925,
+              "checker_value": 0.0027876603671443934,
+              "rel_diff": 3.1114326128505626e-16,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 266.1123944669882,
+              "checker_value": 266.1123944669883,
+              "rel_diff": 4.2721361381654523e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 69357.58249111936,
+              "checker_value": 69357.58249111938,
+              "rel_diff": 2.0981001219628867e-16,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "5pct",
+          "geometry": {
+            "t_m": 0.0011909746703493856
+          },
+          "masses_kg": {
+            "shell": 4040.8818569796476,
+            "joints": 404.0881856979648,
+            "systems_payload": 200.0
+          },
+          "structural_mass_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "float_margin": 0.050000000000000086,
+          "buckling_Pa": 239.0894505954237,
+          "yield_Pa": 65741.80180328609,
+          "buckling_SF": 0.0025045815207599084,
+          "yield_SF": 0.688678239579017,
+          "least_SF": 0.0025045815207599084,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.t_m": {
+              "card_value": 0.0011909746703493852,
+              "checker_value": 0.0011909746703493856,
+              "rel_diff": 3.641394563555049e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4644.970042677611,
+              "checker_value": 4644.970042677613,
+              "rel_diff": 3.916041194739962e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 244.47210750935028,
+              "checker_value": 244.47210750934846,
+              "rel_diff": 7.440478270005857e-15,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.050000000000000454,
+              "checker_value": 0.050000000000000086,
+              "rel_diff": 7.355227538141596e-15,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.0025045815207599066,
+              "checker_value": 0.0025045815207599084,
+              "rel_diff": 6.926200890640128e-16,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.6886782395790167,
+              "checker_value": 0.688678239579017,
+              "rel_diff": 3.2242140402282105e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.0025045815207599066,
+              "checker_value": 0.0025045815207599084,
+              "rel_diff": 6.926200890640128e-16,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 239.08945059542353,
+              "checker_value": 239.0894505954237,
+              "rel_diff": 7.13248770105661e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 65741.80180328606,
+              "checker_value": 65741.80180328609,
+              "rel_diff": 4.4269900821731004e-16,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "10pct",
+          "geometry": {
+            "t_m": 0.0011254713970190724
+          },
+          "masses_kg": {
+            "shell": 3818.6344865166043,
+            "joints": 381.86344865166046,
+            "systems_payload": 200.0
+          },
+          "structural_mass_kg": 4400.497935168265,
+          "payload_kg": 488.944215018696,
+          "float_margin": 0.09999999999999998,
+          "buckling_Pa": 213.51298316917425,
+          "yield_Pa": 62126.02111545279,
+          "buckling_SF": 0.002236655238263661,
+          "yield_SF": 0.6508011292702398,
+          "least_SF": 0.002236655238263661,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.t_m": {
+              "card_value": 0.0011254713970190722,
+              "checker_value": 0.0011254713970190724,
+              "rel_diff": 1.9266632192646147e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4400.497935168264,
+              "checker_value": 4400.497935168265,
+              "rel_diff": 2.0667995194460906e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 488.9442150186969,
+              "checker_value": 488.944215018696,
+              "rel_diff": 1.860119567501478e-15,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.10000000000000017,
+              "checker_value": 0.09999999999999998,
+              "rel_diff": 1.9428902930940208e-15,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.0022366552382636594,
+              "checker_value": 0.002236655238263661,
+              "rel_diff": 7.755882293792817e-16,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.6508011292702397,
+              "checker_value": 0.6508011292702398,
+              "rel_diff": 1.7059328490564832e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.0022366552382636594,
+              "checker_value": 0.002236655238263661,
+              "rel_diff": 7.755882293792817e-16,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 213.5129831691741,
+              "checker_value": 213.51298316917425,
+              "rel_diff": 6.655733297465207e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 62126.021115452786,
+              "checker_value": 62126.02111545279,
+              "rel_diff": 1.1711610503209348e-16,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "20pct",
+          "geometry": {
+            "t_m": 0.0009944648503584462
+          },
+          "masses_kg": {
+            "shell": 3374.139745590517,
+            "joints": 337.4139745590517,
+            "systems_payload": 200.0
+          },
+          "structural_mass_kg": 3911.553720149569,
+          "payload_kg": 977.888430037392,
+          "float_margin": 0.19999999999999996,
+          "buckling_Pa": 166.6994776526201,
+          "yield_Pa": 54894.45973978624,
+          "buckling_SF": 0.0017462603649358714,
+          "yield_SF": 0.5750469086526856,
+          "least_SF": 0.0017462603649358714,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.t_m": {
+              "card_value": 0.000994464850358446,
+              "checker_value": 0.0009944648503584462,
+              "rel_diff": 2.1804735925954818e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3911.5537201495677,
+              "checker_value": 3911.553720149569,
+              "rel_diff": 3.4877241890652786e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 977.8884300373934,
+              "checker_value": 977.888430037392,
+              "rel_diff": 1.3950896756261093e-15,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.20000000000000023,
+              "checker_value": 0.19999999999999996,
+              "rel_diff": 1.387778780781444e-15,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.0017462603649358705,
+              "checker_value": 0.0017462603649358714,
+              "rel_diff": 4.966966870488734e-16,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.5750469086526854,
+              "checker_value": 0.5750469086526856,
+              "rel_diff": 3.8613302946932447e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.0017462603649358705,
+              "checker_value": 0.0017462603649358714,
+              "rel_diff": 4.966966870488734e-16,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 166.69947765262,
+              "checker_value": 166.6994776526201,
+              "rel_diff": 5.114900747853179e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 54894.45973978622,
+              "checker_value": 54894.45973978624,
+              "rel_diff": 2.650889597483362e-16,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "30pct",
+          "geometry": {
+            "t_m": 0.0008634583036978199
+          },
+          "masses_kg": {
+            "shell": 2929.6450046644295,
+            "joints": 292.964500466443,
+            "systems_payload": 200.0
+          },
+          "structural_mass_kg": 3422.6095051308725,
+          "payload_kg": 1466.8326450560885,
+          "float_margin": 0.30000000000000004,
+          "buckling_Pa": 125.67187791732576,
+          "yield_Pa": 47662.89836411966,
+          "buckling_SF": 0.0013164757471610246,
+          "yield_SF": 0.4992926880351311,
+          "least_SF": 0.0013164757471610246,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.t_m": {
+              "card_value": 0.0008634583036978197,
+              "checker_value": 0.0008634583036978199,
+              "rel_diff": 2.511301745185225e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3422.609505130872,
+              "checker_value": 3422.6095051308725,
+              "rel_diff": 1.3286568339296297e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 1466.832645056089,
+              "checker_value": 1466.8326450560885,
+              "rel_diff": 3.100199279169134e-16,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.30000000000000016,
+              "checker_value": 0.30000000000000004,
+              "rel_diff": 3.7007434154171867e-16,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.0013164757471610241,
+              "checker_value": 0.0013164757471610246,
+              "rel_diff": 3.294256426139511e-16,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.49929268803513105,
+              "checker_value": 0.4992926880351311,
+              "rel_diff": 1.1117957975653745e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.0013164757471610241,
+              "checker_value": 0.0013164757471610246,
+              "rel_diff": 3.294256426139511e-16,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 125.6718779173257,
+              "checker_value": 125.67187791732576,
+              "rel_diff": 4.523161410717753e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 47662.898364119654,
+              "checker_value": 47662.89836411966,
+              "rel_diff": 1.5265453558025174e-16,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "baseline",
+          "geometry": {
+            "t_m": 0.0007
+          },
+          "masses_kg": {
+            "shell": 2375.0440461138837,
+            "joints": 237.5044046113884,
+            "systems_payload": 200.0
+          },
+          "structural_mass_kg": 2812.5484507252722,
+          "payload_kg": 2076.893699461689,
+          "float_margin": 0.42477109569284366,
+          "buckling_Pa": 82.59456002608202,
+          "yield_Pa": 38640.0,
+          "buckling_SF": 0.0008652193070060096,
+          "yield_SF": 0.4047733169370344,
+          "least_SF": 0.0008652193070060096,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.t_m": {
+              "card_value": 0.0006999999999999999,
+              "checker_value": 0.0007,
+              "rel_diff": 1.5488602464078638e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 2812.548450725272,
+              "checker_value": 2812.5484507252722,
+              "rel_diff": 1.6168516164377486e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 2076.8936994616893,
+              "checker_value": 2076.893699461689,
+              "rel_diff": 2.189555252656071e-16,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.4247710956928437,
+              "checker_value": 0.42477109569284366,
+              "rel_diff": 1.3068486013793768e-16,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.0008652193070060096,
+              "checker_value": 0.0008652193070060096,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.40477331693703433,
+              "checker_value": 0.4047733169370344,
+              "rel_diff": 1.3714133048916617e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.0008652193070060096,
+              "checker_value": 0.0008652193070060096,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 82.59456002608202,
+              "checker_value": 82.59456002608202,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 38639.99999999999,
+              "checker_value": 38640.0,
+              "rel_diff": 1.8830118049128951e-16,
+              "match": true
+            }
+          }
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "checker_SF_per_100kg": 0.00011579187878259746,
+          "check": {
+            "card_value": 0.00011579187878259695,
+            "checker_value": 0.00011579187878259746,
+            "rel_diff": 4.4476006205714696e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "checker_SF_per_100kg": 0.00010959380406454054,
+          "check": {
+            "card_value": 0.00010959380406454093,
+            "checker_value": 0.00010959380406454054,
+            "rel_diff": 3.586181635729515e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "checker_SF_per_100kg": 0.00010029669198745673,
+          "check": {
+            "card_value": 0.00010029669198745647,
+            "checker_value": 0.00010029669198745673,
+            "rel_diff": 2.567362999345094e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "30pct",
+          "checker_SF_per_100kg": 8.790054255134453e-05,
+          "check": {
+            "card_value": 8.790054255134461e-05,
+            "checker_value": 8.790054255134453e-05,
+            "rel_diff": 9.25081467943328e-16,
+            "match": true
+          }
+        },
+        {
+          "from_label": "30pct",
+          "to_label": "baseline",
+          "checker_SF_per_100kg": 7.39690620957089e-05,
+          "check": {
+            "card_value": 7.396906209570883e-05,
+            "checker_value": 7.39690620957089e-05,
+            "rel_diff": 9.16094294837289e-16,
+            "match": true
+          }
+        }
+      ],
+      "checker_secant_0_to_30": 0.00010029669198745675,
+      "secant_check": {
+        "card_value": 0.00010029669198745669,
+        "checker_value": 0.00010029669198745675,
+        "rel_diff": 5.404974735463344e-16,
+        "match": true
+      },
+      "checker_knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "checker_SF_per_100kg": 0.00011579187878259746,
+        "check": {
+          "card_value": 0.00011579187878259695,
+          "checker_value": 0.00011579187878259746,
+          "rel_diff": 4.4476006205714696e-15,
+          "match": true
+        }
+      },
+      "card_knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "from_margin": 1.8601195675014813e-16,
+        "to_margin": 0.050000000000000454,
+        "payload_from_kg": 9.094947017729282e-13,
+        "payload_to_kg": 244.47210750935028,
+        "least_SF_from": 0.0027876603671443925,
+        "least_SF_to": 0.0025045815207599066,
+        "SF_lost_per_100kg": 0.00011579187878259695
+      },
+      "knee_match": true
+    },
+    "P2-A": {
+      "rows": [
+        {
+          "label": "0",
+          "geometry": {
+            "tf_m": 0.0003758936444928841,
+            "core_m": 0.1
+          },
+          "masses_kg": {
+            "faces": 2550.7541780710662,
+            "core": 2010.6192982974678,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 4889.442150186961,
+          "payload_kg": 0.0,
+          "float_margin": 0.0,
+          "buckling_Pa": 22031.313718349054,
+          "yield_Pa": 41498.658352014405,
+          "buckling_SF": 0.23078902511015878,
+          "yield_SF": 0.43471919227695743,
+          "least_SF": 0.23078902511015878,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0003758936444928841,
+              "checker_value": 0.0003758936444928841,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1,
+              "checker_value": 0.1,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4889.442150186961,
+              "checker_value": 4889.442150186961,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 0.0,
+              "checker_value": 0.0,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.0,
+              "checker_value": 0.0,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.23078902511015878,
+              "checker_value": 0.23078902511015878,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.43471919227695743,
+              "checker_value": 0.43471919227695743,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.23078902511015878,
+              "checker_value": 0.23078902511015878,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 22031.313718349054,
+              "checker_value": 22031.313718349054,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 41498.658352014405,
+              "checker_value": 41498.658352014405,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "5pct",
+          "geometry": {
+            "tf_m": 0.00034158240608176755,
+            "core_m": 0.1
+          },
+          "masses_kg": {
+            "faces": 2317.923599490734,
+            "core": 2010.6192982974678,
+            "joints": 216.4271448894101,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 4644.970042677612,
+          "payload_kg": 244.47210750934937,
+          "float_margin": 0.050000000000000266,
+          "buckling_Pa": 20013.47145255511,
+          "yield_Pa": 37710.69763142714,
+          "buckling_SF": 0.20965111861478725,
+          "yield_SF": 0.39503841004871454,
+          "least_SF": 0.20965111861478725,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.00034158240608176755,
+              "checker_value": 0.00034158240608176755,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1,
+              "checker_value": 0.1,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4644.970042677612,
+              "checker_value": 4644.970042677612,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 244.47210750934937,
+              "checker_value": 244.47210750934937,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.050000000000000266,
+              "checker_value": 0.050000000000000266,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.20965111861478725,
+              "checker_value": 0.20965111861478725,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.39503841004871454,
+              "checker_value": 0.39503841004871454,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.20965111861478725,
+              "checker_value": 0.20965111861478725,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 20013.47145255511,
+              "checker_value": 20013.47145255511,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 37710.69763142714,
+              "checker_value": 37710.69763142714,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "10pct",
+          "geometry": {
+            "tf_m": 0.0003072711676706513,
+            "core_m": 0.1
+          },
+          "masses_kg": {
+            "faces": 2085.0930209104035,
+            "core": 2010.6192982974678,
+            "joints": 204.78561596039359,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 4400.497935168265,
+          "payload_kg": 488.944215018696,
+          "float_margin": 0.09999999999999998,
+          "buckling_Pa": 17997.00401603158,
+          "yield_Pa": 33922.7369108399,
+          "buckling_SF": 0.18852761414332897,
+          "yield_SF": 0.35535762782047187,
+          "least_SF": 0.18852761414332897,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0003072711676706513,
+              "checker_value": 0.0003072711676706513,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1,
+              "checker_value": 0.1,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4400.497935168265,
+              "checker_value": 4400.497935168265,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 488.944215018696,
+              "checker_value": 488.944215018696,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.09999999999999998,
+              "checker_value": 0.09999999999999998,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.18852761414332897,
+              "checker_value": 0.18852761414332897,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.35535762782047187,
+              "checker_value": 0.35535762782047187,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.18852761414332897,
+              "checker_value": 0.18852761414332897,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 17997.00401603158,
+              "checker_value": 17997.00401603158,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 33922.7369108399,
+              "checker_value": 33922.7369108399,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "20pct",
+          "geometry": {
+            "tf_m": 0.0002386486908484185,
+            "core_m": 0.1
+          },
+          "masses_kg": {
+            "faces": 1619.4318637497406,
+            "core": 2010.6192982974678,
+            "joints": 181.50255810236044,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 3911.553720149569,
+          "payload_kg": 977.888430037392,
+          "float_margin": 0.19999999999999996,
+          "buckling_Pa": 13968.193630795713,
+          "yield_Pa": 26346.815469665402,
+          "buckling_SF": 0.1463238112721516,
+          "yield_SF": 0.2759960633639864,
+          "least_SF": 0.1463238112721516,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0002386486908484185,
+              "checker_value": 0.0002386486908484185,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1,
+              "checker_value": 0.1,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3911.553720149569,
+              "checker_value": 3911.553720149569,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 977.888430037392,
+              "checker_value": 977.888430037392,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.19999999999999996,
+              "checker_value": 0.19999999999999996,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.1463238112721516,
+              "checker_value": 0.1463238112721516,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.2759960633639864,
+              "checker_value": 0.2759960633639864,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.1463238112721516,
+              "checker_value": 0.1463238112721516,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 13968.193630795713,
+              "checker_value": 13968.193630795713,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 26346.815469665402,
+              "checker_value": 26346.815469665402,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "30pct",
+          "geometry": {
+            "tf_m": 0.00017002621402618565,
+            "core_m": 0.1
+          },
+          "masses_kg": {
+            "faces": 1153.7707065890775,
+            "core": 2010.6192982974678,
+            "joints": 158.21950024432726,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 3422.6095051308725,
+          "payload_kg": 1466.8326450560885,
+          "float_margin": 0.30000000000000004,
+          "buckling_Pa": 9944.882562641451,
+          "yield_Pa": 18770.894028490897,
+          "buckling_SF": 0.10417761649662667,
+          "yield_SF": 0.19663449890750084,
+          "least_SF": 0.10417761649662667,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.00017002621402618565,
+              "checker_value": 0.00017002621402618565,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1,
+              "checker_value": 0.1,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3422.6095051308725,
+              "checker_value": 3422.6095051308725,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 1466.8326450560885,
+              "checker_value": 1466.8326450560885,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.30000000000000004,
+              "checker_value": 0.30000000000000004,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.10417761649662667,
+              "checker_value": 0.10417761649662667,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.19663449890750084,
+              "checker_value": 0.19663449890750084,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.10417761649662667,
+              "checker_value": 0.10417761649662667,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 9944.882562641451,
+              "checker_value": 9944.882562641451,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 18770.894028490897,
+              "checker_value": 18770.894028490897,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "baseline",
+          "geometry": {
+            "tf_m": 0.0002,
+            "core_m": 0.1
+          },
+          "masses_kg": {
+            "faces": 1357.1680263507908,
+            "core": 2010.6192982974678,
+            "joints": 168.38936623241295,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 3636.1766908806717,
+          "payload_kg": 1253.2654593062894,
+          "float_margin": 0.2563207459686106,
+          "buckling_Pa": 11701.558395327302,
+          "yield_Pa": 22080.0,
+          "buckling_SF": 0.12257967404267685,
+          "yield_SF": 0.23129903824973394,
+          "least_SF": 0.12257967404267685,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0002000000000000001,
+              "checker_value": 0.0002,
+              "rel_diff": 4.0657581468206397e-16,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1,
+              "checker_value": 0.1,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3636.176690880672,
+              "checker_value": 3636.1766908806717,
+              "rel_diff": 1.250619509296523e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 1253.265459306289,
+              "checker_value": 1253.2654593062894,
+              "rel_diff": 3.6284998322556273e-16,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.25632074596861054,
+              "checker_value": 0.2563207459686106,
+              "rel_diff": 2.165690920627073e-16,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.12257967404267693,
+              "checker_value": 0.12257967404267685,
+              "rel_diff": 6.792865741990542e-16,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.23129903824973402,
+              "checker_value": 0.23129903824973394,
+              "rel_diff": 3.59995992534061e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.12257967404267693,
+              "checker_value": 0.12257967404267685,
+              "rel_diff": 6.792865741990542e-16,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 11701.558395327309,
+              "checker_value": 11701.558395327302,
+              "rel_diff": 6.21793898587805e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 22080.000000000007,
+              "checker_value": 22080.0,
+              "rel_diff": 3.295270658597565e-16,
+              "match": true
+            }
+          }
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "checker_SF_per_100kg": 0.00864634690260653,
+          "check": {
+            "card_value": 0.00864634690260653,
+            "checker_value": 0.00864634690260653,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "checker_SF_per_100kg": 0.008640455832226456,
+          "check": {
+            "card_value": 0.008640455832226456,
+            "checker_value": 0.008640455832226456,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "checker_SF_per_100kg": 0.008631619226656275,
+          "check": {
+            "card_value": 0.008631619226656275,
+            "checker_value": 0.008631619226656275,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "baseline",
+          "checker_SF_per_100kg": 0.008622410261492554,
+          "check": {
+            "card_value": 0.008622410261492538,
+            "checker_value": 0.008622410261492554,
+            "rel_diff": 1.8106899127169043e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "baseline",
+          "to_label": "30pct",
+          "checker_SF_per_100kg": 0.008616519191112433,
+          "check": {
+            "card_value": 0.008616519191112452,
+            "checker_value": 0.008616519191112433,
+            "rel_diff": 2.214578510476371e-15,
+            "match": true
+          }
+        }
+      ],
+      "checker_secant_0_to_30": 0.008631619226656272,
+      "secant_check": {
+        "card_value": 0.008631619226656272,
+        "checker_value": 0.008631619226656272,
+        "rel_diff": 0.0,
+        "match": true
+      },
+      "checker_knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "checker_SF_per_100kg": 0.00864634690260653,
+        "check": {
+          "card_value": 0.00864634690260653,
+          "checker_value": 0.00864634690260653,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      },
+      "card_knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "from_margin": 0.0,
+        "to_margin": 0.050000000000000266,
+        "payload_from_kg": 0.0,
+        "payload_to_kg": 244.47210750934937,
+        "least_SF_from": 0.23078902511015878,
+        "least_SF_to": 0.20965111861478725,
+        "SF_lost_per_100kg": 0.00864634690260653
+      },
+      "knee_match": true
+    },
+    "P2-E": {
+      "rows": [
+        {
+          "label": "0",
+          "geometry": {
+            "tf_m": 0.0003360949703945902,
+            "core_m": 0.1134320525081742
+          },
+          "masses_kg": {
+            "faces": 2280.686738184267,
+            "core": 2280.686738184267,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 4889.442150186961,
+          "payload_kg": 0.0,
+          "float_margin": 0.0,
+          "buckling_Pa": 22326.91334660383,
+          "yield_Pa": 37104.88473156276,
+          "buckling_SF": 0.2338855789925097,
+          "yield_SF": 0.3886922170642076,
+          "least_SF": 0.2338855789925097,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0003360949703945902,
+              "checker_value": 0.0003360949703945902,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1134320525081742,
+              "checker_value": 0.1134320525081742,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4889.442150186961,
+              "checker_value": 4889.442150186961,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 0.0,
+              "checker_value": 0.0,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.0,
+              "checker_value": 0.0,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.23388557899250978,
+              "checker_value": 0.2338855789925097,
+              "rel_diff": 3.560147966606927e-16,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.3886922170642076,
+              "checker_value": 0.3886922170642076,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.23388557899250978,
+              "checker_value": 0.2338855789925097,
+              "rel_diff": 3.560147966606927e-16,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 22326.913346603837,
+              "checker_value": 22326.91334660383,
+              "rel_diff": 3.25882825862724e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 37104.88473156276,
+              "checker_value": 37104.88473156276,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "5pct",
+          "geometry": {
+            "tf_m": 0.000318939351189032,
+            "core_m": 0.10764203102629828
+          },
+          "masses_kg": {
+            "faces": 2164.271448894101,
+            "core": 2164.271448894101,
+            "joints": 216.4271448894101,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "float_margin": 0.050000000000000086,
+          "buckling_Pa": 20105.777536258014,
+          "yield_Pa": 35210.90437126913,
+          "buckling_SF": 0.21061807098729998,
+          "yield_SF": 0.36885182595008614,
+          "least_SF": 0.21061807098729998,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.000318939351189032,
+              "checker_value": 0.000318939351189032,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.10764203102629828,
+              "checker_value": 0.10764203102629828,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4644.970042677613,
+              "checker_value": 4644.970042677613,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 244.47210750934846,
+              "checker_value": 244.47210750934846,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.050000000000000086,
+              "checker_value": 0.050000000000000086,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.21061807098729998,
+              "checker_value": 0.21061807098729998,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.36885182595008614,
+              "checker_value": 0.36885182595008614,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.21061807098729998,
+              "checker_value": 0.21061807098729998,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 20105.777536258014,
+              "checker_value": 20105.777536258014,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 35210.90437126913,
+              "checker_value": 35210.90437126913,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "10pct",
+          "geometry": {
+            "tf_m": 0.0003017837319834738,
+            "core_m": 0.1018520095444224
+          },
+          "masses_kg": {
+            "faces": 2047.8561596039356,
+            "core": 2047.8561596039356,
+            "joints": 204.78561596039356,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 4400.497935168265,
+          "payload_kg": 488.944215018696,
+          "float_margin": 0.09999999999999998,
+          "buckling_Pa": 18000.98665292,
+          "yield_Pa": 33316.924010975505,
+          "buckling_SF": 0.18856933425573794,
+          "yield_SF": 0.3490114348359648,
+          "least_SF": 0.18856933425573794,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0003017837319834738,
+              "checker_value": 0.0003017837319834738,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.1018520095444224,
+              "checker_value": 0.1018520095444224,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4400.497935168265,
+              "checker_value": 4400.497935168265,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 488.944215018696,
+              "checker_value": 488.944215018696,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.09999999999999998,
+              "checker_value": 0.09999999999999998,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.18856933425573794,
+              "checker_value": 0.18856933425573794,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.3490114348359648,
+              "checker_value": 0.3490114348359648,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.18856933425573794,
+              "checker_value": 0.18856933425573794,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 18000.98665292,
+              "checker_value": 18000.98665292,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 33316.924010975505,
+              "checker_value": 33316.924010975505,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "20pct",
+          "geometry": {
+            "tf_m": 0.0002674724935723574,
+            "core_m": 0.09027196658067062
+          },
+          "masses_kg": {
+            "faces": 1815.0255810236042,
+            "core": 1815.0255810236042,
+            "joints": 181.50255810236044,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 3911.553720149569,
+          "payload_kg": 977.888430037392,
+          "float_margin": 0.19999999999999996,
+          "buckling_Pa": 14140.439667267328,
+          "yield_Pa": 29528.96329038826,
+          "buckling_SF": 0.1481281746135562,
+          "yield_SF": 0.3093306526077221,
+          "least_SF": 0.1481281746135562,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0002674724935723574,
+              "checker_value": 0.0002674724935723574,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.09027196658067062,
+              "checker_value": 0.09027196658067062,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3911.553720149569,
+              "checker_value": 3911.553720149569,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 977.888430037392,
+              "checker_value": 977.888430037392,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.19999999999999996,
+              "checker_value": 0.19999999999999996,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.1481281746135562,
+              "checker_value": 0.1481281746135562,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.3093306526077221,
+              "checker_value": 0.3093306526077221,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.1481281746135562,
+              "checker_value": 0.1481281746135562,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 14140.439667267328,
+              "checker_value": 14140.439667267328,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 29528.96329038826,
+              "checker_value": 29528.96329038826,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "30pct",
+          "geometry": {
+            "tf_m": 0.000233161255161241,
+            "core_m": 0.07869192361691883
+          },
+          "masses_kg": {
+            "faces": 1582.1950024432726,
+            "core": 1582.1950024432726,
+            "joints": 158.21950024432726,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 3422.6095051308725,
+          "payload_kg": 1466.8326450560885,
+          "float_margin": 0.30000000000000004,
+          "buckling_Pa": 10745.272389645812,
+          "yield_Pa": 25741.002569801007,
+          "buckling_SF": 0.11256210006596452,
+          "yield_SF": 0.2696498703794793,
+          "least_SF": 0.11256210006596452,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.000233161255161241,
+              "checker_value": 0.000233161255161241,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.07869192361691883,
+              "checker_value": 0.07869192361691883,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3422.6095051308725,
+              "checker_value": 3422.6095051308725,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 1466.8326450560885,
+              "checker_value": 1466.8326450560885,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.30000000000000004,
+              "checker_value": 0.30000000000000004,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.11256210006596452,
+              "checker_value": 0.11256210006596452,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.2696498703794793,
+              "checker_value": 0.2696498703794793,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.11256210006596452,
+              "checker_value": 0.11256210006596452,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 10745.272389645812,
+              "checker_value": 10745.272389645812,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 25741.002569801007,
+              "checker_value": 25741.002569801007,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "baseline",
+          "geometry": {
+            "tf_m": 0.00024814814814814816,
+            "core_m": 0.08375
+          },
+          "masses_kg": {
+            "faces": 1683.8936623241293,
+            "core": 1683.8936623241293,
+            "joints": 168.38936623241295,
+            "systems_payload": 100.0
+          },
+          "structural_mass_kg": 3636.1766908806717,
+          "payload_kg": 1253.2654593062894,
+          "float_margin": 0.2563207459686106,
+          "buckling_Pa": 12171.01330466455,
+          "yield_Pa": 27395.555555555555,
+          "buckling_SF": 0.12749744890822584,
+          "yield_SF": 0.2869821400505958,
+          "least_SF": 0.12749744890822584,
+          "film_SF_P3": null,
+          "checks": {
+            "geometry.tf_m": {
+              "card_value": 0.0002481481481481482,
+              "checker_value": 0.00024814814814814816,
+              "rel_diff": 2.184586466948404e-16,
+              "match": true
+            },
+            "geometry.core_m": {
+              "card_value": 0.08375000000000002,
+              "checker_value": 0.08375,
+              "rel_diff": 1.6570492904853079e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3636.176690880672,
+              "checker_value": 3636.1766908806717,
+              "rel_diff": 1.250619509296523e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 1253.265459306289,
+              "checker_value": 1253.2654593062894,
+              "rel_diff": 3.6284998322556273e-16,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.25632074596861054,
+              "checker_value": 0.2563207459686106,
+              "rel_diff": 2.165690920627073e-16,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.12749744890822584,
+              "checker_value": 0.12749744890822584,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.28698214005059586,
+              "checker_value": 0.2869821400505958,
+              "rel_diff": 1.934306825556149e-16,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.12749744890822584,
+              "checker_value": 0.12749744890822584,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 12171.013304664551,
+              "checker_value": 12171.01330466455,
+              "rel_diff": 1.4945258525423904e-16,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 27395.555555555562,
+              "checker_value": 27395.555555555555,
+              "rel_diff": 2.6558897845413213e-16,
+              "match": true
+            }
+          }
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "checker_SF_per_100kg": 0.009517448940190437,
+          "check": {
+            "card_value": 0.009517448940190472,
+            "checker_value": 0.009517448940190437,
+            "rel_diff": 3.645353890266503e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "checker_SF_per_100kg": 0.009018917109273498,
+          "check": {
+            "card_value": 0.009018917109273498,
+            "checker_value": 0.009018917109273498,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "checker_SF_per_100kg": 0.00827111936289815,
+          "check": {
+            "card_value": 0.00827111936289815,
+            "checker_value": 0.00827111936289815,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "baseline",
+          "checker_SF_per_100kg": 0.007491810685917847,
+          "check": {
+            "card_value": 0.007491810685917859,
+            "checker_value": 0.007491810685917847,
+            "rel_diff": 1.6208450588137015e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "baseline",
+          "to_label": "30pct",
+          "checker_SF_per_100kg": 0.006993278855000957,
+          "check": {
+            "card_value": 0.00699327885500094,
+            "checker_value": 0.006993278855000957,
+            "rel_diff": 2.3565302290205117e-15,
+            "match": true
+          }
+        }
+      ],
+      "checker_secant_0_to_30": 0.008271119362898146,
+      "secant_check": {
+        "card_value": 0.008271119362898151,
+        "checker_value": 0.008271119362898146,
+        "rel_diff": 6.291978388408738e-16,
+        "match": true
+      },
+      "checker_knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "checker_SF_per_100kg": 0.009517448940190437,
+        "check": {
+          "card_value": 0.009517448940190472,
+          "checker_value": 0.009517448940190437,
+          "rel_diff": 3.645353890266503e-15,
+          "match": true
+        }
+      },
+      "card_knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "from_margin": 0.0,
+        "to_margin": 0.050000000000000086,
+        "payload_from_kg": 0.0,
+        "payload_to_kg": 244.47210750934846,
+        "least_SF_from": 0.23388557899250978,
+        "least_SF_to": 0.21061807098729998,
+        "SF_lost_per_100kg": 0.009517448940190472
+      },
+      "knee_match": true
+    },
+    "P3": {
+      "rows": [
+        {
+          "label": "0",
+          "geometry": {
+            "tw_m": 0.0034965263377450123
+          },
+          "masses_kg": {
+            "frame": 4712.866324391786,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0
+          },
+          "structural_mass_kg": 4889.442150186961,
+          "payload_kg": 0.0,
+          "float_margin": 0.0,
+          "buckling_Pa": 9166.735695781266,
+          "yield_Pa": 22134.002167645223,
+          "buckling_SF": 0.09602613905451597,
+          "yield_SF": 0.23186473795262078,
+          "least_SF": 0.09602613905451597,
+          "film_SF_P3": 2.5141199809753694,
+          "checks": {
+            "geometry.tw_m": {
+              "card_value": 0.0034965263377450123,
+              "checker_value": 0.0034965263377450123,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4889.442150186959,
+              "checker_value": 4889.442150186961,
+              "rel_diff": 3.720239135002964e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 1.8189894035458565e-12,
+              "checker_value": 0.0,
+              "rel_diff": 1.0,
+              "match": false
+            },
+            "float_margin": {
+              "card_value": 3.7202391350029625e-16,
+              "checker_value": 0.0,
+              "rel_diff": 1.0,
+              "match": false
+            },
+            "buckling_SF": {
+              "card_value": 0.09602613905451597,
+              "checker_value": 0.09602613905451597,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.23186473795262078,
+              "checker_value": 0.23186473795262078,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.09602613905451597,
+              "checker_value": 0.09602613905451597,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 9166.735695781266,
+              "checker_value": 9166.735695781266,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 22134.002167645223,
+              "checker_value": 22134.002167645223,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "5pct",
+          "geometry": {
+            "tw_m": 0.003297140516320022
+          },
+          "masses_kg": {
+            "frame": 4468.394216882438,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0
+          },
+          "structural_mass_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "float_margin": 0.050000000000000086,
+          "buckling_Pa": 8776.810283411212,
+          "yield_Pa": 20985.83759324706,
+          "buckling_SF": 0.09194147542814259,
+          "yield_SF": 0.21983714004452698,
+          "least_SF": 0.09194147542814259,
+          "film_SF_P3": 2.5141199809753694,
+          "checks": {
+            "geometry.tw_m": {
+              "card_value": 0.003297140516320022,
+              "checker_value": 0.003297140516320022,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4644.97004267761,
+              "checker_value": 4644.970042677613,
+              "rel_diff": 5.874061792109944e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 244.4721075093512,
+              "checker_value": 244.47210750934846,
+              "rel_diff": 1.1160717405008745e-14,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.05000000000000064,
+              "checker_value": 0.050000000000000086,
+              "rel_diff": 1.1102230246251423e-14,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.09194147542814259,
+              "checker_value": 0.09194147542814259,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.21983714004452698,
+              "checker_value": 0.21983714004452698,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.09194147542814259,
+              "checker_value": 0.09194147542814259,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 8776.810283411212,
+              "checker_value": 8776.810283411212,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 20985.83759324706,
+              "checker_value": 20985.83759324706,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "10pct",
+          "geometry": {
+            "tw_m": 0.0031001068955341556
+          },
+          "masses_kg": {
+            "frame": 4223.92210937309,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0
+          },
+          "structural_mass_kg": 4400.497935168265,
+          "payload_kg": 488.944215018696,
+          "float_margin": 0.09999999999999998,
+          "buckling_Pa": 8377.520055552137,
+          "yield_Pa": 19837.673018848916,
+          "buckling_SF": 0.08775871067785629,
+          "yield_SF": 0.20780954213643343,
+          "least_SF": 0.08775871067785629,
+          "film_SF_P3": 2.5141199809753694,
+          "checks": {
+            "geometry.tw_m": {
+              "card_value": 0.0031001068955341556,
+              "checker_value": 0.0031001068955341556,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 4400.497935168264,
+              "checker_value": 4400.497935168265,
+              "rel_diff": 2.0667995194460906e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 488.9442150186969,
+              "checker_value": 488.944215018696,
+              "rel_diff": 1.860119567501478e-15,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.10000000000000017,
+              "checker_value": 0.09999999999999998,
+              "rel_diff": 1.9428902930940208e-15,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.08775871067785629,
+              "checker_value": 0.08775871067785629,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.20780954213643343,
+              "checker_value": 0.20780954213643343,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.08775871067785629,
+              "checker_value": 0.08775871067785629,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 8377.520055552137,
+              "checker_value": 8377.520055552137,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 19837.673018848916,
+              "checker_value": 19837.673018848916,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "20pct",
+          "geometry": {
+            "tw_m": 0.002712775498536487
+          },
+          "masses_kg": {
+            "frame": 3734.9778943543943,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0
+          },
+          "structural_mass_kg": 3911.553720149569,
+          "payload_kg": 977.888430037392,
+          "float_margin": 0.19999999999999996,
+          "buckling_Pa": 7550.845153366897,
+          "yield_Pa": 17541.3438700526,
+          "buckling_SF": 0.07909887780554474,
+          "yield_SF": 0.183754346320246,
+          "least_SF": 0.07909887780554474,
+          "film_SF_P3": 2.5141199809753694,
+          "checks": {
+            "geometry.tw_m": {
+              "card_value": 0.002712775498536487,
+              "checker_value": 0.002712775498536487,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3911.553720149568,
+              "checker_value": 3911.553720149569,
+              "rel_diff": 2.325149459376852e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 977.8884300373929,
+              "checker_value": 977.888430037392,
+              "rel_diff": 9.3005978375074e-16,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.20000000000000015,
+              "checker_value": 0.19999999999999996,
+              "rel_diff": 9.714451465470112e-16,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.07909887780554474,
+              "checker_value": 0.07909887780554474,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.183754346320246,
+              "checker_value": 0.183754346320246,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.07909887780554474,
+              "checker_value": 0.07909887780554474,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 7550.845153366897,
+              "checker_value": 7550.845153366897,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 17541.3438700526,
+              "checker_value": 17541.3438700526,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "30pct",
+          "geometry": {
+            "tw_m": 0.002333934365976429
+          },
+          "masses_kg": {
+            "frame": 3246.033679335698,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0
+          },
+          "structural_mass_kg": 3422.6095051308725,
+          "payload_kg": 1466.8326450560885,
+          "float_margin": 0.30000000000000004,
+          "buckling_Pa": 6686.710989225554,
+          "yield_Pa": 15245.014721256279,
+          "buckling_SF": 0.07004664043758142,
+          "yield_SF": 0.15969915050405856,
+          "least_SF": 0.07004664043758142,
+          "film_SF_P3": 2.5141199809753694,
+          "checks": {
+            "geometry.tw_m": {
+              "card_value": 0.002333934365976429,
+              "checker_value": 0.002333934365976429,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 3422.6095051308716,
+              "checker_value": 3422.6095051308725,
+              "rel_diff": 2.6573136678592595e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 1466.8326450560894,
+              "checker_value": 1466.8326450560885,
+              "rel_diff": 6.200398558338266e-16,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.3000000000000002,
+              "checker_value": 0.30000000000000004,
+              "rel_diff": 5.551115123125779e-16,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.07004664043758142,
+              "checker_value": 0.07004664043758142,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.15969915050405856,
+              "checker_value": 0.15969915050405856,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.07004664043758142,
+              "checker_value": 0.07004664043758142,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 6686.710989225554,
+              "checker_value": 6686.710989225554,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 15245.014721256279,
+              "checker_value": 15245.014721256279,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        },
+        {
+          "label": "baseline",
+          "geometry": {
+            "tw_m": 0.001
+          },
+          "masses_kg": {
+            "frame": 1440.0538444621338,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0
+          },
+          "structural_mass_kg": 1616.6296702573086,
+          "payload_kg": 3272.8124799296525,
+          "float_margin": 0.6693631664717635,
+          "buckling_Pa": 3170.210558873461,
+          "yield_Pa": 6763.220664648112,
+          "buckling_SF": 0.03320954045817858,
+          "yield_SF": 0.07084811753640555,
+          "least_SF": 0.03320954045817858,
+          "film_SF_P3": 2.5141199809753694,
+          "checks": {
+            "geometry.tw_m": {
+              "card_value": 0.0010000000000000009,
+              "checker_value": 0.001,
+              "rel_diff": 8.673617379884028e-16,
+              "match": true
+            },
+            "structural_mass_kg": {
+              "card_value": 1616.6296702573084,
+              "checker_value": 1616.6296702573086,
+              "rel_diff": 1.4064672919620638e-16,
+              "match": true
+            },
+            "payload_kg": {
+              "card_value": 3272.812479929653,
+              "checker_value": 3272.8124799296525,
+              "rel_diff": 1.3894696187917209e-16,
+              "match": true
+            },
+            "float_margin": {
+              "card_value": 0.6693631664717636,
+              "checker_value": 0.6693631664717635,
+              "rel_diff": 1.6586258106749143e-16,
+              "match": true
+            },
+            "buckling_SF": {
+              "card_value": 0.03320954045817858,
+              "checker_value": 0.03320954045817858,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_SF": {
+              "card_value": 0.07084811753640555,
+              "checker_value": 0.07084811753640555,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "least_SF": {
+              "card_value": 0.03320954045817858,
+              "checker_value": 0.03320954045817858,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "buckling_pressure_Pa": {
+              "card_value": 3170.210558873461,
+              "checker_value": 3170.210558873461,
+              "rel_diff": 0.0,
+              "match": true
+            },
+            "yield_pressure_Pa": {
+              "card_value": 6763.220664648112,
+              "checker_value": 6763.220664648112,
+              "rel_diff": 0.0,
+              "match": true
+            }
+          }
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "checker_SF_per_100kg": 0.001670809675585257,
+          "check": {
+            "card_value": 0.001670809675585251,
+            "checker_value": 0.001670809675585257,
+            "rel_diff": 3.6338861658746916e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "checker_SF_per_100kg": 0.0017109374124106842,
+          "check": {
+            "card_value": 0.001710937412410697,
+            "checker_value": 0.0017109374124106842,
+            "rel_diff": 7.477529886556688e-15,
+            "match": true
+          }
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "checker_SF_per_100kg": 0.0017711290176488574,
+          "check": {
+            "card_value": 0.0017711290176488574,
+            "checker_value": 0.0017711290176488574,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "30pct",
+          "checker_SF_per_100kg": 0.0018513844912997229,
+          "check": {
+            "card_value": 0.0018513844912997229,
+            "checker_value": 0.0018513844912997229,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        },
+        {
+          "from_label": "30pct",
+          "to_label": "baseline",
+          "checker_SF_per_100kg": 0.002039729307497046,
+          "check": {
+            "card_value": 0.002039729307497046,
+            "checker_value": 0.002039729307497046,
+            "rel_diff": 0.0,
+            "match": true
+          }
+        }
+      ],
+      "checker_secant_0_to_30": 0.0017711290176488505,
+      "secant_check": {
+        "card_value": 0.0017711290176488515,
+        "checker_value": 0.0017711290176488505,
+        "rel_diff": 6.121531303940621e-16,
+        "match": true
+      },
+      "checker_knee": {
+        "from_label": "30pct",
+        "to_label": "baseline",
+        "checker_SF_per_100kg": 0.002039729307497046,
+        "check": {
+          "card_value": 0.002039729307497046,
+          "checker_value": 0.002039729307497046,
+          "rel_diff": 0.0,
+          "match": true
+        }
+      },
+      "card_knee": {
+        "from_label": "30pct",
+        "to_label": "baseline",
+        "from_margin": 0.3000000000000002,
+        "to_margin": 0.6693631664717636,
+        "payload_from_kg": 1466.8326450560894,
+        "payload_to_kg": 3272.812479929653,
+        "least_SF_from": 0.07004664043758142,
+        "least_SF_to": 0.03320954045817858,
+        "SF_lost_per_100kg": 0.002039729307497046
+      },
+      "knee_match": true
+    }
+  },
+  "mismatches": [
+    {
+      "row": "P3/0",
+      "field": "payload_kg",
+      "card_value": 1.8189894035458565e-12,
+      "checker_value": 0.0,
+      "rel_diff": 1.0
+    },
+    {
+      "row": "P3/0",
+      "field": "float_margin",
+      "card_value": 3.7202391350029625e-16,
+      "checker_value": 0.0,
+      "rel_diff": 1.0
+    }
+  ],
+  "pin_bad": 0,
+  "checks": {
+    "numeric_match_1e-9": false,
+    "knees_match": true
+  }
+}

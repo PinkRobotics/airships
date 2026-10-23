@@ -1,0 +1,83 @@
+{
+  "id": "D011",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D011",
+    "report": "rpt-ref-14993e3c2e5e64177c8f",
+    "file": "evidence/baff59a164490001-NFI.json",
+    "snapshot": "evidence/baff59a164490001-NFI.json",
+    "source_sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+    "source_json_pointer": "/items/7",
+    "row_id": "NFI-043F-08",
+    "fields": {
+      "id": "NFI-043F-08",
+      "status": "open",
+      "topic": "Earlier rise-8 interpretation",
+      "finding": "The frozen rise-8 force solution remains independently unverified. The new f5 closure data are a different geometry and loading case.",
+      "remaining": "No rise-8 reliability claim can be closed by this fold. An independently admitted rise-8 solution and a defined transfer would be needed before using it as the new selected frame's demand.",
+      "related_prior": [
+        "NFI-043-08"
+      ],
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/items",
+    "blocks_progress": false
+  },
+  "claim": "The frozen rise-8 force solution remains independently unverified. The new f5 closure data are a different geometry and loading case.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/971"
+    },
+    {
+      "report": "rpt-ref-14993e3c2e5e64177c8f",
+      "artifact": "evidence/baff59a164490001-NFI.json",
+      "snapshot": "evidence/baff59a164490001-NFI.json",
+      "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+      "bytes": 6222,
+      "selector": "/items/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-14993e3c2e5e64177c8f",
+          "artifact": "evidence/baff59a164490001-NFI.json",
+          "snapshot": "evidence/baff59a164490001-NFI.json",
+          "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+          "bytes": 6222,
+          "selector": "/items/7"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/971"
+          }
+        ]
+      }
+    }
+  ]
+}

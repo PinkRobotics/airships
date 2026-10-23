@@ -1,0 +1,240 @@
+{
+  "unit": "vacuum-mainline076-test-articles-quotable-1022",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": false,
+  "simjob": null,
+  "finite_element": false,
+  "supplier_or_test_house_contacted": false,
+  "purchased": false,
+  "admissibility": "admissible with a named limit",
+  "named_limit": "Vc, R/tc and tf/tc are held. Cell count across a buckle is not held. The cap angle is not printed.",
+  "formulas": {
+    "h": "tf+tc",
+    "sig0": "E*h/(R*sqrt(1-nu^2))",
+    "Vc": "sig0 / (G*h*h/(2*tf*tc))",
+    "Kc": "1-Vc/4",
+    "p_collapse": "gamma*Kc*sig0*4*tf/R",
+    "scale": "R_article=R*(tf_min/tf); tc_article=tc*(tf_min/tf)",
+    "omitted_from_collapse": "cure, gradient, bending",
+    "sig0_power": "model square root of 1-nu^2; handbook (4.2-3) is the one-quarter power"
+  },
+  "constants": {
+    "E_Pa": 293600000000.0,
+    "nu": 0.0768,
+    "G_Pa": 46884349.59354485,
+    "Ec_Pa": 103421359.3975254,
+    "cell_m": 0.009525,
+    "P0_Pa": 95460.83791390515,
+    "QWIND_Pa": 756.856857709424,
+    "p_flight_optimistic_Pa": 99707.07115083348,
+    "sea_level_Pa": 101325.0,
+    "tf_min_m": 0.000508,
+    "tc_tolerance_table_floor_m": 0.00635
+  },
+  "both_minima": {
+    "tf_over_tc": 0.08,
+    "holds_concept_ratio": false,
+    "holds_trl7_ratio": false
+  },
+  "full_scale_check": {
+    "concept": {
+      "tf_m": 0.0036681482955475604,
+      "tc_m": 0.16703346903487332,
+      "R_m": 30.0,
+      "h_m": 0.17070161733042089,
+      "tf_over_tc": 0.021960558663735367,
+      "R_over_tc": 179.60472337275465,
+      "Vc": 1.5029143292089922,
+      "Kc": 0.624271417697752,
+      "sig0_Pa": 1675548529.9036508,
+      "isothermal_collapse": [
+        {
+          "gamma": 0.2,
+          "p_collapse_Pa": 102316.59516774236,
+          "face_stress_Pa": 209199411.23686725,
+          "margin_vs_345e6": 1.6491442206277136,
+          "margin_vs_379_2e6": 1.8126246042377652
+        },
+        {
+          "gamma": 0.6407145989713096,
+          "p_collapse_Pa": 327778.68120504933,
+          "face_stress_Pa": 670185584.3783172,
+          "margin_vs_345e6": 0.5147827826228635,
+          "margin_vs_379_2e6": 0.565813423682869
+        }
+      ],
+      "flight_face_stress_Pa": 203863904.44981268,
+      "great_circle_cells": 19789.560022612866
+    },
+    "trl7": {
+      "tf_m": 0.0025609994447783123,
+      "tc_m": 0.06053783162116337,
+      "R_m": 30.0,
+      "h_m": 0.06309883106594168,
+      "tf_over_tc": 0.04230411589243336,
+      "R_over_tc": 495.5578882926544,
+      "Vc": 1.028813150418843,
+      "Kc": 0.7427967123952892,
+      "sig0_Pa": 619356484.6344079,
+      "isothermal_collapse": [
+        {
+          "gamma": 0.2,
+          "p_collapse_Pa": 31418.74825681661,
+          "face_stress_Pa": 92011192.11742833,
+          "margin_vs_345e6": 3.7495438550529516,
+          "margin_vs_379_2e6": 4.121237767640809
+        },
+        {
+          "gamma": 0.6407145989713096,
+          "p_collapse_Pa": 100652.25344773392,
+          "face_stress_Pa": 294764570.29195106,
+          "margin_vs_345e6": 1.17042560324768,
+          "margin_vs_379_2e6": 1.2864504021783196
+        }
+      ],
+      "flight_face_stress_Pa": 291996562.1843324,
+      "great_circle_cells": 19789.560022612866
+    }
+  },
+  "articles": {
+    "concept": {
+      "tf_m": 0.000508,
+      "tc_m": 0.02313238054544064,
+      "R_m": 4.154684808817158,
+      "h_m": 0.023640380545440643,
+      "tf_over_tc": 0.02196055866373537,
+      "R_over_tc": 179.60472337275465,
+      "Vc": 1.5029143292089922,
+      "Kc": 0.624271417697752,
+      "sig0_Pa": 1675548529.9036508,
+      "isothermal_collapse": [
+        {
+          "gamma": 0.2,
+          "p_collapse_Pa": 102316.59516774237,
+          "face_stress_Pa": 209199411.23686725,
+          "margin_vs_345e6": 1.6491442206277136,
+          "margin_vs_379_2e6": 1.8126246042377652
+        },
+        {
+          "gamma": 0.6407145989713096,
+          "p_collapse_Pa": 327778.6812050494,
+          "face_stress_Pa": 670185584.3783172,
+          "margin_vs_345e6": 0.5147827826228635,
+          "margin_vs_379_2e6": 0.565813423682869
+        }
+      ],
+      "flight_face_stress_Pa": 203863904.44981265,
+      "great_circle_cells": 2740.646146637501,
+      "scale": 0.13848949362723859,
+      "cell_count_fraction_of_R30": 0.13848949362723859,
+      "sea_level_over_p_at_0_20": 0.9903085597588865,
+      "needs_vessel_to_reach_handbook_collapse": true
+    },
+    "trl7": {
+      "tf_m": 0.000508,
+      "tc_m": 0.012008287829290443,
+      "R_m": 5.950801758693555,
+      "h_m": 0.012516287829290443,
+      "tf_over_tc": 0.04230411589243337,
+      "R_over_tc": 495.55788829265447,
+      "Vc": 1.028813150418843,
+      "Kc": 0.7427967123952892,
+      "sig0_Pa": 619356484.6344079,
+      "isothermal_collapse": [
+        {
+          "gamma": 0.2,
+          "p_collapse_Pa": 31418.748256816612,
+          "face_stress_Pa": 92011192.11742833,
+          "margin_vs_345e6": 3.7495438550529516,
+          "margin_vs_379_2e6": 4.121237767640809
+        },
+        {
+          "gamma": 0.6407145989713096,
+          "p_collapse_Pa": 100652.25344773394,
+          "face_stress_Pa": 294764570.29195106,
+          "margin_vs_345e6": 1.17042560324768,
+          "margin_vs_379_2e6": 1.2864504021783196
+        }
+      ],
+      "flight_face_stress_Pa": 291996562.1843324,
+      "great_circle_cells": 3925.458286211211,
+      "scale": 0.1983600586231185,
+      "cell_count_fraction_of_R30": 0.1983600586231185,
+      "sea_level_over_p_at_design_gamma": 1.0066838697517628,
+      "design_ambient_over_p_at_design_gamma": 0.9484222622345505
+    }
+  },
+  "t3": {
+    "tf_m": 0.0036681482955475604,
+    "tc_m": 0.16703346903487332,
+    "cell_m": 0.009525,
+    "sqrt_E_Ec_tf_over_tc_Pa": 816591469.2959607,
+    "uniaxial_stress_at_Q_0_33_Pa": 269475184.867667,
+    "equibiaxial_stress_Pa": 213882595.96912983,
+    "factor": 0.7937005259840998,
+    "dimple_stress_Pa": 43801502667.274216,
+    "dimple_over_equibiaxial": 204.79227152075612,
+    "stress_ratio_min_for_0_01_factor_bias": 0.9747934205713161,
+    "Q_pass_inclusive": [
+      0.32,
+      0.34
+    ],
+    "Q_fail_below": 0.32,
+    "factor_pass_half_width": 0.02,
+    "factor_fail_below": 0.7737005259840998,
+    "relative_stress_uncertainty_for_factor": 0.01781797436280678,
+    "equibiaxial_stress_uncertainty_Pa": 3810954.6116285166,
+    "equibiaxial_microstrain": 12.980090639061705,
+    "Q_stress_uncertainty_Pa": 8165914.692959607,
+    "Q_microstrain": 27.81306094332291,
+    "displacement_uncertainty_m": 5e-05,
+    "sample_spacing_m": 0.0009525,
+    "loading_rate": null
+  },
+  "half_wavelength_m": 0.09765673770284335,
+  "half_wavelength": {
+    "half_wavelength_m": 0.09765673770284335,
+    "tag": "QUESTIONABLE",
+    "design_point": "version-10 R30 optimistic concept gauges",
+    "form": "Hoff-Mautner energy method, linear core decay, as stated in DOI 10.3390/ma14175043 equations (1)-(3), citing DOI 10.2514/8.11246",
+    "equation": "sigma = Ec*l^2/(pi^2*tf*h) + h*Gc/(3*tf) + (pi^2*Ef/12)*(tf/l)^2",
+    "stationary_point": "the three terms are equal",
+    "coefficient": 0.90856029641607,
+    "paper_rounded_coefficient": 0.909,
+    "sigma_w_Pa": 1022080613.3249347,
+    "term_Pa": [
+      340693537.77497923,
+      340693537.7749782,
+      340693537.77497816
+    ],
+    "decay_depth_m": 0.07996577306036161,
+    "decay_depth_over_tc": 0.47874101832649074,
+    "decay_depth_over_half_tc": 0.9574820366529815,
+    "thick_core_premise": "holds narrowly: decay depth is below tc and below tc/2",
+    "inputs": {
+      "Ef_Pa": 293600000000.0,
+      "Ec_Pa": 103421359.3975254,
+      "Gc_Pa": 46884349.59354485,
+      "tf_m": 0.0036681482955475604,
+      "tc_m": 0.16703346903487332,
+      "R30_m": 30.0,
+      "R20_m": 20.0,
+      "cell_m": 0.009525
+    },
+    "l_over_R30": 0.0032552245900947783,
+    "l_over_R20": 0.004882836885142168,
+    "R30_over_l": 307.1984658271718,
+    "cells_per_half_wave": 10.252675874314262,
+    "l_over_tc": 0.5846537120201613,
+    "l_over_tf": 26.622897940462273,
+    "short_beside_R30": true,
+    "short_beside_R20": true,
+    "closes_named_limit_on_2_2_15": false,
+    "close_against_the_rule": false,
+    "why": "The Hoff-Mautner half-wave is short beside R 30 m and R 20 m. CR-1457 still prints no honeycomb half-wavelength, zeta has no length map, and DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not give one. A short classical wave is not a close against (2.2-15). Standing targets stay 896.8181102430983 and 1030.8460016942847 kg/m3.",
+    "isotropic_core_assumed": true,
+    "honeycomb_is_that_core": false,
+    "above_face_proxies_345_and_379_2_MPa": true
+  },
+  "ended_at": "2026-10-22T11:01:26-07:00"
+}

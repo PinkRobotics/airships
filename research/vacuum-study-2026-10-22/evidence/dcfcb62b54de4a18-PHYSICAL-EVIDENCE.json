@@ -1,0 +1,59 @@
+[
+  {
+    "id": "standard_gravity",
+    "source": "NIST CODATA reference entry: standard acceleration of gravity",
+    "url": "https://physics.nist.gov/cgi-bin/cuu/Value?gn%7Csearch_for=acceleration+of+gravity",
+    "evidence": "Conventional standard gravity is exactly 9.80665 m/s2.",
+    "inference": "Used as a diagnostic reference, not a site-specific gravity measurement.",
+    "access": "Official NIST entry checked through browser search."
+  },
+  {
+    "id": "forced_correlation",
+    "source": "Whitaker (1972), Table 1 and Eq.33",
+    "url": "https://www.researchgate.net/profile/Stephen-Whitaker-3/publication/229709417_Forced_convection_heat_transfer_correlations_for_flow_in_pipes_past_flat_plates_single_cylinders_single_spheres_and_for_flow_in_packed_beds_and_tube_bundles/links/59d73bda0f7e9b42a6b0694a/Forced-convection-heat-transfer-correlations-for-flow-in-pipes-past-flat-plates-single-cylinders-single-spheres-and-for-flow-in-packed-beds-and-tube-bundles.pdf",
+    "evidence": "Published sphere Re interval 3.5–76000; average forced-convection relationship.",
+    "inference": "Both owner and CHECK-040 apply it well outside that range, as a local coefficient on a non-isothermal hull.",
+    "access": "Primary author PDF accessed through browser; existing MAINLINE-053 browser record retained."
+  },
+  {
+    "id": "forced_transition",
+    "source": "Will, Kruyt and Venner (2017), DOI 10.1016/j.ijheatmasstransfer.2017.02.018",
+    "url": "https://research.utwente.nl/files/20163165/experimental.pdf",
+    "evidence": "Smooth isothermal-sphere experiments span Re 7800–330000 and observe heat-transfer transition near 290000.",
+    "inference": "This documents regime dependence; the study does not furnish a validated replacement at Re 2.6–7.8 million for the present surface.",
+    "access": "Primary publisher and author-repository text exposed by browser search; raw PDF fetch returned 403."
+  },
+  {
+    "id": "large_sphere_natural",
+    "source": "Rodriguez Maestre et al. (2021), DOI 10.1016/j.ijthermalsci.2021.107061",
+    "url": "https://www.sciencedirect.com/science/article/pii/S1290072921002258",
+    "evidence": "The study reports 48 CFD cases at D 1–40 m and Ra about 4e8–2e14, with substantial disagreement among natural-convection correlations.",
+    "inference": "Large-sphere natural convection needs regime-specific validation; still-air/isothermal averages do not establish the owner's max rule at 2 m/s with nonuniform radiative forcing.",
+    "access": "Primary publisher abstract/highlights and indexed text consulted; full article was not retrieved."
+  },
+  {
+    "id": "honeycomb_paths",
+    "source": "NASA 19680009019, section 3.1, printed pp.65–66",
+    "url": "https://ntrs.nasa.gov/api/citations/19680009019/downloads/19680009019.pdf",
+    "local": "unpublished-local-ref:6d3fe7fc6bb612c7",
+    "evidence": "Metal conduction, cell radiation and adhesive-interface resistance require separate treatment.",
+    "inference": "Core-gap radiation is distinct from hull-cavity radiation, but neither effective gap coefficient .20 nor zero contact resistance is established for the intended bonded sandwich.",
+    "access": "Previously pinned primary PDF/text inspected; browser refetch size limit recorded."
+  },
+  {
+    "id": "SolarWhite",
+    "source": "ENBIO manufacturer SolarWhite sheet",
+    "url": "https://enbio.eu/wp-content/uploads/2024/07/SolarWhite.pdf",
+    "evidence": "Typical 150 micrometre coating: 285 g/m2, alpha .18 and hemispherical epsilon .89 on Al2024-T3.",
+    "inference": "Corrects missing-source claims; no installed-Be mass/optics qualification or selected multilayer input change follows.",
+    "access": "Completed-check PDF pinned and manufacturer page independently opened."
+  },
+  {
+    "id": "classical_CCAg",
+    "source": "NASA 2015, printed slide19",
+    "url": "https://ntrs.nasa.gov/api/citations/20150018109/downloads/20150018109.pdf",
+    "evidence": "Alpha .08, normal epsilon .72, CCAg/ITO on 3 mil Kapton.",
+    "inference": "Does not substantiate a hemispherical .09/.65 model pair. This differs from the selected multilayer class.",
+    "access": "Primary PDF retrieved; browser text independently checked."
+  }
+]

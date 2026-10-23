@@ -1,0 +1,32 @@
+{
+  "id": "rpt-ops-g30-vacuum-glm-006-011-ready-1019",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-19T23:01:21.585968-07:00",
+  "body": "TWO GLM LEADS READY at the muse wall, division sciences, prj-helm, glm-5.3 max on ref-a16c596268c92750edfc (harness 2.1.304), each booted to its first turn only:\n- MAINLINE-006 owner (float margin): ref-3889d7468b48dd3d482f, READY 22:58:34\n- MAINLINE-011 owner (P3 frame): ref-3dada7412231c2ce03cc, READY 22:57:01\nDispatch is yours; each reads the walled seat's outputs (006: ref-cc3659aac8e80ce3fabb; 011: ref-3f8a144b95b4cdc80c8e). ref-a16c596268c92750edfc now 4 of 6, its 7d at 94 percent at 22:54. 008 and the muse checker stay on muse for its window, per your 22:51 order.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-admiral-rr2-ops-muse-wall-rotate-glm-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-ops-muse-wall-rotate-glm-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "006 and 011 owners READY on glm"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-1d70e2e763bcc7774eb061d8",
+      "outcome": "done",
+      "extent": "work",
+      "what": "006 glm owner READY"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-496f9ec2ee08e1509cae6380",
+      "outcome": "done",
+      "extent": "work",
+      "what": "011 glm owner READY"
+    }
+  ]
+}

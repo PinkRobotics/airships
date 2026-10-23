@@ -1,0 +1,229 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "new_numerical_run": false,
+  "sources": [
+    {
+      "path": "evidence/e10a6054a015fc86-THERMAL-CHECK.json",
+      "sha256": "e10a6054a015fc865347f7f33cb655585c28faad627ab2849326904c7b82030c",
+      "bytes": 2885
+    },
+    {
+      "path": "evidence/9338c29144169b99-THERMAL-SCREEN.json",
+      "sha256": "9338c29144169b99a5323a94c65d565ba2fc29be98e3cf486dadcd7be1466cf9",
+      "bytes": 30970
+    }
+  ],
+  "common040": {
+    "source": "evidence/e10a6054a015fc86-THERMAL-CHECK.json",
+    "selector": "/common_2700_128",
+    "values": {
+      "tc_m": [
+        0.02210679007353296
+      ],
+      "gradient_K": [
+        0.4227611395799613
+      ],
+      "swing_K": [
+        31.119623918249715
+      ],
+      "rise_K": [
+        17.12481753419388
+      ],
+      "curvature_temperature_K": [
+        55.77743433326896
+      ],
+      "max_outer_K": [
+        302.02481753419386
+      ],
+      "min_outer_K": [
+        270.90519361594414
+      ],
+      "day_diagnostics": {
+        "iterations": 13,
+        "fixed_point_error_K": 5.701394911739044e-10,
+        "max_energy_residual_W_m2": 7.250093858601758e-10
+      },
+      "night_diagnostics": {
+        "iterations": 13,
+        "fixed_point_error_K": 5.023821358918212e-10,
+        "max_energy_residual_W_m2": 5.571934025283554e-10
+      }
+    }
+  },
+  "density2640_converged": {
+    "source": "evidence/e10a6054a015fc86-THERMAL-CHECK.json",
+    "selector": "/converged_128",
+    "values": {
+      "tc_m": [
+        0.02210679007353296
+      ],
+      "gradient_K": [
+        0.41390118066578907
+      ],
+      "swing_K": [
+        31.118178069461408
+      ],
+      "rise_K": [
+        17.12376627418348
+      ],
+      "curvature_temperature_K": [
+        55.79003444310727
+      ],
+      "max_outer_K": [
+        302.02376627418346
+      ],
+      "min_outer_K": [
+        270.90558820472205
+      ],
+      "day_diagnostics": {
+        "iterations": 13,
+        "fixed_point_error_K": 5.501306077349e-10,
+        "max_energy_residual_W_m2": 6.960476639505941e-10
+      },
+      "night_diagnostics": {
+        "iterations": 13,
+        "fixed_point_error_K": 4.848175194638316e-10,
+        "max_energy_residual_W_m2": 5.358744559202933e-10
+      }
+    }
+  },
+  "legacy_diagnostic": {
+    "source": "evidence/e10a6054a015fc86-THERMAL-CHECK.json",
+    "selector": "/source_037_midpoint_25",
+    "values": {
+      "tc_m": [
+        0.02210679007353296
+      ],
+      "gradient_K": [
+        0.399196498735364
+      ],
+      "swing_K": [
+        30.493339712295267
+      ],
+      "rise_K": [
+        16.669001463748998
+      ],
+      "curvature_temperature_K": [
+        216.8380776012378
+      ],
+      "max_outer_K": [
+        301.569001463749
+      ],
+      "min_outer_K": [
+        271.0756617514537
+      ],
+      "day_diagnostics": {
+        "iterations": 25,
+        "fixed_point_error_K": 5.684341886080802e-14,
+        "max_energy_residual_W_m2": 6.821210263296962e-13
+      },
+      "night_diagnostics": {
+        "iterations": 25,
+        "fixed_point_error_K": 5.684341886080802e-14,
+        "max_energy_residual_W_m2": 5.266898028821743e-13
+      }
+    }
+  },
+  "reference048": {
+    "source": "evidence/9338c29144169b99-THERMAL-SCREEN.json",
+    "selector": "/0",
+    "values": {
+      "id": "reference040",
+      "legacy_037_day_SF": 1.6782827096937059,
+      "legacy_037_full_swing_SF": 0.9174231884213409,
+      "legacy_037_day_at_least_reference": true,
+      "legacy_037_cycle_at_least_one": false,
+      "current_200F_minimum_edge_SF": 1.0718837620693866,
+      "legacy": {
+        "tc_m": [
+          0.02210679007353296
+        ],
+        "day_gradient_K": [
+          0.399196498735364
+        ],
+        "night_gradient_K": [
+          0.16937191177311206
+        ],
+        "day_curvature_temperature_K": [
+          216.8380776012378
+        ],
+        "night_curvature_temperature_K": [
+          2.585175170883171
+        ],
+        "gradient_K": [
+          0.399196498735364
+        ],
+        "swing_K": [
+          30.493339712295267
+        ],
+        "rise_K": [
+          16.669001463748998
+        ],
+        "curvature_temperature_K": [
+          216.8380776012378
+        ],
+        "max_outer_K": [
+          301.569001463749
+        ],
+        "min_outer_K": [
+          271.0756617514537
+        ],
+        "day_diagnostics": {
+          "iterations": 25,
+          "fixed_point_error_K": 5.684341886080802e-14,
+          "max_energy_residual_W_m2": 6.821210263296962e-13
+        },
+        "night_diagnostics": {
+          "iterations": 25,
+          "fixed_point_error_K": 5.684341886080802e-14,
+          "max_energy_residual_W_m2": 5.266898028821743e-13
+        }
+      },
+      "common": {
+        "tc_m": [
+          0.02210679007353296
+        ],
+        "day_gradient_K": [
+          0.4227611395799613
+        ],
+        "night_gradient_K": [
+          0.17808366814682586
+        ],
+        "day_curvature_temperature_K": [
+          55.77743433326896
+        ],
+        "night_curvature_temperature_K": [
+          0.8066049556018386
+        ],
+        "gradient_K": [
+          0.4227611395799613
+        ],
+        "swing_K": [
+          31.119623918249715
+        ],
+        "rise_K": [
+          17.12481753419388
+        ],
+        "curvature_temperature_K": [
+          55.77743433326896
+        ],
+        "max_outer_K": [
+          302.02481753419386
+        ],
+        "min_outer_K": [
+          270.90519361594414
+        ],
+        "day_diagnostics": {
+          "iterations": 13,
+          "fixed_point_error_K": 5.701394911739044e-10,
+          "max_energy_residual_W_m2": 7.250093858601758e-10
+        },
+        "night_diagnostics": {
+          "iterations": 13,
+          "fixed_point_error_K": 5.023821358918212e-10,
+          "max_energy_residual_W_m2": 5.571934025283554e-10
+        }
+      }
+    }
+  }
+}

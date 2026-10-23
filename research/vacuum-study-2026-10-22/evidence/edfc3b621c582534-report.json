@@ -1,0 +1,116 @@
+{
+  "id": "rpt-ref-982a0ff761f72abce96c",
+  "kind": "report",
+  "from": "ref-baa4584cf36c531365e7",
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-check046-codex-7e53-1020",
+  "unit": "vacuum-mainline046-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check046-codex-7e53-1020"
+    }
+  ],
+  "at": "2026-10-20T05:02:02-07:00",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check046-codex-7e53-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "standing": "none",
+  "next": "none",
+  "body": "CHECK MAINLINE-046 complete; QUESTIONABLE/PROJECTION. Independently rebuilt all 389 CSV rows and frequency-5 geometry. Of 3,796 field checks, 3,780 match strictly; all 16 differences resolve to the explicitly rounded seam reference (maximum 6.4851e-9 kg). All 135 displayed calculation cells and fourteen NIST source pairs match. All 115 non-code manifest pins verify; two owner executables excluded without access.\n\nRequired retention 0.794753/0.874673/0.923186, warehouse ten-year SF 1.084071/0.985018/0.933256, and hot/full-restraint SF 1.092731/0.995706/0.944784 reproduce. The 041 OD4/white package is 95.751051 kg. With hot film correction and allocated equipment, closure deficits remain 31.465–51.465 kg / 39.916–59.916 kg.\n\nPrimary sources confirm approximate ageing anchors and SK99/DM20 creep exponents. Outdoor interior residual reaches 0.082089; warehouse reading uncertainty crosses SF1 at both 041 points. The hot 041-5 annual loss ceiling is 0.457%, below the 0.5% requirement. SK99 chemistry-only mass does not establish creep suitability.\n\nOne minor labeling finding: 458.672527 kg/year is coupon water only; adding declared-weather weighted leakage gives 459.261468 kg/year at 041. Eight quantified checker NFI entries, 22 owner entries and inherited registers remain open. Qualified installed life and hull SF remain null. Brief says stop and file; no successor.",
+  "artifacts": [
+    {
+      "path": "evidence/b1abc6cbc2ca59d2-CARD.md",
+      "sha256": "b1abc6cbc2ca59d2f297e8bbdea5bd38ccd72503595e094d98574d6518f48566",
+      "bytes": 6235
+    },
+    {
+      "path": "evidence/fd1f7f4fa899a654-SUMMARY.json",
+      "sha256": "fd1f7f4fa899a65494cc0297cf14aa3805f4845ea22ce61c097a6c5271328c07",
+      "bytes": 1927
+    },
+    {
+      "path": "evidence/03a00dbbe9f1f0a5-EVIDENCE.md",
+      "sha256": "03a00dbbe9f1f0a57e6e14de82365e1d43562240b4b2f43ab89d4879ded16c13",
+      "bytes": 5275
+    },
+    {
+      "path": "evidence/914b464e65575975-NFI.json",
+      "sha256": "914b464e655759755f29ebb4053c5fbde3f10bf6de4d0b712baf78b8d87d7d04",
+      "bytes": 6374
+    },
+    {
+      "path": "evidence/b17d00c123cbad56-ARITHMETIC-SUMMARY.json",
+      "sha256": "b17d00c123cbad56c243fe05af039769c4dbfc6932cfd126ae290683baf4065c",
+      "bytes": 1031
+    },
+    {
+      "path": "evidence/f515e4afac7565a9-ARITHMETIC-CHECKS.json",
+      "sha256": "f515e4afac7565a91e2323c4d783fe4f357cb584c29b36ef4b9148a78f69c9b9",
+      "bytes": 735807
+    },
+    {
+      "path": "evidence/2a0389bc19963f67-ARITHMETIC-DIFFERENCES.json",
+      "sha256": "2a0389bc19963f67fbd781a8e731d62218d7c7d5d85673eccf7cd8e675f4e2d9",
+      "bytes": 3709
+    },
+    {
+      "path": "evidence/fae14d47752181c1-ROUNDING-RESOLUTION.json",
+      "sha256": "fae14d47752181c1542021850f1b7345a275d82e48409985f84d4b0cb1f7e50f",
+      "bytes": 5007
+    },
+    {
+      "path": "evidence/10bbbe9c929b1e33-INDEPENDENT.json",
+      "sha256": "10bbbe9c929b1e331ce56b96fdc948a3099b7e4a9e60d91812fad2176ca39611",
+      "bytes": 202328
+    },
+    {
+      "path": "evidence/4704873c682dffc9-AGE-MODEL-SENSITIVITY.json",
+      "sha256": "4704873c682dffc95fa878530b6679a8d0a847ebee5705e278245a6280dae9a9",
+      "bytes": 2689
+    },
+    {
+      "path": "evidence/2744fa73e6ffd62e-HOT-AND-WATER-SENSITIVITY.json",
+      "sha256": "2744fa73e6ffd62e61edd7fb73850ee8c23e02761c260c29ad85d86e7ec5a149",
+      "bytes": 9122
+    },
+    {
+      "path": "evidence/785c14182ca595fe-PRESENTATION-CHECKS.json",
+      "sha256": "785c14182ca595fe126a5c14a19480c0b1d9ba5da93d8cf7e888dbb8c2969329",
+      "bytes": 16282
+    },
+    {
+      "path": "evidence/54e10f1d121d64d8-OWNER-MANIFEST-CHECK.json",
+      "sha256": "54e10f1d121d64d8badf89456e6ec2a1e294f0664be0e5ce23eac939dc89d62a",
+      "bytes": 57154
+    },
+    {
+      "path": "evidence/8e0caef023e59b5d-DELIVERY-CHECKS.json",
+      "sha256": "8e0caef023e59b5d11013ae82892aa4c9ca4b805c98bf119f4678c7c507d7d36",
+      "bytes": 6211
+    },
+    {
+      "path": "evidence/7b2fc421913f346c-MANIFEST.json",
+      "sha256": "7b2fc421913f346c22498f39eedc59a85e23a2ae7d3e77366bff1c9fbf0b49fc",
+      "bytes": 49703
+    },
+    {
+      "path": "evidence/47ebc8225a516c55-vacuum-mainline046-check-1020.md",
+      "sha256": "47ebc8225a516c558f8abdce1fc2ae801a3ea6aa9b94bc267b8de45bfe99ca29",
+      "bytes": 1255
+    }
+  ],
+  "ingested": "2026-10-20T05:02:46-07:00"
+}

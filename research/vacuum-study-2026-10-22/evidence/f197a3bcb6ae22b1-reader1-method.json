@@ -1,0 +1,98 @@
+{
+  "reader": "ref-ed3515d83349998d6b1b",
+  "purpose": "Independent reader1 plot box only, not a critical-response computation or continuum error bound.",
+  "source": {
+    "role": "local_dimple_source",
+    "path": "unpublished-local-ref:cc10f5136b8909c3",
+    "sha256": "6558ee55ac8c02e9af21ce80b19548dcc234859aebb52a6d0929c7a50ec018b8",
+    "bytes": 541163
+  },
+  "locator": "printed p49, Figure2, curveB (inward/pinch) at |delta/t|=1/5; middle of three plotted curves, traced from B arrow.",
+  "reader2_exposure": "No reader2 seal, box, script or values opened before this seal and filing. Only withheld path/hash metadata in assignment read. No current reconstructed critical response, pilot or native response exists or was consulted. Historical U1/source work is known in conversation, but no historic computed/reader2 ordinate is used in this reading; this is not a claim of never having encountered the paper.",
+  "render": {
+    "path": "unpublished-local-ref:0ccea78f1307e721",
+    "sha256": "b402b1cd1656009f1ae9ffdea018f24aabb38acc71d16aa91d8ecd87c4ba392a",
+    "bytes": 689
+  },
+  "coordinates": "600dpi crop xright,ydown; origin2800,350 in page raster.",
+  "visual_identification": "B arrow targets middle curve; top A/outward and bottom asymptotic are excluded by visible continuous traces, not by response proximity.",
+  "axis_calibration": {
+    "x_tick_0_2_stroke": [
+      729,
+      736
+    ],
+    "target_x_interval_inclusive": [
+      713,
+      752
+    ],
+    "abscissa_margin_reason": "Full tick stroke plus16px each side covers raster quantization, manual registration and observed axis tilt/shear; scan every column in this interval. This uncertainty is applied by enclosing the whole B stroke across the strip, not by selecting one favorable column.",
+    "y_tick_0_6_interval": [
+      727,
+      744
+    ],
+    "y_tick_0_4_interval": [
+      968,
+      983
+    ],
+    "ordinate_axis_margin_reason": "Full observed tick strokes731..740 and972..979 inflated4px each side for raster/registration/skew across plot; affine local scale through these adjacent ticks.",
+    "measured_axis_scans": {
+      "path": "evidence/56b3bd65ed5a9a3f-READER1-PIXEL-SCAN.json",
+      "sha256": "56b3bd65ed5a9a3f6e954e97e9e704846eb6fea10b43962ae4a96aa1bcfdf53e",
+      "bytes": 5464
+    }
+  },
+  "stroke_selection": {
+    "x_inclusive": [
+      713,
+      752
+    ],
+    "y_search_inclusive": [
+      690,
+      769
+    ],
+    "grayscale_dark_threshold": 192,
+    "raw_enclosing_y": [
+      710,
+      738
+    ],
+    "dilated_curve_y": [
+      706,
+      742
+    ],
+    "dilation_pixels_each_side": 4,
+    "threshold_check": "96/128/192 scans show same separated middle stroke; full threshold192 raster sweep plus4px margin retained.",
+    "pixel_count": 384
+  },
+  "normalization": "lambda_plot=.4+.2*(y_.4-y_curve)/(y_.4-y_.6). Denominator positive. Fraction exact corner evaluation over all uncertain endpoints; fractional-linear map is coordinatewise monotone for fixed other arguments, so extrema occur at corners.",
+  "exact_lower": "708/1205",
+  "exact_upper": "71/112",
+  "outward_rounding": "to0.001, lower floor and upper ceiling",
+  "plot_uncertainty_limit": "Reading enclosure under printed linear axes and visible stroke identity; unknown historical numerical-discretization/model error is NOT included or set to zero. Only even-parity compatibility may use the eventual two-reader hull.",
+  "prior_inputs": [
+    {
+      "path": "unpublished-local-ref:e4176e7b3a74b94c",
+      "sha256": "e4a3e87def9adc6968e5c962500dc4961e131840003d0053bca168e232e7d565",
+      "bytes": 3702
+    },
+    {
+      "path": "unpublished-local-ref:e7ccb7b8720b2bff",
+      "sha256": "ca03547c261e1642b0526177279adc5f74df14f6b561548f22d451236e9c09cd",
+      "bytes": 7176
+    },
+    {
+      "path": "unpublished-local-ref:11debe99c24b4c17",
+      "sha256": "dd6eed8f97b5d9bf089bcc9967f475aa305c8804f84a71369da5382451cc069a",
+      "bytes": 21274
+    },
+    {
+      "path": "unpublished-local-ref:ed9ffbef379dd9fa",
+      "sha256": "26d5dfb5c02e8a66ca042e477186bf12ecc9a8c16fd7d1e5891ed36f58969801",
+      "bytes": 6006
+    },
+    {
+      "path": "unpublished-local-ref:6bbb31e791332aaa",
+      "sha256": "becd490bcdef9fddc194704c2e90302fd95023d7fd05d1afe1bdcf7e36794b3a",
+      "bytes": 2483
+    }
+  ]
+}

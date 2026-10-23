@@ -1,0 +1,31 @@
+[
+  {
+    "url": "https://www.sec.gov/Archives/edgar/data/1104657/000110465726000011/mtrn-20251231.htm",
+    "method": "web open/find, mill-capacity table",
+    "verified_facts": {
+      "year": 2025,
+      "produced_klb": 391,
+      "mill_capacity_percent": 61
+    }
+  },
+  {
+    "url": "https://patents.justia.com/patent/11391493",
+    "method": "web open/find; raw HTTP download failed",
+    "verified_facts": {
+      "multilayer_oxide_pairs": 80,
+      "NiCr_nm": 50,
+      "Ag_nm": 120,
+      "Al2O3_total_nm": 1200,
+      "SiO2_total_nm": 400,
+      "ITO_nm": 10
+    }
+  },
+  {
+    "url": "https://www.nipponsteel.com/common/secure/en/tech/report/pdf/134-23.pdf",
+    "method": "web open plus local PDF",
+    "verified_facts": {
+      "continuous_pitch_capacity_t_per_year": 1400,
+      "producer_count": 3
+    }
+  }
+]

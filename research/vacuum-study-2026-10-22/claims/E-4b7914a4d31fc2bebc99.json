@@ -1,0 +1,42 @@
+{
+  "id": "E-4b7914a4d31fc2bebc99",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-4b7914a4d31fc2bebc99",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043fold~1NFI.json/items/0",
+    "row_id": "NFI-043F-01",
+    "fields": {
+      "id": "NFI-043F-01",
+      "status": "partially addressed",
+      "topic": "Integer geometry and actual demand inputs",
+      "finding": "The 041 cases have 750 members, 252 joints and 500 cells, with actual arc lengths and 18000 correlated segment force/moment pairs per design. This replaces the noninteger 022d geometry only for the new cases.",
+      "remaining": "The input FE equilibrium and the fixed-gyration force transfer are inherited, not independently solved here. The old 433-member analysis remains bookkeeping rather than a constructed mesh.",
+      "related_prior": [
+        "NFI-043-02"
+      ],
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The 041 cases have 750 members, 252 joints and 500 cells, with actual arc lengths and 18000 correlated segment force/moment pairs per design. This replaces the noninteger 022d geometry only for the new cases.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043fold~1NFI.json/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

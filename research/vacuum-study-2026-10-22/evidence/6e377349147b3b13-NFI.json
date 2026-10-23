@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline023-check-1020",
+  "blocks_progress": false,
+  "findings": [
+    {
+      "id": "NFI-023-CHECK-FIRST-PINS",
+      "status": "open",
+      "non_blocking": true,
+      "field": "first report artifacts",
+      "reported": "Five paths pinned under the initial973.7kN report.",
+      "check": "All five now contain load-fix bytes. Current load-fix pins match; original full files unavailable at cited paths.43 preserved report quantities reconstruct.",
+      "evidence": [
+        "inputs/pin-audit.json",
+        "REPORT-CHECK.csv"
+      ],
+      "next": "Preserve distinct immutable version paths on future fixes; restore original versions only if already archived, without substituting reconstructed data."
+    },
+    {
+      "id": "NFI-023-CHECK-OLD-FORCE",
+      "status": "resolved_by_load_fix",
+      "non_blocking": true,
+      "field": "first filing member force",
+      "reported": "973700.54672178N, pRs/2, applied to triangulated member count.",
+      "check": {
+        "equilateral_N": 562166.2727599056,
+        "old_N": 973700.5467217801,
+        "fixed_geometry_factors": {
+          "yield": 1.732050807568877,
+          "euler": 1.7320508075688772,
+          "local": 1.732050807568877,
+          "film": 1.0,
+          "perry": 1.7320508075688772,
+          "global": 1.0
+        }
+      },
+      "evidence": [
+        "independent global-cut/node/tributary derivations",
+        "RESULTS.json"
+      ],
+      "next": "Carry the corrected force. The initial numbers are reproduced solely as superseded-load calculations."
+    },
+    {
+      "id": "NFI-023-CHECK-JOINT-MARGIN",
+      "status": "open",
+      "non_blocking": true,
+      "field": "reported least SF1.466/2.061 for wrap shell search",
+      "reported": "The six scored modes exclude joint strength. End sections and bonds are sized at N/strength and N/shear.",
+      "check": {
+        "nominal_joint_strength_SF": 1.0,
+        "frozen_joint_inclusive_nominal_SF": 1.0,
+        "wrap_shell_k02": 1.4658145265725706,
+        "wrap_shell_k04": 2.0607540827668074,
+        "sleeve_scaling_for_target_q": "end mass scales q^2 at fixed section; braze overlap scales q"
+      },
+      "evidence": [
+        "CHECK.md joint sizing derivation",
+        "RESULTS.json nominal_joint_SF"
+      ],
+      "next": "Label existing factors shell-only. Include joint modes and resize at the desired load factor before quoting assembled-frame margin."
+    },
+    {
+      "id": "NFI-023-CHECK-NODE-LOAD-PATH",
+      "status": "open",
+      "non_blocking": true,
+      "field": "m_joint_kg and smeared bending stiffness",
+      "reported": "31.039kg of wrap,157.685kg Ti orthe re-closed socket mass plus.02kg/node described as fittings.",
+      "check": {
+        "sixfold_pressure_force_N": 344045.7589290622,
+        "remaining_load_path": "No sized central receiver/hub, collector, load turning, film attachment or measured rotational stiffness. Braze model only extends a ceramic wall."
+      },
+      "evidence": [
+        "CHECK.md",
+        "joint formulas",
+        "011b D=(3sqrt3/4)EI/s"
+      ],
+      "next": "Define a complete node geometry and its mass/stiffness. Preserve present values as partial end-material estimates; do not assume they establish the global D used in the score."
+    },
+    {
+      "id": "NFI-023-CHECK-BOND-MASS-AND-TRANSFER",
+      "status": "open",
+      "non_blocking": true,
+      "field": "metal sleeve/CFRP mass and bond allowable",
+      "reported": "EA9394 nominal shear28.9MPa and no adhesive mass in the budget.",
+      "check": {
+        "bond_area_m2_per_end": 0.019452120164702612,
+        "additional_adhesive_mass_per_100um_gap_kg": 5.534469519646309,
+        "gap_status": "100micron is a sensitivity assumption, not a selected design",
+        "source_status": "Aluminum lap-shear typical datum; SiC, peel, environment and design basis unresolved"
+      },
+      "evidence": [
+        "Henkel TDS pp1,3–5",
+        "independent volume calculation"
+      ],
+      "next": "Specify bondline thickness and charge its mass, then establish SiC joint strength and load-transfer distribution for the required conditions."
+    },
+    {
+      "id": "NFI-023-CHECK-BRAZE-PAIR",
+      "status": "open",
+      "non_blocking": true,
+      "field": "Cusil-ABA socket",
+      "reported": "25MPa coupon shear used on a continued SiC tube wall.",
+      "check": "Primary publisher abstract identifies SiC/Mo and SiC/Kovar, not an all-SiC tubular node. Receiver metal, braze filler, residual stress and central connection are not sized.",
+      "evidence": [
+        "sources/braze2020-reading.json",
+        "INPUTS.json"
+      ],
+      "next": "Name the actual material pair and include receiver/filler geometry and mass; retain in-the-lab evidence and PROJECTION assembly tag."
+    },
+    {
+      "id": "NFI-023-CHECK-BRAZE-UNITS",
+      "status": "open",
+      "non_blocking": true,
+      "field": "mass_coefficients.sic_braze.C_end_per_area_1_per_N",
+      "reported": "Coefficient labelled1/N in JSON and CARD.",
+      "check": {
+        "value": 1.9735212943395024e-05,
+        "correct_units": "kg/(N*m), equivalently s^2/m^2",
+        "equation": "m_end=C*A*N/r"
+      },
+      "evidence": [
+        "dimensional derivation CHECK.md"
+      ],
+      "next": "Correct units and field label. Numeric coefficient itself is reproduced."
+    },
+    {
+      "id": "NFI-023-CHECK-PIN-SPAN",
+      "status": "open",
+      "non_blocking": true,
+      "field": "pin_clevis_reference.length_m and mass_kg",
+      "reported": "A3d pin is assumed for a two-wall bearing calculation.",
+      "check": {
+        "length_3d_m": 0.08056850952246337,
+        "tube_OD_m": 0.24737672474737216,
+        "mass_for_2r_span_minimum_kg": 0.6207841105826379,
+        "bearing_Pa": 11889414314.899754
+      },
+      "evidence": [
+        "RESULTS.json supplements",
+        "pin volume and diameter geometry"
+      ],
+      "next": "If used as a through-tube reference, include the full span plus lugs and pin bending. It is already rejected on bearing; keep it out of candidate mass ranking."
+    },
+    {
+      "id": "NFI-023-CHECK-CONTACT-METRIC",
+      "status": "open",
+      "non_blocking": true,
+      "field": "sigma_contact and flexural SF",
+      "reported": "N/A called contact stress;380MPa flexure ratio used to say the tube fails.",
+      "check": {
+        "filed_mean_axial_Pa": 824658297.2240398,
+        "flexural_ratio": 0.46079691586097404,
+        "interpretation": "N/A is mean axial wall compression. Local bearing/peel/splitting is not resolved;380MPa flexure is not a compressive failure criterion."
+      },
+      "evidence": [
+        "Hexoloy primary sheet",
+        "CHECK.md"
+      ],
+      "next": "Retain both as explicit material sensitivities; use a suitable ceramic stress/failure model and geometry for contact acceptance."
+    },
+    {
+      "id": "NFI-023-CHECK-ARC-LENGTH",
+      "status": "open",
+      "non_blocking": true,
+      "field": "tube mass and Euler/Perry span",
+      "reported": "011b and023 use chord spacing s as spherical-arc length.",
+      "check": {
+        "exact_arc_length_m": 2.043554024505062,
+        "chord_m": 2.04,
+        "length_ratio": 1.0017421688750303,
+        "extra_tube_mass_at_unchanged_filed_area_kg": 7.856208800768033
+      },
+      "evidence": [
+        "circular geometry derivation",
+        "RESULTS.json"
+      ],
+      "next": "Carry the approximation explicitly or charge exact arc length and update Euler/Perry. Film sag and actual integer-node geometry remain outside this score."
+    },
+    {
+      "id": "NFI-023-CHECK-SOURCE-AND-TAGS",
+      "status": "open",
+      "non_blocking": true,
+      "field": "material allowable transfer and result labels",
+      "reported": "Nominal coupon strengths and inherited density are used as joint design values; overallRESULTS tagQUESTIONABLE.",
+      "check": "1470MPa cited Toray coupon is verified, as are Henkel/TIMET/Invar values. The fabricated transition, its layup, complete node and film remain PROJECTION. Producer data vary by resin/version and typical/minimum basis.",
+      "evidence": [
+        "INPUTS.json source_audit",
+        "primary PDFs"
+      ],
+      "next": "Keep source version, test basis, material density and joint state explicit in each downstream row; do not promote the sizing to a qualified joint."
+    }
+  ]
+}

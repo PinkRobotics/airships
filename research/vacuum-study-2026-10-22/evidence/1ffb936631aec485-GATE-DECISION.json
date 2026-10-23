@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "unit": "h1-reference-contract-owner5400-1019",
+  "status": "PASS_CONTINUING_PENDING_UNA",
+  "origin_monotonic": 2062689.934180799,
+  "origin_utc": "2026-10-19T21:59:24.753877+00:00",
+  "gate_decision_monotonic": 2063054.025560538,
+  "gate_decision_utc": "2026-10-19T22:05:28.845255+00:00",
+  "gate_phase_actual_s": 364.0913797391113,
+  "gate_phase_cap_s": 1500,
+  "scope": "n0 lambda0 coarsest120cells,40perpanel; fullU/V/W, fixed-end reaction, bothphysicalparities; exact G norm",
+  "representation": "degree5 local slope,80-bit dyadic coefficient-selection specification; no field/array evaluated",
+  "delta_s": "1/100000000000",
+  "epsilon_G": "1/500000",
+  "screen": "epsilon+4epsilon^2=125001/62500000000<1",
+  "theta": 1,
+  "alpha_diagnostic": "1/100000",
+  "full_matrix": "NOT_CERTIFIED",
+  "advisory": "epsilon is1/15000 of0.03 at this witness only; combined correction/event conversion UNESTABLISHED; not new gate",
+  "pins": [
+    {
+      "path": "evidence/f4be83feedfdee8f-GATE-PROOF.md",
+      "sha256": "f4be83feedfdee8f32e244d9d120c83efd1ac3891e1d66dcf135fcdfeef673ff",
+      "bytes": 8159
+    },
+    {
+      "path": "evidence/a8e0a1cf931b04da-gate_scalar_checks.py",
+      "sha256": "a8e0a1cf931b04da2574e9fc07043cca90d692fae0d8e97f9635d5e1820019f0",
+      "bytes": 2218
+    },
+    {
+      "path": "evidence/e05d94d9517e402f-GATE-SCALAR-CHECKS.json",
+      "sha256": "e05d94d9517e402f536d2f505d91025192f26f85068a1450da67aa6a582332fe",
+      "bytes": 1947
+    }
+  ],
+  "next_phase": "checkpoint<=265actual and cumulative<=1765; no reset or wait, ownerOPEN"
+}

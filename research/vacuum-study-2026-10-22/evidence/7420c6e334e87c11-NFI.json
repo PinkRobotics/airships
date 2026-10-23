@@ -1,0 +1,319 @@
+{
+  "unit": "vacuum-mainline054-check-1020",
+  "new_rows": [
+    {
+      "id": "CHK054-01",
+      "status": "PROPOSED_TEXT_FIX",
+      "tag": "PROJECTION",
+      "row": "owner report body; R12 ISA, FOIL30 alone, 30 days",
+      "field": "payload_kg",
+      "owner_value": 47.35,
+      "independent_value": 47.34455788658644,
+      "correct_display": 47.34,
+      "finding": "The report rounds up incorrectly; the card and machine data already show the correct result.",
+      "action": "Use +47.34 kg in summaries. No route, mass model or closure change."
+    },
+    {
+      "id": "CHK054-02",
+      "status": "OPEN_DOCUMENTATION",
+      "tag": "PROJECTION",
+      "row": "cold humidity design input and capture free-volume convention",
+      "finding": "The full cold target differs from the upstream 052 input by 1.5380359e-7 Pa. All 2816 strict differences reconcile at the declared 054 target. The equivalent hardware density and inclusion of housing plus all five kg hardware are not specified fully in METHOD.",
+      "action": "Publish the precise cold target and Vcapture=V052-Mbed/600-(housing+5)/1000, and distinguish projected equivalent volume from a measured installation.",
+      "numerical_status": "reconciled; no displayed result, route or payload changes",
+      "evidence": [
+        "ARITHMETIC-MISMATCHES.json",
+        "PRECISION-RECONCILIATION.json",
+        "METHOD.md"
+      ]
+    },
+    {
+      "id": "CHK054-03",
+      "status": "OPEN_EVIDENCE",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "row": "aramid wet-cavity mission initial water",
+      "owner_value_fraction": 0.01,
+      "source_point_fraction": 0.035,
+      "source_condition": "Kevlar49 bone-dry yarn equilibrated at 24 C/55% RH; also typical as-shipped moisture",
+      "source": "https://www.r-g.de/wiki/images/e/ec/Td_en_Kevlar_guide.pdf",
+      "finding": "One percent is an engineering allowance, not the manufacturer's moisture datum. The 84-case 3.5% finite-release sensitivity changes no payloads and has no pressure failure through 30 days; maximum 776.2574324310921 Pa.",
+      "action": "Measure initial moisture, sorption/release kinetics and pressure rise on the installed aramid stack; preserve both sensitivities.",
+      "evidence": [
+        "ARAMID-MOISTURE-SENSITIVITY.json",
+        "SOURCE-EVIDENCE.md"
+      ]
+    }
+  ],
+  "new_rows_count": 3,
+  "owner_054_rows_retained": [
+    {
+      "id": "NFI054-01",
+      "title": "Service WVTR",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "No installed laminate rate at48.79C, cyclic cold/heat and service water pressure is measured. Twofold rate defeats the R10 seven-day SiOx/3A closure.",
+      "proposed_fix": "Measure WVTR of the final aged, strained and seamed stack across actual T/RH; target<=0.08551g/m2/day for7days or<=0.01614 for30days in the stated R10 mass account."
+    },
+    {
+      "id": "NFI054-02",
+      "title": "Flex, creases and defects",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Flat coupon values do not include deployment folds, abrasion, crease pinholes or square-kilometre-equivalent defect statistics.",
+      "proposed_fix": "Measure leak and WVTR after representative forming, flex, handling, UV and abrasion; include seams and penetrations."
+    },
+    {
+      "id": "NFI054-03",
+      "title": "Carrier and coating weights",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "ALD paper omits PET gauge; R10 ML3 zero-payload carrier limit is28.07um. SiOx/Verreal coat2g/m2 and foil adhesive3g/m2 are allowances.",
+      "proposed_fix": "Weigh the complete final laminate including all carrier, coatings, primer, adhesive and opacity layers. Do not use the12um recipe as a sourced product."
+    },
+    {
+      "id": "NFI054-04",
+      "title": "ALD evidence floor and aging",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Claimed sub1e-5 performance is below the stated5e-5 instrument sensitivity; oxide durability and PET transfer are unqualified.",
+      "proposed_fix": "Confirm detection limit, reporting bounds, long-term oxide protection and flex performance on the final carrier."
+    },
+    {
+      "id": "NFI054-05",
+      "title": "Light and thermal protection",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Added Al opacity and inherited white/attachment package are not verified OD4 or actual optical/thermal properties for new laminates.",
+      "proposed_fix": "Measure spectral transmission, aged absorptivity/emissivity and adhesion of the complete package."
+    },
+    {
+      "id": "NFI054-06",
+      "title": "Whole-hull leakage and dry gas",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Inherited seam/node/port leaks and dry-species permeability are assumptions. Dry ingress limits nominal ultrabarrier intervals.",
+      "proposed_fix": "Measure full pressure-rise/species curves and actual leak rates; resolve all pressure-normalised permeability units."
+    },
+    {
+      "id": "NFI054-07",
+      "title": "Adsorbent equilibrium transfer",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "6wt%working screen applies to the source3A isotherm,1wt%initial moisture and333K maximum bed temperature. Vendor/cation variation and contamination are unknown.",
+      "proposed_fix": "Measure actual batch isotherm and cyclic working capacity at10–33Pa with the relevant temperatures and co-adsorbates."
+    },
+    {
+      "id": "NFI054-08",
+      "title": "Adsorption transport and heat rejection",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "R10 seven-day SiOx system requires about277m3/h effective water conductance and16.54W peak heat rejection.5kg distribution/monitoring plus25%housing are unverified.",
+      "proposed_fix": "Demonstrate distributed access, dust retention, thermal coupling and bed temperature without unpriced fans or pumps; weigh functional hardware."
+    },
+    {
+      "id": "NFI054-09",
+      "title": "Conditioning and regeneration",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Initial90%conditioning and1day release time constant are inherited proxies. Ground350C regeneration energy assumes cp1kJ/kg/K and2xloss factor.",
+      "proposed_fix": "Measure drydown, repeat-cycle residual moisture, vacuum pumping work, cooldown and handling. Regenerate outside the PBO enclosure."
+    },
+    {
+      "id": "NFI054-10",
+      "title": "Power and spare-mass fragility",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "R10 seven-day screen has1.12kgpayload.5W monitoring instead of0.5W makes it negative; additional transport hardware could erase it.",
+      "proposed_fix": "Build an actual electrical/installation bill and mission duty cycle, including sensors, batteries, mounts, thermal parts and contingency."
+    },
+    {
+      "id": "NFI054-11",
+      "title": "PBO humidity-dose criterion",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "5%of cold saturation is an inference from dry protected-yarn evidence, not a demonstrated long-term loaded-laminate safe boundary.",
+      "proposed_fix": "Measure loaded PBO/resin/interface strength retention under the full coupled moisture, temperature and light history."
+    },
+    {
+      "id": "NFI054-12",
+      "title": "Aramid installed strength",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "3GPa is conditioned yarn;95%retention,100%film efficiency and inherited thermal factor are optimistic assumptions.60%efficiency loses most favourable-weather closure.",
+      "proposed_fix": "Measure balanced membrane strength, creep, thermal mismatch, seams and long-term humid-service retention."
+    },
+    {
+      "id": "NFI054-13",
+      "title": "UHMWPE creep",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "SK99/DM20 exceed1%creep over30days at900MPa/30C; thin strength-sized films are more highly stressed and warmer.",
+      "proposed_fix": "Obtain stress/temperature/time creep and rupture data for actual laminate; do not apply a single900MPa rate to higher stresses."
+    },
+    {
+      "id": "NFI054-14",
+      "title": "M5 and LCP evidence gaps",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "No qualified M5/PIPD humid-service membrane allowable found. Accessible LCP chart is relative, not absolute WVTR.",
+      "proposed_fix": "Obtain absolute gauge/rate/condition/areal-mass records for LCP and relevant loaded wet-strength data for M5 before numeric credit."
+    },
+    {
+      "id": "NFI054-15",
+      "title": "052 structural and weather assumptions",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "All favourable-member, nonlinear-shell, joint, film, water, mooring and weather limitations from052 remain open. Both-weather closes nowhere here.",
+      "proposed_fix": "Carry forward052NFI without dilution; confirm the entire actual structure and environmental loading."
+    },
+    {
+      "id": "NFI054-16",
+      "title": "Local installation and free volume",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Bed/housing volume is included but distribution stiffness, load introduction, detailed barrier solid volume and microlocal humidity are not resolved.",
+      "proposed_fix": "Integrate and test local mounts, thermal paths and humidity gradients; rerun structural/displacement accounting for final geometry."
+    }
+  ],
+  "inherited_052": {
+    "unit": "vacuum-mainline052-p3-common-account-1020",
+    "rows": [
+      {
+        "id": "NFI052-01",
+        "title": "Full-member compression distribution",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "3.9 GPa is typical catalog compression, not a fitted scale at a known reference size. The 1 GPa baseline is only a ranking target.",
+        "proposed_fix": "Measure the actual full-length/full-wall production tube population in compression, including finish, joints and proof history."
+      },
+      {
+        "id": "NFI052-02",
+        "title": "Linear frame and local shell interaction",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Constant-g/R scaling retains checked linear fields. The 0.2 eigen knockdown and local peak substitution do not qualify imperfections or nonlinear collapse.",
+        "proposed_fix": "Validate joints, geometric imperfections and coupled local/global behavior for the final resized sections."
+      },
+      {
+        "id": "NFI052-03",
+        "title": "Rigid joints",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Sleeve sizing does not demonstrate rotational stiffness, peel, torsion, fatigue or temperature-dependent bond behavior.",
+        "proposed_fix": "Demonstrate the assembled joint stiffness and multiaxial load envelope at the actual installation."
+      },
+      {
+        "id": "NFI052-04",
+        "title": "PBO effective ply strength",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "The 10 m least root requires about 5.343 GPa effective ply strength; 60% of yarn strength does not close this radius even with the other endpoints.",
+        "proposed_fix": "Measure biaxial crossply strength, construction efficiency, seams, attachments and sustained load."
+      },
+      {
+        "id": "NFI052-05",
+        "title": "Ten-year retention",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Warehouse extrapolation and .995/year protection target are not measured installed life. OD4 and white mass do not establish a durable coating.",
+        "proposed_fix": "Qualify combined light, humidity, stress, temperature, abrasion, fatigue and repair histories."
+      },
+      {
+        "id": "NFI052-06",
+        "title": "Humidity criterion and service",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "5% of cold saturation is a design target; h=2 shortens the nominal first interval. Initial fill is assumed dry.",
+        "proposed_fix": "Measure the complete internal dewpoint distribution and establish an operating interval including uncertainty."
+      },
+      {
+        "id": "NFI052-07",
+        "title": "Barrier leakage and conditioning",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "OD3 coupon gas/WVTR and old outgassing inventories are transferred to installed OD4; 90% removal is assumed demonstrated.",
+        "proposed_fix": "Measure whole-hull leak acceptance, installed WVTR and a compatible conditioning endpoint."
+      },
+      {
+        "id": "NFI052-08",
+        "title": "Onboard pumping and energy",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "15–148 pump units arise from constant nominal-speed and 1000 W planning assumptions; this is not optimized or qualified hardware.",
+        "proposed_fix": "Obtain installed wet-speed curves near 32.5 Pa and a complete power/heat/plumbing design; recalculate changed barrier and power architectures explicitly."
+      },
+      {
+        "id": "NFI052-09",
+        "title": "Load introduction and wind",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Uniform pressure envelope and a P2-sized pad mass do not establish P3 attachment strength or nonuniform wind loading.",
+        "proposed_fix": "Resolve full wind, gust, mooring, payload, cable and landing load paths on the discrete frame."
+      },
+      {
+        "id": "NFI052-10",
+        "title": "Damage tolerance",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "045 reports cascading member loss and running tears in predecessor configurations. No damage-tolerance repair is qualified or silently assigned zero cost here.",
+        "proposed_fix": "Demonstrate residual strength, tear arrest, impact resistance and realistic protection/inspection; carry all added mass."
+      },
+      {
+        "id": "NFI052-11",
+        "title": "Size scaling and optimality",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Only the two checked f5 gyration families are assessed. Larger manufactured tubes and thermal interactions are not validated.",
+        "proposed_fix": "Search further sections/topologies using independently checked force/eigen solutions and manufacturing limits before claiming a global radius minimum."
+      },
+      {
+        "id": "NFI052-12",
+        "title": "Installed inventory",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Systems100, node, installation and mooring lines are planning allowances. The 10 m full-endpoint margin is only about 31 kg.",
+        "proposed_fix": "Replace allowances with a component bill including sensors, fixtures, mounting, valves, access, repair and handling hardware."
+      },
+      {
+        "id": "NFI052-13",
+        "title": "Gas and water location",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Bores must be vented. Material water is counted once in material mass; exterior .1 kg/m² water is separate. More external water can erase the margin.",
+        "proposed_fix": "Verify bore venting, actual liquid retention/drainage and material moisture at launch."
+      },
+      {
+        "id": "NFI052-14",
+        "title": "P2 comparability",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "P2 endpoints have different unqualified material, thermal, bond and life assumptions. 048 stopped at radius15.",
+        "proposed_fix": "Do not rank confidence from payload or axis count; any larger-radius 048 extension needs its own thermal and mechanical calculation."
+      },
+      {
+        "id": "NFI052-15",
+        "title": "Reliability aggregation",
+        "status": "OPEN",
+        "tag": "QUESTIONABLE / PROJECTION",
+        "finding": "Only an intact-member compression hazard envelope is reported. Independence, compression m=10, load sharing and reference volume are hypothetical.",
+        "proposed_fix": "Calibrate failure mechanisms and common causes before assembling a hull probability; do not substitute either number for installed reliability."
+      }
+    ],
+    "inherited_registers": [
+      "inputs/034/NFI.json",
+      "inputs/check041/NFI.json",
+      "inputs/check046/NFI.json",
+      "inputs/043fold/NFI.json",
+      "inputs/check043/NFI.json",
+      "inputs/045/NFI.json",
+      "inputs/048/NFI.json",
+      "inputs/check037/NFI.json",
+      "inputs/041/NFI.json",
+      "inputs/043/NFI.json",
+      "inputs/046/NFI.json"
+    ]
+  },
+  "all_owner_physical_qualifications_still_open": true,
+  "objections_nonblocking": true,
+  "qualified_hull_SF": null
+}

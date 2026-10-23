@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check029",
+  "kind": "filed_change",
+  "label": "check029",
+  "claim": "Elastic endpoints reproduce but exceed core/face admissibility; inherited core loses ellipticity and the foam-law comparison is not empirical gamma.",
+  "report": "rpt-check029-opus-1020",
+  "source_report_body": "CHECK MAINLINE-029 on my own axisymmetric StVK model (owner code not read or run). The card's arithmetic and lead results reproduce: 64 of 66 normalisations exactly (the two widths follow 015's nu 0.30, as stated); weak-meridian endpoints 78.631/90.736 kPa against 78.627/90.722, all 14 within 0.032%, each a true limit point, unchanged on 4x meshes; eigenpressures within 0.0063% on the owner's meshes; face stresses within 1.7%; transfer40 within 0.15%; 21 arithmetic items. Objections (NFI.json): (1) The endpoints are not attainable: the core's flank shear passes the card's own Hexcel CR III strength at 18-41 kPa and reaches 4.8-7.4 times it at the limits (mesh-converged); faces pass 345 MPa at 43-59 kPa. (2) The card's core law (in-plane E 0.01 MPa) loses ellipticity at 0.088 MPa shear, reached at 7-11 kPa; refined meshes go unstable on the flank below the endpoints, but stay stable to the limits at 1 MPa. (3) With that core, 021b's lowest linear mode is face wrinkling near 197.4 kPa, below 203.245/234.532. (4) The EUCASS elastic endpoints 13.957/13.844 MPa are StVK foam collapse; they fall with core refinement (13.37 at 12 elements), so 13.96 against 6.03 measures the foam law. Linear gap: 42.80 mm as mid radius gives 28.08 (+2.0%); E_steel 187 GPa closes it; unestablished. Fix cards proposed: core and face admissibility; a crushable foam law. Seven simjob refusals were retried unchanged under the standing order, which this report also closes. QUESTIONABLE; no certification.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/002b20b3c78cb099-CHECK.md",
+      "snapshot": "evidence/002b20b3c78cb099-CHECK.md",
+      "sha256": "002b20b3c78cb099103e32e4360bf6fa5d963c6c4c58e4eba4b30d222a8e6964",
+      "bytes": 18094,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

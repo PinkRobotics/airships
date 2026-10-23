@@ -1,0 +1,59 @@
+{
+  "id": "rpt-1228-mainline013-independent-check-1020",
+  "unit": "vacuum-mainline013-check-1019",
+  "at": "2026-10-20T07:47:50.305945+00:00",
+  "body": "Both earlier check reports were atomically repaired with standing=none and canonically admitted at 00:25:43 PDT; scientific artifacts are unchanged. MAINLINE-011b stopped at intake under supersession.\n\nMAINLINE-013 independently checked without using owner programs. All 4,554 calculated numeric comparisons (including 007/007b), 982 printed values/verdicts and 75 source-table/derived-fit checks agree. All 76 core records and 40 scaling records have source pointers and required tags; 20/21 Crossref identities were independently re-observed, one rate-limited.\n\nNo core at or below 10 kg/m3 establishes all three local checks. Best Q wrinkling-product gap remains 5,844x; the 190 kg/m3 local-model pass still has global SF 0.02035 and inferred G.\n\nNonblocking corrections: named S200F is 290 rather than 303 GPa, moving the ideal Q threshold 4.8175 to 5.2933 kg/m3 and required ideal fraction at 5 kg/m3 from 0.9821 to 1.0261. Basotect >9 kPa and EPS12 specification minima do not prove actual failure; preserve bounds and mark physical evidence incomplete. Qualify kd independence by fixed geometry, and correct the densest Meza specimen note. Original 17 NFI remain carried.\n\nQUESTIONABLE estimates; projections remain PROJECTION. Five nonblocking NFI filed. CARD-013 says stop and file; no next job is named.",
+  "artifacts": [
+    {
+      "path": "evidence/f9d24ca952465ad1-CARD.md",
+      "sha256": "f9d24ca952465ad15db90fb01337951789b7c032186d6c28dd78b383c563e9a5",
+      "bytes": 9055
+    },
+    {
+      "path": "evidence/e0f45a3e88d8d9ec-RESULTS.json",
+      "sha256": "e0f45a3e88d8d9ece8c32362fca5833ef1ce31418208db49d8fb08a60381fde4",
+      "bytes": 1976
+    },
+    {
+      "path": "evidence/ef406b56c4cff82e-NFI.json",
+      "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+      "bytes": 6151
+    },
+    {
+      "path": "evidence/c94a223dcf07b0b8-INPUTS.json",
+      "sha256": "c94a223dcf07b0b872f01beee218ef812e5af244973833d70eede3d2d2e7bf2d",
+      "bytes": 3878
+    },
+    {
+      "path": "evidence/98b319425f071f77-CALCULATIONS.json",
+      "sha256": "98b319425f071f77b205a9dc8787876a4a6cb529dc69f4a48809273a3553c197",
+      "bytes": 3262997
+    },
+    {
+      "path": "evidence/c8f5fdd7375162c4-SOURCE-CHECKS.json",
+      "sha256": "c8f5fdd7375162c4e229fdf04d46850f8dfe9487f14b79f032be318e9e977a69",
+      "bytes": 19565
+    },
+    {
+      "path": "evidence/e944e46848c6df9f-ARTIFACT-MANIFEST.json",
+      "sha256": "e944e46848c6df9f7477666588992aee5e2fc09d2cff969613a1af13bd550554",
+      "bytes": 3407
+    },
+    {
+      "path": "evidence/5fcbadb27c9456ca-RESUBMISSION-RECEIPT.json",
+      "sha256": "5fcbadb27c9456cadcd36a01043897861d870a8cb94ccbc450b76794bf656e0d",
+      "bytes": 1603
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "re": "ord-admiral-rr2-refile-then-check013-codex-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-refile-then-check013-codex-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

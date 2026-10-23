@@ -1,0 +1,157 @@
+{
+  "unit": "vacuum-mainline031-check-1020",
+  "status": "QUESTIONABLE",
+  "certification": "none",
+  "mismatches": [],
+  "headline": {
+    "heat_only_float_m": 130.74316880238257,
+    "heat_only_descent_m": 369.25683119761743,
+    "heat_only_pressure_ratio": 1.0435246381284113,
+    "optimistic_100_C_kg": 55.340908917961315,
+    "optimistic_100_SF": 1.0365529619839071,
+    "optimistic_100_reserve_kg": 616.4277058300266,
+    "filed_021b_reserve_kg": 775.7293736231169,
+    "optimistic_500_reserve_kg": 775.5645145363292,
+    "p3_optimistic_100_half_wave_over_s": 0.5687239838638711,
+    "p3_source_half_wave_over_s": 0.5678949771405,
+    "p3_ti_half_wave_over_s": [
+      1.6418767450368645,
+      1.576925407885646
+    ],
+    "p3_reopt_all_outside_band": true,
+    "bound_max_abs_diff": 4.440892098500626e-16,
+    "bound_count": 228,
+    "bx": 0.6823278038280193,
+    "mismatches": 0
+  },
+  "half_wave_rows": [
+    {
+      "row": "P3 reopt optimistic:None",
+      "s_m": 6.212943549187652,
+      "r_o_m": 0.16955617294107356,
+      "wall_m": 0.001651849258919813,
+      "half_wave_m": 3.5341060594131224,
+      "half_wave_over_s": 0.5688295783526329,
+      "outside_band": true,
+      "least_SF": 1.3462347005873827
+    },
+    {
+      "row": "P3 reopt optimistic:10.0",
+      "s_m": 6.20918551269144,
+      "r_o_m": 0.16933330008678804,
+      "wall_m": 0.0016479666238166935,
+      "half_wave_m": 3.531791518530082,
+      "half_wave_over_s": 0.5688010949763341,
+      "outside_band": true,
+      "least_SF": 1.3454522199695584
+    },
+    {
+      "row": "P3 reopt optimistic:100.0",
+      "s_m": 6.198983249550565,
+      "r_o_m": 0.16872922676094415,
+      "wall_m": 0.0016374642091173952,
+      "half_wave_m": 3.5255104495898033,
+      "half_wave_over_s": 0.5687239838638711,
+      "outside_band": true,
+      "least_SF": 1.3433209960436696
+    },
+    {
+      "row": "P3 reopt optimistic:500.0",
+      "s_m": 6.153431442962967,
+      "r_o_m": 0.16604946693898426,
+      "wall_m": 0.0015912451813297757,
+      "half_wave_m": 3.4975087266935088,
+      "half_wave_over_s": 0.568383471744573,
+      "outside_band": true,
+      "least_SF": 1.3203437469289074
+    },
+    {
+      "row": "P3 reopt all_019:None",
+      "s_m": 6.212943549187652,
+      "r_o_m": 0.16955617294107356,
+      "wall_m": 0.001651849258919813,
+      "half_wave_m": 3.5341060594131224,
+      "half_wave_over_s": 0.5688295783526329,
+      "outside_band": true,
+      "least_SF": 1.2300039174809774
+    },
+    {
+      "row": "P3 reopt all_019:10.0",
+      "s_m": 6.106410974607937,
+      "r_o_m": 0.16331275505243456,
+      "wall_m": 0.0015446701516652062,
+      "half_wave_m": 3.4686752741289375,
+      "half_wave_over_s": 0.5680382942701698,
+      "outside_band": true,
+      "least_SF": 1.2098843364241538
+    },
+    {
+      "row": "P3 reopt all_019:100.0",
+      "s_m": 6.096972641003987,
+      "r_o_m": 0.16276699057901015,
+      "wall_m": 0.0015354577961323168,
+      "half_wave_m": 3.462896093327713,
+      "half_wave_over_s": 0.5679697609332685,
+      "outside_band": true,
+      "least_SF": 1.208050974296208
+    },
+    {
+      "row": "P3 reopt all_019:500.0",
+      "s_m": 6.054841500282121,
+      "r_o_m": 0.16034521895023857,
+      "wall_m": 0.0014948834449381165,
+      "half_wave_m": 3.4371327425147657,
+      "half_wave_over_s": 0.5676668402227565,
+      "outside_band": true,
+      "least_SF": 1.1757692414590222
+    },
+    {
+      "row": "P3 source optimistic:held-022b",
+      "s_m": 6.15,
+      "r_o_m": 0.16557534691311998,
+      "wall_m": 0.0015787064452136013,
+      "half_wave_m": 3.4925541094140753,
+      "half_wave_over_s": 0.5678949771405,
+      "outside_band": true,
+      "least_SF": 1.2986375988538792
+    },
+    {
+      "row": "P3 ti optimistic:100.0",
+      "s_m": 1.661117526285961,
+      "r_o_m": 0.10081729416045263,
+      "wall_m": 0.0006566006242428452,
+      "half_wave_m": 2.727350237182082,
+      "half_wave_over_s": 1.6418767450368645,
+      "outside_band": false,
+      "least_SF": 0.7199591390012777
+    },
+    {
+      "row": "P3 ti all_019:100.0",
+      "s_m": 1.7089676567572192,
+      "r_o_m": 0.09842777771417445,
+      "wall_m": 0.0006294696742283612,
+      "half_wave_m": 2.6949145191952546,
+      "half_wave_over_s": 1.576925407885646,
+      "outside_band": false,
+      "least_SF": 0.6480781334643805
+    }
+  ],
+  "continuum_reference": [
+    {
+      "point": "022b carried, 5%, gamma",
+      "stored_ratio": 0.5714119607324497,
+      "mine_ratio": 0.5714119607324498,
+      "stored_wave_m": 3.514183558504566,
+      "mine_wave_m": 3.5141835585045667
+    },
+    {
+      "point": "022b carried, 019 reserve, gamma",
+      "stored_ratio": 0.5678949771402964,
+      "mine_ratio": 0.5678949771402964,
+      "stored_wave_m": 3.4925541094128225,
+      "mine_wave_m": 3.492554109412823
+    }
+  ],
+  "started_at": "2026-10-20T02:11:12-07:00",
+  "ended_at": "2026-10-20T02:11:12-07:00"
+}

@@ -1,0 +1,119 @@
+{
+  "unit": "vacuum-mainline043-sic-frame-reliability-1020",
+  "order": "ord-admiral-rr2-mainline043-fold-041-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "assigned_fold_complete": true,
+  "stops_other_work": false,
+  "requires_immediate_reply": false,
+  "inherited_registers": [
+    {
+      "path": "intake/043/NFI.json",
+      "disposition": "All sixteen qualification questions remain applicable within their stated scope. Integer mesh and available force inputs are partially addressed for the new 041 cases as recorded below; no material qualification is closed."
+    },
+    {
+      "path": "intake/041/NFI.json",
+      "disposition": "The owner's eight structural/model questions are retained as source qualifications, including local-shell interaction and joint/membrane behavior."
+    }
+  ],
+  "items": [
+    {
+      "id": "NFI-043F-01",
+      "status": "partially addressed",
+      "topic": "Integer geometry and actual demand inputs",
+      "finding": "The 041 cases have 750 members, 252 joints and 500 cells, with actual arc lengths and 18000 correlated segment force/moment pairs per design. This replaces the noninteger 022d geometry only for the new cases.",
+      "remaining": "The input FE equilibrium and the fixed-gyration force transfer are inherited, not independently solved here. The old 433-member analysis remains bookkeeping rather than a constructed mesh.",
+      "related_prior": [
+        "NFI-043-02"
+      ],
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043F-02",
+      "status": "open",
+      "topic": "Finished-member material distribution",
+      "finding": "The fold supplies new stress and size information but no new compression m, characteristic strength, reference size or statistical confidence. Catalogue 3.9 GPa is still typical rather than a measured complete-member or 1 cm3 scale.",
+      "remaining": "Matched finished-part distributions and confidence-qualified tails, compatible flaw populations and full-size manufacture/process evidence are needed. The actual improvement factor and qualified frame Pf remain null.",
+      "related_prior": [
+        "NFI-043-01",
+        "NFI-043-05",
+        "NFI-043-06",
+        "NFI-043-07",
+        "NFI-043-09",
+        "NFI-043-11",
+        "NFI-043-15"
+      ],
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043F-03",
+      "status": "open",
+      "topic": "Pressure level, local wall and nonlinear capacity",
+      "finding": "The f5 source screens are 1.143285 and 1.083205. The peak-compression local-wall sensitivity is 1.033223 and 0.978132; the 019 sensitivity is below unity. Common-q 1.258252 rows exceed both declared screens.",
+      "remaining": "A validated local bending/axial interaction, imperfection response and coupled nonlinear capacity are needed. Source 041's verified perfect nonlinear path belongs to its selected f4 section, not these re-sized f5 witnesses.",
+      "related_prior": [
+        "NFI-043-10"
+      ],
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043F-04",
+      "status": "partially addressed",
+      "topic": "Actual end moments and joint stresses",
+      "finding": "The fold uses actual FE end moments and correlated axial/bending/torsional demands. It does not add the older dimensional joint proxy. Each design has 1500 end interfaces, with source joints sized to the target and no extra scalar reserve.",
+      "remaining": "Joint rotational stiffness, local contact, SiC end damage, adhesive peel, shear-induced principal tension, hoop stress and residual stress still require resolved fields and qualification.",
+      "related_prior": [
+        "NFI-043-03",
+        "NFI-043-04"
+      ],
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043F-05",
+      "status": "open",
+      "topic": "Reliability envelope and reference population",
+      "finding": "Per-member peaks are applied over whole members; a second envelope applies the global maximum everywhere. Complete-member common-scale and coupon-volume calibrations are separate hypotheses and give very different probabilities.",
+      "remaining": "Calibrate the actual stress-field and size transfer. A common complete-member scale despite unequal lengths must not be silently reinterpreted as a volume-calibrated material constant. Zero positive longitudinal stress does not close multiaxial tension risk.",
+      "related_prior": [
+        "NFI-043-01",
+        "NFI-043-04",
+        "NFI-043-11"
+      ],
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043F-06",
+      "status": "open",
+      "topic": "System risk and service life",
+      "finding": "All headline probabilities are tube-fracture-only and omit joints, membrane, instability, shared batches and degradation. Equal allocation at frame Pf=1e-6 is approximately 1.333334e-9 per member.",
+      "remaining": "Define whole-system risk allocation, valid component marginals, dependence/common-cause model and service duration/load spectrum with aging and crack-growth evidence.",
+      "related_prior": [
+        "NFI-043-12",
+        "NFI-043-14"
+      ],
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043F-07",
+      "status": "open",
+      "topic": "Proof and cost for 750-member frames",
+      "finding": "Illustrative 1.25-times-screen axial tests reach 1.00213 and 0.94965 MN and exceed the respective source screen. The frames require 750 part screens and qualification of 1500 end interfaces; amplified bending does not scale solely with axial-force ratio.",
+      "remaining": "Validate proof fixtures, stress coverage, confinement and damage effects, inspection detection, accept/reject criteria and lifetime treatment. Supplier capability, throughput, scrap and pricing remain unknown.",
+      "related_prior": [
+        "NFI-043-13",
+        "NFI-043-16"
+      ],
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043F-08",
+      "status": "open",
+      "topic": "Earlier rise-8 interpretation",
+      "finding": "The frozen rise-8 force solution remains independently unverified. The new f5 closure data are a different geometry and loading case.",
+      "remaining": "No rise-8 reliability claim can be closed by this fold. An independently admitted rise-8 solution and a defined transfer would be needed before using it as the new selected frame's demand.",
+      "related_prior": [
+        "NFI-043-08"
+      ],
+      "stops_other_work": false
+    }
+  ]
+}

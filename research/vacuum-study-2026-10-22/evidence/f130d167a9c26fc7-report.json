@@ -1,0 +1,70 @@
+{
+  "id": "rpt-ref-74e882831c201b1a953c",
+  "kind": "report",
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-mainline015b-tolerance-fix-1020",
+  "unit": "vacuum-mainline015b-kd-precision-fix-1020",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline015b-tolerance-fix-1020"
+    },
+    {
+      "id": "ord-admiral-rr2-mainline015-rotated-grok-1020"
+    },
+    {
+      "id": "ord-co28-sci-overnight-grant-parallel-cards-1019"
+    },
+    {
+      "id": "ord-co28-ops-mint-vacuum-overnight-seats-1019"
+    }
+  ],
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline015b-tolerance-fix-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "at": "2026-10-20T01:15:16-07:00",
+  "body": "MAINLINE-015b. Continuous SF 1 stays kd 0.5183040769. Not rescored.\n\nThe filed RMS paired a lambda 1 amplitude with a lambda 2.625 width and used nu 0.30. The live map carries nu 0.33 only. Amplitude and width are both lambda_I = 1. The filed RMS is 2.611 times the live RMS. kd 0.9 is below delta/t 0.07. P2-E R/t 50.75 is outside the fit.\n\nLee 2016 Eq. 23 is kd = 0.068 + 0.25/(0.28+delta/t), the lower envelope over k = 1 to 5 at R/t 100 and 200. No FEM result is below delta/t 0.15 and no ODE result below 0.2. No shell here is at those radii. RMS at k = 5 is five times RMS at k = 1.\n\nAl P2-E t_eq 197.05 mm. Frozen Be t_eq 73.17 mm. Matched amplitude, RMS, mm. Al 0.9: 6.357, 0.1745. 0.7: 36.208, 0.9938. 0.5: 117.946, 3.2371. 0.595: 63.873, 1.7530. 0.468: 169.833, 4.6611. Be 0.9: 2.360, 0.0395. 0.7: 13.444, 0.2248. 0.5: 43.794, 0.7324. 0.595: 23.717, 0.3966. 0.468: 63.060, 1.0546. Lee at 0.5, in both cutoffs: Al 58.860, RMS 1.6154; Be 21.855, RMS 0.3655. At 0.9 and 0.7 Lee is below the FEM cutoff.\n\n021 at gamma 0.59532, t_eq 36.47 mm: matched 11.801 mm, RMS 0.1393 mm, not filed 0.3639 mm. Lee 7.079 mm, below the ODE cutoff, RMS 0.0836 to 0.4179 mm. 021b at gamma 0.46823, t_eq 53.36 mm: matched 45.819 mm, RMS 0.6544 mm, not filed 1.709 mm. Lee 18.392 mm, in range, RMS 0.2627 to 1.3134 mm. QUESTIONABLE. No next job.",
+  "artifacts": [
+    {
+      "path": "evidence/632b8b9a56c970f9-CARD.md",
+      "sha256": "632b8b9a56c970f90f2de250d4339bcd21aadc325d85b2613abf88ade1d1336e",
+      "bytes": 5227
+    },
+    {
+      "path": "evidence/d4fc6a3d9337c5c6-RESULTS.json",
+      "sha256": "d4fc6a3d9337c5c6e723e05ecd882b61bfaee182374313db54ef2073503c02f2",
+      "bytes": 57656
+    },
+    {
+      "path": "evidence/647d16ffad5d78ae-NFI.json",
+      "sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+      "bytes": 2972
+    },
+    {
+      "path": "evidence/0f0f62f75023589c-INPUTS.json",
+      "sha256": "0f0f62f75023589cf9b1376bad11411d18490b703bb1ab4d180a1255653aa715",
+      "bytes": 2934
+    },
+    {
+      "path": "evidence/9424a5dd33c00d2b-map015b.py",
+      "sha256": "9424a5dd33c00d2bb653f93c5e9cf9696ad3dbe7ea8c9877909bd6ae97a658b8",
+      "bytes": 18491
+    }
+  ],
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "ingested": "2026-10-20T01:16:12-07:00"
+}

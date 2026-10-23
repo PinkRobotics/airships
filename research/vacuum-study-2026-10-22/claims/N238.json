@@ -1,0 +1,81 @@
+{
+  "id": "N238",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N238",
+    "report": "rpt-ref-2519e14e5d71b9eb18f3",
+    "card": "MAINLINE-028",
+    "file": "evidence/4a6f636dbfa17be3-NFI.json",
+    "row_id": "NFI-028-17",
+    "fields": {
+      "id": "NFI-028-17",
+      "status": "OPEN",
+      "tag": "PROJECTION",
+      "technology_state": "PROJECTION",
+      "hull_adoption_state": "PROJECTION",
+      "assumption": "Installed bond strength and stiffness",
+      "today_value": "Core Ec=103.421 MPa, G_W=46.884 MPa inherited; actual bonded effective values unknown",
+      "required_or_budget_target": {
+        "core_W_typical_strength_Pa": 241316.50526088,
+        "core_W_min_average_strength_Pa": 172368.9323292,
+        "illustrative_normal_at_0p1mm_Pa": 511648.1156583237
+      },
+      "needed_evidence": "Representative flatwise, shear, interface stiffness/toughness and wrinkle/disbond tests. Relative displacement is not established by the pressure alone.",
+      "factor_to_216_427kg_allowance": null,
+      "factor_reason": "No complete quantified route, or this is a strength/geometric condition rather than an independent joining bill."
+    }
+  },
+  "claim": "{\"id\": \"NFI-028-17\", \"status\": \"OPEN\", \"tag\": \"PROJECTION\", \"technology_state\": \"PROJECTION\", \"hull_adoption_state\": \"PROJECTION\", \"assumption\": \"Installed bond strength and stiffness\", \"today_value\": \"Core Ec=103.421 MPa, G_W=46.884 MPa inherited; actual bonded effective values unknown\", \"required_or_budget_target\": {\"core_W_typical_strength_Pa\": 241316.50526088, \"core_W_min_average_strength_Pa\": 172368.9323292, \"illustrative_normal_at_0p1mm_Pa\": 511648.1156583237}, \"needed_evidence\": \"Representative flatwise, shear, interface stiffness/toughness and wrinkle/disbond tests. Relative displacement is not established by the pressure alone.\", \"factor_to_216_427kg_allowance\": null, \"factor_reason\": \"No complete quantified route, or this is a strength/geometric condition rather than an independent joining bill.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/237"
+    },
+    {
+      "report": "rpt-ref-2519e14e5d71b9eb18f3",
+      "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+      "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+      "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+      "bytes": 17155,
+      "selector": "source row ID: NFI-028-17"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-2519e14e5d71b9eb18f3",
+          "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+          "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+          "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+          "bytes": 17155,
+          "selector": "source row ID: NFI-028-17"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/237"
+          }
+        ]
+      }
+    }
+  ]
+}

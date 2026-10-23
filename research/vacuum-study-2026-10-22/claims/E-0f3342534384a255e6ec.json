@@ -1,0 +1,280 @@
+{
+  "id": "E-0f3342534384a255e6ec",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-0f3342534384a255e6ec",
+    "report": "rpt-ref-5c8405d45d6cb50633f1",
+    "file": "evidence/6e8dee54ea712f84-NFI.json",
+    "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+    "source_sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+    "source_json_pointer": "/rows/16",
+    "row_id": "NFI-048-C17",
+    "fields": {
+      "id": "NFI-048-C17",
+      "status": "result_or_status_correction_to_file",
+      "topic": "Twelve null sensitivity least-set fields",
+      "finding": "Independent floating subsets exist for12 R12/R15 optical sensitivity rows with null least fields. Populate them or explicitly marknot searched; do not use null as a no-geometry conclusion. Failed legacy finish screens and physical qualification remain separate.",
+      "evidence": "EXTRA-AUDITS.json; NULL-SENSITIVITY-WITNESSES.json",
+      "mismatches": [
+        {
+          "row": "sensitivity[3]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[3]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.8956638102733123,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[4]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 11,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[4]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9402367833555111,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[6]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[6]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.7331120777709974,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[7]-wet_optics_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[7]-wet_optics_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9550298750111395,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[12]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[12]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.891744791055459,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[13]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 11,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[13]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9360844463992892,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[15]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[15]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.7287464576313327,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[16]-aged_alpha015_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[16]-aged_alpha015_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9503822720521123,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[21]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[21]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.8973457738050504,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[22]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 11,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[22]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.942042325215403,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[24]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[24]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.7351292323168406,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[25]-aged_alpha020_assumed",
+          "field": "least_mask",
+          "owner": null,
+          "independent": 3,
+          "delta": null,
+          "agrees": false,
+          "atol": 0,
+          "rtol": 0
+        },
+        {
+          "row": "sensitivity[25]-aged_alpha020_assumed",
+          "field": "least_usage",
+          "owner": null,
+          "independent": 0.9572123313120349,
+          "delta": null,
+          "agrees": false,
+          "atol": 2e-06,
+          "rtol": 0
+        }
+      ]
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Independent floating subsets exist for12 R12/R15 optical sensitivity rows with null least fields. Populate them or explicitly marknot searched; do not use null as a no-geometry conclusion. Failed legacy finish screens and physical qualification remain separate.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-5c8405d45d6cb50633f1",
+      "artifact": "evidence/6e8dee54ea712f84-NFI.json",
+      "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+      "sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+      "bytes": 19121,
+      "selector": "/rows/16"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

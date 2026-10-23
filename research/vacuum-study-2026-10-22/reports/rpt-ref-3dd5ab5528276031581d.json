@@ -1,0 +1,46 @@
+{
+  "id": "rpt-ref-3dd5ab5528276031581d",
+  "unit": "vacuum-mainline007b-shear-wrinkle-1019",
+  "at": "2026-10-19T23:02:20-07:00",
+  "body": "MAINLINE-007b filed. Advisory crimp and wrinkling are replaced by NASA CR-1457 (Sullins, Smith, Spier, 1969), the handbook restatement of Yao 1962 and Plantema 1966. Geometries are held. Infinite shear restores the kd 0.2 pressure. P2-E with Plascore 5052 at 16 kg/m3, using the smaller shear modulus: general-instability SF falls from 0.2339 to 0.2280, ratio 0.975. Yield stays 0.389. Buckling still governs. On the 007 rows at 32 and 16 kg/m3 the shear trim runs from 0.864 (Hexcel HRH-10 at 24 kg/m3) to 0.991 (Plascore at 32). No sourced core reaches the crimping branch, which starts near a shear modulus of 2.45 MPa. gamma_d stays 0.20, equal to kd, so the ratio is Kc. Foam wrinkling, equation 2.2-5 plus the equibiaxial factor 0.682, cuts the advisory uniaxial stress factor to 0.709 of itself and stays above the trimmed buckling factor. Hexcel honeycomb wrinkling, equation 2.2-14, gives equibiaxial SF 0.057 and 0.042, below buckling, so that local mode would govern if admitted. Plascore has no Ec. Densities 1 to 8 are not revised. QUESTIONABLE. Not a certification. The brief names no further job.",
+  "artifacts": [
+    {
+      "path": "evidence/dcf8b3a3044026e0-CARD.md",
+      "sha256": "dcf8b3a3044026e0cb3e30c9b5b6f8ed0fd2453d0caa78d1ca1becd265929fa5",
+      "bytes": 8115,
+      "match": true
+    },
+    {
+      "path": "evidence/72bc0aa54e44f008-RESULTS.json",
+      "sha256": "72bc0aa54e44f008ff2d81e709df7ec2f1932e284bc51475c94997c1f63f1001",
+      "bytes": 17581,
+      "match": true
+    },
+    {
+      "path": "evidence/07d0f8e52a240650-NFI.json",
+      "sha256": "07d0f8e52a240650a5322607cd0be6d7f603344bdcc852619c2437e5056ecd77",
+      "bytes": 3051,
+      "match": true
+    },
+    {
+      "path": "evidence/ce007b1debd4f759-INPUTS.json",
+      "sha256": "ce007b1debd4f75984dec28bf86d03d56a53174bb83857b2e5687734e3551174",
+      "bytes": 2143,
+      "match": true
+    },
+    {
+      "path": "evidence/9d80726e56a47a8d-compute.py",
+      "sha256": "9d80726e56a47a8d71c0fac51953302817b1d0cde00f80610c2fb3d9515ea4d7",
+      "bytes": 12864,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:e3c758a27ff22765",
+      "sha256": "6a1a55855cc2c8b0a864289518b868a0528db319739a26eacb6a4b262f110b51",
+      "bytes": 10571741,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "rpt-ref-05310d05f1fb52d6522e"
+}

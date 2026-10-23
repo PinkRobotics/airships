@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check050",
+  "kind": "filed_change",
+  "label": "check050",
+  "claim": "Displayed quantities and weather classifications reproduce; 680 marginal-cold knots are excluded and availability remains unknown.",
+  "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+  "source_report_body": "CHECK050 complete: all 89 checked displayed quantities reproduce. Fixed-hull upper offsets at 100 m are −6.512/−3.040/−0.312/+1.786/+3.339 K; the conservative cold start remains about −10.5 K. The sampled MIL 10% hot case fails at every radius. R10 saturated-night payload reproduces at −82.280 kg.\n\nIndependently reoptimized 57,120 coupled and 5,200 frozen knots; checked 42,160 filed finite geometries and all three 2,027,245-point maps. No weather classification, least-set or zero-surface finite-status mismatch remains. Strict finite-knot masses agree within 0.00414 kg; night deposits within floating-point precision.\n\nThe exact ledger distinguishes interpolation differences up to 0.23814 kg, small heater quadrature differences, and 680 excluded marginal-cold knots. A checker interface-tolerance issue was corrected and retained in the audit. The broader gas sweep passes; the owner's exact scalar sampling/conventions remain an NFI.\n\nEight checker NFIs and all owner/inherited qualifications remain. Installed-hull SF and operational availability are null. No050 executable source was accessed; upstream040/048 authorship is disclosed. Numerical jobs used simjob, and all communication used the queue. No successor is named.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+      "artifact": "evidence/97926e05973aab9b-CHECK.md",
+      "snapshot": "evidence/97926e05973aab9b-CHECK.md",
+      "sha256": "97926e05973aab9b08f85c7f064ab711ec3540b90ddd3dd266f7749621053745",
+      "bytes": 6429,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

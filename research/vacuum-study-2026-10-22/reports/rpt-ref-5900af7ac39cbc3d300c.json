@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-5900af7ac39cbc3d300c",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-19T23:40:36-07:00",
+  "body": "MAINLINE-009c takes MAINLINE-014's QUESTIONABLE row as the P2 point. It replaces the SiC/Divinycell point, whose lesser factor was 0.23515931325. Faces are beryllium S-200F at 0.000792920704344 m. The core is Hexcel HRH-10-4.8-32 at 0.0217505960684 m. The row spends the float ceiling, so payload is 0 and the float margin is 0. CNT-yarn at 0.750340630448 is PROJECTION and is not the point.\n\nVc is 3.50800837286, so Kc is 0.285062033413 and gamma_d is 1. Stated global buckling equals core shear crimping at 0.685338231171 (0.685), at knockdown 0.20, 0.90 and 0.1407. The knockdown does not enter. Kc is already in that factor at every level.\n\nFace compression is 0.940266455786. Core crush is 20.9509998415. Design wrinkling, coefficient 0.33, is 0.685454960252. The lesser factor is the crimp pair. At coefficient 0.82, wrinkling is 1.70325171941 and the lesser factor stays 0.685338231171. The point does not reach 1. The factor on the crimp allowable is 1.45913354095.\n\nP3 stays PENDING-011b. The SiC frame is not scored. 014b has not filed, so 009d waits. Not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/a19597082caa4bfb-CARD.md",
+      "sha256": "a19597082caa4bfb7127e1517da10e48caab746924ff7ed06dc4ba2d458ef932",
+      "bytes": 2734
+    },
+    {
+      "path": "evidence/b538aba24bfdc716-POINT.json",
+      "sha256": "b538aba24bfdc7161d4c25e921883f28a39238dbeefb151a9c11114e64c0ce68",
+      "bytes": 7450
+    },
+    {
+      "path": "evidence/1f2641f07ddbd113-rederive.py",
+      "sha256": "1f2641f07ddbd113e05b71d29929d210facfe159d037636a490f8589e1620955",
+      "bytes": 12264
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009c-take-014-leader-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline009c-take-014-leader-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

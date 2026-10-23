@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check048boundary",
+  "kind": "filed_change",
+  "label": "check048boundary",
+  "claim": "Owner boundary equations identify the natural-convection floor and core-radiation term; 053 resolves numerical, not physical, selection.",
+  "report": "rpt-ref-0faaf1787ac688f46f7f",
+  "source_report_body": "Equations and conventions supplied in BOUNDARY-REPLY.md; no code or numerical rerun. The stated constant forced-convection setup differs from the filed boundary: h is the maximum of forced convection and 1.32 max(abs(To-Ta), 0.05)^0.25. Forced convection uses diameter 2R and velocity 2 m/s, without a viscosity-ratio multiplier.\n\nSky/ground fractions are (1+mu)/2 and (1-mu)/2. Ground is 284.9 K; day/night sky is 275/260 K, solar 970/0 W/m². Inner qi = 0.2 sigma [Ti^4 - area_mean(Ti^4)]. U = 130(rho_core/rho_Al)/tc + 0.2*4sigma*area_mean(Ti)^3, and To = Ti + qi/U. Both radiative terms are present. Common aluminium density 2700 differs from legacy 2640 kg/m³.\n\nThe attachment supplies normalized averages, the complete outer balance, current 128-point iteration tolerances and legacy 37-midpoint/25-update conventions. Current structural mean removal precedes degree 2–6 projection; absolute radiation temperatures are retained. It distinguishes original 037 finite-difference curvature from the later legacy diagnostic.\n\nAlready-filed common reference values are copied with selectors: 302.024817534/270.905193616 K and daytime gradient 0.422761140 K. Six owner-source pins match filed manifests. Natural convection and conductance are candidate causes, not a demonstrated quantitative closure of every discrepancy. Independent thermal reproduction and physical-boundary NFIs remain open. Question answered; no further request.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-0faaf1787ac688f46f7f",
+      "artifact": "evidence/5a506bbbb0a1042d-rpt-ref-0faaf1787ac688f46f7f.json",
+      "snapshot": "evidence/5a506bbbb0a1042d-rpt-ref-0faaf1787ac688f46f7f.json",
+      "sha256": "5a506bbbb0a1042d60cf35b158723ce23bf6dc9de1d4dee94c82228706f9a6f2",
+      "bytes": 3238,
+      "selector": "/body"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,378 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline015b-check-1020",
+  "prior_findings": 14,
+  "disposition_counts": {
+    "resolved_in_new_map": 3,
+    "partly_addressed": 5,
+    "not_revisited_outside_focused_map": 5,
+    "acknowledged_open": 1
+  },
+  "scope": "Resolution means corrected in the replacement tolerance map; omitted legacy sections are not silently closed. Original owner assignment was focused on the map, not all fourteen topics.",
+  "rows": [
+    {
+      "index": 1,
+      "prior_id": "NFI-015-CHECK-RMS-WIDTH",
+      "status": "resolved_in_new_map",
+      "addressed": "The live Eq. 3 amplitude and width both use lambda 1; the mixed width 2.625 is explicitly retired. The small-amplitude restriction is flagged.",
+      "remaining": "No remaining width/amplitude mismatch in the live map. This does not validate the monocoque transfer.",
+      "prior_requested_action": "Use the same amplitude and width, or calculate the load at the wider width. Preserve the source-validity warning for kd.9.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-RMS-WIDTH",
+        "disposition": "non_blocking",
+        "field": "shells.*.levels.*.rms_worst_single_mm / manufacturing conclusion",
+        "reported": "Amplitude from lambda1 exponential is paired with lambda2.625 RMS. P2-E kd.9=0.455559764538mm; Be=0.103073135317mm.",
+        "checked": {
+          "P2_E_kd09_matched_RMS_mm": 0.17445956659311793,
+          "Be_kd09_matched_RMS_mm": 0.03947252570265869,
+          "width_only_factor": 2.625
+        },
+        "evidence": [
+          "Baizhikova2026 Eq3",
+          "Gaussian area integral; CHECK.md",
+          "RESULTS.json shells"
+        ],
+        "followup": "Use the same amplitude and width, or calculate the load at the wider width. Preserve the source-validity warning for kd.9."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 2,
+      "prior_id": "NFI-015-CHECK-NU",
+      "status": "resolved_in_new_map",
+      "addressed": "All live width and RMS rows use the declared nu 0.33. Nu 0.30 appears only in explicitly retired comparisons.",
+      "remaining": "No remaining internal nu mismatch. Source-to-sandwich material transfer remains part of MODEL-VALIDATION.",
+      "prior_requested_action": "Declare the width-specific nu if intended; otherwise use the shared0.33 consistently.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-NU",
+        "disposition": "non_blocking",
+        "field": "shells.*.widths and RMS / INPUTS.nu",
+        "reported": "INPUTS declares0.33; numerical widths use0.30.",
+        "checked": {
+          "nu_declared": 0.33,
+          "nu_inferred": 0.3,
+          "reproduced_fields_with_inferred_nu": 264,
+          "mismatches_with_inferred_nu": 0
+        },
+        "evidence": [
+          "NUMERIC-CHECK.csv",
+          "RESULTS.json nu_0_30_reproduction"
+        ],
+        "followup": "Declare the width-specific nu if intended; otherwise use the shared0.33 consistently."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 3,
+      "prior_id": "NFI-015-CHECK-SMALL-DEFECT",
+      "status": "partly_addressed",
+      "addressed": "Every kd 0.9 Eq. 3 row is flagged below alpha 0.07; P2-E is flagged outside R/t 100–1550; source nu 0.5 is disclosed.",
+      "remaining": "No valid near-perfect replacement is supplied. The inherited 1/3/10 mm seam calculations are not revisited.",
+      "prior_requested_action": "Mark these calculations outside the fitted regime; obtain a near-perfect branch before using them as tolerance requirements. Retain R/t and nu transfer limits.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-SMALL-DEFECT",
+        "disposition": "non_blocking",
+        "field": "kd0.9 inverse and seam1/3/10mm estimates",
+        "reported": "Exponential inversion and seam loads displayed without the small-defect exclusion.",
+        "checked": {
+          "kd09_delta_over_t": 0.03225854199845517,
+          "excluded_below_approximately": 0.07,
+          "P2_E_R_over_t": 50.7479713773475
+        },
+        "evidence": [
+          "Baizhikova2026 section2, Eq3, section4.1"
+        ],
+        "followup": "Mark these calculations outside the fitted regime; obtain a near-perfect branch before using them as tolerance requirements. Retain R/t and nu transfer limits."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 4,
+      "prior_id": "NFI-015-CHECK-LOW-KD-ENVELOPE",
+      "status": "partly_addressed",
+      "addressed": "Primary Lee Eq. 23 now supplies kd 0.2/0.3 amplitudes, with FEM/ODE cutoffs and k 1–5 RMS bounds. Eq. 3 below its floor returns null.",
+      "remaining": "The old one-thickness bound and universal worst-width/plateau language are not explicitly repaired in the old 015 artifacts. Lee critical-width interpretation needs the new qualification below.",
+      "prior_requested_action": "Replace sourced-bound language with the retrieved envelope and its range. Do not assign a unique RMS without the envelope width. k2.625 is tied to amplitude1, not all plateau minima.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-LOW-KD-ENVELOPE",
+        "disposition": "non_blocking",
+        "field": "kd0.2/0.3 amplitude_upper_bound_mm and Jimenez plateau",
+        "reported": "One t_eq is treated as an upper bound; no kd.3 pair retrieved; k2.625 called worst plateau.",
+        "checked": {
+          "Lee_eq23": "kd=.068+.25/(.28+delta/t)",
+          "delta_over_t_at_kd02": 1.6139393939393938,
+          "delta_over_t_at_kd03": 0.7975862068965518,
+          "plateaus": {
+            "k_1": 0.4469700178321551,
+            "k_2_625": 0.23375532218571446,
+            "k_5": 0.1424022951315389,
+            "k_2_625_R_over_t_50": 0.2525601417253687
+          }
+        },
+        "evidence": [
+          "Lee2016 Eq23 and section7",
+          "Jimenez2017 Eq4, Table1",
+          "Gerasimidis2018 section5"
+        ],
+        "followup": "Replace sourced-bound language with the retrieved envelope and its range. Do not assign a unique RMS without the envelope width. k2.625 is tied to amplitude1, not all plateau minima."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 5,
+      "prior_id": "NFI-015-CHECK-EFFECTIVE-MODULUS",
+      "status": "partly_addressed",
+      "addressed": "The thin-face thickness is declared, and exact finite-face A/D-equivalent thickness is stored and reproduces.",
+      "remaining": "The simultaneous effective modulus Eeq/Ef = 2tf/teq is still absent. Thickness alone does not match extensional and bending stiffness; no new pressure rescore is claimed.",
+      "prior_requested_action": "Include the effective modulus in the mapping. Keep Kirchhoff/shear-flexibility limitations; distinguish d and h in bending-only approximations.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-EFFECTIVE-MODULUS",
+        "disposition": "non_blocking",
+        "field": "transfer.p_zoelly_at_t_eq_Pa / equivalent-shell derivation",
+        "reported": "Thickness is equated through radius of gyration; original face modulus produces a pressure mismatch factor293.149599.",
+        "checked": {
+          "t_eq_exact": "sqrt(3*h*h+tf*tf)",
+          "E_eq": "2*E*tf/t_eq",
+          "thin_face_pressure_residual_Pa": 2.9103830456733704e-11
+        },
+        "evidence": [
+          "Hutchinson-Thompson2018 section7 p168",
+          "CHECK.md A/D derivation"
+        ],
+        "followup": "Include the effective modulus in the mapping. Keep Kirchhoff/shear-flexibility limitations; distinguish d and h in bending-only approximations."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 6,
+      "prior_id": "NFI-015-CHECK-SHEAR-RULE",
+      "status": "not_revisited_outside_focused_map",
+      "addressed": "015b acknowledges unquantified core-shear effects on imperfection sensitivity.",
+      "remaining": "It does not source or remove the old standalone square-root shear rule or reconcile it with NASA Kc. No new shear multiplier is applied.",
+      "prior_requested_action": "Use a consistent sourced shear model, or justify the alternate model. Do not multiply an additional reduction into factors that already include Kc.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-SHEAR-RULE",
+        "disposition": "non_blocking",
+        "field": "core_shear.*.reduction",
+        "reported": "Isolated square-root rule gives P2-E10.30166/6.99750/0.78332%, Be11.39981%.",
+        "checked": {
+          "P2_E_CR1457_reductions": [
+            0.1358815876295818,
+            0.08735244919044538,
+            0.008868581131042719
+          ],
+          "Be_CR1457_reduction": 0.15115694439859428
+        },
+        "evidence": [
+          "NASA CR1457 section6.2",
+          "RESULTS.json core_shear",
+          "Owner mode Kc already includes handbook reduction"
+        ],
+        "followup": "Use a consistent sourced shear model, or justify the alternate model. Do not multiply an additional reduction into factors that already include Kc."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 7,
+      "prior_id": "NFI-015-CHECK-HYDROSTATIC",
+      "status": "not_revisited_outside_focused_map",
+      "addressed": "015b contains no hydrostatic-gradient recomputation.",
+      "remaining": "The old sea-level-density gradient is not corrected to the pinned 500 m density. The previous finding remains attached to the old card.",
+      "prior_requested_action": "Use the pinned500m air density consistently.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-HYDROSTATIC",
+        "disposition": "non_blocking",
+        "field": "drivers.*.hydrostatic_Pa and hydrostatic_over_p",
+        "reported": "240.262925Pa from sea-level density1.225.",
+        "checked": {
+          "rho_air_kg_m3": 1.1672683307461802,
+          "correct_delta_p_Pa": 228.93983951424053,
+          "correct_fraction": 0.0023982592706835266
+        },
+        "evidence": [
+          "Pinned MAINLINE-003 atmosphere",
+          "delta_p=rho*g*20m"
+        ],
+        "followup": "Use the pinned500m air density consistently."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 8,
+      "prior_id": "NFI-015-CHECK-ONE-FACE",
+      "status": "not_revisited_outside_focused_map",
+      "addressed": "015b contains no thickness-loss sensitivity calculation.",
+      "remaining": "The prior both-faces versus one-face labeling and local-patch distinction remain unrepaired in the earlier sensitivity section.",
+      "prior_requested_action": "Say both faces for the inherited sensitivity; separate one-face changes and local-patch spatial response.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-ONE-FACE",
+        "disposition": "non_blocking",
+        "field": "CARD thickness variation statement",
+        "reported": "A face locally10% thinner costs about10% pressure.",
+        "checked": {
+          "P2_E_one_face_loss": 0.05145683242187171,
+          "P2_E_both_faces_loss": 0.10026587887740035
+        },
+        "evidence": [
+          "Unequal-face A/D derivation; CHECK.md",
+          "RESULTS.json drivers"
+        ],
+        "followup": "Say both faces for the inherited sensitivity; separate one-face changes and local-patch spatial response."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 9,
+      "prior_id": "NFI-015-CHECK-SOURCE-IDENTIFIERS",
+      "status": "partly_addressed",
+      "addressed": "Lee Eq. 23 is now cited and pinned directly, avoiding the later paper's printed coefficient ambiguity.",
+      "remaining": "The two incorrect DOI identifiers in the old 015 material are not expressly corrected. They are not repeated in this focused card.",
+      "prior_requested_action": "Correct the identifiers; cite Lee directly for its equation instead of silently repairing the later printed equation.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-SOURCE-IDENTIFIERS",
+        "disposition": "non_blocking",
+        "field": "Hutchinson-Virot and Hutchinson-Thompson citations",
+        "reported": "10.1115/1.4039193 and10.1016/j.ijsolstr.2018.08.020.",
+        "checked": {
+          "Gerasimidis_Virot_Hutchinson_Rubinstein": "10.1115/1.4040455",
+          "Hutchinson_Thompson": "10.1016/j.ijsolstr.2018.01.030",
+          "Eq3_2_later_paper": "prints0.68; original Lee Eq23 prints0.068"
+        },
+        "evidence": [
+          "Primary PDFs and sources/ht_eq32_actual.png"
+        ],
+        "followup": "Correct the identifiers; cite Lee directly for its equation instead of silently repairing the later printed equation."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 10,
+      "prior_id": "NFI-015-CHECK-MANUFACTURING-PROVENANCE",
+      "status": "partly_addressed",
+      "addressed": "The comparison is narrowed to a 0.25 mm assembled-surface figure, and the card avoids a manufacturing-proof claim.",
+      "remaining": "The active-surface/benign-night conditions of the GBT benchmark remain unstated here. Old replica/MeerKAT/DVA-C/panel-target provenance errors are not repaired.",
+      "prior_requested_action": "Repair object, achievement/target, load-state and source attribution before comparing benchmarks; leave unlocated claims unverified.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-MANUFACTURING-PROVENANCE",
+        "disposition": "non_blocking",
+        "field": "gaps_required_over_achieved benchmark labels",
+        "reported": "SKA15m dish0.26mm, MeerKAT0.9mm, DVA-C0.20mm, GBT panel0.05mm.",
+        "checked": {
+          "NRAO_0_26mm": "1.65m square aluminium replica prototype",
+          "NRAO_MeerKAT_mm": 0.6,
+          "NRAO_0_05mm": "panel target, not verified GBT achievement",
+          "DVA_C_0_20mm": "not located in cited document",
+          "GBT_0_25mm": "active assembled surface under benign night conditions"
+        },
+        "evidence": [
+          "GBT guide",
+          "NRAO manufacturing slides"
+        ],
+        "followup": "Repair object, achievement/target, load-state and source attribution before comparing benchmarks; leave unlocated claims unverified."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 11,
+      "prior_id": "NFI-015-CHECK-MANUFACTURING-METRIC",
+      "status": "resolved_in_new_map",
+      "addressed": "The revised ratios and looser/tighter directions reproduce; the card explicitly separates single-dimple RMS from assembled-surface RMS and disclaims manufacturing proof.",
+      "remaining": "The interpretive error is resolved for this map. Local maximum, spectrum and loaded-shape qualification are still future validation, not achievements.",
+      "prior_requested_action": "Correct numerical direction; obtain width/spectrum, local maximum and loaded-shape measurements before claiming a manufacturing requirement is met.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-MANUFACTURING-METRIC",
+        "disposition": "non_blocking",
+        "field": "CARD looser/tighter direction and qualification inference",
+        "reported": "P2-E kd.9 RMS0.45556mm is looser than0.25mm; 0.05mm panel described looser than0.10mm ask.",
+        "checked": {
+          "P2_E_matched_RMS_over_0_25mm": 0.6978382663724717,
+          "Be_matched_RMS_over_0_25mm": 0.15789010281063476,
+          "metric_limit": "Single-dimple whole-sphere RMS cannot constrain the maximum local imperfection of an arbitrary manufactured field."
+        },
+        "evidence": [
+          "CHECK.md tolerance table and source audit"
+        ],
+        "followup": "Correct numerical direction; obtain width/spectrum, local maximum and loaded-shape measurements before claiming a manufacturing requirement is met."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 12,
+      "prior_id": "NFI-015-CHECK-PROJECTION-TAGS",
+      "status": "not_revisited_outside_focused_map",
+      "addressed": "015b maps only Al and Be, with QUESTIONABLE retained.",
+      "remaining": "The old CNT and graphene rows requiring PROJECTION tags are omitted rather than corrected. No new CNT or graphene result is claimed.",
+      "prior_requested_action": "Retain per-material PROJECTION tags through the mapped tolerance results.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-PROJECTION-TAGS",
+        "disposition": "non_blocking",
+        "field": "014-CNT-HRH10 and014-graphene-HRH10 inherited scenarios",
+        "reported": "Blanket QUESTIONABLE label masks the inherited projection status.",
+        "checked": {
+          "CNT": "PROJECTION",
+          "graphene": "PROJECTION",
+          "Be_and_cores": "QUESTIONABLE"
+        },
+        "evidence": [
+          "Pinned MAINLINE-008/014",
+          "INPUTS.json materials"
+        ],
+        "followup": "Retain per-material PROJECTION tags through the mapped tolerance results."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 13,
+      "prior_id": "NFI-015-CHECK-PNAS-CONSISTENCY",
+      "status": "not_revisited_outside_focused_map",
+      "addressed": "015b does not use the PNAS stochastic estimate.",
+      "remaining": "The earlier mean/quantile/support inconsistency is neither repeated nor reconciled. The earlier reliability claim remains unresolved.",
+      "prior_requested_action": "Reconcile distribution parameters and count conventions before interpreting reliability. Preserve the below-range R/t extrapolation warning.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-PNAS-CONSISTENCY",
+        "disposition": "non_blocking",
+        "field": "cross.P2-E.pnas_mean and pnas_design_1e-3",
+        "reported": "Source formulas reproduce mean0.2691694 and0.1% quantile0.2824006.",
+        "checked": {
+          "mean": 0.2691694023345837,
+          "quantile_0_001": 0.28240063628135537,
+          "lower_support": 0.235,
+          "necessary_mean_lower_bound": 0.282353235645074,
+          "coherent": false
+        },
+        "evidence": [
+          "PNAS2024 Eqs6-10",
+          "RESULTS.json cross"
+        ],
+        "followup": "Reconcile distribution parameters and count conventions before interpreting reliability. Preserve the below-range R/t extrapolation warning."
+      },
+      "blocks_progress": false
+    },
+    {
+      "index": 14,
+      "prior_id": "NFI-015-CHECK-MODEL-VALIDATION",
+      "status": "acknowledged_open",
+      "addressed": "The card and NFI explicitly retain QUESTIONABLE and identify the missing sandwich imperfection/core-shear study.",
+      "remaining": "No matching sandwich experiment or validated nonlinear imperfection model is supplied. The admission answers the request for qualification; the scientific validation remains open.",
+      "prior_requested_action": "Retain QUESTIONABLE status; evaluate sandwich imperfections, seams, bonding and transverse shear in a suitable model or experiment. This is a follow-up, not a stop gate.",
+      "prior_evidence": {
+        "id": "NFI-015-CHECK-MODEL-VALIDATION",
+        "disposition": "non_blocking",
+        "field": "All monocoque-to-sandwich tolerance and perfect-shell factor transfers",
+        "reported": "Analytical spherical-shell fits are used on bonded honeycomb with uncertain material properties.",
+        "checked": {
+          "aluminium_core_correction": "reproduced independently; does not validate imperfections",
+          "continuous_kd_threshold": 0.5183040769297532,
+          "frozen_wrinkle_limit": 0.6688192082931708
+        },
+        "evidence": [
+          "CHECK.md",
+          "Primary paper domain limits",
+          "INPUTS.json material/source tags"
+        ],
+        "followup": "Retain QUESTIONABLE status; evaluate sandwich imperfections, seams, bonding and transverse shear in a suitable model or experiment. This is a follow-up, not a stop gate."
+      },
+      "blocks_progress": false
+    }
+  ]
+}

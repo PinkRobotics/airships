@@ -1,0 +1,357 @@
+{
+  "linear": [
+    {
+      "frequency": 6,
+      "owner_lambda": 6.465222443853006,
+      "checker_lambda": 6.46522244385015,
+      "difference": -2.8554936193359026e-12,
+      "continuum_nominal": 6.127639734402752,
+      "difference_from_continuum_percent": 5.509180109791512,
+      "refinement": [
+        {
+          "segments": 24,
+          "owner_lambda": 6.465222443853006,
+          "checker_lambda": 6.46522244385015
+        }
+      ],
+      "last_mesh_change_percent": null,
+      "max_checker_eigen_residual": 2.3468436243026397e-08
+    },
+    {
+      "frequency": 4,
+      "owner_lambda": 5.254643802209333,
+      "checker_lambda": 5.254643802208726,
+      "difference": -6.075140390748857e-13,
+      "continuum_nominal": 6.1933813461115825,
+      "difference_from_continuum_percent": -15.157108717231315,
+      "refinement": [
+        {
+          "segments": 6,
+          "owner_lambda": 5.259242805182755,
+          "checker_lambda": 5.259242805182817
+        },
+        {
+          "segments": 12,
+          "owner_lambda": 5.255473022804905,
+          "checker_lambda": 5.255473022804653
+        },
+        {
+          "segments": 24,
+          "owner_lambda": 5.254643802209333,
+          "checker_lambda": 5.254643802208726
+        }
+      ],
+      "last_mesh_change_percent": -0.01577822952051333,
+      "max_checker_eigen_residual": 3.336371378746284e-10
+    },
+    {
+      "frequency": 2,
+      "owner_lambda": 2.1836613590860443,
+      "checker_lambda": 2.1836613591007223,
+      "difference": 1.467803656396427e-11,
+      "continuum_nominal": 6.8762451502027195,
+      "difference_from_continuum_percent": -68.2434044830943,
+      "refinement": [
+        {
+          "segments": 12,
+          "owner_lambda": 2.1854228542344902,
+          "checker_lambda": 2.185422854234394
+        },
+        {
+          "segments": 24,
+          "owner_lambda": 2.1840105570398354,
+          "checker_lambda": 2.184010557040549
+        },
+        {
+          "segments": 48,
+          "owner_lambda": 2.1836613590860443,
+          "checker_lambda": 2.1836613591007223
+        }
+      ],
+      "last_mesh_change_percent": -0.015988839371727792,
+      "max_checker_eigen_residual": 3.66666601705487e-10
+    }
+  ],
+  "mass": [
+    {
+      "frequency": 6,
+      "tube_mass_kg": 4567.702931780807,
+      "joints_5pct_kg": 228.38514658904037,
+      "node_mass_kg": 7.24,
+      "film_mass_inherited_kg": 97.515,
+      "systems_inherited_kg": 50.0,
+      "total_mass_with_inherited_allowances_kg": 4950.843078369848,
+      "payload_before_sag_kg": -61.40092817984805,
+      "payload_after_source_sag_kg": -61.40092817984805,
+      "headroom_after_source_sag_and_source_payload_kg": -61.40092817984805,
+      "carried_sag_kg": 0.0,
+      "joint_rule": "0.05*tubes"
+    },
+    {
+      "frequency": 4,
+      "tube_mass_kg": 4086.6524516636932,
+      "joints_5pct_kg": 213.71670751581033,
+      "node_mass_kg": 3.24,
+      "film_mass_inherited_kg": 184.4416986525136,
+      "systems_inherited_kg": 100.0,
+      "total_mass_with_inherited_allowances_kg": 4588.050857832017,
+      "payload_before_sag_kg": 301.3912923579828,
+      "payload_after_source_sag_kg": 301.3912923579828,
+      "headroom_after_source_sag_and_source_payload_kg": 56.91918484848247,
+      "carried_sag_kg": 0.0,
+      "joint_rule": "0.05*(tubes+film+nodes)"
+    },
+    {
+      "frequency": 2,
+      "tube_mass_kg": 3745.2465931291918,
+      "joints_5pct_kg": 204.74714750723078,
+      "node_mass_kg": 0.84,
+      "film_mass_inherited_kg": 348.8563570154232,
+      "systems_inherited_kg": 100.0,
+      "total_mass_with_inherited_allowances_kg": 4399.6900976518455,
+      "payload_before_sag_kg": 489.7520525381542,
+      "payload_after_source_sag_kg": 301.8141198902261,
+      "headroom_after_source_sag_and_source_payload_kg": 57.34201238072609,
+      "carried_sag_kg": 187.9379326479281,
+      "joint_rule": "0.05*(tubes+film+nodes)"
+    }
+  ],
+  "static": [
+    {
+      "frequency": 6,
+      "segments": 12,
+      "mean_compression_N": 550519.2393891227,
+      "max_member_mean_compression_N": 588079.2064546883,
+      "five_valent_member_means_N": [
+        460621.7791411884,
+        460621.7791414382,
+        460621.77914137143,
+        460621.77914135903,
+        460621.7791412086,
+        460621.77914127987,
+        460621.77914160956,
+        460621.7791411383,
+        460621.77914141386,
+        460621.7791411489,
+        460621.7791411883,
+        460621.7791410798
+      ],
+      "five_valent_endpoint_means_N": [
+        460638.28133797523,
+        460638.2813381953,
+        460638.28133805876,
+        460638.28133808635,
+        460638.28133791516,
+        460638.2813379906,
+        460638.2813378054,
+        460638.2813378841,
+        460638.2813381235,
+        460638.2813378546,
+        460638.281337874,
+        460638.2813378022
+      ],
+      "max_bending_stress_Pa": 59227127.549220376,
+      "equilibrium_relative_residual": 1.1227747884151825e-11
+    },
+    {
+      "frequency": 4,
+      "segments": 24,
+      "mean_compression_N": 822952.9263179688,
+      "max_member_mean_compression_N": 854883.9043648313,
+      "five_valent_member_means_N": [
+        750025.0419329026,
+        750025.0419350979,
+        750025.0419329777,
+        750025.0419337864,
+        750025.0419326281,
+        750025.0419330458,
+        750025.0419345101,
+        750025.0419342708,
+        750025.0419333406,
+        750025.0419330758,
+        750025.0419328983,
+        750025.0419355554
+      ],
+      "five_valent_endpoint_means_N": [
+        750589.6401570484,
+        750589.640159037,
+        750589.6401569517,
+        750589.6401577878,
+        750589.6401566596,
+        750589.6401572172,
+        750589.6401586108,
+        750589.6401583225,
+        750589.6401573714,
+        750589.6401570737,
+        750589.6401568626,
+        750589.640159653
+      ],
+      "max_bending_stress_Pa": 53677656.24900465,
+      "equilibrium_relative_residual": 4.8722145583919427e-11
+    },
+    {
+      "frequency": 2,
+      "segments": 48,
+      "mean_compression_N": 1617337.6704792285,
+      "max_member_mean_compression_N": 1640821.4575748905,
+      "five_valent_member_means_N": [
+        1640821.4575628578,
+        1640821.4575608436,
+        1640821.4575571246,
+        1640821.4575526875,
+        1640821.4575661924,
+        1640821.457553519,
+        1640821.4575550943,
+        1640821.4575577127,
+        1640821.4575480588,
+        1640821.457552817,
+        1640821.4575586936,
+        1640821.457549881
+      ],
+      "five_valent_endpoint_means_N": [
+        1650001.2513468224,
+        1650001.251346477,
+        1650001.2513415217,
+        1650001.2513366346,
+        1650001.2513502943,
+        1650001.251338473,
+        1650001.2513387483,
+        1650001.2513418961,
+        1650001.2513322413,
+        1650001.251336785,
+        1650001.2513431334,
+        1650001.2513348938
+      ],
+      "max_bending_stress_Pa": 117704952.45066753,
+      "equilibrium_relative_residual": 7.980254768922873e-11
+    }
+  ],
+  "pinned_mechanisms": [
+    {
+      "frequency": 2,
+      "rank": 120,
+      "singular_min": 0.4169839757368307,
+      "singular_max": 2.264689011882561,
+      "endpoint_nullity": 6,
+      "independent_member_rolls": 120,
+      "internal_mechanisms": 120
+    },
+    {
+      "frequency": 4,
+      "rank": 480,
+      "singular_min": 0.21168472285979037,
+      "singular_max": 2.4031329687945,
+      "endpoint_nullity": 6,
+      "independent_member_rolls": 480,
+      "internal_mechanisms": 480
+    },
+    {
+      "frequency": 6,
+      "rank": 1080,
+      "singular_min": 0.14039797275224727,
+      "singular_max": 2.4317562259946577,
+      "endpoint_nullity": 6,
+      "independent_member_rolls": 1080,
+      "internal_mechanisms": 1080
+    }
+  ],
+  "rise": [
+    {
+      "row": "rise8_m12",
+      "owner_mean_compression_N": 538922.9129937497,
+      "independently_solved_mean_compression_N": null,
+      "owner_chord_thrust_N": 570750.9272754757,
+      "owner_peak_moment_Nm": 176809.0702844392,
+      "bending_from_owner_moment_and_independent_section_Pa": 4223824085.6576138,
+      "mass_from_owner_arc_length_and_independent_section_kg": 5446.29062569268,
+      "geometry_and_forces_independently_reproduced": false
+    },
+    {
+      "row": "rise8_m24",
+      "owner_mean_compression_N": 538898.7411802687,
+      "independently_solved_mean_compression_N": null,
+      "owner_chord_thrust_N": 569787.8471557666,
+      "owner_peak_moment_Nm": 177824.68854006825,
+      "bending_from_owner_moment_and_independent_section_Pa": 4248086375.1604,
+      "mass_from_owner_arc_length_and_independent_section_kg": 5446.29062569268,
+      "geometry_and_forces_independently_reproduced": false
+    }
+  ],
+  "endpoint_sampling": [
+    {
+      "row": "f6 baseline",
+      "field": "member_endpoint_chord_thrust_N/mean",
+      "card_value": 548641.6574529577,
+      "checker_value": 548650.3545383542,
+      "difference": 8.697085396503098,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 548641.6574529912,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f6 baseline",
+      "field": "member_endpoint_chord_thrust_N/max",
+      "card_value": 586249.1573710529,
+      "checker_value": 586230.8230086467,
+      "difference": -18.3343624061672,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 586249.1573715489,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f4 baseline",
+      "field": "member_endpoint_chord_thrust_N/mean",
+      "card_value": 816156.8145925713,
+      "checker_value": 816219.5666992351,
+      "difference": 62.752106663770974,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 816156.8145926214,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f4 baseline",
+      "field": "member_endpoint_chord_thrust_N/max",
+      "card_value": 848338.8478940763,
+      "checker_value": 848084.7244732706,
+      "difference": -254.12342080567032,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 848338.8478949509,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f2 baseline",
+      "field": "member_endpoint_chord_thrust_N/mean",
+      "card_value": 1562995.245029276,
+      "checker_value": 1564326.572472641,
+      "difference": 1331.3274433650076,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 1562995.2450277868,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f2 baseline",
+      "field": "member_endpoint_chord_thrust_N/max",
+      "card_value": 1597731.9879598788,
+      "checker_value": 1593738.0056353088,
+      "difference": -3993.9823245699517,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 1597731.987971499,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    }
+  ],
+  "no_independent_rise_solution": true,
+  "no_independent_nonlinear_solution": true,
+  "eightfold_thrust_claim": "Owner's no-eightfold-reduction result is not contradicted; exact raised-frame forces remain unverified here."
+}

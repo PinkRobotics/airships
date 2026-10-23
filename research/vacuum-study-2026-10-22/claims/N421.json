@@ -1,0 +1,166 @@
+{
+  "id": "N421",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N421",
+    "report": "rpt-ref-68dff0680696fe9b4cb4",
+    "card": "CHECK-028",
+    "file": "evidence/43ed944cb7138cf7-NFI.json",
+    "snapshot": "evidence/43ed944cb7138cf7-NFI.json",
+    "source_sha256": "43ed944cb7138cf79d5dcdfd0bf8b972e5268c8e499716421933354116da697f",
+    "source_json_pointer": "/rows/0",
+    "row_id": "NFI-028-LEGACY-09",
+    "fields": {
+      "id": "NFI-028-LEGACY-09",
+      "issue": "METHOD.md states the 020 optimistic splice mass and does not state a 0.9 face-retention screen. Fixed legacy mass matches on every panel. The stored re-optimised factor, joining mass and core fraction match only after projected joint retention is set to 0.9 times face stress capacity over demand. That screen is in the owner's calculation and is absent from METHOD.md and CARD.md.",
+      "consequence": "The legacy mass column stands. The legacy safety-factor column is the screened search, not the search under the stated modes. The other 64 combinations are unchanged. This does not stop the card.",
+      "mismatches": [
+        {
+          "row": "small_planning/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.6299541781355524,
+          "mine": 0.639505067711224
+        },
+        {
+          "row": "small_planning/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 1467.6968689823811,
+          "mine": 1467.8914866714408
+        },
+        {
+          "row": "small_planning/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.10815208007294574,
+          "mine": 0.11007879393428102
+        },
+        {
+          "row": "stock_envelope/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.7508506635092148,
+          "mine": 0.7925494288963508
+        },
+        {
+          "row": "stock_envelope/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 927.9106724326657,
+          "mine": 928.2841394008699
+        },
+        {
+          "row": "stock_envelope/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.09563067036212788,
+          "mine": 0.10180000940685648
+        },
+        {
+          "row": "1m_projection/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.7604170345217105,
+          "mine": 0.8048670458298006
+        },
+        {
+          "row": "1m_projection/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 885.144031405966,
+          "mine": 885.5080226698558
+        },
+        {
+          "row": "1m_projection/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.0948109501600442,
+          "mine": 0.10124436898037081
+        },
+        {
+          "row": "2m_projection/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.81492106071556,
+          "mine": 0.8755239411748689
+        },
+        {
+          "row": "2m_projection/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 641.3198974286786,
+          "mine": 641.5683196771447
+        },
+        {
+          "row": "2m_projection/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.09052126825386655,
+          "mine": 0.09830732502491321
+        },
+        {
+          "row": "4m_projection/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.8445359574805592,
+          "mine": 0.9142216438967713
+        },
+        {
+          "row": "4m_projection/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 508.71676119210684,
+          "mine": 508.8598451495485
+        },
+        {
+          "row": "4m_projection/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.08843502938056308,
+          "mine": 0.0968606088681324
+        }
+      ],
+      "next": "State the 0.9 screen in METHOD.md, or drop it from the stored search."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "METHOD.md states the 020 optimistic splice mass and does not state a 0.9 face-retention screen. Fixed legacy mass matches on every panel. The stored re-optimised factor, joining mass and core fraction match only after projected joint retention is set to 0.9 times face stress capacity over demand. That screen is in the owner's calculation and is absent from METHOD.md and CARD.md.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/420"
+    },
+    {
+      "report": "rpt-ref-68dff0680696fe9b4cb4",
+      "artifact": "evidence/43ed944cb7138cf7-NFI.json",
+      "snapshot": "evidence/43ed944cb7138cf7-NFI.json",
+      "sha256": "43ed944cb7138cf79d5dcdfd0bf8b972e5268c8e499716421933354116da697f",
+      "bytes": 4198,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-68dff0680696fe9b4cb4",
+          "artifact": "evidence/43ed944cb7138cf7-NFI.json",
+          "snapshot": "evidence/43ed944cb7138cf7-NFI.json",
+          "sha256": "43ed944cb7138cf79d5dcdfd0bf8b972e5268c8e499716421933354116da697f",
+          "bytes": 4198,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/420"
+          }
+        ]
+      }
+    }
+  ]
+}

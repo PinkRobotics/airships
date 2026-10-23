@@ -1,0 +1,40 @@
+{
+  "id": "E-180ab1176df0f0db7eea",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-180ab1176df0f0db7eea",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/10",
+    "row_id": "NFI-043-11",
+    "fields": {
+      "id": "NFI-043-11",
+      "status": "open",
+      "topic": "Lower-tail statistical confidence",
+      "finding": "The 433-member targets allocate probabilities near 2.31e-6 and 2.31e-9 per member, well below the empirical resolution of the retrieved small samples.",
+      "needed": "Physically justified tail extrapolation, parameter confidence bounds, competing failure populations, batch effects and validated proof-screen modelling.",
+      "effect": "Point-estimate Weibull projections are not confidence-qualified reliability predictions. Zero-failure sample counts are illustrative, not a proposed testing campaign.",
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The 433-member targets allocate probabilities near 2.31e-6 and 2.31e-9 per member, well below the empirical resolution of the retrieved small samples.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

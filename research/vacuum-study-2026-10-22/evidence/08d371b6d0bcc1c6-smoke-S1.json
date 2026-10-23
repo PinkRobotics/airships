@@ -1,0 +1,88 @@
+{
+  "label": "smoke-S1",
+  "owner_comparison_label": "S1-be-sphere-d16",
+  "inputs": {
+    "R": 10000.0,
+    "tf": 0.794624067,
+    "tc": 23.237217906,
+    "Ef": 290000.0,
+    "nuf": 0.0752,
+    "amp": 16.057,
+    "width": 356.777,
+    "nth": 512,
+    "a": null,
+    "nface": 1,
+    "ncore": 4,
+    "grading": 1.5,
+    "Ein": 0.01
+  },
+  "reference": {
+    "p_classical_kPa": 222.1458604673442,
+    "p_crimp_kPa": 233.04934128767502,
+    "Vc": 0.9532138526541827,
+    "Kc": 0.7616965368364543,
+    "p_H_kPa": 169.20773259053027
+  },
+  "nodes": 10253,
+  "elements": 3072,
+  "free_equations": 20479,
+  "control": "outer north pole axial displacement; inner south pole axial anchor for sphere",
+  "path": [
+    {
+      "pole_dz_mm": -0.5,
+      "p_kPa": 1.5799131565432203,
+      "outer_vm": 7.816352105300785,
+      "inner_vm": 5.737795563723783,
+      "core_tau": 0.01292607059624725,
+      "core_tau_r_mm": 257.9791755730883,
+      "core_min_snn": -0.003253730448412078,
+      "min_jacobian": 0.9999234512902607,
+      "strain_energy": 157469.18773836424,
+      "iterations": 3,
+      "residual_N": 0.0004600768370437436,
+      "scaled_residual": 9.417114053142076e-08
+    },
+    {
+      "pole_dz_mm": -1.0,
+      "p_kPa": 3.14495611282653,
+      "outer_vm": 15.597936274248106,
+      "inner_vm": 11.44412078533484,
+      "core_tau": 0.026001196738429846,
+      "core_tau_r_mm": 257.9759442945811,
+      "core_min_snn": -0.0065405559727137064,
+      "min_jacobian": 0.9998468483631479,
+      "strain_energy": 623946.4236104779,
+      "iterations": 3,
+      "residual_N": 0.0006741525721736252,
+      "scaled_residual": 6.932309267846836e-08
+    },
+    {
+      "pole_dz_mm": -2.0,
+      "p_kPa": 6.22977120866702,
+      "outer_vm": 31.051650215990822,
+      "inner_vm": 22.761035145624348,
+      "core_tau": 0.0525923333531097,
+      "core_tau_r_mm": 257.9696413347109,
+      "core_min_snn": -0.013212556882033622,
+      "min_jacobian": 0.9996935166598467,
+      "strain_energy": 2448166.062676701,
+      "iterations": 3,
+      "residual_N": 0.0009736228967085481,
+      "scaled_residual": 5.05451979000782e-08
+    }
+  ],
+  "status": "complete",
+  "limit_kPa": 6.22977120866702,
+  "pole_dz_at_limit_mm": -2.0,
+  "gamma_H_elastic": 0.036817296191437,
+  "owner_limit_kPa": 79.40532269163262,
+  "relative_limit_difference": -0.9215446647970932,
+  "crossings_kPa": {
+    "face_yield_outer": null,
+    "face_yield_inner": null,
+    "core_W_shear_typ": null,
+    "core_W_shear_min": null,
+    "core_crush_typ": null
+  },
+  "elapsed_seconds": 2.3752785306423903
+}

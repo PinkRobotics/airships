@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline034-check-1020",
+  "tag": "QUESTIONABLE",
+  "scenario_tag": "PROJECTION",
+  "blocking_for_filing": false,
+  "certification": false,
+  "owner_rows_carried": 17,
+  "new_rows": 3,
+  "open": [
+    {
+      "id": "NFI-034-LEAK-RATES",
+      "tag": "PROJECTION",
+      "finding": "No full-hull or seam/node leak rate is measured. The 1e-5/1e-3/0.1 mbar L/s per metre and per node values are scenarios, with a separate port allowance. They span four decades but are not bounds.",
+      "proposed_next": "Measure assembled pressure rise and test gas-specific leaks at service load and temperature; compare with the 24 h acceptance budget.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-SOURCE-TO-SERVICE",
+      "tag": "PROJECTION",
+      "finding": "500 m fixes nominal pressure, not humidity or membrane temperature. Water rates are source-condition values mapped to a chosen 1 kPa driving partial pressure. Temperature dependence and humidity-gradient dependence are not measured.",
+      "proposed_next": "Measure permeance at the intended thermal/humidity envelope. Keep the constant-source and partial-pressure model results distinct.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-TML-NOT-RATE",
+      "tag": "QUESTIONABLE",
+      "finding": "NASA E595 uses 125 C for 24 h. TML is neither kg/day at 284.9 K nor a certified finite flight inventory. Historical cures/lots and several material/gauge proxies differ. CVCM is a subset, not added to TML.",
+      "proposed_next": "Obtain actual material inventory and service-temperature desorption curves; retain unmatched-data tags.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-CONDITIONING",
+      "tag": "PROJECTION",
+      "finding": "Reference calculations assume 90% of the chosen release inventory was removed and the residue releases exponentially with one-day time constant. Neither fraction nor kinetics is demonstrated.",
+      "proposed_next": "Demonstrate the required residual gas load after conditioning; do not treat this as a prescribed bake process.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-CORE-AND-TUBE-VENTING",
+      "tag": "PROJECTION",
+      "finding": "Unvented P2 honeycomb would retain about 43.388 kg of ambient air. P3 tube bores would retain about 88.153/76.110 kg. Base cases require these spaces to share the evacuation path. Trapped gas is onboard mass even before it leaks into the main cavity.",
+      "proposed_next": "Establish and qualify internal vent paths, pressure equalization and residual gas inventory. Any geometric vent change requires structural review.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-P2-PERMEATION-PATH",
+      "tag": "PROJECTION",
+      "finding": "Intact Be bulk ambient-gas permeation is set to zero in the screen, not measured. AF full-area bonds are behind Be and do not see the full exterior-to-interior gradient. The outer 30:1 scarf is screened at an assumed 10 Barrer; its adhesive is the 028 70 g/m2 route, not silently replaced with AF163.",
+      "proposed_next": "Measure scarf and metal/adhesive assembly permeance, pinholes and surface defects. Validate the actual panel boundary path.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-P3-RESIN-AND-SURFACES",
+      "tag": "PROJECTION",
+      "finding": "SiC tubes remain SiC in both 022c rows; CFRP is only the end wrap. The wrap outgassing proxy uses a different graphite/epoxy. A 0.1 g/m2 SiC surface inventory and 1 wt% unspecified attachment/seal inventories are assumptions.",
+      "proposed_next": "Measure actual end-wrap resin, cured joint adhesive, membrane attachment and cleaned ceramic surface gas release.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-JOINT-ADHESIVE-MASS",
+      "tag": "PROJECTION",
+      "finding": "The 023 end-material estimate omits adhesive mass. At nominal inherited bond area, assumed 0.2 mm gap and 1400 kg/m3 density, this card adds 12.565 kg for Ti sleeves and 4.078 kg for CFRP wraps. Shear-transfer and gap assumptions remain unqualified.",
+      "proposed_next": "Book cured adhesive, primers and process losses against the complete assembly and qualify actual joints.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-BARRIER-ASSEMBLY",
+      "tag": "PROJECTION",
+      "finding": "The Zylon row needs a separate barrier. A 12 um PET substrate, assumed 50 nm Al, 25 g/m2 attachment/lamination and 5 kg seam installation total 57.546 kg. This is a worked bill, not a qualified lightest laminate or weather/UV protection system.",
+      "proposed_next": "Test a complete load-bearing and gas-tight assembly; measure seam, resin, protective layer and processing mass.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-GAS-COVERAGE",
+      "tag": "PROJECTION",
+      "finding": "Kapton has sourced CO2/O2/H2/N2/He data but not Ar; Ar is set to N2. Mylar has sourced O2 only: other gas ratios are assumed, including N2, and checked in a sensitivity. Outgassing is water-equivalent with a 5 mass% H2 sensitivity, not measured composition.",
+      "proposed_next": "Measure a full gas spectrum, including noble gases and organics; distinguish pressure from gas mass.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-GEOMETRY",
+      "tag": "QUESTIONABLE",
+      "finding": "Uses 021b face/core geometry and re-sizes 028 scarfs to its panel width. Uses 022c cap sag for volume and the original sphere area for films; a 10% area sensitivity is supplied. A sphere cutting pattern and exact pillow area are absent. P3 internal solid volume is neglected in the pressure model.",
+      "proposed_next": "Carry an actual surface-area, solid-volume, seam-length and node inventory with the manufactured layout.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-GETTER",
+      "tag": "QUESTIONABLE",
+      "finding": "BASF capacity is a humid-equilibrium number; the 10 wt% usable vacuum capacity is assumed. The SAES UHV capacity illustration is not a mixed-gas rough-vacuum recommendation. COMBO removes N2 at room temperature, but the opened page supplies no sizing capacity. Getter-retained external gas still adds vehicle mass.",
+      "proposed_next": "Obtain service-pressure mixed-gas capacity/rate and cartridge mass; do not treat a water bed as a complete air getter or as recovered lift.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-PUMP-AND-CONDUCTANCE",
+      "tag": "PROJECTION",
+      "finding": "KNF inlet speed is read from the low-pressure curve, not its STP delivery rating. Installed speed is assumed 75% of nominal. E2M28 motor 750 W is mechanical; 1000 W electrical is an assumption. One E2M28 is 2.3% short of the Kapton hot constant-source envelope at the assumed installation factor.",
+      "proposed_next": "Measure effective inlet speed and input power with water vapour and the actual plumbing. Kapton needs at least 21.112 m3/h at the hot source-rate envelope.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-POWER-ENDURANCE",
+      "tag": "PROJECTION",
+      "finding": "30 kg sealed hardware includes an assumed 10 kg power package. Even if all ten kilograms were battery, the stated pack factors support five-watt monitoring for only nine days. Gas-only lifetimes are not autonomous mission endurance.",
+      "proposed_next": "Size the actual pack, controls, wiring and thermal duty for the chosen service interval; retain daily ground-service baseline until supported.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-MASS-ALLOCATION",
+      "tag": "PROJECTION",
+      "finding": "Both current lead models carry 100 kg systems. Identified sealed hardware is 30-50 kg. Zylon barrier and previously omitted joint adhesive may be funded from remaining allocation only by explicit reallocation; other installed hardware is unresolved.",
+      "proposed_next": "Keep the whole 100 kg reserved, book all new masses once, and do not assign unused allowance to payload before a complete bill exists.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-PHASE-VERSUS-LIFT",
+      "tag": "QUESTIONABLE",
+      "finding": "Desorbed material was already aboard: gas-phase inventory consumes a pressure allowance without adding the same mass again to the vehicle. Net external ingress adds mass. Passive getters retain it; pumps can expel it.",
+      "proposed_next": "Keep separate ledgers for free gas, net external uptake and material phase transfer.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-034-STRUCTURAL-CARRY",
+      "tag": "QUESTIONABLE",
+      "finding": "This is a vacuum-maintenance estimate at fixed inherited points. The 022c Kapton equilateral row has filed least SF below one; Zylon structural assumptions and P2 optimism remain unqualified.",
+      "proposed_next": "Carry the existing structural NFI; vacuum arithmetic does not establish a floating or certified hull.",
+      "carried_from": "MAINLINE-034 owner NFI.json; independently retained, no physical closure claimed"
+    },
+    {
+      "id": "NFI-CHECK034-INPUT-COMPLETENESS",
+      "tag": "PROJECTION",
+      "finding": "Kapton includes 0.1 kg of unconditioned seals/titanium-surface release inventory in RESULTS, but INPUTS has no scalar for it. At the reference 10% retained fraction this contributes 0.01 kg to the 1.0249312800972046 kg residual inventory. The full-area AF bond also uses 1250 kg/m3 in the solid-volume reconstruction although INPUTS names that density only for scarf adhesive; 019/021b carry the same generic adhesive-density assumption. These are reconstructed assumptions, not measured material properties.",
+      "proposed_next": "Add named inputs for Kapton residual seals/surface inventory and AF bond density, with provenance and service-data tags. RECONSTRUCTION-ASSUMPTIONS.json makes both explicit here."
+    },
+    {
+      "id": "NFI-CHECK034-CORE-VOID-CONVENTION",
+      "tag": "QUESTIONABLE",
+      "finding": "The reported 37.31646143905225 m3 honeycomb void is recovered by subtracting full-area AF volume 0.2945010968475796 m3 and core splice volume 0.012181226862401973 m3 from A*t_core-core_mass/2700. Without that unstated placement convention the independent values are 37.62314376276223 m3, 43.744289548973256 kg trapped air, and 0.8946683119525318 of the gas allowance, versus filed 37.31646143905225 m3, 43.38771114998258 kg and 0.887375488189865. This is an unresolved manufactured-section convention, not a discrepancy in the quoted endurance calculation.",
+      "exact_initial_differences": [
+        {
+          "path": "/geometry/P2/core_void_m3",
+          "owner": 37.31646143905225,
+          "independent": 37.62314376276223,
+          "difference_independent_minus_owner": 0.3066823237099854,
+          "tolerance": 9.46329228781045e-08,
+          "pass": false,
+          "category": "independently_derived"
+        },
+        {
+          "path": "/geometry/P2/unvented_core_air_kg",
+          "owner": 43.38771114998258,
+          "independent": 43.744289548973256,
+          "difference_independent_minus_owner": 0.35657839899067767,
+          "tolerance": 1.0677542229996517e-07,
+          "pass": false,
+          "category": "independently_derived"
+        },
+        {
+          "path": "/systems_ledger/P2_unvented_core_fraction_of_internal_gas_row",
+          "owner": 0.887375488189865,
+          "independent": 0.8946683119525318,
+          "difference_independent_minus_owner": 0.007292823762666822,
+          "tolerance": 2.177475097637973e-08,
+          "pass": false,
+          "category": "independently_derived"
+        }
+      ],
+      "proposed_next": "Specify the reference core envelope and measured adhesive/fillet/splice displacements. Keep the two interpretations separate until a manufactured section establishes them."
+    },
+    {
+      "id": "NFI-CHECK034-AREA-SENSITIVITY-SCOPE",
+      "tag": "PROJECTION",
+      "finding": "The +10% area case multiplies film transmission only, leaving film mass, area-dependent outgassing inventory and barrier/attachment mass unchanged. It is a rate sensitivity at fixed inherited geometry, not a complete larger-area assembly. At fixed gauges, 10% more Kapton adds 98.12569224663257 kg; 10% more Zylon adds 21.717480701365734 kg structural fiber and 5.254627872394289 kg barrier/attachment. The Zylon vacuum/barrier/joint-bond subtotal becomes 96.87893676870814–116.87893676870814 kg, leaving only 3.1210632312918616 kg of the 100 kg line at the low bill. These illustrations are not a structural reoptimization.",
+      "numerical_detail": "AREA-SENSITIVITY-CHECK.json",
+      "proposed_next": "Label the existing case permeation-only, or consistently propagate actual manufactured area through film, barrier, attachment and release inventories before taking mass or endurance credit."
+    }
+  ]
+}

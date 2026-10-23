@@ -1,0 +1,340 @@
+{
+  "task": "CHECK-051",
+  "status": "COMPLETE — conditional arithmetic checked; qualification remains open",
+  "started_at": "2026-10-20T06:19:26.220644-07:00",
+  "scientific_completed_utc": "2026-10-20T13:43:30.886255+00:00",
+  "time_budget": null,
+  "owner_code_accessed": false,
+  "own_prior_solver_reused": "041 beam.py, frame_tools.py, score.py",
+  "coverage": {
+    "target_rows": 288,
+    "material_models": 18,
+    "fixed_frame_rows": 108,
+    "gap_rows": 280,
+    "witnesses": 36,
+    "hail_rows": 980,
+    "hail_target_rows": 15680,
+    "member_loss_rows": 72,
+    "fresh_FE_cases": 182,
+    "additional_expanded_eigen_solves": 25,
+    "minimum_wall_inversions": 36
+  },
+  "final_comparisons": 116566,
+  "flagged_fields": 338,
+  "unresolved_categories": [
+    "signed tensor versus magnitude labeling",
+    "ill-conditioned shape inversion"
+  ],
+  "outcome_changing_numerical_discrepancy_found": false,
+  "anchors": {
+    "Hexoloy-SA/5": {
+      "SF_or_ceiling": 1.0539934979292565,
+      "required_scale_GPa": 3.7273426635347775
+    },
+    "K13D2U-50-20-20-10/5": {
+      "SF_or_ceiling": 1.1357431782203353,
+      "required_scale_GPa": 2.161413150376753
+    },
+    "Hexoloy-SA/019": {
+      "SF_or_ceiling": 0.9978074308572551,
+      "required_scale_GPa": 3.8738396147368936
+    },
+    "K13D2U-50-20-20-10/019": {
+      "SF_or_ceiling": 1.075981681410542,
+      "required_scale_GPa": 2.2457311512354434
+    },
+    "Hexoloy_5_hypothetical_Pf": 0.0006359547834291433,
+    "Hexoloy_5_combined_hypothetical_load": 1.0454694873734534,
+    "Hexoloy_5_hail": {
+      "Shi_stress_MPa": 113.47448301870604,
+      "conditional_299_m4p6": 0.011532618313176361,
+      "conditional_192_m5p5": 0.053926406347357035
+    },
+    "all_72_secondary_overload_triggers_reproduced": true
+  },
+  "witnesses": [
+    {
+      "material": "041-reference",
+      "reserve": "5",
+      "frame_kg": 4301.967099901836,
+      "total_including_reserve_sag_kg": 4880.370807247461,
+      "SF_or_ceiling": 1.0001415886458276
+    },
+    {
+      "material": "041-reference",
+      "reserve": "019",
+      "frame_kg": 4244.5124100087105,
+      "total_including_reserve_sag_kg": 4981.291340046453,
+      "SF_or_ceiling": 1.0001451400685288
+    },
+    {
+      "material": "Hexoloy-SA",
+      "reserve": "5",
+      "frame_kg": 4213.3778320465435,
+      "total_including_reserve_sag_kg": 4791.781539392168,
+      "SF_or_ceiling": 1.0001402537260389
+    },
+    {
+      "material": "Hexoloy-SA",
+      "reserve": "019",
+      "frame_kg": 4156.913380130031,
+      "total_including_reserve_sag_kg": 4893.692310167774,
+      "SF_or_ceiling": 1.000143732053097
+    },
+    {
+      "material": "CVD-PureSiC-HR",
+      "reserve": "5",
+      "frame_kg": 4246.965499823543,
+      "total_including_reserve_sag_kg": 4825.369207169168,
+      "SF_or_ceiling": 1.0232093300227503
+    },
+    {
+      "material": "CVD-PureSiC-HR",
+      "reserve": "019",
+      "frame_kg": 4189.883758752906,
+      "total_including_reserve_sag_kg": 4926.662688790649,
+      "SF_or_ceiling": 1.023172620793468
+    },
+    {
+      "material": "UltraSiC-sintered",
+      "reserve": "5",
+      "frame_kg": 4391.390435650358,
+      "total_including_reserve_sag_kg": 4969.794142995983,
+      "SF_or_ceiling": 1.0231084482543675
+    },
+    {
+      "material": "UltraSiC-sintered",
+      "reserve": "019",
+      "frame_kg": 4332.80140727847,
+      "total_including_reserve_sag_kg": 5069.5803373162125,
+      "SF_or_ceiling": 1.0230697258382206
+    },
+    {
+      "material": "SCS6-epoxy",
+      "reserve": "5",
+      "frame_kg": 13284.613282897764,
+      "total_including_reserve_sag_kg": 13863.016990243388,
+      "SF_or_ceiling": 1.0313777968555242
+    },
+    {
+      "material": "SCS6-epoxy",
+      "reserve": "019",
+      "frame_kg": 13118.219585510904,
+      "total_including_reserve_sag_kg": 13854.998515548647,
+      "SF_or_ceiling": 1.031318161320003
+    },
+    {
+      "material": "SCSUltra-epoxy",
+      "reserve": "5",
+      "frame_kg": 12512.29601322077,
+      "total_including_reserve_sag_kg": 13090.699720566394,
+      "SF_or_ceiling": 1.0314233213548492
+    },
+    {
+      "material": "SCSUltra-epoxy",
+      "reserve": "019",
+      "frame_kg": 12355.131171768591,
+      "total_including_reserve_sag_kg": 13091.910101806334,
+      "SF_or_ceiling": 1.031363019512609
+    },
+    {
+      "material": "HNS-MI-CMC-scenario",
+      "reserve": "5",
+      "frame_kg": 6149.062937702633,
+      "total_including_reserve_sag_kg": 6727.466645048257,
+      "SF_or_ceiling": 1.009244163715624
+    },
+    {
+      "material": "HNS-MI-CMC-scenario",
+      "reserve": "019",
+      "frame_kg": 6253.455873506551,
+      "total_including_reserve_sag_kg": 6990.234803544294,
+      "SF_or_ceiling": 1.0092125891510524
+    },
+    {
+      "material": "Tyranno-SA-CVI-scenario",
+      "reserve": "5",
+      "frame_kg": 6262.048905835886,
+      "total_including_reserve_sag_kg": 6840.452613181511,
+      "SF_or_ceiling": 1.009244163715624
+    },
+    {
+      "material": "Tyranno-SA-CVI-scenario",
+      "reserve": "019",
+      "frame_kg": 6368.447682201124,
+      "total_including_reserve_sag_kg": 7105.226612238866,
+      "SF_or_ceiling": 1.0092125891510524
+    },
+    {
+      "material": "M55J-UD",
+      "reserve": "5",
+      "frame_kg": 8882.232403070495,
+      "total_including_reserve_sag_kg": 9460.636110416119,
+      "SF_or_ceiling": 1.0315713241795144
+    },
+    {
+      "material": "M55J-UD",
+      "reserve": "019",
+      "frame_kg": 8769.184977158393,
+      "total_including_reserve_sag_kg": 9505.963907196136,
+      "SF_or_ceiling": 1.0315088643808972
+    },
+    {
+      "material": "M55J-70-10-10-10",
+      "reserve": "5",
+      "frame_kg": 4882.634374884492,
+      "total_including_reserve_sag_kg": 5461.038082230117,
+      "SF_or_ceiling": 1.0309880631280073
+    },
+    {
+      "material": "M55J-70-10-10-10",
+      "reserve": "019",
+      "frame_kg": 4819.104220406688,
+      "total_including_reserve_sag_kg": 5555.883150444431,
+      "SF_or_ceiling": 1.0309424625750723
+    },
+    {
+      "material": "M55J-50-20-20-10",
+      "reserve": "5",
+      "frame_kg": 4670.050264683054,
+      "total_including_reserve_sag_kg": 5248.453972028678,
+      "SF_or_ceiling": 1.009614074670425
+    },
+    {
+      "material": "M55J-50-20-20-10",
+      "reserve": "019",
+      "frame_kg": 4747.442594224106,
+      "total_including_reserve_sag_kg": 5484.221524261849,
+      "SF_or_ceiling": 1.009268944358485
+    },
+    {
+      "material": "K13D2U-UD",
+      "reserve": "5",
+      "frame_kg": 8846.302887703952,
+      "total_including_reserve_sag_kg": 9424.706595049576,
+      "SF_or_ceiling": 1.0318813299872471
+    },
+    {
+      "material": "K13D2U-UD",
+      "reserve": "019",
+      "frame_kg": 8732.982399680728,
+      "total_including_reserve_sag_kg": 9469.76132971847,
+      "SF_or_ceiling": 1.0318163722029714
+    },
+    {
+      "material": "K13D2U-70-10-10-10",
+      "reserve": "5",
+      "frame_kg": 4369.1691588419,
+      "total_including_reserve_sag_kg": 4947.572866187525,
+      "SF_or_ceiling": 1.0314441587111678
+    },
+    {
+      "material": "K13D2U-70-10-10-10",
+      "reserve": "019",
+      "frame_kg": 4311.045001697481,
+      "total_including_reserve_sag_kg": 5047.823931735224,
+      "SF_or_ceiling": 1.0313966050768824
+    },
+    {
+      "material": "K13D2U-50-20-20-10",
+      "reserve": "5",
+      "frame_kg": 3703.5484458571736,
+      "total_including_reserve_sag_kg": 4281.952153202799,
+      "SF_or_ceiling": 1.0285451745154752
+    },
+    {
+      "material": "K13D2U-50-20-20-10",
+      "reserve": "019",
+      "frame_kg": 3654.1643811340955,
+      "total_including_reserve_sag_kg": 4390.943311171839,
+      "SF_or_ceiling": 1.0285053121856478
+    },
+    {
+      "material": "T700S-UD",
+      "reserve": "5",
+      "frame_kg": 9005.025815761064,
+      "total_including_reserve_sag_kg": 9583.429523106688,
+      "SF_or_ceiling": 1.0311031864352633
+    },
+    {
+      "material": "T700S-UD",
+      "reserve": "019",
+      "frame_kg": 8892.800346803757,
+      "total_including_reserve_sag_kg": 9629.5792768415,
+      "SF_or_ceiling": 1.0310483444939647
+    },
+    {
+      "material": "T700S-70-10-10-10",
+      "reserve": "5",
+      "frame_kg": 8764.236729972503,
+      "total_including_reserve_sag_kg": 9342.640437318127,
+      "SF_or_ceiling": 1.0056877815563279
+    },
+    {
+      "material": "T700S-70-10-10-10",
+      "reserve": "019",
+      "frame_kg": 8920.023033934676,
+      "total_including_reserve_sag_kg": 9656.801963972419,
+      "SF_or_ceiling": 1.005499889820735
+    },
+    {
+      "material": "T700S-50-20-20-10",
+      "reserve": "5",
+      "frame_kg": 10870.654522212018,
+      "total_including_reserve_sag_kg": 11449.058229557642,
+      "SF_or_ceiling": 1.0064802260566832
+    },
+    {
+      "material": "T700S-50-20-20-10",
+      "reserve": "019",
+      "frame_kg": 11068.307382386805,
+      "total_including_reserve_sag_kg": 11805.086312424548,
+      "SF_or_ceiling": 1.0063346052815296
+    },
+    {
+      "material": "Al6061T6",
+      "reserve": "5",
+      "frame_kg": 20600.165001713594,
+      "total_including_reserve_sag_kg": 21178.568709059222,
+      "SF_or_ceiling": 1.0090321303833247
+    },
+    {
+      "material": "Al6061T6",
+      "reserve": "019",
+      "frame_kg": 20982.71202536222,
+      "total_including_reserve_sag_kg": 21719.49095539996,
+      "SF_or_ceiling": 1.0090152726621502
+    }
+  ],
+  "qualified_structural_SF": null,
+  "qualified_frame_probability": null,
+  "actual_hail_break_probability": null,
+  "dynamic_cascade_probability": null,
+  "NFI_count": 21,
+  "next": "none",
+  "card_table_comparisons": 319,
+  "headline_mass_rounding": [
+    {
+      "material": "K13D2U-50-20-20-10",
+      "exact_total_kg": 4281.952153202799,
+      "reported_kg": 4282,
+      "ceiling_kg": 4282,
+      "nearest_kg": 4282
+    },
+    {
+      "material": "M55J-50-20-20-10",
+      "exact_total_kg": 5248.453972028678,
+      "reported_kg": 5249,
+      "ceiling_kg": 5249,
+      "nearest_kg": 5248
+    },
+    {
+      "material": "Al6061T6",
+      "exact_total_kg": 21178.568709059222,
+      "reported_kg": 21179,
+      "ceiling_kg": 21179,
+      "nearest_kg": 21179
+    }
+  ],
+  "completed_utc": "2026-10-20T13:49:36.986890+00:00"
+}

@@ -1,0 +1,1219 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "started": "2026-10-20T17:12:07.843286-07:00",
+  "gate": {
+    "one_opt_pair_s": 0.2843191409483552,
+    "n80_payload_kg": -6582.657238517822,
+    "beta": 0.682327803828082
+  },
+  "anchors": [
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "classical_cap_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [],
+      "allowances": {
+        "concept": {
+          "payload_kg": -2473.5500140724216,
+          "geometry": {
+            "tf_m": 0.0016254706033341105,
+            "tc_m": 0.04420493842565879
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.5938845100207362,
+            "Vc": 0.9847112750518405,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002729215
+            ],
+            [
+              "global_buckling",
+              1.000000039364329
+            ],
+            [
+              "thermal_interface",
+              1.0716559035406743
+            ]
+          ],
+          "modes_face_wrinkling": 1.9464226940562024,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5423.6113335383525,
+          "mass_before_growth_kg": 36165.47588202976
+        },
+        "TRL7": {
+          "payload_kg": 1194.5724318951852,
+          "geometry": {
+            "tf_m": 0.0016254706024028463,
+            "tc_m": 0.044204936856935204
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.5938845093073173,
+            "Vc": 0.9847112732682932,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002484073
+            ],
+            [
+              "global_buckling",
+              1.000000004306607
+            ],
+            [
+              "thermal_interface",
+              1.0716559035534274
+            ]
+          ],
+          "modes_face_wrinkling": 1.9464227279877724,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 1755.489035900615,
+          "mass_before_growth_kg": 36165.47573369989
+        }
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "classical_cap_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [],
+      "allowances": {
+        "concept": {
+          "payload_kg": -3772.657517898937,
+          "geometry": {
+            "tf_m": 0.0016671921714947198,
+            "tc_m": 0.043797824991294865
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.6034907402317844,
+            "Vc": 1.0087268505794609,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002936356
+            ],
+            [
+              "global_buckling",
+              1.0000000123795294
+            ],
+            [
+              "thermal_interface",
+              1.0716592284818012
+            ]
+          ],
+          "modes_face_wrinkling": 1.9803846613136824,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5535.487597501386,
+          "mass_before_growth_kg": 37352.70712189324
+        },
+        "TRL7": {
+          "payload_kg": -29.884121324033003,
+          "geometry": {
+            "tf_m": 0.0016671921712619036,
+            "tc_m": 0.04379782457769333
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.6034907400377807,
+            "Vc": 1.0087268500944515,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.000000000296423
+            ],
+            [
+              "global_buckling",
+              1.0000000030744762
+            ],
+            [
+              "thermal_interface",
+              1.0716592284851951
+            ]
+          ],
+          "modes_face_wrinkling": 1.9803846705317347,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 1792.7142397994494,
+          "mass_before_growth_kg": 37352.70708302027
+        }
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "classical_cap_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [],
+      "allowances": {
+        "concept": {
+          "payload_kg": -6582.656950982218,
+          "geometry": {
+            "tf_m": 0.0024429978442514167,
+            "tc_m": 0.0661244544543769
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.5945923299780864,
+            "Vc": 0.986480824945216,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000003587302
+            ],
+            [
+              "scarf_average_shear",
+              1.0000000051475972
+            ],
+            [
+              "thermal_interface",
+              1.0714837696248563
+            ]
+          ],
+          "modes_face_wrinkling": 1.9510279348753017,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 18069.38018764,
+          "mass_before_growth_kg": 120528.21481839016
+        },
+        "TRL7": {
+          "payload_kg": 5594.8307618927365,
+          "geometry": {
+            "tf_m": 0.002442997833469,
+            "tc_m": 0.06612445642061977
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.5945923287166147,
+            "Vc": 0.9864808217915367,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002680514
+            ],
+            [
+              "global_buckling",
+              1.000000023076093
+            ],
+            [
+              "thermal_interface",
+              1.0714837696102089
+            ]
+          ],
+          "modes_face_wrinkling": 1.95102789204226,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 5891.892557825776,
+          "mass_before_growth_kg": 120528.21473532943
+        }
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "classical_cap_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [],
+      "allowances": {
+        "concept": {
+          "payload_kg": -10973.593483521443,
+          "geometry": {
+            "tf_m": 0.0025056722317368216,
+            "tc_m": 0.065517058688401
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.6042090706436843,
+            "Vc": 1.0105226766092108,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.000000000291039
+            ],
+            [
+              "scarf_average_shear",
+              1.0000000008048942
+            ],
+            [
+              "thermal_interface",
+              1.0714883153219896
+            ]
+          ],
+          "modes_face_wrinkling": 1.985033904533227,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 18447.93782990647,
+          "mass_before_growth_kg": 124540.59370866291
+        },
+        "TRL7": {
+          "payload_kg": 1456.5429574464424,
+          "geometry": {
+            "tf_m": 0.002505672230885578,
+            "tc_m": 0.06551705943281545
+          },
+          "properties": {
+            "Q": 0.82,
+            "gamma": 0.6042090706805974,
+            "Vc": 1.0105226767014934,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "scarf_average_shear",
+              1.0000000002811715
+            ],
+            [
+              "global_buckling",
+              1.0000000107971951
+            ],
+            [
+              "thermal_interface",
+              1.0714883153163928
+            ]
+          ],
+          "modes_face_wrinkling": 1.985033891879312,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 6017.8012846667925,
+          "mass_before_growth_kg": 124540.5938129347
+        }
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    }
+  ],
+  "rows": [
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "supported_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [
+        "Q"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -5925.833037420652,
+          "geometry": {
+            "tf_m": 0.001814750164181689,
+            "tc_m": 0.03787040638649456
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.6350723039930783,
+            "Vc": 1.0876807599826959,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004489098
+            ],
+            [
+              "global_buckling",
+              1.000000020686071
+            ],
+            [
+              "thermal_interface",
+              1.0717082122749504
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000004489098,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5872.963048643501,
+          "mass_before_growth_kg": 39168.40719027284
+        },
+        "TRL7": {
+          "payload_kg": -1958.5057713483156,
+          "geometry": {
+            "tf_m": 0.001814750171166172,
+            "tc_m": 0.03787040680849233
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.6350723058126797,
+            "Vc": 1.087680764531699,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004759708
+            ],
+            [
+              "global_buckling",
+              1.000000036546844
+            ],
+            [
+              "thermal_interface",
+              1.0717082122714203
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000004759708,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 1905.6356170074478,
+          "mass_before_growth_kg": 39168.407355836556
+        }
+      },
+      "density_factor": 1.1801825417385003,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.008378830963920336,
+        "geometry": {
+          "tf_m": 0.0018147501660442178,
+          "tc_m": 0.03787040649876361
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.635072304478167,
+          "Vc": 1.0876807611954173,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 1567.553958453601
+        },
+        "binding": [
+          [
+            "face_wrinkling",
+            1.0000000004597036
+          ],
+          [
+            "global_buckling",
+            1.00000002490893
+          ],
+          [
+            "thermal_interface",
+            1.0717082122740116
+          ]
+        ],
+        "modes_face_wrinkling": 1.0000000004597036,
+        "lift_kg": 39115.53720149569,
+        "growth_total_kg": 5100.0272117995555,
+        "mass_before_growth_kg": 34015.50161086517
+      },
+      "root_bracket": [
+        1.180182336533823,
+        1.1801825417385003
+      ]
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "supported_Q_handbook_gamma",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -29388.76159348207,
+          "geometry": {
+            "tf_m": 0.002603090197687236,
+            "tc_m": 0.10552609089545563
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.5955811156124058,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004070793
+            ],
+            [
+              "global_buckling",
+              1.000000027142969
+            ],
+            [
+              "thermal_interface",
+              1.0712131325907246
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000004070793,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 8967.130906650658,
+          "mass_before_growth_kg": 59537.1678883271
+        },
+        "TRL7": {
+          "payload_kg": -23345.704763314785,
+          "geometry": {
+            "tf_m": 0.0026030902123546497,
+            "tc_m": 0.10552609254992418
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.5955811249886889,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.000000000312575
+            ],
+            [
+              "global_buckling",
+              1.0000000439252676
+            ],
+            [
+              "thermal_interface",
+              1.0712131325800691
+            ]
+          ],
+          "modes_face_wrinkling": 1.000000000312575,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 2924.0736642439465,
+          "mass_before_growth_kg": 59537.168300566525
+        }
+      },
+      "density_factor": 2.118037110392169,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.0031670432226746925,
+        "geometry": {
+          "tf_m": 0.0026030901869776957,
+          "tc_m": 0.10552608970930512
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.5955811087741933,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 873.4501420787092
+        },
+        "binding": [
+          [
+            "face_wrinkling",
+            1.000000000364422
+          ],
+          [
+            "global_buckling",
+            1.0000000150830666
+          ],
+          [
+            "thermal_interface",
+            1.0712131325983636
+          ]
+        ],
+        "modes_face_wrinkling": 1.000000000364422,
+        "lift_kg": 39115.53720149569,
+        "growth_total_kg": 5133.813763389436,
+        "mass_before_growth_kg": 33981.72027106303
+      },
+      "root_bracket": [
+        2.1180367421176807,
+        2.118037110392169
+      ]
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "supported_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [
+        "Q"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -7069.309613386611,
+          "geometry": {
+            "tf_m": 0.0018470629565784306,
+            "tc_m": 0.03794374073747877
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.642498555381245,
+            "Vc": 1.1062463884531126,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003056895
+            ],
+            [
+              "global_buckling",
+              1.0000000106558053
+            ],
+            [
+              "thermal_interface",
+              1.0717075994253193
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000003056895,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 5964.651281625365,
+          "mass_before_growth_kg": 40220.195533256934
+        },
+        "TRL7": {
+          "payload_kg": -3040.7469815062304,
+          "geometry": {
+            "tf_m": 0.0018470629561127985,
+            "tc_m": 0.03794374069820762
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.6424985552536133,
+            "Vc": 1.1062463881340334,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004604181
+            ],
+            [
+              "global_buckling",
+              1.0000000093258294
+            ],
+            [
+              "thermal_interface",
+              1.071707599425647
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000004604181,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 1936.0886617128874,
+          "mass_before_growth_kg": 40220.19552128903
+        }
+      },
+      "density_factor": 1.2179491112563663,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.004199440664706344,
+        "geometry": {
+          "tf_m": 0.0018470629770662467,
+          "tc_m": 0.0379437397415328
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.6424985595225021,
+          "Vc": 1.1062463988062554,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 1518.9467260185156
+        },
+        "binding": [
+          [
+            "global_buckling",
+            1.0000000003329366
+          ],
+          [
+            "face_wrinkling",
+            1.0000000303651333
+          ],
+          [
+            "thermal_interface",
+            1.0717075994336338
+          ]
+        ],
+        "modes_face_wrinkling": 1.0000000303651333,
+        "lift_kg": 39115.53720149569,
+        "growth_total_kg": 5042.566871032744,
+        "mass_before_growth_kg": 34072.96613102228
+      },
+      "root_bracket": [
+        1.217948899485013,
+        1.2179491112563663
+      ]
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "supported_Q_handbook_gamma",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -31324.20860105718,
+          "geometry": {
+            "tf_m": 0.0026640092015300164,
+            "tc_m": 0.10742771997761125
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.632714013138587,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003526972
+            ],
+            [
+              "global_buckling",
+              1.0000000031380936
+            ],
+            [
+              "thermal_interface",
+              1.071200994519863
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000003526972,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 9163.206536908518,
+          "mass_before_growth_kg": 61276.53926564435
+        },
+        "TRL7": {
+          "payload_kg": -25149.90874625808,
+          "geometry": {
+            "tf_m": 0.0026640092487916827,
+            "tc_m": 0.10742771891211782
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.6327140410114784,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000001000955
+            ],
+            [
+              "face_wrinkling",
+              1.0000000319833056
+            ],
+            [
+              "thermal_interface",
+              1.0712009945266034
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000319833056,
+          "lift_kg": 39115.53720149569,
+          "growth_total_kg": 2988.9058886058324,
+          "mass_before_growth_kg": 61276.540059147934
+        }
+      },
+      "density_factor": 2.2210491118125706,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.002769535486550012,
+        "geometry": {
+          "tf_m": 0.002664009202694097,
+          "tc_m": 0.10742772010688018
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.632714013882304,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 832.9396253152892
+        },
+        "binding": [
+          [
+            "face_wrinkling",
+            1.0000000003522602
+          ],
+          [
+            "global_buckling",
+            1.0000000044160184
+          ],
+          [
+            "thermal_interface",
+            1.0712009945190455
+          ]
+        ],
+        "modes_face_wrinkling": 1.0000000003522602,
+        "lift_kg": 39115.53720149569,
+        "growth_total_kg": 5077.439836460312,
+        "mass_before_growth_kg": 34038.09459549989
+      },
+      "root_bracket": [
+        2.2210487256268325,
+        2.2210491118125706
+      ]
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "supported_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [
+        "Q"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -18148.42594870122,
+          "geometry": {
+            "tf_m": 0.0027245698975730225,
+            "tc_m": 0.05673435457562437
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.6354201168166034,
+            "Vc": 1.0885502920415084,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003106464
+            ],
+            [
+              "global_buckling",
+              1.0000000406501044
+            ],
+            [
+              "thermal_interface",
+              1.0715550657906519
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000003106464,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 19575.16681274139,
+          "mass_before_growth_kg": 130588.19719100777
+        },
+        "TRL7": {
+          "payload_kg": -4968.150052446039,
+          "geometry": {
+            "tf_m": 0.002724569883953128,
+            "tc_m": 0.05673435374836682
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.6354201144487872,
+            "Vc": 1.088550286121968,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003624776
+            ],
+            [
+              "global_buckling",
+              1.0000000199476142
+            ],
+            [
+              "thermal_interface",
+              1.0715550657970574
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000003624776,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 6394.891644222862,
+          "mass_before_growth_kg": 130588.19646327112
+        }
+      },
+      "density_factor": 1.1606542642018385,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.024257613138615852,
+        "geometry": {
+          "tf_m": 0.002724569900694248,
+          "tc_m": 0.0567343547610271
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.6354201173577589,
+          "Vc": 1.0885502933943971,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 1593.9284178413207
+        },
+        "binding": [
+          [
+            "face_wrinkling",
+            1.0000000003367076
+          ],
+          [
+            "global_buckling",
+            1.0000000453237876
+          ],
+          [
+            "thermal_interface",
+            1.0715550657892166
+          ]
+        ],
+        "modes_face_wrinkling": 1.0000000003367076,
+        "lift_kg": 132014.93805504794,
+        "growth_total_kg": 17207.977655628772,
+        "mass_before_growth_kg": 114806.93614180603
+      },
+      "root_bracket": [
+        1.1606540623926478,
+        1.1606542642018385
+      ]
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "supported_Q_handbook_gamma",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -97877.74545950821,
+          "geometry": {
+            "tf_m": 0.003916821132168776,
+            "tc_m": 0.15809269749983285
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.6003924454543381,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.000000000325744
+            ],
+            [
+              "global_buckling",
+              1.0000000045063373
+            ],
+            [
+              "thermal_interface",
+              1.0709052725004857
+            ]
+          ],
+          "modes_face_wrinkling": 1.000000000325744,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 30098.62230300592,
+          "mass_before_growth_kg": 199794.06121155023
+        },
+        "TRL7": {
+          "payload_kg": -77634.3080381391,
+          "geometry": {
+            "tf_m": 0.003916821132168776,
+            "tc_m": 0.15809269749983285
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.6003924454543381,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.000000000325744
+            ],
+            [
+              "global_buckling",
+              1.0000000045063373
+            ],
+            [
+              "thermal_interface",
+              1.0709052725004857
+            ]
+          ],
+          "modes_face_wrinkling": 1.000000000325744,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 9855.184881636816,
+          "mass_before_growth_kg": 199794.06121155023
+        }
+      },
+      "density_factor": 2.0801961550040193,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.021455288009747164,
+        "geometry": {
+          "tf_m": 0.00391682117160972,
+          "tc_m": 0.15809269611651425
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.6003924608415314,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 889.3391185969401
+        },
+        "binding": [
+          [
+            "global_buckling",
+            1.000000000085586
+          ],
+          [
+            "face_wrinkling",
+            1.0000000199304595
+          ],
+          [
+            "thermal_interface",
+            1.070905272507874
+          ]
+        ],
+        "modes_face_wrinkling": 1.0000000199304595,
+        "lift_kg": 132014.93805504794,
+        "growth_total_kg": 17331.957053020826,
+        "mass_before_growth_kg": 114682.9595467391
+      },
+      "root_bracket": [
+        2.0801957933091413,
+        2.0801961550040193
+      ]
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "supported_Q_favorable_ramp",
+      "basis": "endpoint",
+      "revert": [
+        "Q"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -22010.464486428173,
+          "geometry": {
+            "tf_m": 0.002773069368289271,
+            "tc_m": 0.05684479529942426
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.6428498380608656,
+            "Vc": 1.107124595152164,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000004347624
+            ],
+            [
+              "global_buckling",
+              1.0000000313159985
+            ],
+            [
+              "thermal_interface",
+              1.0715542115354597
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000004347624,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 19885.106458938055,
+          "mass_before_growth_kg": 134140.29608253806
+        },
+        "TRL7": {
+          "payload_kg": -8623.144576046321,
+          "geometry": {
+            "tf_m": 0.002773069381625417,
+            "tc_m": 0.05684479308405312
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.6428498392887603,
+            "Vc": 1.1071245982219005,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "global_buckling",
+              1.0000000003822545
+            ],
+            [
+              "face_wrinkling",
+              1.0000000276859615
+            ],
+            [
+              "thermal_interface",
+              1.0715542115525793
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000276859615,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 6497.786405309304,
+          "mass_before_growth_kg": 134140.29622578496
+        }
+      },
+      "density_factor": 1.1975137479372135,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.026226894642604748,
+        "geometry": {
+          "tf_m": 0.002773069357223107,
+          "tc_m": 0.05684479464541224
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.6428498361388445,
+          "Vc": 1.1071245903471112,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 1544.8672870660148
+        },
+        "binding": [
+          [
+            "face_wrinkling",
+            1.000000000403525
+          ],
+          [
+            "global_buckling",
+            1.0000000149424264
+          ],
+          [
+            "thermal_interface",
+            1.0715542115405141
+          ]
+        ],
+        "modes_face_wrinkling": 1.000000000403525,
+        "lift_kg": 132014.93805504794,
+        "growth_total_kg": 17014.172886810436,
+        "mass_before_growth_kg": 115000.73894134286
+      },
+      "root_bracket": [
+        1.1975135397190666,
+        1.1975137479372135
+      ]
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "supported_Q_handbook_gamma",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "allowances": {
+        "concept": {
+          "payload_kg": -104441.2304443153,
+          "geometry": {
+            "tf_m": 0.0040086650006933,
+            "tc_m": 0.16095238277582535
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.6377109151715643,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003522338
+            ],
+            [
+              "global_buckling",
+              1.00000002273455
+            ],
+            [
+              "thermal_interface",
+              1.070890136051575
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000003522338,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 30765.213700245447,
+          "mass_before_growth_kg": 205690.95479911778
+        },
+        "TRL7": {
+          "payload_kg": -83751.33536831073,
+          "geometry": {
+            "tf_m": 0.004008664989910884,
+            "tc_m": 0.16095238159700884
+          },
+          "properties": {
+            "Q": 0.33,
+            "gamma": 0.2,
+            "Vc": 1.6377109105820558,
+            "E_Pa": 293600000000.0,
+            "density_kg_m3": 1850.0
+          },
+          "binding": [
+            [
+              "face_wrinkling",
+              1.0000000003406562
+            ],
+            [
+              "global_buckling",
+              1.0000000149564998
+            ],
+            [
+              "thermal_interface",
+              1.0708901360577594
+            ]
+          ],
+          "modes_face_wrinkling": 1.0000000003406562,
+          "lift_kg": 132014.93805504794,
+          "growth_total_kg": 10075.319300179037,
+          "mass_before_growth_kg": 205690.95412317963
+        }
+      },
+      "density_factor": 2.1805615255806963,
+      "density_status": "conditional closure",
+      "closure": {
+        "payload_kg": 0.009767650546564255,
+        "geometry": {
+          "tf_m": 0.004008664996153335,
+          "tc_m": 0.1609523822892635
+        },
+        "properties": {
+          "Q": 0.33,
+          "gamma": 0.2,
+          "Vc": 1.6377109132415582,
+          "E_Pa": 293600000000.0,
+          "density_kg_m3": 848.4052356685293
+        },
+        "binding": [
+          [
+            "face_wrinkling",
+            1.000000000314496
+          ],
+          [
+            "global_buckling",
+            1.00000001951636
+          ],
+          [
+            "thermal_interface",
+            1.0708901360541274
+          ]
+        ],
+        "modes_face_wrinkling": 1.000000000314496,
+        "lift_kg": 132014.93805504794,
+        "growth_total_kg": 17142.44323721197,
+        "mass_before_growth_kg": 114872.48505018542
+      },
+      "root_bracket": [
+        2.1805611464347523,
+        2.1805615255806963
+      ]
+    }
+  ],
+  "completed": "2026-10-20T17:13:08.754260-07:00"
+}

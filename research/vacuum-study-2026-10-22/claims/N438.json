@@ -1,0 +1,85 @@
+{
+  "id": "N438",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N438",
+    "report": "rpt-ref-d907de1e97319ecc3f9a",
+    "card": "MAINLINE-028b",
+    "file": "evidence/737765424727a77d-NFI.json",
+    "snapshot": "evidence/737765424727a77d-NFI.json",
+    "source_sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+    "source_json_pointer": "/rows/14",
+    "row_id": "NFI-028b-primer",
+    "fields": {
+      "id": "NFI-028b-primer",
+      "status": "OPEN",
+      "issue": "Actual primer coverage, surface preparation and mass must be measured; 5 g/m² is a selected sensitivity.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": {
+        "per_line_kg_m2": 0.005,
+        "two_lines_kg": 12.566370614359172
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+      "source": "MAINLINE-028 sensitivity"
+    },
+    "inherited_document_tag": {
+      "overall_installed_hull_SF": null
+    }
+  },
+  "claim": "Actual primer coverage, surface preparation and mass must be measured; 5 g/m² is a selected sensitivity.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/437"
+    },
+    {
+      "report": "rpt-ref-d907de1e97319ecc3f9a",
+      "artifact": "evidence/737765424727a77d-NFI.json",
+      "snapshot": "evidence/737765424727a77d-NFI.json",
+      "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+      "bytes": 13400,
+      "selector": "/rows/14"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d907de1e97319ecc3f9a",
+          "artifact": "evidence/737765424727a77d-NFI.json",
+          "snapshot": "evidence/737765424727a77d-NFI.json",
+          "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+          "bytes": 13400,
+          "selector": "/rows/14"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/437"
+          }
+        ]
+      }
+    }
+  ]
+}

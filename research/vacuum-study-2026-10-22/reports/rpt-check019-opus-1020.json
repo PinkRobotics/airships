@@ -1,0 +1,56 @@
+{
+  "id": "rpt-check019-opus-1020",
+  "unit": "vacuum-mainline019-check-1020",
+  "at": "2026-10-20T01:00:15-07:00",
+  "body": "CHECK MAINLINE-019, the first of two on this order (020 follows): the arithmetic reproduces. My own scripts (owner scripts not run) match 158 items to at most 2.6e-8, with 0 mismatches; the 34 source pins still match. Line items: optimistic 535.95 kg (10.96%) and conservative 4229.07 kg (86.49%), set by aluminium, every item reproduced (systems excess 0/1366.33, joints and films 124.65/939.69, water 125.66/1256.64, contamination 5/25, temperature and pressure 213.04/485.76, humidity 18.70/106.76, internal air 48.89; aramid 529.92/4205.89). Climate formula: the ideal-mixture moist-air density ratio referenced to dry ISA, split exactly into dry and humid parts; +25.1 K alone is 395.89 kg. Both families reproduce on each line at 0, 5, 10.96 and 86.49%: aramid 0.685398/0.650413/0.608701/0.009665 and aluminium 0.668711/0.617051/0.556669/0.012716. So do the panel widths, vacuum route, sensitivities and the 290 GPa row. Not reproduced: 014b's grid value, whose grid is unstated. Text: the order quotes the id as rpt-lead-sciences-…, but it is filed as rpt-lead-sci-…; and payload is 0 kg on both lines, though the brief asks for a conservative value. Objection, demonstrated with 018's own curves: the step rule gives aramid the optimistic gamma 1 and aluminium the conservative 0.2. Either curve applied to both puts aluminium ahead: optimistic curve 0.847 against 0.609 on the optimistic line (0.988 against 0.685 at margin 0, capped by Be face compression); conservative curve 0.557 against 0.253. Every value is QUESTIONABLE; nothing here is a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/301a3e894c4e3132-CHECK.md",
+      "sha256": "301a3e894c4e313291cf31a65c79c00d15973d86b672554794565c8f711b8e54",
+      "bytes": 5519
+    },
+    {
+      "path": "evidence/51437194595e02a8-RESULTS.json",
+      "sha256": "51437194595e02a8c362e198f7f88fbfa0e2bf849ea382fa284822f4e04c2e59",
+      "bytes": 15265
+    },
+    {
+      "path": "evidence/179be9a3894748f8-COMPARE.json",
+      "sha256": "179be9a3894748f8c59fab87194d1fd0c53e4d809db5a92ff6dae19cf1b31686",
+      "bytes": 26404
+    },
+    {
+      "path": "evidence/7bc913abd16260ff-SENS-018-CURVES.json",
+      "sha256": "7bc913abd16260ffb4d7854315039b706f0359a5b4c9991b0276dcd6c32bab3d",
+      "bytes": 7944
+    },
+    {
+      "path": "evidence/9cc8bdcb82e9b2d1-NFI.json",
+      "sha256": "9cc8bdcb82e9b2d1f37cbec7b0fb35cac3aedf1fb3bd8dedfc8c7090877f1cd3",
+      "bytes": 1537
+    },
+    {
+      "path": "evidence/4e50f019a4c9d255-INPUTS.json",
+      "sha256": "4e50f019a4c9d2559495e78a7a381fe05332077200ab6682bcd048c46667e727",
+      "bytes": 6128
+    },
+    {
+      "path": "evidence/13ab90a4c5df10cc-check019.py",
+      "sha256": "13ab90a4c5df10cc77ed12696366a5a344fd2f2114e11bb431da36c446fcf774",
+      "bytes": 12446
+    },
+    {
+      "path": "evidence/2de063d4f5113d07-compare019.py",
+      "sha256": "2de063d4f5113d07a6c3c662f030a05a148d35e894c98c60b23a1b8427096e9a",
+      "bytes": 7734
+    },
+    {
+      "path": "evidence/b548bc90f2d28f16-check019_curves.py",
+      "sha256": "b548bc90f2d28f16b60e2ef78c741a53f7f67f66ed026fe94539639936cdae66",
+      "bytes": 2703
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-55cff924be25afe6f9dd",
+  "re": "ord-admiral-rr2-check019-020-after-011b-opus-1020"
+}

@@ -1,0 +1,85 @@
+{
+  "id": "D425",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D425",
+    "report": "rpt-ref-e0fc07c506c86dae19c1",
+    "file": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "source_sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+    "source_json_pointer": "/new/2",
+    "row_id": "NFI-CHECK045-GROWTH-TABLE",
+    "fields": {
+      "id": "NFI-CHECK045-GROWTH-TABLE",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "55 mm growth entry",
+      "finding": "The clamped 55 mm threshold is 19.176311 mm, not deeper than the 23.237218 mm core.",
+      "proposed_fix": "Correct the table cell; keep its model and boundary qualifications.",
+      "refs": [
+        "PROSE-CROSS-CHECKS.json"
+      ]
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/new",
+    "blocks_progress": false
+  },
+  "claim": "The clamped 55 mm threshold is 19.176311 mm, not deeper than the 23.237218 mm core. | 55 mm growth entry",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1385"
+    },
+    {
+      "report": "rpt-ref-e0fc07c506c86dae19c1",
+      "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+      "bytes": 17031,
+      "selector": "/new/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-e0fc07c506c86dae19c1",
+          "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+          "bytes": 17031,
+          "selector": "/new/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1385"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "phase": 1,
+  "name": "intake_named_knockdown_curve_selection",
+  "end_utc": "2026-10-19T22:24:16.291990-07:00",
+  "end_monotonic_s": 2089381.472318944,
+  "elapsed_s": 98.18668101611547,
+  "duration_s": 98.18668101611547,
+  "actual_max_s": 150,
+  "cumulative_max_s": 150,
+  "status": "INSIDE",
+  "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+  "own_status": "ESTIMATE_PENDING_UNA",
+  "curve": {
+    "name": "NASA SP-8032 spherical-cap lower-bound knockdown",
+    "authors": "V. I. Weingarten and P. Seide",
+    "date": "August 1969",
+    "title": "Buckling of Thin-Walled Doubly Curved Shells",
+    "publisher": "NASA Space Vehicle Design Criteria (Structures)",
+    "identifier": "NASA SP-8032",
+    "section": "4.2.1.1 Spherical caps under uniform external pressure, as reproduced by later papers",
+    "equation": "rho = 0.14 + 3.2/lambda^2 for lambda > 2",
+    "lambda": "lambda = [12(1-nu^2)]^(1/4) * sqrt(R/t) * 2*sin(phi/2)",
+    "representation": "text equation, not a figure digitization and not the monograph PDF",
+    "monograph_pdf": "NOT_RETRIEVED this clock; NTRS candidate URLs returned 404",
+    "retrieved_from": [
+      "Wagner, Huehne and Niemann, Int. J. Mechanical Sciences, 2018, Eq. (5), text via Scribd mirror of 1-s2.0-S0020740318300961",
+      "Ultimate strength models for spherical shells under external pressure: a comparative study, ResearchGate full text, Eqs. (16) and (17)"
+    ],
+    "tag": "QUESTIONABLE"
+  },
+  "mapping": {
+    "phi_rad": "pi, complete-sphere half-angle so 2*sin(phi/2)=2",
+    "thickness": "t_eq = (6*tf*d^2)^(1/3), matching inherited sandwich bending stiffness D=E*tf*d^2/(2*(1-nu^2)) to monocoque D=E*t^3/(12*(1-nu^2))",
+    "transfer": "Monolithic clamped-cap evidence applied to a complete sandwich sphere. Not validated sandwich data.",
+    "rows": [
+      "P2-A",
+      "P2-C",
+      "P2-K",
+      "P2-E"
+    ],
+    "held_fixed": "003 geometry, atmosphere, masses, core density, strength transfer, omitted core modes",
+    "density": "DEFERRED_NO_POINT"
+  },
+  "scaling": "E_required = E_required_at_0.2 * 0.2/rho. A larger knockdown factor lowers required E. The curve value is not forced above 0.2.",
+  "predecessor_scripts": "not executed"
+}

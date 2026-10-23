@@ -1,0 +1,64 @@
+{
+  "id": "rpt-ref-b04a74e20d6970dcde72",
+  "unit": "vacuum-record-delta-d-1020",
+  "at": "2026-10-20T18:44:47-07:00",
+  "body": "Piece D is claim-record version 8. QUESTIONABLE / PROJECTION. No qualified hull safety factor.\n\nAt 066's four concept optima the model margins are 1. COMMON buckling at gamma 0.20 and nu 0.33 is 1.6328, 1.6925, 1.6347 and 1.6945. Equation 2.2-14 is 1.0634, 1.0909, 1.0681 and 1.0958. The buckling gap is unsourced kc = 1 - vc/4 at model61.py line 106 and model63.py line 113, then cure. The wrinkling gap is the unsourced pressure adder plus grad, bend and cure. nu 0.0768, gamma 0.20 and Q 0.33 stand.\n\nsimjob-20261020t183403-e1930b66c51e removed each unsourced term. Gamma stays 0.20. The concept R20 optimistic witness moves from the filed 1.8627 to 1.4875 without kc, 1.8060 without cure, 1.8505 without grad and bend, and 1.7757 without the pressure adder. Those rows are UNREVIEWED beside the filed factors.\n\nSciences' 066 limits stand beside that status. 066 is 293.6 GPa and 379.2 MPa. 067 normalizes to 290 GPa and 345 MPa. No hull-face product meets the filed vector. Diamond's index is 1.020 and the SAE minimum ranks just above programme SR-200. T3 and T7 stay on SR-200 bonded to CR-III.",
+  "artifacts": [
+    {
+      "path": "evidence/ab2bf71c9012c795-CARD.md",
+      "sha256": "ab2bf71c9012c795ae3a634ec751e44b607b683badb6954a091121ab6cb6ecbd",
+      "bytes": 9027
+    },
+    {
+      "path": "evidence/fff5298a0f0b2bc6-RESULTS.json",
+      "sha256": "fff5298a0f0b2bc6c65c546cc63770d733d657c91402dce6a3916e1fb06f971d",
+      "bytes": 24489
+    },
+    {
+      "path": "evidence/1d23901eb4a26ce3-NFI.json",
+      "sha256": "1d23901eb4a26ce3eccf7c71a76b83bd6632d254c7a2a8063bae9becad755391",
+      "bytes": 4781
+    },
+    {
+      "path": "evidence/21e4d8c8c9c74802-INPUTS.json",
+      "sha256": "21e4d8c8c9c74802f0116c5326102b6ca023bbc23f5e8ff9cb7d73f52b67a4ff",
+      "bytes": 1583
+    },
+    {
+      "path": "evidence/3e4564ad23288f5c-RUN.json",
+      "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+      "bytes": 46915
+    },
+    {
+      "path": "evidence/a9c80592955b6939-run_terms.py",
+      "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+      "bytes": 10847
+    },
+    {
+      "path": "evidence/8f4215af5f579599-build_delta.py",
+      "sha256": "8f4215af5f57959960b6b446f25ca1d1422cd710f516c7a3b2f8d06f941b14e1",
+      "bytes": 24545
+    },
+    {
+      "path": "evidence/7472abe12cdfb637-DELTA-D-1020.json",
+      "sha256": "7472abe12cdfb637e1034b5dc99823b1eb45b363aa50271ea61e2c1f51cbc900",
+      "bytes": 98358
+    },
+    {
+      "path": "unpublished-local-ref:415f65946d4a4e7d",
+      "sha256": "dede05e82b02973f6d4b2d79170dd9930563bc0500ce63717897c62da70040c7",
+      "bytes": 21796723
+    }
+  ],
+  "from": "ref-08887151c61d86c0cd02",
+  "from_seat": "ref-08887151c61d86c0cd02",
+  "re": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "unit": "vacuum-mainline072-graphite-matched-core-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "note": "INPUTS.json is not hashed into itself. The model copy is 071's model/ tree (source61.py verifies every source against SOURCE-INDEX.json pins); model63.py differs from 071's by the CORE_ALPHA / CORE_WALL_E / CORE_WALL_RHO / CORE_WALL_YIELD parametrization only. BETA 1, gamma the CR-1457 step, Q 0.33, bond 25 psi, scarf 10 MPa, film spec 969 GPa / 2250 / 1.29 GPa / signed -1.0e-6/K, unchanged from 070/071.",
+  "simjob": {
+    "scope": "simjob-20261022t094610-ac2b68c457b0.scope",
+    "exit": 0,
+    "ran_s": 125,
+    "resources": "1 core, 4 GiB, timeout 3600 s",
+    "first_scope_exited_1": "simjob-20261022t094550-4cfc7eca4469: PRIOR071 pointed inside this seat's tree; fixed and re-run unchanged. No partial outputs were used."
+  },
+  "pins": {
+    "order": {
+      "path": "unpublished-local-ref:24b3d08d37adad66",
+      "sha256": "b5e85e7a3961a2f4f6c8d0918f841acb2699b000355d2e0a40f3ea830ec46808",
+      "bytes": 3668
+    },
+    "card_072b": {
+      "path": "unpublished-local-ref:0fb0a98729ff4b3f",
+      "sha256": "ba303261e3ddab48e5a7b2d20e7d8f6de92023e1c21db28243bb95e2f90bf8f7",
+      "bytes": 2582
+    },
+    "admissibility": {
+      "path": "withheld-source:93549c873c543f1a",
+      "sha256": "c6971dac8f1fb0fe07c9b9db3654c93f8cd26c32d869f0102a4cbd02451e7e05",
+      "bytes": 1173
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+      "bytes": 6686
+    },
+    "process_v2": {
+      "path": "withheld-source:1e41db6abdc46dc9",
+      "sha256": "0ca073ecfc5861f5650ea0445dfb97bf87ff004850d7414d0cdcc282cb820d15",
+      "bytes": 5343
+    },
+    "private-key-reference:16bb9104146d64447f79658a": "[withheld: private instruction field]",
+    "his_word_3": {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021
+    },
+    "his_word_4": {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063
+    },
+    "his_word_5": {
+      "path": "unpublished-local-ref:cc845a34db50125b",
+      "sha256": "dd537cc474ed292987295ba8cdc0a170db4895a60c73f3fd42618e0174505e48",
+      "bytes": 1071
+    },
+    "run_071": {
+      "path": "evidence/beab41052e6f000c-RUN.json",
+      "sha256": "beab41052e6f000c8e7d98c39a207e2566f1b3678d619269c6ed1f8a751d622b",
+      "bytes": 37474,
+      "note": "reproduction target and 070-geometry source"
+    },
+    "model63_071": {
+      "path": "unpublished-local-ref:41983d294986cec6",
+      "sha256": "14a9a58aaeeb7c0f23f5dc4a5de047d982aeb36844a91f7d3beea20474316be0",
+      "bytes": 19934,
+      "note": "the copied model, byte-identical before patching"
+    },
+    "model63_072": {
+      "path": "model/model63.py",
+      "sha256": "9deed5dad7b4773103da13e5e14b90aa112f336754c7e15f3df471324904f737",
+      "bytes": 20399,
+      "note": "071's copy patched for the core parameters"
+    },
+    "run072": {
+      "path": "run072.py",
+      "sha256": "f034375a8d3fb05169197e5a02dacd014f1dd4c9dede58ad74639241ed088a8e",
+      "bytes": 15212
+    },
+    "hexweb_pdf": {
+      "path": "unpublished-local-ref:e7885239ca001a77",
+      "sha256": "cecf9aadb972fddcb296f534dea37f5bfabf6273217ba4343be2a3ae17bb65c3",
+      "bytes": 1479080,
+      "note": "HexWeb Honeycomb Attributes and Properties (hexcel.com/wp-content/uploads/2026/01/HexWebHoneycombAttributesandProperties.pdf), saved local copy; tables read from a pdftotext extraction"
+    }
+  },
+  "web_sources": {
+    "ucf51": "http://www.lookpolymers.com/polymer_Ultracor-UCF-51-38-20-Honeycomb-Core-Material.php (CTE 4.50e-6/K across thickness; density 32; flatwise 1.41 MPa; G_L 331 MPa)",
+    "ucf355": "http://www.lookpolymers.com/polymer_Ultracor-UCF-355-38-35-Honeycomb-Core-Material.php (density 56; Ec 73.1 MPa; G_W 161 MPa; W shear strength 1.63 MPa; flatwise 2.83 MPa; T300 ±45 polycyanate)",
+    "uqf95": "http://www.lookpolymers.com/polymer_Ultracor-UQF-95-14-30-Honeycomb-Core-Material.php (density 48; Ec 172 MPa; G_L 117 MPa; quartz Astroquartz II; no CTE, no W)",
+    "carbon_wall_modulus": "±45 carbon laminate in-plane modulus datasheet range 20-47 GPa (ACP/Performance Composites datasheet summaries; base 35 GPa); Kevlar 49 fabric laminate ~29 GPa; glass fabric laminate ~25 GPa (generic fabric-laminate typicals)",
+    "cfoam": "cfoam.com spec sheets, CTE 5.0 ppm/C ASTM E228",
+    "be_honeycomb": "NASA NTRS 19730016169 (Vogan 1972), brazed beryllium honeycomb panels",
+    "invar_honeycomb": "DTIC AD0444184 (1963), Invar-faced panels with Invar honeycomb core",
+    "ti_alloy": "Ti-6Al-4V density 4430 kg/m3, CTE ~8.6e-6/K (alloy data sheets)"
+  },
+  "conversions": {
+    "psi": 6894.757293168361,
+    "ksi": 6894757.293168361,
+    "pcf_kg_m3": 16.018463373960138,
+    "per_F_to_per_K": 1.8
+  },
+  "core_inputs_used": {
+    "UCF-355-3/8-3.5-carbon": {
+      "rho": 56.0,
+      "Ec_Pa": 73100000.0,
+      "Gc_Pa": 161000000.0,
+      "crush_Pa": 2830000.0,
+      "s_cell_m": 0.009524999999999999,
+      "alpha": 4.5e-06,
+      "wall_E": 35000000000.0,
+      "wall_rho": 1550.0,
+      "wall_yield": 200000000.0
+    },
+    "HRH-327-1/8-3.2-glass": {
+      "rho": 51.25908279667244,
+      "Ec_Pa": 186158646.9155,
+      "Gc_Pa": 51710679.698762074,
+      "crush_Pa": 2137174.760881392,
+      "s_cell_m": 0.003175,
+      "alpha": 1.476e-05,
+      "wall_E": 25000000000.0,
+      "wall_rho": 1950.0,
+      "wall_yield": 150000000.0
+    },
+    "HRH-49-1/4-2.1-kevlar": {
+      "rho": 33.63877308731629,
+      "Ec_Pa": 172368932.32920903,
+      "Gc_Pa": 8963184.481118869,
+      "crush_Pa": 896318.4481118869,
+      "s_cell_m": 0.00635,
+      "alpha": 4.86e-06,
+      "wall_E": 29000000000.0,
+      "wall_rho": 1380.0,
+      "wall_yield": 150000000.0
+    },
+    "CR-III-baseline": {
+      "alpha": 2.36e-05,
+      "source": "the installed 040 INPUTS.json core block, unchanged"
+    },
+    "CR-III-published-CTE": {
+      "alpha": 2.376e-05,
+      "source": "13.2e-6/F x 1.8, family t-t table"
+    }
+  },
+  "times": {
+    "started": "2026-10-22T09:44:07-07:00",
+    "note": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]"
+  }
+}

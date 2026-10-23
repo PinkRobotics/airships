@@ -1,0 +1,39 @@
+{
+  "id": "E-aea0b40d7707fd8fd2f4",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-aea0b40d7707fd8fd2f4",
+    "report": "rpt-ref-5c8405d45d6cb50633f1",
+    "file": "evidence/6e8dee54ea712f84-NFI.json",
+    "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+    "source_sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+    "source_json_pointer": "/rows/15",
+    "row_id": "NFI-048-C16",
+    "fields": {
+      "id": "NFI-048-C16",
+      "status": "open_evidence",
+      "topic": "Physical thermal and residual-stress boundary",
+      "finding": "Numerical equivalence is closed. The actual convection,radiative core term,coupled weather/wetting and residual cure field remain unqualified. Cure inclusion is a sensitivity; whole-hull scalar modes remain projections.",
+      "evidence": "METHOD.md; thermal and addendum checks",
+      "installed_hull_SF": null
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Numerical equivalence is closed. The actual convection,radiative core term,coupled weather/wetting and residual cure field remain unqualified. Cure inclusion is a sensitivity; whole-hull scalar modes remain projections.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-5c8405d45d6cb50633f1",
+      "artifact": "evidence/6e8dee54ea712f84-NFI.json",
+      "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+      "sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+      "bytes": 19121,
+      "selector": "/rows/15"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

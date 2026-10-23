@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-030",
+  "unit": "vacuum-mainline030-design-register-1020",
+  "rows": [
+    {
+      "id": "NFI-030-CONTINUUM",
+      "state": "demonstrated (CONTINUUM.json)",
+      "owner": "MAINLINE-022c / MAINLINE-026",
+      "note": "The smeared lattice buckle half-wave pi*sqrt(1.06*rg*R) is 0.57 of the member at 022b's s 6.15 m (40 nodes) and 0.64 at s 5.5 m, against 1.48 at 011b's s 2.04 m and 4.56 at the Mylar s 0.55 m frame. Where the half-wave is shorter than a member, the global formula does not describe the frame; 022b's 1.375 and 1.487 need a discrete geometrically nonlinear check before they count.",
+      "settle": "one ccx/gmsh buckling run of the triangulated frame at s 2.2 m and 6.15 m"
+    },
+    {
+      "id": "NFI-030-TWO-WAY",
+      "state": "demonstrated (lattice sum C1212 = 0, rpt-check011b-opus-1020 M4)",
+      "owner": "MAINLINE-022c",
+      "note": "022b re-counted the two-way grid at 2V-4 members but kept the isotropic C = 4. An unbraced two-way grid has no in-plane shear stiffness, so its two-way rows (Ti + Kapton 0.986, SiC 1.98) are not floating points until a discrete solve or diagonals settle it."
+    },
+    {
+      "id": "NFI-030-P3-INBAND",
+      "state": "computed (rpt-check011b-opus-1020)",
+      "owner": "MAINLINE-022c",
+      "note": "Inside s <= 3 m, SiC arcs with FIX-A and FIX-B at 100 kg and 5% are 1.130, film-limited at s 2.224 m (r_o 121.7 mm, wall 0.915 mm), on the carried 1.5 GPa film. 022c could report an in-band row beside the open band."
+    },
+    {
+      "id": "NFI-030-SNAPSHOT",
+      "state": "open",
+      "owner": "admiral-robotics-review-v2",
+      "note": "Snapshot at 01:15 PDT. Pending cards 022c, 025, 026, 028b, 015b, 029 and checks of 021b, 022b, 023, 024, 027, 028; 030b refiles on them."
+    },
+    {
+      "id": "NFI-030-HELD-020",
+      "state": "recorded",
+      "owner": "ref-55cff924be25afe6f9dd",
+      "note": "This seat finished a 020 check before it read the narrowing that moved 020 to ref-4189c1615990eb515921. The report was pulled from the outbox before ingest and is held unfiled at .ship/held/rpt-check020-opus-1020.json; its only new result (019's reserve at 020's stock and film, 1154.23 kg) is carried in R038 and agrees with 021b."
+    }
+  ]
+}

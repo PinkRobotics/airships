@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-835787ddc4b56d034c73",
+  "unit": "vacuum-mainline072-graphite-matched-core-1020",
+  "at": "2026-10-22T09:52:04-07:00",
+  "body": "MAINLINE-072b is filed. No real core makes the graphite route feasible. QUESTIONABLE. PROJECTION. No qualified hull safety factor.\n\nCores at or below 12.2e-6 per K exist in four families, all datasheet-typical. Kevlar publishes 4.86e-6/K (HRH-49 1/4-2.1, full data, flagged preliminary). Carbon publishes 4.5e-6/K across thickness (UCF-51; UCF-355 carries the family value with full data). Glass publishes 14.76e-6/K. Titanium, beryllium and Invar are braze-formed demonstrations, not catalog cores.\n\n071's model copy, reproductions 0.0 and 0.001 kg; gamma by the CR-1457 step; the film keeps -1.0e-6/K.\n\nCarbon UCF-355: no feasible geometry in any of the 8 cases. The low expansion is real, but the core's own bond-shear stiffness (3.3x CR-III) holds the interface under the 25 psi screen. Release needs alpha at or below 3.0e-6, or a wall modulus under about 18 GPa - a value the maker does not publish.\n\nGlass HRH-327: no feasible geometry; release needs 8.8e-6, under every published glass value.\n\nKevlar HRH-49: feasible in all 8 cases - the first core whose published expansion the film carries (interface 3.86). The cost is mechanical: W shear modulus 0.19 of CR-III drives the core to 108-166 mm and scarf shear and crimping bind. Payloads -27250 to -97399 kg. The face-density factor to float is 2.67-3.04 at concept (to 741-842 kg/m3) and 2.16-2.41 at TRL 7 (934-1042), against CR-III's gamma-step 1.07-1.25.\n\nThe route's named needs: the carbon grades' wall modulus and in-plane CTE measured; a stiffer Kevlar-family core at that expansion; and the face itself.",
+  "artifacts": [
+    {
+      "path": "evidence/7cb55633a67c55da-CARD.md",
+      "sha256": "7cb55633a67c55da9e43a070c40d86bfcf6cf34060e46dd01e0c92f1555d9607",
+      "bytes": 3650
+    },
+    {
+      "path": "evidence/e2534ce98c67c9e4-RESULTS.json",
+      "sha256": "e2534ce98c67c9e4568e5ff449b948c278537e901ee2fd59d9d9614afc00e266",
+      "bytes": 8242
+    },
+    {
+      "path": "evidence/64747f7aca664265-NFI.json",
+      "sha256": "64747f7aca664265e43604ea1476187159ddf9c4a49338f3b3a81524ad48536d",
+      "bytes": 3612
+    },
+    {
+      "path": "evidence/793a5ff6d1501b21-INPUTS.json",
+      "sha256": "793a5ff6d1501b219a6dae3c2d1908d7e044cff8dbd9c2fe797e63bc66c676cd",
+      "bytes": 7304
+    },
+    {
+      "path": "evidence/9623476f128d9d56-RUN.json",
+      "sha256": "9623476f128d9d56640402a2b0d9694217f7ffce1f54e71f61c518efeecc7f9a",
+      "bytes": 89652
+    }
+  ],
+  "from": "ref-72d2783e3f3e5b392443",
+  "from_seat": "ref-72d2783e3f3e5b392443",
+  "re": "ord-admiral-rr2-mainline072b-dispatch-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline072b-dispatch-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "N403",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N403",
+    "report": "rpt-ref-35706d7a2ae7e951590b",
+    "card": "rpt-ref-35706d7a2ae7e951590b",
+    "file": "evidence/17d1e17bba0e3797-NFI.json",
+    "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+    "source_sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+    "source_json_pointer": "/items/2",
+    "row_id": "NFI-020C-DOUBLER-BERYLLIUM",
+    "fields": {
+      "id": "NFI-020C-DOUBLER-BERYLLIUM",
+      "rank": 3,
+      "kind": "NFI row",
+      "tag": "PROJECTION",
+      "against": "CARD.md sections 1 and 3",
+      "claim": "Section 3's splice doublers are full-gauge Be, but section 1 buys and prices only the faces.",
+      "numbers": {
+        "Be_doubler_kg_opt_con": [
+          459.11634213163603,
+          2066.023539592362
+        ],
+        "Be_total_kg": [
+          3957.5828691747024,
+          5564.490066635428
+        ],
+        "share_of_mine_output_percent": [
+          0.9139914247516633,
+          1.2940674573570763
+        ],
+        "sheet_stock_cost_USDm": [
+          44.69740652244371,
+          267.09552319850053
+        ],
+        "card_cost_USDm": [
+          39.51209254072168,
+          167.92639329806718
+        ],
+        "cost_increase_percent": [
+          13.12335958005255,
+          59.05511811023621
+        ]
+      },
+      "proposed_fix": "Count the doubler Be in the section 1 supply share and sheet cost, paired the way section 3 pairs panels and joints.",
+      "effect_on_lead": "No SF effect; procurement and cost rise."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    }
+  },
+  "claim": "Section 3's splice doublers are full-gauge Be, but section 1 buys and prices only the faces.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/402"
+    },
+    {
+      "report": "rpt-ref-35706d7a2ae7e951590b",
+      "artifact": "evidence/17d1e17bba0e3797-NFI.json",
+      "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+      "sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+      "bytes": 4490,
+      "selector": "/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-35706d7a2ae7e951590b",
+          "artifact": "evidence/17d1e17bba0e3797-NFI.json",
+          "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+          "sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+          "bytes": 4490,
+          "selector": "/items/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/402"
+          }
+        ]
+      }
+    }
+  ]
+}

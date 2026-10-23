@@ -1,0 +1,714 @@
+[
+  {
+    "id": "SBKF-TA01",
+    "record_type": "test_article",
+    "family": "NASA SBKF stiffened cylinder, global buckling",
+    "citation": "Hilburger, M.W.; Waters, W.A. Jr.; Haynie, W.T., 'Buckling Test Results from the 8-Foot-Diameter Orthogrid-Stiffened Cylinder Test Article TA01', NASA/TP-2015-218785, Aug 2015 (test Nov 19-21 2008, MSFC)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/citations/20150017037",
+      "https://ntrs.nasa.gov/api/citations/20150017037/downloads/20150017037.pdf"
+    ],
+    "readable": "full text (pdftotext of the PDF)",
+    "shell_type_loading": "Cylinder, 3 friction-stir-welded Al-Li 2195 integrally stiffened panels (3 axial weld lands, reinforced), internal orthogrid; final load sequence LS5 = uniform axial compression to buckling, no pressure",
+    "geometry": {
+      "diameter_in": 96,
+      "length_in": 78.0,
+      "R_over_teff": 230.9,
+      "L_over_D": 0.816
+    },
+    "materials": "Al-Li 2195 (E=11.0e6 psi, nu=0.33, yield 66.0e3 psi used in model)",
+    "stiffener_dims": "acreage orthogrid, internal: skin t=0.100 in; axial & circumferential stiffener thickness 0.100 in; spacing bs=br=4.0 in; stiffener height H=0.400 in from OML",
+    "measured": {
+      "value": "689.2 kips (689 kips) max load before buckling",
+      "note": "sudden drop ~61% to 270 kips post-buckling; failure by global buckling, single dimple"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "Pcr = 726,800 lb: predicted linear bifurcation buckling load of geometrically perfect, uniform cylinder (no weld lands) under uniform compression",
+        "value": "726,800 lb",
+        "code_basis_note": "how Pcr was computed (closed-form smeared vs FE) not stated in the passages read"
+      },
+      {
+        "what": "STAGS geometrically nonlinear pretest prediction including measured geometric imperfection, 3 weld lands, test-fixture model",
+        "value": "620 kips (619.8 kips, 85.3% Pcr)"
+      }
+    ],
+    "ratio_stated": {
+      "test_over_Pcr_perfect_uniform": "94.8% Pcr (stated in Fig 4.11 caption)",
+      "test_vs_nonlinear_pretest": "predicted ~10% lower than measured (stated)"
+    },
+    "recommended_knockdown": null,
+    "location": "Sec 2.5.5 (Pcr, PDF p29); Sec 2.2 (geometry, PDF p14); Sec 4.2.1 & Fig 4.2 (620 vs 689 kips, PDF p33); Fig 4.11 caption (94.8% Pcr, PDF p41); Sec 5.0 (PDF p57)",
+    "quotes": [
+      "Pcr = 726,800 lb and Mcr = 36.35e6 inch-lb.",
+      "DIC at buckling load of 689.2 Kips (94.8% Pcr).",
+      "predicted maximum load of 620 Kips is approximately 10% lower",
+      "a skin thickness of 0.100 inches, axial and circumferential stiffener spacing of 4.0 inches"
+    ],
+    "notes": "Pretest model was explicitly 'preliminary'; fillets and node details omitted. The report says the cause of the ~10% gap is not known. The 94.8% is test over a linear-bifurcation perfect-uniform load (a classical-style KDF numerically), but it includes weld lands plus imperfections, with unpressurised axial load only.",
+    "missing": [
+      "how Pcr was computed (smeared closed form vs discrete FE) - null"
+    ]
+  },
+  {
+    "id": "SBKF-TA02-LS4",
+    "record_type": "test_article",
+    "family": "NASA SBKF stiffened cylinder, global buckling",
+    "citation": "Hilburger, M.W.; Waters, W.A. Jr.; Haynie, W.T.; Thornburgh, R.P., 'Buckling Test Results and Preliminary Test and Analysis Correlation from the 8-Foot-Diameter Orthogrid-Stiffened Cylinder Test Article TA02', NASA/TP-2017-219587, Mar 2017 (test Feb 3-6 2009, MSFC)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/citations/20170005857",
+      "https://ntrs.nasa.gov/api/citations/20170005857/downloads/20170005857.pdf"
+    ],
+    "readable": "full text (pdftotext of the PDF)",
+    "shell_type_loading": "Cylinder as TA01 (3 FSW Al-Li panels, 3 weld lands, internal orthogrid); LS4: combined axial compression + bending, ratio 1.0Pcr:1.5Mcr, max compression over centre of Panel A; no internal pressure",
+    "geometry": {
+      "diameter_in": 96,
+      "length_in": 78.0,
+      "R_over_teff": 230.9
+    },
+    "materials": "Al-Li 2195",
+    "stiffener_dims": "same acreage design as TA01: t=0.100, stiffener thickness 0.100, spacing 4.0, H=0.400 in",
+    "measured": {
+      "value": "286.2 kips total load (LS4)",
+      "note": "drop ~35% to 188.2 kips"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "Classical: Pcr = 726,800 lb, 'classical linear bifurcation buckling load of a geometrically perfect, uniform cylinder'; combined-load classical total = 290.7 kips (linear P-M interaction, Mcr = 0.5*Pcr*R)",
+        "value": "290.7 kips"
+      },
+      {
+        "what": "Geometrically nonlinear FE of imperfect TA02 (pretest)",
+        "value": "258.1 kips (88.8% classical)"
+      }
+    ],
+    "ratio_stated": {
+      "test_over_classical": "98.4% of classical (stated)",
+      "test_vs_nonlinear_pretest": "predicted ~10% lower than measured (stated); 9.8% in Sec 5"
+    },
+    "recommended_knockdown": null,
+    "location": "Sec 2.5.5 (PDF p33); Sec 4.1 (258.1 / 268.0 kips, PDF p35); Sec 4.2.1 (PDF p38)",
+    "quotes": [
+      "258.1 kips (88.8% of the classical buckling load for LS4)",
+      "286.2 kips (98.4% of the classical buckling load for LS4)"
+    ],
+    "notes": "A load anomaly at ~190 kips was attributed to settling of the article in the potting. Axial+bending, so not a pure-compression number.",
+    "missing": []
+  },
+  {
+    "id": "SBKF-TA02-LS5",
+    "record_type": "test_article",
+    "family": "NASA SBKF stiffened cylinder, global buckling",
+    "citation": "Same report as SBKF-TA02-LS4 (NASA/TP-2017-219587)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/api/citations/20170005857/downloads/20170005857.pdf"
+    ],
+    "readable": "full text",
+    "shell_type_loading": "TA02 re-loaded, LS5: combined axial + bending 1.0Pcr:1.5Mcr, max compression over weld land BC (theta=180 deg)",
+    "geometry": {
+      "diameter_in": 96,
+      "length_in": 78.0
+    },
+    "materials": "Al-Li 2195",
+    "stiffener_dims": "as TA01/TA02",
+    "measured": {
+      "value": "280.0 kips (Sec 4.3.1) and 279.7 kips (Sec 5, inconsistent within report)"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "Nonlinear FE of imperfect article (pretest)",
+        "value": "268.0 kips, 92.2% classical (Sec 4.1/4.3.1); 267.6 kips in Sec 5 text"
+      }
+    ],
+    "ratio_stated": {
+      "predicted_vs_test": "approximately 4.3% lower than measured (stated)",
+      "test_over_classical": null
+    },
+    "recommended_knockdown": null,
+    "location": "Sec 4.1 (PDF p35); Sec 4.3.1 (PDF p66); Sec 5.0 (PDF p90)",
+    "quotes": [
+      "268.0 kips is approximately 4.3% lower than the measured maximum"
+    ],
+    "notes": "Test/classical for LS5 is not stated in the report (null). Report is internally inconsistent by 0.3 kips on test and predicted values.",
+    "missing": [
+      "test/classical ratio for LS5 not stated"
+    ]
+  },
+  {
+    "id": "SBKF-TA07",
+    "record_type": "test_article",
+    "family": "NASA SBKF stiffened cylinder, global buckling",
+    "citation": "Hilburger, M.W.; Lindell, M.C.; Waters, W.A.; Gardner, N.W., 'Test and Analysis of Buckling-Critical Stiffened Metallic Launch Vehicle Cylinders', AIAA paper, NTRS 20190000441 (references show a SciTech 2018 submission; exact venue line not read)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/api/citations/20190000441/downloads/20190000441.pdf"
+    ],
+    "readable": "full text",
+    "shell_type_loading": "8-ft-diameter Al-Li 2195 orthogrid cylinder, 3 FSW panels with 'picture frame' weld lands; uniform axial compression to buckling",
+    "geometry": {
+      "diameter_ft": 8,
+      "length_ft": 6.5,
+      "R_over_teff": 172.9
+    },
+    "materials": "Al-Li 2195 (E=11.0 Msi, nu=0.33 in model)",
+    "stiffener_dims": "Table 1 row TA07 (inches): t=0.090, H=0.440, ts=0.105, tr=0.100, bs=2.364, br=4.400 (column labels as in paper)",
+    "measured": {
+      "value": "647.0 kips max load",
+      "note": "collapse with 51.7% reduction to 312.2 kips"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "Pretest: Abaqus S4R nonlinear, nominal geometry, fillets omitted, idealised boundaries",
+        "value": "554 kips"
+      },
+      {
+        "what": "Refined post-test model (as-built thickness, imperfection, modulus, fillets, loading nonuniformity)",
+        "value": "within 1% of measured (value not tabulated in text read)"
+      }
+    ],
+    "ratio_stated": {
+      "pretest_vs_test": "14.4% less than the measured result (stated)",
+      "refined_vs_test": "within 1% (stated)",
+      "test_over_classical_Pcl": null
+    },
+    "recommended_knockdown": null,
+    "location": "Table 1 (PDF p5); Sec IV.A (647.0 and 554 kips, PDF p13-14); Sec IV.C (PDF p26)",
+    "quotes": [
+      "achieves a buckling load of 554 kips, 14.4% less than the measured result",
+      "refined model predicted a buckling load within 1% of the measured buckling load"
+    ],
+    "notes": "Paper covers eight 8-ft articles (TA01-04, 07, 09, ITA01-02) and only TA07 results are shown. Table 1 lists TA03, TA04, TA09 and isogrid ITA01/ITA02 geometry only. Paper reports ITA02 buckling load rose by 10% with fillet modelling.",
+    "missing": [
+      "classical Pcl for TA07",
+      "measured loads of TA03, TA04, TA09, ITA01, ITA02"
+    ]
+  },
+  {
+    "id": "SBKF-STA8.1",
+    "record_type": "test_article",
+    "family": "NASA SBKF seamless stiffened cylinder, global buckling",
+    "citation": "Rudd, M.T.; Hilburger, M.W.; Lovejoy, A.E.; Lindell, M.C.; Gardner, N.W.; Schultz, M.R., 'Buckling Response of a Large-Scale, Seamless, Orthogrid-Stiffened Metallic Cylinder', NTRS 20180001127 (conference paper; venue line not read)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/api/citations/20180001127/downloads/20180001127.pdf"
+    ],
+    "readable": "full text",
+    "shell_type_loading": "Seamless flow-formed cylinder, internal orthogrid machined, no weld lands; pure axial compression to buckling",
+    "geometry": {
+      "OML_diameter_in": 96,
+      "length_in": 77.595,
+      "OD_blank_in": 96.5
+    },
+    "materials": "Al 2219-T851, compressive E=10.73e6 psi (coupon avg)",
+    "stiffener_dims": "nominal: skin t=0.070 in; ts=tr=0.065 in; H=0.570 in per text (the paper's own Table 1 as read lists 0.500 in; inconsistent); 145 axial stiffeners at 2.482 deg; br=5.064 in; as-built avg skin 0.0753, stiffener thickness 0.070 in",
+    "measured": {
+      "value": "743,000 lb"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "Pretest nonlinear transient FE, as-designed geometry plus measured imperfections",
+        "value": "697,000 lb"
+      },
+      {
+        "what": "Nonlinear transient, as-designed, NO imperfections",
+        "value": "720,000 lb (Table 2)"
+      },
+      {
+        "what": "Refined post-test model, as-built",
+        "value": "754,000 lb in abstract; 759,000 lb in body (inconsistent); 'within 1.5%' of test"
+      }
+    ],
+    "ratio_stated": {
+      "test_vs_pretest": "6% higher than pretest (stated)",
+      "refined": "within 1.5% (stated)",
+      "test_over_linear_bifurcation_classical": null
+    },
+    "recommended_knockdown": null,
+    "location": "Abstract; Sec II (PDF p2); Sec III.B (PDF p4); Table 2 (PDF p7)",
+    "quotes": [
+      "buckling occurred at 743,000 lb of axial compression, which was 6% higher than",
+      "pretest predicted buckling load of 697,000 lb"
+    ],
+    "notes": "Imperfection reduced FE buckling load only ~3% for this seamless design (720k to 697k). Weld lands plus weld imperfections cut a similar welded design (TA09) by 31% in FE. No classical linear-bifurcation load is given.",
+    "missing": [
+      "classical linear bifurcation load"
+    ]
+  },
+  {
+    "id": "SBKF-ETTA2-27.5ft",
+    "record_type": "test_article",
+    "family": "NASA SBKF full-scale stiffened cylinder (27.5 ft), global buckling",
+    "citation": "Lovejoy, A.E.; Hilburger, M.W.; Gardner, N.W., 'Test and Analysis of Full-Scale 27.5-Foot-Diameter Stiffened Metallic Launch Vehicle Cylinders', NTRS 20180006174 (conference paper; venue line not read)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/api/citations/20180006174/downloads/20180006174.pdf"
+    ],
+    "readable": "full text",
+    "shell_type_loading": "ETTA2: 8 FSW Al-Li 2195 panels, orthogrid, 0.5 psi internal pressure + combined axial compression and bending (A=B) to buckling (LS18)",
+    "geometry": {
+      "OML_radius_in": 165.5,
+      "length_in": "~242"
+    },
+    "materials": "Al-Li 2195",
+    "stiffener_dims": "Table 1 (in): lightly stiffened panels t=0.093, ts=0.086, bs=10.832, tr=0.100, br=15.318, H=1.050; heavily stiffened panels t=0.089, ts=0.105, bs=5.416, tr=0.125, br=15.318, H=1.300; weld lands 0.325 in",
+    "measured": {
+      "value": "buckling event at approximately 82% Pcl; test KDF 0.82",
+      "note": "single event involving E/F and D/E weld lands"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "Pcl = classical buckling load of perfect cylinder from eigenvalue analysis, nominal geometry (classical closed-form or smeared-stiffener FE)",
+        "value": "load not stated in tonnes/lb in text read"
+      },
+      {
+        "what": "Pcr (Abaqus nonlinear transient of imperfect as-manufactured model)",
+        "value": "analysis KDF 0.74, first weld-land buckle at ~74% Pcl"
+      },
+      {
+        "what": "'current design recommendations' for a uniform orthogrid cylinder, all heavily-stiffened design",
+        "value": "g = 0.54"
+      }
+    ],
+    "ratio_stated": {
+      "test_KDF_Pcr_over_Pcl": 0.82,
+      "analysis_KDF": 0.74,
+      "design_recommendation_KDF": 0.54
+    },
+    "recommended_knockdown": "paper states test and analysis KDFs 0.82 and 0.74, both well above the 0.54 design recommendation; not itself a recommendation",
+    "location": "Sec IV.B (PDF p7); Table 1 (PDF p11); Sec II (PDF p3)",
+    "quotes": [
+      "The test and analysis KDF values are calculated to be 0.82 and 0.74, respectively",
+      "significantly higher than g=0.54 based on the current design recommendations"
+    ],
+    "notes": "Loading includes internal pressure (stabilising) and combined bending, so 0.82 is not a pure-compression KDF. ETTA1 (uniform compression + 1.0 psi) was halted early because load exceeded pretest predictions; its final buckling load is not given in this paper. Source of the 0.54 figure is not explained in the passage read.",
+    "missing": [
+      "Pcl in force units",
+      "ETTA1 buckling load",
+      "derivation of 0.54"
+    ]
+  },
+  {
+    "id": "REC-SP8007-2020-stiffened-cylinder",
+    "record_type": "recommendation",
+    "family": "NASA SP-8007 Rev 2 (2020), stiffened cylinders",
+    "citation": "NASA/SP-8007-2020/REV 2, 'Buckling of Thin-Walled Circular Cylinders', Dec 2020 (NTRS 20205011530 as given by dispatcher/search result)",
+    "urls_fetched": [
+      "unpublished-local-ref:b26270173638a23e (existing local text, read only; original download URL not recorded)"
+    ],
+    "readable": "full text (pdftotext)",
+    "shell_type_loading": "Axially compressed cylinder with closely spaced moderately large stiffeners (smeared)",
+    "recommended_knockdown": {
+      "value": 0.65,
+      "applies_to": "buckling load from the smeared-stiffener linear theory (Eq. 52) for closely spaced, moderately large stiffeners; also for moderately/heavily stiffened isogrid",
+      "previous_SP8007_1968": 0.75,
+      "basis": "lowest observed buckling load across the historical tests (TN D-5561 review), data 1928-1964 era"
+    },
+    "ratio_stated": {
+      "lowest_test_over_theory": "as low as 65% of predicted classical buckling load"
+    },
+    "location": "printed p35-36, subsection on isotropic cylinders with rings and stringers (0.65, 'as low as 65%'); printed p16-17, overview of the knockdown-factor approach (0.75 vs 0.65; isogrid: moderately or heavily stiffened use 0.65 from TN D-5561); weld-land statement in the 'Joints' subsection, printed p57 (large orthogrid cylinders)",
+    "quotes": [
+      "as low as 65% of the predicted classical buckling load",
+      "a knockdown factor of 0.65 is recommended",
+      "the knockdown factor of 0.65 from [5] is recommended",
+      "on the order of 25% or more"
+    ],
+    "notes": "SP-8007-2020 itself does NOT replace 0.65 for stiffened cylinders with SBKF numbers; it points to an analysis-based approach (Sec 4.3, KDF Gamma = Pcr/Pcl, high-fidelity FEM to be within +/-10% of validation tests) and summarises Hilburger's 27.5-ft case: design buckling loads within 4% across three model fidelities. The 25% quote concerns large orthogrid cylinders: axial weld lands cut the buckling load by about 25% or more (ref 90). Transition from unstiffened to stiffened 'not fully investigated'.",
+    "missing": [
+      "no SBKF-derived numerical KDF values for stiffened cylinders appear in SP-8007-2020 text read"
+    ]
+  },
+  {
+    "id": "REV-Hilburger2012-stiffened-cylinder-database",
+    "record_type": "review_table",
+    "family": "SBKF review of the stiffened-cylinder test data behind SP-8007/TN D-5561",
+    "citation": "Hilburger, M.W., 'Developing the Next Generation Shell Buckling Design Factors and Technologies', 53rd AIAA/ASME/ASCE/AHS/ASC SDM Conf., Honolulu, Apr 23-26 2012, AIAA 2012-1686, NTRS 20120008172 (venue/date as seen on NTRS page)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/citations/20120008172",
+      "https://ntrs.nasa.gov/api/citations/20120008172/downloads/20120008172.pdf"
+    ],
+    "readable": "full text",
+    "shell_type_loading": "Historical stiffened cylinders (ring-stiffened corrugated, Z-stringer, integral ring/stringer/grid, 45-deg waffle), compression/bending/pressure",
+    "measured": {
+      "table1_range_of_KDF_test_over_theory": {
+        "ring_stiffened_corrugated_comp": "0.88-1.1",
+        "Z_stringer_comp": "0.91-0.98; 0.86-1.08; 0.70-0.95",
+        "integral_ring_stiffened_comp": "0.80-0.96",
+        "integral_ring_stringer_grid_comp": "0.74-1.16",
+        "integral_rings_stringer_comp": "0.7-1.2",
+        "integral_45deg_waffle_comp_bend_pressure": "0.68-1.08",
+        "ring_stiffened_corrugated_bending": "0.88-1.02; 0.70-0.72",
+        "ring_stringer_bending": "0.86-1.06"
+      }
+    },
+    "predicted_and_basis": [
+      {
+        "what": "linear bifurcation of perfect uniform stiffened cylinder with smeared stiffeners, simply supported",
+        "value": "basis of the KDF ranges"
+      }
+    ],
+    "recommended_knockdown": {
+      "SP-8007_1968": 0.75,
+      "TN_D-5561": 0.65,
+      "unstiffened_orthotropic_Eq45_applied_to_orthogrid_isogrid_50_to_150_R_over_teff_compression": "0.68 to 0.52",
+      "same_Eq47_bending": "0.74 to 0.61"
+    },
+    "location": "Sec II text, PDF p3-4; Table 1, PDF p5; conclusions PDF p7",
+    "quotes": [
+      "a knockdown factor of 0.65 be applied to the predicted buckling load",
+      "KDF values that range from 0.68 to 0.52",
+      "stiffened cylinders are typically much less imperfection sensitive than unstiffened cylinders",
+      "the test articles are not representative of modern aerospace-quality stiffened cylinders"
+    ],
+    "notes": "Author flags the 45-deg waffle and one corrugated data set as of doubtful quality, and that some data have local skin buckling before global (possibly unconservative). Several ranges exceed 1.0.",
+    "missing": [
+      "Table 1 entry for ref 14 is NA in the paper"
+    ]
+  },
+  {
+    "id": "REC-SBKF-Hilburger2018-analysis-based-KDF",
+    "record_type": "recommendation",
+    "family": "SBKF analysis-based KDFs",
+    "citation": "Hilburger, M.W., 'On the Development of Shell Buckling Knockdown Factors for Stiffened Metallic Launch Vehicle Cylinders', 59th AIAA SciTech 2018, Kissimmee, Jan 8-12 2018, NTRS 20180006178 (abstract only)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/api/citations/20180006178/downloads/20180006178.pdf"
+    ],
+    "readable": "abstract-length extended abstract only; no numerical KDF values",
+    "recommended_knockdown": null,
+    "location": "abstract, Concluding Remarks (PDF p6)",
+    "quotes": [
+      "new analysis-based shell buckling knockdown factors for modern integrally-stiffened metallic launch vehicle structures"
+    ],
+    "notes": "Lists the effects covered (imperfection, loading nonuniformity, orthotropy, weld lands, skin pocket buckling, internal pressure) but gives no numbers in the text opened. NASA's SBKF overview (NTRS 20160007439, opened) gives only qualitative statements: preliminary KDFs used by Boeing for SLS core stage; 'buckling loads predicted within 5% - 10%' for TA01.",
+    "missing": [
+      "numerical SBKF KDFs for orthogrid/isogrid with weld lands - null; not in any opened source"
+    ]
+  },
+  {
+    "id": "DOME-CR62257-geodesic-plastic",
+    "record_type": "test_series",
+    "family": "geodesic (isogrid) rib-stiffened spherical caps under external pressure, plastic models",
+    "citation": "Bellifante (sic; also spelled Bellinfante in the text), R.J.; Meyer, R.R., 'Fabrication and Experimental Evaluation of Common Domes Having Waffle-like Stiffening, Part I: Program Development', Douglas Report SM-47742 Pt 1 / NASA-CR-62257, Nov 1964, contract NAS8-11542 (NTRS 19650012174)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/citations/19650012174",
+      "https://ntrs.nasa.gov/api/citations/19650012174/downloads/19650012174.pdf"
+    ],
+    "readable": "full text via embedded OCR (210 pp; tables partly garbled, noted where used)",
+    "shell_type_loading": "Spherical cap, clamped edge, uniform external (vacuum) pressure, room temperature; ribs bonded to concave surface; failure by general instability",
+    "geometry": {
+      "R_in": 20.0,
+      "base_radius_a_in": 8.0,
+      "a_over_b": 4.78,
+      "note_cap_angle_not_stated_in_text_read": true
+    },
+    "materials": "PVC plastic, E = 465,000 psi",
+    "stiffener_dims": {
+      "1-G": {
+        "rib_spacing_or_side_in": 1.57,
+        "d_in": 0.23,
+        "b_in": 0.0191,
+        "skin_t_in": 0.0474,
+        "smeared_thickness_in": 0.058
+      },
+      "2-G": {
+        "rib_spacing_or_side_in": 1.6,
+        "d_in": 0.226,
+        "b_in": 0.0239,
+        "skin_t_in": 0.0479,
+        "smeared_thickness_in": 0.0592
+      },
+      "3-G": {
+        "rib_spacing_or_side_in": 1.25,
+        "d_in": 0.205,
+        "b_in": 0.0153,
+        "skin_t_in": 0.0296,
+        "smeared_thickness_in": 0.0387
+      },
+      "column_mapping_caveat": "Table 1.2 headers are garbled in the OCR; mapping inferred from the design calculation in Chapter V (e.g. 1-G design a=1.59, d=0.230, b=0.0212)"
+    },
+    "measured": {
+      "failing_pressure_psi": {
+        "1-G": 5.87,
+        "2-G": 6.54,
+        "3-G": 3.96
+      },
+      "strength_ratio_to_same_weight_monocoque_dome": {
+        "1-G": 1.5,
+        "2-G": 1.6,
+        "3-G": 2.27
+      }
+    },
+    "predicted_and_basis": [
+      {
+        "what": "design general-instability coefficient c_o = 1.225 = classical (modified-classical complete-sphere theory extended to geodesic stiffness: three elastic constants nu=1/3, D, K); C = c_o/2 = 0.6125",
+        "designs": {
+          "1-G design pressure psi": 9.8,
+          "2-G design pressure psi": 10.9
+        }
+      },
+      {
+        "what": "3-G redesign assuming C = c_o/2 = 0.4 (lowered after 1-G and 2-G results)",
+        "predicted_psi": 4.03
+      }
+    ],
+    "ratio_stated": {
+      "test_c_o_1-G": "0.696 (OCR; C=0.348)",
+      "test_C_2-G": 0.377,
+      "classical_C": 0.6125,
+      "3-G_test_vs_redesign": "test 3.96 psi vs predicted 4.03 psi (text states 'within' a percentage that is garbled in OCR)",
+      "test_over_predicted_ratio": null
+    },
+    "recommended_knockdown": "source of IDH gamma (see REC-IDH-CR124075); plastic-dome C reported ~0.35 (summary p21)",
+    "location": "Table 1.2, PDF p39 (printed ~p19); Chapter V design/test notes PDF p188-192 (printed ~p169-172); summary p20-21",
+    "quotes": [
+      "general instability coefficients C = 0.348 and 0.377 obtained for tests #1-G and #2-G",
+      "1.50 and 1.60 times the values which would be obtained for the same weight",
+      "resulting in a pressure 2.27 times the monocoque pressure"
+    ],
+    "notes": "#1-G first failed far below prediction because softened cement at rib joints acted as hinges; joints were stiffened with PVC disks and retested. Test C values (0.348, 0.377 for 1-G, 2-G) are to be compared with the classical 0.6125; ratios deliberately not computed here. The report says the unreached coefficient was due to larger departure from membrane prebuckling state. Same program's monocoque spherical caps gave C = 0.48-0.50 (Table 1.1, PDF p34) and tests agreed with Huang's large-deflection theory.",
+    "missing": [
+      "cap half-angle for plastic domes not extracted",
+      "as-built imperfection data"
+    ]
+  },
+  {
+    "id": "DOME-CR62257-squaregrid-plastic",
+    "record_type": "test_article",
+    "family": "square-grid stiffened spherical cap, plastic model",
+    "citation": "Bellifante (sic; also spelled Bellinfante in the text), R.J.; Meyer, R.R., 'Fabrication and Experimental Evaluation of Common Domes Having Waffle-like Stiffening, Part I: Program Development', Douglas Report SM-47742 Pt 1 / NASA-CR-62257, Nov 1964, contract NAS8-11542 (NTRS 19650012174)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/citations/19650012174",
+      "https://ntrs.nasa.gov/api/citations/19650012174/downloads/19650012174.pdf"
+    ],
+    "readable": "full text via OCR; dimensions table garbled",
+    "shell_type_loading": "spherical cap, clamped, uniform external pressure, room temperature; general instability",
+    "geometry": {
+      "R_in": 20.0,
+      "a_over_b": 4.78
+    },
+    "materials": "PVC, E=465,000 psi",
+    "stiffener_dims": "parameters taken from Crawford & Schwartz as an off-optimum design (percentage heavier than optimum is unreadable in the OCR); N=2.05, b/s=0.50, d/a=0.26 as read from OCR (uncertain); full dimension table unreadable",
+    "measured": {
+      "failing_pressure_psi": 9.48,
+      "strength_ratio_to_same_weight_monocoque": 1.58
+    },
+    "predicted_and_basis": [
+      {
+        "what": "theory of Crawford and Schwartz, design limiting pressure 12 psi; predicted ratio to monocoque (6.1 psi) p/p_m",
+        "value": "p/p_m = 1.97; limiting pressure 12 psi"
+      }
+    ],
+    "ratio_stated": {
+      "test_ratio_to_monocoque": 1.58,
+      "predicted_ratio_to_monocoque": 1.97
+    },
+    "recommended_knockdown": null,
+    "location": "Table 1.2 PDF p39; Chapter V PDF p187-188",
+    "quotes": [
+      "failure occurred at a pressure of 10.83 psi"
+    ],
+    "notes": "With a thermal gradient the dome failed at 10.83 psi (geodesic 2-G: 8.29 psi vs 6.54 psi at room temperature); report attributes the rise to a relieving tensile load in the shell from ring/shell expansion difference. Other (non-general-instability) plastic stiffened caps in the same table failed by rib or panel instability at lower pressures: circumferential 1-C 4.09 psi, meridional 1-m 1.41 psi, 2-m 2.09 psi, 3-m ~2.87 psi, combined 1-mc 1.53 psi (OCR ambiguous on 3-m/4-m).",
+    "missing": [
+      "full geometry"
+    ]
+  },
+  {
+    "id": "DOME-CR62257-aluminium-geodesic",
+    "record_type": "test_article",
+    "family": "geodesic rib-stiffened aluminium spherical cap, external pressure",
+    "citation": "Bellifante (sic; also spelled Bellinfante in the text), R.J.; Meyer, R.R., 'Fabrication and Experimental Evaluation of Common Domes Having Waffle-like Stiffening, Part I: Program Development', Douglas Report SM-47742 Pt 1 / NASA-CR-62257, Nov 1964, contract NAS8-11542 (NTRS 19650012174)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/citations/19650012174",
+      "https://ntrs.nasa.gov/api/citations/19650012174/downloads/19650012174.pdf"
+    ],
+    "readable": "full text via OCR",
+    "shell_type_loading": "hot-spun spherical cap, half-opening angle 60 deg, edge seated in Cerrobend in a steel ring (clamped), oil pressure on convex surface, to failure at 62.2 psi",
+    "geometry": {
+      "R_in": 27.3,
+      "half_opening_angle_deg": 60
+    },
+    "materials": "2014 aluminium sheet, hot-spun (annealing effect lowered yield; not re-heat-treated); machined to 0.200 in overall thickness; ribs hand-routed in a ~20-in-diameter representative region",
+    "stiffener_dims": "design values (not as-built): skin t=0.0375 in, rib depth d=0.166 in, rib width b=0.10 in, triangle height 1.43 in, side 1.65 in; as-built values not extracted",
+    "measured": {
+      "failing_pressure_psi": 62.2,
+      "note": "buckle ~12 in diameter, 4-5 in deep; max rib stress at failure near the material proportional limit"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "design prediction assuming c_o = 0.80 (the plastic-dome value then assumed) with E=10.3e6 psi",
+        "value": "about 94.3 psi (OCR of a computed line is garbled; 94.3 shown in the stress check)"
+      },
+      {
+        "what": "classical c_o",
+        "value": 1.225
+      }
+    ],
+    "ratio_stated": {
+      "test_c_o": 0.52,
+      "classical_c_o": 1.225,
+      "plastic_dome_c_o": "about 0.70",
+      "test_C_summary": "C = 0.26 vs 0.35 for plastic domes"
+    },
+    "recommended_knockdown": "C = 0.26 became the isogrid handbook's c_o for heavily stiffened domes (see REC-IDH-CR124075)",
+    "location": "Summary Phase IV, PDF p41 (printed p21); Chapter V Specimen Design & Test Results, PDF p201-203",
+    "quotes": [
+      "much less than the classical buckling coefficient of co = 1.225",
+      "was calculated to be C = 0.26"
+    ],
+    "notes": "Report attributes the low coefficient to plasticity (failure near proportional limit) and residual stress. Only one large aluminium article; machining tolerance limited accurate rib geometry to the 20-in region. This single test is the only measured full-metal geodesic dome behind IDH c_o = 0.260.",
+    "missing": [
+      "as-built dimensions",
+      "imperfection survey"
+    ]
+  },
+  {
+    "id": "DOME-Ossola-AM-Ti-isogrid-hemispheres",
+    "record_type": "test_series",
+    "family": "isogrid stiffened hemispheres under external hydrostatic pressure, additively manufactured Ti-6Al-4V (R=100 mm)",
+    "citation": "Ossola, E.; Borgonia, J.P.; Hendry, M.; Sunada, E.; Brusa, E.; Sesana, R., 'Design of Isogrid Shells for Venus Surface Probes', J. Spacecraft and Rockets, 2021, DOI 10.2514/1.A34823 (accepted version on Politecnico di Torino repository); also Ossola, Brusa, Sesana, 'Geodesic domes for planetary exploration', Curved and Layered Structures 7(1):215-225, 2020, DOI 10.1515/cls-2020-0018; slide deck IWSS Ossola (2020)",
+    "urls_fetched": [
+      "https://iris.polito.it/retrieve/handle/11583/2859044/e384c432-d634-d4b2-e053-9f05fe0a1d67/Design%20of%20Isogrid%20Shells%20for%20Venus%20Surface%20Probes.pdf",
+      "https://iris.polito.it/retrieve/handle/11583/2858614/e384c432-ae51-d4b2-e053-9f05fe0a1d67/%5B23537396%20-%20Curved%20and%20Layered%20Structures%5D%20Geodesic%20domes%20for%20planetary%20exploration.pdf",
+      "https://iris.polito.it/retrieve/4c3271f2-7122-42d4-8a6f-8e15b51f256f/IWSS_Ossola.pdf"
+    ],
+    "readable": "full text of all three",
+    "shell_type_loading": "hemispheres with thick backing plate in water-filled hydrostatic chamber, external pressure ramped to failure, ambient temperature; 3 isogrid + 1 plain",
+    "geometry": {
+      "R_mm": 100,
+      "diameter_mm": 200
+    },
+    "materials": "Ti-6Al-4V, laser powder-bed fusion, stress relief + HIP, solution treatment omitted; surface line defects 50-70 mm long observed on all shells",
+    "stiffener_dims": "Table 2 (mm): isogrid triangle height h=28, skin t=1.8, rib depth d=6.8, rib width b=1; plain shell t=2.7; Table 2 'Isogrid modified' adds fillets/chamfers (mass 0.833 kg vs 0.731 plain)",
+    "measured": {
+      "plain_bar": 317,
+      "isogrid_bar": "410.3 +/- 4.0 (414, 411, 406)"
+    },
+    "predicted_and_basis": [
+      {
+        "what": "Linear FEA (linear bifurcation) of perfect model",
+        "plain_bar": 917,
+        "isogrid_bar": 934
+      },
+      {
+        "what": "Nonlinear FEA 2D, perfect hemisphere",
+        "plain_bar": 507,
+        "isogrid_bar": 448
+      }
+    ],
+    "ratio_stated": {
+      "KF_exp_over_linear": {
+        "plain": "33%",
+        "isogrid": "44%"
+      },
+      "nonlinear_vs_exp": {
+        "plain": "+60%",
+        "isogrid": "+9%"
+      }
+    },
+    "recommended_knockdown": "authors adopt KF = 44% for a full-scale 1.12 m isogrid sphere design; plain-shell recommendation cited as 30% (Roark) or 14% (NASA)",
+    "location": "JSR paper Sec V.A and Table 4; Table 2; CLS paper Sec 4 (PDF p10-11); IWSS slide 11",
+    "quotes": [
+      "failed at 410.3 ± 4.0 bar (414, 411, 406 bar)",
+      "it is believed that the failure event started near and propagated from",
+      "was not clearly buckling or yielding"
+    ],
+    "notes": "Small R=100 mm hemispheres, only three isogrid specimens, imperfections not measured; failure mode possibly yielding, not elastic buckling (authors' own wording). Linear FEA 934 bar is for the modified-geometry model. Interpretation as a global-instability KDF is therefore uncertain. Modern, metallic, AM; not representative of welded/rolled domes.",
+    "missing": [
+      "imperfection measurements",
+      "cap included angle (hemisphere stated)",
+      "skin-to-rib thickness as built"
+    ]
+  },
+  {
+    "id": "REC-IDH-CR124075-dome-gamma",
+    "record_type": "recommendation",
+    "family": "isogrid spherical cap under external (reversed) pressure",
+    "citation": "McDonnell Douglas Astronautics Co., 'Isogrid Design Handbook', NASA CR-124075 Rev A, Feb 1973, contract NAS8-28619 (NTRS 19730011184; corporate author on cover, individual authors named differently in citing papers and not verified here)",
+    "urls_fetched": [
+      "https://ntrs.nasa.gov/api/citations/19730011184/downloads/19730011184.pdf"
+    ],
+    "readable": "full text via OCR (252 pp)",
+    "shell_type_loading": "Isogrid spherical cap/bulkhead under uniform external pressure, general instability Ncr = c_o * (2E/sqrt(3(1-nu^2))) * t^2*beta/R^2-type formula, Eq 4.1.3, with skin-buckling and rib-crippling modes balanced",
+    "recommended_knockdown": {
+      "heavily_stiffened_domes": {
+        "gamma": 0.425,
+        "c_o": "0.612 x gamma = 0.260",
+        "source": "test of Reference 1-1 (= Meyer and Bellifante, Douglas SM-47742, i.e. CR-62257)"
+      },
+      "lightly_stiffened_domes": "gamma from Reference 2-8 (Weingarten & Seide, SP-8032 lineage) as a function of t*/R; curve not extracted"
+    },
+    "ratio_stated": {
+      "gamma": 0.425,
+      "c_o": 0.26
+    },
+    "location": "Sec 4.1.2 p.4.1.012 (PDF p62): gamma and c_o; Sec 4.1.5 summary p.4.1.019 (PDF p69): C_o = 0.260; Sec 4.1.2 p.4.1.002 for the knockdown form",
+    "quotes": [
+      "For heavily stiffened domes the result of test in Reference 1-1"
+    ],
+    "notes": "0.260 equals the aluminium-dome C = 0.26 in CR-62257 (not stated as the derivation in the text read). So the handbook's isogrid dome knockdown rests on one aluminium test in 1964 plus 3 plastic domes. Ossola 2020 cites the same c_o=0.26 and notes it is equivalent to KF about 42.9% and 'dates back to the 1960s' with few specimens. The handbook says the cap formula may be used for caps under external pressure 'with a proper interpretation of c_o' for boundary effects. Handbook worked example: R=96 in, Pcr=21 psi.",
+    "missing": [
+      "lightly stiffened gamma(t*/R) curve not read"
+    ]
+  },
+  {
+    "id": "REC-SP8032-spherical-cap-unstiffened",
+    "record_type": "recommendation",
+    "family": "spherical caps under uniform external pressure, lower-bound curve",
+    "citation": "NASA SP-8032, 'Buckling of Thin-Walled Doubly Curved Shells', Aug 1969 (authors per foreword: V.I. Weingarten and P. Seide, task manager A.L. Braslow)",
+    "urls_fetched": [
+      "https://everyspec.com/NASA/NASA-SP-PUBS/NASA_SP-8032_46171/",
+      "https://everyspec.com/NASA/NASA-SP-PUBS/download.php?spec=NASA_SP-8032.046171.pdf"
+    ],
+    "readable": "full text, scanned images (page images read directly; no OCR)",
+    "recommended_knockdown": {
+      "formula": "pcr/pcl = 0.14 + 3.2/lambda^2",
+      "applies": "lower bound to the data for clamped shells, lambda > 2 (Eq. 4, printed p6, Fig 2 plotted to lambda=40)",
+      "pcl": "classical complete-sphere pressure 2/[3(1-mu^2)]^(1/2) * E (t/R)^2 (Eq. 2)",
+      "lambda_definition_as_printed": "lambda = [12(1-mu^2)]^(1/4) (R/t)^(1/2) * 2 sin(phi/2) (Eq. 3), phi = 'half the included angle of the spherical cap'",
+      "note_on_validity": "'While the lambda parameter is used in shallow-shell analysis, Fig 2 may be applied to deep shells as well as shallow shells' (paraphrase)"
+    },
+    "location": "Sec 4.2.1.1, printed p4-6 (PDF p8-10), Eqs 1-4, Figs 1-2",
+    "quotes": [
+      "A lower bound to the data for clamped shells is given by",
+      "φ is half the included angle of the spherical cap"
+    ],
+    "notes": "As printed, Eq. 3 uses 2 sin(phi/2) while the text calls phi the half-angle; the equation was read from a rendered page image at 220 dpi. Asymptote at large lambda is 0.14. The printed definition is verified for the clamped shell only; the text does not give a separate free-edge curve in this section. Ossola 2020 describes the same curve as asymptote 0.14.",
+    "missing": []
+  },
+  {
+    "id": "REC-SP8032-stiffened-orthotropic-domes",
+    "record_type": "recommendation",
+    "family": "stiffened / orthotropic spherical domes, SP-8032 Sec 4.3",
+    "citation": "NASA SP-8032, Aug 1969, Sec 4.3 'Orthotropic Doubly Curved Shells'",
+    "urls_fetched": [
+      "https://everyspec.com/NASA/NASA-SP-PUBS/download.php?spec=NASA_SP-8032.046171.pdf"
+    ],
+    "readable": "full text, scanned page images",
+    "shell_type_loading": "grid-stiffened or orthotropic spherical dome under hydrostatic external pressure, smeared stiffeners, 'deep' dome with many buckle wavelengths, eccentricity neglected (Crawford & Schwartz theory, Eq. 17)",
+    "recommended_knockdown": {
+      "value": "same isotropic cap curve: gamma = 0.14 + 3.2/lambda^2 (Eq. 19), plotted in Fig 2",
+      "effective_thickness_for_lambda": "t from Eq. 20: t = [C44 C55/(C11 C22)]^(1/4) * sqrt(12) as printed",
+      "caveat": "'In the absence of more extensive test results' the isotropic factor is used; verify by test; check local buckling between stiffeners; stiffener eccentricity effects not included (can be serious, refs 38, 39)"
+    },
+    "ratio_stated": {
+      "measured_over_predicted": null
+    },
+    "location": "Sec 4.3, printed p20 (intro), p23-25 (PDF p24-29): Eqs 17-20; refs 29, 38-42 on printed p28-30",
+    "quotes": [
+      "Very little theoretical or experimental data are available for orthotropic and stiffened",
+      "it is recommended that the isotropic spherical cap reduction factor shown in equation (4)",
+      "the recommendations should also be verified by test, where feasible"
+    ],
+    "notes": "SP-8032 gives NO stiffened-specific knockdown, no distinct test-based factor: the cap lower bound is reused. Tests cited as supporting: ref 29 (Meyer & Bellifante, Douglas SM-47742 1964, i.e. the CR-62257 tests) and ref 41 (Kloppel & Jungbluth 1953, ribbed spherical caps) - only ref 29 content was opened. The text says eccentricity (one-sidedness) can give significantly different results for domes with inside versus outside stiffeners. The 0.14 asymptote therefore allows lambda (hence slenderness R/t_eff) to dominate, while measured stiffened dome results in CR-62257 give C of 0.26-0.38 against classical 0.6125.",
+    "missing": [
+      "Kloppel and Jungbluth 1953 not opened",
+      "Crawford and Schwartz 1965 not opened"
+    ]
+  },
+  {
+    "id": "UNOPENED-LEADS",
+    "record_type": "gaps",
+    "family": "sources named in opened documents or search snippets but NOT read",
+    "citation": "n/a",
+    "urls_fetched": [],
+    "readable": "not opened",
+    "notes": "(1) Crawford & Schwartz, 'General Instability and Optimum Design of Grid-Stiffened Spherical Domes', AIAA J. 3(3):511-515, 1965 (cited in SP-8032 and CR-62257; AIAA page not fetched). (2) DTMB Report 2302 (Schwartz, 1967, HY-150 stiffened hemisphere) and AD0647218: DTIC returned HTTP 403 for fetch of the PDF and the citation page, so only a search-result snippet was seen (collapse about 30 percent above a monocoque shell of equal weight) - treat as an unverified lead. (3) Krenzke & Kiernan, DTMB report on imperfect deep spherical shells (report number given as 175 and 1757 in different search snippets): monocoque only, not opened. (4) Kloppel & Jungbluth 1953 (ribbed spherical caps), SP-8032 ref 41. (5) Bushnell GENOPT/BIGBOSOR4 isogrid ellipsoidal shell design paper (search snippet only; design study, no tests). (6) SBKF TM reports for TA03, TA04, TA09, ITA01, ITA02 and ETTA1 measured loads: no open copy found."
+  }
+]

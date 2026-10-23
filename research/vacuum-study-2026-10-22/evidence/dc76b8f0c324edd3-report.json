@@ -1,0 +1,143 @@
+{
+  "id": "rpt-ref-444ac46ffbede876f9cd",
+  "kind": "report",
+  "from": "ref-3f7ec48b84b54a049007",
+  "from_seat": "ref-3f7ec48b84b54a049007",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline021b-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check021b-after-021-codex-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-check021b-after-021-codex-1020",
+  "completion": "none",
+  "body": "CHECK MAINLINE-021b complete. Independent equations reproduce the self-consistent 775.729374 kg reserve, all six modes and all 32 subset outcomes across 47 honeycomb cores. Gamma, wrinkling and panel size remain the least named set; the strongest pair reaches only SF 0.900488 at full endpoints. Continuous refinement lowers maximum usage from 0.834205 to 0.833940 without changing that set.\n\nOf 218 scalar comparisons, 216 agree within tolerance. Two RMS fields reproduce only with the inherited width-map nu=.30 rather than mechanical nu=.33. Seven NFI rows record that width/convention issue, tensile-to-compressive strength transfer, unsourced isotropic nu, grade/modulus coupling, pressure envelope, thin-panel/gauge capability, and joint/service assumptions. The subset table retains E290 even when strength changes; coupling the cited E293.6 changes secondary scores but no feasibility outcome. The 345 MPa compression assumption and formed-sheet capability remain unqualified. At +1% pressure, the exact needed-value point has minimum SF 0.990099. A lower-nu sensitivity retains the same set after retuning.\n\nAll seven owner pins match again at completion; nine upstream and four tolerance pins matched on intake. Primary source audits, exact discrepancies, both searches and reproducible calculations are pinned. No owner program was inspected, executed or imported. NFIs do not stop work. No next job is named.",
+  "priority": 4,
+  "at": "2026-10-20T01:22:15-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check021b-after-021-codex-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/c07e5ed594a7126b-CARD.md",
+      "sha256": "c07e5ed594a7126b75fbf1856287cff175f9c9378f11019734c9a1334823ccfb",
+      "bytes": 2291
+    },
+    {
+      "path": "evidence/da99fef1880b13bb-CHECK.md",
+      "sha256": "da99fef1880b13bb4424f4cf5d3e39f29c1f22e4ce16e2cbc2e7915c5301abc4",
+      "bytes": 8994
+    },
+    {
+      "path": "evidence/dcdc2c069463d5bb-RESULTS.json",
+      "sha256": "dcdc2c069463d5bb924affc9110636bc8797ef282065c2c732aa6c44e3397afd",
+      "bytes": 589491
+    },
+    {
+      "path": "evidence/e22bbb97f4477a6d-NFI.json",
+      "sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+      "bytes": 9485
+    },
+    {
+      "path": "evidence/4a304b50a2c08cc3-INPUTS.json",
+      "sha256": "4a304b50a2c08cc3d65ed9463858ea53426259375500cf9bf69d8a77c0f403c3",
+      "bytes": 25167
+    },
+    {
+      "path": "evidence/fe3a553e0c1e91e2-SOURCE-AUDIT.md",
+      "sha256": "fe3a553e0c1e91e2a4208b10673c9de65e4173293f364f73b99511ac62466f26",
+      "bytes": 3192
+    },
+    {
+      "path": "evidence/c9b125c6535c6824-check021b.py",
+      "sha256": "c9b125c6535c68242ea6aa3d84bc9e07f5bf1db00f1c8ee93816337475f7259d",
+      "bytes": 14330
+    },
+    {
+      "path": "evidence/5ee5a53cc2b8b8b6-supplemental.py",
+      "sha256": "5ee5a53cc2b8b8b6163ccd0fa0a6a55a3f0ed4b5df071be56ecc61c3a1740350",
+      "bytes": 11861
+    },
+    {
+      "path": "evidence/dc201f033489d02f-make_check.py",
+      "sha256": "dc201f033489d02fd94f2849cccf01c462e281d3fa9da6fdee169033902e1ca5",
+      "bytes": 27720
+    },
+    {
+      "path": "evidence/d0b8235e60ba7061-CALCULATIONS.json",
+      "sha256": "d0b8235e60ba7061c6d1026ce5e761f1eba49b640b481a5c04d40e118dec3b7f",
+      "bytes": 464687
+    },
+    {
+      "path": "evidence/25fa758cf7607a57-SUPPLEMENTAL.json",
+      "sha256": "25fa758cf7607a57aa915b1559f44827242fdc565e0340bc2f1d1d1a40a74ca1",
+      "bytes": 82829
+    },
+    {
+      "path": "evidence/f43fb7e8bc9ec1f1-PIN-AUDIT.json",
+      "sha256": "f43fb7e8bc9ec1f1edaf779ceb50bca458ed0fd69ca2b6e870c6755a6f01d36f",
+      "bytes": 4375
+    },
+    {
+      "path": "evidence/12b2694707d7f325-UPSTREAM-PINS.json",
+      "sha256": "12b2694707d7f3252197f8447b095211135de2799cde4c26bba764e3d916fc17",
+      "bytes": 5303
+    },
+    {
+      "path": "evidence/98b4ad3d8e760d91-PINS-015.json",
+      "sha256": "98b4ad3d8e760d912869fa994faeb4b1d98dab7e12f1b460b676cf5dd0d9eeeb",
+      "bytes": 1768
+    },
+    {
+      "path": "evidence/ab5e05b47b0a68bd-FINAL-PIN-RECHECK.json",
+      "sha256": "ab5e05b47b0a68bd419ea6a15ed95d6ab44b7e569217de19e269d548c8ca0533",
+      "bytes": 2036
+    },
+    {
+      "path": "evidence/f2301966d2d092af-owner-report.json",
+      "sha256": "f2301966d2d092af2bace89451ac93dacf024891ad626ba7505f277077a4a4de",
+      "bytes": 4280
+    },
+    {
+      "path": "evidence/6ab3d8fab525a204-INPUTS.json",
+      "sha256": "6ab3d8fab525a2046453cbf9e6835cdb398c3cadf3b2e6e490a155c479464f1f",
+      "bytes": 6162
+    },
+    {
+      "path": "evidence/0b7a9772fe072572-p014b_inputs.json",
+      "sha256": "0b7a9772fe072572a9043b67059049aac9db4130292538ca5f1eeb542de9619d",
+      "bytes": 40462
+    },
+    {
+      "path": "evidence/5c5b71c7cae2671f-INPUTS.json",
+      "sha256": "5c5b71c7cae2671ffd06c2f2808930c0555a8c02454afb1e3edc98e9e0008c21",
+      "bytes": 28902
+    },
+    {
+      "path": "evidence/ebccf8d7228bd2a8-sources.json",
+      "sha256": "ebccf8d7228bd2a862f1a4c4fdde8684a61b7683a3d2e358b9dd4ddfa9439803",
+      "bytes": 1296
+    },
+    {
+      "path": "evidence/ref-d1d4caf58f1e23b7ebfa-sources.json",
+      "sha256": "592127db08f2bbcca8fed6ce2448469b7cbcedb880356fbb6d69381c99181c4e",
+      "bytes": 1565
+    }
+  ],
+  "ingested": "2026-10-20T01:24:04-07:00"
+}

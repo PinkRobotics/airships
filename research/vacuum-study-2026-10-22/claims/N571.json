@@ -1,0 +1,74 @@
+{
+  "id": "N571",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N571",
+    "report": "rpt-ref-be337d7d2ce1259d0aff",
+    "card": "rpt-ref-be337d7d2ce1259d0aff",
+    "file": "evidence/68d5541c02f9b231-CHECK-NFI.json",
+    "snapshot": "evidence/68d5541c02f9b231-CHECK-NFI.json",
+    "source_sha256": "68d5541c02f9b2314d7a0fffd7ee7a01f4210cf545488a381a38485a57809217",
+    "source_json_pointer": "/rows/1",
+    "row_id": "NFI-CHECK-031-PASS-CONDITIONS",
+    "fields": {
+      "id": "NFI-CHECK-031-PASS-CONDITIONS",
+      "status": "open",
+      "issue": "The P3 pass uses 3900 MPa, a typical property, and a 1.5 GPa film. The lapse with constant vapour fraction is a projection. The C=0 roots at -23.190 m and -1015.877 m are below sea-level ground.",
+      "effect": "The card already tags these. They stay open."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "The P3 pass uses 3900 MPa, a typical property, and a 1.5 GPa film. The lapse with constant vapour fraction is a projection. The C=0 roots at -23.190 m and -1015.877 m are below sea-level ground.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/570"
+    },
+    {
+      "report": "rpt-ref-be337d7d2ce1259d0aff",
+      "artifact": "evidence/68d5541c02f9b231-CHECK-NFI.json",
+      "snapshot": "evidence/68d5541c02f9b231-CHECK-NFI.json",
+      "sha256": "68d5541c02f9b2314d7a0fffd7ee7a01f4210cf545488a381a38485a57809217",
+      "bytes": 1002,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-be337d7d2ce1259d0aff",
+          "artifact": "evidence/68d5541c02f9b231-CHECK-NFI.json",
+          "snapshot": "evidence/68d5541c02f9b231-CHECK-NFI.json",
+          "sha256": "68d5541c02f9b2314d7a0fffd7ee7a01f4210cf545488a381a38485a57809217",
+          "bytes": 1002,
+          "selector": "/rows/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/570"
+          }
+        ]
+      }
+    }
+  ]
+}

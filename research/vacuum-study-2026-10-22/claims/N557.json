@@ -1,0 +1,79 @@
+{
+  "id": "N557",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N557",
+    "report": "rpt-ref-5b1ba7a48fcb57c8e35e",
+    "card": "rpt-ref-5b1ba7a48fcb57c8e35e",
+    "file": "evidence/a4edee0295bc38f3-NFI.json",
+    "snapshot": "evidence/a4edee0295bc38f3-NFI.json",
+    "source_sha256": "a4edee0295bc38f39245cd5767c1f102f15cee1b49b2fbac7bb4fd14a6431bd3",
+    "source_json_pointer": "/issues/4",
+    "row_id": "033-NFI-05",
+    "fields": {
+      "id": "033-NFI-05",
+      "tag": "PROJECTION",
+      "title": "Stock dimensions and face gauges",
+      "finding": "The .6096 by 1.8288 m stock envelope is only published for gauges >=1.4986 mm; it is projected for thinner R10/R15 minima and the QS threshold. Formal gamma-plus-strength flotation at 103.892 m needs 8.235 mm faces, exceeding the 6.35 mm sheet maximum; even compression alone limits that stock to R<=99.898 m.",
+      "next_evidence": "Obtain gauge-specific stock dimensions, tolerances, forming and scarf-machining feasibility. The formal oversized result is not an available-stock design.",
+      "status": "open"
+    },
+    "inherited_document_tag": {
+      "status": "open",
+      "overall_installed_hull_SF": null
+    }
+  },
+  "claim": "The .6096 by 1.8288 m stock envelope is only published for gauges >=1.4986 mm; it is projected for thinner R10/R15 minima and the QS threshold. Formal gamma-plus-strength flotation at 103.892 m needs 8.235 mm faces, exceeding the 6.35 mm sheet maximum; even compression alone limits that stock to R<=99.898 m. | Stock dimensions and face gauges",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/556"
+    },
+    {
+      "report": "rpt-ref-5b1ba7a48fcb57c8e35e",
+      "artifact": "evidence/a4edee0295bc38f3-NFI.json",
+      "snapshot": "evidence/a4edee0295bc38f3-NFI.json",
+      "sha256": "a4edee0295bc38f39245cd5767c1f102f15cee1b49b2fbac7bb4fd14a6431bd3",
+      "bytes": 5539,
+      "selector": "/issues/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-5b1ba7a48fcb57c8e35e",
+          "artifact": "evidence/a4edee0295bc38f3-NFI.json",
+          "snapshot": "evidence/a4edee0295bc38f3-NFI.json",
+          "sha256": "a4edee0295bc38f39245cd5767c1f102f15cee1b49b2fbac7bb4fd14a6431bd3",
+          "bytes": 5539,
+          "selector": "/issues/4"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/556"
+          }
+        ]
+      }
+    }
+  ]
+}

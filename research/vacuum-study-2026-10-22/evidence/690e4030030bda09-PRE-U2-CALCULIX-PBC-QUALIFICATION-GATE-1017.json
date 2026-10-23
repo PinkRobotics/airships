@@ -1,0 +1,111 @@
+{
+  "schema": "sciences.pre-u2-path-qualification/1",
+  "written_at": "2026-10-17T11:13:53-07:00",
+  "decision_owner": "sciences-p-10151529",
+  "status": "QUALIFICATION_GATE_ADDED; PROTOCOL_PREPARATION_ONLY; NO_NEW_EXECUTION_AUTHORITY",
+  "question": {
+    "path": "unpublished-local-ref:77a0170ac6206dc3",
+    "sha256": "0003a33571cbb115608e8d2641c80024a19bc2aeb0ecb3c20ed18598ed54c216",
+    "bytes": 1247
+  },
+  "authority": [
+    {
+      "path": "unpublished-local-ref:d8ce6d1d38cd89d2",
+      "sha256": "7cf63a2bc23bb43d018ca12f17de181a87493e8f5d733fc41af34fad9999727d",
+      "bytes": 5365
+    },
+    {
+      "path": "unpublished-local-ref:567174251277f3be",
+      "sha256": "cee7ca2f7de2190a56dcab371c08bdb94b62216a8f5d8ea2893db86d2e42b156",
+      "bytes": 9549
+    }
+  ],
+  "amendment_1": {
+    "path": "unpublished-local-ref:33c1481de2a0b97a",
+    "sha256": "489e79ebdf097134a1abe8fecf54c5f25d57199318d8679570376e2113768c7b",
+    "bytes": 5264
+  },
+  "scorer_conventions": {
+    "path": "unpublished-local-ref:5ac27e4e84814ca5",
+    "sha256": "d9c2a6a289b91fb9f5f9acc1750f487d191ba0e80d837dff30d971f1604368ec",
+    "bytes": 3772
+  },
+  "answer": "No current U1 result validates the intended CalculiX nonlinear seeded-imperfection path and periodic constraints. The landed Hutchinson result validates its bespoke axisymmetric primary-branch solver only. Add a separate pre-U2 qualification gate; do not retroactively broaden or reopen that PASS.",
+  "placement": {
+    "owner": "ref-ed3515d83349998d6b1b",
+    "reason": "Existing CO placement assigns A the FEA U1/U2 lane and B the map U3/U4 lane. The Admiral question offers B as an option, not a reassignment. Keep B on unfinished U3.",
+    "sequence": "A first returns the currently ordered exact Akhmeteli-on93 handoff or its first precise blocker and ends any active check scope. Then perform this one protocol-only preparation pass. Preserve all remaining Akhmeteli landing and CO parent obligations.",
+    "existing_priority_order": "ord-sciences-g1-akhmeteli-land93-exact-handoff-1017",
+    "no_workers": "No worker mint, provider substitution, seat wake/restore or out-of-band contact is authorized."
+  },
+  "gate": {
+    "part_a": "Reproduce the same frozen Hutchinson physical point using mandated CalculiX2.21 geometrically nonlinear analysis and an explicitly seeded geometric imperfection. This is a separate implementation qualification, not another variational-solver run or a new scientific reference value.",
+    "frozen_physical_reference": {
+      "path": "unpublished-local-ref:56b076310c940cae",
+      "sha256": "7cb94fc2614a45d864a533e525fda7b567eb820293ba03f0377b94df92c4b252",
+      "bytes": 8699
+    },
+    "physical_summary": {
+      "source": "Hutchinson2016, DOI10.1098/rspa.2016.0577, Fig7(a),p15",
+      "R_over_t": 100,
+      "nu": 0.3,
+      "B": 1.5,
+      "delta_over_t": 1,
+      "comparison_quantity": "first axisymmetric primary-branch static peak p/pC",
+      "nominal": 0.25,
+      "graph_reading_interval": [
+        0.247,
+        0.253
+      ]
+    },
+    "acceptance": "Retain <=5% relative error against the nominal AND both frozen interval endpoints, and <=1% change on BOTH adjacent pairs of at least three prospectively chosen refined FE meshes. Same physical problem on all meshes. The old64/128/256 spline intervals are not automatically valid FE mesh choices. Keep graph-reading and source/model qualifications. No fit to the bespoke0.2412263518526899 result.",
+    "part_b": "Verify the actual intended U2 periodic-constraint and element implementation separately with deterministic reference problems before octet-cell predictions. A sphere reproduction alone does not qualify periodic constraints or every3D hollow-strut element formulation.",
+    "periodic_reference_requirements": [
+      "Specify finite-deformation macroscopic kinematics, reference/current configurations, displacement jump convention and load/stress measures; show that the chosen constraint implementation matches them.",
+      "Homogeneous-cell affine patch/reference with prescribed macroscopic strain, analytical stress/energy and reactions; explicitly test each independent macro strain mode and the intended hydrostatic combination.",
+      "Account for face pair bijections, shared edges/corners, dependent DOFs, rank, rigid modes and artificial constraint stiffness; use positive and deliberately invalid pairing cases with frozen expectations.",
+      "Verify periodic compatibility of the seeded imperfection and distinguish it from an eigenvector perturbation with an unspecified amplitude.",
+      "Freeze tolerances for equilibrium, reaction balance, energy consistency and imposed periodic jumps before execution; verify a relevant analytical strut limit and any element/kinematics feature not exercised by the sphere.",
+      "State the limits of these checks: they verify implementation, not the nonlinear octet knockdown or a validated map point."
+    ],
+    "required_numerical_protocol_before_run": [
+      "Measured/pinned actual CalculiX2.21 binary/build, gmsh4.14 where used, interpreter/library versions and source/deck generator identity; version/capability mismatch is a blocker, not permission to install or substitute.",
+      "Element family, integration, thickness/director treatment, shell/solid/axisymmetric representation, domain/symmetry and boundary constraints; explain transfer to the intended3D U2 hollow-strut representation and remaining reference tests.",
+      "Source-consistent imperfection equation, physical amplitude and normalization, mesh projection and seam/pole treatment; all compatible with the pinned frozen physical case.",
+      "Material/strain/rotation assumptions and dead-versus-follower pressure convention; compare with the source and retained bespoke interpretation. Resolve a material model mismatch before response, without post-result comparator or tolerance changes.",
+      "A documented supported equilibrium-path/control method, increment/tolerance/cutback limits and a defensible first-limit-point extraction rule. Preserve converged equilibrium history; a failed force-controlled solve or last converged increment alone is not the critical pressure. Do not assert unsupported arc-length/Riks capability.",
+      "Exact mesh series, output observables, convergence/error formulae, residual/first-peak tests, method-failure/timeout outcomes, immutable raw evidence and one predeclared attempt/stop/retry policy.",
+      "Finite proposed aggregate budgets and measured scope controls within programme maxima8CPU/40GiB/7200s perFEAjob, under stricter parents, /home-only output, swap0 and one heavy job/no overlap; reserve cleanup and account for every setup/check/retry rather than resetting allocations.",
+      "Governed implementation/landing plan, bounded meaningful regression and project gates, exact execution freeze and valid pre-solve filing receipt. Every filing declares a link or links_none; a refused pre-solve filing must be corrected and admitted before response."
+    ],
+    "release_condition": "A complete protocol is not execution authorization. Sciences must freeze and brief the finite qualification attempt separately, after required source/capability/physics gaps are resolved. Una verifies qualification evidence; the required governed record lands through CO. U2 octet solves remain held until original U1 is verified, this path qualification is accepted, and Sciences issues the bounded U2 brief.",
+    "failure_policy": "Report a source/capability/control/element mismatch precisely. Retain every failed attempt. No silent solver swap, response tuning, comparator relaxation or automatic second attempt."
+  },
+  "authorized_now": {
+    "work": "One bounded source/manual/protocol preparation pass in A own notes, after the named Akhmeteli handoff/blocker. Use existing frozen evidence and official documentation; no new numerical response, code/deck implementation, project tests or heavy jobs.",
+    "deliverable": "One complete proposed protocol and concise source/capability gap table, with exact references and proposed finite budget, or one precise blocker. Name the intended U2 element/control/PBC chain and which reference verifies each required feature.",
+    "end": "Return once and end turn; no startup acknowledgment or repeated status reports required."
+  },
+  "scoring": {
+    "current": "A gross45 remains unchanged; landed Hutchinson+15 stands with its delivery defect and scientific scope retained. Akhmeteli is0. Validatedmap0, no stall-clock reset.",
+    "new_qualification": "No automatic second+15 for the same published point under the existing once-each rule. Una decides eligibility and benchmark identity; a rubric change requires Una+Admiral and applies forward only. This order grants no award and changes no rubric.",
+    "scope": "The new gate does not retroactively alter U1 fourth-slot acceptance or CO current U1 closure path. Passing a solver/PBC reference is not an octet-cell prediction, map point or hull feasibility claim."
+  },
+  "primary_documentation": [
+    {
+      "url": "https://dhondt.de/ccx_2.21.pdf",
+      "sections": [
+        "6.9.1 Static analysis,pp287-288",
+        "7.124 *STEP,p593",
+        "10.2.2 Homogeneous linear equations,pp667-668"
+      ],
+      "observed": "The manual documents geometric nonlinearity through NLGEOM for supported steps, incremental static solution, and elimination of dependent degrees of freedom in linear multipoint constraints. The protocol must check those features against its actual deck."
+    },
+    {
+      "url": "https://www.dhondt.de/examples.htm",
+      "section": "Buckling of a cylindrical shell segment",
+      "observed": "The official example reports loss of convergence under force control and continuation under displacement control. This supports requiring an explicit equilibrium-path method; it is not a validation of the proposed spherical or periodic case."
+    }
+  ],
+  "continuing_obligations": "CO Akhmeteli parent remains open; original U1 closure still follows Akhmeteli landing and Una unit verification. U1/U3open,U2/U4held; B correctedU3, EngineeringREADY/preflight, CO CI90-93watch and nextdailyOctober18before06:50 persist. Closed Hutchinson allocations stay closed; no budget transfer."
+}

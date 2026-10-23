@@ -1,0 +1,239 @@
+{
+  "inputs": {
+    "rho_kg_m3": 1.1672683307461802,
+    "speed_m_s": 2.0,
+    "dynamic_viscosity_Pa_s": 1.79e-05,
+    "Pr": 0.71,
+    "Ta_K": 284.9,
+    "standard_gravity_m_s2": 9.80665,
+    "beta_K_inverse": 0.00351000351000351
+  },
+  "formulae": {
+    "Re": "vD/nu",
+    "Gr": "g beta abs(deltaT) D^3/nu^2",
+    "Ra": "Gr Pr",
+    "Ri": "Gr/Re^2 = g beta abs(deltaT) D/v^2"
+  },
+  "rows": [
+    {
+      "model": "forced_conduction",
+      "R_m": 10,
+      "representative_delta_K": 14.485622501159412,
+      "Re": 2608420.8508294523,
+      "Gr": 16962533570117.006,
+      "Ra": 12043398834783.074,
+      "Ri": 2.49307528783775,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_conduction",
+      "R_m": 12,
+      "representative_delta_K": 14.8360859043608,
+      "Re": 3130105.020995343,
+      "Gr": 30020411049232.277,
+      "Ra": 21314491844954.914,
+      "Ri": 3.064070940694977,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_conduction",
+      "R_m": 15,
+      "representative_delta_K": 15.254826893602683,
+      "Re": 3912631.276244179,
+      "Gr": 60288519342587.84,
+      "Ra": 42804848733237.37,
+      "Ri": 3.9381909834015993,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_conduction",
+      "R_m": 20,
+      "representative_delta_K": 15.777865620844182,
+      "Re": 5216841.701658905,
+      "Gr": 147805909058830.4,
+      "Ra": 104942195431769.58,
+      "Ri": 5.43095843772031,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_conduction",
+      "R_m": 30,
+      "representative_delta_K": 16.483515229512136,
+      "Re": 7825262.552488358,
+      "Gr": 521155295267248.5,
+      "Ra": 370020259639746.44,
+      "Ri": 8.510779113311434,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_conduction",
+      "R_m": 10,
+      "representative_delta_K": 13.35853016749138,
+      "Re": 2608420.8508294523,
+      "Gr": 15642718591855.957,
+      "Ra": 11106330200217.729,
+      "Ri": 2.2990949432613093,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_conduction",
+      "R_m": 12,
+      "representative_delta_K": 13.364543606592747,
+      "Re": 3130105.020995343,
+      "Gr": 27042785755060.59,
+      "Ra": 19200377886093.02,
+      "Ri": 2.7601558770009,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_conduction",
+      "R_m": 15,
+      "representative_delta_K": 13.371402090777565,
+      "Re": 3912631.276244179,
+      "Gr": 52845046306322.19,
+      "Ra": 37519982877488.75,
+      "Ri": 3.4519654347189492,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_conduction",
+      "R_m": 20,
+      "representative_delta_K": 13.381106318324328,
+      "Re": 5216841.701658905,
+      "Gr": 125353240490266.36,
+      "Ra": 89000800748089.11,
+      "Ri": 4.605960908269403,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_conduction",
+      "R_m": 30,
+      "representative_delta_K": 13.398865300427815,
+      "Re": 7825262.552488358,
+      "Gr": 423628668076112.94,
+      "Ra": 300776354334040.2,
+      "Ri": 6.9181106913885815,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_gap",
+      "R_m": 10,
+      "representative_delta_K": 14.484947844952785,
+      "Re": 2608420.8508294523,
+      "Gr": 16961743553771.332,
+      "Ra": 12042837923177.645,
+      "Ri": 2.4929591748632203,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_gap",
+      "R_m": 12,
+      "representative_delta_K": 14.835088993717818,
+      "Re": 3130105.020995343,
+      "Gr": 30018393828014.055,
+      "Ra": 21313059617889.977,
+      "Ri": 3.063865050478965,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_gap",
+      "R_m": 15,
+      "representative_delta_K": 15.253228979193011,
+      "Re": 3912631.276244179,
+      "Gr": 60282204233641.2,
+      "Ra": 42800365005885.25,
+      "Ri": 3.9377784653072085,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_gap",
+      "R_m": 20,
+      "representative_delta_K": 15.774961860050496,
+      "Re": 5216841.701658905,
+      "Gr": 147778706836799.0,
+      "Ra": 104922881854127.28,
+      "Ri": 5.429958923301659,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "forced_gap",
+      "R_m": 30,
+      "representative_delta_K": 16.476938453884827,
+      "Re": 7825262.552488358,
+      "Gr": 520947358950496.1,
+      "Ra": 369872624854852.25,
+      "Ri": 8.507383388318162,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_gap",
+      "R_m": 10,
+      "representative_delta_K": 13.358017423745082,
+      "Re": 2608420.8508294523,
+      "Gr": 15642118173544.021,
+      "Ra": 11105903903216.254,
+      "Ri": 2.2990066965350957,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_gap",
+      "R_m": 12,
+      "representative_delta_K": 13.363818003585834,
+      "Re": 3130105.020995343,
+      "Gr": 27041317517368.625,
+      "Ra": 19199335437331.723,
+      "Ri": 2.760006019477677,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_gap",
+      "R_m": 15,
+      "representative_delta_K": 13.370293793834321,
+      "Re": 3912631.276244179,
+      "Gr": 52840666211931.984,
+      "Ra": 37516873010471.7,
+      "Ri": 3.4516793164260795,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_gap",
+      "R_m": 20,
+      "representative_delta_K": 13.379203721438444,
+      "Re": 5216841.701658905,
+      "Gr": 125335417099634.94,
+      "Ra": 88988146140740.8,
+      "Ri": 4.605306008243045,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    },
+    {
+      "model": "mixed_gap",
+      "R_m": 30,
+      "representative_delta_K": 13.394860766001727,
+      "Re": 7825262.552488358,
+      "Gr": 423502057684325.94,
+      "Ra": 300686460955871.4,
+      "Ri": 6.916043067615524,
+      "input_classification": "QUESTIONABLE / PROJECTION",
+      "meaning": "Extremum-based regime diagnostic; not a mixed-convection solution or validated criterion."
+    }
+  ]
+}

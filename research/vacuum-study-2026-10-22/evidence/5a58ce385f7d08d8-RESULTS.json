@@ -1,0 +1,1401 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-037b",
+  "unit": "vacuum-mainline037b-bond-temperature-1020",
+  "order": "ord-admiral-rr2-mainline037b-dispatch-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "job_started_at": "2026-10-20T02:24:33-07:00",
+  "compute_started": "2026-10-20T03:15:18.370062-07:00",
+  "compute_ended": "2026-10-20T03:17:11.914572-07:00",
+  "compute_elapsed_s": 113.54453981667757,
+  "card_written_at": "2026-10-20T03:23:02.021912-07:00",
+  "job_ended_at": "2026-10-20T03:23:02.021912-07:00",
+  "times_are": "measurements only, never limits",
+  "verdict": {
+    "bond_continuous_core": "survives: no mismatch shear by CR-1457's premise; walls 101.5 MPa uniform cell (factor 2.24), 121.8 MPa doubled cell single walls (factor 1.87)",
+    "bond_free_core_edge": {
+      "SF_typ": 1.166655439781211,
+      "SF_min": 0.8333253141293928,
+      "L_typ": 1.23437479630365,
+      "L_min": 1.009947412566338
+    },
+    "bond_037_screen": {
+      "SF_typ": 0.22709902838321164,
+      "SF_min": 0.16221359170228555,
+      "core_force_ratio_to_wall_yield": 47.09939398214449
+    },
+    "face_compression_at_028b_lead_MPa": 4.403102944423412,
+    "028b_usage_own": 0.9719775174295705,
+    "028b_usage_with_cure_compression": 1.052281583611761,
+    "037_point_scarf_with_cure_compression": 0.9925149538971942,
+    "lightest_sourced_change": "AF 163-2U at its 200 F datasheet cure plus a 30.3414:1 face scarf (028's sizing rule); +0.120 kg",
+    "lightest_change_SF_free_edge": {
+      "typ": 1.5063251436127951,
+      "min": 1.0759465311519403
+    },
+    "lightest_change_028b": {
+      "usage": 0.9721901487262621,
+      "gamma": 0.5642879564373808,
+      "Q": 0.43951330815016776
+    },
+    "if_splices_carry_core_force": "250 F cure plus a 30.4408:1 scarf; +0.155 kg; usage 0.972247",
+    "if_037_screen_kept": "bond stress-free near mid-swing (13 C): 1.835 / 1.311; 028b usage 0.982344 on the 30:1 scarf",
+    "stress_free_ceiling_037_scarf_C": 54.08060361555545
+  },
+  "compute": {
+    "started": "2026-10-20T03:15:18.370062-07:00",
+    "pins": {
+      "brief_037b": {
+        "path": "unpublished-local-ref:b85b89aaff324164",
+        "sha256": "52fbb9356f16fa9bd8935c1f8d1ff8d3d2bc651d83c8c6937afc805224abc72c",
+        "bytes": 2024,
+        "ok": true
+      },
+      "common": {
+        "path": "withheld-source:b528d6a62c81ce0b",
+        "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+        "bytes": 5874,
+        "ok": true
+      },
+      "037_card": {
+        "path": "evidence/418add214eccec9a-CARD.md",
+        "sha256": "418add214eccec9a4fc1a6631088dce20028cd9ccdbe22dbede6bbb23c8195c6",
+        "bytes": 6139,
+        "ok": true
+      },
+      "037_results": {
+        "path": "evidence/92c73a5b625da613-RESULTS.json",
+        "sha256": "92c73a5b625da613fadefc43059adb67160f0f3847729d23abe482db3ee8e3d2",
+        "bytes": 28085,
+        "ok": true
+      },
+      "037_nfi": {
+        "path": "evidence/f9ff7da1d21d1380-NFI.json",
+        "sha256": "f9ff7da1d21d1380a77ae7b7e6e5f2b1935bd729c4a9f2e3861fa1c625970e89",
+        "bytes": 3264,
+        "ok": true
+      },
+      "037_inputs": {
+        "path": "evidence/f09d922557568e87-INPUTS.json",
+        "sha256": "f09d922557568e87ddc4eef5a86d84a61db11d1ae39d6c69dc96a4108e89e0d2",
+        "bytes": 4136,
+        "ok": true
+      },
+      "037_script": {
+        "path": "evidence/a13cfcddd25d82f1-loads037.py",
+        "sha256": "a13cfcddd25d82f1b264f229c114d5ee9843403bb7914cf77da051c81058bc2d",
+        "bytes": 27162,
+        "ok": true
+      },
+      "028b_card": {
+        "path": "evidence/501ecbe6b0e11bab-CARD.md",
+        "sha256": "501ecbe6b0e11bab238809f5a61a63e487d364305015af559285faaec8d24c6f",
+        "bytes": 13125,
+        "ok": true
+      },
+      "028b_method": {
+        "path": "evidence/d2102ac041ebbeba-METHOD.md",
+        "sha256": "d2102ac041ebbeba589712aeda20eb8fa6962324c65079eeeb0edc054fbe0810",
+        "bytes": 9462,
+        "ok": true
+      },
+      "028b_results": {
+        "path": "evidence/b2563f5a903f9779-RESULTS.json",
+        "sha256": "b2563f5a903f977953e50ab1eac337c8776ed7a5824a27419307f2a1e7035d0e",
+        "bytes": 119382,
+        "ok": true
+      },
+      "028b_property_checks": {
+        "path": "evidence/0eb090401eeebaf4-PROPERTY-CHECKS.json",
+        "sha256": "0eb090401eeebaf4a9a4dbe5464c1a7b2cc51cbae1d89d766c58b3d4e3a13ef6",
+        "bytes": 117869,
+        "ok": true
+      },
+      "model17b": {
+        "path": "evidence/f96e8183525287e5-model17b.py",
+        "sha256": "f96e8183525287e5df89711d4d2e14fd4ae5652a49248289c8d733361ff31a5d",
+        "bytes": 15953,
+        "ok": true
+      },
+      "nasa_cr1457_pdf": {
+        "path": "unpublished-local-ref:e3c758a27ff22765",
+        "sha256": "6a1a55855cc2c8b0a864289518b868a0528db319739a26eacb6a4b262f110b51",
+        "bytes": 10571741,
+        "ok": true
+      },
+      "hexcel_criii_pdf": {
+        "path": "unpublished-local-ref:951dae7dbde87d65",
+        "sha256": "0467f718f7d9d3a175635718573f94f58baea1d753e83db4be8edcba9f374034",
+        "bytes": 269874,
+        "ok": true
+      },
+      "src_adhesive_json": {
+        "path": "evidence/5e9f116cf38f1f7f-adhesive.json",
+        "sha256": "5e9f116cf38f1f7f1d5ccbce49b5201c15f5a18e87441fb2415de8a646447482",
+        "bytes": 99214,
+        "ok": true
+      },
+      "src_adhesive_md": {
+        "path": "evidence/7fd103e58e9d0809-adhesive.md",
+        "sha256": "7fd103e58e9d0809868745a167a048ab583aef8c09877591ce0670f858a5322a",
+        "bytes": 2072,
+        "ok": true
+      },
+      "src_core_json": {
+        "path": "evidence/a003669fa58c1c30-core.json",
+        "sha256": "a003669fa58c1c30e37faa210bb4da2625cbe0d999254ca5272440f0054b6364",
+        "bytes": 129017,
+        "ok": true
+      },
+      "src_core_md": {
+        "path": "evidence/13c0fa94440b5da7-core.md",
+        "sha256": "13c0fa94440b5da7b418ab71727c2e4b03ced1493b7ca12ca329e0724e3a8540",
+        "bytes": 2483,
+        "ok": true
+      },
+      "src_interlayer_json": {
+        "path": "evidence/60d66f65c34c858f-interlayer.json",
+        "sha256": "60d66f65c34c858f3cf5fbbb1e8d6cab32826d5eee5028eb12396f485f00ff48",
+        "bytes": 67023,
+        "ok": true
+      },
+      "src_interlayer_md": {
+        "path": "evidence/8356d3f8d8f9358f-interlayer.md",
+        "sha256": "8356d3f8d8f9358fb28a15a45a48aeb07d688e0717beb7d3afdc4000523bef6c",
+        "bytes": 2216,
+        "ok": true
+      }
+    },
+    "sources_used": {
+      "af163_cure_low_F": {
+        "value": 200,
+        "file": "adhesive.json",
+        "index": 3
+      },
+      "af163_tg_dry_C": {
+        "value": 108,
+        "file": "adhesive.json",
+        "index": 18
+      },
+      "af163_creep_in": {
+        "value": 0.0002,
+        "file": "adhesive.json",
+        "index": 34
+      },
+      "hexbond679_cure_C": {
+        "value": 80,
+        "file": "adhesive.json",
+        "index": 65
+      },
+      "hexbond679_areal_g_m2": {
+        "value": 250,
+        "file": "adhesive.json",
+        "index": 75
+      },
+      "hexbond679_70C_min": {
+        "value": 480,
+        "file": "adhesive.json",
+        "index": 66
+      },
+      "ea9394_lap_psi": {
+        "value": 4200,
+        "file": "adhesive.json",
+        "index": 50
+      },
+      "ea9394_density": {
+        "value": 1.36,
+        "file": "adhesive.json",
+        "index": 52
+      },
+      "rtv566_G_MPa": {
+        "value": 0.635,
+        "file": "interlayer.json",
+        "index": 20
+      },
+      "rtv566_sg": {
+        "value": 1.49,
+        "file": "interlayer.json",
+        "index": 17
+      },
+      "rtv566_lap_MPa": {
+        "value": 3.2,
+        "file": "interlayer.json",
+        "index": 16
+      },
+      "foil_5052_E_GPa": {
+        "value": 56.537,
+        "file": "core.json",
+        "index": 83
+      },
+      "foil_5052_yield_MPa": {
+        "value": 227.53,
+        "file": "core.json",
+        "index": 84
+      },
+      "foil_5056_E_GPa": {
+        "value": 67.0,
+        "file": "core.json",
+        "index": 86
+      },
+      "foil_5056_rho": {
+        "value": 2700,
+        "file": "core.json",
+        "index": 86,
+        "field": "density_kg_m3"
+      },
+      "al_core_cte_thickness": {
+        "value": 2.376e-05,
+        "file": "core.json",
+        "index": 7
+      },
+      "ti325_cte": {
+        "value": 9.61e-06,
+        "file": "core.json",
+        "index": 90
+      },
+      "ph157_cte": {
+        "value": 1.1e-05,
+        "file": "core.json",
+        "index": 95
+      },
+      "ph177_cte": {
+        "value": 1.53e-05,
+        "file": "core.json",
+        "index": 97
+      },
+      "cr3_W_min_psi": {
+        "value": 25.0,
+        "file": "core.json",
+        "field": "value_as_printed",
+        "printed": "35 psi (min 25 psi)"
+      },
+      "cr3_L_min_psi": {
+        "value": 45.0,
+        "file": "core.json",
+        "field": "value_as_printed",
+        "printed": "55 psi (min 45 psi)"
+      },
+      "cr3_L_strength_kPa": {
+        "value": 379.21,
+        "file": "core.json",
+        "index": 3
+      },
+      "cr3_L_modulus_MPa": {
+        "value": 103.42,
+        "file": "core.json",
+        "index": 1
+      },
+      "cr3_W_strength_kPa": {
+        "value": 241.32,
+        "file": "core.json",
+        "index": 4
+      },
+      "cr3_W_modulus_MPa": {
+        "value": 46.884,
+        "file": "core.json",
+        "index": 2
+      },
+      "hft_rho": {
+        "value": 32.04,
+        "file": "core.json",
+        "index": 67,
+        "field": "density_kg_m3"
+      },
+      "hft_gw": {
+        "value": 34.474,
+        "file": "core.json",
+        "index": 67
+      },
+      "hft_ec": {
+        "value": 117.21,
+        "file": "core.json",
+        "index": 70
+      },
+      "hft_stab": {
+        "value": 1172.1,
+        "file": "core.json",
+        "index": 71
+      },
+      "hft_sw": {
+        "value": 413.69,
+        "file": "core.json",
+        "index": 69
+      },
+      "glass_cte": {
+        "value": 1.476e-05,
+        "file": "core.json",
+        "index": 48
+      },
+      "hrp_rho": {
+        "value": 51.26,
+        "file": "core.json",
+        "index": 61,
+        "field": "density_kg_m3"
+      },
+      "hrp_gw": {
+        "value": 34.474,
+        "file": "core.json",
+        "index": 61
+      },
+      "hrp_ec": {
+        "value": 262.0,
+        "file": "core.json",
+        "index": 64
+      },
+      "hrp_stab": {
+        "value": 2689.0,
+        "file": "core.json",
+        "index": 65
+      },
+      "hrp_sw": {
+        "value": 758.42,
+        "file": "core.json",
+        "index": 63
+      },
+      "hrh49_rho": {
+        "value": 33.64,
+        "file": "core.json",
+        "index": 50,
+        "field": "density_kg_m3"
+      },
+      "hrh49_gw": {
+        "value": 8.9632,
+        "file": "core.json",
+        "index": 50
+      },
+      "hrh49_ec": {
+        "value": 172.37,
+        "file": "core.json",
+        "index": 53
+      },
+      "hrh49_stab": {
+        "value": 896.32,
+        "file": "core.json",
+        "index": 54
+      },
+      "hrh49_sw": {
+        "value": 275.79,
+        "file": "core.json",
+        "index": 52
+      },
+      "hrh49_cte": {
+        "value": 4.86e-06,
+        "file": "core.json",
+        "index": 47
+      },
+      "hrh10_rho": {
+        "value": 24.03,
+        "file": "core.json",
+        "index": 41,
+        "field": "density_kg_m3"
+      },
+      "hrh10_gw": {
+        "value": 10.342,
+        "file": "core.json",
+        "index": 41
+      },
+      "hrh10_ec": {
+        "value": 41.369,
+        "file": "core.json",
+        "index": 44
+      },
+      "hrh10_stab": {
+        "value": 723.95,
+        "file": "core.json",
+        "index": 45
+      },
+      "hrh10_sw": {
+        "value": 241.32,
+        "file": "core.json",
+        "index": 43
+      },
+      "hrh10_cte": {
+        "value": 3.492e-05,
+        "file": "core.json",
+        "index": 46
+      },
+      "ti_rho": {
+        "value": 72.0,
+        "file": "core.json",
+        "index": 8
+      },
+      "ph_rho": {
+        "value": 81.694,
+        "file": "core.json",
+        "index": 18
+      },
+      "be_rho": {
+        "value": 84.898,
+        "file": "core.json",
+        "index": 24
+      }
+    },
+    "checks": [
+      {
+        "check": "037 lambda",
+        "mine": 3.024091871444132,
+        "theirs": 3.024091871444132,
+        "ok": true
+      },
+      {
+        "check": "037 day-rise tau",
+        "mine": 143787.7618694373,
+        "theirs": 143787.7618694373,
+        "ok": true
+      },
+      {
+        "check": "037 swing tau",
+        "mine": 263037.29582667246,
+        "theirs": 263037.29582667246,
+        "ok": true
+      },
+      {
+        "check": "037 swing SF",
+        "mine": 0.917423152874516,
+        "theirs": 0.917423152874516,
+        "ok": true
+      },
+      {
+        "check": "028b nominal AF/scarf max usage (nu 0.0752)",
+        "mine": 0.9719775174295705,
+        "theirs": 0.971978,
+        "ok": true
+      },
+      {
+        "check": "028b gamma needed",
+        "mine": 0.5641635666030133,
+        "theirs": 0.564164,
+        "ok": true
+      },
+      {
+        "check": "028b wrinkle needed",
+        "mine": 0.4346278543752046,
+        "theirs": 0.434628,
+        "ok": true
+      },
+      {
+        "check": "028b face mm",
+        "mine": 0.7946240669858919,
+        "theirs": 0.794624,
+        "ok": true
+      },
+      {
+        "check": "028b core mm",
+        "mine": 23.23721790601548,
+        "theirs": 23.2372,
+        "ok": true
+      },
+      {
+        "check": "028b nu 0.33 max usage",
+        "mine": 0.9064389083947217,
+        "theirs": 0.906439,
+        "ok": true
+      }
+    ],
+    "residual": [
+      {
+        "case": "AF 163-2U, datasheet 250 F cure, stress-free at cure",
+        "sft_K": 394.26111111111106,
+        "sft_C": 121.11111111111109,
+        "worst_dT_K": 123.18544935965735,
+        "worst_at": "cold night",
+        "tau_037_kPa": 1062.6047455108003,
+        "SF_037_typ": 0.22709902838321164,
+        "SF_037_min": 0.16221359170228555,
+        "tau_free_edge_kPa": 206.8447092709292,
+        "SF_edge_typ": 1.166655439781211,
+        "SF_edge_min": 0.8333253141293928,
+        "SF_edge_L_typ": 1.23437479630365,
+        "SF_edge_L_min": 1.009947412566338,
+        "SF_edge_doubled_typ": 1.22976281144468,
+        "SF_edge_doubled_min": 0.8784020081747255,
+        "transfer_length_mm": 16.092284189946692,
+        "wall_stress_MPa": 101.51712881729364,
+        "wall_SF_on_5052H39_yield": 2.2412966427517778,
+        "wall_stress_doubled_single_MPa": 121.82055458075234,
+        "wall_SF_doubled_single": 1.8677472022931487,
+        "face_compression_added_037_MPa": 4.162438804476958,
+        "p2_037_modes_with_residual": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.2531465167074896,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9378397979911854,
+          "intracell_dimpling": 6.877823490299207,
+          "scarf_mean_shear": 0.9925149538971942
+        },
+        "p2_037_least": "scarf_mean_shear",
+        "p2_037_least_SF": 0.9925149538971942,
+        "p2_037_face_SF_on_345": 1.1401253909917826
+      },
+      {
+        "case": "AF 163-2U, stress-free at its dry Tg (108 C), the lower bound of the cure-or-Tg rule",
+        "sft_K": 381.15,
+        "sft_C": 108.0,
+        "worst_dT_K": 110.07433824854627,
+        "worst_at": "cold night",
+        "tau_037_kPa": 949.5075497136747,
+        "SF_037_typ": 0.25414911691187914,
+        "SF_037_min": 0.1815350835084756,
+        "tau_free_edge_kPa": 184.82941460671393,
+        "SF_edge_typ": 1.305617429857546,
+        "SF_edge_min": 0.932583878469627,
+        "SF_edge_L_typ": 1.3814029353286514,
+        "SF_edge_L_min": 1.1302436864593248,
+        "SF_edge_doubled_typ": 1.376241610388325,
+        "SF_edge_doubled_min": 0.983029721705895,
+        "transfer_length_mm": 16.092284189946692,
+        "wall_stress_MPa": 90.71226215062698,
+        "wall_SF_on_5052H39_yield": 2.508260676182766,
+        "wall_stress_doubled_single_MPa": 108.85471458075236,
+        "wall_SF_doubled_single": 2.0902172301523056,
+        "face_compression_added_037_MPa": 3.7194140970753495,
+        "p2_037_modes_with_residual": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.254983899412718,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9406810885209533,
+          "intracell_dimpling": 6.887907860931216,
+          "scarf_mean_shear": 0.993970194594637
+        },
+        "p2_037_least": "scarf_mean_shear",
+        "p2_037_least_SF": 0.993970194594637,
+        "p2_037_face_SF_on_345": 1.1417970603834067
+      },
+      {
+        "case": "AF 163-2U, datasheet 200 F alternative cure (2-6 h)",
+        "sft_K": 366.4833333333333,
+        "sft_C": 93.33333333333331,
+        "worst_dT_K": 95.40767158187958,
+        "worst_at": "cold night",
+        "tau_037_kPa": 822.9920425507886,
+        "SF_037_typ": 0.2932185158351643,
+        "SF_037_min": 0.2094417970251064,
+        "tau_free_edge_kPa": 160.20213582979508,
+        "SF_edge_typ": 1.5063251436127951,
+        "SF_edge_min": 1.0759465311519403,
+        "SF_edge_L_typ": 1.5937608731013226,
+        "SF_edge_L_min": 1.3039918466078202,
+        "SF_edge_doubled_typ": 1.5878061168655564,
+        "SF_edge_doubled_min": 1.134147226332481,
+        "transfer_length_mm": 16.092284189946692,
+        "wall_stress_MPa": 78.62546215062696,
+        "wall_SF_on_5052H39_yield": 2.8938462652735666,
+        "wall_stress_doubled_single_MPa": 94.35055458075234,
+        "wall_SF_doubled_single": 2.4115385543946393,
+        "face_compression_added_037_MPa": 3.22382713625321,
+        "p2_037_modes_with_residual": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.257045671965937,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9438693708604606,
+          "intracell_dimpling": 6.89922378250074,
+          "scarf_mean_shear": 0.9956031561544562
+        },
+        "p2_037_least": "scarf_mean_shear",
+        "p2_037_least_SF": 0.9956031561544562,
+        "p2_037_face_SF_on_345": 1.1436728819310347
+      },
+      {
+        "case": "HexBond 679 low-temperature film, 80 C cure",
+        "sft_K": 353.15,
+        "sft_C": 80.0,
+        "worst_dT_K": 82.07433824854627,
+        "worst_at": "cold night",
+        "tau_037_kPa": 707.9779451299834,
+        "SF_037_typ": 0.34085313945279383,
+        "SF_037_min": 0.24346652818055428,
+        "tau_free_edge_kPa": 137.81370057805077,
+        "SF_edge_typ": 1.7510342168355246,
+        "SF_edge_min": 1.2507387263110237,
+        "SF_edge_L_typ": 1.8526742609903886,
+        "SF_edge_L_min": 1.5158309954306723,
+        "SF_edge_doubled_typ": 1.8457521286964715,
+        "SF_edge_doubled_min": 1.3183943776402678,
+        "transfer_length_mm": 16.092284189946692,
+        "wall_stress_MPa": 67.63746215062699,
+        "wall_SF_on_5052H39_yield": 3.3639641814664216,
+        "wall_stress_doubled_single_MPa": 81.16495458075237,
+        "wall_SF_doubled_single": 2.8033034845553524,
+        "face_compression_added_037_MPa": 2.7732935355058133,
+        "p2_037_modes_with_residual": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.2589258980892524,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9467769135638915,
+          "intracell_dimpling": 6.909543296799825,
+          "scarf_mean_shear": 0.9970923296223773
+        },
+        "p2_037_least": "scarf_mean_shear",
+        "p2_037_least_SF": 0.9970923296223773,
+        "p2_037_face_SF_on_345": 1.1453835306982914
+      },
+      {
+        "case": "HexBond 679, 70 C minimum (8 h)",
+        "sft_K": 343.15,
+        "sft_C": 70.0,
+        "worst_dT_K": 72.07433824854627,
+        "worst_at": "cold night",
+        "tau_037_kPa": 621.7173720643791,
+        "SF_037_typ": 0.38814502554370345,
+        "SF_037_min": 0.2772464468169165,
+        "tau_free_edge_kPa": 121.0223741392425,
+        "SF_edge_typ": 1.9939825753479725,
+        "SF_edge_min": 1.42427326810562,
+        "SF_edge_L_typ": 2.1097247322137935,
+        "SF_edge_L_min": 1.7261459330723294,
+        "SF_edge_doubled_typ": 2.101842184262636,
+        "SF_edge_doubled_min": 1.5013158459018041,
+        "transfer_length_mm": 16.092284189946692,
+        "wall_stress_MPa": 59.39646215062698,
+        "wall_SF_on_5052H39_yield": 3.830699535992452,
+        "wall_stress_doubled_single_MPa": 71.27575458075236,
+        "wall_SF_doubled_single": 3.1922496133270437,
+        "face_compression_added_037_MPa": 2.4353933349452634,
+        "p2_037_modes_with_residual": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.2603397630343922,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.9489632850082104,
+          "intracell_dimpling": 6.917303214257316,
+          "scarf_mean_shear": 0.9982121365101858
+        },
+        "p2_037_least": "scarf_mean_shear",
+        "p2_037_least_SF": 0.9982121365101858,
+        "p2_037_face_SF_on_345": 1.1466698793429992
+      },
+      {
+        "case": "Room-temperature cure (EA 9394 class), 25 C",
+        "sft_K": 298.15,
+        "sft_C": 25.0,
+        "worst_dT_K": 27.07433824854627,
+        "worst_at": "cold night",
+        "tau_037_kPa": 233.54479326916064,
+        "SF_037_typ": 1.0332771794350177,
+        "SF_037_min": 0.7380551281678313,
+        "tau_free_edge_kPa": 45.46140516460529,
+        "SF_edge_typ": 5.308162041783378,
+        "SF_edge_min": 3.7915443155593573,
+        "SF_edge_L_typ": 5.616278136329526,
+        "SF_edge_L_min": 4.595156664753855,
+        "SF_edge_doubled_typ": 5.595294080428451,
+        "SF_edge_doubled_min": 3.9966386288772555,
+        "transfer_length_mm": 16.092284189946692,
+        "wall_stress_MPa": 22.311962150626982,
+        "wall_SF_on_5052H39_yield": 10.197668786992194,
+        "wall_stress_doubled_single_MPa": 26.774354580752373,
+        "wall_SF_doubled_single": 8.498057322493496,
+        "face_compression_added_037_MPa": 0.9148424324227928,
+        "p2_037_modes_with_residual": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.266741654760663,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.958863037674158,
+          "intracell_dimpling": 6.952439633431178,
+          "scarf_mean_shear": 1.0032825518102648
+        },
+        "p2_037_least": "scarf_mean_shear",
+        "p2_037_least_SF": 1.0032825518102648,
+        "p2_037_face_SF_on_345": 1.152494385264844
+      },
+      {
+        "case": "Cure at the middle of the day-night swing",
+        "sft_K": 286.3223316076013,
+        "sft_C": 13.172331607601336,
+        "worst_dT_K": 15.246669856147605,
+        "worst_at": "cold night",
+        "tau_037_kPa": 131.51864791333642,
+        "SF_037_typ": 1.8348463057490292,
+        "SF_037_min": 1.310604504106381,
+        "tau_free_edge_kPa": 25.601181065931232,
+        "SF_edge_typ": 9.42599111499682,
+        "SF_edge_min": 6.732850796425948,
+        "SF_edge_L_typ": 9.973129568329297,
+        "SF_edge_L_min": 8.15986881203727,
+        "SF_edge_doubled_typ": 9.93586704263336,
+        "SF_edge_doubled_min": 7.097047887594886,
+        "transfer_length_mm": 16.092284189946692,
+        "wall_stress_MPa": 12.564780628451242,
+        "wall_SF_on_5052H39_yield": 18.10855332283233,
+        "wall_stress_doubled_single_MPa": 15.077736754141487,
+        "wall_SF_doubled_single": 15.090461102360276,
+        "face_compression_added_037_MPa": 0.5151852802272753,
+        "p2_037_modes_with_residual": {
+          "global_buckling": 1.0063580774984726,
+          "face_compression": 1.2684351172049455,
+          "core_shear_crimping": 2.331434189777838,
+          "core_crush": 5.0558220634629825,
+          "face_wrinkling": 1.961481772895604,
+          "intracell_dimpling": 6.96173410588427,
+          "scarf_mean_shear": 1.004623805029585
+        },
+        "p2_037_least": "scarf_mean_shear",
+        "p2_037_least_SF": 1.004623805029585,
+        "p2_037_face_SF_on_345": 1.154035114545639
+      }
+    ],
+    "screen_equilibrium": {
+      "cure_250F": {
+        "face_force_N_per_m": 351379.78298369667,
+        "core_force_needed_N_per_m": 702759.5659673933,
+        "core_force_at_wall_yield_N_per_m": 14920.77724468836,
+        "ratio": 47.09939398214449,
+        "ratio_doubled_cell": 62.799191976192645
+      },
+      "swing_037": {
+        "face_force_N_per_m": 86980.59020973493,
+        "core_force_needed_N_per_m": 173961.18041946986,
+        "core_force_at_wall_yield_N_per_m": 14920.77724468836,
+        "ratio": 11.658989177751998,
+        "ratio_doubled_cell": 15.54531890366933
+      }
+    },
+    "doubled_wall_cell": {
+      "k_biax_ratio": 0.8999999999999999,
+      "single_wall_stress_ratio": 1.2
+    },
+    "sft_window": {
+      "037_screen": {
+        "allowed_dT_K": 27.975295860527506,
+        "lo_K": 273.59370560322134,
+        "hi_K": 299.05095761198123
+      },
+      "free_edge_typ": {
+        "allowed_dT_K": 143.71497459733718,
+        "lo_K": 157.8540268664117,
+        "hi_K": 414.7906363487909
+      },
+      "free_edge_min": {
+        "allowed_dT_K": 102.6535532838069,
+        "hi_K": 373.7292150352606
+      },
+      "service_K": [
+        271.0756617514537,
+        301.56900146374886
+      ],
+      "swing_K": 30.493339712295153
+    },
+    "k_biax_al_MPa": 198.74760112135726,
+    "service": {
+      "t_cold_K": 271.0756617514537,
+      "t_hot_K": 301.56900146374886,
+      "t_air_K": 284.9,
+      "swing_K": 30.493339712295153
+    },
+    "scarf_fix": [
+      {
+        "cure": "AF 163-2U at its 250 F cure",
+        "r_need": 30.440792972376933,
+        "sigma_res_lead_MPa": 4.403102944423412,
+        "dJ_kg": 0.155149684352466
+      },
+      {
+        "cure": "AF 163-2U at its 200 F datasheet cure",
+        "r_need": 30.34139731914874,
+        "sigma_res_lead_MPa": 3.4102225696822703,
+        "dJ_kg": 0.12015065531542746
+      }
+    ],
+    "interlayer_needed_um": {
+      "037_screen": 5506.104252684067,
+      "free_edge": 3.944304526105059e-26
+    },
+    "fixes": [
+      {
+        "fix": "As designed: AF 163-2U at its 250 F cure on CR-III 5056 3/8-1.0",
+        "float": "floats only beyond the named stretch (usage > 1, gamma and Q still below their classical limits)",
+        "mass_change_kg": 0.0,
+        "SF_037": 0.22709902838321164,
+        "SF_free_edge": 1.166655439781211,
+        "residual_included": true,
+        "max_usage": 1.052281583611761,
+        "feasible": true,
+        "gamma_need": 0.6184291276677422,
+        "gamma_full": 0.5846983249728134,
+        "Q_need": 0.40943765629796175,
+        "tf_mm": 0.8050988482276511,
+        "tc_mm": 20.893542207608007,
+        "sigma_res_MPa": 3.907502753482298,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 2.213531189557768,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.937864711577508,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 0.9719775174295705,
+          "feasible": true,
+          "gamma_need": 0.5641635666030133,
+          "Q_need": 0.4346278543752046,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 23.23721790601548
+        },
+        "note": "028b's nominal point"
+      },
+      {
+        "fix": "AF 163-2U at its 200 F datasheet cure",
+        "float": "floats only beyond the named stretch (usage > 1, gamma and Q still below their classical limits)",
+        "mass_change_kg": 0.0,
+        "SF_037": 0.2932185158351643,
+        "SF_free_edge": 1.5063251436127951,
+        "residual_included": true,
+        "max_usage": 1.034832805260298,
+        "feasible": true,
+        "gamma_need": 0.6062336201593719,
+        "gamma_full": 0.5840215454872708,
+        "Q_need": 0.4147346506765514,
+        "tf_mm": 0.802925633325157,
+        "tc_mm": 21.37978191060957,
+        "sigma_res_MPa": 3.105190551999229,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 2.260780952122896,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.900460306891853,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 0.9719775174295705,
+          "feasible": true,
+          "gamma_need": 0.5641635666030133,
+          "Q_need": 0.4346278543752046,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 23.23721790601548
+        },
+        "note": ""
+      },
+      {
+        "fix": "HexBond 679 at 80 C (250 g/m2 resin per line)",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 444.25534518822144,
+        "SF_037": 0.34085313945279383,
+        "SF_free_edge": 1.7510342168355246,
+        "residual_included": true,
+        "max_usage": 25.7459244848958,
+        "feasible": true,
+        "gamma_need": 11.887307891594864,
+        "gamma_full": 0.23438843743105278,
+        "Q_need": 0.024450041043614652,
+        "tf_mm": 0.8028654202633952,
+        "tc_mm": 0.07584441882282711,
+        "sigma_res_MPa": 0.0094768776922629,
+        "binding_other": "crimp",
+        "others": {
+          "face_345": 1.1606004951648965,
+          "crimp": 1.0,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.9707597525718485,
+          "scarf_screen": 1.0103391750179436
+        },
+        "without_residual": {
+          "max_usage": 25.7459244848958,
+          "feasible": true,
+          "gamma_need": 11.887307891594864,
+          "Q_need": 0.02444926155724633,
+          "tf_mm": 0.8028654202633952,
+          "tc_mm": 0.07584441882282711
+        },
+        "note": ""
+      },
+      {
+        "fix": "Room-temperature cure at 25 C (EA 9394 class), at AF's areal weight (PROJECTION)",
+        "float": "floats inside the named stretch (usage <= 1)",
+        "mass_change_kg": 0.0,
+        "SF_037": 1.0332771794350177,
+        "SF_free_edge": 5.308162041783378,
+        "residual_included": true,
+        "max_usage": 0.9902988486157537,
+        "feasible": true,
+        "gamma_need": 0.5761299718320616,
+        "gamma_full": 0.5821323347121763,
+        "Q_need": 0.4286937337750222,
+        "tf_mm": 0.7971229054908615,
+        "tc_mm": 22.678110343639645,
+        "sigma_res_MPa": 0.9414915723655046,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 2.3869626161408637,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.801081729616502,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 0.9719775174295705,
+          "feasible": true,
+          "gamma_need": 0.5641635666030133,
+          "Q_need": 0.4346278543752046,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 23.23721790601548
+        },
+        "note": ""
+      },
+      {
+        "fix": "Cure at mid-swing, at AF's areal weight (PROJECTION)",
+        "float": "floats inside the named stretch (usage <= 1)",
+        "mass_change_kg": 0.0,
+        "SF_037": 1.8348463057490292,
+        "SF_free_edge": 9.42599111499682,
+        "residual_included": true,
+        "max_usage": 0.9823443381919211,
+        "feasible": true,
+        "gamma_need": 0.5709049963152966,
+        "gamma_full": 0.5817697659622862,
+        "Q_need": 0.4312560441615874,
+        "tf_mm": 0.7960462138450943,
+        "tc_mm": 22.919016387965602,
+        "sigma_res_MPa": 0.5365493853060038,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 2.4103783889185,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.782721392998834,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 0.9719775174295705,
+          "feasible": true,
+          "gamma_need": 0.5641635666030133,
+          "Q_need": 0.4346278543752046,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 23.23721790601548
+        },
+        "note": ""
+      },
+      {
+        "fix": "AF 163-2U at its 250 F cure with a 30.44:1 face scarf (028's own sizing rule)",
+        "float": "floats inside the named stretch (usage <= 1)",
+        "mass_change_kg": 0.155149684352466,
+        "SF_037": 0.22709902838321164,
+        "SF_free_edge": 1.166655439781211,
+        "residual_included": true,
+        "max_usage": 0.9722471729213648,
+        "feasible": true,
+        "gamma_need": 0.5643210165955763,
+        "gamma_full": 0.5812803662402484,
+        "Q_need": 0.44093711480179687,
+        "tf_mm": 0.7946207547441164,
+        "tc_mm": 23.230514276699846,
+        "sigma_res_MPa": 4.401851055887518,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1321258600187356,
+          "crimp": 2.4406499733761304,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.660799738086636,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 0.8938797922237923,
+          "feasible": true,
+          "gamma_need": 0.5157795541054312,
+          "Q_need": 0.468065639469262,
+          "tf_mm": 0.7831426320390507,
+          "tc_mm": 25.79882913168568
+        },
+        "note": "scarf ratio set so the 10 MPa screen holds at 028b's lead with 4.403 MPa of cure compression; joint mass change at the lead geometry"
+      },
+      {
+        "fix": "AF 163-2U at its 200 F datasheet cure with a 30.34:1 face scarf (028's own sizing rule)",
+        "float": "floats inside the named stretch (usage <= 1)",
+        "mass_change_kg": 0.12015065531542746,
+        "SF_037": 0.2932185158351643,
+        "SF_free_edge": 1.5063251436127951,
+        "residual_included": true,
+        "max_usage": 0.9721901487262621,
+        "feasible": true,
+        "gamma_need": 0.5642879564373808,
+        "gamma_full": 0.5812817141319997,
+        "Q_need": 0.43951330815016776,
+        "tf_mm": 0.7946220285897285,
+        "tc_mm": 23.231908629338502,
+        "sigma_res_MPa": 3.40945214262086,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.135826565848717,
+          "crimp": 2.440787035579497,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.682594061186803,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 0.9105269919950139,
+          "feasible": true,
+          "gamma_need": 0.5257416070290994,
+          "Q_need": 0.46059526836874215,
+          "tf_mm": 0.7857025775419701,
+          "tc_mm": 25.227682309860967
+        },
+        "note": "scarf ratio set so the 10 MPa screen holds at 028b's lead with 3.410 MPa of cure compression; joint mass change at the lead geometry"
+      },
+      {
+        "fix": "RTV 566 interlayer 25 um each face, AF cure",
+        "float": "floats only beyond the named stretch (usage > 1, gamma and Q still below their classical limits)",
+        "mass_change_kg": 93.61946107697584,
+        "SF_037": 0.23638996754810607,
+        "SF_free_edge": 1.260308170206505,
+        "residual_included": true,
+        "max_usage": 1.1710444031582963,
+        "feasible": true,
+        "gamma_need": 0.8148631121956933,
+        "gamma_full": 0.6637112984034221,
+        "Q_need": 0.3682005326261276,
+        "tf_mm": 0.8030738292351591,
+        "tc_mm": 16.85433424571152,
+        "sigma_res_MPa": 3.1600397993463463,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 1.4905925613735176,
+          "crush": 5.0558220634629825,
+          "dimpling": 6.903007776606618,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 1.1027060383332083,
+          "feasible": true,
+          "gamma_need": 0.7371187385462638,
+          "Q_need": 0.39036128412851406,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 18.74487267354836
+        },
+        "note": "interlayer shear stress 1.021 MPa (037 screen) against 3.2 MPa primed lap shear"
+      },
+      {
+        "fix": "RTV 566 interlayer 100 um each face, AF cure",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 374.47784430790335,
+        "SF_037": 0.2622955602975053,
+        "SF_free_edge": 1.5067355408444447,
+        "residual_included": true,
+        "max_usage": Infinity,
+        "feasible": false,
+        "gamma_need": 1.1050203243100614,
+        "gamma_full": 0.8712168578311885,
+        "Q_need": 0.4070287133336404,
+        "tf_mm": 0.7447184776679142,
+        "tc_mm": 16.433536878955938,
+        "sigma_res_MPa": 3.3225791659795654,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.0655315577715554,
+          "crimp": 0.9290359685734734,
+          "crush": 5.0558220634629825,
+          "dimpling": 5.506332504714525,
+          "scarf_screen": 0.9275786797605521
+        },
+        "without_residual": {
+          "max_usage": Infinity,
+          "feasible": false,
+          "gamma_need": 1.095741545279957,
+          "Q_need": 0.4046453666067845,
+          "tf_mm": 0.7442136555264723,
+          "tc_mm": 16.546491586564446
+        },
+        "note": "interlayer shear stress 0.920 MPa (037 screen) against 3.2 MPa primed lap shear"
+      },
+      {
+        "fix": "RTV 566 interlayer 5506 um each face, AF cure",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 20619.140510797086,
+        "SF_037": 1.0,
+        "SF_free_edge": 7.170827838453573,
+        "residual_included": true,
+        "max_usage": Infinity,
+        "feasible": false,
+        "gamma_need": 0.0,
+        "gamma_full": NaN,
+        "Q_need": NaN,
+        "tf_mm": 0.0,
+        "tc_mm": 0.0,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "face_345",
+        "others": {
+          "face_345": 0.0,
+          "crimp": NaN,
+          "crush": 5.0558220634629825,
+          "dimpling": 0.0,
+          "scarf_screen": 0.0
+        },
+        "without_residual": {
+          "max_usage": Infinity,
+          "feasible": false,
+          "gamma_need": 0.0,
+          "Q_need": NaN,
+          "tf_mm": 0.0,
+          "tc_mm": 0.0
+        },
+        "note": "interlayer shear stress 0.241 MPa (037 screen) against 3.2 MPa primed lap shear"
+      },
+      {
+        "fix": "Core Hexcel HFT-3/16-2.0 (glass, +/-45), AF cure",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 467.84087322193227,
+        "SF_037": 1.613988342787654,
+        "SF_free_edge": null,
+        "residual_included": false,
+        "max_usage": 20.36221807877629,
+        "feasible": true,
+        "gamma_need": 9.762880418667802,
+        "gamma_full": 0.24207811995657594,
+        "Q_need": 0.018304221837812894,
+        "tf_mm": 0.8962062514905086,
+        "tc_mm": 0.0670107914698583,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "crimp",
+        "others": {
+          "face_345": 1.2955727752697115,
+          "crimp": 1.0000000000000007,
+          "crush": 24.556666914176915,
+          "dimpling": 38.783732256565195,
+          "scarf_screen": 1.1278367831091884
+        },
+        "without_residual": {
+          "max_usage": 20.36221807877629,
+          "feasible": true,
+          "gamma_need": 9.762880418667802,
+          "Q_need": 0.018304221837812894,
+          "tf_mm": 0.8962062514905086,
+          "tc_mm": 0.0670107914698583
+        },
+        "note": "thickness-direction CTE used as an in-plane proxy (PROJECTION); core CTE 1.48e-05/K; W strength 414 kPa; mass change at the lead's core depth"
+      },
+      {
+        "fix": "Core Hexcel HRP-3/8-3.2 (glass/phenolic), AF cure",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 1029.0792733333778,
+        "SF_037": 2.9589331115980873,
+        "SF_free_edge": null,
+        "residual_included": false,
+        "max_usage": 20.381287471633012,
+        "feasible": true,
+        "gamma_need": 9.77054507708133,
+        "gamma_full": 0.24204419558148632,
+        "Q_need": 0.012244851615792475,
+        "tf_mm": 0.8958589351202457,
+        "tc_mm": 0.06695466891663097,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "crimp",
+        "others": {
+          "face_345": 1.2950706881296477,
+          "crimp": 1.0000000000000002,
+          "crush": 56.337238573689724,
+          "dimpling": 9.684664727049944,
+          "scarf_screen": 1.1273997004877416
+        },
+        "without_residual": {
+          "max_usage": 20.381287471633012,
+          "feasible": true,
+          "gamma_need": 9.77054507708133,
+          "Q_need": 0.012244851615792475,
+          "tf_mm": 0.8958589351202457,
+          "tc_mm": 0.06695466891663097
+        },
+        "note": "thickness-direction CTE used as an in-plane proxy (PROJECTION); core CTE 1.48e-05/K; W strength 758 kPa; mass change at the lead's core depth"
+      },
+      {
+        "fix": "Core Hexcel HRH-49-1/4-2.1 (Kevlar), AF cure",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 514.5620719825106,
+        "SF_037": 1.1337267975513359,
+        "SF_free_edge": null,
+        "residual_included": false,
+        "max_usage": 21.676068640210914,
+        "feasible": true,
+        "gamma_need": 10.288463539981215,
+        "gamma_full": 0.23987211298041738,
+        "Q_need": 0.007284012280327805,
+        "tf_mm": 0.8966444360475586,
+        "tc_mm": 0.015628504685176056,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "crimp",
+        "others": {
+          "face_345": 1.296206223186096,
+          "crimp": 1.0000000000000004,
+          "crush": 18.778800177898688,
+          "dimpling": 21.84786448996336,
+          "scarf_screen": 1.1283882194112778
+        },
+        "without_residual": {
+          "max_usage": 21.676068640210914,
+          "feasible": true,
+          "gamma_need": 10.288463539981215,
+          "Q_need": 0.007284012280327805,
+          "tf_mm": 0.8966444360475586,
+          "tc_mm": 0.015628504685176056
+        },
+        "note": "thickness-direction CTE used as an in-plane proxy (PROJECTION); core CTE 4.86e-06/K; W strength 276 kPa; mass change at the lead's core depth"
+      },
+      {
+        "fix": "Core Hexcel HRH-10-3/8-1.5 (Nomex), AF cure",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 233.9428719267878,
+        "SF_037": 0.2518015880611477,
+        "SF_free_edge": null,
+        "residual_included": false,
+        "max_usage": 21.60580553951976,
+        "feasible": true,
+        "gamma_need": 10.260481418628533,
+        "gamma_full": 0.23998371127778362,
+        "Q_need": 0.0160147113460874,
+        "tf_mm": 0.8966687640424414,
+        "tc_mm": 0.018132722286413827,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "crimp",
+        "others": {
+          "face_345": 1.2962413921974645,
+          "crimp": 1.0000000000000004,
+          "crush": 15.167476335225986,
+          "dimpling": 9.710952393063604,
+          "scarf_screen": 1.128418835140015
+        },
+        "without_residual": {
+          "max_usage": 21.60580553951976,
+          "feasible": true,
+          "gamma_need": 10.260481418628533,
+          "Q_need": 0.0160147113460874,
+          "tf_mm": 0.8966687640424414,
+          "tc_mm": 0.018132722286413827
+        },
+        "note": "thickness-direction CTE used as an in-plane proxy (PROJECTION); core CTE 3.49e-05/K; W strength 241 kPa; mass change at the lead's core depth"
+      },
+      {
+        "fix": "Core Ti-3Al-2.5V honeycomb (72 kg/m3), every other core property perfect (a mass bound)",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 1634.7028122673728,
+        "SF_037": null,
+        "SF_free_edge": null,
+        "residual_included": false,
+        "max_usage": 26718.435421733728,
+        "feasible": true,
+        "gamma_need": 1.70847265938944,
+        "gamma_full": 0.20001605725616578,
+        "Q_need": 0.0021009266981214195,
+        "tf_mm": 0.7946240669858919,
+        "tc_mm": 5.2500153948024435,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 14580.921800790882,
+          "crush": 20950.99984146141,
+          "dimpling": 613.169880684735,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 26718.435421733728,
+          "feasible": true,
+          "gamma_need": 1.70847265938944,
+          "Q_need": 0.0021009266981214195,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 5.2500153948024435
+        },
+        "note": "foil CTE 9.61e-06/K against beryllium 1.13e-05/K; mass change at the lead's core depth"
+      },
+      {
+        "fix": "Core 17-7 PH hexagonal honeycomb (81.7 kg/m3), every other core property perfect (a mass bound)",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 1917.7748752580262,
+        "SF_037": null,
+        "SF_free_edge": null,
+        "residual_included": false,
+        "max_usage": 28570.124746700116,
+        "feasible": true,
+        "gamma_need": 1.9047853682758418,
+        "gamma_full": 0.20001577799304202,
+        "Q_need": 0.001972341295293866,
+        "tf_mm": 0.7946240669858919,
+        "tc_mm": 4.62703636039092,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 13309.64486273416,
+          "crush": 20950.99984146141,
+          "dimpling": 613.169880684735,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 28570.124746700116,
+          "feasible": true,
+          "gamma_need": 1.9047853682758418,
+          "Q_need": 0.001972341295293866,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 4.62703636039092
+        },
+        "note": "foil CTE 1.53e-05/K against beryllium 1.13e-05/K; mass change at the lead's core depth"
+      },
+      {
+        "fix": "Core Beryllium honeycomb (84.9 kg/m3), every other core property perfect (a mass bound)",
+        "float": "cannot float: the gamma or wrinkle coefficient needed exceeds its classical limit (1, 0.82)",
+        "mass_change_kg": 2011.3340757760834,
+        "SF_037": null,
+        "SF_free_edge": null,
+        "residual_included": false,
+        "max_usage": 29151.732143811896,
+        "feasible": true,
+        "gamma_need": 1.968176567633779,
+        "gamma_full": 0.20001568781636148,
+        "Q_need": 0.0019347658739039156,
+        "tf_mm": 0.7946240669858919,
+        "tc_mm": 4.452414761546513,
+        "sigma_res_MPa": 0.0,
+        "binding_other": "scarf_screen",
+        "others": {
+          "face_345": 1.1487236403995562,
+          "crimp": 12955.008303372433,
+          "crush": 20950.99984146141,
+          "dimpling": 613.169880684735,
+          "scarf_screen": 1.0
+        },
+        "without_residual": {
+          "max_usage": 29151.732143811896,
+          "feasible": true,
+          "gamma_need": 1.968176567633779,
+          "Q_need": 0.0019347658739039156,
+          "tf_mm": 0.7946240669858919,
+          "tc_mm": 4.452414761546513
+        },
+        "note": "foil CTE 1.13e-05/K against beryllium 1.13e-05/K; mass change at the lead's core depth"
+      }
+    ],
+    "baseline_usage": {
+      "F": 0.11237531361894453,
+      "tf": 0.0007946240669858919,
+      "tc": 0.02323721790601548,
+      "S": 4162.401126147258,
+      "J": 215.74207996805575,
+      "Vc": 0.9532138526378399,
+      "gamma_need": 0.5641635666030133,
+      "gamma_full": 0.581285541055136,
+      "Q_need": 0.4346278543752046,
+      "u_gamma": 0.9719775174295705,
+      "u_Q": 0.3025642359757505,
+      "u_raw": 0.9719775174295705,
+      "sigma_res_MPa": 0.0,
+      "others_min": 1.0,
+      "others": {
+        "face_345": 1.1487236403995562,
+        "crimp": 2.4413083561840345,
+        "crush": 5.0558220634629825,
+        "dimpling": 6.758508201897036,
+        "scarf_screen": 1.0
+      },
+      "max_usage": 0.9719775174295705,
+      "feasible": true
+    },
+    "ended": "2026-10-20T03:17:11.914572-07:00",
+    "elapsed_s": 113.54453981667757
+  }
+}

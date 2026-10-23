@@ -1,0 +1,116 @@
+{
+  "id": "rpt-ref-593068c3ed82fd458128",
+  "kind": "report",
+  "from": "ref-baa4584cf36c531365e7",
+  "from_seat": "ref-baa4584cf36c531365e7",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-check040-codex-7e53-1020",
+  "unit": "vacuum-mainline040-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check040-codex-7e53-1020"
+    }
+  ],
+  "at": "2026-10-20T04:37:17-07:00",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check040-codex-7e53-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "standing": "none",
+  "next": "none",
+  "body": "CHECK-040 complete. R10 reproduces at -109.649208 kg; 241,388 current-point fields and 3,390 service/qualification/table checks match, conditional on the owner temperature table. Independent searches cover 4,554 saved configurations, 13 primary usage roots and 276 debit pairs. Current search differences are <=0.003074 kg; roots agree within 3.42e-8. R30 retains the stated ranking; no both-weather row floats.\n\nThe thermal table itself was not independently reproduced from the written boundary specification: exact differences and an explicit alternative solve are filed. Historical-table interpolation differences are also listed exactly, separately from current arithmetic.\n\nCoating mass is assumed; water is the optimistic 0.1 mm retention scenario. The separate 1 mm scenario removes every primary float even at all four endpoints (best R30 ISA actual: -594.989 kg). The 200 F source tests do not qualify the target 2U .015 Be/honeycomb bond. Including cure compression in global/crimp demand makes R15 optimistic actual -1.821 kg at all-four endpoints; edge/scarf coincidence removes four of thirteen primary floats.\n\n83 non-code pins match; nine executables excluded without access. Eleven check NFIs retain all 23 owner, 13 inherited 037b and nine CHECK-037b rows. No other seat contacted. Full evidence, equations and exact differences are pinned below.",
+  "artifacts": [
+    {
+      "path": "evidence/59196f42d891eb66-CARD.md",
+      "sha256": "59196f42d891eb66dcb5ebb2a1b53b8a07ed3f8671eecd89dfb2080f7a8c3cd9",
+      "bytes": 5987
+    },
+    {
+      "path": "evidence/c526570a9210c32a-EVIDENCE.md",
+      "sha256": "c526570a9210c32a02011611d97a8246697677f17cb2ef66bb282702965fcc3f",
+      "bytes": 12432
+    },
+    {
+      "path": "evidence/de6da86873aa328f-SUMMARY.json",
+      "sha256": "de6da86873aa328f10c02485a630cf703cdf5461b1bf8f40181ba97b59fb6d5c",
+      "bytes": 2072
+    },
+    {
+      "path": "evidence/a103f3bba0744beb-NFI.json",
+      "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+      "bytes": 30702
+    },
+    {
+      "path": "evidence/272e9cf489e29929-MANIFEST.json",
+      "sha256": "272e9cf489e29929424ce81eb3f8ff1ba0018ec1d8c08e40fd9bf0a3c1b7695e",
+      "bytes": 18724
+    },
+    {
+      "path": "evidence/89376baf7f024ea2-DELIVERY-CHECKS.json",
+      "sha256": "89376baf7f024ea26bc9cdef479ec3d55053a161b5854727fb6b6fd1ba34ba34",
+      "bytes": 17153
+    },
+    {
+      "path": "evidence/ed06296f82345cbc-THERMAL-CLOSURE.json",
+      "sha256": "ed06296f82345cbcd6e38ea941cff88d82b32c04cc254ccd892dfc8089362203",
+      "bytes": 5243
+    },
+    {
+      "path": "evidence/79c0bd4777ce8fc0-MODEL-DEPENDENCE.json",
+      "sha256": "79c0bd4777ce8fc053932f99085609d535667f4d501f6fe57602149c3c485296",
+      "bytes": 200093
+    },
+    {
+      "path": "evidence/4c91a8c23c148f10-MARGINAL-MODELS.json",
+      "sha256": "4c91a8c23c148f10d56e14cdffde7c66dfd0868bebcf4e032cf569dfc62db623",
+      "bytes": 43430
+    },
+    {
+      "path": "evidence/9fcccdae5fd47f1b-DEBITS-INDEPENDENT.json",
+      "sha256": "9fcccdae5fd47f1b2850146fe13fd2abdba8e79a281607595a8005d8b9c257c4",
+      "bytes": 785247
+    },
+    {
+      "path": "evidence/1e37115cd1a3c1ab-USAGE-ROOTS.json",
+      "sha256": "1e37115cd1a3c1abc2a6cf0381a5091ddb2c56d05e31d688b082a3e2eeecc63d",
+      "bytes": 32877
+    },
+    {
+      "path": "evidence/207ec142cd441369-SERVICE-INDEPENDENT.json",
+      "sha256": "207ec142cd441369e33137c109ae2569308433faf3260186b6ca31db21953784",
+      "bytes": 112732
+    },
+    {
+      "path": "evidence/17a668b638306666-SEARCH-SUMMARY.json",
+      "sha256": "17a668b6383066669ef5c993333a1b6e17d17471e5de3276d20c514ea6171063",
+      "bytes": 284
+    },
+    {
+      "path": "evidence/73eecada36d64534-model.py",
+      "sha256": "73eecada36d6453452b577ed7868855769c92f7da87e3cc8cf7a7a00f2bb40eb",
+      "bytes": 11830
+    },
+    {
+      "path": "evidence/bd2fcf3bf7572d4a-thermal.py",
+      "sha256": "bd2fcf3bf7572d4a54778fbd44f75fd31360f81781be22f25311857a32073ac2",
+      "bytes": 3852
+    },
+    {
+      "path": "evidence/0414c6ba02a348ad-audit.py",
+      "sha256": "0414c6ba02a348ada161281010541a13790e38f50d13495021c82a10c2fe4725",
+      "bytes": 4014
+    }
+  ],
+  "ingested": "2026-10-20T04:37:28-07:00"
+}

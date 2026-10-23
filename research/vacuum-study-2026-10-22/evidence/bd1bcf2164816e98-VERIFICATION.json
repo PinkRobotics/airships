@@ -1,0 +1,393 @@
+{
+  "checks": [
+    {
+      "name": "048 regression",
+      "pass": true,
+      "evidence": {
+        "difference_kg": 0.00013941162887931569,
+        "source_of_small_difference": "Rounded knot conversion 0.514444 in own model; thermal values reproduce."
+      }
+    },
+    {
+      "name": "Core-grid refinement",
+      "pass": true,
+      "evidence": [
+        {
+          "R_m": 10,
+          "midpoint_max_abs_mass_error_kg": 0.0454464912718322,
+          "dense_grid_max_abs_mass_error_kg": 3.4704507925198413e-06
+        },
+        {
+          "R_m": 12,
+          "midpoint_max_abs_mass_error_kg": 0.00014532616387441522,
+          "dense_grid_max_abs_mass_error_kg": 3.1224317353917286e-06
+        },
+        {
+          "R_m": 15,
+          "midpoint_max_abs_mass_error_kg": 0.0002873338708013762,
+          "dense_grid_max_abs_mass_error_kg": 1.1425467164372094e-05
+        },
+        {
+          "R_m": 20,
+          "midpoint_max_abs_mass_error_kg": 0.0006731323592248373,
+          "dense_grid_max_abs_mass_error_kg": 8.176881237886846e-06
+        },
+        {
+          "R_m": 30,
+          "midpoint_max_abs_mass_error_kg": 0.002486128476448357,
+          "dense_grid_max_abs_mass_error_kg": 4.731572698801756e-05
+        }
+      ]
+    },
+    {
+      "name": "Coupled interpolation checkpoints",
+      "pass": true,
+      "evidence": [
+        {
+          "R_m": 10,
+          "T_K": 281.3,
+          "pressure_Pa": 97172.30184301017,
+          "direct_mass_kg": 4766.3892613016615,
+          "interpolated_mass_kg": 4766.389117708174,
+          "difference_kg": -0.000143593487337057
+        },
+        {
+          "R_m": 10,
+          "T_K": 295.3,
+          "pressure_Pa": 101969.15092150509,
+          "direct_mass_kg": 4941.488451879754,
+          "interpolated_mass_kg": 4941.489410765261,
+          "difference_kg": 0.0009588855064066593
+        },
+        {
+          "R_m": 10,
+          "T_K": 314.3,
+          "pressure_Pa": 101333,
+          "direct_mass_kg": 4911.321086715711,
+          "interpolated_mass_kg": 4911.321754645329,
+          "difference_kg": 0.0006679296175207128
+        },
+        {
+          "R_m": 12,
+          "T_K": 281.3,
+          "pressure_Pa": 97172.30184301017,
+          "direct_mass_kg": 8114.203184390972,
+          "interpolated_mass_kg": 8114.2028042321335,
+          "difference_kg": -0.0003801588381975307
+        },
+        {
+          "R_m": 12,
+          "T_K": 295.3,
+          "pressure_Pa": 101969.15092150509,
+          "direct_mass_kg": 8424.975636501387,
+          "interpolated_mass_kg": 8424.977489343079,
+          "difference_kg": 0.0018528416912886314
+        },
+        {
+          "R_m": 12,
+          "T_K": 314.3,
+          "pressure_Pa": 101333,
+          "direct_mass_kg": 8373.14024029525,
+          "interpolated_mass_kg": 8373.141419276702,
+          "difference_kg": 0.0011789814525400288
+        },
+        {
+          "R_m": 15,
+          "T_K": 281.3,
+          "pressure_Pa": 97172.30184301017,
+          "direct_mass_kg": 15673.916189213116,
+          "interpolated_mass_kg": 15673.915216333478,
+          "difference_kg": -0.0009728796376293758
+        },
+        {
+          "R_m": 15,
+          "T_K": 295.3,
+          "pressure_Pa": 101969.15092150509,
+          "direct_mass_kg": 16281.22235611677,
+          "interpolated_mass_kg": 16281.225906263537,
+          "difference_kg": 0.003550146766428952
+        },
+        {
+          "R_m": 15,
+          "T_K": 314.3,
+          "pressure_Pa": 101333,
+          "direct_mass_kg": 16180.7502790616,
+          "interpolated_mass_kg": 16180.752652086845,
+          "difference_kg": 0.002373025245105964
+        },
+        {
+          "R_m": 20,
+          "T_K": 281.3,
+          "pressure_Pa": 97172.30184301017,
+          "direct_mass_kg": 36835.89580209057,
+          "interpolated_mass_kg": 36835.89301835172,
+          "difference_kg": -0.0027837388479383662
+        },
+        {
+          "R_m": 20,
+          "T_K": 295.3,
+          "pressure_Pa": 101969.15092150509,
+          "direct_mass_kg": 38276.625485486205,
+          "interpolated_mass_kg": 38276.63448922198,
+          "difference_kg": 0.009003735773148946
+        },
+        {
+          "R_m": 20,
+          "T_K": 314.3,
+          "pressure_Pa": 101333,
+          "direct_mass_kg": 38041.39646616081,
+          "interpolated_mass_kg": 38041.4022562647,
+          "difference_kg": 0.005790103889012244
+        },
+        {
+          "R_m": 30,
+          "T_K": 281.3,
+          "pressure_Pa": 97172.30184301017,
+          "direct_mass_kg": 123525.28907113835,
+          "interpolated_mass_kg": 123525.27586244198,
+          "difference_kg": -0.013208696371293627
+        },
+        {
+          "R_m": 30,
+          "T_K": 295.3,
+          "pressure_Pa": 101969.15092150509,
+          "direct_mass_kg": 128395.37336869532,
+          "interpolated_mass_kg": 128395.4044349913,
+          "difference_kg": 0.031066295981872827
+        },
+        {
+          "R_m": 30,
+          "T_K": 314.3,
+          "pressure_Pa": 101333,
+          "direct_mass_kg": 127619.1620742609,
+          "interpolated_mass_kg": 127619.18205436393,
+          "difference_kg": 0.019980103039415553
+        }
+      ]
+    },
+    {
+      "name": "Fixed geometry pressure/thermal screen",
+      "pass": true,
+      "evidence": [
+        {
+          "R_m": 10,
+          "minimum_SF_above_design_cold_limit": 1.0000000000000153,
+          "max_full_bill_variation_kg": 0.0,
+          "pmax_within_sizing": true,
+          "positive_grid_fraction_with_SF_not_probability": 0.05309915673734551
+        },
+        {
+          "R_m": 12,
+          "minimum_SF_above_design_cold_limit": 1.0000000006933807,
+          "max_full_bill_variation_kg": 0.0,
+          "pmax_within_sizing": true,
+          "positive_grid_fraction_with_SF_not_probability": 0.08184506559394647
+        },
+        {
+          "R_m": 15,
+          "minimum_SF_above_design_cold_limit": 1.0000000007680716,
+          "max_full_bill_variation_kg": 0.0,
+          "pmax_within_sizing": true,
+          "positive_grid_fraction_with_SF_not_probability": 0.10950822421562267
+        },
+        {
+          "R_m": 20,
+          "minimum_SF_above_design_cold_limit": 1.0000000007222916,
+          "max_full_bill_variation_kg": 0.0,
+          "pmax_within_sizing": true,
+          "positive_grid_fraction_with_SF_not_probability": 0.13395766175277285
+        },
+        {
+          "R_m": 30,
+          "minimum_SF_above_design_cold_limit": 1.0000000003692002,
+          "max_full_bill_variation_kg": 0.0,
+          "pmax_within_sizing": true,
+          "positive_grid_fraction_with_SF_not_probability": 0.15388618543885915
+        }
+      ]
+    },
+    {
+      "name": "Decision-critical design cases",
+      "pass": true,
+      "evidence": [
+        {
+          "case": "hot_10pct_z100",
+          "R_m": 30,
+          "mask": 15,
+          "direct_payload_kg": -2771.2108882774337,
+          "reported_payload_kg": -2771.2521518944122,
+          "difference_kg": -0.041263616978540085
+        },
+        {
+          "case": "absolute_humidity_1pct_T31",
+          "R_m": 30,
+          "mask": 7,
+          "direct_payload_kg": 204.03690778325836,
+          "reported_payload_kg": 204.00784172337444,
+          "difference_kg": -0.02906605988391675
+        },
+        {
+          "case": "absolute_humidity_10pct_T29",
+          "R_m": 20,
+          "mask": 3,
+          "direct_payload_kg": 75.42686364845576,
+          "reported_payload_kg": 75.41850465847529,
+          "difference_kg": -0.008358989980479237
+        }
+      ]
+    },
+    {
+      "name": "Dry ISA baseline",
+      "pass": true,
+      "evidence": {
+        "computed_rho": 1.1672683307461802,
+        "inherited_rho": 1.1672683307461802
+      }
+    },
+    {
+      "name": "Dew step/zone refinement",
+      "pass": true,
+      "evidence": [
+        {
+          "case": "clear_calm_reference",
+          "deposit_difference_kg_m2": -6.5530076258646375e-06,
+          "minimum_temperature_difference_K": -0.002383292404772419
+        },
+        {
+          "case": "overcast_humid",
+          "deposit_difference_kg_m2": 1.137514909669169e-06,
+          "minimum_temperature_difference_K": -0.00023403782404329831
+        },
+        {
+          "case": "clear_saturated",
+          "deposit_difference_kg_m2": -1.0684814949479815e-07,
+          "minimum_temperature_difference_K": -0.002266592562364167
+        },
+        {
+          "case": "clear_cold_frost",
+          "deposit_difference_kg_m2": -1.3043838359427795e-07,
+          "minimum_temperature_difference_K": -0.0025232908872681037
+        }
+      ]
+    },
+    {
+      "name": "Night energy closure",
+      "pass": true,
+      "evidence": {
+        "maximum_absolute_J_m2": 7.340275035436981e-07
+      }
+    },
+    {
+      "name": "Dry thermal limit agrees with 048 equations",
+      "pass": true,
+      "evidence": {
+        "minimum_skin_difference_K": -0.00010264127774917142
+      }
+    },
+    {
+      "name": "24h conditional gas reserve",
+      "pass": true,
+      "evidence": [
+        {
+          "R_m": 10,
+          "mask": 2,
+          "mass_kg_upper": 3.1923896191733703,
+          "gas_allowance_kg": 48.89442150186961,
+          "pressure_Pa_upper": 102.49116931015585,
+          "minimum_pressure_ceiling_Pa": 800.0,
+          "inventory_kg": 2.2917216606431747,
+          "connected_gas_volume_m3": 4185.591127578047,
+          "passes": true
+        },
+        {
+          "R_m": 12,
+          "mask": 2,
+          "mass_kg_upper": 4.879627277159516,
+          "gas_allowance_kg": 84.48956035523068,
+          "pressure_Pa_upper": 89.97636512864531,
+          "minimum_pressure_ceiling_Pa": 800.0,
+          "inventory_kg": 3.416369200710219,
+          "connected_gas_volume_m3": 7232.784429737846,
+          "passes": true
+        },
+        {
+          "R_m": 15,
+          "mask": 2,
+          "mass_kg_upper": 8.289089519198495,
+          "gas_allowance_kg": 165.01867256880993,
+          "pressure_Pa_upper": 77.48393151095745,
+          "minimum_pressure_ceiling_Pa": 800.0,
+          "inventory_kg": 5.612230609934515,
+          "connected_gas_volume_m3": 14126.691320284228,
+          "passes": true
+        },
+        {
+          "R_m": 20,
+          "mask": 2,
+          "mass_kg_upper": 16.715781587945543,
+          "gas_allowance_kg": 391.15537201495687,
+          "pressure_Pa_upper": 65.03418359961825,
+          "minimum_pressure_ceiling_Pa": 800.0,
+          "inventory_kg": 10.797739569493672,
+          "connected_gas_volume_m3": 33485.855714158104,
+          "passes": true
+        },
+        {
+          "R_m": 30,
+          "mask": 2,
+          "mass_kg_upper": 46.60702621821409,
+          "gas_allowance_kg": 1320.1493805504795,
+          "pressure_Pa_upper": 52.695997360861895,
+          "minimum_pressure_ceiling_Pa": 800.0,
+          "inventory_kg": 28.062819821425457,
+          "connected_gas_volume_m3": 113015.89217875218,
+          "passes": true
+        }
+      ]
+    },
+    {
+      "name": "R10 tabulated feasible designs satisfy screens",
+      "pass": true,
+      "evidence": {
+        "feasible_designs": 8432,
+        "minimum_SF": 1.0
+      }
+    },
+    {
+      "name": "R12 tabulated feasible designs satisfy screens",
+      "pass": true,
+      "evidence": {
+        "feasible_designs": 8432,
+        "minimum_SF": 1.0
+      }
+    },
+    {
+      "name": "R15 tabulated feasible designs satisfy screens",
+      "pass": true,
+      "evidence": {
+        "feasible_designs": 8432,
+        "minimum_SF": 1.0
+      }
+    },
+    {
+      "name": "R20 tabulated feasible designs satisfy screens",
+      "pass": true,
+      "evidence": {
+        "feasible_designs": 8432,
+        "minimum_SF": 1.0
+      }
+    },
+    {
+      "name": "R30 tabulated feasible designs satisfy screens",
+      "pass": true,
+      "evidence": {
+        "feasible_designs": 8432,
+        "minimum_SF": 1.0
+      }
+    }
+  ],
+  "all_pass": true,
+  "count": 15,
+  "elapsed_seconds": 2.082412004470825,
+  "limitation": "Conservation, regression and convergence checks do not validate material transfers, weather distribution or installed-hull performance."
+}

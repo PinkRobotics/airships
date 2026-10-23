@@ -1,0 +1,439 @@
+{
+  "schema": "robotics.ready-queue/1",
+  "at": "2026-10-10T15:59:33.933425+00:00",
+  "authority": "ord-pike-g25-prlead-never-idle-ready-queue-1010",
+  "active": [
+    {
+      "id": "robotics-naca-validation-evidence-map-1010",
+      "seat": "worker-robotics-aster-qual-1009",
+      "title": "NACA0012: reference applicability and missing-evidence map",
+      "source_paths": [
+        "research/naca0012-preparation/README.md",
+        "research/naca0012-preparation/CASE-CONTRACT.json",
+        "research/naca0012-preparation/TOLERANCES.json",
+        "research/naca0012-preparation/PROVENANCE.json"
+      ],
+      "output_dir": "research/naca0012-preparation/evidence-map-1010",
+      "task": "Map every frozen validation condition to the exact prospective evidence row and rejection condition. Separate force convergence, reference-state agreement, trip sensitivity, three-mesh/domain evidence and pressure-reference mismatch. All missing outputs stay NULL/UNKNOWN; thresholds remain unchanged. Publish only the method map, no solver execution, relaxation tuning, experimental result or hull qualification.",
+      "priority": 8,
+      "status": "IN_FLIGHT_START_VERIFIED",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "start_receipt": "ack-aster-naca-map-started-research-fifo-1010",
+      "started": "2026-10-10T15:54:29.256888+00:00",
+      "start_base": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797"
+    },
+    {
+      "id": "robotics-q2-force-owner-evidence-thread-1010",
+      "seat": "worker-robotics-cylinder-audit-1008",
+      "title": "Question 2: force-owner observation contract",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "question": 2,
+      "issue": 2,
+      "output_dir": "research/open-questions/q2-force-owners-1010",
+      "task": "Define a paper observation contract for each existing force owner: measured quantity, unit, model assumption and missing comparison evidence. Reuse published thresholds; absent criteria remain UNKNOWN rather than inventing acceptance. No force simulation or new physical claim.",
+      "priority": 6,
+      "status": "IN_FLIGHT_START_VERIFIED",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "start_receipt": "ack-cylinder-q2-evidence-thread-started-1010",
+      "started": "2026-10-10T15:53:55.444811+00:00",
+      "start_base": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797"
+    },
+    {
+      "id": "robotics-q7-assumed-constant-traceability-1010",
+      "seat": "worker-robotics-recovery-pilots-1009",
+      "title": "Question 7: assumed constants and evidence ownership",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "question": 7,
+      "issue": 6,
+      "output_dir": "research/open-questions/q7-constant-traceability-1010",
+      "task": "Inventory only the constants named by the published question and its cited local sources. Record where each is consumed, assumed versus measured provenance, missing evidence and prospective measurement owner. Do not retune constants, change model code or invent data.",
+      "priority": 7,
+      "status": "IN_FLIGHT_START_VERIFIED",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "start_receipt": "ack-worker-robotics-q7-assumed-constant-traceability-1010-started",
+      "started": "2026-10-10T15:54:33.596390+00:00",
+      "start_base": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797"
+    }
+  ],
+  "ready": [
+    {
+      "id": "robotics-q11-dry-mass-source-crosswalk-1010",
+      "seat": "worker-robotics-recovery-pilots-1009",
+      "title": "Question 11: dry-mass disagreement source crosswalk",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "question": 11,
+      "issue": 10,
+      "output_dir": "research/open-questions/q11-mass-crosswalk-1010",
+      "task": "Reconcile the two existing published dry-mass source bases on paper: definitions, inclusions, exclusions and missing measurements. Retain the published failures. No new mass estimate or claim that a lever closes the gap; identify evidence needed to resolve incompatibility.",
+      "priority": 8,
+      "status": "READY_AUTHORIZED",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships"
+    },
+    {
+      "id": "robotics-stageb-caption-case-evidence-index-1010",
+      "seat": "worker-robotics-aster-qual-1009",
+      "title": "Stage B case and caption evidence index",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "source_paths": [
+        "research/program/PLAN.md",
+        "research/stage-b/decision-map-1010"
+      ],
+      "private_source_paths": [
+        "unpublished-local-ref:622ad50cc9cc124b",
+        "unpublished-local-ref:7c2a71d54d710601"
+      ],
+      "output_dir": "research/stage-b/caption-evidence-index-1010",
+      "task": "Make a paper index of which retained case/caption evidence supports which Stage B method and which evidence is still missing. Private outcome values stay private; public derivative records only evidence requirements, UNKNOWN placeholders and already-public source references. Distinguish beam model, shell/film unsupported, historical numerical FAIL and manufacturing qualification. No regenerated plots, new solve, new physical result or publication of private numerical outcomes. Use sealed private sources if the preceding public decision-map candidate is not yet landed; no wait for its landing.",
+      "priority": 9,
+      "status": "READY_AUTHORIZED"
+    },
+    {
+      "id": "robotics-q6-nitrogen-power-evidence-thread-1010",
+      "seat": "worker-robotics-cylinder-audit-1008",
+      "title": "Question 6: nitrogen power input and loss evidence",
+      "question": 6,
+      "issue": 5,
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "research/program/OPEN-QUESTION-ISSUES.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "output_dir": "research/open-questions/q6-nitrogen-power-evidence-1010",
+      "task": "Trace already-public nitrogen-expander assumptions to the prospective mass, losses, heat-exchanger and transient-bus observations needed to settle applicability. Cite question6 and existing issue5. Missing values NULL/UNKNOWN. Method and provenance only; no recomputed energy or power, hardware selection, solver, new performance claim or remote issue action.",
+      "priority": 10,
+      "status": "READY_AUTHORIZED"
+    },
+    {
+      "id": "robotics-q4-retained-water-evidence-thread-1010",
+      "seat": "worker-robotics-aster-qual-1009",
+      "title": "Question 4: retained-water and reserve evidence",
+      "question": 4,
+      "issue": 4,
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "research/program/OPEN-QUESTION-ISSUES.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "output_dir": "research/open-questions/q4-retained-water-evidence-1010",
+      "task": "Map the published retained-water question to requirements, existing assumptions and prospective measurement records for delivery, retained water and operating reserve. Distinguish model bookkeeping from physical observation; cite question4/issue4. All missing data NULL/UNKNOWN; no trajectory, retention or capacity prediction, physical test, source mutation or remote issue action.",
+      "priority": 11,
+      "status": "READY_AUTHORIZED"
+    },
+    {
+      "id": "robotics-q9-day-night-recovery-evidence-thread-1010",
+      "seat": "worker-robotics-cylinder-audit-1008",
+      "title": "Question 9: real day/night recovery evidence requirements",
+      "question": 9,
+      "issue": 8,
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "research/program/OPEN-QUESTION-ISSUES.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "output_dir": "research/open-questions/q9-day-night-recovery-evidence-1010",
+      "task": "Trace the published recovery-time question to irradiance/availability, charging/production duty and ballast-storage loss inputs. Map prospective time-series observations, units, uncertainty and conditions invalidating day-average/no-loss transfer. Missing measurements NULL/UNKNOWN. Cite question9/issue8; no new charging simulation, energy calculation, recovery duration prediction, settings or remote action.",
+      "priority": 12,
+      "status": "READY_AUTHORIZED"
+    },
+    {
+      "id": "robotics-q8-buildable-rotor-storage-evidence-thread-1010",
+      "seat": "worker-robotics-recovery-pilots-1009",
+      "title": "Question 8: buildable rotor and storage source evidence",
+      "question": 8,
+      "issue": 7,
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "research/program/OPEN-QUESTION-ISSUES.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "output_dir": "research/open-questions/q8-rotor-storage-evidence-1010",
+      "task": "Map the published rotor-area/thrust/storage-mass question to already-public assumptions and prospective geometry, performance and complete-equipment-mass observations. Keep model values separate from measurements and qualified articles; cite question8/issue7. NULL/UNKNOWN for missing values. No selected hardware, new thrust/mass estimate, sizing prediction, solver, measurement or remote issue action.",
+      "priority": 13,
+      "status": "READY_AUTHORIZED"
+    }
+  ],
+  "minimum_ready": 6,
+  "claim_protocol": "Three research workers only; each owns its listed exclusive FIFO. Hand up one collected unit, then immediately pull its next READY item without signature, landing, CI or fresh stage permission. Never write another owner clone/shared queue. StageA and known-case-bench own the separate site queue; principal replenishes research queue.",
+  "source_base": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+  "execution_scope": "Paper/documentation now; no solver/native/physical/money/settings/root/new public scientific claims. Distinct new output directories; existing scientific data, hypotheses and sealed historical evidence immutable. Worker uses fresh actual main at each unit start and isolated separate-gitdir clone.",
+  "gate_argv": [
+    "ref-d9af09a16f3a81bf2ded",
+    "PATH=unpublished-local-ref:e456d84f4b6c63e1",
+    "TMPDIR=unpublished-local-ref:1ffe4110219d37c0",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "make",
+    "ciparity",
+    "reposizecheck",
+    "claimscheck",
+    "ledgercheck",
+    "linkcheck",
+    "buildercheck",
+    "readmecheck"
+  ],
+  "review": {
+    "rounds": 1,
+    "lanes": [
+      "codex",
+      "claude"
+    ],
+    "codex_model": "gpt-6.1-sol, current maintained registry default measured",
+    "thinking": "medium",
+    "door": "unpublished-local-ref:d417235a1c629dfe",
+    "argv_template": [
+      "ref-81e2f24e4e80426e80f0",
+      "unpublished-local-ref:d417235a1c629dfe",
+      "--codex",
+      "--claude",
+      "--no-synthesis",
+      "--json",
+      "--workdir",
+      "<isolated exact candidate checkout>",
+      "--candidate",
+      "<candidate40>",
+      "--evidence-round",
+      "<unit>-r1",
+      "--prompt-file",
+      "<owned prompt path>",
+      "--thinking",
+      "medium",
+      "--keep-dir",
+      "<owned review artifacts>"
+    ],
+    "prompt": "[withheld: private instruction field]",
+    "headless": "Bounded instrumentation owned and collected by unit worker, no new seated agents; headless Codex calls permitted past seated cap per Captain."
+  },
+  "resources": "Use existing per-seat check cgroups and total outer8CPU40GiB/swap0 unchanged. One owned check at a time per seat, collect jobs; paper/gates max600 except review maintained timeout floor. No native solver release or 4GiB admission restoration.",
+  "publication": "Method plans/UNKNOWN placeholders and cited already-public evidence only. Private StageB outputs stay private; public science novelty remains Admiral reserved. Normal governance/Builder, seven landing gates include ledgercheck; typed per-block records under float-claims allowed, no blanket exemption, no catalogue/schema/plantreceipt changes.",
+  "landing": "Exact candidate/tree/base/source/gov/check/review evidence to XO, copy Captain/principal. Captain serializes landing/rebases; no worker waits on CI or signature while next assigned item is ready.",
+  "decision_lines": "Money/physical/new public scientific claims/settings/root remain Admiral-only; raise exact typed decision with default/date only when actually needed. No such decision blocks these paper units.",
+  "burn_reading": {
+    "source": "helm subs status, read this turn 2026-10-10T15:52:40.043590+00:00",
+    "codex_primary_7d_percent": 60,
+    "codex_burn7d": 1.19,
+    "target": [
+      2,
+      4
+    ],
+    "freshness": "0m22s at read; 5h unknown",
+    "daily_required": true
+  },
+  "revision": 5,
+  "amendment_authority": [
+    "ord-pike-g25-prlead-known-bench-to-site-1010",
+    "ord-pike-g25-prlead-site-overlap-fix-1010"
+  ],
+  "previous_revision": {
+    "path": "unpublished-local-ref:14e0b9aee5b0ff5a",
+    "bytes": 21705,
+    "sha256": "69a2b7c861b34cc74fb001a8a355092576b7a23f7ff503ad4cdace3437b37f83"
+  },
+  "withdrawn_assignments": [
+    {
+      "id": "robotics-naca-validation-evidence-map-1010",
+      "seat": "worker-robotics-known-case-bench-1009",
+      "title": "NACA0012: reference applicability and missing-evidence map",
+      "source_paths": [
+        "research/naca0012-preparation/README.md",
+        "research/naca0012-preparation/CASE-CONTRACT.json",
+        "research/naca0012-preparation/TOLERANCES.json",
+        "research/naca0012-preparation/PROVENANCE.json"
+      ],
+      "output_dir": "research/naca0012-preparation/evidence-map-1010",
+      "task": "Map every frozen validation condition to the exact prospective evidence row and rejection condition. Separate force convergence, reference-state agreement, trip sensitivity, three-mesh/domain evidence and pressure-reference mismatch. All missing outputs stay NULL/UNKNOWN; thresholds remain unchanged. Publish only the method map, no solver execution, relaxation tuning, experimental result or hull qualification.",
+      "priority": 4,
+      "status": "DISPATCHED_AWAITING_ACK",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships"
+    },
+    {
+      "id": "robotics-site-source-metadata-refresh-1010",
+      "seat": "worker-robotics-aster-qual-1009",
+      "title": "Site: source-count and publication metadata freshness",
+      "repo": "unpublished-local-ref:b3ce8e6151753236",
+      "project": "prj-pinkrobotics",
+      "source_paths": [
+        "README.md",
+        "FOUNDATIONS.md"
+      ],
+      "output_dir": "research/site-source-metadata-refresh-1010",
+      "task": "Inspect current site source and local science catalogue in an isolated site clone. Correct a genuinely stale source count, sitemap lastmod or llms date using actual source/commit evidence, or hand up an exact clean audit if already correct. Preserve served science/status, generated provenance and separate estate48 candidate. No settings, deployment, GitHub mutation, scientific claims or guessed dates. Follow project FOUNDATIONS for site checks; Captain lands/deploys.",
+      "priority": 9,
+      "status": "READY_AUTHORIZED"
+    },
+    {
+      "id": "robotics-q3-profile-evidence-thread-1010",
+      "seat": "worker-robotics-known-case-bench-1009",
+      "title": "Question 3: acceleration and vertical-profile evidence",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "question": 3,
+      "issue": 3,
+      "output_dir": "research/open-questions/q3-profile-evidence-1010",
+      "task": "Build a paper dependency map for the published vertical-profile question with acceleration: quantities already modelled, missing measurements, units and unresolved applicability. Cite existing issue/anchors; no trajectory solve, retuned profile or performance claim.",
+      "priority": 10,
+      "status": "READY_AUTHORIZED",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships"
+    }
+  ],
+  "site_ownership": {
+    "lead": "pinkrobotics-stagea-ref-cf354569e4edf83e7f11",
+    "worker": "worker-robotics-known-case-bench-1009",
+    "active_unit": "robotics-site-count-refresh-1010",
+    "queue": "source count, sitemap, GitHub footer, float phone, README; independent Captain site route",
+    "basis": {
+      "path": "unpublished-local-ref:8e5d3796b162d8cd",
+      "bytes": 2252,
+      "sha256": "cede544ab5b080f4e799fb3bebbbd6197365d632cb2d0cec0e74ff0b63e820e5"
+    }
+  },
+  "Aster_FIFO_reconciliation": {
+    "canonical_amendment": {
+      "path": "unpublished-local-ref:c1460afe2a7f786c",
+      "bytes": 8404,
+      "sha256": "c2634fe8f07ed97b44154a7c6fcd94b400230d83f951aac3200fd022c4f6373f"
+    },
+    "adoption": "Observed NACA start08:54:29 and canonical old amendment acknowledgment; prior site audit completed before amendment read, no further site action",
+    "current_authorized_FIFO": [
+      "robotics-naca-validation-evidence-map-1010",
+      "robotics-stageb-caption-case-evidence-index-1010",
+      "robotics-q4-retained-water-evidence-thread-1010"
+    ],
+    "NACA_start": "ack-aster-naca-map-started-research-fifo-1010"
+  },
+  "collected_pending_officer": [
+    {
+      "id": "robotics-p16-measurement-crosswalk-1010",
+      "seat": "worker-robotics-cylinder-audit-1008",
+      "title": "P1.6 assumed port: evidence-to-measurement crosswalk",
+      "source_paths": [
+        "research/program/p1-6-assumed-port-inputs.json",
+        "research/program/p1-6-scalar-result.json",
+        "research/program/PLAN.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "output_dir": "research/p16/measurement-crosswalk-1010",
+      "task": "Build a row-level crosswalk from the public assumed input contract to observations needed to replace each UNKNOWN. Distinguish stipulated geometry, unavailable private source, actual mesh/clearance and physical capacity. Give a measurement method, unit, evidence identifier and what invalidates each assumption. Unavailable values stay NULL/UNKNOWN. Do not compute or claim a new capacity or restore unpublished witness outcomes.",
+      "priority": 1,
+      "status": "CHECKS_PASS_REVIEW_INCOMPLETE",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "start_ack": {
+        "path": "unpublished-local-ref:770f3dab4f5d523b",
+        "bytes": 1723,
+        "sha256": "2f50535934b3ac4f72d27417f360dce95ca81d92aac25c028ab58bda2149c686"
+      },
+      "observed_start_at": "2026-10-10T15:30:35.868875+00:00",
+      "base": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+      "report": "rpt-cylinder-p16-paper-01ccfe28-collected-principal-copy-1010"
+    },
+    {
+      "id": "robotics-stageb-cell-joint-decision-map-1010",
+      "seat": "worker-robotics-aster-qual-1009",
+      "title": "Stage B cell/joint: next-decision evidence map",
+      "source_paths": [
+        "research/program/PLAN.md",
+        "research/program/NEXT-STAGES.md",
+        "research/analysis/vacuum-cell.md"
+      ],
+      "private_source_paths": [
+        "unpublished-local-ref:ad8c973044656e60",
+        "unpublished-local-ref:622ad50cc9cc124b",
+        "unpublished-local-ref:7c2a71d54d710601",
+        "unpublished-local-ref:2e521b7968e515ed"
+      ],
+      "output_dir": "research/stage-b/decision-map-1010",
+      "task": "Read the sealed Stage B one-page and ledgers. Produce a private one-page decision brief and a public method/evidence-gap map for cell mass, Alternative B installation geometry, beam versus shell/film applicability, and actual material/joint measurements. Preserve historical FAIL/UNKNOWN and source provenance; never publish previously private numeric outcomes as new public scientific claims. Do not run a solver or alter sealed source artifacts.",
+      "priority": 3,
+      "status": "CHECKS_PASS_REVIEW_INCOMPLETE",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "start_ack": {
+        "path": "unpublished-local-ref:7d2da378e558d345",
+        "bytes": 2083,
+        "sha256": "94fb02f816a8396976d5fd4a59c55facd97bf34406ab5cf1a2abcbda0aacaaaa"
+      },
+      "observed_start_at": "2026-10-10T15:31:53.512449+00:00",
+      "base": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+      "report": "rpt-aster-stageb-decision-map-gates-review-gap-principal-1010"
+    },
+    {
+      "id": "robotics-q0-sizing-evidence-thread-1010",
+      "seat": "worker-robotics-cylinder-audit-1008",
+      "title": "Question 0: sizing requirements and missing evidence",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "research/program/OPEN-QUESTION-ISSUES.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "question": 0,
+      "issue": 1,
+      "output_dir": "research/open-questions/q0-sizing-evidence-1010",
+      "task": "Trace the current sizing requirement to existing model inputs, published assumptions and measurements that would settle it. Cite original anchors and existing issue; preserve historical conclusions, no new sizing prediction or remote issue action.",
+      "priority": 5,
+      "status": "CHECKS_PASS_REVIEW_INCOMPLETE",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "start_receipt": "ack-cylinder-q0-evidence-thread-started-1010",
+      "started": "2026-10-10T15:44:35.195269+00:00",
+      "report": "rpt-cylinder-q0-paper-c056fdae-collected-principal-copy-1010"
+    },
+    {
+      "id": "robotics-p45-measurement-crosswalk-1010",
+      "seat": "worker-robotics-recovery-pilots-1009",
+      "title": "P4.5 conditional stiffness: assumption and measurement crosswalk",
+      "source_paths": [
+        "research/p45/assumed-stiffness/README.md",
+        "research/p45/assumed-stiffness/ASSUMPTIONS.json",
+        "research/p45/assumed-stiffness/inherited/INPUT-CONTRACT.json",
+        "research/p45/assumed-stiffness/inherited/LIMITATIONS.json"
+      ],
+      "output_dir": "research/p45/measurement-crosswalk-1010",
+      "task": "Map each existing conditional stiffness/material assumption to a prospective cord/end/joint observation and falsification criterion. Explain which measured quantity would fill which existing field and which comparisons remain inapplicable without it. Keep toy chi, stipulated properties and installed hardware clearly separated. No new numeric result, physical test, invented confidence or republished private P44 outcomes.",
+      "priority": 2,
+      "status": "CHECKS_PASS_ONE_TWO_FAMILY_ROUND_COLLECTED_LAST_FIXES_UNREVIEWED",
+      "repo": "unpublished-local-ref:42ae21309e70422c",
+      "project": "prj-airships",
+      "start_ack": {
+        "path": "unpublished-local-ref:d810b14b68a192ab",
+        "bytes": 2061,
+        "sha256": "cbc82f5c70ec14e83fd33ad497155082cee0a081f3e1ec6f2987cad7b73aa51a"
+      },
+      "observed_start_at": "2026-10-10T15:31:25.296240+00:00",
+      "base": "2628bdddcd69f5e0b5e9d0e0eac7e2c22b33b797",
+      "report": "hu-worker-robotics-p45-measurement-crosswalk-1010-principal-copy"
+    }
+  ],
+  "recovery_authority": "rpt-pike-g25-prlead-claude-lane-restored-0846-1010",
+  "officer_dispositions": {
+    "P16": "Captain reports XO1100 Codex-only judged; landing in progress, not independently observed; Claude recovery post-landing/new unit for findings",
+    "StageB": "Captain says awaits exact XO; original missing-lane order already delivered",
+    "P45": "Exact final9daa27fb; one two-family round completed/fixes dispositioned, final fixes unreviewed; independent signature pending",
+    "Q0": "Exact finalc056fdae; seven gates PASS, original Claude NO_RUN; one missing capture ordered on reviewedbb215645",
+    "site059580": "Unchanged candidate/high commissioned Codex review Completed/structured findings empty; checks reused; XO/landing pending"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "id": "N400",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N400",
+    "report": "rpt-ref-f4daf73c940b6f527d37",
+    "card": "rpt-ref-f4daf73c940b6f527d37",
+    "file": "evidence/6e377349147b3b13-NFI.json",
+    "snapshot": "evidence/6e377349147b3b13-NFI.json",
+    "source_sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+    "source_json_pointer": "/findings/10",
+    "row_id": "NFI-023-CHECK-SOURCE-AND-TAGS",
+    "fields": {
+      "id": "NFI-023-CHECK-SOURCE-AND-TAGS",
+      "status": "open",
+      "non_blocking": true,
+      "field": "material allowable transfer and result labels",
+      "reported": "Nominal coupon strengths and inherited density are used as joint design values; overallRESULTS tagQUESTIONABLE.",
+      "check": "1470MPa cited Toray coupon is verified, as are Henkel/TIMET/Invar values. The fabricated transition, its layup, complete node and film remain PROJECTION. Producer data vary by resin/version and typical/minimum basis.",
+      "evidence": [
+        "INPUTS.json source_audit",
+        "primary PDFs"
+      ],
+      "next": "Keep source version, test basis, material density and joint state explicit in each downstream row; do not promote the sizing to a qualified joint."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "{\"id\": \"NFI-023-CHECK-SOURCE-AND-TAGS\", \"status\": \"open\", \"non_blocking\": true, \"field\": \"material allowable transfer and result labels\", \"reported\": \"Nominal coupon strengths and inherited density are used as joint design values; overallRESULTS tagQUESTIONABLE.\", \"check\": \"1470MPa cited Toray coupon is verified, as are Henkel/TIMET/Invar values. The fabricated transition, its layup, complete node and film remain PROJECTION. Producer data vary by resin/version and typical/minimum basis.\", \"evidence\": [\"INPUTS.json source_audit\", \"primary PDFs\"], \"next\": \"Keep source version, test basis, material density and joint state explicit in each downstream row; do not promote the sizing to a qualified joint.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/399"
+    },
+    {
+      "report": "rpt-ref-f4daf73c940b6f527d37",
+      "artifact": "evidence/6e377349147b3b13-NFI.json",
+      "snapshot": "evidence/6e377349147b3b13-NFI.json",
+      "sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+      "bytes": 8399,
+      "selector": "/findings/10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f4daf73c940b6f527d37",
+          "artifact": "evidence/6e377349147b3b13-NFI.json",
+          "snapshot": "evidence/6e377349147b3b13-NFI.json",
+          "sha256": "6e377349147b3b13b4b5281bd2552b3304404c7e66141a75ac4e94d7b60b09cb",
+          "bytes": 8399,
+          "selector": "/findings/10"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/399"
+          }
+        ]
+      }
+    }
+  ]
+}

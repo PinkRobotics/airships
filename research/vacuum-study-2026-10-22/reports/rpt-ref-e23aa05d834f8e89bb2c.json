@@ -1,0 +1,247 @@
+{
+  "id": "rpt-ref-e23aa05d834f8e89bb2c",
+  "unit": "vacuum-mainline047-dimple-tolerance-1020",
+  "at": "2026-10-20T07:05:56.296106-07:00",
+  "body": "MAINLINE-047 filed with CHECK-029 folded in. QUESTIONABLE/PROJECTION.\n\nThe criterion is min(endpoint, first face yield, first core shear). The 255/300 MPa cases fail even at zero dimple. With assumed 345 MPa faces, the governing tested pass–fail brackets are 1.209–1.227 mm at SF1 and 0.738–0.756 mm at SF1.05; single-Gaussian RMS estimates 14.32/8.78 micrometres.\n\nThese results explicitly use orthotropic StVK core E_in=1 MPa, G_in=.5 MPa, inherited radial/transverse moduli, and catalog minimum-average/typical shear strengths. The inherited .01-MPa core is not accepted after CHECK-029's ellipticity finding. The stronger regularization is unsourced: no actual-hull tolerance is qualified.\n\nNew native core stress/strain fields check current-frame shear and local ellipticity on passing paths. Face yield governs the small-dimple limits; larger dimples encounter material limits before numerical endpoints. Both meridians and all four footprints are covered.\n\nConditional endpoint division by 1.10 gives a common SF1 bracket 0.521–0.539 mm; SF1.05 then fails even at zero. Transferring 2.31–2.46x permits none. CHECK-029 identifies a foam-law artifact behind that larger gap, so these are rejection scenarios, not empirical calibration.\n\nCure debit, controls, 015b/042 comparisons and inherited-law sensitivities are retained. 319 native records, 1892 checks, 14 NFIs. Retry and keep-turn-open orders observed. No successor; stop and file.",
+  "artifacts": [
+    {
+      "path": "evidence/ad003407cf8ed499-CARD.md",
+      "sha256": "ad003407cf8ed499f22a51e10ce00562d2ccf5bc1cafa37cad744e4377ba2f17",
+      "bytes": 12909
+    },
+    {
+      "path": "evidence/39bc26578287d218-RESULTS.json",
+      "sha256": "39bc26578287d2184951f6c5c87bfd64e809fb80315133963f7b27ddff515810",
+      "bytes": 592797
+    },
+    {
+      "path": "evidence/f7720a7f2b8e85f4-CORE-RESULTS.json",
+      "sha256": "f7720a7f2b8e85f43907caa017e9f68f5ee965e9b0a0eeda82d8018e3d60e1d7",
+      "bytes": 235304
+    },
+    {
+      "path": "evidence/50429c8a276316cc-CORE-SWEEP.csv",
+      "sha256": "50429c8a276316cc67506d5ad93e8dad7e47ccb81e87bb84ec17d3a093dc579a",
+      "bytes": 5810
+    },
+    {
+      "path": "evidence/61101442760e7b94-CORE-BOUNDARIES.json",
+      "sha256": "61101442760e7b94c25b35d47ba1de6e5cb893fdf6dde9abebf541a03bb59874",
+      "bytes": 146540
+    },
+    {
+      "path": "evidence/e61512c8e9e968f6-CORE-CALIBRATION.json",
+      "sha256": "e61512c8e9e968f69453a589a6f8e0c996be30cbad5abc4672cfda2ac4d0985d",
+      "bytes": 5418
+    },
+    {
+      "path": "evidence/ec0324bdf73138ab-CORE-CHECKS.json",
+      "sha256": "ec0324bdf73138abe0d5684e4d51b68a2206ec1262bde899919737e96f80e9d6",
+      "bytes": 2057
+    },
+    {
+      "path": "evidence/46ae4347a891ccb8-CORE-THERMAL.json",
+      "sha256": "46ae4347a891ccb8fd846c8a2645a14ac1ba15b6a1cb6359dfb288c046da313c",
+      "bytes": 27789
+    },
+    {
+      "path": "evidence/d7b3e77b0d0f1bbc-CORE-NUMERICS-FINALIZATION.json",
+      "sha256": "d7b3e77b0d0f1bbc0c0835ed7c53fed504ad8eb29e1c3f4a6b6d4ca798e170d3",
+      "bytes": 785
+    },
+    {
+      "path": "withheld-source:3334a215973d5777",
+      "sha256": "bc10a75e8b5ef295afd63577bcc6d626792691f6ac2d602f8449d975ea381d79",
+      "bytes": 1708
+    },
+    {
+      "path": "withheld-source:953c243aabf96d59",
+      "sha256": "5566fba2d1a4e7652837483c99bf59085bd2e1560c279cfb8640060e5cba6d6a",
+      "bytes": 1719
+    },
+    {
+      "path": "evidence/e2dbf8317da97350-FACE-ONLY-CARD.md",
+      "sha256": "e2dbf8317da973507c6a7d24c5440dfc6f65f1f9d7e036cf6cebd14230aca2d0",
+      "bytes": 13507
+    },
+    {
+      "path": "evidence/9dfb681cb4d897e5-SWEEP.csv",
+      "sha256": "9dfb681cb4d897e517ddfd2e56042865a9e48e0d3988eb5e78a682e75ac1d484",
+      "bytes": 16389
+    },
+    {
+      "path": "evidence/9c8b5c29a3366ea9-ALL-NATIVE-RUNS.csv",
+      "sha256": "9c8b5c29a3366ea97a3c9bc9f4f8e49a4d73ec729c4363b59211447287315542",
+      "bytes": 65593
+    },
+    {
+      "path": "evidence/e5f8a3dd183321bf-NFI.json",
+      "sha256": "e5f8a3dd183321bfdba896750472b505c95d276b4055c0986fcb2653dd532554",
+      "bytes": 7955
+    },
+    {
+      "path": "evidence/78898e4b60c74019-METHOD.md",
+      "sha256": "78898e4b60c7401978dd7f8b9c72d9a4877fc25462d977d3417297c52beec887",
+      "bytes": 12286
+    },
+    {
+      "path": "evidence/d4ff0fe03860ee32-INPUTS.json",
+      "sha256": "d4ff0fe03860ee32a4b52e214810c5168a4395c9c8e678a287902b3a5b412666",
+      "bytes": 3990
+    },
+    {
+      "path": "evidence/df21045b4bc27106-INPUT-CUSTODY.json",
+      "sha256": "df21045b4bc27106affb767f15d685b01669dbebbb3193ed8d8d628e31384b1a",
+      "bytes": 15937
+    },
+    {
+      "path": "withheld-source:af4a23edc6517017",
+      "sha256": "bb68c0540cc32e293f57deaf977cda9166bae7eb2ad83755dd9242af4d835898",
+      "bytes": 2212
+    },
+    {
+      "path": "evidence/aabc16de4c155ed6-RETRY-POLICY.json",
+      "sha256": "aabc16de4c155ed683d54ca53cd63399d8e84dc46a5ed6ebc03fd8ca6488fbf1",
+      "bytes": 315
+    },
+    {
+      "path": "withheld-source:5795200d650d82f7",
+      "sha256": "a2d6d13b175cd45ee9be493bf793fbb0a879a643f5458d3bf13cd8236305ccaa",
+      "bytes": 1594
+    },
+    {
+      "path": "evidence/03f40f2500f9585c-RUN.json",
+      "sha256": "03f40f2500f9585c53d58129f7509130705c96d44b436fd5325fb2f3138a8cf7",
+      "bytes": 920
+    },
+    {
+      "path": "evidence/fe14df60fa9d941d-RUN-RESOURCES.json",
+      "sha256": "fe14df60fa9d941ddcbf4bce294b50acbc4a370495a000401f1432f4c5bf64f8",
+      "bytes": 129559
+    },
+    {
+      "path": "evidence/5c155356012acffd-EVIDENCE-CHECKS.json",
+      "sha256": "5c155356012acffd33334fb3122f901ae80986545e62ae9c46c90a2cdb54f3e1",
+      "bytes": 372519
+    },
+    {
+      "path": "evidence/8e641d5fff0243dc-BOUNDARIES.json",
+      "sha256": "8e641d5fff0243dc4bf0b2eb21f8903a9eca6790adf244ad92e0749834ea8a31",
+      "bytes": 91168
+    },
+    {
+      "path": "evidence/80dfd2e31a49a290-CALIBRATION.json",
+      "sha256": "80dfd2e31a49a290876de95de21243f2f82384211ed4e742b1249ab45715986f",
+      "bytes": 38790
+    },
+    {
+      "path": "evidence/eadbccc894631afe-THERMAL-SENSITIVITY.json",
+      "sha256": "eadbccc894631afe19a9be31fda29ee5b0df5f0cbc550c28b9b8eaf642b1c23a",
+      "bytes": 15100
+    },
+    {
+      "path": "evidence/8c029bae184cb5b5-BOUNDARY-CHECKS.json",
+      "sha256": "8c029bae184cb5b50a48a0c4a9656a33fc5d7defb09a247cbdefaa58104a3505",
+      "bytes": 2036
+    },
+    {
+      "path": "evidence/30761c2bec3ce7f9-EXACT-TARGET-AUDIT.json",
+      "sha256": "30761c2bec3ce7f9f7d8102b6d79c188567b98b28cb5244656dfbb79e7041599",
+      "bytes": 1216
+    },
+    {
+      "path": "evidence/4f1f5dce8e4fa658-TARGET-RAMP-CHECK.json",
+      "sha256": "4f1f5dce8e4fa658068e3e3d01eacebbfd28bd523ed54392b31350807a6530b7",
+      "bytes": 980
+    },
+    {
+      "path": "evidence/4648a761dc1b740c-EXCLUDED-RUNS.json",
+      "sha256": "4648a761dc1b740cc318d0378c5ce1129ab62705b8ddce70baf4aa3487a24bef",
+      "bytes": 719
+    },
+    {
+      "path": "evidence/b4dfb82a30243011-ADMISSION-REFUSALS.json",
+      "sha256": "b4dfb82a30243011cdd9371164d66877fc8e2a6ed43c8d753769cef25c5cd572",
+      "bytes": 2907
+    },
+    {
+      "path": "evidence/d30bc3e8419544b7-NATIVE-WARNINGS.json",
+      "sha256": "d30bc3e8419544b7bf846c7e3476cdf30770b9832caa43ca81a6742ada45720b",
+      "bytes": 130865
+    },
+    {
+      "path": "evidence/c43a00f965d1011d-NUMERICAL-ENDPOINT-STOPS.json",
+      "sha256": "c43a00f965d1011dc5a1298d5e65bcabbe1ef984f921c3e73b7fe196c9a7e358",
+      "bytes": 56837
+    },
+    {
+      "path": "unpublished-local-ref:7630cbd643c28840",
+      "sha256": "099cbf9f7df7257ffb3867e5e6ddb26b2a24dbe37a471c0481232354a0e9cb1f",
+      "bytes": 38810
+    },
+    {
+      "path": "unpublished-local-ref:5bc36d9c511f9eec",
+      "sha256": "9c586bfc2b6dfcd548f4ea6c4eb2372cb026a40ca71eeab1828230bd01b46de3",
+      "bytes": 373762
+    },
+    {
+      "path": "unpublished-local-ref:de047b333ab41d81",
+      "sha256": "72d2e71965a61b9313833aad94834b34387e5de73c36f43dc09ac768e8b2f580",
+      "bytes": 25479
+    },
+    {
+      "path": "unpublished-local-ref:cb6f7c09044f82c1",
+      "sha256": "834b948da384071caab158e4bcad23edf732c12fcadebb74a3b6b0c5973cf793",
+      "bytes": 73362
+    },
+    {
+      "path": "unpublished-local-ref:e1d19f780e25a4a3",
+      "sha256": "cbe47e747cb0399f214f9e8500a6bba1aed43d02058876b14c476754a47a808a",
+      "bytes": 30013
+    },
+    {
+      "path": "unpublished-local-ref:0ade54bfedf4c5df",
+      "sha256": "53839e4d6f9a1d9d225b448de9a233726ca9559283dd5656aa3a6891263a7821",
+      "bytes": 272163
+    },
+    {
+      "path": "unpublished-local-ref:567e9a45a9a95190",
+      "sha256": "0ddaaacdaeee22e9b821c3c6818a0ea13415c6288703071b0c6957930e8a9fdc",
+      "bytes": 19441
+    },
+    {
+      "path": "evidence/3c888081b9c478a7-ARTIFACT-MANIFEST.json",
+      "sha256": "3c888081b9c478a7d3917897260454a0d8edcb92f8ca79e85a3df80a5ddb411f",
+      "bytes": 2286067
+    }
+  ],
+  "from": "ref-4bc9297546b34b47e7f1",
+  "from_seat": "ref-4bc9297546b34b47e7f1",
+  "re": "ord-admiral-rr2-mainline047-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline047-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline047-simjob-retry-standing-1020",
+      "outcome": "done",
+      "extent": "obligation"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline047-fold-chk029-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline047-keep-turn-open-1020",
+      "outcome": "done",
+      "extent": "obligation"
+    }
+  ]
+}

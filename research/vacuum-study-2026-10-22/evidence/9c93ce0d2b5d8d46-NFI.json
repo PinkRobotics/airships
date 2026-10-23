@@ -1,0 +1,95 @@
+{
+  "tag": "QUESTIONABLE",
+  "rows": [
+    {
+      "id": "NFI-FILM-ALLOWABLE-011B",
+      "state": "unsourced",
+      "note": "1.5 GPa and 80 um at 970 kg/m3 are the 011b pin. They are not a candidate allowable."
+    },
+    {
+      "id": "NFI-CURVATURE",
+      "state": "assumption",
+      "note": "Pillow radius is set to the bay side, 2.04 m, because that is the 011b film formula. It is not a measured cap."
+    },
+    {
+      "id": "NFI-KNOCK-HALF",
+      "state": "assumption",
+      "note": "Where no creep-rupture fraction was opened, the design stress is half the opened ultimate. Kapton, Teonex and Vectran use it."
+    },
+    {
+      "id": "NFI-ZYLON-EXTRAPOLATION",
+      "state": "exists as a filament test note",
+      "note": "The 19 year life is Toyobo's extrapolation of an HM filament at 60 percent of break, not a laminate test."
+    },
+    {
+      "id": "NFI-CROSSPLY",
+      "state": "assumption",
+      "note": "A uniaxial filament needs a 0/90 build to carry both pillow directions. Total thickness is twice the one-direction thickness. No resin is included, so a real laminate is heavier."
+    },
+    {
+      "id": "NFI-DYNEEMA-ROPE",
+      "state": "exists as a rope example",
+      "note": "The 20 percent fraction and the 15 and 250 year lives are indicative rope numbers at 16 C, not a film."
+    },
+    {
+      "id": "NFI-DYNEEMA-DENSITY",
+      "state": "derived from the same row",
+      "note": "Density is the printed GPa divided by the printed N/tex. The sheet does not print density."
+    },
+    {
+      "id": "NFI-PEN-THICKNESS",
+      "state": "exists today",
+      "note": "The design thickness is above the 250 um row. The 210 MPa ultimate is the thickest opened gauge, not a measurement at the design thickness."
+    },
+    {
+      "id": "NFI-PEN-NOT-DESIGN-DATA",
+      "state": "exists today",
+      "note": "The IEC Teonex sheet says its typical values are not design data."
+    },
+    {
+      "id": "NFI-MYLAR-STRENGTH",
+      "state": "not opened",
+      "note": "The barrier brochure has no PET strength, modulus, density or creep. The 12 um mass is not computed."
+    },
+    {
+      "id": "NFI-MYLAR-PRESSURE",
+      "state": "assumption",
+      "note": "The oxygen column does not print the test pressure. The scale uses 1 atm of oxygen."
+    },
+    {
+      "id": "NFI-N2-MISSING",
+      "state": "not opened",
+      "note": "N2 is opened for Kapton only. PEN, Mylar and the ALD paper do not give N2."
+    },
+    {
+      "id": "NFI-HULL-HUMIDITY",
+      "state": "not in the case",
+      "note": "The case has no exterior humidity. Water loads stay at the sheet condition and are not a hull rate."
+    },
+    {
+      "id": "NFI-ALD-SCALE",
+      "state": "in the lab",
+      "note": "The alumina numbers are coupon measurements. A 1257 m2 hull coating was not opened. Tagged PROJECTION at hull scale."
+    },
+    {
+      "id": "NFI-GETTER",
+      "state": "not in the 016 method",
+      "note": "No getter capacity is stated. The pump band is the 150 to 400 kg catalog class, not scaled to the gas load."
+    },
+    {
+      "id": "NFI-CNT-GRAPHENE",
+      "state": "PROJECTION",
+      "note": "No production allowable was opened. Thickness is not stated."
+    },
+    {
+      "id": "NFI-FABRIC-POROUS",
+      "state": "assumption",
+      "note": "A filament crossply is not taken as gas-tight. The barrier is a separate layer."
+    },
+    {
+      "id": "NFI-AIR-FRACTIONS",
+      "state": "assumption",
+      "note": "Dry-air mole fractions 0.20946 and 0.78084 are not in the vacuum case."
+    }
+  ]
+}

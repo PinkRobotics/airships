@@ -1,0 +1,71 @@
+{
+  "id": "N063",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N063",
+    "report": "ref-0c9ab80606a173c6adb6",
+    "card": "MAINLINE-016",
+    "file": "evidence/e000d61baed6b1db-NFI.json",
+    "row_id": "NFI-016-MOOR",
+    "fields": {
+      "NFI_id": "NFI-016-MOOR",
+      "rank": 7,
+      "gap": "Mooring design load 48.3 kN at 20 m/s with a 1.4 gust factor; a bare 0.0707 m2 hardpoint patch sees 683 kPa against a 500.0 kPa QUESTIONABLE core allowable, SF 0.73. Added air mass 2445 kg equals hull mass, so snatch loads need a dynamic mooring analysis.",
+      "direction": "Design spreaders of at least 0.145 m2 per hardpoint for core SF 1.5; run the mooring dynamics with the added mass; qualify six hardpoints, about 48 kg.",
+      "effect": "Local design plus about 20 percent of the margin in fittings; not a hull-mode problem."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-016-MOOR\", \"rank\": 7, \"gap\": \"Mooring design load 48.3 kN at 20 m/s with a 1.4 gust factor; a bare 0.0707 m2 hardpoint patch sees 683 kPa against a 500.0 kPa QUESTIONABLE core allowable, SF 0.73. Added air mass 2445 kg equals hull mass, so snatch loads need a dynamic mooring analysis.\", \"direction\": \"Design spreaders of at least 0.145 m2 per hardpoint for core SF 1.5; run the mooring dynamics with the added mass; qualify six hardpoints, about 48 kg.\", \"effect\": \"Local design plus about 20 percent of the margin in fittings; not a hull-mode problem.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/62"
+    },
+    {
+      "report": "ref-0c9ab80606a173c6adb6",
+      "artifact": "evidence/e000d61baed6b1db-NFI.json",
+      "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+      "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+      "bytes": 6808,
+      "selector": "source row ID: NFI-016-MOOR"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "ref-0c9ab80606a173c6adb6",
+          "artifact": "evidence/e000d61baed6b1db-NFI.json",
+          "snapshot": "evidence/e000d61baed6b1db-NFI.json",
+          "sha256": "e000d61baed6b1db36993aa6e5a1a4eb32e538496ad7fe83d565c3092a8b2a66",
+          "bytes": 6808,
+          "selector": "source row ID: NFI-016-MOOR"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/62"
+          }
+        ]
+      }
+    }
+  ]
+}

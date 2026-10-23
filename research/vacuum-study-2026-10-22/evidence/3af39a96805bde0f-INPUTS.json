@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline030-check-1020",
+  "card": "CHECK-030",
+  "note": "Own arithmetic in check030.py. Owner scripts were not executed. Stored JSON was read as published numbers.",
+  "equations": {
+    "half_wave": "pi*sqrt((3/4)*rg*R), rg=sqrt((ro^2+ri^2)/2)",
+    "stated_rounding": "pi*sqrt(1.06*rg_thin*R); 1.06066 rounded to 1.06",
+    "today": "0.20/needed_gamma",
+    "film": "1.5e9*80e-6/((p/2)*s)",
+    "force": "p*R*s/(2*sqrt(3))",
+    "nodes": "2+8*pi*R^2/(sqrt(3)*s^2)"
+  },
+  "pins": [
+    {
+      "role": "CHECK brief",
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799
+    },
+    {
+      "role": "COMMON",
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "role": "owner CARD",
+      "path": "evidence/1c963c08a965cb30-CARD.md",
+      "sha256": "1c963c08a965cb3049fd7670e0a9fb20bc163bb3b2feebb048c2a3c885656731",
+      "bytes": 12840
+    },
+    {
+      "role": "owner REGISTER",
+      "path": "evidence/82cb942e2acf845a-REGISTER.md",
+      "sha256": "82cb942e2acf845a570ef504032ef0800e66f03a4b48b2f73bdd18bfeedb48c2",
+      "bytes": 90518
+    },
+    {
+      "role": "owner CONTINUUM",
+      "path": "evidence/952d2abba80ffc79-CONTINUUM.json",
+      "sha256": "952d2abba80ffc79bb98e937f6b7ba0ef6d742619e9d1da781e032b04ca24e5f",
+      "bytes": 2384
+    },
+    {
+      "role": "owner RESULTS",
+      "path": "evidence/be77e304319eb8b9-RESULTS.json",
+      "sha256": "be77e304319eb8b9eaf262c33535d81b550658e461f22b77b956b00f80b40590",
+      "bytes": 18293
+    },
+    {
+      "role": "011b RESULTS-EXTRA",
+      "path": "evidence/af8c48d030b0630d-RESULTS-EXTRA.json",
+      "sha256": "af8c48d030b0630d8361780f23a706d679c460219090a68b4aa6571cb00fee1b",
+      "bytes": 41043
+    }
+  ]
+}

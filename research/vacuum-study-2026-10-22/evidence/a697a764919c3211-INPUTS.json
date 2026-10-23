@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-003",
+  "status": "ESTIMATE_PENDING_UNA",
+  "choice": "THREE_FIXED_DENSITY_REDISTRIBUTIONS",
+  "points": {
+    "P2-C": "Spend the whole ceiling on core thickness. Face thickness stays 0.0002 m.",
+    "P2-K": "Scale baseline face thickness and core thickness by one factor until the ceiling.",
+    "P2-E": "Split the structural mass budget equally between faces and core, then set each thickness from that mass."
+  },
+  "density_kg_m3": 16.0,
+  "sigma_Pa": 276000000.0,
+  "sigma_tag": "QUESTIONABLE",
+  "sigma_transfer": "TRANSFERRED_FROM_TENSILE_YIELD",
+  "mass_ceiling": "counted mass equals lift; numerical-zero margin is no reserve",
+  "comparison": "P2-A recomputed from sealed MAINLINE-001 inputs and matched to sealed MAINLINE-002 RESULTS",
+  "omitted_from_stated_SF": [
+    "core_shear",
+    "face_wrinkling",
+    "core_crush"
+  ]
+}

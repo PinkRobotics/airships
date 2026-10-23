@@ -1,0 +1,86 @@
+{
+  "id": "C104",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C104",
+    "report": "rpt-ref-2beb70a569266cf0297d",
+    "file": "evidence/0381c4a209c644de-NFI.json",
+    "snapshot": "evidence/0381c4a209c644de-NFI.json",
+    "source_sha256": "0381c4a209c644de9d3f2c2be0be9290c3006115dde131b8a0b6ed94db922125",
+    "source_json_pointer": "/items/2",
+    "row_id": "NFI-CHECK038-STOCK_SIZE",
+    "fields": {
+      "id": "NFI-CHECK038-STOCK_SIZE",
+      "status": "OPEN",
+      "blocking": false,
+      "issue": "The shared-stock example assumes a 24×72 inch blank at about 0.8 mm.",
+      "evidence": "Materion assigns reduced dimensions to 0.020–0.058 inch sheet. The mass arithmetic is right, but that full-envelope product is not established.",
+      "resolution_needed": "Obtain a finished-gauge/blank/process specification and a cutting layout; revise the stock/process allowance if only smaller or thicker blanks are available.",
+      "tests": [
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "classification": "specific procurement gap"
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE/PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "items",
+    "blocks_progress": false
+  },
+  "claim": "The shared-stock example assumes a 24×72 inch blank at about 0.8 mm.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/814"
+    },
+    {
+      "report": "rpt-ref-2beb70a569266cf0297d",
+      "artifact": "evidence/0381c4a209c644de-NFI.json",
+      "snapshot": "evidence/0381c4a209c644de-NFI.json",
+      "sha256": "0381c4a209c644de9d3f2c2be0be9290c3006115dde131b8a0b6ed94db922125",
+      "bytes": 6106,
+      "selector": "/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-2beb70a569266cf0297d",
+          "artifact": "evidence/0381c4a209c644de-NFI.json",
+          "snapshot": "evidence/0381c4a209c644de-NFI.json",
+          "sha256": "0381c4a209c644de9d3f2c2be0be9290c3006115dde131b8a0b6ed94db922125",
+          "bytes": 6106,
+          "selector": "/items/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/814"
+          }
+        ]
+      }
+    }
+  ]
+}

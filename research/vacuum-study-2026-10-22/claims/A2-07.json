@@ -1,0 +1,33 @@
+{
+  "id": "A2-07",
+  "kind": "review_claim",
+  "claim": "P2 Heathrow daily coverage34/64/84% atR10 and96% atR12",
+  "original": {
+    "id": "A2-07",
+    "card": "058",
+    "claim": "P2 Heathrow daily coverage34/64/84% atR10 and96% atR12",
+    "why_load_bearing": "Controls site and radius selection",
+    "outcome": "it differs",
+    "finding": "The original counts reproduce exactly at hull-only mass. With the same report's hardware, R10 MLCCAg 63.979% becomes 61.253%; R10 AlAOC 83.647% becomes 79.854%; R12 AlAOC 95.785% becomes 94.156%. Baseline 33.802% is unchanged. See F-A2-058-P2-HARDWARE.",
+    "evidence": [
+      "FIXES.json",
+      "checks/058-COVERAGE-height27.29-humidityTrue.json"
+    ]
+  },
+  "numerical_status": "corrected",
+  "source_disposition": "it differs",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "snapshot": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059,
+      "selector": "/claims/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-010",
+  "unit": "vacuum-mainline010-nfi-geom-1019",
+  "brief": "CARD-010-NFI-GEOM.md with COMMON.md, pinned in ord-admiral-rr2-mainline010-dispatch-1019",
+  "baselines": {
+    "P2-A": {
+      "tf_m": 0.0003758936444928841,
+      "core_m": 0.1,
+      "separation_m": 0.10037589364449288,
+      "source": "pinned MAINLINE-002 RESULTS"
+    },
+    "P2-E": {
+      "tf_m": 0.0003360949703945902,
+      "core_m": 0.1134320525081742,
+      "separation_m": 0.1137681474785688,
+      "source": "pinned MAINLINE-003 RESULTS"
+    }
+  },
+  "rules": "6061-T6 faces E 68.9 GPa, sigma 276 MPa QUESTIONABLE, rho 2700; core 16 kg/m3; joints 5% of sandwich; systems 100 kg per sphere; kd 0.2; crush p_net/2 (MAINLINE-005b, QUESTIONABLE); ISA troposphere T0 288.15 K, p0 101325 Pa, lapse 0.0065 K/m, R 287.05",
+  "pins_verified": "COMMON.md table 12 of 12 sha256 verified under MAINLINE-005 and unchanged since; brief and COMMON pins match the dispatch artifacts"
+}

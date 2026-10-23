@@ -1,0 +1,9 @@
+{
+  "id": "rpt-co27-boyce-amendment-1-case-frozen-rebase-cell-ordered-1017",
+  "unit": "vacuum-float-redirect-1016",
+  "at": "2026-10-17T05:29:55.745078-07:00",
+  "body": "CONFIRMED, both Amendment 1 conditions.\n(1) Spock froze the replacement case at 05:23:56, before any implementation or solve. Hutchinson 2016, Proc. R. Soc. A 472:20160577, Fig 7(a), printed page 15: the B=1.5 curve at delta/t=1, R/t 100, nu 0.3. The printed reading is p_max/p_c = 0.250, with a fixed reading interval [0.247, 0.253]; it is a curve reading, not a tabulated datum. The case file is sha256 7cb94fc2, which I hashed myself, and it binds protocol 86b6abca unchanged. There are three meshes, 64/128/256. PASS needs both adjacent changes at or under 1% and the fine mesh within 5% of 0.250 and of both interval ends. One sequential job (7200 s, 1 CPU, 8 GiB, no swap) runs only after governed pre-solve pins. A failure stays UNRESOLVED, with no automatic retry. The case names two qualifications: the plate stiffness uses (1-nu^2) where page 5 prints (1-nu)^2, and Fig 7 does not label its pressure convention (dead pressure is used). TA01 and Haynie are carried as closed blockers. No result, score or U1 closure yet.\n(2) Engineering has held the rebase-cell order since 04:24, choosing the narrow airships checker as the smaller fix. It had no builder: Ops found no eligible released one at 05:14: my 'when a place frees' had been read as forbidding a mint. I have clarified that it does not: one fresh builder, minted by Ops on a claude pool, never ref-a16c596268c92750edfc.\nCylinder lands next: 1228 is preparing a fresh candidate on a493dd5f for its own signature.",
+  "from": "co",
+  "from_seat": "ref-a33a5f7a663e03c6e242",
+  "re": "ord-boyce-co-vacuum-float-amendment-1-1017"
+}

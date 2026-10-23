@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "unit": "h1-reference-tail-hessian-event-preparation-1019",
+  "review_status": "Owner paper derivations await separate Una review",
+  "gates": [
+    {
+      "gate": "admitted_coefficients",
+      "status": "INPUT_ADMITTED",
+      "evidence": "Use MW<3/2,Smax<1/8,T_M<9440 on[0,3/4]; no re-proof"
+    },
+    {
+      "gate": "Korn_cross_terms",
+      "status": "PAPER_PROVED",
+      "evidence": "H<=2||K||^2 including k weights and clamped trace"
+    },
+    {
+      "gate": "full_displacement_tail",
+      "status": "PAPER_PROVED",
+      "evidence": "kappa1/11 uniform all n>=129 on[0,3/4]"
+    },
+    {
+      "gate": "literal_coefficient_tree",
+      "status": "PAPER_SPEC_COMPLETE",
+      "evidence": "Real primitives split at kernel/dimple joins, both finite ends"
+    },
+    {
+      "gate": "inverse_denominators",
+      "status": "PAPER_PROVED",
+      "evidence": "primitive>=1/8; negative det>3/5"
+    },
+    {
+      "gate": "outward_interval_backend",
+      "status": "PAPER_SPEC_COMPLETE",
+      "evidence": "Exact rationals, 256 sqrt/atan steps, Taylor128, seven doublings"
+    },
+    {
+      "gate": "complete_load_boxes",
+      "status": "PAPER_SPEC_COMPLETE",
+      "evidence": "Interval jets/Lipschitz, reject cutoff crossing; no evaluated intervals"
+    },
+    {
+      "gate": "coefficient_Hessian_radii",
+      "status": "FORMULA_ONLY_UNEVALUATED",
+      "evidence": "E_T and E_G specified, no zero errors"
+    },
+    {
+      "gate": "frozen_spaces_projection",
+      "status": "PAPER_SPEC_COMPLETE",
+      "evidence": "C0 quartic U,V; C1 quartic W; G projection and node trace proof"
+    },
+    {
+      "gate": "finite_mode_complement",
+      "status": "PAPER_PROVED",
+      "evidence": "c_perp>=1/4 on all three frozen meshes, both parities,n0..128,[0,3/4]"
+    },
+    {
+      "gate": "coupling_upper_bound",
+      "status": "PROVED_BUT_UNUSABLE",
+      "evidence": "2^27 is valid; Schur subtraction2^56 exceeds full norm upper bound"
+    },
+    {
+      "gate": "finite_Schur_positivity",
+      "status": "FIRST_BLOCKER_UNBOUND",
+      "evidence": "Need sharper coupling and finite-space lower enclosures"
+    },
+    {
+      "gate": "nonpositive_Rayleigh_witness",
+      "status": "NOT_RUN_MISSING",
+      "evidence": "No evaluated vector or sign"
+    },
+    {
+      "gate": "earliest_event_coverage",
+      "status": "UNBOUND",
+      "evidence": "No certified complete prior positive intervals"
+    },
+    {
+      "gate": "slope_cluster_constants",
+      "status": "UNBOUND",
+      "evidence": "No cluster or simple-root constant supplied"
+    },
+    {
+      "gate": "outside_admitted_load_interval",
+      "status": "UNSUPPORTED",
+      "evidence": "Frozen[0,5/4] unchanged; remainder above3/4 uncovered"
+    },
+    {
+      "gate": "reference_error_Lref_mesh",
+      "status": "UNBOUND",
+      "evidence": "No positive Lref, six errors,total5%,both adjacent1% checks"
+    },
+    {
+      "gate": "reference_resource_fit",
+      "status": "UNBOUND",
+      "evidence": "Inventory is not resource fit"
+    },
+    {
+      "gate": "native_energy_H1_qualification",
+      "status": "NOT_GRANTED",
+      "evidence": "All flags false; map0 unchanged"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "numerical_mismatches_outside_tolerance": [],
+  "checked_comparisons": 4945,
+  "all_comparison_deltas": "NUMERICAL-CHECKS.json and NUMERICAL-CHECKS.csv",
+  "metadata_findings": [
+    {
+      "id": "CHECK036-D1",
+      "severity": "minor; inactive legacy metadata",
+      "location": "INPUTS.json /R20/scenario",
+      "field": "bondfilm_lb_ft2",
+      "filed_value": 0.015,
+      "converted_kg_m2": 0.07323641454574575,
+      "governing_field": "film_kg_m2_per_interface",
+      "governing_value_kg_m2": 0.1464728290914915,
+      "equivalent_lb_ft2": 0.030000000000000002,
+      "difference_kg_m2": 0.07323641454574575,
+      "disposition": "Keep the documented 027 coupled-model film mass 0.1464728290914915 kg/m2 per interface for this check. Mark or remove the inherited 0.015 lb/ft2 label; it describes half that mass. No numerical result was changed."
+    }
+  ],
+  "numerical_precision_notes": [
+    {
+      "id": "CHECK036-P1",
+      "quantity": "R20 payload endpoint",
+      "filed_kg": 209.83863080161245,
+      "independent_kg": 209.83865169980527,
+      "difference_kg": 2.08981928153662e-05,
+      "interpretation": "20.898 mg optimization precision difference; both round to 209.839 kg; within declared tolerance."
+    }
+  ]
+}

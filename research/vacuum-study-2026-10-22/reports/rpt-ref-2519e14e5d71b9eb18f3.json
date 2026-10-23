@@ -1,0 +1,84 @@
+{
+  "id": "rpt-ref-2519e14e5d71b9eb18f3",
+  "unit": "vacuum-mainline028-p2-joining-1020",
+  "at": "2026-10-20T01:06:25-07:00",
+  "body": "MAINLINE-028 complete against pinned MAINLINE-021 revision 1 (Be E=290 GPa). All strengths remain QUESTIONABLE; hull transfers and unmeasured processes are PROJECTION. At the 10 m geometry, the 216.427 kg joining allowance is barely met by nominal AF163-2U film plus 30:1 bonded scarfs on the stock-size panel envelope: 214.240 kg, leaving 2.187 kg. A 5 g/m² primer on each bondline raises this to 226.806 kg. The 100 g/m² HexBond route is 281.504 kg.\n\nThe lightest finite modeled bill is laboratory 8 g/m² core-edge adhesive plus ideal autogenous seams: 39.493 kg for stock-size panels, 24.538 kg for projected 4 m panels. With bonded scarfs it is 50.283/26.807 kg. Neither route has matched Be/core bond and seam qualification; large-panel manufacture is unproven. No qualified lightest assembly is established.\n\nIndependent face/core reoptimization preserves the 5% float margin: nominal AF/scarf conditional SF=1.000641; HexBond100/scarf=0.980948; laboratory-light/ideal-weld=1.043747 at stock panel size. Overall installed SF remains unknown because bond, seam and imperfection modes lack measured allowables. An illustrative 80% weld strength-retention case gives SF=0.852978.\n\nDelivered source-linked bond/seam comparisons, 65 numerical cases, eight passed arithmetic checks, 36 verified upstream pins and 20 open NFI rows. Full inputs, reproducible code, figures, timing and hash manifest attached. Brief directs stop and file; no successor is named. Ready for the robotics seat's next queued job.",
+  "artifacts": [
+    {
+      "path": "evidence/dedf8cb306f22467-CARD.md",
+      "sha256": "dedf8cb306f224675795ea7887d32b807a5e94f7f96eee6ce8e4fc8d926175db",
+      "bytes": 12913
+    },
+    {
+      "path": "evidence/266652aa5589e0de-RESULTS.json",
+      "sha256": "266652aa5589e0deb73d6020f7da16d0df478fcc3213d680039853efdac734c1",
+      "bytes": 173338
+    },
+    {
+      "path": "evidence/4a6f636dbfa17be3-NFI.json",
+      "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+      "bytes": 17155
+    },
+    {
+      "path": "evidence/527a0f9fbf0b0809-INPUTS.json",
+      "sha256": "527a0f9fbf0b0809c41dc1906a7107ecda3e20cd3bbbf16b75b14ccfdad6144f",
+      "bytes": 29431
+    },
+    {
+      "path": "evidence/3624252d7cbe952e-calculate.py",
+      "sha256": "3624252d7cbe952e4f0919b02707c19748745f25ad210dcf68ae313869c1a24c",
+      "bytes": 11460
+    },
+    {
+      "path": "evidence/579bff2ee5f7661a-METHOD.md",
+      "sha256": "579bff2ee5f7661aaae807ce102d3abf1ee787e58211aa9c67fd7d785ec10d61",
+      "bytes": 6841
+    },
+    {
+      "path": "evidence/4cdd42c52c521596-VALIDATION.json",
+      "sha256": "4cdd42c52c521596081f2d4089df31b11c24614688bae5eb19311f84ecf96cdc",
+      "bytes": 19009
+    },
+    {
+      "path": "evidence/2e49ec32237cdca0-TIMING.json",
+      "sha256": "2e49ec32237cdca070dfa7c6dfd733a021f851d4d544613fbb37a6c6dbb6748a",
+      "bytes": 296
+    },
+    {
+      "path": "unpublished-local-ref:d0786391190b2051",
+      "sha256": "66f5a57ab52b3c6f9f0ef7129e51762332220b9464a23bdd3a94bd731427fcd2",
+      "bytes": 229326
+    },
+    {
+      "path": "evidence/1e63a38438ec20ff-joining-trade.svg",
+      "sha256": "1e63a38438ec20ff742d4ee39c2b900f86de8f61db5bbbcad90895217b98c65f",
+      "bytes": 102269
+    },
+    {
+      "path": "evidence/63e29d7c9ff749e0-plot.py",
+      "sha256": "63e29d7c9ff749e061bc24f3962641a9843b527e8505f158879ecfa0bc3c2983",
+      "bytes": 2905
+    },
+    {
+      "path": "evidence/ded75264424d3977-vacuum-mainline028-p2-joining-1020.md",
+      "sha256": "ded75264424d39771b5f7a2f0fafdcd6d2ad1b193a24bd570a3bb71f92017999",
+      "bytes": 1605
+    },
+    {
+      "path": "evidence/fe78a3b453963648-MANIFEST.json",
+      "sha256": "fe78a3b4539636480687d5fd06b9aed5ba7c00330a9e7a68654e84b7b1a62fb4",
+      "bytes": 25608
+    }
+  ],
+  "from": "ref-70f7af6d0a8d64c42272",
+  "from_seat": "ref-70f7af6d0a8d64c42272",
+  "re": "ord-admiral-rr2-mainline028-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline028-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

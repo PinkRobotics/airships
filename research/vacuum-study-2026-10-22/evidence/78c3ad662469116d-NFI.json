@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "tag": "QUESTIONABLE",
+  "rows": [
+    {
+      "id": "NFI-026-01",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "011b local-member tributary share differs from equal triangular cell transfer",
+      "evidence": "Two cells give w=2pA/(3s)=ps/(2sqrt(3)); inherited local checks used ps/2.",
+      "implication": "Reconcile inherited local/Euler/Perry checks. This factor does not replace the separately inherited continuum global expression."
+    },
+    {
+      "id": "NFI-026-02",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Discrete geometry exceeds inherited mass allowance",
+      "evidence": "362 joints/1080 arcs; mass 4950.843078 kg versus allowance 4889.442150 kg; payload -61.400928 kg.",
+      "implication": "The original just-floating point is not preserved by the actual geodesic realization; film shape and all real joints remain ungrounded."
+    },
+    {
+      "id": "NFI-026-03",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Freely rolling pinned curved members are mechanisms",
+      "evidence": "1080 independent zero-strain roll coordinates; negative pressure-volume roll curvature for every member.",
+      "implication": "Specify joint anti-roll stiffness and attached-film restraint before assigning a positive pinned buckling factor."
+    },
+    {
+      "id": "NFI-026-04",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Discrete perfect eigenvalue differs from smeared continuum",
+      "evidence": "Primary finest lambda 6.46522244 versus inherited 6.12763973; 5.509% difference.",
+      "implication": "Geometry, nonuniform spacing, torsion, pressure transfer and omitted initial-moment couplings differ. Agreement in scale is not validation of a global knockdown."
+    },
+    {
+      "id": "NFI-026-05",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Specified nonlinear imperfections do not establish a design knockdown",
+      "evidence": "Separate deterministic node, member and first-mode patterns at prescribed amplitudes; refined results in RESULTS.json.",
+      "implication": "Measured k values apply only to this elastic model and these patterns; combined defects, joint compliance and a worst-case imperfection spectrum remain untested."
+    },
+    {
+      "id": "NFI-026-06",
+      "tag": "QUESTIONABLE",
+      "status": "diagnostic_resolved_by_replacement",
+      "owner": "sciences",
+      "issue": "Whole-tangent linearization failed mesh convergence",
+      "evidence": "Exact and finite-difference derivatives agree while first lambda drifts 6.58993, 6.39856, 6.18053, 5.60237.",
+      "implication": "Rejected as primary linear buckling. Standard initial-stress calculation converges; full nonlinear calculations receive their own mesh comparison."
+    },
+    {
+      "id": "NFI-026-07",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Frame elastic instability is beyond the inherited local-wall screen",
+      "evidence": "Unit-load max axial stress 0.863586 GPa; inherited 0.6Et/r screen 1.750800 GPa reaches nominal unity at lambda 2.027360. At computed nonlinear limits, maximum axial stresses span 4.888–5.192 GPa, above the 3.9 GPa typical compression value.",
+      "implication": "Do not use the larger frame-only eigenvalue or nonlinear limit as the structural allowable. Ceramic cracking, local wall buckling and ovalization are absent."
+    },
+    {
+      "id": "NFI-026-08",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Material input editions and thin curved member fabrication",
+      "evidence": "Dispatched E=410 GPa retained; archived current Hexoloy-SA sheet gives typical E=430 GPa and nu=0.14. Model uses nu=0.14 for torsion.",
+      "implication": "Bulk typical data do not establish thin-wall curved SiC member strength, defects, residual stress or joint capability."
+    },
+    {
+      "id": "NFI-026-09",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Pressure fan omits film stiffness and solved membrane shape",
+      "evidence": "Conservative pV line loads include follower stiffness; no film constitutive stiffness, wrinkling or prestress is present.",
+      "implication": "Quantify membrane and connection restraint. Especially consequential for pinned member roll and actual enclosed volume."
+    },
+    {
+      "id": "NFI-026-10",
+      "tag": "PROJECTION",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Beam and joint idealizations",
+      "evidence": "Euler–Bernoulli, circular undeformed cross-sections, stress-free initial curves, perfectly rigid or fully free ball joints.",
+      "implication": "Shear flexibility, cross-section distortion, brittle failure, finite joint stiffness and construction stress require independent grounding."
+    },
+    {
+      "id": "NFI-026-11",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "owner": "sciences",
+      "issue": "Symmetric eigenmode multiplicities and nonlinear collapse scope",
+      "evidence": "Stored low Lanczos modes are representative; first constrained tangent instability is followed, with post-peak points where available.",
+      "implication": "No full multiplicity census, post-collapse dynamics or damaged-state residual capacity is claimed."
+    },
+    {
+      "id": "NFI-026-12",
+      "tag": "QUESTIONABLE",
+      "status": "execution_disclosed",
+      "owner": "sciences",
+      "issue": "Execution diagnostics and receipt exception",
+      "evidence": "One 3 GiB mixed-factor benchmark was OOM-killed and released; 8 GiB check passed. Four diagnostic scopes were stopped/released. ref-60b5e906764ecf85edea child exited0/released while outer wrapper END was missing.",
+      "implication": "All diagnostics retained; recovered child receipt distinguishes observed closure from unavailable exact outer end clock. No admission refusal was bypassed."
+    }
+  ]
+}

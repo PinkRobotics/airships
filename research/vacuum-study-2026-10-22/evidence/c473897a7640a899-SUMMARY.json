@@ -1,0 +1,63 @@
+{
+  "name": "crt-old021-L-a1.810809",
+  "analysis": "static",
+  "amplitude_mm": 1.810809,
+  "width_mm": 332.2164186283597,
+  "meridian": "L",
+  "yield_MPa": 10000.0,
+  "nu": 0.0768,
+  "ntheta": 512,
+  "nface": 2,
+  "ncore": 6,
+  "grading": 2.0,
+  "increments": 5,
+  "endpoint_kPa": 100.23387980960041,
+  "endpoint_kind": "load_cap",
+  "first_yield_bracket_kPa": null,
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 71.8737290680531,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        71.59562843542886,
+        95.46083791390515
+      ]
+    },
+    "300.0": {
+      "p_kPa": 83.64840911214147,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        71.59562843542886,
+        95.46083791390515
+      ]
+    },
+    "341.5897774303177": {
+      "p_kPa": 94.5307718309601,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        71.59562843542886,
+        95.46083791390515
+      ]
+    },
+    "345.0": {
+      "p_kPa": 95.42308915622984,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        71.59562843542886,
+        95.46083791390515
+      ]
+    }
+  },
+  "endpoint_max_mises_MPa": 364.1456463857702,
+  "endpoint_max_peeq": 0.0,
+  "endpoint_pole_uy_mm": -21.28418,
+  "solver": {
+    "returncode": 0,
+    "elapsed_s": 10.82076828693971,
+    "ended_at": "2026-10-20T13:16:07.313368+00:00"
+  },
+  "errors": [],
+  "eigen_kPa": [],
+  "eigen_native_output_labels": [],
+  "peeq_detection_threshold": 1e-10
+}

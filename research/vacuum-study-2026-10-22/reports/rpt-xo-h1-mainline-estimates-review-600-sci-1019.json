@@ -1,0 +1,46 @@
+{
+  "id": "rpt-xo-h1-mainline-estimates-review-600-sci-1019",
+  "unit": "vacuum-mainline-estimates-review600-1019",
+  "at": "2026-10-19T19:47:15-07:00",
+  "body": "Una600 ADMITTED for scope: the main-line three-family estimates card (ESTIMATE_PENDING_UNA) (UNA600-MAINLINE-ESTIMATES-REVIEW.md). SCOPE, the CO's: arithmetic from the stated inputs and the presence of every QUESTIONABLE tag and source; QUESTIONABLE inputs and SF<1 are expected, not defects. PINS: order 4/4, carry 4/4, owner manifest 22/22. METHOD: my own ordinary arithmetic (mycheck.py) from INPUTS.json and the card's equations; the owner's arithmetic.py not run. ARITHMETIC: 41 stated numbers agree at relative 1e-12 with POINTS.json and the card: ISA 500 m (T 284.9 K, p_ext 95460.8379139 Pa, rho 1.16726833075, the card's 12-digit print of the machine value), V and lift; masses, float margins, collapse pressures and SFs of P1 (Zoelly, kd 0.2), P2 (owner sandwich extrapolation, kd 0.2) and P3 (the lesser of pinned Euler and the film limit); the Zoelly identity; the improvement factors = 1/SF (linear in E). The ten sensitivity values agree to the card's printed precision. TAGS/SOURCES: 35/35 input rows carry QUESTIONABLE and a source or explicit assumption basis; 11/11 NFI rows complete; every reference resolves. QUALIFICATION CARRIED (the yield carry, folded within this review): aluminium yield is absent from all three stated models (P1 Zoelly; P2 extrapolation without core shear, wrinkling or crush; P3 Euler plus film), so the modulus factors are conditional buckling/Euler factors in those models, not strength-complete or all-mode SF1 requirements; the advisory's numerical yield factors are not admitted here. Not certified: material values, model validity, knockdowns, omitted physics, construction safety. ADMISSION, dated at this filing, for the map-point ruling: this scope only. CLOCK: origin 02:44:41.668581Z; phase 1 110.578 s of 400; phase 2 43.216 s of 165; actual 153.794 s of 565; charged 188.794 s with the 10 + 25 allowances; retired 411.206 s of 600, not reusable; final sample 2026-10-20T02:47:15.462301+00:00; publication follows in the same process, its paired sample in PUBLICATION.json.",
+  "artifacts": [
+    {
+      "path": "evidence/1dee95d57f532806-UNA600-MAINLINE-ESTIMATES-REVIEW.md",
+      "sha256": "1dee95d57f53280690338c1cf0234622b7ff48425a7e14d03ed7cc16bdf1c0c5",
+      "bytes": 3467,
+      "match": true
+    },
+    {
+      "path": "evidence/a51383562760ce0e-mycheck.py",
+      "sha256": "a51383562760ce0e41d7b70180d15f63426ca14831357d1adb5c47857987d033",
+      "bytes": 7070,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:27bcf1c118ba6b19",
+      "sha256": "fa6dcb8cbf6aba9a1919af407a91d025a7fa9a61286fb4281b72b08d55663bd6",
+      "bytes": 1929,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:8bd7d1190a1c3cc4",
+      "sha256": "643eb05fc116f58286a0621d4c228c8f98142f6ef1feb7610a3424dab235575e",
+      "bytes": 3193,
+      "match": true
+    },
+    {
+      "path": "evidence/17218bce28988f2f-ORIGIN.json",
+      "sha256": "17218bce28988f2f28d632d175856d1cd46241501b683de1b9930d61e1f63540",
+      "bytes": 303,
+      "match": true
+    },
+    {
+      "path": "evidence/cd40675e17e13ca2-PHASE1.json",
+      "sha256": "cd40675e17e13ca2b6ae097202a4ca7ada4c9057cbbd4a51256706d6b9ccef04",
+      "bytes": 320,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-d526e566bdbe9a62c2c1",
+  "re": "ord-sciences-g2-xo-mainline-estimates-review-600-1019"
+}

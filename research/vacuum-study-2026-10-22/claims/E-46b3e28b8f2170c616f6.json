@@ -1,0 +1,43 @@
+{
+  "id": "E-46b3e28b8f2170c616f6",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-46b3e28b8f2170c616f6",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check041~1NFI.json/rows/8",
+    "row_id": "CHECK041-NFI-09",
+    "fields": {
+      "id": "CHECK041-NFI-09",
+      "status": "open",
+      "topic": "Pressure-equilibrated skin and attachments",
+      "finding": "The film comparison assumes two taut axial tangents, perfect attachment, and zero assigned shear, coupling and prestress. Filament data do not determine the full skin. Interior kinematics are constrained by the frame.",
+      "action": "Specify laminate properties, pressure-equilibrated shape, tension-only/wrinkling behavior, seam transfer, and attachment compliance before crediting restraint.",
+      "evidence": [
+        "film_check.py",
+        "SOURCES.md"
+      ],
+      "stops_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The film comparison assumes two taut axial tangents, perfect attachment, and zero assigned shear, coupling and prestress. Filament data do not determine the full skin. Interior kinematics are constrained by the frame.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check041~1NFI.json/rows/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

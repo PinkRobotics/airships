@@ -1,0 +1,209 @@
+{
+  "schema": "u2-parta-compression-source-blocker-and-prospective-plan/1",
+  "at": "2026-10-18T19:52:53.841391+00:00",
+  "owner": "ref-ed3515d83349998d6b1b",
+  "order": "ord-sciences-g1-u2-parta-compression-source-1018",
+  "unit": "vacuum-u2-parta-compression-source-1018",
+  "status": "SOURCE_BLOCKER: one source-only return; no source-complete or executable case claimed",
+  "source_inventory": {
+    "path": "evidence/67245e1bb17d8400-source-inventory.json",
+    "sha256": "67245e1bb17d8400b009d3e2bf47808dcea8e1c2896b1ffaa07d78342df63e3b",
+    "bytes": 5196
+  },
+  "source_choice": {
+    "path": "evidence/268a9e333098b9ae-case-choice-lock.json",
+    "sha256": "268a9e333098b9aecea5d528538614462fb69a9b982283c1bd4b56ab65ef50b1",
+    "bytes": 1598
+  },
+  "one_candidate": {
+    "id": "HTM1971_FIG2_B_DELTA020",
+    "reference": "S1 printedp49, Figure2 curveB, Eq3; inward constant-thickness cosine dimple",
+    "fixed_source_coordinates": {
+      "delta_over_t": "0.20",
+      "lx_over_lc": "1",
+      "poisson": "0.30",
+      "Z": "300"
+    },
+    "selection_note": "One prospective point on the published finite-cylinder numerical curve is selected before any digitization or response. It is not an experimentally tabulated point or the asymptotic curve. No alternate case or Koiter benchmark is selected."
+  },
+  "source_completeness": [
+    {
+      "input": "Geometry",
+      "known": "Constant-thickness cylinder; Z=sqrt(1-nu^2)L^2/(R*t)=300. R is midsurface radius.",
+      "unknown": "Finite-solid R/t realization and thickness-offset convention not frozen.",
+      "locator": "S1 p48 nomenclature;p49 Fig1-2"
+    },
+    {
+      "input": "Material/kinematics",
+      "known": "Elastic Karman-Donnell shell calculation,nu=.30.",
+      "unknown": "Finite-strain solid equivalence/error bound; no experimental epoxy row imported.",
+      "locator": "S1 p49 methods/Fig2"
+    },
+    {
+      "input": "Seed",
+      "known": "w0(x)=-delta*(1+cos(pi*x/lx))/2 for |x|<=lx; zero outside; delta/t=.20,lx/lc=1; lc=pi*[12(1-nu^2)]^(-1/4)*sqrt(R*t).",
+      "unknown": "None for the chosen shell midsurface formula.",
+      "locator": "S1 p49 Eq3/Fig1-2"
+    },
+    {
+      "input": "Boundary/loading",
+      "known": "Axial compression; clamped ends.",
+      "unknown": "Exact axial end constraints/control and admissible perturbation space.",
+      "locator": "S1 p49 methods;Ref3 onp52"
+    },
+    {
+      "input": "Prebuckling/critical quantity",
+      "known": "Nonlinear prebuckling plus reduced eigenvalue calculation; buckling load normalized by Pc=2*pi*E*t^2/sqrt(3*(1-nu^2)).",
+      "unknown": "Control-specific first instability definition and circumferential mode minimization.",
+      "locator": "S1 p48 nomenclature;p49 methods"
+    },
+    {
+      "input": "Comparator",
+      "known": "Finite numerical Figure2 curveB at delta/t=.20.",
+      "unknown": "Numeric ordinate/source uncertainty not extracted; no tabled ordinate for this selected point.",
+      "locator": "S1 p49 Figure2"
+    },
+    {
+      "input": "Required methods source",
+      "known": "S1 delegates its finite-shell procedure to Ref3; S2 is metadata-only.",
+      "unknown": "Full case-specific boundary/control/stability specification.",
+      "locator": "S1 p49,p52 Ref3;S2 /downloadsAvailable"
+    }
+  ],
+  "one_precise_primary_source_blocker": {
+    "id": "FINITE_COSINE_DIMPLE_CONTROL_AND_BIFURCATION_SPECIFICATION",
+    "claim_not_established": "That Figure2 curveB is the critical reaction for the intended equal-end-shortening controlled admissible space, rather than a load-parameter buckling value for another boundary/variation constraint.",
+    "needed": "Full text of Tennyson-Muggeridge1969 pp2127-2131 (S1 Ref3), or equivalent primary specification of this identical finite-shell case, giving axial end constraints/control, admissible non-axisymmetric perturbations, mode minimization and critical-load definition. Review must establish direct match or a valid control-equivalence derivation before a deformation-controlled comparator is frozen.",
+    "why_material": "At fixed shortening the tangent is tested on variations satisfying the imposed end constraint. Axial force control generally permits an additional variation. Calling both cases clamped does not prove the same stability boundary. A non-axisymmetric bifurcation can precede the peak on an axisymmetric force-shortening trace. These are logical transfer limits, not a reported discrepancy with the paper.",
+    "access_result": "One primary paper plus one official record acquired. S2 provides no full text; publisher access returned403. No claim of universal unavailability and no bypass attempted.",
+    "single_recommendation": "Keep HTM1971_FIG2_B_DELTA020 fixed and obtain/disposition the specific missing methods evidence through Sciences before any implementation, digitization or response. This return grants no additional source acquisition.",
+    "no_substitution": "Do not substitute the infinite-cylinder asymptotic formula, an experimental Table1 row, a different imperfection, or an ideal eigenvalue for the selected finite seeded case."
+  },
+  "conditional_future_formulation": {
+    "status": "Planning proposal only; all items below depend on source closure and an explicit prospective freeze. Unknown inputs are left unknown.",
+    "solver_and_element": "Retain CalculiX2.21 mandate. Propose geometrically nonlinear, isotropic elastic C3D20R full360-degree solid-wall representation if source equivalence and capacity can be demonstrated. No solver migration, axisymmetric-only capacity claim, or assumed arc-length capability.",
+    "kinematics": "Stress-free seeded reference midsurface; constant physical wall thickness and exact offset/normal convention must be specified. Clamped ends and prescribed total shortening are provisional and must match the recovered primary formulation. The full displacement field remains available for non-axisymmetric modes; do not suppress it with rotational/sector symmetry.",
+    "constitutive_transfer": "Donnell small-strain/moderate-rotation shell mechanics is not identical to finite-thickness, finite-strain elasticity. E normalization, R/t, material law, thickness integration and deformation-domain discrepancy require explicit source/physics review. A small strain or rotation diagnostic alone does not establish a <=5% critical-load model bound.",
+    "prebuckling_and_stability": "Continue the seeded equilibrium from zero shortening and define Pcrit at the first qualified instability in the frozen admissible space. Preserve the first bifurcation versus first load maximum distinction. A native constrained consistent-tangent/stability path and its stress-state semantics must be demonstrated before execution; a perfect-geometry BUCKLE number or failed nonlinear iteration is not a substitute.",
+    "snapback_limit": "A negative dP/dDelta alone is not loss of internal stability at fixedDelta; positive slope does not exclude a transverse bifurcation. If shortening ceases to parameterize the required path, return a capability blocker. Do not jump branches, use last convergence as criticality, add damping/imperfections or silently switch continuation methods."
+  },
+  "three_mesh_proposal": {
+    "status": "Three fixed topology proposals, not generated meshes or verified capacity. They become a freeze only after missing source and finite geometry are resolved.",
+    "family": "Full360-degree C3D20R; matched geometric seed and physical boundaries on every mesh; circumferential periodic seam has unique node ownership.",
+    "meshes": [
+      {
+        "id": "M1",
+        "axial_elements": 24,
+        "circumferential_elements": 64,
+        "through_thickness_elements": 2,
+        "elements": 3072,
+        "axial_intervals_left_outer_dimple_right_outer": [
+          8,
+          8,
+          8
+        ]
+      },
+      {
+        "id": "M2",
+        "axial_elements": 48,
+        "circumferential_elements": 128,
+        "through_thickness_elements": 3,
+        "elements": 18432,
+        "axial_intervals_left_outer_dimple_right_outer": [
+          16,
+          16,
+          16
+        ]
+      },
+      {
+        "id": "M3",
+        "axial_elements": 96,
+        "circumferential_elements": 256,
+        "through_thickness_elements": 4,
+        "elements": 98304,
+        "axial_intervals_left_outer_dimple_right_outer": [
+          32,
+          32,
+          32
+        ]
+      }
+    ],
+    "mapping": "Use the same exact breakpoints[-L/2,-lx,lx,L/2] and piecewise uniform axial subdivision; evaluate the analytic seed at every geometry node. No response-driven local remeshing or extra mesh.",
+    "convergence": "Require abs(k2-k1)/abs(k2)<=.01 AND abs(k3-k2)/abs(k3)<=.01. Require identical controlling event/branch and resolved admissible modes; close loads with different modes are not convergence.",
+    "capacity_gate": "Node count, matrix/storage estimate, positive Jacobians, mode/wavelength resolution and fit to an approved CPU/memory/wall cap must be established without a scientific response before admission. Capacity is UNVERIFIED; if these fixed meshes cannot fit the later grant, return a blocker before solving. No silent mesh coarsening or resource escalation."
+  },
+  "observables_and_acceptance_proposal": {
+    "units": "Use one prospectively frozen coherent length-force unit system. Report Delta/L, axial P/(E*t^2), k=Pcrit/Pc, full displacement/stress/strain fields, reference and deformed geometry, constraint ownership, physical residuals, internal energy and external work. No dimensional E,R,t values invented in this return.",
+    "reaction": "P is the work-conjugate compressive resultant to the frozen total end-shortening coordinate. Derive the exact sign and displacement transformation; project assembled physical force onto that coordinate and retain orthogonal residuals. Sum of printed nodal RF is insufficient where MPC forces are omitted. Reuse a tested reader only after fields/units/frames/force/MPC semantics match.",
+    "critical_event": "Save equilibrium steps bracketing the first admissible instability and its mode, constrained stability diagnostic, load-shortening curve and a bounded event-location uncertainty. No eigenvalue or tangent implementation is assumed qualified here.",
+    "source_freeze": "After source/control closure, separately authorize extraction of Figure2 curveB at the lockedx=.20. Pin image/axis calibration/curve identification and an interval[cmin,cmax] including line thickness/raster/digitization and any source-discretization uncertainty. No digitization or ordinate fit occurred now.",
+    "comparison": "Require max(abs(k-c)/c) over k in the final admissible result interval K and c in positive source interval C to be <=.05. Evaluate all interval corners. Source uncertainty must be propagated; agreement of central values or overlap alone does not pass.",
+    "mesh_rule": "Both adjacent relative changes <=.01 across the three fixed meshes, as specified above; no relaxation after results.",
+    "provisional_error_allocations_fraction_of_lower_source_scale": {
+      "source_and_comparator": ".010",
+      "geometry_and_constitutive_transfer": ".010",
+      "native_equilibrium_and_stability_event": ".005",
+      "output_representation_and_force_transformation": ".0025",
+      "mesh_discretization_assessment": ".010",
+      "reserve": ".0125"
+    },
+    "allocation_limit": "These allocations sum to5% as planning caps, not proven bounds. Two adjacent mesh changes alone do not prove an absolute discretization error bound; a justified estimator/asymptotic assessment remains required. If source uncertainty or any demonstrable term cannot fit its cap, return a blocker or request a prospective amendment before response. Propagate output quantization through observables; do not use one printed quantum as the complete budget. Q0 formatter work remains held.",
+    "stops": "One attempt per frozen mesh, sequentially; first control/source/identity/residual/energy/stability/resource failure stops later responses. No retry, threshold fitting, new seed, branch switching or replacement comparator. Preserve all failed artifacts. No claim of first critical load without a valid branch/stability certificate."
+  },
+  "U2_transfer_and_remaining_gate_dependencies": {
+    "selected_U2_target": "Volume/macroscopic-deformation-controlled periodic compression, free periodic fluctuations and equilibrated deviatoric macroscopic modes, with rigid-rotation gauge and recovered hydrostatic MACROSTRESS target. Fbar=lambdaI alone is insufficient after seeded symmetry breaking. No direct strut-wall pressure.",
+    "what_this_reference_could_support": "A bounded independent check of seeded nonlinear compression, reaction/work extraction and the defined loss-of-stability event for the frozen native formulation. It would not independently validate the hydrostatic cell constraint or a pressure capability.",
+    "remaining": [
+      "Exact finite-F macro parameterization and work conjugacy; all intended macro modes and free fluctuation space.",
+      "Periodic face/edge/corner ownership, rank, rigid modes, Jacobians, signed reaction balance and Hill-Mandel/energy consistency.",
+      "Native material/strain/output semantics and representation/error propagation; no promotion of the existing Q0 conditional diagnostic.",
+      "Actual periodic imperfection shape/amplitude/normalization/projection and seam compatibility.",
+      "Same-formulation hollow-strut axial/bending/torsion/global Euler and local-wall reference, admissible modes, end/node/joint transfer and local/Euler interaction.",
+      "Una independent verification, CO-governed records and separate Sciences octet release. U1 pressure/Hutchinson award remains unchanged; pressure/Hutchinson capability stays deferred."
+    ]
+  },
+  "finite_future_budget_proposal": {
+    "status": "UNGRANTED conditional planning ceiling, not measured runtime or an executable authorization; the present source blocker must be closed first.",
+    "all_in_seconds": 13200,
+    "phases_seconds": {
+      "specific_source_control_completion_and_comparator_freeze": 900,
+      "governed_preparation_and_complete_applicable_gate_fit": 2700,
+      "focused_validation_capacity_and_pre_solve_admission": 900,
+      "three_sequential_native_mesh_attempts_including_reap": 5400,
+      "one_frozen_result_analysis_and_uncertainty_closure": 900,
+      "cleanup": 300,
+      "filing_carry_state": 300,
+      "Una_review_allocation": 900,
+      "CO_record_and_landing_allocation": 900
+    },
+    "native_bound": "At most3 distinct fixed mesh attempts; at most1800s each including terminate/reap; no retries. No new cost is charged or reserved now.",
+    "conditions": "All required normal governance/hooks/gates and source review must fit their allocated window. If known mandatory gate/runtime/memory costs cannot fit, stop at preparation and return an exact capacity/gate blocker; do not reuse stale receipts, omit gates, shard arbitrarily or extend limits. Owner/Una/CO scopes require their own admitted grants. CPU/memory caps and command-level guards must be frozen before any payload; no claim that M3 fits current resources.",
+    "estimate_quality": "A finite feasibility envelope for review only. No response timing, solver sizing, mesh generation or native cost calibration was authorized; actual feasibility remains UNPROVEN."
+  },
+  "current_scope_and_history": {
+    "current": "NEW1800 source-only preparation released independently of U3. Existing Q0 passes/formatter work still await U3 landing and a separate grant.",
+    "zero_new": [
+      "scientific response",
+      "test or synthetic case",
+      "mesh generation",
+      "project imports",
+      "code/deck changes",
+      "historical numerical reanalysis",
+      "solver migration",
+      "scientific award/map point",
+      "seat/model/service action",
+      "out-of-band contact"
+    ],
+    "source_work": "Two retained primary items; one pdftotext and two page-render extractions for visual source inspection; no new model service. No digitization, data fitting or scientific computation.",
+    "scope_deviation": {
+      "path": "evidence/cb61c6572df7a105-scope-qualification.json",
+      "sha256": "cb61c6572df7a105eaea9797f685d549b8208beffc8d7d41e3027dfc64995c8d",
+      "bytes": 1190
+    },
+    "prior": "Q0 remains seven-frame CONDITIONAL_DIAGNOSTIC_PASS, UNQUALIFIED/both flagsfalse. Native2/historicalrawreanalyses3/new-outputanalysis1/synthetic8. Prior filing excess1.64318637480028s and prior budget/governance/custody/resource qualifications persist; no causality/score claim.",
+    "standing": "U1closed/A45/map0/no reset; U3 remains separately owned; U4 held. Programme start2026-10-17T00:14:57-07:00, diagnosisOct19 00:14:57, five-day cardOct22 00:14:57. No deployment or heartbeat claim. All retired funds remain nontransferable.",
+    "report_id": "rpt-1228-u2-parta-compression-source-1018",
+    "final_budget_after_report_carry_state": "unpublished-local-ref:344b7987cf392e37",
+    "desk_lesson": "Every filing declares a link or links_none, and a refused pre-solve filing is re-filed before the solve starts, not discovered after."
+  }
+}

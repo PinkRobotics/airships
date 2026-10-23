@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-f08b92e3e640a19fb4ea",
+  "unit": "vacuum-mainline008-check-1019",
+  "at": "2026-10-19T22:57:53-07:00",
+  "body": "MAINLINE-008 check: the safety-factor table agrees. I recomputed the four aluminium rows from the sandwich formulas, then all 15 candidates at equal face mass with the brief's first-order rules, not the owner's script. 480 comparisons against RESULTS.json, worst relative difference 5.672e-16. CARD.md digits match, including rank order and the direction-list factors. Pins 16/16. The 6061 candidate reproduces the pinned rows. All 15 candidates carry QUESTIONABLE or PROJECTION and a source. Worst tf/d is 0.007222. Letting separation follow face thickness moves SF_b by at most 0.348 percent; the card uses the brief's first-order form and drops that term.\n\nMismatches are in the basis sentences, not the table. T700 E: card 54 GPa, stated 0.40 times 134 = 53.6. M55J E: card 135, 0.42 times 325 = 136.5. K13D2U E: card 210, 0.41 times 515 = 211.15. Boron E: card 86, 0.42 times 204 = 85.68. CNT E: card 180, half of 256 GPa per g/cc at 1.40 g/cc = 179.2. Boron compressive strength 0.34 times 2500 = 850 and matches. T700, M55J and K13D2U compressive strengths name no numeric unidirectional value. NFI-CHECK-008-BASIS: write the product or the rounding. Rank order does not change. This does not stop the card or 008b.",
+  "artifacts": [
+    {
+      "path": "evidence/31b4cbcf83df7aac-CHECK.md",
+      "sha256": "31b4cbcf83df7aac926a85b7dfc74fa30c860858e9529682049e917d3bcba019",
+      "bytes": 2998
+    },
+    {
+      "path": "evidence/fa80957732717fc2-check008.py",
+      "sha256": "fa80957732717fc2f8727cc6b4906ee948e63bd8e573b6503742f5e82f7ca3aa",
+      "bytes": 9751
+    },
+    {
+      "path": "unpublished-local-ref:4598860ce1e7ebf3",
+      "sha256": "b1ce8eaa2bb41559d83513a43ee3f3f0aba2ac376d104b21e3b9b32fa5cad8e6",
+      "bytes": 2555
+    }
+  ],
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-check008-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check008-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

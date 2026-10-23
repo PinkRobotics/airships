@@ -1,0 +1,70 @@
+[
+  {
+    "kind": "native_actual_yield_law",
+    "SF": 1.0,
+    "side": "passing",
+    "run": "native-boundary-SF1-passing",
+    "passed": true,
+    "target_kPa": 95.46083791390515,
+    "endpoint_kPa": 95.46083791390515,
+    "max_peeq": 0.0,
+    "amplitude_mm": 1.208988,
+    "width_mm": 332.2164186283597
+  },
+  {
+    "kind": "native_actual_yield_law",
+    "SF": 1.0,
+    "side": "failing",
+    "run": "native-boundary-SF1-failing",
+    "passed": true,
+    "target_kPa": 95.46083791390515,
+    "endpoint_kPa": 95.46083791390515,
+    "max_peeq": 1.554928e-06,
+    "amplitude_mm": 1.226988,
+    "width_mm": 332.2164186283597
+  },
+  {
+    "kind": "native_actual_yield_law",
+    "SF": 1.05,
+    "side": "passing",
+    "run": "native-boundary-SF1.05-passing",
+    "passed": true,
+    "target_kPa": 100.23387980960041,
+    "endpoint_kPa": 100.23387980960041,
+    "max_peeq": 0.0,
+    "amplitude_mm": 0.737936,
+    "width_mm": 332.2164186283597
+  },
+  {
+    "kind": "native_actual_yield_law",
+    "SF": 1.05,
+    "side": "failing",
+    "run": "native-boundary-SF1.05-failing",
+    "passed": true,
+    "target_kPa": 100.23387980960041,
+    "endpoint_kPa": 100.23387980960041,
+    "max_peeq": 1.750448e-06,
+    "amplitude_mm": 0.755936,
+    "width_mm": 332.2164186283597
+  },
+  {
+    "kind": "endpoint_step",
+    "run": "endpoint-check-step",
+    "reference": "cal-old021b-W-a0.520967",
+    "passed": true,
+    "relative_difference": 1.8502094419892146e-05,
+    "reference_endpoint_kPa": 105.069186,
+    "endpoint_kPa": 105.07113,
+    "note": "The actual difference is retained; a <1% check is not a physical calibration or a tolerance error bound."
+  },
+  {
+    "kind": "endpoint_mesh",
+    "run": "endpoint-check-mesh",
+    "reference": "cal-old021b-W-a0.520967",
+    "passed": true,
+    "relative_difference": 7.0239432519159095e-06,
+    "reference_endpoint_kPa": 105.069186,
+    "endpoint_kPa": 105.06992399999999,
+    "note": "The actual difference is retained; a <1% check is not a physical calibration or a tolerance error bound."
+  }
+]

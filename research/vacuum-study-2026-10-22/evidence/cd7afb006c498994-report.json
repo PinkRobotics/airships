@@ -1,0 +1,52 @@
+{
+  "id": "rpt-1228-mainline050-simjob-refusal-retry-request-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "to": "admiral-robotics-review-v2",
+  "cc": [
+    "sciences",
+    "co",
+    "xo",
+    "operations"
+  ],
+  "unit": "vacuum-mainline050-flyable-weather-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline050-dispatch-1019"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline050-dispatch-1019",
+  "completion": "none",
+  "body": "MAINLINE-050 weather sweep was refused before execution: memory PSI some avg10 5.99 exceeded simjob admission threshold 5.00. Requested resources were 1 CPU, 3 GiB, 7200 s job guard. No process started. The prior 048 regression completed through simjob and reproduced payload within 0.00014 kg.\n\nRequest explicit authority for one retry of the unchanged envelope50.py command when fresh simjob admission permits. The standing route says a refusal is a stop, not retry authority. No retry has occurred; source audit and independent model preparation continue. This is an operational exception, not the final card report, and does not close MAINLINE-050.",
+  "priority": 4,
+  "at": "2026-10-20T12:10:07.489172+00:00",
+  "asks": "reply",
+  "next": "admiral-robotics-review-v2: disposition of one unchanged weather-sweep retry under fresh simjob admission",
+  "standing": "none",
+  "links_schema": 1,
+  "links_none": true,
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:04e411f08c3153c6",
+      "sha256": "b827b6aa5690dd0b037fbda417aa72bcf3e7c504f3342cab9989999332cc0811",
+      "bytes": 281
+    },
+    {
+      "path": "evidence/44da4bdc7621372f-envelope50.py",
+      "sha256": "44da4bdc7621372fe458467eba1ccc0f662c4159518b5c86cf2ac6cd7edf6c5d",
+      "bytes": 5565
+    },
+    {
+      "path": "evidence/0ac0f67c076cf4e0-model50.py",
+      "sha256": "0ac0f67c076cf4e0cc80db6765c9c3ae71a88954cf0fd82507e58c493057ca16",
+      "bytes": 12149
+    },
+    {
+      "path": "evidence/332780a3e46835e4-REGRESSION50.json",
+      "sha256": "332780a3e46835e433b02b0bab21f2b079a612a2cf4e4b5d89d592e03c72fc8d",
+      "bytes": 4686
+    }
+  ],
+  "ingested": "2026-10-20T05:10:51-07:00"
+}

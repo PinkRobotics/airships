@@ -1,0 +1,69 @@
+{
+  "id": "rpt-ref-35706d7a2ae7e951590b",
+  "kind": "report",
+  "from": "ref-4189c1615990eb515921",
+  "from_seat": "ref-4189c1615990eb515921",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline020-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check020-opus-65d1-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-check020-opus-65d1-1020",
+  "supersedes": null,
+  "completion": "none",
+  "priority": 4,
+  "at": "2026-10-20T01:20:23-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check020-opus-65d1-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/980d4b05be1e2836-CHECK.md",
+      "sha256": "980d4b05be1e28362e3f4dc6b17723cf6e685d9468d751a819056dd8fde8cc4b",
+      "bytes": 11586
+    },
+    {
+      "path": "evidence/93fa14ed6eed6ada-RESULTS.json",
+      "sha256": "93fa14ed6eed6ada33efe65005b5bc1cc03c8fe7aa864cc913267d39a73c825c",
+      "bytes": 122418
+    },
+    {
+      "path": "evidence/17d1e17bba0e3797-NFI.json",
+      "sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+      "bytes": 4490
+    },
+    {
+      "path": "evidence/a603f82e0da7c8a1-INPUTS.json",
+      "sha256": "a603f82e0da7c8a1c006ee9467716d724e7aeede027cdf945b8471a4ad882685",
+      "bytes": 6937
+    },
+    {
+      "path": "evidence/e4a3502f1a4879c9-check020.py",
+      "sha256": "e4a3502f1a4879c9cd2f010b2fc2facba3566eb50735314cdde356844983eab4",
+      "bytes": 59215
+    },
+    {
+      "path": "evidence/cf7f21e9c64d999c-vacuum-mainline020-check-1020.md",
+      "sha256": "cf7f21e9c64d999c46c0d6228001805637ad2a3506533fadac34a48a8e02feab",
+      "bytes": 3040
+    }
+  ],
+  "body": "CHECK of MAINLINE-020 (rpt-ref-3e02218a03708a878faa), behind codex ref-2b226fa1c9f1bf550d9b. No arithmetic mismatches. My own script re-derived all 80 printed numbers (67 card, 6 METHOD, 7 report); each agrees at its printed precision, and 395 RESULTS.json values agree to 5.4e-12 relative. calculate.py was read for its equations, never run; METHOD states the ones it uses. All 48 pins match, and INPUTS matches the 009c5/014b intake (56 checks). Re-reading the pinned PDFs found every sourced value (31/31); OSHA and AlBeMet have no local copy, as the card discloses. Every section carries its tag and a source.\n\nThree objections, filed as NFI rows; none stops anything:\n1. Grade basis (fix): faces are bought as SR-200 sheet but screened with S-200F block strengths. SR-200's sourced 345 MPa minimum yield, transferred as the card transfers 241, gives face compression 1.088 at the lead; then eta 0.6 leaves the least SF at 0.65041 (not 0.53535) and the retention screen gives 0.56913 (not 0.53188).\n2. Fallback basis (fix): section 6 compares K13D2U with Be at 303 GPa although section 4 adopts 290. At 290 GPa the SF given up is 2.78% on published designs and 14.90% at the 009c5 geometry, not 4.87% and 16.75%.\n3. Doubler beryllium: section 3's Be doublers (459/2,066 kg) are missing from section 1's supply and cost; with them, sheet stock is $44.70m/$267.10m (+13%/+59%).\n\nCheck pinned below. CHECK.md names no next job.",
+  "links_schema": 1,
+  "ingested": "2026-10-20T01:22:01-07:00"
+}

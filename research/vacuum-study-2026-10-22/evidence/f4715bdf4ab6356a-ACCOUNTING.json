@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline002-strength-owner1200-1019",
+  "order": "ord-sciences-g2-mainline002-strength-grok-1200-1019",
+  "status": "ESTIMATE_PENDING_UNA",
+  "clock": "UTC plus CLOCK_MONOTONIC since boot",
+  "origin_utc": "2026-10-19T20:05:40.074879-07:00",
+  "origin_monotonic_s": 2081065.254948193,
+  "no_transfer_no_reset": true,
+  "overlapping_unit": false,
+  "retired_transfer": false,
+  "compaction_gap_excluded": false,
+  "h1_route": "PARKED_UNFUNDED_NOT_APPLIED",
+  "una600": "NOT_STARTED",
+  "map_point": false,
+  "final_sample": {
+    "utc": "2026-10-19T20:18:18.668991-07:00",
+    "monotonic_s": 2081823.849312275,
+    "elapsed_s": 758.5943640819751,
+    "cumulative_deadline_s": 1165,
+    "cumulative_status": "INSIDE",
+    "phase4_duration_s": 328.7440369010437,
+    "phase4_max_s": 165,
+    "phase4_status": "OVER",
+    "phase4_overrun_s": 163.74403690104373
+  },
+  "charged_s": 793.5943640819751,
+  "charged_cap_s": 1200,
+  "charged_status": "INSIDE",
+  "retired_owner_s": 406.4056359180249,
+  "allowances_s": {
+    "opening": 10,
+    "publication": 25,
+    "status": "unmeasured"
+  },
+  "phases": [
+    {
+      "phase": 1,
+      "name": "intake_yield_source_assumption_and_geometry_choices",
+      "end_utc": "2026-10-19T20:08:37.450742-07:00",
+      "end_monotonic_s": 2081242.630840272,
+      "elapsed_end_s": 177.37589207896963,
+      "duration_s": 177.37589207896963,
+      "actual_max_s": 300,
+      "cumulative_max_s": 300,
+      "status": "INSIDE"
+    },
+    {
+      "phase": 2,
+      "name": "current_geometry_strength_rows_and_one_float_allocation_alternative_per_family",
+      "end_utc": "2026-10-19T20:12:49.924319-07:00",
+      "end_monotonic_s": 2081495.104642389,
+      "elapsed_end_s": 429.8496941961348,
+      "duration_s": 252.47380211716518,
+      "actual_max_s": 500,
+      "cumulative_max_s": 800,
+      "status": "INSIDE"
+    },
+    {
+      "phase": 3,
+      "name": "stiffness_strength_factors_limits_and_NFI",
+      "end_utc": "2026-10-19T20:12:49.924963-07:00",
+      "end_monotonic_s": 2081495.105275374,
+      "elapsed_end_s": 429.85032718093134,
+      "duration_s": 0.000632984796538949,
+      "actual_max_s": 200,
+      "cumulative_max_s": 1000,
+      "status": "INSIDE"
+    },
+    {
+      "phase": 4,
+      "name": "card_pins_accounting_cleanup_envelope_validation_final_sample",
+      "end_utc": "2026-10-19T20:18:18.668991-07:00",
+      "end_monotonic_s": 2081823.849312275,
+      "elapsed_end_s": 758.5943640819751,
+      "duration_s": 328.7440369010437,
+      "actual_max_s": 165,
+      "cumulative_max_s": 1165,
+      "status": "OVER"
+    }
+  ],
+  "input_pin_mismatches": 0,
+  "yield_check": "PASS"
+}

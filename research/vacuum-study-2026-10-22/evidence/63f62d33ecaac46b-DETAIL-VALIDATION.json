@@ -1,0 +1,1472 @@
+{
+  "tight_witness_comparisons": 1714368,
+  "tight_rtol": 2e-08,
+  "tight_atol": 2e-08,
+  "tight_mismatches": [],
+  "groups": {
+    "geometry": 71432,
+    "properties": 250012,
+    "load_pressure_Pa": 17858,
+    "modes": 160722,
+    "loadcases": 321444,
+    "least_shell_and_thermal_SF": 17858,
+    "pad": 89290,
+    "vacuum": 375018,
+    "actual_joining": 107148,
+    "floor_allowance_kg": 17858,
+    "bill_kg": 250012,
+    "lift_kg": 17858,
+    "signed_payload_kg": 17858
+  },
+  "largest_by_group": {
+    "geometry": {
+      "point": "main.rows[72].least.least",
+      "field": "geometry.volume_m3",
+      "owner": 14137.16694115407,
+      "independent": 14137.166941154068,
+      "delta": -1.8189894035458565e-12
+    },
+    "properties": {
+      "point": "main.rows[86].least.endpoint_trials[13].solution",
+      "field": "properties.added_gradient_stress_Pa",
+      "owner": 407127.2220435341,
+      "independent": 407127.22204363655,
+      "delta": 1.0244548320770264e-07
+    },
+    "load_pressure_Pa": {
+      "point": "main.rows[0].least.least",
+      "field": "load_pressure_Pa",
+      "owner": 97172.30315075364,
+      "independent": 97172.30315075364,
+      "delta": 0.0
+    },
+    "modes": {
+      "point": "main.rows[194].least.endpoint_trials[4].solution",
+      "field": "modes.intracell_dimpling",
+      "owner": 64.4105931042592,
+      "independent": 64.41059310425925,
+      "delta": 4.263256414560601e-14
+    },
+    "loadcases": {
+      "point": "main.rows[194].least.endpoint_trials[4].solution",
+      "field": "loadcases.70kn.intracell_dimpling",
+      "owner": 64.4105931042592,
+      "independent": 64.41059310425925,
+      "delta": 4.263256414560601e-14
+    },
+    "least_shell_and_thermal_SF": {
+      "point": "main.rows[14].least.endpoint_trials[8].solution",
+      "field": "least_shell_and_thermal_SF",
+      "owner": 1.0000000000047846,
+      "independent": 1.0000000000047853,
+      "delta": 6.661338147750939e-16
+    },
+    "pad": {
+      "point": "main.rows[72].least.least",
+      "field": "pad.force_N",
+      "owner": 251445.57607789236,
+      "independent": 251445.57607789233,
+      "delta": -2.9103830456733704e-11
+    },
+    "vacuum": {
+      "point": "main.rows[264].least.endpoint_trials[6].solution",
+      "field": "vacuum.hot_pressure_24h_upper_Pa",
+      "owner": 129.10670665854377,
+      "independent": 129.10670665854386,
+      "delta": 8.526512829121202e-14
+    },
+    "actual_joining": {
+      "point": "main.rows[0].least.least",
+      "field": "actual_joining.film",
+      "owner": 206.3978178714863,
+      "independent": 206.3978178714863,
+      "delta": 0.0
+    },
+    "floor_allowance_kg": {
+      "point": "addendum048.rows[120].least.endpoint_trials[0].solution",
+      "field": "floor_allowance_kg",
+      "owner": 1199.4682125988625,
+      "independent": 1199.468212598862,
+      "delta": -4.547473508864641e-13
+    },
+    "bill_kg": {
+      "point": "main.rows[80].least.endpoint_trials[0].solution",
+      "field": "bill_kg.faces",
+      "owner": 20222.324948599195,
+      "independent": 20222.32494859919,
+      "delta": -3.637978807091713e-12
+    },
+    "lift_kg": {
+      "point": "main.rows[0].least.least",
+      "field": "lift_kg",
+      "owner": 4889.442150186961,
+      "independent": 4889.442150186961,
+      "delta": 0.0
+    },
+    "signed_payload_kg": {
+      "point": "main.rows[94].least.endpoint_trials[4].solution",
+      "field": "signed_payload_kg",
+      "owner": -9938.723268379606,
+      "independent": -9938.723268379596,
+      "delta": 1.0913936421275139e-11
+    }
+  },
+  "comparisons": [
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.0",
+      "owner": -8.272030263738088,
+      "independent": -8.272036015578124,
+      "delta": -5.751840035372879e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.12477354069594541",
+      "owner": -7.230056990882986,
+      "independent": -7.230077742763569,
+      "delta": -2.0751880583702587e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.24954708139189083",
+      "owner": -6.190369656378607,
+      "independent": -6.190376526543332,
+      "delta": -6.870164725114591e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.37432062208783623",
+      "owner": -5.152961656583102,
+      "independent": -5.152976513532849,
+      "delta": -1.4856949746899772e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.49909416278378166",
+      "owner": -4.117827772702185,
+      "independent": -4.117837368880828,
+      "delta": -9.596178642823361e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.6238677034797271",
+      "owner": -3.0849732274073176,
+      "independent": -3.084994617795928,
+      "delta": -2.1390388610598166e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.7486412441756725",
+      "owner": -2.054382829176575,
+      "independent": -2.0544024577438904,
+      "delta": -1.962856731552165e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.8734147848716179",
+      "owner": -1.0260606512501909,
+      "independent": -1.0260569922320428,
+      "delta": 3.659018148027826e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.9981883255675633",
+      "owner": -1.940413312695455e-06,
+      "independent": -1.4065227333048824e-05,
+      "delta": -1.212481402035337e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "E_usage=0.9981882472908256",
+      "owner": -2.5952758733183146e-06,
+      "independent": -1.477674231864512e-05,
+      "delta": -1.2181466445326805e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "best_E_payload_kg",
+      "owner": -1.940413312695455e-06,
+      "independent": -1.4065227333048824e-05,
+      "delta": -1.212481402035337e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "field": "improvement_kg",
+      "owner": -3.704049959196709e-06,
+      "independent": -1.582886397955008e-05,
+      "delta": -1.212481402035337e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.0",
+      "owner": -8.253837133156594,
+      "independent": -8.253848438221212,
+      "delta": -1.1305064617772587e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.12444220424847145",
+      "owner": -7.214176106726882,
+      "independent": -7.214194607226091,
+      "delta": -1.8500499209039845e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.2488844084969429",
+      "owner": -6.176796681971609,
+      "independent": -6.176806631254294,
+      "delta": -9.949282684829086e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.37332661274541434",
+      "owner": -5.141676345655469,
+      "independent": -5.141695809905286,
+      "delta": -1.9464249817247037e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.4977688169938858",
+      "owner": -4.108831942950019,
+      "independent": -4.108832774172697,
+      "delta": -8.312226782436483e-07,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.6222110212423573",
+      "owner": -3.078240986347737,
+      "independent": -3.0782534255313294,
+      "delta": -1.2439183592505287e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.7466532254908287",
+      "owner": -2.0499080421213876,
+      "independent": -2.0499130909993255,
+      "delta": -5.0488779379520565e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.8710954297393002",
+      "owner": -1.0238283290264008,
+      "independent": -1.023853054065512,
+      "delta": -2.4725039111217484e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.9955376339877716",
+      "owner": 1.6135481928358786e-06,
+      "independent": -3.4828990465030074e-06,
+      "delta": -5.096447239338886e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "E_usage=0.995537552856537",
+      "owner": 9.716895874589682e-07,
+      "independent": -4.158775482210331e-06,
+      "delta": -5.130465069669299e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "best_E_payload_kg",
+      "owner": 1.6135481928358786e-06,
+      "independent": -3.4828990465030074e-06,
+      "delta": -5.096447239338886e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "field": "improvement_kg",
+      "owner": 5.78672370465938e-07,
+      "independent": -4.517774868872948e-06,
+      "delta": -5.096447239338886e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.0",
+      "owner": -8.272030263738088,
+      "independent": -8.272036015578124,
+      "delta": -5.751840035372879e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.12477354069594541",
+      "owner": -7.230056990882986,
+      "independent": -7.230077742763569,
+      "delta": -2.0751880583702587e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.24954708139189083",
+      "owner": -6.190369656378607,
+      "independent": -6.190376526543332,
+      "delta": -6.870164725114591e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.37432062208783623",
+      "owner": -5.152961656583102,
+      "independent": -5.152976513532849,
+      "delta": -1.4856949746899772e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.49909416278378166",
+      "owner": -4.117827772702185,
+      "independent": -4.117837368880828,
+      "delta": -9.596178642823361e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.6238677034797271",
+      "owner": -3.0849732274073176,
+      "independent": -3.084994617795928,
+      "delta": -2.1390388610598166e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.7486412441756725",
+      "owner": -2.054382829176575,
+      "independent": -2.0544024577438904,
+      "delta": -1.962856731552165e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.8734147848716179",
+      "owner": -1.0260606512501909,
+      "independent": -1.0260569922320428,
+      "delta": 3.659018148027826e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.9981883255675633",
+      "owner": -1.940413312695455e-06,
+      "independent": -1.4065227333048824e-05,
+      "delta": -1.212481402035337e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "E_usage=0.9981882472908256",
+      "owner": -2.5952758733183146e-06,
+      "independent": -1.477674231864512e-05,
+      "delta": -1.2181466445326805e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "best_E_payload_kg",
+      "owner": -1.940413312695455e-06,
+      "independent": -1.4065227333048824e-05,
+      "delta": -1.212481402035337e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "field": "improvement_kg",
+      "owner": -3.704049959196709e-06,
+      "independent": -1.582886397955008e-05,
+      "delta": -1.212481402035337e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.0",
+      "owner": -8.253837133156594,
+      "independent": -8.253848438221212,
+      "delta": -1.1305064617772587e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.12444220424847145",
+      "owner": -7.214176106726882,
+      "independent": -7.214194607226091,
+      "delta": -1.8500499209039845e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.2488844084969429",
+      "owner": -6.176796681971609,
+      "independent": -6.176806631254294,
+      "delta": -9.949282684829086e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.37332661274541434",
+      "owner": -5.141676345655469,
+      "independent": -5.141695809905286,
+      "delta": -1.9464249817247037e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.4977688169938858",
+      "owner": -4.108831942950019,
+      "independent": -4.108832774172697,
+      "delta": -8.312226782436483e-07,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.6222110212423573",
+      "owner": -3.078240986347737,
+      "independent": -3.0782534255313294,
+      "delta": -1.2439183592505287e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.7466532254908287",
+      "owner": -2.0499080421213876,
+      "independent": -2.0499130909993255,
+      "delta": -5.0488779379520565e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.8710954297393002",
+      "owner": -1.0238283290264008,
+      "independent": -1.023853054065512,
+      "delta": -2.4725039111217484e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.9955376339877716",
+      "owner": 1.6135481928358786e-06,
+      "independent": -3.4828990465030074e-06,
+      "delta": -5.096447239338886e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "E_usage=0.995537552856537",
+      "owner": 9.716895874589682e-07,
+      "independent": -4.158775482210331e-06,
+      "delta": -5.130465069669299e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "best_E_payload_kg",
+      "owner": 1.6135481928358786e-06,
+      "independent": -3.4828990465030074e-06,
+      "delta": -5.096447239338886e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "field": "improvement_kg",
+      "owner": 5.78672370465938e-07,
+      "independent": -4.517774868872948e-06,
+      "delta": -5.096447239338886e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.0",
+      "owner": -28.770016746409965,
+      "independent": -28.770085666466912,
+      "delta": -6.892005694680847e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.1246471442077899",
+      "owner": -25.146189671198954,
+      "independent": -25.146249137273117,
+      "delta": -5.94660741626285e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.2492942884155798",
+      "owner": -21.530289961785456,
+      "independent": -21.530264858796727,
+      "delta": 2.5102988729486242e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.3739414326233697",
+      "owner": -17.922238482849934,
+      "independent": -17.922288182566263,
+      "delta": -4.96997163281776e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.4985885768311596",
+      "owner": -14.322101579971786,
+      "independent": -14.322101728594134,
+      "delta": -1.4862234820611775e-07,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.6232357210389495",
+      "owner": -10.72981723954581,
+      "independent": -10.729800352139137,
+      "delta": 1.6887406673049554e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.7478828652467394",
+      "owner": -7.145377797940455,
+      "independent": -7.145372014158056,
+      "delta": 5.783782398793846e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.8725300094545293",
+      "owner": -3.5687836818360665,
+      "independent": -3.5687719170855416,
+      "delta": 1.1764750524889678e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.9971771536623192",
+      "owner": 6.324382411548868e-06,
+      "independent": -1.1648808140307665e-06,
+      "delta": -7.489263225579634e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "E_usage=0.9971770754648764",
+      "owner": 3.3289834391325712e-06,
+      "independent": -2.346259861951694e-06,
+      "delta": -5.675243301084265e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "best_E_payload_kg",
+      "owner": 6.324382411548868e-06,
+      "independent": -1.1648808140307665e-06,
+      "delta": -7.489263225579634e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "field": "improvement_kg",
+      "owner": 2.4267174012493342e-06,
+      "independent": -5.0625458243303e-06,
+      "delta": -7.489263225579634e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.0",
+      "owner": -14.722840804195584,
+      "independent": -14.722833146470293,
+      "delta": 7.657725291210227e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.12427572856161936",
+      "owner": -12.868366908383905,
+      "independent": -12.868397680329508,
+      "delta": -3.077194560319185e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.24855145712323873",
+      "owner": -11.01796064701557,
+      "independent": -11.017961668248972,
+      "delta": -1.0212334018433467e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.37282718568485806",
+      "owner": -9.171583267916503,
+      "independent": -9.171583664374339,
+      "delta": -3.9645783544983715e-07,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.49710291424647746",
+      "owner": -7.329239103451982,
+      "independent": -7.329261577380748,
+      "delta": -2.247392876597587e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.6213786428080968",
+      "owner": -5.490910382768561,
+      "independent": -5.490953011118108,
+      "delta": -4.2628349547157995e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.7456543713697161",
+      "owner": -3.6566021514991007,
+      "independent": -3.6565988417587505,
+      "delta": 3.3097403502324596e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.8699300999313355",
+      "owner": -1.8263073395228275,
+      "independent": -1.8263197619562561,
+      "delta": -1.2422433428582735e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.9942058284929549",
+      "owner": -3.885261321556754e-06,
+      "independent": 6.849517376394942e-06,
+      "delta": 1.0734778697951697e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "E_usage=0.994204845347452",
+      "owner": -7.040858690743335e-06,
+      "independent": -2.553210470068734e-05,
+      "delta": -1.8491246009944007e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "best_E_payload_kg",
+      "owner": -3.885261321556754e-06,
+      "independent": 6.849517376394942e-06,
+      "delta": 1.0734778697951697e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "field": "improvement_kg",
+      "owner": -6.347976523102261e-06,
+      "independent": 4.386802174849436e-06,
+      "delta": 1.0734778697951697e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.0",
+      "owner": -28.30787565326682,
+      "independent": -28.307892853204976,
+      "delta": -1.719993815640919e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.12393206595440646",
+      "owner": -24.74242880224483,
+      "independent": -24.742421606370044,
+      "delta": 7.195874786702916e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.24786413190881293",
+      "owner": -21.18471028775457,
+      "independent": -21.184753837209428,
+      "delta": -4.354945485829376e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.3717961978632194",
+      "owner": -17.63469138484652,
+      "independent": -17.634780185941054,
+      "delta": -8.880109453457408e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.49572826381762586",
+      "owner": -14.092399702938565,
+      "independent": -14.092493899781402,
+      "delta": -9.41968428378459e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.6196603297720323",
+      "owner": -10.55782141263262,
+      "independent": -10.557854062895785,
+      "delta": -3.265026316512376e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.7435923957264388",
+      "owner": -7.03088489521906,
+      "independent": -7.030913389065972,
+      "delta": -2.849384691216983e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.8675244616808453",
+      "owner": -3.5116000455018366,
+      "independent": -3.5115977675959584,
+      "delta": 2.2779058781452477e-06,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.9914565276352517",
+      "owner": 3.303226549178362e-06,
+      "independent": -6.334190766210668e-05,
+      "delta": -6.664513421128504e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "E_usage=0.9914564318456105",
+      "owner": 2.310756462975405e-05,
+      "independent": -6.61249941913411e-05,
+      "delta": -8.923255882109515e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "best_E_payload_kg",
+      "owner": 2.310756462975405e-05,
+      "independent": -6.334190766210668e-05,
+      "delta": -8.644947229186073e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "field": "improvement_kg",
+      "owner": 1.6878428141353652e-05,
+      "independent": -6.957104415050708e-05,
+      "delta": -8.644947229186073e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.0",
+      "owner": -28.247404802150413,
+      "independent": -28.247415912795987,
+      "delta": -1.1110645573353395e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.12361951244908768",
+      "owner": -24.6891374958941,
+      "independent": -24.68920223832174,
+      "delta": -6.474242763943039e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.24723902489817537",
+      "owner": -21.139170579481288,
+      "independent": -21.139138463946438,
+      "delta": 3.2115534850163385e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.37085853734726304",
+      "owner": -17.596854379964498,
+      "independent": -17.596899395397486,
+      "delta": -4.501543298829347e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.49447804979635074",
+      "owner": -14.062214015335485,
+      "independent": -14.062239070226497,
+      "delta": -2.5054891011677682e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.6180975622454384",
+      "owner": -10.53520201998981,
+      "independent": -10.535243712492957,
+      "delta": -4.16925031458959e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.7417170746945261",
+      "owner": -7.0158612630439166,
+      "independent": -7.015891587903752,
+      "delta": -3.0324859835673124e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.8653365871436138",
+      "owner": -3.504130702374823,
+      "independent": -3.5041596937880968,
+      "delta": -2.8991413273615763e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.9889560995927015",
+      "owner": -2.050910552497953e-06,
+      "independent": -2.4316494091181085e-05,
+      "delta": -2.226558353868313e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "E_usage=0.988955867225937",
+      "owner": 8.112088835332543e-06,
+      "independent": -3.0412797059398144e-05,
+      "delta": -3.852488589473069e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "best_E_payload_kg",
+      "owner": 8.112088835332543e-06,
+      "independent": -2.4316494091181085e-05,
+      "delta": -3.242858292651363e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "field": "improvement_kg",
+      "owner": 2.435008354950696e-07,
+      "independent": -3.218508209101856e-05,
+      "delta": -3.242858292651363e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "AgFEP1-R15-optimistic-floor-bake70-retained_water-cure_included",
+      "field": "addendum_E_improvement_kg",
+      "owner": 1.2355012586340308e-05,
+      "independent": -4.160948083153926e-05,
+      "delta": -5.3964493417879567e-05,
+      "agrees": true,
+      "absolute_tolerance": 0.002
+    },
+    {
+      "row": "wet_optics_assumed",
+      "field": "legacy_day_SF",
+      "owner": 1.754195992196959,
+      "independent": 1.7541959242282197,
+      "delta": -6.796873930348113e-08,
+      "agrees": true,
+      "absolute_tolerance": 1e-07
+    },
+    {
+      "row": "wet_optics_assumed",
+      "field": "legacy_cycle_SF",
+      "owner": 0.9306867829914154,
+      "independent": 0.9306867469306744,
+      "delta": -3.6060740948862247e-08,
+      "agrees": true,
+      "absolute_tolerance": 1e-07
+    },
+    {
+      "row": "aged_alpha015_assumed",
+      "field": "legacy_day_SF",
+      "owner": 2.148619726153991,
+      "independent": 2.148619642902763,
+      "delta": -8.325122813346297e-08,
+      "agrees": true,
+      "absolute_tolerance": 1e-07
+    },
+    {
+      "row": "aged_alpha015_assumed",
+      "field": "legacy_cycle_SF",
+      "owner": 1.0670865522946766,
+      "independent": 1.0670865109489396,
+      "delta": -4.134573705627531e-08,
+      "agrees": true,
+      "absolute_tolerance": 1e-07
+    },
+    {
+      "row": "aged_alpha020_assumed",
+      "field": "legacy_day_SF",
+      "owner": 1.5337631082172978,
+      "independent": 1.5337630487895382,
+      "delta": -5.9427759602215247e-08,
+      "agrees": true,
+      "absolute_tolerance": 1e-07
+    },
+    {
+      "row": "aged_alpha020_assumed",
+      "field": "legacy_cycle_SF",
+      "owner": 0.8899115333052954,
+      "independent": 0.8899114988244494,
+      "delta": -3.448084595625289e-08,
+      "agrees": true,
+      "absolute_tolerance": 1e-07
+    }
+  ],
+  "mismatches": [],
+  "E_usage": [
+    {
+      "id": "AgFEP05-R10-optimistic-actual-dry_gas-dry_exterior",
+      "usage_ceiling": 0.9981883255675633,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -8.272036015578124
+        },
+        {
+          "E_usage": 0.12477354069594541,
+          "payload_kg": -7.230077742763569
+        },
+        {
+          "E_usage": 0.24954708139189083,
+          "payload_kg": -6.190376526543332
+        },
+        {
+          "E_usage": 0.37432062208783623,
+          "payload_kg": -5.152976513532849
+        },
+        {
+          "E_usage": 0.49909416278378166,
+          "payload_kg": -4.117837368880828
+        },
+        {
+          "E_usage": 0.6238677034797271,
+          "payload_kg": -3.084994617795928
+        },
+        {
+          "E_usage": 0.7486412441756725,
+          "payload_kg": -2.0544024577438904
+        },
+        {
+          "E_usage": 0.8734147848716179,
+          "payload_kg": -1.0260569922320428
+        },
+        {
+          "E_usage": 0.9981883255675633,
+          "payload_kg": -1.4065227333048824e-05
+        },
+        {
+          "E_usage": 0.9981882472908256,
+          "payload_kg": -1.477674231864512e-05
+        }
+      ],
+      "best": {
+        "E_usage": 0.9981883255675633,
+        "payload_kg": -1.4065227333048824e-05
+      }
+    },
+    {
+      "id": "AgFEP05-R10-optimistic-actual-bake70-dry_exterior",
+      "usage_ceiling": 0.9955376339877716,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -8.253848438221212
+        },
+        {
+          "E_usage": 0.12444220424847145,
+          "payload_kg": -7.214194607226091
+        },
+        {
+          "E_usage": 0.2488844084969429,
+          "payload_kg": -6.176806631254294
+        },
+        {
+          "E_usage": 0.37332661274541434,
+          "payload_kg": -5.141695809905286
+        },
+        {
+          "E_usage": 0.4977688169938858,
+          "payload_kg": -4.108832774172697
+        },
+        {
+          "E_usage": 0.6222110212423573,
+          "payload_kg": -3.0782534255313294
+        },
+        {
+          "E_usage": 0.7466532254908287,
+          "payload_kg": -2.0499130909993255
+        },
+        {
+          "E_usage": 0.8710954297393002,
+          "payload_kg": -1.023853054065512
+        },
+        {
+          "E_usage": 0.9955376339877716,
+          "payload_kg": -3.4828990465030074e-06
+        },
+        {
+          "E_usage": 0.995537552856537,
+          "payload_kg": -4.158775482210331e-06
+        }
+      ],
+      "best": {
+        "E_usage": 0.9955376339877716,
+        "payload_kg": -3.4828990465030074e-06
+      }
+    },
+    {
+      "id": "AgFEP05-R10-optimistic-floor-dry_gas-dry_exterior",
+      "usage_ceiling": 0.9981883255675633,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -8.272036015578124
+        },
+        {
+          "E_usage": 0.12477354069594541,
+          "payload_kg": -7.230077742763569
+        },
+        {
+          "E_usage": 0.24954708139189083,
+          "payload_kg": -6.190376526543332
+        },
+        {
+          "E_usage": 0.37432062208783623,
+          "payload_kg": -5.152976513532849
+        },
+        {
+          "E_usage": 0.49909416278378166,
+          "payload_kg": -4.117837368880828
+        },
+        {
+          "E_usage": 0.6238677034797271,
+          "payload_kg": -3.084994617795928
+        },
+        {
+          "E_usage": 0.7486412441756725,
+          "payload_kg": -2.0544024577438904
+        },
+        {
+          "E_usage": 0.8734147848716179,
+          "payload_kg": -1.0260569922320428
+        },
+        {
+          "E_usage": 0.9981883255675633,
+          "payload_kg": -1.4065227333048824e-05
+        },
+        {
+          "E_usage": 0.9981882472908256,
+          "payload_kg": -1.477674231864512e-05
+        }
+      ],
+      "best": {
+        "E_usage": 0.9981883255675633,
+        "payload_kg": -1.4065227333048824e-05
+      }
+    },
+    {
+      "id": "AgFEP05-R10-optimistic-floor-bake70-dry_exterior",
+      "usage_ceiling": 0.9955376339877716,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -8.253848438221212
+        },
+        {
+          "E_usage": 0.12444220424847145,
+          "payload_kg": -7.214194607226091
+        },
+        {
+          "E_usage": 0.2488844084969429,
+          "payload_kg": -6.176806631254294
+        },
+        {
+          "E_usage": 0.37332661274541434,
+          "payload_kg": -5.141695809905286
+        },
+        {
+          "E_usage": 0.4977688169938858,
+          "payload_kg": -4.108832774172697
+        },
+        {
+          "E_usage": 0.6222110212423573,
+          "payload_kg": -3.0782534255313294
+        },
+        {
+          "E_usage": 0.7466532254908287,
+          "payload_kg": -2.0499130909993255
+        },
+        {
+          "E_usage": 0.8710954297393002,
+          "payload_kg": -1.023853054065512
+        },
+        {
+          "E_usage": 0.9955376339877716,
+          "payload_kg": -3.4828990465030074e-06
+        },
+        {
+          "E_usage": 0.995537552856537,
+          "payload_kg": -4.158775482210331e-06
+        }
+      ],
+      "best": {
+        "E_usage": 0.9955376339877716,
+        "payload_kg": -3.4828990465030074e-06
+      }
+    },
+    {
+      "id": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "usage_ceiling": 0.9971771536623192,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -28.770085666466912
+        },
+        {
+          "E_usage": 0.1246471442077899,
+          "payload_kg": -25.146249137273117
+        },
+        {
+          "E_usage": 0.2492942884155798,
+          "payload_kg": -21.530264858796727
+        },
+        {
+          "E_usage": 0.3739414326233697,
+          "payload_kg": -17.922288182566263
+        },
+        {
+          "E_usage": 0.4985885768311596,
+          "payload_kg": -14.322101728594134
+        },
+        {
+          "E_usage": 0.6232357210389495,
+          "payload_kg": -10.729800352139137
+        },
+        {
+          "E_usage": 0.7478828652467394,
+          "payload_kg": -7.145372014158056
+        },
+        {
+          "E_usage": 0.8725300094545293,
+          "payload_kg": -3.5687719170855416
+        },
+        {
+          "E_usage": 0.9971771536623192,
+          "payload_kg": -1.1648808140307665e-06
+        },
+        {
+          "E_usage": 0.9971770754648764,
+          "payload_kg": -2.346259861951694e-06
+        }
+      ],
+      "best": {
+        "E_usage": 0.9971771536623192,
+        "payload_kg": -1.1648808140307665e-06
+      }
+    },
+    {
+      "id": "AgFEP1-R12-optimistic-floor-desiccant-dry_exterior",
+      "usage_ceiling": 0.9942058284929549,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -14.722833146470293
+        },
+        {
+          "E_usage": 0.12427572856161936,
+          "payload_kg": -12.868397680329508
+        },
+        {
+          "E_usage": 0.24855145712323873,
+          "payload_kg": -11.017961668248972
+        },
+        {
+          "E_usage": 0.37282718568485806,
+          "payload_kg": -9.171583664374339
+        },
+        {
+          "E_usage": 0.49710291424647746,
+          "payload_kg": -7.329261577380748
+        },
+        {
+          "E_usage": 0.6213786428080968,
+          "payload_kg": -5.490953011118108
+        },
+        {
+          "E_usage": 0.7456543713697161,
+          "payload_kg": -3.6565988417587505
+        },
+        {
+          "E_usage": 0.8699300999313355,
+          "payload_kg": -1.8263197619562561
+        },
+        {
+          "E_usage": 0.9942058284929549,
+          "payload_kg": 6.849517376394942e-06
+        },
+        {
+          "E_usage": 0.994204845347452,
+          "payload_kg": -2.553210470068734e-05
+        }
+      ],
+      "best": {
+        "E_usage": 0.9942058284929549,
+        "payload_kg": 6.849517376394942e-06
+      }
+    },
+    {
+      "id": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+      "usage_ceiling": 0.9914565276352517,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -28.307892853204976
+        },
+        {
+          "E_usage": 0.12393206595440646,
+          "payload_kg": -24.742421606370044
+        },
+        {
+          "E_usage": 0.24786413190881293,
+          "payload_kg": -21.184753837209428
+        },
+        {
+          "E_usage": 0.3717961978632194,
+          "payload_kg": -17.634780185941054
+        },
+        {
+          "E_usage": 0.49572826381762586,
+          "payload_kg": -14.092493899781402
+        },
+        {
+          "E_usage": 0.6196603297720323,
+          "payload_kg": -10.557854062895785
+        },
+        {
+          "E_usage": 0.7435923957264388,
+          "payload_kg": -7.030913389065972
+        },
+        {
+          "E_usage": 0.8675244616808453,
+          "payload_kg": -3.5115977675959584
+        },
+        {
+          "E_usage": 0.9914565276352517,
+          "payload_kg": -6.334190766210668e-05
+        },
+        {
+          "E_usage": 0.9914564318456105,
+          "payload_kg": -6.61249941913411e-05
+        }
+      ],
+      "best": {
+        "E_usage": 0.9914565276352517,
+        "payload_kg": -6.334190766210668e-05
+      }
+    },
+    {
+      "id": "AgFEP1-R15-optimistic-floor-bake70-retained_water",
+      "usage_ceiling": 0.9889560995927015,
+      "samples": [
+        {
+          "E_usage": 0.0,
+          "payload_kg": -28.247415912795987
+        },
+        {
+          "E_usage": 0.12361951244908768,
+          "payload_kg": -24.68920223832174
+        },
+        {
+          "E_usage": 0.24723902489817537,
+          "payload_kg": -21.139138463946438
+        },
+        {
+          "E_usage": 0.37085853734726304,
+          "payload_kg": -17.596899395397486
+        },
+        {
+          "E_usage": 0.49447804979635074,
+          "payload_kg": -14.062239070226497
+        },
+        {
+          "E_usage": 0.6180975622454384,
+          "payload_kg": -10.535243712492957
+        },
+        {
+          "E_usage": 0.7417170746945261,
+          "payload_kg": -7.015891587903752
+        },
+        {
+          "E_usage": 0.8653365871436138,
+          "payload_kg": -3.5041596937880968
+        },
+        {
+          "E_usage": 0.9889560995927015,
+          "payload_kg": -2.4316494091181085e-05
+        },
+        {
+          "E_usage": 0.988955867225937,
+          "payload_kg": -3.0412797059398144e-05
+        }
+      ],
+      "best": {
+        "E_usage": 0.9889560995927015,
+        "payload_kg": -2.4316494091181085e-05
+      }
+    }
+  ],
+  "addendum_E": [
+    {
+      "id": "AgFEP1-R15-optimistic-floor-bake70-retained_water-cure_included",
+      "improvement_kg": -4.160948083153926e-05
+    }
+  ],
+  "optical_screens": [
+    {
+      "id": "wet_optics_assumed",
+      "day_SF": 1.7541959242282197,
+      "cycle_SF": 0.9306867469306744,
+      "meets_finish_screen": false
+    },
+    {
+      "id": "aged_alpha015_assumed",
+      "day_SF": 2.148619642902763,
+      "cycle_SF": 1.0670865109489396,
+      "meets_finish_screen": true
+    },
+    {
+      "id": "aged_alpha020_assumed",
+      "day_SF": 1.5337630487895382,
+      "cycle_SF": 0.8899114988244494,
+      "meets_finish_screen": false
+    }
+  ]
+}

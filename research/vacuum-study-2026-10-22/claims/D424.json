@@ -1,0 +1,86 @@
+{
+  "id": "D424",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D424",
+    "report": "rpt-ref-e0fc07c506c86dae19c1",
+    "file": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "source_sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+    "source_json_pointer": "/new/1",
+    "row_id": "NFI-CHECK045-IEC",
+    "fields": {
+      "id": "NFI-CHECK045-IEC",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE",
+      "title": "Printed hail masses were replaced unnecessarily",
+      "finding": "IEC Table 3 supplies all six masses. The substituted 35/55/65 mm masses and energies differ from the printed inputs.",
+      "proposed_fix": "Use 20.7/80.2/132.0 g and 7.657344/46.083321/88.894740 J; carry the recomputed all-energy dents. The 50.8 mm design case is unchanged.",
+      "refs": [
+        "IEC-MASS-CORRECTIONS.json",
+        "sources/iec-table3.png"
+      ]
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/new",
+    "blocks_progress": false
+  },
+  "claim": "IEC Table 3 supplies all six masses. The substituted 35/55/65 mm masses and energies differ from the printed inputs. | Printed hail masses were replaced unnecessarily",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1384"
+    },
+    {
+      "report": "rpt-ref-e0fc07c506c86dae19c1",
+      "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+      "bytes": 17031,
+      "selector": "/new/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-e0fc07c506c86dae19c1",
+          "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+          "bytes": 17031,
+          "selector": "/new/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1384"
+          }
+        ]
+      }
+    }
+  ]
+}

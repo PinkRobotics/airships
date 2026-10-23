@@ -1,0 +1,71 @@
+{
+  "id": "N166",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N166",
+    "report": "rpt-ref-44f9940325e236cb80b3",
+    "card": "MAINLINE-013",
+    "file": "evidence/fe5e5ec3daad9605-NFI.json",
+    "row_id": "NFI-013-IDEAL-LATTICE",
+    "fields": {
+      "id": "NFI-013-IDEAL-LATTICE",
+      "tag": "PROJECTION",
+      "issue": "The ideal stretch-dominated lattice (Ashby 2006 eq 5.1, Gc = Ec/2) is a bound, not a material; strength is not projected because no strut-buckling constant was sourced.",
+      "numbers": "Passes wrinkling and crimp on the least-factor split from 1.34 (K13D2U-grade), 2.46 (CNT yarn), 4.82 (beryllium), 25.3 (alumina), 55.9 kg/m3 (6061). At 5 kg/m3 a lattice needs 0.378, 0.628 and 0.982 of ideal; measured alumina lattices reach 0.0279 to 0.0422.",
+      "closes_when": "a lattice of a fibre-grade strut material is built and measured at 1 to 8 kg/m3."
+    }
+  },
+  "claim": "The ideal stretch-dominated lattice (Ashby 2006 eq 5.1, Gc = Ec/2) is a bound, not a material; strength is not projected because no strut-buckling constant was sourced.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/165"
+    },
+    {
+      "report": "rpt-ref-44f9940325e236cb80b3",
+      "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+      "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+      "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+      "bytes": 9230,
+      "selector": "source row ID: NFI-013-IDEAL-LATTICE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-44f9940325e236cb80b3",
+          "artifact": "evidence/fe5e5ec3daad9605-NFI.json",
+          "snapshot": "evidence/fe5e5ec3daad9605-NFI.json",
+          "sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+          "bytes": 9230,
+          "selector": "source row ID: NFI-013-IDEAL-LATTICE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/165"
+          }
+        ]
+      }
+    }
+  ]
+}

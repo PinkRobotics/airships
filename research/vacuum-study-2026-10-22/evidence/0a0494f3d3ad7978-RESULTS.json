@@ -1,0 +1,696 @@
+{
+  "unit": "vacuum-mainline032b-measured-flatness-1020",
+  "tag": "QUESTIONABLE",
+  "not_a_certification": true,
+  "nothing_here_certifies_a_hull": true,
+  "started": "2026-10-20T01:51:23.695105-07:00",
+  "ended": "2026-10-20T01:51:23.695237-07:00",
+  "elapsed_s": 0.00012184074148535728,
+  "needed_lead_amplitudes_mm": [
+    {
+      "face": "Be S-200F",
+      "Q": 0.371,
+      "Fc_basis": "stabilised_typical_60_psi",
+      "delta_mm": 0.15286876684636116,
+      "source": "032 RESULTS.json amplitudes, not recomputed",
+      "meaning": "zero-to-peak wrinkle component from CR-1457 eq 2.2-13"
+    },
+    {
+      "face": "SR-200",
+      "Q": 0.609,
+      "Fc_basis": "stabilised_typical_60_psi",
+      "delta_mm": 0.06522290640394086,
+      "source": "032 RESULTS.json amplitudes, not recomputed",
+      "meaning": "zero-to-peak wrinkle component from CR-1457 eq 2.2-13"
+    },
+    {
+      "face": "Be S-200F",
+      "Q": 0.371,
+      "Fc_basis": "stabilised_minimum_35_psi",
+      "delta_mm": 0.08917344732704402,
+      "source": "032 RESULTS.json amplitudes, not recomputed",
+      "meaning": "zero-to-peak wrinkle component from CR-1457 eq 2.2-13"
+    },
+    {
+      "face": "SR-200",
+      "Q": 0.609,
+      "Fc_basis": "stabilised_minimum_35_psi",
+      "delta_mm": 0.038046695402298845,
+      "source": "032 RESULTS.json amplitudes, not recomputed",
+      "meaning": "zero-to-peak wrinkle component from CR-1457 eq 2.2-13"
+    }
+  ],
+  "smallest_needed_mm": 0.038046695402298845,
+  "largest_needed_mm": 0.15286876684636116,
+  "woody": {
+    "id": "woody-leighton-1994",
+    "tag": "QUESTIONABLE",
+    "citation": "Woody et al., Design, construction, and performance of the Leighton 10.4-m-diameter radio telescopes, Proceedings of the IEEE, vol. 82, no. 5, May 1994, pp. 675 and 684",
+    "url": "http://www.cso.caltech.edu/wiki/_media/cso/publications/1994-woody-procieee.pdf",
+    "process": "Parabolic figure machined into the exposed aluminum honeycomb core, then a 1 mm aluminum sheet epoxied on. The CSO copy adds a three-disc rotating sander for small-scale defects.",
+    "scale_separation": "The combined techniques measure scale sizes greater than 40 mm, accuracy about 5 micrometres. Laboratory samples are spaced under 40 mm and each point averages a 10 mm diameter. Scales under 10 mm are attributed to the commercial sheet finish, about 2 micrometres, not to a separate cell-periodic depth. A 9.5 mm cell sits inside that average.",
+    "figures_mm": {
+      "worst_case_fabrication_rms": 0.024,
+      "installed_estimate_rms": 0.024,
+      "track_rms_typical_low": 0.01,
+      "track_rms_typical_high": 0.015,
+      "sheet_finish_under_10_mm": 0.002,
+      "measurement_accuracy": 0.005,
+      "cso_template_rms": 0.003,
+      "cso_laboratory_estimate_rms": 0.01
+    },
+    "not_delta": true,
+    "beryllium_face": false,
+    "versus_leads": {
+      "worst_case_fabrication_rms": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.156997406959663,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.36796888276278783,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.2691384119308508,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.6308037990219219,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ],
+      "installed_estimate_rms": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.156997406959663,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.36796888276278783,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.2691384119308508,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.6308037990219219,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ],
+      "track_rms_typical_low": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.06541558623319291,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.15332036781782826,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.11214100497118784,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.26283491625913413,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ],
+      "track_rms_typical_high": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.09812337934978936,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.2299805517267424,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.16821150745678173,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.39425237438870114,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ],
+      "sheet_finish_under_10_mm": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.013083117246638583,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.030664073563565653,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.022428200994237566,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.05256698325182682,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ],
+      "measurement_accuracy": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.032707793116596454,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.07666018390891413,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.05607050248559392,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.13141745812956707,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ],
+      "cso_template_rms": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.019624675869957874,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.04599611034534848,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.03364230149135635,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.07885047487774023,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ],
+      "cso_laboratory_estimate_rms": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.06541558623319291,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.15332036781782826,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.11214100497118784,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.26283491625913413,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ]
+    }
+  },
+  "nasa_er_1001": {
+    "id": "nasa-er-1001-print-through",
+    "tag": "QUESTIONABLE",
+    "citation": "A. Pintz, C.H. Castle and R.R. Reimer, Solar Concentrator Technology Development for Space Based Applications, Engineering Report ER-1001, 31 December 1992, NASA Lewis grant NCC 3-77. NTRS 19950020773. Depth sentence is on the page numbered 19; 3/8-cell slopes are on the page numbered 20.",
+    "url": "https://ntrs.nasa.gov/citations/19950020773",
+    "process": "Adhesive-bonded aluminum-foil honeycomb coupons, vacuum bag, Dektak II traces. Specimens through 30 use 3/16-inch cells. Figure 24 is specimen 28 with a 0.005 inch face. Figure 25's face thickness is not named on that page. Specimens 32, 33 and 34 are 3/8-inch, 1/4-inch and flexcore; their face thickness is not named on the slope page. Not a beryllium face and not CR-III 3/8-1.0.",
+    "cell_scale_depth": {
+      "where": "Figure 25",
+      "printed_inch": 6.5e-05,
+      "mm": 0.0016509999999999997,
+      "cell": "3/16 inch class, specimens through 30",
+      "kind": "print-through dimple depth, cell scale, not panel RMS",
+      "versus_leads": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.010800113287100148,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.025313192726723444,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.018514479920743107,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.043394044674383035,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ]
+    },
+    "cell_node_mismatch": {
+      "where": "Figure 24, specimen 28, 0.005 inch face",
+      "printed_inch": 5.7e-05,
+      "mm": 0.0014478,
+      "kind": "random peak-to-peak of neighbouring cell nodes, not the dimple depth",
+      "versus_leads": [
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.15286876684636116,
+          "measured_over_needed": 0.00947086857484167,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_typical_60_psi",
+          "needed_delta_mm": 0.06522290640394086,
+          "measured_over_needed": 0.022197722852665174,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "Be S-200F",
+          "Q": 0.371,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.08917344732704402,
+          "measured_over_needed": 0.016235774699728575,
+          "needed_amplitude_exceeded_as_a_number": false
+        },
+        {
+          "face": "SR-200",
+          "Q": 0.609,
+          "Fc_basis": "stabilised_minimum_35_psi",
+          "needed_delta_mm": 0.038046695402298845,
+          "measured_over_needed": 0.038053239175997434,
+          "needed_amplitude_exceeded_as_a_number": false
+        }
+      ]
+    },
+    "three_eighths_cell_slopes_milliradian": {
+      "low": 0.5,
+      "high": 1.6,
+      "kind": "maximum slope of cell-dimple profiles, not a depth",
+      "projection": [
+        {
+          "slope_milliradian": 0.5,
+          "tag": "PROJECTION",
+          "assumption": "The printed maximum slope is treated as a bound on |dz/dx|. A sine of wavelength one cell, and a rise held at that slope across one cell or half a cell, are sketches. The page prints the slope, not these depths.",
+          "sine_zero_to_peak_mm": 0.0007579754164751516,
+          "rise_across_one_cell_mm": 0.004762499999999999,
+          "rise_across_half_cell_mm": 0.0023812499999999997,
+          "sine_versus_leads": [
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.15286876684636116,
+              "measured_over_needed": 0.004958340621907059,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.06522290640394086,
+              "measured_over_needed": 0.01162130696508418,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.08917344732704402,
+              "measured_over_needed": 0.008500012494697815,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.038046695402298845,
+              "measured_over_needed": 0.01992224051157288,
+              "needed_amplitude_exceeded_as_a_number": false
+            }
+          ],
+          "one_cell_rise_versus_leads": [
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.15286876684636116,
+              "measured_over_needed": 0.031154172943558118,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.06522290640394086,
+              "measured_over_needed": 0.07301882517324071,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.08917344732704402,
+              "measured_over_needed": 0.0534071536175282,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.038046695402298845,
+              "measured_over_needed": 0.12517512886841262,
+              "needed_amplitude_exceeded_as_a_number": false
+            }
+          ]
+        },
+        {
+          "slope_milliradian": 1.6,
+          "tag": "PROJECTION",
+          "assumption": "The printed maximum slope is treated as a bound on |dz/dx|. A sine of wavelength one cell, and a rise held at that slope across one cell or half a cell, are sketches. The page prints the slope, not these depths.",
+          "sine_zero_to_peak_mm": 0.0024255213327204848,
+          "rise_across_one_cell_mm": 0.015239999999999998,
+          "rise_across_half_cell_mm": 0.007619999999999999,
+          "sine_versus_leads": [
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.15286876684636116,
+              "measured_over_needed": 0.015866689990102587,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.06522290640394086,
+              "measured_over_needed": 0.037188182288269374,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.08917344732704402,
+              "measured_over_needed": 0.027200039983033,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.038046695402298845,
+              "measured_over_needed": 0.0637511696370332,
+              "needed_amplitude_exceeded_as_a_number": false
+            }
+          ],
+          "one_cell_rise_versus_leads": [
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.15286876684636116,
+              "measured_over_needed": 0.09969335341938598,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_typical_60_psi",
+              "needed_delta_mm": 0.06522290640394086,
+              "measured_over_needed": 0.23366024055437026,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "Be S-200F",
+              "Q": 0.371,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.08917344732704402,
+              "measured_over_needed": 0.17090289157609023,
+              "needed_amplitude_exceeded_as_a_number": false
+            },
+            {
+              "face": "SR-200",
+              "Q": 0.609,
+              "Fc_basis": "stabilised_minimum_35_psi",
+              "needed_delta_mm": 0.038046695402298845,
+              "measured_over_needed": 0.40056041237892037,
+              "needed_amplitude_exceeded_as_a_number": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "nrao_65r_30": {
+    "id": "nrao-65r-30-1969",
+    "tag": "QUESTIONABLE",
+    "citation": "S. von Hoerner, Small Surface Plates for Large Radio Telescopes, NRAO report 30, 19 September 1969, page 2. Data from discussions with Rohr.",
+    "url": "https://library.nrao.edu/public/memos/65/65R/65R_030.pdf",
+    "process": "Commercial honeycomb radio-telescope surface, 1969 vendor figure. Cell size unstated.",
+    "printed": "0.008 inch = 0.20 mm rms",
+    "mm_from_printed_inch": 0.2032,
+    "printed_mm": 0.2,
+    "kind": "whole-surface manufacturing rms, not a cell depth and not a wrinkle component",
+    "versus_leads_using_inch_conversion": [
+      {
+        "face": "Be S-200F",
+        "Q": 0.371,
+        "Fc_basis": "stabilised_typical_60_psi",
+        "needed_delta_mm": 0.15286876684636116,
+        "measured_over_needed": 1.3292447122584798,
+        "needed_amplitude_exceeded_as_a_number": true
+      },
+      {
+        "face": "SR-200",
+        "Q": 0.609,
+        "Fc_basis": "stabilised_typical_60_psi",
+        "needed_delta_mm": 0.06522290640394086,
+        "measured_over_needed": 3.1154698740582702,
+        "needed_amplitude_exceeded_as_a_number": true
+      },
+      {
+        "face": "Be S-200F",
+        "Q": 0.371,
+        "Fc_basis": "stabilised_minimum_35_psi",
+        "needed_delta_mm": 0.08917344732704402,
+        "measured_over_needed": 2.278705221014537,
+        "needed_amplitude_exceeded_as_a_number": true
+      },
+      {
+        "face": "SR-200",
+        "Q": 0.609,
+        "Fc_basis": "stabilised_minimum_35_psi",
+        "needed_delta_mm": 0.038046695402298845,
+        "measured_over_needed": 5.340805498385605,
+        "needed_amplitude_exceeded_as_a_number": true
+      }
+    ],
+    "versus_leads_using_printed_mm": [
+      {
+        "face": "Be S-200F",
+        "Q": 0.371,
+        "Fc_basis": "stabilised_typical_60_psi",
+        "needed_delta_mm": 0.15286876684636116,
+        "measured_over_needed": 1.3083117246638583,
+        "needed_amplitude_exceeded_as_a_number": true
+      },
+      {
+        "face": "SR-200",
+        "Q": 0.609,
+        "Fc_basis": "stabilised_typical_60_psi",
+        "needed_delta_mm": 0.06522290640394086,
+        "measured_over_needed": 3.0664073563565655,
+        "needed_amplitude_exceeded_as_a_number": true
+      },
+      {
+        "face": "Be S-200F",
+        "Q": 0.371,
+        "Fc_basis": "stabilised_minimum_35_psi",
+        "needed_delta_mm": 0.08917344732704402,
+        "measured_over_needed": 2.242820099423757,
+        "needed_amplitude_exceeded_as_a_number": true
+      },
+      {
+        "face": "SR-200",
+        "Q": 0.609,
+        "Fc_basis": "stabilised_minimum_35_psi",
+        "needed_delta_mm": 0.038046695402298845,
+        "measured_over_needed": 5.256698325182683,
+        "needed_amplitude_exceeded_as_a_number": true
+      }
+    ]
+  },
+  "ams7902": {
+    "id": "ams7902",
+    "tag": "QUESTIONABLE",
+    "what_was_obtained": "An AMS7902G file whose header says page 3 of 9 and whose pdfinfo reports 3 pages. Section 1.3 says there are three sheet and plate classifications based on flatness tolerances and points to 3.5.5. Section 3.5.5 is not in the file. Revision H was not opened.",
+    "doi_current": "https://doi.org/10.4271/AMS7902H",
+    "g_identity_read": {
+      "revision": "G",
+      "issued": "1961-07",
+      "revised": "2015-01",
+      "reaffirmed": "2018-12",
+      "sheet_inch": [
+        0.02,
+        0.25
+      ],
+      "sheet_finish": "no greater than 55 Ra (63 microinches, 1.6 micrometres), ASME B46.1"
+    },
+    "class_tolerances_read": false,
+    "note": "Sheet flatness, once the table is obtained, is a rolled-sheet allowance. It is not cell telegraphing of a bonded panel and not the wrinkle component. The 55 Ra figure is roughness, not delta. Lead faces 0.6917 mm and 0.8434 mm sit inside the sheet band. No class number is stated here."
+  },
+  "answer": {
+    "cell_scale": "The only printed cell-scale depth, 0.001651 mm on an aluminum-foil coupon, is under every needed amplitude. The 3/8-inch cells in that report are slopes. A rise held at the larger slope across a whole cell is still under the smallest needed amplitude. That bound is a projection.",
+    "short_wave_not_cell": "Leighton figures of 0.010 to 0.024 mm rms are under every needed amplitude as numbers, on scales longer than about 10 to 40 mm. They are not the wrinkle component, and the cell is inside the 10 mm average.",
+    "whole_panel": "The 1969 honeycomb rms, 0.2032 mm from the printed 0.008 inch, is larger than every needed amplitude. It is a panel rms. Stock per-foot bows on the 032 card are the same kind of mismatch.",
+    "exceeded_today": "Needed amplitudes are exceeded as numbers by whole-panel honeycomb rms and by per-foot shop bows. They are not exceeded by the cell-scale depth that was printed, nor by the Leighton rms on the scales that instrument measured. No page gives a beryllium face on CR-III 3/8-1.0 at the wrinkle wavelength.",
+    "processes": [
+      "1969 commercial honeycomb, Rohr figure via von Hoerner: panel rms above the needed amplitudes",
+      "stock bonded panels, per-foot or per-metre bows already on the 032 card: above, wrong gauge length",
+      "machined-core plus epoxied 1 mm aluminum sheet, Leighton: rms below, scales longer than a cell",
+      "aluminum-foil vacuum-bag coupons, NASA ER-1001: cell dimple below"
+    ]
+  }
+}

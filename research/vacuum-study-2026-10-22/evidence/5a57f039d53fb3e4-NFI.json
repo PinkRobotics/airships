@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-018b independent check",
+  "blocking": false,
+  "open": [
+    {
+      "id": "NFI-CHK018B-UNEQUAL-FACES",
+      "kind": "small source-formula correction",
+      "tag": "QUESTIONABLE",
+      "source": "NASA CR-1457 eqs 6.2-8/6.2-19; already identified by check018",
+      "finding": "Dimple sigma0 must include q=2*sqrt(t1*t2)/(t1+t2). The owner retained the equal-face approximation.",
+      "unequal_face_factor": 0.999702513752156,
+      "mismatches": [
+        {
+          "row": "dimple",
+          "field": "sigma_0_Pa",
+          "filed": 19119540732.73865,
+          "checker": 19113852932.30557,
+          "difference": -5687800.433082581,
+          "relative_difference": -0.00029748624784398103,
+          "matches": false
+        },
+        {
+          "row": "dimple",
+          "field": "Vc",
+          "filed": 197.24625832023136,
+          "checker": 197.18758027094242,
+          "difference": -0.05867804928894316,
+          "relative_difference": -0.00029748624784398103,
+          "matches": false
+        },
+        {
+          "row": "dimple",
+          "field": "p_classical_Pa",
+          "filed": 767777835.4968507,
+          "checker": 767549432.149391,
+          "difference": -228403.34745967388,
+          "relative_difference": -0.00029748624784387,
+          "matches": false
+        }
+      ],
+      "impact": "Three dimple fields fall by 0.0297486247844 percent; p_crimp, collapse/crimp gamma, shear branch and face-bending fraction are unchanged.",
+      "proposed_next": "Carry the three corrected fields in the next consolidated result."
+    },
+    {
+      "id": "NFI-CHK018B-DENOMINATOR-SENSITIVITY",
+      "kind": "scope of material substitution",
+      "tag": "QUESTIONABLE",
+      "finding": "H80/H35 rows hold the published collapse pressure fixed while changing only Gc in the handbook denominator. They are not simulations or measured collapse ratios for the replacement foam. H80 E=90 MPa differs from the paper E=40 MPa; H35 E=40 MPa matches but density 38 differs from PVC80 density 80 kg/m3. Both are examples, not identified coupons.",
+      "proposed_next": "Label both rows denominator-only sensitivities; do not claim new H80/H35 collapse data."
+    },
+    {
+      "id": "NFI-CHK018B-FACE-BENDING",
+      "kind": "unisolated physical effect",
+      "tag": "QUESTIONABLE",
+      "finding": "The two fractions reproduce as D_own/(D_own+D_face_separation), with longitudinal core rigidity neglected. They are fractions of conventional facings-only flexural rigidity, not fractions of collapse pressure. The roughly sevenfold linear/crimp ratios cannot be assigned to own-face bending alone.",
+      "source": "NASA CR-1457 section 2.3.2 p 2-41; section 4.7.3.1 p 4-72",
+      "proposed_next": "Use a controlled structural comparison to isolate the facing-bending effect if such credit is required."
+    },
+    {
+      "id": "NFI-CHK018B-LEAST-PRODUCT",
+      "kind": "all-mode interpretation limit",
+      "tag": "PROJECTION",
+      "finding": "The reported least-times-gamma products are correct scalar products. They are not the least factors after changing only the global/crimp prediction: the other modes do not inherit gamma.",
+      "unchanged_wrinkling_SF": 0.6504141274587999,
+      "unchanged_face_compression_SF": 0.8922515676201891,
+      "uncapped_all_modes_limit_if_crimp_is_raised": 0.6504141274587999,
+      "with_cap_at_one": 0.6504118436805308,
+      "impact": "No all-mode crossing of 1 follows from the scalar product 1.00161658843; the owner correctly caps design credit, leaving the carried result unchanged.",
+      "proposed_next": "Label products as crimp-only diagnostics and retain the complete mode vector."
+    },
+    {
+      "id": "NFI-CHK018B-CURVE-TRANSFER",
+      "kind": "evidence/inference limit",
+      "tag": "PROJECTION",
+      "finding": "Two published numerical clamped-hemisphere collapse predictions lie above the conditional unity-crimp formula. They are not external-pressure experiments, do not isolate its assumptions, and do not calibrate a continuous gamma(Vc) curve or the 10 m Be/honeycomb sphere. Both cases are at Vc far above 2, so they do not test the moderate-Vc optimistic interpolation used in 009e. A conservative lower bound is not falsified merely by both values exceeding it.",
+      "proposed_next": "Retain conditional numerical evidence for these cases, the handbook crimp rule, and the uncalibrated-curve tag separately."
+    },
+    {
+      "id": "NFI-CHK018B-SOURCE-TYPO",
+      "kind": "primary-source inconsistency resolved for calculation",
+      "tag": "QUESTIONABLE",
+      "finding": "Sim journal section 3.2.2 repeats 27.56 MPa for the flat perfect load; its conclusion, -0.11 percent comparison and EUCASS section 3.2.1 support 27.53 MPa. This check adopts 27.53. The original owner could not reopen the journal; the checker read publisher HTML, not the inaccessible journal PDF.",
+      "proposed_next": "Cite the adopted source location explicitly in the carried pressure table."
+    },
+    {
+      "id": "NFI-CHK018B-P3",
+      "kind": "inherited exclusion",
+      "tag": "QUESTIONABLE",
+      "finding": "P3 remains outside this assigned P2 source/formula check.",
+      "proposed_next": "Use the separately assigned P3 work."
+    }
+  ],
+  "source_verifications": {
+    "EUCASS_pressure_fields": "All six pressures verified from independent text extraction and figure inspection; four linear/imperfect values corroborated in journal text.",
+    "H80_H35": "2012 rev7 table visually verified; G=27/12 MPa and compression E=90/40 MPa; average values.",
+    "face_bending": "Both fractions independently reproduced by the parallel-axis expression."
+  }
+}

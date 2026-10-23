@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-021",
+  "unit": "vacuum-mainline021-optimistic-floating-point-1020",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "rows": [
+    {
+      "id": "NFI-021-GAMMA",
+      "optimism": "O1",
+      "binds": true,
+      "needed": 0.5953179642995181,
+      "today": 0.2,
+      "improvement_factor": 2.9765898214975905,
+      "usage_of_018_stretch": 0.9580717283996654,
+      "state": "PROJECTION: no sphere or dome test at Vc near 1 supports a knockdown above 0.20 (018)",
+      "grounding_card": "MAINLINE-018b (crimp gamma measured from Sim's absolute loads); MAINLINE-015 (kd precision)",
+      "tolerance_015": {
+        "kd": 0.5953179642995181,
+        "t_eq_mm": 36.47148976173557,
+        "R_over_t_eq": 274.1867706893509,
+        "in_fit_range": true,
+        "wavelength_m": 0.6039163001752442,
+        "status": "lambda_I_1 inversion",
+        "delta_over_t_eq": 0.3235790017685749,
+        "amplitude_mm": 11.801408250115193,
+        "rms_worst_mm": 0.3638641267074433,
+        "rms_narrow_mm": 0.13861490541235935
+      },
+      "note": "Under 018's conservative gamma the point is 0.338601. 015's map: one dimple of 11.8 mm (RMS 0.364 mm) at this gamma, QUESTIONABLE."
+    },
+    {
+      "id": "NFI-021-WRINKLE",
+      "optimism": "O2",
+      "needed": 0.37068071372338524,
+      "today": 0.33,
+      "improvement_factor": 1.1232748900708642,
+      "usage_of_named_stretch": 0.1277158154673571,
+      "state": "between today's design lower bound (0.33) and the classical value (0.82); no test at this core-to-face ratio",
+      "grounding_card": "none pending; a wrinkling test on a representative sandwich",
+      "note": "core-to-face ratio tc/tf 23.97"
+    },
+    {
+      "id": "NFI-021-BE-STRENGTH",
+      "optimism": "O3",
+      "needed_Pa": 283000000.0,
+      "today_Pa": 283000000.0,
+      "improvement_factor": 1.0,
+      "state": "exists today as SR-200 sheet if compressive yield equals the 345 MPa datasheet minimum tensile yield (the 1967 lot shows ratio 0.99); NOT met by S-200F block at the Materion guide's 255 MPa (factor 1.11 short)",
+      "grounding_card": "MAINLINE-020 (beryllium reality)",
+      "note": "The point sits at face compression 1.0002: the 283 MPa inherited from 008 cites an older guide (MB-001, 41 ksi); the current Materion guide prints 'about 37 ksi' for S-200F."
+    },
+    {
+      "id": "NFI-021-MARGIN",
+      "needed": 0.05,
+      "state": "assumed",
+      "grounding_card": "MAINLINE-019 (margin budget)",
+      "note": "The 5 percent margin stands until 019 files; every number here moves with it."
+    },
+    {
+      "id": "NFI-021-CRIMP-BRANCH-GAMMA",
+      "issue": "The aramid route floats only on the handbook's gamma 1 at Vc >= 2, which 018 tags QUESTIONABLE for a sphere.",
+      "numbers": "Aramid family under the full set 1.00053; under 018's conservative gamma 0.358097.",
+      "grounding_card": "MAINLINE-018b"
+    },
+    {
+      "id": "NFI-021-FACE-MODULUS",
+      "issue": "Corrected by ord-admiral-rr2-mainline021-be-modulus-290-1020: S-200F scored at its own 290 GPa (Materion DS-HPP-610); the 303 GPa the chain carried is S-200FH's. The SR-200 lot's own in-plane moduli are 298.7 and 293.6 GPa; the full-set column uses the lower.",
+      "numbers": "Least set unchanged; gamma's usage 0.9099 at 303 GPa becomes 0.9581; gamma needed 0.5791 becomes 0.5953."
+    },
+    {
+      "id": "NFI-021-SHEET-SIZE",
+      "issue": "SR-200 sheet comes to 24 by 72 inches, with gauges under 0.059 inch only at narrower widths and shorter lengths (Materion datasheet); a 10 m sphere needs over a thousand sheets, so the 5 percent joint allowance is QUESTIONABLE.",
+      "grounding_card": "MAINLINE-020"
+    },
+    {
+      "id": "NFI-021-DIMPLING-FORM",
+      "issue": "Dimpling here uses CR-1457 eq 2.1-6 (biaxial, half); 009d and 014b use the uniaxial eq 2.1-4.",
+      "numbers": "Floating point 9.019 biaxial, 18.04 uniaxial; both far above 1."
+    },
+    {
+      "id": "NFI-021-CORE-TABLE",
+      "issue": "Core properties are 014b's: W shear as Gc, stabilised Ec, Hexcel's crush column for crush; Hexcel test thickness 0.625 inch against a 20 mm core.",
+      "grounding_card": "none pending"
+    },
+    {
+      "id": "NFI-021-CONSERVATIVE-READING",
+      "issue": "If 'today' is 018's conservative gamma (0.20 at every Vc), the stiff-branch least set does not change, because its today is already 0.20; a crimp-branch point needs gamma 1, a factor 5.",
+      "numbers": {
+        "S-200F at its own E 290 GPa and the inherited 283 MPa": {
+          "branch": "stiff_or_moderate_core",
+          "Vc": 1.0610630680728836,
+          "gamma_needed": 0.5953179642995181,
+          "factor_over_0.20": 2.9765898214975905,
+          "usage_against_018_curve": 0.9580717283996654
+        },
+        "today = S-200-F, Materion design guide compressive yield 'about 37 ksi'": {
+          "branch": "shear_crimping",
+          "Vc": 2.7856228623470924,
+          "gamma_needed": 0.9994717109284957,
+          "factor_over_0.20": 4.997358554642479,
+          "usage_against_018_curve": 0.9996716688098004
+        },
+        "today = SR-200 sheet, Materion datasheet minimum tensile yield (compressive about equal per the 1967 lot)": {
+          "branch": "stiff_or_moderate_core",
+          "Vc": 0.9986907155584266,
+          "gamma_needed": 0.37038887488235733,
+          "factor_over_0.20": 1.8519443744117865,
+          "usage_against_018_curve": 0.5613684779431448
+        },
+        "E = 303 GPa as filed at 00:30 (S-200FH's value), S-200F 283 MPa today": {
+          "branch": "stiff_or_moderate_core",
+          "Vc": 1.108627964227875,
+          "gamma_needed": 0.5791494489601828,
+          "factor_over_0.20": 2.895747244800914,
+          "usage_against_018_curve": 0.9098990057213333
+        }
+      }
+    }
+  ]
+}

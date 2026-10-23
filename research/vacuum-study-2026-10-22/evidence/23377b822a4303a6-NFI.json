@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline022d-p3-in-band-corrected-1020",
+  "status": "QUESTIONABLE",
+  "stops_work": false,
+  "card_work_complete": true,
+  "rows": [
+    {
+      "id": "NFI-022D-FILM",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-ZYLON-DIRECTION"
+      ],
+      "finding": "The doubled directional mass is corrected in this model; a complete 0/90 Zylon membrane with a barrier, seams, biaxial/creep allowables and this gauge is still unsourced. The 1.5 GPa film is also PROJECTION.",
+      "next": "Qualify a complete membrane and its full mass, durability and boundary load transfer."
+    },
+    {
+      "id": "NFI-022D-JOINT",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-JOINT-MULTIPLIER",
+        "NFI-C022-DISCRETE-JOINTS"
+      ],
+      "finding": "023 axial/bond dimensions now use each candidate's lambda and their lambda-squared mass. SiC adhesion, peel, moment transfer, local bearing, sleeve stability and adhesive mass remain unknown. Percent joints have no scored capacity.",
+      "next": "Use qualified end-joint stiffness/capacity and complete mass in the discrete structure."
+    },
+    {
+      "id": "NFI-022D-TENSION",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-TENSILE-BENDING",
+        "MAINLINE-025"
+      ],
+      "finding": "Amplified tensile bending is screened at assumed Ft=15.586 MPa. This fixed reference-volume ceiling is PROJECTION, not a full-stress-field weakest-link model or measured allowable. Eight overall equilateral witnesses bind it; no screened optimum has tensile stress at its target.",
+      "next": "Calibrate full-size tensile surface/volume populations with the actual stress field and end-contact demands."
+    },
+    {
+      "id": "NFI-022D-CONTINUUM",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-030-CONTINUUM",
+        "NFI-030-P3-INBAND",
+        "NFI-C022-DISCRETE-JOINTS"
+      ],
+      "finding": "Sixteen overall optima fail half-wave>=arc length. Their screened alternatives are filed, but a wavelength of exactly one member does not establish homogenization, an integer mesh or discrete stability.",
+      "next": "Analyze an explicit imperfect curved frame and actual node rotational stiffness."
+    },
+    {
+      "id": "NFI-022D-TWO-WAY",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-030-TWO-WAY"
+      ],
+      "finding": "The unbraced two-way lattice has no demonstrated in-plane shear stiffness supporting inherited C=4. Primary half-wave and triangular-sag transfers are diagnostic only. Square-cell sensitivity does not repair shear.",
+      "next": "Supply bracing and its mass or solve the actual frame and identify its shear/global modes."
+    },
+    {
+      "id": "NFI-022D-SAG",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-SAG-GEOMETRY"
+      ],
+      "finding": "The exact equilateral mean is now derived for the linear constant-tension membrane. Cap is a circular surrogate; nonlinear shape, extra membrane area and loaded edge movement remain open. Primary two-way rows intentionally preserve 022c's geometry; square-cell alternatives are separate.",
+      "next": "Close actual cell shape, tension distribution, loaded volume and film area consistently for each lattice."
+    },
+    {
+      "id": "NFI-022D-ALLOWABLE",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-ALLOWABLE",
+        "MAINLINE-025"
+      ],
+      "finding": "Neither 3900 MPa bulk crush nor 380 MPa flexure is a qualified full-size curved SiC compression allowable. No qualified assembly failure probability is known.",
+      "next": "Use process/size-specific compression and failure data; keep qualified allowable and failure probability null."
+    },
+    {
+      "id": "NFI-022D-INTERACTION",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-LOCAL-INTERACTION"
+      ],
+      "finding": "Separate local, Euler and Perry/tension minima leave shell-column-curvature interaction unresolved. The optional magnified-local diagnostic is not a validated law and is excluded from the primary least SF.",
+      "next": "Resolve coupled instability with a justified theory or calibrated nonlinear model."
+    },
+    {
+      "id": "NFI-022D-MANUFACTURE",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-MANUFACTURE",
+        "MAINLINE-025"
+      ],
+      "finding": "No complete diameter, wall, arc length, curvature and tolerance combination is production-qualified by this scan. Continuous film and fractional node counts are optimization surrogates.",
+      "next": "Carry the full geometry, tolerance and process specification into fabrication evidence and full-size tests."
+    },
+    {
+      "id": "NFI-022D-MASS",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "MAINLINE-023",
+        "MAINLINE-024",
+        "MAINLINE-025"
+      ],
+      "finding": "The inherited mass contract omits independent barrier/seam/coating and some joint process masses; sag volume is first-order. Two reserve choices are carried assumptions, not an audited vehicle budget.",
+      "next": "Close complete operating hardware, membrane and joint masses against measured loaded volume."
+    },
+    {
+      "id": "NFI-022D-SEARCH",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE; unvalidated transfers PROJECTION",
+      "source_rows": [
+        "NFI-C022-SEARCH-RESOLUTION"
+      ],
+      "finding": "The 12-film-gauge discretization is removed. Continuous DE, constrained refinements, independent residual checks and 16 expanded-domain cases agree, but no mathematical global certificate is claimed.",
+      "next": "Preserve source-pinned witnesses and reoptimize when qualified physics or mass inputs change."
+    }
+  ]
+}

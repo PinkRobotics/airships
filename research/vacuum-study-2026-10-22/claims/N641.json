@@ -1,0 +1,79 @@
+{
+  "id": "N641",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N641",
+    "report": "rpt-ref-4a20323946ecafd56a6b",
+    "card": "rpt-ref-4a20323946ecafd56a6b",
+    "file": "evidence/d90bde67ada2ca77-NFI.json",
+    "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+    "source_sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+    "source_json_pointer": "/rows/0",
+    "row_id": "NFI-026B-01",
+    "fields": {
+      "id": "NFI-026B-01",
+      "tag": "QUESTIONABLE",
+      "status": "computed_departure",
+      "owner": "sciences",
+      "issue": "Coarse-bay continuum departure",
+      "evidence": "Frequency4 linear 5.254643802 versus 6.193381346; frequency 2 2.183661359 versus 6.876245150. Last mesh changes below 0.0161%.",
+      "implication": "Use discrete frame results for these cases; no continuum applicability threshold is validated."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "Coarse-bay continuum departure",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/640"
+    },
+    {
+      "report": "rpt-ref-4a20323946ecafd56a6b",
+      "artifact": "evidence/d90bde67ada2ca77-NFI.json",
+      "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+      "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+      "bytes": 5415,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-4a20323946ecafd56a6b",
+          "artifact": "evidence/d90bde67ada2ca77-NFI.json",
+          "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+          "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+          "bytes": 5415,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/640"
+          }
+        ]
+      }
+    }
+  ]
+}

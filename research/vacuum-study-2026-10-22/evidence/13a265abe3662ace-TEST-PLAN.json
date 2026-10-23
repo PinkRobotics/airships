@@ -1,0 +1,291 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-038",
+  "status": "QUESTIONABLE/PROJECTION",
+  "contacted_suppliers": false,
+  "purchases_executed": false,
+  "cost_currency": "USD",
+  "cost_basis_year": 2026,
+  "costs_are_quotes": false,
+  "shared_Be_stock_process_allowance_kUSD": [
+    20,
+    90
+  ],
+  "first_three": [
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "first_three_initial_incremental_kUSD": [
+    23,
+    68
+  ],
+  "first_three_with_shared_stock_kUSD": [
+    43,
+    158
+  ],
+  "excluded_follow_on_biaxial_T3_kUSD": [
+    18,
+    45
+  ],
+  "physical_measurements_performed": false,
+  "test_details": "CARD.md",
+  "equations_and_transfer": "METHOD.md",
+  "latest_P3_test_targets": "P3-LATEST.md",
+  "tests": [
+    {
+      "id": "T1",
+      "rank": 1,
+      "title": "Finished SR200 compression and specification",
+      "initial_kUSD": [
+        5,
+        15
+      ],
+      "follow_on_kUSD": [
+        0,
+        0
+      ],
+      "covers": [
+        "P2 O3 compression",
+        "P2 O4 sheet size/gauge",
+        "030 ground-first 4",
+        "036 compression"
+      ],
+      "standards": [
+        "E9",
+        "E1012"
+      ],
+      "provider_type": "Be-capable sheet producer/fabricator and metals compression laboratory",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T2",
+      "rank": 2,
+      "title": "Weighed curved sealed scarf panel",
+      "initial_kUSD": [
+        12,
+        35
+      ],
+      "follow_on_kUSD": [
+        0,
+        0
+      ],
+      "covers": [
+        "P2 O4 stock panels",
+        "P2 O5 thin bond",
+        "P2 scarf/weld load transfer",
+        "030 ground-first 3"
+      ],
+      "standards": [
+        "C273",
+        "C297",
+        "C365",
+        "custom scarf/load/leak protocol"
+      ],
+      "provider_type": "Be-capable aerospace sandwich fabricator and bond/mechanical test house",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T3",
+      "rank": 3,
+      "title": "Wrinkle screen and biaxial follow-on",
+      "initial_kUSD": [
+        6,
+        18
+      ],
+      "follow_on_kUSD": [
+        18,
+        45
+      ],
+      "covers": [
+        "P2 O2 wrinkling",
+        "030 ground-first 5"
+      ],
+      "standards": [
+        "C364",
+        "C273",
+        "C365",
+        "D7249 optional",
+        "custom biaxial panel"
+      ],
+      "provider_type": "Sandwich compression lab with DIC and multiaxial fixture partner",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T4",
+      "rank": 4,
+      "title": "Complete film laminate strength, creep and barrier",
+      "initial_kUSD": [
+        8,
+        25
+      ],
+      "follow_on_kUSD": [
+        15,
+        40
+      ],
+      "covers": [
+        "P3 film 024/030/022d",
+        "P3 sag"
+      ],
+      "standards": [
+        "D882 where applicable",
+        "D1434",
+        "F1249",
+        "custom biaxial bulge/creep"
+      ],
+      "provider_type": "Structural laminate developer and polymer-barrier/multiaxial lab",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T9",
+      "rank": 5,
+      "title": "Service vacuum hold and hot gas pressure",
+      "initial_kUSD": [
+        4,
+        12
+      ],
+      "follow_on_kUSD": [
+        0,
+        0
+      ],
+      "covers": [
+        "034 vacuum hold",
+        "core/bore evacuation",
+        "019 systems and gas reserve"
+      ],
+      "standards": [
+        "ISO 20485",
+        "E595 optional screen",
+        "calibrated rate-of-rise/throughput"
+      ],
+      "provider_type": "Vacuum leak-test and thermal-vacuum materials laboratory",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T6",
+      "rank": 6,
+      "title": "P3 axial/moment/roll joint qualification",
+      "initial_kUSD": [
+        5,
+        15
+      ],
+      "follow_on_kUSD": [
+        25,
+        75
+      ],
+      "covers": [
+        "P3 joint 023",
+        "P3 restraint 026",
+        "022d sized joint"
+      ],
+      "standards": [
+        "E1012 supporting",
+        "custom loaded stiffness matrix and component strength"
+      ],
+      "provider_type": "Bonded-joint development shop and high-load multiaxial structural lab",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T5",
+      "rank": 7,
+      "title": "SiC process compression and tube stubs",
+      "initial_kUSD": [
+        10,
+        25
+      ],
+      "follow_on_kUSD": [
+        25,
+        100
+      ],
+      "covers": [
+        "P3 compression 025",
+        "P3 curved tube manufacture"
+      ],
+      "standards": [
+        "C1424 standard specimens",
+        "custom stub and curved component protocol"
+      ],
+      "provider_type": "Technical ceramic tube supplier and high-load ceramics/component laboratory",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T7",
+      "rank": 8,
+      "title": "Closed sandwich surrogate shell",
+      "initial_kUSD": [
+        30,
+        90
+      ],
+      "follow_on_kUSD": [
+        0,
+        0
+      ],
+      "covers": [
+        "P2 O1 gamma",
+        "030 ground-first 1",
+        "029 FE physical calibration"
+      ],
+      "standards": [
+        "C273/C297/C365 material witnesses",
+        "custom closed-shell external pressure"
+      ],
+      "provider_type": "Precision shell/core shop and nonlinear structures pressure laboratory",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    },
+    {
+      "id": "T8",
+      "rank": 9,
+      "title": "Closed discrete frame surrogate",
+      "initial_kUSD": [
+        45,
+        130
+      ],
+      "follow_on_kUSD": [
+        0,
+        0
+      ],
+      "covers": [
+        "030 ground-first 2",
+        "026 discrete frame",
+        "022d topology/global stability"
+      ],
+      "standards": [
+        "custom frame/skin pressure protocol",
+        "material and joint witness methods"
+      ],
+      "provider_type": "Precision curved-frame fabricator and pressure/DIC structural research laboratory",
+      "tag": "PROJECTION",
+      "qualification_closed": false
+    }
+  ],
+  "ranking_basis": "Ability to falsify a current binding premise per cost, dependencies and shared specimens; no assumed probabilities.",
+  "full_size_SiC_arc_campaign_additional_kUSD": [
+    100,
+    400
+  ],
+  "arc_cost_note": "Or more; manufacturability, tooling and minimum lot remain unknown.",
+  "smallest_shell": {
+    "absolute_mathematical_minimum": null,
+    "fabrication_floors_assumed": {
+      "face_um": 25,
+      "core_mm": 1
+    },
+    "conditional_021b_R_m": 0.3614032861983396,
+    "conditional_028b_R_m": 0.43034411608332657,
+    "suggested_surrogate_R_m": 0.5,
+    "commercial_actual_Be_small_shell_established": false
+  },
+  "source_cutoff": "2026-10-20T02:27:27.097637-07:00",
+  "not_filed_at_last_lookup": [
+    "MAINLINE-029"
+  ],
+  "not_filed_note": "No result assumed; the physical gamma protocol remains valid preparation for a future filed FE comparison."
+}

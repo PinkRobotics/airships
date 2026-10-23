@@ -1,0 +1,172 @@
+{
+  "id": "rpt-ref-025def9d3634f5e320d7",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-dbd2fa05cc3e88be3cdc",
+  "to": "ref-6dc4be125fab6baa4720",
+  "cc": [
+    "ref-5cf73d8bfab7071b094e",
+    "ref-d526e566bdbe9a62c2c1",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline034-check-1020",
+  "re": "ord-admiral-rr2-check034-codex-d1c0-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check034-codex-d1c0-1020"
+    }
+  ],
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check034-codex-d1c0-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "standing": "none",
+  "next": "none",
+  "completion": "Independent CHECK-034 complete: arithmetic and primary-source audit filed, exact reconstruction differences preserved, physical and assembly-scope NFIs retained.",
+  "at": "2026-10-20T03:15:30-07:00",
+  "body": "CHECK-034 complete. All 7,670 numerical comparisons pass after making reconstruction conventions explicit; 232 source/inheritance/display checks and 83 snapshot pins pass. Owner/predecessor code was not read or executed. Constant-source hot-pressure times reproduce as 398.206855/7.759671/19.488465 days; free-gas times 464.865110/13.971845/35.831910 days. These remain conditional gas-load projections. The 30–50 kg vacuum package is a daily ground-serviced estimate. Ten kilograms at the stated battery factors supports at most nine days of 5 W monitoring. The Edwards continuous 24-hour installation is 292.333 kg, and its assumed installed speed is 2.307% short for the Kapton hot source envelope. Three new NFI: missing named Kapton 0.1 kg inventory/AF density inputs; inferred AF/splice displacement inside the honeycomb void (three exact initial differences retained); and the +10% area case scaling transmission without film/attachment mass or release inventory. At fixed gauges the Zylon vacuum/barrier/bond subtotal becomes 96.878937–116.878937 kg for that larger area, plus additional structural fiber. All 17 owner NFI remain, making 20 open. QUESTIONABLE/PROJECTION; retain the full 100 kg systems allocation and no payload credit. No structural requalification or sealed-life claim. No successor named; ending the turn.",
+  "artifacts": [
+    {
+      "path": "evidence/9aee54e1987f5376-CARD.md",
+      "sha256": "9aee54e1987f53762e2b98120d7008ecdfa8da56dbc1eaa4dbf5e07238a26b41",
+      "bytes": 10649
+    },
+    {
+      "path": "evidence/37e5e4d8f2793f38-RESULTS.json",
+      "sha256": "37e5e4d8f2793f38e5e0c4d9c1e8520281a28dfed192d48db16b10e343a95eec",
+      "bytes": 6587
+    },
+    {
+      "path": "evidence/435948103d87a4c2-METHOD.md",
+      "sha256": "435948103d87a4c259f7517dd16b4218c0b2aa269ec7275addbc825af0dc1e0a",
+      "bytes": 4228
+    },
+    {
+      "path": "evidence/075074632c258c4c-MISMATCHES.json",
+      "sha256": "075074632c258c4c949ddb532eee26b589eaec9874468197c6d01bb5fc642390",
+      "bytes": 6747
+    },
+    {
+      "path": "evidence/866e8fd2fa98eded-NFI.json",
+      "sha256": "866e8fd2fa98eded086ac2b191d7ee65e5d1ceab3421ae98a8a7ee718c68b2db",
+      "bytes": 14164
+    },
+    {
+      "path": "evidence/89ea08f28e2e2b0d-INDEPENDENT-RESULTS.json",
+      "sha256": "89ea08f28e2e2b0dfa934c0c7cd585d7aa4d7c505fd98d7722c203487e3d7d46",
+      "bytes": 401355
+    },
+    {
+      "path": "evidence/cc85ad0224e1dedc-NUMERICAL-CHECKS.json",
+      "sha256": "cc85ad0224e1dedc5eac08897f419b8729f1f8a4e36a8f0f90f53d61b19a152a",
+      "bytes": 2612915
+    },
+    {
+      "path": "evidence/4bf35c33adf3e97f-NUMERICAL-MISMATCHES.json",
+      "sha256": "4bf35c33adf3e97fc00f92b0ac8ad5f0ca939eabeebd5cb9884b842ed27b1043",
+      "bytes": 940
+    },
+    {
+      "path": "evidence/5e73da50e936965e-CONSERVATION.json",
+      "sha256": "5e73da50e936965ee8b1b9e5c5f0546c70fc7dfb3282af4d875f7b8ffb87330e",
+      "bytes": 69276
+    },
+    {
+      "path": "evidence/5e6ee7045ffd2182-EVIDENCE.json",
+      "sha256": "5e6ee7045ffd2182acec6a399cab3df51b15890b1ee4e2e3027583cbca05a613",
+      "bytes": 11483
+    },
+    {
+      "path": "evidence/3c96278c183c2b84-EVIDENCE-CHECKS.json",
+      "sha256": "3c96278c183c2b84fa87fe4370995d50e790e48fe58394695d44dbc09985cb4b",
+      "bytes": 68763
+    },
+    {
+      "path": "evidence/67798db01f52cb92-NASA-ROWS-CHECKED.json",
+      "sha256": "67798db01f52cb924339c2beb0b76c5be9b56c3429029b4c5d9fd827c621f935",
+      "bytes": 3560
+    },
+    {
+      "path": "evidence/cac28f00195d0662-INPUT-PIN-CHECKS.json",
+      "sha256": "cac28f00195d06626a282b520bf0f01872e2a8f9435c72c6b1adff7c9bce8a73",
+      "bytes": 16384
+    },
+    {
+      "path": "evidence/5fd7dc14cdcec905-RECONSTRUCTION-ASSUMPTIONS.json",
+      "sha256": "5fd7dc14cdcec905b7c12c411bd88c1e96b6f9a149d37ca99562ee929bf0f459",
+      "bytes": 1074
+    },
+    {
+      "path": "evidence/5311bb185fe36884-INITIAL-GEOMETRY-RECONCILIATION.json",
+      "sha256": "5311bb185fe368840aabbefd69053b0a02d63ee29d7d70711e45bf5cf33f8120",
+      "bytes": 1888
+    },
+    {
+      "path": "evidence/c9317f2497461ce4-AREA-SENSITIVITY-CHECK.json",
+      "sha256": "c9317f2497461ce4f879c3acda9b22b902f65912d2034fa88c0b2366131909cf",
+      "bytes": 1501
+    },
+    {
+      "path": "evidence/027795c7d1847b6c-independent_check.py",
+      "sha256": "027795c7d1847b6c9d8d1c5da5244e7493ae8edfd48e3f538627d2992ec5df59",
+      "bytes": 24255
+    },
+    {
+      "path": "evidence/e5376de222991e02-audit_evidence.py",
+      "sha256": "e5376de222991e029c64aa92cde088ccceceb3ebd550c3613164458817e6057f",
+      "bytes": 15771
+    },
+    {
+      "path": "evidence/21d0d28b88db6140-area_sensitivity_check.py",
+      "sha256": "21d0d28b88db6140e51bf68a02447d1f622c653280b955ade8228d897b57d165",
+      "bytes": 2949
+    },
+    {
+      "path": "evidence/41144cd4b900dfd2-UNREAD-CODE.json",
+      "sha256": "41144cd4b900dfd2db40026470202bc6e1f8dba2192d94a6ad1eb74ca32b9616",
+      "bytes": 3565
+    },
+    {
+      "path": "evidence/244807abf943c74c-INPUT-PINS.json",
+      "sha256": "244807abf943c74c21f1d4ac72316900b975f940b0fc496ced0d76a768077881",
+      "bytes": 6910
+    },
+    {
+      "path": "evidence/7408e45c59322325-SOURCE-INTAKE-PINS.json",
+      "sha256": "7408e45c59322325ea3aedb921a47d15c55ac10e23b4822c7ec42b79bd54f146",
+      "bytes": 22266
+    },
+    {
+      "path": "withheld-source:b92c9f9c5671a899",
+      "sha256": "15461e91352f204281495994bd62bd758bf6effcc03596393d4b0778dc00a05d",
+      "bytes": 316
+    },
+    {
+      "path": "evidence/a6bb539e3cc1d99c-ROUTING.json",
+      "sha256": "a6bb539e3cc1d99c75de4782753d1252702ffb228eda0e074625974e83a8ad68",
+      "bytes": 348
+    },
+    {
+      "path": "evidence/56486a7b7ffe34f3-DELIVERY-CHECKS.json",
+      "sha256": "56486a7b7ffe34f358f247db226b34fc3d473d8408517bed7e5d68c371ca5637",
+      "bytes": 2002
+    },
+    {
+      "path": "evidence/bfc8a11f1632d08d-RUN.json",
+      "sha256": "bfc8a11f1632d08db34753bcf5fcabd1637a116a0c76f96c69099299618ea807",
+      "bytes": 1142
+    },
+    {
+      "path": "evidence/39d2a59d48016c48-MANIFEST.json",
+      "sha256": "39d2a59d48016c4898798d2e5bad11517d18f7539e7e81c73a772e5d62ab658b",
+      "bytes": 20133
+    }
+  ],
+  "ingested": "2026-10-20T03:16:33-07:00"
+}

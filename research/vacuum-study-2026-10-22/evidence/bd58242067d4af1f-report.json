@@ -1,0 +1,126 @@
+{
+  "id": "rpt-ref-9a0319231d2fe686eb92",
+  "kind": "report",
+  "from": "ref-4bc9297546b34b47e7f1",
+  "from_seat": "ref-4bc9297546b34b47e7f1",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline031-altitude-margin-1020",
+  "re": "ord-admiral-rr2-mainline031-dispatch-1019",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline031-dispatch-1019"
+    }
+  ],
+  "at": "2026-10-20T01:48:15-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline031-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "MAINLINE-031 complete: ESTIMATE; QUESTIONABLE/PROJECTION. Fixed-hull and redesigned ledgers are separate. C=0 gives a 369.257m descent and 4.352464% more pressure on the +10K-only day. Adding low pressure and humidity gives roots -23.190m optimistic and -1015.877m conservative, below sea-level ground.\nUnder the stated 6.5K/km hydrostatic, constant-e/p profiles, an illustrative 100m centre floor requires P2 climate headroom 55.341kg and nominal SF 1.036553 for optimistic weather. Least named set: gamma/wrinkle/panel. Total reserve 616.428kg (12.607%), versus filed 021b 775.729kg. Both weather sets require 441.770kg headroom, nominal SF 1.022889, and added face-strength optimism; reserve 967.962kg (19.797%). ISA equilibria become 617.075m and 1464.507m. The altitude/weather/terrain requirement remains a decision. Atmospheric-profile sensitivity is explicit.\n021 rev1 includes original-placeholder and 019-nonclimate reconstructions. Filed 022b supplies P3 with both checker fixes and sag-corrected volume: redesigned 100m-floor least SF 1.343321 optimistic, 1.208051 both-weather. Ti/Kapton remains below one.\n69 pins, 52 P2/11 P3 independent geometry checks, 105 hydrostatic ODE roots and 224 dense subset exclusions passed. Eighteen pinned artifacts include 862 daily mode rows, equations, executable calculations, figure and 15 NFI rows. An inherited nonfinite usage is preserved as a labelled string in strict JSON. STOP AND FILE; no successor named.",
+  "artifacts": [
+    {
+      "path": "evidence/8891451a88117676-CARD.md",
+      "sha256": "8891451a881176763083491070b7503c08185f0b781621bd213aaa4ddc3ce77b",
+      "bytes": 22744
+    },
+    {
+      "path": "evidence/f7c1f9ffb20d9657-METHOD.md",
+      "sha256": "f7c1f9ffb20d96575c430ca2f1d775451dee0cb32e35385141896e6625d8edeb",
+      "bytes": 9271
+    },
+    {
+      "path": "evidence/d04b2a9204989475-ATMOSPHERE.json",
+      "sha256": "d04b2a9204989475e194be5da91ebd4ccea2af7e810c21f9abd3bfad353c750a",
+      "bytes": 87985
+    },
+    {
+      "path": "evidence/0a617fa1d11bbe14-P2.json",
+      "sha256": "0a617fa1d11bbe148cd9bc61bca859b6f363783d7749985e1998d3d31bbf8284",
+      "bytes": 1351804
+    },
+    {
+      "path": "evidence/2c39842472614b36-P3.json",
+      "sha256": "2c39842472614b36389b7ec626fb4ced2e37cafa26c4cb2f1de2d0dd174c1d29",
+      "bytes": 183448
+    },
+    {
+      "path": "evidence/56a46ce0505be4d5-INPUTS.json",
+      "sha256": "56a46ce0505be4d5cd93119f9f953bb9e7b025d016a914259963cf01dd4911e1",
+      "bytes": 1027051
+    },
+    {
+      "path": "evidence/d18857e0b502c9fe-NFI.json",
+      "sha256": "d18857e0b502c9fe826d54b55f8e27212908609c376e5fbcbf77e48bc4837619",
+      "bytes": 7267
+    },
+    {
+      "path": "evidence/f80707ab2a7215f8-VALIDATION.json",
+      "sha256": "f80707ab2a7215f881124f0387194f0c797f69e6c0145d54da44308943f0cc1f",
+      "bytes": 45650
+    },
+    {
+      "path": "evidence/ecf4b3eae43845cf-ALL-DAYS.csv",
+      "sha256": "ecf4b3eae43845cf7f830ea11b8023475ac672813d681fe83486f84f241d8e60",
+      "bytes": 310803
+    },
+    {
+      "path": "evidence/9e9f1bab7af7660f-prepare_inputs.py",
+      "sha256": "9e9f1bab7af7660f1675de03f9fc471fd70d802b0e9c984af52177e7fd46fe89",
+      "bytes": 7054
+    },
+    {
+      "path": "evidence/7347c51822db0727-atmosphere.py",
+      "sha256": "7347c51822db072745fa49b3808bae8807e2e579c3ea02312077cea9246fa05b",
+      "bytes": 5713
+    },
+    {
+      "path": "evidence/66457bbb5e1e91db-p2.py",
+      "sha256": "66457bbb5e1e91db023a3122e28356cbce2c9d59d4369aa5fa9bc71d2bf44142",
+      "bytes": 16344
+    },
+    {
+      "path": "evidence/5ac4d5d294854c79-p3.py",
+      "sha256": "5ac4d5d294854c79d0a16aa7ca553e6d4cc089e28a7d3fa9dfe2c363ec248912",
+      "bytes": 7578
+    },
+    {
+      "path": "evidence/bcb192cece68423d-validate.py",
+      "sha256": "bcb192cece68423d9d048c91cfd4b2a09fc9c2c24ec86792bc18029900b6939c",
+      "bytes": 10609
+    },
+    {
+      "path": "evidence/9b22a6f7821ccb29-publish_artifacts.py",
+      "sha256": "9b22a6f7821ccb29572bd2458455eb1d7959097ed5f51e0e9b2ab3f34e0b92d3",
+      "bytes": 42039
+    },
+    {
+      "path": "unpublished-local-ref:e1c9f18bbb673312",
+      "sha256": "11313a35774c3744ee0f673946078dd68be433b24698bd2ba2abda2f4ada05d0",
+      "bytes": 364072
+    },
+    {
+      "path": "evidence/eeffa3c62c1d0619-altitude-margin.svg",
+      "sha256": "eeffa3c62c1d061944ab1c27a9916eff0b3d3587e56d736eee64f41e17c8efca",
+      "bytes": 145091
+    },
+    {
+      "path": "evidence/afee772bcb6490e1-RUN.json",
+      "sha256": "afee772bcb6490e1632298ec476da133a713c3cd52d7b80e6dee6a6d62a21040",
+      "bytes": 396
+    }
+  ],
+  "ingested": "2026-10-20T01:49:06-07:00"
+}

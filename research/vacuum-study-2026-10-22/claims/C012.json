@@ -1,0 +1,83 @@
+{
+  "id": "C012",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C012",
+    "report": "rpt-ref-d2ffe81a7858ecabf149",
+    "file": "evidence/e6c21b640d5a4249-NFI.json",
+    "snapshot": "evidence/e6c21b640d5a4249-NFI.json",
+    "source_sha256": "e6c21b640d5a424940f40070fba4d07dfb6def408a4875f0706df8890edb1b8e",
+    "source_json_pointer": "/issues/2",
+    "row_id": "CHECK033-NFI-03",
+    "fields": {
+      "id": "CHECK033-NFI-03",
+      "inherited_id": "033-NFI-03",
+      "tag": "PROJECTION",
+      "title": "Poisson ratio and isotropy",
+      "finding": "Primary nu=0.0768 is the historical SR-200 in-plane value represented as an isotropic scalar. Legacy nu=.33 changes the R10 scarf-screen endpoint from a deficit to a small surplus. The sign is convention-sensitive.",
+      "next_evidence": "Use a complete current orthotropic material matrix and shell analysis; establish the relevant orientation and post-form properties.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "issues",
+    "blocks_progress": false
+  },
+  "claim": "Primary nu=0.0768 is the historical SR-200 in-plane value represented as an isotropic scalar. Legacy nu=.33 changes the R10 scarf-screen endpoint from a deficit to a small surplus. The sign is convention-sensitive. | Poisson ratio and isotropy",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/722"
+    },
+    {
+      "report": "rpt-ref-d2ffe81a7858ecabf149",
+      "artifact": "evidence/e6c21b640d5a4249-NFI.json",
+      "snapshot": "evidence/e6c21b640d5a4249-NFI.json",
+      "sha256": "e6c21b640d5a424940f40070fba4d07dfb6def408a4875f0706df8890edb1b8e",
+      "bytes": 10162,
+      "selector": "/issues/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d2ffe81a7858ecabf149",
+          "artifact": "evidence/e6c21b640d5a4249-NFI.json",
+          "snapshot": "evidence/e6c21b640d5a4249-NFI.json",
+          "sha256": "e6c21b640d5a424940f40070fba4d07dfb6def408a4875f0706df8890edb1b8e",
+          "bytes": 10162,
+          "selector": "/issues/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/722"
+          }
+        ]
+      }
+    }
+  ]
+}

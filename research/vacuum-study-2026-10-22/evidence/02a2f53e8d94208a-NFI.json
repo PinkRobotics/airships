@@ -1,0 +1,153 @@
+{
+  "unit": "vacuum-mainline043-sic-frame-reliability-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "status": "open qualification questions retained; assigned analysis complete",
+  "stops_other_work": false,
+  "requires_immediate_reply": false,
+  "items": [
+    {
+      "id": "NFI-043-01",
+      "status": "open",
+      "topic": "Compression distribution and calibration",
+      "finding": "No retrieved SA, CVD SiC, reaction-bonded SiC or SiC/SiC population supplies matched compression m, characteristic strength, effective reference size and confidence bounds for finished P3 members.",
+      "needed": "Raw compression failures, specimen and stress-field dimensions, processing/batch information, fracture modes, fit method, competing populations and confidence bounds; evidence of transfer to full curved tubes.",
+      "effect": "Qualified compression parameters and actual member/frame Pf remain null. Catalogue 3.9 GPa is only a typical value; hypothetical scale assignments do not qualify it.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-02",
+      "status": "open",
+      "topic": "Integer frame and resolved member loads",
+      "finding": "CHECK-022d uses continuum count 432.9863. Rounding to 433 does not define a closed triangular mesh; 435 is only a compatible counting example. The three independently recovered 026b meshes use different geometries.",
+      "needed": "A physically specified selected integer mesh, all section properties, boundary conditions, member forces and nonlinear load paths.",
+      "effect": "433-member probabilities are risk bookkeeping. The selected-point joint-moment estimate is a dimensional sensitivity, not an equilibrium solution.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-03",
+      "status": "open",
+      "topic": "Joint and end-interface reliability",
+      "finding": "The source's approximately 44.19 kg CFRP joining estimate and 44.02 mm overlap do not establish rotation, contact, adhesive peel, end damage or statistical reliability for roughly 866 end interfaces.",
+      "needed": "Joint geometry and stiffness, local contact and bond stresses, combined-load tests, processing variability, failure distributions, environmental durability and allocation of joint risk.",
+      "effect": "The tube-only risk budget omits an unresolved system contribution. The proxy moment is not a physical bound.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-04",
+      "status": "open",
+      "topic": "Multiaxial and local tensile stresses",
+      "finding": "Nominal beam normal stresses are compressive, but ideal beam shear produces small positive principal-stress estimates. Hoop stresses, pressure load path, membrane attachment, contact and residual stresses are not resolved.",
+      "needed": "Validated three-dimensional joint/member stress fields and a suitable multiaxial fracture law, including tensile surface/volume flaw populations.",
+      "effect": "Zero longitudinal tension cannot be reported as zero actual tensile or frame hazard. Uniform tensile levels and stressed fractions are sensitivity inputs.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-05",
+      "status": "open",
+      "topic": "Flexure reference sizes and statistical meanings",
+      "finding": "SA sources report m=10 and m=8; catalogue 380 MPa is typical rather than explicitly a fitted mean. Bend spans are absent. Commercial CVD reports m=11, scale 424 MPa and mean 415 MPa but no specimen dimensions.",
+      "needed": "Applicable product revision, specimen spans and orientation, sample sizes, raw data, finish, fit definition and uncertainty. Clarify the CVD mean/scale relationship without replacing the reported scale.",
+      "effect": "SA 40/20 mm spans and mean-to-scale conversions remain PROJECTION. Commercial CVD has no justified full-size probability here.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-06",
+      "status": "open",
+      "topic": "RBSC effective-size conventions",
+      "finding": "The 2017 paper's labelled effective bend volume equals the 360 mm3 span prism. The normalized stress-power integral at m=8.6 instead gives 1.953125 mm3. Ring values likewise need stress-field interpretation.",
+      "needed": "Reconcile the paper's geometric definitions and size-transfer convention with its full stress field and flaw populations before transferring its fitted data.",
+      "effect": "Our explicitly defined three-point projection is retained; ring geometric sizes are not used as uniform tensile reference volumes.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-07",
+      "status": "open",
+      "topic": "SiC/SiC population, size and source consistency",
+      "finding": "Mini-composite tensile gauge area is missing. The pilot appendix's specimen labels and stated strength range need reconciliation; the scale table header has a unit inconsistency. The compression study uses a different 2.5D architecture and only three coupons.",
+      "needed": "Gauge area, full raw data, corrected labels/range/units, fitting details, anisotropic failure mechanisms and matched full-component compression/tension statistics.",
+      "effect": "Reported tensile batch m/scale values are preserved separately, not combined with the 460 MPa compression mean or monolithic weakest-link scaling.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-08",
+      "status": "open",
+      "topic": "Rise-8 force solution",
+      "finding": "The owner reports large rise-8 moments and tensile stresses. The old independent 026b run was refused admission and produced no independently verified rise-8 force solution.",
+      "needed": "An admitted independent geometry/load-path solution and verification, plus a separately defined selected-point rise case if transfer is intended.",
+      "effect": "Owner rise-8 stresses remain attributed and unverified. Applying the same moment to another section is only a section conversion. No refusal was bypassed or retried for this card.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-09",
+      "status": "open",
+      "topic": "Manufacturing geometry and flaw population",
+      "finding": "The selected tube is approximately 3.184 m long, 275.083 mm OD and 1.137 mm wall. Its L/1000 initial bow is an assumed imperfection, not a measured tolerance distribution or the spherical centerline curvature.",
+      "needed": "Demonstrated fabrication capability, full-length section/bow measurements, surface and end preparation, machining/handling damage controls and strength data at this size.",
+      "effect": "Current catalogue properties cannot establish the delivered-member lower tail. The actual material improvement factor remains unknown.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-10",
+      "status": "open",
+      "topic": "Coupled instability and fracture",
+      "finding": "The source's 1.258252 stability multiplier is not a failure-probability distribution. No new nonlinear FE equilibrium or first-loss solve was performed here.",
+      "needed": "Validated local/global instability, joint interaction, imperfection and fracture models with their uncertainties for the same actual design.",
+      "effect": "Strength improvements and conditional tube Pf do not qualify stability. Linear target scaling of frozen 026b stresses is only a sensitivity.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-11",
+      "status": "open",
+      "topic": "Lower-tail statistical confidence",
+      "finding": "The 433-member targets allocate probabilities near 2.31e-6 and 2.31e-9 per member, well below the empirical resolution of the retrieved small samples.",
+      "needed": "Physically justified tail extrapolation, parameter confidence bounds, competing failure populations, batch effects and validated proof-screen modelling.",
+      "effect": "Point-estimate Weibull projections are not confidence-qualified reliability predictions. Zero-failure sample counts are illustrative, not a proposed testing campaign.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-12",
+      "status": "open",
+      "topic": "Exposure and lifetime",
+      "finding": "Service duration, cycles, environment, slow crack growth and post-proof damage are unspecified.",
+      "needed": "Defined lifetime/load spectrum and matched environmental growth, aging, handling and fatigue evidence.",
+      "effect": "Lifetime failure probability remains null. Ideal instantaneous proof truncation cannot establish lifetime survival.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-13",
+      "status": "open",
+      "topic": "Proof fixture and acceptance specification",
+      "finding": "The illustrative 1.25-times-target axial proof is 1.374281 MN, with pressure-equivalent multiplier 1.572816 exceeding the source's stability multiplier. Support, confinement and local loading can change which flaws are screened.",
+      "needed": "Validated fixture, proof stress coverage and load sequence, instrumentation and inspection sensitivity, proof-damage assessment, handling limits, accept/reject criteria and subsequent life model.",
+      "effect": "PROOF.md is a prospective qualification outline, not a ready test protocol. Proof rejection rate and residual reliability are unknown.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-14",
+      "status": "open",
+      "topic": "System risk budget and dependence",
+      "finding": "Headline targets allocate the entire risk budget to tube fracture and use an independent series model. Joints, membrane, instability, shared batches and common-cause events are omitted.",
+      "needed": "A whole-frame failure definition and allocated risk budget; valid component marginals and dependence/common-cause model.",
+      "effect": "The conditional series probabilities are not whole-vehicle reliability claims. Union-bound allocations avoid independence but do not supply missing marginal probabilities.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-15",
+      "status": "open",
+      "topic": "Closest qualified grade and improvement route",
+      "finding": "SA is the closest catalogue compression comparison in the retrieved set, but no candidate is qualified for this geometry and target tail. CVD and CMC datasets describe different populations and modes.",
+      "needed": "Matched full-member comparisons and evidence that strength, scatter or validated screening can deliver the required combined-stress lower quantile.",
+      "effect": "The conditional 2.24427-times 3.9 GPa requirement at m=10 is not an established improvement factor over today's delivered SiC.",
+      "stops_other_work": false
+    },
+    {
+      "id": "NFI-043-16",
+      "status": "open",
+      "topic": "Qualification and recurring cost",
+      "finding": "Geometry, loads, complete inspection and proof coverage imply high/custom qualification and recurring inspection cost classes, but no supplier quotation or process yield is available.",
+      "needed": "Supplier capability and quotations, fixture design, throughput, inspection detection performance, scrap rate and surveillance plan for the qualified process.",
+      "effect": "No dollar estimate, cycle time or scrap forecast is asserted. No supplier contact or purchase was made.",
+      "stops_other_work": false
+    }
+  ]
+}

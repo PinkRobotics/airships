@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "unit": "h1-native-packaged-evidence-acquisition-1019",
+  "owner_order": "ord-sciences-g2-h1-native-evidence-a-1800-1019",
+  "authority": "ord-co27-sci-h1-native-evidence-card-funded-1019",
+  "status": "NEW1800_OWNER_CLOSED_AT_REVIEW_HELPER_DECODE_FAILURE",
+  "grant_seconds": 1800,
+  "origin_monotonic": 2059188.367194322,
+  "origin_utc": "2026-10-19T21:01:03.186900+00:00",
+  "final_monotonic": 2060047.730920824,
+  "final_utc": "2026-10-19T21:15:22.550616+00:00",
+  "actual_continuous_seconds": 859.3637265020516,
+  "opening_allowance_seconds": 10,
+  "publication_tail_allowance_seconds": 25,
+  "charged_seconds": 894.3637265020516,
+  "retired_seconds": 905.6362734979484,
+  "phase_actual_seconds": {
+    "authenticated_acquisition": 320.59513237699866,
+    "patch_and_feature_review": 223.96234087017365,
+    "private_snapshot_loader": 0,
+    "return_custody_state_checks": 314.80625325487927
+  },
+  "phase_cap_seconds": {
+    "authenticated_acquisition": 350,
+    "patch_and_feature_review": 650,
+    "private_snapshot_loader": 400,
+    "return_custody_state_checks": 365
+  },
+  "unused_phase_seconds_not_transferred": {
+    "authenticated_acquisition": 29.404867623001337,
+    "patch_and_feature_review": 426.03765912982635,
+    "private_snapshot_loader": 400,
+    "return_custody_state_checks": 50.193746745120734
+  },
+  "runtime_not_started": true,
+  "first_substantive_stop_monotonic": 2059732.924667569,
+  "first_blocker": "FIRST_BLOCKER_OWNER_REVIEW_HELPER_TEXT_DECODE_FAILURE",
+  "failure_scope": "Owner helper defaultUTF8 decode, not authenticated-data failure or scientificFAIL. No retry.",
+  "included": "All intake, queue/order/card reads, authentication, five GETs, bounded decompression/data extraction, source comparison, partial patch review/helper failure, communications, custody/cleanup/storage, return/carry/state/manifest/envelope preparation and final pin checks continuously. No waiting or preparation excluded.",
+  "GETs": 5,
+  "transferred_bytes": 17186822,
+  "loader_door_calls": 0,
+  "target_main_calls": 0,
+  "native_solves": 0,
+  "builds_installs_system_changes_project_tests": 0,
+  "live_jobs": 0,
+  "storage": "Measured/prospective accounting within512MiB including directories and final records,16MiB logs/report ceiling; no kernel quota claim. Runtime cgroup/resource counters NOT_RUN.",
+  "unused_permission": "No delayed loader use or continuation; all unused owner phase time retired.",
+  "independent_review": "Future Una900 separate, not started or waited for. CO obligation remains pending actual verdict/disposition.",
+  "prior_reference_owner2400": {
+    "charged_seconds": 927.1104781150352,
+    "retired_seconds": 1472.8895218849648,
+    "status": "Already closed and reviewed; no transfer."
+  },
+  "programme_host_principal_net_cost": "UNMEASURED",
+  "publication": "Only this budget, its pin in prepared envelope, atomic outbox rename, publication receipt and final pointer remain in25s allowance."
+}

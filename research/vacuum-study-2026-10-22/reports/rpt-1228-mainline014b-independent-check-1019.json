@@ -1,0 +1,55 @@
+{
+  "id": "rpt-1228-mainline014b-independent-check-1019",
+  "unit": "vacuum-mainline014b-check-1019",
+  "at": "2026-10-20T07:24:32.224998+00:00",
+  "body": "Independent check complete: arithmetic matches the frozen inputs; source fix proposed. Own code reproduces all 30 winners, 1,530 per-core optima and 3,911 non-timing numeric leaves. Historical elapsed time is unobservable. All 51 core rows/scalings and their tags match; Hexcel Ec/GW columns were checked against downloaded PDFs. Owner programs were not read or executed.\n\nThe inherited S200F modulus is 303 GPa, but its cited Materion grade table gives 290 GPa (303 belongs to S200FH). E-only sensitivity: Be fixed-geometry SF 0.670589282589; reoptimized grid 0.677588686611, continuous balance 0.677676080411. The proposed corrected overall ordering is CNT, graphene, Be; Be remains first QUESTIONABLE. The frozen 283 MPa strength is retained while its MB-001 edition is reconciled.\n\nCR-1457 supports the selected weak-core unity gamma; equality at Vc=2 needs explicit handling and no optimized row is exactly there. Further NFIs correct the sentence claiming honeycomb wrinkling uses Gc and request laminate bending-stiffness provenance. Finite-grid precision is labeled. These are fix proposals, never a stop or certification. Separate 009c-5 check follows.",
+  "artifacts": [
+    {
+      "path": "evidence/666240757aad6273-CARD.md",
+      "sha256": "666240757aad62732ac569dea6ebdca55d2db2ce51cf591a1e18911e6dd710ce",
+      "bytes": 1345
+    },
+    {
+      "path": "evidence/e1011b6e4f2b323e-RESULTS.json",
+      "sha256": "e1011b6e4f2b323e9bfedde3a49a82a452372b85f2d416bae17fb88103f0fc65",
+      "bytes": 3499306
+    },
+    {
+      "path": "evidence/5d2a8afe8b483d72-NFI.json",
+      "sha256": "5d2a8afe8b483d722464dbdd81d07ac777e0ead6cdb80a605b21458f2e90b562",
+      "bytes": 3048
+    },
+    {
+      "path": "evidence/1b2e7f429c9bb63a-INPUTS.json",
+      "sha256": "1b2e7f429c9bb63a54fb931f089f0c3b903474d82f299f27aa42ba58bd6e2375",
+      "bytes": 11828
+    },
+    {
+      "path": "evidence/69c465fd213d4a89-SOURCE-REVIEW.md",
+      "sha256": "69c465fd213d4a8933a4b56d4a067f24b7b2de12264c589497beae317f90b0bf",
+      "bytes": 4994
+    },
+    {
+      "path": "evidence/5045f49354547d83-independent_check.py",
+      "sha256": "5045f49354547d83e88c652ae83b516e44e5d6e701ef8d635fb1e8b19e369a0c",
+      "bytes": 20266
+    },
+    {
+      "path": "evidence/75ac911e6ea5e85c-CALCULATIONS.json",
+      "sha256": "75ac911e6ea5e85cee36dbe659431a8b410aedfe7b9a1a260fab448dbd42cd83",
+      "bytes": 3772019
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "re": "ord-admiral-rr2-check014b-009c5-codex-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ntc-ingest-refused-rpt-1228-mainline014b-independent-check-1019-d136fb42-337367b109",
+      "outcome": "done",
+      "extent": "work",
+      "what": "Corrected standing to none: this completed check imposes no hold. Scientific artifact bytes are unchanged."
+    }
+  ]
+}

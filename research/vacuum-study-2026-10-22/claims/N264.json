@@ -1,0 +1,70 @@
+{
+  "id": "N264",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N264",
+    "report": "rpt-mainline003-grok-p2-targets-1019",
+    "card": "MAINLINE-003",
+    "file": "evidence/2090c6e1f4ca8afb-NFI.json",
+    "row_id": "NFI-SHEAR",
+    "fields": {
+      "NFI_id": "NFI-SHEAR",
+      "gap": "The shear target uses the advisory crimping formula p=2*Gc*d/R. It is not a measured core modulus.",
+      "direction": "Pin a core datasheet and a sourced sandwich shear formula.",
+      "effect": "The required Gc scales with external pressure and inversely with d."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-SHEAR\", \"gap\": \"The shear target uses the advisory crimping formula p=2*Gc*d/R. It is not a measured core modulus.\", \"direction\": \"Pin a core datasheet and a sourced sandwich shear formula.\", \"effect\": \"The required Gc scales with external pressure and inversely with d.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/263"
+    },
+    {
+      "report": "rpt-mainline003-grok-p2-targets-1019",
+      "artifact": "evidence/2090c6e1f4ca8afb-NFI.json",
+      "snapshot": "evidence/2090c6e1f4ca8afb-NFI.json",
+      "sha256": "2090c6e1f4ca8afb62ff5a7a0e2efbe8757aa60a79a773be2fae359cdd446e97",
+      "bytes": 2978,
+      "selector": "source row ID: NFI-SHEAR"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline003-grok-p2-targets-1019",
+          "artifact": "evidence/2090c6e1f4ca8afb-NFI.json",
+          "snapshot": "evidence/2090c6e1f4ca8afb-NFI.json",
+          "sha256": "2090c6e1f4ca8afb62ff5a7a0e2efbe8757aa60a79a773be2fae359cdd446e97",
+          "bytes": 2978,
+          "selector": "source row ID: NFI-SHEAR"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/263"
+          }
+        ]
+      }
+    }
+  ]
+}

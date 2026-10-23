@@ -1,0 +1,316 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline009e-check-1020",
+  "started_at": "2026-10-20T00:34:19-07:00",
+  "case": {
+    "p_Pa": 95460.83791390515,
+    "R_m": 10.0,
+    "nu": 0.33,
+    "lift_kg": 4889.442150186961,
+    "tag": "QUESTIONABLE",
+    "basis": "Pinned COMMON case; full precision inherited from MAINLINE-014 INPUTS"
+  },
+  "face": {
+    "name": "Beryllium S-200F",
+    "E_Pa": 303000000000.0,
+    "sigma_Pa": 283000000.0,
+    "rho_kg_m3": 1850,
+    "tag": "QUESTIONABLE",
+    "source": "Materion beryllium data sheet https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4 (S-200F density 1.85 g/cc, E 303 GPa); Brush/Materion Beryllium Guide MB-001 compressive-yield note",
+    "basis": "compressive yield 41 ksi = 283 MPa (tensile yield 37 ksi on the same page)"
+  },
+  "cores": [
+    {
+      "name": "Hexcel CR-III 5056 1/4-1.6",
+      "family": "aluminium_honeycomb",
+      "form": "honeycomb",
+      "cell": "1/4",
+      "pcf": 1.6,
+      "rho": 25.629541398336222,
+      "s_cell_m": 0.00635,
+      "Ec_Pa": 206842718.7950508,
+      "Gc_Pa": 72394951.57826778,
+      "Gl_Pa": 137895145.8633672,
+      "crush_Pa": 344737.86465841805,
+      "shear_strength_L_Pa": 620528.1563851525,
+      "shear_strength_W_Pa": 413685.4375901016,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "ec_source": "sheet",
+      "crush_basis": "CR-III crush column",
+      "Gc_direction": "W",
+      "rho_kg_m3": 25.629541398336222,
+      "basis": "Live Hexcel Table II agrees: 1.6 pcf, 30 ksi stabilised compression modulus, 10.5 ksi W shear modulus, 50 psi crush."
+    },
+    {
+      "name": "Hexcel CR-III 5056 3/8-1.6",
+      "family": "aluminium_honeycomb",
+      "form": "honeycomb",
+      "cell": "3/8",
+      "pcf": 1.6,
+      "rho": 25.629541398336222,
+      "s_cell_m": 0.009524999999999999,
+      "Ec_Pa": 206842718.7950508,
+      "Gc_Pa": 72394951.57826778,
+      "Gl_Pa": 137895145.8633672,
+      "crush_Pa": 344737.86465841805,
+      "shear_strength_L_Pa": 620528.1563851525,
+      "shear_strength_W_Pa": 413685.4375901016,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "ec_source": "sheet",
+      "crush_basis": "CR-III crush column",
+      "Gc_direction": "W",
+      "rho_kg_m3": 25.629541398336222,
+      "basis": "Live Hexcel Table II agrees: 1.6 pcf, 30 ksi stabilised compression modulus, 10.5 ksi W shear modulus, 50 psi crush."
+    }
+  ],
+  "mass_model": {
+    "payload_fraction": 0.05,
+    "joint_fraction_of_structure": 0.05,
+    "systems_kg": 100.0,
+    "source": "Pinned COMMON case and 014b/009d carry",
+    "tag": "QUESTIONABLE"
+  },
+  "curve": {
+    "name": "optimistic",
+    "formula": "gamma(Vc)=0.20+0.40*min(Vc,2)",
+    "tag": "PROJECTION",
+    "source": "MAINLINE-018 prescribed sensitivity scenario, independently checked in rpt-ref-62323cf6831eb964377f; no empirical calibration"
+  },
+  "formula_record": {
+    "source": "NASA CR-1457, spherical sandwich stability pp 6-6, 6-7 and 6-12; inherited MAINLINE-014b local-mode reading",
+    "url": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+    "tag": "QUESTIONABLE",
+    "global": "sigma0=E*(tf+tc)/(R*sqrt(1-nu^2)); sigmacrimp=(tf+tc)^2*Gc/(2*tf*tc); Vc=sigma0/sigmacrimp; Kc=1-Vc/4 (Vc<=2), 1/Vc otherwise; demand=p*R/(4*tf); SFglobal=gamma*Kc*sigma0/demand",
+    "wrinkling": "B positive root of B^3+B=1; SFwrinkle=B*k*sqrt(E*Ec*tf/tc)/demand; k=0.33,0.82 as inherited 014b assumptions",
+    "compression": "SFface=283e6/demand",
+    "crush": "SFcrush=crush_strength/(p/2)",
+    "dimpling_stated": "SFdimple=[2*E/(1-nu^2)*(tf/cell)^2]/demand (uniaxial, eq 2.1-4)",
+    "dimpling_biaxial": "Source eq 2.1-6 gives Rx+Ry=1; equal biaxial SF is half the uniaxial estimate",
+    "radius": "External radius is inherited; no silent geometric correction."
+  },
+  "owner_point": {
+    "schema": 1,
+    "card": "MAINLINE-009e",
+    "unit": "vacuum-mainline009-combined-point-1019",
+    "status": "ESTIMATE",
+    "tag": "QUESTIONABLE",
+    "certification": "none",
+    "started_at": "2026-10-20T00:15:49-07:00",
+    "ended_at": "2026-10-20T00:15:49-07:00",
+    "curve": "optimistic gamma(Vc) = 0.20 + 0.40 * min(Vc, 2), recomputed at every geometry",
+    "margin": 0.05,
+    "structural_kg": 4328.542897788202,
+    "payload_kg": 244.47210750934806,
+    "total_kg": 4644.970042677613,
+    "ceiling_check_least_SF": 0.668649769508548,
+    "density_kg_m3": 25.629541398336222,
+    "optima": [
+      {
+        "tf_m": 0.0007793283046303996,
+        "core_m": 0.02188998456856847,
+        "h_m": 0.02266931287319887,
+        "Vc": 0.6673115919179704,
+        "Kc": 0.8331721020205074,
+        "gamma": 0.4669246367671882,
+        "branch": "stiff_or_moderate_core",
+        "k_wrinkle": 0.33,
+        "sfs": {
+          "global_buckling": 0.9243883667907633,
+          "face_yield": 0.9241482267704966,
+          "core_shear_crimping": 3.560773040074585,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 1.0983509692756053,
+          "intracell_dimpling": 33.44990036419439
+        },
+        "governing": "face_yield",
+        "least_SF": 0.9241482267704966,
+        "second_mode": "global_buckling",
+        "second_SF": 0.9243883667907633,
+        "core_mass_fraction": 0.162875,
+        "core_name": "Hexcel CR-III 5056 1/4-1.6"
+      },
+      {
+        "tf_m": 0.0007793283046303996,
+        "core_m": 0.02188998456856847,
+        "h_m": 0.02266931287319887,
+        "Vc": 0.6673115919179704,
+        "Kc": 0.8331721020205074,
+        "gamma": 0.4669246367671882,
+        "branch": "stiff_or_moderate_core",
+        "k_wrinkle": 0.33,
+        "sfs": {
+          "global_buckling": 0.9243883667907633,
+          "face_yield": 0.9241482267704966,
+          "core_shear_crimping": 3.560773040074585,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 1.0983509692756053,
+          "intracell_dimpling": 14.8666223840864
+        },
+        "governing": "face_yield",
+        "least_SF": 0.9241482267704966,
+        "second_mode": "global_buckling",
+        "second_SF": 0.9243883667907633,
+        "core_mass_fraction": 0.162875,
+        "core_name": "Hexcel CR-III 5056 3/8-1.6"
+      },
+      {
+        "tf_m": 0.0007793283046303996,
+        "core_m": 0.02188998456856847,
+        "h_m": 0.02266931287319887,
+        "Vc": 0.6673115919179704,
+        "Kc": 0.8331721020205074,
+        "gamma": 0.4669246367671882,
+        "branch": "stiff_or_moderate_core",
+        "k_wrinkle": 0.82,
+        "sfs": {
+          "global_buckling": 0.9243883667907633,
+          "face_yield": 0.9241482267704966,
+          "core_shear_crimping": 3.560773040074585,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 2.7292357418363524,
+          "intracell_dimpling": 33.44990036419439
+        },
+        "governing": "face_yield",
+        "least_SF": 0.9241482267704966,
+        "second_mode": "global_buckling",
+        "second_SF": 0.9243883667907633,
+        "core_mass_fraction": 0.162875,
+        "core_name": "Hexcel CR-III 5056 1/4-1.6"
+      },
+      {
+        "tf_m": 0.0007793283046303996,
+        "core_m": 0.02188998456856847,
+        "h_m": 0.02266931287319887,
+        "Vc": 0.6673115919179704,
+        "Kc": 0.8331721020205074,
+        "gamma": 0.4669246367671882,
+        "branch": "stiff_or_moderate_core",
+        "k_wrinkle": 0.82,
+        "sfs": {
+          "global_buckling": 0.9243883667907633,
+          "face_yield": 0.9241482267704966,
+          "core_shear_crimping": 3.560773040074585,
+          "core_crush": 7.222602947804261,
+          "face_wrinkling": 2.7292357418363524,
+          "intracell_dimpling": 14.8666223840864
+        },
+        "governing": "face_yield",
+        "least_SF": 0.9241482267704966,
+        "second_mode": "global_buckling",
+        "second_SF": 0.9243883667907633,
+        "core_mass_fraction": 0.162875,
+        "core_name": "Hexcel CR-III 5056 3/8-1.6"
+      }
+    ]
+  },
+  "owner_card_claims": {
+    "cells_tie_except_dimpling": true,
+    "coefficients_share_geometry": true,
+    "conservative_curve_not_scored": true,
+    "does_not_replace_009d": true,
+    "P3": "PENDING-011b"
+  },
+  "pin_provenance": [
+    {
+      "path": "unpublished-local-ref:35015c1d40822d20",
+      "sha256": "6fe564e0e8c2404570096906fd365a3dac37f89dac0c77406a68d1bdd2c255b4",
+      "bytes": 2483
+    },
+    {
+      "path": "evidence/b2440805917229c9-CARD.md",
+      "sha256": "b2440805917229c92d30d6d58a880daedf6f6e911d5717896fd36e2ca68b0be3",
+      "bytes": 1681,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/633ec4190abaf5b2-POINT.json",
+      "sha256": "633ec4190abaf5b25da5f075a88a18e7c005d199e3c25bd6c514feb96acd9589",
+      "bytes": 3543,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/70ba2ba536aeb6e0-optimise.py",
+      "sha256": "70ba2ba536aeb6e08e8ab66828ea6cd547566eaa88aabd1818a7ca0bb3b2a7b2",
+      "bytes": 6833,
+      "pin_verified": true,
+      "script_content_read": false
+    },
+    {
+      "path": "evidence/bee89d47f9a66651-RESULTS.json",
+      "sha256": "bee89d47f9a666510744d336a00e86998331020cc2d294fba673c4c2bd274b96",
+      "bytes": 44775,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/b6edcef00e1a043c-INPUTS.json",
+      "sha256": "b6edcef00e1a043c0478c8725d6293668225b6bf5f5f2c5f103e0d9957f306e2",
+      "bytes": 26974,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/c719feb664ab8a57-NFI.json",
+      "sha256": "c719feb664ab8a57caedd0766e264c36a41aa85b9193cdd06f99fb66f67ec8a0",
+      "bytes": 3341,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:f21c166875e85495",
+      "sha256": "0467f718f7d9d3a175635718573f94f58baea1d753e83db4be8edcba9f374034",
+      "bytes": 269874,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:688ee002d731c55b",
+      "sha256": "7a51c3631504018a5de35f545be43edcebd73e248d240e8da59fb5d2b550c43c",
+      "bytes": 174949,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:1b5504be3dbcf019",
+      "sha256": "5dd577735c411e1c9c934e96ec53f330c58afd06658466c2cf0b03585823af14",
+      "bytes": 82780,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:34591390744eba48",
+      "sha256": "0c4475f8cdb48f59489f4d119867f1e7dc61927a5c8947e228ee21eba77e5605",
+      "bytes": 69036,
+      "pin_verified": true
+    },
+    {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "path": "evidence/26bad35864727a96-RESULTS.json",
+      "sha256": "26bad35864727a96f882e0c86ecf640bf13ec5a74c9ff74169eb0d05c1a1db74",
+      "bytes": 47103
+    },
+    {
+      "path": "unpublished-local-ref:663183e5ffe45542",
+      "sha256": "6a1a55855cc2c8b0a864289518b868a0528db319739a26eacb6a4b262f110b51",
+      "bytes": 10571741
+    }
+  ],
+  "independence": "Only owner report, data and prose inspected; owner script hashed as bytes for integrity, not inspected as code or executed. Fresh checker implementation and independent search.",
+  "primary_source_evidence": {
+    "aluminium_table": "Primary public Hexcel Table II verified online and pinned source PDF preserved. Typical values, QUESTIONABLE; 0.625 inch test thickness differs from the scored core depth.",
+    "NASA_dimpling": "Checker visually read printed pages 2-5 and 2-7 from independently downloaded CR-1457. Uniaxial eq 2.1-4; biaxial interaction eq 2.1-6.",
+    "formula_scope": "Reproduce stated 014b formula first, then show the known biaxial dimpling transfer separately. No silent replacement of a brief assumption.",
+    "curve_scope": "MAINLINE-009e optimistic curve only; handbook zero-payload value is a separate control.",
+    "packaging": "Owner report pins only CARD.md, POINT.json, optimise.py; this checker supplies the four COMMON records."
+  },
+  "owner_directory_files": [
+    "CARD.md",
+    "POINT.json",
+    "optimise.py"
+  ]
+}

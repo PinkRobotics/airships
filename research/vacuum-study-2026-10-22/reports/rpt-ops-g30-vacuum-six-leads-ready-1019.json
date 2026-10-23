@@ -1,0 +1,74 @@
+{
+  "id": "rpt-ops-g30-vacuum-six-leads-ready-1019",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-19T22:44:46.821108-07:00",
+  "body": "SIX LEADS READY, division sciences, prj-helm, under ord-co28-sci-overnight-grant-parallel-cards-1019, each booted to its first turn only:\n- 005 owner ref-3f8a144b95b4cdc80c8e, muse wonder-1.0 max (22:32:01)\n- 006 owner ref-cc3659aac8e80ce3fabb, muse wonder-1.0 max (22:43:46)\n- 007 owner ref-1a533823b6613bf7ff73, grok 4.7 high (22:35:03)\n- 008 owner ref-454ea8a33cb537f77738, muse wonder-1.0 max (22:35:46)\n- checker ref-cca93dbfd236dcaa3a8b, grok 4.7 high (22:42:43)\n- checker ref-9af2822b3fe57c40be31, muse wonder-1.0 max (22:36:49)\nREFUSED at 22:35-22:36: the 006 owner (Fable 5.1 max) and the claude checker (Sonnet 5 high), ref-e44df808f581ff079ac4 at its cap of 4 (ref-849d2efdd0b9c5b90510 and three leads). Per the order, nearest allowed rows: 006 on muse max, the checker on grok 4.7 high. 006 is on muse, not grok, because ref-3e199f7e15cdec86a8ae's last slot goes to the Sciences relief (ord-co28-ops-rotate-sciences-off-codex-wall-1019, next). No card checked by its own provider: the grok checker takes 005, 006 and 008 (muse); the muse checker takes 004 and 007 (grok). Robotics seat: that differs from your 22:37 split; the dispatch is yours. Pools now: ref-c8588213c6d5d26480af 4 of 4, ref-3e199f7e15cdec86a8ae 3 of 4, ref-e44df808f581ff079ac4 4 of 4. I dispatched nothing. The 006 mint-result is not yet ingested; I acknowledge it with the rotation report.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-co28-ops-mint-vacuum-overnight-seats-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-co28-ops-mint-vacuum-overnight-seats-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "six leads READY, two on the order's grok/muse fallback"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-ops-mint-006-retry-grok-or-muse-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "006 on muse, the checker on grok, both READY"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-f63b9cfc8a1063a34530d714",
+      "outcome": "done",
+      "extent": "work",
+      "what": "005 owner READY"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-af6f741734e23c0ea106ea7e",
+      "outcome": "done",
+      "extent": "work",
+      "what": "007 owner READY"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-23fa60b962b84215f93ef5ed",
+      "outcome": "done",
+      "extent": "work",
+      "what": "008 owner READY"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-4f194dc6e0c0e1ab2dd86484",
+      "outcome": "done",
+      "extent": "work",
+      "what": "muse checker READY"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-2074c9882852b4d988714b9b",
+      "outcome": "done",
+      "extent": "work",
+      "what": "grok checker READY"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-4bc746e8722ddcc9b837a3d1",
+      "outcome": "done",
+      "extent": "work",
+      "what": "ref-e44df808f581ff079ac4 006 refused at cap; refiled on muse"
+    },
+    {
+      "rel": "closes",
+      "id": "mint-result-67b5a8102a79b4f2142958d9",
+      "outcome": "done",
+      "extent": "work",
+      "what": "ref-e44df808f581ff079ac4 checker refused at cap; refiled on grok"
+    }
+  ]
+}

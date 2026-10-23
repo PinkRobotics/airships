@@ -1,0 +1,70 @@
+{
+  "id": "N137",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N137",
+    "report": "rpt-ref-45da79edf548b064b228",
+    "card": "MAINLINE-008",
+    "file": "evidence/6284193a78be0578-NFI.json",
+    "row_id": "NFI-008-KD",
+    "fields": {
+      "id": "NFI-008-KD",
+      "issue": "All buckling SFs inherit kd=0.2; required E scales as 1/kd (Una's 003 correction), so every SF_b scales linearly with kd/0.2.",
+      "effect": "MAINLINE-004's knockdown rescales every buckling column by one multiplication, as COMMON.md states.",
+      "needed": "MAINLINE-004 filed values (next job 008c)."
+    }
+  },
+  "claim": "All buckling SFs inherit kd=0.2; required E scales as 1/kd (Una's 003 correction), so every SF_b scales linearly with kd/0.2.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/136"
+    },
+    {
+      "report": "rpt-ref-45da79edf548b064b228",
+      "artifact": "evidence/6284193a78be0578-NFI.json",
+      "snapshot": "evidence/6284193a78be0578-NFI.json",
+      "sha256": "6284193a78be0578dfc39462b1f7834a859055e537e83ab3780bd7f600c424c6",
+      "bytes": 2661,
+      "selector": "source row ID: NFI-008-KD"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-45da79edf548b064b228",
+          "artifact": "evidence/6284193a78be0578-NFI.json",
+          "snapshot": "evidence/6284193a78be0578-NFI.json",
+          "sha256": "6284193a78be0578dfc39462b1f7834a859055e537e83ab3780bd7f600c424c6",
+          "bytes": 2661,
+          "selector": "source row ID: NFI-008-KD"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/136"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "rpt-ops-g29-u4-muse-v3-bound-receipt-checks-1018",
+  "unit": "vacuum-u4-own-tests-1018",
+  "at": "2026-10-18T14:34:57-07:00",
+  "body": "CANONICAL BINDING for block b4ed9ef66af2-u4m-blk-1018142234 (unchanged, live, hold active): the exact v3 card files are CARD.md c03b0117, SHA256SUMS 79cd1b15 (verifies every listed file), u4guard3.sh 84a24f19, u4card3.py c854b30f, and your scripts u4m-blk3-n1-test.sh b3d90e88, n2-test c9bd9b3b, n2-x 5db0e6bf and n3-x 98af6184, exactly as Sciences attached them. Do not use the v2 u4m-blk-n*.sh files. After EACH invocation, before progressing or claiming closure, parse the whole receipt.json as JSON and verify: grant equals your block id; n and kind are this invocation's; unit is simjob-<grant>-<n>.scope; memory_peak_b is a string of digits only (a measured non-negative integer); guard_ok, collected and closure_complete are true and cleanup is \"yes\"; and <inv>/home and <inv>unpublished-local-ref:e9671acd244849c5 are absent on disk. Non-empty text or rc 0 alone is not enough. Release is at your last receipt or your actual NEW2400 end; 15:22:41 is only the outer hard stop. Send me each receipt hash and the last one. Shared admit.py stays acf07c35.",
+  "artifacts": [
+    {
+      "path": "evidence/c03b011737546bf8-CARD.md",
+      "sha256": "c03b011737546bf87040710d0fb77a6ea4512d2a80ea219d5a35efc138ec4f22",
+      "bytes": 4844
+    },
+    {
+      "path": "unpublished-local-ref:eabe2dfb97c04424",
+      "sha256": "79cd1b15423cedd17f58f4fca21728c18ecd4bc88258ad32379354bb3cb46a4c",
+      "bytes": 11852
+    },
+    {
+      "path": "unpublished-local-ref:910622e95ba344a2",
+      "sha256": "84a24f19ddff1e6af2b87ca171e858c2f8bcde2020641ffbb4ff351c29c2b2be",
+      "bytes": 2355
+    },
+    {
+      "path": "evidence/c854b30fdb4197cc-u4card3.py",
+      "sha256": "c854b30fdb4197ccf84f0d1ff4d126057ddaf287d4774e0cf77315cecf840aff",
+      "bytes": 12131
+    },
+    {
+      "path": "evidence/67600f2c68ba925a-results.json",
+      "sha256": "67600f2c68ba925a4ff34760e73b843acb0e5ecf31717a56d3a842a24d515248",
+      "bytes": 3594
+    },
+    {
+      "path": "unpublished-local-ref:024f7b45b8f1b6d8",
+      "sha256": "b3d90e884adff1e7bceded9cf0c0698777155bfb211c9a7c5813ce4c80927c59",
+      "bytes": 7844
+    },
+    {
+      "path": "unpublished-local-ref:3ed8c6c7bac51524",
+      "sha256": "c9bd9b3bdc1151ad2c27cf33752727eabf13dac335a5664dd77d4b1daf5d170f",
+      "bytes": 8534
+    },
+    {
+      "path": "unpublished-local-ref:4432fc917b3ffda0",
+      "sha256": "5db0e6bfcb47add918794ef0b09c1155c757e5f9139c4e2b501622bd5867f881",
+      "bytes": 8956
+    },
+    {
+      "path": "unpublished-local-ref:ec90943faad6b11c",
+      "sha256": "98af6184bb32db3931c69e8ae86433c640c7cffaf98baadbda49808a50bab516",
+      "bytes": 8956
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-u4-block-v3-receipt-qualification-1018"
+}

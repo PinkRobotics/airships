@@ -1,0 +1,4682 @@
+{
+  "schema": 1,
+  "all_passed": true,
+  "checks": 1162,
+  "manifest_file_count": 676,
+  "manifest_sha256": "f69567e61d46a9d0e9c3e8977a52bb2ce0a83de516f885d2ea512a45021e2cd5",
+  "input_pins_verified": 42,
+  "execution_invocations": 25,
+  "prior_packages_unchanged": [
+    {
+      "package": "mainline026-p3-lattice-model-1020",
+      "files_verified": 263,
+      "manifest_sha256": "ed14f69708583e8548e93d32a25ebe5c7096241e362eca51613e9feb9435ed52"
+    },
+    {
+      "package": "mainline026b-p3-bays-1020",
+      "files_verified": 164,
+      "manifest_sha256": "14ff81ea91257bf767507ad0e9a94f20faa75c12ba59922f2ff27e964c108331"
+    },
+    {
+      "package": "mainline022d-independent-check-1020",
+      "files_verified": 90,
+      "manifest_sha256": "e396c94afb6345900cbeb655f56798d9276eb328c65c423182c60801bea3b834"
+    }
+  ],
+  "details": [
+    {
+      "name": "input copy intake/ORDER.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/brief/CARD-041-P3-DISCRETE-POINT.md",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/brief/COMMON.md",
+      "pass": true
+    },
+    {
+      "name": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "pass": true
+    },
+    {
+      "name": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026-p3-lattice-model-1020/CARD.md",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026-p3-lattice-model-1020/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026-p3-lattice-model-1020/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026-p3-lattice-model-1020/NFI.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026-p3-lattice-model-1020/METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026-p3-lattice-model-1020/MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026b-p3-bays-1020/CARD.md",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026b-p3-bays-1020/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026b-p3-bays-1020/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026b-p3-bays-1020/NFI.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026b-p3-bays-1020/METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline026b-p3-bays-1020/MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline022d-independent-check-1020/CARD.md",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline022d-independent-check-1020/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline022d-independent-check-1020/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline022d-independent-check-1020/NFI.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline022d-independent-check-1020/METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline022d-independent-check-1020/MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/beam.py",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/corot.py",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/check_cases.py",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/run_classical.py",
+      "pass": true
+    },
+    {
+      "name": "input copy source-baseline/run_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/022d/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/022d/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/film/zylon-hp-fiber-data.pdf",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/joint/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/joint/toray-legacy.pdf",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/joint/henkel-ea9394.pdf",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/technical/corotational-paper.pdf",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/technical/Hexoloy-SA.pdf",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/technical/scipy-eigsh.html",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/technical/beam-buckling-fenics.html",
+      "pass": true
+    },
+    {
+      "name": "input copy intake/mainline022d-independent-check-1020/SOURCES.md",
+      "pass": true
+    },
+    {
+      "name": "released additional-film-local-scores",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal additional-film-local-scores",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source additional-film-local-scores/score.py",
+      "pass": true
+    },
+    {
+      "name": "released assemble-final-audited-package",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal assemble-final-audited-package",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/assemble_results.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/audit_random_sa.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-final-audited-package/score.py",
+      "pass": true
+    },
+    {
+      "name": "released assemble-results-and-figures",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal assemble-results-and-figures",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/assemble_results.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source assemble-results-and-figures/score.py",
+      "pass": true
+    },
+    {
+      "name": "released baseline-f4-m12",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal baseline-f4-m12",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m12/score.py",
+      "pass": true
+    },
+    {
+      "name": "released baseline-f4-m24",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal baseline-f4-m24",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m24/score.py",
+      "pass": true
+    },
+    {
+      "name": "released baseline-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal baseline-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source baseline-f4-m6/score.py",
+      "pass": true
+    },
+    {
+      "name": "released film-pinned-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal film-pinned-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-pinned-f4-m6/score.py",
+      "pass": true
+    },
+    {
+      "name": "released film-rigid-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal film-rigid-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source film-rigid-f4-m6/score.py",
+      "pass": true
+    },
+    {
+      "name": "released finalize-coarse-m3",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal finalize-coarse-m3",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-coarse-m3/score.py",
+      "pass": true
+    },
+    {
+      "name": "released finalize-f45-m24",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal finalize-f45-m24",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f45-m24/score.py",
+      "pass": true
+    },
+    {
+      "name": "released finalize-f456-m12",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal finalize-f456-m12",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m12/score.py",
+      "pass": true
+    },
+    {
+      "name": "released finalize-f456-m6",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal finalize-f456-m6",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source finalize-f456-m6/score.py",
+      "pass": true
+    },
+    {
+      "name": "released fresh-random-SA-m24",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal fresh-random-SA-m24",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/assemble_results.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/audit_random_sa.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source fresh-random-SA-m24/score.py",
+      "pass": true
+    },
+    {
+      "name": "released nonlinear-audit-m24",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal nonlinear-audit-m24",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/assemble_results.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m24/score.py",
+      "pass": true
+    },
+    {
+      "name": "released nonlinear-audit-m6-m12",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal nonlinear-audit-m6-m12",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-audit-m6-m12/score.py",
+      "pass": true
+    },
+    {
+      "name": "released nonlinear-baseline-f4-m12",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal nonlinear-baseline-f4-m12",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m12/score.py",
+      "pass": true
+    },
+    {
+      "name": "released nonlinear-baseline-f4-m24",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal nonlinear-baseline-f4-m24",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m24/score.py",
+      "pass": true
+    },
+    {
+      "name": "released nonlinear-baseline-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal nonlinear-baseline-f4-m6",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source nonlinear-baseline-f4-m6/score.py",
+      "pass": true
+    },
+    {
+      "name": "released resize-coarse-m3",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal resize-coarse-m3",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3/score.py",
+      "pass": true
+    },
+    {
+      "name": "released resize-coarse-m3-valid-watchdog",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal resize-coarse-m3-valid-watchdog",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-coarse-m3-valid-watchdog/score.py",
+      "pass": true
+    },
+    {
+      "name": "released resize-f45-m24",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal resize-f45-m24",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f45-m24/score.py",
+      "pass": true
+    },
+    {
+      "name": "released resize-f456-m12",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal resize-f456-m12",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m12/score.py",
+      "pass": true
+    },
+    {
+      "name": "released resize-f456-m6",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal resize-f456-m6",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source resize-f456-m6/score.py",
+      "pass": true
+    },
+    {
+      "name": "released scientific-checks",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal scientific-checks",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks/score.py",
+      "pass": true
+    },
+    {
+      "name": "released scientific-checks-resolved",
+      "pass": true
+    },
+    {
+      "name": "no capacity refusal scientific-checks-resolved",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/beam.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/check_041.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/corot.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/run_film.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "archived source scientific-checks-resolved/score.py",
+      "pass": true
+    },
+    {
+      "name": "all started invocations ended",
+      "pass": true
+    },
+    {
+      "name": "frozen prior package mainline026-p3-lattice-model-1020",
+      "pass": true,
+      "files": 263,
+      "mismatches": []
+    },
+    {
+      "name": "frozen prior package mainline026b-p3-bays-1020",
+      "pass": true,
+      "files": 164,
+      "mismatches": []
+    },
+    {
+      "name": "frozen prior package mainline022d-independent-check-1020",
+      "pass": true,
+      "files": 90,
+      "mismatches": []
+    },
+    {
+      "name": "numerical check ledger passed",
+      "pass": true
+    },
+    {
+      "name": "fresh smallest-algebraic audit passed",
+      "pass": true
+    },
+    {
+      "name": "qualified quantities remain null",
+      "pass": true
+    },
+    {
+      "name": "no successor",
+      "pass": true
+    },
+    {
+      "name": "NFI ledger retained",
+      "pass": true
+    },
+    {
+      "name": "code archive additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "code archive assemble_results.py",
+      "pass": true
+    },
+    {
+      "name": "code archive audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "code archive audit_random_sa.py",
+      "pass": true
+    },
+    {
+      "name": "code archive beam.py",
+      "pass": true
+    },
+    {
+      "name": "code archive check_041.py",
+      "pass": true
+    },
+    {
+      "name": "code archive corot.py",
+      "pass": true
+    },
+    {
+      "name": "code archive film.py",
+      "pass": true
+    },
+    {
+      "name": "code archive finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "code archive force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "code archive frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "code archive mixed.py",
+      "pass": true
+    },
+    {
+      "name": "code archive package_admin.py",
+      "pass": true
+    },
+    {
+      "name": "code archive refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "code archive resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "code archive run_film.py",
+      "pass": true
+    },
+    {
+      "name": "code archive run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "code archive run_job.py",
+      "pass": true
+    },
+    {
+      "name": "code archive run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "code archive score.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/beam.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/check_cases.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/corot.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/run_classical.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-baseline/run_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-history/assemble_results-card-before-random-sa.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-history/assemble_results-pre-card.py",
+      "pass": true
+    },
+    {
+      "name": "code archive source-history/check_041-initial.py",
+      "pass": true
+    },
+    {
+      "name": "code archive intake/022d/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "code archive METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "code archive INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest ADDITIONAL-SCORES.json",
+      "pass": true
+    },
+    {
+      "name": "manifest CARD.md",
+      "pass": true
+    },
+    {
+      "name": "manifest CHECKS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest CODE.tar.gz",
+      "pass": true
+    },
+    {
+      "name": "manifest EXECUTION.json",
+      "pass": true
+    },
+    {
+      "name": "manifest GLOBAL-SA-AUDIT.json",
+      "pass": true
+    },
+    {
+      "name": "manifest INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "manifest MODES.csv",
+      "pass": true
+    },
+    {
+      "name": "manifest NFI.json",
+      "pass": true
+    },
+    {
+      "name": "manifest NONLINEAR-AUDIT-M24.json",
+      "pass": true
+    },
+    {
+      "name": "manifest NONLINEAR-AUDIT-M6-M12.json",
+      "pass": true
+    },
+    {
+      "name": "manifest PRIOR-FREEZE-CHECK.json",
+      "pass": true
+    },
+    {
+      "name": "manifest RESIZE.csv",
+      "pass": true
+    },
+    {
+      "name": "manifest RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest SCIENCE-CHECKS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest SELECTED-MODE.pdf",
+      "pass": true
+    },
+    {
+      "name": "manifest SELECTED-MODE.png",
+      "pass": true
+    },
+    {
+      "name": "manifest SIMJOB-FINAL-STATUS.txt",
+      "pass": true
+    },
+    {
+      "name": "manifest SOURCES.md",
+      "pass": true
+    },
+    {
+      "name": "manifest SUMMARY.pdf",
+      "pass": true
+    },
+    {
+      "name": "manifest SUMMARY.png",
+      "pass": true
+    },
+    {
+      "name": "manifest additional_scores.py",
+      "pass": true
+    },
+    {
+      "name": "manifest assemble_results.py",
+      "pass": true
+    },
+    {
+      "name": "manifest audit_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "manifest audit_random_sa.py",
+      "pass": true
+    },
+    {
+      "name": "manifest beam.py",
+      "pass": true
+    },
+    {
+      "name": "manifest check_041.py",
+      "pass": true
+    },
+    {
+      "name": "manifest corot.py",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/additional-film-local-scores/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/additional-film-local-scores/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/additional-film-local-scores/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/additional-film-local-scores/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-final-audited-package/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-final-audited-package/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-final-audited-package/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-final-audited-package/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-results-and-figures/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-results-and-figures/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-results-and-figures/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/assemble-results-and-figures/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m12/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m12/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m12/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m12/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m24/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m24/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m24/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m24/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m6/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m6/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m6/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/baseline-f4-m6/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-pinned-f4-m6/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-pinned-f4-m6/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-pinned-f4-m6/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-pinned-f4-m6/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-rigid-f4-m6/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-rigid-f4-m6/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-rigid-f4-m6/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/film-rigid-f4-m6/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-coarse-m3/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-coarse-m3/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-coarse-m3/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-coarse-m3/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f45-m24/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f45-m24/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f45-m24/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f45-m24/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m12/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m12/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m12/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m12/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m6/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m6/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m6/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/finalize-f456-m6/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/fresh-random-SA-m24/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/fresh-random-SA-m24/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/fresh-random-SA-m24/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/fresh-random-SA-m24/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m24/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m24/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m24/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m24/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m6-m12/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m6-m12/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m6-m12/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-audit-m6-m12/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m12/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m12/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m12/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m12/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m24/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m24/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m24/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m24/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m6/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m6/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m6/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/nonlinear-baseline-f4-m6/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3-valid-watchdog/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3-valid-watchdog/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3-valid-watchdog/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-coarse-m3-valid-watchdog/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f45-m24/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f45-m24/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f45-m24/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f45-m24/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m12/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m12/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m12/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m12/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m6/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m6/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m6/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/resize-f456-m6/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks-resolved/END.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks-resolved/START.json",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks-resolved/stderr.log",
+      "pass": true
+    },
+    {
+      "name": "manifest execution/scientific-checks-resolved/stdout.log",
+      "pass": true
+    },
+    {
+      "name": "manifest film/pinned/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest film/pinned/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest film/pinned/response.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest film/rigid/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest film/rigid/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest film/rigid/response.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest film.py",
+      "pass": true
+    },
+    {
+      "name": "manifest finalize_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "manifest force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "manifest frame_tools.py",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m12/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m12/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m12/response.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m24/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m24/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m24/response.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m6/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m6/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest frames/baseline-f4-m6/response.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/022d/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/022d/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/ORDER.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/brief/CARD-041-P3-DISCRETE-POINT.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/brief/COMMON.md",
+      "pass": true
+    },
+    {
+      "name": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "pass": true
+    },
+    {
+      "name": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/film/zylon-hp-fiber-data.pdf",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/joint/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/joint/henkel-ea9394.pdf",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/joint/toray-legacy.pdf",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline022d-independent-check-1020/CARD.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline022d-independent-check-1020/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline022d-independent-check-1020/MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline022d-independent-check-1020/METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline022d-independent-check-1020/NFI.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline022d-independent-check-1020/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline022d-independent-check-1020/SOURCES.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026-p3-lattice-model-1020/CARD.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026-p3-lattice-model-1020/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026-p3-lattice-model-1020/MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026-p3-lattice-model-1020/METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026-p3-lattice-model-1020/NFI.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026-p3-lattice-model-1020/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026b-p3-bays-1020/CARD.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026b-p3-bays-1020/INPUTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026b-p3-bays-1020/MANIFEST.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026b-p3-bays-1020/METHODS.md",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026b-p3-bays-1020/NFI.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/mainline026b-p3-bays-1020/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/technical/Hexoloy-SA.pdf",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/technical/SOURCES.json",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/technical/beam-3d.html",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/technical/beam-buckling-fenics.html",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/technical/corotational-paper.pdf",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/technical/oasys-materials.html",
+      "pass": true
+    },
+    {
+      "name": "manifest intake/technical/scipy-eigsh.html",
+      "pass": true
+    },
+    {
+      "name": "manifest mixed.py",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m12/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m12/checkpoint.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m12/critical.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m12/progress.jsonl",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m12/reference.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m24/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m24/checkpoint.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m24/critical.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m24/progress.jsonl",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m24/reference.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m6/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m6/checkpoint.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m6/critical.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m6/progress.jsonl",
+      "pass": true
+    },
+    {
+      "name": "manifest nonlinear/perfect-f4-m6/reference.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest package_admin.py",
+      "pass": true
+    },
+    {
+      "name": "manifest refine_candidates.py",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/CLOSED.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/PARTIAL.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f1/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f10/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f2/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f3/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f4/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f5/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f6/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f7/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f8/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/coarse-m3/f9/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/CLOSED.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f4/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f4/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f4/sample-000/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f4/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f4/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f4/sample-001/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f5/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f5/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f5/sample-000/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f5/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f5/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f45-m24/f5/sample-001/modes.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/CLOSED.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/PARTIAL.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f4/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f5/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m12/f6/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/CLOSED.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/PARTIAL.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f4/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f5/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/OPTIMA.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-000/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-000/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-001/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-001/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-002/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-002/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-003/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-003/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-004/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-004/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-005/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-005/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-006/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-006/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-007/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-007/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-008/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-008/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-009/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-009/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-010/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-010/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-011/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-011/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-012/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-012/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-013/RESULTS.json",
+      "pass": true
+    },
+    {
+      "name": "manifest resize/f456-m6/f6/sample-013/arrays.npz",
+      "pass": true
+    },
+    {
+      "name": "manifest resize_scan.py",
+      "pass": true
+    },
+    {
+      "name": "manifest run_film.py",
+      "pass": true
+    },
+    {
+      "name": "manifest run_frame.py",
+      "pass": true
+    },
+    {
+      "name": "manifest run_job.py",
+      "pass": true
+    },
+    {
+      "name": "manifest run_verified_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "manifest score.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/beam.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/check_cases.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/corot.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/force_stats.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/mixed.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/run_classical.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/run_job.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-baseline/run_nonlinear.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-history/assemble_results-card-before-random-sa.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-history/assemble_results-pre-card.py",
+      "pass": true
+    },
+    {
+      "name": "manifest source-history/check_041-initial.py",
+      "pass": true
+    },
+    {
+      "name": "manifest work-start.json",
+      "pass": true
+    }
+  ]
+}

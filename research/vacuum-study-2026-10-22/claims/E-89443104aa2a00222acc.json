@@ -1,0 +1,39 @@
+{
+  "id": "E-89443104aa2a00222acc",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-89443104aa2a00222acc",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/owner_findings_unchanged/rows/5",
+    "row_id": "NFI052-06",
+    "fields": {
+      "id": "NFI052-06",
+      "title": "Humidity criterion and service",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "5% of cold saturation is a design target; h=2 shortens the nominal first interval. Initial fill is assumed dry.",
+      "proposed_fix": "Measure the complete internal dewpoint distribution and establish an operating interval including uncertainty."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "5% of cold saturation is a design target; h=2 shortens the nominal first interval. Initial fill is assumed dry. | Humidity criterion and service",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/owner_findings_unchanged/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

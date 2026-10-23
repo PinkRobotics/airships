@@ -1,0 +1,74 @@
+{
+  "id": "N384",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N384",
+    "report": "rpt-ref-74e882831c201b1a953c",
+    "card": "MAINLINE-015b",
+    "file": "evidence/647d16ffad5d78ae-NFI.json",
+    "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+    "source_sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+    "source_json_pointer": "/rows/0",
+    "row_id": "NFI-015B-WIDTH-NU",
+    "fields": {
+      "id": "NFI-015B-WIDTH-NU",
+      "issue": "The filed 015 prominent RMS paired a lambda_I = 1 amplitude with a lambda_I = 2.625 width, and the widths used nu 0.30 while COMMON and the 015 inputs declare 0.33. The live map carries nu 0.33 only and matches width to amplitude at lambda_I = 1. The filed column is 2.611 times the live single-dimple RMS.",
+      "consequence": "The manufacturing conclusion that used the prominent RMS is replaced by the matched column. The retired mix is kept only as an audit.",
+      "next": "None. The arithmetic is in RESULTS.json."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "The filed 015 prominent RMS paired a lambda_I = 1 amplitude with a lambda_I = 2.625 width, and the widths used nu 0.30 while COMMON and the 015 inputs declare 0.33. The live map carries nu 0.33 only and matches width to amplitude at lambda_I = 1. The filed column is 2.611 times the live single-dimple RMS.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/383"
+    },
+    {
+      "report": "rpt-ref-74e882831c201b1a953c",
+      "artifact": "evidence/647d16ffad5d78ae-NFI.json",
+      "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+      "sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+      "bytes": 2972,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-74e882831c201b1a953c",
+          "artifact": "evidence/647d16ffad5d78ae-NFI.json",
+          "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+          "sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+          "bytes": 2972,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/383"
+          }
+        ]
+      }
+    }
+  ]
+}

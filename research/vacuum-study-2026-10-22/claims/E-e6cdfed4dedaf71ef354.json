@@ -1,0 +1,45 @@
+{
+  "id": "E-e6cdfed4dedaf71ef354",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-e6cdfed4dedaf71ef354",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/checker_findings/2",
+    "row_id": "NFI-C052-03",
+    "fields": {
+      "id": "NFI-C052-03",
+      "status": "OPEN",
+      "blocking": false,
+      "type": "brief custody discrepancy",
+      "location": "CHECK052 order artifact COMMON.md",
+      "expected_sha256": "b32d08a24bcd3ac046df76771d66f214f59d9e82ce4bc4237df1f93086339c64",
+      "observed_sha256": "6a6a596f4dc23790d58cd5bc0d707322f639bf3fc68979674e39a1de6a13dbd7",
+      "expected_bytes": 6217,
+      "observed_bytes": 6368,
+      "exact_rows": "PIN-DISCREPANCIES.json",
+      "effect": "Direct order and matching CHECK.md govern this check; all owner numerical input pins match.",
+      "proposed_fix": "Future dispatches should pin an immutable matching brief copy. No reply is requested."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-C052-03\", \"status\": \"OPEN\", \"blocking\": false, \"type\": \"brief custody discrepancy\", \"location\": \"CHECK052 order artifact COMMON.md\", \"expected_sha256\": \"b32d08a24bcd3ac046df76771d66f214f59d9e82ce4bc4237df1f93086339c64\", \"observed_sha256\": \"6a6a596f4dc23790d58cd5bc0d707322f639bf3fc68979674e39a1de6a13dbd7\", \"expected_bytes\": 6217, \"observed_bytes\": 6368, \"exact_rows\": \"PIN-DISCREPANCIES.json\", \"effect\": \"Direct order and matching CHECK.md govern this check; all owner numerical input pins match.\", \"proposed_fix\": \"Future dispatches should pin an immutable matching brief copy. No reply is requested.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/checker_findings/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

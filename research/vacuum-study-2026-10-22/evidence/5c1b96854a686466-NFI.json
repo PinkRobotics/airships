@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline055-check-1020",
+  "blocking": false,
+  "rows": [
+    {
+      "id": "C055-01",
+      "title": "Rig gamma uses the Be denominator for the proposed aluminium article",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The article definition requires its own Kc*p_classical. Be p_H=169.207732590530 kPa; 5052-O p_H=174.466866567275 kPa. Sea-level/5m-water gamma is 0.575037552829/0.856083753548 for 5052-O, versus card 0.592910711208/0.882692312307. The latter reproduces on the Be reference.",
+      "proposed_fix": "Label a Be-equivalent reference separately; report measured article gamma against its own section. Specify whether water head is measured above the pole."
+    },
+    {
+      "id": "C055-02",
+      "title": "Stand-in matches one elastic combination, not complete similarity",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "3.103123575680 mm and yield-demand ratio 0.985992767035 reproduce for the QUESTIONABLE 89.6 MPa tensile proxy. Vc changes from 0.953213852654 to 0.858516900574, biaxial membrane stiffness increases 30.667536%, and the wrinkle margin multiplies by 4.003643932. At 9.318 mm the owner's own core-onset ratio is 1.041532306140, exceeding the text's 'within +2.6%'.",
+      "proposed_fix": "State these changes and the separate 9.318-mm yield/onset ratios; measure the formed/cured 5052-O compression response before claiming a yield interaction match."
+    },
+    {
+      "id": "C055-03",
+      "title": "Published dimple limits are interpolations; direct roots are tighter",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "Card elastic/outer-face/core-typical/core-minimum amplitudes are 5.823329047944/1.271068488423/2.377335243900/1.802745695209 mm. Independent direct coarse-mesh roots are 5.775402642639/1.221966307286/2.299766860540/1.763033119832 mm. All remain conditional elastic-model diagnostics.",
+      "proposed_fix": "Label interpolation explicitly. Use direct solves with diagnostic and mesh conventions pinned; do not promote either set to a manufacturing allowable."
+    },
+    {
+      "id": "C055-04",
+      "title": "Stress diagnostics and cap-edge crossings are less reproducible than pressure maxima",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "All 23 named pressure maxima reproduce within 0.001127%; stress-crossing differences reach 1.139% for inner-face yield and 2.551% for core crush. Refining the 5m Be cap from 256x(1f,4c,1f) to 512x(2f,6c,2f) moves inner yield 58.245971 to 52.674434 kPa and crush 59.318692 to 53.785270 kPa, while the pressure maximum stays stable.",
+      "proposed_fix": "Pin stress sampling/rotation conventions; retain the edge as unresolved. Model a finite reinforced edge and check local convergence before using an edge allowable."
+    },
+    {
+      "id": "C055-05",
+      "title": "The R30-similar article cannot use the specified B tooling unchanged",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "D requires a 6m cap; B specifies a 5.4m mould and a 5m tank. The 6m cap has 1.4505436 times the area and about 498 kg of matching aluminium faces, versus 331.852 kg for B. The owner's 15m full-R30 statement corresponds to a 5m R10 cap; its selected 6m similar cap corresponds to 18m.",
+      "proposed_fix": "Size and price compatible mould, seal ring and tank, or change the article and recompute the boundary effect. Keep D's current price explicitly incomplete."
+    },
+    {
+      "id": "C055-06",
+      "title": "Cost arithmetic agrees for B; C is rounded and D has unallocated allowances",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "B sums to USD 210000–685000 once, 70000–291000 per article and 420000–1558000 for three. C's literal 58.660260kg basis gives 936602.60–4583013.00, consistent with rounded 1–4.6M. Twice B's per-article lines gives D 140000–582000, not 150000–610000; the extra 10000/28000 is unallocated and cannot establish a tooling upgrade.",
+      "proposed_fix": "Expose contingencies, fabrication yield, edge reinforcement, transport/tax and the larger D rig as separate PROJECTION lines; retain no-quote status."
+    },
+    {
+      "id": "C055-07",
+      "title": "DIC price evidence should use the actual primary award",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The cited 180–350k purchase indicator was an AI estimate from an aggregator. The related NIST award 1333ND26PNB30149, dated 2026-09-22, lists total value USD 530000. This is a different procurement scope from a rented or partner-supplied experiment.",
+      "proposed_fix": "Replace the weak purchase-price reference with the primary award and scope distinction. Do not convert it directly into a revised rental or total test cost."
+    },
+    {
+      "id": "C055-08",
+      "title": "SR-200 ductility and available blank dimensions are misstated or incompletely transferred",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The owner's post_yield field says about 2–3% elongation. The cited SR-200 sheet datasheet specifies 10% minimum over a one-inch gauge. It allows 0.020–0.058-inch sheet only at reduced width/length; the 0.7946mm face falls in that range. The assumed 0.6096x1.8288m blank and 18-panels-per-face count are not established for it.",
+      "proposed_fix": "Use the sheet-specific tensile requirement without treating it as formed/biaxial fracture data. Re-layout seams and price actual gauges/blanks. Carry CHECK038 and CHECK042 qualifications."
+    },
+    {
+      "id": "C055-09",
+      "title": "Statistics wording and sampling populations need correction",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The exact one-sided 90/95 noncentral-t factors reproduce, including k3=6.155281103326 and k10=2.354640131829. At n=3 and CV=10%, the formula gives a finite required mean 1.467373857912, not 'no mean'. It exceeds one only if gamma<=1 is imposed. One cap at each of three different dimple amplitudes is not three iid replicates of one amplitude population.",
+      "proposed_fix": "State any gamma ceiling explicitly; separate model-discrimination tests from population tolerance bounds. The 10% model-agreement acceptance rule is a proposed rule, not a qualification standard established by the NASA precedent."
+    },
+    {
+      "id": "C055-10",
+      "title": "Specified metrology does not establish the smallest waviness target",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The proposed 0.1–0.3mm scan precision is 1.33–3.99 times the 0.0751mm end of the waviness requirement. No uncertainty budget, spatial sampling or frequency-band verification is supplied.",
+      "proposed_fix": "Choose and validate metrology for the actual wavelength and tolerance; retain separate gross dimple and short-wave waviness requirements."
+    },
+    {
+      "id": "C055-11",
+      "title": "Core-law instability is reproduced; the reported 7–11kPa range is not the new pair of paths",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "An independent acoustic-tensor calculation gives pure-simple-shear loss of ellipticity at 0.087740979 MPa (W) and 0.087868882 MPa (L) with E_in=0.01MPa. Interpolating the owner's new R10 paths at 0.088MPa gives 10.126661 and 16.750523kPa for 16.057/9.318mm dimples, not a 7–11kPa pair. The pure-shear threshold is not a full-state stability calculation.",
+      "proposed_fix": "Correct the carried range and preserve the constitutive limitation. Replace the unsourced in-plane law or model cells; do not interpret coarse elastic maxima as physical capacities."
+    },
+    {
+      "id": "C055-12",
+      "title": "Core crush, compression and cure qualifications remain distinct",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "Hexcel lists W shear 35/25psi typical/minimum and crush 35psi; these reproduce. Its bare and stabilized compression strengths differ from the crush plateau. ASTM C365 explicitly excludes core crush, referring to D7336. CHECK042 also already found that the cited 200F evidence does not qualify the specified adhesive variant and weight.",
+      "proposed_fix": "Witness shear, flatwise compression and crush as separate quantities; specify D7336 where crush is intended. Qualify the actual face/core/bond/cure stack and retain the unresolved Be compression allowable."
+    },
+    {
+      "id": "C055-13",
+      "title": "Reis and R30 similarity conventions must be explicit",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The 356.777mm width uses legacy nu=0.33; with Be nu=0.0752 its Reis lambda is about 1.0278. R30 R/t_eq is 164.871, despite R/h=285.565, so the two thickness ratios cannot be interchanged in the thin-shell discussion. R30 FE also uses nu=0.0752 while its 040 source uses 0.0768. These are small arithmetic/convention changes inside a larger unproved sandwich transfer.",
+      "proposed_fix": "Report both ratios and Poisson conventions. Preserve homogeneous neo-Hookean versus sandwich distinctions and compare R30 against its actual 97.172303kPa design load."
+    },
+    {
+      "id": "C055-14",
+      "title": "Cheapest/smallest and qualification claims exceed the tested model scope",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The finite-element comparisons omit seams, explicit cells, nonlinear materials, the proposed reinforcement, thermal residuals, water loading gradients and nonaxisymmetric modes. Generic handbook/CMH17 stand-in properties lack edition/page or laminate identification. Hardware listings establish size classes, not a qualified process, booking or quotation.",
+      "proposed_fix": "Describe B as a proposed candidate among the examined options. Keep physical gamma, installed-hull SF and qualified tolerances null; define validated transfer and first-failure mode before applying the outcome bands."
+    }
+  ]
+}

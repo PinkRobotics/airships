@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-3484d24f707ffbfe30ee",
+  "unit": "vacuum-mainline011-check-1019",
+  "at": "2026-10-19T23:44:31-07:00",
+  "body": "MAINLINE-011 check. The four limits agree. At s 3 m, r_o 86.6 mm and t_w 2.25 mm, Euler is 0.2333, yield 0.2331, local 0.908 and film 0.838. An own scan on the 0.02 m grid finds that point, and the same best values for T700 0.765, M55J 0.487, K13D2U 0.287, SiC 2.849 at s 0.88, and CNT 1.949 at s 1.28. The fixed r_o 0.02 m row matches 005: wall 3.497 mm, Euler 0.0960, yield 0.2319. Against P2-E the ratios are 0.997 at kd 0.2 and 1.417 at kd 0.1407.\n\nThe member is an axial column of length s. The card does not say arc or straight. A straight chord at that point sags 112.5 mm, past the 86.6 mm radius, and no bending term is carried. No global mode is carried; NFI-011-GLOBAL says so. The follow-on brief's two-way expression is a perfect SF 0.704 here. A triangular coefficient was not sourced. One prose miss: at r_o 0.02 m, K13D2U is yield-bound at 0.285, with Euler at 0.405. SiC's film becomes the least limit at s 0.90, SF 2.793, rather than only at s 1. Tags are present. These objections do not stop the card.",
+  "artifacts": [
+    {
+      "path": "evidence/8214dfb6596f658a-CHECK.md",
+      "sha256": "8214dfb6596f658a88fc93777fe31a302263138158c89002f11b11caad36740f",
+      "bytes": 2960
+    },
+    {
+      "path": "evidence/93107c4c7b668d4f-check011.py",
+      "sha256": "93107c4c7b668d4f1c78cb4fbc16fa6033501acc9c6f000eae1065d45e20a5ca",
+      "bytes": 7345
+    },
+    {
+      "path": "unpublished-local-ref:8217ae45ca23f663",
+      "sha256": "377f46cda78a7d44d6271135a2ff90211dceac09c623b36199d3fd63eab55ba3",
+      "bytes": 2337
+    }
+  ],
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-check011-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check011-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

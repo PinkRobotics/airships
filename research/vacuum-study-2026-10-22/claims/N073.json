@@ -1,0 +1,71 @@
+{
+  "id": "N073",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N073",
+    "report": "rpt-ref-d7f99cd71e977826da48",
+    "card": "MAINLINE-019",
+    "file": "evidence/fec518f4f7e18a36-NFI.json",
+    "row_id": "NFI-019-SYSTEMS",
+    "fields": {
+      "id": "NFI-019-SYSTEMS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "The battery estimate assumes 150 Wh/kg packaged, 80% usable and 90% conversion. Catalog pump speed/power are not installed duty measurements; the smaller SV220B cannot meet the stated hot-gas flow at the fixed pressure cap.",
+      "next_evidence": "Measure the SV300B or alternative system's curve, input power, cooling, line conductance and duty cycle; procure a qualified power package. Passive and 8 h sensitivities isolate the endurance assumption."
+    }
+  },
+  "claim": "The battery estimate assumes 150 Wh/kg packaged, 80% usable and 90% conversion. Catalog pump speed/power are not installed duty measurements; the smaller SV220B cannot meet the stated hot-gas flow at the fixed pressure cap.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/72"
+    },
+    {
+      "report": "rpt-ref-d7f99cd71e977826da48",
+      "artifact": "evidence/fec518f4f7e18a36-NFI.json",
+      "snapshot": "evidence/fec518f4f7e18a36-NFI.json",
+      "sha256": "fec518f4f7e18a36358537fb81b179a325deb431ca2e2a02d74338a4896ea7f0",
+      "bytes": 7294,
+      "selector": "source row ID: NFI-019-SYSTEMS"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d7f99cd71e977826da48",
+          "artifact": "evidence/fec518f4f7e18a36-NFI.json",
+          "snapshot": "evidence/fec518f4f7e18a36-NFI.json",
+          "sha256": "fec518f4f7e18a36358537fb81b179a325deb431ca2e2a02d74338a4896ea7f0",
+          "bytes": 7294,
+          "selector": "source row ID: NFI-019-SYSTEMS"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/72"
+          }
+        ]
+      }
+    }
+  ]
+}

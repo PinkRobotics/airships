@@ -1,0 +1,1056 @@
+{
+  "schema": 1,
+  "status": "ESTIMATE_PENDING_UNA",
+  "dependency": "DEPENDENCY002_AND_003_ESTIMATE_PENDING_UNA",
+  "card": "MAINLINE-006",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "map_point": false,
+  "kd": 0.2,
+  "kd_note": "Buckling SF scales linearly with kd. This card uses the MAINLINE-002 value 0.2.",
+  "lift_kg": 4889.442150186961,
+  "p_ext_Pa": 95460.83791390515,
+  "families": {
+    "P1": {
+      "rows": [
+        {
+          "family": "P1",
+          "label": "0",
+          "margin_requested": 0.0,
+          "float_margin": 1.8601195675014813e-16,
+          "payload_kg": 9.094947017729282e-13,
+          "structural_mass_kg": 4889.44215018696,
+          "masses_kg": {
+            "shell": 4263.129227442691,
+            "joints": 426.3129227442691,
+            "systems_payload": 200.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.0027876603671443925,
+          "yield_SF": 0.7265553498877941,
+          "least_SF": 0.0027876603671443925,
+          "buckling_pressure_Pa": 266.1123944669882,
+          "yield_pressure_Pa": 69357.58249111936,
+          "geometry": {
+            "t_m": 0.0012564779436796986
+          },
+          "extra": {
+            "t_m": 0.0012564779436796986
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P1",
+          "label": "5pct",
+          "margin_requested": 0.05,
+          "float_margin": 0.050000000000000454,
+          "payload_kg": 244.47210750935028,
+          "structural_mass_kg": 4644.970042677611,
+          "masses_kg": {
+            "shell": 4040.8818569796463,
+            "joints": 404.08818569796466,
+            "systems_payload": 200.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.0025045815207599066,
+          "yield_SF": 0.6886782395790167,
+          "least_SF": 0.0025045815207599066,
+          "buckling_pressure_Pa": 239.08945059542353,
+          "yield_pressure_Pa": 65741.80180328606,
+          "geometry": {
+            "t_m": 0.0011909746703493852
+          },
+          "extra": {
+            "t_m": 0.0011909746703493852
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P1",
+          "label": "10pct",
+          "margin_requested": 0.1,
+          "float_margin": 0.10000000000000017,
+          "payload_kg": 488.9442150186969,
+          "structural_mass_kg": 4400.497935168264,
+          "masses_kg": {
+            "shell": 3818.6344865166034,
+            "joints": 381.86344865166035,
+            "systems_payload": 200.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.0022366552382636594,
+          "yield_SF": 0.6508011292702397,
+          "least_SF": 0.0022366552382636594,
+          "buckling_pressure_Pa": 213.5129831691741,
+          "yield_pressure_Pa": 62126.021115452786,
+          "geometry": {
+            "t_m": 0.0011254713970190722
+          },
+          "extra": {
+            "t_m": 0.0011254713970190722
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P1",
+          "label": "20pct",
+          "margin_requested": 0.2,
+          "float_margin": 0.20000000000000023,
+          "payload_kg": 977.8884300373934,
+          "structural_mass_kg": 3911.5537201495677,
+          "masses_kg": {
+            "shell": 3374.139745590516,
+            "joints": 337.4139745590516,
+            "systems_payload": 200.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.0017462603649358705,
+          "yield_SF": 0.5750469086526854,
+          "least_SF": 0.0017462603649358705,
+          "buckling_pressure_Pa": 166.69947765262,
+          "yield_pressure_Pa": 54894.45973978622,
+          "geometry": {
+            "t_m": 0.000994464850358446
+          },
+          "extra": {
+            "t_m": 0.000994464850358446
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P1",
+          "label": "30pct",
+          "margin_requested": 0.3,
+          "float_margin": 0.30000000000000016,
+          "payload_kg": 1466.832645056089,
+          "structural_mass_kg": 3422.609505130872,
+          "masses_kg": {
+            "shell": 2929.645004664429,
+            "joints": 292.96450046644287,
+            "systems_payload": 200.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.0013164757471610241,
+          "yield_SF": 0.49929268803513105,
+          "least_SF": 0.0013164757471610241,
+          "buckling_pressure_Pa": 125.6718779173257,
+          "yield_pressure_Pa": 47662.898364119654,
+          "geometry": {
+            "t_m": 0.0008634583036978197
+          },
+          "extra": {
+            "t_m": 0.0008634583036978197
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P1",
+          "label": "baseline",
+          "margin_requested": 0.42477109569284366,
+          "float_margin": 0.4247710956928437,
+          "payload_kg": 2076.8936994616893,
+          "structural_mass_kg": 2812.548450725272,
+          "masses_kg": {
+            "shell": 2375.0440461138833,
+            "joints": 237.5044046113883,
+            "systems_payload": 200.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.0008652193070060096,
+          "yield_SF": 0.40477331693703433,
+          "least_SF": 0.0008652193070060096,
+          "buckling_pressure_Pa": 82.59456002608202,
+          "yield_pressure_Pa": 38639.99999999999,
+          "geometry": {
+            "t_m": 0.0006999999999999999
+          },
+          "extra": {
+            "t_m": 0.0006999999999999999
+          },
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "from_margin": 1.8601195675014813e-16,
+          "to_margin": 0.050000000000000454,
+          "payload_from_kg": 9.094947017729282e-13,
+          "payload_to_kg": 244.47210750935028,
+          "least_SF_from": 0.0027876603671443925,
+          "least_SF_to": 0.0025045815207599066,
+          "SF_lost_per_100kg": 0.00011579187878259695
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "from_margin": 0.050000000000000454,
+          "to_margin": 0.10000000000000017,
+          "payload_from_kg": 244.47210750935028,
+          "payload_to_kg": 488.9442150186969,
+          "least_SF_from": 0.0025045815207599066,
+          "least_SF_to": 0.0022366552382636594,
+          "SF_lost_per_100kg": 0.00010959380406454093
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "from_margin": 0.10000000000000017,
+          "to_margin": 0.20000000000000023,
+          "payload_from_kg": 488.9442150186969,
+          "payload_to_kg": 977.8884300373934,
+          "least_SF_from": 0.0022366552382636594,
+          "least_SF_to": 0.0017462603649358705,
+          "SF_lost_per_100kg": 0.00010029669198745647
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "30pct",
+          "from_margin": 0.20000000000000023,
+          "to_margin": 0.30000000000000016,
+          "payload_from_kg": 977.8884300373934,
+          "payload_to_kg": 1466.832645056089,
+          "least_SF_from": 0.0017462603649358705,
+          "least_SF_to": 0.0013164757471610241,
+          "SF_lost_per_100kg": 8.790054255134461e-05
+        },
+        {
+          "from_label": "30pct",
+          "to_label": "baseline",
+          "from_margin": 0.30000000000000016,
+          "to_margin": 0.4247710956928437,
+          "payload_from_kg": 1466.832645056089,
+          "payload_to_kg": 2076.8936994616893,
+          "least_SF_from": 0.0013164757471610241,
+          "least_SF_to": 0.0008652193070060096,
+          "SF_lost_per_100kg": 7.396906209570883e-05
+        }
+      ],
+      "knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "from_margin": 1.8601195675014813e-16,
+        "to_margin": 0.050000000000000454,
+        "payload_from_kg": 9.094947017729282e-13,
+        "payload_to_kg": 244.47210750935028,
+        "least_SF_from": 0.0027876603671443925,
+        "least_SF_to": 0.0025045815207599066,
+        "SF_lost_per_100kg": 0.00011579187878259695
+      },
+      "secant_0_to_30_SF_per_100kg": 0.00010029669198745669
+    },
+    "P2-A": {
+      "rows": [
+        {
+          "family": "P2-A",
+          "label": "0",
+          "margin_requested": 0.0,
+          "float_margin": 0.0,
+          "payload_kg": 0.0,
+          "structural_mass_kg": 4889.442150186961,
+          "masses_kg": {
+            "faces": 2550.7541780710662,
+            "core": 2010.6192982974678,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.23078902511015878,
+          "yield_SF": 0.43471919227695743,
+          "least_SF": 0.23078902511015878,
+          "buckling_pressure_Pa": 22031.313718349054,
+          "yield_pressure_Pa": 41498.658352014405,
+          "geometry": {
+            "tf_m": 0.0003758936444928841,
+            "core_m": 0.1,
+            "d_m": 0.10037589364449288
+          },
+          "extra": {
+            "tf_m": 0.0003758936444928841,
+            "core_m": 0.1,
+            "d_m": 0.10037589364449288
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-A",
+          "label": "5pct",
+          "margin_requested": 0.05,
+          "float_margin": 0.050000000000000266,
+          "payload_kg": 244.47210750934937,
+          "structural_mass_kg": 4644.970042677612,
+          "masses_kg": {
+            "faces": 2317.923599490734,
+            "core": 2010.6192982974678,
+            "joints": 216.4271448894101,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.20965111861478725,
+          "yield_SF": 0.39503841004871454,
+          "least_SF": 0.20965111861478725,
+          "buckling_pressure_Pa": 20013.47145255511,
+          "yield_pressure_Pa": 37710.69763142714,
+          "geometry": {
+            "tf_m": 0.00034158240608176755,
+            "core_m": 0.1,
+            "d_m": 0.10034158240608178
+          },
+          "extra": {
+            "tf_m": 0.00034158240608176755,
+            "core_m": 0.1,
+            "d_m": 0.10034158240608178
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-A",
+          "label": "10pct",
+          "margin_requested": 0.1,
+          "float_margin": 0.09999999999999998,
+          "payload_kg": 488.944215018696,
+          "structural_mass_kg": 4400.497935168265,
+          "masses_kg": {
+            "faces": 2085.0930209104035,
+            "core": 2010.6192982974678,
+            "joints": 204.78561596039359,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.18852761414332897,
+          "yield_SF": 0.35535762782047187,
+          "least_SF": 0.18852761414332897,
+          "buckling_pressure_Pa": 17997.00401603158,
+          "yield_pressure_Pa": 33922.7369108399,
+          "geometry": {
+            "tf_m": 0.0003072711676706513,
+            "core_m": 0.1,
+            "d_m": 0.10030727116767066
+          },
+          "extra": {
+            "tf_m": 0.0003072711676706513,
+            "core_m": 0.1,
+            "d_m": 0.10030727116767066
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-A",
+          "label": "20pct",
+          "margin_requested": 0.2,
+          "float_margin": 0.19999999999999996,
+          "payload_kg": 977.888430037392,
+          "structural_mass_kg": 3911.553720149569,
+          "masses_kg": {
+            "faces": 1619.4318637497406,
+            "core": 2010.6192982974678,
+            "joints": 181.50255810236044,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.1463238112721516,
+          "yield_SF": 0.2759960633639864,
+          "least_SF": 0.1463238112721516,
+          "buckling_pressure_Pa": 13968.193630795713,
+          "yield_pressure_Pa": 26346.815469665402,
+          "geometry": {
+            "tf_m": 0.0002386486908484185,
+            "core_m": 0.1,
+            "d_m": 0.10023864869084842
+          },
+          "extra": {
+            "tf_m": 0.0002386486908484185,
+            "core_m": 0.1,
+            "d_m": 0.10023864869084842
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-A",
+          "label": "30pct",
+          "margin_requested": 0.3,
+          "float_margin": 0.30000000000000004,
+          "payload_kg": 1466.8326450560885,
+          "structural_mass_kg": 3422.6095051308725,
+          "masses_kg": {
+            "faces": 1153.7707065890775,
+            "core": 2010.6192982974678,
+            "joints": 158.21950024432726,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.10417761649662667,
+          "yield_SF": 0.19663449890750084,
+          "least_SF": 0.10417761649662667,
+          "buckling_pressure_Pa": 9944.882562641451,
+          "yield_pressure_Pa": 18770.894028490897,
+          "geometry": {
+            "tf_m": 0.00017002621402618565,
+            "core_m": 0.1,
+            "d_m": 0.1001700262140262
+          },
+          "extra": {
+            "tf_m": 0.00017002621402618565,
+            "core_m": 0.1,
+            "d_m": 0.1001700262140262
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-A",
+          "label": "baseline",
+          "margin_requested": 0.2563207459686106,
+          "float_margin": 0.25632074596861054,
+          "payload_kg": 1253.265459306289,
+          "structural_mass_kg": 3636.176690880672,
+          "masses_kg": {
+            "faces": 1357.1680263507913,
+            "core": 2010.6192982974678,
+            "joints": 168.38936623241295,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.12257967404267693,
+          "yield_SF": 0.23129903824973402,
+          "least_SF": 0.12257967404267693,
+          "buckling_pressure_Pa": 11701.558395327309,
+          "yield_pressure_Pa": 22080.000000000007,
+          "geometry": {
+            "tf_m": 0.0002000000000000001,
+            "core_m": 0.1,
+            "d_m": 0.10020000000000001
+          },
+          "extra": {
+            "tf_m": 0.0002000000000000001,
+            "core_m": 0.1,
+            "d_m": 0.10020000000000001
+          },
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "from_margin": 0.0,
+          "to_margin": 0.050000000000000266,
+          "payload_from_kg": 0.0,
+          "payload_to_kg": 244.47210750934937,
+          "least_SF_from": 0.23078902511015878,
+          "least_SF_to": 0.20965111861478725,
+          "SF_lost_per_100kg": 0.00864634690260653
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "from_margin": 0.050000000000000266,
+          "to_margin": 0.09999999999999998,
+          "payload_from_kg": 244.47210750934937,
+          "payload_to_kg": 488.944215018696,
+          "least_SF_from": 0.20965111861478725,
+          "least_SF_to": 0.18852761414332897,
+          "SF_lost_per_100kg": 0.008640455832226456
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "from_margin": 0.09999999999999998,
+          "to_margin": 0.19999999999999996,
+          "payload_from_kg": 488.944215018696,
+          "payload_to_kg": 977.888430037392,
+          "least_SF_from": 0.18852761414332897,
+          "least_SF_to": 0.1463238112721516,
+          "SF_lost_per_100kg": 0.008631619226656275
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "baseline",
+          "from_margin": 0.19999999999999996,
+          "to_margin": 0.25632074596861054,
+          "payload_from_kg": 977.888430037392,
+          "payload_to_kg": 1253.265459306289,
+          "least_SF_from": 0.1463238112721516,
+          "least_SF_to": 0.12257967404267693,
+          "SF_lost_per_100kg": 0.008622410261492538
+        },
+        {
+          "from_label": "baseline",
+          "to_label": "30pct",
+          "from_margin": 0.25632074596861054,
+          "to_margin": 0.30000000000000004,
+          "payload_from_kg": 1253.265459306289,
+          "payload_to_kg": 1466.8326450560885,
+          "least_SF_from": 0.12257967404267693,
+          "least_SF_to": 0.10417761649662667,
+          "SF_lost_per_100kg": 0.008616519191112452
+        }
+      ],
+      "knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "from_margin": 0.0,
+        "to_margin": 0.050000000000000266,
+        "payload_from_kg": 0.0,
+        "payload_to_kg": 244.47210750934937,
+        "least_SF_from": 0.23078902511015878,
+        "least_SF_to": 0.20965111861478725,
+        "SF_lost_per_100kg": 0.00864634690260653
+      },
+      "secant_0_to_30_SF_per_100kg": 0.008631619226656272
+    },
+    "P2-E": {
+      "rows": [
+        {
+          "family": "P2-E",
+          "label": "0",
+          "margin_requested": 0.0,
+          "float_margin": 0.0,
+          "payload_kg": 0.0,
+          "structural_mass_kg": 4889.442150186961,
+          "masses_kg": {
+            "faces": 2280.686738184267,
+            "core": 2280.686738184267,
+            "joints": 228.06867381842673,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.23388557899250978,
+          "yield_SF": 0.3886922170642076,
+          "least_SF": 0.23388557899250978,
+          "buckling_pressure_Pa": 22326.913346603837,
+          "yield_pressure_Pa": 37104.88473156276,
+          "geometry": {
+            "tf_m": 0.0003360949703945902,
+            "core_m": 0.1134320525081742,
+            "d_m": 0.1137681474785688
+          },
+          "extra": {
+            "tf_m": 0.0003360949703945902,
+            "core_m": 0.1134320525081742,
+            "d_m": 0.1137681474785688
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-E",
+          "label": "5pct",
+          "margin_requested": 0.05,
+          "float_margin": 0.050000000000000086,
+          "payload_kg": 244.47210750934846,
+          "structural_mass_kg": 4644.970042677613,
+          "masses_kg": {
+            "faces": 2164.271448894101,
+            "core": 2164.271448894101,
+            "joints": 216.4271448894101,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.21061807098729998,
+          "yield_SF": 0.36885182595008614,
+          "least_SF": 0.21061807098729998,
+          "buckling_pressure_Pa": 20105.777536258014,
+          "yield_pressure_Pa": 35210.90437126913,
+          "geometry": {
+            "tf_m": 0.000318939351189032,
+            "core_m": 0.10764203102629828,
+            "d_m": 0.10796097037748731
+          },
+          "extra": {
+            "tf_m": 0.000318939351189032,
+            "core_m": 0.10764203102629828,
+            "d_m": 0.10796097037748731
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-E",
+          "label": "10pct",
+          "margin_requested": 0.1,
+          "float_margin": 0.09999999999999998,
+          "payload_kg": 488.944215018696,
+          "structural_mass_kg": 4400.497935168265,
+          "masses_kg": {
+            "faces": 2047.8561596039356,
+            "core": 2047.8561596039356,
+            "joints": 204.78561596039356,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.18856933425573794,
+          "yield_SF": 0.3490114348359648,
+          "least_SF": 0.18856933425573794,
+          "buckling_pressure_Pa": 18000.98665292,
+          "yield_pressure_Pa": 33316.924010975505,
+          "geometry": {
+            "tf_m": 0.0003017837319834738,
+            "core_m": 0.1018520095444224,
+            "d_m": 0.10215379327640588
+          },
+          "extra": {
+            "tf_m": 0.0003017837319834738,
+            "core_m": 0.1018520095444224,
+            "d_m": 0.10215379327640588
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-E",
+          "label": "20pct",
+          "margin_requested": 0.2,
+          "float_margin": 0.19999999999999996,
+          "payload_kg": 977.888430037392,
+          "structural_mass_kg": 3911.553720149569,
+          "masses_kg": {
+            "faces": 1815.0255810236042,
+            "core": 1815.0255810236042,
+            "joints": 181.50255810236044,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.1481281746135562,
+          "yield_SF": 0.3093306526077221,
+          "least_SF": 0.1481281746135562,
+          "buckling_pressure_Pa": 14140.439667267328,
+          "yield_pressure_Pa": 29528.96329038826,
+          "geometry": {
+            "tf_m": 0.0002674724935723574,
+            "core_m": 0.09027196658067062,
+            "d_m": 0.09053943907424297
+          },
+          "extra": {
+            "tf_m": 0.0002674724935723574,
+            "core_m": 0.09027196658067062,
+            "d_m": 0.09053943907424297
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-E",
+          "label": "30pct",
+          "margin_requested": 0.3,
+          "float_margin": 0.30000000000000004,
+          "payload_kg": 1466.8326450560885,
+          "structural_mass_kg": 3422.6095051308725,
+          "masses_kg": {
+            "faces": 1582.1950024432726,
+            "core": 1582.1950024432726,
+            "joints": 158.21950024432726,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.11256210006596452,
+          "yield_SF": 0.2696498703794793,
+          "least_SF": 0.11256210006596452,
+          "buckling_pressure_Pa": 10745.272389645812,
+          "yield_pressure_Pa": 25741.002569801007,
+          "geometry": {
+            "tf_m": 0.000233161255161241,
+            "core_m": 0.07869192361691883,
+            "d_m": 0.07892508487208007
+          },
+          "extra": {
+            "tf_m": 0.000233161255161241,
+            "core_m": 0.07869192361691883,
+            "d_m": 0.07892508487208007
+          },
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "family": "P2-E",
+          "label": "baseline",
+          "margin_requested": 0.2563207459686106,
+          "float_margin": 0.25632074596861054,
+          "payload_kg": 1253.265459306289,
+          "structural_mass_kg": 3636.176690880672,
+          "masses_kg": {
+            "faces": 1683.8936623241295,
+            "core": 1683.8936623241295,
+            "joints": 168.38936623241295,
+            "systems_payload": 100.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.12749744890822584,
+          "yield_SF": 0.28698214005059586,
+          "least_SF": 0.12749744890822584,
+          "buckling_pressure_Pa": 12171.013304664551,
+          "yield_pressure_Pa": 27395.555555555562,
+          "geometry": {
+            "tf_m": 0.0002481481481481482,
+            "core_m": 0.08375000000000002,
+            "d_m": 0.08399814814814817
+          },
+          "extra": {
+            "tf_m": 0.0002481481481481482,
+            "core_m": 0.08375000000000002,
+            "d_m": 0.08399814814814817
+          },
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "from_margin": 0.0,
+          "to_margin": 0.050000000000000086,
+          "payload_from_kg": 0.0,
+          "payload_to_kg": 244.47210750934846,
+          "least_SF_from": 0.23388557899250978,
+          "least_SF_to": 0.21061807098729998,
+          "SF_lost_per_100kg": 0.009517448940190472
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "from_margin": 0.050000000000000086,
+          "to_margin": 0.09999999999999998,
+          "payload_from_kg": 244.47210750934846,
+          "payload_to_kg": 488.944215018696,
+          "least_SF_from": 0.21061807098729998,
+          "least_SF_to": 0.18856933425573794,
+          "SF_lost_per_100kg": 0.009018917109273498
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "from_margin": 0.09999999999999998,
+          "to_margin": 0.19999999999999996,
+          "payload_from_kg": 488.944215018696,
+          "payload_to_kg": 977.888430037392,
+          "least_SF_from": 0.18856933425573794,
+          "least_SF_to": 0.1481281746135562,
+          "SF_lost_per_100kg": 0.00827111936289815
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "baseline",
+          "from_margin": 0.19999999999999996,
+          "to_margin": 0.25632074596861054,
+          "payload_from_kg": 977.888430037392,
+          "payload_to_kg": 1253.265459306289,
+          "least_SF_from": 0.1481281746135562,
+          "least_SF_to": 0.12749744890822584,
+          "SF_lost_per_100kg": 0.007491810685917859
+        },
+        {
+          "from_label": "baseline",
+          "to_label": "30pct",
+          "from_margin": 0.25632074596861054,
+          "to_margin": 0.30000000000000004,
+          "payload_from_kg": 1253.265459306289,
+          "payload_to_kg": 1466.8326450560885,
+          "least_SF_from": 0.12749744890822584,
+          "least_SF_to": 0.11256210006596452,
+          "SF_lost_per_100kg": 0.00699327885500094
+        }
+      ],
+      "knee": {
+        "from_label": "0",
+        "to_label": "5pct",
+        "from_margin": 0.0,
+        "to_margin": 0.050000000000000086,
+        "payload_from_kg": 0.0,
+        "payload_to_kg": 244.47210750934846,
+        "least_SF_from": 0.23388557899250978,
+        "least_SF_to": 0.21061807098729998,
+        "SF_lost_per_100kg": 0.009517448940190472
+      },
+      "secant_0_to_30_SF_per_100kg": 0.008271119362898151
+    },
+    "P3": {
+      "rows": [
+        {
+          "family": "P3",
+          "label": "0",
+          "margin_requested": 0.0,
+          "float_margin": 3.7202391350029625e-16,
+          "payload_kg": 1.8189894035458565e-12,
+          "structural_mass_kg": 4889.442150186959,
+          "masses_kg": {
+            "frame": 4712.8663243917845,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.09602613905451597,
+          "yield_SF": 0.23186473795262078,
+          "least_SF": 0.09602613905451597,
+          "buckling_pressure_Pa": 9166.735695781266,
+          "yield_pressure_Pa": 22134.002167645223,
+          "geometry": {
+            "tw_m": 0.0034965263377450123,
+            "ro_m": 0.02,
+            "s_m": 1.0,
+            "film_m": 8e-05
+          },
+          "extra": {
+            "tw_m": 0.0034965263377450123,
+            "area_m2": 0.00040097830013850045,
+            "I_m4": 6.740090789789744e-08,
+            "n_edges": 4353.118474162124
+          },
+          "tag": "QUESTIONABLE",
+          "film_SF": 2.5141199809753694,
+          "film_pressure_Pa": 240000.00000000003
+        },
+        {
+          "family": "P3",
+          "label": "5pct",
+          "margin_requested": 0.05,
+          "float_margin": 0.05000000000000064,
+          "payload_kg": 244.4721075093512,
+          "structural_mass_kg": 4644.97004267761,
+          "masses_kg": {
+            "frame": 4468.394216882435,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.09194147542814259,
+          "yield_SF": 0.21983714004452698,
+          "least_SF": 0.09194147542814259,
+          "buckling_pressure_Pa": 8776.810283411212,
+          "yield_pressure_Pa": 20985.83759324706,
+          "geometry": {
+            "tw_m": 0.003297140516320022,
+            "ro_m": 0.02,
+            "s_m": 1.0,
+            "film_m": 8e-05
+          },
+          "extra": {
+            "tw_m": 0.003297140516320022,
+            "area_m2": 0.0003801782172689685,
+            "I_m4": 6.45338756545331e-08,
+            "n_edges": 4353.118474162124
+          },
+          "tag": "QUESTIONABLE",
+          "film_SF": 2.5141199809753694,
+          "film_pressure_Pa": 240000.00000000003
+        },
+        {
+          "family": "P3",
+          "label": "10pct",
+          "margin_requested": 0.1,
+          "float_margin": 0.10000000000000017,
+          "payload_kg": 488.9442150186969,
+          "structural_mass_kg": 4400.497935168264,
+          "masses_kg": {
+            "frame": 4223.922109373089,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.08775871067785629,
+          "yield_SF": 0.20780954213643343,
+          "least_SF": 0.08775871067785629,
+          "buckling_pressure_Pa": 8377.520055552137,
+          "yield_pressure_Pa": 19837.673018848916,
+          "geometry": {
+            "tw_m": 0.0031001068955341556,
+            "ro_m": 0.02,
+            "s_m": 1.0,
+            "film_m": 8e-05
+          },
+          "extra": {
+            "tw_m": 0.0031001068955341556,
+            "area_m2": 0.0003593781343994369,
+            "I_m4": 6.159798606792205e-08,
+            "n_edges": 4353.118474162124
+          },
+          "tag": "QUESTIONABLE",
+          "film_SF": 2.5141199809753694,
+          "film_pressure_Pa": 240000.00000000003
+        },
+        {
+          "family": "P3",
+          "label": "20pct",
+          "margin_requested": 0.2,
+          "float_margin": 0.20000000000000015,
+          "payload_kg": 977.8884300373929,
+          "structural_mass_kg": 3911.553720149568,
+          "masses_kg": {
+            "frame": 3734.9778943543934,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.07909887780554474,
+          "yield_SF": 0.183754346320246,
+          "least_SF": 0.07909887780554474,
+          "buckling_pressure_Pa": 7550.845153366897,
+          "yield_pressure_Pa": 17541.3438700526,
+          "geometry": {
+            "tw_m": 0.002712775498536487,
+            "ro_m": 0.02,
+            "s_m": 1.0,
+            "film_m": 8e-05
+          },
+          "extra": {
+            "tw_m": 0.002712775498536487,
+            "area_m2": 0.00031777796866037315,
+            "I_m4": 5.551963486495962e-08,
+            "n_edges": 4353.118474162124
+          },
+          "tag": "QUESTIONABLE",
+          "film_SF": 2.5141199809753694,
+          "film_pressure_Pa": 240000.00000000003
+        },
+        {
+          "family": "P3",
+          "label": "30pct",
+          "margin_requested": 0.3,
+          "float_margin": 0.3000000000000002,
+          "payload_kg": 1466.8326450560894,
+          "structural_mass_kg": 3422.6095051308716,
+          "masses_kg": {
+            "frame": 3246.033679335697,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.07004664043758142,
+          "yield_SF": 0.15969915050405856,
+          "least_SF": 0.07004664043758142,
+          "buckling_pressure_Pa": 6686.710989225554,
+          "yield_pressure_Pa": 15245.014721256279,
+          "geometry": {
+            "tw_m": 0.002333934365976429,
+            "ro_m": 0.02,
+            "s_m": 1.0,
+            "film_m": 8e-05
+          },
+          "extra": {
+            "tw_m": 0.002333934365976429,
+            "area_m2": 0.0002761778029213094,
+            "I_m4": 4.9165854289010194e-08,
+            "n_edges": 4353.118474162124
+          },
+          "tag": "QUESTIONABLE",
+          "film_SF": 2.5141199809753694,
+          "film_pressure_Pa": 240000.00000000003
+        },
+        {
+          "family": "P3",
+          "label": "baseline",
+          "margin_requested": 0.6693631664717636,
+          "float_margin": 0.6693631664717636,
+          "payload_kg": 3272.812479929653,
+          "structural_mass_kg": 1616.6296702573084,
+          "masses_kg": {
+            "frame": 1440.0538444621336,
+            "film": 97.51503596742718,
+            "nodes": 29.060789827747495,
+            "systems_payload": 50.0,
+            "residual_gas": 0.0
+          },
+          "buckling_SF": 0.03320954045817858,
+          "yield_SF": 0.07084811753640555,
+          "least_SF": 0.03320954045817858,
+          "buckling_pressure_Pa": 3170.210558873461,
+          "yield_pressure_Pa": 6763.220664648112,
+          "geometry": {
+            "tw_m": 0.0010000000000000009,
+            "ro_m": 0.02,
+            "s_m": 1.0,
+            "film_m": 8e-05
+          },
+          "extra": {
+            "tw_m": 0.0010000000000000009,
+            "area_m2": 0.00012252211349000203,
+            "I_m4": 2.3309832091472876e-08,
+            "n_edges": 4353.118474162124
+          },
+          "tag": "QUESTIONABLE",
+          "film_SF": 2.5141199809753694,
+          "film_pressure_Pa": 240000.00000000003
+        }
+      ],
+      "segments": [
+        {
+          "from_label": "0",
+          "to_label": "5pct",
+          "from_margin": 3.7202391350029625e-16,
+          "to_margin": 0.05000000000000064,
+          "payload_from_kg": 1.8189894035458565e-12,
+          "payload_to_kg": 244.4721075093512,
+          "least_SF_from": 0.09602613905451597,
+          "least_SF_to": 0.09194147542814259,
+          "SF_lost_per_100kg": 0.001670809675585251
+        },
+        {
+          "from_label": "5pct",
+          "to_label": "10pct",
+          "from_margin": 0.05000000000000064,
+          "to_margin": 0.10000000000000017,
+          "payload_from_kg": 244.4721075093512,
+          "payload_to_kg": 488.9442150186969,
+          "least_SF_from": 0.09194147542814259,
+          "least_SF_to": 0.08775871067785629,
+          "SF_lost_per_100kg": 0.001710937412410697
+        },
+        {
+          "from_label": "10pct",
+          "to_label": "20pct",
+          "from_margin": 0.10000000000000017,
+          "to_margin": 0.20000000000000015,
+          "payload_from_kg": 488.9442150186969,
+          "payload_to_kg": 977.8884300373929,
+          "least_SF_from": 0.08775871067785629,
+          "least_SF_to": 0.07909887780554474,
+          "SF_lost_per_100kg": 0.0017711290176488574
+        },
+        {
+          "from_label": "20pct",
+          "to_label": "30pct",
+          "from_margin": 0.20000000000000015,
+          "to_margin": 0.3000000000000002,
+          "payload_from_kg": 977.8884300373929,
+          "payload_to_kg": 1466.8326450560894,
+          "least_SF_from": 0.07909887780554474,
+          "least_SF_to": 0.07004664043758142,
+          "SF_lost_per_100kg": 0.0018513844912997229
+        },
+        {
+          "from_label": "30pct",
+          "to_label": "baseline",
+          "from_margin": 0.3000000000000002,
+          "to_margin": 0.6693631664717636,
+          "payload_from_kg": 1466.8326450560894,
+          "payload_to_kg": 3272.812479929653,
+          "least_SF_from": 0.07004664043758142,
+          "least_SF_to": 0.03320954045817858,
+          "SF_lost_per_100kg": 0.002039729307497046
+        }
+      ],
+      "knee": {
+        "from_label": "30pct",
+        "to_label": "baseline",
+        "from_margin": 0.3000000000000002,
+        "to_margin": 0.6693631664717636,
+        "payload_from_kg": 1466.8326450560894,
+        "payload_to_kg": 3272.812479929653,
+        "least_SF_from": 0.07004664043758142,
+        "least_SF_to": 0.03320954045817858,
+        "SF_lost_per_100kg": 0.002039729307497046
+      },
+      "secant_0_to_30_SF_per_100kg": 0.0017711290176488515
+    }
+  },
+  "checks": [
+    "sealed_002_and_003_P2E_PASS"
+  ],
+  "measurements": {
+    "origin_utc": "2026-10-19T23:02:45.723264-07:00",
+    "origin_monotonic_s": 2091690.903585164,
+    "end_utc": "2026-10-19T23:03:14.450564-07:00",
+    "end_monotonic_s": 2091719.630888019,
+    "elapsed_s": 28.72730285488069,
+    "role": "measurements_only_not_limits"
+  }
+}

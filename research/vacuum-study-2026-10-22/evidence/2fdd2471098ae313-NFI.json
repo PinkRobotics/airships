@@ -1,0 +1,140 @@
+[
+  {
+    "id": "NFI-029-BENCHMARK",
+    "status": "open",
+    "title": "Paper benchmark not reproduced",
+    "issue": "The CAX8 paper linear result is 30.21717 MPa versus published 27.53 MPa. Full 3D refinement gives 34.34704, 30.80495 and 30.28896 MPa, approaching CAX8 within0.24%; nonaxisymmetric modes at this resolution do not remove the roughly10% discrepancy. Elastic Gaussian-dimple endpoints exceed the published nonlinear pressures by over2x. No calibrated transfer of knockdown is established. The paper uses continuum-shell faces and tie constraints; ours uses conforming solid elements. No isolated cause for the linear discrepancy is claimed. Figure4 and the brief specify42.8mm radius; the conclusion says41.8mm. We use42.8mm and retain the text ambiguity.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-FOAM",
+    "status": "open",
+    "title": "Crushable foam missing",
+    "issue": "Paper uses crushable-foam plasticity, density80kg/m3 and plotted compression hardening. Present PVC80 is elastic E40MPa,nu0. The full yield-surface/hardening and contact-created initial fields were not recovered; no parameters were tuned to the target pressure.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-DEFECT",
+    "status": "open",
+    "title": "Different defect construction",
+    "issue": "Paper uses an indenter radius0.1R, contact and a stress-free reset. Present paper check uses a Gaussian of width0.1R and amplitude0.75total_thickness in every layer. Lead defects use015 lambda_I1, not a measured hull shape. Width and through-thickness deformation affect the result.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-AXISYMMETRY",
+    "status": "open",
+    "title": "Only axisymmetric lead modes",
+    "issue": "Lead model excludes nonaxisymmetric and cell-scale modes. With L in the meridian the weaker W is circumferential and can trigger excluded modes. L orientation results are not full3D hull capacity.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-HOMOGENIZATION",
+    "status": "open",
+    "title": "Honeycomb continuum completion",
+    "issue": "Only normalE and transverseGL/GW are sourced. InplaneE=.01MPa,G=.005MPa and zero core Poisson couplings are explicit regularizations. Actual cells, cell-scale dimpling, defects, adhesive, seams and debonding are absent. Increasing inplaneE/G100-fold to1/.5MPa changes accepted W linear eigenpressures by about0.0001% for021 and0.003% for021b; this limited sensitivity does not source the properties.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-FACE-PLASTICITY",
+    "status": "open",
+    "title": "Faces remain elastic",
+    "issue": "Neither beryllium nor stainless faces yield in the model. Beryllium inheritednu=.33 is used for comparison, not a verified grade-specific value. Known strength-basis uncertainty of021 is not resolved by these stability runs. NASA CR194164 Table2 reports SR200 in-plane nu12=.0768 andnu21=.0752 for1.96mm sheet. Treating.0768 isotropically at the lead gauge is itself a transfer. Its strong-direction endpoint98.34692kPa leaves only3.02% over operating pressure. A declared.03 sensitivity for021 gives91.468265kPa, below operating pressure. At the baseline endpoints, outer-face maximum equivalent stresses are660.806/835.808MPa for021 W/L and1144.503/1303.532MPa for021b W/L. These are von Mises diagnostics, not a verified beryllium criterion. Face survival to these loads is not established.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-LOAD-CONTROL",
+    "status": "open",
+    "title": "Convergence endpoint is not proven collapse",
+    "issue": "Native pressure control stops at minimum increment or can follow unstable branches. Last-converged pressure, local quadratic fold fits and eigenvalues must be reported separately. No Riks continuation or complete tangent stability proof is claimed.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-GAMMA",
+    "status": "resolved-by-reporting-both",
+    "title": "Gamma denominator mismatch",
+    "issue": "Both lead points have Vc<2. Their.595318/.468229 targets multiplyKc*p_classical; p_collapse/p_crimp is a different ratio. For W meridian targets are.464110/.323009 under the requested crimp normalization. No branch transfer from paper Vc~200 is established.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-RADIUS",
+    "status": "resolved-by-explicit-convention",
+    "title": "Brief aspect-ratio range",
+    "issue": "The sealed021 point hasR_outer/tc494.7219, not at most480.021b332.0248. Use mean radius for paper to reproduce018b and outer radius for lead to compare021; record both.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-CAX8R",
+    "status": "excluded",
+    "title": "Reduced-integration eigen discrepancy",
+    "issue": "CAX8R eigenvalues are approximately twice CAX8 for both paper shell and homogeneous-sphere fixture, while small-load displacement is similar. Retain raw runs; use full integration. Root cause in this native build is not asserted.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-EIGEN-SHIFT",
+    "status": "resolved-by-subcritical-reference",
+    "title": "ARPACK shift and load scale",
+    "issue": "Initial1MPa lead load skips lower modes near a fixed shift of1. Correct eigenruns use0.001MPa. Sourcearpackbu.c fixes sigma=1 and its plausibility adjustment is commented out. Initial higher-mode results are excluded.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-NUMERICAL-EVIDENCE",
+    "status": "open",
+    "title": "Published pressure results are simulations",
+    "issue": "EUCASS367 pressure-collapse values are numerical ABAQUS results. Its physical validation is an axial-compression experiment, not a hydrostatic collapse test. Present solver measurements are not hardware measurements.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-STEEL-CURVE",
+    "status": "open",
+    "title": "Steel graph scale ambiguity",
+    "issue": "EUCASS Figure5 is labelled~7500–10000MPa at strain0–.4. This was not silently divided by10 or used as a calibrated steel law.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-RIBBON-FIELD",
+    "status": "open",
+    "title": "Ribbon topology and bonding",
+    "issue": "L/W meridian orientation is an ideal smooth spherical field, with unavoidable pole singularities and no manufacturable panel-ribbon layout. Shared solid nodes impose a perfect bond.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-MULTICORE-EIGEN",
+    "status": "excluded-and-recomputed",
+    "title": "Multicore eigenvalues fail identical-deck reproduction",
+    "issue": "Identical CAX8 deck with four cores produces low near-shift modes absent with one core. The one-core replica exactly restores160.1382kPa. All multicore eigenvalue runs are excluded; accepted spectra and elastic-constant sensitivities use one core. Static one/four-core campaigns agree through independent mesh checks; no source-level cause is asserted. An identical-deck one-core021b W static check is retained separately; exact endpoint comparison is in RESULTS.json.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  },
+  {
+    "id": "NFI-029-3D-RESOLUTION",
+    "status": "open",
+    "title": "Full-resolution enlarged-shell 3D estimate exceeds the ceiling",
+    "issue": "At1.04mm edge size, quadratic R_mid/tc40 model has582168 elements and8263917 free equations. Even10000bytes/equation implies76.96GiB, above32GiB maximum. Completed coarse3D runs are numerical crosschecks, not that full-resolution nonlinear result. This is a sizing projection, not a measured peak at that resolution; the full-resolution model was not launched.",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false,
+    "completed_crosscheck": "The final48x128 graded3D endpoint is2.2539915MPa, -0.016435% from the matched axis48 graded result and +1.710861% from axis384. Linear3D48x128 is6.446068MPa, +1.151905% from axis384. The final native static run ended at the minimum increment after4327.637s with6868392kB peak RSS; full-resolution behavior remains unmeasured."
+  },
+  {
+    "id": "NFI-029-FINITE-ELASTIC-LAW",
+    "status": "open",
+    "title": "Finite-strain elastic convention differs from Abaqus",
+    "issue": "CalculiX2.21 manual6.8.1 identifies native *ELASTIC as linear PK2 stress versus Green-Lagrange strain (St.Venant-Kirchhoff). Abaqus linear elasticity instead relates logarithmic strain and Cauchy stress. Our decks specify no Ciarlet, hyperfoam or crushable-foam law. Large-compression behavior of this elastic approximation is not physical foam behavior. This adds a nonlinear constitutive mismatch; the separate roughly10% linear benchmark discrepancy remains unisolated.",
+    "source": "https://www.dhondt.de/ccx_2.21.pdf",
+    "tag": "QUESTIONABLE",
+    "gates_other_cards": false
+  }
+]

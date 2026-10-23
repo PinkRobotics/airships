@@ -1,0 +1,92 @@
+{
+  "id": "N377",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N377",
+    "report": "rpt-ref-58c781cbea9c220eb5b4",
+    "card": "MAINLINE-025",
+    "file": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "source_sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+    "source_json_pointer": "/rows/9",
+    "row_id": "NFI-025-CVD-FABRICATION",
+    "fields": {
+      "id": "NFI-025-CVD-FABRICATION",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE",
+      "target_transfer": "PROJECTION",
+      "evidence_state": "in_the_lab patent examples; target PROJECTION",
+      "issue": "Historical CVD examples demonstrate relevant dimensions individually, not a current qualified complete arc.",
+      "factor": {
+        "example_mandrel_diameter_m": 0.2,
+        "example_inferred_final_OD_m": 0.202,
+        "example_length_m": 1.5,
+        "example_wall_m": 0.001,
+        "required_diameter_factor": 1.2246372512246146,
+        "required_length_factor": 1.36,
+        "example_wall_to_required_wall_factor": 1.1359775412396798,
+        "other_example_OD_m": 0.6,
+        "other_example_length_m": 0.24,
+        "other_example_wall_m": 0.003
+      },
+      "required_next_evidence": "Current production capability and full-sized curved-tube example with deposition uniformity, residual stress, extraction method, defect yield and qualified properties.",
+      "note": "Patent evidence is not a current purchase specification or proof of1047 repeatable members. OD202 mm is inferred from a200 mm mandrel plus two1 mm deposits."
+    },
+    "inherited_document_tag": {
+      "classification": "QUESTIONABLE"
+    }
+  },
+  "claim": "Historical CVD examples demonstrate relevant dimensions individually, not a current qualified complete arc. | Patent evidence is not a current purchase specification or proof of1047 repeatable members. OD202 mm is inferred from a200 mm mandrel plus two1 mm deposits.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/376"
+    },
+    {
+      "report": "rpt-ref-58c781cbea9c220eb5b4",
+      "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+      "bytes": 21434,
+      "selector": "/rows/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58c781cbea9c220eb5b4",
+          "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+          "bytes": 21434,
+          "selector": "/rows/9"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/376"
+          }
+        ]
+      }
+    }
+  ]
+}

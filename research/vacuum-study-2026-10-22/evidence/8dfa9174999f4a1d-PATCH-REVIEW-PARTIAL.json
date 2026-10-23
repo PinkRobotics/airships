@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "status": "PARTIAL_READ_ONLY_REVIEW; NOT_FINAL_FEATURE_ACCEPTANCE",
+  "unpatched_source_comparison": {
+    "path": "evidence/08ef145e10ee8704-UNPATCHED-SOURCE-COMPARISON.json",
+    "sha256": "08ef145e10ee8704f8d65a052e576fd390524759cee3931323e9708084977e6a",
+    "bytes": 317059
+  },
+  "patches": [
+    {
+      "path": "unpublished-local-ref:0d4f789d7bb19bcb",
+      "sha256": "165d5fe372a4f9b6712a7ae6b2d276f2ef98b6d26a8abfad372ad312d93e6e79",
+      "bytes": 1038
+    },
+    {
+      "path": "unpublished-local-ref:14c0759b4e60fd13",
+      "sha256": "cdc8f587d283876b5d9c92248ae0633497be88c28da332bf48bbc5c5b612e1b8",
+      "bytes": 9621
+    },
+    {
+      "path": "unpublished-local-ref:3c4e24c859b977d8",
+      "sha256": "262be6a621bbfa93d5abdeda9b578a7f762adc6844fc61260ede671b7ce2be22",
+      "bytes": 661
+    },
+    {
+      "path": "unpublished-local-ref:104005edd8493dc0",
+      "sha256": "e8483eeda7518f1391448fdb544678acbc4e581559c03cbc5f4cd6da9011fe5d",
+      "bytes": 2035
+    }
+  ],
+  "patch_bytes": 13355,
+  "patch_count": 4,
+  "observations_before_stop": [
+    {
+      "patch": "0001-Adjust-Makefile-for-Build-with-Debian.patch",
+      "observed": "Makefile replaces bundled static-library paths with distro SPOOLES/ARPACK/LAPACK/BLAS links and removes date.pl timestamp generation."
+    },
+    {
+      "patch": "0002-Fixed-spelling-errors.patch",
+      "observed": "Listed hunks correct comments and diagnostic-string spelling, including comments in results.c and mafillsmmain.c. Full exact-context composition did not finish."
+    },
+    {
+      "patch": "0003-Add-hardening-flag.patch",
+      "observed": "Makefile adds final-link LDFLAGS for hardening."
+    },
+    {
+      "patch": "0004-fixup-implicit-function-declaration.patch",
+      "observed": "Adds five FORTRAN pointer prototypes in CalculiX.h; original subroutine declarations were read. No final assembled patch disposition was produced."
+    }
+  ],
+  "declared_build_flags_observed": "debian/rules: -Wall -I/usr/include/spooles -DARCH=\"Linux\" -DSPOOLES -DARPACK -DMATRIXSTORAGE -DUSE_MT=1; FFLAGS -fallow-argument-mismatch, hardening=+all; CFLAGS/CPPFLAGS/LDFLAGS exported by distro build flags. CALCULIX_MPI not in the literal declared sets; this is not an independently reproduced compiler command line or runtime-serial claim.",
+  "paper_path_observed": "frequencys.f118-119 sets isolver6; arpack.c595-609 guarded MATRIXSTORAGE call then stopwithout201. Final authenticated feature-table acceptance remains NOT_COMPLETED after helper failure.",
+  "binary_diagnostic_presence_analysis": "NOT_RUN: helper failed before that step.",
+  "source_tree_mutation": "None: extracted source remains unpatched. In-memory helper composition ceased with process exit.",
+  "source_equivalence_limit": "1176/1176 unpatched source files identical after declared prefix normalization, no unexplained differences/removals; no reproducible-build or numerical-equivalence assertion."
+}

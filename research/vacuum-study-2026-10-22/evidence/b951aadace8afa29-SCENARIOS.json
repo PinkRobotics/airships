@@ -1,0 +1,39 @@
+{
+  "outdoor_uncovered": {
+    "classification": "PROJECTION",
+    "basis": "Toyobo HM outdoor points at Ohtsu, June-November 1997; 45 degrees south.",
+    "formula": "log-linear 1 to .71 over first half month; then exp[ln(.35)*(years/.5)^beta]",
+    "beta": 0.45077454374434234,
+    "measured_duration_years": 0.5,
+    "transfer": "No source spectral dose, weather history or grade/laminate equivalence. No air barrier in this counterfactual."
+  },
+  "light_blocked_humid_40C80RH_proxy": {
+    "classification": "PROJECTION",
+    "basis": "Toyobo AS 555 dtex, dark 40 C/80% RH; manual figure readings through 1000 days.",
+    "formula": "piecewise log interpolation through 1000 days, then exp[ln(.76)*(days/1000)^beta]",
+    "beta": 0.41576453153425147,
+    "measured_duration_years": 2.73972602739726,
+    "transfer": "AS-to-HM and continuous 40 C/80% RH are comparison proxies, not the declared year's kinetics."
+  },
+  "light_blocked_warehouse_endpoint_exponential": {
+    "classification": "PROJECTION",
+    "basis": "Toyobo AS warehouse curve about .96 at 1000 days.",
+    "formula": ".96^(365*years/1000)",
+    "measured_duration_years": 2.73972602739726,
+    "transfer": "Endpoint-only constant-rate assumption does not reproduce the early knee; warehouse humidity/temperature unspecified in this source."
+  },
+  "sealed_argon_55C_loss_ceiling_extrapolation": {
+    "classification": "PROJECTION",
+    "basis": "NISTIR7373: <4% loss in sealed argon-filled glass tubes at 55 C over 210 days.",
+    "formula": ".96^(365*years/210)",
+    "measured_duration_years": 0.5753424657534246,
+    "transfer": "Repeated worst observed loss is a sensitivity, not a fitted trend or proof of polymer-laminate protection."
+  },
+  "dry_protection_acceptance_target": {
+    "classification": "PROJECTION / REQUIREMENT, NOT A MEASURED RATE",
+    "basis": "Chosen maximum combined irreversible loss budget 0.5% annually.",
+    "formula": ".995^years",
+    "measured_duration_years": 0,
+    "transfer": "Must be demonstrated on loaded finished laminate including seams, light, moisture, creep and cycling."
+  }
+}

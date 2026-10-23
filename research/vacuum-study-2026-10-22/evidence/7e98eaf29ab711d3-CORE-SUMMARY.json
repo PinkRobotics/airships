@@ -1,0 +1,45 @@
+{
+  "name": "crt-fullwave-W-a14.261888",
+  "E_inplane_MPa": 1.0,
+  "G_inplane_MPa": 0.5,
+  "law": "orthotropic StVK, zero Poisson coupling; transverse shear stop, not damage evolution",
+  "stress_frame": "current material tangent and perpendicular normal; reconstructed from local Green strain",
+  "max_invariant_error_MPa": 1.1191249107977974e-08,
+  "max_outplane_strain": 7.01637e-06,
+  "endpoint": {
+    "time": 1.0,
+    "p_kPa": 100.23387980960041,
+    "max_core_shear_MPa": 0.007502699682286476,
+    "max_core_compression_MPa": 0.05078672487875202,
+    "max_core_reference_shear_MPa": 0.007558072,
+    "max_invariant_abs_MPa": 1.1191249107977974e-08,
+    "max_core_hoop_shear_MPa": 0.0014520382939479358,
+    "minimum_average_index": 0.04353536056088856,
+    "typical_index": 0.031099937768252463,
+    "min_acoustic_lower_bound_MPa": 0.4411888961015922,
+    "points": 82944,
+    "core_shear_eid": 853,
+    "core_shear_ip": 12,
+    "shear_at_peak_signed_MPa": 0.007502699682286476,
+    "peak_E11": -0.001062008,
+    "peak_E22": -0.0004812081,
+    "peak_E33": -0.001026109,
+    "peak_E12": 8.001581e-05,
+    "peak_E13": 2.238299e-18,
+    "peak_E23": -2.014898e-17
+  },
+  "strength_crossings": {
+    "minimum_average": {
+      "strength_MPa": 0.17236893232920902,
+      "bracket_kPa": null,
+      "not_reached_through_kPa": 100.23387980960041
+    },
+    "typical": {
+      "strength_MPa": 0.24131650526089263,
+      "bracket_kPa": null,
+      "not_reached_through_kPa": 100.23387980960041
+    }
+  },
+  "crush_typical_MPa": 0.24131650526089263,
+  "tag": "QUESTIONABLE/PROJECTION"
+}

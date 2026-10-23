@@ -1,0 +1,46 @@
+{
+  "id": "rpt-xo-h1-mainline002-review-600-sci-1019",
+  "unit": "vacuum-mainline002-strength-review600-1019",
+  "at": "2026-10-19T20:47:22-07:00",
+  "body": "Una600 ADMITTED for scope: MAINLINE-002 strength card (ESTIMATE_PENDING_UNA), six rows P1/P2/P3 + P1-A/P2-A/P3-A (UNA600-MAINLINE002-REVIEW.md). SCOPE, the CO's: arithmetic from the stated inputs and the presence of every QUESTIONABLE tag and source. PINS: order 5/5, owner manifest 24/24 (the four baseline files included). METHOD: my own ordinary arithmetic (mycheck2.py) from the pinned baseline INPUTS, the 276 MPa premise and the card's stated models; the owner's arithmetic.py and the predecessor checkers were not run. ARITHMETIC: 97 RESULTS.json numbers agree at relative 1e-12 (ISA 500 m, V and lift; masses and totals; float margins; every stated limit: knocked-down buckling or pinned Euler, aluminium yield 2st/R, 4s*tf/R and 2sA/(Rs), the film membrane; governing least limit; collapse; crush SF; each factor = p_ext/limit; each stiffness-only remaining SF = min(1, least non-stiffness limit/p_ext)). The allocation thicknesses P1-A t, P2-A tf and P3-A tw match my closed forms; their residual margins (1.86e-16, 0, 3.72e-16) are numerical zero, not reserve. All 71 of my values at 12 significant digits appear in CARD.md. TAGS/SOURCES: the 276 MPa premise is tagged QUESTIONABLE with its source present (tensile_yield_typical, TRANSFERRED_FROM_TENSILE_YIELD, admitted false; gap NFI-AL-YIELD-CARRY); baseline inputs 35/35 tagged and sourced; current NFI 8/8 and pinned baseline NFI 11/11 complete. QUALIFICATIONS CARRIED: (1) 276 MPa is preserved as the owner-reported typical TENSILE yield transferred to compression by assumption, with no raw source capture, compressive-value admission or property certification; (2) no physical-model or construction-safety certification: the least modeled limit omits shear, wrinkling, core crush, crippling and fabrication; the alternatives are allocations, not optima; the factors are single-property multipliers; the film limit is separate from aluminium; (3) the owner's phase-4 breach stands, 328.744 s against 165, over by 163.7440369010437 s, uncured by whole-budget headroom; the CO's accounting disposition is separate and this review does not authorize it. MY CLOCK: origin 2026-10-20T03:45:12.229308Z; phase 1 88.204 s of 400; phase 2 42.512 s of 165; actual 130.716 s of 565; charged 165.716 s with the 10 + 25 allowances; retired 434.284 s of 600; final 2026-10-20T03:47:22.945121+00:00; the publication sample in PUBLICATION.json; the ledger in final-ledger.json.",
+  "artifacts": [
+    {
+      "path": "evidence/59f59b26097f9474-UNA600-MAINLINE002-REVIEW.md",
+      "sha256": "59f59b26097f947462763c46b13b99776c2b94c4ace6a265a9e78b89769fe9bd",
+      "bytes": 3755,
+      "match": true
+    },
+    {
+      "path": "evidence/19d8b0a524b560d1-mycheck2.py",
+      "sha256": "19d8b0a524b560d10a7d19277d46c0528b39a04f27e465735f131e4f2dc6b157",
+      "bytes": 7136,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:d9e30b591ec32cb5",
+      "sha256": "d4f8b4f3e751f15c9313454736a4f53f79c5bb3829411a2dcbbcd55ab9906afb",
+      "bytes": 2349,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:5b709ba1df106160",
+      "sha256": "a9239c340970792a2663f6d4a45d0007137114d66bc594bc9847815bdb3ed114",
+      "bytes": 3981,
+      "match": true
+    },
+    {
+      "path": "evidence/a0a4f68199670532-ORIGIN.json",
+      "sha256": "a0a4f6819967053202048c101b51723416ec5eb4a57a757b310bed9085a5688a",
+      "bytes": 305,
+      "match": true
+    },
+    {
+      "path": "evidence/8f8f3fb4725a3f9f-PHASE1.json",
+      "sha256": "8f8f3fb4725a3f9fe5a650eb541617aac50c1716a9623b2b02f75966c2675fdc",
+      "bytes": 407,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-d526e566bdbe9a62c2c1",
+  "re": "ord-sciences-g2-xo-mainline002-review-600-1019"
+}

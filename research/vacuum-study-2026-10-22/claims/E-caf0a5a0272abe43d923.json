@@ -1,0 +1,43 @@
+{
+  "id": "E-caf0a5a0272abe43d923",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-caf0a5a0272abe43d923",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check041~1NFI.json/rows/4",
+    "row_id": "CHECK041-NFI-05",
+    "fields": {
+      "id": "CHECK041-NFI-05",
+      "status": "open",
+      "topic": "Uncalibrated global multiplier",
+      "finding": "The 0.2 linear multiplier is inherited. Applying it to the nonlinear result is only arithmetic; no measured knockdown distribution is established.",
+      "action": "Preserve explicit PROJECTION status and obtain geometry/joint/imperfection-specific calibration before using a qualified margin.",
+      "evidence": [
+        "SOURCES.md",
+        "NONLINEAR-CHECK.json"
+      ],
+      "stops_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The 0.2 linear multiplier is inherited. Applying it to the nonlinear result is only arithmetic; no measured knockdown distribution is established.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check041~1NFI.json/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

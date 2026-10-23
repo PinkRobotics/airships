@@ -1,0 +1,151 @@
+{
+  "id": "rpt-ref-22285eadc9122df1c8b7",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline057-check-1020",
+  "re": "ord-admiral-rr2-chk057-untimed-1020",
+  "at": "2026-10-20T07:25:13.665678-07:00",
+  "body": "CHECK-057 complete, QUESTIONABLE/PROJECTION. Independently reconstructed 1,232 subset bills across 77 configurations; 82,034 final comparisons. Under the declared conventions, every concept-stage payload remains negative. R10 MGA reproduces 707.388727 kg for P2 and 680.594681 kg for P3.\n\nOne correction changes maturity: the card specifies direct 048 bills at R10–15 but its tables use 040 transfers. Direct 048 gives P2 R12 ISA +1.256483 kg at TRL 7, versus transfer −0.839968 kg. The first floating row changes from TRL 8 to TRL 7.\n\nThe finish allowance uses the wrong denominator; corrected P2 R10 MGA is 707.293535 kg. The 0.2–9.2 kg transfer-error range applies only to masks 11/15; all 96 comparisons reach 160.754744 kg. Four printed cells have one-kilogram rounding errors. Exact 3,193 correction entries are pinned.\n\nR10 growth tolerances 2.8/0.7% and R30 ISA 9.9/7.5% reproduce. All 28 item classes and zero-growth allocations were audited. Sixteen NFI dispositions retain maturity, reserves, classification, transfer and domain limitations. Qualified hull SF, failure probability and maturity remain null.\n\nAll 173 package checks pass; 36 input pins and the 137-file manifest verify. Six one-core/1 GiB simjob invocations admitted and released; no refusals. No owner code or out-of-band contact.\n\nResubmitted under the untimed replacement order. The scientific package is unchanged; refused envelopes are preserved. Next none.",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-chk057-untimed-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ntc-ingest-refused-rpt-ref-22285eadc9122df1c8b7-021c5a16-d1d96359b2",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "next": "none",
+  "standing": "none",
+  "artifacts": [
+    {
+      "path": "evidence/c34bf29324b228ac-CHECK.md",
+      "sha256": "c34bf29324b228ac71a2c7c9aa7a35de79970ae36f4ad8fea5f41bbb1a5fa701",
+      "bytes": 6284
+    },
+    {
+      "path": "evidence/d25a1104ce7adef5-RESULTS.json",
+      "sha256": "d25a1104ce7adef543867c2a0ed59e5cc324e4044d2e550d4249f9df2576a865",
+      "bytes": 15723
+    },
+    {
+      "path": "evidence/de6251ca41997124-METHOD.md",
+      "sha256": "de6251ca41997124fc2f6f968b247fcbe32b04a203aca63f04d8636b5cfc6d41",
+      "bytes": 4132
+    },
+    {
+      "path": "evidence/958d515614793d56-SOURCE-CHECK.md",
+      "sha256": "958d515614793d56fba766ea936820cc94a23273272916d2058a86b3367371bb",
+      "bytes": 5718
+    },
+    {
+      "path": "evidence/84ce05528108d3ac-NFI.json",
+      "sha256": "84ce05528108d3acd5416a915758558551c0854ffeba2edadd32c1088bfd417c",
+      "bytes": 9069
+    },
+    {
+      "path": "evidence/ab87d4055b93e28e-DISCREPANCIES.json",
+      "sha256": "ab87d4055b93e28e0e9c707709ec89303e6c2317d194077b5d6c9bbc089e4e75",
+      "bytes": 785287
+    },
+    {
+      "path": "evidence/3ca7a489e750c179-INDEPENDENT-RECORDS.json",
+      "sha256": "3ca7a489e750c1797527c89185205eb5040c949bdc8db732c8da810be08ec7aa",
+      "bytes": 3075477
+    },
+    {
+      "path": "evidence/0401e73eb68d3c18-INDEPENDENT-SUMMARIES.json",
+      "sha256": "0401e73eb68d3c18751c986bd9b5e4bea625755346a119494d4d5bffa45887f7",
+      "bytes": 116639
+    },
+    {
+      "path": "evidence/a9e45209fa96eba0-ARITHMETIC-AUDIT.json",
+      "sha256": "a9e45209fa96eba03e1880a465e12db0db4b0401463e80bb558640dfd29f1302",
+      "bytes": 20324841
+    },
+    {
+      "path": "withheld-source:967e5e1dc9c41b11",
+      "sha256": "c20c6b5760bdd5e6732cbc802daf8cb0c4930113b0381a96c885cf690d90b1d2",
+      "bytes": 54571
+    },
+    {
+      "path": "evidence/6fd398f98f52e64e-PROVENANCE-CHECK.json",
+      "sha256": "6fd398f98f52e64ecdfd4effc3f2452705d914a60973c18b50dcce02b95632a3",
+      "bytes": 892163
+    },
+    {
+      "path": "evidence/8546ef65a3d2b315-CBE-CREDIT-EXACT-FIELDS.json",
+      "sha256": "8546ef65a3d2b315eca1517497b4e035934ee27e11494e4d63f8ea6e97c3c71a",
+      "bytes": 590833
+    },
+    {
+      "path": "evidence/a3a410c8d17c179f-DIRECT048-EXACT-FIELDS.json",
+      "sha256": "a3a410c8d17c179fda31941beaab6e52b78ff1311bde8d98500349a2e0f43186",
+      "bytes": 15372
+    },
+    {
+      "path": "evidence/f8bd31c832d1b415-ALLOCATION-SENSITIVITY.json",
+      "sha256": "f8bd31c832d1b415d2b8f6d40ab40743cdfacd3bc54a0d1fe31da1889dd42e93",
+      "bytes": 443621
+    },
+    {
+      "path": "evidence/48ebea7161409ec6-TRANSFER-WATER-SENSITIVITY.json",
+      "sha256": "48ebea7161409ec62b8f93a687a8273a193055cba9ada560ba4729c87bb46ba4",
+      "bytes": 99729
+    },
+    {
+      "path": "evidence/7f43e79a4a23e757-PROTECTION-CLASS-SENSITIVITY.json",
+      "sha256": "7f43e79a4a23e75740e4d360fd8326903a9ad7c991d8ea77d68ac9bd3ca36357",
+      "bytes": 164049
+    },
+    {
+      "path": "evidence/c50deb50a60d9cca-INPUT-CHECK.json",
+      "sha256": "c50deb50a60d9cca214c0ccdec37b100139080fa4455a0f163aec7872c8e7ea4",
+      "bytes": 9735
+    },
+    {
+      "path": "evidence/d799d0f2e2926711-EXECUTION.json",
+      "sha256": "d799d0f2e29267110e0907aa99b890fd856845960996b571204690d0aed1b415",
+      "bytes": 18402
+    },
+    {
+      "path": "evidence/1cfef4e68b39c615-PACKAGE-CHECK.json",
+      "sha256": "1cfef4e68b39c615bfda26a1eee710c14a8bf4ac5bd05ec1c4e4e6dd17cf1c94",
+      "bytes": 18402
+    },
+    {
+      "path": "evidence/ed5dc16bd07b52df-MANIFEST.json",
+      "sha256": "ed5dc16bd07b52df8a702a680bce94279371edde8c927e8d5b5c18d2824696be",
+      "bytes": 24640
+    },
+    {
+      "path": "evidence/f68528de46bd2271-DISPOSITION.md",
+      "sha256": "f68528de46bd2271876fcae446593da1ed5d6d7662432b0c1b4c42c1bec6585f",
+      "bytes": 1460
+    }
+  ],
+  "completion": "none",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-chk057-untimed-1020"
+    },
+    {
+      "id": "ntc-ingest-refused-rpt-ref-22285eadc9122df1c8b7-021c5a16-d1d96359b2"
+    }
+  ],
+  "ingested": "2026-10-20T07:26:12-07:00"
+}

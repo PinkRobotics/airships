@@ -1,0 +1,483 @@
+{
+  "unit": "vacuum-mainline050-flyable-weather-1020",
+  "tag": "QUESTIONABLE inherited/source values; PROJECTION calculations and transfers",
+  "qualified_installed_hull_SF": null,
+  "authority": [
+    "ord-admiral-rr2-mainline050-dispatch-1019",
+    "ord-admiral-rr2-mainline050-simjob-retry-authority-1020"
+  ],
+  "upstream_pins": [
+    {
+      "path": "evidence/9aa1ab8f8ed062de-CARD.md",
+      "sha256": "9aa1ab8f8ed062de9b31b92b799f0f9f16fc29e44c3d7ac076704dc0ca4c34a2",
+      "bytes": 14949,
+      "local": "evidence/9aa1ab8f8ed062de-CARD.md",
+      "status": "MATCH",
+      "checked_local": "evidence/9aa1ab8f8ed062de-CARD.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/a9458542ae7efde6-RESULTS.json",
+      "sha256": "a9458542ae7efde6778b788973a5b5e4d6a304c9ada1aa36764812683f3843ba",
+      "bytes": 59762045,
+      "local": "evidence/a9458542ae7efde6-RESULTS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/a9458542ae7efde6-RESULTS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/093f5c2bc8203281-ROWS.csv",
+      "sha256": "093f5c2bc8203281e78574d1dbac3588ef1ececaf1a78cc80af45ef9c6f45e7f",
+      "bytes": 109217,
+      "local": "evidence/093f5c2bc8203281-ROWS.csv",
+      "status": "MATCH",
+      "checked_local": "evidence/093f5c2bc8203281-ROWS.csv",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/5c2cb668865feae6-INPUTS.json",
+      "sha256": "5c2cb668865feae68c3d1ad9ed4b379f694620133e74184ee5f6331748edd332",
+      "bytes": 2811,
+      "local": "evidence/5c2cb668865feae6-INPUTS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/5c2cb668865feae6-INPUTS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/c6e095ff87c11b12-NFI.json",
+      "sha256": "c6e095ff87c11b122c3767307e2bdb76041051752d9b7443abfbe701fb702e00",
+      "bytes": 17886,
+      "local": "evidence/c6e095ff87c11b12-NFI.json",
+      "status": "MATCH",
+      "checked_local": "evidence/c6e095ff87c11b12-NFI.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/fa88eaee87d844a8-SOURCE-AUDIT.md",
+      "sha256": "fa88eaee87d844a8a52eef3a9c2690bc64c51af88dea1c6666dadd5d8c612667",
+      "bytes": 12220,
+      "local": "evidence/fa88eaee87d844a8-SOURCE-AUDIT.md",
+      "status": "MATCH",
+      "checked_local": "evidence/fa88eaee87d844a8-SOURCE-AUDIT.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/81710ad5e8ddd7e0-COATINGS.json",
+      "sha256": "81710ad5e8ddd7e088a35309edb4b5641f34ff9354fba1828155b710ecdb043a",
+      "bytes": 5876,
+      "local": "evidence/81710ad5e8ddd7e0-COATINGS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/81710ad5e8ddd7e0-COATINGS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/7abf8107c6d958d6-COATING-EVIDENCE.md",
+      "sha256": "7abf8107c6d958d63f910a779aa7d16609e85ca9fcd5cad321414d1af90c594f",
+      "bytes": 5029,
+      "local": "evidence/7abf8107c6d958d6-COATING-EVIDENCE.md",
+      "status": "MATCH",
+      "checked_local": "evidence/7abf8107c6d958d6-COATING-EVIDENCE.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/9073d8a465011ed5-WEB-FACTS.json",
+      "sha256": "9073d8a465011ed58d9e6bfdb5a469b55230da7d65f505e67f9bf7bbc7af1fd7",
+      "bytes": 4733,
+      "local": "evidence/9073d8a465011ed5-WEB-FACTS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/9073d8a465011ed5-WEB-FACTS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/c0248a88a5cc1d46-METHOD.md",
+      "sha256": "c0248a88a5cc1d46ccf499a7016838521401271d809a2e1283d7143b971ab520",
+      "bytes": 8906,
+      "local": "evidence/c0248a88a5cc1d46-METHOD.md",
+      "status": "MATCH",
+      "checked_local": "evidence/c0248a88a5cc1d46-METHOD.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/9338c29144169b99-THERMAL-SCREEN.json",
+      "sha256": "9338c29144169b99a5323a94c65d565ba2fc29be98e3cf486dadcd7be1466cf9",
+      "bytes": 30970,
+      "local": "evidence/9338c29144169b99-THERMAL-SCREEN.json",
+      "status": "MATCH",
+      "checked_local": "evidence/9338c29144169b99-THERMAL-SCREEN.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/d096db3d5390ad24-THERMAL-TABLES.json",
+      "sha256": "d096db3d5390ad2424bd9b7644dfe72795fe1524ca6ef968eacec4f65479fdd4",
+      "bytes": 2907598,
+      "local": "evidence/d096db3d5390ad24-THERMAL-TABLES.json",
+      "status": "MATCH",
+      "checked_local": "evidence/d096db3d5390ad24-THERMAL-TABLES.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/29dd6fef0cf42f44-DRYING-COSTS.json",
+      "sha256": "29dd6fef0cf42f449a12a366f6d60ca269b2252059d88ce0953a291b499a12c5",
+      "bytes": 45358,
+      "local": "evidence/29dd6fef0cf42f44-DRYING-COSTS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/29dd6fef0cf42f44-DRYING-COSTS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/016af987c00a6b9d-SUBSET-BOUNDS.json",
+      "sha256": "016af987c00a6b9d937eb375d599e33b14fab1cd556e3d98dc0f4ac3aef41683",
+      "bytes": 271431,
+      "local": "evidence/016af987c00a6b9d-SUBSET-BOUNDS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/016af987c00a6b9d-SUBSET-BOUNDS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/73bb6f68a5fbf3c3-MODEL-PINS.json",
+      "sha256": "73bb6f68a5fbf3c3e3bdd3dcbafa729987bcf9edde059f0c869b4c70e537c782",
+      "bytes": 2145,
+      "local": "evidence/73bb6f68a5fbf3c3-MODEL-PINS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/73bb6f68a5fbf3c3-MODEL-PINS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/e4da5aa2d0191519-UPSTREAM-PINS.json",
+      "sha256": "e4da5aa2d01915191059312a0b4f6fa63810c3e90da572cd8cdaf6bc0ade4a7d",
+      "bytes": 4006,
+      "local": "evidence/e4da5aa2d0191519-UPSTREAM-PINS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/e4da5aa2d0191519-UPSTREAM-PINS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/4e93b1094cc47c63-CARD.md",
+      "sha256": "4e93b1094cc47c63442245b5c42ba2e44067abf4f4c41a717e46fe82149b1d2f",
+      "bytes": 12109,
+      "local": "evidence/4e93b1094cc47c63-CARD.md",
+      "status": "MATCH",
+      "checked_local": "evidence/4e93b1094cc47c63-CARD.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/e973414f7f827efc-METHOD.md",
+      "sha256": "e973414f7f827efc5a395848ce0541c70154dc1c299634dbdb02e8f6a957a5fd",
+      "bytes": 13573,
+      "local": "evidence/e973414f7f827efc-METHOD.md",
+      "status": "MATCH",
+      "checked_local": "evidence/e973414f7f827efc-METHOD.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/70f1732f96b2cf99-RESULTS.json",
+      "sha256": "70f1732f96b2cf99b8f992d1271e3413e96da5348fe37afac8cab2521f05fbc9",
+      "bytes": 14515784,
+      "local": "evidence/70f1732f96b2cf99-RESULTS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/70f1732f96b2cf99-RESULTS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/70e06adbaf98e9b8-BASIS-RECONCILIATION.json",
+      "sha256": "70e06adbaf98e9b802c58817ac1beaf8b84d150301f3ff79812eecedcb964ea9",
+      "bytes": 21174,
+      "local": "evidence/70e06adbaf98e9b8-BASIS-RECONCILIATION.json",
+      "status": "MATCH",
+      "checked_local": "evidence/70e06adbaf98e9b8-BASIS-RECONCILIATION.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+      "bytes": 22506,
+      "local": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/bf13631a6c15a215-INPUT-PINS.json",
+      "sha256": "bf13631a6c15a21584b7c71a7d11f2e0f73df74fa990c6329f3d1839218ef210",
+      "bytes": 15804,
+      "local": "evidence/bf13631a6c15a215-INPUT-PINS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/bf13631a6c15a215-INPUT-PINS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/d388d161c79eeba7-NFI.json",
+      "sha256": "d388d161c79eeba73ef012a28d1aebcbd2003cd352cfba10b69ded83403e57ee",
+      "bytes": 15380,
+      "local": "evidence/d388d161c79eeba7-NFI.json",
+      "status": "MATCH",
+      "checked_local": "evidence/d388d161c79eeba7-NFI.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/e10a6054a015fc86-THERMAL-CHECK.json",
+      "sha256": "e10a6054a015fc865347f7f33cb655585c28faad627ab2849326904c7b82030c",
+      "bytes": 2885,
+      "local": "evidence/e10a6054a015fc86-THERMAL-CHECK.json",
+      "status": "MATCH",
+      "checked_local": "evidence/e10a6054a015fc86-THERMAL-CHECK.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/8891451a88117676-CARD.md",
+      "sha256": "8891451a881176763083491070b7503c08185f0b781621bd213aaa4ddc3ce77b",
+      "bytes": 22744,
+      "local": "evidence/8891451a88117676-CARD.md",
+      "status": "MATCH",
+      "checked_local": "evidence/8891451a88117676-CARD.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/56a46ce0505be4d5-INPUTS.json",
+      "sha256": "56a46ce0505be4d5cd93119f9f953bb9e7b025d016a914259963cf01dd4911e1",
+      "bytes": 1027051,
+      "local": "evidence/56a46ce0505be4d5-INPUTS.json",
+      "status": "MATCH",
+      "checked_local": "evidence/56a46ce0505be4d5-INPUTS.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/d18857e0b502c9fe-NFI.json",
+      "sha256": "d18857e0b502c9fe826d54b55f8e27212908609c376e5fbcbf77e48bc4837619",
+      "bytes": 7267,
+      "local": "evidence/d18857e0b502c9fe-NFI.json",
+      "status": "MATCH",
+      "checked_local": "evidence/d18857e0b502c9fe-NFI.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/f7c1f9ffb20d9657-METHOD.md",
+      "sha256": "f7c1f9ffb20d96575c430ca2f1d775451dee0cb32e35385141896e6625d8edeb",
+      "bytes": 9271,
+      "local": "evidence/f7c1f9ffb20d9657-METHOD.md",
+      "status": "MATCH",
+      "checked_local": "evidence/f7c1f9ffb20d9657-METHOD.md",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/d04b2a9204989475-ATMOSPHERE.json",
+      "sha256": "d04b2a9204989475e194be5da91ebd4ccea2af7e810c21f9abd3bfad353c750a",
+      "bytes": 87985,
+      "local": "evidence/d04b2a9204989475-ATMOSPHERE.json",
+      "status": "MATCH",
+      "checked_local": "evidence/d04b2a9204989475-ATMOSPHERE.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/0a617fa1d11bbe14-P2.json",
+      "sha256": "0a617fa1d11bbe148cd9bc61bca859b6f363783d7749985e1998d3d31bbf8284",
+      "bytes": 1351804,
+      "local": "evidence/0a617fa1d11bbe14-P2.json",
+      "status": "MATCH",
+      "checked_local": "evidence/0a617fa1d11bbe14-P2.json",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/a5488364b11dc8aa-thermal48.py",
+      "sha256": "a5488364b11dc8aaefc224c02bbc2432a3d47e0551d52120869d9eea5ad16905",
+      "bytes": 4845,
+      "local": "evidence/a5488364b11dc8aa-thermal48.py",
+      "status": "MATCH",
+      "purpose": "Read to recover the inherited thermal boundary equations; not run or imported.",
+      "checked_local": "evidence/a5488364b11dc8aa-thermal48.py",
+      "local_match_at_packaging": true
+    },
+    {
+      "path": "evidence/fbe6e75d59c007c4-INPUTS.json",
+      "sha256": "fbe6e75d59c007c44e3240cd2763bab40fd67967c150dd1b4b8765254a2850df",
+      "bytes": 13066,
+      "snapshot": "inputs/034/INPUTS.json",
+      "checked_local": "evidence/fbe6e75d59c007c4-INPUTS.json",
+      "local_match_at_packaging": true
+    }
+  ],
+  "brief_pins": [
+    {
+      "path": "withheld-source:1b6fb4fd2b6e92c6",
+      "sha256": "ae7941e4b074e14d35696b68c36dcbc171d4df88d06d8af7ae74ae490d4b4b9d",
+      "bytes": 2775,
+      "local": "withheld-source:1b6fb4fd2b6e92c6",
+      "status": "MATCH"
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "local": "withheld-source:b528d6a62c81ce0b",
+      "status": "MATCH"
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021,
+      "local": "unpublished-local-ref:9c89c73f4d0e6611",
+      "status": "MATCH"
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063,
+      "local": "unpublished-local-ref:d77f07b5fee6fcfa",
+      "status": "MATCH"
+    }
+  ],
+  "source_audit": "SOURCE-AUDIT.json",
+  "radii_m": [
+    10,
+    12,
+    15,
+    20,
+    30
+  ],
+  "grid": {
+    "offset_K": [
+      -20,
+      20,
+      1
+    ],
+    "sea_pressure_anomaly_hPa": [
+      -30,
+      30,
+      2
+    ],
+    "RH_fraction": [
+      0,
+      1,
+      0.1
+    ],
+    "centre_altitude_m": [
+      100,
+      1500,
+      50
+    ],
+    "points": 2027245
+  },
+  "atmosphere": {
+    "surface_elevation_m": 0,
+    "surface_standard_pressure_Pa": 101325,
+    "sea_T_ISA_K": 288.15,
+    "lapse_K_m": 0.0065,
+    "Rd_J_kg_K": 287.053,
+    "Rv_J_kg_K": 461.5,
+    "g_m_s2": 9.80665,
+    "column": "Constant vapor mole fraction, solved from local RH; ideal-mixture hydrostatic profile."
+  },
+  "account": {
+    "finish": "048 multilayer CCAg/ITO",
+    "finish_kg_m2": 0.00833272,
+    "bake": "70 C route; projected 90% removal",
+    "joining": "maximum(actual joining bill, 5% of faces plus core)",
+    "structural_primer_kg_m2": 0.01,
+    "exterior_water_kg_m2": 0.1,
+    "gas_fraction_reference_lift": 0.01,
+    "fixed_systems_kg": 100,
+    "cure_F": 200,
+    "scarf_ratio": 30.34139731914874,
+    "legacy_mooring_pad": "040 wind pad, not 044 qualified-fatigue hardware",
+    "material_table": "inputs/040/INPUTS.json",
+    "gas_model": "inputs/034/INPUTS.json"
+  },
+  "masks": {
+    "bits": [
+      "gamma",
+      "Q",
+      "coupled_face_compression_and_E",
+      "film"
+    ],
+    "primary": 11,
+    "all_subsets": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "gamma": "baseline .2 for Vc<2, else 1; full .2+.4 min(Vc,2)",
+    "Q": [
+      0.33,
+      0.82
+    ],
+    "E_GPa": [
+      290,
+      293.6
+    ],
+    "compression_MPa": [
+      345,
+      379.2
+    ],
+    "film_lb_ft2_each_interface": [
+      0.03,
+      0.015
+    ]
+  },
+  "thermal": {
+    "inherited_fixed_Tair_K": 284.9,
+    "sky_day_K": 275,
+    "sky_night_K": 260,
+    "solar_W_m2": 970,
+    "wind_m_s": 2,
+    "out_emittance": 0.8,
+    "solar_absorptance": 0.09,
+    "inner_emittance": 0.2,
+    "coupled": "Air and sky shifted together; fixed optical coefficients, solar, wind and reference-density forced-convection formula.",
+    "numerics": "128 Gauss-Legendre zones; 241 core knots; degree 2..6 thermal curvature; inherited 1.002 guard."
+  },
+  "night_cases": {
+    "clear_calm_reference": {
+      "ta": 284.9,
+      "sky": 260,
+      "rh": 0.7188468865165529,
+      "wind": 0.2
+    },
+    "overcast_humid": {
+      "ta": 284.9,
+      "sky": 282.9,
+      "rh": 0.95,
+      "wind": 0.5
+    },
+    "clear_saturated": {
+      "ta": 284.9,
+      "sky": 260,
+      "rh": 1.0,
+      "wind": 0.2
+    },
+    "clear_cold_frost": {
+      "ta": 268.15,
+      "sky": 243.25,
+      "rh": 0.9,
+      "wind": 0.2
+    }
+  },
+  "night_constants": {
+    "hours": 12,
+    "dt_s": 5,
+    "zones": 64,
+    "Le": 0.87,
+    "cp_air_J_kg_K": 1005,
+    "cp_Be_J_kg_K": 1825,
+    "cp_Al_J_kg_K": 900,
+    "cp_ice_J_kg_K": 2100,
+    "cp_water_J_kg_K": 4180,
+    "cp_vapor_J_kg_K": 1860,
+    "fusion_J_kg": 334000,
+    "sublimation_at_freezing_J_kg": 2835000,
+    "retention": "All deposition retained, initially dry; no shedding, rain/fog impaction or evaporation of a preexisting film."
+  },
+  "fixed_pressure_design_Pa": 103953.19780784745
+}

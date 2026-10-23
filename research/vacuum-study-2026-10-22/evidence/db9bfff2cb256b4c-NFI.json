@@ -1,0 +1,140 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "method": "Design-point rows are ranked by absolute payload change. Margin-only terms are resized at the design density, because a frozen geometry does not change mass. Gamma and Q on the design point are the admissible floors, so their optimism factor is 1.",
+  "ranked": [
+    {
+      "rank": 1,
+      "id": "NFI-069-DENSITY",
+      "scope": "design point",
+      "payload_effect_kg": 69952.24681910008,
+      "payload_if_removed_kg": -69947.21533572263,
+      "floats_if_removed": false,
+      "route": "068 mirror-like graphite film. First coupon is in-plane compression of a stack near 2.1 mm. T1 is 038 SR-200 compression and does not produce this density.",
+      "tag": "PROJECTION"
+    },
+    {
+      "rank": 2,
+      "id": "NFI-069-KC",
+      "scope": "design point",
+      "payload_effect_kg": 19043.561576443855,
+      "payload_if_removed_kg": 19048.593059821294,
+      "floats_if_removed": true,
+      "delta_d_factor_without_term": 1.4591468390294113,
+      "route": "analysis. Open CR-1457 or DOI 10.2514/3.5568 or 10.2514/3.1932 for kc=1-Vc/4. No named copy is in SOURCE-INDEX. The term stays.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 3,
+      "id": "NFI-069-BETA",
+      "scope": "design point",
+      "payload_effect_kg": 17254.201402202354,
+      "payload_if_removed_kg": -17249.169918824915,
+      "floats_if_removed": false,
+      "route": "analysis. 066 set BETA to 1. The copied model's root of b^3+b=1 is 0.682327803828082. Restoring it and resizing does not float.",
+      "tag": "QUESTIONABLE",
+      "simjob": "simjob-20261020t190103-258a311c915f"
+    },
+    {
+      "rank": 4,
+      "id": "NFI-069-PRESSURE",
+      "scope": "design point",
+      "payload_effect_kg": 3991.1022972102,
+      "payload_if_removed_kg": 3996.133780587639,
+      "floats_if_removed": true,
+      "delta_d_factor_without_term": 1.7397410734805205,
+      "route": "analysis. Source the 1.01 floor and QWIND. 040 names pinned 014b, which is not in SOURCE-INDEX. The term stays.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 5,
+      "id": "NFI-069-CURE",
+      "scope": "design point",
+      "payload_effect_kg": 2586.695419391981,
+      "payload_if_removed_kg": 2591.72690276942,
+      "floats_if_removed": true,
+      "delta_d_factor_without_term": 1.7694119150252845,
+      "route": "analysis. Source kb, 12.3e-6 and the 366.4833333333333 K window. The term stays.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 6,
+      "id": "NFI-069-FILM",
+      "scope": "design point",
+      "payload_effect_kg": 2153.9368471786656,
+      "payload_if_removed_kg": -2148.9053638012265,
+      "floats_if_removed": false,
+      "route": "analysis. Weigh the installed film. Favorable film is half the 040 baseline. 067 read AF 163-2U at 0.015 lb/ft2 as a thin product.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 7,
+      "id": "NFI-069-WEATHER",
+      "scope": "design point",
+      "payload_effect_kg": 1494.204540784951,
+      "payload_if_removed_kg": 1499.23602416239,
+      "floats_if_removed": true,
+      "route": "analysis. Optimistic weather adds QWEATHER, QWIND and the mass headroom. ISA at the design geometry still floats.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 8,
+      "id": "NFI-069-GRAD-BEND",
+      "scope": "design point",
+      "payload_effect_kg": 713.3400076950966,
+      "payload_if_removed_kg": 718.3714910725357,
+      "floats_if_removed": true,
+      "delta_d_factor_without_term": 1.8092731638452857,
+      "route": "analysis. Source the 11.3e-6 gradient and bending stress. The terms stay.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 9,
+      "id": "NFI-069-MODULUS",
+      "scope": "design point",
+      "payload_effect_kg": 0.0,
+      "margin_if_today": {
+        "global_buckling": 0.9937226759172882,
+        "face_wrinkling": 0.9940956677309344
+      },
+      "floats_if_removed": false,
+      "route": "analysis. 067 normalizes the face to 290 GPa. The design uses 040 E_full 293.6 GPa. Payload is unchanged and buckling falls below 1.",
+      "tag": "QUESTIONABLE",
+      "simjob": "simjob-20261020t190103-258a311c915f"
+    },
+    {
+      "rank": 10,
+      "id": "NFI-069-STRENGTH",
+      "scope": "design point",
+      "payload_effect_kg": 0.0,
+      "floats_if_removed": true,
+      "route": "T1. 038 measures SR-200 compression. Strength 345 MPa in place of 379.2 MPa does not move the payload.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 11,
+      "id": "NFI-069-Q",
+      "scope": "design point",
+      "payload_effect_kg": 0.0,
+      "route": "T3. Measure wrinkling of this SR-200/CR-III coupon before any Q above 0.33. The design uses 0.33.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "rank": 12,
+      "id": "NFI-069-GAMMA",
+      "scope": "design point",
+      "payload_effect_kg": 0.0,
+      "route": "T7. Measure this sandwich shell before any gamma above 0.20. The design uses 0.20.",
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "trl7_alternative": {
+    "id": "NFI-069-GAMMA-ALT",
+    "scope": "TRL7 alternative, not the design point",
+    "payload_effect_kg": 52296.0005881311,
+    "today_TRL7_payload_kg": -52262.177621009825,
+    "alternative_payload_kg": 33.822967121274814,
+    "route": "T7. Realized gamma 0.553 on today's 1850 kg/m3 faces, TRL 7, R 30.",
+    "tag": "PROJECTION"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "F-A2-058-P2-HARDWARE",
+  "kind": "review_fix",
+  "claim": "The site-coverage configurations include relief and ballast operationally but use hull mass without the separately declared valve/bladder hardware. | Demonstrated accounting omission; proposed corrected rows have not undergone a fix-review round.",
+  "original": {
+    "id": "F-A2-058-P2-HARDWARE",
+    "card": "MAINLINE058",
+    "owner": "ref-55cff924be25afe6f9dd",
+    "field": "CARD.md Heathrow coverage headlines/table; RESULTS.levers/finish_heathrow; days058b mass_kg and full_day_fraction",
+    "finding": "The site-coverage configurations include relief and ballast operationally but use hull mass without the separately declared valve/bladder hardware.",
+    "status": "unreviewed",
+    "meaning": "Demonstrated accounting omission; proposed corrected rows have not undergone a fix-review round.",
+    "rows": [
+      {
+        "R_m": 10,
+        "finish": "MLCCAg",
+        "hull": "trim-30",
+        "operation": "best",
+        "owner_mass_kg": 4798.836358806305,
+        "added_hardware_kg": 11.444984608707582,
+        "review_mass_kg": 4810.281343415012,
+        "owner_fraction": 0.6397864568699073,
+        "review_fraction": 0.6125316100028098,
+        "owner_days": 2277,
+        "review_days": 2180,
+        "denominator_days": 3559
+      },
+      {
+        "R_m": 10,
+        "finish": "AlAOC",
+        "hull": "trim-30",
+        "operation": "best",
+        "owner_mass_kg": 4808.659970504268,
+        "added_hardware_kg": 15.531413794235286,
+        "review_mass_kg": 4824.191384298503,
+        "owner_fraction": 0.836470918797415,
+        "review_fraction": 0.7985389154256813,
+        "owner_days": 2977,
+        "review_days": 2842,
+        "denominator_days": 3559
+      },
+      {
+        "R_m": 12,
+        "finish": "AlAOC",
+        "hull": "trim-30",
+        "operation": "best",
+        "owner_mass_kg": 8193.496171961313,
+        "added_hardware_kg": 25.469928886211818,
+        "review_mass_kg": 8218.966100847525,
+        "owner_fraction": 0.9578533295869627,
+        "review_fraction": 0.9415566170272548,
+        "owner_days": 3409,
+        "review_days": 3351,
+        "denominator_days": 3559
+      },
+      {
+        "R_m": 20,
+        "finish": "AlAOC",
+        "hull": "trim-30",
+        "operation": "best",
+        "owner_mass_kg": 37250.915211831896,
+        "added_hardware_kg": 112.74258553155218,
+        "review_mass_kg": 37363.65779736345,
+        "owner_fraction": 0.9926945771284068,
+        "review_fraction": 0.9896038212981174,
+        "owner_days": 3533,
+        "review_days": 3522,
+        "denominator_days": 3559
+      }
+    ],
+    "proposed_fix": "Carry the exact configuration hardware into the site lift test and update the named coverage rows. Recompute the least-optimism/radius selections before using them; this review does not choose a replacement minimum radius.",
+    "evidence": [
+      "checks/058-COVERAGE-height27.29-humidityTrue.json",
+      "inputs/058/RESULTS.json",
+      "sources/days058b.json"
+    ]
+  },
+  "numerical_status": "unreviewed",
+  "change_type": "correction",
+  "review_status": "UNREVIEWED",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Demonstrated discrepancy; proposed values have not had a second review.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/93f07ada6e604aa5-FIXES.json",
+      "snapshot": "evidence/93f07ada6e604aa5-FIXES.json",
+      "sha256": "93f07ada6e604aa5a3deef1dc48ebc49f4c37c2c4c695f4f1764608d5985a1f0",
+      "bytes": 5191,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

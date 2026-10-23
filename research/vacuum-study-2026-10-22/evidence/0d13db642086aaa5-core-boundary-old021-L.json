@@ -1,0 +1,463 @@
+{
+  "label": "old021",
+  "meridian": "L",
+  "width_mm": 332.2164186283597,
+  "config": {
+    "ntheta": 512,
+    "grading": 2,
+    "nface": 2,
+    "ncore": 6,
+    "cores": 4,
+    "inplane": 1,
+    "core_output": 1,
+    "increment": 0.2,
+    "maximum_increment": 0.2,
+    "service_fraction": 0.8
+  },
+  "criterion": "min(endpoint,first face yield,first core shear failure); target load cap reached on pre-yield branch",
+  "core_law": "orthotropic StVK; Ein=1 MPa, Gin=.5 MPa; En=GL=103.4213594, GW=46.88434959 MPa; zero Poisson",
+  "boundaries": [
+    {
+      "SF": 1.0,
+      "face_yield_MPa": 345.0,
+      "strength_basis": "minimum_average",
+      "status": "tested_three_limit_boundary",
+      "governing": "face_yield",
+      "amplitude_estimate_mm": 1.8051885001456462,
+      "passing_amplitude_mm": 1.79559,
+      "failing_amplitude_mm": 1.810809,
+      "passing_run": "crt-old021-L-a1.795590",
+      "failing_run": "crt-old021-L-a1.810809",
+      "passing_face_MPa": 344.7536262139941,
+      "failing_face_MPa": 345.1442666882691,
+      "passing_core_shear_MPa": 0.13176346274947193,
+      "failing_core_shear_MPa": 0.1329758625513066,
+      "passing_core_index": 0.42468165672626895,
+      "failing_core_index": 0.4285892950481058,
+      "passing_core_compression_MPa": 0.06605918747156526,
+      "pressure_kPa": 95.46083791390515,
+      "rms_estimate_mm": 0.021202090566788522,
+      "rms_bracket_mm": [
+        0.021089355376321207,
+        0.021268103809689753
+      ]
+    },
+    {
+      "SF": 1.0,
+      "face_yield_MPa": 345.0,
+      "strength_basis": "typical",
+      "status": "tested_three_limit_boundary",
+      "governing": "face_yield",
+      "amplitude_estimate_mm": 1.8051885001456462,
+      "passing_amplitude_mm": 1.79559,
+      "failing_amplitude_mm": 1.810809,
+      "passing_run": "crt-old021-L-a1.795590",
+      "failing_run": "crt-old021-L-a1.810809",
+      "passing_face_MPa": 344.7536262139941,
+      "failing_face_MPa": 345.1442666882691,
+      "passing_core_shear_MPa": 0.13176346274947193,
+      "failing_core_shear_MPa": 0.1329758625513066,
+      "passing_core_index": 0.3474668100487655,
+      "failing_core_index": 0.35066396867572286,
+      "passing_core_compression_MPa": 0.06605918747156526,
+      "pressure_kPa": 95.46083791390515,
+      "rms_estimate_mm": 0.021202090566788522,
+      "rms_bracket_mm": [
+        0.021089355376321207,
+        0.021268103809689753
+      ]
+    },
+    {
+      "SF": 1.05,
+      "face_yield_MPa": 345.0,
+      "strength_basis": "minimum_average",
+      "status": "tested_three_limit_boundary",
+      "governing": "face_yield",
+      "amplitude_estimate_mm": 1.1208147215206878,
+      "passing_amplitude_mm": 1.111375,
+      "failing_amplitude_mm": 1.129375,
+      "passing_run": "crt-old021-L-a1.111375",
+      "failing_run": "crt-old021-L-a1.129375",
+      "passing_face_MPa": 344.7415721577383,
+      "failing_face_MPa": 345.2343516481625,
+      "passing_core_shear_MPa": 0.08532404945496458,
+      "failing_core_shear_MPa": 0.08678592193774291,
+      "passing_core_index": 0.2750046023761901,
+      "failing_core_index": 0.2797163063262393,
+      "passing_core_compression_MPa": 0.061376985696064375,
+      "pressure_kPa": 100.23387980960041,
+      "rms_estimate_mm": 0.013164063050675419,
+      "rms_bracket_mm": [
+        0.01305319272849536,
+        0.013264604240462892
+      ]
+    },
+    {
+      "SF": 1.05,
+      "face_yield_MPa": 345.0,
+      "strength_basis": "typical",
+      "status": "tested_three_limit_boundary",
+      "governing": "face_yield",
+      "amplitude_estimate_mm": 1.1208147215206878,
+      "passing_amplitude_mm": 1.111375,
+      "failing_amplitude_mm": 1.129375,
+      "passing_run": "crt-old021-L-a1.111375",
+      "failing_run": "crt-old021-L-a1.129375",
+      "passing_face_MPa": 344.7415721577383,
+      "failing_face_MPa": 345.2343516481625,
+      "passing_core_shear_MPa": 0.08532404945496458,
+      "failing_core_shear_MPa": 0.08678592193774291,
+      "passing_core_index": 0.22500376558051915,
+      "failing_core_index": 0.22885879608510487,
+      "passing_core_compression_MPa": 0.061376985696064375,
+      "pressure_kPa": 100.23387980960041,
+      "rms_estimate_mm": 0.013164063050675419,
+      "rms_bracket_mm": [
+        0.01305319272849536,
+        0.013264604240462892
+      ]
+    }
+  ],
+  "evaluations": [
+    {
+      "amplitude_mm": 0.0,
+      "run": "crt-perfect-L",
+      "targets": {
+        "1.0": {
+          "run": "crt-perfect-L",
+          "face": {
+            "inner_mises_MPa": 300.5621441698047,
+            "max_mises_MPa": 300.5621441698047,
+            "max_mises_eid": "5111",
+            "max_mises_face": "inner",
+            "max_mises_ip": "10",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 300.13449248331597,
+            "p_kPa": 95.46083791390515,
+            "pole_uy_mm": "-19.07466",
+            "time": "0.8",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 5118.0,
+            "core_shear_ip": 9.0,
+            "max_core_compression_MPa": 0.04856159434127575,
+            "max_core_hoop_shear_MPa": 0.0006274682243077616,
+            "max_core_reference_shear_MPa": 0.0005047031,
+            "max_core_shear_MPa": 0.0005045939069062661,
+            "max_invariant_abs_MPa": 1.017964127575377e-08,
+            "minimum_average_index": 0.0037933671500714095,
+            "p_kPa": 95.46083791390515,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.0005045939069062661,
+            "time": 0.8,
+            "typical_index": 0.0027432806202504403
+          }
+        },
+        "1.05": {
+          "run": "crt-perfect-L",
+          "face": {
+            "inner_mises_MPa": 315.5729259138381,
+            "max_mises_MPa": 315.5729259138381,
+            "max_mises_eid": "5111",
+            "max_mises_face": "inner",
+            "max_mises_ip": "10",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 315.12399157971146,
+            "p_kPa": 100.23387980960041,
+            "pole_uy_mm": "-20.026",
+            "time": "1.0",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 5118.0,
+            "core_shear_ip": 9.0,
+            "max_core_compression_MPa": 0.050989624169357706,
+            "max_core_hoop_shear_MPa": 0.0006587009762137841,
+            "max_core_reference_shear_MPa": 0.0005298514,
+            "max_core_shear_MPa": 0.0005297311366689861,
+            "max_invariant_abs_MPa": 1.1414999508130297e-08,
+            "minimum_average_index": 0.003982193659860298,
+            "p_kPa": 100.23387980960041,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.0005297311366689861,
+            "time": 1.0,
+            "typical_index": 0.002879837462285008
+          }
+        }
+      }
+    },
+    {
+      "amplitude_mm": 1.111375,
+      "run": "crt-old021-L-a1.111375",
+      "targets": {
+        "1.0": {
+          "run": "crt-old021-L-a1.111375",
+          "face": {
+            "inner_mises_MPa": 303.0773900650515,
+            "max_mises_MPa": 327.38535313706416,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "25",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 327.38535313706416,
+            "p_kPa": 95.46083791390515,
+            "pole_uy_mm": "-19.74954",
+            "time": "0.8",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.05816310217586273,
+            "max_core_hoop_shear_MPa": 0.0006274682243077616,
+            "max_core_reference_shear_MPa": 0.07900104,
+            "max_core_shear_MPa": 0.07893661326738559,
+            "max_invariant_abs_MPa": 2.2239793673328734e-08,
+            "minimum_average_index": 0.2544175069419117,
+            "p_kPa": 95.46083791390515,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.07893661326738559,
+            "time": 0.8,
+            "typical_index": 0.20815977840701863
+          }
+        },
+        "1.05": {
+          "run": "crt-old021-L-a1.111375",
+          "face": {
+            "inner_mises_MPa": 318.30375755716085,
+            "max_mises_MPa": 344.7415721577383,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "16",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 344.7415721577383,
+            "p_kPa": 100.23387980960041,
+            "pole_uy_mm": "-20.76196",
+            "time": "1.0",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.061376985696064375,
+            "max_core_hoop_shear_MPa": 0.0006587009762137841,
+            "max_core_reference_shear_MPa": 0.0853971,
+            "max_core_shear_MPa": 0.08532404945496458,
+            "max_invariant_abs_MPa": 2.1947631323460115e-08,
+            "minimum_average_index": 0.2750046023761901,
+            "p_kPa": 100.23387980960041,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.08532404945496458,
+            "time": 1.0,
+            "typical_index": 0.22500376558051915
+          }
+        }
+      }
+    },
+    {
+      "amplitude_mm": 1.129375,
+      "run": "crt-old021-L-a1.129375",
+      "targets": {
+        "1.0": {
+          "run": "crt-old021-L-a1.129375",
+          "face": {
+            "inner_mises_MPa": 303.1259148061961,
+            "max_mises_MPa": 327.8372381779859,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "16",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 327.8372381779859,
+            "p_kPa": 95.46083791390515,
+            "pole_uy_mm": "-19.76124",
+            "time": "0.8",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.05835600210791584,
+            "max_core_hoop_shear_MPa": 0.0006274682243077618,
+            "max_core_reference_shear_MPa": 0.08034981,
+            "max_core_shear_MPa": 0.0802844106526391,
+            "max_invariant_abs_MPa": 2.2452813608353495e-08,
+            "minimum_average_index": 0.25876153991248635,
+            "p_kPa": 95.46083791390515,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.0802844106526391,
+            "time": 0.8,
+            "typical_index": 0.21171398720112516
+          }
+        },
+        "1.05": {
+          "run": "crt-old021-L-a1.129375",
+          "face": {
+            "inner_mises_MPa": 318.35683747911565,
+            "max_mises_MPa": 345.2343516481625,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "16",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 345.2343516481625,
+            "p_kPa": 100.23387980960041,
+            "pole_uy_mm": "-20.7748",
+            "time": "1.0",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.061586335821674006,
+            "max_core_hoop_shear_MPa": 0.0006587009762137841,
+            "max_core_reference_shear_MPa": 0.08686006,
+            "max_core_shear_MPa": 0.08678592193774291,
+            "max_invariant_abs_MPa": 2.2170320815306788e-08,
+            "minimum_average_index": 0.2797163063262393,
+            "p_kPa": 100.23387980960041,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.08678592193774291,
+            "time": 1.0,
+            "typical_index": 0.22885879608510487
+          }
+        }
+      }
+    },
+    {
+      "amplitude_mm": 1.79559,
+      "run": "crt-old021-L-a1.795590",
+      "targets": {
+        "1.0": {
+          "run": "crt-old021-L-a1.795590",
+          "face": {
+            "inner_mises_MPa": 305.1059977437069,
+            "max_mises_MPa": 344.7536262139941,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "16",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 344.7536262139941,
+            "p_kPa": 95.46083791390515,
+            "pole_uy_mm": "-20.21406",
+            "time": "0.8",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.06605918747156526,
+            "max_core_hoop_shear_MPa": 0.0008195310128093779,
+            "max_core_reference_shear_MPa": 0.1318622,
+            "max_core_shear_MPa": 0.13176346274947193,
+            "max_invariant_abs_MPa": 8.053881869751756e-08,
+            "minimum_average_index": 0.42468165672626895,
+            "p_kPa": 95.46083791390515,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.13176346274947193,
+            "time": 0.8,
+            "typical_index": 0.3474668100487655
+          }
+        },
+        "1.05": {
+          "run": "crt-old021-L-a1.795590",
+          "face": {
+            "inner_mises_MPa": 320.5337454737173,
+            "max_mises_MPa": 363.7178113196552,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "16",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 363.7178113196552,
+            "p_kPa": 100.23387980960041,
+            "pole_uy_mm": "-21.27229",
+            "time": "1.0",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.0699780337296139,
+            "max_core_hoop_shear_MPa": 0.0008875468864043716,
+            "max_core_reference_shear_MPa": 0.1428655,
+            "max_core_shear_MPa": 0.1427537649410764,
+            "max_invariant_abs_MPa": 8.204696319569216e-08,
+            "minimum_average_index": 0.46010406932275055,
+            "p_kPa": 100.23387980960041,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.1427537649410764,
+            "time": 1.0,
+            "typical_index": 0.37644878399134135
+          }
+        }
+      }
+    },
+    {
+      "amplitude_mm": 1.810809,
+      "run": "crt-old021-L-a1.810809",
+      "targets": {
+        "1.0": {
+          "run": "crt-old021-L-a1.810809",
+          "face": {
+            "inner_mises_MPa": 305.1554947850858,
+            "max_mises_MPa": 345.1442666882691,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "16",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 345.1442666882691,
+            "p_kPa": 95.46083791390515,
+            "pole_uy_mm": "-20.22485",
+            "time": "0.8",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.06624826384947635,
+            "max_core_hoop_shear_MPa": 0.0008269397416605005,
+            "max_core_reference_shear_MPa": 0.1330753,
+            "max_core_shear_MPa": 0.1329758625513066,
+            "max_invariant_abs_MPa": 8.104529816699291e-08,
+            "minimum_average_index": 0.4285892950481058,
+            "p_kPa": 95.46083791390515,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.1329758625513066,
+            "time": 0.8,
+            "typical_index": 0.35066396867572286
+          }
+        },
+        "1.05": {
+          "run": "crt-old021-L-a1.810809",
+          "face": {
+            "inner_mises_MPa": 320.5884585422062,
+            "max_mises_MPa": 364.1456463857702,
+            "max_mises_eid": "60",
+            "max_mises_face": "outer",
+            "max_mises_ip": "16",
+            "max_peeq": 0.0,
+            "outer_mises_MPa": 364.1456463857702,
+            "p_kPa": 100.23387980960041,
+            "pole_uy_mm": "-21.28418",
+            "time": "1.0",
+            "interpolation": "native target increment, printed-time rounding <0.0001 kPa"
+          },
+          "core": {
+            "core_shear_eid": 433.0,
+            "core_shear_ip": 12.0,
+            "max_core_compression_MPa": 0.07018469785651797,
+            "max_core_hoop_shear_MPa": 0.0008956215174452063,
+            "max_core_reference_shear_MPa": 0.1441874,
+            "max_core_shear_MPa": 0.1440749025878267,
+            "max_invariant_abs_MPa": 8.090351416578656e-08,
+            "minimum_average_index": 0.4643621763341923,
+            "p_kPa": 100.23387980960041,
+            "points": 82944.0,
+            "shear_at_peak_signed_MPa": 0.1440749025878267,
+            "time": 1.0,
+            "typical_index": 0.3799326897279755
+          }
+        }
+      }
+    }
+  ]
+}

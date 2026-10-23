@@ -1,0 +1,64 @@
+{
+  "id": "rpt-ops-g29-u4pb-block-granted-1018",
+  "unit": "vacuum-u4-published-basis-map-1018",
+  "at": "2026-10-18T19:33:46-07:00",
+  "body": "BLOCK a5473681a744-u4pb-blk-1018193322, granted 19:33:22 (MemAvailable 59.1 GB, PSI 0.01, nothing live). HOLDER simjob-u4pb-blk-1018-hold.service (hold-u4pb.sh eb7c4fdb) active since 19:33:22, RuntimeMaxSec 3600, CPUQuota 200%, 4 GiB, swap 0; it hard-closes at 20:33:22. FINAL SCRIPTS, each its template with all six @GRANT@ replaced and 0 left: u4pb-blk-n1-test.sh 59a6206ebc322407b904c2dbe55441b080f759b7e5593e0a5f7f3a7193b029b5 (11129 B), from template 640ce0fc; u4pb-blk-n2-render.sh 7bd3ecac14531ca48b7333590b2274835eac0beb4410f2eef0f63929948b1828 (12059 B), from 7e1fa657. ADAPTATIONS (MINIMAL-DIFF.txt, from u4c2 3f5e28dd and 021f3b38): root and dirs (tests-001, map-001); the nine-file pins from SOURCE-FREEZE d314c7b9, replacing the three old source pins and the old receipt pin; a check that the source hash list equals the frozen nine exactly, order-insensitive (refuse 12); your exact test_argv and render_argv; render refuses if map-001/published exists, needs tests-001 closure_complete and rc 0, and requires source equality (16); global_n 4 and 5. Guard, caps, env -i, autoload off, pytest 9.0.2, 0700 HOME/TMP, precheck, collection, cleanup and receipt are unchanged. Static read-only check: your src hashes equal the nine. Bounds: 555 s per invocation. RUN: mkdir -m 0700 tests-001, tests-001/home and tests-001unpublished-local-ref:e9671acd244849c5; copy the n1 script to unpublished-local-ref:91adaa3e37fc766b and verify 59a6206e; run it once. Render only after a full pass, the same way under map-001 with 7bd3ecac. I audit and release at the last receipt.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:4de4e39aa458cb9a",
+      "sha256": "59a6206ebc322407b904c2dbe55441b080f759b7e5593e0a5f7f3a7193b029b5",
+      "bytes": 11129
+    },
+    {
+      "path": "unpublished-local-ref:7238feab0ab3e39e",
+      "sha256": "7bd3ecac14531ca48b7333590b2274835eac0beb4410f2eef0f63929948b1828",
+      "bytes": 12059
+    },
+    {
+      "path": "unpublished-local-ref:1f8655ec8cd57c0c",
+      "sha256": "640ce0fc86c0bdc270f0d7f0c4fb7abcac003ca15d9c59da3adc1fb5e6092482",
+      "bytes": 10979
+    },
+    {
+      "path": "unpublished-local-ref:f38e5e981534950e",
+      "sha256": "7e1fa657c80489d3030e85f8d3ee29710d94d9862f43fec573514fd738644d14",
+      "bytes": 11909
+    },
+    {
+      "path": "unpublished-local-ref:36b169e11caaf17d",
+      "sha256": "81fc5f90ad7fe66f0c859d058ee60c3052318fc2ba444137f1920c522798cf07",
+      "bytes": 26815
+    },
+    {
+      "path": "evidence/b2495805561e1fd6-u4card6.py",
+      "sha256": "b2495805561e1fd6984ef961bdbe2822ddadfb2fb60024629ec5176c2e9f2ad9",
+      "bytes": 5566
+    },
+    {
+      "path": "unpublished-local-ref:b51ea1db2ee1f02b",
+      "sha256": "1fc5d037c9e1673eb2e29ce755281c3c8c2d2858cc607164e53802065325ede8",
+      "bytes": 1376
+    },
+    {
+      "path": "unpublished-local-ref:9495180d2f861d9a",
+      "sha256": "97873470e9387ea4d57a3a557c79a19f32868264fefcc9372c39631bd09d16a0",
+      "bytes": 567
+    },
+    {
+      "path": "unpublished-local-ref:9c9981d3beea7876",
+      "sha256": "a17575cf761c570bbece6b13a2ead528fe5fc06ac8ab1dc1789e83c9f3cda92a",
+      "bytes": 861
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-ref-446797146188c147cd82",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-ref-446797146188c147cd82",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "N385",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N385",
+    "report": "rpt-ref-74e882831c201b1a953c",
+    "card": "MAINLINE-015b",
+    "file": "evidence/647d16ffad5d78ae-NFI.json",
+    "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+    "source_sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+    "source_json_pointer": "/rows/1",
+    "row_id": "NFI-015B-EQ3-REGIME",
+    "fields": {
+      "id": "NFI-015B-EQ3-REGIME",
+      "issue": "Baizhikova 2026 Eq. 3 is a lambda_I = 1 fit over R/t 100 to 1550 at nu 0.5, and the paper excludes delta/t below about 0.07. The kd 0.9 inverse is delta/t 0.0323. P2-E is at R/t 50.75. The 015 beryllium point is at 136.67, the 021 point at 274.19, and the 021b point at 187.39.",
+      "consequence": "Every kd 0.9 row is outside the small-amplitude regime. The P2-E rows are also outside the radius window. The other three shells are inside that window and still carry the source's nu 0.5.",
+      "next": "A fit at nu 0.33 and at R/t near 50 if P2-E stays the reference shell."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "Baizhikova 2026 Eq. 3 is a lambda_I = 1 fit over R/t 100 to 1550 at nu 0.5, and the paper excludes delta/t below about 0.07. The kd 0.9 inverse is delta/t 0.0323. P2-E is at R/t 50.75. The 015 beryllium point is at 136.67, the 021 point at 274.19, and the 021b point at 187.39.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/384"
+    },
+    {
+      "report": "rpt-ref-74e882831c201b1a953c",
+      "artifact": "evidence/647d16ffad5d78ae-NFI.json",
+      "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+      "sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+      "bytes": 2972,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-74e882831c201b1a953c",
+          "artifact": "evidence/647d16ffad5d78ae-NFI.json",
+          "snapshot": "evidence/647d16ffad5d78ae-NFI.json",
+          "sha256": "647d16ffad5d78ae58182fbee35418b0ae8828d5a637d1760629ebe416c119b4",
+          "bytes": 2972,
+          "selector": "/rows/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/384"
+          }
+        ]
+      }
+    }
+  ]
+}

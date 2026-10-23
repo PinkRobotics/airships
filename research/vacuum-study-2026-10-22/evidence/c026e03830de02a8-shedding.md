@@ -1,0 +1,54 @@
+# MAINLINE-059 shedding: sourced rows (36 rows, all quotes machine-verified as substrings)
+Format: value (condition) - source. All rows tagged QUESTIONABLE.
+
+- [coating_mass] Ultra-Ever Dry (bottom coat + top coat): approximately 250 ft2 (23 m2) m2 per 3.8 L (at 0.5 mil dry f (at 0.5 mils (13 um); varies per application method) - UltraTech International (Ultra-Ever Dry)
+- [coating_mass] Ultra-Ever Dry (bottom + top coat): 0.5 - 1.0 mils (13 - 25 µm) mils (13-25 um) (as printed in application instructions) - UltraTech International (Ultra-Ever Dry)
+- [coating_mass] HIREC 300-W water-based superhydrophobic fluoror: 300g/m2 g/m2 (Std. film thickness 30 um; air spray; density 1.02; heating residue 53) - NTT Advanced Technology Corporation (via
+- [coating_mass] HIREC 300-W water-based superhydrophobic fluoror: 250g/m2 g/m2 (Std. film thickness 30 um; brush or roller) - NTT Advanced Technology Corporation (via
+- [coating_mass] ORNL superhydrophobic spray coating on 500d 28x2: approximately 6% % of fabric mass (spray application, greige and scoured specimens) - D. Barton Smith, S. Rajic, S. R. Hunter,, 2014
+- [coating_mass] NEI NANOMYTE SuperAi (anti-icing coating for win: 110 m 2 (1,200 ft 2 ) per gallon m2 per gallon (cured film 5-15 (Cured film thickness: 5 to 15 um; solids 18 to 20%; one coat) - Windpower Engineering & Development (NEI, 2017
+- [coating_mass] Rust-Oleum NeverWet Outdoor Fabric: approximately 20 – 60 square feet sq ft per trigger bottle (60 sq ft on smooth/light fabrics, 20 sq ft on textured/heavy fabrics) - Rust-Oleum (hosted by The Home Depot)
+- [coating_cost] Ultra-Ever Dry bottom coat, UltraTech part 4008 : $7,685.90 USD per 50 gallons (distributor web price, accessed 2026-10-20; top coat (4018) price not ) - Spill 911 Inc. (distributor listing for , 2026
+- [coating_durability] Ultra-Ever Dry: approximately one year year (outdoor; susceptible to UV and abrasion) - UltraTech International (Ultra-Ever Dry)
+- [coating_durability] Ultra-Ever Dry: 30 cycles cycles (CS-10 wheel, 1000 g load, Taber Abraser; droplet roll-off slope 5 degr) - UltraTech International (Ultra-Ever Dry)
+- [coating_durability] Rain-X Original Glass Treatment: about 3 months months (depending on weather and environmental conditions) - Rain-X Help & Support Center (ITW), 2021
+- [coating_durability] ORNL superhydrophobic coating on ballistic fabri: decreasing by 14 to 23° degrees decrease (single abrasion cycle, CS-0 non-abrasive rubber wheels) - D. Barton Smith, S. Rajic, S. R. Hunter,, 2014
+- [coating_durability] WX 2100 superhydrophobic coating on UAV airfoil : 60 minutes minutes (rain erosion rig, 80 m/s, LWC = 16.0 g/m3) - C. Valentin, H. Sista, A. Dhulipalla, A., 2025
+- [coating_optics] Ultra-Ever Dry: hazy translucent white not applicable (standard product) - UltraTech International (Ultra-Ever Dry)
+- [heater] Minco Thermofoil polyimide heater (typical): 0.009 oz/in² (0.04 g/cm²) g/cm2 (over the element, thickness 0.010 in (0.25 mm); typical) - Minco
+- [heater] Freek Kapton polyimide heater: 0,8 W/cm² W/cm2 (recommended maximum for service life; lower load gives longer life) - Freek Heaters
+- [heater] Minco Thermofoil polyimide heater, factory lamin: up to 50 watts/in² W/in2 (factory lamination to a heat sink; 7.8 W/cm2) - Minco
+- [heater] Dew-Not 16 inch dew heater strip (DN015): 25.8 Watts W (12 V, 2.15 A; strip length 55.0 in (139.7 cm); strip width not printed) - High Point Scientific (Dew-Not product l
+- [anti_icing_power] Electro-thermal heater zones on half-scale 1.5 M: 0.385 W/cm2 W/cm2 (100 kW allocated power; de-icing (ice shed in about 30 s), not continu) - D. Getz and J. Palacios, Pennsylvania St, 2021
+- [anti_icing_power] Electro-thermal IPS at Pori, Finland (reported b: 1 % % of annual production (1999-2001, mainly public safety use) - D. Getz and J. Palacios, Pennsylvania St, 2021
+- [anti_icing_power] NREL 5 MW wind turbine blade (simulation): at least 3% % of rated rotor power (CFD simulation; most heating concentrated at leading edge and lower su) - K. Yassin, B. Stoevesandt, J. Peinke; J., 2020
+- [anti_icing_power] WX 2100 superhydrophobic coating with heating fi: 4.5 kW/m2 kW/m2 (glaze ice, V = 20 m/s, T = -5 C, LWC = 2 g/m3; icing research tunnel) - C. Valentin, H. Sista, A. Dhulipalla, A., 2025
+- [anti_icing_power] Enamel-coated UAV airfoil model with heating fil: at least 25kW/m 2 kW/m2 (glaze ice, V = 20 m/s, T = -5 C, LWC = 2 g/m3) - C. Valentin, H. Sista, A. Dhulipalla, A., 2025
+- [shelter_cost] Goodyear Airdock, Akron, Ohio (1,175 ft x 325 ft: $2.2 million USD (1929) (built April 20 to November 25, 1929) - Wikipedia, 1929
+- [shelter_cost] Hangar 1, Moffett Field, California: $2.25 million USD (1931) (construction began 1931; about 20,000 tons of steel and 25,500 cubic y) - NASA Ames Historic Properties, 1931
+- [shelter_cost] CargoLifter airship hangar, Brand, Germany (66,0: $67-million USD million (1998 estimate) (estimate before bidding; vaulted truss structure with stressed membran) - P. Reina, ENR / McGraw-Hill; TRID record, 1998
+- [shelter_cost] Sky Universal PVC pneumatic frame hangar (Russia: 3 848 256 rub. RUB (external 30.0 x 15.0 m, height 7.5 m, area 450 m2; price last changed ) - Enex marketplace, manufacturer Sky (Russ, 2026
+- [cover_fabric] Lindstrand Technologies inflatable hangar for a : 22 tons ( 46,000 lbs ) of fabric tons of fabric (46,000 lb) (107 m long, 40 m wide, 26 m high; 43,000 m2 of fabric; design life at ) - Industrial Fabrics Association / textile
+- [air_knife] WindJet regenerative blower assemblies (Spray Sy: 5.5, 10, 20, 25 and 30 Hp. (4.0, 7.5, 15, 18.5, 22.3 kW) kW (5.5 to 30 Hp) (smallest assembly 5.5 Hp = 4.0 kW; knife lengths 6 to 36 in (152-914 m) - Spray Systems Co. (Spray.com)
+- [air_knife] WindJet 50760-F5.5 regenerative blower (4.0 kW, : 294 cfm (294 cfm at 80 in. H2O) (maximum free air flow 294 cfm (500 m3/h), maximum pressure 80 in. H2O ) - Spray Systems Co. (Spray.com)
+- [air_knife] Fuji Electric regenerative blower-powered air kn: 5 HP HP at 1.4 PSIG (running at 1.4 PSIG; "24-length air knife" as printed; annual energy a) - Fuji Electric Americas
+- [air_knife] EXAIR Super Air Knife (compressed air): 2.9 SCFM per inch SCFM per inch of knife (@ 80 PSIG; 69 dB) - EXAIR Corporation (blog), 2017
+- [air_knife] Car-wash dryer carousel (vendor quote in trade a: 180 horsepower hp (12 motors of 15 hp) (12 to 15 hp motors on a carousel; newer equipment said to dry with hal) - Professional Carwashing & Detailing
+- [cover_fabric] Ripstop by the Roll 1.1 oz silnylon (20D): ~1.24 oz/yd 2 (42 gsm) gsm (coated both sides; hydrostatic head about 2000 mm; width about 58 in) - Ripstop by the Roll (retailer)
+- [cover_fabric] Linen outer cover of a rigid airship, doped: about 90grms. sq. meter g/m2 (typical; surface of the dope should be water-repellent to reduce the w) - GlobalSecurity.org (reproduced text on a
+- [cover_fabric] Sky Universal PVC pneumatic frame hangar fabric : density from 650 g/m2 to 900 g/m2 g/m2 (heavy reinforced type; hangar weight 500 kg for 30 x 15 m footprint) - Enex marketplace, manufacturer Sky (Russ, 2026
+
+GAPS
+- Price per litre or per m2 of Ultra-Ever Dry TOP coat, NeverWet kit or any fluorosilane topcoat: only the 50 gallon bottom-coat distributor price was found (top coat price page returned nothing).
+- Density or solids of Ultra-Ever Dry (SDS Section 9) was not extracted; areal dry mass in g/m2 for Ultra-Ever Dry, NeverWet, Rain-X not printed by any source found.
+- NeverWet two-step kit coverage appeared only on a retailer-review aggregator that looked like generated content (10-15 sq ft per kit), so it was not used; outdoor UV life for NeverWet not found in a manufacturer source.
+- NASA or Boeing superhydrophobic/icephobic coating durability in months or years: NASA Langley/Glenn items were found (Beaudry/Wohl, Kreeger) but no quotable months-of-outdoor-life value was extracted; the Iowa State AIAA paper giv
+- Peer-reviewed multi-month outdoor weathering of a superhydrophobic coating with a retained contact-angle value: a Materials 2023 (doi 10.3390/ma16103729) outdoor test was located but exposure duration and retained values were not 
+- Optical transmittance of a superhydrophobic coating (percent) not found; only the qualitative "hazy translucent white".
+- Heater film areal mass in g/m2 for etched-foil or carbon heaters other than Minco 0.04 g/cm2 (typical); one other datasheet (Taiwan King Lung, 0.05 g/cm2) could not be fetched and is not recorded.
+- Dew-prevention heating in W/m2: dew heater strip power was found (25.8 W) but strip width was not printed, so no area power density; no camera/telescope source in W/m2.
+- Aircraft anti-icing W/m2 from NASA or SAE (Strehlow and Moser 2009) is paywalled or not printed in the extracted text.
+- Airship or aerostat hangar cost per m2 of floor, and fabric-membrane hangar prices with spans: no quotable $ per m2 from a trustworthy source (cost-guide pages were content-farm copies and were rejected); Lindstrand hangar price n
+- Aerostat shelter cost data: none found.
+- Air knife kW per metre: no data sheet printed it; only blower motor kW (Spray) and hp (Fuji) and compressed-air SCFM per inch (EXAIR). Residual water after blow-off in micrometres: not found as a measured value; a patent says only
+- Rain covers: no 2-5 mil polyethylene film or Tyvek-type areal mass from a manufacturer data sheet was verified; 30D silicone nylon at 40-47 g/m2 appeared on retailer pages that returned 410 or blocked content on fetch, so only the

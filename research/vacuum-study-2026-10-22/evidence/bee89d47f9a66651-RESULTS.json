@@ -1,0 +1,1303 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009d both points independent check",
+  "status": "CHECKED_WITH_NFI",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "started_at": "2026-10-20T00:25:12-07:00",
+  "ended_at": "2026-10-20T00:34:19-07:00",
+  "independence": "Own formula implementation and independent mass-fraction search; no owner script read or executed.",
+  "biaxial_wrinkle_factor": 0.6823278038280194,
+  "unit_conversions": {
+    "psi_to_Pa": 6894.757293168361,
+    "pcf_to_kg_m3": 16.018463373960138
+  },
+  "points": [
+    {
+      "name": "aramid",
+      "core": {
+        "name": "Hexcel HRH-10-4.8-32",
+        "rho_kg_m3": 32.0,
+        "Ec_Pa": 76000000.0,
+        "Gc_Pa": 14000000.0,
+        "crush_Pa": 1000000.0,
+        "form": "honeycomb",
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+        "note": "Aramid/phenolic honeycomb, 4.8 mm cell, 32 kg/m3. Stabilised modulus is not the continuum Ec of the wrinkling formula. W modulus is the smaller plate-shear modulus.",
+        "s_cell_m": 0.0048,
+        "cell_basis": "HRH-10-4.8-32 nominal cell in upstream 007/014b"
+      },
+      "curves": {
+        "handbook": {
+          "tf_m": 0.000752430055433027,
+          "core_m": 0.020642305866854553,
+          "h_m": 0.02139473592228758,
+          "Vc": 3.328884907403892,
+          "Kc": 0.3004008933369442,
+          "gamma": 1.0,
+          "modes": {
+            "global_buckling": 0.6504118436805308,
+            "face_compression": 0.8922515676201891,
+            "core_shear_crimping": 0.6504118436805308,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6504141274587999,
+            "intracell_dimpling": 52.68619800038143
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.6504118436805308,
+            "face_compression": 0.8922515676201891,
+            "face_wrinkling": 0.6504141274587999,
+            "core_crush": 20.950999841461407,
+            "intracell_dimpling": 52.68619800038143
+          },
+          "least_SF": 0.6504118436805308,
+          "governing": "core_shear_crimping",
+          "second_SF": 0.6504141274587999,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.5374873777531946,
+          "wrinkle_SF_coefficient_0.82": 1.616180559140048,
+          "intracell_dimpling_equal_biaxial": 26.343099000190715,
+          "least_SF_with_biaxial_dimpling": 0.6504118436805308,
+          "structural_kg": 4328.542897788203,
+          "total_kg": 4644.9700426776135,
+          "payload_kg": 244.47210750934755,
+          "margin": 0.04999999999999993,
+          "core_mass_fraction": 0.19176808231917677,
+          "kd_that_brings_global_to_1": 1.5374873777531946,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6504118436805308
+        },
+        "optimistic": {
+          "tf_m": 0.000752430055433027,
+          "core_m": 0.020642305866854553,
+          "h_m": 0.02139473592228758,
+          "Vc": 3.328884907403892,
+          "Kc": 0.3004008933369442,
+          "gamma": 1.0,
+          "modes": {
+            "global_buckling": 0.6504118436805308,
+            "face_compression": 0.8922515676201891,
+            "core_shear_crimping": 0.6504118436805308,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6504141274587999,
+            "intracell_dimpling": 52.68619800038143
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.6504118436805308,
+            "face_compression": 0.8922515676201891,
+            "face_wrinkling": 0.6504141274587999,
+            "core_crush": 20.950999841461407,
+            "intracell_dimpling": 52.68619800038143
+          },
+          "least_SF": 0.6504118436805308,
+          "governing": "core_shear_crimping",
+          "second_SF": 0.6504141274587999,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.5374873777531946,
+          "wrinkle_SF_coefficient_0.82": 1.616180559140048,
+          "intracell_dimpling_equal_biaxial": 26.343099000190715,
+          "least_SF_with_biaxial_dimpling": 0.6504118436805308,
+          "structural_kg": 4328.542897788203,
+          "total_kg": 4644.9700426776135,
+          "payload_kg": 244.47210750934755,
+          "margin": 0.04999999999999993,
+          "core_mass_fraction": 0.19176808231917677,
+          "kd_that_brings_global_to_1": 1.5374873777531946,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6504118436805308
+        },
+        "conservative": {
+          "tf_m": 0.000752430055433027,
+          "core_m": 0.020642305866854553,
+          "h_m": 0.02139473592228758,
+          "Vc": 3.328884907403892,
+          "Kc": 0.3004008933369442,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.13008236873610618,
+            "face_compression": 0.8922515676201891,
+            "core_shear_crimping": 0.6504118436805308,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6504141274587999,
+            "intracell_dimpling": 52.68619800038143
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.13008236873610618,
+            "face_compression": 0.8922515676201891,
+            "face_wrinkling": 0.6504141274587999,
+            "core_crush": 20.950999841461407,
+            "intracell_dimpling": 52.68619800038143
+          },
+          "least_SF": 0.13008236873610618,
+          "governing": "core_shear_crimping",
+          "second_SF": 0.6504141274587999,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 7.687436888765972,
+          "wrinkle_SF_coefficient_0.82": 1.616180559140048,
+          "intracell_dimpling_equal_biaxial": 26.343099000190715,
+          "least_SF_with_biaxial_dimpling": 0.13008236873610618,
+          "structural_kg": 4328.542897788203,
+          "total_kg": 4644.9700426776135,
+          "payload_kg": 244.47210750934755,
+          "margin": 0.04999999999999993,
+          "core_mass_fraction": 0.19176808231917677,
+          "kd_that_brings_global_to_1": 1.5374873777531946,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6504118436805308
+        }
+      },
+      "optimization_margin_0_05": {
+        "grid_fraction_step": 0.000125,
+        "grid_best_fraction": 0.19175,
+        "grid_best_least_SF": 0.6503558519136009,
+        "refined_fraction": 0.19176846298505051,
+        "refined": {
+          "tf_m": 0.0007524297010490461,
+          "core_m": 0.02064234684250234,
+          "h_m": 0.02139477654355139,
+          "Vc": 3.328883627079471,
+          "Kc": 0.30040100887435645,
+          "gamma": 1.0,
+          "modes": {
+            "global_buckling": 0.6504130224098148,
+            "face_compression": 0.8922511473822411,
+            "core_shear_crimping": 0.6504130224098148,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.6504130224098151,
+            "intracell_dimpling": 52.686123557040176
+          },
+          "effective_modes": {
+            "core_shear_crimping": 0.6504130224098148,
+            "face_compression": 0.8922511473822411,
+            "face_wrinkling": 0.6504130224098151,
+            "core_crush": 20.950999841461407,
+            "intracell_dimpling": 52.686123557040176
+          },
+          "least_SF": 0.6504130224098148,
+          "governing": "core_shear_crimping",
+          "second_SF": 0.6504130224098151,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.5374845913984732,
+          "wrinkle_SF_coefficient_0.82": 1.6161778132607527,
+          "intracell_dimpling_equal_biaxial": 26.343061778520088,
+          "least_SF_with_biaxial_dimpling": 0.6504130224098148,
+          "structural_kg": 4328.542897788202,
+          "total_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "margin": 0.050000000000000044,
+          "core_mass_fraction": 0.19176846298505051,
+          "kd_that_brings_global_to_1": 1.5374845913984732,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6504130224098148
+        },
+        "scope": "Fixed sourced material pair, fixed mass, inherited handbook model; numerical refinement of the grid, not a new material search."
+      }
+    },
+    {
+      "name": "Hexcel CR-III 5056 1/4-1.6",
+      "core": {
+        "name": "Hexcel CR-III 5056 1/4-1.6",
+        "family": "aluminium_honeycomb",
+        "form": "honeycomb",
+        "cell": "1/4",
+        "pcf": 1.6,
+        "rho": 25.629541398336222,
+        "s_cell_m": 0.00635,
+        "Ec_Pa": 206842718.7950508,
+        "Gc_Pa": 72394951.57826778,
+        "Gl_Pa": 137895145.8633672,
+        "crush_Pa": 344737.86465841805,
+        "shear_strength_L_Pa": 620528.1563851525,
+        "shear_strength_W_Pa": 413685.4375901016,
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "ec_source": "sheet",
+        "crush_basis": "CR-III crush column",
+        "Gc_direction": "W",
+        "rho_kg_m3": 25.629541398336222,
+        "basis": "Live Hexcel Table II agrees: 1.6 pcf, 30 ksi stabilised compression modulus, 10.5 ksi W shear modulus, 50 psi crush."
+      },
+      "curves": {
+        "handbook": {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733213,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 19.494913735632846
+          },
+          "effective_modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "face_wrinkling": 0.6170619661451507,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 19.494913735632846,
+            "core_shear_crimping": 6.329757041733213
+          },
+          "least_SF": 0.61704478552697,
+          "governing": "global_buckling",
+          "second_SF": 0.6170619661451507,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.620627908144427,
+          "wrinkle_SF_coefficient_0.82": 1.5333054916334046,
+          "intracell_dimpling_equal_biaxial": 9.747456867816423,
+          "least_SF_with_biaxial_dimpling": 0.61704478552697,
+          "structural_kg": 4328.542897788202,
+          "total_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "margin": 0.050000000000000044,
+          "core_mass_fraction": 0.30075,
+          "kd_that_brings_global_to_1": 0.32412558162888544,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170619661451507
+        },
+        "optimistic": {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.42724014273467964,
+          "modes": {
+            "global_buckling": 1.3181315112111622,
+            "face_compression": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733213,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 19.494913735632846
+          },
+          "effective_modes": {
+            "global_buckling": 1.3181315112111622,
+            "face_compression": 0.771940448044521,
+            "face_wrinkling": 0.6170619661451507,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 19.494913735632846,
+            "core_shear_crimping": 6.329757041733213
+          },
+          "least_SF": 0.6170619661451507,
+          "governing": "face_wrinkling",
+          "second_SF": 0.771940448044521,
+          "second_mode": "face_compression",
+          "factor_to_SF_1": 1.6205827856270292,
+          "wrinkle_SF_coefficient_0.82": 1.5333054916334046,
+          "intracell_dimpling_equal_biaxial": 9.747456867816423,
+          "least_SF_with_biaxial_dimpling": 0.6170619661451507,
+          "structural_kg": 4328.542897788202,
+          "total_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "margin": 0.050000000000000044,
+          "core_mass_fraction": 0.30075,
+          "kd_that_brings_global_to_1": 0.32412558162888544,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170619661451507
+        },
+        "conservative": {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733213,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 19.494913735632846
+          },
+          "effective_modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "face_wrinkling": 0.6170619661451507,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 19.494913735632846,
+            "core_shear_crimping": 6.329757041733213
+          },
+          "least_SF": 0.61704478552697,
+          "governing": "global_buckling",
+          "second_SF": 0.6170619661451507,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.620627908144427,
+          "wrinkle_SF_coefficient_0.82": 1.5333054916334046,
+          "intracell_dimpling_equal_biaxial": 9.747456867816423,
+          "least_SF_with_biaxial_dimpling": 0.61704478552697,
+          "structural_kg": 4328.542897788202,
+          "total_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "margin": 0.050000000000000044,
+          "core_mass_fraction": 0.30075,
+          "kd_that_brings_global_to_1": 0.32412558162888544,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170619661451507
+        }
+      },
+      "optimization_margin_0_05": {
+        "grid_fraction_step": 0.000125,
+        "grid_best_fraction": 0.30075,
+        "grid_best_least_SF": 0.61704478552697,
+        "refined_fraction": 0.30075475831993426,
+        "refined": {
+          "tf_m": 0.0006509680259452289,
+          "core_m": 0.04042067240857652,
+          "h_m": 0.041071640434521745,
+          "Vc": 0.5680966947072803,
+          "Kc": 0.8579758263231799,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.6170507862777576,
+            "face_compression": 0.7719351950740214,
+            "core_shear_crimping": 6.329852648023519,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170507862777578,
+            "intracell_dimpling": 19.494515756060164
+          },
+          "effective_modes": {
+            "global_buckling": 0.6170507862777576,
+            "face_compression": 0.7719351950740214,
+            "face_wrinkling": 0.6170507862777578,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 19.494515756060164,
+            "core_shear_crimping": 6.329852648023519
+          },
+          "least_SF": 0.6170507862777576,
+          "governing": "global_buckling",
+          "second_SF": 0.6170507862777578,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.6206121477169024,
+          "wrinkle_SF_coefficient_0.82": 1.5332777113568523,
+          "intracell_dimpling_equal_biaxial": 9.747257878030082,
+          "least_SF_with_biaxial_dimpling": 0.6170507862777576,
+          "structural_kg": 4328.542897788203,
+          "total_kg": 4644.9700426776135,
+          "payload_kg": 244.47210750934755,
+          "margin": 0.04999999999999993,
+          "core_mass_fraction": 0.3007547583199342,
+          "kd_that_brings_global_to_1": 0.32412242954338055,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170507862777578
+        },
+        "scope": "Fixed sourced material pair, fixed mass, inherited handbook model; numerical refinement of the grid, not a new material search."
+      }
+    },
+    {
+      "name": "Hexcel CR-III 5056 3/8-1.6",
+      "core": {
+        "name": "Hexcel CR-III 5056 3/8-1.6",
+        "family": "aluminium_honeycomb",
+        "form": "honeycomb",
+        "cell": "3/8",
+        "pcf": 1.6,
+        "rho": 25.629541398336222,
+        "s_cell_m": 0.009524999999999999,
+        "Ec_Pa": 206842718.7950508,
+        "Gc_Pa": 72394951.57826778,
+        "Gl_Pa": 137895145.8633672,
+        "crush_Pa": 344737.86465841805,
+        "shear_strength_L_Pa": 620528.1563851525,
+        "shear_strength_W_Pa": 413685.4375901016,
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+        "ec_source": "sheet",
+        "crush_basis": "CR-III crush column",
+        "Gc_direction": "W",
+        "rho_kg_m3": 25.629541398336222,
+        "basis": "Live Hexcel Table II agrees: 1.6 pcf, 30 ksi stabilised compression modulus, 10.5 ksi W shear modulus, 50 psi crush."
+      },
+      "curves": {
+        "handbook": {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733213,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 8.664406104725712
+          },
+          "effective_modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "face_wrinkling": 0.6170619661451507,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 8.664406104725712,
+            "core_shear_crimping": 6.329757041733213
+          },
+          "least_SF": 0.61704478552697,
+          "governing": "global_buckling",
+          "second_SF": 0.6170619661451507,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.620627908144427,
+          "wrinkle_SF_coefficient_0.82": 1.5333054916334046,
+          "intracell_dimpling_equal_biaxial": 4.332203052362856,
+          "least_SF_with_biaxial_dimpling": 0.61704478552697,
+          "structural_kg": 4328.542897788202,
+          "total_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "margin": 0.050000000000000044,
+          "core_mass_fraction": 0.30075,
+          "kd_that_brings_global_to_1": 0.32412558162888544,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170619661451507
+        },
+        "optimistic": {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.42724014273467964,
+          "modes": {
+            "global_buckling": 1.3181315112111622,
+            "face_compression": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733213,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 8.664406104725712
+          },
+          "effective_modes": {
+            "global_buckling": 1.3181315112111622,
+            "face_compression": 0.771940448044521,
+            "face_wrinkling": 0.6170619661451507,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 8.664406104725712,
+            "core_shear_crimping": 6.329757041733213
+          },
+          "least_SF": 0.6170619661451507,
+          "governing": "face_wrinkling",
+          "second_SF": 0.771940448044521,
+          "second_mode": "face_compression",
+          "factor_to_SF_1": 1.6205827856270292,
+          "wrinkle_SF_coefficient_0.82": 1.5333054916334046,
+          "intracell_dimpling_equal_biaxial": 4.332203052362856,
+          "least_SF_with_biaxial_dimpling": 0.6170619661451507,
+          "structural_kg": 4328.542897788202,
+          "total_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "margin": 0.050000000000000044,
+          "core_mass_fraction": 0.30075,
+          "kd_that_brings_global_to_1": 0.32412558162888544,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170619661451507
+        },
+        "conservative": {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733213,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 8.664406104725712
+          },
+          "effective_modes": {
+            "global_buckling": 0.61704478552697,
+            "face_compression": 0.771940448044521,
+            "face_wrinkling": 0.6170619661451507,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 8.664406104725712,
+            "core_shear_crimping": 6.329757041733213
+          },
+          "least_SF": 0.61704478552697,
+          "governing": "global_buckling",
+          "second_SF": 0.6170619661451507,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.620627908144427,
+          "wrinkle_SF_coefficient_0.82": 1.5333054916334046,
+          "intracell_dimpling_equal_biaxial": 4.332203052362856,
+          "least_SF_with_biaxial_dimpling": 0.61704478552697,
+          "structural_kg": 4328.542897788202,
+          "total_kg": 4644.970042677613,
+          "payload_kg": 244.47210750934846,
+          "margin": 0.050000000000000044,
+          "core_mass_fraction": 0.30075,
+          "kd_that_brings_global_to_1": 0.32412558162888544,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170619661451507
+        }
+      },
+      "optimization_margin_0_05": {
+        "grid_fraction_step": 0.000125,
+        "grid_best_fraction": 0.30075,
+        "grid_best_least_SF": 0.61704478552697,
+        "refined_fraction": 0.30075475831993426,
+        "refined": {
+          "tf_m": 0.0006509680259452289,
+          "core_m": 0.04042067240857652,
+          "h_m": 0.041071640434521745,
+          "Vc": 0.5680966947072803,
+          "Kc": 0.8579758263231799,
+          "gamma": 0.2,
+          "modes": {
+            "global_buckling": 0.6170507862777576,
+            "face_compression": 0.7719351950740214,
+            "core_shear_crimping": 6.329852648023519,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170507862777578,
+            "intracell_dimpling": 8.664229224915628
+          },
+          "effective_modes": {
+            "global_buckling": 0.6170507862777576,
+            "face_compression": 0.7719351950740214,
+            "face_wrinkling": 0.6170507862777578,
+            "core_crush": 7.222602947804261,
+            "intracell_dimpling": 8.664229224915628,
+            "core_shear_crimping": 6.329852648023519
+          },
+          "least_SF": 0.6170507862777576,
+          "governing": "global_buckling",
+          "second_SF": 0.6170507862777578,
+          "second_mode": "face_wrinkling",
+          "factor_to_SF_1": 1.6206121477169024,
+          "wrinkle_SF_coefficient_0.82": 1.5332777113568523,
+          "intracell_dimpling_equal_biaxial": 4.332114612457814,
+          "least_SF_with_biaxial_dimpling": 0.6170507862777576,
+          "structural_kg": 4328.542897788203,
+          "total_kg": 4644.9700426776135,
+          "payload_kg": 244.47210750934755,
+          "margin": 0.04999999999999993,
+          "core_mass_fraction": 0.3007547583199342,
+          "kd_that_brings_global_to_1": 0.32412242954338055,
+          "maximum_least_SF_if_only_global_gamma_changes": 0.6170507862777578
+        },
+        "scope": "Fixed sourced material pair, fixed mass, inherited handbook model; numerical refinement of the grid, not a new material search."
+      }
+    }
+  ],
+  "aluminium_ceiling_check": {
+    "grid_fraction_step": 0.000125,
+    "grid_best_fraction": 0.293375,
+    "grid_best_least_SF": 0.6686497695085482,
+    "refined_fraction": 0.2934173776446849,
+    "refined": {
+      "tf_m": 0.0006931815534734834,
+      "core_m": 0.04155571556496228,
+      "h_m": 0.04224889711843576,
+      "Vc": 0.6045935448072082,
+      "Kc": 0.848851613798198,
+      "gamma": 0.2,
+      "modes": {
+        "global_buckling": 0.6687107481925402,
+        "face_compression": 0.8219931185180638,
+        "core_shear_crimping": 6.514979048661914,
+        "core_crush": 7.222602947804261,
+        "face_wrinkling": 0.6687107481925403,
+        "intracell_dimpling": 23.538266205808714
+      },
+      "effective_modes": {
+        "global_buckling": 0.6687107481925402,
+        "face_compression": 0.8219931185180638,
+        "face_wrinkling": 0.6687107481925403,
+        "core_crush": 7.222602947804261,
+        "intracell_dimpling": 23.538266205808714,
+        "core_shear_crimping": 6.514979048661914
+      },
+      "least_SF": 0.6687107481925402,
+      "governing": "global_buckling",
+      "second_SF": 0.6687107481925403,
+      "second_mode": "face_wrinkling",
+      "factor_to_SF_1": 1.495414875120375,
+      "wrinkle_SF_coefficient_0.82": 1.6616448894481304,
+      "intracell_dimpling_equal_biaxial": 11.769133102904357,
+      "least_SF_with_biaxial_dimpling": 0.6687107481925402,
+      "structural_kg": 4561.373476368534,
+      "total_kg": 4889.442150186961,
+      "payload_kg": 0.0,
+      "margin": 0.0,
+      "core_mass_fraction": 0.2934173776446849,
+      "kd_that_brings_global_to_1": 0.299082975024075,
+      "maximum_least_SF_if_only_global_gamma_changes": 0.6687107481925403
+    },
+    "scope": "Fixed sourced material pair, fixed mass, inherited handbook model; numerical refinement of the grid, not a new material search."
+  },
+  "comparisons": [
+    {
+      "row": "aramid",
+      "field": "tf_m",
+      "filed": 0.000752430055433027,
+      "checker": 0.000752430055433027,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "core_m",
+      "filed": 0.020642305866854553,
+      "checker": 0.020642305866854553,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "Vc",
+      "filed": 3.328884907403892,
+      "checker": 3.328884907403892,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "Kc",
+      "filed": 0.3004008933369442,
+      "checker": 0.3004008933369442,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "gamma",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "least_SF",
+      "filed": 0.6504118436805308,
+      "checker": 0.6504118436805308,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "modes.global_buckling",
+      "filed": 0.6504118436805308,
+      "checker": 0.6504118436805308,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "modes.face_compression",
+      "filed": 0.892251567620189,
+      "checker": 0.8922515676201891,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "modes.core_shear_crimping",
+      "filed": 0.6504118436805308,
+      "checker": 0.6504118436805308,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "modes.face_wrinkling",
+      "filed": 0.6504141274587998,
+      "checker": 0.6504141274587999,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "mass.margin",
+      "filed": 0.05,
+      "checker": 0.04999999999999993,
+      "difference": -6.938893903907228e-17,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "mass.structural_kg",
+      "filed": 4328.542897788202,
+      "checker": 4328.542897788203,
+      "difference": 9.094947017729282e-13,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "mass.total_kg",
+      "filed": 4644.970042677613,
+      "checker": 4644.9700426776135,
+      "difference": 9.094947017729282e-13,
+      "matches": true
+    },
+    {
+      "row": "aramid",
+      "field": "mass.payload_kg",
+      "filed": 244.47210750934846,
+      "checker": 244.47210750934755,
+      "difference": -9.094947017729282e-13,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "tf_m",
+      "filed": 0.0006509724557417433,
+      "checker": 0.0006509724557417433,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "core_m",
+      "filed": 0.040420032902513996,
+      "checker": 0.040420032902513996,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "h_m",
+      "filed": 0.04107100535825574,
+      "checker": 0.04107100535825574,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "Vc",
+      "filed": 0.568100356836699,
+      "checker": 0.568100356836699,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "Kc",
+      "filed": 0.8579749107908252,
+      "checker": 0.8579749107908252,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "gamma",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "least_SF",
+      "filed": 0.6170447855269701,
+      "checker": 0.61704478552697,
+      "difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "second_SF",
+      "filed": 0.6170619661451507,
+      "checker": 0.6170619661451507,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "wrinkle_SF_coefficient_0.82",
+      "filed": 1.533305491633405,
+      "checker": 1.5333054916334046,
+      "difference": -4.440892098500626e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "core_mass_fraction",
+      "filed": 0.30075,
+      "checker": 0.30075,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "modes.global_buckling",
+      "filed": 0.6170447855269701,
+      "checker": 0.61704478552697,
+      "difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "modes.face_yield",
+      "filed": 0.771940448044521,
+      "checker": 0.771940448044521,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "modes.core_shear_crimping",
+      "filed": 6.329757041733214,
+      "checker": 6.329757041733213,
+      "difference": -8.881784197001252e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "modes.core_crush",
+      "filed": 7.222602947804261,
+      "checker": 7.222602947804261,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "modes.face_wrinkling",
+      "filed": 0.6170619661451507,
+      "checker": 0.6170619661451507,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "modes.intracell_dimpling",
+      "filed": 19.494913735632846,
+      "checker": 19.494913735632846,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "mass.margin",
+      "filed": 0.05,
+      "checker": 0.050000000000000044,
+      "difference": 4.163336342344337e-17,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "mass.structural_kg",
+      "filed": 4328.542897788202,
+      "checker": 4328.542897788202,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "mass.total_kg",
+      "filed": 4644.970042677613,
+      "checker": 4644.970042677613,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "mass.payload_kg",
+      "filed": 244.47210750934846,
+      "checker": 244.47210750934846,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "kd_that_brings_global_to_1",
+      "filed": 0.3241255816288854,
+      "checker": 0.32412558162888544,
+      "difference": 5.551115123125783e-17,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "tf_m",
+      "filed": 0.0006509724557417433,
+      "checker": 0.0006509724557417433,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "core_m",
+      "filed": 0.040420032902513996,
+      "checker": 0.040420032902513996,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "h_m",
+      "filed": 0.04107100535825574,
+      "checker": 0.04107100535825574,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "Vc",
+      "filed": 0.568100356836699,
+      "checker": 0.568100356836699,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "Kc",
+      "filed": 0.8579749107908252,
+      "checker": 0.8579749107908252,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "gamma",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "least_SF",
+      "filed": 0.6170447855269701,
+      "checker": 0.61704478552697,
+      "difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "second_SF",
+      "filed": 0.6170619661451507,
+      "checker": 0.6170619661451507,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "wrinkle_SF_coefficient_0.82",
+      "filed": 1.533305491633405,
+      "checker": 1.5333054916334046,
+      "difference": -4.440892098500626e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "core_mass_fraction",
+      "filed": 0.30075,
+      "checker": 0.30075,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "modes.global_buckling",
+      "filed": 0.6170447855269701,
+      "checker": 0.61704478552697,
+      "difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "modes.face_yield",
+      "filed": 0.771940448044521,
+      "checker": 0.771940448044521,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "modes.core_shear_crimping",
+      "filed": 6.329757041733214,
+      "checker": 6.329757041733213,
+      "difference": -8.881784197001252e-16,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "modes.core_crush",
+      "filed": 7.222602947804261,
+      "checker": 7.222602947804261,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "modes.face_wrinkling",
+      "filed": 0.6170619661451507,
+      "checker": 0.6170619661451507,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "modes.intracell_dimpling",
+      "filed": 8.664406104725712,
+      "checker": 8.664406104725712,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "mass.margin",
+      "filed": 0.05,
+      "checker": 0.050000000000000044,
+      "difference": 4.163336342344337e-17,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "mass.structural_kg",
+      "filed": 4328.542897788202,
+      "checker": 4328.542897788202,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "mass.total_kg",
+      "filed": 4644.970042677613,
+      "checker": 4644.970042677613,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "mass.payload_kg",
+      "filed": 244.47210750934846,
+      "checker": 244.47210750934846,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "kd_that_brings_global_to_1",
+      "filed": 0.3241255816288854,
+      "checker": 0.32412558162888544,
+      "difference": 5.551115123125783e-17,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.gamma",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.least_SF",
+      "filed": 0.6504118436805308,
+      "checker": 0.6504118436805308,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.second_SF",
+      "filed": 0.6504141274587998,
+      "checker": 0.6504141274587999,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.factor_to_SF_1",
+      "filed": 1.5374873777531946,
+      "checker": 1.5374873777531946,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.modes.global_buckling",
+      "filed": 0.6504118436805308,
+      "checker": 0.6504118436805308,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.modes.face_compression",
+      "filed": 0.892251567620189,
+      "checker": 0.8922515676201891,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.modes.core_shear_crimping",
+      "filed": 0.6504118436805308,
+      "checker": 0.6504118436805308,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "optimistic.modes.face_wrinkling",
+      "filed": 0.6504141274587998,
+      "checker": 0.6504141274587999,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.gamma",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.least_SF",
+      "filed": 0.13008236873610618,
+      "checker": 0.13008236873610618,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.second_SF",
+      "filed": 0.6504141274587998,
+      "checker": 0.6504141274587999,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.factor_to_SF_1",
+      "filed": 7.687436888765972,
+      "checker": 7.687436888765972,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.modes.global_buckling",
+      "filed": 0.13008236873610618,
+      "checker": 0.13008236873610618,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.modes.face_compression",
+      "filed": 0.892251567620189,
+      "checker": 0.8922515676201891,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.modes.core_shear_crimping",
+      "filed": 0.6504118436805308,
+      "checker": 0.6504118436805308,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.modes.core_crush",
+      "filed": 20.950999841461407,
+      "checker": 20.950999841461407,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "earlier aramid curve carry",
+      "field": "conservative.modes.face_wrinkling",
+      "filed": 0.6504141274587998,
+      "checker": 0.6504141274587999,
+      "difference": 1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "aluminium zero-payload ceiling",
+      "field": "grid_least_SF",
+      "filed": 0.668649769509,
+      "checker": 0.6686497695085482,
+      "difference": -4.518607710224387e-13,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "material.rho_kg_m3",
+      "filed": 25.629541398336222,
+      "checker": 25.629541398336222,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "material.Ec_Pa",
+      "filed": 206842718.7950508,
+      "checker": 206842718.79505083,
+      "difference": 2.9802322387695312e-08,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "material.Gc_Pa",
+      "filed": 72394951.57826778,
+      "checker": 72394951.57826778,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 1/4-1.6",
+      "field": "material.crush_Pa",
+      "filed": 344737.86465841805,
+      "checker": 344737.86465841805,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "material.rho_kg_m3",
+      "filed": 25.629541398336222,
+      "checker": 25.629541398336222,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "material.Ec_Pa",
+      "filed": 206842718.7950508,
+      "checker": 206842718.79505083,
+      "difference": 2.9802322387695312e-08,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "material.Gc_Pa",
+      "filed": 72394951.57826778,
+      "checker": 72394951.57826778,
+      "difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "Hexcel CR-III 5056 3/8-1.6",
+      "field": "material.crush_Pa",
+      "filed": 344737.86465841805,
+      "checker": 344737.86465841805,
+      "difference": 0.0,
+      "matches": true
+    }
+  ],
+  "comparison_count": 84,
+  "mismatches_under_stated_formula": [],
+  "dimpling_source_difference": {
+    "status": "Known upstream modelling NFI, not an arithmetic mismatch against its explicitly stated uniaxial formula.",
+    "source": "NASA CR-1457 pp 2-5 and 2-7, eqs 2.1-4 and 2.1-6.",
+    "rule": "Rx+Ry=1; for equal biaxial compression divide the uniaxial allowable by two.",
+    "aramid_mode": "Missing from the filed aramid row; independently evaluated from the nominal 4.8 mm cell."
+  },
+  "elapsed_seconds": 547.0
+}

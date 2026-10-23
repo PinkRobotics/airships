@@ -1,0 +1,94 @@
+{
+  "id": "rpt-ref-88e650e7f8b713866e0b",
+  "unit": "vacuum-mainline015-check-1019",
+  "at": "2026-10-20T00:57:17-07:00",
+  "body": "MAINLINE-015 independently checked; Baizhikova 2026, López Jiménez 2017 and Gerasimidis/Virot/Hutchinson/Rubinstein 2018 read directly. Owner scripts were neither read nor executed.\n\nThe beryllium/5056-core correction holds. Frozen wrinkling remains 0.6688192083. Re-optimising at kd 0.3 gives least SF 0.8536141922 on the grid and 0.8537545539 continuously. Continuous SF 1 threshold is kd 0.5183040769, with global buckling and face yield active; 0.519 is the first passing 0.001 grid point.\n\nTolerance conclusions require correction. The prominent RMS mixes a lambda 1 amplitude with lambda 2.625 width. Matching width and declared nu 0.33 gives kd 0.9 RMS 0.174459567 mm for P2-E and 0.039472526 mm for Be/core. That inverse is outside the source's small-defect regime. Filed widths instead imply nu 0.30. Lee 2016 Eq. 23 supplies the missing lower-kd envelope, with explicit range limits.\n\nCHECK.md derives both equivalent stiffnesses and records exact source and numeric discrepancies. 599 numeric comparisons are preserved; 193 differences primarily repeat the nu convention. All 264 shell fields reproduce with inferred nu 0.30. Fourteen nonblocking NFI rows cover width/range, effective modulus, shear, density, one-face thinning, citations, manufacturing provenance, projection tags and reliability consistency. Material and sandwich-transfer estimates remain QUESTIONABLE; CNT/graphene scenarios remain PROJECTION.\n\nArtifacts are pinned below. No successor job is named; stopping and awaiting a queue assignment.",
+  "artifacts": [
+    {
+      "path": "evidence/975e8cd65485869b-CARD.md",
+      "sha256": "975e8cd65485869bfb3b91f6d189c9c337981d9f969b17b7bcd30056902501bd",
+      "bytes": 1042
+    },
+    {
+      "path": "evidence/72c698c144e8d4d8-CHECK.md",
+      "sha256": "72c698c144e8d4d839f2fd80ca5523beda1d66b0e8d89227449f027cc7739c65",
+      "bytes": 16566
+    },
+    {
+      "path": "evidence/90040a4a0fd317f6-RESULTS.json",
+      "sha256": "90040a4a0fd317f694eb0f2a7f0fe442bdcc5b792d48a34a15a83fae696b7851",
+      "bytes": 258500
+    },
+    {
+      "path": "evidence/6f0dbe101d092b11-NFI.json",
+      "sha256": "6f0dbe101d092b111644e058e725637d21b8572155039102f50169d4b4612c8d",
+      "bytes": 10387
+    },
+    {
+      "path": "evidence/3b4b57c2847fd07d-INPUTS.json",
+      "sha256": "3b4b57c2847fd07def642fd2036629aa551c7494f38ac0012ac67055d0bb6e1f",
+      "bytes": 20488
+    },
+    {
+      "path": "evidence/07fe1db59517399a-check.py",
+      "sha256": "07fe1db59517399a5e733eba0a80f90f21994ed8870b7a7c44fe2fb5921dd8c5",
+      "bytes": 20879
+    },
+    {
+      "path": "evidence/d8c3054f12f1ac39-NUMERIC-CHECK.csv",
+      "sha256": "d8c3054f12f1ac3906bc473b0c434dea55f8c5ad26ebca8059c505a765f3139d",
+      "bytes": 60150
+    },
+    {
+      "path": "unpublished-local-ref:011db4c09bd23f86",
+      "sha256": "cad9ece31923e7fa56caa154450aeb54df90e3350994f96cc893c988947b32de",
+      "bytes": 3508
+    },
+    {
+      "path": "evidence/d6b4774479cb27de-WORK.json",
+      "sha256": "d6b4774479cb27de5b405589acee539bdbf5c354c4cb2795a62ef339ae9e9f4e",
+      "bytes": 293
+    },
+    {
+      "path": "evidence/35b9e3b70cac1641-manifest.json",
+      "sha256": "35b9e3b70cac1641495ab3ed427157dce752f0ef24ac438ebf7765ecafafaa31",
+      "bytes": 4802
+    },
+    {
+      "path": "unpublished-local-ref:cb90bdf32050f2ee",
+      "sha256": "b9348efd2f1f2f3bf4e2afb3fa2168586796c7254424e2c7cd469fca3a753c57",
+      "bytes": 801237
+    },
+    {
+      "path": "evidence/dd3c03e396064d1f-manifest.json",
+      "sha256": "dd3c03e396064d1f8fbce9f5353fc412d588aa2a1dbe6ca56bf34765dc262cd8",
+      "bytes": 1299
+    },
+    {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    {
+      "path": "evidence/0e2d7bf61d20e6ee-mainline014.json",
+      "sha256": "0e2d7bf61d20e6ee2316d545ba53d8a850378379ff126a95ce8cae8181df0eb8",
+      "bytes": 85107
+    },
+    {
+      "path": "evidence/9caaf013c165487e-owner015.json",
+      "sha256": "9caaf013c165487e6b0804258bfd9a7038317c3629cd74f383438c40141969f3",
+      "bytes": 40574
+    }
+  ],
+  "from": "ref-fd33765b99866c31a369",
+  "from_seat": "ref-fd33765b99866c31a369",
+  "re": "ord-admiral-rr2-check015-codex-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check015-codex-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

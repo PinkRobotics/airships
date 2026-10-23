@@ -1,0 +1,169 @@
+{
+  "id": "rpt-ref-4fb99766fa9a4406a85a",
+  "kind": "report",
+  "from": "ref-4189c1615990eb515921",
+  "from_seat": "ref-4189c1615990eb515921",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline059-retained-water-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline059-dispatch-1019"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline059-dispatch-1019",
+  "supersedes": null,
+  "completion": "none",
+  "priority": 4,
+  "at": "2026-10-20T06:53:23-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline059-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "QUESTIONABLE/PROJECTION. MAINLINE-059 complete.\n\nWhat stays on (a Furmidge drop model calibrated on a measured plate; five finishes): P2's smooth hull keeps 0.014-0.051 kg/m2 after rain with 10 min drainage (upper reading x1.48) and 0.011-0.056 after dew.\n\nP3's film bays sag into dishes under vacuum (024: 9.9 cm crown on 2.32 m bays at R10), so its top bays pond rain. That is 37 kg mean over frame orientations at R10, ranging 5-171 (node on top 55, bay on top 171), and it scales as R cubed.\n\nHow fast: an energy balance (checked against 050 and FAO-56) dries P2's residue in 0.2-1.0 h at fair midday and 0.6-7.7 h on a fair morning. Ponds need 65-465 h.\n\nCapacity (own model, cure included): P2 carries 0.1945 kg/m2 in all at R10 ISA and 1.127 at R30. 1 mm floats only at R30 ISA. P3 carries 0.1246 at R10 (052).\n\nAnswer: P2 keeps the 0.1 kg/m2 design load and holds it by waiting, at no mass cost. Topcoats add 16-47 kg to save 8-17 kg; heater film adds 503 kg.\n\nP3 carries 0.1 kg/m2 only if its ponds are emptied: with a bay on top, R10 sinks (210 against 157 kg). The cheapest fix is to put a node on top and tip the hull past 14 deg after rain. A night shelter (about 4.9M RUB, floor-scaled) is the fallback.\n\nGround it by weighing a full-scale P2 panel and a sagged P3 bay after rain and dew. 12 NFI.",
+  "artifacts": [
+    {
+      "path": "evidence/82221133565eca1f-CARD.md",
+      "sha256": "82221133565eca1fce497df228592eba7d2536e8a2519c96328b521edc5ddcf9",
+      "bytes": 16620
+    },
+    {
+      "path": "evidence/c2aeb14931213287-RESULTS.json",
+      "sha256": "c2aeb149312132872793ee92f7c547db99d05ae9db0ff1a019738bc2d6816e5d",
+      "bytes": 251555
+    },
+    {
+      "path": "evidence/b913c3871db6ffb9-NFI.json",
+      "sha256": "b913c3871db6ffb99e9af5890d5ff04c0a8dd7c3b23fbb5b4ecebf43175de040",
+      "bytes": 3822
+    },
+    {
+      "path": "evidence/a2fb51d87376ae72-INPUTS.json",
+      "sha256": "a2fb51d87376ae72f3db4f47b3453541d601eb3fc74513a9050fa9e585ec6f3a",
+      "bytes": 25793
+    },
+    {
+      "path": "evidence/f3d681255e54eeb7-WATER.json",
+      "sha256": "f3d681255e54eeb7d1e56fbda277126eec7190e5111c0c73030efe4c1e21aafd",
+      "bytes": 68264
+    },
+    {
+      "path": "evidence/f1c154fe90af31e6-PONDS.json",
+      "sha256": "f1c154fe90af31e67a3e736068cbaee89bca4dcd5637faebd235d7eba98a767c",
+      "bytes": 22141
+    },
+    {
+      "path": "evidence/f6541eaf23e07121-RETAIN.json",
+      "sha256": "f6541eaf23e07121d2f335b97b299e76d6e4c20e5861e5207c81fb0cf56b1439",
+      "bytes": 134510
+    },
+    {
+      "path": "evidence/a87d03dc35ea773e-DRY.json",
+      "sha256": "a87d03dc35ea773e0a3ebfa1fde4a302e48746bd1254dc5faad96b0b24ee5460",
+      "bytes": 120202
+    },
+    {
+      "path": "evidence/62b497abed022f53-CAP.json",
+      "sha256": "62b497abed022f539dea732aaf4e4f9384f0fb6038a0842af1c1ad8a99033f9d",
+      "bytes": 14759
+    },
+    {
+      "path": "evidence/3f87e3c1929ea6ca-ponds59.py",
+      "sha256": "3f87e3c1929ea6ca09d1d2b615db1f219a2120fe07aa762adf30e0d56a35ac42",
+      "bytes": 9239
+    },
+    {
+      "path": "evidence/2c083336e2e08e11-dry59.py",
+      "sha256": "2c083336e2e08e11ac9aa498bb2be6d70cb8f30d94b074db440cebc725d35702",
+      "bytes": 6766
+    },
+    {
+      "path": "evidence/d238b6961aa38036-retain59.py",
+      "sha256": "d238b6961aa38036ce361a6337311da1da01c69a720b48f8c14ec3fb8b0531d1",
+      "bytes": 8558
+    },
+    {
+      "path": "evidence/a76ce6b85553d2ec-cap59.py",
+      "sha256": "a76ce6b85553d2ecffc01ba17335310a933e87c31cc32f8b91af864674fb3d81",
+      "bytes": 3831
+    },
+    {
+      "path": "evidence/be9b69600d867004-water59.py",
+      "sha256": "be9b69600d867004899c9d15ab2920fc47984c05ec2ed6caf5545c53ec6f8701",
+      "bytes": 17249
+    },
+    {
+      "path": "evidence/a1539653fc918de8-src59.py",
+      "sha256": "a1539653fc918de88c981997d032049ec31656e24da724a6b3dd9ebf74f043e3",
+      "bytes": 2054
+    },
+    {
+      "path": "evidence/54a243709ac94716-card59.py",
+      "sha256": "54a243709ac94716b5ed7c8d06363f18e7ffc6082bb21afb93b8744a5057690c",
+      "bytes": 28996
+    },
+    {
+      "path": "unpublished-local-ref:12ee8f55ba60101c",
+      "sha256": "171498155eed7dee43857eadeee1c6d74e1ca164aa39da461d8403a645033e4f",
+      "bytes": 738
+    },
+    {
+      "path": "evidence/3d2662320d5493de-retention.json",
+      "sha256": "3d2662320d5493de7334875f32a4f3fdf67c299eef6a880b1f62637018f84aa8",
+      "bytes": 32562
+    },
+    {
+      "path": "evidence/0e97fb27ca187dbc-retention.md",
+      "sha256": "0e97fb27ca187dbcc3dec4c9ce9c2da7cb5c63bdec4b47568036ff47a79b6e97",
+      "bytes": 7831
+    },
+    {
+      "path": "evidence/23862a96bf226477-dew.json",
+      "sha256": "23862a96bf2264775d79f4eab5b3755a237a956b8c5a7fc080e944158a0b4528",
+      "bytes": 29626
+    },
+    {
+      "path": "evidence/c737a2005e95b058-dew.md",
+      "sha256": "c737a2005e95b05868ae8445ab11092f315b10267ad11088ea84e4f5dfdbf239",
+      "bytes": 8729
+    },
+    {
+      "path": "evidence/7e19a347df862bbd-drying.json",
+      "sha256": "7e19a347df862bbdd7b3bbea2309f294a6b4ba92b25c549e451dd0980390d254",
+      "bytes": 20725
+    },
+    {
+      "path": "evidence/e813d0cb92998d0d-drying.md",
+      "sha256": "e813d0cb92998d0de623bb7a2de14292dd850cae57067ed1f9b3c646917c2377",
+      "bytes": 2739
+    },
+    {
+      "path": "evidence/d078544624b3a853-shedding.json",
+      "sha256": "d078544624b3a8538835796bb05d9f7899a938a884f5a74108e0d42d71534644",
+      "bytes": 40107
+    },
+    {
+      "path": "evidence/c026e03830de02a8-shedding.md",
+      "sha256": "c026e03830de02a86a861e887e09c14b8796429d0fe76e5eeb9f387a85423ec0",
+      "bytes": 9522
+    },
+    {
+      "path": "evidence/e4148a390a78479f-vacuum-mainline059-retained-water-1020.md",
+      "sha256": "e4148a390a78479f01e30b4d7f1f291c09239dc28e8056333db802efacbfcfc7",
+      "bytes": 3546
+    }
+  ],
+  "links_schema": 1,
+  "ingested": "2026-10-20T06:54:19-07:00"
+}

@@ -1,0 +1,1229 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-021b",
+  "unit": "vacuum-mainline021b-floating-point-on-019-budget-1020",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-20T00:46:30.315803-07:00",
+  "job_started_at": "2026-10-20T00:39:52-07:00",
+  "times_are": "measurements only, never limits",
+  "case": {
+    "R_m": 10.0,
+    "p0_Pa": 95460.83791390515,
+    "lift0_kg": 4889.442150186961,
+    "systems_allowance_kg": 100.0,
+    "joint_fraction": 0.05,
+    "reserve_019_optimistic_kg": 535.9459071525378,
+    "reserve_fixed_items_kg": 411.2989440716474,
+    "reserve_fixed_lines": {
+      "systems_excess_kg": 0.0,
+      "retained_water_kg": 125.66370614359174,
+      "contamination_kg": 5.0,
+      "temperature_pressure_loss_kg": 213.036426543752,
+      "humidity_loss_kg": 18.704389882434043,
+      "internal_gas_kg": 48.89442150186961,
+      "payload_kg": 0.0
+    },
+    "joint_parameters_019_optimistic": {
+      "strip_width_m": 0.06,
+      "seam_adhesive_m": 0.0002,
+      "core_splice_width_m": 0.0015,
+      "rho_adhesive_kg_m3": 1250.0,
+      "rho_splice_kg_m3": 1100.0
+    },
+    "face": {
+      "name": "SR-200 rolled beryllium sheet",
+      "rho": 1850,
+      "E_Pa": 290000000000.0,
+      "sigma_today_Pa": 345000000.0,
+      "sigma_full_Pa": 379200000.0,
+      "E_full_Pa": 293600000000.0
+    },
+    "biaxial_factor": 0.6823278038280194,
+    "cores_searched": 47
+  },
+  "optimisms": {
+    "O1_gamma": {
+      "today": "CR-1457: 0.20 below Vc 2, 1 at Vc >= 2",
+      "full": "018 optimistic 0.20 + 0.40*min(Vc,2)",
+      "tag": "PROJECTION",
+      "grounding": "MAINLINE-018b; MAINLINE-015 map"
+    },
+    "O2_wrinkle": {
+      "today": 0.33,
+      "full": 0.82,
+      "tag": "QUESTIONABLE",
+      "source": "CR-1457 eq 2.2-14 / 2.2-12"
+    },
+    "O3_face_strength": {
+      "today_Pa": 345000000.0,
+      "full_Pa": 379200000.0,
+      "today_basis": "Materion SR-200 datasheet DS-HPP-613 minimum tensile yield, as compressive",
+      "full_basis": "SR-200 1.96 mm lot compressive yield, lower in-plane direction, NASA CR-194164 Table 3 (Fenn 1967)",
+      "E_today_Pa": 290000000000.0,
+      "E_full_Pa": 293600000000.0,
+      "tag": "QUESTIONABLE",
+      "grounding": "MAINLINE-020 filed; a supplier thin-sheet spec with post-form compression"
+    },
+    "O4_panel_size": {
+      "today_m": 0.9144000000000001,
+      "full_m": 4.0,
+      "today_basis": "Materion SR-200 maximum stock 609.6 x 1828.8 mm (gauges >= 0.059 in; thinner unspecified), square-equivalent 2ab/(a+b)",
+      "full_basis": "019 optimistic 4 m panel width, PROJECTION",
+      "tag": "PROJECTION"
+    },
+    "O5_bond_film": {
+      "today_lb_ft2": 0.03,
+      "full_lb_ft2": 0.015,
+      "today_basis": "019 conservative weight (also 020's lighter case)",
+      "full_basis": "019 optimistic, the lightest published 3M AF 163 film weight; Be/honeycomb bond unqualified",
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "checks": {
+    "019_aluminium_least": {
+      "mine": 0.5566692009055632,
+      "sealed": 0.556669198,
+      "tf_m": 0.0006007983468309646,
+      "core_m": 0.039044348555960944,
+      "result": "PASS"
+    },
+    "019_aramid_least": {
+      "mine": 0.6087013382404926,
+      "sealed": 0.608701338,
+      "tf_m": 0.0007041755779481709,
+      "core_m": 0.0193185310172627,
+      "result": "PASS"
+    },
+    "019_joint_excess_aluminium": {
+      "mine": 124.6469630808904,
+      "sealed": 124.6469630808904,
+      "result": "PASS"
+    },
+    "019_reserve_rebuilt": {
+      "mine": 535.9459071525378,
+      "sealed": 535.9459071525378,
+      "result": "PASS"
+    },
+    "021_rev1_least_set_usage": {
+      "mine": 0.9580717283996654,
+      "sealed": 0.9580717283996654,
+      "result": "PASS"
+    }
+  },
+  "subsets": [
+    {
+      "subset": [],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O1_gamma"
+      ],
+      "min_max_usage": 1.9560355174641506,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.054,
+        "w": 0.9144000000000001,
+        "film": 0.03,
+        "i": 0,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O3_face_strength"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O4_panel_size"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O5_bond_film"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle"
+      ],
+      "min_max_usage": 1.758341859783703,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.068,
+        "w": 0.9144000000000001,
+        "film": 0.03,
+        "i": 0,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O3_face_strength"
+      ],
+      "min_max_usage": 1.9560355174641506,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.054,
+        "w": 0.9144000000000001,
+        "film": 0.03,
+        "i": 0,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O4_panel_size"
+      ],
+      "min_max_usage": 1.4921435050992746,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.065,
+        "w": 3.9999999999999996,
+        "film": 0.03,
+        "i": 24,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 1.7636030536635285,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.058,
+        "w": 0.9144000000000001,
+        "film": 0.015,
+        "i": 0,
+        "j": 24
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O3_face_strength"
+      ],
+      "min_max_usage": 4.2164919193249375,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel HRH-10-4.8-32",
+        "fraction": 0.382,
+        "w": 0.9144000000000001,
+        "film": 0.03,
+        "i": 0,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O4_panel_size"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O5_bond_film"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O3_face_strength",
+        "O4_panel_size"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O3_face_strength",
+        "O5_bond_film"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O3_face_strength"
+      ],
+      "min_max_usage": 1.1101720807231932,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.155,
+        "w": 0.9144000000000001,
+        "film": 0.03,
+        "i": 0,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O4_panel_size"
+      ],
+      "min_max_usage": 0.8346598843577663,
+      "feasible_within_named": true,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.1585,
+        "w": 3.1278027873808982,
+        "film": 0.03,
+        "i": 20,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 1.2720165253191,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.107,
+        "w": 0.9144000000000001,
+        "film": 0.015,
+        "i": 0,
+        "j": 24
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O3_face_strength",
+        "O4_panel_size"
+      ],
+      "min_max_usage": 1.4921435050992746,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.065,
+        "w": 3.9999999999999996,
+        "film": 0.03,
+        "i": 24,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O3_face_strength",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 1.7636030536635285,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.058,
+        "w": 0.9144000000000001,
+        "film": 0.015,
+        "i": 0,
+        "j": 24
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 1.3254668281932835,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.07,
+        "w": 3.9999999999999996,
+        "film": 0.015,
+        "i": 24,
+        "j": 24
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O3_face_strength",
+        "O4_panel_size"
+      ],
+      "min_max_usage": 2.4424417776206706,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel HRH-10-4.8-32",
+        "fraction": 0.342,
+        "w": 3.9999999999999996,
+        "film": 0.03,
+        "i": 24,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O3_face_strength",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 3.431317541514386,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel HRH-10-4.8-32",
+        "fraction": 0.364,
+        "w": 0.9144000000000001,
+        "film": 0.015,
+        "i": 0,
+        "j": 24
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O3_face_strength",
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O3_face_strength",
+        "O4_panel_size"
+      ],
+      "min_max_usage": 0.7734375968484284,
+      "feasible_within_named": true,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.17600000000000002,
+        "w": 2.7658527032805686,
+        "film": 0.03,
+        "i": 18,
+        "j": 0
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O3_face_strength",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 0.919468771066749,
+      "feasible_within_named": true,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.17450000000000002,
+        "w": 0.9144000000000001,
+        "film": 0.015891946415389428,
+        "i": 0,
+        "j": 22
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 0.7193182727147767,
+      "feasible_within_named": true,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.17250000000000001,
+        "w": 2.600901412950072,
+        "film": 0.018360803149569827,
+        "i": 17,
+        "j": 17
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O3_face_strength",
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 1.3254668281932835,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.07,
+        "w": 3.9999999999999996,
+        "film": 0.015,
+        "i": 24,
+        "j": 24
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O3_face_strength",
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 1.7119524968254654,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel HRH-10-4.8-32",
+        "fraction": 0.326,
+        "w": 3.9999999999999996,
+        "film": 0.015,
+        "i": 24,
+        "j": 24
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O3_face_strength",
+        "O4_panel_size",
+        "O5_bond_film"
+      ],
+      "min_max_usage": 0.7193182727147767,
+      "feasible_within_named": true,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.17250000000000001,
+        "w": 2.600901412950072,
+        "film": 0.018360803149569827,
+        "i": 17,
+        "j": 17
+      }
+    }
+  ],
+  "least_set": {
+    "subset": [
+      "O1_gamma",
+      "O2_wrinkle",
+      "O4_panel_size"
+    ],
+    "min_max_usage": 0.8346598843577663,
+    "feasible_within_named": true,
+    "point": {
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "fraction": 0.1585,
+      "w": 3.1278027873808982,
+      "film": 0.03,
+      "i": 20,
+      "j": 0
+    },
+    "refined_min_max_usage": 0.83420513484806
+  },
+  "floating_point": {
+    "core": "Hexcel CR-III 5056 3/8-1.0",
+    "core_tag": "QUESTIONABLE",
+    "core_rho_kg_m3": 16.018463373960138,
+    "core_Ec_Pa": 103421359.3975254,
+    "core_Gc_Pa": 46884349.59354485,
+    "core_crush_Pa": 241316.50526089262,
+    "core_cell_m": 0.009524999999999999,
+    "core_mass_fraction": 0.1586,
+    "panel_width_m": 3.1278027873808982,
+    "bond_film_lb_ft2": 0.03,
+    "R_m": 10.0,
+    "tf_m": 0.0006917479988347394,
+    "core_m": 0.030118230884842855,
+    "h_m": 0.030809978883677595,
+    "masses_kg": {
+      "faces": 3216.321838286494,
+      "core": 606.2617584409768,
+      "joint_allowance_0.05S": 191.12917983637354,
+      "joint_seams": 187.43323832836865,
+      "joint_bond_films": 368.1263710594744,
+      "joint_excess_in_reserve": 364.4304295514695,
+      "systems_allowance": 100.0,
+      "reserve_total": 775.7293736231169,
+      "reserve_fixed_items": 411.2989440716474,
+      "total": 4889.442150186961,
+      "lift": 4889.442150186961
+    },
+    "Vc": 0.8861818381674034,
+    "branch": "stiff_or_moderate_core",
+    "needed_values": {
+      "gamma": 0.46822856667720764,
+      "wrinkle": 0.6092014443376216,
+      "face_strength_Pa": 345000000.0
+    },
+    "today_values": {
+      "gamma": 0.2,
+      "wrinkle": 0.33,
+      "face_strength_Pa": 345000000.0,
+      "panel_width_m": 0.9144000000000001,
+      "bond_film_lb_ft2": 0.03
+    },
+    "full_values": {
+      "gamma": 0.5544727352669614,
+      "wrinkle": 0.82,
+      "face_strength_Pa": 379200000.0,
+      "panel_width_m": 4.0,
+      "bond_film_lb_ft2": 0.015
+    },
+    "usage": {
+      "O1_gamma": 0.83420513484806,
+      "O2_wrinkle": 0.6735316047895863,
+      "O3_face_strength": 0.0,
+      "O4_panel_size": 0.8333333333333334,
+      "O5_bond_film": 0.0
+    },
+    "today": {
+      "gamma": 0.2,
+      "sfs": {
+        "global_buckling": 0.42714181541571367,
+        "face_compression": 1.0000040427603332,
+        "core_shear_crimping": 3.0958933566506177,
+        "core_crush": 5.0558220634629825,
+        "face_wrinkling": 0.5416927406644704,
+        "intracell_dimpling": 4.975309121115971
+      },
+      "least_SF": 0.42714181541571367,
+      "governing": "global_buckling"
+    },
+    "at_needed_values": {
+      "gamma": 0.46822856667720764,
+      "sfs": {
+        "global_buckling": 1.0,
+        "face_compression": 1.0000040427603332,
+        "core_shear_crimping": 3.0958933566506177,
+        "core_crush": 5.0558220634629825,
+        "face_wrinkling": 1.0000000000000002,
+        "intracell_dimpling": 4.975309121115971
+      },
+      "least_SF": 1.0,
+      "governing": "global_buckling"
+    },
+    "at_full_named_set": {
+      "gamma": 0.5588730864633789,
+      "sfs": {
+        "global_buckling": 1.2041380977577267,
+        "face_compression": 1.0991348783035313,
+        "core_shear_crimping": 3.0958933566506177,
+        "core_crush": 5.0558220634629825,
+        "face_wrinkling": 1.3543532515336458,
+        "intracell_dimpling": 5.0370715791712035
+      },
+      "least_SF": 1.0991348783035313,
+      "governing": "face_compression"
+    },
+    "at_full_set_conservative_gamma": {
+      "gamma": 0.2,
+      "sfs": {
+        "global_buckling": 0.43091647349764806,
+        "face_compression": 1.0991348783035313,
+        "core_shear_crimping": 3.0958933566506177,
+        "core_crush": 5.0558220634629825,
+        "face_wrinkling": 1.3543532515336458,
+        "intracell_dimpling": 5.0370715791712035
+      },
+      "least_SF": 0.43091647349764806,
+      "governing": "global_buckling"
+    },
+    "hard_modes_ok": true,
+    "tolerance_015_at_needed_gamma": {
+      "kd": 0.46822856667720764,
+      "t_eq_mm": 53.364448806653826,
+      "R_over_t_eq": 187.39067344687226,
+      "in_fit_range": true,
+      "status": "lambda_I_1 inversion",
+      "delta_over_t_eq": 0.8586135991025216,
+      "amplitude_mm": 45.819441454003304,
+      "rms_worst_mm": 1.7088520330420545
+    },
+    "tolerance_015_at_018_curve": {
+      "kd": 0.5544727352669614,
+      "t_eq_mm": 53.364448806653826,
+      "R_over_t_eq": 187.39067344687226,
+      "in_fit_range": true,
+      "status": "lambda_I_1 inversion",
+      "delta_over_t_eq": 0.40863005022984333,
+      "amplitude_mm": 21.806317396350856,
+      "rms_worst_mm": 0.8132742048661246
+    },
+    "reserve_at_today_panel_and_film_same_geometry_kg": 1229.4315304077181
+  },
+  "families": {
+    "aramid": {
+      "least": 0.9406962483719193,
+      "core": "Hexcel HRH-10-4.8-32",
+      "fraction": 0.3057,
+      "point": {
+        "core": "Hexcel HRH-10-4.8-32",
+        "core_tag": "QUESTIONABLE",
+        "core_rho_kg_m3": 32.0,
+        "core_Ec_Pa": 76000000.0,
+        "core_Gc_Pa": 14000000.0,
+        "core_crush_Pa": 1000000.0,
+        "core_cell_m": 0.0048,
+        "core_mass_fraction": 0.3057,
+        "panel_width_m": 4.0,
+        "bond_film_lb_ft2": 0.015,
+        "R_m": 10.0,
+        "tf_m": 0.0006060701987901539,
+        "core_m": 0.03085481515328187,
+        "h_m": 0.031460885352072025,
+        "masses_kg": {
+          "faces": 2817.958012436703,
+          "core": 1240.7457358517934,
+          "joint_allowance_0.05S": 202.93518741442483,
+          "joint_seams": 135.37627229706888,
+          "joint_bond_films": 184.0631855297372,
+          "joint_excess_in_reserve": 116.50427041238129,
+          "systems_allowance": 100.0,
+          "reserve_total": 527.8032144840287,
+          "reserve_fixed_items": 411.2989440716474,
+          "total": 4889.44215018695,
+          "lift": 4889.442150186961
+        },
+        "Vc": 2.6086251357450045,
+        "branch": "shear_crimping",
+        "needed_values": {
+          "gamma": 1.0627920069922585,
+          "wrinkle": 0.8770886015604101,
+          "face_strength_Pa": 393769723.8061921
+        },
+        "today_values": {
+          "gamma": 1.0,
+          "wrinkle": 0.33,
+          "face_strength_Pa": 345000000.0,
+          "panel_width_m": 0.9144000000000001,
+          "bond_film_lb_ft2": 0.03
+        },
+        "full_values": {
+          "gamma": 1.0,
+          "wrinkle": 0.82,
+          "face_strength_Pa": 379200000.0,
+          "panel_width_m": 4.0,
+          "bond_film_lb_ft2": 0.015
+        },
+        "usage": {
+          "O1_gamma": Infinity,
+          "O2_wrinkle": 1.0739428817121133,
+          "O3_face_strength": 1.3988866763740104,
+          "O4_panel_size": 1.0,
+          "O5_bond_film": 1.0
+        },
+        "today": {
+          "gamma": 1.0,
+          "sfs": {
+            "global_buckling": 0.9409178780239774,
+            "face_compression": 0.8761465880749231,
+            "core_shear_crimping": 0.9409178780239774,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.3762447709534748,
+            "intracell_dimpling": 13.176274017053995
+          },
+          "least_SF": 0.3762447709534748,
+          "governing": "face_wrinkling"
+        },
+        "at_needed_values": {
+          "gamma": 1.0,
+          "sfs": {
+            "global_buckling": 0.9409178780239774,
+            "face_compression": 0.9999999999999999,
+            "core_shear_crimping": 0.9409178780239774,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 13.176274017053995
+          },
+          "least_SF": 0.9409178780239774,
+          "governing": "global_buckling"
+        },
+        "at_full_named_set": {
+          "gamma": 1.0,
+          "sfs": {
+            "global_buckling": 0.9409178780239774,
+            "face_compression": 0.9629993802840893,
+            "core_shear_crimping": 0.9409178780239774,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.9406962483719193,
+            "intracell_dimpling": 13.339841556576042
+          },
+          "least_SF": 0.9406962483719193,
+          "governing": "face_wrinkling"
+        },
+        "at_full_set_conservative_gamma": {
+          "gamma": 0.2,
+          "sfs": {
+            "global_buckling": 0.1881835756047955,
+            "face_compression": 0.9629993802840893,
+            "core_shear_crimping": 0.9409178780239774,
+            "core_crush": 20.950999841461407,
+            "face_wrinkling": 0.9406962483719193,
+            "intracell_dimpling": 13.339841556576042
+          },
+          "least_SF": 0.1881835756047955,
+          "governing": "global_buckling"
+        },
+        "hard_modes_ok": false,
+        "tolerance_015_at_needed_gamma": null,
+        "tolerance_015_at_018_curve": null,
+        "reserve_at_today_panel_and_film_same_geometry_kg": 1168.6872943705416
+      }
+    },
+    "aramid_today": {
+      "least": 0.5174130028834889,
+      "core": "Hexcel HRH-10-4.8-32",
+      "fraction": 0.18939999999999999,
+      "reserve_kg": 1132.6199438518643
+    },
+    "aluminium": {
+      "least": 1.1985481637215618,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "fraction": 0.1324,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "core_tag": "QUESTIONABLE",
+        "core_rho_kg_m3": 16.018463373960138,
+        "core_Ec_Pa": 103421359.3975254,
+        "core_Gc_Pa": 46884349.59354485,
+        "core_crush_Pa": 241316.50526089262,
+        "core_cell_m": 0.009524999999999999,
+        "core_mass_fraction": 0.1324,
+        "panel_width_m": 4.0,
+        "bond_film_lb_ft2": 0.015,
+        "R_m": 10.0,
+        "tf_m": 0.0007543144250331795,
+        "core_m": 0.026588982993051884,
+        "h_m": 0.027343297418085062,
+        "masses_kg": {
+          "faces": 3507.228011147947,
+          "core": 535.2201344813142,
+          "joint_allowance_0.05S": 202.12240728146307,
+          "joint_seams": 151.63187495631777,
+          "joint_bond_films": 184.0631855297372,
+          "joint_excess_in_reserve": 133.57265320459194,
+          "systems_allowance": 100.0,
+          "reserve_total": 544.8715972762393,
+          "reserve_fixed_items": 411.2989440716474,
+          "total": 4889.442150186964,
+          "lift": 4889.442150186961
+        },
+        "Vc": 0.9612583579798631,
+        "branch": "stiff_or_moderate_core",
+        "needed_values": {
+          "gamma": 0.49578500719952634,
+          "wrinkle": 0.5026784948521507,
+          "face_strength_Pa": 345000000.0
+        },
+        "today_values": {
+          "gamma": 0.2,
+          "wrinkle": 0.33,
+          "face_strength_Pa": 345000000.0,
+          "panel_width_m": 0.9144000000000001,
+          "bond_film_lb_ft2": 0.03
+        },
+        "full_values": {
+          "gamma": 0.5845033431919453,
+          "wrinkle": 0.82,
+          "face_strength_Pa": 379200000.0,
+          "panel_width_m": 4.0,
+          "bond_film_lb_ft2": 0.015
+        },
+        "usage": {
+          "O1_gamma": 0.8465001929900051,
+          "O2_wrinkle": 0.46237390994000316,
+          "O3_face_strength": 0.0,
+          "O4_panel_size": 1.0,
+          "O5_bond_film": 1.0
+        },
+        "today": {
+          "gamma": 0.2,
+          "sfs": {
+            "global_buckling": 0.4034006617701349,
+            "face_compression": 1.0904512565504716,
+            "core_shear_crimping": 2.7620573747914783,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.6564832261166467,
+            "intracell_dimpling": 6.451097023648755
+          },
+          "least_SF": 0.4034006617701349,
+          "governing": "global_buckling"
+        },
+        "at_needed_values": {
+          "gamma": 0.49578500719952634,
+          "sfs": {
+            "global_buckling": 1.0,
+            "face_compression": 1.0904512565504716,
+            "core_shear_crimping": 2.7620573747914783,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.451097023648755
+          },
+          "least_SF": 1.0,
+          "governing": "global_buckling"
+        },
+        "at_full_named_set": {
+          "gamma": 0.5892764881419142,
+          "sfs": {
+            "global_buckling": 1.1986019640087293,
+            "face_compression": 1.1985481637215618,
+            "core_shear_crimping": 2.7620573747914783,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.6413551910955018,
+            "intracell_dimpling": 6.531179607390602
+          },
+          "least_SF": 1.1985481637215618,
+          "governing": "face_compression"
+        },
+        "at_full_set_conservative_gamma": {
+          "gamma": 0.2,
+          "sfs": {
+            "global_buckling": 0.406804611461122,
+            "face_compression": 1.1985481637215618,
+            "core_shear_crimping": 2.7620573747914783,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.6413551910955018,
+            "intracell_dimpling": 6.531179607390602
+          },
+          "least_SF": 0.406804611461122,
+          "governing": "global_buckling"
+        },
+        "hard_modes_ok": true,
+        "tolerance_015_at_needed_gamma": {
+          "kd": 0.49578500719952634,
+          "t_eq_mm": 47.35998037459023,
+          "R_over_t_eq": 211.14873614612478,
+          "in_fit_range": true,
+          "status": "lambda_I_1 inversion",
+          "delta_over_t_eq": 0.6212510417299717,
+          "amplitude_mm": 29.422437144025196,
+          "rms_worst_mm": 1.0337441270953396
+        },
+        "tolerance_015_at_018_curve": {
+          "kd": 0.5845033431919453,
+          "t_eq_mm": 47.35998037459023,
+          "R_over_t_eq": 211.14873614612478,
+          "in_fit_range": true,
+          "status": "lambda_I_1 inversion",
+          "delta_over_t_eq": 0.3435107398298206,
+          "amplitude_mm": 16.268661896801277,
+          "rms_worst_mm": 0.5715921359333482
+        },
+        "reserve_at_today_panel_and_film_same_geometry_kg": 1240.6094474660972
+      }
+    },
+    "aluminium_today": {
+      "least": 0.4192286908892262,
+      "core": "Hexcel CR-III 5056 1/4-1.6",
+      "fraction": 0.3382,
+      "reserve_kg": 1154.327504922052
+    },
+    "other": {
+      "least": 1.0389577976148523,
+      "core": "Hexcel HFT fiberglass 3/16-2.0",
+      "fraction": 0.2507,
+      "point": {
+        "core": "Hexcel HFT fiberglass 3/16-2.0",
+        "core_tag": "QUESTIONABLE",
+        "core_rho_kg_m3": 32.036926747920276,
+        "core_Ec_Pa": 117210873.98386213,
+        "core_Gc_Pa": 34473786.4658418,
+        "core_crush_Pa": 1172108.7398386213,
+        "core_cell_m": 0.004762499999999999,
+        "core_mass_fraction": 0.2507,
+        "panel_width_m": 4.0,
+        "bond_film_lb_ft2": 0.015,
+        "R_m": 10.0,
+        "tf_m": 0.0006539381812167862,
+        "core_m": 0.025268890432029695,
+        "h_m": 0.025922828613246483,
+        "masses_kg": {
+          "faces": 3040.5229312985393,
+          "core": 1017.294940446475,
+          "joint_allowance_0.05S": 202.89089358725073,
+          "joint_seams": 136.2621488405528,
+          "joint_bond_films": 184.0631855297372,
+          "joint_excess_in_reserve": 117.43444078303929,
+          "systems_allowance": 100.0,
+          "reserve_total": 528.7333848546866,
+          "reserve_fixed_items": 411.2989440716474,
+          "total": 4889.442150186952,
+          "lift": 4889.442150186961
+        },
+        "Vc": 1.1360992242268966,
+        "branch": "stiff_or_moderate_core",
+        "needed_values": {
+          "gamma": 0.6400492828372351,
+          "wrinkle": 0.5702657315621736,
+          "face_strength_Pa": 364945956.11576265
+        },
+        "today_values": {
+          "gamma": 0.2,
+          "wrinkle": 0.33,
+          "face_strength_Pa": 345000000.0,
+          "panel_width_m": 0.9144000000000001,
+          "bond_film_lb_ft2": 0.03
+        },
+        "full_values": {
+          "gamma": 0.6544396896907587,
+          "wrinkle": 0.82,
+          "face_strength_Pa": 379200000.0,
+          "panel_width_m": 4.0,
+          "bond_film_lb_ft2": 0.015
+        },
+        "usage": {
+          "O1_gamma": 0.9812442280998177,
+          "O2_wrinkle": 0.6009698644730983,
+          "O3_face_strength": 0.5946386444717396,
+          "O4_panel_size": 1.0,
+          "O5_bond_film": 1.0
+        },
+        "today": {
+          "gamma": 0.2,
+          "sfs": {
+            "global_buckling": 0.3124759379675145,
+            "face_compression": 0.9453454524388929,
+            "core_shear_crimping": 1.9207566507848248,
+            "core_crush": 24.556850022534487,
+            "face_wrinkling": 0.5786775914028801,
+            "intracell_dimpling": 16.813046391977757
+          },
+          "least_SF": 0.3124759379675145,
+          "governing": "global_buckling"
+        },
+        "at_needed_values": {
+          "gamma": 0.6400492828372351,
+          "sfs": {
+            "global_buckling": 0.9999999999999999,
+            "face_compression": 1.0000000000000002,
+            "core_shear_crimping": 1.9207566507848248,
+            "core_crush": 24.556850022534487,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 16.813046391977757
+          },
+          "least_SF": 0.9999999999999999,
+          "governing": "global_buckling"
+        },
+        "at_full_named_set": {
+          "gamma": 0.660081009976575,
+          "sfs": {
+            "global_buckling": 1.0389577976148523,
+            "face_compression": 1.0390579581589223,
+            "core_shear_crimping": 1.9207566507848248,
+            "core_crush": 24.556850022534487,
+            "face_wrinkling": 1.446823667130517,
+            "intracell_dimpling": 17.021760071326444
+          },
+          "least_SF": 1.0389577976148523,
+          "governing": "global_buckling"
+        },
+        "at_full_set_conservative_gamma": {
+          "gamma": 0.2,
+          "sfs": {
+            "global_buckling": 0.31479705730414,
+            "face_compression": 1.0390579581589223,
+            "core_shear_crimping": 1.9207566507848248,
+            "core_crush": 24.556850022534487,
+            "face_wrinkling": 1.446823667130517,
+            "intracell_dimpling": 17.021760071326444
+          },
+          "least_SF": 0.31479705730414,
+          "governing": "global_buckling"
+        },
+        "hard_modes_ok": true,
+        "tolerance_015_at_needed_gamma": {
+          "kd": 0.6400492828372351,
+          "t_eq_mm": 44.89965623404317,
+          "R_over_t_eq": 222.71885441336508,
+          "in_fit_range": true,
+          "status": "lambda_I_1 inversion",
+          "delta_over_t_eq": 0.25441425356651104,
+          "amplitude_mm": 11.423112526177038,
+          "rms_worst_mm": 0.39078205965400564
+        },
+        "tolerance_015_at_018_curve": {
+          "kd": 0.6544396896907587,
+          "t_eq_mm": 44.89965623404317,
+          "R_over_t_eq": 222.71885441336508,
+          "in_fit_range": true,
+          "status": "lambda_I_1 inversion",
+          "delta_over_t_eq": 0.2356025024921089,
+          "amplitude_mm": 10.578471369775988,
+          "rms_worst_mm": 0.36188707941017473
+        },
+        "reserve_at_today_panel_and_film_same_geometry_kg": 1172.6068136722736
+      }
+    },
+    "other_today": {
+      "least": 0.31493638864302226,
+      "core": "Hexcel HFT fiberglass 3/16-2.0",
+      "fraction": 0.371,
+      "reserve_kg": 1121.5629983535575
+    }
+  },
+  "reserve_taken_as_given_535_95": [
+    {
+      "subset": [],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O1_gamma"
+      ],
+      "min_max_usage": 1.320839373894874,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.07025,
+        "tf_m": 0.000810049117874501,
+        "core_m": 0.01413749181417259,
+        "Vc": 1.0040396061001011,
+        "needed_gamma": 0.8565905787780437,
+        "needed_wrinkle": 0.33
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O3_face_strength"
+      ],
+      "min_max_usage": null,
+      "feasible_within_named": false,
+      "point": null
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle"
+      ],
+      "min_max_usage": 0.6656351070909744,
+      "feasible_within_named": true,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.169,
+        "tf_m": 0.000724012709818457,
+        "core_m": 0.03401047852804509,
+        "Vc": 0.9290409705509521,
+        "needed_gamma": 0.40235491546540936,
+        "needed_wrinkle": 0.60458191008926
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O3_face_strength"
+      ],
+      "min_max_usage": 1.320839373894874,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.07025,
+        "tf_m": 0.000810049117874501,
+        "core_m": 0.01413749181417259,
+        "Vc": 1.0040396061001011,
+        "needed_gamma": 0.8565905787780437,
+        "needed_wrinkle": 0.33
+      }
+    },
+    {
+      "subset": [
+        "O2_wrinkle",
+        "O3_face_strength"
+      ],
+      "min_max_usage": 1.7448468815974496,
+      "feasible_within_named": false,
+      "point": {
+        "core": "Hexcel HRH-10-4.8-32",
+        "fraction": 0.32675,
+        "tf_m": 0.0005865722706200676,
+        "core_m": 0.032916413427074645,
+        "Vc": 2.5292238063565375,
+        "needed_gamma": 1.0,
+        "needed_wrinkle": 0.9514595918499732
+      }
+    },
+    {
+      "subset": [
+        "O1_gamma",
+        "O2_wrinkle",
+        "O3_face_strength"
+      ],
+      "min_max_usage": 0.6656351070909744,
+      "feasible_within_named": true,
+      "point": {
+        "core": "Hexcel CR-III 5056 3/8-1.0",
+        "fraction": 0.169,
+        "tf_m": 0.000724012709818457,
+        "core_m": 0.03401047852804509,
+        "Vc": 0.9290409705509521,
+        "needed_gamma": 0.40235491546540936,
+        "needed_wrinkle": 0.60458191008926
+      }
+    }
+  ],
+  "ended_at": "2026-10-20T00:46:37.279230-07:00"
+}

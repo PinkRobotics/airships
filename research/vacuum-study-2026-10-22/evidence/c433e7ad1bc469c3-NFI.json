@@ -1,0 +1,26 @@
+[
+  {
+    "NFI_id": "NFI-KD-020",
+    "gap": "Buckling uses kd 0.2 from MAINLINE-002. MAINLINE-004b carries 0.90 as a QUESTIONABLE optimistic factor. Buckling SF on this card scales linearly with kd.",
+    "direction": "Multiply buckling SF by kd/0.2 when a later card adopts another knockdown.",
+    "effect": "Yield SF does not move with kd."
+  },
+  {
+    "NFI_id": "NFI-KNEE",
+    "gap": "The knee is the tabulated interval with the largest drop in least SF per 100 kg of payload. It is a finite difference on these margins, not a fitted optimum.",
+    "direction": "A denser margin grid if a later card needs a smoother knee.",
+    "effect": "The named knee can move if margins are added between 0 and 5 percent."
+  },
+  {
+    "NFI_id": "NFI-YIELD",
+    "gap": "Yield uses 276 MPa tensile yield transferred to compression. QUESTIONABLE.",
+    "direction": "A compression allowable.",
+    "effect": "Yield SF scales linearly with that allowable."
+  },
+  {
+    "NFI_id": "NFI-SHEAR",
+    "gap": "Sandwich buckling omits core shear. The 002 formula is used.",
+    "direction": "A sandwich formula with shear.",
+    "effect": "Buckling SF would move if the pressure formula moved."
+  }
+]

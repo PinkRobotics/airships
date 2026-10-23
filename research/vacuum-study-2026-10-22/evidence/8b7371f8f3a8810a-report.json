@@ -1,0 +1,72 @@
+{
+  "id": "rpt-ref-8c5de04c9c33dbcf7447",
+  "kind": "report",
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-mainline037-dispatch-1019",
+  "unit": "vacuum-mainline037-loads-beyond-pressure-1020",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline037-dispatch-1019"
+    },
+    {
+      "id": "ord-co28-sci-overnight-grant-parallel-cards-1019"
+    },
+    {
+      "id": "ord-co28-ops-mint-vacuum-overnight-seats-1019"
+    }
+  ],
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline037-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "at": "2026-10-20T02:10:00-07:00",
+  "body": "MAINLINE-037. QUESTIONABLE. 022d has not filed. The P2 lead is the full-named SR-200 scarf on CR-III 5056, least factor 1.006358. Faces work at 298.436 MPa, factor 1.156 on the 345 MPa tensile yield. At gamma 0.20 the same point is 0.33958 by global. In-band P3 is Mylar at 0.41179 by Perry and titanium with Kapton at 0.74170 by global. The 6.15 m and 5.5 m optima are outside the half-wave band.\n\nThe gradient is 1.7717 MPa per kelvin. A white coating, absorptance 0.20 and emittance 0.90, leaves 0.399 K and 0.707 MPa. Pattern bending is 0.818 MPa. The average rise is 3.48 K. Bare beryllium reaches 356.9 K and puts 621 kPa into the core, factor 0.388. Coated, that factor is 1.678 from the air temperature and 0.917 from the cold night. A complete sphere carries no membrane stress from the solar pattern.\n\nThe flight gust, 35 ft/s at 35 knots, leaves the lead at 1.003303. Table 4's 70-knot wind, mapped as a uniform excess, leaves 0.998442. The 016 mooring load is 48.259 kN. The bare patch is factor 0.354. One pad, 0.200 m2 and 8.65 kg, restores crush to 1. The 70-knot pad is 33.1 kg.\n\nSun and wind leave the in-band P3 factors at 0.41051 and 0.74123. Wall area to reach 1 is 5863 kg and 1634 kg, more than the lift can take. The open choices are the coating, the bond temperature, and the mooring wind. No next job.",
+  "artifacts": [
+    {
+      "path": "evidence/418add214eccec9a-CARD.md",
+      "sha256": "418add214eccec9a4fc1a6631088dce20028cd9ccdbe22dbede6bbb23c8195c6",
+      "bytes": 6139
+    },
+    {
+      "path": "evidence/92c73a5b625da613-RESULTS.json",
+      "sha256": "92c73a5b625da613fadefc43059adb67160f0f3847729d23abe482db3ee8e3d2",
+      "bytes": 28085
+    },
+    {
+      "path": "evidence/f9ff7da1d21d1380-NFI.json",
+      "sha256": "f9ff7da1d21d1380a77ae7b7e6e5f2b1935bd729c4a9f2e3861fa1c625970e89",
+      "bytes": 3264
+    },
+    {
+      "path": "evidence/f09d922557568e87-INPUTS.json",
+      "sha256": "f09d922557568e87ddc4eef5a86d84a61db11d1ae39d6c69dc96a4108e89e0d2",
+      "bytes": 4136
+    },
+    {
+      "path": "evidence/a13cfcddd25d82f1-loads037.py",
+      "sha256": "a13cfcddd25d82f1b264f229c114d5ee9843403bb7914cf77da051c81058bc2d",
+      "bytes": 27162
+    },
+    {
+      "path": "evidence/a19cdec780f9bcd1-vacuum-mainline037-loads-beyond-pressure-1020.md",
+      "sha256": "a19cdec780f9bcd11d41553523f08c55e7cb8286ff8baee59a2790936fad1eb3",
+      "bytes": 1395
+    }
+  ],
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "ingested": "2026-10-20T02:11:47-07:00"
+}

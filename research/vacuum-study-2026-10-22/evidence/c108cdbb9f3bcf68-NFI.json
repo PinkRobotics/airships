@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-005",
+  "unit": "vacuum-mainline005-strength-limits-1019",
+  "NFI": [
+    {
+      "NFI_id": "NFI-005-KD",
+      "gap": "All buckling requirements use kd = 0.2 and scale as 1/kd. MAINLINE-004's named knockdown curve is still running.",
+      "direction": "Multiply each E requirement by 0.2/kd when 004 lands; no other number changes.",
+      "effect": "A larger knockdown factor lowers every required E in this card."
+    },
+    {
+      "NFI_id": "NFI-005-SIGMA",
+      "gap": "276 MPa is a QUESTIONABLE typical tensile yield transferred to compression (inherited NFI-AL-YIELD-CARRY). Required strengths here are membrane stresses and do not depend on it; only the x276 MPa multiples and SF labels do.",
+      "direction": "Obtain a compressive design allowable and rescale the multiples only.",
+      "effect": "No required Pa value in this card moves."
+    },
+    {
+      "NFI_id": "NFI-005-SEP",
+      "gap": "P2 equal-mass figure holds face separation at the row value while face thickness follows 1/rho. A changed face density moves tf and so moves separation by the same amount, a second-order change against 0.1-0.16 m cores.",
+      "direction": "Recompute E/rho with separation following tf if a candidate face material is far from 2700 kg/m3.",
+      "effect": "Small optimistic or pessimistic shift in the P2 buckling figure for extreme densities."
+    },
+    {
+      "NFI_id": "NFI-005-THINWALL",
+      "gap": "P3 figures use thin-wall A and I at fixed outer radius. P3-A has tw/ro = 0.175, where thin-wall understates I for a given mass.",
+      "direction": "Use exact annulus A and I for a named candidate section.",
+      "effect": "P3-A's E/rho requirement is mildly pessimistic; exact section helps it."
+    },
+    {
+      "NFI_id": "NFI-005-FILM",
+      "gap": "Film allowable 1.5 GPa is inherited from MAINLINE-001 with no pinned datasheet (inherited NFI-FILM). The film passes at SF 2.51 on that value.",
+      "direction": "Pin one film datasheet; required allowable 5.966e8 Pa is the bar it must clear.",
+      "effect": "A real film below 5.966e8 Pa allowable would govern P3 and P3-A."
+    },
+    {
+      "NFI_id": "NFI-005-OMITTED",
+      "gap": "Core shear, face wrinkling, core crush, local crippling and end fixity remain outside these two limits, as in 002/003. Core crush is worked next as MAINLINE-005b.",
+      "direction": "005b for crush; later cards for shear, wrinkling and crippling.",
+      "effect": "Any omitted mode can only lower a row's true SF below the figures here."
+    }
+  ]
+}

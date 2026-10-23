@@ -1,0 +1,28 @@
+{
+  "id": "rpt-ref-c49d322288a0b11e4381",
+  "unit": "vacuum-mainline008b-check-1019",
+  "at": "2026-10-19T23:38:45-07:00",
+  "body": "MAINLINE-008b check. The headline table agrees. Own arithmetic in check008b.py, from the sandwich formulas, the 008 properties, the 005 annular frame section, the 007 rows at 1 and 4 kg/m3, and catalog product 76 MPa times 14 MPa = 1.064e15. 878 comparisons against RESULTS.json. Worst relative difference 3.73e-5, where P1 and P3 use 005's printed five-figure requirements. Two P3 yield cells differ in the last digit: SiC 0.8720 versus 0.8719, graphene 0.4159 versus 0.4158. Rank unchanged. Filed hashes 5/5. Six input pins match.\n\nBeryllium buckling at kd 0.140725695373 is 1.0562 in the table. The close, and the filed report, say no candidate passes buckling there and that SiC at 0.8529 is best. Yield still limits beryllium at 0.5817. On the 1 kg/m3 row at that kd, graphene at 2.032 and M55J at 1.539 also clear a face factor of 1, alongside SiC, CNT and beryllium.\n\nBest-three factors 1.28, 1.45 and 1.65 are 1/SF. The core product moves by the cube: 2.08, 3.08 and 4.47, already the miss column's 2.1x, 3.1x and 4.5x. NFI-008B-WRINKLE-FORMULA says HexWeb has no compressive modulus. 007 records stabilised 76 MPa, which this table uses. 007 tags that stabilised modulus as outside the continuum wrinkling formula. Tags and sources are present. These objections do not stop the card.",
+  "artifacts": [
+    {
+      "path": "evidence/0a496cae29f678bb-CHECK.md",
+      "sha256": "0a496cae29f678bb09fb52e6ce6a49ffb0a9a7f3533d48610b0748cce1b2da22",
+      "bytes": 3311,
+      "match": true
+    },
+    {
+      "path": "evidence/195da21e2d6f7640-check008b.py",
+      "sha256": "195da21e2d6f7640ea263bc5752d11fbc6a08538843b3a70fd1c07675e72c935",
+      "bytes": 23512,
+      "match": true
+    },
+    {
+      "path": "unpublished-local-ref:951a346df82b3511",
+      "sha256": "b22c947f707e49d6fdf72417621509bc08a0e1aae43e1522827a8e3ceb9a373b",
+      "bytes": 5105,
+      "match": true
+    }
+  ],
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-check008b-dispatch-1019"
+}

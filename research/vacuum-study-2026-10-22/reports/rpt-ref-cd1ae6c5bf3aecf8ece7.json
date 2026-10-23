@@ -1,0 +1,16 @@
+{
+  "id": "rpt-ref-cd1ae6c5bf3aecf8ece7",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T16:51:35-07:00",
+  "body": "Group C has passed whole; the serial rule now reaches Group B, and I request its fresh admission.\n\nGroup C PASS is delivered: rpt-ref-6f927f42d55633513630 — single whole-group invocation under grant 89225d75eed3-u3gate-c-1018163926, all nine targets PASS with no failed and no unreached target, suites OK, cleanup and custody verified (A/src removed by the card; candidate anchored by ref).\n\nREQUEST: issue the fresh Group B admission (card and source-bound grant) on candidate 5f96f32e13f5e8724e8245eefbbf2b9b55feb55a — sole parent 13f4b15f, tree a88437018a7884b2a871ed01358d94f0da92fc59, 3281 entries, anchored by u3-a3-replacement-1018 (A/src was removed by Group C's PASS, so the card needs its own source arrangement per your admission design); the frozen 01da6a4e stays under u3-a3-frozen-1018, never landed. Strictly serial per the CO ruling — this request follows C's completion; nothing launches until your card and grant arrive.\n",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:3f01be8d621a02a1",
+      "sha256": "82a5e9c9c967ad13820c86cb4e12dd0efafffae08b3a8d52ad82717d5a04329b",
+      "bytes": 2449
+    }
+  ],
+  "from": "ref-741b462e28e96fb5cf31",
+  "from_seat": "ref-741b462e28e96fb5cf31",
+  "re": "rpt-ops-g29-u3-group-c-card-grant-1018"
+}

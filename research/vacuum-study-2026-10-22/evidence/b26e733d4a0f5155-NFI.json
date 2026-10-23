@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "check": "CHECK MAINLINE-060",
+  "unit": "vacuum-mainline060-check-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "rows": [
+    {
+      "id": "C060-01-MEMBER-LOAD",
+      "state": "fix",
+      "note": "Restate the member load as 051's FE axial force, 701.4 kN (157.7 klb), 1.30x NG-2's 121.7 klb collapse. The printed 775 kN (174 klb, 1.43x) is peak combined stress x area. The conclusion that it exceeds every sourced strut test stands."
+    },
+    {
+      "id": "C060-02-PF-NORMALIZATION",
+      "state": "fix",
+      "note": "051's k(m) is normalized to the fresh-FE peak, which is 0.5-0.8 % above the comparison-geometry peak the card multiplies it by. Consistent use raises the Pf 1e-3 walls by 0.5-0.8 %: M55J 70/10/10/10 x1.326 (not x1.316), Pf at its stiffness wall 0.247 (not 0.216), R10 -2,092 kg (not -2,044), R30 -48,427 kg (not -47,116); whole-tube scale at m 20 at R10 1.121 GPa (not 1.116)."
+    },
+    {
+      "id": "C060-03-CV52-INTERPOLATION",
+      "state": "note",
+      "note": "Every CV 5.2 % column is 0.9-1.3 % above mine, with k(23.1) from ln S linear in m between 051's m 20 and 30, which bounds k from above. The card errs conservative: walls K13D2U 50/20/20/10 x6.15 (card x6.21), M55J 70/10/10/10 x1.21 (x1.22); R10 UD for Pf 1e-3 1.78 GPa (1.80), size-scaled 2.66 (2.68)."
+    },
+    {
+      "id": "C060-04-M-FROM-CV",
+      "state": "note",
+      "note": "m = 1.2/CV gives 20.0 and 23.1; the exact Weibull relation gives 20.68 (CV 6 %) and 23.96 (CV 5.2 %). The card's m implies CV 6.20 % and 5.39 %. Exact m lowers the Pf walls about 2 % (K13D2U 50/20/20/10 x6.55, M55J 70/10/10/10 x1.289). Conservative."
+    },
+    {
+      "id": "C060-05-HAIL-ROUNDING",
+      "state": "note",
+      "note": "051's HAIL-DESIGN.csv gives 98.88 MPa at the M55J 50/20/20/10 stiffness wall (019, verified_q1_1); the card prints 100 MPa. The 5.6x exceedance is unchanged (5.58)."
+    },
+    {
+      "id": "C060-06-15PCT-READING",
+      "state": "objection",
+      "note": "The 15 % gap (374 vs 440 MPa) is the authors' fixture effect, not an independent shortfall: Celanese tests rupture high-modulus fibres prematurely, and pure bending reached about 60 % higher failure strain. Reword; no number changes."
+    },
+    {
+      "id": "C060-07-FITTING-SHARE",
+      "state": "objection",
+      "note": "The joint sensitivity takes Messinger's 44K strut (16.9 %). His 110K strut is 27.8 % (0.385x tube), closer to the 158 klb load; with it the light frame never floats (R10 -730 kg, R30 -11,661 kg). Carry both shares."
+    },
+    {
+      "id": "C060-08-NOT-REOPENED",
+      "state": "open",
+      "note": "Quoted from the owner's source notes and not re-read by me: Toray T800S 1,490 MPa, Toray Europe M46J/M55J/M60J sheets, Mack and Tan 2023 (20 J tube puncture), NASA/TP-2017-219635 (10.8 J BVID), Barile 2019 (202/385 MPa CAI), Garcia-Moreno 2019, Liu 2024, Jegley and Wu 2011 (bonded struts at about 70 % of DUL), CORDIS (70 % fitting share), SMA memo 120. None decides the answer."
+    },
+    {
+      "id": "C060-09-TUBE-DATA-GAP",
+      "state": "open",
+      "note": "A search for M55J, K13C2U or XN-80 tube compression found no tube data, consistent with the card's gap row. The laminate value remains UD strength over 051's 0 deg ply ratio (PROJECTION)."
+    }
+  ]
+}

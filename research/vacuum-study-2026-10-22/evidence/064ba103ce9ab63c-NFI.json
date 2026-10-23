@@ -1,0 +1,205 @@
+{
+  "unit": "vacuum-mainline035-check-1020",
+  "count": 16,
+  "objections_do_not_stop_work": true,
+  "rows": [
+    {
+      "id": "NFI-C035-SII",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "S-II core properties, actual geometry, plasticity and thermal reductions are unresolved.",
+      "next_evidence": "Recover Gonzalez/Patton SDL 468 and specimen-level pressures, faces, core shear, imperfections and reduction method; then compute compatible Vc and KDF.",
+      "evidence": [
+        "E07",
+        "DIGITIZATION.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-BASELINE",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Anisotropic/combined-load SBKF FE ratios are not proven to share the lead sphere's scalar denominator.",
+      "next_evidence": "Derive matching anisotropic shell baselines and shear corrections, retaining actual load and boundary conditions; compare with the scalar proxy.",
+      "evidence": [
+        "E01",
+        "E04",
+        "E05",
+        "METHOD.md"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-SCALAR",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Vc depends on scalarization, nominal versus measured thickness and stress-dependent properties.",
+      "next_evidence": "Publish nominal, as-built and directional conventions separately; recover measured G12 and effective core shear where possible.",
+      "evidence": [
+        "E01",
+        "E02",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-TRANSFER",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "The 0.30–0.34 handbook ratio and SBKF-scaled sphere envelope are projections.",
+      "next_evidence": "Resolve the lead's closed-sphere geometry, imperfections, loading and shear model directly; retain transfer estimates as PROJECTION.",
+      "evidence": [
+        "E09",
+        "E10",
+        "SOURCE-CORRECTIONS.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-CTA83",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "The source's printed 0.864 conflicts with 432000/499246=0.8653048798.",
+      "next_evidence": "Resolve the precise reference load or rounding convention in NASA/TM-20210024768. Retain both alternatives explicitly until then.",
+      "evidence": [
+        "E05",
+        "AUXILIARY.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "ref-196608af78549ed7f1ff",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Primary Baker, FPL, Hexcel and Kazimi specimen reports remain unread.",
+      "next_evidence": "Acquire the named primary reports and recover dimensions, materials, core shear and test denominators; replace handbook graph estimates.",
+      "evidence": [
+        "E06",
+        "E08",
+        "DIGITIZATION-CYLINDERS.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-BRIX",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Brix 1968 sandwich-dome paper remains an unread experimental lead.",
+      "next_evidence": "Retrieve Durchschlagen von GFP-Sandwichkuppeln, IfL 7(11), 408–413; extract actual loading, dimensions, moduli and test/prediction values.",
+      "evidence": [
+        "intake/owner/LIT-C.json",
+        "EVIDENCE.md"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-SIM",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "035's Vc≈200, R/rho≈26 and crimp ratios 1.44–1.54 have no independently reconstructed chain here; Sim's uniform-pressure results are FE.",
+      "next_evidence": "Recover the exact 018b/EUCASS2023-367 inputs and reduction formulas. Keep platen tests separate from uniform-pressure simulations.",
+      "evidence": [
+        "E15",
+        "intake/owner/CARD.md"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-YANG",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "The new egg-shaped vessel has plastic collapse and no compatible scalar Vc established.",
+      "next_evidence": "Recover effective core shear and local-curvature/denominator definitions; retain its 12.44 MPa physical result without assigning an elastic sphere KDF.",
+      "evidence": [
+        "E17",
+        "AUXILIARY.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-TANG-MARINE",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Tang's 2025 elliptical steel/resin pressure-hull experiment is an abstract-level lead.",
+      "next_evidence": "Acquire DOI 10.1016/j.marstruc.2025.103855 full text and numerical tables; classify plasticity, curvature and Vc before comparison.",
+      "evidence": [
+        "E18"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-TANG-JSSM",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Tang's three sandwich ellipsoids use a stronger/stiffer core; applicability to a soft-core model is unresolved.",
+      "next_evidence": "Acquire DOI 10.1177/10996362251383617 full text and recover geometry, effective properties and independent test/eigenvalue ratios.",
+      "evidence": [
+        "E19"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-BARATHAN",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "The owner's C05 semi-ellipsoid hydrostatic experiment was omitted from its categorical conclusion.",
+      "next_evidence": "Acquire DOI 10.1080/15376494.2022.2114049 full text and classify test pressures, theory, geometry and effective shear.",
+      "evidence": [
+        "E20",
+        "intake/owner/LIT-C.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-DENARDO",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "A documented foam-core cylinder experiment contradicts the card's no-test claim; full thesis access failed.",
+      "next_evidence": "Retrieve DeNardo 2017 URI thesis 1075 and reconstruct geometry, effective shear and test/perfect-shell ratios.",
+      "evidence": [
+        "E21",
+        "intake/owner/LIT-D.json",
+        "sources/FETCH-04.json"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-MUC",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Muc's 8.49% eigenvalue overprediction is supported, but an effective measured core-shear Vc is not.",
+      "next_evidence": "Separate constituent-wall assumptions from homogenized honeycomb shear and recover a specimen-compatible Vc.",
+      "evidence": [
+        "E14"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-IMPERFECTION",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "The record does not establish that required imperfection control exceeds every recorded sandwich dome.",
+      "next_evidence": "Quantify the lead geometry's admissible measured imperfection distribution; compare like geometry/material/boundary cases before any universal claim.",
+      "evidence": [
+        "E07",
+        "E17",
+        "E18",
+        "E19",
+        "E20"
+      ],
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C035-RESTRICTED",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "issue": "Restricted DESICOS and other abstract-only leads prevent an exhaustive claim about modern cylinder data.",
+      "next_evidence": "Retain access limitations in the evidence ledger and inspect full specimen data when accessible.",
+      "evidence": [
+        "intake/owner/LIT-B.json",
+        "intake/owner/NFI.json"
+      ],
+      "blocks_card": false
+    }
+  ]
+}

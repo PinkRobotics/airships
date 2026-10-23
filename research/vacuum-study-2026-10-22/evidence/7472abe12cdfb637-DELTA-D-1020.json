@@ -1,0 +1,1368 @@
+{
+  "id": "DELTA-D-1020",
+  "expected_version": 7,
+  "at": "2026-10-20T18:43:34-07:00",
+  "meaning": "Append Piece D, 066, 067, both review halves, the 066 admission, and the unreviewed removals of kc, cure, thermal stress and the pressure adder. Do not rebuild version 7.",
+  "append_findings": [
+    {
+      "id": "PD066-TERMS",
+      "kind": "piece_d",
+      "claim": "At 066's four concept optima the model global-buckling and face-wrinkling margins are 1. REVIEW-D's COMMON buckling margins at nu 0.33 are 1.6328, 1.6925, 1.6347, 1.6945. This piece's same formula gives 1.6328, 1.6925, 1.6347, 1.6945. Equation 2.2-14 over P0 gives 1.0634, 1.0909, 1.0681, 1.0958. The buckling gap is kc = 1 - vc/4 while vc is below 2. kc is 0.6771, 0.6701, 0.6764, 0.6693. It is set at model61.py line 106 and model63.py line 113 and multiplies the buckling allowable at model61.py line 120 and model63.py line 127. With kc removed and cure kept, those margins are 1.4768, 1.4923, 1.4785, 1.4941. With kc kept and cure removed, they are 1.0284, 1.0280, 1.0283, 1.0280. Cure then brings that last step to 1. Cure is kb*12.3e-6*dtc*tc/(2*tf) at model61.py line 116 and model63.py line 123, and it sits in the buckling denominator. The wrinkling gap is the pressure adder plus thermal demand. Pressure is P0*max(1.01, QWEATHER)+QWIND at model61.py line 99 and model63.py line 106. QWIND and QWEATHER are model63.py lines 21-23, with no handbook citation in the file. Wrinkling on membrane stress alone at that pressure is 1.0447, 1.0445, 1.0493, 1.0491. grad, bend and cure are 4.28%, 4.26%, 4.70%, 4.68% of demand and bring the margin to 1. grad and bend are model61.py lines 110-111 and model63.py lines 117-118, using 11.3e-6. nu 0.0768 stands as 040's historical SR-200 nu12 scalar proxy. It accounts for the move from the nu 0.33 margins 1.6328, 1.6925, 1.6347, 1.6945 to the model-nu margins 1.5459, 1.6024, 1.5476, 1.6043, and it does not bring either set to 1. Gamma 0.20 and Q 0.33 stand, from CR-1457 as COMMON and knockdown.md state them, with the named hemisphere and waviness limits. kc, the cure coefficients, 11.3e-6, the 1.01 floor, QWIND and QWEATHER have no equation in the opened model text, the SOURCE-INDEX bodies, knockdown.md, or COMMON.md. The 040 case source string names pinned 014b. That pin is not in the SOURCE-INDEX and was not opened. Those four unsourced terms are removed one at a time. BETA stays 1. Vc itself is not replaced.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/194954ccad05e1d1-model61.py",
+          "snapshot": "evidence/194954ccad05e1d1-model61.py",
+          "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+          "bytes": 18948,
+          "selector": "L21,L99,L106,L110,L111,L116,L120,L123"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/2c44efb4bb78a17d-model63.py",
+          "snapshot": "evidence/2c44efb4bb78a17d-model63.py",
+          "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+          "bytes": 19294,
+          "selector": "L21,L23,L106,L113,L117,L118,L123,L127,L130"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+          "bytes": 22506,
+          "selector": "/face/nu_basis"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/ee19dc5ee59f450c-knockdown.md",
+          "snapshot": "evidence/ee19dc5ee59f450c-knockdown.md",
+          "sha256": "ee19dc5ee59f450c18b9db9254d2d19997b18b755f5160e1f6a06dba05971b12",
+          "bytes": 2588,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "withheld-source:b528d6a62c81ce0b",
+          "snapshot": "withheld-source:b528d6a62c81ce0b",
+          "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+          "bytes": 6686,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/f68f46df6147fecc-SOURCE-INDEX.json",
+          "snapshot": "evidence/f68f46df6147fecc-SOURCE-INDEX.json",
+          "sha256": "f68f46df6147feccd6298e8d30d7c9b4e84b01569d33d2c40a4157092c1946c5",
+          "bytes": 70644,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PD066-CONTROL",
+      "kind": "piece_d",
+      "claim": "The DELTA-C face-density search, repeated here with no term removed, matches 066's filed factors within 0.000114. Concept 1.778610, 1.862624, 1.743190, 1.824664 beside filed 1.778711, 1.862738, 1.743286, 1.824772. Gamma stays 0.20 and Vc stays below 2. This is the method check for the four removals. It is not a new physical result.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. The offset is the SLSQP witness in 066 against this binary search.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D066-BUCKLING",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. FIX-D066-BUCKLING. The filed card stores both margins at 1. The review half gives COMMON buckling 1.6328, 1.6925, 1.6347, 1.6945 at nu 0.33 and 1.5459, 1.6024, 1.5476, 1.6043 at nu 0.0768, in the order concept R20 ISA, R20 optimistic, R30 ISA, R30 optimistic. This piece's fixed-geometry check matches the nu 0.33 column. The margin of 1 does not reproduce on that route.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/fixes"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D066-WRINKLING",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. FIX-D066-WRINKLING. Equation 2.2-14 as 065 states it, over P0, gives 1.0634, 1.0909, 1.0681, 1.0958 at the four concept optima. The model margin is 1. BETA is already 1 on this run, so BETA does not make this gap.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/fixes"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D066-JOIN",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. FIX-D066-JOIN. The concept R30 ISA slope ratio 77082.7/149950.6 is 0.514054. Under density over modulus to that power, against 066's 293.6 GPa and 1850 kg/m3 base, the review's independent rank is diamond 1.013, CNT yarn 1.421, M60J 1.254, programme SR-200 0.994. None of those clears 1.74 or TRL7's 1.61. 067's wrinkling order does not hold on this index. Among quasi-isotropic sheets the SR-200 class still leads.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/fixes"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-KC",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. Face-density factors with kc set to 1. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.433694, 1.487481, 1.406875, 1.459147 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.262668, 1.308957, 1.242631, 1.287813 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-CURE",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. Face-density factors with cure set to 0. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.724840, 1.806014, 1.690678, 1.769412 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.498984, 1.566776, 1.474267, 1.540372 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-THERMAL",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. Face-density factors with grad and bend set to 0. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.767125, 1.850494, 1.728601, 1.809273 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.533810, 1.603246, 1.505394, 1.572942 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-PRESSURE",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. Face-density factors with pressure set to P0, removing the 1.01 floor, QWEATHER and QWIND. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.744609, 1.775711, 1.709948, 1.739741 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.515633, 1.541320, 1.490563, 1.515338 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-VECTOR",
+      "kind": "piece_d",
+      "claim": "066's admissible improvement vector is face density only, at gamma 0.20 and Q 0.33 with BETA 1, on 293.6 GPa, 379.2 MPa and the favorable film. Filed concept factors 1.778711, 1.862738, 1.743286, 1.824772 and filed TRL7 factors 1.544302, 1.614325, 1.518709, 1.586983, order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic. The joint witnesses are concept 1.862738 at 993.162 kg/m3 and TRL7 1.614325 at 1145.990 kg/m3, both set by R20 optimistic. Sciences admitted 066 conditionally. Density-only is the best mix found under the stated L1 norm and the tested pairs, not a proven global minimum. PROBE corrects RUN's modulus-failure labels. The direct-Python follow-ups are an execution exception and stay apart from this numerical status. The stored margin of 1 does not reproduce on the independent route.",
+      "numerical_status": "reproduced",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets. Sciences' three limits sit beside this status. Shared-model reproduction is not an independent derivation. The pair probe, the modulus closure, the face slopes already in RESULTS.json, and DERIV.json ran as direct python on the pinned copy, one core, after the kept simjob. The kept search is simjob-20261020t175116-2cf59f790fe1, exit 0, 112 s.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-b1e4952922b441a54267",
+          "artifact": "evidence/99cff638c72579c1-RESULTS.json",
+          "snapshot": "evidence/99cff638c72579c1-RESULTS.json",
+          "sha256": "99cff638c72579c1128a9a264558ff4a982b82e2a1b8e013cffe33c0b0af5018",
+          "bytes": 18989,
+          "selector": "/density_only"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+          "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+          "bytes": 1276,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/payload_match_max_abs_kg"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D067-BASE",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. The density factors that match the DELTA-C handbook targets are 066's run at 293.6 GPa and 379.2 MPa with the favorable film. 067 normalizes its material table to 290 GPa and 345 MPa. The two bases are not the same comparison.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/885017c2fcb154da-RESULTS.json",
+          "snapshot": "evidence/885017c2fcb154da-RESULTS.json",
+          "sha256": "885017c2fcb154dabc9d69948340b520e203f7e9f74ca106ffaf9bb565641748",
+          "bytes": 2991,
+          "selector": "/fixes"
+        },
+        {
+          "report": "rpt-ref-b1e4952922b441a54267",
+          "artifact": "evidence/99cff638c72579c1-RESULTS.json",
+          "snapshot": "evidence/99cff638c72579c1-RESULTS.json",
+          "sha256": "99cff638c72579c1128a9a264558ff4a982b82e2a1b8e013cffe33c0b0af5018",
+          "bytes": 18989,
+          "selector": "/base"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D067-RANK",
+      "kind": "piece_d",
+      "claim": "UNREVIEWED. On 067's membrane table the SAE minimum is above programme SR-200. Under density over modulus to the 0.514, the review's improvements are cnt-yarn-ud 1.4304, m60j-ud 1.2622, cvd-diamond 1.0197, sr200-sae-minimum 1.0053, and sr200-programme 1. None clears the concept factor 1.74 to 1.86. The disks page says up to 120 mm. At 120 mm, R20 needs 888,889 disks. Diamond is not a hull face.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/885017c2fcb154da-RESULTS.json",
+          "snapshot": "evidence/885017c2fcb154da-RESULTS.json",
+          "sha256": "885017c2fcb154dabc9d69948340b520e203f7e9f74ca106ffaf9bb565641748",
+          "bytes": 2991,
+          "selector": "/blend_rank"
+        }
+      ]
+    },
+    {
+      "id": "PD067-MEET",
+      "kind": "piece_d",
+      "claim": "No 067 candidate in a hull-face product form meets 066's filed density vector at gamma 0.20 and Q 0.33. T3 and T7 stay on SR-200 bonded to CR-III 5056 3/8-1.0. UD coupons are the wrong form. The unreviewed removal of kc still leaves a concept R20 optimistic factor of 1.487481 (1243.713 kg/m3). Nothing was bought.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-3b692c8042e522b38b95",
+          "artifact": "evidence/e94a70230fcd048d-RESULTS.json",
+          "snapshot": "evidence/e94a70230fcd048d-RESULTS.json",
+          "sha256": "e94a70230fcd048dbd22585ff934f9714ab08f8c1b57c70b5a9a4969f0f97614",
+          "bytes": 33884,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        }
+      ]
+    },
+    {
+      "id": "PD-STATE",
+      "kind": "piece_d",
+      "claim": "Programme state, UNREVIEWED as a restatement. Today's admissible line is gamma 0.20 and Q 0.33. The improvement vector is 066's density-only joint witness, concept 1.862738 and TRL7 1.614325, with Sciences' limit that the L1 search is not a global-minimum proof. No real hull-face sheet in 067 meets that vector. Of the unsourced terms, kc moves the concept R20 optimistic witness the most. Cure, the grad and bend stress, and the pressure adder move it less, and every recomputed row stays at gamma 0.20 with Vc below 2. T3 has to measure wrinkling of this coupon before any Q above 0.33. T7 has to measure this sandwich shell before any gamma above 0.20. A sourced equation for kc, cure, the thermal stress, or the pressure adder would let that term stand.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+          "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+          "bytes": 1276,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-PAIRS",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D066-PAIRS: The claim that none of 39 pairs beats face density was not re-derived. This review did not run the owner's model.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/a72583b3ff196a53-NFI.json",
+          "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+          "sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+          "bytes": 1346,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-MODULUS-CAPS",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D066-MODULUS-CAPS: The modulus closures, the Q 0.82 payload of about -40 t, and the gamma-cap payloads were not re-optimized on the independent route.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/a72583b3ff196a53-NFI.json",
+          "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+          "sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+          "bytes": 1346,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-OPTIMISTIC",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D066-OPTIMISTIC: Optimistic and ISA lifts are the same number. COMMON states one pressure and one density. The stress difference between the weathers is not in that brief.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/a72583b3ff196a53-NFI.json",
+          "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+          "sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+          "bytes": 1346,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-VC",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D066-VC: Reported Vc is 1.291 to 1.323, below 2, so the handbook step stays 0.20 if that rule is granted. The Vc formula is not in COMMON and was not recomputed.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/a72583b3ff196a53-NFI.json",
+          "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+          "sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+          "bytes": 1346,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-ABOVE-BILL",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D066-ABOVE-BILL: Mass above faces, core and joining is 1404 kg at concept R 20 ISA and 3868 kg at concept R 30 ISA. Joining exceeds the two film sheets. COMMON's 5 percent joints plus 100 kg does not recover the split.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/a72583b3ff196a53-NFI.json",
+          "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+          "sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+          "bytes": 1346,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-SHARED",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D066-SHARED-MODEL: The payload match to DELTA-C within 0.0021 kg is a comparison of two outputs of the same model. It is not an independent derivation.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/a72583b3ff196a53-NFI.json",
+          "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+          "sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+          "bytes": 1346,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-UNOPENED",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D-UNOPENED-SOURCES: This round did not re-open the Toray M60J sheet, DOI 10.1021/acsanm.3c01282, the textbook pages that print 3820 and 3530, the AlBeMet sheet, the 3M AF 163-2 table, or the SAE extract. Index arithmetic from the stated inputs reproduces. Those inputs are unchecked.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+          "bytes": 1372,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-SAE-YIELD",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D-SAE-YIELD: 066 measured a face-strength slope of zero at 345 MPa because yield is not binding there. The SAE minimum is 206.8 MPa. Whether that floor stays off the bind was not run. This review does not run the hull model.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+          "bytes": 1372,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-DIAMOND",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D-DIAMOND-BOOKLET: The filed 100 mm diameter is not on the mechanical page. The disks page checked today says up to 120 mm. The CVD booklet named in 067 was not opened, so a 100 mm line in that booklet is unchecked.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+          "bytes": 1372,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-BLEND",
+      "kind": "piece_d",
+      "claim": "Carried, not demonstrated again. NFI-D-BLEND-IS-LOCAL: Density over modulus to the power 0.514 is the local slope ratio at concept R 30 ISA. It is not a re-optimized hull clear. The linear modulus factor matching a density factor of 1.743 would be about 2.95, while 066's measured concept-ISA closure was near 2.09 to 2.12 and concept optimistic did not close on modulus.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+          "sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+          "bytes": 1372,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-LIMITS",
+      "kind": "piece_d",
+      "claim": "Sciences admitted 066 conditionally, and no 067 admission has been filed. Density-only is the best mix found under the stated L1 norm and the tested pairs, not a proven global minimum. PROBE corrects RUN's modulus-failure labels. Bracket artifacts are not mix improvements, and optimizer nulls do not prove physical impossibility. The direct-Python follow-ups are an execution exception kept apart from numerical status.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+          "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+          "bytes": 1276,
+          "selector": "/body"
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-DIRECT",
+      "kind": "piece_d",
+      "claim": "Carried apart from numerical status. The pair probe, the modulus closure, the face slopes already in RESULTS.json, and DERIV.json ran as direct python on the pinned copy, one core, after the kept simjob. The kept search is simjob-20261020t175116-2cf59f790fe1, exit 0, 112 s.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "rpt-ref-b1e4952922b441a54267",
+          "artifact": "evidence/853ed898ec0e70a3-NFI.json",
+          "snapshot": "evidence/853ed898ec0e70a3-NFI.json",
+          "sha256": "853ed898ec0e70a399969f6ed2caac82e1431fc923dd0a76c7fc81a5cd4a2002",
+          "bytes": 3450,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-NFI-014B",
+      "kind": "piece_d",
+      "claim": "The 040 case source string names pinned 014b and pinned 016 for the block that holds the 1.01 pressure floor. 014b is not in the model's SOURCE-INDEX and was not opened. COMMON.md states neither the 1.01 floor nor the wind formula. The pressure-augmentation recompute is the consequence of that open pin, not a finding that the floor is false.",
+      "numerical_status": "unreviewed",
+      "physical_qualification": "open",
+      "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+          "bytes": 22506,
+          "selector": "/case/source"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "withheld-source:b528d6a62c81ce0b",
+          "snapshot": "withheld-source:b528d6a62c81ce0b",
+          "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+          "bytes": 6686,
+          "selector": ""
+        }
+      ]
+    }
+  ],
+  "append_changes": [
+    {
+      "id": "PD066-TERMS",
+      "kind": "filed_change",
+      "label": "margin-terms",
+      "claim": "At 066's four concept optima the model global-buckling and face-wrinkling margins are 1. REVIEW-D's COMMON buckling margins at nu 0.33 are 1.6328, 1.6925, 1.6347, 1.6945. This piece's same formula gives 1.6328, 1.6925, 1.6347, 1.6945. Equation 2.2-14 over P0 gives 1.0634, 1.0909, 1.0681, 1.0958. The buckling gap is kc = 1 - vc/4 while vc is below 2. kc is 0.6771, 0.6701, 0.6764, 0.6693. It is set at model61.py line 106 and model63.py line 113 and multiplies the buckling allowable at model61.py line 120 and model63.py line 127. With kc removed and cure kept, those margins are 1.4768, 1.4923, 1.4785, 1.4941. With kc kept and cure removed, they are 1.0284, 1.0280, 1.0283, 1.0280. Cure then brings that last step to 1. Cure is kb*12.3e-6*dtc*tc/(2*tf) at model61.py line 116 and model63.py line 123, and it sits in the buckling denominator. The wrinkling gap is the pressure adder plus thermal demand. Pressure is P0*max(1.01, QWEATHER)+QWIND at model61.py line 99 and model63.py line 106. QWIND and QWEATHER are model63.py lines 21-23, with no handbook citation in the file. Wrinkling on membrane stress alone at that pressure is 1.0447, 1.0445, 1.0493, 1.0491. grad, bend and cure are 4.28%, 4.26%, 4.70%, 4.68% of demand and bring the margin to 1. grad and bend are model61.py lines 110-111 and model63.py lines 117-118, using 11.3e-6. nu 0.0768 stands as 040's historical SR-200 nu12 scalar proxy. It accounts for the move from the nu 0.33 margins 1.6328, 1.6925, 1.6347, 1.6945 to the model-nu margins 1.5459, 1.6024, 1.5476, 1.6043, and it does not bring either set to 1. Gamma 0.20 and Q 0.33 stand, from CR-1457 as COMMON and knockdown.md state them, with the named hemisphere and waviness limits. kc, the cure coefficients, 11.3e-6, the 1.01 floor, QWIND and QWEATHER have no equation in the opened model text, the SOURCE-INDEX bodies, knockdown.md, or COMMON.md. The 040 case source string names pinned 014b. That pin is not in the SOURCE-INDEX and was not opened. Those four unsourced terms are removed one at a time. BETA stays 1. Vc itself is not replaced.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/194954ccad05e1d1-model61.py",
+          "snapshot": "evidence/194954ccad05e1d1-model61.py",
+          "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+          "bytes": 18948,
+          "selector": "L21,L99,L106,L110,L111,L116,L120,L123"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/2c44efb4bb78a17d-model63.py",
+          "snapshot": "evidence/2c44efb4bb78a17d-model63.py",
+          "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+          "bytes": 19294,
+          "selector": "L21,L23,L106,L113,L117,L118,L123,L127,L130"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+          "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+          "bytes": 22506,
+          "selector": "/face/nu_basis"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/ee19dc5ee59f450c-knockdown.md",
+          "snapshot": "evidence/ee19dc5ee59f450c-knockdown.md",
+          "sha256": "ee19dc5ee59f450c18b9db9254d2d19997b18b755f5160e1f6a06dba05971b12",
+          "bytes": 2588,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "withheld-source:b528d6a62c81ce0b",
+          "snapshot": "withheld-source:b528d6a62c81ce0b",
+          "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+          "bytes": 6686,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/f68f46df6147fecc-SOURCE-INDEX.json",
+          "snapshot": "evidence/f68f46df6147fecc-SOURCE-INDEX.json",
+          "sha256": "f68f46df6147feccd6298e8d30d7c9b4e84b01569d33d2c40a4157092c1946c5",
+          "bytes": 70644,
+          "selector": ""
+        },
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/rows"
+        }
+      ]
+    },
+    {
+      "id": "PD066-CONTROL",
+      "kind": "filed_change",
+      "label": "search-check",
+      "claim": "The DELTA-C face-density search, repeated here with no term removed, matches 066's filed factors within 0.000114. Concept 1.778610, 1.862624, 1.743190, 1.824664 beside filed 1.778711, 1.862738, 1.743286, 1.824772. Gamma stays 0.20 and Vc stays below 2. This is the method check for the four removals. It is not a new physical result.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D066-BUCKLING",
+      "kind": "filed_change",
+      "label": "buckling",
+      "claim": "UNREVIEWED. FIX-D066-BUCKLING. The filed card stores both margins at 1. The review half gives COMMON buckling 1.6328, 1.6925, 1.6347, 1.6945 at nu 0.33 and 1.5459, 1.6024, 1.5476, 1.6043 at nu 0.0768, in the order concept R20 ISA, R20 optimistic, R30 ISA, R30 optimistic. This piece's fixed-geometry check matches the nu 0.33 column. The margin of 1 does not reproduce on that route.",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/fixes"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D066-WRINKLING",
+      "kind": "filed_change",
+      "label": "wrinkling",
+      "claim": "UNREVIEWED. FIX-D066-WRINKLING. Equation 2.2-14 as 065 states it, over P0, gives 1.0634, 1.0909, 1.0681, 1.0958 at the four concept optima. The model margin is 1. BETA is already 1 on this run, so BETA does not make this gap.",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/fixes"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D066-JOIN",
+      "kind": "filed_change",
+      "label": "join-index",
+      "claim": "UNREVIEWED. FIX-D066-JOIN. The concept R30 ISA slope ratio 77082.7/149950.6 is 0.514054. Under density over modulus to that power, against 066's 293.6 GPa and 1850 kg/m3 base, the review's independent rank is diamond 1.013, CNT yarn 1.421, M60J 1.254, programme SR-200 0.994. None of those clears 1.74 or TRL7's 1.61. 067's wrinkling order does not hold on this index. Among quasi-isotropic sheets the SR-200 class still leads.",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "sources": [
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/fixes"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/fixed_geometry_margins"
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-KC",
+      "kind": "filed_change",
+      "label": "no-kc",
+      "claim": "UNREVIEWED. Face-density factors with kc set to 1. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.433694, 1.487481, 1.406875, 1.459147 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.262668, 1.308957, 1.242631, 1.287813 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-CURE",
+      "kind": "filed_change",
+      "label": "no-cure",
+      "claim": "UNREVIEWED. Face-density factors with cure set to 0. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.724840, 1.806014, 1.690678, 1.769412 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.498984, 1.566776, 1.474267, 1.540372 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-THERMAL",
+      "kind": "filed_change",
+      "label": "no-thermal",
+      "claim": "UNREVIEWED. Face-density factors with grad and bend set to 0. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.767125, 1.850494, 1.728601, 1.809273 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.533810, 1.603246, 1.505394, 1.572942 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-NO-PRESSURE",
+      "kind": "filed_change",
+      "label": "no-pressure",
+      "claim": "UNREVIEWED. Face-density factors with pressure set to P0, removing the 1.01 floor, QWEATHER and QWIND. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.744609, 1.775711, 1.709948, 1.739741 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.515633, 1.541320, 1.490563, 1.515338 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/a9c80592955b6939-run_terms.py",
+          "snapshot": "evidence/a9c80592955b6939-run_terms.py",
+          "sha256": "a9c80592955b6939a508335bdab1aec053acf940f11c61963e7b6e532be35cec",
+          "bytes": 10847,
+          "selector": ""
+        }
+      ]
+    },
+    {
+      "id": "PD066-VECTOR",
+      "kind": "filed_change",
+      "label": "066-vector",
+      "claim": "066's admissible improvement vector is face density only, at gamma 0.20 and Q 0.33 with BETA 1, on 293.6 GPa, 379.2 MPa and the favorable film. Filed concept factors 1.778711, 1.862738, 1.743286, 1.824772 and filed TRL7 factors 1.544302, 1.614325, 1.518709, 1.586983, order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic. The joint witnesses are concept 1.862738 at 993.162 kg/m3 and TRL7 1.614325 at 1145.990 kg/m3, both set by R20 optimistic. Sciences admitted 066 conditionally. Density-only is the best mix found under the stated L1 norm and the tested pairs, not a proven global minimum. PROBE corrects RUN's modulus-failure labels. The direct-Python follow-ups are an execution exception and stay apart from this numerical status. The stored margin of 1 does not reproduce on the independent route.",
+      "report": "rpt-ref-b1e4952922b441a54267",
+      "sources": [
+        {
+          "report": "rpt-ref-b1e4952922b441a54267",
+          "artifact": "evidence/99cff638c72579c1-RESULTS.json",
+          "snapshot": "evidence/99cff638c72579c1-RESULTS.json",
+          "sha256": "99cff638c72579c1128a9a264558ff4a982b82e2a1b8e013cffe33c0b0af5018",
+          "bytes": 18989,
+          "selector": "/density_only"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+          "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+          "bytes": 1276,
+          "selector": "/body"
+        },
+        {
+          "report": "rpt-ref-2684c4730353c185b7d6",
+          "artifact": "evidence/c534727e3db1116a-RESULTS.json",
+          "snapshot": "evidence/c534727e3db1116a-RESULTS.json",
+          "sha256": "c534727e3db1116adca8a4391809d4c4868c445579830cf58bb633184b5df02d",
+          "bytes": 18706,
+          "selector": "/payload_match_max_abs_kg"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D067-BASE",
+      "kind": "filed_change",
+      "label": "two-bases",
+      "claim": "UNREVIEWED. The density factors that match the DELTA-C handbook targets are 066's run at 293.6 GPa and 379.2 MPa with the favorable film. 067 normalizes its material table to 290 GPa and 345 MPa. The two bases are not the same comparison.",
+      "report": "rpt-ref-ffca8829d86cfae49814",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/885017c2fcb154da-RESULTS.json",
+          "snapshot": "evidence/885017c2fcb154da-RESULTS.json",
+          "sha256": "885017c2fcb154dabc9d69948340b520e203f7e9f74ca106ffaf9bb565641748",
+          "bytes": 2991,
+          "selector": "/fixes"
+        },
+        {
+          "report": "rpt-ref-b1e4952922b441a54267",
+          "artifact": "evidence/99cff638c72579c1-RESULTS.json",
+          "snapshot": "evidence/99cff638c72579c1-RESULTS.json",
+          "sha256": "99cff638c72579c1128a9a264558ff4a982b82e2a1b8e013cffe33c0b0af5018",
+          "bytes": 18989,
+          "selector": "/base"
+        }
+      ]
+    },
+    {
+      "id": "PD-FIX-D067-RANK",
+      "kind": "filed_change",
+      "label": "067-rank",
+      "claim": "UNREVIEWED. On 067's membrane table the SAE minimum is above programme SR-200. Under density over modulus to the 0.514, the review's improvements are cnt-yarn-ud 1.4304, m60j-ud 1.2622, cvd-diamond 1.0197, sr200-sae-minimum 1.0053, and sr200-programme 1. None clears the concept factor 1.74 to 1.86. The disks page says up to 120 mm. At 120 mm, R20 needs 888,889 disks. Diamond is not a hull face.",
+      "report": "rpt-ref-ffca8829d86cfae49814",
+      "sources": [
+        {
+          "report": "rpt-ref-ffca8829d86cfae49814",
+          "artifact": "evidence/885017c2fcb154da-RESULTS.json",
+          "snapshot": "evidence/885017c2fcb154da-RESULTS.json",
+          "sha256": "885017c2fcb154dabc9d69948340b520e203f7e9f74ca106ffaf9bb565641748",
+          "bytes": 2991,
+          "selector": "/blend_rank"
+        }
+      ]
+    },
+    {
+      "id": "PD067-MEET",
+      "kind": "filed_change",
+      "label": "materials",
+      "claim": "No 067 candidate in a hull-face product form meets 066's filed density vector at gamma 0.20 and Q 0.33. T3 and T7 stay on SR-200 bonded to CR-III 5056 3/8-1.0. UD coupons are the wrong form. The unreviewed removal of kc still leaves a concept R20 optimistic factor of 1.487481 (1243.713 kg/m3). Nothing was bought.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "rpt-ref-3b692c8042e522b38b95",
+          "artifact": "evidence/e94a70230fcd048d-RESULTS.json",
+          "snapshot": "evidence/e94a70230fcd048d-RESULTS.json",
+          "sha256": "e94a70230fcd048dbd22585ff934f9714ab08f8c1b57c70b5a9a4969f0f97614",
+          "bytes": 33884,
+          "selector": ""
+        },
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        }
+      ]
+    },
+    {
+      "id": "PD-STATE",
+      "kind": "filed_change",
+      "label": "programme-state",
+      "claim": "Programme state, UNREVIEWED as a restatement. Today's admissible line is gamma 0.20 and Q 0.33. The improvement vector is 066's density-only joint witness, concept 1.862738 and TRL7 1.614325, with Sciences' limit that the L1 search is not a global-minimum proof. No real hull-face sheet in 067 meets that vector. Of the unsourced terms, kc moves the concept R20 optimistic witness the most. Cure, the grad and bend stress, and the pressure adder move it less, and every recomputed row stays at gamma 0.20 with Vc below 2. T3 has to measure wrinkling of this coupon before any Q above 0.33. T7 has to measure this sandwich shell before any gamma above 0.20. A sourced equation for kc, cure, the thermal stress, or the pressure adder would let that term stand.",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "sources": [
+        {
+          "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+          "artifact": "evidence/3e4564ad23288f5c-RUN.json",
+          "snapshot": "evidence/3e4564ad23288f5c-RUN.json",
+          "sha256": "3e4564ad23288f5c8c55f81792f6132b426c477cfc9de8321b403c28d3113724",
+          "bytes": 46915,
+          "selector": "/variants"
+        },
+        {
+          "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+          "artifact": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+          "sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+          "bytes": 1276,
+          "selector": "/body"
+        }
+      ]
+    }
+  ],
+  "append_register_rows": [
+    {
+      "rid": "R121",
+      "topic": "Piece D",
+      "topic_name": "Margin terms, the density vector, and the materials that meet it",
+      "gap": "Which model term makes the margin of 1, and whether a real face meets the density vector",
+      "unknown": "The four removed-term recomputes are unreviewed. Pin 014b was not opened. No 067 admission is filed.",
+      "today": [
+        "At 066's four concept optima the model global-buckling and face-wrinkling margins are 1. REVIEW-D's COMMON buckling margins at nu 0.33 are 1.6328, 1.6925, 1.6347, 1.6945. This piece's same formula gives 1.6328, 1.6925, 1.6347, 1.6945. Equation 2.2-14 over P0 gives 1.0634, 1.0909, 1.0681, 1.0958. The buckling gap is kc = 1 - vc/4 while vc is below 2. kc is 0.6771, 0.6701, 0.6764, 0.6693. It is set at model61.py line 106 and model63.py line 113 and multiplies the buckling allowable at model61.py line 120 and model63.py line 127. With kc removed and cure kept, those margins are 1.4768, 1.4923, 1.4785, 1.4941. With kc kept and cure removed, they are 1.0284, 1.0280, 1.0283, 1.0280. Cure then brings that last step to 1. Cure is kb*12.3e-6*dtc*tc/(2*tf) at model61.py line 116 and model63.py line 123, and it sits in the buckling denominator. The wrinkling gap is the pressure adder plus thermal demand. Pressure is P0*max(1.01, QWEATHER)+QWIND at model61.py line 99 and model63.py line 106. QWIND and QWEATHER are model63.py lines 21-23, with no handbook citation in the file. Wrinkling on membrane stress alone at that pressure is 1.0447, 1.0445, 1.0493, 1.0491. grad, bend and cure are 4.28%, 4.26%, 4.70%, 4.68% of demand and bring the margin to 1. grad and bend are model61.py lines 110-111 and model63.py lines 117-118, using 11.3e-6. nu 0.0768 stands as 040's historical SR-200 nu12 scalar proxy. It accounts for the move from the nu 0.33 margins 1.6328, 1.6925, 1.6347, 1.6945 to the model-nu margins 1.5459, 1.6024, 1.5476, 1.6043, and it does not bring either set to 1. Gamma 0.20 and Q 0.33 stand, from CR-1457 as COMMON and knockdown.md state them, with the named hemisphere and waviness limits. kc, the cure coefficients, 11.3e-6, the 1.01 floor, QWIND and QWEATHER have no equation in the opened model text, the SOURCE-INDEX bodies, knockdown.md, or COMMON.md. The 040 case source string names pinned 014b. That pin is not in the SOURCE-INDEX and was not opened. Those four unsourced terms are removed one at a time. BETA stays 1. Vc itself is not replaced.",
+        "The DELTA-C face-density search, repeated here with no term removed, matches 066's filed factors within 0.000114. Concept 1.778610, 1.862624, 1.743190, 1.824664 beside filed 1.778711, 1.862738, 1.743286, 1.824772. Gamma stays 0.20 and Vc stays below 2. This is the method check for the four removals. It is not a new physical result.",
+        "UNREVIEWED. FIX-D066-BUCKLING. The filed card stores both margins at 1. The review half gives COMMON buckling 1.6328, 1.6925, 1.6347, 1.6945 at nu 0.33 and 1.5459, 1.6024, 1.5476, 1.6043 at nu 0.0768, in the order concept R20 ISA, R20 optimistic, R30 ISA, R30 optimistic. This piece's fixed-geometry check matches the nu 0.33 column. The margin of 1 does not reproduce on that route.",
+        "UNREVIEWED. FIX-D066-WRINKLING. Equation 2.2-14 as 065 states it, over P0, gives 1.0634, 1.0909, 1.0681, 1.0958 at the four concept optima. The model margin is 1. BETA is already 1 on this run, so BETA does not make this gap.",
+        "UNREVIEWED. FIX-D066-JOIN. The concept R30 ISA slope ratio 77082.7/149950.6 is 0.514054. Under density over modulus to that power, against 066's 293.6 GPa and 1850 kg/m3 base, the review's independent rank is diamond 1.013, CNT yarn 1.421, M60J 1.254, programme SR-200 0.994. None of those clears 1.74 or TRL7's 1.61. 067's wrinkling order does not hold on this index. Among quasi-isotropic sheets the SR-200 class still leads.",
+        "UNREVIEWED. Face-density factors with kc set to 1. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.433694, 1.487481, 1.406875, 1.459147 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.262668, 1.308957, 1.242631, 1.287813 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+        "UNREVIEWED. Face-density factors with cure set to 0. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.724840, 1.806014, 1.690678, 1.769412 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.498984, 1.566776, 1.474267, 1.540372 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+        "UNREVIEWED. Face-density factors with grad and bend set to 0. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.767125, 1.850494, 1.728601, 1.809273 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.533810, 1.603246, 1.505394, 1.572942 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+        "UNREVIEWED. Face-density factors with pressure set to P0, removing the 1.01 floor, QWEATHER and QWIND. Gamma 0.20, Q 0.33, BETA 1, Vc below 2. concept 1.744609, 1.775711, 1.709948, 1.739741 beside filed 1.778711, 1.862738, 1.743286, 1.824772; TRL7 1.515633, 1.541320, 1.490563, 1.515338 beside filed 1.544302, 1.614325, 1.518709, 1.586983. simjob-20261020t183403-e1930b66c51e exited 0.",
+        "066's admissible improvement vector is face density only, at gamma 0.20 and Q 0.33 with BETA 1, on 293.6 GPa, 379.2 MPa and the favorable film. Filed concept factors 1.778711, 1.862738, 1.743286, 1.824772 and filed TRL7 factors 1.544302, 1.614325, 1.518709, 1.586983, order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic. The joint witnesses are concept 1.862738 at 993.162 kg/m3 and TRL7 1.614325 at 1145.990 kg/m3, both set by R20 optimistic. Sciences admitted 066 conditionally. Density-only is the best mix found under the stated L1 norm and the tested pairs, not a proven global minimum. PROBE corrects RUN's modulus-failure labels. The direct-Python follow-ups are an execution exception and stay apart from this numerical status. The stored margin of 1 does not reproduce on the independent route.",
+        "UNREVIEWED. The density factors that match the DELTA-C handbook targets are 066's run at 293.6 GPa and 379.2 MPa with the favorable film. 067 normalizes its material table to 290 GPa and 345 MPa. The two bases are not the same comparison.",
+        "UNREVIEWED. On 067's membrane table the SAE minimum is above programme SR-200. Under density over modulus to the 0.514, the review's improvements are cnt-yarn-ud 1.4304, m60j-ud 1.2622, cvd-diamond 1.0197, sr200-sae-minimum 1.0053, and sr200-programme 1. None clears the concept factor 1.74 to 1.86. The disks page says up to 120 mm. At 120 mm, R20 needs 888,889 disks. Diamond is not a hull face.",
+        "No 067 candidate in a hull-face product form meets 066's filed density vector at gamma 0.20 and Q 0.33. T3 and T7 stay on SR-200 bonded to CR-III 5056 3/8-1.0. UD coupons are the wrong form. The unreviewed removal of kc still leaves a concept R20 optimistic factor of 1.487481 (1243.713 kg/m3). Nothing was bought.",
+        "Programme state, UNREVIEWED as a restatement. Today's admissible line is gamma 0.20 and Q 0.33. The improvement vector is 066's density-only joint witness, concept 1.862738 and TRL7 1.614325, with Sciences' limit that the L1 search is not a global-minimum proof. No real hull-face sheet in 067 meets that vector. Of the unsourced terms, kc moves the concept R20 optimistic witness the most. Cure, the grad and bend stress, and the pressure adder move it less, and every recomputed row stays at gamma 0.20 with Vc below 2. T3 has to measure wrinkling of this coupon before any Q above 0.33. T7 has to measure this sandwich shell before any gamma above 0.20. A sourced equation for kc, cure, the thermal stress, or the pressure adder would let that term stand."
+      ],
+      "needed": [
+        "Leave the removed-term rows unreviewed until a later piece.",
+        "A sourced equation would let kc, cure, the thermal stress, or the pressure adder stand.",
+        "T3 for an installed Q and T7 for an installed gamma on SR-200 bonded to CR-III."
+      ],
+      "owners": [
+        "rpt-ref-b1e4952922b441a54267",
+        "rpt-ref-3b692c8042e522b38b95",
+        "rpt-ref-2684c4730353c185b7d6",
+        "rpt-ref-ffca8829d86cfae49814",
+        "rpt-sciences-g6-mainline066-admission-limits-1020"
+      ],
+      "states": [
+        "QUESTIONABLE",
+        "PROJECTION"
+      ],
+      "directions": [
+        "Carry gamma 0.20 and Q 0.33. The filed density vector stands beside the unreviewed removals. No hull-face candidate meets it."
+      ],
+      "check_outcome": "Margin terms named. Four unsourced terms recomputed unreviewed on the admissible line. Sciences' 066 limits carried. No qualified hull safety factor.",
+      "sources": [],
+      "finding_ids": [
+        "PD066-TERMS",
+        "PD066-CONTROL",
+        "PD-FIX-D066-BUCKLING",
+        "PD-FIX-D066-WRINKLING",
+        "PD-FIX-D066-JOIN",
+        "PD066-NO-KC",
+        "PD066-NO-CURE",
+        "PD066-NO-THERMAL",
+        "PD066-NO-PRESSURE",
+        "PD066-VECTOR",
+        "PD-FIX-D067-BASE",
+        "PD-FIX-D067-RANK",
+        "PD067-MEET",
+        "PD-STATE",
+        "PD-NFI-PAIRS",
+        "PD-NFI-MODULUS-CAPS",
+        "PD-NFI-OPTIMISTIC",
+        "PD-NFI-VC",
+        "PD-NFI-ABOVE-BILL",
+        "PD-NFI-SHARED",
+        "PD-NFI-UNOPENED",
+        "PD-NFI-SAE-YIELD",
+        "PD-NFI-DIAMOND",
+        "PD-NFI-BLEND",
+        "PD-NFI-LIMITS",
+        "PD-NFI-DIRECT",
+        "PD-NFI-014B"
+      ]
+    }
+  ],
+  "append_nfi_rows": [
+    {
+      "uid": "PD-NFI-PAIRS",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "file": "evidence/a72583b3ff196a53-NFI.json",
+      "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+      "source_sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+      "source_json_pointer": "",
+      "row_id": "NFI-D066-PAIRS",
+      "fields": {
+        "id": "NFI-D066-PAIRS",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D066-PAIRS: The claim that none of 39 pairs beats face density was not re-derived. This review did not run the owner's model."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-MODULUS-CAPS",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "file": "evidence/a72583b3ff196a53-NFI.json",
+      "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+      "source_sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+      "source_json_pointer": "",
+      "row_id": "NFI-D066-MODULUS-CAPS",
+      "fields": {
+        "id": "NFI-D066-MODULUS-CAPS",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D066-MODULUS-CAPS: The modulus closures, the Q 0.82 payload of about -40 t, and the gamma-cap payloads were not re-optimized on the independent route."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-OPTIMISTIC",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "file": "evidence/a72583b3ff196a53-NFI.json",
+      "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+      "source_sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+      "source_json_pointer": "",
+      "row_id": "NFI-D066-OPTIMISTIC",
+      "fields": {
+        "id": "NFI-D066-OPTIMISTIC",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D066-OPTIMISTIC: Optimistic and ISA lifts are the same number. COMMON states one pressure and one density. The stress difference between the weathers is not in that brief."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-VC",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "file": "evidence/a72583b3ff196a53-NFI.json",
+      "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+      "source_sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+      "source_json_pointer": "",
+      "row_id": "NFI-D066-VC",
+      "fields": {
+        "id": "NFI-D066-VC",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D066-VC: Reported Vc is 1.291 to 1.323, below 2, so the handbook step stays 0.20 if that rule is granted. The Vc formula is not in COMMON and was not recomputed."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-ABOVE-BILL",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "file": "evidence/a72583b3ff196a53-NFI.json",
+      "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+      "source_sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+      "source_json_pointer": "",
+      "row_id": "NFI-D066-ABOVE-BILL",
+      "fields": {
+        "id": "NFI-D066-ABOVE-BILL",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D066-ABOVE-BILL: Mass above faces, core and joining is 1404 kg at concept R 20 ISA and 3868 kg at concept R 30 ISA. Joining exceeds the two film sheets. COMMON's 5 percent joints plus 100 kg does not recover the split."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-SHARED",
+      "report": "rpt-ref-2684c4730353c185b7d6",
+      "file": "evidence/a72583b3ff196a53-NFI.json",
+      "snapshot": "evidence/a72583b3ff196a53-NFI.json",
+      "source_sha256": "a72583b3ff196a53f937a0e631faec42cc290b662cf86ebfa15410fea7f39146",
+      "source_json_pointer": "",
+      "row_id": "NFI-D066-SHARED-MODEL",
+      "fields": {
+        "id": "NFI-D066-SHARED-MODEL",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D066-SHARED-MODEL: The payload match to DELTA-C within 0.0021 kg is a comparison of two outputs of the same model. It is not an independent derivation."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-UNOPENED",
+      "report": "rpt-ref-ffca8829d86cfae49814",
+      "file": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "source_sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+      "source_json_pointer": "",
+      "row_id": "NFI-D-UNOPENED-SOURCES",
+      "fields": {
+        "id": "NFI-D-UNOPENED-SOURCES",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D-UNOPENED-SOURCES: This round did not re-open the Toray M60J sheet, DOI 10.1021/acsanm.3c01282, the textbook pages that print 3820 and 3530, the AlBeMet sheet, the 3M AF 163-2 table, or the SAE extract. Index arithmetic from the stated inputs reproduces. Those inputs are unchecked."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-SAE-YIELD",
+      "report": "rpt-ref-ffca8829d86cfae49814",
+      "file": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "source_sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+      "source_json_pointer": "",
+      "row_id": "NFI-D-SAE-YIELD",
+      "fields": {
+        "id": "NFI-D-SAE-YIELD",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D-SAE-YIELD: 066 measured a face-strength slope of zero at 345 MPa because yield is not binding there. The SAE minimum is 206.8 MPa. Whether that floor stays off the bind was not run. This review does not run the hull model."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-DIAMOND",
+      "report": "rpt-ref-ffca8829d86cfae49814",
+      "file": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "source_sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+      "source_json_pointer": "",
+      "row_id": "NFI-D-DIAMOND-BOOKLET",
+      "fields": {
+        "id": "NFI-D-DIAMOND-BOOKLET",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D-DIAMOND-BOOKLET: The filed 100 mm diameter is not on the mechanical page. The disks page checked today says up to 120 mm. The CVD booklet named in 067 was not opened, so a 100 mm line in that booklet is unchecked."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-BLEND",
+      "report": "rpt-ref-ffca8829d86cfae49814",
+      "file": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "snapshot": "evidence/cd29e3a2c24dd53f-NFI.json",
+      "source_sha256": "cd29e3a2c24dd53f1b6517f31d88ac57e72cfc1de83c1bb5f415a00a3effdab3",
+      "source_json_pointer": "",
+      "row_id": "NFI-D-BLEND-IS-LOCAL",
+      "fields": {
+        "id": "NFI-D-BLEND-IS-LOCAL",
+        "status": "open",
+        "statement": "Carried, not demonstrated again. NFI-D-BLEND-IS-LOCAL: Density over modulus to the power 0.514 is the local slope ratio at concept R 30 ISA. It is not a re-optimized hull clear. The linear modulus factor matching a density factor of 1.743 would be about 2.95, while 066's measured concept-ISA closure was near 2.09 to 2.12 and concept optimistic did not close on modulus."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-LIMITS",
+      "report": "rpt-sciences-g6-mainline066-admission-limits-1020",
+      "file": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+      "snapshot": "evidence/83ad16eefa081e26-rpt-sciences-g6-mainline066-admission-limits-1020.json",
+      "source_sha256": "83ad16eefa081e263d01b9dfd47af8217db22c7cfa55758431ffef19800bd8ac",
+      "source_json_pointer": "/body",
+      "row_id": "NFI-D-066-LIMITS",
+      "fields": {
+        "id": "NFI-D-066-LIMITS",
+        "status": "open",
+        "statement": "Sciences admitted 066 conditionally, and no 067 admission has been filed. Density-only is the best mix found under the stated L1 norm and the tested pairs, not a proven global minimum. PROBE corrects RUN's modulus-failure labels. Bracket artifacts are not mix improvements, and optimizer nulls do not prove physical impossibility. The direct-Python follow-ups are an execution exception kept apart from numerical status."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-DIRECT",
+      "report": "rpt-ref-b1e4952922b441a54267",
+      "file": "evidence/853ed898ec0e70a3-NFI.json",
+      "snapshot": "evidence/853ed898ec0e70a3-NFI.json",
+      "source_sha256": "853ed898ec0e70a399969f6ed2caac82e1431fc923dd0a76c7fc81a5cd4a2002",
+      "source_json_pointer": "",
+      "row_id": "NFI-066-DIRECT-FOLLOWUP",
+      "fields": {
+        "id": "NFI-066-DIRECT-FOLLOWUP",
+        "status": "open",
+        "statement": "Carried apart from numerical status. The pair probe, the modulus closure, the face slopes already in RESULTS.json, and DERIV.json ran as direct python on the pinned copy, one core, after the kept simjob. The kept search is simjob-20261020t175116-2cf59f790fe1, exit 0, 112 s."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "uid": "PD-NFI-014B",
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "file": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "source_sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+      "source_json_pointer": "/case/source",
+      "row_id": "NFI-D-014B-UNOPENED",
+      "fields": {
+        "id": "NFI-D-014B-UNOPENED",
+        "status": "open",
+        "statement": "The 040 case source string names pinned 014b and pinned 016 for the block that holds the 1.01 pressure floor. 014b is not in the model's SOURCE-INDEX and was not opened. COMMON.md states neither the 1.01 floor nor the wind formula. The pressure-augmentation recompute is the consequence of that open pin, not a finding that the floor is false."
+      },
+      "register_classification": "QUESTIONABLE / PROJECTION"
+    }
+  ],
+  "append_grounding_routes": [
+    {
+      "id": "PD-T3-T7",
+      "statement": "T3 still has to measure elastic wrinkling of this SR-200 / CR-III coupon before any Q above 0.33. T7 still has to measure this sandwich shell before any gamma above 0.20.",
+      "status": "open"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "N401",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N401",
+    "report": "rpt-ref-35706d7a2ae7e951590b",
+    "card": "rpt-ref-35706d7a2ae7e951590b",
+    "file": "evidence/17d1e17bba0e3797-NFI.json",
+    "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+    "source_sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+    "source_json_pointer": "/items/0",
+    "row_id": "NFI-020C-GRADE-BASIS",
+    "fields": {
+      "id": "NFI-020C-GRADE-BASIS",
+      "rank": 1,
+      "kind": "proposed fix",
+      "tag": "QUESTIONABLE",
+      "against": "CARD.md sections 3 and 4; RESULTS mechanical_sensitivities and joining eta",
+      "claim": "The faces are bought as SR-200 sheet (sections 1-2), but every strength screen uses S-200F block values: 283 MPa inherited as 'optimistic', 241 MPa block tensile minimum, and 0.7 x 241. SR-200's own sourced minimum tensile yield is 345 MPa (S03; guide p. 8), above the card's optimistic value.",
+      "support": "S02 lists S-200-F in rod and bar and points to SR-200 sheet and PS-200 foil below 6.3 mm. Guide p. 8: wrought products are stronger than hot-pressed block in the working direction, and SR-200's in-plane properties are balanced by cross rolling. Guide p. 11: machined beryllium needs a 0.004 in etch on each side, together 27% of a 0.752 mm face, which points to rolled sheet for faces this thin.",
+      "numbers": {
+        "face_SF_at_lead": {
+          "card_283": 0.8922515676202372,
+          "card_241": 0.7598326070546896,
+          "SR200_345": 1.0877271760741407
+        },
+        "least_SF_eta_0.9_0.6": {
+          "card": [
+            0.6504118436805659,
+            0.5353509405721423
+          ],
+          "SR200_345_same_E": [
+            0.6504118436805659,
+            0.6504118436805659
+          ]
+        },
+        "least_SF_retention_0.8E_0.7sigma": {
+          "card": 0.5318828249382828,
+          "SR200_345": 0.5691315271080425
+        },
+        "eta_at_which_net_section_governs": {
+          "283": 0.728955674928437,
+          "345": 0.5979549449412976
+        }
+      },
+      "proposed_fix": "Add an SR-200 row (E 290 GPa, 345 MPa minimum tensile yield used as the compression proxy, the card's own transfer convention, QUESTIONABLE, S03) to the eta and retention screens, and keep 241 MPa only as an explicitly block-grade lower screen.",
+      "effect_on_lead": "None on the least SF at eta 1. The conservative joint screen (eta 0.6) no longer lowers it (0.65041 instead of 0.53535), and the retention screen becomes wrinkling-governed at 0.56913 instead of 0.53188. Rolled-sheet compression data are still needed (owner's NFI-020-GRADE-ORIENTATION-COMPRESSION)."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    }
+  },
+  "claim": "The faces are bought as SR-200 sheet (sections 1-2), but every strength screen uses S-200F block values: 283 MPa inherited as 'optimistic', 241 MPa block tensile minimum, and 0.7 x 241. SR-200's own sourced minimum tensile yield is 345 MPa (S03; guide p. 8), above the card's optimistic value.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/400"
+    },
+    {
+      "report": "rpt-ref-35706d7a2ae7e951590b",
+      "artifact": "evidence/17d1e17bba0e3797-NFI.json",
+      "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+      "sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+      "bytes": 4490,
+      "selector": "/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-35706d7a2ae7e951590b",
+          "artifact": "evidence/17d1e17bba0e3797-NFI.json",
+          "snapshot": "evidence/17d1e17bba0e3797-NFI.json",
+          "sha256": "17d1e17bba0e3797cf5c45a9af2aa07609c55ca3f78b15b4a11a4d71b382f2f5",
+          "bytes": 4490,
+          "selector": "/items/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/400"
+          }
+        ]
+      }
+    }
+  ]
+}

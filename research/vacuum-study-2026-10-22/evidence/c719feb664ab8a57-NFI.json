@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009d independent check",
+  "blocking": false,
+  "open": [
+    {
+      "id": "NFI-CHK009D-DIMPLING-BIAXIAL",
+      "kind": "known upstream modelling discrepancy",
+      "tag": "QUESTIONABLE",
+      "source": "NASA CR-1457 pp 2-5 and 2-7, eqs 2.1-4 and 2.1-6; upstream 014b NFI-DIMPLE",
+      "row": "aluminium 1/4 and 3/8 cells",
+      "field": "intracell_dimpling_SF",
+      "filed": [
+        19.494913735632846,
+        8.664406104725712
+      ],
+      "checker_under_stated_formula": [
+        19.494913735632846,
+        8.664406104725712
+      ],
+      "checker_under_NASA_equal_biaxial": [
+        9.747456867816423,
+        4.332203052362856
+      ],
+      "impact": "The explicit uniaxial estimate reproduces; applying the source biaxial interaction halves this non-governing mode. Least factors unchanged.",
+      "proposed_next": "Carry the biaxial values in a local-mode fix card while preserving the original stated-formula audit."
+    },
+    {
+      "id": "NFI-CHK009D-ARAMID-MODE",
+      "kind": "omitted mode evaluated by checker",
+      "tag": "QUESTIONABLE",
+      "row": "aramid HRH-10-4.8-32",
+      "field": "intracell_dimpling_SF",
+      "filed": null,
+      "checker_uniaxial": 52.68619800038143,
+      "checker_equal_biaxial": 26.343099000190715,
+      "impact": "Does not govern.",
+      "proposed_next": "Include this cell-local mode in the aramid all-modes record."
+    },
+    {
+      "id": "NFI-CHK009D-PACKAGING",
+      "kind": "requested record gap",
+      "tag": "QUESTIONABLE",
+      "finding": "Owner both-points report has CARD.md, POINT.json and both.py; standalone INPUTS.json, RESULTS.json and NFI.json specified by COMMON are absent. Source assumptions therefore require the transitive 007/008/014/014b/018 record.",
+      "proposed_next": "Carry the complete input pins and NFI with the next point; this check supplies them locally."
+    },
+    {
+      "id": "NFI-CHK009D-INHERITED",
+      "kind": "inherited physical uncertainty",
+      "tag": "QUESTIONABLE",
+      "finding": "Nu 0.33 transferred to Be, stabilised Ec, W-shear isotropic replacement, p/2 crush demand, nominal cell and density, full-sphere knockdown and local plate criteria are inherited. Hexcel test thickness is 0.625 inch, not the scored roughly 1.59 inch core.",
+      "proposed_next": "Preserve substitutions and qualify properties/geometry in follow-on physical modelling."
+    },
+    {
+      "id": "NFI-CHK009D-018-CURVES",
+      "kind": "inherited evidence gap",
+      "tag": "PROJECTION",
+      "finding": "Curve choice changes material ranking: aramid leads optimistic, aluminium leads constant-0.20. Neither curve is empirically calibrated for this sphere.",
+      "proposed_next": "Keep both scenarios visible and carry the 018 evidence-gap rows."
+    },
+    {
+      "id": "NFI-CHK009D-P3",
+      "kind": "inherited exclusion",
+      "tag": "QUESTIONABLE",
+      "finding": "P3 remains PENDING-011b; this check only covers the assigned P2 points.",
+      "proposed_next": "Use the separately assigned P3 work."
+    }
+  ],
+  "numerical_resolution_note": {
+    "finding": "Reported optima are discrete near-crossings. Continuous refinement raises aluminium from 0.617044785526970 to 0.617050786277758 and aramid from 0.650411843680531 to 0.650413022409815.",
+    "blocking": false
+  }
+}

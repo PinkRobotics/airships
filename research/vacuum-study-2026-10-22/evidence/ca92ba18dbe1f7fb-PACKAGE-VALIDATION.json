@@ -1,0 +1,122 @@
+{
+  "at": "2026-10-20T12:41:12.700891+00:00",
+  "json_files_parsed": [
+    "BRIEF-PINS.json",
+    "COUPLED-ENVELOPE-SUMMARY.json",
+    "COUPLED-METADATA.json",
+    "DESIGN-DAYS.json",
+    "DEW-FROST.json",
+    "ENVELOPE-SUMMARY.json",
+    "FIXED-HULLS.json",
+    "INPUT-PINS.json",
+    "INPUTS.json",
+    "LEAST-SET-TRANSITIONS.json",
+    "MASS-CURVES.json",
+    "NFI.json",
+    "ORDER.json",
+    "REGRESSION50.json",
+    "RESULTS.json",
+    "RETRY-AUTHORITY.json",
+    "SOURCE-AUDIT.json",
+    "START.json",
+    "SUPPLEMENTAL-RESULTS.json",
+    "THERMAL50.json",
+    "VERIFICATION.json"
+  ],
+  "required_artifacts_present": true,
+  "request_artifact_pins_unchanged": [
+    {
+      "path": "unpublished-local-ref:04e411f08c3153c6",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/44da4bdc7621372f-envelope50.py",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/0ac0f67c076cf4e0-model50.py",
+      "unchanged": true
+    },
+    {
+      "path": "evidence/332780a3e46835e4-REGRESSION50.json",
+      "unchanged": true
+    }
+  ],
+  "numerical_checks_pass": true,
+  "numerical_check_count": 15,
+  "runs": [
+    {
+      "log": "regression-run.log",
+      "refused": false,
+      "ended_exit_0": true,
+      "admission": "simjob: ADMITTED simjob-20261020t050727-a5ba27010db3.scope: 1 cores (CPUQuota=100%), MemoryMax 2.00 GiB (2,147,483,648 B), MemorySwapMax=0, RuntimeMaxSec=7200",
+      "ending": "simjob: ENDED simjob-20261020t050727-a5ba27010db3.scope: exited 0 after 1 s; reservation released"
+    },
+    {
+      "log": "envelope-run.log",
+      "refused": true,
+      "ended_exit_0": false,
+      "admission": null,
+      "ending": null
+    },
+    {
+      "log": "envelope-retry1.log",
+      "refused": false,
+      "ended_exit_0": true,
+      "admission": "simjob: ADMITTED simjob-20261020t051429-f4b42fc76963.scope: 1 cores (CPUQuota=100%), MemoryMax 3.00 GiB (3,221,225,472 B), MemorySwapMax=0, RuntimeMaxSec=7200",
+      "ending": "simjob: ENDED simjob-20261020t051429-f4b42fc76963.scope: exited 0 after 42 s; reservation released"
+    },
+    {
+      "log": "dew-run.log",
+      "refused": false,
+      "ended_exit_0": true,
+      "admission": "simjob: ADMITTED simjob-20261020t051609-463f9f1b47e0.scope: 1 cores (CPUQuota=100%), MemoryMax 2.00 GiB (2,147,483,648 B), MemorySwapMax=0, RuntimeMaxSec=7200",
+      "ending": "simjob: ENDED simjob-20261020t051609-463f9f1b47e0.scope: exited 0 after 20 s; reservation released"
+    },
+    {
+      "log": "coupled-run.log",
+      "refused": false,
+      "ended_exit_0": true,
+      "admission": "simjob: ADMITTED simjob-20261020t051901-7ebf90b37d20.scope: 4 cores (CPUQuota=400%), MemoryMax 6.00 GiB (6,442,450,944 B), MemorySwapMax=0, RuntimeMaxSec=7200",
+      "ending": "simjob: ENDED simjob-20261020t051901-7ebf90b37d20.scope: exited 0 after 210 s; reservation released"
+    },
+    {
+      "log": "analysis-run.log",
+      "refused": false,
+      "ended_exit_0": true,
+      "admission": "simjob: ADMITTED simjob-20261020t052336-af8a89552f81.scope: 1 cores (CPUQuota=100%), MemoryMax 3.00 GiB (3,221,225,472 B), MemorySwapMax=0, RuntimeMaxSec=7200",
+      "ending": "simjob: ENDED simjob-20261020t052336-af8a89552f81.scope: exited 0 after 31 s; reservation released"
+    },
+    {
+      "log": "fixed-run.log",
+      "refused": false,
+      "ended_exit_0": true,
+      "admission": "simjob: ADMITTED simjob-20261020t052652-8b4098258133.scope: 1 cores (CPUQuota=100%), MemoryMax 3.00 GiB (3,221,225,472 B), MemorySwapMax=0, RuntimeMaxSec=7200",
+      "ending": "simjob: ENDED simjob-20261020t052652-8b4098258133.scope: exited 0 after 3 s; reservation released"
+    },
+    {
+      "log": "verify-plot-run.log",
+      "refused": false,
+      "ended_exit_0": true,
+      "admission": "simjob: ADMITTED simjob-20261020t053141-9c30b617f7c5.scope: 1 cores (CPUQuota=100%), MemoryMax 3.00 GiB (3,221,225,472 B), MemorySwapMax=0, RuntimeMaxSec=7200",
+      "ending": "simjob: ENDED simjob-20261020t053141-9c30b617f7c5.scope: exited 0 after 3 s; reservation released"
+    }
+  ],
+  "owned_exec_sessions_completed": true,
+  "local_links_checked": [
+    {
+      "from": "CARD.md",
+      "target": "WEATHER-ENVELOPE.png"
+    },
+    {
+      "from": "CARD.md",
+      "target": "DEW-FROST.png"
+    }
+  ],
+  "figures_visually_inspected": [
+    "WEATHER-ENVELOPE.png",
+    "LEAST-SETS.png",
+    "DEW-FROST.png"
+  ],
+  "live_jobs": 0
+}

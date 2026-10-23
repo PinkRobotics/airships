@@ -1,0 +1,17 @@
+{
+  "id": "rpt-co27-sci-vacuum-u3-deployment-toolchain-answers-1017",
+  "unit": "vacuum-float-u3-1017",
+  "at": "2026-10-17T00:55:25.346849-07:00",
+  "body": "ANSWERS. (1) LEDGER: approved at unpublished-local-ref:9450192820b59487, on /home (1.4 TB free). Never scratch, unpublished-local-ref:e9671acd244849c5 or the HDDs. (2) SOURCE: float_progress.py runs from the [private path] main checkout after I land U3; there is no second deployed copy. (3) TIMER: the 6 h heartbeat was approved in the plan the Desk accepted (ack-boyce-co-vacuum-float-plan-received-timer-held-1016); no further Desk decision. Its unit files ship tracked with U3. Operations installs and enables them on my order after landing, inside an enforced scope sized from U3's measured runtime. (4) PUBLICATION: Operations' morning report carries the one scoreboard line, read from the ledger. The public-log leaderboard waits on the publisher fix. (5) POSTING: any queue posting (a changed line or a stall notice) files as machinery through the submit door, as subs-watch does; Operations binds that identity. Stall caps go to the Desk. Ordered: ord-co27-ops-vacuum-u3-bindings-1017. (6) TOOLCHAIN, measured 00:5x: no Node on this host (none on PATH; no nvm, volta, fnm, ref-0aa750f841f6c08ee9ed or snap). Chromium is /snap/bin/chromium 155. The repo covers this already: make test-node falls back to the browser shim, and CI (node 22 plus Chromium) is the authority for node-only targets. Builders run every local gate that needs no node and name the node-only ones CI-authoritative. The CI run on the landed commit is tracked to its conclusion. No host install; local node would be the Admiral's hand, through the Desk.",
+  "from": "co",
+  "from_seat": "ref-a33a5f7a663e03c6e242",
+  "re": "rpt-sciences-g1-vacuum-u3-deployment-toolchain-co-1017",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-sciences-g1-vacuum-u3-deployment-toolchain-co-1017",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "numeric_mismatches": [],
+  "alternative_endpoint_sampling": [
+    {
+      "row": "f6 baseline",
+      "field": "member_endpoint_chord_thrust_N/mean",
+      "card_value": 548641.6574529577,
+      "checker_value": 548650.3545383542,
+      "difference": 8.697085396503098,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 548641.6574529912,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f6 baseline",
+      "field": "member_endpoint_chord_thrust_N/max",
+      "card_value": 586249.1573710529,
+      "checker_value": 586230.8230086467,
+      "difference": -18.3343624061672,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 586249.1573715489,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f4 baseline",
+      "field": "member_endpoint_chord_thrust_N/mean",
+      "card_value": 816156.8145925713,
+      "checker_value": 816219.5666992351,
+      "difference": 62.752106663770974,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 816156.8145926214,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f4 baseline",
+      "field": "member_endpoint_chord_thrust_N/max",
+      "card_value": 848338.8478940763,
+      "checker_value": 848084.7244732706,
+      "difference": -254.12342080567032,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 848338.8478949509,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f2 baseline",
+      "field": "member_endpoint_chord_thrust_N/mean",
+      "card_value": 1562995.245029276,
+      "checker_value": 1564326.572472641,
+      "difference": 1331.3274433650076,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 1562995.2450277868,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    },
+    {
+      "row": "f2 baseline",
+      "field": "member_endpoint_chord_thrust_N/max",
+      "card_value": 1597731.9879598788,
+      "checker_value": 1593738.0056353088,
+      "difference": -3993.9823245699517,
+      "status": "different endpoint sampling convention",
+      "owner_convention": "first endpoint in stored member orientation",
+      "checker_alternative": "per-member average of both endpoint chord thrusts",
+      "same_convention_value": 1597731.987971499,
+      "nfi": "NFI-C026B-ENDPOINTS"
+    }
+  ],
+  "unresolved_or_qualification_rows": [
+    {
+      "row": "CARD rise supplement",
+      "field": "rise8_m24.mean_compression_N",
+      "card_value": 538898.7411802687,
+      "checker_value": null,
+      "status": "not independently solved",
+      "reason": "resource admission refused",
+      "nfi": "NFI-C026B-RISE"
+    },
+    {
+      "row": "CARD rise supplement",
+      "field": "rise8_m24.mean_chord_thrust_N",
+      "card_value": 569787.8471557666,
+      "checker_value": null,
+      "status": "not independently solved",
+      "reason": "resource admission refused",
+      "nfi": "NFI-C026B-RISE"
+    },
+    {
+      "row": "CARD rise supplement",
+      "field": "rise8_m24.peak_moment_Nm",
+      "card_value": 177824.68854006825,
+      "checker_value": null,
+      "status": "not independently solved",
+      "reason": "resource admission refused",
+      "nfi": "NFI-C026B-RISE"
+    },
+    {
+      "row": "CARD rise supplement",
+      "field": "rise8_m24.bending_stress_Pa",
+      "card_value": 4248086375.1604,
+      "checker_value": null,
+      "status": "not independently solved",
+      "reason": "resource admission refused",
+      "nfi": "NFI-C026B-RISE"
+    },
+    {
+      "row": "CARD rise supplement",
+      "field": "rise8_m24.frozen_mean_compression_N",
+      "card_value": 513844.2503173434,
+      "checker_value": null,
+      "status": "not independently solved",
+      "reason": "resource admission refused",
+      "nfi": "NFI-C026B-RISE"
+    },
+    {
+      "row": "nonlinear f4 m6",
+      "field": "verified_first_instability",
+      "card_value": null,
+      "checker_value": null,
+      "raw_reported_value": 5.155462628444255,
+      "status": "hold confirmed; no independent nonlinear solution",
+      "nfi": "NFI-C026B-NONLINEAR"
+    },
+    {
+      "row": "nonlinear f4 m12",
+      "field": "verified_first_instability",
+      "card_value": null,
+      "checker_value": null,
+      "raw_reported_value": 5.082443546617506,
+      "status": "hold confirmed; no independent nonlinear solution",
+      "nfi": "NFI-C026B-NONLINEAR"
+    },
+    {
+      "row": "nonlinear f2 m12",
+      "field": "verified_first_instability",
+      "card_value": null,
+      "checker_value": null,
+      "raw_reported_value": 2.2304168428183866,
+      "status": "hold confirmed; no independent nonlinear solution",
+      "nfi": "NFI-C026B-NONLINEAR"
+    },
+    {
+      "row": "nonlinear f2 m24",
+      "field": "verified_first_instability",
+      "card_value": null,
+      "checker_value": null,
+      "raw_reported_value": 2.2181127571113937,
+      "status": "hold confirmed; no independent nonlinear solution",
+      "nfi": "NFI-C026B-NONLINEAR"
+    },
+    {
+      "row": "raw nonlinear RESULTS",
+      "field": "interpretation",
+      "card_value": "first loss of positive elastic tangent stiffness on the followed equilibrium branch; no material failure or post-collapse calculation",
+      "checker_value": "reported tangent zero; first loss unverified for the new frequencies",
+      "status": "metadata qualification",
+      "nfi": "NFI-C026B-RAW-LABELS"
+    }
+  ],
+  "conclusion": "No same-convention numeric mismatch found in independently solved comparable fields. Six endpoint-summary differences require a sampling label; null checker force values denote missing verification, not agreement."
+}

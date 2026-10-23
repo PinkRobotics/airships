@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline021-check-1020",
+  "tag": "QUESTIONABLE",
+  "rows": [
+    {
+      "id": "NFI-CHECK021-PINS",
+      "category": "filing integrity",
+      "status": "OPEN",
+      "row": "Original report artifacts",
+      "field": "RESULTS.json and float021.py sha256/bytes",
+      "card_value": [
+        {
+          "file": "RESULTS.json",
+          "sha256": "950b3529dc6368f63214f87c127bd409c8f24ebefa24debd0902550fb3538355",
+          "bytes": 59234
+        },
+        {
+          "file": "float021.py",
+          "sha256": "48517e063880e0b5fd956693269ba0b3af2142854b8ff169b8a38d1d6d9bcb14",
+          "bytes": 31581
+        }
+      ],
+      "check_value": [
+        {
+          "file": "RESULTS.json",
+          "sha256": "35a1b129bed573b4a4043acd9d9213d10c13bb1848ad4276062512e03075596c",
+          "bytes": 67862,
+          "observed_at": "2026-10-20T00:35:53-07:00"
+        },
+        {
+          "file": "float021.py",
+          "sha256": "6b7dcb5b3c2b8b00be4ea3f099ca5a125585f2112467259ec21ee2279f75c8d8",
+          "bytes": 36429,
+          "observed_at": "2026-10-20T00:35:53-07:00"
+        }
+      ],
+      "effect": "[withheld: private quotation]",
+      "disposition": "[withheld: private quotation]",
+      "proposed_fix": "[withheld: private quotation]",
+      "grounding": "[withheld: private quotation]"
+    },
+    {
+      "id": "NFI-CHECK021-MODULUS",
+      "category": "material source consistency",
+      "status": "OPEN",
+      "row": "S-200F headline and SR-200 gamma-only sensitivity",
+      "field": "E_Pa",
+      "card_value": 303000000000,
+      "check_value": 290000000000,
+      "tag": "QUESTIONABLE sourced typical, not a guaranteed minimum",
+      "source": [
+        "https://hkvxni.files.cmp.optimizely.com/download/c2eca2d0f75e11ee9aa0f6c265376dea",
+        "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+      ],
+      "effect": {
+        "main_same_geometry_gamma_needed": 0.5953179642995182,
+        "main_same_geometry_wrinkle_coefficient_needed": 0.37068071372338524,
+        "main_same_geometry_gamma_usage": 0.9580717283996654,
+        "sheet_same_geometry_full_gamma_SF": 0.9423586953989969,
+        "sheet_same_geometry_design_wrinkle_SF": 0.9785077502510343,
+        "sheet_E290_reoptimised_gamma_only_usage": 1.091888191022227
+      },
+      "disposition": "The inherited arithmetic passes, but the one-optimism sheet conclusion does not survive its own datasheet E. The E290/283 main route still uses two optimisms.",
+      "proposed_fix": "Keep E, strength and product form together. Reissue the 303-GPa card claims under the ordered grade correction.",
+      "already_known": "The owner was ordered to correct E at 00:21:45; the observed changed results use E290 and a separate SR-200 modulus. This check does not certify that later packet."
+    },
+    {
+      "id": "NFI-CHECK021-POISSON",
+      "category": "inherited material-model gap",
+      "status": "OPEN",
+      "row": "All beryllium calculations",
+      "field": "nu",
+      "card_value": 0.33,
+      "check_value": {
+        "nu12": 0.0768,
+        "nu21": 0.0752
+      },
+      "tag": "QUESTIONABLE transfer from an orthotropic 1.96-mm sheet lot; not a replacement isotropic specification",
+      "source": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+      "location": "PDF page 22, Table 2",
+      "effect": {
+        "isotropic_sensitivity_E_GPa": 290,
+        "nu_surrogate": 0.0768,
+        "fixed_geometry_gamma_needed": 0.6169290607109224,
+        "fixed_geometry_gamma_full": 0.6018361371765335,
+        "fixed_geometry_full_gamma_global_SF": 0.9755353986453542,
+        "preferred_subset_in_surrogate": {
+          "subset": [
+            "wrinkle",
+            "strength"
+          ],
+          "best": {
+            "core": "Hexcel HRH-10-4.8-32",
+            "tag": "QUESTIONABLE",
+            "fraction": 0.30457951448127507,
+            "max_usage": 0.9985514670768213,
+            "feasible_within_named": true,
+            "needed": {
+              "gamma": 0.9999999999999998,
+              "wrinkle": 0.818919565710445,
+              "strength": 368627416.93813074
+            },
+            "usage": {
+              "gamma": 0.0,
+              "wrinkle": 0.9985514670768213,
+              "strength": 0.903363923032564
+            },
+            "feasible_intervals": [
+              [
+                0.30457951448127507,
+                0.47808902548736587
+              ]
+            ]
+          }
+        }
+      },
+      "disposition": "Arithmetic follows the pinned nu=.33. Treat that as an explicit inherited assumption, not a sourced beryllium property. The demonstrated sensitivity changes the preferred two-optimism set.",
+      "proposed_fix": "A card using a coherent measured in-plane elastic tuple and an appropriate orthotropic model, or an explicitly tagged isotropic approximation."
+    },
+    {
+      "id": "NFI-CHECK021-STRENGTH-FORM",
+      "category": "source applicability",
+      "status": "OPEN",
+      "row": "No strength optimism / sheet at guaranteed minimum",
+      "field": "compressive yield and product form",
+      "card_value": {
+        "S200F_Pa": 283000000,
+        "SR200_minimum_transferred_to_compression_Pa": 345000000
+      },
+      "check_value": {
+        "current_guide_S200F_about_Pa": 255000000,
+        "main_minimum_required_Pa": 282948186.8240931,
+        "factor_needed_over_255MPa": 1.1096007326435025,
+        "SR200_datasheet_minimum_tensile_Pa": 345000000,
+        "SR200_guaranteed_compressive_minimum": null,
+        "historical_sheet_compression_to_tension_ratios": [
+          0.9890453834115807,
+          0.9911939911939911
+        ]
+      },
+      "source": [
+        "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74",
+        "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf"
+      ],
+      "tag": "QUESTIONABLE",
+      "effect": "No strength optimism is true only relative to the inherited 283-MPa starting value. The current guide's S-200F value does not support that point without an uplift. The 345-MPa sheet number is tensile; equality in compression is an additional transfer assumption.",
+      "product_form": "The S-200F datasheet offers SR-200 sheet and PS-200 foil as additional options below 6.3 mm; it does not establish an exclusive mandatory substitution. SR-200 below 0.059 inch is available only at smaller sheet dimensions. The datasheet's parenthetic 0.059 inch = 0.5 mm is internally inconsistent (0.059 inch = 1.4986 mm).",
+      "disposition": "Confirms and sharpens the owner's existing Be-strength/sheet-size NFI; does not stop the estimate.",
+      "proposed_fix": "Use a matched product/lot/thickness compression value; keep the tensile-to-compressive transfer explicit. MAINLINE-020 is the named grounding card."
+    },
+    {
+      "id": "NFI-CHECK021-STRONGEST-SCOPE",
+      "category": "source-claim scope",
+      "status": "OPEN",
+      "row": "Strongest sourced beryllium",
+      "field": "scope of 379.2 MPa assertion",
+      "card_value": "379.2 MPa as strongest sourced Be",
+      "check_value": {
+        "supported_sheet_value_Pa": 379200000,
+        "other_sourced_tube_values_Pa": {
+          "type_A": 450000000,
+          "type_PS_1.016mm_wall": 544000000
+        }
+      },
+      "source": [
+        "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+        "https://ntrs.nasa.gov/api/citations/19680027581/downloads/19680027581.pdf"
+      ],
+      "location": "CR-194164 Table 3; TN D-4833 Table VIII, PDF page 35",
+      "tag": "QUESTIONABLE lot/product-form observations",
+      "effect": "379.2 MPa is supported for the cited sheet directions, but is not the largest compressive value in the source collection. The larger numbers are tube results, not qualified sphere faces.",
+      "proposed_fix": "Narrow the wording to strongest applicable sheet value among the opened sheet sources. A tube-to-sheet transfer, if pursued, is a separate PROJECTION."
+    }
+  ],
+  "objections_do_not_stop_next_cards": true
+}

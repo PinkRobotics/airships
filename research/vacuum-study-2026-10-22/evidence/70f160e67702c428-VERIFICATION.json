@@ -1,0 +1,62 @@
+[
+  {
+    "name": "all primary point mass identities",
+    "pass": true,
+    "details": {
+      "points": 828,
+      "debits": 14
+    }
+  },
+  {
+    "name": "all intended point screens",
+    "pass": true,
+    "details": {
+      "minimum": 1.0
+    }
+  },
+  {
+    "name": "all declared dry service pump counts are minimal integers",
+    "pass": true,
+    "details": {
+      "points": 828
+    }
+  },
+  {
+    "name": "no radius/weather has onboard dry endpoint closure",
+    "pass": true,
+    "details": {
+      "cases": 15
+    }
+  },
+  {
+    "name": "humidity crossing by independent ODE integration",
+    "pass": true,
+    "details": {
+      "integrated_water_kg": 1.0200352929779277,
+      "capacity_kg": 1.0200352929779275,
+      "first_crossing_h": 17.279788676579475
+    }
+  },
+  {
+    "name": "reported minimal subset counts and zero roots",
+    "pass": true,
+    "details": {
+      "roots": 18
+    }
+  },
+  {
+    "name": "041 geometry from endpoint coordinates",
+    "pass": true,
+    "details": {
+      "independent_sag_kg": 73.10073311524012
+    }
+  },
+  {
+    "name": "owner validation receipt count and status",
+    "pass": true,
+    "details": {
+      "scope": "receipt integrity, not an execution of owner tests",
+      "details": 1440
+    }
+  }
+]

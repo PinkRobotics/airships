@@ -1,0 +1,186 @@
+{
+  "schema": 1,
+  "at": "2026-10-18T05:51:45-07:00",
+  "incoming": {
+    "path": "unpublished-local-ref:b4348c3bfb982860",
+    "sha256": "9dd8bdeb81e62797d7b005ac23aea751c87a4ef5b8babeda4adb46412a5a7c2f",
+    "bytes": 7055
+  },
+  "ingested": "2026-10-18T04:58:59-07:00",
+  "authored_at": "ABSENT",
+  "status": "ONE_FULLPLANTS_ATTEMPT_FAILED_AT_FIRST_UNPLANTED_BASELINE; NO_PLANT_CASES_RUN",
+  "allocation": {
+    "canonical": {
+      "path": "unpublished-local-ref:a56e858bfea533cb",
+      "sha256": "a05506d9db748e9e0abc437b1be74355e50552bbabbf6d6ceb9ead78b8a8def0",
+      "bytes": 3927
+    },
+    "admitted": "2026-10-18T04:49:08-07:00",
+    "latest_start": "2026-10-18T06:30:00-07:00",
+    "expires": "2026-10-18T08:50:00-07:00",
+    "resources": "3200%CPU/10GiB/swap0/pids1024,32logical-CPU affinity. Shared quota ceiling, not dedicated cores or reserved backup/vLLM capacity.",
+    "condition_met": true,
+    "release": "B terminal report admitted04:58:59 released the slot; unused window is not reusable. No renewal requested here."
+  },
+  "source": {
+    "commit": "13f4b15f7c7f0720f84516d866ffd6595d3f3eff",
+    "tree": "0d82ce5d613350c7b4da92233d0dd0caf4e97094",
+    "programme_base": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "worktree": "unpublished-local-ref:22a3a820db0fc30e",
+    "clean_at_intake": true,
+    "sixteen_pins_match": true,
+    "old_plants_receipt": {
+      "path": "unpublished-local-ref:88cb2aea4b8d3b27",
+      "sha256": "ff1e5f8c964344bd32daf90a2fdc7a046c58be0da3e463ff586b19c772773302",
+      "bytes": 6028
+    },
+    "main_at_intake": "3cada4b0cd5075e4e00d66a25362198d75fd9e5d",
+    "fetch": false
+  },
+  "evidence": {
+    "u3plants-inv1-fullplants.log": {
+      "path": "unpublished-local-ref:49126a5d83e2efa1",
+      "sha256": "ca7f1de8b8450f6f4e8d97682497fe5358f9ac4c674cec248a1221d5934be8f1",
+      "bytes": 8506
+    },
+    "ledger-u3plants-1018.txt": {
+      "path": "unpublished-local-ref:5fa3e841e90238eb",
+      "sha256": "dbf5977540ee8d6418627570a79b5162a4e1ddba246fb0dbd11dbcb25265e375",
+      "bytes": 2048
+    },
+    "budget-u3plants-1018.txt": {
+      "path": "unpublished-local-ref:2bc06f16f6ca3297",
+      "sha256": "360275a085b4ccb9c934e298a7b926494fd3a8fcabc481eb188e78abdf4708f4",
+      "bytes": 1126
+    },
+    "closure-guard.txt": {
+      "path": "unpublished-local-ref:1fa3495bf89dceca",
+      "sha256": "4597b3aa64a1e35b28d11504b91a74e938a89d6c2a917dc35a3b19e56c8b2164",
+      "bytes": 5633
+    },
+    "guard-pins.txt": {
+      "path": "unpublished-local-ref:d5242f3cfc340701",
+      "sha256": "a454cb8c063fd1be8676844ee118090021c9e7f027e79effb92e19b277ce3441",
+      "bytes": 1775
+    },
+    "job.sh": {
+      "path": "unpublished-local-ref:63e9a538974b303f",
+      "sha256": "8736f18c726413d4803282588bc56df00a7c6fc2f8979c8f531d81034836780a",
+      "bytes": 2532
+    }
+  },
+  "outcome": {
+    "tests": 2,
+    "test_seconds": "84.207",
+    "failures": 1,
+    "payload_rc": 2,
+    "scope_rc": 2,
+    "whole_job_seconds": "87.691082593",
+    "coverage": "Anchor test passed; first unplanted ledgercheck failed. Other three baselines and worker-pool submission never reached. Printed126cases/4workers is selection, not completed coverage or measured four-worker throughput.",
+    "first_failure": "index.html1055 fresh generator nonzero; SCHEMA.md183 lacks reviewed disposition. Ledger2695blocks/2433allowances/101bound/159deferred/0recorderrors/2FAIL. No new receipt or governance child."
+  },
+  "controls_and_limits": {
+    "measured": "Actual membership under app.slice/u3plants-13f4-1018.scope; cpu.max3200000/100000,memory10737418240,swap0,pids1024,nproc32/affinity0-31,fd0/dev/null. PrivateNode exactpath/SHAfde6a4bf/version22.23.3,workers4/command1800/one-thread/home-temp recorded.",
+    "historical": "This proves current attempt only. Prior private-Node/control/cleanup qualifications do not retroactively close.",
+    "closure": "Named unit inactive/absent and stop_rc5 retained. Explicit cgroup absence check omitted app.slice, so it examined the wrong path and does not prove actual-cgroup emptiness or exhaustive descendant closure. Scratch removal retained; root did not perform live verification.",
+    "scope_boundary": "closure-guard includes whole-user scope enumeration with unrelated desktop/tmux scopes, beyond ten named units. This is broad scope enumeration, though not a PID scan; retain breach and prohibit repetition.",
+    "wrapper": "Frozen job.sh now uses six fractional UTC digits while attributed log has nine; exact wrapper-at-run identity unproved. Observed log values retained without certifying saved script was byte-identical at launch.",
+    "postrun_pins": "Owner postrun17count is not individual comparison evidence. Root independently verified current sixteen hashes/clean tree/receipt; this is current intake, not a claim about the historical recheck."
+  },
+  "accounting": {
+    "allocation_seconds": 8400,
+    "start_monotonic": "1939847.941680834",
+    "final_monotonic": "1940250.395821068",
+    "elapsed_seconds": "402.454140234",
+    "opening_seconds": 10,
+    "tail_seconds": 25,
+    "charged_seconds": "437.454140234",
+    "retired_seconds": "7962.545859766",
+    "intervals": {
+      "origin_to_declared_prep_end": "75.763199083",
+      "unassigned_prep_end_to_job_start": "39.739599940",
+      "whole_job": "87.691082593",
+      "unassigned_job_end_to_cleanup_start": "66.124634135",
+      "explicit_cleanup": "0.036163554",
+      "cleanup_end_to_final": "133.099460929"
+    },
+    "conservative_bounds": {
+      "preparation_through_actual_job_start_including_opening": "125.502799023",
+      "cleanup_from_job_end": "66.160797689",
+      "filing_after_cleanup_including_tail": "158.099460929"
+    },
+    "qualification": "All elapsed included in aggregate; phase gaps were unassigned. Conservative bounds fit180/180/300 but are bounding reconciliations, not measured activity labels. Disclosed pre-origin allocation/wake intake duration UNQUANTIFIED; no invented debit. Final-after-filing/state remains owner assertion.",
+    "budget_hash": "Report pin6ee84736 matches first636bytes; final490byte closure append yields360275a0. Preserve both meanings, not a hash match to final file.",
+    "clock": "Cleanup UTC reversed0.573635284s while monotonic advanced0.036163554s, relative discrepancy0.609798838s. Cause UNESTABLISHED; not proven NTP correction. Monotonic arithmetic retained.",
+    "closure": "8400 allocation CLOSED, unused7962.545859766 retired; no transfer or automatic retry."
+  },
+  "diagnosis": {
+    "schema": "Delivery contract is procedural method, not a physical buoyancy assertion. Existing machinery shard lacks this exact block. Add only the attached reviewed method entry; do not use the checker generic proposed buoyancy sentence.",
+    "approved_entry": {
+      "file": "research/program/vacuum-float/SCHEMA.md",
+      "key": "a6078e08b5c324d3",
+      "line": 183,
+      "class": "method",
+      "context": [
+        "-48",
+        "-5",
+        "48",
+        "5"
+      ],
+      "reason": "Delivery protocol and validation requirements: pending identifiers, frozen retry deadlines, authored-envelope equality, state validation and bounded attempts. Numerals are notice/deadline and identifier context, not an aircraft quantity, deployment receipt or scientific result."
+    },
+    "paragraph_raw_sha256": "c000994194e28ce12d70f5a3d66906f5d8d7013e17791f7108b740c3eea109c9",
+    "paragraph_clean_sha256": "a6078e08b5c324d3030eec3ab53852a1e3ad9919cbbd84b6dfe3a9f49b1ceae0",
+    "key_derivation": "Root stdlib text normalization/hash only, following clean/key_of/numbers source; no project import or execution. Negative context values originate in identifier suffixes and are retained as lexer context.",
+    "kingfisher": "Existing front.json generated binding remains correct in form. float_regions runs python3 tools/gen_fallback.py --emit with120s timeout and discards nonzero producer stdout/stderr. Exact error identifies a nonzero exit, not drift or this timeout. Underlying browser cause UNKNOWN.",
+    "emitter": "gen_fallback --emit serves own copied tree on loopback and invokes js_eval/Chromium; output is JSON, not an index.html rewrite. Node availability does not prove browser readiness. Existing CI browser flags are not changed on speculation.",
+    "source_pins": {
+      "tools/gen_fallback.py": {
+        "path": "unpublished-local-ref:d6cfb712cd5a77b5",
+        "sha256": "754d51c7bbe1c118c79680c3106762fac53dc6da4f7a82d01f2c75dfedc11b46",
+        "bytes": 20712
+      },
+      "tools/js_eval.py": {
+        "path": "unpublished-local-ref:200ef5fdc3765510",
+        "sha256": "3bb562fd278712ed285fb73c2f3f637949ac9190c9fc4bd77ddd597f96c0589e",
+        "bytes": 6000
+      },
+      "tools/float_regions.py": {
+        "path": "unpublished-local-ref:8a93f0c2b6a60f0e",
+        "sha256": "8697f9ac02ec63a1b08d2edba2de290acd845a5c851af776701c420ff3d8b0f6",
+        "bytes": 4329
+      },
+      "tools/float_claims.py": {
+        "path": "unpublished-local-ref:233409351e41b2da",
+        "sha256": "a551a28effd17d41986cfd79e3cd6db58406f4923118d3db9bc0cbc36da9c7ce",
+        "bytes": 35731
+      },
+      "tools/check_float_ledger.py": {
+        "path": "unpublished-local-ref:484cf5786855cb0e",
+        "sha256": "5ce14700a6e93f2690da55cb99fd5c362b68f402315920320ae4b7e6d48f5de9",
+        "bytes": 35351
+      },
+      "tools/tests/test_float_hardening.py": {
+        "path": "unpublished-local-ref:04da18e37af88207",
+        "sha256": "ae7adcea1ab745bd84b0a471cab4535f042fc250b5a132d9d2400b67f23b27f9",
+        "bytes": 21410
+      },
+      "research/analysis/float-claims/vacuum-float-machinery-1017.json": {
+        "path": "unpublished-local-ref:095a6e420d57fe0e",
+        "sha256": "4d5646913f148013d5c6f2d4b303d7ab3dbcd88c58132cbdb853b76845eec5aa",
+        "bytes": 2998
+      },
+      "research/analysis/float-claims/front.json": {
+        "path": "unpublished-local-ref:88c00e3e05001bca",
+        "sha256": "ba2aabf31f068ec15240aaaef2f2373ed650deebd0cf61ba2a1193b3ff17db61",
+        "bytes": 9831
+      },
+      "research/program/vacuum-float/SCHEMA.md": {
+        "path": "unpublished-local-ref:a4da2d329fc2cca5",
+        "sha256": "3dd075541667b0574ec1b4d3df121939d76c96ba61936ec339aa646f283abfb2",
+        "bytes": 12319
+      }
+    }
+  },
+  "standing": "Fullplants failed early, not a measured7200s scalability failure; no Route2 aggregation trigger. Fullcheck/sign/land/activation held. Q0/U4 unchanged. One new prerequisite-only unit may follow as separately specified."
+}

@@ -1,0 +1,58 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "label": "HNS-MI-CMC-scenario-5-minimum_wall_q1_screen-m6-intact",
+  "material": "HNS-MI-CMC-scenario",
+  "reserve": "5",
+  "section_policy": "minimum_wall_q1_screen",
+  "removed_member": null,
+  "segments": 6,
+  "ndof": 24012,
+  "radius_m": 0.12477937548301114,
+  "wall_m": 0.001535684206843859,
+  "frame_tubes_kg": 5814.362486119704,
+  "total_mass_including_reserve_sag_kg": 6440.5868519722535,
+  "modes": {
+    "euler": 4.336020918992726,
+    "global_k0p2": 0.9622139345022211,
+    "local_peak": 1.322348126079444,
+    "compression": 1.504758756324457,
+    "joint_sleeve": 1.1401157679347422,
+    "joint_bond": 1.1401157038139813,
+    "film": 1.1432846186728538
+  },
+  "conditional_SF_or_ceiling": 0.9622139345022211,
+  "qualified_structural_SF": null,
+  "qualified_frame_Pf": null,
+  "qualified_hail_break_probability": null,
+  "all_composite_modes_complete": false,
+  "linear_multipliers": [
+    4.811069672511105,
+    4.8396444426169305,
+    4.9005947186881205,
+    4.914788227839051
+  ],
+  "eigen_relative_residuals": [
+    3.3539318891451875e-13,
+    4.257652906551296e-13,
+    8.384318606469786e-09,
+    4.6995810388743645e-08
+  ],
+  "equilibrium_relative_residual": 5.012293910057999e-13,
+  "load_rigid_projection_ratio": 3.962343040501833e-16,
+  "q1_peak_compression_Pa": 652357669.409299,
+  "q1_peak_tension_Pa": 0.0,
+  "q1_whole_member_scale_needed_m10_Pf1e3_Pa": 2391917272.2215414,
+  "max_axial_N": 700954.952515153,
+  "max_bending_Nm": 2980.254416376547,
+  "local_shell_limit_Pa": 872325329.045594,
+  "secondary_failure_trigger_at_q1": true,
+  "individual_secondary_failure_members_at_q1": {
+    "local_shell": [],
+    "compression": []
+  },
+  "merged_bay": null,
+  "pressure_fan_volume_m3": 4156.277016250995,
+  "tube_loss_includes_pressure_bay_merge": false,
+  "dynamic_cascade_probability": null,
+  "elapsed_seconds": 1.6455504009500146
+}

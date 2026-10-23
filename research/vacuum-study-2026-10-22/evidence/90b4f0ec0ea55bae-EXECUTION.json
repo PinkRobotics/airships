@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "time_budget": null,
+  "scientific_jobs": [
+    {
+      "label": "arithmetic-01",
+      "receipt": {
+        "started_utc": "2026-10-20T10:57:41.190140+00:00",
+        "ended_utc": "2026-10-20T10:57:41.661416+00:00",
+        "elapsed_seconds": 0.47127565974369645,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "2G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:0efb81f2a06f179b",
+          "MPLCONFIGDIR=unpublished-local-ref:b3b0f73c3a12db0c",
+          "XDG_CACHE_HOME=unpublished-local-ref:9e200f9ff34715c1",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "unpublished-local-ref:27ebec9790bb7d59"
+        ],
+        "source_pins": [
+          {
+            "path": "unpublished-local-ref:27ebec9790bb7d59",
+            "sha256": "21a99eb9c73880dc830333bd385a743314c3aa958efdf6a8e2e03e435f102ec4",
+            "bytes": 12102
+          },
+          {
+            "path": "unpublished-local-ref:6744c82210183d2d",
+            "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+            "bytes": 2450
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "scopes": [
+        "simjob-20261020t035741-062d814c8346.scope"
+      ],
+      "stdout": {
+        "path": "unpublished-local-ref:0556aee8d9c47c5f",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "unpublished-local-ref:716150bba5bcee4c",
+        "sha256": "8bc0143b56a40d49375ee60a201e3f7e5053fe6114567f5c4869bf5473057be6",
+        "bytes": 1647
+      }
+    },
+    {
+      "label": "arithmetic-02",
+      "receipt": {
+        "started_utc": "2026-10-20T10:57:56.510262+00:00",
+        "ended_utc": "2026-10-20T10:57:56.933421+00:00",
+        "elapsed_seconds": 0.42316328920423985,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "2G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:ddee8c66963d189c",
+          "MPLCONFIGDIR=unpublished-local-ref:5c68a4136e91a59a",
+          "XDG_CACHE_HOME=unpublished-local-ref:b4827a30ba5c9e76",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "unpublished-local-ref:27ebec9790bb7d59"
+        ],
+        "source_pins": [
+          {
+            "path": "unpublished-local-ref:27ebec9790bb7d59",
+            "sha256": "0f2128c316b365bd093ae878d5fa48be5c780ed5fe7cd1a0c4d10e09aec41b0a",
+            "bytes": 12114
+          },
+          {
+            "path": "unpublished-local-ref:6744c82210183d2d",
+            "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+            "bytes": 2450
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "scopes": [
+        "simjob-20261020t035756-6b48955392a1.scope"
+      ],
+      "stdout": {
+        "path": "unpublished-local-ref:74b3c713c2eae003",
+        "sha256": "df3c75b8ac01e1168162d234243002de549b8ea92cae46aa0ee8d4ee86bfb9bd",
+        "bytes": 6927
+      },
+      "stderr": {
+        "path": "unpublished-local-ref:74c54213f270f8f9",
+        "sha256": "15a10fdb5befe1e59231d34752f8e469c39bcca69d38d12a16e0637c5a0efe34",
+        "bytes": 614
+      }
+    },
+    {
+      "label": "arithmetic-final",
+      "receipt": {
+        "started_utc": "2026-10-20T11:05:21.433171+00:00",
+        "ended_utc": "2026-10-20T11:05:21.803435+00:00",
+        "elapsed_seconds": 0.3702627192251384,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "2G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:5dc5a2f962b4a8cd",
+          "MPLCONFIGDIR=unpublished-local-ref:b5a9be14bb1904c5",
+          "XDG_CACHE_HOME=unpublished-local-ref:c7ae36eb5fed86a1",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "unpublished-local-ref:27ebec9790bb7d59"
+        ],
+        "source_pins": [
+          {
+            "path": "unpublished-local-ref:27ebec9790bb7d59",
+            "sha256": "3f150c7cdf02e1f7acae76428d1c6f9eaf1acfbea58e460b2090b383b3499db9",
+            "bytes": 17197
+          },
+          {
+            "path": "unpublished-local-ref:6744c82210183d2d",
+            "sha256": "236219e2bee4724a5a3687c7f3b940bc34905989685cf74d07a912a2ae8951f6",
+            "bytes": 2450
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "scopes": [
+        "simjob-20261020t040521-248bfbe0102d.scope"
+      ],
+      "stdout": {
+        "path": "unpublished-local-ref:3cc70b2ec87353f1",
+        "sha256": "8f39fade5f086a00d60e99373db8efeb3d0ab191ba11035feb435b91eae72fda",
+        "bytes": 11063
+      },
+      "stderr": {
+        "path": "unpublished-local-ref:75ad92c107651b4e",
+        "sha256": "b5972dbeca52fb1c209b92038aea6e608e1935d2789e63a0e12b75b8f95d0429",
+        "bytes": 614
+      }
+    }
+  ],
+  "admission_count": 3,
+  "refused_count": 0,
+  "successful_count": 2,
+  "initial_error": "NumPy boolean JSON serialization; corrected, with receipt retained",
+  "all_own_reservations_released": true,
+  "no_live_own_scopes": true,
+  "status": {
+    "path": "unpublished-local-ref:ad7dc337fcad9040",
+    "sha256": "66426f68fb1a524428b188ff632e7bafba4b513f20f9399181bca93e5ef3d5d5",
+    "bytes": 547
+  },
+  "owner_code_read": false,
+  "owner_code_executed": false
+}

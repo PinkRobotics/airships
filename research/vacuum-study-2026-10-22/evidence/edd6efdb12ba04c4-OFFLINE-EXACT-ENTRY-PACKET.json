@@ -1,0 +1,201 @@
+{
+  "at": "2026-10-19T10:33:17.277606+00:00",
+  "unit": "h1-stvk-interface-1019",
+  "continuation": "clock-only-1019",
+  "mode": "offline",
+  "owner": "ref-ed3515d83349998d6b1b",
+  "current_authority": [
+    {
+      "path": "unpublished-local-ref:456b592fca57e2cb",
+      "sha256": "e371ccf8b365ea6690d70f6c3ce089a287a992cc6e7dd722d3cdfe714b09a43f",
+      "bytes": 4567
+    },
+    {
+      "path": "unpublished-local-ref:823e714db05ad3fb",
+      "sha256": "f5d8f259d0a1481af77c2745426bf52090e4ee4c12464ed797bbdfea67d3d8b1",
+      "bytes": 1948
+    },
+    {
+      "path": "unpublished-local-ref:5ca6221c5a7adac3",
+      "sha256": "3e2b7eff8d47293d2623cbe1056c9a031e98f148b5156f0c1b96cca4402253c8",
+      "bytes": 24258
+    },
+    {
+      "path": "unpublished-local-ref:f1b373a58563bd18",
+      "sha256": "4bf0e9764031c746e1974e10bbe43c53d2a7ba8775d1ff6f5b67e5fb2709f297",
+      "bytes": 9030
+    },
+    {
+      "path": "unpublished-local-ref:a74b01c29e2e9dbf",
+      "sha256": "8f005104e6abd5a82f639cc3a9d098a8d6fc63b3851a699fb2ede957291a40af",
+      "bytes": 7216
+    }
+  ],
+  "Una_actual_reseal_disposition": {
+    "path": "evidence/4fa5e1c248929b27-rpt-xo-h1-stvk-reseal-verified-a-1019.json",
+    "sha256": "4fa5e1c248929b27818ba72ae2c8b79c8b775091178e4fdff8065da250ee2f4f",
+    "bytes": 4198
+  },
+  "new_clock": {
+    "path": "evidence/9144799dd9282a17-intake-clock.json",
+    "sha256": "9144799dd9282a17bec02e2e2814b1e8e00ee18d9303d237ba11bce72fda6ef3",
+    "bytes": 482
+  },
+  "new_seal": {
+    "path": "evidence/70e66d6fe4e495d5-PACK-SEAL.json",
+    "sha256": "8247d2e853d8eeae0aec4467e53f7c35a2f0add553900c5b31a2387c245e0807",
+    "bytes": 15327
+  },
+  "53_member_proof": {
+    "path": "evidence/cbd3c5a29c591555-RESEAL-53-BEFORE-AFTER.json",
+    "sha256": "cbd3c5a29c5915557bcd742b5437231eceff7247a5170049dc5dd58f985b76e1",
+    "bytes": 78456
+  },
+  "archive_inventory": {
+    "path": "evidence/1a4db78eb2b38322-ARCHIVE-INVENTORY.json",
+    "sha256": "1a4db78eb2b383227fe66c2c33811b924ea7983f61364578911e923aad41e207",
+    "bytes": 48703
+  },
+  "cwd": "unpublished-local-ref:c80d18a1e93a6262",
+  "launcher_argv": [
+    "ref-81e2f24e4e80426e80f0",
+    "-B",
+    "unpublished-local-ref:c00c27a6db0e2aa7",
+    "offline"
+  ],
+  "door_argv": [
+    "python3",
+    "unpublished-local-ref:6b66f99ebd630954",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "4G",
+    "--timeout",
+    "420",
+    "--",
+    "ref-81e2f24e4e80426e80f0",
+    "-B",
+    "unpublished-local-ref:a2801d2a632c555f",
+    "offline"
+  ],
+  "payload_argv": [
+    "ref-81e2f24e4e80426e80f0",
+    "-B",
+    "unpublished-local-ref:a2801d2a632c555f",
+    "offline"
+  ],
+  "entry_environment": {
+    "PATH": "ref-ccc203c53b7d040ba4dc:/bin",
+    "LANG": "C",
+    "LC_ALL": "C",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "",
+    "LD_LIBRARY_PATH": "ref-26032cca774ea337e426:/usr/lib/x86_64-linux-gnu/openblas-pthread:/usr/lib/x86_64-linux-gnu/pmix2/lib",
+    "TMPDIR": "unpublished-local-ref:548ac491c017f11e",
+    "HELM_TEST_TMPDIR": "unpublished-local-ref:548ac491c017f11e"
+  },
+  "launcher_environment_behavior": "Unchanged launcher copies its caller environment, applies the8 sealed overlay variables, drops LD_PRELOAD/PYTHONPATH, and sets PYTHONDONTWRITEBYTECODE=1. A will set the two approved TMP variables and retain its own effective pre-launch context immediately before the unchanged launcher.",
+  "child_environment_limitation": "The separate explicit ccx child environment in unchanged run_pack.py does NOT propagate TMPDIR/HELM_TEST_TMPDIR. No claim of propagation and no source fix.",
+  "temporary_root": {
+    "path": "unpublished-local-ref:548ac491c017f11e",
+    "resolved_path": "unpublished-local-ref:548ac491c017f11e",
+    "uid": 1000,
+    "owner_matches_A_euid": true,
+    "gid": 1000,
+    "mode_octal": "0o700",
+    "non_symlink": true,
+    "fresh": true,
+    "created_in_charged_staging": true
+  },
+  "runtime33_pin_receipt": {
+    "runtime_inventory": {
+      "path": "evidence/32e222209ce8fc02-runtime-premises.json",
+      "sha256": "32e222209ce8fc02b31f4fd682d867e120c413e44ad4c8ce3e837afbda7de2c4",
+      "bytes": 6577
+    },
+    "files_checked": 33,
+    "all_match": true,
+    "measured_loaded_runtime": false
+  },
+  "entry_executable_pins": [
+    {
+      "invoked_path": "ref-81e2f24e4e80426e80f0",
+      "resolved_binary": {
+        "path": "ref-cda51cdb7487692d10e7",
+        "sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+        "bytes": 7477160
+      }
+    },
+    {
+      "path": "unpublished-local-ref:6b66f99ebd630954",
+      "sha256": "efd8ca6461884d71fa3e9a9430a0e9170e533142d10841b4857abf74d26f1093",
+      "bytes": 562
+    },
+    {
+      "path": "unpublished-local-ref:c00c27a6db0e2aa7",
+      "sha256": "b0db9efdd89a799035a96e1ad83e403d9e76228f07a7ccb7c04c59beecf4c7fa",
+      "bytes": 1992
+    },
+    {
+      "path": "unpublished-local-ref:a2801d2a632c555f",
+      "sha256": "3c7aa74ea6d3c9757427c9c2086ae001280d2bf6ab92e47aaa8164352ef9cd04",
+      "bytes": 19207
+    },
+    {
+      "path": "evidence/c0fc7bb28734d189-literal-entries.json",
+      "sha256": "c0fc7bb28734d189bd6a4de513d4706ccb3de7bf80af1315ca427b784f1ccb20",
+      "bytes": 2668
+    }
+  ],
+  "limits": {
+    "cores": 1,
+    "cpu_quota_percent": 100,
+    "memory_bytes": 4294967296,
+    "swap_bytes": 0,
+    "timeout_seconds": 420,
+    "launcher_backstop_seconds": 120,
+    "offline_execution_phase_seconds": 600,
+    "max_invocations": 1,
+    "serial": true,
+    "threads": {
+      "OMP_NUM_THREADS": 1,
+      "OPENBLAS_NUM_THREADS": 1,
+      "MKL_NUM_THREADS": 1
+    },
+    "GPU": false,
+    "TasksMax_asserted": false
+  },
+  "clock": {
+    "origin": {
+      "captured_monotonic": 2021075.357763523,
+      "captured_utc": "2026-10-19T10:25:50.177459+00:00",
+      "scope": "Actual paired origin before substantive intake of the new clock-only order; no grant details or prior budget reopening inferred."
+    },
+    "Ops_stage": {
+      "captured_monotonic": 2021522.40188943,
+      "captured_utc": "2026-10-19T10:33:17.221585+00:00",
+      "phase": "Ops_offline_exact_approval_round_trip",
+      "cap_seconds": 900,
+      "whole_origin_monotonic": 2021075.357763523,
+      "cumulative_latest_end_monotonic": 2023565.357763523,
+      "stage_deadline_monotonic": 2022422.40188943
+    },
+    "whole_elapsed_at_packet_seconds": 447.1069659360219,
+    "whole_actual_ceiling_seconds": 7165,
+    "whole_remaining_at_packet_seconds": 6717.893032823922,
+    "hard_whole_end_monotonic": 2028240.357763523,
+    "execution_phase_not_started": true,
+    "old_phase_still_historical": {
+      "path": "unpublished-local-ref:0a0829546ce8e0e8",
+      "sha256": "27e2b6bce996cc48158f9f9d3ab3a2b463e1e747633bec1e9b97f7af0ed7a24b",
+      "bytes": 281
+    }
+  },
+  "requested_disposition": "One fresh canonical exact offline approval bound to this new seal, literal argv/cwd/environment/temp root/current grant and actual resource fit, or first refusal. Approval must be received/read before any new offline phase-start. No late/missing-card fix loop. Old ready/refused/closed records are not admission.",
+  "fresh_fit": "Ops must check actual fit; no A reservation/live-host query or claimed fit. Fresh atomic simjob admission still mandatory at launch.",
+  "start_sequence": "Only after exact approval received/read, A writes offline-admission.json pinning that canonical receipt, captures its effective TMP/env, records new offline-phase-start actual pair and immediately enters unchanged launcher once. All original420+120+60 and whole guards still apply. Stop on first failure, no retry.",
+  "native_gate": "NOT_REQUESTED; requires offline PASS and DERIVED-SEAL then a separate1100s staged Ops request/approval; all qualification flagsfalse."
+}

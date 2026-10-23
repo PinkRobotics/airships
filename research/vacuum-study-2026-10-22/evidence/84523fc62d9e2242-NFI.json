@@ -1,0 +1,31 @@
+{
+  "unit": "vacuum-mainline071-graphite-conditions-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "open": [
+    {
+      "id": "NFI-071-FILM-CTE",
+      "fact": "DOI 10.1038/s41467-025-62227-6 does not state a thermal expansion in the text opened for 068. The signed value is the Mateck HOPG in-plane catalogue figure, -1.0e-6 per K, a different product."
+    },
+    {
+      "id": "NFI-071-GAMMA-LIMIT",
+      "fact": "CR-1457 sets the knockdown to 1 above Vc 2 because the mode is shear crimping. That rule is not a test of this graphite film on CR-III, nor of a closed 20 to 30 m sphere. The handbook also says to use the minimum core shear modulus when crimping is critical. The model value was not shown to be that minimum."
+    },
+    {
+      "id": "NFI-071-PAPERS",
+      "fact": "DOI 10.2514/3.5568 and DOI 10.2514/3.1932 were identified by their public titles. They are not external-pressure tests of a sandwich sphere. They were not quoted."
+    },
+    {
+      "id": "NFI-071-BOND",
+      "fact": "The factor 1.866 raises the 25 psi screen to 0.322 MPa. The joining card's CR-III W plate shear is 0.241 MPa typical and 0.172 MPa minimum-average. The bond factor is above that core."
+    },
+    {
+      "id": "NFI-071-CORE-FLOOR",
+      "fact": "At the just-feasible mismatch, the R 20 core thickness is 2.4 mm, the bottom of the model's core grid. The R 30 release is interior. The density factors at R 20 are the floor's factors."
+    },
+    {
+      "id": "NFI-071-CURE",
+      "fact": "The interface stress uses the service temperature swing. The cure temperature enters the cure stress in the face demand and does not release the interface."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "mainline050-gas-scope-addendum-1020",
+  "at": "2026-10-20T14:57:01.485328+00:00",
+  "status": "QUESTIONABLE / PROJECTION",
+  "applies_to": "MAINLINE050 SUPPLEMENTAL-RESULTS.json gas_24h_bounds",
+  "correction": "The gas supplement covers 32 frozen-thermal endpoint geometries per radius, not all coupled-weather geometries.",
+  "sample": {
+    "radii_m": [
+      10,
+      12,
+      15,
+      20,
+      30
+    ],
+    "masks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "usage": 1,
+    "pressure_knot_indices": [
+      0,
+      64
+    ],
+    "design_pressures_Pa": [
+      97172.30184301017,
+      106500.0
+    ],
+    "geometry_source": "MASS-CURVES.json frozen-thermal family",
+    "nonnegative_payload_filter": false,
+    "row_selection": "maximum final gas pressure; other quantities taken from the same candidate"
+  },
+  "verified": "Explicit scalar equations reproduce the five filed rows with zero differences in recorded pressure, mass, connected volume and release inventory.",
+  "scope_not_established": "A maximum over all coupled-weather geometries; independent validation of the checker-reported 8432 candidates per radius.",
+  "retained_assumptions": [
+    "Core pores communicate with the cavity; connected volume subtracts metal core volume.",
+    "Conditioning removes 90 percent of specified finite inventory.",
+    "All remaining finite inventory is released as water for the pressure bound.",
+    "Initial, leak and permeating gas use lumped air molecular mass.",
+    "Scarf permeability and gas temperature bounds remain assumed inputs."
+  ],
+  "heating_clarification": {
+    "filed_quadrature_W_m2": 21.1451220230001,
+    "analytic_positive_part_W_m2": 21.144629726368056,
+    "original_sealed_results_modified": false
+  },
+  "original_report": "rpt-1228-mainline050-flyable-weather-1020"
+}

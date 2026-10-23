@@ -1,0 +1,78 @@
+{
+  "id": "D090",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D090",
+    "report": "rpt-ref-593068c3ed82fd458128",
+    "file": "evidence/a103f3bba0744beb-NFI.json",
+    "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+    "source_sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+    "source_json_pointer": "/retained_owner_rows/14",
+    "row_id": "040-15-unvented_cells",
+    "fields": {
+      "id": "040-15-unvented_cells",
+      "tag": "PROJECTION",
+      "open_issue": "Ambient trapped gas consumes lift and changes inner/outer face load paths; late venting is a separate transient.",
+      "grounding": "Specify and demonstrate cell venting or analyze/test the sealed-cell pressure distribution and failure transient."
+    },
+    "inherited_document_tag": {
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/retained_owner_rows",
+    "blocks_progress": false
+  },
+  "claim": "Ambient trapped gas consumes lift and changes inner/outer face load paths; late venting is a separate transient.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1050"
+    },
+    {
+      "report": "rpt-ref-593068c3ed82fd458128",
+      "artifact": "evidence/a103f3bba0744beb-NFI.json",
+      "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+      "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+      "bytes": 30702,
+      "selector": "/retained_owner_rows/14"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-593068c3ed82fd458128",
+          "artifact": "evidence/a103f3bba0744beb-NFI.json",
+          "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+          "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+          "bytes": 30702,
+          "selector": "/retained_owner_rows/14"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1050"
+          }
+        ]
+      }
+    }
+  ]
+}

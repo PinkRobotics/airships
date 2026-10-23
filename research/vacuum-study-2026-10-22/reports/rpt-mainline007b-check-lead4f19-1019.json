@@ -1,0 +1,45 @@
+{
+  "id": "rpt-mainline007b-check-lead4f19-1019",
+  "unit": "vacuum-mainline007b-check-1019",
+  "at": "2026-10-19T23:34:15-07:00",
+  "body": "CHECK MAINLINE-007b behind rpt-ref-3dd5ab5528276031581d: numeric PASS, zero mismatches. I re-derived the NASA CR-1457 general-instability trim for all 13 evaluated material and geometry comparisons and all 17 crimp-boundary rows. Every Vc, Kc, general and classical safety factor, ratio, crimp ratio and wrinkling field matches at relative 1e-9. P2-E with Plascore at 16 kg/m3 falls from 0.233885578993 to 0.227959198328, ratio 0.974661196768; yield stays 0.388692217064. The largest trim is Hexcel HRH-10-6.4-24 at 0.863720643326; the smallest is Plascore at 32 at 0.991105457684. All Vc stay below 2, so gamma_d stays 0.20 and the ratio is Kc. My solved equibiaxial factor is 0.682327803828; foam wrinkling stays above general instability, while Hexcel honeycomb wrinkling at 0.0565286364026 and 0.0415196459641 would govern if admitted. Check and pins are attached. Third of three checks; this closes the order.",
+  "artifacts": [
+    {
+      "path": "evidence/f0441d0212af1ef5-CHECK.md",
+      "sha256": "f0441d0212af1ef588e525f038a48d1f194d3e6bb741c2083dedef457aa5d85a",
+      "bytes": 4661
+    },
+    {
+      "path": "evidence/fc6db1ccc40645c7-RESULTS.json",
+      "sha256": "fc6db1ccc40645c7e6380b5436608601d00e4e1516051e5dddcd4ad2afc5a991",
+      "bytes": 28853
+    },
+    {
+      "path": "evidence/ef98a0f4f10c64ba-NFI.json",
+      "sha256": "ef98a0f4f10c64baf48c71126ec97370046a7bec217d78078c575fd1b17db55e",
+      "bytes": 2367
+    },
+    {
+      "path": "evidence/baa3ad984d477f79-INPUTS.json",
+      "sha256": "baa3ad984d477f794bd9fc3231f3ca6df66311b23459cbd255e0be8d35b8f1d9",
+      "bytes": 5546
+    },
+    {
+      "path": "evidence/b572f65e25907e1f-arithmetic.py",
+      "sha256": "b572f65e25907e1f3c9b119f4e83f0e3202296e660c57b4db302a36348a56c25",
+      "bytes": 7653
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-9af2822b3fe57c40be31",
+  "re": "ord-admiral-rr2-check006-007-007b-muse-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check006-007-007b-muse-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "Three check reports filed in order: 006, 007 and 007b, each re-derived with checker arithmetic."
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "at": "2026-10-20T06:18:39.270623-07:00",
+  "checks": [
+    {
+      "check": "admitted_and_released",
+      "tag": "compute-01",
+      "passed": true
+    },
+    {
+      "check": "declared_resources",
+      "tag": "compute-01",
+      "passed": true
+    },
+    {
+      "check": "admitted_and_released",
+      "tag": "compute-02",
+      "passed": true
+    },
+    {
+      "check": "declared_resources",
+      "tag": "compute-02",
+      "passed": true
+    },
+    {
+      "check": "admitted_and_released",
+      "tag": "render-01",
+      "passed": true
+    },
+    {
+      "check": "declared_resources",
+      "tag": "render-01",
+      "passed": true
+    },
+    {
+      "check": "admitted_and_released",
+      "tag": "render-02",
+      "passed": true
+    },
+    {
+      "check": "declared_resources",
+      "tag": "render-02",
+      "passed": true
+    },
+    {
+      "check": "admitted_and_released",
+      "tag": "supplement-01",
+      "passed": true
+    },
+    {
+      "check": "declared_resources",
+      "tag": "supplement-01",
+      "passed": true
+    },
+    {
+      "check": "admitted_and_released",
+      "tag": "validate-01",
+      "passed": true
+    },
+    {
+      "check": "declared_resources",
+      "tag": "validate-01",
+      "passed": true
+    },
+    {
+      "check": "admitted_and_released",
+      "tag": "validate-02",
+      "passed": true
+    },
+    {
+      "check": "declared_resources",
+      "tag": "validate-02",
+      "passed": true
+    },
+    {
+      "check": "current_scientific_source_matches_final_invocation",
+      "tag": "compute-02",
+      "passed": true
+    },
+    {
+      "check": "current_scientific_source_matches_final_invocation",
+      "tag": "validate-02",
+      "passed": true
+    },
+    {
+      "check": "current_scientific_source_matches_final_invocation",
+      "tag": "supplement-01",
+      "passed": true
+    },
+    {
+      "check": "current_scientific_source_matches_final_invocation",
+      "tag": "render-02",
+      "passed": true
+    },
+    {
+      "check": "final_validation_no_failures",
+      "file": "VALIDATION.json",
+      "passed": true
+    },
+    {
+      "check": "final_validation_no_failures",
+      "file": "TRANSPORT-VALIDATION.json",
+      "passed": true
+    },
+    {
+      "check": "final_validation_no_failures",
+      "file": "MASS-VALIDATION.json",
+      "passed": true
+    },
+    {
+      "check": "final_validation_no_failures",
+      "file": "INPUT-VALIDATION.json",
+      "passed": true
+    },
+    {
+      "check": "export_cardinality",
+      "file": "BARRIERS.csv",
+      "expected": 126,
+      "actual": 126,
+      "passed": true
+    },
+    {
+      "check": "export_cardinality",
+      "file": "CAPTURE.csv",
+      "expected": 378,
+      "actual": 378,
+      "passed": true
+    },
+    {
+      "check": "export_cardinality",
+      "file": "FIBRES.csv",
+      "expected": 70,
+      "actual": 70,
+      "passed": true
+    },
+    {
+      "check": "export_cardinality",
+      "file": "FIBRE-MISSIONS.csv",
+      "expected": 210,
+      "actual": 210,
+      "passed": true
+    },
+    {
+      "check": "export_cardinality",
+      "file": "MASS-ACCOUNT.csv",
+      "expected": 378,
+      "actual": 378,
+      "passed": true
+    },
+    {
+      "check": "exportable_pdf",
+      "passed": true
+    },
+    {
+      "check": "notes_and_open_issues",
+      "passed": true
+    }
+  ],
+  "failures": 0,
+  "final_scientific_assertions": 5949,
+  "frozen_pins": 88
+}

@@ -1,0 +1,711 @@
+{
+  "unit": "MAINLINE-025",
+  "scope": "Ceramic short-term tensile reliability illustration and compression applicability boundary",
+  "retrieved_on": "2026-10-20",
+  "material_classification": "QUESTIONABLE",
+  "scale_transfer_classification": "PROJECTION",
+  "design_allowable_established": false,
+  "compression_failure_probability_established": false,
+  "actual_midspan_tensile_hazard_calculated": false,
+  "inputs": {
+    "provenance": "Geometry from delegated brief; continuum volume/count and membrane/bending stress from parent calculation, not independently validated structural analysis",
+    "classification": "PROJECTION",
+    "outer_radius_m": 0.123688362374,
+    "wall_thickness_m": 0.000880299093685,
+    "inner_radius_m": 0.12280806328031499,
+    "length_m": 2.04,
+    "rounded_member_count": 1046,
+    "continuum_member_count": 1046.0203946,
+    "conservative_integer_member_count": 1047,
+    "baseline_assembly_volume_m3": 1.45465858,
+    "nominal_compression_mpa": 1428.35,
+    "bending_amplitude_mpa": 58.8306,
+    "midspan_compression_range_mpa": [
+      1369.5194,
+      1487.1806
+    ],
+    "short_term_assembly_failure_probability_targets": [
+      1e-06,
+      0.001
+    ]
+  },
+  "geometry_derived": {
+    "classification": "PROJECTION",
+    "one_tube_volume_m3": 0.0013906598651748617,
+    "one_tube_inner_surface_m2": 1.574116670364354,
+    "one_tube_outer_surface_m2": 1.585400078320339,
+    "volume_1046_m3": 1.4546302189729052,
+    "volume_continuum_from_geometry_m3": 1.4546585809245915,
+    "volume_1047_m3": 1.4560208788380802,
+    "continuum_inner_surface_m2": 1646.5581406809597,
+    "continuum_both_cylindrical_surfaces_m2": 3304.918956204471,
+    "end_annuli_included_in_surface": false,
+    "extra_numeric_digits": "Computational reproducibility only; not source/engineering precision."
+  },
+  "material_datasets": [
+    {
+      "id": "SA_CURRENT",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "SG_CURRENT"
+      ],
+      "material": "Hexoloy SA",
+      "flexure_4pt_mpa": 380,
+      "flexure_3pt_mpa": 550,
+      "strength_statistic": "typical; not expressly mean or characteristic",
+      "weibull_m": 8,
+      "compression_mpa": null,
+      "coupon_dimensions_mm": null,
+      "reference_effective_size": null,
+      "sample_count": null,
+      "confidence_bounds": null,
+      "fit_flaw_population": null
+    },
+    {
+      "id": "SA_2012",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "SG_2012"
+      ],
+      "material": "Hexoloy SA",
+      "flexure_4pt_mpa": 380,
+      "flexure_3pt_mpa": 550,
+      "compression_mpa": 3900,
+      "strength_statistic": "typical; not expressly mean or characteristic",
+      "weibull_m": 10,
+      "coupon_dimensions_mm": [
+        3,
+        4,
+        45
+      ],
+      "coupon_dimension_scope": "flexure footnote only",
+      "four_point_spans_mm": null,
+      "compression_specimen": null,
+      "characteristic_strength_mpa": null,
+      "reference_effective_size": null,
+      "sample_count": null,
+      "confidence_bounds": null,
+      "fit_flaw_population": null
+    },
+    {
+      "id": "SA_NIST_20C",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "NIST_SA"
+      ],
+      "material": "Carborundum Hexoloy SA",
+      "temperature_C": 20,
+      "crosshead_speed_cm_s": 0.004,
+      "tension_reported_mpa": 234,
+      "tension_reported_plus_minus_mpa": 50,
+      "tension_weibull_m": 5,
+      "flexure_reported_mpa": 395,
+      "flexure_reported_plus_minus_mpa": 19,
+      "flexure_weibull_m": 9,
+      "reported_error_definition": null,
+      "strength_statistic": "reported central value with +/-; no reinterpretation as characteristic strength",
+      "tension_specimen_overall_length_mm": 165,
+      "tension_gauge_dimensions_mm": null,
+      "flexure_bar_dimensions_mm": [
+        3,
+        4,
+        50
+      ],
+      "flexure_test": "four-point, MIL-STD-1942 specimen B / ASTM C1161",
+      "sample_count": null,
+      "reference_effective_size": null
+    },
+    {
+      "id": "CVD_PREMATECH",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "PREMATECH_CVD"
+      ],
+      "material": "Commercial monolithic CVD SiC; exact deposition grade/lot unspecified",
+      "temperature": "room",
+      "flexure_4pt_average_mpa": 415,
+      "weibull_m": 11,
+      "reported_scale_beta_mpa": 424,
+      "scale_type": "reported Weibull scale factor; coupon/reference size unspecified",
+      "same_dataset_for_average_and_fit_established": false,
+      "beam_surface_RMS_um": 0.5,
+      "coupon_dimensions_mm": null,
+      "four_point_spans_mm": null,
+      "reference_effective_size": null,
+      "sample_count": null,
+      "confidence_bounds": null,
+      "tensile_strength_mpa": null,
+      "compressive_strength_mpa": null
+    },
+    {
+      "id": "CVD_COORSTEK",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "COORSTEK_CVD"
+      ],
+      "material": "PureSiC CVD",
+      "temperature_C": 20,
+      "high_resistivity_typical_MOR_mpa": 468,
+      "low_resistivity_typical_MOR_mpa": 517,
+      "strength_statistic": "typical flexural MOR",
+      "weibull_m": null,
+      "reference_effective_size": null,
+      "tensile_strength_mpa": null,
+      "compressive_strength_mpa": null
+    },
+    {
+      "id": "CVD_HONG_A_IP",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "HONG_2009"
+      ],
+      "material": "ORNL TRISO-process CVD SiC-A miniature tubular shell",
+      "test": "internal pressurization by axially compressed elastomer insert",
+      "strength_mode": "hoop tension",
+      "mean_strength_mpa": 263,
+      "coefficient_of_variation_percent": 20.5,
+      "weibull_m": 5.0,
+      "sample_count": 21,
+      "ID_mm": 1.022,
+      "OD_mm": 1.222,
+      "tube_length_mm": 5.83,
+      "insert_length_mm": 3,
+      "crosshead_speed_mm_s_approx": 0.01,
+      "effective_inner_area_mm2": 9.64,
+      "reported_effective_volume_mm3": 0.65,
+      "reported_surface_scale_mpa": 448,
+      "reported_volume_scale_mpa": 262,
+      "scale_caution": "Normalized-size parameters; not coupon characteristic strengths. Only mean/m/effective-area are used in scenarios.",
+      "confidence_bounds_for_parameters": null,
+      "transfer_to_commercial_tubes_validated": false
+    },
+    {
+      "id": "CVD_HONG_B_IP",
+      "classification": "QUESTIONABLE",
+      "source_ids": [
+        "HONG_2009"
+      ],
+      "material": "ORNL TRISO-process CVD SiC-B miniature tubular shell",
+      "test": "internal pressurization by axially compressed elastomer insert",
+      "strength_mode": "hoop tension",
+      "mean_strength_mpa": 239,
+      "coefficient_of_variation_percent": 10.4,
+      "weibull_m": 9.7,
+      "sample_count": 17,
+      "ID_mm": 0.894,
+      "OD_mm": 1.084,
+      "tube_length_mm": 5.27,
+      "insert_length_mm": 3,
+      "crosshead_speed_mm_s_approx": 0.01,
+      "effective_inner_area_mm2": 8.42,
+      "reported_effective_volume_mm3": 0.35,
+      "reported_surface_scale_mpa": 312,
+      "reported_volume_scale_mpa": 224,
+      "scale_caution": "Normalized-size parameters; not coupon characteristic strengths. Only mean/m/effective-area are used in scenarios.",
+      "confidence_bounds_for_parameters": null,
+      "transfer_to_commercial_tubes_validated": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "SG_CURRENT",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/materials/silicon-carbide-sic/hexoloy-silicon-carbide-material/hexoloy-sa-sic-material",
+      "title": "Hexoloy SA SiC material",
+      "provenance": "Saint-Gobain manufacturer technical webpage",
+      "locator": "Hexoloy Grade Specifications",
+      "publication_date": null,
+      "notes": "Current page has malformed grain-size and elastic-modulus unit entries; those are not adopted.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "SG_2012",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/files/4731/download",
+      "title": "Hexoloy SA Silicon Carbide Technical Data, Form B-1045",
+      "provenance": "Manufacturer-hosted datasheet",
+      "publication_date": "2012-05",
+      "locator": "PDF page 4, properties and flexure footnote",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "NIST_SA",
+      "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00297",
+      "title": "NIST SRD 30, Z00297, material 9: Hexoloy SA",
+      "provenance": "Official evaluated dataset citing Graves and Hecht, UDR-TR-94-136 (1995)",
+      "publication_date": "1995 underlying report; database last data update 2002",
+      "locator": "Strength test methods; material 9 tensile/flexural and Weibull tables",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "PREMATECH_CVD",
+      "url": "https://www.prematechac.com/wp-content/uploads/2019/05/18437-CVD-Silicon-Carbide-Data-Sheet.pdf",
+      "title": "CVD Silicon Carbide",
+      "provenance": "Supplier/ceramic processor technical datasheet hosted by PremaTech",
+      "publication_date": null,
+      "locator": "Single-page table and footnotes 1 and 3",
+      "notes": "2019/05 in URL is not asserted as document publication date.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "COORSTEK_CVD",
+      "url": "https://www2.coorstek.com/en/materials/silicon-carbide/",
+      "title": "Silicon Carbide material table",
+      "provenance": "Manufacturer webpage retrieved through search extraction",
+      "publication_date": null,
+      "locator": "PureSiC HR and LR CVD columns",
+      "retrieval_limit": "Direct-page open timed out; official-page search extraction provided the table.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "HONG_2009",
+      "url": "https://www.researchgate.net/publication/250012990_Evaluation_methods_for_the_hoop_strength_of_small-sized_tubular_ceramic_components",
+      "doi": "10.1557/jmr.2009.0158",
+      "doi_url": "https://doi.org/10.1557/jmr.2009.0158",
+      "title": "Evaluation methods for the hoop strength of small-sized tubular ceramic components",
+      "provenance": "Original paper by Hong, Byun, Snead and Lee; author-uploaded full text",
+      "publication_date": "2009-04",
+      "locator": "J. Mater. Res. 24,1422-1434; Tables II/IV, equations 1-5, sections III and V",
+      "retrieval_limit": "Publisher DOI open failed; full text read from identified author upload.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "NASA_CARES_2003",
+      "url": "https://ntrs.nasa.gov/citations/20030014949",
+      "title": "CARES/LIFE Ceramics Analysis and Reliability Evaluation of Structures Life Prediction Program",
+      "provenance": "NASA original technical memorandum and program manual",
+      "publication_date": "2003-02-01",
+      "locator": "NASA/TM-2003-106316, official abstract",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "NASA_CARES_2005",
+      "url": "https://ntrs.nasa.gov/api/citations/20050237907/downloads/20050237907.pdf",
+      "title": "Lifetime Reliability Prediction of Ceramic Structures Under Transient Thermomechanical Loads",
+      "provenance": "NASA original technical publication",
+      "publication_date": "2005-09; errata 2011-08",
+      "locator": "NASA/TP-2005-212505, printed pp95,97 and appendix D",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "ASTM_COMPRESSION",
+      "url": "https://store.astm.org/standards/c1424",
+      "title": "ASTM C1424-26: Monotonic Compressive Strength of Advanced Ceramics at Ambient Temperature",
+      "provenance": "Official standards-body public scope/significance",
+      "publication_date": "2026",
+      "locator": "Sections4.2-4.4",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "ASTM_SCALING",
+      "url": "https://store.astm.org/c1683-10r24.html",
+      "title": "ASTM C1683-10(2024): Size Scaling of Tensile Strengths Using Weibull Statistics for Advanced Ceramics",
+      "provenance": "Official standards-body public scope/significance",
+      "publication_date": "2024",
+      "locator": "Sections5.3-5.8",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "ASTM_WEIBULL",
+      "url": "https://store.astm.org/c1239-13r24e01.html",
+      "title": "ASTM C1239-13(2024)e1: Reporting Uniaxial Strength Data and Estimating Weibull Distribution Parameters",
+      "provenance": "Official public historical revision",
+      "publication_date": "2024 revision, e1",
+      "locator": "Sections1.3-1.4 and5.2-5.4",
+      "retrieval_limit": "Catalog identifies C1239-26a active; its substantive page timed out. This source is not claimed as latest text.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "ASTM_FRACTOGRAPHY",
+      "url": "https://store.astm.org/c1322-25.html",
+      "title": "ASTM C1322-25: Fractography and Characterization of Fracture Origins in Advanced Ceramics",
+      "provenance": "Official standards-body public scope/significance",
+      "publication_date": "2025",
+      "locator": "Sections5.8-5.9",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "NIST_COMPRESSION",
+      "url": "https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.960-16e3.pdf",
+      "title": "Fractography of Ceramics and Glasses, Third Edition",
+      "provenance": "NIST official recommended practice guide",
+      "publication_date": null,
+      "locator": "Compression fracture discussion and Figure4.37",
+      "retrieval_limit": "Relevant indexed passage retrieved; full PDF exceeded web tool size limit.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "ASME_ORNL_2024",
+      "url": "https://info.ornl.gov/sites/publications/Files/Pub216010.pdf",
+      "title": "Analysis of the ASME Code Rules for Subsection III-5-HHB (Composite Materials) for Current HTR Design Requirements",
+      "provenance": "ORNL original ASME working-group review, ORNL/TM-2024/3438",
+      "publication_date": "2024-06",
+      "locator": "Scope, executive summary, section5.16; reviews2023 code",
+      "notes": "C/C and SiC/SiC composite nuclear core-component guidance, not a monolithic SiC tube allowable or current-code compliance finding.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "NASA_BEAM_GEOMETRY",
+      "url": "https://ntrs.nasa.gov/api/citations/20060008932/downloads/20060008932.pdf",
+      "title": "NASA/TM-2006-214089",
+      "provenance": "NASA original experiment on silicon nitrides",
+      "publication_date": "2006",
+      "locator": "Table1 footnote4: 3x4x45mm bars,20/40mm spans",
+      "notes": "Evidence for a standard fixture example only; it does not establish Saint-Gobain spans.",
+      "retrieved_on": "2026-10-20"
+    },
+    {
+      "id": "NIST_WEIBULL_FORMULA",
+      "url": "https://www.itl.nist.gov/div898/handbook/apr/section1/apr162.htm",
+      "title": "NIST/SEMATECH e-Handbook: Weibull distribution",
+      "provenance": "Official statistical handbook",
+      "publication_date": null,
+      "locator": "CDF and mean formulas",
+      "retrieved_on": "2026-10-20"
+    }
+  ],
+  "formulas": {
+    "weibull_cdf": "P=1-exp[-H]",
+    "hazard_coupon_reference": "H=(Q_eff/Q_ref)*(sigma_max/sigma_c_coupon)^m",
+    "coupon_characteristic_from_mean": "sigma_c_coupon=mean/Gamma(1+1/m)",
+    "effective_volume": "Integral_V[(sigma_tensile(x)/sigma_max)^m dV] for one positive principal direction",
+    "effective_surface": "Integral_A[(sigma_tensile(x)/sigma_max)^m dA] for one positive principal direction",
+    "multiple_principal_stresses": "PIA sums positive-principal-direction terms; other multiaxial models need corresponding calibration.",
+    "series_members": "H_total=sum(H_member), assuming independent survival",
+    "target_stress": "sigma_c_coupon*[-ln(1-P_target)*Q_ref/Q_eff]^(1/m)",
+    "beam_L_eff": "L_inner+(L_outer-L_inner)/(m+1)",
+    "beam_V_eff": "b*h*L_eff/[2*(m+1)]",
+    "beam_A_eff": "[b+h/(m+1)]*L_eff; bottom plus tensile portions of two sides",
+    "Ct_definition": "peak positive principal tensile stress / nominal compressive membrane stress",
+    "contact_size_adjustment": "sigma_target_contact=sigma_target_full*(Q_full/Q_contact_eff)^(1/m); same population and hazard allocation only",
+    "competing_independent_flaw_populations": "H_total=H_volume+H_surface+H_edge+... after independent population-specific calibrations. Do not select the strongest separate prediction; absent calibration does not establish zero hazard."
+  },
+  "risk_allocations": {
+    "classification": "PROJECTION",
+    "assumptions": "One specified short-term exposure. Series-system equality uses independent identical members; union bound does not need independence.",
+    "values": [
+      {
+        "members": 1046,
+        "assembly_target": 1e-06,
+        "independent_equal_member_probability": 9.560234221054699e-10,
+        "union_bound_equal_member_probability_cap": 9.560229445506692e-10
+      },
+      {
+        "members": 1046,
+        "assembly_target": 0.001,
+        "independent_equal_member_probability": 9.56500817489258e-07,
+        "union_bound_equal_member_probability_cap": 9.560229445506693e-07
+      },
+      {
+        "members": 1046.0203946,
+        "assembly_target": 1e-06,
+        "independent_equal_member_probability": 9.560047822057358e-10,
+        "union_bound_equal_member_probability_cap": 9.560043046602373e-10
+      },
+      {
+        "members": 1046.0203946,
+        "assembly_target": 0.001,
+        "independent_equal_member_probability": 9.564821682905005e-07,
+        "union_bound_equal_member_probability_cap": 9.560043046602374e-07
+      },
+      {
+        "members": 1047,
+        "assembly_target": 1e-06,
+        "independent_equal_member_probability": 9.55110314730447e-10,
+        "union_bound_equal_member_probability_cap": 9.551098376313275e-10
+      },
+      {
+        "members": 1047,
+        "assembly_target": 0.001,
+        "independent_equal_member_probability": 9.555872545852662e-07,
+        "union_bound_equal_member_probability_cap": 9.551098376313277e-07
+      }
+    ]
+  },
+  "illustrative_scenarios": [
+    {
+      "id": "SA_m8_volume",
+      "classification": "PROJECTION",
+      "material_ids": [
+        "SA_CURRENT"
+      ],
+      "source_ids": [
+        "SG_2012",
+        "SG_CURRENT",
+        "NASA_BEAM_GEOMETRY",
+        "ASTM_SCALING",
+        "NIST_WEIBULL_FORMULA"
+      ],
+      "m": 8,
+      "assumed_mean_mpa": 380,
+      "coupon_characteristic_mpa_derived": 403.50724254156313,
+      "coupon_reference_effective_size": 14.814814814814813,
+      "reference_size_units": "mm3",
+      "assembly_effective_size_assumed": 1454658580.0,
+      "assembly_to_reference_size_ratio": 98189454.15,
+      "geometry_assumptions": {
+        "bar_width_mm": 4,
+        "bar_depth_mm": 3,
+        "bar_length_mm": 45,
+        "outer_span_mm_assumed": 40,
+        "inner_span_mm_assumed": 20
+      },
+      "tensile_field": "one uniform positive principal stress over designated full assembly size",
+      "scope": "one short-term exposure; no time/cycle degradation",
+      "results": [
+        {
+          "assembly_failure_probability_target": 1e-06,
+          "illustrative_tensile_threshold_mpa": 7.191893634201992,
+          "Ct_relative_to_1428_35_mpa": 0.005035105985369126,
+          "threshold_mpa_if_1047_identical_tubes": 7.191052170089478
+        },
+        {
+          "assembly_failure_probability_target": 0.001,
+          "illustrative_tensile_threshold_mpa": 17.0557327865314,
+          "Ct_relative_to_1428_35_mpa": 0.011940863784458572,
+          "threshold_mpa_if_1047_identical_tubes": 17.053737236015436
+        }
+      ]
+    },
+    {
+      "id": "SA_m8_both_cylindrical_surfaces",
+      "classification": "PROJECTION",
+      "material_ids": [
+        "SA_CURRENT"
+      ],
+      "source_ids": [
+        "SG_2012",
+        "SG_CURRENT",
+        "NASA_BEAM_GEOMETRY",
+        "ASTM_SCALING",
+        "NIST_WEIBULL_FORMULA"
+      ],
+      "m": 8,
+      "assumed_mean_mpa": 380,
+      "coupon_characteristic_mpa_derived": 403.50724254156313,
+      "coupon_reference_effective_size": 96.29629629629629,
+      "reference_size_units": "mm2",
+      "assembly_effective_size_assumed": 3304918956.204471,
+      "assembly_to_reference_size_ratio": 34320312.23750797,
+      "geometry_assumptions": {
+        "bar_width_mm": 4,
+        "bar_depth_mm": 3,
+        "bar_length_mm": 45,
+        "outer_span_mm_assumed": 40,
+        "inner_span_mm_assumed": 20
+      },
+      "tensile_field": "one uniform positive principal stress over designated full assembly size",
+      "scope": "one short-term exposure; no time/cycle degradation",
+      "results": [
+        {
+          "assembly_failure_probability_target": 1e-06,
+          "illustrative_tensile_threshold_mpa": 8.20176756955961,
+          "Ct_relative_to_1428_35_mpa": 0.005742127328427634,
+          "threshold_mpa_if_1047_identical_tubes": 8.200807948433383
+        },
+        {
+          "assembly_failure_probability_target": 0.001,
+          "illustrative_tensile_threshold_mpa": 19.450670874551886,
+          "Ct_relative_to_1428_35_mpa": 0.013617580337138578,
+          "threshold_mpa_if_1047_identical_tubes": 19.448395112097973
+        }
+      ]
+    },
+    {
+      "id": "SA_m10_volume",
+      "classification": "PROJECTION",
+      "material_ids": [
+        "SA_2012"
+      ],
+      "source_ids": [
+        "SG_2012",
+        "SG_CURRENT",
+        "NASA_BEAM_GEOMETRY",
+        "ASTM_SCALING",
+        "NIST_WEIBULL_FORMULA"
+      ],
+      "m": 10,
+      "assumed_mean_mpa": 380,
+      "coupon_characteristic_mpa_derived": 399.43206232247564,
+      "coupon_reference_effective_size": 11.900826446280991,
+      "reference_size_units": "mm3",
+      "assembly_effective_size_assumed": 1454658580.0,
+      "assembly_to_reference_size_ratio": 122231727.90277778,
+      "geometry_assumptions": {
+        "bar_width_mm": 4,
+        "bar_depth_mm": 3,
+        "bar_length_mm": 45,
+        "outer_span_mm_assumed": 40,
+        "inner_span_mm_assumed": 20
+      },
+      "tensile_field": "one uniform positive principal stress over designated full assembly size",
+      "scope": "one short-term exposure; no time/cycle degradation",
+      "results": [
+        {
+          "assembly_failure_probability_target": 1e-06,
+          "illustrative_tensile_threshold_mpa": 15.585636721825296,
+          "Ct_relative_to_1428_35_mpa": 0.010911637009014106,
+          "threshold_mpa_if_1047_identical_tubes": 15.584177867388204
+        },
+        {
+          "assembly_failure_probability_target": 0.001,
+          "illustrative_tensile_threshold_mpa": 31.098987609740394,
+          "Ct_relative_to_1428_35_mpa": 0.02177266609006224,
+          "threshold_mpa_if_1047_identical_tubes": 31.096076667000403
+        }
+      ]
+    },
+    {
+      "id": "SA_m10_both_cylindrical_surfaces",
+      "classification": "PROJECTION",
+      "material_ids": [
+        "SA_2012"
+      ],
+      "source_ids": [
+        "SG_2012",
+        "SG_CURRENT",
+        "NASA_BEAM_GEOMETRY",
+        "ASTM_SCALING",
+        "NIST_WEIBULL_FORMULA"
+      ],
+      "m": 10,
+      "assumed_mean_mpa": 380,
+      "coupon_characteristic_mpa_derived": 399.43206232247564,
+      "coupon_reference_effective_size": 93.22314049586775,
+      "reference_size_units": "mm2",
+      "assembly_effective_size_assumed": 3304918956.204471,
+      "assembly_to_reference_size_ratio": 35451701.569214635,
+      "geometry_assumptions": {
+        "bar_width_mm": 4,
+        "bar_depth_mm": 3,
+        "bar_length_mm": 45,
+        "outer_span_mm_assumed": 40,
+        "inner_span_mm_assumed": 20
+      },
+      "tensile_field": "one uniform positive principal stress over designated full assembly size",
+      "scope": "one short-term exposure; no time/cycle degradation",
+      "results": [
+        {
+          "assembly_failure_probability_target": 1e-06,
+          "illustrative_tensile_threshold_mpa": 17.639214273917073,
+          "Ct_relative_to_1428_35_mpa": 0.012349364143184145,
+          "threshold_mpa_if_1047_identical_tubes": 17.63756319950352
+        },
+        {
+          "assembly_failure_probability_target": 0.001,
+          "illustrative_tensile_threshold_mpa": 35.196618267249,
+          "Ct_relative_to_1428_35_mpa": 0.024641452212167188,
+          "threshold_mpa_if_1047_identical_tubes": 35.193323776068034
+        }
+      ]
+    },
+    {
+      "id": "CVD_Hong_A_inner_surface",
+      "classification": "PROJECTION",
+      "material_ids": [
+        "CVD_HONG_A_IP"
+      ],
+      "source_ids": [
+        "HONG_2009",
+        "NIST_WEIBULL_FORMULA"
+      ],
+      "m": 5,
+      "reported_mean_mpa": 263,
+      "coupon_characteristic_mpa_derived": 286.4397227383425,
+      "coupon_reference_effective_size": 9.64,
+      "reference_size_units": "mm2",
+      "assembly_effective_size_assumed": 1646558140.6809597,
+      "assembly_to_reference_size_ratio": 170804786.3776929,
+      "tensile_field": "one uniform tensile direction on every tube inner cylindrical surface",
+      "scope": "illustrative process transfer only; one short-term exposure",
+      "results": [
+        {
+          "assembly_failure_probability_target": 1e-06,
+          "illustrative_tensile_threshold_mpa": 0.4078808172420102,
+          "Ct_relative_to_1428_35_mpa": 0.00028556083399867695,
+          "threshold_mpa_if_1047_identical_tubes": 0.40780446349373495
+        },
+        {
+          "assembly_failure_probability_target": 0.001,
+          "illustrative_tensile_threshold_mpa": 1.6239650744592689,
+          "Ct_relative_to_1428_35_mpa": 0.0011369517796473336,
+          "threshold_mpa_if_1047_identical_tubes": 1.62366107433163
+        }
+      ]
+    },
+    {
+      "id": "CVD_Hong_B_inner_surface",
+      "classification": "PROJECTION",
+      "material_ids": [
+        "CVD_HONG_B_IP"
+      ],
+      "source_ids": [
+        "HONG_2009",
+        "NIST_WEIBULL_FORMULA"
+      ],
+      "m": 9.7,
+      "reported_mean_mpa": 239,
+      "coupon_characteristic_mpa_derived": 251.54948500966367,
+      "coupon_reference_effective_size": 8.42,
+      "reference_size_units": "mm2",
+      "assembly_effective_size_assumed": 1646558140.6809597,
+      "assembly_to_reference_size_ratio": 195553223.3587838,
+      "tensile_field": "one uniform tensile direction on every tube inner cylindrical surface",
+      "scope": "illustrative process transfer only; one short-term exposure",
+      "results": [
+        {
+          "assembly_failure_probability_target": 1e-06,
+          "illustrative_tensile_threshold_mpa": 8.458574298892405,
+          "Ct_relative_to_1428_35_mpa": 0.005921919906810239,
+          "threshold_mpa_if_1047_identical_tubes": 8.457758069523978
+        },
+        {
+          "assembly_failure_probability_target": 0.001,
+          "illustrative_tensile_threshold_mpa": 17.24240699976372,
+          "Ct_relative_to_1428_35_mpa": 0.012071555991013212,
+          "threshold_mpa_if_1047_identical_tubes": 17.240743154477475
+        }
+      ]
+    }
+  ],
+  "uncomputed_scenarios": [
+    {
+      "id": "commercial_CVD_m11_beta424",
+      "classification": "PROJECTION",
+      "reason": "Reference coupon effective size absent. No invented volume or adoption of SA bar geometry."
+    },
+    {
+      "id": "pure_compression_reliability",
+      "classification": "PROJECTION",
+      "reason": "Compression flaw mechanism/distribution and scale transfer absent; tensile Weibull data cannot establish it.",
+      "compressive_allowable_sensitivity_inputs_mpa": [
+        100,
+        200,
+        380,
+        1000,
+        3900
+      ],
+      "input_interpretation": "Assumptions only; 380 is a flexural catalog value,3900 a typical coupon compression value, neither an assembly allowable."
+    }
+  ],
+  "limitations": [
+    "SA380MPa is only a typical value; mean interpretation and40/20mm spans are explicit assumptions.",
+    "m8 andm10 originate from different manufacturer versions; no population confidence bounds.",
+    "Full-volume/full-surface uniform tension is hypothetical; baseline midspan is entirely compressive.",
+    "Surface and volume scenarios are alternate calibrations, not two independent hazards calibrated by the same dataset.",
+    "Microscopic compression damage, splitting, crushing, buckling, and mixed-mode contact require separate models/evidence.",
+    "Hong CVD shells are small TRISO-process specimens; no production equivalence to large commercial tubes.",
+    "No final-life, handling-damage, environmental, thermal-gradient, proof-test, joint, or common-cause reliability is established.",
+    "No numeric point estimate in this file is a confidence-bounded design allowable.",
+    "ASME HHB composite-core guidance is contextual only; no monolithic-SiC code qualification established.",
+    "Hong coupon scales derived from sample means and fitted m do not exactly recover original maximum-likelihood estimates.",
+    "The SA surface and volume examples do not establish which flaw family governs. Actual independently characterized populations contribute additive hazards; taking whichever prediction is stronger is invalid."
+  ],
+  "required_next_evidence": [
+    "production-representative geometry and surface finishing",
+    "raw mode-specific fracture data and specimen dimensions/loading",
+    "fractography and competing flaw-family identification",
+    "confidence-bounded surface/volume/edge fits",
+    "compression, contact and imperfection-sensitive buckling validation",
+    "resolved contact stress field and effective size",
+    "specified service exposure and slow-crack-growth/aging/proof-test data"
+  ]
+}

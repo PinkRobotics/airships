@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline013-check-1019",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "rows": [
+    {
+      "id": "NFI-CHECK013-S200F-GRADE",
+      "kind": "source correction",
+      "row": "ideal_lattice_PROJECTION.strut_references[2]",
+      "field": "S_Pa_per_kg_m3",
+      "card_value": 163783783.7837838,
+      "checker_value": 156756756.75675675,
+      "source": "sources/s200.pdf p2, Materion material-property comparison",
+      "issue": "S200F is 290 GPa; 303 GPa belongs to S200FH. Density remains 1850 kg/m3.",
+      "effects": {
+        "Q_first_density_card": 4.817515578142902,
+        "Q_first_density_corrected": 5.29333338323427,
+        "B_first_density_card": 8.823966274563121,
+        "B_first_density_corrected": 9.21851132665868,
+        "Q_classical_card": 1.96042850745283,
+        "Q_classical_corrected": 2.0674778788188943,
+        "ideal_fraction_at_5_card": 0.9820880639067651,
+        "ideal_fraction_at_5_corrected": 1.0261127012543099
+      },
+      "proposed_fix": "Use 290 GPa for the named grade and update its projection, or explicitly source and label S200FH. No 76-core arithmetic changes.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    },
+    {
+      "id": "NFI-CHECK013-LOWER-BOUNDS",
+      "kind": "source semantics",
+      "rows": [
+        {
+          "row": "basotect-gplus-datasheet",
+          "field": "sigma_c_Pa / rows.B,Q.verdict",
+          "card_value": 9000,
+          "checker_value": ">9000 Pa, no upper bound supplied",
+          "card_margin": 0.18855899857315267,
+          "checker_margin": ">0.18855899857315267 at nominal input density; not an established physical failure",
+          "card_verdict": "FAIL",
+          "physical_evidence_verdict": "INCOMPLETE",
+          "source": "sources/basotect.pdf p2"
+        },
+        {
+          "row": "eps12-astm-d6817-spec",
+          "field": "density_kg_m3 / sigma_c_Pa / status / rows.B,Q.verdict",
+          "card_value": {
+            "density": 11.2,
+            "strength": 15000,
+            "status": "MEASURED",
+            "verdict": "FAIL"
+          },
+          "checker_value": {
+            "density": "minimum 11.2 kg/m3",
+            "strength": "minimum 15000 Pa at 1% strain",
+            "status": "SPECIFICATION_MINIMUM",
+            "physical_evidence_verdict": "INCOMPLETE"
+          },
+          "card_margin": 0.3142649976219211,
+          "source": "sources/eps-spec.pdf pp4,30"
+        }
+      ],
+      "issue": "The scalar screening ratios reproduce, but a lower bound below a demand does not establish that the actual material fails. Neither of these records supplies Ec or G. The data still establish no all-three pass.",
+      "proposed_fix": "Preserve comparison operators/property basis and distinguish rejection of an insufficient guaranteed specification from measured failure; retain unknown physical outcomes.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    },
+    {
+      "id": "NFI-CHECK013-KD-CONDITION",
+      "kind": "clarification",
+      "row": "CARD.md needs paragraph / RESULTS.json kd_scaling",
+      "field": "independence of local needs from kd",
+      "card_value": "Crush, crimp, wrinkling needs and face stress independent of kd; Q h_eq scales inversely with kd.",
+      "checker_value": "Local equations have no explicit kd at fixed geometry. Reoptimising Q changes tf, tc, stress and local needs.",
+      "example_at_rho_1": {
+        "0.1": {
+          "h_m": 0.378140402372981,
+          "face_stress_Pa": 396250728.3544923,
+          "EcGc_req_foam_design_Pa2": 2.026414217431143e+16,
+          "Gc_req_crimp_Pa": 1260230.2477890702
+        },
+        "0.2": {
+          "h_m": 0.1890702011864905,
+          "face_stress_Pa": 374476671.6434306,
+          "EcGc_req_foam_design_Pa2": 1.710378811012676e+16,
+          "Gc_req_crimp_Pa": 2515972.0959315384
+        },
+        "0.4": {
+          "h_m": 0.09453510059324526,
+          "face_stress_Pa": 364463013.9183118,
+          "EcGc_req_foam_design_Pa2": 1.5768064581253444e+16,
+          "Gc_req_crimp_Pa": 5013990.593276669
+        }
+      },
+      "proposed_fix": "Qualify the scaling statement by fixed geometry. Rebuild Q if kd changes.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    },
+    {
+      "id": "NFI-CHECK013-MEZA-SPECIMEN-NOTE",
+      "kind": "metadata correction",
+      "row": "meza2015-hier-hollow-alumina-heaviest-halfcell",
+      "field": "notes specimen geometry",
+      "card_value": {
+        "geometry": "octahedron-of-octahedra",
+        "base_cell_um": 12,
+        "N": 20,
+        "relative_density": 0.000104
+      },
+      "checker_value": {
+        "geometry": "octahedron-of-octets",
+        "base_cell_um": 8,
+        "N": 10,
+        "relative_density": 0.00182
+      },
+      "source": "sources/meza2015-si.pdf Table S1 p10",
+      "issue": "Architecture field is correct; notes copy the lightest specimen into the heaviest record.",
+      "proposed_fix": "Correct notes only. The calculated high-density geometry and core margins do not change.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    },
+    {
+      "id": "NFI-CHECK013-INHERITED-LIMITS",
+      "kind": "carry",
+      "row": "all core rows and ideal-lattice projection",
+      "source": "inputs/NFI.json (17 owner rows)",
+      "issue": "No measured G at or below 10 kg/m3; isotropic G=E/2 is an assumption, not a universal anisotropic bound. Figure reads, bulk-scale transfer, continuum/elastic validity and independent crush modelling remain unproved. The 190 kg/m3 row is a conditional local pass, while its global SF is 0.02035.",
+      "proposed_fix": "Retain all original qualifications and the PROJECTION tag on every ideal-lattice application. A new material claim requires measured properties at its own density.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    }
+  ],
+  "original_NFI_sha256": "fe5e5ec3daad9605333c9d87e661822553476ee1417f4bd4e47a43e48bd22d4c",
+  "standing": "none"
+}

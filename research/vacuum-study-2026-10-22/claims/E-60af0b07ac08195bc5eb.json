@@ -1,0 +1,39 @@
+{
+  "id": "E-60af0b07ac08195bc5eb",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-60af0b07ac08195bc5eb",
+    "report": "rpt-ref-5c8405d45d6cb50633f1",
+    "file": "evidence/6e8dee54ea712f84-NFI.json",
+    "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+    "source_sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+    "source_json_pointer": "/rows/13",
+    "row_id": "NFI-048-C14",
+    "fields": {
+      "id": "NFI-048-C14",
+      "status": "source_correction_to_file",
+      "topic": "SolarWhite linked manufacturer mass and optical label",
+      "finding": "The source sheet supplies285g/m² at150um and1.9g/cm³ with alpha .18/hemispherical epsilon .89 onAl2024-T3. Correct the claimed absence and ambiguous web-heading interpretation; installed Be qualification is still absent.",
+      "evidence": "sources/enbio-solarwhite-datasheet.pdf; SOLARWHITE-SOURCE.json; SOURCE-AUDIT.md",
+      "qualified_installed_Be_mass_kg_m2": null
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The source sheet supplies285g/m² at150um and1.9g/cm³ with alpha .18/hemispherical epsilon .89 onAl2024-T3. Correct the claimed absence and ambiguous web-heading interpretation; installed Be qualification is still absent.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-5c8405d45d6cb50633f1",
+      "artifact": "evidence/6e8dee54ea712f84-NFI.json",
+      "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+      "sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+      "bytes": 19121,
+      "selector": "/rows/13"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

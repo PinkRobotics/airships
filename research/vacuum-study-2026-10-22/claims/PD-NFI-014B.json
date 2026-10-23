@@ -1,0 +1,27 @@
+{
+  "id": "PD-NFI-014B",
+  "kind": "piece_d",
+  "claim": "The 040 case source string names pinned 014b and pinned 016 for the block that holds the 1.01 pressure floor. 014b is not in the model's SOURCE-INDEX and was not opened. COMMON.md states neither the 1.01 floor nor the wind formula. The pressure-augmentation recompute is the consequence of that open pin, not a finding that the floor is false.",
+  "numerical_status": "unreviewed",
+  "physical_qualification": "open",
+  "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "snapshot": "evidence/1cbdd9a60e056abd-INPUTS.json",
+      "sha256": "1cbdd9a60e056abd9d6c167514d0dded5254adbcd377259c81a5e948752f3615",
+      "bytes": 22506,
+      "selector": "/case/source"
+    },
+    {
+      "report": "ord-admiral-rr2-record-delta-d-dispatch-1020",
+      "artifact": "withheld-source:b528d6a62c81ce0b",
+      "snapshot": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+      "bytes": 6686,
+      "selector": ""
+    }
+  ]
+}

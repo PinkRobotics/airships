@@ -1,0 +1,85 @@
+{
+  "id": "D008",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D008",
+    "report": "rpt-ref-14993e3c2e5e64177c8f",
+    "file": "evidence/baff59a164490001-NFI.json",
+    "snapshot": "evidence/baff59a164490001-NFI.json",
+    "source_sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+    "source_json_pointer": "/items/4",
+    "row_id": "NFI-043F-05",
+    "fields": {
+      "id": "NFI-043F-05",
+      "status": "open",
+      "topic": "Reliability envelope and reference population",
+      "finding": "Per-member peaks are applied over whole members; a second envelope applies the global maximum everywhere. Complete-member common-scale and coupon-volume calibrations are separate hypotheses and give very different probabilities.",
+      "remaining": "Calibrate the actual stress-field and size transfer. A common complete-member scale despite unequal lengths must not be silently reinterpreted as a volume-calibrated material constant. Zero positive longitudinal stress does not close multiaxial tension risk.",
+      "related_prior": [
+        "NFI-043-01",
+        "NFI-043-04",
+        "NFI-043-11"
+      ],
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/items",
+    "blocks_progress": false
+  },
+  "claim": "Per-member peaks are applied over whole members; a second envelope applies the global maximum everywhere. Complete-member common-scale and coupon-volume calibrations are separate hypotheses and give very different probabilities.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/968"
+    },
+    {
+      "report": "rpt-ref-14993e3c2e5e64177c8f",
+      "artifact": "evidence/baff59a164490001-NFI.json",
+      "snapshot": "evidence/baff59a164490001-NFI.json",
+      "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+      "bytes": 6222,
+      "selector": "/items/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-14993e3c2e5e64177c8f",
+          "artifact": "evidence/baff59a164490001-NFI.json",
+          "snapshot": "evidence/baff59a164490001-NFI.json",
+          "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+          "bytes": 6222,
+          "selector": "/items/4"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/968"
+          }
+        ]
+      }
+    }
+  ]
+}

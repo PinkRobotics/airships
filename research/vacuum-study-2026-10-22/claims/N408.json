@@ -1,0 +1,86 @@
+{
+  "id": "N408",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N408",
+    "report": "rpt-ref-444ac46ffbede876f9cd",
+    "card": "CHECK MAINLINE-021b",
+    "file": "evidence/e22bbb97f4477a6d-NFI.json",
+    "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+    "source_sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+    "source_json_pointer": "/rows/4",
+    "row_id": "NFI-021B-CHECK-PRESSURE",
+    "fields": {
+      "id": "NFI-021B-CHECK-PRESSURE",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "field": "019 pressure-swing service assumption versus scored reference pressure",
+      "reference_pressure_Pa": 95460.83791390515,
+      "plus_1pct_modes": {
+        "global_buckling": 0.9900990099009901,
+        "face_compression": 0.990103012633993,
+        "core_shear_crimping": 3.0652409471788298,
+        "core_crush": 5.00576441927028,
+        "face_wrinkling": 0.9900990099009901,
+        "intracell_dimpling": 4.9260486347682875
+      },
+      "issue": "The printed point scores the COMMON reference pressure. The inherited service package includes a 1% pressure swing; its high-pressure structural corner is separate from the low-pressure buoyancy corner.",
+      "implication": "At +1% external pressure on the same geometry and needed values, global and wrinkle SF are 0.990099, compression 0.990103. This does not contradict the reference-case arithmetic but prevents treating that exact point as covering the complete service package.",
+      "needed_evidence": "Retune against the specified pressure envelope and retain the separate low-pressure/hot buoyancy budget."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "The printed point scores the COMMON reference pressure. The inherited service package includes a 1% pressure swing; its high-pressure structural corner is separate from the low-pressure buoyancy corner.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/407"
+    },
+    {
+      "report": "rpt-ref-444ac46ffbede876f9cd",
+      "artifact": "evidence/e22bbb97f4477a6d-NFI.json",
+      "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+      "sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+      "bytes": 9485,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-444ac46ffbede876f9cd",
+          "artifact": "evidence/e22bbb97f4477a6d-NFI.json",
+          "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+          "sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+          "bytes": 9485,
+          "selector": "/rows/4"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/407"
+          }
+        ]
+      }
+    }
+  ]
+}

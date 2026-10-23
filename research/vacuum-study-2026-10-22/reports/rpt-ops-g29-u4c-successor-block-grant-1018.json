@@ -1,0 +1,81 @@
+{
+  "id": "rpt-ops-g29-u4c-successor-block-grant-1018",
+  "unit": "vacuum-float-u4-1018",
+  "at": "2026-10-18T15:27:27-07:00",
+  "body": "YOUR BLOCK GRANT a5473681a744-u4c-blk-1018152626: 2 CPU, 4 GiB, swap 0, measured 15:26:26 (MemAvailable 60.8 GB, PSI 0.0). It counts continuously through simjob-u4c-blk-1018-hold.service from grant until your last receipt or actual NEW2400 end, closing by itself at 16:26:33. You are the U4 primary successor of the walled muse seat; muse made 0 invocations, so you have at most three serial invocations in total: test 1; then test 2 only after a failure, or X only after a pass; then X only after test 2 passes. Root unpublished-local-ref:99688cac8e1d0a51 (src, tests-001, tests-002, x-001). Scripts in the attached folder: u4c-blk3-n1-test.sh be8ab88f, n2-test ffcdfc09, n2-x 783dcc07, n3-x ab1b8cba (CARD-u4c.md; SHA256SUMS). For each: mkdir -m 0700 <root>/<inv> plus its home and tmp; copy the script to <inv>/launch.sh; verify its sha; run bash <inv>/launch.sh. After each, parse the whole receipt.json and verify grant, n, kind, unit, a digit-only memory_peak_b, guard_ok, collected and closure_complete true, cleanup yes, and home and tmp absent, before progressing. Run nothing until Sciences binds your takeover and first card. Send me each receipt hash and the last one.",
+  "artifacts": [
+    {
+      "path": "withheld-source:80e3dd07e412b905",
+      "sha256": "c50ee5f6f3665c8ad6d5917aa37f06f0f142d5bf3edcf6c896889263b580ee94",
+      "bytes": 4175
+    },
+    {
+      "path": "unpublished-local-ref:37b768797918d263",
+      "sha256": "3ad508d940f33bc572160416a8e24dc4872ea93d111b8eb21fcdb18e1aa4b1eb",
+      "bytes": 827
+    },
+    {
+      "path": "unpublished-local-ref:ae5926586809498b",
+      "sha256": "75db5c683aea6928b76645994c47c365a38b69c8d093c8a083b705282266c67d",
+      "bytes": 164
+    },
+    {
+      "path": "unpublished-local-ref:639c78b2bb7ecd54",
+      "sha256": "89860de7647083743b067acd70be61103d32ec340d8ad7602ece083f6ba9fe4d",
+      "bytes": 3821
+    },
+    {
+      "path": "unpublished-local-ref:562c013d2af30c9c",
+      "sha256": "4f71144d37e52cfae0047b41a17e6af3ad7a4b7e5d749d58df7b72f5da48b4c1",
+      "bytes": 618
+    },
+    {
+      "path": "unpublished-local-ref:0fac5f2e0dac53a4",
+      "sha256": "b86688c1fedb8f10519113b01fb10844d7a40a90526f656df9c510a43f89ef0b",
+      "bytes": 2348
+    },
+    {
+      "path": "unpublished-local-ref:570d4ac8f7a3cdfa",
+      "sha256": "14fc86fbd6ac1b315af944df525dd0030a09668905ff9ceaeb10426bfb20b2d2",
+      "bytes": 292
+    },
+    {
+      "path": "unpublished-local-ref:a6e91d14b6c83f1c",
+      "sha256": "23c24b9bb631bcb2d065152836c47c387d5681b564ba82f9800d972dd568ee51",
+      "bytes": 1336
+    },
+    {
+      "path": "unpublished-local-ref:e445e46e39b94d1f",
+      "sha256": "066832479a6c8265a0417d9ff3c279edd6326d9ce91c9b9cc8af78a550984b8d",
+      "bytes": 364
+    },
+    {
+      "path": "unpublished-local-ref:027455e5af4d511e",
+      "sha256": "be8ab88f84431900f5713b2027261383817be3d84c1ee4d4070c72019b30cddb",
+      "bytes": 7868
+    },
+    {
+      "path": "unpublished-local-ref:0465c42e6c55b20c",
+      "sha256": "ffcdfc0925fc4b95a190b057595dc012a1584080d4aef1ffa7bca2fb2789f214",
+      "bytes": 8564
+    },
+    {
+      "path": "unpublished-local-ref:14c7893765de87d5",
+      "sha256": "783dcc076a1ebde73e54516c86478cb9f54a4501b60fd1694db15ea2255bfa5e",
+      "bytes": 8995
+    },
+    {
+      "path": "unpublished-local-ref:1f6942d71b8ee329",
+      "sha256": "ab1b8cbae52267da068fec9f68649a53c44ff2063639754b85ac4d0424014e35",
+      "bytes": 8995
+    },
+    {
+      "path": "unpublished-local-ref:beeaa330937ae06b",
+      "sha256": "63264e98a7935dc5766a127f817f0b062e57f37e95e0bc9894cf62adb38d2e4d",
+      "bytes": 1688
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-ops-u4-muse-wall-codex-relief-now-1018"
+}

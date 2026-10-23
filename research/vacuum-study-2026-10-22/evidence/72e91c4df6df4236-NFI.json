@@ -1,0 +1,294 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-020",
+  "unit": "vacuum-mainline020-beryllium-reality-1019",
+  "status": "OPEN_EVIDENCE_NEEDS",
+  "tag": "QUESTIONABLE",
+  "first_two_to_ground": [
+    "NFI-020-JOINT-MASS-CAPACITY",
+    "NFI-020-THIN-SHEET-GEOMETRY with NFI-020-GRADE-ORIENTATION-COMPRESSION"
+  ],
+  "items": [
+    {
+      "id": "NFI-020-JOINT-MASS-CAPACITY",
+      "rank": 1,
+      "tag": "PROJECTION",
+      "claim": "Installed bond/seam mass and capacity are not contained by an evidenced 5% allowance.",
+      "optimistic": {
+        "joining_kg": 968.1973614494823,
+        "payload_kg": -507.29810905072463,
+        "kg_per_hull_seam_m": 0.21832274825065098,
+        "eta_assumed": 0.9
+      },
+      "conservative": {
+        "joining_kg": 3721.9962746758147,
+        "payload_kg": -3261.0970222770566,
+        "kg_per_hull_seam_m": 0.48279897548325995,
+        "eta_assumed": 0.6
+      },
+      "sources": [
+        {
+          "id": "S03",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+        },
+        {
+          "id": "S04",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74"
+        },
+        {
+          "id": "S05",
+          "url": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=AF163-2.pdf"
+        },
+        {
+          "id": "S06",
+          "url": "https://ntrs.nasa.gov/api/citations/19690025590/downloads/19690025590.pdf"
+        }
+      ],
+      "needed_to_ground": "Ground first: weigh and load a representative curved two-skin/core seam with the intended film coverage, seal, manufacturing defects and post-thermal-cycle condition. Establish seam buckling, shear/peel and leak behavior.",
+      "effect_on_lead": "The optimistic selected joint already consumes more than the payload; redesign or a much lighter demonstrated joint is needed. Cases are not bounding tests.",
+      "closed_by_this_card": false
+    },
+    {
+      "id": "NFI-020-THIN-SHEET-GEOMETRY",
+      "rank": 2,
+      "tag": "PROJECTION",
+      "claim": "Maximum currently purchasable 0.75-0.79 mm panel size and installed shape are UNKNOWN.",
+      "optimistic": {
+        "assumed_panel_m": [
+          0.6096,
+          1.8288
+        ],
+        "panels_per_skin_lower_bound": 1128,
+        "flatness_type3_mm_per_foot": 0.762,
+        "nominal_gauge_m": 0.000752430055433027
+      },
+      "conservative": {
+        "assumed_panel_m": [
+          0.3048,
+          0.6096
+        ],
+        "panels_per_skin_lower_bound": 6764,
+        "flatness_type1_fraction_span": 0.02,
+        "source_gauge_tolerance_m": 0.0001016
+      },
+      "sources": [
+        {
+          "id": "S03",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+        },
+        {
+          "id": "S04",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74"
+        }
+      ],
+      "needed_to_ground": "Ground second, with material NFI: obtain a supplier-confirmed grade/gauge/size/flatness specification, formed-panel gauge map and curvature survey. Measure edge and joint steps; establish trim yield.",
+      "effect_on_lead": "Thinner-size maximum is unspecified. Uniform upper tolerance adds 472.40 kg faces; low-gauge wrinkle SF is 0.52323. Flatness measured restrained cannot qualify assembled buckling.",
+      "closed_by_this_card": false
+    },
+    {
+      "id": "NFI-020-GRADE-ORIENTATION-COMPRESSION",
+      "rank": 3,
+      "tag": "QUESTIONABLE",
+      "claim": "S200F bulk properties are not an established rolled SR200, formed and joined, biaxial compression basis.",
+      "optimistic": {
+        "inherited_E_GPa": 303,
+        "inherited_compression_MPa": 283,
+        "orientation_retention": 1.0,
+        "SR200_tensile_elongation_percent_in_1inch": 10
+      },
+      "conservative": {
+        "current_E_GPa": 290,
+        "assumed_compression_proxy_MPa": 241,
+        "bulk_tensile_elongation_percent": 2,
+        "assumed_E_retention": 0.8,
+        "assumed_strength_retention": 0.7,
+        "least_SF_with_retention": 0.5318828249382828
+      },
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c2eca2d0f75e11ee9aa0f6c265376dea"
+        },
+        {
+          "id": "S03",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+        },
+        {
+          "id": "S04",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74"
+        },
+        {
+          "id": "S07",
+          "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf"
+        }
+      ],
+      "needed_to_ground": "Measure rolled-direction/transverse compression, biaxial behavior, through-thickness/peel response and post-form/post-join properties. Resolve grade, heat treatment, gauge length and guide/datasheet discrepancies.",
+      "effect_on_lead": "Current E alone gives SF 0.63631. Neither 241 MPa tensile floor nor 283 MPa inherited value is a guaranteed current SR200 compression minimum.",
+      "closed_by_this_card": false
+    },
+    {
+      "id": "NFI-020-THERMAL-FATIGUE",
+      "rank": 4,
+      "tag": "QUESTIONABLE",
+      "claim": "Daily thermal-cycle life of the pressure-loaded Be/HRH10 joint is UNKNOWN.",
+      "optimistic": {
+        "assumed_delta_alpha_per_K": 5e-06,
+        "assumed_delta_T_K": 30,
+        "screen_peak_shear_MPa": 0.05770430820956852,
+        "bulk_smooth_zero_mean_benchmark_cycles": 10000000
+      },
+      "conservative": {
+        "assumed_delta_alpha_per_K": 2e-05,
+        "assumed_delta_T_K": 60,
+        "screen_peak_shear_MPa": 0.46163446567654814,
+        "qualified_joint_cycles": null
+      },
+      "sources": [
+        {
+          "id": "S02",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c2eca2d0f75e11ee9aa0f6c265376dea"
+        },
+        {
+          "id": "S03",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+        },
+        {
+          "id": "S05",
+          "url": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=AF163-2.pdf"
+        },
+        {
+          "id": "S07",
+          "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf"
+        }
+      ],
+      "needed_to_ground": "Measure effective directional core/face/adhesive expansion, service temperature histories, restraint and fatigue under representative compressive mean load. Test the assumed 10,958 daily cycles if a 30-year target is adopted.",
+      "effect_on_lead": "016 concerned SiC/PVC; only its scalar equation is reused. Gc is not shear strength. The upper elastic thermal screen may exceed yield; no fatigue margin or life can be inferred.",
+      "closed_by_this_card": false
+    },
+    {
+      "id": "NFI-020-BERYLLIUM-FREE-FALLBACK",
+      "rank": 5,
+      "tag": "QUESTIONABLE",
+      "claim": "K13D2U QI epoxy is the best inherited Be-free candidate, but its laminate and joint basis remain assumptions.",
+      "optimistic": {
+        "equal_5pct_budget_resized_SF": 0.6186549721852572,
+        "published_zero_payload_SF": 0.6519321738941608,
+        "published_relative_SF_loss_percent": 4.874389864420692
+      },
+      "conservative": {
+        "exact_009c5_geometry_SF": 0.5414748616333155,
+        "relative_SF_loss_percent": 16.74892348681649,
+        "payload_kg_with_inherited_joints": 443.0337212063869
+      },
+      "sources": [
+        {
+          "id": "S09",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/d896d6d2a04211ee94aa3aa4a5458726"
+        }
+      ],
+      "needed_to_ground": "Ground the I014b QI laminate compression/stiffness/density and manufacturing route, then use the same evidenced joint mass and geometry for Be and composite. Do not substitute single-fiber moduli.",
+      "effect_on_lead": "Preserves a relatively small equal-budget trade but cannot promise a direct drop-in result. M55J is weaker in the published comparison; AlBeMet retains 62 wt% Be.",
+      "closed_by_this_card": false
+    },
+    {
+      "id": "NFI-020-SUPPLY-QUOTE-YIELD",
+      "rank": 6,
+      "tag": "QUESTIONABLE",
+      "claim": "Finished-sheet capacity, current S200F/SR200 prices and fabrication yields are UNKNOWN.",
+      "optimistic": {
+        "historical_world_mine_output_t": 433,
+        "year": 2024,
+        "assumed_S200F_USD_kg": 4800,
+        "assumed_SR200_USD_kg": 9600,
+        "assumed_yield": 0.85,
+        "actual_face_sheet_stock_USD": 39512092.5407217
+      },
+      "conservative": {
+        "world_mine_output_estimate_t": 430,
+        "year": 2025,
+        "assumed_S200F_USD_kg": 9600,
+        "assumed_SR200_USD_kg": 24000,
+        "assumed_yield": 0.5,
+        "actual_face_sheet_stock_USD": 167926393.2980672
+      },
+      "sources": [
+        {
+          "id": "S01",
+          "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-beryllium.pdf"
+        },
+        {
+          "id": "S02",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c2eca2d0f75e11ee9aa0f6c265376dea"
+        },
+        {
+          "id": "S03",
+          "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6"
+        }
+      ],
+      "needed_to_ground": "Obtain grade/gauge/size-specific lot quotations, lead time, rolling capacity, scrap recovery and installed-panel yield. No vendor contact or purchase was made in this task.",
+      "effect_on_lead": "USGS $1600/kg is contained Be in copper master alloy. Multipliers are owner stress cases, not supplier prices or confidence intervals. Mine-output shares do not prove availability.",
+      "closed_by_this_card": false
+    },
+    {
+      "id": "NFI-020-CONTROLLED-PROCESS-COST",
+      "rank": 6,
+      "tag": "QUESTIONABLE",
+      "claim": "Controlled fabrication costs are an explicit open procurement item.",
+      "optimistic": {
+        "route": "existing equipped contractor",
+        "owner_allowance_fraction_of_conversion_F": 0.1
+      },
+      "conservative": {
+        "route": "dedicated controlled capacity",
+        "owner_allowance_fraction_of_conversion_F": 0.3,
+        "separate_capital_C_USD": null
+      },
+      "sources": [
+        {
+          "id": "S08",
+          "url": "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.1024"
+        }
+      ],
+      "needed_to_ground": "Specify jurisdiction and process steps; get a contractor quote including enclosure/extraction or wet processing, exposure assessment, waste/hygiene and surveillance obligations. Price F and C separately.",
+      "effect_on_lead": "Adds process and capital burdens without stopping this estimate card. Cost multipliers are assumptions, not OSHA charges or a substitute for the actual exposure-control specification.",
+      "closed_by_this_card": false
+    },
+    {
+      "id": "NFI-020-INHERITED-MODEL",
+      "rank": 0,
+      "tag": "QUESTIONABLE",
+      "claim": "Crimp-branch gamma=1, stabilised Ec in wrinkling and common nu remain unvalidated inherited assumptions.",
+      "optimistic": {
+        "retained_crimp_gamma": 1.0,
+        "nu_inherited": 0.33,
+        "baseline_SF": 0.6504118436805659
+      },
+      "conservative": {
+        "nu_VHP_sensitivity": 0.08,
+        "current_E_only_SF": 0.6363083913759237,
+        "validated_shell_model_SF": null
+      },
+      "sources": [
+        {
+          "id": "S07",
+          "url": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf"
+        }
+      ],
+      "needed_to_ground": "Resolve the inherited MAINLINE-018 crimp-step and core-modulus questions using their owning evidence; this manufacturing card does not adjudicate them.",
+      "effect_on_lead": "No source or manufacturing result here establishes SF 1. Branch transitions can sharply affect direct substitutions; do not blindly scale every mode with kd.",
+      "closed_by_this_card": false
+    }
+  ],
+  "mass_correction": {
+    "status": "arithmetic_reconciled",
+    "brief_kg": 2100,
+    "pinned_faces_kg": 3498.466527043067,
+    "note": "The pinned 009c5 other branch has faces about 2044 kg but much lower SF. It may explain the brief figure, but its origin is not established. Use actual leading-point mass."
+  },
+  "inherited_evidence": {
+    "I009c5": "intake/009c5/POINT.json",
+    "I014b": "intake/014b/INPUTS.json and RESULTS.json",
+    "I016": "intake/016/compute.py and CARD.md"
+  },
+  "certification": "none"
+}

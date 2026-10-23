@@ -1,0 +1,149 @@
+{
+  "id": "N628",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N628",
+    "report": "rpt-ref-7427b639691bfaf71f29",
+    "card": "rpt-ref-7427b639691bfaf71f29",
+    "file": "evidence/fcb27bf7e1383d15-NFI.json",
+    "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+    "source_sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+    "source_json_pointer": "/prior_032_findings_retained/3",
+    "row_id": "NFI-032-CHECK-ETA",
+    "fields": {
+      "id": "NFI-032-CHECK-ETA",
+      "status": "open",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "tag": "QUESTIONABLE",
+      "reported": "The map assumes elastic eta=1.",
+      "checked": "Relative to sqrt(Ef*Ec*tf/tc), the effective coefficient is 0.82*sqrt(eta)/(1+0.64*Kdelta). For a fixed target Q, amplitude changes with eta. Plasticity in the nearly strength-limited faces is not calibrated.",
+      "followup": "Use a measured constitutive/plasticity basis self-consistently; supplemental eta cases here are PROJECTION, not new material data.",
+      "source_audit_ids": [
+        "NASA-EQ2212",
+        "NASA-DESIGN033"
+      ],
+      "owner_nfi_ids": [
+        "eta"
+      ],
+      "sensitivity_projection": {
+        "Be S-200F": {
+          "minimum_eta_for_target_Q_even_at_zero_waviness": 0.20470107079119573,
+          "eta_sensitivity_projection": [
+            {
+              "eta": 1.0,
+              "delta_mm_at_60psi": 0.15286876684636114,
+              "target_possible": true
+            },
+            {
+              "eta": 0.9,
+              "delta_mm_at_60psi": 0.13854210498572647,
+              "target_possible": true
+            },
+            {
+              "eta": 0.8,
+              "delta_mm_at_60psi": 0.12339481628518875,
+              "target_possible": true
+            },
+            {
+              "eta": 0.6,
+              "delta_mm_at_60psi": 0.08994037941380915,
+              "target_possible": true
+            },
+            {
+              "eta": 0.5,
+              "delta_mm_at_60psi": 0.07109846696731308,
+              "target_possible": true
+            }
+          ]
+        },
+        "SR-200": {
+          "minimum_eta_for_target_Q_even_at_zero_waviness": 0.5515779298036882,
+          "eta_sensitivity_projection": [
+            {
+              "eta": 1.0,
+              "delta_mm_at_60psi": 0.06522290640394086,
+              "target_possible": true
+            },
+            {
+              "eta": 0.9,
+              "delta_mm_at_60psi": 0.05221551281373981,
+              "target_possible": true
+            },
+            {
+              "eta": 0.8,
+              "delta_mm_at_60psi": 0.038463059669461404,
+              "target_possible": true
+            },
+            {
+              "eta": 0.6,
+              "delta_mm_at_60psi": 0.008089269043450881,
+              "target_possible": true
+            },
+            {
+              "eta": 0.5,
+              "delta_mm_at_60psi": 0.0,
+              "target_possible": false
+            }
+          ]
+        }
+      }
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "{\"id\": \"NFI-032-CHECK-ETA\", \"status\": \"open\", \"disposition\": \"non_blocking\", \"blocks_progress\": false, \"tag\": \"QUESTIONABLE\", \"reported\": \"The map assumes elastic eta=1.\", \"checked\": \"Relative to sqrt(Ef*Ec*tf/tc), the effective coefficient is 0.82*sqrt(eta)/(1+0.64*Kdelta). For a fixed target Q, amplitude changes with eta. Plasticity in the nearly strength-limited faces is not calibrated.\", \"followup\": \"Use a measured constitutive/plasticity basis self-consistently; supplemental eta cases here are PROJECTION, not new material data.\", \"source_audit_ids\": [\"NASA-EQ2212\", \"NASA-DESIGN033\"], \"owner_nfi_ids\": [\"eta\"], \"sensitivity_projection\": {\"Be S-200F\": {\"minimum_eta_for_target_Q_even_at_zero_waviness\": 0.20470107079119573, \"eta_sensitivity_projection\": [{\"eta\": 1.0, \"delta_mm_at_60psi\": 0.15286876684636114, \"target_possible\": true}, {\"eta\": 0.9, \"delta_mm_at_60psi\": 0.13854210498572647, \"target_possible\": true}, {\"eta\": 0.8, \"delta_mm_at_60psi\": 0.12339481628518875, \"target_possible\": true}, {\"eta\": 0.6, \"delta_mm_at_60psi\": 0.08994037941380915, \"target_possible\": true}, {\"eta\": 0.5, \"delta_mm_at_60psi\": 0.07109846696731308, \"target_possible\": true}]}, \"SR-200\": {\"minimum_eta_for_target_Q_even_at_zero_waviness\": 0.5515779298036882, \"eta_sensitivity_projection\": [{\"eta\": 1.0, \"delta_mm_at_60psi\": 0.06522290640394086, \"target_possible\": true}, {\"eta\": 0.9, \"delta_mm_at_60psi\": 0.05221551281373981, \"target_possible\": true}, {\"eta\": 0.8, \"delta_mm_at_60psi\": 0.038463059669461404, \"target_possible\": true}, {\"eta\": 0.6, \"delta_mm_at_60psi\": 0.008089269043450881, \"target_possible\": true}, {\"eta\": 0.5, \"delta_mm_at_60psi\": 0.0, \"target_possible\": false}]}}}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/627"
+    },
+    {
+      "report": "rpt-ref-7427b639691bfaf71f29",
+      "artifact": "evidence/fcb27bf7e1383d15-NFI.json",
+      "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+      "sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+      "bytes": 21459,
+      "selector": "/prior_032_findings_retained/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-7427b639691bfaf71f29",
+          "artifact": "evidence/fcb27bf7e1383d15-NFI.json",
+          "snapshot": "evidence/fcb27bf7e1383d15-NFI.json",
+          "sha256": "fcb27bf7e1383d156015e22289e5ae82886fbad55eac079c3e614326c7f90a77",
+          "bytes": 21459,
+          "selector": "/prior_032_findings_retained/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/627"
+          }
+        ]
+      }
+    }
+  ]
+}

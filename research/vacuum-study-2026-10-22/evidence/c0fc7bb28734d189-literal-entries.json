@@ -1,0 +1,92 @@
+{
+  "offline": {
+    "payload_argv": [
+      "ref-81e2f24e4e80426e80f0",
+      "-B",
+      "unpublished-local-ref:a2801d2a632c555f",
+      "offline"
+    ],
+    "door_argv": [
+      "python3",
+      "unpublished-local-ref:6b66f99ebd630954",
+      "run",
+      "--cores",
+      "1",
+      "--mem",
+      "4G",
+      "--timeout",
+      "420",
+      "--",
+      "ref-81e2f24e4e80426e80f0",
+      "-B",
+      "unpublished-local-ref:a2801d2a632c555f",
+      "offline"
+    ],
+    "environment": {
+      "PATH": "ref-ccc203c53b7d040ba4dc:/bin",
+      "LANG": "C",
+      "LC_ALL": "C",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "CUDA_VISIBLE_DEVICES": "",
+      "LD_LIBRARY_PATH": "ref-26032cca774ea337e426:/usr/lib/x86_64-linux-gnu/openblas-pthread:/usr/lib/x86_64-linux-gnu/pmix2/lib"
+    },
+    "launcher_argv": [
+      "ref-81e2f24e4e80426e80f0",
+      "-B",
+      "unpublished-local-ref:c00c27a6db0e2aa7",
+      "offline"
+    ],
+    "max_invocations": 1,
+    "backstop_seconds": 120,
+    "swap_bytes": 0,
+    "cpu_quota": 1,
+    "memory_cap_bytes": 4294967296
+  },
+  "native": {
+    "payload_argv": [
+      "ref-81e2f24e4e80426e80f0",
+      "-B",
+      "unpublished-local-ref:a2801d2a632c555f",
+      "native"
+    ],
+    "door_argv": [
+      "python3",
+      "unpublished-local-ref:6b66f99ebd630954",
+      "run",
+      "--cores",
+      "1",
+      "--mem",
+      "4G",
+      "--timeout",
+      "1500",
+      "--",
+      "ref-81e2f24e4e80426e80f0",
+      "-B",
+      "unpublished-local-ref:a2801d2a632c555f",
+      "native"
+    ],
+    "environment": {
+      "PATH": "ref-ccc203c53b7d040ba4dc:/bin",
+      "LANG": "C",
+      "LC_ALL": "C",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "CUDA_VISIBLE_DEVICES": "",
+      "LD_LIBRARY_PATH": "ref-26032cca774ea337e426:/usr/lib/x86_64-linux-gnu/openblas-pthread:/usr/lib/x86_64-linux-gnu/pmix2/lib"
+    },
+    "launcher_argv": [
+      "ref-81e2f24e4e80426e80f0",
+      "-B",
+      "unpublished-local-ref:c00c27a6db0e2aa7",
+      "native"
+    ],
+    "max_invocations": 1,
+    "backstop_seconds": 120,
+    "swap_bytes": 0,
+    "cpu_quota": 1,
+    "memory_cap_bytes": 4294967296
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "E-636e72ce49fcc0ef75e8",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-636e72ce49fcc0ef75e8",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/1",
+    "row_id": "NFI-043-02",
+    "fields": {
+      "id": "NFI-043-02",
+      "status": "open",
+      "topic": "Integer frame and resolved member loads",
+      "finding": "CHECK-022d uses continuum count 432.9863. Rounding to 433 does not define a closed triangular mesh; 435 is only a compatible counting example. The three independently recovered 026b meshes use different geometries.",
+      "needed": "A physically specified selected integer mesh, all section properties, boundary conditions, member forces and nonlinear load paths.",
+      "effect": "433-member probabilities are risk bookkeeping. The selected-point joint-moment estimate is a dimensional sensitivity, not an equilibrium solution.",
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "CHECK-022d uses continuum count 432.9863. Rounding to 433 does not define a closed triangular mesh; 435 is only a compatible counting example. The three independently recovered 026b meshes use different geometries.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

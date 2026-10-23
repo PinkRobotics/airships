@@ -1,0 +1,86 @@
+{
+  "id": "D436",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D436",
+    "report": "rpt-ref-e0fc07c506c86dae19c1",
+    "file": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+    "source_sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+    "source_json_pointer": "/new/13",
+    "row_id": "NFI-CHECK045-VENT",
+    "fields": {
+      "id": "NFI-CHECK045-VENT",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "title": "Venting is a conditional load reduction, not a qualified operation",
+      "finding": "The 0.458903732 pressure fraction and 2645.660029 kg use the 500 m full-volume state. At sea-level ISA the same absolute differential requires 2912.791114 kg on that convention. Venting an airborne neutral hull makes it descend; it needs a supported landing/handling sequence. Regulatory speeds are analogous test criteria, not established safe hull speeds.",
+      "proposed_fix": "Retain the arithmetic and require explicit terrain, support, gas volume, atmosphere and valve control. Do not infer a 500 m AGL operating condition solely from a 500 m atmospheric design altitude.",
+      "refs": [
+        "LEAK-RESULTS.json",
+        "PROSE-CROSS-CHECKS.json"
+      ]
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/new",
+    "blocks_progress": false
+  },
+  "claim": "The 0.458903732 pressure fraction and 2645.660029 kg use the 500 m full-volume state. At sea-level ISA the same absolute differential requires 2912.791114 kg on that convention. Venting an airborne neutral hull makes it descend; it needs a supported landing/handling sequence. Regulatory speeds are analogous test criteria, not established safe hull speeds. | Venting is a conditional load reduction, not a qualified operation",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1396"
+    },
+    {
+      "report": "rpt-ref-e0fc07c506c86dae19c1",
+      "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+      "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+      "bytes": 17031,
+      "selector": "/new/13"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-e0fc07c506c86dae19c1",
+          "artifact": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "snapshot": "evidence/41b8aa9cd7a7898c-NFI.json",
+          "sha256": "41b8aa9cd7a7898c9be0d27233c470bf579e1e732eacbb1a89b1498583a37d5f",
+          "bytes": 17031,
+          "selector": "/new/13"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1396"
+          }
+        ]
+      }
+    }
+  ]
+}

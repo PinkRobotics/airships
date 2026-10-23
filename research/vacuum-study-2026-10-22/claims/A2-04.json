@@ -1,0 +1,33 @@
+{
+  "id": "A2-04",
+  "kind": "review_claim",
+  "claim": "Low-emittance finish eps=.05 lowers cold edge about11.1K",
+  "original": {
+    "id": "A2-04",
+    "card": "058",
+    "claim": "Low-emittance finish eps=.05 lowers cold edge about11.1K",
+    "why_load_bearing": "Enables the claimed cold-weather coverage",
+    "outcome": "it reproduces",
+    "finding": "Independent R10 cold roots are 276.958501 K (MLCCAg) and 265.835307 K (epsilon .05): a shift of 11.123194 K. Source transfer to Be remains NFI.",
+    "evidence": [
+      "checks/058-THERMAL-MIXED-CONVECTION.json",
+      "SOURCE-AUDIT.json"
+    ]
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "it reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "snapshot": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059,
+      "selector": "/claims/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

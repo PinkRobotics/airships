@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-004b",
+  "status": "ESTIMATE_PENDING_UNA",
+  "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "R_m": 10.0,
+    "p_ext_Pa": 95460.83791390515,
+    "p_ext_source": "sealed MAINLINE-003 RESULTS p_ext_Pa"
+  },
+  "knockdowns": {
+    "conservative": "per-row sealed SP-8032",
+    "central": 0.2,
+    "optimistic_carry": 0.9,
+    "classical_reference": 1.0,
+    "sandwich_flat": 0.22,
+    "sandwich_dimple": 0.2
+  },
+  "pins": {
+    "brief": {
+      "path": "unpublished-local-ref:d0b543c5d6ed6b41",
+      "sha256": "0b25b6f4294b79a4595a6ee15156c8d368619bd73b8e8af7689ef98b5fd0c2fb",
+      "bytes": 1754
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    "sealed_004_results": {
+      "path": "evidence/c5e1f04fd8e3e4f5-RESULTS.json",
+      "sha256": "c5e1f04fd8e3e4f5b09fec52bd6e865ab277d54c5890bd5f0459348090e69567",
+      "bytes": 5567
+    },
+    "sealed_003_results": {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    "wagner_2020_pdf": {
+      "path": "unpublished-local-ref:8ac4fed62180dd97",
+      "sha256": "b54893a41e2d610cc37dc9c8bedf9dff19e51708729ed8412241184513776ebc",
+      "bytes": 3198472
+    }
+  },
+  "not_used": [
+    "Wagner 2018 analytic threshold equation, not retrieved",
+    "comparative-study equation (19), outside this lambda",
+    "Wagner 2020 equation (7), lambda_s not computed",
+    "NASA SP-8032 value 0.18 quoted by Sim et al., not this card's lambda formula",
+    "classical 1.0 as a carry"
+  ]
+}

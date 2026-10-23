@@ -1,0 +1,884 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline026-check-1020",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "phase": "all",
+  "formulation": {
+    "segments_per_arc": 3,
+    "member_shape": "three straight chords on the great-circle arc",
+    "beam": "Euler-Bernoulli 12-DOF, no shear, J=2I",
+    "rigid_modes": "orthogonality constraints, no support pins",
+    "load": "inward -p grad V, centroid fan on the 3-segment cell boundary",
+    "hessian": "p Hessian(V) of that fan, central-difference of the quadratic gradient",
+    "geometric_stiffness": "card cubic Hermite G with compression positive; initial moment, shear and axial initial-stress omitted",
+    "eigen": "K v = lambda (G - p Hessian) v",
+    "nonlinear": "not rerun; owner paths are hundreds of seconds each"
+  },
+  "column_check": {
+    "one_element_PL2_over_EI": 12.000000000000004,
+    "two_element_PL2_over_EI": 9.943846796479763,
+    "eight_element_PL2_over_EI": 9.86992778939264,
+    "rotated_one_element_PL2_over_EI": 12.000000000000012,
+    "target_one_element": 12.0,
+    "target_refined_pi_squared": 9.869604401089358
+  },
+  "section": {
+    "r_o_m": 0.12368836237368608,
+    "wall_m": 0.0008802990936851718,
+    "r_i_m": 0.1228080632800009,
+    "A_m2": 0.0006816960123390163,
+    "I_m4": 5.177588818283229e-06,
+    "GJ_Nm2": 1862115.2767509858,
+    "E_Pa": 410000000000.0,
+    "nu": 0.14,
+    "density_kg_m3": 3100.0,
+    "tag": "QUESTIONABLE"
+  },
+  "geometry": {
+    "frequency": 6,
+    "joints": 362,
+    "members": 1080,
+    "faces": 720,
+    "faces_flipped_to_outward": 0,
+    "edges_not_shared_by_two_faces": 0,
+    "base_vertices": 12,
+    "base_faces": 20,
+    "arc_min_m": 1.6274677754191154,
+    "arc_mean_m": 2.0013435607237002,
+    "arc_max_m": 2.170540448058861,
+    "arc_total_m": 2161.451045581596,
+    "chord_total_m": 2157.7938386027317,
+    "volume_m3": 4124.911210161266,
+    "sphere_volume_m3": 4188.790204786391,
+    "radial_gradient_sum": 1237.4733630483747,
+    "radial_gradient_expect_3V_over_R": 1237.47336304838,
+    "radial_relative": 4.226025942337704e-15,
+    "gradient_fd_abs_error": 1.6975024719201315e-08,
+    "icosahedron_check": {
+      "vertices": 12,
+      "faces": 20,
+      "volume_m3": 2536.150710120411,
+      "formula_volume_m3": 2536.1507101204106,
+      "relative": 1.7930612288607793e-16
+    }
+  },
+  "mass": {
+    "tube_mass_kg": 4567.702931780812,
+    "joints_5pct_kg": 228.3851465890406,
+    "node_mass_kg": 7.24,
+    "film_mass_kg": 97.515,
+    "systems_kg": 50.0,
+    "total_kg": 4950.843078369852,
+    "lift_kg": 4889.44215019,
+    "payload_kg": -61.4009281798526,
+    "overrun_kg": 61.4009281798526,
+    "mass_over_lift_percent": 1.2557859627701333,
+    "tube_uses": "A * density * great-circle arc total",
+    "tag": "QUESTIONABLE"
+  },
+  "line_load": {
+    "width_at_2p04_m": 0.5888972745734183,
+    "w_at_2p04_N_per_m": 56216.627275990555,
+    "N_equals_wR_at_mean_arc_N": 551513.6519823923,
+    "old_ps_over_2_divided_by_this_share": 1.7320508075688772,
+    "formula": "width=s/(2*sqrt(3)); w=p*width; N=w*R with s=mean arc",
+    "tag": "QUESTIONABLE"
+  },
+  "wall_screen_closed_form": {
+    "formula": "0.6 * E * wall / r_o",
+    "sigma_wall_Pa": 1750799936.9601378,
+    "sigma_wall_GPa": 1.750799936960138,
+    "tag": "QUESTIONABLE"
+  },
+  "continuum_from_011b": {
+    "sf_global_k_0p2": 1.2255279468805444,
+    "perfect_lambda": 6.127639734402722,
+    "source": "this seat 011b RESULTS SiC k=0.2 SF_global / 0.2",
+    "tag": "QUESTIONABLE"
+  },
+  "euler_at_requested_spacing": {
+    "two_way_share": 5.170415097855432,
+    "equal_triangular_share": 8.955421645706815
+  },
+  "linear": {
+    "segments_per_arc": 3,
+    "nodes": 2522,
+    "elements": 3240,
+    "physical_DOF": 15132,
+    "fan_volume_m3": 4162.619948271157,
+    "kernel_abs_norms": [
+      2.518211919084129e-06,
+      2.28692529084811e-06,
+      2.4550874980934914e-06,
+      4.531577525019894e-05,
+      4.2781931472326716e-05,
+      4.349051944541792e-05
+    ],
+    "hessian_antisymmetry_max": 2.437862466151547e-11,
+    "triangle_hessian_gap": 1.4340380734741604e-11,
+    "net_force_N": [
+      -4.067260306328535e-09,
+      -1.1536030797287822e-08,
+      1.1959855328314006e-09
+    ],
+    "net_moment_Nm": [
+      3.128661774098873e-10,
+      -3.0195224098861217e-09,
+      -3.92901711165905e-10
+    ],
+    "static_relative_residual": 9.55398030193478e-14,
+    "reaction_norm": 3.5410369175721063e-11,
+    "compression_N": {
+      "segment_min": 451747.41222792544,
+      "segment_mean": 550033.693863392,
+      "segment_max": 587662.8085699541,
+      "member_mean": 550033.6938633921,
+      "member_max": 587466.694121182
+    },
+    "follower": {
+      "label": "follower",
+      "modes": [
+        {
+          "lambda": 6.472325166760526,
+          "rayleigh": 6.472325166760517,
+          "residual": 8.452692437781366e-05,
+          "radial_fraction": 0.9791094215684253,
+          "joint_participation_fraction": 0.14285513056407
+        },
+        {
+          "lambda": 6.472331407201779,
+          "rayleigh": 6.472331407201795,
+          "residual": 0.0001244156233655678,
+          "radial_fraction": 0.9791096215320471,
+          "joint_participation_fraction": 0.14285513922108703
+        },
+        {
+          "lambda": 6.472356618058064,
+          "rayleigh": 6.472356618058049,
+          "residual": 0.0001958127663190715,
+          "radial_fraction": 0.9791093842247662,
+          "joint_participation_fraction": 0.1428547553213799
+        },
+        {
+          "lambda": 6.475749545477438,
+          "rayleigh": 6.4757495454774485,
+          "residual": 0.00012026692176674029,
+          "radial_fraction": 0.9828825461473398,
+          "joint_participation_fraction": 0.1449234405321678
+        },
+        {
+          "lambda": 6.514067237474528,
+          "rayleigh": 6.514067237474536,
+          "residual": 0.000253022712053901,
+          "radial_fraction": 0.9789223799008229,
+          "joint_participation_fraction": 0.142251683739594
+        },
+        {
+          "lambda": 6.5142347172075405,
+          "rayleigh": 6.514234717207553,
+          "residual": 0.00035653406312368704,
+          "radial_fraction": 0.9792295125677132,
+          "joint_participation_fraction": 0.14268843813963256
+        }
+      ],
+      "history": [
+        {
+          "iteration": 5,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.48766932783412,
+            6.496891446806058,
+            6.50283491640833,
+            6.50771575703932,
+            6.533969687090355,
+            6.535904059635665
+          ]
+        },
+        {
+          "iteration": 10,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.47567341494524,
+            6.4775030618131595,
+            6.481819060436679,
+            6.486405798831376,
+            6.5164512125452365,
+            6.519923087934298
+          ]
+        },
+        {
+          "iteration": 15,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.47334787677739,
+            6.474406042554674,
+            6.47597355952796,
+            6.479306782458777,
+            6.514986572811639,
+            6.516889602616523
+          ]
+        },
+        {
+          "iteration": 20,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.4726551987939756,
+            6.4731084758265744,
+            6.47372051146989,
+            6.476830221626889,
+            6.514562237842372,
+            6.515637166582406
+          ]
+        },
+        {
+          "iteration": 25,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.472434223567541,
+            6.472595670723843,
+            6.4728667644897,
+            6.476073502199881,
+            6.514334750091297,
+            6.514949774903604
+          ]
+        },
+        {
+          "iteration": 30,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.472360507104682,
+            6.472414350127361,
+            6.4725382577646675,
+            6.475844349287753,
+            6.514201321482733,
+            6.5145641974209765
+          ]
+        },
+        {
+          "iteration": 35,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.472334620770497,
+            6.472352517433572,
+            6.472408850284769,
+            6.4757728453189936,
+            6.514119941855577,
+            6.51435098179681
+          ]
+        },
+        {
+          "iteration": 40,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.472325166760526,
+            6.472331407201779,
+            6.472356618058064,
+            6.475749545477438,
+            6.514067237474528,
+            6.5142347172075405
+          ]
+        }
+      ]
+    },
+    "fixed_direction": {
+      "label": "fixed_pressure_direction",
+      "modes": [
+        {
+          "lambda": 6.579531734296549,
+          "rayleigh": 6.579531734296541,
+          "residual": 0.00023618177727794537,
+          "radial_fraction": 0.9842312334374541,
+          "joint_participation_fraction": 0.14490366543764477
+        },
+        {
+          "lambda": 6.593632139903846,
+          "rayleigh": 6.593632139903831,
+          "residual": 0.00030232005043642567,
+          "radial_fraction": 0.9807367793057329,
+          "joint_participation_fraction": 0.14283924828532688
+        },
+        {
+          "lambda": 6.593732527461574,
+          "rayleigh": 6.593732527461577,
+          "residual": 0.0004379378417462417,
+          "radial_fraction": 0.9807388080361816,
+          "joint_participation_fraction": 0.14283877729488229
+        },
+        {
+          "lambda": 6.593939445223119,
+          "rayleigh": 6.593939445223123,
+          "residual": 0.000618509114247074,
+          "radial_fraction": 0.9807486764664233,
+          "joint_participation_fraction": 0.14283730959652013
+        },
+        {
+          "lambda": 6.632591757889292,
+          "rayleigh": 6.632591757889291,
+          "residual": 0.00045365715811278556,
+          "radial_fraction": 0.9808720211385857,
+          "joint_participation_fraction": 0.14280971206122864
+        },
+        {
+          "lambda": 6.632902758004631,
+          "rayleigh": 6.632902758004625,
+          "residual": 0.0005789746408394117,
+          "radial_fraction": 0.9832820993839168,
+          "joint_participation_fraction": 0.14289475609455585
+        }
+      ],
+      "history": [
+        {
+          "iteration": 5,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.612008127292683,
+            6.621542367702338,
+            6.633005247928457,
+            6.634234794147097,
+            6.653404891562309,
+            6.656945067350531
+          ]
+        },
+        {
+          "iteration": 10,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.59201434367438,
+            6.600760872363557,
+            6.605595617397177,
+            6.6084057855096905,
+            6.636596623470278,
+            6.636859916919788
+          ]
+        },
+        {
+          "iteration": 15,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.585025813464761,
+            6.596684065564153,
+            6.599526020431333,
+            6.601961568881917,
+            6.633771151328132,
+            6.634910796767473
+          ]
+        },
+        {
+          "iteration": 20,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.581723881887103,
+            6.595071763756532,
+            6.596530468350071,
+            6.598313728219812,
+            6.6332657201283505,
+            6.634263424601738
+          ]
+        },
+        {
+          "iteration": 25,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.580334787133212,
+            6.5942857263419405,
+            6.595033331408079,
+            6.596154647744518,
+            6.63304235470336,
+            6.633815327801433
+          ]
+        },
+        {
+          "iteration": 30,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.579801042715166,
+            6.593903673396341,
+            6.594286609631451,
+            6.594943944498991,
+            6.632869775449463,
+            6.63345172093174
+          ]
+        },
+        {
+          "iteration": 35,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.579603749694543,
+            6.593720038785498,
+            6.593916033249005,
+            6.594288290170703,
+            6.632721609019756,
+            6.63315127257881
+          ]
+        },
+        {
+          "iteration": 40,
+          "shift": 6.0,
+          "lowest_positive": [
+            6.579531734296549,
+            6.593632139903846,
+            6.593732527461574,
+            6.593939445223119,
+            6.632591757889292,
+            6.632902758004631
+          ]
+        }
+      ]
+    },
+    "max_axial_stress_Pa": 862059918.1056993,
+    "wall_lambda_from_this_axial_stress": 2.030949241680748,
+    "strength_lambda_from_this_axial_stress": 4.524047479866488,
+    "member_euler_using_this_compression": {
+      "min": 7.582215002592791,
+      "mean": 9.7978244944084,
+      "max": 17.189021031300257,
+      "formula": "pi^2 EI / full_arc^2 / mean_segment_N"
+    },
+    "tag": "QUESTIONABLE",
+    "projection": "rigid joints and fan load transfer"
+  },
+  "continuum_gap": {
+    "my_lambda": 6.472325166760517,
+    "continuum": 6.127639734402722,
+    "relative_above_continuum": 0.056250929770333906
+  },
+  "cited_nonlinear_ratios": [
+    {
+      "case": "perfect",
+      "source": "owner published critical lambdas; this check did not rerun the nonlinear paths",
+      "lambda_6seg": 5.140679594069376,
+      "lambda_12seg": 5.107400587927113,
+      "k_over_published_finest_linear": 0.7899806437105842,
+      "k_over_011b_continuum": 0.8335021002054629,
+      "mesh_change_m6_to_m12": -0.00647365888756339
+    },
+    {
+      "case": "joint_offset",
+      "source": "owner published critical lambdas; this check did not rerun the nonlinear paths",
+      "lambda_6seg": 4.983930742116369,
+      "lambda_12seg": 4.950376047460733,
+      "k_over_published_finest_linear": 0.7656930740515268,
+      "k_over_011b_continuum": 0.8078764845895855,
+      "mesh_change_m6_to_m12": -0.006732576432510383
+    },
+    {
+      "case": "crooked",
+      "source": "owner published critical lambdas; this check did not rerun the nonlinear paths",
+      "lambda_6seg": 5.116337662216148,
+      "lambda_12seg": 5.082613207915408,
+      "k_over_published_finest_linear": 0.7861466874581936,
+      "k_over_011b_continuum": 0.8294569243977957,
+      "mesh_change_m6_to_m12": -0.006591522398881832
+    },
+    {
+      "case": "eigenmode",
+      "source": "owner published critical lambdas; this check did not rerun the nonlinear paths",
+      "lambda_6seg": 4.567958873052904,
+      "lambda_12seg": 4.539579837323961,
+      "k_over_published_finest_linear": 0.7021536964501656,
+      "k_over_011b_continuum": 0.7408366082354948,
+      "mesh_change_m6_to_m12": -0.006212629429821479
+    }
+  ],
+  "comparisons": [
+    {
+      "row": "geometry",
+      "field": "joints",
+      "card": 362,
+      "mine": 362,
+      "difference": 0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "geometry",
+      "field": "members",
+      "card": 1080,
+      "mine": 1080,
+      "difference": 0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "geometry",
+      "field": "faces",
+      "card": 720,
+      "mine": 720,
+      "difference": 0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "geometry",
+      "field": "arc_min_m",
+      "card": 1.6274677754191222,
+      "mine": 1.6274677754191154,
+      "difference": -6.8833827526759706e-15,
+      "relative": 4.2295047905961096e-15,
+      "status": "match"
+    },
+    {
+      "row": "geometry",
+      "field": "arc_mean_m",
+      "card": 2.0013435607236976,
+      "mine": 2.0013435607237002,
+      "difference": 2.6645352591003757e-15,
+      "relative": 1.3313732391538333e-15,
+      "status": "match"
+    },
+    {
+      "row": "geometry",
+      "field": "arc_max_m",
+      "card": 2.170540448058861,
+      "mine": 2.170540448058861,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "geometry",
+      "field": "arc_total_m",
+      "card": 2161.4510455815935,
+      "mine": 2161.451045581596,
+      "difference": 2.7284841053187847e-12,
+      "relative": 1.2623390711977085e-15,
+      "status": "match"
+    },
+    {
+      "row": "section",
+      "field": "A_m2",
+      "card": 0.0006816960123390163,
+      "mine": 0.0006816960123390163,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "section",
+      "field": "I_m4",
+      "card": 5.177588818283229e-06,
+      "mine": 5.177588818283229e-06,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "section",
+      "field": "GJ_Nm2",
+      "card": 1862115.2767509858,
+      "mine": 1862115.2767509858,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "mass",
+      "field": "tube_mass_kg",
+      "card": 4567.702931780806,
+      "mine": 4567.702931780812,
+      "difference": 6.366462912410498e-12,
+      "relative": 1.3937996860773106e-15,
+      "status": "match"
+    },
+    {
+      "row": "mass",
+      "field": "joints_5pct_kg",
+      "card": 228.3851465890403,
+      "mine": 228.3851465890406,
+      "difference": 3.126388037344441e-13,
+      "relative": 1.368910405968787e-15,
+      "status": "match"
+    },
+    {
+      "row": "mass",
+      "field": "node_mass_kg",
+      "card": 7.24,
+      "mine": 7.24,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "mass",
+      "field": "total_kg",
+      "card": 4950.843078369846,
+      "mine": 4950.843078369852,
+      "difference": 6.366462912410498e-12,
+      "relative": 1.2859351047148862e-15,
+      "status": "match"
+    },
+    {
+      "row": "mass",
+      "field": "payload_kg",
+      "card": -61.40092817984714,
+      "mine": -61.4009281798526,
+      "difference": -5.4569682106375694e-12,
+      "relative": 8.887436024832996e-14,
+      "status": "match"
+    },
+    {
+      "row": "line_load",
+      "field": "width_m",
+      "card": 0.5888972745734183,
+      "mine": 0.5888972745734183,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "line_load",
+      "field": "w_N_per_m",
+      "card": 56216.62727599055,
+      "mine": 56216.627275990555,
+      "difference": 7.275957614183426e-12,
+      "relative": 1.294271457884294e-16,
+      "status": "match"
+    },
+    {
+      "row": "line_load",
+      "field": "N_wR_mean_N",
+      "card": 551513.6519823915,
+      "mine": 551513.6519823923,
+      "difference": 8.149072527885437e-10,
+      "relative": 1.477583102175976e-15,
+      "status": "match"
+    },
+    {
+      "row": "line_load",
+      "field": "old_share_over_new",
+      "card": 1.7320508075688772,
+      "mine": 1.7320508075688772,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "wall",
+      "field": "sigma_Pa",
+      "card": 1750799936.9601378,
+      "mine": 1750799936.9601378,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "011b",
+      "field": "continuum_perfect",
+      "card": 6.127639734402722,
+      "mine": 6.127639734402722,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "011b",
+      "field": "euler_two_way",
+      "card": 5.170415097855431,
+      "mine": 5.170415097855432,
+      "difference": 1.7763568394002505e-15,
+      "relative": 3.4356174616174287e-16,
+      "status": "match"
+    },
+    {
+      "row": "011b",
+      "field": "euler_triangular_s_2p04",
+      "card": 8.955421645706814,
+      "mine": 8.955421645706815,
+      "difference": 1.7763568394002505e-15,
+      "relative": 1.9835546662974015e-16,
+      "status": "match"
+    },
+    {
+      "row": "linear",
+      "field": "published_finest_above_continuum",
+      "card": 0.0550918010983863,
+      "mine": 0.055091801098386343,
+      "difference": 4.163336342344337e-17,
+      "relative": 7.557088821454932e-16,
+      "status": "match"
+    },
+    {
+      "row": "card_text",
+      "field": "percent_above_continuum_rounded",
+      "card": 0.0551,
+      "mine": 0.055091801098386343,
+      "difference": -8.19890161365966e-06,
+      "relative": 0.00014880039226242576,
+      "status": "rounding"
+    },
+    {
+      "row": "nonlinear_cited:perfect",
+      "field": "k_over_finest_linear",
+      "card": 0.7899806437105842,
+      "mine": 0.7899806437105842,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "nonlinear_cited:joint_offset",
+      "field": "k_over_finest_linear",
+      "card": 0.7656930740515268,
+      "mine": 0.7656930740515268,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "nonlinear_cited:crooked",
+      "field": "k_over_finest_linear",
+      "card": 0.7861466874581936,
+      "mine": 0.7861466874581936,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "nonlinear_cited:eigenmode",
+      "field": "k_over_finest_linear",
+      "card": 0.7021536964501656,
+      "mine": 0.7021536964501656,
+      "difference": 0.0,
+      "relative": 0.0,
+      "status": "match"
+    },
+    {
+      "row": "linear",
+      "field": "lambda_vs_card_m24",
+      "card": 6.465222443853006,
+      "mine": 6.472325166760517,
+      "difference": 0.00710272290751135,
+      "relative": 0.0010986045676223354,
+      "status": "mesh"
+    },
+    {
+      "row": "linear",
+      "field": "lambda_vs_card_m3",
+      "card": 6.472319662311285,
+      "mine": 6.472325166760517,
+      "difference": 5.504449232418551e-06,
+      "relative": 8.504600389982741e-07,
+      "status": "rounding"
+    },
+    {
+      "row": "linear",
+      "field": "dead_lambda",
+      "card": 6.571963275671537,
+      "mine": 6.579531734296541,
+      "difference": 0.007568458625003771,
+      "relative": 0.0011516282589437339,
+      "status": "mesh"
+    },
+    {
+      "row": "linear",
+      "field": "discrete_mean_compression_N",
+      "card": 550543.522936495,
+      "mine": 550033.6938633921,
+      "difference": -509.82907310291193,
+      "relative": 0.0009260468098572481,
+      "status": "mesh"
+    },
+    {
+      "row": "wall",
+      "field": "unit_axial_stress_Pa",
+      "card": 863586316.6401045,
+      "mine": 862059918.1056993,
+      "difference": -1526398.5344052315,
+      "relative": 0.0017675112550924667,
+      "status": "mesh"
+    },
+    {
+      "row": "wall",
+      "field": "nominal_wall_lambda",
+      "card": 2.027359516037556,
+      "mine": 2.030949241680748,
+      "difference": 0.0035897256431920432,
+      "relative": 0.0017706408827814165,
+      "status": "mesh"
+    },
+    {
+      "row": "linear",
+      "field": "member_euler_min",
+      "card": 7.571721534683924,
+      "mine": 7.582215002592791,
+      "difference": 0.010493467908866627,
+      "relative": 0.0013858760997481228,
+      "status": "mesh"
+    },
+    {
+      "row": "load",
+      "field": "fan_volume_m3",
+      "card": 4167.275913727444,
+      "mine": 4162.619948271157,
+      "difference": -4.655965456287049,
+      "relative": 0.0011172683433198676,
+      "status": "mesh"
+    }
+  ],
+  "mismatches": [
+    {
+      "row": "linear",
+      "field": "lambda_vs_card_m24",
+      "card": 6.465222443853006,
+      "mine": 6.472325166760517,
+      "difference": 0.00710272290751135,
+      "relative": 0.0010986045676223354,
+      "status": "mesh"
+    },
+    {
+      "row": "linear",
+      "field": "dead_lambda",
+      "card": 6.571963275671537,
+      "mine": 6.579531734296541,
+      "difference": 0.007568458625003771,
+      "relative": 0.0011516282589437339,
+      "status": "mesh"
+    },
+    {
+      "row": "linear",
+      "field": "discrete_mean_compression_N",
+      "card": 550543.522936495,
+      "mine": 550033.6938633921,
+      "difference": -509.82907310291193,
+      "relative": 0.0009260468098572481,
+      "status": "mesh"
+    },
+    {
+      "row": "wall",
+      "field": "unit_axial_stress_Pa",
+      "card": 863586316.6401045,
+      "mine": 862059918.1056993,
+      "difference": -1526398.5344052315,
+      "relative": 0.0017675112550924667,
+      "status": "mesh"
+    },
+    {
+      "row": "wall",
+      "field": "nominal_wall_lambda",
+      "card": 2.027359516037556,
+      "mine": 2.030949241680748,
+      "difference": 0.0035897256431920432,
+      "relative": 0.0017706408827814165,
+      "status": "mesh"
+    },
+    {
+      "row": "linear",
+      "field": "member_euler_min",
+      "card": 7.571721534683924,
+      "mine": 7.582215002592791,
+      "difference": 0.010493467908866627,
+      "relative": 0.0013858760997481228,
+      "status": "mesh"
+    },
+    {
+      "row": "load",
+      "field": "fan_volume_m3",
+      "card": 4167.275913727444,
+      "mine": 4162.619948271157,
+      "difference": -4.655965456287049,
+      "relative": 0.0011172683433198676,
+      "status": "mesh"
+    }
+  ]
+}

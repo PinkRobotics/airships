@@ -1,0 +1,55 @@
+{
+  "unit": "vacuum-mainline066-improvement-vector-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "open": [
+    {
+      "id": "NFI-066-MODULUS-STATUS",
+      "fact": "RUN.json singles status says face modulus cannot close alone on every row. That label is wrong for concept ISA and all four TRL 7 cases. The search seeded factors 1.2, 1.8, and 3.0 and then treated the factor-30 cap as the witness. Payload rises and then falls, so the cap sits past the peak. PROBE.json modulus_closure is the correction. Concept optimistic stays negative at factor 3 and at the cap."
+    },
+    {
+      "id": "NFI-066-SLSQP-NULLS",
+      "fact": "The SLSQP plus-5-percent slopes in RUN.json are null when the perturbed reoptimization lost a margin. Those nulls are solver failures, not zero derivatives. The reported slopes are p2_opt at a factor of 1.02. Core density and core modulus are in DERIV.json. Face strength is a real zero."
+    },
+    {
+      "id": "NFI-066-GC-WALL",
+      "fact": "Raising core shear past about a factor of 1.1 makes p2_opt return no geometry. The factor-30 cap payload is null. Core shear is not a closer."
+    },
+    {
+      "id": "NFI-066-KB-COUPLING",
+      "fact": "Scaling core density also scales kb = 0.5*67e9*rho/2700, so cure stress moves with the density knob. That coupling is QUESTIONABLE. model63.py was not edited."
+    },
+    {
+      "id": "NFI-066-EC-QUESTIONABLE",
+      "fact": "Core modulus 103421359.3975254 Pa is the inherited model value. This card did not re-source it. It stays QUESTIONABLE."
+    },
+    {
+      "id": "NFI-066-L1-NUMERICAL",
+      "fact": "The least log-improvement is a numerical search plus 39 pair probes. It is not a proof that no untested direction is cheaper. Every verified least-mix log is face density alone. RUN.json beats_density_only is true only because the single-lever bump sits about 0.002 nats above the verified density factor. That flag is not a second knob."
+    },
+    {
+      "id": "NFI-066-PROJECTION",
+      "fact": "Gamma above 0.20, Q above 0.33, a lighter face, and a higher modulus are projection targets. They were not run as a new admissible sweep."
+    },
+    {
+      "id": "NFI-066-DIRECT-FOLLOWUP",
+      "fact": "The pair probe, the modulus closure, the face slopes already in RESULTS.json, and DERIV.json ran as direct python on the pinned copy, one core, after the kept simjob. The kept search is simjob-20261020t175116-2cf59f790fe1, exit 0, 112 s."
+    },
+    {
+      "id": "NFI-066-DISCARDED-KEY",
+      "fact": "simjob-20261020t175108-69dd00ff1abd exited 1 on a KeyError. prior_rows was keyed by law as well as radius and weather. That scope is a method error. It is not a model result."
+    },
+    {
+      "id": "NFI-066-BETA1-UNREVIEWED",
+      "fact": "BETA set to 1 is the handbook line requested by this card. The eight rows remain unreviewed. The natural model value 0.682327803828082 was asserted and then replaced for the run. It was not used in the margins."
+    },
+    {
+      "id": "NFI-THERMAL-RESIDUAL",
+      "fact": "The cure-shaped residual left by the 065 review stays open. This card did not recompute the thermal field. Core-density scaling moves kb, which is a further reason the residual is not closed."
+    },
+    {
+      "id": "NFI-2171-UNOPENED",
+      "fact": "FPL Report 2171 stays unopened. No face gauge, core, density, cell, bond, stress, or specimen count was checked on this card."
+    }
+  ]
+}

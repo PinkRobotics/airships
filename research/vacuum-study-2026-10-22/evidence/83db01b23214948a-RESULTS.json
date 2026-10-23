@@ -1,0 +1,50 @@
+{
+  "unit": "vacuum-mainline075-wrinkle-exemption-1022",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": false,
+  "simjob": null,
+  "finite_element": false,
+  "evaluation": "direct, one design point",
+  "design_point": {
+    "R_m": 30.0,
+    "weather": "optimistic",
+    "maturity": "concept",
+    "tf_m": 0.0036681482955475604,
+    "tc_m": 0.16703346903487332,
+    "density_kg_m3": 914.2756147739346,
+    "E_Pa": 293600000000.0,
+    "face_wrinkling": 1.0000000003868577,
+    "global_buckling": 1.000000008796374,
+    "thermal_interface": 1.0708584968155688
+  },
+  "wrinkle": {
+    "half_wavelength_m": null,
+    "reason": "CR-1457 prints no honeycomb half-wavelength. (2.2-14) and (2.2-15) are stresses.",
+    "cell_m": 0.009525,
+    "R_over_cell": 3149.606299212599,
+    "R_over_tf": 8178.513403183382,
+    "both_membrane_principals_compressive_and_equal": true,
+    "one_principal_exemption": false,
+    "verdict": "admissible with a named limit",
+    "named_limit": "half-wavelength is not printed, so long-beside-R is unchecked"
+  },
+  "standing_targets_kg_m3": {
+    "carry": "equibiaxial pair",
+    "concept_r20_optimistic": 896.8181102430983,
+    "trl7_r20_optimistic": 1030.8460016942847,
+    "pre_2_2_15_if_the_limit_closes_against_the_rule": [
+      993,
+      1146
+    ]
+  },
+  "thermal": {
+    "source": "model estimate, identical in model61.py and model63.py",
+    "kb_Pa": 198747601.12135726,
+    "delta_T_K": 95.86098778603802,
+    "tau_Pa": 160963.31386619766,
+    "margin": 1.0708584968155688,
+    "margin_at_1850_same_gauges": 1.0708584968155688,
+    "density_where_thermal_binds_first_kg_m3": null,
+    "reason": "face density does not enter tau or the wrinkling allowable; wrinkling is already 1.000"
+  }
+}

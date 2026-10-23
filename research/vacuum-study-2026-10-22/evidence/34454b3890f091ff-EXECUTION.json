@@ -1,0 +1,41 @@
+{
+  "execution_kind": "Independent postprocessing of pinned owner force arrays; no new FE equilibrium solve",
+  "jobs": [
+    {
+      "label": "fold-01",
+      "returncode": 0,
+      "started_utc": "2026-10-20T11:00:12.657385+00:00",
+      "ended_utc": "2026-10-20T11:00:13.089979+00:00",
+      "elapsed_seconds": 0.4325839439406991,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "evidence/3eadceb9931d9741-fold.py",
+      "bytes": 18173,
+      "sha256": "3eadceb9931d9741e6636b8a0a4ce223dd31398ad642a39e7f8245dfd5ced11a"
+    },
+    {
+      "path": "evidence/904380251fc13049-run_job.py",
+      "bytes": 1914,
+      "sha256": "904380251fc130490c38afab2937b487c21c4304aded328577de068c26ef4104"
+    },
+    {
+      "path": "evidence/23c6ecb7ed6ebb02-INPUTS.json",
+      "bytes": 12721,
+      "sha256": "23c6ecb7ed6ebb02f28e295c23348eff29975a68b90cea4ad54c8ab8a311d94e"
+    }
+  ],
+  "all_jobs_released": true,
+  "outstanding_jobs": [],
+  "cores": 1,
+  "requested_memory": "1G",
+  "gpu_requested": false,
+  "task_time_limit": null,
+  "phase_time_limit": null,
+  "technical_watchdog": "Default simjob launcher watchdog (7200 seconds); no work budget",
+  "scientific_checks_passed": 843
+}

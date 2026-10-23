@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-059",
+  "unit": "vacuum-mainline059-retained-water-1020",
+  "tag": "QUESTIONABLE",
+  "status": "OPEN",
+  "items": [
+    {
+      "id": "NFI-059-RETENTION-CALIBRATION",
+      "tag": "PROJECTION",
+      "claim": "Film and drop retention is calibrated on one measured condensation plate (acrylic, 54 g/m2) and one modelled rain plate (PVC, 0.08 mm, the upper reading), and transferred to each finish through Furmidge with assumed hysteresis.",
+      "needed_to_ground": "Weigh a full-scale curved panel with each finish after rain and dew at 0-90 deg and inverted."
+    },
+    {
+      "id": "NFI-059-PAINT",
+      "tag": "QUESTIONABLE",
+      "claim": "040's white silicate paint has no sourced wettability or water uptake; it is modelled as a hydrophilic oxide.",
+      "needed_to_ground": "Contact angles and uptake of the actual paint."
+    },
+    {
+      "id": "NFI-059-P3-PONDS",
+      "tag": "PROJECTION",
+      "claim": "P3's ponds use 024's sag crown and mean, 052's bay size through its sag debit, a quadratic dish and a planar bay pattern near the top. 052 does not fix the frame's orientation; the pond mass spans 5-171 kg at R 10 with it.",
+      "needed_to_ground": "A full-size sagged bay with members: pond mass against tilt, and the spill angle."
+    },
+    {
+      "id": "NFI-059-P3-FINISH",
+      "tag": "QUESTIONABLE",
+      "claim": "P3's OD4/white protection outer layer has no sourced wettability; paint-like and FEP-like bounds are used.",
+      "needed_to_ground": "Contact angles of the actual protection layer."
+    },
+    {
+      "id": "NFI-059-DRYING",
+      "tag": "PROJECTION",
+      "claim": "Drying is bracketed between 040's sphere correlation and a flat-plate wind correlation (a factor up to about 8); the inner face is taken as adiabatic; the low solar absorptance of the mirror finishes limits solar drying.",
+      "needed_to_ground": "An outdoor drying run on a finished panel under logged sun, wind, temperature and humidity."
+    },
+    {
+      "id": "NFI-059-DEW",
+      "tag": "PROJECTION",
+      "claim": "Dew is distributed by this seat's energy balance (050's saturated case within 2%, reference 25% low); frost and freezing of retained water are not modelled (no verified frost source).",
+      "needed_to_ground": "Night dew and frost weighing on a finished panel."
+    },
+    {
+      "id": "NFI-059-TOPCOAT",
+      "tag": "QUESTIONABLE",
+      "claim": "The superhydrophobic topcoat's dry areal mass assumes 1.0-1.5 g/cm3 on its 13-25 um film; it is 'hazy translucent white' and unqualified over a silver mirror; it lasts about a year and 30 Taber cycles.",
+      "needed_to_ground": "Areal mass, optics and life of the coating on the finish."
+    },
+    {
+      "id": "NFI-059-SHELTER",
+      "tag": "QUESTIONABLE",
+      "claim": "Shelter cost scales one 30 x 15 m inflatable hangar price by floor area; height, wind and handling are not addressed; historic airship hangars are not comparable.",
+      "needed_to_ground": "A quotation for a shelter sized to the hull."
+    },
+    {
+      "id": "NFI-059-AIRKNIFE",
+      "tag": "QUESTIONABLE",
+      "claim": "Air-knife residual water and a gantry for a sphere are not sourced or costed.",
+      "needed_to_ground": "A blow-off test on a curved panel."
+    },
+    {
+      "id": "NFI-059-TILT",
+      "tag": "PROJECTION",
+      "claim": "Tipping a moored P3 sphere past 14 deg needs handling hardware that is not designed.",
+      "needed_to_ground": "A mooring and handling concept."
+    },
+    {
+      "id": "NFI-059-IN-FLIGHT",
+      "tag": "QUESTIONABLE",
+      "claim": "Rain met in flight adds water beyond the ground-retained film; not computed.",
+      "needed_to_ground": "A flight rain-exposure case."
+    },
+    {
+      "id": "NFI-059-WET-OPTICS",
+      "tag": "QUESTIONABLE",
+      "claim": "Retained water changes the finishes' absorptance and emittance (048's open item); dry optics are used.",
+      "needed_to_ground": "Wet optical measurements on each finish."
+    }
+  ]
+}

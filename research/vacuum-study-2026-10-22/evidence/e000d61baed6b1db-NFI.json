@@ -1,0 +1,79 @@
+[
+  {
+    "NFI_id": "NFI-016-SEAM",
+    "rank": 1,
+    "gap": "Joint and seam mass at the 009 SiC point: 89.2 to 3004.3 kg across panel sizes 4 m to 0.25 m, against the 216.427 kg five percent allowance. Only 4 m panels, which do not exist in SiC today (PROJECTION), fit; today's 0.5 m Hexoloy plate size is 330 to 694 percent of the allowance; conservative 0.25 m tiling leaves the hull 966 to 2543 kg heavy.",
+    "direction": "Pin the real maximum Hexoloy SA plate size from the manufacturer, and produce a seam parts list (doubler, adhesive, core splice) for a named panel size; or re-run the point on a face family whose sheet widths are 2 to 4 m today (aluminium, CFRP layup).",
+    "effect": "Decides alone whether the 009 point floats; up to 1388 percent of the joint allowance."
+  },
+  {
+    "NFI_id": "NFI-016-CLIMATE",
+    "rank": 2,
+    "gap": "Lift at the site: dL/L = dp/p - dT/T. A QUESTIONABLE hot summer afternoon at +25.1 K takes the margin to -186.3 kg; 0.1 mm of retained water is 125.6 kg, 51 percent of the margin; 1 mm is 1257 kg. No site is named anywhere in the mainline, so the 5 percent margin has no climate envelope.",
+    "direction": "Name the operating site and season windows; size a ballast or trim system for the hot-day deficit; require a hydrophobic coating and a shedding check before flight; weigh the hull after rain.",
+    "effect": "Margin negative at the hot extreme without these; climbing does not recover it (lift falls about 9.4 percent per km)."
+  },
+  {
+    "NFI_id": "NFI-016-CTE",
+    "rank": 3,
+    "gap": "CTE mismatch SiC 4.5e-6 vs PVC 60e-6 per K drives sandwich shear-lag at 283 kPa per 30 K face-core difference (567 kPa at 60 K), against a QUESTIONABLE H35 shear strength of 0.40 to 0.55 MPa: one-off SF 1.41 to 1.94 at 30 K, 0.71 to 0.97 at 60 K, cycled daily. Not one of the five scored modes; no fatigue law.",
+    "direction": "Bond-line and core shear coupon under thermal cycling over the full daily band; pin DIAB H35 shear strength and modulus; add the mismatch mode to the scored set.",
+    "effect": "A new structural failure mode at the 009 point, unquantified for the life of the hull."
+  },
+  {
+    "NFI_id": "NFI-016-PUMP",
+    "rank": 4,
+    "gap": "Holding p_int at a 1000 Pa ceiling takes 46.3 L/s there, 527 to 844 W real, and a QUESTIONABLE 150 to 400 kg pump set: 61 to 164 percent of the whole 244.472 kg float margin. The ceiling itself is an owner assumption; commissioning pump-down is 506 kWh.",
+    "direction": "Shop a real Roots or screw pump specification at this duty (mass, power, intake pressure curve); set the operational p_int ceiling from the leak budget; consider distributed smaller pumps or a ground-only pump.",
+    "effect": "Trades directly against the margin; can exceed it entirely at the conservative end."
+  },
+  {
+    "NFI_id": "NFI-016-BAKEOUT",
+    "rank": 5,
+    "gap": "Resident moisture 0.5 to 3 percent of the 2208.2 kg PVC core is 11.0 to 66.2 kg of water, worth 347 to 2079 Pa inside if released, against the 954.6 Pa one-percent-per-day ceiling. Steady outgassing itself is only 0.00 to 0.03 percent of the leak budget.",
+    "direction": "Measure water content of the core lot; specify a bake-out and vent procedure at commissioning with a dry-gas backfill during assembly.",
+    "effect": "Without bake-out the moisture alone can exceed the one-percent ceiling after release."
+  },
+  {
+    "NFI_id": "NFI-016-LEAKSPEC",
+    "rank": 6,
+    "gap": "The 1 percent-per-day budget equals a 2.48 mm2 choked hole or 4.25 mm2 molecular aperture: vacuum integrity at this budget is a discrete-defect and detection problem, not a material one. No leak specification, no detection threshold, no in-service pressure telemetry is defined.",
+    "direction": "Set an operational leak spec well inside 46.28 Pa m3/s with margin; specify seam leak testing per panel at assembly and a pressure sensor resolution able to see a fraction of the budget.",
+    "effect": "Detection latency decides whether the trim pump is a convenience or a life-limit."
+  },
+  {
+    "NFI_id": "NFI-016-MOOR",
+    "rank": 7,
+    "gap": "Mooring design load 48.3 kN at 20 m/s with a 1.4 gust factor; a bare 0.0707 m2 hardpoint patch sees 683 kPa against a 500.0 kPa QUESTIONABLE core allowable, SF 0.73. Added air mass 2445 kg equals hull mass, so snatch loads need a dynamic mooring analysis.",
+    "direction": "Design spreaders of at least 0.145 m2 per hardpoint for core SF 1.5; run the mooring dynamics with the added mass; qualify six hardpoints, about 48 kg.",
+    "effect": "Local design plus about 20 percent of the margin in fittings; not a hull-mode problem."
+  },
+  {
+    "NFI_id": "NFI-016-HANDLE",
+    "rank": 8,
+    "gap": "Ground handling of a 4645 kg, 20 m vacuum sphere has no concept, cradle, or transport plan; core-safe pad pressure target is 250 kPa or less, and any handling dent is an imperfection feeding the already-severe 0.20 knockdown.",
+    "direction": "Specify cradle geometry and pad pressure; define a dimensional inspection and imperfection survey after every move, tied to the knockdown basis.",
+    "effect": "A dent below the survey threshold enters the buckling knockdown unmeasured."
+  },
+  {
+    "NFI_id": "NFI-016-THERMENV",
+    "rank": 9,
+    "gap": "The thermal balance averages sky (260 to 275 K) and ground radiation and gives a no-convection bound of 313.5 K, under the QUESTIONABLE H35 service limit 343 to 353 K; but a hot apron, heat island, or hangar radiates from the ground side and is not bounded here.",
+    "direction": "Re-run the balance for named ground conditions (asphalt apron, hangar wall); measure emissivity of the actual face finish.",
+    "effect": "The core-limit conclusion could invert on a hot-ground site."
+  },
+  {
+    "NFI_id": "NFI-016-PROPTEMP",
+    "rank": 10,
+    "gap": "Property loss at temperature is datasheet-class only: H35 derates above 50 to 60 C, SiC is flat far above this range, and the aluminium family derates above about 150 C, not reached. No derate curves are pinned and the daily cycle fatigue of core and adhesive is not quantified.",
+    "direction": "Pin derate curves for the core and adhesive against the measured daily band; couple to NFI-016-CTE.",
+    "effect": "The scored five modes use room-temperature properties for a cycling structure."
+  },
+  {
+    "NFI_id": "NFI-016-PERM",
+    "rank": 11,
+    "gap": "Face permeation is nil against the 1-percent budget: metals and monolithic SiC are gas barriers; CFRP epoxy laminate passes 5.4e-5 percent of budget on a QUESTIONABLE NASA composite-cryotank helium band divided by 50 for air. No measured air permeance exists for the actual faces.",
+    "direction": "Measure air permeance of the chosen face and seam coupon directly; matters only if the leak budget is tightened far below 1 percent per day.",
+    "effect": "None at the current budget; decisive if the budget tightens by four or more orders."
+  }
+]

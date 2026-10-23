@@ -1,0 +1,514 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline032-check-1020",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "started_at": "2026-10-20T01:44:49-07:00",
+  "calculated_at": "2026-10-20T01:54:37-07:00",
+  "method": "Primary equations and independently transcribed source constants; no foreign code read, imported or executed.",
+  "comparison_counts": {
+    "boolean": 14,
+    "numeric": 139,
+    "rounded_upstream": 4,
+    "source_constant_or_conversion": 36,
+    "owner_self_check": 7,
+    "card_display": 20,
+    "prose_display": 16
+  },
+  "comparison_total": 236,
+  "mismatches": [],
+  "owner_results_numeric_coverage": {
+    "total": 156,
+    "checked": 155,
+    "excluded": {
+      "/elapsed_s": "Owner timing is metadata, not independently remeasured by running foreign code."
+    }
+  },
+  "owner_inputs_numeric_coverage": {
+    "total": 40,
+    "checked": 38,
+    "metadata_pin_lengths_verified": 2
+  },
+  "relative_tolerance": 3e-12,
+  "absolute_tolerance": 1e-12,
+  "rounded_upstream_allowance": {
+    "9.0": 0.05,
+    "4.98": 0.005
+  },
+  "independent": {
+    "not_a_certification": true,
+    "Q_of_perfect_facing": 0.82,
+    "shared_curve_Q_versus_delta_over_tc": {
+      "stabilised_typical_60_psi": [
+        {
+          "delta_over_tc": 0,
+          "Q": 0.82
+        },
+        {
+          "delta_over_tc": 0.0005,
+          "Q": 0.7592592592592592
+        },
+        {
+          "delta_over_tc": 0.001,
+          "Q": 0.7068965517241379
+        },
+        {
+          "delta_over_tc": 0.002,
+          "Q": 0.6212121212121211
+        },
+        {
+          "delta_over_tc": 0.003,
+          "Q": 0.5540540540540541
+        },
+        {
+          "delta_over_tc": 0.004,
+          "Q": 0.49999999999999994
+        },
+        {
+          "delta_over_tc": 0.005,
+          "Q": 0.4555555555555555
+        },
+        {
+          "delta_over_tc": 0.007,
+          "Q": 0.38679245283018865
+        },
+        {
+          "delta_over_tc": 0.01,
+          "Q": 0.3153846153846154
+        }
+      ],
+      "stabilised_minimum_35_psi": [
+        {
+          "delta_over_tc": 0,
+          "Q": 0.82
+        },
+        {
+          "delta_over_tc": 0.0005,
+          "Q": 0.7211055276381908
+        },
+        {
+          "delta_over_tc": 0.001,
+          "Q": 0.6434977578475336
+        },
+        {
+          "delta_over_tc": 0.002,
+          "Q": 0.5295202952029521
+        },
+        {
+          "delta_over_tc": 0.003,
+          "Q": 0.44984326018808773
+        },
+        {
+          "delta_over_tc": 0.004,
+          "Q": 0.391008174386921
+        },
+        {
+          "delta_over_tc": 0.005,
+          "Q": 0.34578313253012044
+        },
+        {
+          "delta_over_tc": 0.007,
+          "Q": 0.2808219178082192
+        },
+        {
+          "delta_over_tc": 0.01,
+          "Q": 0.21908396946564884
+        }
+      ]
+    },
+    "amplitudes": [
+      {
+        "Q": 0.371,
+        "is_that_leads_Q": true,
+        "delta_m": 0.00015286876684636114,
+        "delta_mm": 0.15286876684636114,
+        "delta_over_tf": 0.18125298416689725,
+        "delta_over_cell_3_8_in": 0.01604921436707204,
+        "delta_over_card_9_5_mm": 0.016091449141722225,
+        "delta_over_tc": 0.007564016172506737,
+        "K_delta": 1.8910040431266844
+      },
+      {
+        "Q": 0.609,
+        "is_that_leads_Q": false,
+        "delta_m": 4.3763444170771744e-05,
+        "delta_mm": 0.04376344417077174,
+        "delta_over_tf": 0.051889310138453576,
+        "delta_over_cell_3_8_in": 0.004594587314516719,
+        "delta_over_card_9_5_mm": 0.004606678333765447,
+        "delta_over_tc": 0.00216543513957307,
+        "K_delta": 0.5413587848932675
+      },
+      {
+        "Q": 0.371,
+        "is_that_leads_Q": false,
+        "delta_m": 0.00022782816711590292,
+        "delta_mm": 0.22782816711590292,
+        "delta_over_tf": 0.3293742476737067,
+        "delta_over_cell_3_8_in": 0.02391896767621028,
+        "delta_over_card_9_5_mm": 0.023981912327989782,
+        "delta_over_tc": 0.007564016172506737,
+        "K_delta": 1.8910040431266844
+      },
+      {
+        "Q": 0.609,
+        "is_that_leads_Q": true,
+        "delta_m": 6.522290640394087e-05,
+        "delta_mm": 0.06522290640394086,
+        "delta_over_tf": 0.09429363366190671,
+        "delta_over_cell_3_8_in": 0.006847549228760197,
+        "delta_over_card_9_5_mm": 0.006865569095151671,
+        "delta_over_tc": 0.00216543513957307,
+        "K_delta": 0.5413587848932675
+      },
+      {
+        "Q": 0.371,
+        "is_that_leads_Q": true,
+        "delta_m": 8.9173447327044e-05,
+        "delta_mm": 0.089173447327044,
+        "delta_over_tf": 0.10573090743069007,
+        "delta_over_cell_3_8_in": 0.009362041714125356,
+        "delta_over_card_9_5_mm": 0.009386678666004632,
+        "delta_over_tc": 0.0044123427672955965,
+        "K_delta": 1.8910040431266844
+      },
+      {
+        "Q": 0.609,
+        "is_that_leads_Q": false,
+        "delta_m": 2.5528675766283514e-05,
+        "delta_mm": 0.025528675766283513,
+        "delta_over_tf": 0.030268764247431246,
+        "delta_over_cell_3_8_in": 0.0026801759334680857,
+        "delta_over_card_9_5_mm": 0.002687229028029844,
+        "delta_over_tc": 0.0012631704980842907,
+        "K_delta": 0.5413587848932675
+      },
+      {
+        "Q": 0.371,
+        "is_that_leads_Q": false,
+        "delta_m": 0.00013289976415094336,
+        "delta_mm": 0.13289976415094334,
+        "delta_over_tf": 0.19213497780966224,
+        "delta_over_cell_3_8_in": 0.013952731144455997,
+        "delta_over_card_9_5_mm": 0.013989448857994038,
+        "delta_over_tc": 0.0044123427672955965,
+        "K_delta": 1.8910040431266844
+      },
+      {
+        "Q": 0.609,
+        "is_that_leads_Q": true,
+        "delta_m": 3.8046695402298836e-05,
+        "delta_mm": 0.03804669540229884,
+        "delta_over_tf": 0.055004619636112244,
+        "delta_over_cell_3_8_in": 0.003994403716776781,
+        "delta_over_card_9_5_mm": 0.004004915305505141,
+        "delta_over_tc": 0.0012631704980842907,
+        "K_delta": 0.5413587848932675
+      }
+    ],
+    "design_0_33_if_it_were_this_waviness": [
+      {
+        "Q": 0.33,
+        "is_that_leads_Q": false,
+        "delta_m": 0.00018755492424242417,
+        "delta_mm": 0.18755492424242418,
+        "delta_over_tf": 0.22237956395829284,
+        "delta_over_cell_3_8_in": 0.019690805694742696,
+        "delta_over_card_9_5_mm": 0.019742623604465704,
+        "delta_over_tc": 0.009280303030303028,
+        "K_delta": 2.320075757575757
+      },
+      {
+        "Q": 0.33,
+        "is_that_leads_Q": false,
+        "delta_m": 0.0002795227272727272,
+        "delta_mm": 0.2795227272727272,
+        "delta_over_tf": 0.4041097690801319,
+        "delta_over_cell_3_8_in": 0.029346218086375563,
+        "delta_over_card_9_5_mm": 0.02942344497607655,
+        "delta_over_tc": 0.009280303030303028,
+        "K_delta": 2.320075757575757
+      },
+      {
+        "Q": 0.33,
+        "is_that_leads_Q": false,
+        "delta_m": 0.0001094070391414141,
+        "delta_mm": 0.1094070391414141,
+        "delta_over_tf": 0.12972141230900414,
+        "delta_over_cell_3_8_in": 0.01148630332193324,
+        "delta_over_card_9_5_mm": 0.011516530435938326,
+        "delta_over_tc": 0.0054135101010100994,
+        "K_delta": 2.320075757575757
+      },
+      {
+        "Q": 0.33,
+        "is_that_leads_Q": false,
+        "delta_m": 0.0001630549242424242,
+        "delta_mm": 0.1630549242424242,
+        "delta_over_tf": 0.23573069863007692,
+        "delta_over_cell_3_8_in": 0.01711862721705241,
+        "delta_over_card_9_5_mm": 0.017163676236044652,
+        "delta_over_tc": 0.0054135101010100994,
+        "K_delta": 2.320075757575757
+      }
+    ],
+    "biaxial": {
+      "equibiaxial_root": 0.6823278038280193,
+      "card_b": 0.6823,
+      "card_minus_root": -2.7803828019257182e-05,
+      "residual_of_card_b": -6.663623299996146e-05,
+      "counts_waviness_twice": false
+    },
+    "dimpling": {
+      "cell_m": 0.009524999999999999,
+      "card_cell_m": 0.0095,
+      "filed_SF": {
+        "Be S-200F 021 rev1": 9.018853684781929,
+        "SR-200 021b": 4.975309121115971
+      }
+    }
+  },
+  "independent_inputs": {
+    "formula": {
+      "Q_ideal": 0.82,
+      "K_factor": 0.64,
+      "eta": 1.0,
+      "design_Q": 0.33
+    },
+    "core": {
+      "density_pcf": 1.0,
+      "density_kg_m3": 16.018463373960138,
+      "cell_m": 0.009524999999999999,
+      "card_cell_m": 0.0095,
+      "Ec_ksi_typical": 15.0,
+      "Ec_Pa": 103421359.39752541,
+      "Fc_stabilised_typical_psi": 60.0,
+      "Fc_stabilised_minimum_psi": 35.0,
+      "Fc_typical_Pa": 413685.4375901016,
+      "Fc_minimum_Pa": 241316.50526089262,
+      "crush_psi_typical": 35.0,
+      "crush_Pa": 241316.50526089262,
+      "bare_typical_psi": 55.0,
+      "bare_minimum_psi": 25.0
+    },
+    "faces": [
+      {
+        "name": "Be S-200F",
+        "lead_Q": 0.371,
+        "tf_m": 0.0008434,
+        "tc_m": 0.02021,
+        "E_Pa": 290000000000.0,
+        "dimpling_SF_filed": 9.018853684781929
+      },
+      {
+        "name": "SR-200",
+        "lead_Q": 0.609,
+        "tf_m": 0.0006917,
+        "tc_m": 0.03012,
+        "E_Pa": 290000000000.0,
+        "dimpling_SF_filed": 4.975309121115971
+      }
+    ],
+    "flatness_sources": [
+      {
+        "number_read": false
+      },
+      {
+        "flatness_inch_per_radial_foot": 0.008,
+        "flatness_mm_per_foot": 0.2032,
+        "face_inch": 0.04
+      },
+      {
+        "flatness_mm_per_radial_metre": 0.7
+      },
+      {
+        "wave_mm": 1.0,
+        "per_60_inch_mm": 1.5
+      },
+      {
+        "flatness_inch": 0.01,
+        "local_step_inch": 0.003,
+        "local_step_mm": 0.0762
+      }
+    ]
+  },
+  "upstream_recalculation": {
+    "Be S-200F": {
+      "tf_m": 0.0008434480441930918,
+      "tc_m": 0.02021337638749162,
+      "Q_needed": 0.37068071372338524,
+      "Q_needed_from_membrane_stress": 0.37068071372338524,
+      "pressure_Pa": 95460.83791390515,
+      "radius_m": 10.0,
+      "stress_Pa": 282948186.8240931,
+      "intracell_uniaxial_critical_Pa": 5103736594.681676,
+      "intracell_equibiaxial_factor": 0.5,
+      "intracell_critical_Pa": 2551868297.340838,
+      "intracell_SF": 9.018853684781929,
+      "actual_input_amplitude_60psi": {
+        "Q": 0.37068071372338524,
+        "is_that_leads_Q": true,
+        "delta_m": 0.00015313481918912647,
+        "delta_mm": 0.15313481918912647,
+        "delta_over_tf": 0.1815580938783576,
+        "delta_over_cell_3_8_in": 0.016077146371561837,
+        "delta_over_card_9_5_mm": 0.016119454651486998,
+        "delta_over_tc": 0.007575914891877682,
+        "K_delta": 1.8939787229694207
+      },
+      "brief_amplitude_60psi": {
+        "Q": 0.371,
+        "is_that_leads_Q": true,
+        "delta_m": 0.00015286876684636114,
+        "delta_mm": 0.15286876684636114,
+        "delta_over_tf": 0.18125298416689725,
+        "delta_over_cell_3_8_in": 0.01604921436707204,
+        "delta_over_card_9_5_mm": 0.016091449141722225,
+        "delta_over_tc": 0.007564016172506737,
+        "K_delta": 1.8910040431266844
+      },
+      "brief_minus_actual_amplitude_mm": -0.00026605234276533274,
+      "brief_over_actual_minus_one_percent": -0.17373732778352968
+    },
+    "SR-200": {
+      "tf_m": 0.0006917479988347394,
+      "tc_m": 0.030118230884842855,
+      "Q_needed": 0.6092014443376216,
+      "Q_needed_from_membrane_stress": 0.6092014443376215,
+      "pressure_Pa": 95460.83791390515,
+      "radius_m": 10.0,
+      "stress_Pa": 344998605.25332373,
+      "intracell_uniaxial_critical_Pa": 3432949414.9782996,
+      "intracell_equibiaxial_factor": 0.5,
+      "intracell_critical_Pa": 1716474707.4891498,
+      "intracell_SF": 4.975309121115971,
+      "actual_input_amplitude_60psi": {
+        "Q": 0.6092014443376216,
+        "is_that_leads_Q": true,
+        "delta_m": 6.513526466329605e-05,
+        "delta_mm": 0.06513526466329604,
+        "delta_over_tf": 0.0941603947868551,
+        "delta_over_cell_3_8_in": 0.006838347996146567,
+        "delta_over_card_9_5_mm": 0.006856343648768005,
+        "delta_over_tc": 0.002162652411834577,
+        "K_delta": 0.5406631029586443
+      },
+      "brief_amplitude_60psi": {
+        "Q": 0.609,
+        "is_that_leads_Q": true,
+        "delta_m": 6.522290640394087e-05,
+        "delta_mm": 0.06522290640394086,
+        "delta_over_tf": 0.09429363366190671,
+        "delta_over_cell_3_8_in": 0.006847549228760197,
+        "delta_over_card_9_5_mm": 0.006865569095151671,
+        "delta_over_tc": 0.00216543513957307,
+        "K_delta": 0.5413587848932675
+      },
+      "brief_minus_actual_amplitude_mm": 8.764174064482266e-05,
+      "brief_over_actual_minus_one_percent": 0.13455344212980336
+    }
+  },
+  "verification": {
+    "inverse_returns_Q": true,
+    "amplitude_scales_with_tc": true,
+    "amplitude_scales_with_Fc": true,
+    "perfect_facing_Q_0_82": true,
+    "biaxial_root_on_cubic": true,
+    "Ec_matches_014b_15_ksi": true,
+    "crush_35_psi_matches_014b_and_is_not_Fc": true
+  },
+  "root_60_digit_decimal": "0.682327803828019327369483739711048256891188581897998577803732",
+  "core_amplitude_ratio": 1.4903513112320634,
+  "strength_amplitude_ratio": 0.5833333333333334,
+  "design_over_ideal": 0.4024390243902439,
+  "prose_corrections": [
+    {
+      "id": "NFI-032-CHECK-LEAD-RANGE",
+      "field": "CARD lead amplitude / 9.525 mm cell range",
+      "reported": [
+        0.0046,
+        0.024
+      ],
+      "checked": [
+        0.006847549228760197,
+        0.01604921436707204
+      ],
+      "all_four_typical_rows": [
+        0.004594587314516719,
+        0.02391896767621028
+      ],
+      "reason": "The reported endpoints round the two cross-Q rows; the lead-specific range uses Q .371 on S-200F and Q .609 on SR-200."
+    }
+  ],
+  "inelastic_projection": {
+    "Be S-200F": {
+      "minimum_eta_for_target_Q_even_at_zero_waviness": 0.20470107079119573,
+      "eta_sensitivity_projection": [
+        {
+          "eta": 1.0,
+          "delta_mm_at_60psi": 0.15286876684636114,
+          "target_possible": true
+        },
+        {
+          "eta": 0.9,
+          "delta_mm_at_60psi": 0.13854210498572647,
+          "target_possible": true
+        },
+        {
+          "eta": 0.8,
+          "delta_mm_at_60psi": 0.12339481628518875,
+          "target_possible": true
+        },
+        {
+          "eta": 0.6,
+          "delta_mm_at_60psi": 0.08994037941380915,
+          "target_possible": true
+        },
+        {
+          "eta": 0.5,
+          "delta_mm_at_60psi": 0.07109846696731308,
+          "target_possible": true
+        }
+      ]
+    },
+    "SR-200": {
+      "minimum_eta_for_target_Q_even_at_zero_waviness": 0.5515779298036882,
+      "eta_sensitivity_projection": [
+        {
+          "eta": 1.0,
+          "delta_mm_at_60psi": 0.06522290640394086,
+          "target_possible": true
+        },
+        {
+          "eta": 0.9,
+          "delta_mm_at_60psi": 0.05221551281373981,
+          "target_possible": true
+        },
+        {
+          "eta": 0.8,
+          "delta_mm_at_60psi": 0.038463059669461404,
+          "target_possible": true
+        },
+        {
+          "eta": 0.6,
+          "delta_mm_at_60psi": 0.008089269043450881,
+          "target_possible": true
+        },
+        {
+          "eta": 0.5,
+          "delta_mm_at_60psi": 0.0,
+          "target_possible": false
+        }
+      ]
+    }
+  },
+  "timing_observation": {
+    "reported_elapsed_s": 0.00027632201090455055,
+    "timestamp_difference_s": 0.000275,
+    "reported_minus_timestamp_difference_s": 1.3220109045505358e-06,
+    "interpretation": "Microsecond wall-clock stamps and an elapsed timer need not coincide. Owner execution duration is not independently verified."
+  },
+  "source_pins_match": true,
+  "foreign_scripts_read_or_executed": false,
+  "ended_at": "2026-10-20T02:02:46-07:00"
+}

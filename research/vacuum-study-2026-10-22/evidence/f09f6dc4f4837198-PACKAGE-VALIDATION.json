@@ -1,0 +1,128 @@
+{
+  "unit": "vacuum-mainline052-check-1020",
+  "at": "2026-10-20T13:13:20.739741+00:00",
+  "owner_outputs_unchanged": [
+    {
+      "path": "evidence/c17ec7feb162f0f3-CARD.md",
+      "sha256": "c17ec7feb162f0f3224b94131fefd087fe6807cec458d0db6a95a40438b1ead2",
+      "bytes": 13199,
+      "verified": true
+    },
+    {
+      "path": "evidence/9307f895ceba1166-METHOD.md",
+      "sha256": "9307f895ceba1166646f292da8c26b37c1f0fb7cced36a6b7c87d9485de7e627",
+      "bytes": 14406,
+      "verified": true
+    },
+    {
+      "path": "evidence/50ec8f91d07f1b0c-INPUTS.json",
+      "sha256": "50ec8f91d07f1b0c0008d8dd4d232d6b3dfabc55c1b769c74b2907ffd3d0985a",
+      "bytes": 2103,
+      "verified": true
+    },
+    {
+      "path": "evidence/3078814df8e27774-RESULTS.json",
+      "sha256": "3078814df8e27774628887edd2cef947a4638bc58e43aab1e32a00c02398fc48",
+      "bytes": 3439621,
+      "verified": true
+    },
+    {
+      "path": "evidence/d469fc3a06e1bd8d-ROWS.csv",
+      "sha256": "d469fc3a06e1bd8d84bdec34ea5f6c194e9b0a11fccfdf486d00df94ea0f5250",
+      "bytes": 40308,
+      "verified": true
+    },
+    {
+      "path": "evidence/6c7d6fdd9a070ffd-MASS-ACCOUNT.csv",
+      "sha256": "6c7d6fdd9a070ffda93d1a08bed47c0d9f3552a6285e8ba1347bf4d40989f07b",
+      "bytes": 25986,
+      "verified": true
+    },
+    {
+      "path": "evidence/1f48ae887b968268-VACUUM-SERVICE.csv",
+      "sha256": "1f48ae887b96826812c879099e7873d2c29510ed88ba2643968dec5293aef5e7",
+      "bytes": 47167,
+      "verified": true
+    },
+    {
+      "path": "evidence/94267bf4a931f4d3-P2-COMPARISON.json",
+      "sha256": "94267bf4a931f4d33540559784a129261a610c109f08cb5b89e3c989b5f741ab",
+      "bytes": 27809,
+      "verified": true
+    },
+    {
+      "path": "evidence/030d24c6c7740289-SENSITIVITIES.json",
+      "sha256": "030d24c6c77402891203f1d16cd73bc28c01862bf7426d46a8cd77395873da4e",
+      "bytes": 1237228,
+      "verified": true
+    },
+    {
+      "path": "evidence/532682a462aa35fe-VALIDATION.json",
+      "sha256": "532682a462aa35febdea498e76cbe07e68e5b84b2deedc20ade0a13c43266da6",
+      "bytes": 470412,
+      "verified": true
+    },
+    {
+      "path": "evidence/13b38defbfc1755a-NFI.json",
+      "sha256": "13b38defbfc1755a91b0f91a84591d76a765f95d623343a9d8171ada6538e3ca",
+      "bytes": 7051,
+      "verified": true
+    },
+    {
+      "path": "evidence/dca46226ae1ffd0c-SOURCE-AUDIT.md",
+      "sha256": "dca46226ae1ffd0c7d2e39618a080969c9455cb42a37ab87a578b966b226832a",
+      "bytes": 3609,
+      "verified": true
+    },
+    {
+      "path": "evidence/b7fa9374529ab73a-PACKAGE-CHECK.json",
+      "sha256": "b7fa9374529ab73a3a729f4ce3c12a42db2de0e3856c6ab5400d5c59d93c9e5a",
+      "bytes": 53736,
+      "verified": true
+    },
+    {
+      "path": "evidence/f886c9c7ba8ff788-EXECUTION.json",
+      "sha256": "f886c9c7ba8ff7889d1b35f28352e82e1120a2ace818e59c2e04014ea54e67ce",
+      "bytes": 14670,
+      "verified": true
+    },
+    {
+      "path": "unpublished-local-ref:88f844aae89b8c15",
+      "sha256": "d2800cb8e04b471cbaef014990b4e763cadc130ce15c851ead6f835e8b745e12",
+      "bytes": 33119,
+      "verified": true
+    },
+    {
+      "path": "evidence/780304e4db6f2e56-MANIFEST.json",
+      "sha256": "780304e4db6f2e56c94d6bd473f4f5ef1c37f71d6eecc96517fe8723177c4b6a",
+      "bytes": 54274,
+      "verified": true
+    }
+  ],
+  "all_owned_input_snapshot_pins_match": true,
+  "input_records": 250,
+  "owner_pin_check": 252,
+  "scientific_job_receipts": [
+    {
+      "log": "audit-final-run.log",
+      "last_line": "simjob: ENDED simjob-20261020t060136-4e8d4c90b277.scope: exited 0 after 6 s; reservation released"
+    },
+    {
+      "log": "check-run-json-fixed.log",
+      "last_line": "simjob: ENDED simjob-20261020t055717-afc1e4c8be4c.scope: exited 0 after 7 s; reservation released"
+    },
+    {
+      "log": "check-run.log",
+      "last_line": "simjob: ENDED simjob-20261020t055621-1ad3e45e9b31.scope: exited 1 after 7 s; reservation released"
+    },
+    {
+      "log": "probe.log",
+      "last_line": "simjob: ENDED simjob-20261020t055610-4f50320c4bf8.scope: exited 0 after 1 s; reservation released"
+    }
+  ],
+  "checker_development_failure": "One JSON boolean serialization failure; final scientific derivation and checks pass.",
+  "all_scientific_reservations_released": true,
+  "no_owner_executable_access": true,
+  "foreign_writes": false,
+  "out_of_band_contact": false
+}

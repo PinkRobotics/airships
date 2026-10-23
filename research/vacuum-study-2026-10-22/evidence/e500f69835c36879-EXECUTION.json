@@ -1,0 +1,49 @@
+{
+  "unit": "vacuum-review-a-058-061-1020",
+  "jobs": [
+    {
+      "scope": "simjob-20261020t101053-ae8eed18b616.scope",
+      "purpose": "initial arithmetic and weather",
+      "result": "exit 0",
+      "cores": 1,
+      "memory_GiB": 1,
+      "reservation": "released"
+    },
+    {
+      "scope": "simjob-20261020t101245-f55585103117.scope",
+      "purpose": "station convention diagnostics",
+      "result": "exit 0",
+      "cores": 1,
+      "memory_GiB": 1,
+      "reservation": "released"
+    },
+    {
+      "scope": "simjob-20261020t101246-21f80f3293ae.scope",
+      "purpose": "forced-only thermal diagnostic",
+      "result": "exit 0",
+      "cores": 1,
+      "memory_GiB": 1,
+      "reservation": "released"
+    },
+    {
+      "scope": "simjob-20261020t101345-6c284a29d062.scope",
+      "purpose": "final station mapping recount",
+      "result": "exit 0",
+      "cores": 1,
+      "memory_GiB": 1,
+      "reservation": "released"
+    },
+    {
+      "scope": "simjob-20261020t101345-05e72a2697c7.scope",
+      "purpose": "mixed-convection thermal roots",
+      "result": "exit 0",
+      "cores": 1,
+      "memory_GiB": 1,
+      "reservation": "released"
+    }
+  ],
+  "host_timeout_seconds": 7200,
+  "work_time_budget": null,
+  "active_jobs": [],
+  "note": "Scope IDs/results transcribed from returned simjob receipts; measured calculation intervals are also in checks/*EXECUTION.json and the thermal result."
+}

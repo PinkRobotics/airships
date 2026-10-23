@@ -1,0 +1,5213 @@
+[
+  {
+    "row": "",
+    "field": "per_kelvin_gradient_stress_Pa",
+    "card_value": 1771734.429065744,
+    "check_value": 1771734.429065744,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Declared E, alpha and nu"
+  },
+  {
+    "row": "",
+    "field": "face_working_stress_Pa",
+    "card_value": 298435856.7214987,
+    "check_value": 298435856.7214987,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R / (4 tf)"
+  },
+  {
+    "row": "",
+    "field": "face_SF_on_345_uniform",
+    "card_value": 1.1560273078109213,
+    "check_value": 1.1560273078109213,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "345 MPa tensile proxy / pressure stress"
+  },
+  {
+    "row": "/p2",
+    "field": "today_uniform_least",
+    "card_value": 0.33958237184408885,
+    "check_value": 0.33958237184408885,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b today-property equations"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "alpha",
+    "card_value": 0.2,
+    "check_value": 0.2,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared optical assumption; not a measured property"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "epsilon_out",
+    "card_value": 0.9,
+    "check_value": 0.9,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared optical assumption; not a measured property"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "epsilon_in",
+    "card_value": 0.2,
+    "check_value": 0.2,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared optical assumption; not a measured property"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "k_eff_W_per_mK",
+    "card_value": 0.7887879691722796,
+    "check_value": 0.7887879691722796,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Al conductivity times solidity; PROJECTION"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "U_conduction_W_per_m2K",
+    "card_value": 35.68080062957225,
+    "check_value": 35.68080062957225,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "keff / tc; conduction only"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "T_outer_subsolar_K",
+    "card_value": 301.56900146374886,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "T_inner_subsolar_K",
+    "card_value": 301.1698049650141,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "T_outer_antisolar_K",
+    "card_value": 285.3126580950526,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "T_inner_antisolar_K",
+    "card_value": 285.40450354383825,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "day_night_outer_swing_K",
+    "card_value": 30.493339712295153,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "dT_through_at_max_K",
+    "card_value": 0.3991964987347387,
+    "check_value": 0.3991964987347387,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed subsolar temperatures; global maximum not recoverable"
+  },
+  {
+    "row": "/p2_thermal/coated_outer",
+    "field": "gradient_stress_Pa",
+    "card_value": 707270.1807708364,
+    "check_value": 707270.1807708363,
+    "status": "MATCH",
+    "delta": -1.1641532182693481e-10,
+    "basis": "Conditional on filed temperature difference"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern/legendre_K",
+    "field": "0",
+    "card_value": 288.37713274151133,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern/legendre_K",
+    "field": "1",
+    "card_value": 8.577689130729212,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern/legendre_K",
+    "field": "2",
+    "card_value": 6.262977505168337,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern/legendre_K",
+    "field": "3",
+    "card_value": -0.5488550653860005,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern/legendre_K",
+    "field": "4",
+    "card_value": -5.603838951887467,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern/legendre_K",
+    "field": "5",
+    "card_value": -0.028396176263610216,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern/legendre_K",
+    "field": "6",
+    "card_value": -8.374740360076036,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern",
+    "field": "T_rest_max_K",
+    "card_value": 5.788443758417429,
+    "check_value": 8.292853048444808,
+    "status": "RECONSTRUCTION_MISMATCH",
+    "delta": 2.504409290027379,
+    "basis": "Exact maximum absolute n=2..6 reconstruction; if field means untruncated residual, samples are required"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern",
+    "field": "kappa_max_1_per_m",
+    "card_value": 0.0002449488918050441,
+    "check_value": 0.00024502702768939807,
+    "status": "DISCRETIZATION_DIFFERENCE",
+    "delta": 7.813588435398892e-08,
+    "basis": "Analytic angular derivative and stationary points of filed polynomial"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern",
+    "field": "bending_stress_Pa",
+    "card_value": 818209.4740996854,
+    "check_value": 818470.4735284824,
+    "status": "DISCRETIZATION_DIFFERENCE",
+    "delta": 260.99942879693117,
+    "basis": "Same scalar bending screen, analytic curvature; not a shell equilibrium solution"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/pattern",
+    "field": "constrained_upper_Pa",
+    "card_value": 20511170.194997746,
+    "check_value": 20511170.194997746,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Arithmetic on filed residual maximum only; reconstruction discrepancy remains"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_day_rise",
+    "field": "d_eps",
+    "card_value": 0.0002050287180041113,
+    "check_value": 0.0002050287180041113,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_day_rise",
+    "field": "lambda_1_per_m",
+    "card_value": 3.024091871444132,
+    "check_value": 3.024091871444132,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_day_rise",
+    "field": "tau_Pa",
+    "card_value": 143787.7618694373,
+    "check_value": 143787.7618694373,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_day_rise",
+    "field": "SF_vs_shear_W",
+    "card_value": 1.6782826446663364,
+    "check_value": 1.6782826446663364,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_swing",
+    "field": "d_eps",
+    "card_value": 0.0003750680784612304,
+    "check_value": 0.0003750680784612304,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_swing",
+    "field": "lambda_1_per_m",
+    "card_value": 3.024091871444132,
+    "check_value": 3.024091871444132,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_swing",
+    "field": "tau_Pa",
+    "card_value": 263037.29582667246,
+    "check_value": 263037.29582667246,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/coated_outer/shear_lag_from_swing",
+    "field": "SF_vs_shear_W",
+    "card_value": 0.917423152874516,
+    "check_value": 0.917423152874516,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "alpha",
+    "card_value": 0.4,
+    "check_value": 0.4,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared optical assumption; not a measured property"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "epsilon_out",
+    "card_value": 0.05,
+    "check_value": 0.05,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared optical assumption; not a measured property"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "epsilon_in",
+    "card_value": 0.2,
+    "check_value": 0.2,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared optical assumption; not a measured property"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "k_eff_W_per_mK",
+    "card_value": 0.7887879691722796,
+    "check_value": 0.7887879691722796,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Al conductivity times solidity; PROJECTION"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "U_conduction_W_per_m2K",
+    "card_value": 35.68080062957225,
+    "check_value": 35.68080062957225,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "keff / tc; conduction only"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "T_outer_subsolar_K",
+    "card_value": 356.94567861916755,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "T_inner_subsolar_K",
+    "card_value": 355.0382308573461,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "T_outer_antisolar_K",
+    "card_value": 294.1505352489576,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "T_inner_antisolar_K",
+    "card_value": 294.79494410869415,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "day_night_outer_swing_K",
+    "card_value": 74.16485740453288,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing heat-transfer speed, complete boundary conditions, angular samples and night temperature"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "dT_through_at_max_K",
+    "card_value": 1.9074477618214587,
+    "check_value": 1.9074477618214587,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed subsolar temperatures; global maximum not recoverable"
+  },
+  {
+    "row": "/p2_thermal/bare_Be",
+    "field": "gradient_stress_Pa",
+    "card_value": 3379490.8712634738,
+    "check_value": 3379490.8712634733,
+    "status": "MATCH",
+    "delta": -4.656612873077393e-10,
+    "basis": "Conditional on filed temperature difference"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern/legendre_K",
+    "field": "0",
+    "card_value": 311.34200408077004,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern/legendre_K",
+    "field": "1",
+    "card_value": 33.2295052388543,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern/legendre_K",
+    "field": "2",
+    "card_value": 18.604675173557826,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern/legendre_K",
+    "field": "3",
+    "card_value": -2.573963517010231,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern/legendre_K",
+    "field": "4",
+    "card_value": -10.696390340527316,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern/legendre_K",
+    "field": "5",
+    "card_value": 0.22929158479840772,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern/legendre_K",
+    "field": "6",
+    "card_value": -6.730827571629294,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Angular temperature samples and projection quadrature absent"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern",
+    "field": "T_rest_max_K",
+    "card_value": 17.14508304824119,
+    "check_value": 14.851719628189025,
+    "status": "RECONSTRUCTION_MISMATCH",
+    "delta": -2.293363420052165,
+    "basis": "Exact maximum absolute n=2..6 reconstruction; if field means untruncated residual, samples are required"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern",
+    "field": "kappa_max_1_per_m",
+    "card_value": 0.0002310145369478525,
+    "check_value": 0.00023108688056735745,
+    "status": "DISCRETIZATION_DIFFERENCE",
+    "delta": 7.234361950494267e-08,
+    "basis": "Analytic angular derivative and stationary points of filed polynomial"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern",
+    "field": "bending_stress_Pa",
+    "card_value": 771664.1679519223,
+    "check_value": 771905.8193202276,
+    "status": "DISCRETIZATION_DIFFERENCE",
+    "delta": 241.65136830531992,
+    "basis": "Same scalar bending screen, analytic curvature; not a shell equilibrium solution"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/pattern",
+    "field": "constrained_upper_Pa",
+    "card_value": 60753067.85152074,
+    "check_value": 60753067.85152074,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Arithmetic on filed residual maximum only; reconstruction discrepancy remains"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_day_rise",
+    "field": "d_eps",
+    "card_value": 0.0008861618470157612,
+    "check_value": 0.0008861618470157612,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_day_rise",
+    "field": "lambda_1_per_m",
+    "card_value": 3.024091871444132,
+    "check_value": 3.024091871444132,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_day_rise",
+    "field": "tau_Pa",
+    "card_value": 621470.1524589738,
+    "check_value": 621470.1524589738,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_day_rise",
+    "field": "SF_vs_shear_W",
+    "card_value": 0.38829942887212604,
+    "check_value": 0.38829942887212604,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_swing",
+    "field": "d_eps",
+    "card_value": 0.0009122277460757545,
+    "check_value": 0.0009122277460757545,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_swing",
+    "field": "lambda_1_per_m",
+    "card_value": 3.024091871444132,
+    "check_value": 3.024091871444132,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_swing",
+    "field": "tau_Pa",
+    "card_value": 639750.310104382,
+    "check_value": 639750.310104382,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/p2_thermal/bare_Be/shear_lag_from_swing",
+    "field": "SF_vs_shear_W",
+    "card_value": 0.3772042020917806,
+    "check_value": 0.3772042020917806,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Shear-lag algebra conditional on filed temperature and prescribed differential strain"
+  },
+  {
+    "row": "/wind",
+    "field": "q_20_Pa",
+    "card_value": 233.45366614923603,
+    "check_value": 233.45366614923603,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "q_20_over_p",
+    "card_value": 0.002445543861240614,
+    "check_value": 0.002445543861240614,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "drag_20_N",
+    "card_value": 34470.56715881808,
+    "check_value": 34470.56715881808,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "mooring_016_N",
+    "card_value": 48258.794022345304,
+    "check_value": 48258.794022345304,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "VB_m_s",
+    "card_value": 18.00554,
+    "check_value": 18.00554,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "Ugust_35fps_m_s",
+    "card_value": 10.668000000000001,
+    "check_value": 10.668000000000001,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "q_flight_stagnation_Pa",
+    "card_value": 290.63372090048773,
+    "check_value": 290.63372090048773,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "q_flight_over_p",
+    "card_value": 0.0030445335202547285,
+    "check_value": 0.0030445335202547285,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "q_VB_only_Pa",
+    "card_value": 189.21388749148954,
+    "check_value": 189.21388749148954,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "q_moor_70kn_Pa",
+    "card_value": 756.8555499659582,
+    "check_value": 756.8555499659582,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "q_moor_70_over_p",
+    "card_value": 0.007928440253672987,
+    "check_value": 0.007928440253672987,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "drag_70_N",
+    "card_value": 111753.39627328068,
+    "check_value": 111753.39627328068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "q_moor_78kn_Pa",
+    "card_value": 939.7365644883448,
+    "check_value": 939.7365644883448,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "drag_78_N",
+    "card_value": 138756.66590339586,
+    "check_value": 138756.66590339586,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/wind",
+    "field": "potential_mean_dp_over_q",
+    "card_value": -0.5,
+    "check_value": -0.5,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent dynamic pressure, drag and analytic sphere area integral; owner's rounded knot conversion"
+  },
+  {
+    "row": "/p2/uniform/modes",
+    "field": "global_buckling",
+    "card_value": 1.0063580774984726,
+    "check_value": 1.0063580774984726,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/uniform/modes",
+    "field": "face_compression",
+    "card_value": 1.2706247974547864,
+    "check_value": 1.2706247974547864,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/uniform/modes",
+    "field": "core_shear_crimping",
+    "card_value": 2.331434189777838,
+    "check_value": 2.331434189777838,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/uniform/modes",
+    "field": "core_crush",
+    "card_value": 5.0558220634629825,
+    "check_value": 5.0558220634629825,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/uniform/modes",
+    "field": "face_wrinkling",
+    "card_value": 1.9648678490458737,
+    "check_value": 1.9648678490458737,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/uniform/modes",
+    "field": "intracell_dimpling",
+    "card_value": 6.973752041582777,
+    "check_value": 6.973752041582778,
+    "status": "MATCH",
+    "delta": 8.881784197001252e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/uniform/modes",
+    "field": "scarf_mean_shear",
+    "card_value": 1.0063580718238068,
+    "check_value": 1.0063580718238068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/uniform",
+    "field": "least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/uniform",
+    "field": "least_SF",
+    "card_value": 1.0063580718238068,
+    "check_value": 1.0063580718238068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/uniform",
+    "field": "face_SF_on_345",
+    "card_value": 1.1560273078109213,
+    "check_value": 1.1560273078109213,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/uniform",
+    "field": "demand_Pa",
+    "card_value": 298435856.7214987,
+    "check_value": 298435856.7214987,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend/modes",
+    "field": "global_buckling",
+    "card_value": 1.0063580774984726,
+    "check_value": 1.0063580774984726,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend/modes",
+    "field": "face_compression",
+    "card_value": 1.2641629237316372,
+    "check_value": 1.2641629237316372,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend/modes",
+    "field": "core_shear_crimping",
+    "card_value": 2.319577476955646,
+    "check_value": 2.319577476955646,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend/modes",
+    "field": "core_crush",
+    "card_value": 5.0558220634629825,
+    "check_value": 5.0558220634629825,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend/modes",
+    "field": "face_wrinkling",
+    "card_value": 1.9548753414632705,
+    "check_value": 1.9548753414632705,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend/modes",
+    "field": "intracell_dimpling",
+    "card_value": 6.938286414625448,
+    "check_value": 6.938286414625449,
+    "status": "MATCH",
+    "delta": 8.881784197001252e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend/modes",
+    "field": "scarf_mean_shear",
+    "card_value": 1.0063580718238068,
+    "check_value": 1.0063580718238068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend",
+    "field": "least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend",
+    "field": "least_SF",
+    "card_value": 1.0063580718238068,
+    "check_value": 1.0063580718238068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend",
+    "field": "face_SF_on_345",
+    "card_value": 1.150148229660904,
+    "check_value": 1.150148229660904,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_coated_gradient_and_bend",
+    "field": "demand_Pa",
+    "card_value": 299961336.37636924,
+    "check_value": 299961336.37636924,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend/modes",
+    "field": "global_buckling",
+    "card_value": 1.0063580774984726,
+    "check_value": 1.0063580774984726,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend/modes",
+    "field": "face_compression",
+    "card_value": 1.253193247765279,
+    "check_value": 1.253193247765279,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend/modes",
+    "field": "core_shear_crimping",
+    "card_value": 2.2994495228578025,
+    "check_value": 2.2994495228578025,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend/modes",
+    "field": "core_crush",
+    "card_value": 5.0558220634629825,
+    "check_value": 5.0558220634629825,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend/modes",
+    "field": "face_wrinkling",
+    "card_value": 1.9379120619303012,
+    "check_value": 1.9379120619303012,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend/modes",
+    "field": "intracell_dimpling",
+    "card_value": 6.878079971056009,
+    "check_value": 6.87807997105601,
+    "status": "MATCH",
+    "delta": 8.881784197001252e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend/modes",
+    "field": "scarf_mean_shear",
+    "card_value": 1.0063580718238068,
+    "check_value": 1.0063580718238068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend",
+    "field": "least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend",
+    "field": "least_SF",
+    "card_value": 1.0063580718238068,
+    "check_value": 1.0063580718238068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend",
+    "field": "face_SF_on_345",
+    "card_value": 1.1401679073813853,
+    "check_value": 1.1401679073813853,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/sun_bare_gradient_and_bend",
+    "field": "demand_Pa",
+    "card_value": 302587011.7607141,
+    "check_value": 302587011.7607141,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform/modes",
+    "field": "global_buckling",
+    "card_value": 1.0033034864031298,
+    "check_value": 1.0033034864031298,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform/modes",
+    "field": "face_compression",
+    "card_value": 1.2667680795741345,
+    "check_value": 1.2667680795741343,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform/modes",
+    "field": "core_shear_crimping",
+    "card_value": 2.3243576051359427,
+    "check_value": 2.3243576051359423,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform/modes",
+    "field": "core_crush",
+    "card_value": 5.04047616482114,
+    "check_value": 5.04047616482114,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform/modes",
+    "field": "face_wrinkling",
+    "card_value": 1.958903900457972,
+    "check_value": 1.9589039004579716,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform/modes",
+    "field": "intracell_dimpling",
+    "card_value": 6.95258466451924,
+    "check_value": 6.9525846645192395,
+    "status": "MATCH",
+    "delta": -8.881784197001252e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform/modes",
+    "field": "scarf_mean_shear",
+    "card_value": 1.0033034807456882,
+    "check_value": 1.0033034807456882,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform",
+    "field": "least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform",
+    "field": "least_SF",
+    "card_value": 1.0033034807456882,
+    "check_value": 1.0033034807456882,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform",
+    "field": "face_SF_on_345",
+    "card_value": 1.152518426827733,
+    "check_value": 1.1525184268277329,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_flight_gust_uniform",
+    "field": "demand_Pa",
+    "card_value": 299344454.6909332,
+    "check_value": 299344454.6909333,
+    "status": "MATCH",
+    "delta": 5.960464477539063e-08,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform/modes",
+    "field": "global_buckling",
+    "card_value": 0.9984419898353051,
+    "check_value": 0.9984419898353049,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform/modes",
+    "field": "face_compression",
+    "card_value": 1.2606299680709465,
+    "check_value": 1.260629968070946,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform/modes",
+    "field": "core_shear_crimping",
+    "card_value": 2.3130949546289896,
+    "check_value": 2.313094954628989,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform/modes",
+    "field": "core_crush",
+    "card_value": 5.016052590192361,
+    "check_value": 5.016052590192361,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform/modes",
+    "field": "face_wrinkling",
+    "card_value": 1.9494120520613158,
+    "check_value": 1.9494120520613154,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform/modes",
+    "field": "intracell_dimpling",
+    "card_value": 6.918895988119594,
+    "check_value": 6.918895988119593,
+    "status": "MATCH",
+    "delta": -8.881784197001252e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform/modes",
+    "field": "scarf_mean_shear",
+    "card_value": 0.9984419842052765,
+    "check_value": 0.9984419842052764,
+    "status": "MATCH",
+    "delta": -1.1102230246251565e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform",
+    "field": "least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform",
+    "field": "least_SF",
+    "card_value": 0.9984419842052765,
+    "check_value": 0.9984419842052764,
+    "status": "MATCH",
+    "delta": -1.1102230246251565e-16,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform",
+    "field": "face_SF_on_345",
+    "card_value": 1.1469339108240415,
+    "check_value": 1.1469339108240413,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/wind_moor_70kn_uniform",
+    "field": "demand_Pa",
+    "card_value": 300801987.5810688,
+    "check_value": 300801987.5810689,
+    "status": "MATCH",
+    "delta": 5.960464477539063e-08,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_coated_gust/modes",
+    "field": "global_buckling",
+    "card_value": 1.0033034864031298,
+    "check_value": 1.0033034864031298,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_coated_gust/modes",
+    "field": "face_compression",
+    "card_value": 1.2603452745270582,
+    "check_value": 1.260345274527058,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_coated_gust/modes",
+    "field": "core_shear_crimping",
+    "card_value": 2.312572578343591,
+    "check_value": 2.3125725783435906,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_coated_gust/modes",
+    "field": "core_crush",
+    "card_value": 5.04047616482114,
+    "check_value": 5.04047616482114,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_coated_gust/modes",
+    "field": "face_wrinkling",
+    "card_value": 1.9489718078662257,
+    "check_value": 1.9489718078662255,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_coated_gust/modes",
+    "field": "intracell_dimpling",
+    "card_value": 6.917333463771814,
+    "check_value": 6.917333463771814,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_coated_gust/modes",
+    "field": "scarf_mean_shear",
+    "card_value": 1.0033034807456882,
+    "check_value": 1.0033034807456882,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_coated_gust",
+    "field": "least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_coated_gust",
+    "field": "least_SF",
+    "card_value": 1.0033034807456882,
+    "check_value": 1.0033034807456882,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_coated_gust",
+    "field": "face_SF_on_345",
+    "card_value": 1.1466748937548394,
+    "check_value": 1.1466748937548392,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_coated_gust",
+    "field": "demand_Pa",
+    "card_value": 300869934.34580374,
+    "check_value": 300869934.3458038,
+    "status": "MATCH",
+    "delta": 5.960464477539063e-08,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_bare_gust/modes",
+    "field": "global_buckling",
+    "card_value": 1.0033034864031298,
+    "check_value": 1.0033034864031298,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_bare_gust/modes",
+    "field": "face_compression",
+    "card_value": 1.2494414674965595,
+    "check_value": 1.2494414674965593,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_bare_gust/modes",
+    "field": "core_shear_crimping",
+    "card_value": 2.2925654853287476,
+    "check_value": 2.292565485328747,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_bare_gust/modes",
+    "field": "core_crush",
+    "card_value": 5.04047616482114,
+    "check_value": 5.04047616482114,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_bare_gust/modes",
+    "field": "face_wrinkling",
+    "card_value": 1.9321103866903262,
+    "check_value": 1.9321103866903258,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_bare_gust/modes",
+    "field": "intracell_dimpling",
+    "card_value": 6.857488538116119,
+    "check_value": 6.857488538116118,
+    "status": "MATCH",
+    "delta": -8.881784197001252e-16,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_bare_gust/modes",
+    "field": "scarf_mean_shear",
+    "card_value": 1.0033034807456882,
+    "check_value": 1.0033034807456882,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Independent 028b capacities; filed thermal bending accepted only as conditional input"
+  },
+  {
+    "row": "/p2/combined_bare_gust",
+    "field": "least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_bare_gust",
+    "field": "least_SF",
+    "card_value": 1.0033034807456882,
+    "check_value": 1.0033034807456882,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_bare_gust",
+    "field": "face_SF_on_345",
+    "card_value": 1.1367544997001926,
+    "check_value": 1.1367544997001924,
+    "status": "MATCH",
+    "delta": -2.220446049250313e-16,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2/combined_bare_gust",
+    "field": "demand_Pa",
+    "card_value": 303495609.7301486,
+    "check_value": 303495609.7301487,
+    "status": "MATCH",
+    "delta": 5.960464477539063e-08,
+    "basis": "Minimum and stress of independently evaluated seven screens"
+  },
+  {
+    "row": "/p2",
+    "field": "shear_lag_coated_swing_SF",
+    "card_value": 0.917423152874516,
+    "check_value": 0.917423152874516,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Repeated conditional shear result"
+  },
+  {
+    "row": "/p2",
+    "field": "shear_lag_bare_day_SF",
+    "card_value": 0.38829942887212604,
+    "check_value": 0.38829942887212604,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Repeated conditional shear result"
+  },
+  {
+    "row": "/p2",
+    "field": "shear_lag_bare_swing_SF",
+    "card_value": 0.3772042020917806,
+    "check_value": 0.3772042020917806,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Repeated conditional shear result"
+  },
+  {
+    "row": "/p2",
+    "field": "scarf_pressure_stress_if_10MPa_Pa",
+    "card_value": 9936820.978518272,
+    "check_value": 9936820.978518272,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Projection of face compression onto 30:1 scarf"
+  },
+  {
+    "row": "/p2",
+    "field": "scarf_SF_if_10MPa_plus_coated_swing_shear",
+    "card_value": 0.9804057792795382,
+    "check_value": 0.9804057792795382,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Scalar same-sign sum, conditional only; core shear and scarf shear require a load-path mapping"
+  },
+  {
+    "row": "/restore",
+    "field": "coated_combined_least_SF",
+    "card_value": 1.0033034807456882,
+    "check_value": 1.0033034807456882,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Seven-screen restoration only; all-mode restoration is unresolved"
+  },
+  {
+    "row": "/restore",
+    "field": "coated_combined_least_mode",
+    "card_value": "scarf_mean_shear",
+    "check_value": "scarf_mean_shear",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Seven-screen restoration only; all-mode restoration is unresolved"
+  },
+  {
+    "row": "/restore",
+    "field": "mass_to_restore_coated_combined_kg",
+    "card_value": 0.0,
+    "check_value": 0.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Seven-screen restoration only; all-mode restoration is unresolved"
+  },
+  {
+    "row": "/restore",
+    "field": "bare_swing_shear_SF",
+    "card_value": 0.3772042020917806,
+    "check_value": 0.3772042020917806,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Seven-screen restoration only; all-mode restoration is unresolved"
+  },
+  {
+    "row": "/restore",
+    "field": "coated_swing_shear_SF",
+    "card_value": 0.917423152874516,
+    "check_value": 0.917423152874516,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Seven-screen restoration only; all-mode restoration is unresolved"
+  },
+  {
+    "row": "/pads/mooring_016_one_pad_SF1",
+    "field": "area_one_m2",
+    "card_value": 0.19998132315968878,
+    "check_value": 0.19998132315968878,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_one_pad_SF1",
+    "field": "radius_m",
+    "card_value": 0.25230147089116306,
+    "check_value": 0.25230147089116306,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_one_pad_SF1",
+    "field": "thickness_m",
+    "card_value": 0.016021402498860755,
+    "check_value": 0.016021402498860755,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_one_pad_SF1",
+    "field": "mass_one_kg",
+    "card_value": 8.650749430609519,
+    "check_value": 8.650749430609519,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_one_pad_SF1",
+    "field": "mass_total_kg",
+    "card_value": 8.650749430609519,
+    "check_value": 8.650749430609519,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_one_pad_SF1",
+    "field": "share_N",
+    "card_value": 48258.794022345304,
+    "check_value": 48258.794022345304,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_six_pads_SF1",
+    "field": "area_one_m2",
+    "card_value": 0.0333302205266148,
+    "check_value": 0.0333302205266148,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_six_pads_SF1",
+    "field": "radius_m",
+    "card_value": 0.10300164417283542,
+    "check_value": 0.10300164417283542,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_six_pads_SF1",
+    "field": "thickness_m",
+    "card_value": 0.005118776125942365,
+    "check_value": 0.005118776125942365,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_six_pads_SF1",
+    "field": "mass_one_kg",
+    "card_value": 0.46064683018088104,
+    "check_value": 0.46064683018088104,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_six_pads_SF1",
+    "field": "mass_total_kg",
+    "card_value": 2.7638809810852862,
+    "check_value": 2.763880981085286,
+    "status": "MATCH",
+    "delta": -4.440892098500626e-16,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_016_six_pads_SF1",
+    "field": "share_N",
+    "card_value": 8043.132337057551,
+    "check_value": 8043.132337057551,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_70kn_one_pad_SF1",
+    "field": "area_one_m2",
+    "card_value": 0.46309885083269214,
+    "check_value": 0.46309885083269214,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_70kn_one_pad_SF1",
+    "field": "radius_m",
+    "card_value": 0.3839387223247982,
+    "check_value": 0.3839387223247982,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_70kn_one_pad_SF1",
+    "field": "thickness_m",
+    "card_value": 0.026502171335004106,
+    "check_value": 0.026502171335004102,
+    "status": "MATCH",
+    "delta": -3.469446951953614e-18,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_70kn_one_pad_SF1",
+    "field": "mass_one_kg",
+    "card_value": 33.13743774249109,
+    "check_value": 33.13743774249109,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_70kn_one_pad_SF1",
+    "field": "mass_total_kg",
+    "card_value": 33.13743774249109,
+    "check_value": 33.13743774249109,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/mooring_70kn_one_pad_SF1",
+    "field": "share_N",
+    "card_value": 111753.39627328068,
+    "check_value": 111753.39627328068,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/systems_100kg_six_pads",
+    "field": "area_one_m2",
+    "card_value": 0.0006773020622437888,
+    "check_value": 0.0006773020622437888,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/systems_100kg_six_pads",
+    "field": "radius_m",
+    "card_value": 0.014683049490649655,
+    "check_value": 0.014683049490649655,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/systems_100kg_six_pads",
+    "field": "thickness_m",
+    "card_value": 0.001,
+    "check_value": 0.001,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/systems_100kg_six_pads",
+    "field": "mass_one_kg",
+    "card_value": 0.0018287155680582299,
+    "check_value": 0.0018287155680582299,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/systems_100kg_six_pads",
+    "field": "mass_total_kg",
+    "card_value": 0.01097229340834938,
+    "check_value": 0.01097229340834938,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/systems_100kg_six_pads",
+    "field": "share_N",
+    "card_value": 163.44416666666666,
+    "check_value": 163.44416666666666,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/reserve_411kg_one_pad",
+    "field": "area_one_m2",
+    "card_value": 0.016714417381105167,
+    "check_value": 0.016714417381105167,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/reserve_411kg_one_pad",
+    "field": "radius_m",
+    "card_value": 0.07294082734798091,
+    "check_value": 0.07294082734798091,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/reserve_411kg_one_pad",
+    "field": "thickness_m",
+    "card_value": 0.0031523160513926836,
+    "check_value": 0.0031523160513926836,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/reserve_411kg_one_pad",
+    "field": "mass_one_kg",
+    "card_value": 0.14226064074036363,
+    "check_value": 0.14226064074036363,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/reserve_411kg_one_pad",
+    "field": "mass_total_kg",
+    "card_value": 0.14226064074036363,
+    "check_value": 0.14226064074036363,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads/reserve_411kg_one_pad",
+    "field": "share_N",
+    "card_value": 4033.4647898802205,
+    "check_value": 4033.4647898802205,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Recovered log-only expression with inferred boss radius, yield, nu and density; not a verified simply-supported solution"
+  },
+  {
+    "row": "/pads",
+    "field": "bare_016_patch_0p0707_SF",
+    "card_value": 0.3535330143982733,
+    "check_value": 0.3535330143982733,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Load-only core bearing screen"
+  },
+  {
+    "row": "/p3/0",
+    "field": "s_m",
+    "card_value": 6.15,
+    "check_value": 6.15,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/0",
+    "field": "half_wave_m",
+    "card_value": 3.514133808753978,
+    "check_value": 3.514133808752723,
+    "status": "MATCH",
+    "delta": -1.254996107036277e-12,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/0",
+    "field": "half_wave_over_s",
+    "card_value": 0.5714038713421102,
+    "check_value": 0.5714038713419062,
+    "status": "MATCH",
+    "delta": -2.0405899192610377e-13,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/0",
+    "field": "in_band",
+    "card_value": false,
+    "check_value": false,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/0",
+    "field": "governing_filed",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/0/uniform",
+    "field": "yield",
+    "card_value": 3.91514055515,
+    "check_value": 3.9151405551466834,
+    "status": "MATCH",
+    "delta": -3.3164582191602676e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/0/uniform",
+    "field": "euler",
+    "card_value": 1.44659814165,
+    "check_value": 1.4465981416544385,
+    "status": "MATCH",
+    "delta": 4.438449607846451e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/0/uniform",
+    "field": "local",
+    "card_value": 1.37814486994,
+    "check_value": 1.3781448699427863,
+    "status": "MATCH",
+    "delta": 2.786215702599293e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/0/uniform",
+    "field": "film",
+    "card_value": 1.4624665443,
+    "check_value": 1.4624665443017104,
+    "status": "MATCH",
+    "delta": 1.7104095917375162e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/0/uniform",
+    "field": "perry",
+    "card_value": 1.38684321386,
+    "check_value": 1.386843213864119,
+    "status": "MATCH",
+    "delta": 4.118927421359331e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/0/uniform",
+    "field": "global",
+    "card_value": 1.37332138578,
+    "check_value": 1.3733213857842457,
+    "status": "MATCH",
+    "delta": 4.245714890771524e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/0",
+    "field": "film_alpha",
+    "card_value": 4.5e-06,
+    "check_value": 4.5e-06,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/0/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 4.5e-06,
+    "check_value": 4.5e-06,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/0/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.18885281596278597,
+    "check_value": 0.18885281596265016,
+    "status": "MATCH",
+    "delta": -1.3580803148727227e-13,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/0/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 315.3371019711377,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/0/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 289.5519075495471,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/0/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 292.81127711742397,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/0/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.86164779104513,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/0",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.3052231914065,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/0",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 278.33052047953834,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/0/mismatch",
+    "field": "eps_mechanical",
+    "card_value": -0.00010136621184171185,
+    "check_value": -0.00010136621184171185,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/0/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": -1512928.5349509232,
+    "check_value": -1512928.5349509232,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/0/mismatch",
+    "field": "member_force_N",
+    "card_value": -1537.4391838431798,
+    "check_value": -1537.4391838442211,
+    "status": "MATCH",
+    "delta": -1.0413714335300028e-09,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/0",
+    "field": "member_force_N",
+    "card_value": 1694765.9693498067,
+    "check_value": 1694765.9693498067,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/0",
+    "field": "film_stress_Pa",
+    "card_value": 1025664488.425769,
+    "check_value": 1025664488.4250742,
+    "status": "MATCH",
+    "delta": -0.0006947517395019531,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/0",
+    "field": "film_mass_kg",
+    "card_value": 348.856357015187,
+    "check_value": 348.8563570154232,
+    "status": "MATCH",
+    "delta": 2.362412487855181e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/0",
+    "field": "tube_mass_kg",
+    "card_value": 3733.1853334618195,
+    "check_value": 3794.671994894594,
+    "status": "MISMATCH",
+    "delta": 61.486661432774326,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/0/combined_flight_gust",
+    "field": "yield",
+    "card_value": 3.906790320210332,
+    "check_value": 3.9067903202070253,
+    "status": "MATCH",
+    "delta": -3.3066882565435662e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/0/combined_flight_gust",
+    "field": "euler",
+    "card_value": 1.443512828574796,
+    "check_value": 1.4435128285792265,
+    "status": "MATCH",
+    "delta": 4.43045600206915e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/0/combined_flight_gust",
+    "field": "local",
+    "card_value": 1.375205554407698,
+    "check_value": 1.3752055544104795,
+    "status": "MATCH",
+    "delta": 2.781552765895867e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/0/combined_flight_gust",
+    "field": "film",
+    "card_value": 1.4601748554346607,
+    "check_value": 1.4601748554363698,
+    "status": "MATCH",
+    "delta": 1.709077324107966e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/0/combined_flight_gust",
+    "field": "perry",
+    "card_value": 1.3838853464483223,
+    "check_value": 1.3838853464524337,
+    "status": "MATCH",
+    "delta": 4.11137790479188e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/0/combined_flight_gust",
+    "field": "global",
+    "card_value": 1.3703923578032524,
+    "check_value": 1.3703923578074901,
+    "status": "MATCH",
+    "delta": 4.2377212849942225e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/0",
+    "field": "combined_least_SF",
+    "card_value": 1.3703923578032524,
+    "check_value": 1.3703923578074901,
+    "status": "MATCH",
+    "delta": 4.2377212849942225e-12,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/0",
+    "field": "combined_least_mode",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/0",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.0,
+    "check_value": 1.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/0",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 0.0,
+    "check_value": 0.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/0",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 1,
+    "check_value": 1,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/1",
+    "field": "s_m",
+    "card_value": 6.15,
+    "check_value": 6.15,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/1",
+    "field": "half_wave_m",
+    "card_value": 3.514133808753978,
+    "check_value": 3.514133808752723,
+    "status": "MATCH",
+    "delta": -1.254996107036277e-12,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/1",
+    "field": "half_wave_over_s",
+    "card_value": 0.5714038713421102,
+    "check_value": 0.5714038713419062,
+    "status": "MATCH",
+    "delta": -2.0405899192610377e-13,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/1",
+    "field": "in_band",
+    "card_value": false,
+    "check_value": false,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/1",
+    "field": "governing_filed",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/1/uniform",
+    "field": "yield",
+    "card_value": 3.91514055515,
+    "check_value": 3.9151405551466834,
+    "status": "MATCH",
+    "delta": -3.3164582191602676e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/1/uniform",
+    "field": "euler",
+    "card_value": 1.44659814165,
+    "check_value": 1.4465981416544385,
+    "status": "MATCH",
+    "delta": 4.438449607846451e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/1/uniform",
+    "field": "local",
+    "card_value": 1.37814486994,
+    "check_value": 1.3781448699427863,
+    "status": "MATCH",
+    "delta": 2.786215702599293e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/1/uniform",
+    "field": "film",
+    "card_value": 1.4624665443,
+    "check_value": 1.4624665443017104,
+    "status": "MATCH",
+    "delta": 1.7104095917375162e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/1/uniform",
+    "field": "perry",
+    "card_value": 1.38684321386,
+    "check_value": 1.386843213864119,
+    "status": "MATCH",
+    "delta": 4.118927421359331e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/1/uniform",
+    "field": "global",
+    "card_value": 1.37332138578,
+    "check_value": 1.3733213857842457,
+    "status": "MATCH",
+    "delta": 4.245714890771524e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/1",
+    "field": "film_alpha",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/1/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/1/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.18885281596278597,
+    "check_value": 0.18885281596265016,
+    "status": "MATCH",
+    "delta": -1.3580803148727227e-13,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/1/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 315.3371019711377,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/1/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 289.5519075495471,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/1/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 292.81127711742397,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/1/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.86164779104513,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/1",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.3052231914065,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/1",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 278.33052047953834,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/1/mismatch",
+    "field": "eps_mechanical",
+    "card_value": -0.00048182998648093353,
+    "check_value": -0.00048182998648093353,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/1/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": -7191492.335536322,
+    "check_value": -7191492.335536322,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/1/mismatch",
+    "field": "member_force_N",
+    "card_value": -7308.000246898707,
+    "check_value": -7308.000246903658,
+    "status": "MATCH",
+    "delta": -4.951289156451821e-09,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/1",
+    "field": "member_force_N",
+    "card_value": 1694765.9693498067,
+    "check_value": 1694765.9693498067,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/1",
+    "field": "film_stress_Pa",
+    "card_value": 1025664488.425769,
+    "check_value": 1025664488.4250742,
+    "status": "MATCH",
+    "delta": -0.0006947517395019531,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/1",
+    "field": "film_mass_kg",
+    "card_value": 348.856357015187,
+    "check_value": 348.8563570154232,
+    "status": "MATCH",
+    "delta": 2.362412487855181e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/1",
+    "field": "tube_mass_kg",
+    "card_value": 3733.1853334618195,
+    "check_value": 3794.671994894594,
+    "status": "MISMATCH",
+    "delta": 61.486661432774326,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/1/combined_flight_gust",
+    "field": "yield",
+    "card_value": 3.9201095544110007,
+    "check_value": 3.920109554407692,
+    "status": "MATCH",
+    "delta": -3.3089087025928166e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/1/combined_flight_gust",
+    "field": "euler",
+    "card_value": 1.448434128122406,
+    "check_value": 1.4484341281268545,
+    "status": "MATCH",
+    "delta": 4.448441615068077e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/1/combined_flight_gust",
+    "field": "local",
+    "card_value": 1.3798939772182242,
+    "check_value": 1.3798939772210181,
+    "status": "MATCH",
+    "delta": 2.793987263771669e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/1/combined_flight_gust",
+    "field": "film",
+    "card_value": 1.4682912720880468,
+    "check_value": 1.468291272089771,
+    "status": "MATCH",
+    "delta": 1.7241763572428681e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/1/combined_flight_gust",
+    "field": "perry",
+    "card_value": 1.3886033608605282,
+    "check_value": 1.3886033608646566,
+    "status": "MATCH",
+    "delta": 4.128475339371107e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/1/combined_flight_gust",
+    "field": "global",
+    "card_value": 1.3750643712117954,
+    "check_value": 1.3750643712160504,
+    "status": "MATCH",
+    "delta": 4.255040764178375e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/1",
+    "field": "combined_least_SF",
+    "card_value": 1.3750643712117954,
+    "check_value": 1.3750643712160504,
+    "status": "MATCH",
+    "delta": 4.255040764178375e-12,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/1",
+    "field": "combined_least_mode",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/1",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.0,
+    "check_value": 1.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/1",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 0.0,
+    "check_value": 0.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/1",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 1,
+    "check_value": 1,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/2",
+    "field": "s_m",
+    "card_value": 6.15,
+    "check_value": 6.15,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/2",
+    "field": "half_wave_m",
+    "card_value": 3.492501455359012,
+    "check_value": 3.492501455362934,
+    "status": "MATCH",
+    "delta": 3.921751812185903e-12,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/2",
+    "field": "half_wave_over_s",
+    "card_value": 0.5678864155055304,
+    "check_value": 0.567886415506168,
+    "status": "MATCH",
+    "delta": 6.376010830422274e-13,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/2",
+    "field": "in_band",
+    "card_value": false,
+    "check_value": false,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/2",
+    "field": "governing_filed",
+    "card_value": "local",
+    "check_value": "local",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/2/uniform",
+    "field": "yield",
+    "card_value": 3.75607531179,
+    "check_value": 3.756075311792591,
+    "status": "MATCH",
+    "delta": 2.5908164502652653e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/2/uniform",
+    "field": "euler",
+    "card_value": 1.35396688465,
+    "check_value": 1.3539668846454178,
+    "status": "MATCH",
+    "delta": -4.582112467232946e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/2/uniform",
+    "field": "local",
+    "card_value": 1.29454034466,
+    "check_value": 1.2945403446627521,
+    "status": "MATCH",
+    "delta": 2.752242878045763e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/2/uniform",
+    "field": "film",
+    "card_value": 1.44271351144,
+    "check_value": 1.4427135114359138,
+    "status": "MATCH",
+    "delta": -4.086286864435351e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/2/uniform",
+    "field": "perry",
+    "card_value": 1.29937293637,
+    "check_value": 1.299372936373825,
+    "status": "MATCH",
+    "delta": 3.824940364438589e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/2/uniform",
+    "field": "global",
+    "card_value": 1.30135480413,
+    "check_value": 1.3013548041290186,
+    "status": "MATCH",
+    "delta": -9.814371537686384e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/2",
+    "field": "film_alpha",
+    "card_value": 4.5e-06,
+    "check_value": 4.5e-06,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/2/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 4.5e-06,
+    "check_value": 4.5e-06,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/2/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.1865199352334435,
+    "check_value": 0.18651993523385896,
+    "status": "MATCH",
+    "delta": 4.154454558147336e-13,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/2/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 315.4206461465036,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/2/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 289.56800962269097,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/2/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 292.7856777865219,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/2/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.86177510075254,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/2",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.3052231914065,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/2",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 278.35277727725156,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/2/mismatch",
+    "field": "eps_mechanical",
+    "card_value": -0.00010185735761991771,
+    "check_value": -0.00010185735761991771,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/2/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": -1520259.0689539958,
+    "check_value": -1520259.0689539958,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/2/mismatch",
+    "field": "member_force_N",
+    "card_value": -1524.0222007477862,
+    "check_value": -1524.0222007496143,
+    "status": "MATCH",
+    "delta": -1.8280843505635858e-09,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/2",
+    "field": "member_force_N",
+    "card_value": 1694765.9693498067,
+    "check_value": 1694765.9693498067,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/2",
+    "field": "film_stress_Pa",
+    "card_value": 1039707459.666659,
+    "check_value": 1039707459.6654118,
+    "status": "MATCH",
+    "delta": -0.0012471675872802734,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/2",
+    "field": "film_mass_kg",
+    "card_value": 344.1444741261899,
+    "check_value": 344.14447412660274,
+    "status": "MATCH",
+    "delta": 4.128537511860486e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/2",
+    "field": "tube_mass_kg",
+    "card_value": 3581.5126092693927,
+    "check_value": 3640.5011762956547,
+    "status": "MISMATCH",
+    "delta": 58.98856702626199,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/2/combined_flight_gust",
+    "field": "yield",
+    "card_value": 3.7480347232959725,
+    "check_value": 3.7480347232985616,
+    "status": "MATCH",
+    "delta": 2.589040093425865e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/2/combined_flight_gust",
+    "field": "euler",
+    "card_value": 1.3510684628532275,
+    "check_value": 1.3510684628486567,
+    "status": "MATCH",
+    "delta": -4.5707881923817695e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/2/combined_flight_gust",
+    "field": "local",
+    "card_value": 1.2917691365940553,
+    "check_value": 1.2917691365968031,
+    "status": "MATCH",
+    "delta": 2.7478019859472624e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/2/combined_flight_gust",
+    "field": "film",
+    "card_value": 1.4404342623900783,
+    "check_value": 1.440434262386001,
+    "status": "MATCH",
+    "delta": -4.07740508023835e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/2/combined_flight_gust",
+    "field": "perry",
+    "card_value": 1.296591383228924,
+    "check_value": 1.296591383232742,
+    "status": "MATCH",
+    "delta": 3.818056981685913e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/2/combined_flight_gust",
+    "field": "global",
+    "card_value": 1.298569008426732,
+    "check_value": 1.2985690084257542,
+    "status": "MATCH",
+    "delta": -9.778844400898379e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/2",
+    "field": "combined_least_SF",
+    "card_value": 1.2917691365940553,
+    "check_value": 1.2917691365968031,
+    "status": "MATCH",
+    "delta": 2.7478019859472624e-12,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/2",
+    "field": "combined_least_mode",
+    "card_value": "local",
+    "check_value": "local",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/2",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.0,
+    "check_value": 1.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/2",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 0.0,
+    "check_value": 0.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/2",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 1,
+    "check_value": 1,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/3",
+    "field": "s_m",
+    "card_value": 6.15,
+    "check_value": 6.15,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/3",
+    "field": "half_wave_m",
+    "card_value": 3.492501455359012,
+    "check_value": 3.492501455362934,
+    "status": "MATCH",
+    "delta": 3.921751812185903e-12,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/3",
+    "field": "half_wave_over_s",
+    "card_value": 0.5678864155055304,
+    "check_value": 0.567886415506168,
+    "status": "MATCH",
+    "delta": 6.376010830422274e-13,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/3",
+    "field": "in_band",
+    "card_value": false,
+    "check_value": false,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/3",
+    "field": "governing_filed",
+    "card_value": "local",
+    "check_value": "local",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/3/uniform",
+    "field": "yield",
+    "card_value": 3.75607531179,
+    "check_value": 3.756075311792591,
+    "status": "MATCH",
+    "delta": 2.5908164502652653e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/3/uniform",
+    "field": "euler",
+    "card_value": 1.35396688465,
+    "check_value": 1.3539668846454178,
+    "status": "MATCH",
+    "delta": -4.582112467232946e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/3/uniform",
+    "field": "local",
+    "card_value": 1.29454034466,
+    "check_value": 1.2945403446627521,
+    "status": "MATCH",
+    "delta": 2.752242878045763e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/3/uniform",
+    "field": "film",
+    "card_value": 1.44271351144,
+    "check_value": 1.4427135114359138,
+    "status": "MATCH",
+    "delta": -4.086286864435351e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/3/uniform",
+    "field": "perry",
+    "card_value": 1.29937293637,
+    "check_value": 1.299372936373825,
+    "status": "MATCH",
+    "delta": 3.824940364438589e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/3/uniform",
+    "field": "global",
+    "card_value": 1.30135480413,
+    "check_value": 1.3013548041290186,
+    "status": "MATCH",
+    "delta": -9.814371537686384e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/3",
+    "field": "film_alpha",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/3/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/3/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.1865199352334435,
+    "check_value": 0.18651993523385896,
+    "status": "MATCH",
+    "delta": 4.154454558147336e-13,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/3/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 315.4206461465036,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/3/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 289.56800962269097,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/3/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 292.7856777865219,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/3/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.86177510075254,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/3",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.3052231914065,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/3",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 278.35277727725156,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/3/mismatch",
+    "field": "eps_mechanical",
+    "card_value": -0.000483365434451213,
+    "check_value": -0.000483365434451213,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/3/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": -7214409.469421091,
+    "check_value": -7214409.469421091,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/3/mismatch",
+    "field": "member_force_N",
+    "card_value": -7232.267460997803,
+    "check_value": -7232.267461006479,
+    "status": "MATCH",
+    "delta": -8.675669960211962e-09,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/3",
+    "field": "member_force_N",
+    "card_value": 1694765.9693498067,
+    "check_value": 1694765.9693498067,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/3",
+    "field": "film_stress_Pa",
+    "card_value": 1039707459.666659,
+    "check_value": 1039707459.6654118,
+    "status": "MATCH",
+    "delta": -0.0012471675872802734,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/3",
+    "field": "film_mass_kg",
+    "card_value": 344.1444741261899,
+    "check_value": 344.14447412660274,
+    "status": "MATCH",
+    "delta": 4.128537511860486e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/3",
+    "field": "tube_mass_kg",
+    "card_value": 3581.5126092693927,
+    "check_value": 3640.5011762956547,
+    "status": "MISMATCH",
+    "delta": 58.98856702626199,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/3/combined_flight_gust",
+    "field": "yield",
+    "card_value": 3.760674165567732,
+    "check_value": 3.760674165570345,
+    "status": "MATCH",
+    "delta": 2.6130209107577684e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/3/combined_flight_gust",
+    "field": "euler",
+    "card_value": 1.355624651123119,
+    "check_value": 1.3556246511185384,
+    "status": "MATCH",
+    "delta": -4.580558154998471e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/3/combined_flight_gust",
+    "field": "local",
+    "card_value": 1.2961253506197523,
+    "check_value": 1.2961253506225145,
+    "status": "MATCH",
+    "delta": 2.7622348852673895e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/3/combined_flight_gust",
+    "field": "film",
+    "card_value": 1.448353909199044,
+    "check_value": 1.4483539091949538,
+    "status": "MATCH",
+    "delta": -4.090283667324002e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/3/combined_flight_gust",
+    "field": "perry",
+    "card_value": 1.300963859245894,
+    "check_value": 1.3009638592497303,
+    "status": "MATCH",
+    "delta": 3.836264639289766e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/3/combined_flight_gust",
+    "field": "global",
+    "card_value": 1.3029481535600171,
+    "check_value": 1.3029481535590413,
+    "status": "MATCH",
+    "delta": -9.758860386455126e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/3",
+    "field": "combined_least_SF",
+    "card_value": 1.2961253506197523,
+    "check_value": 1.2961253506225145,
+    "status": "MATCH",
+    "delta": 2.7622348852673895e-12,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/3",
+    "field": "combined_least_mode",
+    "card_value": "local",
+    "check_value": "local",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/3",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.0,
+    "check_value": 1.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/3",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 0.0,
+    "check_value": 0.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/3",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 1,
+    "check_value": 1,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/4",
+    "field": "s_m",
+    "card_value": 0.55,
+    "check_value": 0.55,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/4",
+    "field": "half_wave_m",
+    "card_value": 2.508991012485649,
+    "check_value": 2.508991012486377,
+    "status": "MATCH",
+    "delta": 7.278622149442526e-13,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/4",
+    "field": "half_wave_over_s",
+    "card_value": 4.561801840882998,
+    "check_value": 4.561801840884321,
+    "status": "MATCH",
+    "delta": 1.3233858453531866e-12,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/4",
+    "field": "in_band",
+    "card_value": true,
+    "check_value": true,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/4",
+    "field": "governing_filed",
+    "card_value": "perry",
+    "check_value": "perry",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/4/uniform",
+    "field": "yield",
+    "card_value": 0.417168959855,
+    "check_value": 0.4171689598547063,
+    "status": "MATCH",
+    "delta": -2.9370950116458516e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/4/uniform",
+    "field": "euler",
+    "card_value": 53.091074319,
+    "check_value": 53.09107431901818,
+    "status": "MATCH",
+    "delta": 1.8182788608100964e-11,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/4/uniform",
+    "field": "local",
+    "card_value": 0.414010996767,
+    "check_value": 0.4140109967668215,
+    "status": "MATCH",
+    "delta": -1.7846835120849391e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/4/uniform",
+    "field": "film",
+    "card_value": 0.437101571069,
+    "check_value": 0.43710157106881414,
+    "status": "MATCH",
+    "delta": -1.858513343222512e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/4/uniform",
+    "field": "perry",
+    "card_value": 0.411790451893,
+    "check_value": 0.41179045189293734,
+    "status": "MATCH",
+    "delta": -6.267208974009009e-14,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/4/uniform",
+    "field": "global",
+    "card_value": 0.765560371986,
+    "check_value": 0.7655603719860388,
+    "status": "MATCH",
+    "delta": 3.8746783559417963e-14,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/4",
+    "field": "film_alpha",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/4/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/4/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.85,
+    "check_value": 0.85,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/4/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 282.61623174935835,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/4/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 283.93184508847776,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/4/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 291.42533250955705,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/4/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.86849713328604,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/4",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 272.88408288264657,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/4",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 279.5218648874966,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/4/mismatch",
+    "field": "eps_mechanical",
+    "card_value": 6.818805655391452e-05,
+    "check_value": 6.818805655391452e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/4/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": 527907.5346109512,
+    "check_value": 527907.5346109512,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/4/mismatch",
+    "field": "member_force_N",
+    "card_value": 12.681147742863134,
+    "check_value": 12.681147742871042,
+    "status": "MATCH",
+    "delta": 7.908340649009915e-12,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/4",
+    "field": "member_force_N",
+    "card_value": 151564.43628331606,
+    "check_value": 151564.43628331606,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/4",
+    "field": "film_stress_Pa",
+    "card_value": 347023828.07526094,
+    "check_value": 347023828.0750445,
+    "status": "MATCH",
+    "delta": -0.00021642446517944336,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/4",
+    "field": "film_mass_kg",
+    "card_value": 133.0872770003122,
+    "check_value": 133.0872770003952,
+    "status": "MATCH",
+    "delta": 8.29913915367797e-11,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/4",
+    "field": "tube_mass_kg",
+    "card_value": 4082.490566662958,
+    "check_value": 4083.0053057749465,
+    "status": "MISMATCH",
+    "delta": 0.5147391119885469,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/4/combined_flight_gust",
+    "field": "yield",
+    "card_value": 0.4158680406684497,
+    "check_value": 0.4158680406681569,
+    "status": "MATCH",
+    "delta": -2.927658115936538e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/4/combined_flight_gust",
+    "field": "euler",
+    "card_value": 52.92551263090086,
+    "check_value": 52.92551263091899,
+    "status": "MATCH",
+    "delta": 1.8125945189240156e-11,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/4/combined_flight_gust",
+    "field": "local",
+    "card_value": 0.41271992552017417,
+    "check_value": 0.41271992551999626,
+    "status": "MATCH",
+    "delta": -1.7791323969618134e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/4/combined_flight_gust",
+    "field": "film",
+    "card_value": 0.4351149335652014,
+    "check_value": 0.435114933565016,
+    "status": "MATCH",
+    "delta": -1.8540724511240114e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/4/combined_flight_gust",
+    "field": "perry",
+    "card_value": 0.41050630529711707,
+    "check_value": 0.41050630529705456,
+    "status": "MATCH",
+    "delta": -6.250555628639631e-14,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/4/combined_flight_gust",
+    "field": "global",
+    "card_value": 0.7631730127329881,
+    "check_value": 0.7631730127330267,
+    "status": "MATCH",
+    "delta": 3.863576125695545e-14,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/4",
+    "field": "combined_least_SF",
+    "card_value": 0.41050630529711707,
+    "check_value": 0.41050630529705456,
+    "status": "MATCH",
+    "delta": -6.250555628639631e-14,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/4",
+    "field": "combined_least_mode",
+    "card_value": "perry",
+    "check_value": "perry",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/4",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 2.4360161758690113,
+    "check_value": 2.436016175869382,
+    "status": "MATCH",
+    "delta": 3.708144902248023e-13,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/4",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 5862.522491560654,
+    "check_value": 5862.5224915621675,
+    "status": "MATCH",
+    "delta": 1.5133991837501526e-09,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/4",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 7,
+    "check_value": 7,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/5",
+    "field": "s_m",
+    "card_value": 0.55,
+    "check_value": 0.55,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/5",
+    "field": "half_wave_m",
+    "card_value": 2.486066473205247,
+    "check_value": 2.4860664732052014,
+    "status": "MATCH",
+    "delta": -4.574118861455645e-14,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/5",
+    "field": "half_wave_over_s",
+    "card_value": 4.520120860373176,
+    "check_value": 4.520120860373093,
+    "status": "MATCH",
+    "delta": -8.260059303211165e-14,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/5",
+    "field": "in_band",
+    "card_value": true,
+    "check_value": true,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/5",
+    "field": "governing_filed",
+    "card_value": "perry",
+    "check_value": "perry",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/5/uniform",
+    "field": "yield",
+    "card_value": 0.401119251744,
+    "check_value": 0.4011192517438182,
+    "status": "MATCH",
+    "delta": -1.8179902028236938e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/5/uniform",
+    "field": "euler",
+    "card_value": 49.2082089363,
+    "check_value": 49.208208936343084,
+    "status": "MATCH",
+    "delta": 4.3087311496492475e-11,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/5/uniform",
+    "field": "local",
+    "card_value": 0.396690072456,
+    "check_value": 0.39669007245559906,
+    "status": "MATCH",
+    "delta": -4.009570453433753e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/5/uniform",
+    "field": "film",
+    "card_value": 0.43119779041,
+    "check_value": 0.43119779040958817,
+    "status": "MATCH",
+    "delta": -4.118372309847018e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/5/uniform",
+    "field": "perry",
+    "card_value": 0.395851626757,
+    "check_value": 0.3958516267571625,
+    "status": "MATCH",
+    "delta": 1.6253665080512292e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/5/uniform",
+    "field": "global",
+    "card_value": 0.722716927636,
+    "check_value": 0.7227169276362029,
+    "status": "MATCH",
+    "delta": 2.028377465990161e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/5",
+    "field": "film_alpha",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/5/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 1.7e-05,
+    "check_value": 1.7e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/5/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.85,
+    "check_value": 0.85,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/5/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 282.61623174935835,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/5/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 283.93184508847776,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/5/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 291.38841513082343,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/5/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.8686784586911,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/5",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 272.88408288264657,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/5",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 279.5532469768067,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/5/mismatch",
+    "field": "eps_mechanical",
+    "card_value": 6.802192834961324e-05,
+    "check_value": 6.802192834961324e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/5/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": 526621.3807711992,
+    "check_value": 526621.3807711992,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/5/mismatch",
+    "field": "member_force_N",
+    "card_value": 12.479389747392137,
+    "check_value": 12.4793897473882,
+    "status": "MATCH",
+    "delta": -3.936406756110955e-12,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/5",
+    "field": "member_force_N",
+    "card_value": 151564.43628331606,
+    "check_value": 151564.43628331606,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/5",
+    "field": "film_stress_Pa",
+    "card_value": 351775133.8794784,
+    "check_value": 351775133.8795894,
+    "status": "MATCH",
+    "delta": 0.00011098384857177734,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/5",
+    "field": "film_mass_kg",
+    "card_value": 131.28971290103811,
+    "check_value": 131.2897129009967,
+    "status": "MATCH",
+    "delta": -4.141043064009864e-11,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/5",
+    "field": "tube_mass_kg",
+    "card_value": 3925.4252327975605,
+    "check_value": 3925.920168386683,
+    "status": "MISMATCH",
+    "delta": 0.49493558912263325,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/5/combined_flight_gust",
+    "field": "yield",
+    "card_value": 0.39986891335100716,
+    "check_value": 0.3998689133508259,
+    "status": "MATCH",
+    "delta": -1.812439087700568e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/5/combined_flight_gust",
+    "field": "euler",
+    "card_value": 49.05482085378848,
+    "check_value": 49.05482085383143,
+    "status": "MATCH",
+    "delta": 4.2952308376698056e-11,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/5/combined_flight_gust",
+    "field": "local",
+    "card_value": 0.3954535403634755,
+    "check_value": 0.3954535403630759,
+    "status": "MATCH",
+    "delta": -3.996247777138251e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/5/combined_flight_gust",
+    "field": "film",
+    "card_value": 0.4292483276516342,
+    "check_value": 0.42924832765122445,
+    "status": "MATCH",
+    "delta": -4.09727807237914e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/5/combined_flight_gust",
+    "field": "perry",
+    "card_value": 0.3946177082035748,
+    "check_value": 0.3946177082037368,
+    "status": "MATCH",
+    "delta": 1.620370504440416e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/5/combined_flight_gust",
+    "field": "global",
+    "card_value": 0.720464129452018,
+    "check_value": 0.7204641294522203,
+    "status": "MATCH",
+    "delta": 2.0228263508670352e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/5",
+    "field": "combined_least_SF",
+    "card_value": 0.3946177082035748,
+    "check_value": 0.3946177082037368,
+    "status": "MATCH",
+    "delta": 1.620370504440416e-13,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/5",
+    "field": "combined_least_mode",
+    "card_value": "perry",
+    "check_value": "perry",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/5",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 2.5340981390630386,
+    "check_value": 2.534098139061998,
+    "status": "MATCH",
+    "delta": -1.0405010186786967e-12,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/5",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 6021.9875446658325,
+    "check_value": 6021.987544661748,
+    "status": "MATCH",
+    "delta": -4.084540705662221e-09,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/5",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 7,
+    "check_value": 7,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/6",
+    "field": "s_m",
+    "card_value": 1.85,
+    "check_value": 1.85,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/6",
+    "field": "half_wave_m",
+    "card_value": 2.75688202321029,
+    "check_value": 2.756882023210912,
+    "status": "MATCH",
+    "delta": 6.217248937900877e-13,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/6",
+    "field": "half_wave_over_s",
+    "card_value": 1.4902064990325892,
+    "check_value": 1.4902064990329253,
+    "status": "MATCH",
+    "delta": 3.361755318564974e-13,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/6",
+    "field": "in_band",
+    "card_value": true,
+    "check_value": true,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/6",
+    "field": "governing_filed",
+    "card_value": "film",
+    "check_value": "film",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/6/uniform",
+    "field": "yield",
+    "card_value": 3.43562499303,
+    "check_value": 3.4356249930297644,
+    "status": "MATCH",
+    "delta": -2.353672812205332e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/6/uniform",
+    "field": "euler",
+    "card_value": 5.47468903403,
+    "check_value": 5.474689034033089,
+    "status": "MATCH",
+    "delta": 3.0890845437170356e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/6/uniform",
+    "field": "local",
+    "card_value": 0.761765644494,
+    "check_value": 0.7617656444937001,
+    "status": "MATCH",
+    "delta": -2.998712389512548e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/6/uniform",
+    "field": "film",
+    "card_value": 0.739113638303,
+    "check_value": 0.7391136383028991,
+    "status": "MATCH",
+    "delta": -1.0091927293842673e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/6/uniform",
+    "field": "perry",
+    "card_value": 3.16415609359,
+    "check_value": 3.164156093592673,
+    "status": "MATCH",
+    "delta": 2.672972954087527e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/6/uniform",
+    "field": "global",
+    "card_value": 0.741703542024,
+    "check_value": 0.7417035420241839,
+    "status": "MATCH",
+    "delta": 1.8385293287792592e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/6",
+    "field": "film_alpha",
+    "card_value": 2e-05,
+    "check_value": 2e-05,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/6/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 2e-05,
+    "check_value": 2e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/6/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.38582600069220274,
+    "check_value": 0.38582600069237666,
+    "status": "MATCH",
+    "delta": 1.7391643680753077e-13,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/6/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 315.70889049211894,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/6/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 289.69033876102094,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/6/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 294.26713316208634,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/6/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.88725995984043,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/6",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.08697089884936,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/6",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 282.7375903175813,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/6/mismatch",
+    "field": "eps_mechanical",
+    "card_value": -0.0005356204646484366,
+    "check_value": -0.0005356204646484366,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/6/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": -2028865.3963955934,
+    "check_value": -2028865.3963955934,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/6/mismatch",
+    "field": "member_force_N",
+    "card_value": -1224.5049434236644,
+    "check_value": -1224.5049434227083,
+    "status": "MATCH",
+    "delta": 9.561063052387908e-10,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/6",
+    "field": "member_force_N",
+    "card_value": 509807.6493166085,
+    "check_value": 509807.6493166085,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/6",
+    "field": "film_stress_Pa",
+    "card_value": 156268257.02352458,
+    "check_value": 156268257.0236466,
+    "status": "MATCH",
+    "delta": 0.00012201070785522461,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/6",
+    "field": "film_mass_kg",
+    "card_value": 1008.3107910292986,
+    "check_value": 1008.3107910285114,
+    "status": "MATCH",
+    "delta": -7.871676643844694e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/6",
+    "field": "tube_mass_kg",
+    "card_value": 4681.445574594023,
+    "check_value": 3280.644870479246,
+    "status": "MISMATCH",
+    "delta": -1400.800704114777,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/6/combined_flight_gust",
+    "field": "yield",
+    "card_value": 3.4334185493784717,
+    "check_value": 3.43341854937823,
+    "status": "MATCH",
+    "delta": -2.4158453015843406e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/6/combined_flight_gust",
+    "field": "euler",
+    "card_value": 5.471173052836554,
+    "check_value": 5.471173052839631,
+    "status": "MATCH",
+    "delta": 3.076650045841234e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/6/combined_flight_gust",
+    "field": "local",
+    "card_value": 0.7612764196881333,
+    "check_value": 0.7612764196878321,
+    "status": "MATCH",
+    "delta": -3.0120350658080497e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/6/combined_flight_gust",
+    "field": "film",
+    "card_value": 0.7465331988425643,
+    "check_value": 0.7465331988424546,
+    "status": "MATCH",
+    "delta": -1.0969003483296547e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/6/combined_flight_gust",
+    "field": "perry",
+    "card_value": 3.162123994004245,
+    "check_value": 3.1621239940069104,
+    "status": "MATCH",
+    "delta": 2.665423437520076e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/6/combined_flight_gust",
+    "field": "global",
+    "card_value": 0.7412272015983322,
+    "check_value": 0.7412272015985146,
+    "status": "MATCH",
+    "delta": 1.8240964294591322e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/6",
+    "field": "combined_least_SF",
+    "card_value": 0.7412272015983322,
+    "check_value": 0.7412272015985146,
+    "status": "MATCH",
+    "delta": 1.8240964294591322e-13,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/6",
+    "field": "combined_least_mode",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/6",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.3491140069383147,
+    "check_value": 1.3491140069379828,
+    "status": "MATCH",
+    "delta": -3.319566843629218e-13,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/6",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 1634.3582228101607,
+    "check_value": 1634.3582228086066,
+    "status": "MATCH",
+    "delta": -1.5540990716544911e-09,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/6",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 2,
+    "check_value": 2,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/7",
+    "field": "s_m",
+    "card_value": 1.85,
+    "check_value": 1.85,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/7",
+    "field": "half_wave_m",
+    "card_value": 2.7415446123666207,
+    "check_value": 2.74154461236086,
+    "status": "MATCH",
+    "delta": -5.760725230175012e-12,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/7",
+    "field": "half_wave_over_s",
+    "card_value": 1.4819160066846597,
+    "check_value": 1.4819160066815458,
+    "status": "MATCH",
+    "delta": -3.113953539468639e-12,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/7",
+    "field": "in_band",
+    "card_value": true,
+    "check_value": true,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/7",
+    "field": "governing_filed",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/7/uniform",
+    "field": "yield",
+    "card_value": 3.28700995308,
+    "check_value": 3.287009953080323,
+    "status": "MATCH",
+    "delta": 3.228528555609955e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/7/uniform",
+    "field": "euler",
+    "card_value": 5.12227941877,
+    "check_value": 5.122279418769755,
+    "status": "MATCH",
+    "delta": -2.4513724383723456e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/7/uniform",
+    "field": "local",
+    "card_value": 0.708276178104,
+    "check_value": 0.7082761781039234,
+    "status": "MATCH",
+    "delta": -7.66053886991358e-14,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/7/uniform",
+    "field": "film",
+    "card_value": 0.719282566969,
+    "check_value": 0.7192825669694574,
+    "status": "MATCH",
+    "delta": 4.574118861455645e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/7/uniform",
+    "field": "perry",
+    "card_value": 3.01803070154,
+    "check_value": 3.0180307015348538,
+    "status": "MATCH",
+    "delta": -5.146105763742526e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/7/uniform",
+    "field": "global",
+    "card_value": 0.701745910728,
+    "check_value": 0.7017459107278026,
+    "status": "MATCH",
+    "delta": -1.9739765377835283e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/7",
+    "field": "film_alpha",
+    "card_value": 2e-05,
+    "check_value": 2e-05,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/7/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": 2e-05,
+    "check_value": 2e-05,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/7/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.38151716055523577,
+    "check_value": 0.3815171605536382,
+    "status": "MATCH",
+    "delta": -1.597555421284369e-12,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/7/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 315.91513258108796,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/7/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 289.73082979818776,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/7/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 294.22891802356344,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/7/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.8873124643378,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/7",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.08697089884936,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/7",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 282.7465220897568,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/7/mismatch",
+    "field": "eps_mechanical",
+    "card_value": -0.0005400739566191139,
+    "check_value": -0.0005400739566191139,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/7/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": -2045734.6841633103,
+    "check_value": -2045734.6841633103,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/7/mismatch",
+    "field": "member_force_N",
+    "card_value": -1201.5585403583598,
+    "check_value": -1201.5585403588861,
+    "status": "MATCH",
+    "delta": -5.263700586510822e-10,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/7",
+    "field": "member_force_N",
+    "card_value": 509807.6493166085,
+    "check_value": 509807.6493166085,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/7",
+    "field": "film_stress_Pa",
+    "card_value": 160576670.84395644,
+    "check_value": 160576670.84388608,
+    "status": "MATCH",
+    "delta": -7.036328315734863e-05,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/7",
+    "field": "film_mass_kg",
+    "card_value": 981.2569224658957,
+    "check_value": 981.2569224663256,
+    "status": "MATCH",
+    "delta": 4.298499334254302e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/7",
+    "field": "tube_mass_kg",
+    "card_value": 4478.93999775417,
+    "check_value": 3138.733815147143,
+    "status": "MISMATCH",
+    "delta": -1340.2061826070267,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/7/combined_flight_gust",
+    "field": "yield",
+    "card_value": 3.2847512022479144,
+    "check_value": 3.2847512022482404,
+    "status": "MATCH",
+    "delta": 3.2596148002994596e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/7/combined_flight_gust",
+    "field": "euler",
+    "card_value": 5.118759516772599,
+    "check_value": 5.118759516772359,
+    "status": "MATCH",
+    "delta": -2.398081733190338e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/7/combined_flight_gust",
+    "field": "local",
+    "card_value": 0.707789468471393,
+    "check_value": 0.7077894684713172,
+    "status": "MATCH",
+    "delta": -7.582823258189819e-14,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/7/combined_flight_gust",
+    "field": "film",
+    "card_value": 0.7263245677269734,
+    "check_value": 0.7263245677274395,
+    "status": "MATCH",
+    "delta": 4.660716257376407e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/7/combined_flight_gust",
+    "field": "perry",
+    "card_value": 3.015956786506072,
+    "check_value": 3.015956786500932,
+    "status": "MATCH",
+    "delta": -5.139888514804625e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/7/combined_flight_gust",
+    "field": "global",
+    "card_value": 0.7012636885314154,
+    "check_value": 0.7012636885312188,
+    "status": "MATCH",
+    "delta": -1.9662049766111522e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/7",
+    "field": "combined_least_SF",
+    "card_value": 0.7012636885314154,
+    "check_value": 0.7012636885312188,
+    "status": "MATCH",
+    "delta": -1.9662049766111522e-13,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/7",
+    "field": "combined_least_mode",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/7",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.4259971197057093,
+    "check_value": 1.425997119706109,
+    "status": "MATCH",
+    "delta": 3.9968028886505635e-13,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/7",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 1908.0155383779725,
+    "check_value": 1908.0155383797626,
+    "status": "MATCH",
+    "delta": 1.790112946764566e-09,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/7",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 2,
+    "check_value": 2,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/8",
+    "field": "s_m",
+    "card_value": 5.5,
+    "check_value": 5.5,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/8",
+    "field": "half_wave_m",
+    "card_value": 3.498258331758169,
+    "check_value": 3.498258331762516,
+    "status": "MATCH",
+    "delta": 4.347189275222263e-12,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/8",
+    "field": "half_wave_over_s",
+    "card_value": 0.6360469694105761,
+    "check_value": 0.6360469694113665,
+    "status": "MATCH",
+    "delta": 7.903677712306489e-13,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/8",
+    "field": "in_band",
+    "card_value": false,
+    "check_value": false,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/8",
+    "field": "governing_filed",
+    "card_value": "global",
+    "check_value": "global",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/8/uniform",
+    "field": "yield",
+    "card_value": 4.27236643954,
+    "check_value": 4.272366439538444,
+    "status": "MATCH",
+    "delta": -1.5560885913146194e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/8/uniform",
+    "field": "euler",
+    "card_value": 1.95142954175,
+    "check_value": 1.9514295417460095,
+    "status": "MATCH",
+    "delta": -3.990585639712663e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/8/uniform",
+    "field": "local",
+    "card_value": 1.49206896315,
+    "check_value": 1.4920689631463961,
+    "status": "MATCH",
+    "delta": -3.603783937933258e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/8/uniform",
+    "field": "film",
+    "card_value": 1.49375231321,
+    "check_value": 1.4937523132144275,
+    "status": "MATCH",
+    "delta": 4.427569422205124e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/8/uniform",
+    "field": "perry",
+    "card_value": 1.8504480324,
+    "check_value": 1.8504480324014165,
+    "status": "MATCH",
+    "delta": 1.4164225348167747e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/8/uniform",
+    "field": "global",
+    "card_value": 1.48511637206,
+    "check_value": 1.485116372061488,
+    "status": "MATCH",
+    "delta": 1.4879208976026348e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/8",
+    "field": "film_alpha",
+    "card_value": -6e-06,
+    "check_value": -6e-06,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/8/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": -6e-06,
+    "check_value": -6e-06,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/8/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.20926180495741886,
+    "check_value": 0.20926180495793661,
+    "status": "MATCH",
+    "delta": 5.177525075339418e-13,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/8/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 317.4188083455216,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/8/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 289.9560362148562,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/8/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 292.7925653479965,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/8/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.861740850924,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/8",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.3052231914065,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/8",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 278.3467900339074,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/8/mismatch",
+    "field": "eps_mechanical",
+    "card_value": 0.00019905913274712798,
+    "check_value": 0.00019905913274712798,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/8/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": 51186634.13497577,
+    "check_value": 51186634.13497577,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/8/mismatch",
+    "field": "member_force_N",
+    "card_value": 18315.37932533707,
+    "check_value": 18315.379325398215,
+    "status": "MATCH",
+    "delta": 6.114350981079042e-08,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/8",
+    "field": "member_force_N",
+    "card_value": 1515644.3628331604,
+    "check_value": 1515644.3628331604,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/8",
+    "field": "film_stress_Pa",
+    "card_value": 2329703505.2102814,
+    "check_value": 2329703505.2025037,
+    "status": "MATCH",
+    "delta": -0.007777690887451172,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/8",
+    "field": "film_mass_kg",
+    "card_value": 220.89798035910516,
+    "check_value": 220.89798035984268,
+    "status": "MATCH",
+    "delta": 7.375149380095536e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/8",
+    "field": "tube_mass_kg",
+    "card_value": 2102.6112155993883,
+    "check_value": 4126.9865492776535,
+    "status": "MISMATCH",
+    "delta": 2024.3753336782652,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/8/combined_flight_gust",
+    "field": "yield",
+    "card_value": 4.208694144838094,
+    "check_value": 4.208694144836394,
+    "status": "MATCH",
+    "delta": -1.6999734953060397e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/8/combined_flight_gust",
+    "field": "euler",
+    "card_value": 1.922346831118632,
+    "check_value": 1.9223468311146241,
+    "status": "MATCH",
+    "delta": -4.007905118896815e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/8/combined_flight_gust",
+    "field": "local",
+    "card_value": 1.469832234142391,
+    "check_value": 1.4698322341387824,
+    "status": "MATCH",
+    "delta": -3.608668919241609e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/8/combined_flight_gust",
+    "field": "film",
+    "card_value": 1.4572968066993481,
+    "check_value": 1.4572968067035637,
+    "status": "MATCH",
+    "delta": 4.215516824501719e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/8/combined_flight_gust",
+    "field": "perry",
+    "card_value": 1.822870277982891,
+    "check_value": 1.8228702779842134,
+    "status": "MATCH",
+    "delta": 1.3224976669334865e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/8/combined_flight_gust",
+    "field": "global",
+    "card_value": 1.4629832594989411,
+    "check_value": 1.4629832595003487,
+    "status": "MATCH",
+    "delta": 1.4075407506197735e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/8",
+    "field": "combined_least_SF",
+    "card_value": 1.4572968066993481,
+    "check_value": 1.4572968067035637,
+    "status": "MATCH",
+    "delta": 4.215516824501719e-12,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/8",
+    "field": "combined_least_mode",
+    "card_value": "film",
+    "check_value": "film",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/8",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.0,
+    "check_value": 1.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/8",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 0.0,
+    "check_value": 0.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/8",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 1,
+    "check_value": 1,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  },
+  {
+    "row": "/p3/9",
+    "field": "s_m",
+    "card_value": 5.7,
+    "check_value": 5.7,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "022c cap geometry"
+  },
+  {
+    "row": "/p3/9",
+    "field": "half_wave_m",
+    "card_value": 3.4929556465917275,
+    "check_value": 3.4929556465901266,
+    "status": "MATCH",
+    "delta": -1.6009416015094757e-12,
+    "basis": "Declared formula; polar-radius definition retained"
+  },
+  {
+    "row": "/p3/9",
+    "field": "half_wave_over_s",
+    "card_value": 0.6127992362441627,
+    "check_value": 0.6127992362438819,
+    "status": "MATCH",
+    "delta": -2.807754029277021e-13,
+    "basis": "Declared half-wave / spacing"
+  },
+  {
+    "row": "/p3/9",
+    "field": "in_band",
+    "card_value": false,
+    "check_value": false,
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Declared half-wave test"
+  },
+  {
+    "row": "/p3/9",
+    "field": "governing_filed",
+    "card_value": "film",
+    "check_value": "film",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Independent minimum of 022c cap modes"
+  },
+  {
+    "row": "/p3/9/uniform",
+    "field": "yield",
+    "card_value": 4.09294415772,
+    "check_value": 4.0929441577209476,
+    "status": "MATCH",
+    "delta": 9.476863738200336e-13,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/9/uniform",
+    "field": "euler",
+    "card_value": 1.72663320583,
+    "check_value": 1.7266332058326266,
+    "status": "MATCH",
+    "delta": 2.6265656316581953e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/9/uniform",
+    "field": "local",
+    "card_value": 1.42740041766,
+    "check_value": 1.427400417657701,
+    "status": "MATCH",
+    "delta": -2.298827794788849e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/9/uniform",
+    "field": "film",
+    "card_value": 1.41704657175,
+    "check_value": 1.4170465717477383,
+    "status": "MATCH",
+    "delta": -2.261746345766369e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/9/uniform",
+    "field": "perry",
+    "card_value": 1.64487373383,
+    "check_value": 1.644873733832694,
+    "status": "MATCH",
+    "delta": 2.694067191555405e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/9/uniform",
+    "field": "global",
+    "card_value": 1.41843747897,
+    "check_value": 1.4184374789671248,
+    "status": "MATCH",
+    "delta": -2.8752555891742304e-12,
+    "basis": "Independent annular section, arc length, SiC and 022c mode equations"
+  },
+  {
+    "row": "/p3/9",
+    "field": "film_alpha",
+    "card_value": -6e-06,
+    "check_value": -6e-06,
+    "status": "DECLARED_INPUT",
+    "delta": 0.0,
+    "basis": "Declared thermal material assumption"
+  },
+  {
+    "row": "/p3/9/thermal_day",
+    "field": "film_alpha_used",
+    "card_value": -6e-06,
+    "check_value": -6e-06,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Selected film CTE"
+  },
+  {
+    "row": "/p3/9/thermal_day",
+    "field": "shadow_fraction",
+    "card_value": 0.20130653165388426,
+    "check_value": 0.2013065316537036,
+    "status": "MATCH",
+    "delta": -1.806610416821286e-13,
+    "basis": "Projected member strip fraction, clipped at .85 (clip inferred from Mylar outputs)"
+  },
+  {
+    "row": "/p3/9/thermal_day",
+    "field": "T_film_subsolar_K",
+    "card_value": 317.72593803564996,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/9/thermal_day",
+    "field": "T_film_antisolar_K",
+    "card_value": 290.01612192108325,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/9/thermal_day",
+    "field": "T_tube_subsolar_K",
+    "card_value": 292.7863054832121,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/9/thermal_day",
+    "field": "T_tube_antisolar_K",
+    "card_value": 284.86177197949655,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Missing film/tube optical properties, heat balances, speed and complete view factors"
+  },
+  {
+    "row": "/p3/9",
+    "field": "thermal_night_subsolar_film_K",
+    "card_value": 273.3052231914065,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/9",
+    "field": "thermal_night_subsolar_tube_K",
+    "card_value": 278.35223166138985,
+    "check_value": null,
+    "status": "UNRESOLVED",
+    "delta": null,
+    "basis": "Night thermal boundary-value problem unspecified"
+  },
+  {
+    "row": "/p3/9/mismatch",
+    "field": "eps_mechanical",
+    "card_value": 0.000200898780955506,
+    "check_value": 0.000200898780955506,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/9/mismatch",
+    "field": "film_stress_Pa",
+    "card_value": 51659686.53141583,
+    "check_value": 51659686.53141583,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/9/mismatch",
+    "field": "member_force_N",
+    "card_value": 18833.93107624103,
+    "check_value": 18833.93107628243,
+    "status": "MATCH",
+    "delta": 4.1400198824703693e-08,
+    "basis": "Conditional on filed temperatures, owner frame CTE and inferred film nu; source material correction separate"
+  },
+  {
+    "row": "/p3/9",
+    "field": "member_force_N",
+    "card_value": 1570758.703299821,
+    "check_value": 1570758.703299821,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "p R s / (2 sqrt(3))"
+  },
+  {
+    "row": "/p3/9",
+    "field": "film_stress_Pa",
+    "card_value": 2455812017.3252554,
+    "check_value": 2455812017.3198566,
+    "status": "MATCH",
+    "delta": -0.005398750305175781,
+    "basis": "p s / (2 film thickness)"
+  },
+  {
+    "row": "/p3/9",
+    "field": "film_mass_kg",
+    "card_value": 217.1748070131799,
+    "check_value": 217.17480701365733,
+    "status": "MATCH",
+    "delta": 4.774278750119265e-10,
+    "basis": "Full spherical area times gauge and inherited film density"
+  },
+  {
+    "row": "/p3/9",
+    "field": "tube_mass_kg",
+    "card_value": 2014.309964427877,
+    "check_value": 3957.5886775659837,
+    "status": "MISMATCH",
+    "delta": 1943.2787131381067,
+    "basis": "All 022c rows use SiC 3100 kg/m3 and arc length, not joint material density or chord length"
+  },
+  {
+    "row": "/p3/9/combined_flight_gust",
+    "field": "yield",
+    "card_value": 4.032318754822479,
+    "check_value": 4.032318754823307,
+    "status": "MATCH",
+    "delta": 8.277822871605167e-13,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/9/combined_flight_gust",
+    "field": "euler",
+    "card_value": 1.7010580135659568,
+    "check_value": 1.7010580135684998,
+    "status": "MATCH",
+    "delta": 2.5430768602063836e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/9/combined_flight_gust",
+    "field": "local",
+    "card_value": 1.4062575136568987,
+    "check_value": 1.4062575136545974,
+    "status": "MATCH",
+    "delta": -2.3012702854430245e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/9/combined_flight_gust",
+    "field": "film",
+    "card_value": 1.3837261446509181,
+    "check_value": 1.3837261446486468,
+    "status": "MATCH",
+    "delta": -2.2712942637781453e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/9/combined_flight_gust",
+    "field": "perry",
+    "card_value": 1.6205095771285454,
+    "check_value": 1.620509577131157,
+    "status": "MATCH",
+    "delta": 2.6116886431282182e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/9/combined_flight_gust",
+    "field": "global",
+    "card_value": 1.3974273355784022,
+    "check_value": 1.397427335575533,
+    "status": "MATCH",
+    "delta": -2.8692603848412546e-12,
+    "basis": "Reproduce declared scalar load multiplier on independent baseline; temperatures and CTE remain conditional"
+  },
+  {
+    "row": "/p3/9",
+    "field": "combined_least_SF",
+    "card_value": 1.3837261446509181,
+    "check_value": 1.3837261446486468,
+    "status": "MATCH",
+    "delta": -2.2712942637781453e-12,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/9",
+    "field": "combined_least_mode",
+    "card_value": "film",
+    "check_value": "film",
+    "status": "MATCH",
+    "delta": null,
+    "basis": "Minimum of reproduced conditional modes"
+  },
+  {
+    "row": "/p3/9",
+    "field": "optimism_or_thickness_factor_to_SF1",
+    "card_value": 1.0,
+    "check_value": 1.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Reciprocal SF; not proof of proportional wall scaling"
+  },
+  {
+    "row": "/p3/9",
+    "field": "extra_mass_kg_if_that_part_scales",
+    "card_value": 0.0,
+    "check_value": 0.0,
+    "status": "MATCH",
+    "delta": 0.0,
+    "basis": "Conditional proportional-mass arithmetic with filed mass; not a re-sized mass-closed design"
+  },
+  {
+    "row": "/p3/9",
+    "field": "members_to_hold_mooring_add_to_5pct",
+    "card_value": 1,
+    "check_value": 1,
+    "status": "MATCH",
+    "delta": 0,
+    "basis": "Scalar sharing count only; no attachment direction, equilibrium, capacity or fitting mass established"
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "name": "sweep-fullwave-W-y255-a11.8",
+  "analysis": "static",
+  "amplitude_mm": 11.8,
+  "width_mm": 2181.4248249368884,
+  "meridian": "W",
+  "yield_MPa": 255.0,
+  "nu": 0.0768,
+  "ntheta": 128,
+  "nface": 1,
+  "ncore": 4,
+  "grading": 2.0,
+  "increments": 27,
+  "endpoint_kPa": 76.39443,
+  "endpoint_kind": "last_converged_static_increment",
+  "first_yield_bracket_kPa": [
+    75.6,
+    75.825
+  ],
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 75.78131018174707,
+      "kind": "last_two_elastic_points_extrapolation",
+      "bracket_kPa": [
+        75.6,
+        75.825
+      ],
+      "inside_native_bracket": true
+    }
+  },
+  "endpoint_max_mises_MPa": 255.0000446965133,
+  "endpoint_max_peeq": 0.0002140922,
+  "endpoint_pole_uy_mm": -16.92013,
+  "solver": {
+    "returncode": 201,
+    "elapsed_s": 12.90202569309622,
+    "ended_at": "2026-10-20T11:37:51.650803+00:00"
+  },
+  "errors": [
+    " *ERROR: increment size smaller than minimum"
+  ],
+  "eigen_kPa": [],
+  "peeq_detection_threshold": 1e-10
+}

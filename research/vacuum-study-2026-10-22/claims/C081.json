@@ -1,0 +1,87 @@
+{
+  "id": "C081",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C081",
+    "report": "rpt-ref-b92330879d6ba35bd62c",
+    "file": "evidence/598492b5e2ba7f1f-NFI.json",
+    "snapshot": "evidence/598492b5e2ba7f1f-NFI.json",
+    "source_sha256": "598492b5e2ba7f1f4a60640c049066c2411af30a3928647bda8801914f91b9df",
+    "source_json_pointer": "/rows/0",
+    "row_id": "NFI-C026B-RISE",
+    "fields": {
+      "id": "NFI-C026B-RISE",
+      "issue": "Independent rise-8 force, pressure fan and geometry solve remains open.",
+      "evidence": "simjob refused f6-m12-rise8 at PSI some avg10 7.89 >= 5.00. Nothing started; no retry; m24 rise8 not submitted.",
+      "next_evidence": "A newly admitted independent rise8 m12/m24 calculation under fresh queue authority, including frozen spherical load.",
+      "fields": {
+        "rise8_m24.mean_compression_N": 538898.7411802687,
+        "rise8_m24.mean_chord_thrust_N": 569787.8471557666,
+        "rise8_m24.peak_moment_Nm": 177824.68854006825,
+        "rise8_m24.bending_stress_Pa": 4248086375.1604,
+        "rise8_m24.frozen_mean_compression_N": 513844.2503173434
+      },
+      "owner_numbers_not_independently_solved": true,
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "Independent rise-8 force, pressure fan and geometry solve remains open.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/791"
+    },
+    {
+      "report": "rpt-ref-b92330879d6ba35bd62c",
+      "artifact": "evidence/598492b5e2ba7f1f-NFI.json",
+      "snapshot": "evidence/598492b5e2ba7f1f-NFI.json",
+      "sha256": "598492b5e2ba7f1f4a60640c049066c2411af30a3928647bda8801914f91b9df",
+      "bytes": 4654,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-b92330879d6ba35bd62c",
+          "artifact": "evidence/598492b5e2ba7f1f-NFI.json",
+          "snapshot": "evidence/598492b5e2ba7f1f-NFI.json",
+          "sha256": "598492b5e2ba7f1f4a60640c049066c2411af30a3928647bda8801914f91b9df",
+          "bytes": 4654,
+          "selector": "/rows/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/791"
+          }
+        ]
+      }
+    }
+  ]
+}

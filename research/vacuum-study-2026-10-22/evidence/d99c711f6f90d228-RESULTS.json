@@ -1,0 +1,297 @@
+{
+  "unit": "vacuum-mainline065-wrinkling-sources-1020",
+  "tag": "QUESTIONABLE inputs. PROJECTION targets.",
+  "qualified_hull_SF": null,
+  "source": "CALCULATIONS.json, produced by run65.py inside simjob-20261020t171207-15195c0bf862",
+  "times": {
+    "note": "measurements only; the work was not timed and these are not limits",
+    "simjob_started": "2026-10-20T17:12:07.843286-07:00",
+    "simjob_completed": "2026-10-20T17:13:08.754260-07:00",
+    "outputs_sealed": "2026-10-20T17:16:53.718042-07:00"
+  },
+  "simjob": {
+    "scope": "simjob-20261020t171207-15195c0bf862.scope",
+    "exit": 0,
+    "elapsed_s": 61,
+    "cores": 1,
+    "mem": "4G",
+    "timeout_s": 1800,
+    "started": "2026-10-20T17:12:07.843286-07:00",
+    "completed": "2026-10-20T17:13:08.754260-07:00"
+  },
+  "reproduction_gate": {
+    "endpoint_payload_abs_kg": 1.0,
+    "identity_n80_R30_ISA_payload_kg": -6582.657238517822,
+    "beta": 0.682327803828082,
+    "passed": true
+  },
+  "supported_Q": {
+    "value": 0.33,
+    "admissibility": "admissible with a named limit",
+    "limit": "NASA CR-1457 eq 2.2-14 unknown-waviness floor on older honeycomb coupons, not a measurement of SR-200 Be on CR-III 5056 3/8-1.0 with the processed bond"
+  },
+  "classical_cap_Q": {
+    "value": 0.82,
+    "admissibility": "not admissible as an installed value",
+    "role": "comparison anchor inside the copied model"
+  },
+  "formulas": {
+    "classical": "CR-1457 eq 2.2-8: sigma = 0.82*sqrt(Ec*Ef*tf/tc)/(1+0.64*Kdelta), Kdelta = delta*Ec/(tc*Fc)",
+    "unknown_waviness": "CR-1457 eq 2.2-14: sigma = 0.33*sqrt(Ec*Ef*tf/tc), elastic eta = 1",
+    "model": "face_wrinkling margin = BETA*Q*sqrt(E*Ec*tf/tc)/demand, BETA root of b^3+b=1, Q passed as the 0.33 or 0.82 coefficient",
+    "face_density_factor": "smallest divisor of 1850 kg/m3 such that reoptimized concept payload is at least 0",
+    "payload": "lift minus resized bill minus 061 growth, density factor 1, n=260"
+  },
+  "anchors": [
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "classical_cap_Q_favorable_ramp",
+      "revert": [],
+      "Q": 0.82,
+      "gamma": 0.5938845100207362,
+      "Vc": 0.9847112750518405,
+      "binding": "scarf_average_shear",
+      "concept_payload_kg": -2473.5500140724216,
+      "TRL7_payload_kg": 1194.5724318951852,
+      "density_factor": null,
+      "density_status": null,
+      "geometry_m": {
+        "tf_m": 0.0016254706033341105,
+        "tc_m": 0.04420493842565879
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "classical_cap_Q_favorable_ramp",
+      "revert": [],
+      "Q": 0.82,
+      "gamma": 0.6034907402317844,
+      "Vc": 1.0087268505794609,
+      "binding": "scarf_average_shear",
+      "concept_payload_kg": -3772.657517898937,
+      "TRL7_payload_kg": -29.884121324033003,
+      "density_factor": null,
+      "density_status": null,
+      "geometry_m": {
+        "tf_m": 0.0016671921714947198,
+        "tc_m": 0.043797824991294865
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "classical_cap_Q_favorable_ramp",
+      "revert": [],
+      "Q": 0.82,
+      "gamma": 0.5945923299780864,
+      "Vc": 0.986480824945216,
+      "binding": "global_buckling",
+      "concept_payload_kg": -6582.656950982218,
+      "TRL7_payload_kg": 5594.8307618927365,
+      "density_factor": null,
+      "density_status": null,
+      "geometry_m": {
+        "tf_m": 0.0024429978442514167,
+        "tc_m": 0.0661244544543769
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "classical_cap_Q_favorable_ramp",
+      "revert": [],
+      "Q": 0.82,
+      "gamma": 0.6042090706436843,
+      "Vc": 1.0105226766092108,
+      "binding": "global_buckling",
+      "concept_payload_kg": -10973.593483521443,
+      "TRL7_payload_kg": 1456.5429574464424,
+      "density_factor": null,
+      "density_status": null,
+      "geometry_m": {
+        "tf_m": 0.0025056722317368216,
+        "tc_m": 0.065517058688401
+      },
+      "tag": "comparison anchor; Q=0.82 is not an installed test value"
+    }
+  ],
+  "supported": [
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "supported_Q_favorable_ramp",
+      "revert": [
+        "Q"
+      ],
+      "Q": 0.33,
+      "gamma": 0.6350723039930783,
+      "Vc": 1.0876807599826959,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -5925.833037420652,
+      "TRL7_payload_kg": -1958.5057713483156,
+      "density_factor": 1.1801825417385003,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.001814750164181689,
+        "tc_m": 0.03787040638649456
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    },
+    {
+      "R_m": 20,
+      "weather": "ISA",
+      "law": "supported_Q_handbook_gamma",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.5955811156124058,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -29388.76159348207,
+      "TRL7_payload_kg": -23345.704763314785,
+      "density_factor": 2.118037110392169,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.002603090197687236,
+        "tc_m": 0.10552609089545563
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "supported_Q_favorable_ramp",
+      "revert": [
+        "Q"
+      ],
+      "Q": 0.33,
+      "gamma": 0.642498555381245,
+      "Vc": 1.1062463884531126,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -7069.309613386611,
+      "TRL7_payload_kg": -3040.7469815062304,
+      "density_factor": 1.2179491112563663,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.0018470629565784306,
+        "tc_m": 0.03794374073747877
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    },
+    {
+      "R_m": 20,
+      "weather": "optimistic",
+      "law": "supported_Q_handbook_gamma",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.632714013138587,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -31324.20860105718,
+      "TRL7_payload_kg": -25149.90874625808,
+      "density_factor": 2.2210491118125706,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.0026640092015300164,
+        "tc_m": 0.10742771997761125
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "supported_Q_favorable_ramp",
+      "revert": [
+        "Q"
+      ],
+      "Q": 0.33,
+      "gamma": 0.6354201168166034,
+      "Vc": 1.0885502920415084,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -18148.42594870122,
+      "TRL7_payload_kg": -4968.150052446039,
+      "density_factor": 1.1606542642018385,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.0027245698975730225,
+        "tc_m": 0.05673435457562437
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    },
+    {
+      "R_m": 30,
+      "weather": "ISA",
+      "law": "supported_Q_handbook_gamma",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.6003924454543381,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -97877.74545950821,
+      "TRL7_payload_kg": -77634.3080381391,
+      "density_factor": 2.0801961550040193,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.003916821132168776,
+        "tc_m": 0.15809269749983285
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "supported_Q_favorable_ramp",
+      "revert": [
+        "Q"
+      ],
+      "Q": 0.33,
+      "gamma": 0.6428498380608656,
+      "Vc": 1.107124595152164,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -22010.464486428173,
+      "TRL7_payload_kg": -8623.144576046321,
+      "density_factor": 1.1975137479372135,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.002773069368289271,
+        "tc_m": 0.05684479529942426
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    },
+    {
+      "R_m": 30,
+      "weather": "optimistic",
+      "law": "supported_Q_handbook_gamma",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "Q": 0.33,
+      "gamma": 0.2,
+      "Vc": 1.6377109151715643,
+      "binding": "face_wrinkling",
+      "concept_payload_kg": -104441.2304443153,
+      "TRL7_payload_kg": -83751.33536831073,
+      "density_factor": 2.1805615255806963,
+      "density_status": "conditional closure",
+      "geometry_m": {
+        "tf_m": 0.0040086650006933,
+        "tc_m": 0.16095238277582535
+      },
+      "tag": "QUESTIONABLE inputs; PROJECTION payload"
+    }
+  ]
+}

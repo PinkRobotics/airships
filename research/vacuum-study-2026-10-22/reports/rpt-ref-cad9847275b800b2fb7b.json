@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-cad9847275b800b2fb7b",
+  "unit": "vacuum-mainline076-test-articles-quotable-1022",
+  "at": "2026-10-22T11:01:26-07:00",
+  "body": "MAINLINE-076 carries the classical half-wavelength. QUESTIONABLE / PROJECTION. No qualified hull safety factor. Nothing is bought. No supplier was contacted. No finite-element run.\n\nAt the version-10 design point the Hoff-Mautner half-wavelength is 0.09765673770284335 m. The decay depth is 0.07996577306036161 m. DOI 10.3390/ma14175043, equations (1) to (3), states the form and cites DOI 10.2514/8.11246. The minimum is where the three terms are equal. The stress is 1022.080613 MPa. The coefficient is 0.908560, which that paper rounds to 0.909. Ef is 293.6 GPa, Ec is 103.421359 MPa, Gc is 46.884350 MPa, tf is 3.668148 mm, and tc is 167.033469 mm.\n\nThe decay depth is 0.478741 of the core and 0.957482 of half the core. The thick-core branch applies, narrowly, with both faces in compression.\n\nThe half-wave over R 30 m is 0.003255, and over R 20 m is 0.004883. It spans 10.252676 cells of 9.525 mm and 0.584654 of the core. It is short beside both radii. R divided by the cell is not this ratio.\n\nCR-1457 still prints no honeycomb half-wavelength, and zeta has no length. DOI 10.2514/3.5568 and DOI 10.2514/3.1932 do not give one. Hoff-Mautner assumes an isotropic core. This honeycomb is not that core. The classical stress is above the 345 MPa and 379.2 MPa face proxies.\n\nThe number does not close 075's named limit on (2.2-15). The wave is not long beside R on this form, and that is not a close against the rule. The standing targets stay 896.818 and 1030.846 kg/m3.\n",
+  "artifacts": [
+    {
+      "path": "evidence/0f94d6e627501f65-CARD.md",
+      "sha256": "0f94d6e627501f654e96f889bcb870ab4a1d49cc7c1bceb41977a34cf7cad338",
+      "bytes": 11928
+    },
+    {
+      "path": "evidence/b34feca9e6ccd09d-RESULTS.json",
+      "sha256": "b34feca9e6ccd09dedd15e47c7481fffb315e8d2b9f2007b2b09789bfae76ea2",
+      "bytes": 8629
+    },
+    {
+      "path": "evidence/ef4db134f57c6064-NFI.json",
+      "sha256": "ef4db134f57c6064e020e19270cd836259b28c32a4083d3ddd084c4650dec355",
+      "bytes": 2792
+    },
+    {
+      "path": "evidence/f0a37997165c67ca-INPUTS.json",
+      "sha256": "f0a37997165c67cac1af5e20df3c4ee64e7bd167a1e95f1a0d4e8cdce0cd9323",
+      "bytes": 3286
+    }
+  ],
+  "from": "ref-54f4f7dcfd67e7445c6b",
+  "from_seat": "ref-54f4f7dcfd67e7445c6b",
+  "re": "ord-admiral-rr2-mainline076-add-half-wavelength-1022",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline076-add-half-wavelength-1022",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

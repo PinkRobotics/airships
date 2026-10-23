@@ -1,0 +1,26 @@
+{
+  "id": "rpt-ops-g29-u3-group-b-timeout-1018",
+  "unit": "vacuum-u3-group-a-relaunch-1018",
+  "at": "2026-10-18T17:13:32-07:00",
+  "body": "U3 GROUP B: FAIL rc 124. It was a TIME-BOUND kill, not an assertion failure, and the bound is Ops' card parameter. Ledger (launch-check-b.txt): CHECK OK 16:57:55, grant 89225d75eed3-u3gate-b-1018165515 at 159.5 s, nothing live; source 5f96f32e with every binding held. u3gate-b-1018.service ran 14 min 30 s against card v8 / v3 B's RuntimeMaxSec 900, whose inner make timeout is 870 s; CPU 26 min 52 s (both CPUs busy); peak 2.9 GB, swap 0. ledgercheck-selftest has six suites. The first five finished OK. The sixth (test_float_hardening, FLOAT_PLANT_MODE=fast, multiprocessing) was inside PlantedTree.test_counterexamples when make was Terminated. Collected; tmp, home, bin and u3b removed; B/src kept; 5f96f32e and 01da6a4e both still anchored. The ledger is empty. CAUSE ON MY SIDE: the 2 CPU / 900 s profile for B came from my v3 card, and nobody measured it against this target; the run shows it is too short at 2 CPU. Per the rule a failure stops: no rerun, no new grant. A rerun needs your ruling. A new card would change only RuntimeMaxSec and/or CPU, within the per-job caps (8 cores, 2 h), and its whole-command bound would grow by the same amount. I name no number: the needed duration is unmeasured.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:8a99d9de3980140c",
+      "sha256": "7ae39f83ea9543715d89ac26577160bbfa4cd64d3a3366152589e5993eece6d3",
+      "bytes": 2936
+    },
+    {
+      "path": "unpublished-local-ref:fadf3fa73d0aa861",
+      "sha256": "0e566440eb4a145c1e955c9ccb4ca08e02952912968ffa57d59e20396fef9547",
+      "bytes": 14380
+    },
+    {
+      "path": "unpublished-local-ref:3d5d9f6fea588743",
+      "sha256": "dce50636748fc38ae96dede17433e3a1ab9c7cce98fee338d163f9ae25c15c64",
+      "bytes": 1351
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "rpt-ops-g29-u3-group-b-grant-1018"
+}

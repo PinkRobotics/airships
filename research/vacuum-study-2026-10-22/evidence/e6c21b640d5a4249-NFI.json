@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline033-check-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "blocking_for_filing": false,
+  "overall_installed_hull_SF": null,
+  "issues": [
+    {
+      "id": "CHECK033-NFI-01",
+      "inherited_id": "033-NFI-01",
+      "tag": "PROJECTION",
+      "title": "Installed joints remain unqualified",
+      "finding": "The six-mode shell result excludes scarf, peel and face/core bond capacities. The additional 10 MPa average-shear screen caps face stress at 300.333 MPa, but is not a qualified allowable. All installed-hull SF values remain null.",
+      "next_evidence": "Measure compression/scarf/bond/peel capacity of the actual SR-200, AF163-2U, primer and honeycomb process, including seam imperfections and environmental conditioning.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-02",
+      "inherited_id": "033-NFI-02",
+      "tag": "QUESTIONABLE",
+      "title": "Current and historical SR-200 properties",
+      "finding": "345 MPa is a current minimum tensile-yield transfer to compression. The 379.2 MPa and 293.6 GPa endpoint is a historical roughly 1.96 mm SR-200 sheet tuple. E and strength move together; no free modulus improvement is granted.",
+      "next_evidence": "Obtain present supplier compression, modulus, density and process allowables for the selected gauges and formed state.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-03",
+      "inherited_id": "033-NFI-03",
+      "tag": "PROJECTION",
+      "title": "Poisson ratio and isotropy",
+      "finding": "Primary nu=0.0768 is the historical SR-200 in-plane value represented as an isotropic scalar. Legacy nu=.33 changes the R10 scarf-screen endpoint from a deficit to a small surplus. The sign is convention-sensitive.",
+      "next_evidence": "Use a complete current orthotropic material matrix and shell analysis; establish the relevant orientation and post-form properties.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-04",
+      "inherited_id": "033-NFI-04",
+      "tag": "PROJECTION",
+      "title": "Gamma/Q transfers and branch convention",
+      "finding": "Gamma's smooth full curve and Q=.82 are projected model transfers. The 021b baseline sets gamma=1 in the Vc>=2 crimp branch. Thus Q-plus-strength's 16.282 m crossing does not establish flotation at literal gamma=.20. The requested flat-.20 benchmark is separately negative at every radius.",
+      "next_evidence": "Establish shell knockdown and wrinkling behavior for the chosen geometry, seams and measured imperfection distribution.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-05",
+      "inherited_id": "033-NFI-05",
+      "tag": "PROJECTION",
+      "title": "Stock dimensions and face gauges",
+      "finding": "The .6096 by 1.8288 m stock envelope is only published for gauges >=1.4986 mm; it is projected for thinner R10/R15 minima and the QS threshold. Formal gamma-plus-strength flotation at 103.892 m needs 8.235 mm faces, exceeding the 6.35 mm sheet maximum; even compression alone limits that stock to R<=99.898 m.",
+      "next_evidence": "Obtain gauge-specific stock dimensions, tolerances, forming and scarf-machining feasibility. The formal oversized result is not an available-stock design.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-06",
+      "inherited_id": "033-NFI-06",
+      "tag": "PROJECTION",
+      "title": "Joining allowance policy",
+      "finding": "028 uses actual joining; 027 retains unused 5% structural-mass allowance. Main results use 028, with the floor reported separately. The Q-plus-strength crossing shifts from 16.282 to 40.470 m; R50 six-mode endpoint payload shifts from 89.422 to 74.375 tonnes.",
+      "next_evidence": "Keep both named accounts explicit in later cards and allocate any required repair, edge-block, primer or leak-barrier mass before claiming payload.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-07",
+      "inherited_id": "033-NFI-07",
+      "tag": "PROJECTION",
+      "title": "Nominal adhesive and seam inventory",
+      "finding": "Nominal film is .015 lb/ft2 per face/core interface; scarf film .07 kg/m2, splice gap .5 mm at 500 kg/m3, sealing .002 kg/m for both faces. Nominal primer is zero. No AF163 mass tolerance was independently verified; the inherited +/- .005 statement is unused.",
+      "next_evidence": "Obtain an installed bill including primer, intersections, closeouts, rejected material, repairs and leak barriers; qualify sustained load, thermal cycling and leakage.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-08",
+      "inherited_id": "033-NFI-08",
+      "tag": "PROJECTION",
+      "title": "Weather and systems reserve laws",
+      "finding": "The 019 optimistic temperature, pressure, humidity and internal-air losses scale with volume; .1 mm water and contamination scale with area; 100 kg systems remains reserved. Primary structural pressure is +1%; pressure at the reference value alone flips the R10 screen result to positive in the floor sensitivity.",
+      "next_evidence": "Replace the projected climate, water retention, leak rate and systems estimates with mission measurements; couple pressure and buoyancy consistently.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-09",
+      "inherited_id": "033-NFI-09",
+      "tag": "QUESTIONABLE",
+      "title": "Catalogue and numerical scope",
+      "finding": "The 47-row honeycomb catalogue includes projected density-scaled rows. Winners are identified, and source tags remain intact. Radius crossings and noncrossing peaks are numerical searches, not interval proofs. Missing open-mode allowables and load cases are not silently assigned SF>=1.",
+      "next_evidence": "Independent check should reproduce the packet and validate catalogue values, material directions, global search and additional load cases before design use.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Retained physical/model limitation. Arithmetic reproduction does not establish an installed-hull allowable."
+    },
+    {
+      "id": "CHECK033-NFI-10",
+      "tag": "PROJECTION",
+      "title": "Search fraction range and tiny-core extrapolations",
+      "finding": "224 differing paths arise in nonwinning projected 4/8/16 kg/m³ cores when the search extends below f=.00025. 220 recover within tolerance on the restricted range; four low-density handbook paths retain a precision residual. A representative wider-range core is only about 30 micrometres deep, far below its 4.8 mm cell scale. No physical validity or flotation is claimed.",
+      "next_evidence": "Declare the fraction/thickness domain and impose a justified sandwich/honeycomb geometry range before calling each per-core value an unrestricted optimum.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Numerical/scope finding filed; does not block completion."
+    },
+    {
+      "id": "CHECK033-NFI-11",
+      "tag": "PROJECTION",
+      "title": "Nearly vanishing scarf coverage is numerically ill-conditioned",
+      "finding": "Fifteen last radius samples leave only 60.96 nm of short-side coverage. A relative thickness perturbation of 3e-13 explains the scale of their negative-budget discrepancies; 12/15 match the exact comparison tolerance under that perturbation. Both sets of margins remain enormously negative.",
+      "next_evidence": "Exclude nonphysical overlap limits from performance tables or give a conditioning/error estimate. Retain raw values without treating their printed precision as meaningful.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Numerical/scope finding filed; does not block completion."
+    },
+    {
+      "id": "CHECK033-NFI-12",
+      "tag": "PROJECTION",
+      "title": "Active-mode intersection and crossing precision",
+      "finding": "Direct active-constraint roots give 103.892078332461 m for the formal gamma-plus-strength crossing and 40.470082164560 m for retained-floor Q-plus-strength. Their reported values differ by -0.000197230237 m and -0.000030053061 m respectively. Four repeated nonwinning R15 handbook paths improve by 0.040833948 kg after active-mode polishing. Main least sets and rounded requested payloads/crossings do not change.",
+      "next_evidence": "Polish active-mode intersections and outer roots together, or report fewer digits. The gamma-plus-strength crossing still exceeds the 99.897686 m compression ceiling of 6.35 mm stock.",
+      "blocking_for_this_check": false,
+      "status": "open",
+      "check_disposition": "Numerical/scope finding filed; does not block completion."
+    }
+  ]
+}

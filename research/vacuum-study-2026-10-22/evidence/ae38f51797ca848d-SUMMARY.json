@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "card": "CHECK-038",
+  "unit": "vacuum-mainline038-check-1020",
+  "classification": "QUESTIONABLE/PROJECTION",
+  "verdict": "Core test-plan conclusions reproduce; two nonmaterial coefficient-rounding differences.",
+  "independent_checks": 3536,
+  "matching_checks": 3534,
+  "raw_numerical_differences": 2,
+  "arithmetic_and_export": {
+    "checks": 2293,
+    "passed": 2291,
+    "failed": [
+      {
+        "path": "P3_joint_dimensionless_stiffness/end_mass_wrap_projection_kg",
+        "actual": 0.10073406713558719,
+        "owner": 0.1007375867239819,
+        "difference": -3.519588394715334e-06,
+        "pass_check": false,
+        "relative_tolerance": 3e-09,
+        "absolute_tolerance": 3e-10,
+        "kind": "arithmetic"
+      },
+      {
+        "path": "P3_joint_dimensionless_stiffness/end_mass_Ti_projection_kg",
+        "actual": 0.5117527936916624,
+        "owner": 0.5117545735073991,
+        "difference": -1.7798157366799572e-06,
+        "pass_check": false,
+        "relative_tolerance": 3e-09,
+        "absolute_tolerance": 3e-10,
+        "kind": "arithmetic"
+      }
+    ],
+    "arithmetic_checks": 1553,
+    "presentation_checks": 740
+  },
+  "threshold_search": {
+    "checks": 26,
+    "passed": 26,
+    "failed": []
+  },
+  "supplemental_presentation_and_provenance": {
+    "checks": 1217,
+    "passed": 1217,
+    "failed": [],
+    "provenance_checks": 1026
+  },
+  "verified_noncode_pin_records": 176,
+  "distinct_verified_noncode_paths": 173,
+  "excluded_owner_executables": 4,
+  "excluded_upstream_executables": 32,
+  "first_three_preserved": [
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "key_results": {
+    "gamma": 0.5641635666030083,
+    "wrinkle": 0.43462785437520957,
+    "held_face_demand_MPa": 300.3333333333344,
+    "overload_percent": 6.143002946803855,
+    "quoted_compression_refinements": {
+      "R10_full_projected_gamma_wrinkle_min_compression_MPa": 298.905756032359,
+      "R20_held_face_demand_MPa": 338.7437161142477,
+      "R20_held_material_with_eta0p9_MPa": 376.3819067936086,
+      "R20_reoptimized_handbook_scalar_elasticity_required_MPa": 381.6121728442842
+    },
+    "minimum_radii_m": [
+      0.3614032861983396,
+      0.43034411608332657
+    ]
+  },
+  "exact_differences": [
+    {
+      "field": "end_mass_wrap_projection_kg",
+      "owner": 0.1007375867239819,
+      "independent_unrounded": 0.10073406713557628,
+      "owner_minus_independent_kg": 3.519588405623275e-06,
+      "owner_minus_independent_mg": 3.519588405623275,
+      "relative_difference_percent": 0.003493940536403173,
+      "exact_coefficient": 5.8067971139617685e-15,
+      "owner_rounded_coefficient": 5.807e-15,
+      "mass_from_rounded_coefficient": 0.1007375867239819,
+      "whole_022c_assembly_difference_kg": 0.0008101624858201065,
+      "disposition": "Nonblocking inherited coefficient rounding; no changed test decision."
+    },
+    {
+      "field": "end_mass_Ti_projection_kg",
+      "owner": 0.5117545735073991,
+      "independent_unrounded": 0.5117527936916069,
+      "owner_minus_independent_kg": 1.7798157921911084e-06,
+      "owner_minus_independent_mg": 1.7798157921911084,
+      "relative_difference_percent": 0.0003477881926894355,
+      "exact_coefficient": 2.949989740283998e-14,
+      "owner_rounded_coefficient": 2.95e-14,
+      "mass_from_rounded_coefficient": 0.5117545735073991,
+      "whole_022c_assembly_difference_kg": 0.0004096899467561693,
+      "disposition": "Nonblocking inherited coefficient rounding; no changed test decision."
+    }
+  ],
+  "tests_reviewed": 9,
+  "nonblocking_NFIs": 8,
+  "upstream_NFIs_carried": 20,
+  "installed_hull_SF": null,
+  "contacted_others": false,
+  "purchases": false,
+  "successor": null,
+  "completed_at": "2026-10-20T03:25:45-07:00"
+}

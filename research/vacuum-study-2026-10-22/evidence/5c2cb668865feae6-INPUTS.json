@@ -1,0 +1,80 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "started_at": "2026-10-20T10:59:51.460905+00:00",
+  "base_model": "unpublished-local-ref:83b9d73c8c812fc2",
+  "radii_m": [
+    10,
+    12,
+    15
+  ],
+  "weather": [
+    "ISA",
+    "optimistic",
+    "both"
+  ],
+  "joints": [
+    "actual",
+    "retained_floor"
+  ],
+  "pad": "heavy70",
+  "vented": true,
+  "surface_water_loading_kg_m2": [
+    0.1,
+    0.0
+  ],
+  "structural_primer_kg_m2": 0.01,
+  "primer_basis": "Explicit 5 g/m2 per face planning allowance from 028b; no matched dry density/uptake/Be process.",
+  "film_overlap_fraction": 0.05,
+  "deposition_installation_fraction": 0.1,
+  "density_proxies_kg_m3": {
+    "Al2O3": 3970.0,
+    "SiO2": 2648.0,
+    "Ag": 10500.0,
+    "ITO": 7200.0,
+    "NiCr": 8400.0
+  },
+  "density_sources": [
+    "https://www.lesker.com/newweb/deposition_materials/deposition-materials-notes.cfm?pgid=al6",
+    "https://www.lesker.com/newweb/deposition_materials/depositionmaterials_sputtertargets_1.cfm?pgid=si5",
+    "https://de.lesker.com/newweb/deposition_materials/depositionmaterials_sputtertargets_1.cfm?pgid=ag1",
+    "https://www.lesker.com/newweb/deposition_materials/pdf/msds_ito.pdf"
+  ],
+  "NiCr_density_basis": "8400 kg/m3 planning proxy; tiny tie-layer term separately identified.",
+  "material_water": {
+    "AF163_2U_fraction": 0.002,
+    "core_fraction": 0.001,
+    "primer_fraction": 0.01,
+    "seam_polymer_fraction": 0.01,
+    "deposited_coating_fraction": 0.01,
+    "FEP_fraction": 0.0001,
+    "PSA_fraction": 0.01
+  },
+  "water_basis": "AF fraction is largest historical 2U WVR, not equilibrium absorption; core/primer/seams/oxide/PSA are planning values, not measurements.",
+  "routes": [
+    {
+      "id": "dry_gas",
+      "residual_fraction": 1.0,
+      "definition": "Dry-gas assembly alone: no credit for removing initial material water.",
+      "ground_purge_exchanges": 5
+    },
+    {
+      "id": "bake70",
+      "residual_fraction": 0.1,
+      "definition": "70 C preseal vacuum conditioning to an assumed gravimetric 90% removal endpoint; no fixed bake duration inferred."
+    },
+    {
+      "id": "desiccant",
+      "residual_fraction": 1.0,
+      "definition": "Onboard capture leaves total water aboard; add bed and cartridge outside the reserved 100 kg.",
+      "capacity_kg_kg": 0.1,
+      "capture_fraction": 0.95,
+      "cartridge_kg": 2.0
+    }
+  ],
+  "notes": [
+    "Water removal is not a reduction of the external retained-liquid layer.",
+    "No nominal adhesive TML mass is subtracted; 040 volatile inventory remains as a pressure bound.",
+    "All geometry, mechanical, weather, joining, gas, pad and systems equations otherwise reuse 040.",
+    "Installed-hull safety factor remains unknown."
+  ]
+}

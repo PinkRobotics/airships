@@ -1,0 +1,37 @@
+{
+  "id": "E-88da5aab6529e34d4a5b",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-88da5aab6529e34d4a5b",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/7",
+    "row_id": "C029-08-BUCKLE-LOAD-STIFFNESS",
+    "fields": {
+      "id": "C029-08-BUCKLE-LOAD-STIFFNESS",
+      "state": "inferred from agreement to print precision",
+      "direction": "documentation",
+      "note": "The card's eigenpressures are dead-load values: my eigenvalues without the pressure load stiffness match them to print precision. With the follower load stiffness they would be +1.70% for EUCASS (30.732 flat at 384) and about +0.15% for the lead (160.367 for 021 W at 512). The card does not state this. It does not change the benchmark conclusion, because the load stiffness moves away from 27.53."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The card's eigenpressures are dead-load values: my eigenvalues without the pressure load stiffness match them to print precision. With the follower load stiffness they would be +1.70% for EUCASS (30.732 flat at 384) and about +0.15% for the lead (160.367 for 021 W at 512). The card does not state this. It does not change the benchmark conclusion, because the load stiffness moves away from 27.53.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,73 @@
+{
+  "id": "N498",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N498",
+    "report": "rpt-ref-aae116a5fcd787ed9abc",
+    "card": "rpt-ref-aae116a5fcd787ed9abc",
+    "file": "evidence/e5e8ac761055655d-CHECK-NFI.json",
+    "snapshot": "evidence/e5e8ac761055655d-CHECK-NFI.json",
+    "source_sha256": "e5e8ac761055655d14ddb3b33412fc52a2eef74813b1f29633a8d61a0b3d4ba5",
+    "source_json_pointer": "/rows/1",
+    "row_id": "NFI-CHECK-028B-255-BOUND",
+    "fields": {
+      "id": "NFI-CHECK-028B-255-BOUND",
+      "status": "stands",
+      "note": "With the fixed reserve and systems removed, the largest face thickness at zero core is 0.000896786528723 m and the 255 MPa compression factor is 0.958217295476. Core mass or joint excess leaves less face thickness. No gamma or wrinkling value changes that face factor."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "With the fixed reserve and systems removed, the largest face thickness at zero core is 0.000896786528723 m and the 255 MPa compression factor is 0.958217295476. Core mass or joint excess leaves less face thickness. No gamma or wrinkling value changes that face factor.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/497"
+    },
+    {
+      "report": "rpt-ref-aae116a5fcd787ed9abc",
+      "artifact": "evidence/e5e8ac761055655d-CHECK-NFI.json",
+      "snapshot": "evidence/e5e8ac761055655d-CHECK-NFI.json",
+      "sha256": "e5e8ac761055655d14ddb3b33412fc52a2eef74813b1f29633a8d61a0b3d4ba5",
+      "bytes": 768,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-aae116a5fcd787ed9abc",
+          "artifact": "evidence/e5e8ac761055655d-CHECK-NFI.json",
+          "snapshot": "evidence/e5e8ac761055655d-CHECK-NFI.json",
+          "sha256": "e5e8ac761055655d14ddb3b33412fc52a2eef74813b1f29633a8d61a0b3d4ba5",
+          "bytes": 768,
+          "selector": "/rows/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/497"
+          }
+        ]
+      }
+    }
+  ]
+}

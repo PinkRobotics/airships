@@ -1,0 +1,35 @@
+{
+  "id": "PE073",
+  "kind": "piece_e",
+  "claim": "UNREVIEWED. Under 2.2-15, with BETA 1 and kc kept, face-density factors in order R20 ISA, R20 optimistic, R30 ISA, R30 optimistic are concept 1.968795546378443, 2.0628486187667696, 1.9320040871374877, 2.0234598518275413 beside 1.779, 1.863, 1.743, 1.825, and TRL 7 1.7158053450450115, 1.7946424557687226, 1.6891161125502747, 1.7661563938364964 beside 1.544, 1.614, 1.519, 1.587. Densities 939.661, 896.818, 957.555, 914.276 and 1078.211, 1030.846, 1095.247, 1047.472 kg/m3. The rise is 1.107 to 1.113, not 1.260, because the face thickened. R30 optimistic concept closes at 914.276 kg/m3, tf 3.668148 mm, tc 167.033 mm, payload +0.009001 kg, wrinkling and buckling co-bound. The 993 and 1146 kg/m3 targets become 896.818 and 1030.846. TRL 7 at 1850 kg/m3 needs gamma factor 3.2035729948565477, realized gamma 0.6407145989713096, beside filed 2.7669873295303313 and 0.5533974659060663. Gram-scale residuals are not physical reserves. simjob-20261022t095337-eb517fa6490c exited 0.",
+  "numerical_status": "unreviewed",
+  "physical_qualification": "open",
+  "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION targets.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "rpt-ref-e883782db8adaf6f6cf4",
+      "artifact": "evidence/763bcab1187f80a2-RESULTS.json",
+      "snapshot": "evidence/763bcab1187f80a2-RESULTS.json",
+      "sha256": "763bcab1187f80a2dd82631056d53b49756ed7dc649cc716236ff7206d2434c6",
+      "bytes": 44517,
+      "selector": "/face_density_closures"
+    },
+    {
+      "report": "rpt-ref-e883782db8adaf6f6cf4",
+      "artifact": "evidence/fd333b21004d7c89-rpt-ref-e883782db8adaf6f6cf4.json",
+      "snapshot": "evidence/fd333b21004d7c89-rpt-ref-e883782db8adaf6f6cf4.json",
+      "sha256": "fd333b21004d7c893b61795f3c71e4aabec83ef819bbdb60b5b433dc126240fe",
+      "bytes": 3512,
+      "selector": "/body"
+    },
+    {
+      "report": "rpt-sciences-g6-mainline073-admission-limits-1022",
+      "artifact": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+      "snapshot": "evidence/d417e2f7ab2bfeb4-rpt-sciences-g6-mainline073-admission-limits-1022.json",
+      "sha256": "d417e2f7ab2bfeb4f6b998f93c7332331976c936c05a274ccbb6b33807e1b7fe",
+      "bytes": 1409,
+      "selector": "/body"
+    }
+  ]
+}

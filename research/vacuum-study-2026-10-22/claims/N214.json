@@ -1,0 +1,72 @@
+{
+  "id": "N214",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N214",
+    "report": "rpt-ref-a4768f77870336c8cdbb",
+    "card": "MAINLINE-023",
+    "file": "evidence/30c19a9c27a07c4b-NFI.json",
+    "row_id": "NFI-023-CFRP-WRAP",
+    "fields": {
+      "id": "NFI-023-CFRP-WRAP",
+      "value": "1470 MPa compression, ASTM D695, Torayca T700S with 250 F epoxy, normalized to 60 percent fiber volume. Tensile 2550 MPa on the same sheet is not used. Density 1550 kg/m3 is the 011b quasi-isotropic value.",
+      "state": "PROJECTION",
+      "issue": "The lightest joint is this wrap: 0.015 kg per end and 31.0 kg at 562.2 kN. The fiber and the coupon exist today. A wound transition on an SiC tube does not.",
+      "consequence": "The mass is a sizing, not a qualified joint. Using the tensile allowable would understate it.",
+      "next": "A compression coupon of the wrap, bonded to SiC, at the bond length this card sizes."
+    }
+  },
+  "claim": "The lightest joint is this wrap: 0.015 kg per end and 31.0 kg at 562.2 kN. The fiber and the coupon exist today. A wound transition on an SiC tube does not.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/213"
+    },
+    {
+      "report": "rpt-ref-a4768f77870336c8cdbb",
+      "artifact": "evidence/30c19a9c27a07c4b-NFI.json",
+      "snapshot": "evidence/30c19a9c27a07c4b-NFI.json",
+      "sha256": "30c19a9c27a07c4b94883e6b671a925d2907830932e85e3cb18763bd1c2e8dec",
+      "bytes": 5912,
+      "selector": "source row ID: NFI-023-CFRP-WRAP"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-a4768f77870336c8cdbb",
+          "artifact": "evidence/30c19a9c27a07c4b-NFI.json",
+          "snapshot": "evidence/30c19a9c27a07c4b-NFI.json",
+          "sha256": "30c19a9c27a07c4b94883e6b671a925d2907830932e85e3cb18763bd1c2e8dec",
+          "bytes": 5912,
+          "selector": "source row ID: NFI-023-CFRP-WRAP"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/213"
+          }
+        ]
+      }
+    }
+  ]
+}

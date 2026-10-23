@@ -1,0 +1,398 @@
+{
+  "schema": 1,
+  "attempt_count": 16,
+  "successful_attempts": 13,
+  "failed_attempts_preserved": 3,
+  "all_failed_attempts_resolved": true,
+  "all_admitted": true,
+  "all_released": true,
+  "active_jobs": 0,
+  "task_time_cap_seconds": null,
+  "phase_time_cap_seconds": null,
+  "attempt_elapsed_sum_seconds": 422.57231410592794,
+  "elapsed_sum_note": "Sum of measured attempt durations, not a task budget or necessarily wall elapsed time.",
+  "attempts": [
+    {
+      "label": "arithmetic-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/40b3e2c190b469a6-check_arithmetic.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T13:57:40.761410+00:00",
+      "ended_utc": "2026-10-20T13:57:42.217997+00:00",
+      "elapsed_seconds": 1.4565840889699757,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "fe-all-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/2291d19b872b887d-fe_batch.py"
+      ],
+      "returncode": 1,
+      "started_utc": "2026-10-20T14:04:19.825627+00:00",
+      "ended_utc": "2026-10-20T14:04:57.033449+00:00",
+      "elapsed_seconds": 37.20783166307956,
+      "admitted": true,
+      "refused": false,
+      "released": true,
+      "resolved_failure": {
+        "reason": "High-Poisson small-strain Green-strain cancellation after two completed runs.",
+        "resolved_by": [
+          "fe-validation-stable-03",
+          "fe-all-02"
+        ],
+        "resolution": "Used algebraically identical sym(H)+H^T H/2; tangent/benchmark checks and all distinct model runs completed."
+      }
+    },
+    {
+      "label": "fe-all-02",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/2291d19b872b887d-fe_batch.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:07:23.037371+00:00",
+      "ended_utc": "2026-10-20T14:09:17.160048+00:00",
+      "elapsed_seconds": 114.12267710221931,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "fe-audit-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/899882e426937434-audit_fe.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:14:39.700044+00:00",
+      "ended_utc": "2026-10-20T14:14:39.955215+00:00",
+      "elapsed_seconds": 0.25518007623031735,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "fe-refinements-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "2G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/ad4a46731659718d-refinements.py"
+      ],
+      "returncode": 1,
+      "started_utc": "2026-10-20T14:11:00.185512+00:00",
+      "ended_utc": "2026-10-20T14:11:59.203662+00:00",
+      "elapsed_seconds": 59.018152413424104,
+      "admitted": true,
+      "refused": false,
+      "released": true,
+      "resolved_failure": {
+        "reason": "Refined-mesh residual stagnated around 1.1e-7.",
+        "resolved_by": [
+          "fe-refinements-02"
+        ],
+        "resolution": "Explicit refined tolerance 1e-6; residuals retained, global peaks stable and edge diagnostics qualified."
+      }
+    },
+    {
+      "label": "fe-refinements-02",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "2G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/ad4a46731659718d-refinements.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:12:44.129669+00:00",
+      "ended_utc": "2026-10-20T14:13:55.337837+00:00",
+      "elapsed_seconds": 71.20817305613309,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "fe-smoke-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/bf3a4df2f48607ab-fe_check.py",
+        "path",
+        "--smoke",
+        "--outlabel",
+        "smoke-S1"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:02:53.157421+00:00",
+      "ended_utc": "2026-10-20T14:02:56.373285+00:00",
+      "elapsed_seconds": 3.215855397749692,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "fe-validation-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/bf3a4df2f48607ab-fe_check.py",
+        "validate"
+      ],
+      "returncode": 1,
+      "started_utc": "2026-10-20T14:00:47.529804+00:00",
+      "ended_utc": "2026-10-20T14:00:51.788442+00:00",
+      "elapsed_seconds": 4.258629964664578,
+      "admitted": true,
+      "refused": false,
+      "released": true,
+      "resolved_failure": {
+        "reason": "Tiny-load nonlinear equilibrium stalled at floating-point force noise.",
+        "resolved_by": [
+          "fe-validation-02",
+          "fe-validation-stable-03"
+        ],
+        "resolution": "Exact thick-sphere small-strain benchmark solved as linear elasticity; passed."
+      }
+    },
+    {
+      "label": "fe-validation-02",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/bf3a4df2f48607ab-fe_check.py",
+        "validate"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:01:53.085523+00:00",
+      "ended_utc": "2026-10-20T14:01:54.209634+00:00",
+      "elapsed_seconds": 1.124106677249074,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "fe-validation-stable-03",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/bf3a4df2f48607ab-fe_check.py",
+        "validate"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:06:12.433337+00:00",
+      "ended_utc": "2026-10-20T14:06:16.185869+00:00",
+      "elapsed_seconds": 3.752527846954763,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "figure-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/a5a0a2c4bac617c9-plot_review.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:25:51.160747+00:00",
+      "ended_utc": "2026-10-20T14:25:52.234982+00:00",
+      "elapsed_seconds": 1.0742299086414278,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "physical-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/5db2098efe8d5c6e-physical_checks.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:09:57.081649+00:00",
+      "ended_utc": "2026-10-20T14:09:57.991100+00:00",
+      "elapsed_seconds": 0.9094490078277886,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "review-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/d1bc48a9cfbfd82b-build_review.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:25:41.643503+00:00",
+      "ended_utc": "2026-10-20T14:25:41.767304+00:00",
+      "elapsed_seconds": 0.12380044860765338,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "review-final-02",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/d1bc48a9cfbfd82b-build_review.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:30:45.363911+00:00",
+      "ended_utc": "2026-10-20T14:30:45.489798+00:00",
+      "elapsed_seconds": 0.1258901976980269,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "supplement-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/5b9fae30333285cd-supplement.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:17:36.256961+00:00",
+      "ended_utc": "2026-10-20T14:17:36.439680+00:00",
+      "elapsed_seconds": 0.18272172566503286,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "tolerance-roots-01",
+      "command": [
+        "ref-81e2f24e4e80426e80f0",
+        "unpublished-local-ref:16c6b703a90755ca",
+        "run",
+        "--cores",
+        "1",
+        "--mem",
+        "1G",
+        "--",
+        "ref-81e2f24e4e80426e80f0",
+        "evidence/e6c21c6ed88c265a-tolerance_roots.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-10-20T14:11:04.900449+00:00",
+      "ended_utc": "2026-10-20T14:13:09.436957+00:00",
+      "elapsed_seconds": 124.53650453081354,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    }
+  ]
+}

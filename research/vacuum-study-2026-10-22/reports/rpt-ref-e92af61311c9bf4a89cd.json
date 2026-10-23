@@ -1,0 +1,94 @@
+{
+  "id": "rpt-ref-e92af61311c9bf4a89cd",
+  "unit": "vacuum-mainline021-check-1020",
+  "at": "2026-10-20T01:00:14-07:00",
+  "body": "CHECK MAINLINE-021 complete. Independent arithmetic reproduces the filed floating point, all six modes and all eight subset outcomes on a 4000-step search across 51 cores. Twenty checks pass. Continuous refinement retains gamma plus wrinkling as the least pair under the inherited tuple, usage 0.908635 versus filed 0.909899. Five NFI rows record changed result/program pins, modulus, Poisson ratio, strength/product form, and strongest-source scope. The current datasheets give E 290 GPa: the main two-optimism route survives at inherited 283 MPa, but the sheet gamma-only claim does not. The guide gives S-200F compression about 255 MPa; the cited sheet has in-plane nu about 0.076, not inherited 0.33. A labelled isotropic sensitivity changes the preferred pair to wrinkling plus strength on aramid. The 379.2 MPa sheet value is confirmed; larger tube values cannot be transferred silently. The original CARD and inputs matched their pins; RESULTS.json and float021.py did not. Observed bytes are snapshotted. No owner program was executed or imported. This checks the original filed claims, not the changed release. Primary sources, exact mismatches and reproducible calculations are pinned. NFIs do not stop work. Starting the queued MAINLINE-021b check next.",
+  "artifacts": [
+    {
+      "path": "evidence/0fa2240addb2efe8-CARD.md",
+      "sha256": "0fa2240addb2efe861effa714199f60d5f300f1dcb9a3e2a6ee22289945dbb77",
+      "bytes": 2164
+    },
+    {
+      "path": "evidence/0610f83c281aa972-CHECK.md",
+      "sha256": "0610f83c281aa9722b5fcfcc7fc2bdc246fd8c9183f8272aed80d95f9972067f",
+      "bytes": 9646
+    },
+    {
+      "path": "evidence/49e28e1060fd29d4-RESULTS.json",
+      "sha256": "49e28e1060fd29d4930e36a3d0ebfa27b07adf31280fbae3db8465d345e0d861",
+      "bytes": 220642
+    },
+    {
+      "path": "evidence/0b74ca6f4252ee9e-NFI.json",
+      "sha256": "0b74ca6f4252ee9eb96334d4f62bcfde23de979944201e3ea03385f60235c182",
+      "bytes": 8636
+    },
+    {
+      "path": "evidence/12078a33d9b598eb-INPUTS.json",
+      "sha256": "12078a33d9b598eba209aaa1d7bcfae238af58ea7da75f800c0740799a79ef2c",
+      "bytes": 20498
+    },
+    {
+      "path": "evidence/c9622940261ba3e4-SOURCE-AUDIT.md",
+      "sha256": "c9622940261ba3e425e15e46f1d3b1c377dc8f27af45a863bc6a2ea5ce53a414",
+      "bytes": 3595
+    },
+    {
+      "path": "evidence/4be6112d000ca484-check021.py",
+      "sha256": "4be6112d000ca48416ba8a198c3e7f78451ed65006b8720d4195abb958eda57f",
+      "bytes": 14342
+    },
+    {
+      "path": "evidence/0dce416692b3da69-supplemental.py",
+      "sha256": "0dce416692b3da695cb9aa5998c046c802ce11a9b83bb97f203e956d6ac7e788",
+      "bytes": 6623
+    },
+    {
+      "path": "evidence/26a63e28ea12e5e0-make_check.py",
+      "sha256": "26a63e28ea12e5e0d4ef5c25480ac5c6d52fa67735d8158100f1d0f2de19ba23",
+      "bytes": 31018
+    },
+    {
+      "path": "evidence/0b7a9772fe072572-p014b_inputs.json",
+      "sha256": "0b7a9772fe072572a9043b67059049aac9db4130292538ca5f1eeb542de9619d",
+      "bytes": 40462
+    },
+    {
+      "path": "evidence/2036cd9ce5d14de5-POINT.json",
+      "sha256": "2036cd9ce5d14de5e6d4e72096ca30d9b26de6a169770e40b8aa88c3cdfa56f5",
+      "bytes": 5949
+    },
+    {
+      "path": "evidence/09e4d6d846410af1-CARD.md",
+      "sha256": "09e4d6d846410af18f779287cb5cbc0fb102d0960a0d779df76d830a09687eed",
+      "bytes": 9938
+    },
+    {
+      "path": "evidence/50b09ef1f8341a64-owner-report.json",
+      "sha256": "50b09ef1f8341a64bfa3a9878b54f3ed03cc2daeff8be3564a0ad4fe8ffb4041",
+      "bytes": 4220
+    },
+    {
+      "path": "evidence/a8658c24cdf011ec-PIN-AUDIT.json",
+      "sha256": "a8658c24cdf011ec407abfa9a10000fd9b5062d7a16cc4b15bd839644c6b8d50",
+      "bytes": 4334
+    },
+    {
+      "path": "evidence/7278157038c1096c-UPSTREAM-PINS.json",
+      "sha256": "7278157038c1096c72edd3f2f8c433681c20d8d5c890e50eb0b7932ea01fdd8a",
+      "bytes": 5673
+    }
+  ],
+  "from": "ref-3f7ec48b84b54a049007",
+  "from_seat": "ref-3f7ec48b84b54a049007",
+  "re": "ord-admiral-rr2-check021-codex-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check021-codex-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

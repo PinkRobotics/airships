@@ -1,0 +1,49 @@
+{
+  "id": "rpt-mainline011b-grok-p3-global-arcs-1019",
+  "unit": "vacuum-mainline011b-p3-global-arcs-1019",
+  "at": "2026-10-20T00:16:12-07:00",
+  "body": "ESTIMATE_PENDING_UNA. QUESTIONABLE. MAINLINE-011b confirms the rounded 6061 point. Two-way perfect SF is 0.702903874926. k 0.2, 0.4 and 0.5 give 0.140580774985, 0.281161549970 and 0.351451937463. Line load 143191.256871 N/m. Arch stress 1.18499087263 GPa. Sag 0.1125 m. Bending 2.10654485172 GPa fixed-end and 3.15981727758 GPa simple. The 011 grid is equilateral: classical pressure is sqrt(3/2) times two-way. On that filed tube, joints off, Perry is 0.178765809625 and global at k 0.2 is 0.172381843325, so global binds. Re-optimisation raises it. Scored members are arcs. Perry a0 is s/1000. Joints are 5 percent of tube mass. Design k is 0.2. k 0.4 and 0.5 are in the card. Straight chords are unscored. Equilateral, joints on, design k. 6061 0.215551582204 Perry, s 1.36 m, r_o 113.086560578 mm, t_w 0.735395039388 mm, nodes 15.730305919 kg, joints 225.056992584 kg. T700 0.462797231124 global at s 3 m. M55J 0.455203976657 Perry. K13D2U 0.269484735855 Perry, r_o on the 0.25 m cap. SiC 1.22552794688 global. CNT 1.46169766336 film. Perfect k leaves 6061 0.215905443307 Perry, T700 0.702239779207 Perry, SiC 2.57212492542 Perry and CNT 1.81151567296 Perry. M55J and K13D2U stay on the design point. Two-way 6061 design is 0.214330305457 Perry. SiC at 380 MPa is 0.26224593556 Perry. Joints off, 6061 design is 0.226595470313 Perry. P2-E is 0.233885578993 at kd 0.2 and 0.164568553708 at 0.140725695373 (brief 0.234 and 0.165). New 6061 chord sag is inside the tube radius. Checks 36/36. The 011 regression matched. Start 2026-10-20T00:13:09.422110-07:00. End 2026-10-20T00:13:13.433035-07:00. Elapsed 4.01093523484 s, a measurement. Nothing here is a certification. The caps-open order stays open.",
+  "artifacts": [
+    {
+      "path": "evidence/8d1c42afdeb216fd-CARD.md",
+      "sha256": "8d1c42afdeb216fd59701f50cfdf0d8301f5feb92ce443bf64a4e9253814a0d6",
+      "bytes": 8843
+    },
+    {
+      "path": "evidence/e922d008b9c113ef-RESULTS.json",
+      "sha256": "e922d008b9c113efe498dfdde867a403730a236a3bdcf3cac4d437c790358f10",
+      "bytes": 137746
+    },
+    {
+      "path": "evidence/da2eeba2a608cb9e-NFI.json",
+      "sha256": "da2eeba2a608cb9ec74b8446af1d71f10c5c4565bb7c1e7d390252600bb05147",
+      "bytes": 3769
+    },
+    {
+      "path": "evidence/b89b24ce6d204323-INPUTS.json",
+      "sha256": "b89b24ce6d204323fdbebdda08e89b47d88f62edb63602f7db63f3586272fa27",
+      "bytes": 3342
+    },
+    {
+      "path": "evidence/3386d33e97dda171-arcs.py",
+      "sha256": "3386d33e97dda171acfeb6739a566d07ec8fe5c5ac76cf673e9400dc4ac2d4d5",
+      "bytes": 37023
+    },
+    {
+      "path": "evidence/ae2ee36a468ab926-ORIGIN.json",
+      "sha256": "ae2ee36a468ab92659abf98bdc6298ab9b9f6a29a5c9619643c9bd1ab7391c5a",
+      "bytes": 98
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline011b-rotated-grok-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline011b-rotated-grok-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

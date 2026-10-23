@@ -1,0 +1,61 @@
+{
+  "id": "rpt-mainline022-grok-p3-optimistic-floating-point-1020",
+  "unit": "vacuum-mainline022-p3-optimistic-floating-point-1020",
+  "at": "2026-10-20T00:38:46-07:00",
+  "body": "ESTIMATE_PENDING_UNA. QUESTIONABLE. MAINLINE-022 is the integrator. 023, 024 and 025 had not filed, so joints stay at 5 percent, 216.427144889 kg, PENDING-023. The film stays the 011b projection, PENDING-024. The allowable stays the 011b crush, PENDING-025. Common rules: vehicle 4644.97004268 kg, systems 100 kg, payload 244.47210751 kg. The 011b row is recovered at global SF 1.22552794688, s 2.04 m. Carried film and crush, equilateral, k 0.2, spherical arcs: least SF 1.23867626922 by global, s 3 m on the band edge, r_o 136.709082896 mm, wall 1.0718489472 mm, film 0.151313443571 mm against the 011b gauge of 0.080 mm. Yield 2.51198389456, Euler 2.66482485162, local 1.24229165111, film 1.58508396614, Perry 2.08577563437. Two-way is 1.09938878712 by global, also at s 3 m. k 0.4 equilateral is 1.84654065742 by local at s 2.5 m. A ceramic arc should take k 0.2. Wright's 0.4 is an optimism of factor 2. Mylar and the 380 MPa bar, spherical, are 0.243801034086 by Perry. The least equilateral set that reaches SF 1 is a rise 8 times the sagitta, SF 1.35387562843 by local, wall 0.239750282773 mm, r/t 761.302371637, Mylar 0.469377562536 mm. That wall is a PROJECTION. MAINLINE-021's P2 sandwich reaches SF 1 on gamma 2.90 times 0.20 and wrinkling 1.10 times 0.33. P2 needs less optimism. Its largest factor is 2.90. This frame needs a rise of 8, or a crush and a film each near 10. Checks 18/18. Origin 2026-10-20T00:35:54.973857-07:00. End 2026-10-20T00:36:18.469738-07:00. Elapsed 23.4958901787 s, a measurement. Nothing here is a certification. The caps-open order stays open.",
+  "artifacts": [
+    {
+      "path": "evidence/f45bb0029233264b-CARD.md",
+      "sha256": "f45bb0029233264bc366f54a9497789c22626f7bab0746d5d3379fa838b02f5c",
+      "bytes": 6997
+    },
+    {
+      "path": "evidence/792f08820d0ee696-RESULTS.json",
+      "sha256": "792f08820d0ee69623e4a381400f4804dcab307ba94f76806f60bfde48dbca94",
+      "bytes": 29752
+    },
+    {
+      "path": "evidence/307ab133da904ca4-NFI.json",
+      "sha256": "307ab133da904ca44dd03c791fda8d566e3b88830ef452b09e8e5838eb6d021d",
+      "bytes": 5529
+    },
+    {
+      "path": "evidence/74369a1575aad867-INPUTS.json",
+      "sha256": "74369a1575aad8674edd06ccc7dc96f8bf61eafc9eb8bf995da4cb7ef5ebad0a",
+      "bytes": 2447
+    },
+    {
+      "path": "evidence/0d10930a1b053b77-floatpoint.py",
+      "sha256": "0d10930a1b053b775429bd695bf5da58e84f1cbb3b4f263096ea7894888b53f1",
+      "bytes": 41520
+    },
+    {
+      "path": "evidence/6947152ce70424f3-ORIGIN.json",
+      "sha256": "6947152ce70424f324ffa62d675c8aba77bfbb793726cb138edb1052170ad0b1",
+      "bytes": 98
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline022-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline022-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline022-nodes-to-023-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline022-film-sic-to-024-025-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

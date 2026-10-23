@@ -1,0 +1,148 @@
+{
+  "id": "rpt-ref-a30a669ed3e245f1473b",
+  "unit": "vacuum-mainline032-check-1020",
+  "at": "2026-10-20T02:02:46-07:00",
+  "body": "MAINLINE-032 checked independently. All 236 numerical/display/source-constant comparisons pass, including all 155 engineering/Boolean RESULTS scalar leaves. Owner timing is metadata. Artifact pins match; no owner code was read or run.\n\nCR-1457 Eq. 2.2-12 and Kdelta reproduce. Fc is the lowest flatwise core compression, core tension and core-facing bond strength. Stabilized compression supplies a conditional candidate, not automatically Fc. Hexcel confirms 60 psi typical, 35 psi minimum average and 15 ksi typical modulus. Typical crush 35 psi is a separate property. Bond/tension values remain missing.\n\nLead amplitudes at Fc=60 psi reproduce: S-200F/Q0.371, 0.152868766846361 mm; SR-200/Q0.609, 0.0652229064039409 mm. At 35 psi: 0.0891734473270440 and 0.0380466954022988 mm.\n\nThe wrinkling cubic gives b=0.6823278038280193; applying it to the waviness-adjusted uniaxial capacity does not count waviness twice. Intracell dimpling uses its separate 0.5 interaction factor, reproducing 9.0188536848 and 4.9753091211.\n\nCorrect the CARD's lead-only amplitude/cell range to 0.00684754923–0.01604921437. Its printed 0.0046–0.024 spans all four typical-strength cases. The underlying rows are correct.\n\nTen nonblocking findings cover this correction, minimum-average interpretation, rounded targets, strength/thickness data, plasticity, wavelengths, metrology and shell transfer. The author correction is verified; SAE class values remain unread. CHECK contains exact deltas, primary-source audit and reconstructed curve artifacts. QUESTIONABLE remains. No successor job.",
+  "artifacts": [
+    {
+      "path": "evidence/64509e7ecbf1b4d6-CHECK.md",
+      "sha256": "64509e7ecbf1b4d6eeebaf4e70c394ea63a4e3c05a385f38f845434bbeb7990b",
+      "bytes": 16139,
+      "observed_sha256": "64509e7ecbf1b4d6eeebaf4e70c394ea63a4e3c05a385f38f845434bbeb7990b",
+      "observed_bytes": 16139,
+      "matches": true,
+      "snapshot": "evidence/64509e7ecbf1b4d6-CHECK.md"
+    },
+    {
+      "path": "evidence/49a05b40f504100f-CARD.md",
+      "sha256": "49a05b40f504100f31898611f96b08f98a98ed791f88fca5c40a47c7a874ed4c",
+      "bytes": 1467,
+      "observed_sha256": "49a05b40f504100f31898611f96b08f98a98ed791f88fca5c40a47c7a874ed4c",
+      "observed_bytes": 1467,
+      "matches": true,
+      "snapshot": "evidence/49a05b40f504100f-CARD.md"
+    },
+    {
+      "path": "evidence/cbe64eaff38a0179-RESULTS.json",
+      "sha256": "cbe64eaff38a01796b58815c92e11fa940a8ee1a36d970cd75378620d7a0be2a",
+      "bytes": 15771,
+      "observed_sha256": "cbe64eaff38a01796b58815c92e11fa940a8ee1a36d970cd75378620d7a0be2a",
+      "observed_bytes": 15771,
+      "matches": true,
+      "snapshot": "evidence/cbe64eaff38a0179-RESULTS.json"
+    },
+    {
+      "path": "evidence/f4fb2c3464ed42c3-NFI.json",
+      "sha256": "f4fb2c3464ed42c3055c0208cd4dd590f9e9333f20272191c2dd501a57539537",
+      "bytes": 16686,
+      "observed_sha256": "f4fb2c3464ed42c3055c0208cd4dd590f9e9333f20272191c2dd501a57539537",
+      "observed_bytes": 16686,
+      "matches": true,
+      "snapshot": "evidence/f4fb2c3464ed42c3-NFI.json"
+    },
+    {
+      "path": "evidence/564dea9f0d040617-INPUTS.json",
+      "sha256": "564dea9f0d040617c35144a115fa7c91c6448bcd5f33fdb55467641702846f3a",
+      "bytes": 18908,
+      "observed_sha256": "564dea9f0d040617c35144a115fa7c91c6448bcd5f33fdb55467641702846f3a",
+      "observed_bytes": 18908,
+      "matches": true,
+      "snapshot": "evidence/564dea9f0d040617-INPUTS.json"
+    },
+    {
+      "path": "evidence/d302eddec56932ad-NUMERIC-CHECK.csv",
+      "sha256": "d302eddec56932ad798e0cc7b2a241b2e8d437ad711d96445ec0d76583ed50bf",
+      "bytes": 26865,
+      "observed_sha256": "d302eddec56932ad798e0cc7b2a241b2e8d437ad711d96445ec0d76583ed50bf",
+      "observed_bytes": 26865,
+      "matches": true,
+      "snapshot": "evidence/d302eddec56932ad-NUMERIC-CHECK.csv"
+    },
+    {
+      "path": "evidence/02547ed86beab24b-PROSE-CHECK.json",
+      "sha256": "02547ed86beab24b43b9e2fb289fa8aad1b6f4a0cebd506867e45298b6457ad5",
+      "bytes": 2108,
+      "observed_sha256": "02547ed86beab24b43b9e2fb289fa8aad1b6f4a0cebd506867e45298b6457ad5",
+      "observed_bytes": 2108,
+      "matches": true,
+      "snapshot": "evidence/02547ed86beab24b-PROSE-CHECK.json"
+    },
+    {
+      "path": "evidence/b2a1f4c629518daf-SOURCE-AUDIT.json",
+      "sha256": "b2a1f4c629518daf0594f2a8d5f781c44f59904848a5fe511b8143e91f0534de",
+      "bytes": 6944,
+      "observed_sha256": "b2a1f4c629518daf0594f2a8d5f781c44f59904848a5fe511b8143e91f0534de",
+      "observed_bytes": 6944,
+      "matches": true,
+      "snapshot": "evidence/b2a1f4c629518daf-SOURCE-AUDIT.json"
+    },
+    {
+      "path": "evidence/6c26a9d76fc1ffac-SOURCE-PINS.json",
+      "sha256": "6c26a9d76fc1ffaccf07234678ebb7fa7f5b1e1ce6a08739217b09bf66fb70ed",
+      "bytes": 3875,
+      "observed_sha256": "6c26a9d76fc1ffaccf07234678ebb7fa7f5b1e1ce6a08739217b09bf66fb70ed",
+      "observed_bytes": 3875,
+      "matches": true,
+      "snapshot": "evidence/6c26a9d76fc1ffac-SOURCE-PINS.json"
+    },
+    {
+      "path": "unpublished-local-ref:44afcde5d2db2713",
+      "sha256": "8970fcaed4526dbaf39f94c3e8047af295b4c0ea93b5202776f738ecd780b440",
+      "bytes": 26722,
+      "observed_sha256": "8970fcaed4526dbaf39f94c3e8047af295b4c0ea93b5202776f738ecd780b440",
+      "observed_bytes": 26722,
+      "matches": true
+    },
+    {
+      "path": "unpublished-local-ref:e8f0282541488908",
+      "sha256": "d4c37bc8b548359c71a6df10dee9a0ed7abd6b448e2a89143205a056647eaff7",
+      "bytes": 222170,
+      "observed_sha256": "d4c37bc8b548359c71a6df10dee9a0ed7abd6b448e2a89143205a056647eaff7",
+      "observed_bytes": 222170,
+      "matches": true
+    },
+    {
+      "path": "evidence/01f382fe993ef6c5-CURVE-DATA.csv",
+      "sha256": "01f382fe993ef6c521b291c947d68d2898287e79544e16fe33bf2a51e733eb52",
+      "bytes": 116450,
+      "observed_sha256": "01f382fe993ef6c521b291c947d68d2898287e79544e16fe33bf2a51e733eb52",
+      "observed_bytes": 116450,
+      "matches": true,
+      "snapshot": "evidence/01f382fe993ef6c5-CURVE-DATA.csv"
+    },
+    {
+      "path": "evidence/26a828c46c0d747b-manifest.json",
+      "sha256": "26a828c46c0d747bdb802c892a65bb405c20aa09a4b17de6a0636801d45018e0",
+      "bytes": 5299,
+      "observed_sha256": "26a828c46c0d747bdb802c892a65bb405c20aa09a4b17de6a0636801d45018e0",
+      "observed_bytes": 5299,
+      "matches": true,
+      "snapshot": "evidence/26a828c46c0d747b-manifest.json"
+    },
+    {
+      "path": "evidence/da541652f052fb9f-check.py",
+      "sha256": "da541652f052fb9f0dabc63c096ea6fa7286350e32d79bcaae3d1647eebe2b26",
+      "bytes": 17533,
+      "observed_sha256": "da541652f052fb9f0dabc63c096ea6fa7286350e32d79bcaae3d1647eebe2b26",
+      "observed_bytes": 17533,
+      "matches": true
+    },
+    {
+      "path": "evidence/77319a0420564deb-write_report.py",
+      "sha256": "77319a0420564debdd3ebf925ac6bc0dedce6be95b97ffaa21c8f47bb1d42cdc",
+      "bytes": 32148,
+      "observed_sha256": "77319a0420564debdd3ebf925ac6bc0dedce6be95b97ffaa21c8f47bb1d42cdc",
+      "observed_bytes": 32148,
+      "matches": true
+    },
+    {
+      "path": "evidence/73c5824003ff3e88-WORK.json",
+      "sha256": "73c5824003ff3e88a0c9ed4100f3eaaafde29f9453d86869cbefb36202692cd7",
+      "bytes": 414,
+      "observed_sha256": "73c5824003ff3e88a0c9ed4100f3eaaafde29f9453d86869cbefb36202692cd7",
+      "observed_bytes": 414,
+      "matches": true,
+      "snapshot": "evidence/73c5824003ff3e88-WORK.json"
+    }
+  ]
+}

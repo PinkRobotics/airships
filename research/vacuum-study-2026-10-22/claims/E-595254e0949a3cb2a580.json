@@ -1,0 +1,39 @@
+{
+  "id": "E-595254e0949a3cb2a580",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-595254e0949a3cb2a580",
+    "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+    "file": "evidence/717e88be4a20c9a5-NFI.json",
+    "snapshot": "evidence/717e88be4a20c9a5-NFI.json",
+    "source_sha256": "717e88be4a20c9a5422ac9933ad9b1a69e9c724dcf0546111ffacff5332fd9ec",
+    "source_json_pointer": "/inherited_owner_register/findings/11",
+    "row_id": "NFI50-12",
+    "fields": {
+      "id": "NFI50-12",
+      "title": "Saturation formula annotation",
+      "finding": "The es_water docstring names 1981; coefficients are the Buck 1996 update verified against NCAR. The code was preserved after pinning in the retry request. There is no numerical change.",
+      "missing_evidence": "Use the corrected source annotation in METHOD and SOURCE-AUDIT.",
+      "tag": "QUESTIONABLE; documentary correction recorded",
+      "blocks_filing": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The es_water docstring names 1981; coefficients are the Buck 1996 update verified against NCAR. The code was preserved after pinning in the retry request. There is no numerical change. | Saturation formula annotation",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-ref-3eaf9fd65c0d3223ee65",
+      "artifact": "evidence/717e88be4a20c9a5-NFI.json",
+      "snapshot": "evidence/717e88be4a20c9a5-NFI.json",
+      "sha256": "717e88be4a20c9a5422ac9933ad9b1a69e9c724dcf0546111ffacff5332fd9ec",
+      "bytes": 54407,
+      "selector": "/inherited_owner_register/findings/11"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

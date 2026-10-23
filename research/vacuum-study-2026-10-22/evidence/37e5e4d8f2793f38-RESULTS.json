@@ -1,0 +1,170 @@
+{
+  "schema": 1,
+  "card": "CHECK MAINLINE-034",
+  "unit": "vacuum-mainline034-check-1020",
+  "tag": "QUESTIONABLE",
+  "scenario_tag": "PROJECTION",
+  "certification": false,
+  "verdict": "Arithmetic agrees under explicit reconstructed assumptions; 20 physical/documentation NFI remain.",
+  "owner_code_read": false,
+  "owner_code_run": false,
+  "numeric_checks": {
+    "schema": 1,
+    "completed_at_utc": "2026-10-20T10:02:59.880280+00:00",
+    "owner_code_read": false,
+    "owner_code_run": false,
+    "method": "Independent geometry and source conversion; augmented 10-state matrix exponential; separately integrated external flux; bracketed threshold roots.",
+    "tolerance": "2e-8 + 2e-9*abs(owner), fixed before first run",
+    "numeric_comparisons": 7670,
+    "passed": 7670,
+    "failed": 0,
+    "uncovered_numeric_fields": {},
+    "categories": {
+      "inherited_or_declared_input": 95,
+      "scenario_definition": 341,
+      "independently_derived": 7234
+    },
+    "mass_conservation_comparisons": 434,
+    "maximum_mass_conservation_residual_kg": 2.7284841053187847e-11,
+    "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "numpy": "2.3.5",
+    "scipy": "1.17.1",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.43"
+  },
+  "source_display_inheritance_checks": {
+    "completed_at_utc": "2026-10-20T10:07:29.545586+00:00",
+    "checks": 232,
+    "passed": 232,
+    "source_and_inheritance_checks": 124,
+    "display_and_validation_metadata_checks": 108,
+    "pinned_snapshot_checks": 83,
+    "owner_code_opened_or_executed": false
+  },
+  "headline_comparisons": [
+    {
+      "material": "P2",
+      "quantity": "pressure_limit_days_instant_320K_envelope",
+      "owner_days": 398.2068550462282,
+      "independent_days": 398.2068550462282,
+      "difference_days": 0.0
+    },
+    {
+      "material": "P2",
+      "quantity": "gas_inventory_limit_days",
+      "owner_days": 464.86510958210783,
+      "independent_days": 464.86510958210823,
+      "difference_days": 3.979039320256561e-13
+    },
+    {
+      "material": "P3_Kapton",
+      "quantity": "pressure_limit_days_instant_320K_envelope",
+      "owner_days": 7.759671132385577,
+      "independent_days": 7.759671132383345,
+      "difference_days": -2.2319923687064147e-12
+    },
+    {
+      "material": "P3_Kapton",
+      "quantity": "gas_inventory_limit_days",
+      "owner_days": 13.971844856282772,
+      "independent_days": 13.97184485628276,
+      "difference_days": -1.2434497875801753e-14
+    },
+    {
+      "material": "P3_Zylon_barrier",
+      "quantity": "pressure_limit_days_instant_320K_envelope",
+      "owner_days": 19.48846474473061,
+      "independent_days": 19.488464744730603,
+      "difference_days": -7.105427357601002e-15
+    },
+    {
+      "material": "P3_Zylon_barrier",
+      "quantity": "gas_inventory_limit_days",
+      "owner_days": 35.831910446879164,
+      "independent_days": 35.83191044687926,
+      "difference_days": 9.947598300641403e-14
+    }
+  ],
+  "systems_ledger": {
+    "passive_identified_system_kg": 30,
+    "passive_installation_range_kg": [
+      30,
+      50
+    ],
+    "reserved_systems_line_each_lead_kg": 100,
+    "monitoring_power_W": 5,
+    "monitoring_days_if_all_10kg_is_usable_battery": 9.0,
+    "sealed_system_mass_vs_duration": [
+      {
+        "days": 1,
+        "minimum_battery_kg_at_assumed_pack_factors": 1.1111111111111112,
+        "identified_system_kg_retaining_at_least_10kg_power_package": 30
+      },
+      {
+        "days": 7,
+        "minimum_battery_kg_at_assumed_pack_factors": 7.777777777777778,
+        "identified_system_kg_retaining_at_least_10kg_power_package": 30
+      },
+      {
+        "days": 30,
+        "minimum_battery_kg_at_assumed_pack_factors": 33.333333333333336,
+        "identified_system_kg_retaining_at_least_10kg_power_package": 53.333333333333336
+      },
+      {
+        "days": 365,
+        "minimum_battery_kg_at_assumed_pack_factors": 405.55555555555554,
+        "identified_system_kg_retaining_at_least_10kg_power_package": 425.55555555555554
+      }
+    ],
+    "P3_Zylon_added_barrier_attachment_bill_kg": 57.54627872394288,
+    "P3_Zylon_additional_joint_bond_kg": 4.078030172370963,
+    "P3_Kapton_additional_joint_bond_kg": 12.564741612169993,
+    "P3_Zylon_vacuum_system_plus_barrier_kg": [
+      87.54627872394289,
+      107.54627872394289
+    ],
+    "P3_Zylon_system_plus_barrier_plus_joint_bond_kg": [
+      91.62430889631385,
+      111.62430889631385
+    ],
+    "P3_Zylon_remaining_of_100kg_at_low_bill": 8.375691103686155,
+    "P3_Zylon_excess_over_100kg_at_high_bill": 11.624308896313849,
+    "P2_unvented_core_fraction_of_internal_gas_row": 0.8873754881898654,
+    "P3_Kapton_E2M28_minimum_speed_fraction_hot_source_envelope": 0.7677119036786987
+  },
+  "additional_area_sensitivity": {
+    "P3_Kapton": {
+      "area_multiplier": 1.1,
+      "additional_structural_film_mass_kg_at_fixed_gauge": 98.12569224663257,
+      "conditioned_release_inventory_filed_kg": 1.0249312800972046,
+      "conditioned_release_inventory_area_consistent_kg": 1.1201132015764383,
+      "hot_limit_filed_rate_only_area_case_days": 7.090474839569109,
+      "hot_limit_with_area_scaled_release_days": 7.063948423527069,
+      "difference_days": -0.026526416042039536,
+      "scope": "Illustration at fixed gauge and gas volume, with the filed transmission multipliers (including Zylon N2 x10); not a structural reoptimization."
+    },
+    "P3_Zylon_barrier": {
+      "area_multiplier": 1.1,
+      "additional_structural_film_mass_kg_at_fixed_gauge": 21.717480701365734,
+      "conditioned_release_inventory_filed_kg": 0.21214971641701807,
+      "conditioned_release_inventory_area_consistent_kg": 0.22886677585223084,
+      "hot_limit_filed_rate_only_area_case_days": 17.73918441735342,
+      "hot_limit_with_area_scaled_release_days": 17.727583977194357,
+      "difference_days": -0.011600440159064362,
+      "scope": "Illustration at fixed gauge and gas volume, with the filed transmission multipliers (including Zylon N2 x10); not a structural reoptimization.",
+      "additional_barrier_assembly_kg": 5.254627872394289,
+      "system_barrier_bond_range_kg_at_10percent_more_area": [
+        96.87893676870814,
+        116.87893676870814
+      ],
+      "remaining_100kg_low_bill": 3.1210632312918616,
+      "excess_100kg_high_bill": 16.878936768708144
+    }
+  },
+  "new_findings": [
+    "NFI-CHECK034-INPUT-COMPLETENESS",
+    "NFI-CHECK034-CORE-VOID-CONVENTION",
+    "NFI-CHECK034-AREA-SENSITIVITY-SCOPE"
+  ],
+  "physical_NFI_count": 20,
+  "next": "none named by brief; file report and end turn"
+}

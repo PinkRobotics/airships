@@ -1,0 +1,236 @@
+{
+  "unit": "vacuum-mainline053-check-1020",
+  "all_nonblocking": true,
+  "checker_open": [
+    {
+      "id": "NFI-C053-GAP-EFFECTIVE",
+      "status": "OPEN",
+      "blocking": false,
+      "finding": "The core-gap and inner-enclosure paths are distinct, but the effective .20 gap coefficient is unmeasured. Two .20 gray plates give 1/9, not .20.",
+      "needed": "Measure evacuated bonded Be/CR-III/adhesive panel transport, including contact resistance and cell-wall exchange. Do not add radiation again if future apparent conductivity already contains it.",
+      "source": "SOURCE-AUDIT.md; METHOD.md; GAP-SENSITIVITY.json",
+      "extends": "NFI-053-CORE-CONDUCTANCE",
+      "classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "id": "NFI-C053-LOCAL-CONVECTION",
+      "status": "OPEN",
+      "blocking": false,
+      "finding": "Re is outside Whitaker's sphere range; a spatially uniform local use of its average correlation and the 1.32 natural-convection floor are additional assumptions.",
+      "needed": "Validated local full-scale convection boundary with orientation and wind conditions.",
+      "source": "SOURCE-AUDIT.md",
+      "extends": "NFI-053-CONVECTION",
+      "classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "id": "NFI-C053-SCARF-QUALIFICATION",
+      "status": "OPEN",
+      "blocking": false,
+      "finding": "All frozen scarf crossings are real within the declared scalar/tolerance calculation. The largest deficit is about .0366%; the mixed-gap deficit is below one part per million. These do not establish physical bond failure or physical safety after resizing.",
+      "needed": "Matched process/adherend bond allowables, edge/scarf interaction, peel and full load-state validation.",
+      "source": "CROSSINGS-INDEPENDENT.json; SCARF-ROOTS-INDEPENDENT.json",
+      "extends": "NFI-053-CURE-BOND",
+      "classification": "QUESTIONABLE / PROJECTION"
+    },
+    {
+      "id": "NFI-C053-JOINT-MISSION",
+      "status": "OPEN",
+      "blocking": false,
+      "finding": "Changing weather pressure/buoyancy leaves the 2 m/s thermal environment unchanged; wet exterior mass is charged while optics are dry transferred values.",
+      "needed": "Joint weather, radiation, wind and moisture histories with transient, lateral-conduction and installed optical evidence.",
+      "source": "METHOD.md; SOURCE-AUDIT.md",
+      "extends": [
+        "NFI-053-ENVIRONMENT",
+        "NFI-053-WATER-MASS",
+        "NFI-053-OPTICAL-TRANSFER"
+      ],
+      "classification": "QUESTIONABLE / PROJECTION"
+    }
+  ],
+  "checker_open_count": 4,
+  "owner_053_open_groups": [
+    {
+      "id": "NFI-053-CONVECTION",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Full-scale mixed convection is not qualified",
+      "finding": "Both reconstructions extrapolate the sphere forced-convection fit beyond its source Re interval. The inherited 1.32 floor lacks a documented sphere size/orientation validity range.",
+      "needed": "Measure local mixed convection or establish a validated full-size flow/thermal model; retain both explicit convection rows.",
+      "references": [
+        "SPECIFICATION.md",
+        "sources/whitaker1972.browser.json"
+      ]
+    },
+    {
+      "id": "NFI-053-CORE-CONDUCTANCE",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Bonded sandwich conductance and core-gap radiation",
+      "finding": "Solid-metal conduction, adhesive contact resistance and core-cell radiation are distinct. Neither zero resistance nor effective gap emissivity .20 is a measured installed value.",
+      "needed": "Measure CR-III/AF163/Be conductance with actual cure, contact area, coating and evacuated cells; retain the zero/.20 gap alternatives.",
+      "references": [
+        "SPECIFICATION.md",
+        "sources/nasa_honeycomb1968.pdf"
+      ]
+    },
+    {
+      "id": "NFI-053-OPTICAL-TRANSFER",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Installed multilayer CCAg/ITO optical pair",
+      "finding": "The .09/.80 pair is a class-level transfer, not the exact deposited recipe on Be after terrestrial weathering or wetting.",
+      "needed": "Measure hemispherical emittance and solar absorptance for the actual treated Be, thickness, ITO, edge and aging state.",
+      "references": [
+        "inputs/048/COATINGS.json",
+        "sources/nasa_ccag2018.pdf"
+      ]
+    },
+    {
+      "id": "NFI-053-ENVIRONMENT",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Steady thermal boundary versus actual operation",
+      "finding": "Zenith sun, fixed sky/ground temperatures and 2 m/s flow define two equilibria. The optimistic weather changes buoyancy and pressure but not the thermal boundary.",
+      "needed": "Specify joint sunlight, wind direction/speed, ambient/sky/ground histories, thermal inertia, precipitation and allowed operating states.",
+      "references": [
+        "SPECIFICATION.md"
+      ]
+    },
+    {
+      "id": "NFI-053-CAVITY",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Inner enclosure emissivity and obstructions",
+      "finding": "Uniform .20 emissivity and an empty diffuse sphere produce an exact view-factor identity for that geometry; equipment, frames, seams and actual inner finish are absent.",
+      "needed": "Measure the inner surface and model obstructions/view factors before assigning installed cavity heat exchange.",
+      "references": [
+        "SPECIFICATION.md"
+      ]
+    },
+    {
+      "id": "NFI-053-PATTERN",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Lateral heat flow and structural temperature projection",
+      "finding": "The face/core solve omits lateral heat flow and keeps only temperature harmonics 2–6 for bending. Pole and mean-projection errors are corrected, but a physical truncation bound is absent.",
+      "needed": "Resolve lateral conduction, seams and required spatial/temporal load spectrum; validate structural response to the resulting field.",
+      "references": [
+        "METHOD.md",
+        "THERMAL-CONVERGENCE.json"
+      ]
+    },
+    {
+      "id": "NFI-053-CURE-BOND",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "200 F process and compliant-core bond interpretation",
+      "finding": "The stress-free cure reference, compliant in-plane core, free-edge transfer and foil yield proxy are conditional. Existing tests do not qualify the precise 2U .015/Be/honeycomb assembly.",
+      "needed": "Retain the inherited 037b and CHECK-040 qualification rows and test the intended assembly/process, including edge/scarf coincidence and peel.",
+      "references": [
+        "inputs/037b/NFI.json",
+        "inputs/040check/NFI.json"
+      ]
+    },
+    {
+      "id": "NFI-053-CURE-STABILITY",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Cure compression in global/crimp demand",
+      "finding": "Both the original exclusion and subsequent inclusion of balanced cure compression are carried. No installed nonlinear structural qualification selects one by fiat.",
+      "needed": "Use the cure-inclusive branch for the conservative scalar comparison and validate equilibrium/prestress/load redistribution for the built hull.",
+      "references": [
+        "METHOD.md",
+        "inputs/048fold/NFI.json"
+      ]
+    },
+    {
+      "id": "NFI-053-WATER-MASS",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Exterior retention, moisture and wet optics",
+      "finding": "The 0.1 kg/m2 external water debit and material drying assumptions remain projections. Thermal reconciliation does not establish a dry-exterior operational limit or permit removing those masses.",
+      "needed": "Measure retention/conditioning and wet optical performance; preserve all existing debit and equipment qualifications.",
+      "references": [
+        "inputs/048/NFI.json",
+        "inputs/048fold/NFI.json"
+      ]
+    }
+  ],
+  "inherited_registers": [
+    {
+      "path": "inputs/037b/NFI.json",
+      "direct_rows": 13,
+      "disposition": "All physical/material qualifications retained. Thermal arithmetic reproduction is resolved locally; upstream records remain unchanged."
+    },
+    {
+      "path": "inputs/040/NFI.json",
+      "direct_rows": 23,
+      "disposition": "All physical/material qualifications retained. Thermal arithmetic reproduction is resolved locally; upstream records remain unchanged."
+    },
+    {
+      "path": "inputs/040check/NFI.json",
+      "direct_rows": 11,
+      "disposition": "All physical/material qualifications retained. Thermal arithmetic reproduction is resolved locally; upstream records remain unchanged."
+    },
+    {
+      "path": "inputs/048/NFI.json",
+      "direct_rows": 28,
+      "disposition": "All physical/material qualifications retained. Thermal arithmetic reproduction is resolved locally; upstream records remain unchanged."
+    },
+    {
+      "path": "inputs/048fold/NFI.json",
+      "direct_rows": 4,
+      "disposition": "All physical/material qualifications retained. Thermal arithmetic reproduction is resolved locally; upstream records remain unchanged."
+    },
+    {
+      "path": "inputs/048check/NFI.json",
+      "direct_rows": 13,
+      "disposition": "All physical/material qualifications retained. Thermal arithmetic reproduction is resolved locally; upstream records remain unchanged."
+    }
+  ],
+  "resolved_local": [
+    {
+      "id": "CHECKER-CURVATURE-CONVENTIONS",
+      "status": "RESOLVED",
+      "finding": "Initial 10 probe and 27 legacy/common curvature comparisons used different extrema conventions.",
+      "resolution": "Owner historical diagnostics use 1441-angle sampling; checker diagnostics use derivative roots. Settled tables use roots. Matched-convention comparisons pass.",
+      "exact_ledgers": [
+        "history/thermal01/THERMAL-MISMATCHES.json",
+        "history/supplement01/SUPPLEMENT-MISMATCHES.json",
+        "history/supplement02/SUPPLEMENT-MISMATCHES.json"
+      ],
+      "maximum_initial_probe_difference_K": 0.00021321463623991121
+    },
+    {
+      "id": "CHECKER-INCOMING-WATER-CAPTURE",
+      "status": "RESOLVED",
+      "finding": "Initial checker left incoming water vapor in the sorbent pressure balance.",
+      "resolution": "Apply .95 capture to incoming water mole fraction 1000/p0; retain its mass aboard. All service-pressure values now match.",
+      "exact_ledger": "history/account01/ACCOUNT-MISMATCHES.json"
+    },
+    {
+      "id": "CHECKER-FREE-EDGE-GUARD",
+      "status": "RESOLVED",
+      "finding": "Initial separate finish-screen reproduction omitted the declared 1.002 stress guard.",
+      "resolution": "Guard included; all 156 finish factors match, maximum difference 2.14e-14.",
+      "exact_ledger": "history/supplement01/SUPPLEMENT-MISMATCHES.json"
+    },
+    {
+      "id": "CHECKER-NONFLOATING-SCHEMA",
+      "status": "RESOLVED",
+      "finding": "First independent search expected a ties array in nonfloating accounts.",
+      "resolution": "Treat omitted ties as empty; admitted search02 completed all 7310 checks.",
+      "evidence": "search01.execution.json"
+    }
+  ],
+  "installed_hull_SF": null
+}

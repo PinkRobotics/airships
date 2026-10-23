@@ -1,0 +1,3257 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-028b",
+  "nu": 0.0752,
+  "nu_basis": "NASA CR-194164 Table 2: SR-200 1.96 mm sheet nu21=0.0752; nu12=0.0768. Use the lower in-plane value in the inherited scalar model, not an orthotropic validation.",
+  "started_at": "2026-10-20T08:22:40.776929+00:00",
+  "searches": [
+    {
+      "route": "af015_scarf",
+      "material": "SR200",
+      "nu": 0.0752,
+      "joint_screen_enforced": false,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.293661654650912,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.293661654650912,
+            "fraction": 0.07378845142947384,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.6574943540201087,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6574943540201087,
+            "fraction": 0.17284684392661512,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.293661654650912,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.293661654650912,
+            "fraction": 0.07378845142947384,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.3291063549507913,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.3291063549507913,
+            "fraction": 0.31780415802930573,
+            "core": "Hexcel HRH-10-4.8-32"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 0.6574943540201087,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6574943540201087,
+            "fraction": 0.17284684392661512,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.6574943540201087,
+        "feasible_within_named": true,
+        "point": {
+          "usage": 0.6574943540201087,
+          "fraction": 0.17284684392661512,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        }
+      },
+      "floating_point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.17284684392661512,
+        "tf_m": 0.0007390517702535981,
+        "tc_m": 0.03567231184612069,
+        "nu": 0.0752,
+        "Vc": 0.8982572546580183,
+        "Kc": 0.7754356863354954,
+        "face_demand_Pa": 322916613.409737,
+        "masses_kg": {
+          "faces": 3436.2634258358285,
+          "core": 718.0620465449646,
+          "structural": 4154.325472380793,
+          "physical_joining": 223.81773373452347,
+          "base_joint_allowance": 207.71627361903967,
+          "charged_joining": 223.81773373452347,
+          "joint_excess": 16.101460115483803,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 427.4004041871312,
+          "charged_total": 4889.442150186964,
+          "physical_total_including_fixed_reserve": 4889.442150186964,
+          "lift": 4889.442150186961,
+          "residual": 2.7284841053187847e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 8.80411700538015,
+          "core_splice_kg": 25.280856149940455,
+          "seal_kg": 5.669575049465645,
+          "seam_length_m": 2834.7875247328225,
+          "scarf_overlap_m": 0.022171553107607943,
+          "physical_total_kg": 223.81773373452347
+        },
+        "needed": {
+          "gamma": 0.393258575885675,
+          "wrinkle": 0.6003733387316994,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 1.9662928794283747,
+          "wrinkle": 1.8193131476718163,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 0.6574943540201087,
+          "O2_wrinkle": 0.6574943475319251,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5593029018632074,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 1.0683872729776285,
+            "core_shear_crimping": 3.650692727056675,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 5.437387524791849
+          },
+          "least_six_mode_SF": 0.9999999999999998,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9300646695196552,
+          "least_seven_screen_SF": 0.9300646695196552
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.5085712359853086,
+            "face_compression": 1.0683872729776285,
+            "core_shear_crimping": 3.650692727056675,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.5496579856412871,
+            "intracell_dimpling": 5.437387524791849
+          },
+          "least_six_mode_SF": 0.5085712359853086,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9300646695196552,
+          "least_seven_screen_SF": 0.5085712359853086
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.4461471349769175,
+            "face_compression": 1.1742969678641064,
+            "core_shear_crimping": 3.650692727056675,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.374268149083096,
+            "intracell_dimpling": 5.504886128547884
+          },
+          "least_six_mode_SF": 1.1742969678641064,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9300646695196552,
+          "least_seven_screen_SF": 0.9300646695196552
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.5130335217729545,
+            "face_compression": 1.1742969678641064,
+            "core_shear_crimping": 3.650692727056675,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.374268149083096,
+            "intracell_dimpling": 5.504886128547884
+          },
+          "least_six_mode_SF": 0.5130335217729545,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9300646695196552,
+          "least_seven_screen_SF": 0.5130335217729545
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 0.7896775495921602,
+            "core_shear_crimping": 3.650692727056675,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 5.437387524791849
+          },
+          "least_six_mode_SF": 0.7896775495921602,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9300646695196552,
+          "least_seven_screen_SF": 0.7896775495921602
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": false,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "af015_scarf",
+      "material": "SR200",
+      "nu": 0.0752,
+      "joint_screen_enforced": true,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.293661654650912,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.293661654650912,
+            "fraction": 0.07378845142947384,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.9719775174295638,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.9719775174295638,
+            "fraction": 0.11237531361894605,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.293661654650912,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.293661654650912,
+            "fraction": 0.07378845142947384,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 0.9719775174295638,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.9719775174295638,
+            "fraction": 0.11237531361894605,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.9719775174295638,
+        "feasible_within_named": true,
+        "point": {
+          "usage": 0.9719775174295638,
+          "fraction": 0.11237531361894605,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        }
+      },
+      "floating_point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.11237531361894605,
+        "tf_m": 0.0007946240669858892,
+        "tc_m": 0.02323721790601576,
+        "nu": 0.0752,
+        "Vc": 0.9532138526378371,
+        "Kc": 0.7616965368405407,
+        "face_demand_Pa": 300333333.3333344,
+        "masses_kg": {
+          "faces": 3694.6499941886,
+          "core": 467.7511319586517,
+          "structural": 4162.4011261472515,
+          "physical_joining": 215.74207996805592,
+          "base_joint_allowance": 208.12005630736257,
+          "charged_joining": 215.74207996805592,
+          "joint_excess": 7.622023660693344,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 418.9209677323407,
+          "charged_total": 4889.442150186955,
+          "physical_total_including_fixed_reserve": 4889.442150186955,
+          "lift": 4889.442150186961,
+          "residual": -6.366462912410498e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 9.488610953216401,
+          "core_splice_kg": 16.507246397262566,
+          "seal_kg": 5.6830370878397085,
+          "seam_length_m": 2841.518543919854,
+          "scarf_overlap_m": 0.023838722009576676,
+          "physical_total_kg": 215.74207996805592
+        },
+        "needed": {
+          "gamma": 0.5641635666030083,
+          "wrinkle": 0.43462785437520957,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 2.8208178330150413,
+          "wrinkle": 1.3170541041673016,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 0.9719775174295638,
+          "O2_wrinkle": 0.30256423597576293,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5812855410551349,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 1.148723640399552,
+            "core_shear_crimping": 2.441308356184061,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 6.758508201896969
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9999999999999964,
+          "least_seven_screen_SF": 0.9999999999999964
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.3545071178634554,
+            "face_compression": 1.148723640399552,
+            "core_shear_crimping": 2.441308356184061,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.7592702508089013,
+            "intracell_dimpling": 6.758508201896969
+          },
+          "least_six_mode_SF": 0.3545071178634554,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9999999999999964,
+          "least_seven_screen_SF": 0.3545071178634554
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.047549468389017,
+            "face_compression": 1.2625971143174206,
+            "core_shear_crimping": 2.441308356184061,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.8983457886373143,
+            "intracell_dimpling": 6.842406924403275
+          },
+          "least_six_mode_SF": 1.047549468389017,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9999999999999964,
+          "least_seven_screen_SF": 0.9999999999999964
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.35751398217219527,
+            "face_compression": 1.2625971143174206,
+            "core_shear_crimping": 2.441308356184061,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.8983457886373143,
+            "intracell_dimpling": 6.842406924403275
+          },
+          "least_six_mode_SF": 0.35751398217219527,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9999999999999964,
+          "least_seven_screen_SF": 0.35751398217219527
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 0.8490566037735819,
+            "core_shear_crimping": 2.441308356184061,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 6.758508201896969
+          },
+          "least_six_mode_SF": 0.8490566037735819,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9999999999999964,
+          "least_seven_screen_SF": 0.8490566037735819
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "af015_scarf_primer5",
+      "material": "SR200",
+      "nu": 0.0752,
+      "joint_screen_enforced": false,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.3044815390268913,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.3044815390268913,
+            "fraction": 0.07343268395602387,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.6624390395550163,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6624390395550163,
+            "fraction": 0.17316290318834046,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.3044815390268913,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.3044815390268913,
+            "fraction": 0.07343268395602387,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.3767996715806392,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.3767996715806392,
+            "fraction": 0.3188192515919403,
+            "core": "Hexcel HRH-10-4.8-32"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 0.6624390395550163,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6624390395550163,
+            "fraction": 0.17316290318834046,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.6624390395550163,
+        "feasible_within_named": true,
+        "point": {
+          "usage": 0.6624390395550163,
+          "fraction": 0.17316290318834046,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        }
+      },
+      "floating_point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.17316290318834046,
+        "tf_m": 0.0007365460757493381,
+        "tc_m": 0.035629989674785666,
+        "nu": 0.0752,
+        "Vc": 0.8952518839054594,
+        "Kc": 0.7761870290236351,
+        "face_demand_Pa": 324015160.27624744,
+        "masses_kg": {
+          "faces": 3424.613056094678,
+          "core": 717.2101268517821,
+          "structural": 4141.82318294646,
+          "physical_joining": 236.3200231688511,
+          "base_joint_allowance": 207.09115914732303,
+          "charged_joining": 236.3200231688511,
+          "joint_excess": 29.228864021528068,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 440.52780809317545,
+          "charged_total": 4889.442150186959,
+          "physical_total_including_fixed_reserve": 4889.442150186959,
+          "lift": 4889.442150186961,
+          "residual": -1.8189894035458565e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "scarf_film_kg": 8.773330594876965,
+          "core_splice_kg": 25.24816668492357,
+          "seal_kg": 5.668969744954146,
+          "seam_length_m": 2834.484872477073,
+          "scarf_overlap_m": 0.022096382272480144,
+          "physical_total_kg": 236.3200231688511
+        },
+        "needed": {
+          "gamma": 0.39470039219263336,
+          "wrinkle": 0.6030815337352684,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 1.9735019609631668,
+          "wrinkle": 1.827519799197783,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 0.6624390395550163,
+          "O2_wrinkle": 0.6624390304206955,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5581007535621838,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 1.064764993421485,
+            "core_shear_crimping": 3.6460348677288974,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 5.382269768765196
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9269113614229545,
+          "least_seven_screen_SF": 0.9269113614229545
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.5067134564750827,
+            "face_compression": 1.064764993421485,
+            "core_shear_crimping": 3.6460348677288974,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.5471896941630755,
+            "intracell_dimpling": 5.382269768765196
+          },
+          "least_six_mode_SF": 0.5067134564750827,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9269113614229545,
+          "least_seven_screen_SF": 0.5067134564750827
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.4377762206296196,
+            "face_compression": 1.1703156101606582,
+            "core_shear_crimping": 3.6460348677288974,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.368096867213695,
+            "intracell_dimpling": 5.449084152101592
+          },
+          "least_six_mode_SF": 1.1703156101606582,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9269113614229545,
+          "least_seven_screen_SF": 0.9269113614229545
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.5111673915094436,
+            "face_compression": 1.1703156101606582,
+            "core_shear_crimping": 3.6460348677288974,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.368096867213695,
+            "intracell_dimpling": 5.449084152101592
+          },
+          "least_six_mode_SF": 0.5111673915094436,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9269113614229545,
+          "least_seven_screen_SF": 0.5111673915094436
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 0.7870002125289237,
+            "core_shear_crimping": 3.6460348677288974,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 5.382269768765196
+          },
+          "least_six_mode_SF": 0.7870002125289237,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9269113614229545,
+          "least_seven_screen_SF": 0.7870002125289237
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": false,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "af015_scarf_primer5",
+      "material": "SR200",
+      "nu": 0.0752,
+      "joint_screen_enforced": true,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.3044815390268913,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.3044815390268913,
+            "fraction": 0.07343268395602387,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.9960764380867377,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.9960764380867377,
+            "fraction": 0.10977933381462106,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.3044815390268913,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.3044815390268913,
+            "fraction": 0.07343268395602387,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 0.9960764380867377,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.9960764380867377,
+            "fraction": 0.10977933381462106,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.9960764380867377,
+        "feasible_within_named": true,
+        "point": {
+          "usage": 0.9960764380867377,
+          "fraction": 0.10977933381462106,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        }
+      },
+      "floating_point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.10977933381462106,
+        "tf_m": 0.0007946240669858931,
+        "tc_m": 0.022634218545952715,
+        "nu": 0.0752,
+        "Vc": 0.9523749067583123,
+        "Kc": 0.7619062733104219,
+        "face_demand_Pa": 300333333.3333329,
+        "masses_kg": {
+          "faces": 3694.6499941886177,
+          "core": 455.61311981018304,
+          "structural": 4150.263113998801,
+          "physical_joining": 227.8800921165174,
+          "base_joint_allowance": 207.51315569994006,
+          "charged_joining": 227.8800921165174,
+          "joint_excess": 20.366936416577346,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 431.66588048822473,
+          "charged_total": 4889.442150186966,
+          "physical_total_including_fixed_reserve": 4889.442150186966,
+          "lift": 4889.442150186961,
+          "residual": 4.547473508864641e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "scarf_film_kg": 9.48861095321645,
+          "core_splice_kg": 16.078887931364832,
+          "seal_kg": 5.68303708783971,
+          "seam_length_m": 2841.518543919855,
+          "scarf_overlap_m": 0.023838722009576794,
+          "physical_total_kg": 227.8800921165174
+        },
+        "needed": {
+          "gamma": 0.5785244156939786,
+          "wrinkle": 0.42895155156547243,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 2.892622078469893,
+          "wrinkle": 1.2998531865620375,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 0.9960764380867377,
+          "O2_wrinkle": 0.288121245604928,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.580949962703325,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 1.1487236403995578,
+            "core_shear_crimping": 2.382148405579912,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.758508201897071
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0000000000000016,
+          "least_seven_screen_SF": 1.0
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.34570710340735866,
+            "face_compression": 1.1487236403995578,
+            "core_shear_crimping": 2.382148405579912,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.7693176508993952,
+            "intracell_dimpling": 6.758508201897071
+          },
+          "least_six_mode_SF": 0.34570710340735866,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0000000000000016,
+          "least_seven_screen_SF": 0.34570710340735866
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.0209582562927164,
+            "face_compression": 1.2625971143174268,
+            "core_shear_crimping": 2.382148405579912,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.923466540607015,
+            "intracell_dimpling": 6.842406924403377
+          },
+          "least_six_mode_SF": 1.0209582562927164,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0000000000000016,
+          "least_seven_screen_SF": 1.0000000000000016
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.34864089783141966,
+            "face_compression": 1.2625971143174268,
+            "core_shear_crimping": 2.382148405579912,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.923466540607015,
+            "intracell_dimpling": 6.842406924403377
+          },
+          "least_six_mode_SF": 0.34864089783141966,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0000000000000016,
+          "least_seven_screen_SF": 0.34864089783141966
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 0.8490566037735862,
+            "core_shear_crimping": 2.382148405579912,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.758508201897071
+          },
+          "least_six_mode_SF": 0.8490566037735862,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0000000000000016,
+          "least_seven_screen_SF": 0.8490566037735862
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "lab8_eb_eta1",
+      "material": "SR200",
+      "nu": 0.0752,
+      "joint_screen_enforced": true,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.2918710791265942,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2918710791265942,
+            "fraction": 0.07384760260202498,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.6514685431051914,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6514685431051914,
+            "fraction": 0.17246453253572883,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.2918710791265942,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2918710791265942,
+            "fraction": 0.07384760260202498,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.2851240149564347,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2851240149564347,
+            "fraction": 0.31686942428187087,
+            "core": "Hexcel HRH-10-4.8-32"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 0.6514685431051914,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6514685431051914,
+            "fraction": 0.17246453253572883,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.6514685431051914,
+        "feasible_within_named": true,
+        "point": {
+          "usage": 0.6514685431051914,
+          "fraction": 0.17246453253572883,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        }
+      },
+      "floating_point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.17246453253572883,
+        "tf_m": 0.0007421226592621065,
+        "tc_m": 0.035724794797361396,
+        "nu": 0.0752,
+        "Vc": 0.9019406079826876,
+        "Kc": 0.7745148480043281,
+        "face_demand_Pa": 321580390.796927,
+        "masses_kg": {
+          "faces": 3450.5416997125258,
+          "core": 719.1184965877649,
+          "structural": 4169.66019630029,
+          "physical_joining": 50.15113920237795,
+          "base_joint_allowance": 208.48300981501453,
+          "charged_joining": 208.48300981501453,
+          "joint_excess": 0.0,
+          "unused_joint_allowance": 158.33187061263658,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 411.2989440716474,
+          "charged_total": 4889.442150186952,
+          "physical_total_including_fixed_reserve": 4731.110279574315,
+          "lift": 4889.442150186961,
+          "residual": -9.094947017729282e-12
+        },
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 0.0,
+          "core_splice_kg": 24.54784621312192,
+          "seal_kg": 5.497100006281353,
+          "seam_length_m": 2748.5500031406764,
+          "scarf_overlap_m": 0.0,
+          "physical_total_kg": 50.15113920237795
+        },
+        "needed": {
+          "gamma": 0.39149957705208616,
+          "wrinkle": 0.5970894471618662,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 1.9574978852604308,
+          "wrinkle": 1.809361961096564,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 18.309103636436436
+        },
+        "log_usage": {
+          "O1_gamma": 0.6514685431051914,
+          "O2_wrinkle": 0.6514685371580532,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5607762431930751,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 1.0728266084416265,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 5.505449432714736
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.0728266084416265,
+          "least_seven_screen_SF": 1.0
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.5108562351611212,
+            "face_compression": 1.0728266084416265,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.5526810121474809,
+            "intracell_dimpling": 5.505449432714736
+          },
+          "least_six_mode_SF": 0.5108562351611212,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.0728266084416265,
+          "least_seven_screen_SF": 0.5108562351611212
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.4564602951388048,
+            "face_compression": 1.1791763765827965,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.3818263928452583,
+            "intracell_dimpling": 5.573792942913951
+          },
+          "least_six_mode_SF": 1.1791763765827965,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.1791763765827965,
+          "least_seven_screen_SF": 1.1791763765827965
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.5153287259554028,
+            "face_compression": 1.1791763765827965,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.3818263928452583,
+            "intracell_dimpling": 5.573792942913951
+          },
+          "least_six_mode_SF": 0.5153287259554028,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.1791763765827965,
+          "least_seven_screen_SF": 0.5153287259554028
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 0.7929587975438108,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 5.505449432714736
+          },
+          "least_six_mode_SF": 0.7929587975438108,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 0.7929587975438108,
+          "least_seven_screen_SF": 0.7929587975438108
+        },
+        "weld_retention_required_at_today_strength": 0.9321170747737014,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "lab8_scarf",
+      "material": "SR200",
+      "nu": 0.0752,
+      "joint_screen_enforced": false,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.2918710791265942,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2918710791265942,
+            "fraction": 0.07384760260202498,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.6514685431051914,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6514685431051914,
+            "fraction": 0.17246453253572883,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.2918710791265942,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2918710791265942,
+            "fraction": 0.07384760260202498,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.2851240149564347,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2851240149564347,
+            "fraction": 0.31686942428187087,
+            "core": "Hexcel HRH-10-4.8-32"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 0.6514685431051914,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.6514685431051914,
+            "fraction": 0.17246453253572883,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.6514685431051914,
+        "feasible_within_named": true,
+        "point": {
+          "usage": 0.6514685431051914,
+          "fraction": 0.17246453253572883,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        }
+      },
+      "floating_point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.17246453253572883,
+        "tf_m": 0.0007421226592621065,
+        "tc_m": 0.035724794797361396,
+        "nu": 0.0752,
+        "Vc": 0.9019406079826876,
+        "Kc": 0.7745148480043281,
+        "face_demand_Pa": 321580390.796927,
+        "masses_kg": {
+          "faces": 3450.5416997125258,
+          "core": 719.1184965877649,
+          "structural": 4169.66019630029,
+          "physical_joining": 59.93973108645351,
+          "base_joint_allowance": 208.48300981501453,
+          "charged_joining": 208.48300981501453,
+          "joint_excess": 0.0,
+          "unused_joint_allowance": 148.543278728561,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 411.2989440716474,
+          "charged_total": 4889.442150186952,
+          "physical_total_including_fixed_reserve": 4740.898871458391,
+          "lift": 4889.442150186961,
+          "residual": -9.094947017729282e-12
+        },
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 8.841856722747808,
+          "core_splice_kg": 25.321364294170113,
+          "seal_kg": 5.670317086560918,
+          "seam_length_m": 2835.158543280459,
+          "scarf_overlap_m": 0.022263679777863195,
+          "physical_total_kg": 59.93973108645351
+        },
+        "needed": {
+          "gamma": 0.39149957705208616,
+          "wrinkle": 0.5970894471618662,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 1.9574978852604308,
+          "wrinkle": 1.809361961096564,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 18.309103636436436
+        },
+        "log_usage": {
+          "O1_gamma": 0.6514685431051914,
+          "O2_wrinkle": 0.6514685371580532,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5607762431930751,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 1.0728266084416265,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 5.505449432714736
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9339292504404882,
+          "least_seven_screen_SF": 0.9339292504404882
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.5108562351611212,
+            "face_compression": 1.0728266084416265,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.5526810121474809,
+            "intracell_dimpling": 5.505449432714736
+          },
+          "least_six_mode_SF": 0.5108562351611212,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9339292504404882,
+          "least_seven_screen_SF": 0.5108562351611212
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.4564602951388048,
+            "face_compression": 1.1791763765827965,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.3818263928452583,
+            "intracell_dimpling": 5.573792942913951
+          },
+          "least_six_mode_SF": 1.1791763765827965,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9339292504404882,
+          "least_seven_screen_SF": 0.9339292504404882
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.5153287259554028,
+            "face_compression": 1.1791763765827965,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.3818263928452583,
+            "intracell_dimpling": 5.573792942913951
+          },
+          "least_six_mode_SF": 0.5153287259554028,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9339292504404882,
+          "least_seven_screen_SF": 0.5153287259554028
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 0.7929587975438108,
+            "core_shear_crimping": 3.6564615786904917,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 5.505449432714736
+          },
+          "least_six_mode_SF": 0.7929587975438108,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 0.9339292504404882,
+          "least_seven_screen_SF": 0.7929587975438108
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": false,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "lab8_scarf",
+      "material": "SR200",
+      "nu": 0.0752,
+      "joint_screen_enforced": true,
+      "subsets": [
+        {
+          "subset": [],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma"
+          ],
+          "min_max_usage": 1.2918710791265942,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2918710791265942,
+            "fraction": 0.07384760260202498,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle"
+          ],
+          "min_max_usage": 0.9578679244374443,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.9578679244374443,
+            "fraction": 0.11392060257887461,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 1.2918710791265942,
+          "feasible_within_named": false,
+          "point": {
+            "usage": 1.2918710791265942,
+            "fraction": 0.07384760260202498,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        },
+        {
+          "subset": [
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": null,
+          "feasible_within_named": false,
+          "point": null
+        },
+        {
+          "subset": [
+            "O1_gamma",
+            "O2_wrinkle",
+            "O3_SR200_face_strength"
+          ],
+          "min_max_usage": 0.9578679244374443,
+          "feasible_within_named": true,
+          "point": {
+            "usage": 0.9578679244374443,
+            "fraction": 0.11392060257887461,
+            "core": "Hexcel CR-III 5056 3/8-1.0"
+          }
+        }
+      ],
+      "least_set": {
+        "subset": [
+          "O1_gamma",
+          "O2_wrinkle"
+        ],
+        "min_max_usage": 0.9578679244374443,
+        "feasible_within_named": true,
+        "point": {
+          "usage": 0.9578679244374443,
+          "fraction": 0.11392060257887461,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        }
+      },
+      "floating_point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.11392060257887461,
+        "tf_m": 0.000794624066985892,
+        "tc_m": 0.023597838294542862,
+        "nu": 0.0752,
+        "Vc": 0.9536957588918628,
+        "Kc": 0.7615760602770343,
+        "face_demand_Pa": 300333333.3333333,
+        "masses_kg": {
+          "faces": 3694.6499941886127,
+          "core": 475.0102021116777,
+          "structural": 4169.66019630029,
+          "physical_joining": 52.04126480162222,
+          "base_joint_allowance": 208.48300981501453,
+          "charged_joining": 208.48300981501453,
+          "joint_excess": 0.0,
+          "unused_joint_allowance": 156.4417450133923,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 411.2989440716474,
+          "charged_total": 4889.442150186952,
+          "physical_total_including_fixed_reserve": 4733.0004051735605,
+          "lift": 4889.442150186961,
+          "residual": -9.094947017729282e-12
+        },
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 9.488610953216435,
+          "core_splice_kg": 16.763423777591402,
+          "seal_kg": 5.683037087839709,
+          "seam_length_m": 2841.5185439198544,
+          "scarf_overlap_m": 0.023838722009576763,
+          "physical_total_kg": 52.04126480162222
+        },
+        "needed": {
+          "gamma": 0.5559108486791616,
+          "wrinkle": 0.4379873839250472,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 2.779554243395808,
+          "wrinkle": 1.3272344967425673,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 18.309103636436436
+        },
+        "log_usage": {
+          "O1_gamma": 0.9578679244374443,
+          "O2_wrinkle": 0.31102374985315945,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5814783035567451,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 1.1487236403995562,
+            "core_shear_crimping": 2.476690369716231,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.75850820189704
+          },
+          "least_six_mode_SF": 0.9999999999999998,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0,
+          "least_seven_screen_SF": 0.9999999999999998
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.3597699172002092,
+            "face_compression": 1.1487236403995562,
+            "core_shear_crimping": 2.476690369716231,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.7534463596706542,
+            "intracell_dimpling": 6.75850820189704
+          },
+          "least_six_mode_SF": 0.3597699172002092,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0,
+          "least_seven_screen_SF": 0.3597699172002092
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.063452037768698,
+            "face_compression": 1.2625971143174253,
+            "core_shear_crimping": 2.476690369716231,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.8837847555874947,
+            "intracell_dimpling": 6.842406924403347
+          },
+          "least_six_mode_SF": 1.063452037768698,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0,
+          "least_seven_screen_SF": 1.0
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.3628204805440522,
+            "face_compression": 1.2625971143174253,
+            "core_shear_crimping": 2.476690369716231,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.8837847555874947,
+            "intracell_dimpling": 6.842406924403347
+          },
+          "least_six_mode_SF": 0.3628204805440522,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0,
+          "least_seven_screen_SF": 0.3628204805440522
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 0.8490566037735849,
+            "core_shear_crimping": 2.476690369716231,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.75850820189704
+          },
+          "least_six_mode_SF": 0.8490566037735849,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0,
+          "least_seven_screen_SF": 0.8490566037735849
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    }
+  ],
+  "full_named_maxima": [
+    {
+      "route": "af015_scarf",
+      "material": "SR200",
+      "least_SF": 1.0063580718238068,
+      "fraction": 0.10688965750071812,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.10688965750071812,
+        "tf_m": 0.0007996763438767137,
+        "tc_m": 0.022106790073497733,
+        "nu": 0.0752,
+        "Vc": 0.9574440313191945,
+        "Kc": 0.7606389921702014,
+        "face_demand_Pa": 298435856.7214987,
+        "masses_kg": {
+          "faces": 3718.140844215491,
+          "core": 444.9963038894539,
+          "structural": 4163.137148104945,
+          "physical_joining": 215.00605801036627,
+          "base_joint_allowance": 208.15685740524725,
+          "charged_joining": 215.00605801036627,
+          "joint_excess": 6.849200605119023,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 418.1481446767664,
+          "charged_total": 4889.442150186958,
+          "physical_total_including_fixed_reserve": 4889.442150186958,
+          "lift": 4889.442150186961,
+          "residual": -2.7284841053187847e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 9.551002629831904,
+          "core_splice_kg": 15.707605324801612,
+          "seal_kg": 5.684264525995513,
+          "seam_length_m": 2842.1322629977562,
+          "scarf_overlap_m": 0.02399029031630141,
+          "physical_total_kg": 215.00605801036627
+        },
+        "needed": {
+          "gamma": 0.5889587227803016,
+          "wrinkle": 0.4199132055513562,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 2.9447936139015076,
+          "wrinkle": 1.2724642592465338,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 1.0095410507703124,
+          "O2_wrinkle": 0.2647245533886766,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5829776125276778,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0000000000000002,
+            "face_compression": 1.1560273078109213,
+            "core_shear_crimping": 2.331434189777838,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.888242820364461
+          },
+          "least_six_mode_SF": 1.0000000000000002,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0063580718238068,
+          "least_seven_screen_SF": 1.0000000000000002
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.33958237184408885,
+            "face_compression": 1.1560273078109213,
+            "core_shear_crimping": 2.331434189777838,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.7858766898428499,
+            "intracell_dimpling": 6.888242820364461
+          },
+          "least_six_mode_SF": 0.33958237184408885,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0063580718238068,
+          "least_seven_screen_SF": 0.33958237184408885
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.0063580774984726,
+            "face_compression": 1.2706247974547864,
+            "core_shear_crimping": 2.331434189777838,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.9648678490458737,
+            "intracell_dimpling": 6.973752041582777
+          },
+          "least_six_mode_SF": 1.0063580774984726,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0063580718238068,
+          "least_seven_screen_SF": 1.0063580718238068
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.34245485704581247,
+            "face_compression": 1.2706247974547864,
+            "core_shear_crimping": 2.331434189777838,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.9648678490458737,
+            "intracell_dimpling": 6.973752041582777
+          },
+          "least_six_mode_SF": 0.34245485704581247,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0063580718238068,
+          "least_seven_screen_SF": 0.34245485704581247
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0000000000000002,
+            "face_compression": 0.8544549666428548,
+            "core_shear_crimping": 2.331434189777838,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.888242820364461
+          },
+          "least_six_mode_SF": 0.8544549666428548,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0063580718238068,
+          "least_seven_screen_SF": 0.8544549666428548
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "af015_scarf",
+      "material": "S200F255_sensitivity",
+      "least_SF": 0.8698458766009831,
+      "fraction": 0.09126088215372681,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.09126088215372681,
+        "tf_m": 0.0008140805513361292,
+        "tc_m": 0.018883986886800992,
+        "nu": 0.0752,
+        "Vc": 0.9682087634456856,
+        "Kc": 0.7579478091385786,
+        "face_demand_Pa": 293155381.72858864,
+        "masses_kg": {
+          "faces": 3785.11402967171,
+          "core": 380.12322636552665,
+          "structural": 4165.237256037237,
+          "physical_joining": 212.90595007808264,
+          "base_joint_allowance": 208.26186280186187,
+          "charged_joining": 212.90595007808264,
+          "joint_excess": 4.644087276220773,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 415.94303134786816,
+          "charged_total": 4889.4421501869665,
+          "physical_total_including_fixed_reserve": 4889.4421501869665,
+          "lift": 4889.442150186961,
+          "residual": 5.4569682106375694e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 9.729031999532912,
+          "core_splice_kg": 13.42596529039396,
+          "seal_kg": 5.6877672584185355,
+          "seam_length_m": 2843.883629209268,
+          "scarf_overlap_m": 0.024422416540083876,
+          "physical_total_kg": 212.90595007808264
+        },
+        "needed": {
+          "gamma": 0.6751581117816401,
+          "wrinkle": 0.37784513808462905,
+          "face_strength_Pa": 293155381.72858864
+        },
+        "factor_vs_today": {
+          "gamma": 3.3757905589082005,
+          "wrinkle": 1.1449852669231182,
+          "face": 1.1496289479552495,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 1.1294471600738478,
+          "O2_wrinkle": 0.14874756248454185,
+          "O3_SR200_face_strength": null
+        },
+        "needed_face_within_named": false,
+        "full_gamma_at_search_E": 0.5872835053782743,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0000000000000002,
+            "face_compression": 1.0,
+            "core_shear_crimping": 2.0183022247121283,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 7.267212171460679
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.024485143552269,
+          "least_seven_screen_SF": 1.0
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.29622690820114755,
+            "face_compression": 0.8698458766009831,
+            "core_shear_crimping": 2.0183022247121283,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.8733736833900645,
+            "intracell_dimpling": 7.267212171460679
+          },
+          "least_six_mode_SF": 0.29622690820114755,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.024485143552269,
+          "least_seven_screen_SF": 0.29622690820114755
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 0.8698458851786911,
+            "face_compression": 0.8698458766009831,
+            "core_shear_crimping": 2.0183022247121283,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.170201273878342,
+            "intracell_dimpling": 7.267212171460679
+          },
+          "least_six_mode_SF": 0.8698458766009831,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.024485143552269,
+          "least_seven_screen_SF": 0.8698458766009831
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.29622690820114755,
+            "face_compression": 0.8698458766009831,
+            "core_shear_crimping": 2.0183022247121283,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.170201273878342,
+            "intracell_dimpling": 7.267212171460679
+          },
+          "least_six_mode_SF": 0.29622690820114755,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.024485143552269,
+          "least_seven_screen_SF": 0.29622690820114755
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0000000000000002,
+            "face_compression": 0.8698458766009831,
+            "core_shear_crimping": 2.0183022247121283,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 7.267212171460679
+          },
+          "least_six_mode_SF": 0.8698458766009831,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.024485143552269,
+          "least_seven_screen_SF": 0.8698458766009831
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "af015_scarf_primer5",
+      "material": "SR200",
+      "least_SF": 1.0028028314988982,
+      "fraction": 0.10735398125666434,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.10735398125666434,
+        "tf_m": 0.0007968512643506226,
+        "tc_m": 0.022135891643868578,
+        "nu": 0.0752,
+        "Vc": 0.9542229191970468,
+        "Kc": 0.7614442702007382,
+        "face_demand_Pa": 299493902.38998675,
+        "masses_kg": {
+          "faces": 3705.0054755697283,
+          "core": 445.58210088708904,
+          "structural": 4150.587576456817,
+          "physical_joining": 227.55562965850018,
+          "base_joint_allowance": 207.52937882284087,
+          "charged_joining": 227.55562965850018,
+          "joint_excess": 20.02625083565931,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 431.3251949073067,
+          "charged_total": 4889.442150186965,
+          "physical_total_including_fixed_reserve": 4889.442150186965,
+          "lift": 4889.442150186961,
+          "residual": 3.637978807091713e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "scarf_film_kg": 9.51611176792096,
+          "core_splice_kg": 15.726383639819728,
+          "seal_kg": 5.683578106663087,
+          "seam_length_m": 2841.7890533315435,
+          "scarf_overlap_m": 0.023905537930518677,
+          "physical_total_kg": 227.55562965850018
+        },
+        "needed": {
+          "gamma": 0.5897451797132067,
+          "wrinkle": 0.42242603165091575,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 2.9487258985660336,
+          "wrinkle": 1.2800788837906538,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 1.012883170567344,
+          "O2_wrinkle": 0.27127942636512076,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5816891676788187,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 1.151943319202397,
+            "core_shear_crimping": 2.3337140109798606,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.815496511504046
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0028028314988982,
+          "least_seven_screen_SF": 1.0
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.33912952047740363,
+            "face_compression": 1.151943319202397,
+            "core_shear_crimping": 2.3337140109798606,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.7812018561221277,
+            "intracell_dimpling": 6.815496511504046
+          },
+          "least_six_mode_SF": 0.33912952047740363,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0028028314988982,
+          "least_seven_screen_SF": 0.33912952047740363
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.0028028411533503,
+            "face_compression": 1.266135961279852,
+            "core_shear_crimping": 2.3337140109798606,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.9531797170574832,
+            "intracell_dimpling": 6.9001026750951295
+          },
+          "least_six_mode_SF": 1.0028028411533503,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0028028314988982,
+          "least_seven_screen_SF": 1.0028028314988982
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.34200410100615347,
+            "face_compression": 1.266135961279852,
+            "core_shear_crimping": 2.3337140109798606,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.9531797170574832,
+            "intracell_dimpling": 6.9001026750951295
+          },
+          "least_six_mode_SF": 0.34200410100615347,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0028028314988982,
+          "least_seven_screen_SF": 0.34200410100615347
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 0.8514363663669889,
+            "core_shear_crimping": 2.3337140109798606,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 6.815496511504046
+          },
+          "least_six_mode_SF": 0.8514363663669889,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0028028314988982,
+          "least_seven_screen_SF": 0.8514363663669889
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "af015_scarf_primer5",
+      "material": "S200F255_sensitivity",
+      "least_SF": 0.8668484857888621,
+      "fraction": 0.09165609763417819,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.09165609763417819,
+        "tf_m": 0.0008112753215471047,
+        "tc_m": 0.01890863568368029,
+        "nu": 0.0752,
+        "Vc": 0.9650616736045116,
+        "Kc": 0.7587345815988721,
+        "face_demand_Pa": 294169055.1237927,
+        "masses_kg": {
+          "faces": 3772.0709535124,
+          "core": 380.6193917278494,
+          "structural": 4152.690345240249,
+          "physical_joining": 225.45286087506238,
+          "base_joint_allowance": 207.63451726201248,
+          "charged_joining": 225.45286087506238,
+          "joint_excess": 17.818343613049905,
+          "unused_joint_allowance": 0.0,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 429.1172876846973,
+          "charged_total": 4889.442150186959,
+          "physical_total_including_fixed_reserve": 4889.442150186959,
+          "lift": 4889.442150186961,
+          "residual": -1.8189894035458565e-12
+        },
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "scarf_film_kg": 9.694343379353336,
+          "core_splice_kg": 13.441876632348617,
+          "seal_kg": 5.687084719264041,
+          "seam_length_m": 2843.54235963202,
+          "scarf_overlap_m": 0.02433825964641314,
+          "physical_total_kg": 225.45286087506238
+        },
+        "needed": {
+          "gamma": 0.6760404724417479,
+          "wrinkle": 0.3800543972034424,
+          "face_strength_Pa": 294169055.1237927
+        },
+        "factor_vs_today": {
+          "gamma": 3.3802023622087396,
+          "wrinkle": 1.151679991525583,
+          "face": 1.1536041377403636,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 2.0
+        },
+        "log_usage": {
+          "O1_gamma": 1.1329164098154392,
+          "O2_wrinkle": 0.1551526318039343,
+          "O3_SR200_face_strength": null
+        },
+        "needed_face_within_named": false,
+        "full_gamma_at_search_E": 0.5860246694418046,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 1.0,
+            "core_shear_crimping": 2.0201441314626165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 7.192344768563311
+          },
+          "least_six_mode_SF": 0.9999999999999998,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0209548832624373,
+          "least_seven_screen_SF": 0.9999999999999998
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.29584027606754465,
+            "face_compression": 0.8668484857888621,
+            "core_shear_crimping": 2.0201441314626165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.8682967554861669,
+            "intracell_dimpling": 7.192344768563311
+          },
+          "least_six_mode_SF": 0.29584027606754465,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0209548832624373,
+          "least_seven_screen_SF": 0.29584027606754465
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 0.8668484999502752,
+            "face_compression": 0.8668484857888621,
+            "core_shear_crimping": 2.0201441314626165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.157585877268657,
+            "intracell_dimpling": 7.192344768563311
+          },
+          "least_six_mode_SF": 0.8668484857888621,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0209548832624373,
+          "least_seven_screen_SF": 0.8668484857888621
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.29584027606754465,
+            "face_compression": 0.8668484857888621,
+            "core_shear_crimping": 2.0201441314626165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.157585877268657,
+            "intracell_dimpling": 7.192344768563311
+          },
+          "least_six_mode_SF": 0.29584027606754465,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0209548832624373,
+          "least_seven_screen_SF": 0.29584027606754465
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 0.8668484857888621,
+            "core_shear_crimping": 2.0201441314626165,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0000000000000002,
+            "intracell_dimpling": 7.192344768563311
+          },
+          "least_six_mode_SF": 0.8668484857888621,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0209548832624373,
+          "least_seven_screen_SF": 0.8668484857888621
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "lab8_eb_eta1",
+      "material": "SR200",
+      "least_SF": 1.229648116530603,
+      "fraction": 0.13704391545002795,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.13704391545002795,
+        "tf_m": 0.0007738873915036041,
+        "tc_m": 0.028387667224650585,
+        "nu": 0.0752,
+        "Vc": 0.9346055666641452,
+        "Kc": 0.7663486083339637,
+        "face_demand_Pa": 308380905.80734247,
+        "masses_kg": {
+          "faces": 3598.2336369031664,
+          "core": 571.4265593971239,
+          "structural": 4169.66019630029,
+          "physical_joining": 45.10952369912349,
+          "base_joint_allowance": 208.48300981501453,
+          "charged_joining": 208.48300981501453,
+          "joint_excess": 0.0,
+          "unused_joint_allowance": 163.37348611589104,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 411.2989440716474,
+          "charged_total": 4889.442150186952,
+          "physical_total_including_fixed_reserve": 4726.068664071061,
+          "lift": 4889.442150186961,
+          "residual": -9.094947017729282e-12
+        },
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 0.0,
+          "core_splice_kg": 19.50623070986746,
+          "seal_kg": 5.497100006281353,
+          "seam_length_m": 2748.5500031406764,
+          "scarf_overlap_m": 0.0,
+          "physical_total_kg": 45.10952369912349
+        },
+        "needed": {
+          "gamma": 0.47448334692226574,
+          "wrinkle": 0.4998230250288372,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 2.3724167346113285,
+          "wrinkle": 1.5146152273601126,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 18.309103636436436
+        },
+        "log_usage": {
+          "O1_gamma": 0.819619284642212,
+          "O2_wrinkle": 0.45611525081706467,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5738422266656581,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 1.1187463085523683,
+            "core_shear_crimping": 2.942552966916882,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 6.243081647150508
+          },
+          "least_six_mode_SF": 0.9999999999999998,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.1187463085523683,
+          "least_seven_screen_SF": 0.9999999999999998
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.4215111052838823,
+            "face_compression": 1.1187463085523683,
+            "core_shear_crimping": 2.942552966916882,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.6602336896763824,
+            "intracell_dimpling": 6.243081647150508
+          },
+          "least_six_mode_SF": 0.4215111052838823,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.1187463085523683,
+          "least_seven_screen_SF": 0.4215111052838823
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.2296481194994329,
+            "face_compression": 1.229648116530603,
+            "core_shear_crimping": 2.942552966916882,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.6507321905189312,
+            "intracell_dimpling": 6.320581971046169
+          },
+          "least_six_mode_SF": 1.229648116530603,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.229648116530603,
+          "least_seven_screen_SF": 1.229648116530603
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.4251285042777492,
+            "face_compression": 1.229648116530603,
+            "core_shear_crimping": 2.942552966916882,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.6507321905189312,
+            "intracell_dimpling": 6.320581971046169
+          },
+          "least_six_mode_SF": 0.4251285042777492,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.229648116530603,
+          "least_seven_screen_SF": 0.4251285042777492
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 0.8268994454517505,
+            "core_shear_crimping": 2.942552966916882,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 6.243081647150508
+          },
+          "least_six_mode_SF": 0.8268994454517505,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 0.8268994454517505,
+          "least_seven_screen_SF": 0.8268994454517505
+        },
+        "weld_retention_required_at_today_strength": 0.893857697992297,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "lab8_eb_eta1",
+      "material": "S200F255_sensitivity",
+      "least_SF": 0.8709023272320665,
+      "fraction": 0.09112230457107559,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.09112230457107559,
+        "tf_m": 0.0008150692735170892,
+        "tc_m": 0.018875333869530237,
+        "nu": 0.0752,
+        "Vc": 0.9693176376213131,
+        "Kc": 0.7576705905946717,
+        "face_demand_Pa": 292799768.7300369,
+        "masses_kg": {
+          "faces": 3789.7111499351245,
+          "core": 379.9490463651659,
+          "structural": 4169.66019630029,
+          "physical_joining": 38.573242730850694,
+          "base_joint_allowance": 208.48300981501453,
+          "charged_joining": 208.48300981501453,
+          "joint_excess": 0.0,
+          "unused_joint_allowance": 169.90976708416383,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 411.2989440716474,
+          "charged_total": 4889.442150186952,
+          "physical_total_including_fixed_reserve": 4719.532383102788,
+          "lift": 4889.442150186961,
+          "residual": -9.094947017729282e-12
+        },
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 0.0,
+          "core_splice_kg": 12.969949741594663,
+          "seal_kg": 5.497100006281353,
+          "seam_length_m": 2748.5500031406764,
+          "scarf_overlap_m": 0.0,
+          "physical_total_kg": 38.573242730850694
+        },
+        "needed": {
+          "gamma": 0.6748484141253566,
+          "wrinkle": 0.37707140689209845,
+          "face_strength_Pa": 292799768.7300369
+        },
+        "factor_vs_today": {
+          "gamma": 3.374242070626783,
+          "wrinkle": 1.1426406269457527,
+          "face": 1.1482343871766154,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 18.309103636436436
+        },
+        "log_usage": {
+          "O1_gamma": 1.128230484725627,
+          "O2_wrinkle": 0.1464955079509867,
+          "O3_SR200_face_strength": null
+        },
+        "needed_face_within_named": false,
+        "full_gamma_at_search_E": 0.5877270550485252,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 1.0,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.9999999999999998,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 1.0,
+          "least_seven_screen_SF": 0.9999999999999998
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.2963628509955259,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.8751658014059702,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.2963628509955259,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 0.8709023272320665,
+          "least_seven_screen_SF": 0.2963628509955259
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 0.8709023282069265,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.174654415614835,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.8709023272320665,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 0.8709023272320665,
+          "least_seven_screen_SF": 0.8709023272320665
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.2963628509955259,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.174654415614835,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.2963628509955259,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 0.8709023272320665,
+          "least_seven_screen_SF": 0.2963628509955259
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.8709023272320665,
+          "projected_seam_mode": "ideal_weld_compression",
+          "projected_seam_SF": 0.8709023272320665,
+          "least_seven_screen_SF": 0.8709023272320665
+        },
+        "weld_retention_required_at_today_strength": 1.1482343871766154,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "lab8_scarf",
+      "material": "SR200",
+      "least_SF": 1.0082056192609778,
+      "fraction": 0.1066497724086399,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.1066497724086399,
+        "tf_m": 0.0008011444495351882,
+        "tc_m": 0.02209173781104613,
+        "nu": 0.0752,
+        "Vc": 0.9591174517984915,
+        "Kc": 0.7602206370503771,
+        "face_demand_Pa": 297888969.8645796,
+        "masses_kg": {
+          "faces": 3724.9668853434996,
+          "core": 444.69331095679075,
+          "structural": 4169.66019630029,
+          "physical_joining": 51.057847398504336,
+          "base_joint_allowance": 208.48300981501453,
+          "charged_joining": 208.48300981501453,
+          "joint_excess": 0.0,
+          "unused_joint_allowance": 157.4251624165102,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 411.2989440716474,
+          "charged_total": 4889.442150186952,
+          "physical_total_including_fixed_reserve": 4732.016987770442,
+          "lift": 4889.442150186961,
+          "residual": -9.094947017729282e-12
+        },
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 9.569137663169137,
+          "core_splice_kg": 15.69789544225157,
+          "seal_kg": 5.6846213101089536,
+          "seam_length_m": 2842.3106550544767,
+          "scarf_overlap_m": 0.024034333486055645,
+          "physical_total_kg": 51.057847398504336
+        },
+        "needed": {
+          "gamma": 0.5885519914946428,
+          "wrinkle": 0.41861690286437997,
+          "face_strength_Pa": 345000000.0
+        },
+        "factor_vs_today": {
+          "gamma": 2.9427599574732137,
+          "wrinkle": 1.268536069286,
+          "face": 1.0,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 18.309103636436436
+        },
+        "log_usage": {
+          "O1_gamma": 1.0078143026169122,
+          "O2_wrinkle": 0.26132770866508015,
+          "O3_SR200_face_strength": 0.0
+        },
+        "needed_face_within_named": true,
+        "full_gamma_at_search_E": 0.5836469807193967,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 1.1581496292287594,
+            "core_shear_crimping": 2.33025644725983,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 6.926250366642743
+          },
+          "least_six_mode_SF": 1.0,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0082056192609778,
+          "least_seven_screen_SF": 1.0
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.33981704741512286,
+            "face_compression": 1.1581496292287594,
+            "core_shear_crimping": 2.33025644725983,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.788310261105034,
+            "intracell_dimpling": 6.926250366642743
+          },
+          "least_six_mode_SF": 0.33981704741512286,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0082056192609778,
+          "least_seven_screen_SF": 0.33981704741512286
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 1.008205623888089,
+            "face_compression": 1.2729575055175235,
+            "core_shear_crimping": 2.33025644725983,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.9709523225939867,
+            "intracell_dimpling": 7.0122314056769275
+          },
+          "least_six_mode_SF": 1.008205623888089,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0082056192609778,
+          "least_seven_screen_SF": 1.0082056192609778
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.34268842787855164,
+            "face_compression": 1.2729575055175235,
+            "core_shear_crimping": 2.33025644725983,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.9709523225939867,
+            "intracell_dimpling": 7.0122314056769275
+          },
+          "least_six_mode_SF": 0.34268842787855164,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0082056192609778,
+          "least_seven_screen_SF": 0.34268842787855164
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 1.0,
+            "face_compression": 0.8560236389951701,
+            "core_shear_crimping": 2.33025644725983,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 6.926250366642743
+          },
+          "least_six_mode_SF": 0.8560236389951701,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.0082056192609778,
+          "least_seven_screen_SF": 0.8560236389951701
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    },
+    {
+      "route": "lab8_scarf",
+      "material": "S200F255_sensitivity",
+      "least_SF": 0.8709023272320665,
+      "fraction": 0.09112230457107559,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "point": {
+        "core": {
+          "name": "Hexcel CR-III 5056 3/8-1.0",
+          "family": "aluminium_honeycomb",
+          "form": "honeycomb",
+          "cell": "3/8",
+          "pcf": 1.0,
+          "rho": 16.018463373960138,
+          "s_cell_m": 0.009524999999999999,
+          "Ec_Pa": 103421359.3975254,
+          "Gc_Pa": 46884349.59354485,
+          "Gl_Pa": 103421359.3975254,
+          "crush_Pa": 241316.50526089262,
+          "shear_strength_L_Pa": 379211.65112425986,
+          "shear_strength_W_Pa": 241316.50526089262,
+          "tag": "QUESTIONABLE",
+          "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+          "ec_source": "sheet",
+          "crush_basis": "CR-III crush column",
+          "Gc_direction": "W"
+        },
+        "fraction": 0.09112230457107559,
+        "tf_m": 0.0008150692735170892,
+        "tc_m": 0.018875333869530237,
+        "nu": 0.0752,
+        "Vc": 0.9693176376213131,
+        "Kc": 0.7576705905946717,
+        "face_demand_Pa": 292799768.7300369,
+        "masses_kg": {
+          "faces": 3789.7111499351245,
+          "core": 379.9490463651659,
+          "structural": 4169.66019630029,
+          "physical_joining": 48.955842025864456,
+          "base_joint_allowance": 208.48300981501453,
+          "charged_joining": 208.48300981501453,
+          "joint_excess": 0.0,
+          "unused_joint_allowance": 159.52716778915007,
+          "systems": 100.0,
+          "fixed_reserve": 411.2989440716474,
+          "total_reserve": 411.2989440716474,
+          "charged_total": 4889.442150186952,
+          "physical_total_including_fixed_reserve": 4729.914982397802,
+          "lift": 4889.442150186961,
+          "residual": -9.094947017729282e-12
+        },
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "scarf_film_kg": 9.741260230649882,
+          "core_splice_kg": 13.420380944503918,
+          "seal_kg": 5.688007867735977,
+          "seam_length_m": 2844.0039338679885,
+          "scarf_overlap_m": 0.024452078205512675,
+          "physical_total_kg": 48.955842025864456
+        },
+        "needed": {
+          "gamma": 0.6748484141253566,
+          "wrinkle": 0.37707140689209845,
+          "face_strength_Pa": 292799768.7300369
+        },
+        "factor_vs_today": {
+          "gamma": 3.374242070626783,
+          "wrinkle": 1.1426406269457527,
+          "face": 1.1482343871766154,
+          "panel": 1.0,
+          "film_mass_reduction_vs_003": 18.309103636436436
+        },
+        "log_usage": {
+          "O1_gamma": 1.128230484725627,
+          "O2_wrinkle": 0.1464955079509867,
+          "O3_SR200_face_strength": null
+        },
+        "needed_face_within_named": false,
+        "full_gamma_at_search_E": 0.5877270550485252,
+        "at_needed": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 1.0,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.9999999999999998,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.025729407628878,
+          "least_seven_screen_SF": 0.9999999999999998
+        },
+        "today": {
+          "six_modes": {
+            "global_buckling": 0.2963628509955259,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 0.8751658014059702,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.2963628509955259,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.025729407628878,
+          "least_seven_screen_SF": 0.2963628509955259
+        },
+        "at_full_named": {
+          "six_modes": {
+            "global_buckling": 0.8709023282069265,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.174654415614835,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.8709023272320665,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.025729407628878,
+          "least_seven_screen_SF": 0.8709023272320665
+        },
+        "at_full_but_gamma_02": {
+          "six_modes": {
+            "global_buckling": 0.2963628509955259,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 2.174654415614835,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.2963628509955259,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.025729407628878,
+          "least_seven_screen_SF": 0.2963628509955259
+        },
+        "S200F255_at_same_geometry": {
+          "six_modes": {
+            "global_buckling": 0.9999999999999998,
+            "face_compression": 0.8709023272320665,
+            "core_shear_crimping": 2.0176564633621763,
+            "core_crush": 5.0558220634629825,
+            "face_wrinkling": 1.0,
+            "intracell_dimpling": 7.293723002857124
+          },
+          "least_six_mode_SF": 0.8709023272320665,
+          "projected_seam_mode": "scarf_mean_shear",
+          "projected_seam_SF": 1.025729407628878,
+          "least_seven_screen_SF": 0.8709023272320665
+        },
+        "weld_retention_required_at_today_strength": null,
+        "overall_installed_SF": null,
+        "unquantified_modes": [
+          "face/core flatwise tension",
+          "face/core shear including imperfections",
+          "scarf peel or weld/HAZ and brittle seam failure",
+          "seam/local buckling",
+          "thermal and cyclic debonding",
+          "leak-tightness and defects"
+        ],
+        "joint_screen_enforced": true,
+        "frozen_joining_charge_sensitivity": null
+      }
+    }
+  ],
+  "S200F255_all_subsets_infeasible_proof": {
+    "face_SF_upper_bound_even_with_zero_core": 0.9582172954756751,
+    "reason": "Even putting the entire structural budget into faces gives SF<1; any core or joint excess reduces it. Independent of nu, gamma and wrinkling.",
+    "face_strength_is_fixed_Pa": 255000000.0
+  },
+  "validation": {
+    "all_passed": true,
+    "checks": {
+      "dense_subsets_match": true,
+      "independent_mass_roots_match": true,
+      "S200F255_analytic_impossibility": true,
+      "all_conditional_points_meet_their_enforced_modes": true
+    },
+    "dense_grid": [
+      {
+        "route": "af015_scarf",
+        "coarse": {
+          "usage": 0.9719775174295638,
+          "fraction": 0.11237531361894605,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "dense": {
+          "usage": 0.9719775174295703,
+          "fraction": 0.11237531361894511,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "usage_error": 6.439293542825908e-15,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf_primer5",
+        "coarse": {
+          "usage": 0.9960764380867377,
+          "fraction": 0.10977933381462106,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "dense": {
+          "usage": 0.9960764380867377,
+          "fraction": 0.10977933381462118,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "usage_error": 0.0,
+        "pass": true
+      }
+    ],
+    "independent_roots": [
+      {
+        "route": "af015_scarf",
+        "joint_screen": false,
+        "mass_error_kg": 2.7284841053187847e-12,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf",
+        "joint_screen": true,
+        "mass_error_kg": 5.4569682106375694e-12,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf_primer5",
+        "joint_screen": false,
+        "mass_error_kg": 2.7284841053187847e-12,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf_primer5",
+        "joint_screen": true,
+        "mass_error_kg": 3.637978807091713e-12,
+        "pass": true
+      },
+      {
+        "route": "lab8_eb_eta1",
+        "joint_screen": true,
+        "mass_error_kg": 9.094947017729282e-12,
+        "pass": true
+      },
+      {
+        "route": "lab8_scarf",
+        "joint_screen": false,
+        "mass_error_kg": 9.094947017729282e-12,
+        "pass": true
+      },
+      {
+        "route": "lab8_scarf",
+        "joint_screen": true,
+        "mass_error_kg": 8.185452315956354e-12,
+        "pass": true
+      }
+    ]
+  },
+  "ended_at": "2026-10-20T08:23:49.094771+00:00"
+}

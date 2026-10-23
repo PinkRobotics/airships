@@ -1,0 +1,82 @@
+{
+  "unit": "vacuum-mainline037-loads-beyond-pressure-1020",
+  "tag": "QUESTIONABLE",
+  "equations": {
+    "gradient_stress": "E*alpha*dT/(2*(1-nu))",
+    "per_kelvin": "290e9*11.3e-6/(2*(1-0.0752)) = 1.771734429 MPa/K",
+    "face_stress": "p*R/(4*tf)",
+    "shear_lag": "tau = (alpha_al-alpha_be)*dT*E*tf*sqrt(Gc/(E*tf*tc))",
+    "half_wave": "pi*sqrt((3/4)*rg*R), rg = sqrt((ro^2+ri^2)/2), ratio = wave/s",
+    "member_force": "p*R*s/(2*sqrt(3))",
+    "film_stress": "p*s/(2*t)",
+    "gust_excess": "rho*VB*U + 0.5*rho*U^2, VB = 35 knots, U = 35 ft/s, Cp = +1",
+    "drag": "0.47*q*pi*R^2",
+    "pattern": "Legendre n=0 and n=1 dropped. Bending kappa = -d^2(w)/dphi^2/R^2 on the n=2..6 reconstruction, w = R*alpha*T.",
+    "honeycomb_conductance": "k_al*rho_core/rho_al/tc, cells evacuated"
+  },
+  "properties_QUESTIONABLE": {
+    "Be_E_Pa": 290000000000.0,
+    "Be_alpha_1_per_K": 1.13e-05,
+    "Be_nu": 0.0752,
+    "Be_yield_tension_as_compression_Pa": 345000000.0,
+    "Be_compression_endpoint_Pa": 379200000.0,
+    "Be_sources": "E, nu and the 345/379.2 MPa endpoints are the 028b SR-200 values. Alpha 11.3e-6 is the Materion S-200-F class reported in the OSTI grade survey, not a separate SR-200 coupon.",
+    "coated_alpha_epsilon": [
+      0.2,
+      0.9
+    ],
+    "bare_Be_alpha_epsilon": [
+      0.4,
+      0.05
+    ],
+    "optical_note": "Coated pair is the 016 white-coating band. Bare emittance is an engineering stand-in for a polished metal with high infrared reflectance. Materion quotes 98.5 percent reflectance at 8 to 12 micrometres for beryllium; 0.05 is broader than that band.",
+    "Al_5056_alpha": 2.36e-05,
+    "Al_k_W_per_mK": 130.0,
+    "Al_rho": 2640.0,
+    "core": "Hexcel CR-III 5056 3/8-1.0 as pinned in 028b",
+    "air": "T 284.9 K, mu 1.79e-5, k 0.0257, Pr 0.71, Whitaker sphere and Churchill-Bernstein cylinder",
+    "solar_W_per_m2": 970.0,
+    "sky_day_night_K": [
+      275.0,
+      260.0
+    ],
+    "frame_and_film": "SiC 410 GPa, 4.5e-6; Ti-6Al-4V 113.8 GPa, 8.6e-6; CFRP 150 GPa, 0.5e-6; Mylar 4.8 GPa, 17e-6; Kapton 2.5 GPa, 20e-6; Zylon 180 GPa, -6e-6. Projection film unstated."
+  },
+  "wind_source": "FAA-P-8110-2 CHG 2, paragraphs 3.6, 3.9 and 3.25 Table 4. Gusts 25 ft/s at VH and 35 ft/s at VB. VB at least 35 knots. Table 4 symmetrical mooring 70 knots. The change narrative says the requirement discussed was 78 knots.",
+  "inherited_points": {
+    "p2": "028b PROPERTY-CHECKS full_named_maxima, route af015_scarf, material SR200, nu 0.0752, least_SF 1.0063580718238068",
+    "p3": "022c SAG.md cap branch, eight rows"
+  },
+  "pins": [
+    {
+      "path": "unpublished-local-ref:f00282fb2a413f7c",
+      "sha256": "b53223690e875e316a47dbf5c2f50ea792eb2151b172db3912c486fc776c70f3",
+      "bytes": 3112
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "path": "evidence/0eb090401eeebaf4-PROPERTY-CHECKS.json",
+      "sha256": "0eb090401eeebaf4a9a4dbe5464c1a7b2cc51cbae1d89d766c58b3d4e3a13ef6",
+      "bytes": 117869
+    },
+    {
+      "path": "evidence/501ecbe6b0e11bab-CARD.md",
+      "sha256": "501ecbe6b0e11bab238809f5a61a63e487d364305015af559285faaec8d24c6f",
+      "bytes": 13125
+    },
+    {
+      "path": "evidence/2ef38293630a5e18-SAG.md",
+      "sha256": "2ef38293630a5e1859c9bced34d2c6143ea480bce5261d54c1528ada8e018fdf",
+      "bytes": 5302
+    },
+    {
+      "path": "unpublished-local-ref:9b3b6b276cd21868",
+      "sha256": "ffe8a00112726f6688a9f76e7b5ed208cef6fe4c30686569fd5a2f5af6d5018e",
+      "bytes": 2039
+    }
+  ]
+}

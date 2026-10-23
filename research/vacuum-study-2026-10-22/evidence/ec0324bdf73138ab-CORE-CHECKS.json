@@ -1,0 +1,76 @@
+[
+  {
+    "kind": "native_boundary",
+    "SF": 1.0,
+    "side": "passing",
+    "run": "cnative-SF1-passing",
+    "passed": true,
+    "yielded": false,
+    "core_failed": false,
+    "amplitude_mm": 1.208988,
+    "core_index": 0.6944297918925284
+  },
+  {
+    "kind": "native_boundary",
+    "SF": 1.0,
+    "side": "failing",
+    "run": "cnative-SF1-failing",
+    "passed": true,
+    "yielded": true,
+    "core_failed": false,
+    "amplitude_mm": 1.226988,
+    "core_index": 0.7062600445778715
+  },
+  {
+    "kind": "control_angular",
+    "run": "core-control-angular",
+    "passed": true,
+    "reference": "crt-old021-W-a1.208988",
+    "face_MPa": 344.55474898720973,
+    "core_shear_MPa": 0.11955269302765656,
+    "core_index": 0.6936186755451567,
+    "note": "Measured sensitivity, not a universal error bound. Inherited law is not reinstated."
+  },
+  {
+    "kind": "control_layers",
+    "run": "core-control-layers",
+    "passed": true,
+    "reference": "crt-old021-W-a1.208988",
+    "face_MPa": 344.77934650055994,
+    "core_shear_MPa": 0.11972086920749195,
+    "core_index": 0.6945934141822863,
+    "note": "Measured sensitivity, not a universal error bound. Inherited law is not reinstated."
+  },
+  {
+    "kind": "control_inherited",
+    "run": "core-control-inherited",
+    "passed": true,
+    "reference": "crt-old021-W-a1.208988",
+    "face_MPa": 344.6122718658895,
+    "core_shear_MPa": 0.11986062107636894,
+    "core_index": 0.6954042980332784,
+    "note": "Measured sensitivity, not a universal error bound. Inherited law is not reinstated."
+  },
+  {
+    "kind": "native_boundary",
+    "SF": 1.05,
+    "side": "passing",
+    "run": "cnative-SF1.05-passing",
+    "passed": true,
+    "yielded": false,
+    "core_failed": false,
+    "amplitude_mm": 0.737936,
+    "core_index": 0.4482293172650923
+  },
+  {
+    "kind": "native_boundary",
+    "SF": 1.05,
+    "side": "failing",
+    "run": "cnative-SF1.05-failing",
+    "passed": true,
+    "yielded": true,
+    "core_failed": false,
+    "amplitude_mm": 0.755936,
+    "core_index": 0.4602295327822503
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "tag": "liquid01",
+  "command": [
+    "python3",
+    "tools/simjob.py",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "1G",
+    "--",
+    "python3",
+    ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py"
+  ],
+  "started_at": "2026-10-20T07:04:12.925289-07:00",
+  "cores": 1,
+  "memory": "1G",
+  "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+  "source_pins": [
+    {
+      "path": "evidence/015df10734ee9eb1-admit.py",
+      "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+    },
+    {
+      "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+      "sha256": "cf8d38535e11e32970145b4c026e8020ca33eaa816982a815968c913aae8bec7"
+    },
+    {
+      "path": ".ship/work/outputs/vacuum-mainline059-check-1020/liquid_check.py",
+      "sha256": "cf8d38535e11e32970145b4c026e8020ca33eaa816982a815968c913aae8bec7"
+    }
+  ],
+  "ended_at": "2026-10-20T07:04:13.326622-07:00",
+  "exit_code": 0,
+  "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+}

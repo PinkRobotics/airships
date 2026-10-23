@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-037b",
+  "unit": "vacuum-mainline037b-bond-temperature-1020",
+  "tag": "QUESTIONABLE",
+  "status": "OPEN",
+  "items": [
+    {
+      "id": "NFI-037b-SCREEN-PREMISE",
+      "tag": "QUESTIONABLE",
+      "claim": "037's shear-lag screen holds each face at the core's expansion (0.227 after the 250 F cure). That needs the core to carry 47 times the in-plane force at which its walls yield. CR-1457, Hexcel AGU 075b and NASA TM-4585 treat the core's in-plane stiffness and thermal force as negligible; on that premise the continuous core carries no mismatch shear and a free core edge reads 1.17 / 0.83.",
+      "needed_to_ground": "A curved Be/CR-III panel cured with AF 163-2U, cycled over 271-302 K, strain-gauged at a core splice, at a face scarf and in the field, then sectioned."
+    },
+    {
+      "id": "NFI-037b-EDGE-MODEL",
+      "tag": "QUESTIONABLE",
+      "claim": "The free-edge shear uses this seat's homogenised model: K_biax from wall stretching (uniform cell 0.5 E rho*/rho_s; doubled ribbon walls 0.45), a linear shear profile over half the core depth, and a 16 mm transfer length, about 1.7 cells. Homogenisation is marginal there and cell-scale peaks are not modelled. The W direction governs over L on both strengths.",
+      "needed_to_ground": "A cell-resolved finite-element model of a free core edge, or the panel test above."
+    },
+    {
+      "id": "NFI-037b-BALANCED-COMPRESSION",
+      "tag": "QUESTIONABLE",
+      "claim": "The cure leaves the faces in compression balanced by core tension. This card takes it as not driving global buckling or crimping, because the wall's net membrane force is unchanged (this seat's argument). It adds it in full to yield, wrinkling, dimpling and the scarf; for wrinkling that is conservative, since the core's tension near the face resists the wrinkle.",
+      "needed_to_ground": "A sandwich-shell buckling analysis with the layer-wise residual state."
+    },
+    {
+      "id": "NFI-037b-SCARF",
+      "tag": "PROJECTION",
+      "claim": "028b's fixed 30:1 scarf binds at its projected 10 MPa screen, so the cure compression costs usage (0.972 to 1.052); 028's sizing rule restores it at 30.44:1 for 0.16 kg. The 10 MPa screen is not a measured Be scarf allowable, and a filled core splice at the scarf may change the local face stress.",
+      "needed_to_ground": "A measured Be scarf allowable and the splice-at-scarf detail."
+    },
+    {
+      "id": "NFI-037b-028B-SCARF-LEVER",
+      "tag": "QUESTIONABLE",
+      "claim": "028b's faces are pinned by its fixed 30:1 scarf. Without any cure compression a 30.44:1 scarf would let them thin, to usage 0.894. 028b gives no reason for fixing 30:1, such as machining, overlap, peel or panel-edge limits. This card notes the lever and does not take it.",
+      "needed_to_ground": "028b's owner states why the scarf is fixed at 30:1, or re-runs the least set with the scarf ratio free."
+    },
+    {
+      "id": "NFI-037b-SPLICE",
+      "tag": "PROJECTION",
+      "claim": "Whether 028's filled 0.5 mm core splice carries the core's in-plane force (no free edge) is not shown; the fill's modulus and its bond to the cut cell walls are unsourced.",
+      "needed_to_ground": "Splice-fill properties and a splice coupon in in-plane tension."
+    },
+    {
+      "id": "NFI-037b-SUSTAINED-SHEAR",
+      "tag": "QUESTIONABLE",
+      "claim": "The residual is a sustained shear on the core. On the minimum-average W strength (25 psi) it reads 0.83 at a free edge after the 250 F cure. Honeycomb creep and day-night fatigue under sustained shear are not sourced.",
+      "needed_to_ground": "Sustained-load and cyclic shear data for CR-III 5056 3/8-1.0."
+    },
+    {
+      "id": "NFI-037b-STRESS-FREE-T",
+      "tag": "QUESTIONABLE",
+      "claim": "The cure-or-Tg rule (108-121 C for AF 163-2U) is sourced qualitatively; no measured stress-free temperature or relaxed fraction for AF 163 was found.",
+      "needed_to_ground": "A bimaterial-strip or panel-curvature measurement with the actual cure cycle."
+    },
+    {
+      "id": "NFI-037b-RT-PASTE",
+      "tag": "PROJECTION",
+      "claim": "Room-temperature pastes (EA 9394 class) carry no sourced honeycomb bond data, fillet mass or flatwise strength; they are priced at AF's areal weight.",
+      "needed_to_ground": "Honeycomb flatwise and climbing-drum data for a room-temperature system at a weighed areal mass."
+    },
+    {
+      "id": "NFI-037b-NONMETAL-CTE",
+      "tag": "PROJECTION",
+      "claim": "Hexcel prints only thickness-direction expansion for glass and aramid cores; their in-plane values are proxies here. The carbon core UCF-145 (12.8 kg/m3, second-hand shear data, W strength 97 kPa) has no sourced in-plane expansion or compressive modulus and is not priced.",
+      "needed_to_ground": "In-plane expansion and compressive data for candidate non-metallic cores."
+    },
+    {
+      "id": "NFI-037b-WAVINESS",
+      "tag": "QUESTIONABLE",
+      "claim": "NASA/SDSU co-cured-panel studies report the face/core cure mismatch as cell-wall distortion and face waviness. That is a source of the wrinkle coefficient's waviness (MAINLINE-032), not of bond shear.",
+      "needed_to_ground": "Measured face waviness after an AF 163-2U cure on CR-III."
+    },
+    {
+      "id": "NFI-037b-FOIL",
+      "tag": "QUESTIONABLE",
+      "claim": "5056-H39 foil properties were not sourced: the wall stiffness uses 5056-H14 bulk (67 GPa, 2700 kg/m3) and the wall allowable the measured 5052-H39 foil yield (227.5 MPa).",
+      "needed_to_ground": "5056-H39 foil modulus and yield."
+    },
+    {
+      "id": "NFI-037b-HARDPOINTS",
+      "tag": "QUESTIONABLE",
+      "claim": "Inserts, closeouts and 037's mooring pads constrain the mismatch locally; they are not scored here.",
+      "needed_to_ground": "The hard-point design."
+    }
+  ]
+}

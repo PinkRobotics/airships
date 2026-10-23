@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check049",
+  "kind": "filed_change",
+  "label": "check049",
+  "claim": "60% Vf requires 1800 kg/m³ and fibre fraction .733333; R30 ISA reoptimized usage .783530/endpoint +12.444 t remains a projection.",
+  "report": "rpt-ref-9a28294ab892bcd529f5",
+  "source_report_body": "CHECK-049 complete with nonblocking corrections. Owner/predecessor code was neither read nor run. All 648 accounts were independently searched; 14,604 ledger comparisons reproduce mass/joins within 1.1e-9 kg. The 208 configurations with pinned thermal tables reproduce endpoints within 0.000492 kg and least usage within 7.2e-8. K13's 1.0/1.9/4.8 t deficits stand.\n\nFix 1: the “60% Vf” projection retains a 52.549% Vf mixture. Consistent density is 1800 rather than 1725.490 kg/m3; fibre mass fraction is .733333 rather than .67. At the published R30/ISA least geometry, payload becomes -4354.509 kg and fibre demand 77.130 t, 5.509% of cited capacity. Independent-thermal reoptimization still floats at usage .783530, endpoint +12.444 t; its matching original-mixture baseline is .721257/+16.242 t.\n\nFix 2: AlBeMet R15/ISA/old-coating “none through x8” misses a positive modulus interval [3.155175,3.733361]; the x3.3 witness carries +10.529 kg. This is hypothetical modulus, not sourced AlBeMet.\n\nThermal closure remains conditional: the R30 50 C edge factor is 1.017581 with owner inputs, .959664 under the specified independent boundary. Source, service, reference-modulus and provenance limitations are exact NFI rows. The sourced Be-free no-float conclusion survives. Eight nonblocking NFIs; no successor selected.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-9a28294ab892bcd529f5",
+      "artifact": "evidence/8c16207f5ecc987c-CARD.md",
+      "snapshot": "evidence/8c16207f5ecc987c-CARD.md",
+      "sha256": "8c16207f5ecc987c8182ff0d9b031b9cc80f340aa05069ec1bc1ccbc0d78a1d6",
+      "bytes": 6902,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

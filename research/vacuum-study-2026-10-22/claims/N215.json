@@ -1,0 +1,72 @@
+{
+  "id": "N215",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N215",
+    "report": "rpt-ref-a4768f77870336c8cdbb",
+    "card": "MAINLINE-023",
+    "file": "evidence/30c19a9c27a07c4b-NFI.json",
+    "row_id": "NFI-023-ADHESIVE-TRANSFER",
+    "fields": {
+      "id": "NFI-023-ADHESIVE-TRANSFER",
+      "value": "28.9 MPa at 25 C, ASTM D1002, LOCTITE EA 9394 AERO, phosphoric-acid anodized 2024-T3 bare aluminum, cured 5 days at 25 C. 22.7 MPa at -55 C and 20.7 MPa at 82 C. Peel is low.",
+      "state": "exists today",
+      "issue": "The paste exists today. The adherend in the coupon is aluminum, not SiC. The bond at 562.2 kN on the 011b radius is 25.0 mm. It uses 28.9 MPa with no temperature knockdown and no peel length.",
+      "consequence": "Every bonded sleeve and the wrap carry this transfer. A lower shear lengthens the bond and raises the mass in proportion.",
+      "next": "Lap shear of EA 9394 on the SiC surface that would actually be bonded, at the service temperature."
+    }
+  },
+  "claim": "The paste exists today. The adherend in the coupon is aluminum, not SiC. The bond at 562.2 kN on the 011b radius is 25.0 mm. It uses 28.9 MPa with no temperature knockdown and no peel length.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/214"
+    },
+    {
+      "report": "rpt-ref-a4768f77870336c8cdbb",
+      "artifact": "evidence/30c19a9c27a07c4b-NFI.json",
+      "snapshot": "evidence/30c19a9c27a07c4b-NFI.json",
+      "sha256": "30c19a9c27a07c4b94883e6b671a925d2907830932e85e3cb18763bd1c2e8dec",
+      "bytes": 5912,
+      "selector": "source row ID: NFI-023-ADHESIVE-TRANSFER"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-a4768f77870336c8cdbb",
+          "artifact": "evidence/30c19a9c27a07c4b-NFI.json",
+          "snapshot": "evidence/30c19a9c27a07c4b-NFI.json",
+          "sha256": "30c19a9c27a07c4b94883e6b671a925d2907830932e85e3cb18763bd1c2e8dec",
+          "bytes": 5912,
+          "selector": "source row ID: NFI-023-ADHESIVE-TRANSFER"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/214"
+          }
+        ]
+      }
+    }
+  ]
+}

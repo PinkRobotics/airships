@@ -1,0 +1,76 @@
+{
+  "id": "N012",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N012",
+    "report": "rpt-1228-mainline014b-independent-check-1019",
+    "card": "CHECK-MAINLINE-14B",
+    "file": "evidence/5d2a8afe8b483d72-NFI.json",
+    "row_id": "NFI-S200F-MODULUS",
+    "fields": {
+      "id": "NFI-S200F-MODULUS",
+      "type": "source_mismatch",
+      "row": "Beryllium S-200F",
+      "field": "E_Pa",
+      "reported": 303000000000,
+      "source_value": 290000000000,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4",
+      "page": 2,
+      "proposed_fix": "Use grade-specific E=290 GPa or explicitly source a 303 GPa S200F scenario; retain QUESTIONABLE.",
+      "stops_owner": false
+    }
+  },
+  "claim": "{\"id\": \"NFI-S200F-MODULUS\", \"type\": \"source_mismatch\", \"row\": \"Beryllium S-200F\", \"field\": \"E_Pa\", \"reported\": 303000000000, \"source_value\": 290000000000, \"source_url\": \"https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4\", \"page\": 2, \"proposed_fix\": \"Use grade-specific E=290 GPa or explicitly source a 303 GPa S200F scenario; retain QUESTIONABLE.\", \"stops_owner\": false}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/11"
+    },
+    {
+      "report": "rpt-1228-mainline014b-independent-check-1019",
+      "artifact": "evidence/5d2a8afe8b483d72-NFI.json",
+      "snapshot": "evidence/5d2a8afe8b483d72-NFI.json",
+      "sha256": "5d2a8afe8b483d722464dbdd81d07ac777e0ead6cdb80a605b21458f2e90b562",
+      "bytes": 3048,
+      "selector": "source row ID: NFI-S200F-MODULUS"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline014b-independent-check-1019",
+          "artifact": "evidence/5d2a8afe8b483d72-NFI.json",
+          "snapshot": "evidence/5d2a8afe8b483d72-NFI.json",
+          "sha256": "5d2a8afe8b483d722464dbdd81d07ac777e0ead6cdb80a605b21458f2e90b562",
+          "bytes": 3048,
+          "selector": "source row ID: NFI-S200F-MODULUS"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/11"
+          }
+        ]
+      }
+    }
+  ]
+}

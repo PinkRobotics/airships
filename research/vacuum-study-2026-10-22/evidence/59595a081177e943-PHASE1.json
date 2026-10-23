@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "phase": 1,
+  "name": "intake_and_three_p2_allocation_rules",
+  "end_utc": "2026-10-19T21:13:59.488949-07:00",
+  "end_monotonic_s": 2085164.669273432,
+  "elapsed_s": 72.92616379703395,
+  "duration_s": 72.92616379703395,
+  "actual_max_s": 150,
+  "cumulative_max_s": 150,
+  "status": "INSIDE",
+  "pin_bad": 0,
+  "sealed_pins": [
+    {
+      "path": "evidence/69d9ef27cb5c86f2-INPUTS.json",
+      "sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "bytes": 15384,
+      "match": true
+    },
+    {
+      "path": "evidence/c5df33842e36e028-POINTS.json",
+      "sha256": "c5df33842e36e02891860e4ffc2047da9b9da502c57f49bfaf7c1f56e771abd1",
+      "bytes": 7360,
+      "match": true
+    },
+    {
+      "path": "evidence/d728af6ca61595e1-RESULTS.json",
+      "sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "bytes": 13071,
+      "match": true
+    },
+    {
+      "path": "evidence/63c812f02bde7cf4-CARD.md",
+      "sha256": "63c812f02bde7cf43d029e423b360014f9bb73c233bf33b46e525005378a0f07",
+      "bytes": 6977,
+      "match": true
+    }
+  ],
+  "choice": "THREE_FIXED_DENSITY_REDISTRIBUTIONS",
+  "density_rule": "Core density stays 16 kg/m3. Lower density is an NFI direction, not a fourth point.",
+  "mass_ceiling": "Total counted mass equals lift mass. Residual margin is numerical zero. That is no reserve and no payload.",
+  "comparison": "Sealed P2-A is the face-only comparison. P1 and P3 rows are not repeated.",
+  "points": {
+    "P2-C": "Spend the whole ceiling on core thickness. Face thickness stays 0.0002 m.",
+    "P2-K": "Scale baseline face thickness and core thickness by one factor until the ceiling.",
+    "P2-E": "Split the structural mass budget equally between faces and core, then set each thickness from that mass."
+  },
+  "yield_premise": {
+    "value_Pa": 276000000.0,
+    "tag": "QUESTIONABLE",
+    "transfer": "TRANSFERRED_FROM_TENSILE_YIELD",
+    "source": "Inherited owner snippet of ASM MatWeb 6061-T6 AA typical tensile yield. Direct fetch failed on the prior clock. No compressive yield. Not a certification.",
+    "gates": false
+  },
+  "stated_limits": [
+    "knocked_down_buckling",
+    "aluminum_yield"
+  ],
+  "omitted_targets": "Phase 2 derives QUESTIONABLE core shear and wrinkling property targets from the pinned advisory formulas. Core crush has no formula in the brief and stays NFI.",
+  "no_advisory_script": true,
+  "no_predecessor_script": true
+}

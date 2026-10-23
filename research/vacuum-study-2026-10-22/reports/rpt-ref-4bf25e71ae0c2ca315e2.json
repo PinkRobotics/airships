@@ -1,0 +1,117 @@
+{
+  "id": "rpt-ref-4bf25e71ae0c2ca315e2",
+  "unit": "vacuum-mainline037b-check-1020",
+  "at": "2026-10-20T03:56:21-07:00",
+  "body": "CHECK-037b complete. The independent derivation reproduces 47.0994x rigid-screen force/yield, 101.517/121.821 MPa walls, W-edge factors 1.166655/0.833325, 4.403103 MPa lead face compression, usage 1.052282 with gamma 0.618429, and the 54.080604 C scarf threshold. The 200 F / 30.341397:1 candidate adds 0.120151 kg at the old lead geometry and reoptimizes to usage 0.972190.\n\n1,734 arithmetic/provenance/presentation comparisons: 1,718 match; 16 numerical path differences are fourteen distinct rounded-L-input differences plus two verdict repeats. Every numeric compute field is accounted for. One source-mass correction: HexBond 679 omits its 30 g/m2 support per interface; increment becomes 519.653569 kg, not 444.255345 (+75.398224 kg). Its independent corrected search still rejects it.\n\nThe low-cure route remains conditional: detailed 200 F data concern thicker 2K metal joints, and cure pressure/tooling transfer to light 2U Be/honeycomb is unqualified. Nine nonblocking check NFIs retain this, local/residual modeling, creep wording, interlayer counting and other qualifications; all thirteen owner NFIs remain. All 17 fixes independently searched; 27 non-code pins match; five executable artifacts excluded without reading or running. Package: 99 checks passed. No other seat contacted. No successor named; report filed and turn ends.",
+  "artifacts": [
+    {
+      "path": "evidence/81f33a392fbb6ec3-CARD.md",
+      "sha256": "81f33a392fbb6ec3a25da8db823be08dfa3f9221997e5aa850184ff34dbc201b",
+      "bytes": 6428,
+      "matches": true,
+      "snapshot": "evidence/81f33a392fbb6ec3-CARD.md"
+    },
+    {
+      "path": "evidence/4793eb9966cc21c5-METHOD.md",
+      "sha256": "4793eb9966cc21c51f32faf785529c9466268d20a73051ed7e84ff21a0a5acc4",
+      "bytes": 8502,
+      "matches": true,
+      "snapshot": "evidence/4793eb9966cc21c5-METHOD.md"
+    },
+    {
+      "path": "evidence/04ad7503deae0f89-EVIDENCE.md",
+      "sha256": "04ad7503deae0f89575433c6a7caa42d69e28b2277acf2283eb3c66610bcaecf",
+      "bytes": 5640,
+      "matches": true,
+      "snapshot": "evidence/04ad7503deae0f89-EVIDENCE.md"
+    },
+    {
+      "path": "evidence/0e021523f94c32bf-SUMMARY.json",
+      "sha256": "0e021523f94c32bf055d6c4d643ffcd97192bd1d75a7762d4fedc44a60e8e9fa",
+      "bytes": 1312,
+      "matches": true,
+      "snapshot": "evidence/0e021523f94c32bf-SUMMARY.json"
+    },
+    {
+      "path": "evidence/bf8401b23caa9663-NFI.json",
+      "sha256": "bf8401b23caa9663315c5989bd2c259ebbba877cff863a4b5bf725f516653d4f",
+      "bytes": 7628,
+      "matches": true,
+      "snapshot": "evidence/bf8401b23caa9663-NFI.json"
+    },
+    {
+      "path": "evidence/2981b071553c6e14-FINDINGS.json",
+      "sha256": "2981b071553c6e140faf4e559aa6ae9c6067525f3aec0da1828754ce1db294dc",
+      "bytes": 5834,
+      "matches": true,
+      "snapshot": "evidence/2981b071553c6e14-FINDINGS.json"
+    },
+    {
+      "path": "evidence/f19509d3aa077b2d-ARITHMETIC.json",
+      "sha256": "f19509d3aa077b2da1e45b8105829d7bb3647e50e6ddcac7486c963e2724eb20",
+      "bytes": 229219,
+      "matches": true,
+      "snapshot": "evidence/f19509d3aa077b2d-ARITHMETIC.json"
+    },
+    {
+      "path": "evidence/6d381d6194c5bb19-DERIVED.json",
+      "sha256": "6d381d6194c5bb1972cae6066e5d0094802c5658c4b625ccb4349229c71f0d7e",
+      "bytes": 89245,
+      "matches": true,
+      "snapshot": "evidence/6d381d6194c5bb19-DERIVED.json"
+    },
+    {
+      "path": "evidence/8262be1c0100ea95-SUPPLEMENT.json",
+      "sha256": "8262be1c0100ea95a96778ed4d8c7a5b686fddb04d7433c9fc1601dd7831bb63",
+      "bytes": 420641,
+      "matches": true,
+      "snapshot": "evidence/8262be1c0100ea95-SUPPLEMENT.json"
+    },
+    {
+      "path": "evidence/dc09adab670f05de-EXACT-DIFFERENCES.csv",
+      "sha256": "dc09adab670f05de49c02399846007456b6d34f0ce71cef8875d16df30672e61",
+      "bytes": 2746,
+      "matches": true,
+      "snapshot": "evidence/dc09adab670f05de-EXACT-DIFFERENCES.csv"
+    },
+    {
+      "path": "evidence/f73fd651822064bf-PROVENANCE.json",
+      "sha256": "f73fd651822064bf52645d5214ec3a75096f9b79e32a23ccf53b29a75f2b0feb",
+      "bytes": 14701,
+      "matches": true,
+      "snapshot": "evidence/f73fd651822064bf-PROVENANCE.json"
+    },
+    {
+      "path": "evidence/0991c68f3639eed4-VALIDATION.json",
+      "sha256": "0991c68f3639eed4ff2724efcb0ce4a563fa37b98273c1fdad03176b9a444d22",
+      "bytes": 11030,
+      "matches": true,
+      "snapshot": "evidence/0991c68f3639eed4-VALIDATION.json"
+    },
+    {
+      "path": "evidence/46f247665bf9a75d-MANIFEST.json",
+      "sha256": "46f247665bf9a75d6d4137794cee7241fe99d8224e9eb54507f09927a4dedecd",
+      "bytes": 13019,
+      "matches": true,
+      "snapshot": "evidence/46f247665bf9a75d-MANIFEST.json"
+    },
+    {
+      "path": "evidence/3ed06094c51c8760-independent.py",
+      "sha256": "3ed06094c51c87603534e5817b52e6cba8cbbd8b32292ca01383bf40a4d117d3",
+      "bytes": 20394,
+      "matches": true
+    },
+    {
+      "path": "evidence/f5b195c9d0722ec1-supplement.py",
+      "sha256": "f5b195c9d0722ec1837113d8ab0e8c23f8bb554f3d5bd1a7d8c77ca7b12d9f96",
+      "bytes": 14301,
+      "matches": true
+    },
+    {
+      "path": "evidence/73ce1bc0cc939d7b-package_check.py",
+      "sha256": "73ce1bc0cc939d7b2a33c9adcce438df85579709ef72a303c3a9ab52df02f056",
+      "bytes": 19572,
+      "matches": true
+    }
+  ]
+}

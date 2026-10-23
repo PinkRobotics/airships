@@ -1,0 +1,240 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline033-check-1020",
+  "verdict": "Requested headline results reproduce; search-domain and numerical-precision findings are enumerated.",
+  "tag": "QUESTIONABLE inputs; PROJECTION results",
+  "certification": false,
+  "owner_code_read_imported_or_executed": false,
+  "started_at": "2026-10-20T02:18:55-07:00",
+  "completed_at": "2026-10-20T02:52:39-07:00",
+  "arithmetic_checks": 41174,
+  "arithmetic_passed": 41174,
+  "presentation_checks": 1891,
+  "presentation_passed": 1891,
+  "independent_search_cases": 1822,
+  "endpoint_cases": 291,
+  "minimum_usage_roots": 40,
+  "radius_samples": 975,
+  "initial_search_comparisons": 13083,
+  "initial_search_passed": 12843,
+  "finding_paths": 241,
+  "finding_classification": {
+    "fraction_domain_extension": 224,
+    "near_overlap_endpoint_sensitivity": 15,
+    "formal_crossing_precision": 2
+  },
+  "main_factors": [
+    {
+      "R_m": 10,
+      "usage": 0.6676479926197608,
+      "gamma": 1.9871761732214324,
+      "Q": 1.836205114640356,
+      "face_strength": 1.0,
+      "coupled_E": 1.0
+    },
+    {
+      "R_m": 15,
+      "usage": 0.6009644089862625,
+      "gamma": 1.888762067438133,
+      "Q": 1.7280693934254223,
+      "face_strength": 1.0,
+      "coupled_E": 1.0
+    },
+    {
+      "R_m": 20,
+      "usage": 0.575992086733993,
+      "gamma": 1.851628873537369,
+      "Q": 1.689233250868899,
+      "face_strength": 1.0,
+      "coupled_E": 1.0
+    },
+    {
+      "R_m": 30,
+      "usage": 0.5548773888589805,
+      "gamma": 1.8201344822895098,
+      "Q": 1.6570781033616861,
+      "face_strength": 1.0,
+      "coupled_E": 1.0
+    },
+    {
+      "R_m": 50,
+      "usage": 0.5404819929344898,
+      "gamma": 1.7986173096271068,
+      "Q": 1.6355072909704813,
+      "face_strength": 1.0,
+      "coupled_E": 1.0
+    }
+  ],
+  "full_gamma_Q_payloads_kg": [
+    {
+      "R_m": 10,
+      "explicit_six": 363.8115765717297,
+      "explicit_scarf": -20.651264794029146,
+      "floor_six": 363.8115765717297,
+      "floor_scarf": -20.651264794029146
+    },
+    {
+      "R_m": 15,
+      "explicit_six": 1824.2002193988383,
+      "explicit_scarf": 526.5335222825955,
+      "floor_six": 1705.0392031542665,
+      "floor_scarf": 335.43072797697005
+    },
+    {
+      "R_m": 20,
+      "explicit_six": 4884.560508139464,
+      "explicit_scarf": 1808.3331295308626,
+      "floor_six": 4352.829719372017,
+      "floor_scarf": 1106.3503708049666
+    },
+    {
+      "R_m": 30,
+      "explicit_six": 18139.201860861558,
+      "explicit_scarf": 7754.735606923174,
+      "floor_six": 15516.286980526445,
+      "floor_scarf": 4559.419179108074
+    },
+    {
+      "R_m": 50,
+      "explicit_six": 89422.44316800057,
+      "explicit_scarf": 41318.06645029931,
+      "floor_six": 74375.35334557305,
+      "floor_scarf": 23649.113524203105
+    }
+  ],
+  "active_constraint_crossings": [
+    {
+      "track": "retained_027_floor_six_modes",
+      "mask": 3,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 6.822341800319075,
+      "searched_R_m": 6.822341811061208,
+      "active_constraint_R_m": 6.82234179283298,
+      "delta_reported_m": -7.486094411035538e-09,
+      "delta_search_m": -1.8228227816052822e-08,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "retained_027_floor_six_modes",
+      "mask": 6,
+      "core": "Hexcel HRH-10-4.8-32",
+      "reported_R_m": 40.470112217620006,
+      "searched_R_m": 40.47009421189786,
+      "active_constraint_R_m": 40.4700821645595,
+      "delta_reported_m": -3.0053060505963458e-05,
+      "delta_search_m": -1.2047338358911475e-05,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": false
+    },
+    {
+      "track": "retained_027_floor_six_modes",
+      "mask": 7,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 5.96224089201348,
+      "searched_R_m": 5.962240897445217,
+      "active_constraint_R_m": 5.962240891325596,
+      "delta_reported_m": -6.878844160951303e-10,
+      "delta_search_m": -6.1196212541858586e-09,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "retained_027_floor_with_scarf_screen",
+      "mask": 3,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 10.358194008364991,
+      "searched_R_m": 10.358194016303674,
+      "active_constraint_R_m": 10.35819382882473,
+      "delta_reported_m": -1.7954026176880689e-07,
+      "delta_search_m": -1.874789443689906e-07,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "retained_027_floor_with_scarf_screen",
+      "mask": 7,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 10.213214754133585,
+      "searched_R_m": 10.213214694394315,
+      "active_constraint_R_m": 10.213214660528795,
+      "delta_reported_m": -9.360478969711039e-08,
+      "delta_search_m": -3.386552016593214e-08,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "explicit_028_bill_six_modes",
+      "mask": 3,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 6.822341800319075,
+      "searched_R_m": 6.822341811061208,
+      "active_constraint_R_m": 6.82234179283298,
+      "delta_reported_m": -7.486094411035538e-09,
+      "delta_search_m": -1.8228227816052822e-08,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "explicit_028_bill_six_modes",
+      "mask": 5,
+      "core": "Hexcel CR-III 5056 1/4-1.6",
+      "reported_R_m": 103.89227556269779,
+      "searched_R_m": 103.89233619587094,
+      "active_constraint_R_m": 103.89207833246098,
+      "delta_reported_m": -0.0001972302368073997,
+      "delta_search_m": -0.00025786340995637147,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": false
+    },
+    {
+      "track": "explicit_028_bill_six_modes",
+      "mask": 6,
+      "core": "Hexcel HRH-10-4.8-32",
+      "reported_R_m": 16.28190656601526,
+      "searched_R_m": 16.28190629490159,
+      "active_constraint_R_m": 16.281905427592292,
+      "delta_reported_m": -1.1384229665623025e-06,
+      "delta_search_m": -8.673092963817908e-07,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "explicit_028_bill_six_modes",
+      "mask": 7,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 5.96224089201348,
+      "searched_R_m": 5.962240897445217,
+      "active_constraint_R_m": 5.962240891325596,
+      "delta_reported_m": -6.878844160951303e-10,
+      "delta_search_m": -6.1196212541858586e-09,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "explicit_028_bill_with_scarf_screen",
+      "mask": 3,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 10.350852169372322,
+      "searched_R_m": 10.350852221997025,
+      "active_constraint_R_m": 10.350852133591722,
+      "delta_reported_m": -3.578059981634851e-08,
+      "delta_search_m": -8.840530263398705e-08,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    },
+    {
+      "track": "explicit_028_bill_with_scarf_screen",
+      "mask": 7,
+      "core": "Hexcel CR-III 5056 3/8-1.0",
+      "reported_R_m": 10.213214754133633,
+      "searched_R_m": 10.21321469417692,
+      "active_constraint_R_m": 10.21321466052878,
+      "delta_reported_m": -9.360485186959977e-08,
+      "delta_search_m": -3.3648138497710534e-08,
+      "tolerance_m": 2e-05,
+      "matches_reported_radius": true
+    }
+  ],
+  "stock_compression_radius_ceiling_m": 99.89768621435991
+}

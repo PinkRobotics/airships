@@ -1,0 +1,197 @@
+{
+  "id": "rpt-ref-29830021a6e140ff7411",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-dbd2fa05cc3e88be3cdc",
+  "to": "ref-6dc4be125fab6baa4720",
+  "cc": [
+    "ref-5cf73d8bfab7071b094e",
+    "ref-d526e566bdbe9a62c2c1",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline044-fatigue-and-life-1020",
+  "re": "ord-admiral-rr2-mainline044-dispatch-1019",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline044-dispatch-1019"
+    }
+  ],
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline044-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "standing": "none",
+  "next": "none",
+  "completion": "Fatigue/life estimate complete: declared annual spectrum, five-element evidence and damage ledger, 028b and filed 037b evaluations, ten-year stress/mass options, explicit NFI and reproducible artifacts. No successor named.",
+  "at": "2026-10-20T03:56:52.874869-07:00",
+  "body": "MAINLINE-044 complete. No qualified installed-hull fatigue life. Original mooring-pad core shear exceeds minimum strength (SF 0.7143); the corrected metal plates alone reach the declared fatigue-design index in about 950 days. Daily thermal-only core projections are 3,697 days under 037 versus 18,816 days under 037b’s 200 F free-edge fix. These transfer denser-core fatigue data and assumed mean-stress rules. The small 037b fix leaves the pads unchanged and does not cover all combined scarf loads. Actual-geometry vacuum top-ups span 27.56 Pa initially and 8.34 Pa late-year; full venting is a separate pressure cycle. Gross-area adhesive shear cannot qualify sparse wall-foot/fillet contact. A strict ten-year pad allocation plus 60:1 scarf adds 36.66 kg, exceeding the unchanged floating budget; Be-sheet, scarf, bond, local buckling and environment qualifications remain open. No ten-year whole-hull claim. The filed calculation, source data, cycle ledger, mass options and NFI register include 037b. Twenty-one numerical checks, five physical/allocation assertions and 75 input/source pins pass; all 132 manifest entries verify. Nineteen new NFI plus thirteen inherited 037b items remain nonblocking. The brief names no successor; stopping after this report.",
+  "artifacts": [
+    {
+      "path": "evidence/5c09e47332a27acc-CARD.md",
+      "sha256": "5c09e47332a27accc79fc2a44051b74ebab049154a839d0264de9e751f811b50",
+      "bytes": 20153
+    },
+    {
+      "path": "evidence/1e28d49f84af551f-METHOD.md",
+      "sha256": "1e28d49f84af551fcb8d50b36819e94473bc457ac5dbc254d65cdddcdbf63ddc",
+      "bytes": 10772
+    },
+    {
+      "path": "evidence/ed8edfc3d6a90cd2-RESULTS.json",
+      "sha256": "ed8edfc3d6a90cd29312e2e72e4f0c2939d29a1218785870f6c12121fbb59825",
+      "bytes": 64287
+    },
+    {
+      "path": "evidence/ac5c4ed2d2e4d9d9-SPECTRUM.json",
+      "sha256": "ac5c4ed2d2e4d9d9473fc9fc641debe95bb7b13c28eb587bb5e5c1531d1fe706",
+      "bytes": 2016
+    },
+    {
+      "path": "evidence/251794aad77a9c11-NFI.json",
+      "sha256": "251794aad77a9c114871f33e5caf8b0bb5de126a1457f27de8f16a8b48da4871",
+      "bytes": 8491
+    },
+    {
+      "path": "evidence/29a6c5acc5b8df57-SOURCE-DATA.json",
+      "sha256": "29a6c5acc5b8df57dcf5f26e3bfd9aa32434f5560725d9b9121e38331062d735",
+      "bytes": 7061
+    },
+    {
+      "path": "evidence/7953ad08ec06ca8d-CORE-DIGITIZATION.csv",
+      "sha256": "7953ad08ec06ca8da9fe0b7352386cf0e7fcaf3093be83483bc23d29f3e2ce23",
+      "bytes": 791
+    },
+    {
+      "path": "evidence/163f847d4e65ae2b-THERMAL-LIFE.csv",
+      "sha256": "163f847d4e65ae2ba5982ca92a21b90562bd183eb54f13c7d6e3ffe448f29ac0",
+      "bytes": 19133
+    },
+    {
+      "path": "evidence/b791792eb904f4e9-COMPONENT-CYCLES.csv",
+      "sha256": "b791792eb904f4e9173aeefba1fd346b05e819592ba741c6f3ff010e29bf9739",
+      "bytes": 323876
+    },
+    {
+      "path": "evidence/092b414e624fd588-DAILY-TOPUP.csv",
+      "sha256": "092b414e624fd588b819d1c810d43f8058492ed1bbab433f57998f9b0f4b5600",
+      "bytes": 16018
+    },
+    {
+      "path": "evidence/bf0c37c197b78df7-PAD-BASE-CYCLES.csv",
+      "sha256": "bf0c37c197b78df767364eef41e26e9ae05b069d38bb53a87640fb39aced5e57",
+      "bytes": 932
+    },
+    {
+      "path": "evidence/854dbc4a3916fe5f-PAD-RESTORE.json",
+      "sha256": "854dbc4a3916fe5fb5889b73dea139649271adc5478633a407a05eec106f3633",
+      "bytes": 4822
+    },
+    {
+      "path": "evidence/090e81592899e2a5-CORE-SENSITIVITY.csv",
+      "sha256": "090e81592899e2a57ae55058c7d459d2ca478ca92981b5817b56c5ef9c879840",
+      "bytes": 5545
+    },
+    {
+      "path": "evidence/b45f44755505c4af-LIFE-SENSITIVITY.json",
+      "sha256": "b45f44755505c4af03ded5da3479621195ac3c281d3717b9022c98bd89baebb0",
+      "bytes": 9699
+    },
+    {
+      "path": "evidence/3819811e0f9257c9-THERMAL-RESTORE.json",
+      "sha256": "3819811e0f9257c964e1169236553151775e65907eaaaf9e0d1d9fc20401de96",
+      "bytes": 1452
+    },
+    {
+      "path": "evidence/f4b71055e0739730-DENSER-CORE.json",
+      "sha256": "f4b71055e0739730660d0925f89baa27215f61e0049fbdeba2993966ee8f09fb",
+      "bytes": 3143
+    },
+    {
+      "path": "evidence/2c2a80467494a085-COMBINED-STATIC.json",
+      "sha256": "2c2a80467494a085f85287246efe0bc24c608a761aa8c17c3620e9f1b79fa912",
+      "bytes": 3170
+    },
+    {
+      "path": "evidence/6719af90babffb74-BOND-CONTACT.json",
+      "sha256": "6719af90babffb748e51ba245986649895bfbe2dfbc440ab14eaeca2ad8cc076",
+      "bytes": 1344
+    },
+    {
+      "path": "evidence/8c53f27cacf34030-life44.py",
+      "sha256": "8c53f27cacf34030e0d0f5010f90e77bf3d4b68fc31ca245a80c60796ffe8ac5",
+      "bytes": 35215
+    },
+    {
+      "path": "unpublished-local-ref:6c3eb7d7cc90199c",
+      "sha256": "531dba8f538ccc8dba9168c0db29c3a2dc549d3edd12721c85e9875dfb1478a6",
+      "bytes": 188869
+    },
+    {
+      "path": "evidence/9cc47cbf6dbf5c89-fatigue-evidence.svg",
+      "sha256": "9cc47cbf6dbf5c890951c043aa50aa015fab4eb76c3a904793e5627832c1d36c",
+      "bytes": 104353
+    },
+    {
+      "path": "evidence/92fa162bfc464fe5-VALIDATION.json",
+      "sha256": "92fa162bfc464fe5a5ae08d4a12a694473104f3e0d4725647790cc1bd83c2a72",
+      "bytes": 3641
+    },
+    {
+      "path": "evidence/1e93ef97247b0c67-PIN-VALIDATION.json",
+      "sha256": "1e93ef97247b0c6747a7ac21eec1aff93d2ca92914a82d6ceb9af25ecd06c6e9",
+      "bytes": 38183
+    },
+    {
+      "path": "evidence/5bf295ca64a348dd-INPUT-PINS.json",
+      "sha256": "5bf295ca64a348dd7ae71e76bf102b09f23c165089f68f2a15436ca890498cd8",
+      "bytes": 14900
+    },
+    {
+      "path": "evidence/b6d0defad4e6f738-ADDITIONAL-INPUT-PINS.json",
+      "sha256": "b6d0defad4e6f738173019ce7b2522242a8ebcc6e48fe65457388727fc7388a9",
+      "bytes": 10611
+    },
+    {
+      "path": "evidence/301c4053feb204b4-SOURCE-PINS.json",
+      "sha256": "301c4053feb204b46e29858875bf79e42f8664cca639b1f7810e47a19c763aac",
+      "bytes": 4182
+    },
+    {
+      "path": "evidence/5db83e5a26d98182-BINDING-SNAPSHOT.json",
+      "sha256": "5db83e5a26d981820d183eaa752688d2e6ad1470fbeca9041753e3c7a78abd72",
+      "bytes": 771
+    },
+    {
+      "path": "evidence/009c387f9665e767-START.json",
+      "sha256": "009c387f9665e767bbc56138d8a6e6964b2663cef581246b83b0016a63634a4e",
+      "bytes": 213
+    },
+    {
+      "path": "evidence/e5da453bcb8dfd2f-TIMING.json",
+      "sha256": "e5da453bcb8dfd2fa59c64394e6d89b23fc351f1e5a4360bffcb0f38bd457264",
+      "bytes": 213
+    },
+    {
+      "path": "evidence/b625a06c8d3488db-RUN.json",
+      "sha256": "b625a06c8d3488db78102846d1363e535df07deb90c48a7502f95f98b5f65915",
+      "bytes": 439
+    },
+    {
+      "path": "evidence/78d300113cd182fa-MANIFEST.json",
+      "sha256": "78d300113cd182fade08f554f367169ffbda28fdb4cf71b87581903aecc6feb9",
+      "bytes": 44851
+    },
+    {
+      "path": "evidence/e9093d7054951bba-vacuum-mainline044-fatigue-and-life-1020.md",
+      "sha256": "e9093d7054951bba5102427a4d278cc82aaa07d2512a71e7e9b0929883e5d64b",
+      "bytes": 1679
+    }
+  ],
+  "ingested": "2026-10-20T03:58:13-07:00"
+}

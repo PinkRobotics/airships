@@ -1,0 +1,35 @@
+{
+  "id": "PC065-BETA",
+  "kind": "piece_c",
+  "claim": "BETA is the real root of b^3+b=1, value 0.682327803828082. model61.py and model63.py each set it at line 33 and multiply it onto Q in the face-wrinkling margin, model61.py line 123 and model63.py line 130. The model text cites no handbook for that root. Equation 2.2-14's coefficient 0.33 stands for the admissible published Q. The inherited product BETA times Q, 0.225, stands only as the model line. Both values are kept.",
+  "numerical_status": "reproduced",
+  "physical_qualification": "open",
+  "qualification": "No installed hull safety factor is released. QUESTIONABLE inputs. PROJECTION payloads.",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "sources": [
+    {
+      "report": "rpt-ref-219592c41c9dbc5d7ddc",
+      "artifact": "evidence/194954ccad05e1d1-model61.py",
+      "snapshot": "evidence/194954ccad05e1d1-model61.py",
+      "sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+      "bytes": 18948,
+      "selector": "L33,L123"
+    },
+    {
+      "report": "rpt-ref-219592c41c9dbc5d7ddc",
+      "artifact": "evidence/2c44efb4bb78a17d-model63.py",
+      "snapshot": "evidence/2c44efb4bb78a17d-model63.py",
+      "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+      "bytes": 19294,
+      "selector": "L33,L130"
+    },
+    {
+      "report": "rpt-ref-501b98e96f89f574b82d",
+      "artifact": "evidence/4fa1a0068ddd1229-RESULTS.json",
+      "snapshot": "evidence/4fa1a0068ddd1229-RESULTS.json",
+      "sha256": "4fa1a0068ddd122913037bf4dc528f3bab9d69eb6fd3ee5cee836c80c2b33759",
+      "bytes": 5211,
+      "selector": ""
+    }
+  ]
+}

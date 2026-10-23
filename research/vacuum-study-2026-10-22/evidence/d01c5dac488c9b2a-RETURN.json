@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "unit": "h1-reference-proof-preparation-r2-1019",
+  "status": "PRECISE_PROOF_OR_FIT_BLOCKER_RETURNED_FOR_SEPARATE_REVIEW",
+  "authority": [
+    {
+      "id": "ord-sciences-g1-h1-reference-proof-prep-a-6300-1019"
+    },
+    {
+      "id": "ord-co27-sci-h1-ou-declared-prep-funded-1019"
+    }
+  ],
+  "at": {
+    "captured_monotonic": 2049397.024218749,
+    "captured_utc": "2026-10-19T18:17:51.843912+00:00"
+  },
+  "result": "BRANCH_COEFFICIENT_AND_MODE_TAIL_UNBOUND",
+  "meaning": "Missing branch/coefficient/all-mode certificate, not a physicalFAIL, source-plot mismatch, observed native error or proof no stronger method exists.",
+  "first_blocker": {
+    "path": "evidence/b79f2065f3fe093f-FIRST-PROOF-BLOCKER.json",
+    "sha256": "b79f2065f3fe093fab621538d88b02be2dd88645eca3b56d1596d43daeefed5d",
+    "bytes": 2622
+  },
+  "proof_derivations": {
+    "path": "unpublished-local-ref:04000b26e08e86cf",
+    "sha256": "e4fd0720f85638dfb4386ccd85cf3a824a0b9a948a2d558ee8cae615aca38729",
+    "bytes": 14571
+  },
+  "gates": {
+    "path": "evidence/46f51c47eac1bb71-GATE-EVALUATIONS.json",
+    "sha256": "46f51c47eac1bb716d2feed5ef678d38abed7e80d2e782ef9933e1d2d78a294d",
+    "bytes": 10520
+  },
+  "gate_counts_owner_only": {
+    "PASS": 13,
+    "FAIL": 1,
+    "UNBOUND": 21
+  },
+  "gate_count_qualification": "13ownerPASS include conditional/restricted algebra;1reader2 outward-roundingFAIL is fully covered by conservative hull;21UNBOUND. None is Una acceptance.",
+  "plot_hull": {
+    "path": "evidence/8ed1e8084e302b48-TWO-READER-HULL.json",
+    "sha256": "8ed1e8084e302b4865e43a101de96011016844fd43f7f13a0dc446c2df7abde5",
+    "bytes": 3317
+  },
+  "plot_interval": [
+    0.587,
+    0.634
+  ],
+  "plot_scope": "No certified continuum/reference response. Reader1 filed blind before unblinding; both original boxes retained. Reader2 exact unrounded upper1483/2405 exceeds filed.6166; unchanged hull contains it.",
+  "reading_chronology": {
+    "path": "evidence/aac1e6a54bca7944-READING-CHRONOLOGY.json",
+    "sha256": "aac1e6a54bca794444db06e27e81e7e3b011e37fd969907ebae0b118010dfab7",
+    "bytes": 1350
+  },
+  "source_scope": "Held1969source now available;1969variable-thickness/nu.40 specimen not substituted for1971constant-thickness localdimple. OUamendment prospectively declared, source scores unchanged.",
+  "missing_quantities": {
+    "complete_precritical_branch_inverse": null,
+    "uniform_M_W": null,
+    "uniform_Smax": null,
+    "certified_N_tail": null,
+    "finite_mode_error_enclosures": null,
+    "event_enclosures_even_odd_full": null,
+    "strictly_positive_L_ref": null,
+    "actual_six_error_bounds": null,
+    "validated_implementation_and_payload_fit": null
+  },
+  "known_tail_requirement": "Atn=129 axialterm1250c<2500<16641 passes; hoopterm needs750c+5460M_W<16641 and full-space coupling needsSmax. Suppliedlambda<1coercivity does not certify entire frozenlambda[0,5/4] branch.",
+  "future_inventory_only": {
+    "paired": 198531,
+    "parity_blocks": 397062,
+    "without_azimuthal_collapse": 791046,
+    "resource_fit": "UNBOUND"
+  },
+  "not_run": {
+    "path": "evidence/a3ce2df6cd9d1767-NOT-RUN-INVENTORY.json",
+    "sha256": "a3ce2df6cd9d17670497b34e0951aa17fcf87845ada4f3f04afcef0dd926b246",
+    "bytes": 1250
+  },
+  "cleanup": {
+    "path": "evidence/7295151e2152e975-CLEANUP.json",
+    "sha256": "7295151e2152e97589a29862960336f4d62068276f6403a33c512df0fe2ba6b4",
+    "bytes": 2227
+  },
+  "closing_custody": {
+    "path": "unpublished-local-ref:4829d96348837c0d",
+    "sha256": "b65ae2a7beeda06500fde22c2cd97969e44f9626ab4681741d7e394113526b56",
+    "bytes": 4916
+  },
+  "qualification_flags": {
+    "native": false,
+    "energy": false,
+    "H1": false,
+    "component_comparison_pass": false,
+    "reference_certified": false
+  },
+  "carry": {
+    "path": "evidence/0a5011515783aa77-FINAL-CARRY.json",
+    "sha256": "0a5011515783aa774dd181624e76326f7a676b6fb78e31fe826f11d929219254",
+    "bytes": 7920
+  },
+  "budget_file": "unpublished-local-ref:b81ec8cdd51e7630",
+  "evidence_manifest_file": "evidence/520f7e8b103c9318-FINAL-EVIDENCE-MANIFEST.json",
+  "return_route": "Sciences orders separate funded Una proof review after this owner unit closes; carries actual review and budget closures to CO. No owner wait inside NEW6300.",
+  "CO_completion": "Pending separate proof review and recipient disposition; this return closes ownerwork only.",
+  "no_automatic_payload_or_retry": true
+}

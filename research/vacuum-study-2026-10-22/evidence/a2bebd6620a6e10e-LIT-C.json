@@ -1,0 +1,331 @@
+[
+  {
+    "id": "C01",
+    "kind": "test_series_secondary_digest",
+    "family": "aerospace dome / Saturn S-II common bulkhead (hemispheres)",
+    "citation": {
+      "title": "Manual for Structural Stability Analysis of Sandwich Plates and Shells",
+      "authors": "R. T. Sullins, G. W. Smith, E. E. Spier (General Dynamics, San Diego)",
+      "year": "December 1969",
+      "venue": "NASA CR-1457 (contract NAS 9-8244)",
+      "doi_or_url_seen": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf (NTRS id 19700004831); a DTIC copy ADA310684 appeared in search results but was not opened",
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    },
+    "primary_source_cited_by_CR1457": "Gonzalez, H. M. and Patton, R. J., 'Development and Fabrication of 55-Inch Diameter Scale Model S-II Common Bulkheads', North American Rockwell Corp. Report No. SDL 468, May 1964 (CR-1457 ref 6-4, report p. 6-19; title as printed in the reference list)",
+    "primary_source_opened": false,
+    "what_could_read": "full text of CR-1457 (404-page PDF, pdftotext plus page image of the figure). Only the digest in CR-1457 was read; the SDL 468 original was NOT found or opened. Individual test pressures and specimen dimensions are not tabulated in CR-1457.",
+    "shell": "hemisphere (two data points); boundary conditions of the S-II scale-model tests: null (not stated in CR-1457). CR-1457 notes one further test point was discarded for a faulty edge condition and that three points were discarded for stresses too high for reliable plasticity reduction factors.",
+    "geometry": {
+      "R": null,
+      "base_radius_or_rise": null,
+      "note": "Radius not stated in CR-1457. The reference title says '55-Inch Diameter Scale Model', but which diameter that is (bulkhead base, tank) is not stated here. The figure abscissa is R_Max/rho (rho = shell-wall radius of gyration, about h/2 for equal facings); the two hemisphere points plot near R_Max/rho of about 240 (visual read from Fig. 6.2-3, approximate, not stated in text)."
+    },
+    "faces": {
+      "material": null,
+      "t_f": null,
+      "E_f": null,
+      "poisson": null,
+      "note": "not stated in CR-1457 for these tests. Section 6.2 elsewhere uses E_f, nu_e, t_f, h as symbols only."
+    },
+    "core": {
+      "type": "honeycomb sandwich dome per the S-II program (type for these specific data not stated in the CR-1457 passage read)",
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "measured_buckling_or_collapse_pressure": null,
+    "predicted_pressure_and_basis": "Classical small-deflection theory for a sandwich sphere WITH core transverse shear (Yao 1962 / Plantema 1966 solution, CR-1457 Eqs. 6.2-1 to 6.2-12, buckling coefficient Kc vs shear-crimping parameter Vc), times plasticity reduction factor eta where stresses were above the elastic range. Absolute predicted pressures not given.",
+    "measured_over_predicted_as_stated": "Recommended design knock-down gamma_d = 0.20 for hemispheres (Eq. 6.2-13), 'based on' the two hemisphere data points. Plotted points (Fig. 6.2-3) read by eye at roughly 0.22 to 0.23 (my visual estimate of a triangle marker pair; NOT a number printed in the report).",
+    "locations": {
+      "text_gamma_d_definition": "report p. 6-8, Section 6.2.1.2 'Empirical Knock-Down Factor' (PDF p. ~354)",
+      "figure": "Figure 6.2-3, report p. 6-9 (PDF page 355); legend: hemispheres at room temperature (triangles), approximate ellipsoids (dots), ellipsoids with thermal gradient (boxed dots)",
+      "recommendation": "report p. 6-10 Eq. 6.2-13 and p. 6-12 (design rule: gamma_d = 0.20 hemispheres, 0.35 ellipsoids/torispherical when Vc < 2.0; gamma_d = 1.0 when Vc >= 2.0, the weak-core shear-crimping region described on p. 6-7. Inequality direction read from the p. 6-7 text because the p. 6-12 OCR is garbled)",
+      "caveat_in_report": "report p. 6-11"
+    },
+    "quotes": [
+      {
+        "loc": "p. 6-8",
+        "text": "the available test data from sandwich dome constructions are very scarce"
+      },
+      {
+        "loc": "p. 6-8",
+        "text": "two data points from hemispheres and six data points from domes"
+      },
+      {
+        "loc": "p. 6-10",
+        "text": "gamma_d = 0.20 for hemispheres (6.2-13)"
+      },
+      {
+        "loc": "p. 6-11",
+        "text": "final designs must be substantiated by test"
+      }
+    ],
+    "notes": "Report says the S-II data are the ONLY useful dome data it uncovered. The knock-down is applied to classical theory that includes core shear, and the weak-core domain (Vc >= 2) is said to be imperfection-insensitive, so gamma_d = 0.20 / 0.35 applies to the stiff and moderately stiff core range (Vc < 2) and 1.0 to Vc >= 2 (p. 6-7 text; the p. 6-12 inequality symbols are garbled in OCR and were not checked against the page image). Section 6.2.1.1: a sandwich cylinder analogy from Yao/Plantema, assumptions R/t_c >> 1, equal facings, isotropic core shear. Two ellipsoid specimens carried a thermal gradient (inner face about +280 F, outer about +10 F) that was ignored in data reduction."
+  },
+  {
+    "id": "C02",
+    "kind": "test_series_secondary_digest",
+    "family": "aerospace dome / Saturn S-II common bulkhead (approximate ellipsoids)",
+    "citation": {
+      "title": "Manual for Structural Stability Analysis of Sandwich Plates and Shells",
+      "authors": "R. T. Sullins, G. W. Smith, E. E. Spier (General Dynamics, San Diego)",
+      "year": "December 1969",
+      "venue": "NASA CR-1457 (contract NAS 9-8244)",
+      "doi_or_url_seen": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf (NTRS id 19700004831); a DTIC copy ADA310684 appeared in search results but was not opened",
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf"
+    },
+    "primary_source_cited_by_CR1457": "same SDL 468 (May 1964), not opened",
+    "primary_source_opened": false,
+    "what_could_read": "figure only (Figure 6.2-3, report p. 6-9) plus text on p. 6-8 and p. 6-10",
+    "shell": "approximately ellipsoidal domes (six data points; two carried a thermal gradient). Boundary conditions: null.",
+    "geometry": {
+      "R": null,
+      "base_radius_or_rise": null,
+      "note": "Figure abscissa R_Max/rho only; points plot near 240 to 250 and two near 470 to 480 (visual read, approximate)."
+    },
+    "faces": {
+      "material": null,
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": null,
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "measured_buckling_or_collapse_pressure": null,
+    "predicted_pressure_and_basis": "classical small-deflection sandwich-sphere theory with core shear (same as C01), applied at the apex radius R_Max",
+    "measured_over_predicted_as_stated": "Recommended design gamma_d = 0.35 for ellipsoids and torispherical domes (Eq. 6.2-14). Plotted gamma_d values read by eye span about 0.40 to about 1.0 (one point near the top of the plot; my visual estimate, not printed numbers).",
+    "locations": {
+      "figure": "Figure 6.2-3, report p. 6-9 (PDF page 355)",
+      "text": "report p. 6-8 and p. 6-10"
+    },
+    "quotes": [
+      {
+        "loc": "p. 6-10",
+        "text": "gamma_d = 0.35 for ellipsoids and torispherical domes (6.2-14)"
+      }
+    ],
+    "notes": "Scatter among ellipsoid points is large; the report states insufficient data to discern any dependence on R_Max/rho."
+  },
+  {
+    "id": "C03",
+    "kind": "searched_nothing_found",
+    "family": "SDL 468 original report (Gonzalez & Patton 1964)",
+    "citation": null,
+    "what_could_read": "n/a",
+    "finding": "Original not found. Three WebSearch queries (exact title; author names with 55-inch / S-II / North American; extended search) returned no copy or abstract of SDL 468. The only trace seen is the reference-list entry inside NASA CR-1457. A NASA Rohr report (NTRS 19660014454, 57-inch composite bulkhead, fabrication) and the Douglas SM-47742 report were opened but are not SDL 468 and give no external-pressure sandwich dome buckling data. NTRS 19650012566 (all-welded common bulkhead, 18 ft) was opened only as title/keyword grep; no external-pressure buckling test found by grep.",
+    "gap": "Per-specimen geometry, facings, core, and test pressures for the 8 usable S-II points exist only in SDL 468 and remain unread."
+  },
+  {
+    "id": "C04",
+    "kind": "test_series_primary_adjacent_geometry",
+    "family": "aerospace sandwich shell, shallow CONE (not sphere) under external pressure",
+    "citation": {
+      "title": "Buckling Tests of Three 4.6-Meter-Diameter Aluminum Honeycomb Sandwich Conical Shells Loaded Under External Pressure",
+      "authors": "James Kent Anderson and Randall C. Davis (NASA Langley)",
+      "year": "July 1975",
+      "venue": "NASA TN D-7935 (L-9936)",
+      "doi_or_url_seen": "NTRS id 19750019348, https://ntrs.nasa.gov/api/citations/19750019348/downloads/19750019348.pdf",
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19750019348/downloads/19750019348.pdf"
+    },
+    "what_could_read": "full text (103-page PDF) plus page image of Table III",
+    "shell": "truncated cone, 120 degree apex angle (shallow, dome-like) under uniform external pressure by partial vacuum; edges ring-supported (Mg tube base ring 15.2 cm section, payload ring 6.4 cm section), payload ring bears on a flat fixture; 12 bonded panels per cone. NOT a sphere or spherical cap.",
+    "geometry": {
+      "R": null,
+      "base_diameter": "4.6 m (15.0 ft)",
+      "small_end_diameter": "2.0 m (6.67 ft) (payload ring)",
+      "note": "sphere radius not applicable; slant length not read."
+    },
+    "faces": {
+      "material": "7075-T6 aluminum, chem-milled",
+      "t_f": "cone 1 / 2 / 3 measured average 0.0498 / 0.0363 / 0.0244 cm (0.0196 / 0.0143 / 0.0096 in) (Table I); nominal 0.020 / 0.015 / 0.010 in",
+      "E_f": "71.7 GN/m2 (10.4e6 psi) (Table IV)",
+      "G_f": "27.2 GN/m2 (3.94e6 psi)",
+      "poisson": 0.32
+    },
+    "core": {
+      "type": "aluminum honeycomb, 5052 perforated walls 0.0038 cm, 0.64 cm cells, ribbon meridional, one splice per panel; FM 123-2 adhesive, bond about 0.025 cm",
+      "density": "54.5 kg/m3 (3.4 lbf/ft3)",
+      "t_c": "1.27 cm (0.50 in)",
+      "G_c": "Table IV lists 'honeycomb core' G = 0.097 GN/m2 (0.014e6 psi) and E = 0.262 GN/m2, modelled as isotropic with nu 0.35; a footnote says this is core plus adhesive total stiffness (4.90 MN/m). Whether it is the transverse shear modulus is not stated, so treat as a model input, not a measured transverse G_c."
+    },
+    "measured": {
+      "buckling_pressure_cone1_cone2_cone3": "38.13 / 30.27 / 21.24 kN/m2 = 5.53 / 4.39 / 3.08 psi, six circumferential waves each (Table III, report p. 16)",
+      "buckling_definition": "strain-rate reversal; taken 8.5 percent below the observed pressure plateau (plateaus 41.7 / 33.1 / 23.2 kN/m2 = 6.046 / 4.800 / 3.371 psi) (text p. 8)",
+      "ultimate_failure_pressure": "cone 1 45.51 kN/m2 (6.60 psi), cone 2 44.40 kN/m2 (6.44 psi), cone 3 27.30 kN/m2 (3.96 psi) (Fig. 12, Figs. 18-19 captions); cones carried 18 / 48 / 30 percent more load after buckling (text p. 9); failure violent"
+    },
+    "predicted_pressure_and_basis": {
+      "SALORS": "50.06 / 37.99 / 26.20 kN/m2 (7.26 / 5.51 / 3.80 psi), n = 7 waves (shell-of-revolution FE, linear prebuckling stress, live pressure)",
+      "BOSOR2": "53.78 / 39.85 / 27.79 kN/m2 (7.80 / 5.78 / 4.03 psi), n = 7 (nonlinear prebuckling stress, not live)",
+      "both_include_core_shear": "null (the model treats the sandwich wall as layered/orthotropic with the Table IV core stiffness; whether shear deformation was included is not confirmed from the text read)"
+    },
+    "measured_over_predicted_as_stated": "report states required reductions to the prediction: BOSOR 2 about 29 percent (cone 1) and 24 percent (cones 2, 3); SALORS about 24, 20, 19 percent for cones 1, 2, 3 (text p. 9); compares with a 25 percent reduction recommended in NASA SP-8019 and 20 percent from an earlier magnesium cone test. A test/prediction ratio is not printed.",
+    "quotes": [
+      {
+        "loc": "Abstract",
+        "text": "Three aluminum honeycomb sandwich conical shells with a 120 degree apex angle"
+      },
+      {
+        "loc": "p. 9",
+        "text": "Theoretical buckling predictions for shells are usually higher than actual test results."
+      }
+    ],
+    "notes": "Closest measured honeycomb-sandwich external-pressure shell found with full numbers, but it is a cone with ring edge supports, so its knockdown is not a sphere or dome knockdown. Imperfection surveys are in the report appendix A (not read in detail)."
+  },
+  {
+    "id": "C05",
+    "kind": "test_series_abstract_only",
+    "family": "composite sandwich semi-ellipsoidal shell under hydrostatic pressure",
+    "citation": {
+      "title": "Nonlinear buckling analysis of a sandwich composite semi-ellipsoidal shell under hydrostatic pressure: A numerical and experimental investigation",
+      "authors": "Venugopal Barathan, Vasudevan Rajamohan (Vellore Institute of Technology)",
+      "year": "2022 online (25 Aug 2022); print Jan 2024",
+      "venue": "Mechanics of Advanced Materials and Structures 31(2), 438-452",
+      "doi_or_url_seen": "10.1080/15376494.2022.2114049",
+      "url_fetched": "https://api.crossref.org/works/10.1080/15376494.2022.2114049 (metadata); https://impact.ornl.gov/en/publications/nonlinear-buckling-analysis-of-a-sandwich-composite-semi-ellipsoi/ (metadata); abstract paraphrase via https://api.semanticscholar.org/graph/v1/paper/DOI:10.1080/15376494.2022.2114049 . The publisher page returned HTTP 403."
+    },
+    "what_could_read": "abstract only (paraphrased by the fetch tool, not verbatim); NO figures or tables read",
+    "shell": "semi-ellipsoidal sandwich shell, laminated composite faces, honeycomb core with and without strip reinforcement; ANSYS arc-length model validated against the authors' own prototype test and published results",
+    "geometry": {
+      "R": null,
+      "base_radius_or_rise": null
+    },
+    "faces": {
+      "material": "laminated composite, layup [0]6s mentioned for the best case",
+      "t_f": null,
+      "E_f": null,
+      "poisson": null
+    },
+    "core": {
+      "type": "honeycomb",
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "measured_buckling_or_collapse_pressure": null,
+    "predicted_pressure_and_basis": "nonlinear FE (geometric and material nonlinearity, arc length), imperfection studies in parametric section",
+    "measured_over_predicted_as_stated": null,
+    "notes": "Contains a real measured dome test but the numbers sit in the full text, which could not be opened. Worth obtaining. Semi-ellipsoidal, not spherical, so apex curvature differs from the design sphere."
+  },
+  {
+    "id": "C06",
+    "kind": "note_known_source",
+    "family": "foam-core sandwich hemisphere, numerical",
+    "citation": {
+      "title": "Buckling Knockdown Factors for Hemispherical Foam Core Sandwich Shells With Single Dimple",
+      "authors": "Chang-Hoon Sim, Chang-Min Lee, Gi-Seop Kim, Jae-Sang Park, Jun-Seong Lee",
+      "year": "2024 (online 26 July 2024)",
+      "venue": "International Journal of Aerospace Engineering vol. 2024, article 8765733",
+      "doi_or_url_seen": "10.1155/2024/8765733",
+      "url_fetched": "https://api.crossref.org/works/10.1155/2024/8765733 (metadata, abstract paraphrase, 6 usable references); the Wiley page itself returned 403 and the university mirror did not resolve"
+    },
+    "what_could_read": "abstract and partial reference list only",
+    "shell": "hemisphere under external pressure, ABAQUS Riks, crushable foam, single-dimple imperfection",
+    "geometry": null,
+    "faces": null,
+    "core": {
+      "type": "foam (PVC data sheet cited)"
+    },
+    "measured_buckling_or_collapse_pressure": null,
+    "predicted_pressure_and_basis": "NONLINEAR FE, not a test",
+    "measured_over_predicted_as_stated": "abstract gives KDF 0.20 (dimple model) and 0.22 (flat model), said to be 11.11 percent and 22.22 percent higher than previous NASA criteria",
+    "notes": "NO physical test data. A search-engine summary (not verified in opened text) says the authors state there is insufficient test data to derive a reliable criterion. Reference list (as seen) cites NASA CR-1457 and Weingarten; no sandwich-dome test report other than CR-1457 appeared in the usable entries."
+  },
+  {
+    "id": "C07",
+    "kind": "note_known_source",
+    "family": "foam-core sandwich hemisphere, EUCASS 2023-367",
+    "citation": {
+      "title": "EUCASS 2023-367 (title not retrieved)",
+      "doi_or_url_seen": null
+    },
+    "what_could_read": "NOT opened. Two WebSearch queries did not surface it.",
+    "finding": "noted as already known to the dispatcher; nothing recorded from it."
+  },
+  {
+    "id": "C08",
+    "kind": "lead_not_opened",
+    "family": "GRP/glass-fibre sandwich domes under uniform external pressure (German, 1968)",
+    "citation": {
+      "title": "Durchschlagen von GFP-Sandwichkuppeln bei gleichförmigem Außendruck",
+      "authors": "G. Brix",
+      "year": "1968",
+      "venue": "IfL-Mitt. (350. Mitteilung aus dem Institut für Leichtbau und ökonomische Verwendung von Werkstoffen, Dresden) 7(11), pp. 408-413",
+      "doi_or_url_seen": null,
+      "url_fetched": "seen only as reference [16] in https://arxiv.org/pdf/1903.05171 (PDF p. 17); a direct search for the title found no copy"
+    },
+    "what_could_read": "citation only. Akhmeteli and Gavrilin (PDF p. 12) say information on spherical sandwich shells 'is scarce' and that Brix's results and recommendations 'suggest similar conclusions' to their 0.2 to 0.4 knock-down discussion. That is their paraphrase; what Brix measured is unknown.",
+    "shell": "title says sandwich domes (Kuppeln), snap-through (Durchschlagen), uniform external pressure; everything else null",
+    "measured_buckling_or_collapse_pressure": null,
+    "notes": "Highest-value unread lead for a measured sandwich-dome series. Not verified to contain test data (could be theory). A library copy is needed."
+  },
+  {
+    "id": "C09",
+    "kind": "lead_not_opened",
+    "family": "thesis, spherical sandwich shell under external pressure",
+    "citation": {
+      "title": "Buckling of a spherical sandwich shell under uniform external pressure",
+      "authors": "John Palmer Anderson (advisor Milton E. Raville)",
+      "year": "May 1966",
+      "venue": "Georgia Institute of Technology dissertation",
+      "doi_or_url_seen": "https://repository.gatech.edu/entities/publication/9bd4a137-8518-4825-844a-28f8963a5c23 (seen in search results only)",
+      "url_fetched": "fetch returned HTTP 403"
+    },
+    "what_could_read": "title and metadata from search results only; abstract field blank; no full text opened",
+    "measured_buckling_or_collapse_pressure": null,
+    "notes": "Unknown whether it contains tests or is analytical only."
+  },
+  {
+    "id": "C10",
+    "kind": "secondary_analysis_only",
+    "family": "vacuum-balloon sandwich sphere design paper (FEA, no test)",
+    "citation": {
+      "title": "Vacuum balloon -- a 350-year-old dream (arXiv title); PDF title 'Vacuum Balloon - a 350-Year-Old Dream'",
+      "authors": "Andrey Akhmeteli, Andrew V. Gavrilin",
+      "year": "n/a (arXiv 1903.05171; year not read from the PDF text)",
+      "venue": "arXiv preprint (journal not read)",
+      "doi_or_url_seen": "arXiv:1903.05171",
+      "url_fetched": "https://arxiv.org/pdf/1903.05171"
+    },
+    "what_could_read": "full text",
+    "shell": "complete sphere, honeycomb-core sandwich with boron-carbide faces and aluminum honeycomb; eigenvalue buckling by ANSYS; NO test",
+    "geometry": {
+      "R": "outer radius > 2.11 m, design example 2.5 m",
+      "note": "from the PDF text; the exact face and core thicknesses were not extracted here"
+    },
+    "measured_buckling_or_collapse_pressure": null,
+    "predicted_pressure_and_basis": "ANSYS linear eigenvalue buckling, safety factor 2.65 at payload fraction 0.1; agreement said 'very good' with the CR-1457 formulas at knock-down 1 (PDF p. 11)",
+    "measured_over_predicted_as_stated": null,
+    "quotes": [
+      {
+        "loc": "PDF p. 11",
+        "text": "the knock-down factor of 0.2 is recommended in Ref. [18, p. 6-9] for hemispherical sandwich domes"
+      }
+    ],
+    "notes": "Independent confirmation that the 0.20 hemisphere rule is read from CR-1457 p. 6-9 (Fig. 6.2-3). Contains no sandwich test data. Cites Blazejewski, Marcinowski, Rotter 2017 (ce/papers 1(2-3), 1010-1018) as a review of homogeneous spherical shell tests (not opened)."
+  },
+  {
+    "id": "C11",
+    "kind": "searched_nothing_found",
+    "family": "review tabulating sandwich-dome test results",
+    "what_could_read": "n/a",
+    "finding": "No review that tabulates sandwich dome tests was found. CR-1457 itself states the data are very scarce and cites only the S-II program. Sim et al. 2024 and Akhmeteli and Gavrilin both repeat the CR-1457 numbers. The homogeneous-shell reviews that surfaced (Blazejewski 2017/2024 ce/papers and Applied Sciences, Eggwertz and Samuelson 1990 metal domes, Wagner et al.) are about monolithic shells and were not opened."
+  },
+  {
+    "id": "C12",
+    "kind": "searched_nothing_found",
+    "family": "marine / underwater sandwich domes, hemispheres, spheres",
+    "what_could_read": "search results and abstracts only",
+    "finding": "No sandwich sphere or hemisphere hydrostatic collapse test found. Hits were cylinders (URI carbon/PVC-foam implosions, Experimental Mechanics 2019, abstract level), monolithic or multilayer metal spherical shells (DTIC AD0620747 title only; a download returned an HTML page, not read), GRP hemi-ellipsoidal domes (Ross et al., Ocean Engineering 30, 691-705, 2003, cited in a reference list, not opened, probably monolithic), and a Chinese composite egg-shell pressure hull (abstract-level, failure by strength not buckling). Several fetches returned HTTP 403 (tandfonline, sciencedirect, wiley, hathitrust, gatech)."
+  },
+  {
+    "id": "C13",
+    "kind": "searched_nothing_found",
+    "family": "other aerospace sandwich bulkhead / dome tests",
+    "what_could_read": "opened PDFs by grep and head; abstracts",
+    "finding": "No measured external-pressure collapse of a sandwich dome beyond the S-II digest. Opened and ruled out: Douglas SM-47742 (NTRS 19650012174, waffle-stiffened common domes, 1964): honeycomb sandwich enters only as a weight estimate comparing geodesic domes as 30 to 40 percent heavier than an optimum honeycomb dome (abstract), no sandwich tests; Rohr composite bulkhead final report (NTRS 19660014454): fabrication, pressure test around 209 psig (internal), no external buckling found by grep; Cohen NASA CR-795 and CR-1424 (NTRS 19670017941, 19690026137): theory for 120 degree sandwich cones; Rossettos NASA TN D-3855 (shallow spherical sandwich shells, local loading, theory, title page only); NASA TM-2013/2014/2019-217822 parts 1 to 4 (cylindrical arc panels, axial); MT Aerospace IAC-11 sandwich common bulkhead (abstract only, reverse-pressure resistance qualitative, full text restricted); ISRO IAC-13-19915 (thermal, no buckling test)."
+  }
+]

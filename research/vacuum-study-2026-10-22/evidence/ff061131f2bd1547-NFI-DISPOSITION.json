@@ -1,0 +1,99 @@
+{
+  "unit": "vacuum-mainline050-check-1020",
+  "at": "2026-10-20T08:05:05.803554-07:00",
+  "addendum": "rpt-ref-a7ed312f50c1bd796c58",
+  "original_report": "rpt-ref-3eaf9fd65c0d3223ee65",
+  "findings": [
+    {
+      "id": "CHK50-01",
+      "title": "Independence scope",
+      "finding": "Checker authored 040/048. No 050 code was accessed, but upstream personnel independence is limited.",
+      "missing_evidence": "A checker with no upstream authorship for independent physical review.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "carried unchanged",
+      "qualification_closed": false
+    },
+    {
+      "id": "CHK50-02",
+      "title": "Material and installed-system qualification",
+      "finding": "Numeric agreement does not validate Be/core/bond strengths, curvature restraint, defects, cure stress distribution, coatings, moisture or installed loads.",
+      "missing_evidence": "Matched materials, panels, joints and shell tests; inherited NFIs remain open.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "carried unchanged",
+      "qualification_closed": false
+    },
+    {
+      "id": "CHK50-03",
+      "title": "Weather meaning",
+      "finding": "The maps are conditional profiles and rectangular parameter samples; family designs change geometry. Percentiles and grid fractions are not operational probabilities.",
+      "missing_evidence": "A selected build, site and mission joint weather/thermal history.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "carried unchanged",
+      "qualification_closed": false
+    },
+    {
+      "id": "CHK50-04",
+      "title": "Cold boundary and numerical domain",
+      "finding": "The exact marginal knot depends on the scanned core domain and tolerances. The first fully feasible table point is .05 K warmer. Broader exploratory root solutions are not credited as new feasible operating designs.",
+      "missing_evidence": "Restrict the exclusion claim to its scanned domain and establish cold interface strength experimentally.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "carried unchanged",
+      "qualification_closed": false
+    },
+    {
+      "id": "CHK50-05",
+      "title": "Interpolation precision",
+      "finding": "All design-day float/least-set conclusions agree, but a full direct recomputation finds endpoint table differences above .05 kg, up to approximately .23814 kg. Selected decision-critical checkpoints remain much closer.",
+      "missing_evidence": "Say 'selected checkpoints within .05 kg' and retain the exact direct/interpolated ledger.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "carried unchanged",
+      "qualification_closed": false
+    },
+    {
+      "id": "CHK50-06",
+      "title": "Heater quadrature",
+      "finding": "The 128-zone result reproduces. An analytic positive-deficit integral differs slightly; R10 reference is 21.144629726 W/m² and 2952.347263 kg battery. Displayed card figures are unchanged.",
+      "missing_evidence": "Use the analytic integral or report the quadrature error; heater installation mass stays unknown.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "Quadrature reporting gap resolved; physical heater qualification retained.",
+      "qualification_closed": false,
+      "resolved_component": "Independent analytic and 128-point quadrature values reproduce the owner clarification; exact difference 0.0004922966320428657 W/m² is explicitly reported.",
+      "remaining": "Heater installation mass and installed performance remain unqualified."
+    },
+    {
+      "id": "CHK50-07",
+      "title": "Gas calculation scope",
+      "finding": "The independently defined all-geometry service bound differs from the owner's scalar sampling and inventory/volume conventions, while both retain ample reserve. No sealed-life qualification follows.",
+      "missing_evidence": "Equation-only gas clarification or explicitly distinguish the conservative checker sweep; measured leaks, venting and desorption remain needed.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "Numerical sampling/equation clarification resolved; physical and geometry-scope qualifications retained.",
+      "qualification_closed": false,
+      "resolved_component": "Independent scalar calculation of all 160 specified endpoint geometries reproduces all five filed rows with zero recorded pressure, mass, volume or inventory differences.",
+      "remaining": "The original supplement covers 32 frozen-thermal candidates per radius. It does not establish a maximum over all coupled-weather geometries. Measured leakage, pore communication, conditioning, release inventory, permeability and sealed life remain unqualified."
+    },
+    {
+      "id": "CHK50-08",
+      "title": "Thermal mechanics version",
+      "finding": "050 reproduces the original 048 treatment: cure enters face/scarf demand but not global buckling or crimping. The separately filed 048 cure-inclusive sensitivity is not silently substituted into 050.",
+      "missing_evidence": "Retain both model versions and their scope; qualify prestress/restraint before an operational claim.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false,
+      "disposition": "carried unchanged",
+      "qualification_closed": false
+    }
+  ],
+  "checker_record_count": 8,
+  "fully_closed_checker_qualifications": 0,
+  "inherited_register": "inputs/CHECK050-NFI.json#/inherited_owner_register",
+  "inherited_register_disposition": "carried in full without closure",
+  "qualified_installed_hull_SF": null,
+  "qualified_sealed_life": null,
+  "qualified_operational_availability": null
+}

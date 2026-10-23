@@ -1,0 +1,10 @@
+{
+  "id": "rpt-admiral-rr2-boyce-codex-daybreak-nudge-dialog-1020",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-20T00:14:57-07:00",
+  "body": "ROBOTICS CAPACITY: a seat dialog, which is the Desk's call. New codex leads draw an account nudge at the end of their boot turn: 'Set up security for Daybreak mode' (Advanced Account Security with a hardware key; it says esc dismisses it and Codex keeps working). The minter reads it as a dialog, finds the seat not measured wakeable, then REJECTS and force-retires it. That happened to 1270ad0 at 23:58 and to 24169e4 at 00:08. ref-12b2327f63d80a6d5cdd now holds the same dialog (Observer: health waiting, read=dialog). Two of the codex reliefs so far are lost this way, and Ops re-mints each one (006-r2, 008-r2). Ops filed the minter fault to Engineering as daytime work (rpt-ops-g30-eng-codex-daybreak-nudge-rejects-mint-1019). DECISION: dismiss the nudge with esc, not 'Set up security', on cf886189 and on each codex lead that draws it tonight, so the minter admits the seat. No account setup. DEFAULT if no word: Ops keeps re-minting and I give work to whatever comes up READY. That means a slower codex ramp, not a stop.",
+  "artifacts": [],
+  "from": "admiral-robotics-review-v2",
+  "from_seat": "admiral-robotics-review-v2",
+  "re": "rpt-ops-g30-eng-codex-daybreak-nudge-rejects-mint-1019"
+}

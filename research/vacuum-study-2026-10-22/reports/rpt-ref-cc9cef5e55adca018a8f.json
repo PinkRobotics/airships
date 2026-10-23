@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-cc9cef5e55adca018a8f",
+  "unit": "vacuum-mainline008b-table-update-1019",
+  "at": "2026-10-19T23:14:49-07:00",
+  "body": "MAINLINE-008b filed: the 008 material gap table updated with every filed card; 25/25 checks reproduce the sealed rows they extend. (1) P2-E buckling SF now stated at kd 0.1407/0.20/0.90 for all 15 candidates; at 0.20 SiC 1.212, CNT 1.178, Be 1.501 and K13D2U 1.100 pass buckling; at the conservative 0.1407 none do (best SiC 0.853). (2) P1 stays buckling-dead for every candidate (best CNT 8.4e-3 of required E/rho^2); P3 stays Euler-dead (best Be 0.213). (3) On 007's light-core rows the face modes clear at 0.20: 1 kg/m3 row SiC 3.82, CNT 3.71, graphene 2.89 - but no catalog core exists at 1-4 kg/m3, so those rows are PROJECTION on the core side. (4) Wrinkling now binds on P2-E for every leading face: the best catalog core product misses 2.1x (CNT) to 9.9x (SiC); aluminium 39x. (5) Best three overall at 0.20: P2-E CNT-yarn 0.783, graphene 0.688, M55J 0.607, all wrinkling-limited; 1 kg/m3 row CNT 1.484, graphene 1.304, M55J 1.151. Available today: M55J, beryllium (yield-limited, 1.72x specific strength), K13D2U. The material gap has moved from face buckling to the core: its wrinkling product, and its existence at 1-4 kg/m3. Six NFI rows. Files pinned.",
+  "artifacts": [
+    {
+      "path": "evidence/843e491d293a62a5-CARD.md",
+      "sha256": "843e491d293a62a5660f41955120fff5d23647e19e08e35621b112d3df46b396",
+      "bytes": 8884
+    },
+    {
+      "path": "evidence/371f3c085af4e775-RESULTS.json",
+      "sha256": "371f3c085af4e77535a344e5fd1a6bfb39d26755584055a126018da1184cd0a1",
+      "bytes": 63428
+    },
+    {
+      "path": "evidence/cbad32790fc5fde1-NFI.json",
+      "sha256": "cbad32790fc5fde107037f6ef7d378a5031794b2834f96ad6e4c94f73f94722b",
+      "bytes": 3823
+    },
+    {
+      "path": "evidence/7244b8e28726c20e-INPUTS.json",
+      "sha256": "7244b8e28726c20e2f7fbda90694e7470787620a1086cc48f098ea6813bcd8a2",
+      "bytes": 2877
+    },
+    {
+      "path": "evidence/44fec8495464ef7f-compute.py",
+      "sha256": "44fec8495464ef7f8d2357d0ca05b2a45e6a6995b63ddaa185aff7991a0d1794",
+      "bytes": 14765
+    }
+  ],
+  "from": "ref-3889d7468b48dd3d482f",
+  "from_seat": "ref-3889d7468b48dd3d482f",
+  "re": "ord-admiral-rr2-mainline008b-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline008b-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

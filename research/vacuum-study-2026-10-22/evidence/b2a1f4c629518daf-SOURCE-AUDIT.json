@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline032-check-1020",
+  "rows": [
+    {
+      "id": "NASA-EQ2212",
+      "source": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "location": "printed p. 2-33; PDF page 75",
+      "status": "verified_visually",
+      "finding": "Numerator is 0.82*(Ec*tf/(eta*Ef*tc))^(1/2)*(eta*Ef); denominator is 1+0.64*Kdelta. Equation 2.2-13 defines Kdelta=delta*Ec/(tc*Fc).",
+      "evidence": "sources/nasa-eq2212.png"
+    },
+    {
+      "id": "NASA-FC",
+      "source": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "location": "printed p. 2-29; PDF page 71",
+      "status": "verified_visually",
+      "finding": "Fc is the lowest flatwise core compression, core tension, and core-to-facing bond strength. Stabilized compression is only one candidate.",
+      "evidence": "sources/nasa-fc-definition.png"
+    },
+    {
+      "id": "HEXCEL-5056",
+      "source": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "location": "Table II, 3/8 inch, 1.0 pcf; PDF p. 5",
+      "status": "verified_visually",
+      "finding": "Bare compression 55 psi typical / 25 psi minimum average; stabilized 60 / 35 psi; compression modulus 15 ksi typical; crush strength 35 psi typical. Tests at 0.625 inch. The min column means minimum average for a product type.",
+      "evidence": "sources/hexcel-table2.png"
+    },
+    {
+      "id": "NASA-BIAXIAL",
+      "source": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "location": "printed p. 2-33, Eqs. 2.2-15/16; rationale at p. 2-26",
+      "status": "verified",
+      "finding": "Wrinkling interaction Rx^3+Ry=1 uses separately normalized uniaxial critical loads. Equal critical loads and equal applied compression yield the scalar cubic. The earlier rationale is large-aspect-ratio flat plates.",
+      "evidence": "sources/nasa-eq2212.png"
+    },
+    {
+      "id": "NASA-DIMPLING",
+      "source": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "location": "printed pp. 2-2, 2-4, 2-7",
+      "status": "verified",
+      "finding": "Intracell uniaxial coefficient K=2 uses cell size across flats. Its biaxial interaction is Rx+Ry=1, giving one half for equal compression. The text says sufficiently large dimples can precipitate wrinkling; separate scalar margins are not proof of independence."
+    },
+    {
+      "id": "NASA-DESIGN033",
+      "source": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+      "location": "printed pp. 2-32/33",
+      "status": "verified",
+      "finding": "0.33 is selected from test data, not a measured wave. The test subset excludes poor bonds with flatwise tension below compression and uses cases close to elastic behavior. Final matching-configuration tests are recommended."
+    },
+    {
+      "id": "FPL1810A",
+      "source": "https://ir.library.oregonstate.edu/downloads/2f75rc704",
+      "location": "title; printed pp. 1–2, 5–6, 12–13",
+      "status": "primary_pdf_retrieved",
+      "finding": "Norris, Boller and Voss. Cell size affects wrinkling wavelength; fitted wavelength is not necessarily equal to cell size. Original-wave scaling assumptions differ between continuous and honeycomb cores.",
+      "evidence": "sources/fpl1810a.pdf"
+    },
+    {
+      "id": "FPL1810",
+      "source": "https://www.fpl.fs.usda.gov/documnts/fplr/fplr1810.pdf",
+      "location": "Part I introduction, printed p. 2; authors cross-checked against CR-1457 ref. 2-9",
+      "status": "primary_indexed_excerpt_read_full_download_unavailable",
+      "finding": "Fourier components near the critical wavelength are amplified; neighboring wavelengths can also contribute. Complete cited author list: Norris, Ericksen, March, Smith and Boller. March, not Kommers, is the third author.",
+      "access_note": "Direct PDF fetch returned HTTP 502; primary-source indexed passage was read in web search. No full local PDF or checksum is claimed."
+    },
+    {
+      "id": "HEXCEL-TELEGRAPH",
+      "source": "https://www.hexcel.com/wp-content/uploads/2026/01/Honeycomb_Sandwich_Design_Technology.pdf",
+      "location": "printed p. 5",
+      "status": "primary_pdf_retrieved",
+      "finding": "Larger cells with thin skins may telegraph into a dimpled surface; no numerical depth or qualified Be-bonded waveform tolerance is supplied.",
+      "evidence": "sources/hexcel-design.pdf"
+    },
+    {
+      "id": "FLATIRON",
+      "source": "https://www.flatironpanelproducts.com/wp-content/uploads/2020/02/Flatiron-Stock-AHP04038-Data-Sheet-2-11-2020.pdf",
+      "location": "one-page stock-panel sheet",
+      "status": "primary_pdf_retrieved",
+      "finding": "Flatness is ±0.008 inch per radial foot. Selected stock variants have 0.040 inch faces, 3003 aluminum core and 5052-H32 faces. A separate 0.125 inch panel variant uses 0.020 inch faces. These are panel tolerances, not critical-mode amplitude measurements.",
+      "evidence": "sources/flatiron.pdf"
+    },
+    {
+      "id": "HONYLITE",
+      "source": "https://www.honylite.com/materials/strength-flatness-inserts",
+      "location": "Strength & Flatness",
+      "status": "primary_page_retrieved",
+      "finding": "Balanced aluminum panels: ±0.7 mm per radial metre, conditional on panel construction and fixturing.",
+      "evidence": "sources/honylite.html"
+    },
+    {
+      "id": "QC",
+      "source": "https://qcfacades.com/wp-content/uploads/2019/05/190101_Honeycomb-Flatness-Guarantee.pdf",
+      "location": "flatness guarantee FG190101",
+      "status": "primary_pdf_retrieved",
+      "finding": "Wave ±1 mm and overall ±1/16 inch (printed parenthetic 1.5 mm) per 60 inch. The parenthetic metric number is a rounded manufacturer statement, not an exact inch conversion.",
+      "evidence": "sources/qc.pdf"
+    },
+    {
+      "id": "INDY",
+      "source": "https://indyhoneycomb.com/wp-content/uploads/2023/04/IHSS-N1_C.pdf",
+      "location": "§6.1 and scope",
+      "status": "primary_pdf_retrieved",
+      "finding": "Finished welded metallic core within 0.010 inch under hold-down of no more than 7 psi; local steps no more than 0.003 inch. Scope lists titanium, nickel alloys and stainless steel, not this bonded aluminum/Be sandwich.",
+      "evidence": "sources/indy.pdf"
+    },
+    {
+      "id": "SAE",
+      "source": "https://saemobilus.sae.org/standards/ams7902h-beryllium-sheet-plate-98be",
+      "location": "official public record",
+      "status": "scope_verified_flatness_classes_unverified",
+      "finding": "Official H record confirms hot-rolled Be sheet/plate and the nominal thickness scope, but the retrieved public page does not expose §3.5.5 or quantitative flatness classes. This check cannot confirm the owner's three-class statement from primary text.",
+      "evidence": "sources/sae.html"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "NFI_id": "CHECK-NFI-1",
+    "gap": "No numeric mismatch was found. At the equal-factor split (densities 8, 6, 4, 3, 1) SF_b and SF_y are equal; a checker's strict inequality can label that tie either way by the last bit.",
+    "direction": "Keep the card's both_equal label. No fix card.",
+    "effect": "None. Least SF is unchanged."
+  },
+  {
+    "NFI_id": "NFI-AL-YIELD-CARRY",
+    "gap": "Confirmed: 276 MPa is a typical tensile yield transferred to compression, QUESTIONABLE. Yield cannot reach SF 1 on this ceiling: all-face SF 0.7773844341284152, strength factor 1.28636483585 with no core, 1.35679953494 at the named peak, 2.57095082176 where buckling first reaches 1.",
+    "direction": "A compression yield or design allowable.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-DENSITY",
+    "gap": "Confirmed: least SF rises as density falls through the named set, peaking at 1 kg/m3 (0.7370285545124737), and my 0.25-64 kg/m3 scan has no interior peak (0.7672968655351241 at 0.25). No sourced structural core was retrieved at 1-8 kg/m3.",
+    "direction": "Do not treat 1 kg/m3 as a proved best density.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-SAND/SHEAR/WRINKLE/CRUSH",
+    "gap": "Confirmed: stated SF omits core shear, face wrinkling and core crush; advisory crimp (Gc = pR/(2*sep)), wrinkling product ((2*membrane)^3/E) and crush (p/2, QUESTIONABLE, not an equilibrium solution) are beside the row. Catalog cores at 16-38 kg/m3 clear advisory crush and crimp; wrinkling products miss by roughly 40-180x; aluminium honeycomb Ec is open.",
+    "direction": "007b, checked separately.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-KD",
+    "gap": "Confirmed: kd stays 0.2. Buckling pressure and SF scale with kd; the modulus factor scales as 1/kd; yield, membrane, crimp, wrinkling product and crush do not move with kd.",
+    "direction": "MAINLINE-004 is one multiplication.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-GEOM/MASS/RULE/CORE-FLOOR/DATASHEET/MICROLATTICE",
+    "gap": "Confirmed as stated by the owner: external area/volume ignore intrusion (the 1 kg/m3 buckling-peak core is 1.8145766829090553 m); joints 5% and systems 100 kg are inherited; the splits optimise only buckling and QUESTIONABLE yield; no catalog core with sourced Gc, Ec and strength exists at 8-1 kg/m3; the Plascore psi/MPa and Divinycell rev7/rev9 disagreements are kept visible; the 0.9 kg/m3 microlattice is density only.",
+    "direction": "Owner directions stand.",
+    "effect": "None inside the compared numbers."
+  }
+]

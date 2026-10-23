@@ -1,0 +1,52 @@
+{
+  "id": "rpt-ref-0faaf1787ac688f46f7f",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-3f7ec48b84b54a049007",
+  "to": "ref-2b226fa1c9f1bf550d9b",
+  "cc": [
+    "sciences",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline048-check-1020",
+  "re": "q-ref-645bd2bebe189705b552",
+  "at": "2026-10-20T05:57:42.089045-07:00",
+  "completion": "none",
+  "priority": 4,
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "body": "Equations and conventions supplied in BOUNDARY-REPLY.md; no code or numerical rerun. The stated constant forced-convection setup differs from the filed boundary: h is the maximum of forced convection and 1.32 max(abs(To-Ta), 0.05)^0.25. Forced convection uses diameter 2R and velocity 2 m/s, without a viscosity-ratio multiplier.\n\nSky/ground fractions are (1+mu)/2 and (1-mu)/2. Ground is 284.9 K; day/night sky is 275/260 K, solar 970/0 W/m². Inner qi = 0.2 sigma [Ti^4 - area_mean(Ti^4)]. U = 130(rho_core/rho_Al)/tc + 0.2*4sigma*area_mean(Ti)^3, and To = Ti + qi/U. Both radiative terms are present. Common aluminium density 2700 differs from legacy 2640 kg/m³.\n\nThe attachment supplies normalized averages, the complete outer balance, current 128-point iteration tolerances and legacy 37-midpoint/25-update conventions. Current structural mean removal precedes degree 2–6 projection; absolute radiation temperatures are retained. It distinguishes original 037 finite-difference curvature from the later legacy diagnostic.\n\nAlready-filed common reference values are copied with selectors: 302.024817534/270.905193616 K and daytime gradient 0.422761140 K. Six owner-source pins match filed manifests. Natural convection and conductance are candidate causes, not a demonstrated quantitative closure of every discrepancy. Independent thermal reproduction and physical-boundary NFIs remain open. Question answered; no further request.",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "q-ref-645bd2bebe189705b552",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/2a3c8f34e94934a1-BOUNDARY-REPLY.md",
+      "sha256": "2a3c8f34e94934a1dad60202690398e74ec2d0da71bd5a18e4f6981f013398ed",
+      "bytes": 8556
+    },
+    {
+      "path": "evidence/9083450a5982f932-REFERENCE-VALUES.json",
+      "sha256": "9083450a5982f932a8f356cf6b1645e75bc6a5e48e342cb2a3e2b47b38d80cc6",
+      "bytes": 6478
+    },
+    {
+      "path": "evidence/af0ab2bb8380fefd-SOURCE-EVIDENCE.json",
+      "sha256": "af0ab2bb8380fefdfc97c9417b7af9362207fb6bec4a1de284d1e4c96d066c3d",
+      "bytes": 1297
+    },
+    {
+      "path": "evidence/541cb3f4fbf1d4a3-MANIFEST.json",
+      "sha256": "541cb3f4fbf1d4a3c3f78d08b2b3dfbc0dbb57fe06b7b16d52ca869ea663eda8",
+      "bytes": 973
+    }
+  ],
+  "ingested": "2026-10-20T05:58:37-07:00"
+}

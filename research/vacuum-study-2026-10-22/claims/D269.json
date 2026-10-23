@@ -1,0 +1,82 @@
+{
+  "id": "D269",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D269",
+    "report": "rpt-ref-52963d63a80d69bb90bd",
+    "file": "evidence/d298a85ef299552d-NFI.json",
+    "snapshot": "evidence/d298a85ef299552d-NFI.json",
+    "source_sha256": "d298a85ef299552db215a5f8be55e3f6ff45590b248b47fc9a6c4752a12e2b6b",
+    "source_json_pointer": "/rows/5",
+    "row_id": "CHECK041-NFI-06",
+    "fields": {
+      "id": "CHECK041-NFI-06",
+      "status": "open",
+      "topic": "Local curved-tube wall interaction",
+      "finding": "Independent peak-compression local sensitivities are 1.0332229353980462 and 0.9781320168028794. The 019 witness is below unity under that surrogate. Neither the axial-only nor peak-substitution interaction is qualified for curved ceramic tubes.",
+      "action": "Keep the sub-unity sensitivity visible and establish combined axial/bending local-wall response using geometry-resolved shell analysis and matched evidence.",
+      "evidence": [
+        "SCALAR-CHECK.json",
+        "CHECK.md"
+      ],
+      "stops_work": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/rows",
+    "blocks_progress": false
+  },
+  "claim": "Independent peak-compression local sensitivities are 1.0332229353980462 and 0.9781320168028794. The 019 witness is below unity under that surrogate. Neither the axial-only nor peak-substitution interaction is qualified for curved ceramic tubes.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1229"
+    },
+    {
+      "report": "rpt-ref-52963d63a80d69bb90bd",
+      "artifact": "evidence/d298a85ef299552d-NFI.json",
+      "snapshot": "evidence/d298a85ef299552d-NFI.json",
+      "sha256": "d298a85ef299552db215a5f8be55e3f6ff45590b248b47fc9a6c4752a12e2b6b",
+      "bytes": 7501,
+      "selector": "/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-52963d63a80d69bb90bd",
+          "artifact": "evidence/d298a85ef299552d-NFI.json",
+          "snapshot": "evidence/d298a85ef299552d-NFI.json",
+          "sha256": "d298a85ef299552db215a5f8be55e3f6ff45590b248b47fc9a6c4752a12e2b6b",
+          "bytes": 7501,
+          "selector": "/rows/5"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1229"
+          }
+        ]
+      }
+    }
+  ]
+}

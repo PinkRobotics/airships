@@ -1,0 +1,44 @@
+{
+  "id": "E-e781873619aa901750f1",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-e781873619aa901750f1",
+    "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+    "file": "evidence/8225ec6358048fa7-NFI.json",
+    "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+    "source_sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+    "source_json_pointer": "/owner_053_open_groups/2",
+    "row_id": "NFI-053-OPTICAL-TRANSFER",
+    "fields": {
+      "id": "NFI-053-OPTICAL-TRANSFER",
+      "status": "OPEN",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "title": "Installed multilayer CCAg/ITO optical pair",
+      "finding": "The .09/.80 pair is a class-level transfer, not the exact deposited recipe on Be after terrestrial weathering or wetting.",
+      "needed": "Measure hemispherical emittance and solar absorptance for the actual treated Be, thickness, ITO, edge and aging state.",
+      "references": [
+        "inputs/048/COATINGS.json",
+        "sources/nasa_ccag2018.pdf"
+      ]
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The .09/.80 pair is a class-level transfer, not the exact deposited recipe on Be after terrestrial weathering or wetting. | Installed multilayer CCAg/ITO optical pair",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+      "artifact": "evidence/8225ec6358048fa7-NFI.json",
+      "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+      "sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+      "bytes": 11519,
+      "selector": "/owner_053_open_groups/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

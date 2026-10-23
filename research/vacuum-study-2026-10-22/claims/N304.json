@@ -1,0 +1,70 @@
+{
+  "id": "N304",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N304",
+    "report": "rpt-mainline007b-check-lead4f19-1019",
+    "card": "CHECK-MAINLINE-07B",
+    "file": "evidence/ef98a0f4f10c64ba-NFI.json",
+    "row_id": "NFI-CORE-FLOOR",
+    "fields": {
+      "NFI_id": "NFI-CORE-FLOOR",
+      "gap": "Confirmed: densities 8-1 have no sourced Gc/Ec and are not revised; the microlattice has no modulus and no SF.",
+      "direction": "Do not extrapolate catalog moduli downward.",
+      "effect": "Owner statement stands."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-CORE-FLOOR\", \"gap\": \"Confirmed: densities 8-1 have no sourced Gc/Ec and are not revised; the microlattice has no modulus and no SF.\", \"direction\": \"Do not extrapolate catalog moduli downward.\", \"effect\": \"Owner statement stands.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/303"
+    },
+    {
+      "report": "rpt-mainline007b-check-lead4f19-1019",
+      "artifact": "evidence/ef98a0f4f10c64ba-NFI.json",
+      "snapshot": "evidence/ef98a0f4f10c64ba-NFI.json",
+      "sha256": "ef98a0f4f10c64baf48c71126ec97370046a7bec217d78078c575fd1b17db55e",
+      "bytes": 2367,
+      "selector": "source row ID: NFI-CORE-FLOOR"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline007b-check-lead4f19-1019",
+          "artifact": "evidence/ef98a0f4f10c64ba-NFI.json",
+          "snapshot": "evidence/ef98a0f4f10c64ba-NFI.json",
+          "sha256": "ef98a0f4f10c64baf48c71126ec97370046a7bec217d78078c575fd1b17db55e",
+          "bytes": 2367,
+          "selector": "source row ID: NFI-CORE-FLOOR"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/303"
+          }
+        ]
+      }
+    }
+  ]
+}

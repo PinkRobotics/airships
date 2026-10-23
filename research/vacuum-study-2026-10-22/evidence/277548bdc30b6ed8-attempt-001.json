@@ -1,0 +1,42 @@
+{
+  "started": "2026-10-20T12:40:00.059223+00:00",
+  "finished": "2026-10-20T12:40:00.406200+00:00",
+  "elapsed_seconds": 0.34697381081059575,
+  "returncode": 0,
+  "argv": [
+    "ref-81e2f24e4e80426e80f0",
+    "unpublished-local-ref:980d4c4fabc274c6",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "1G",
+    "--timeout",
+    "7200",
+    "--",
+    "ref-81e2f24e4e80426e80f0",
+    ".ship/work/outputs/vacuum-mainline053-thermal-table-settled-1020/thermal53.py",
+    "--probe"
+  ],
+  "argv_sha256": "f164b3d22e48d254f696751fbdb7be14b875044882f1e71dcf0adc3869bd994b",
+  "resources": {
+    "cores": 1,
+    "memory": "1G",
+    "timeout_seconds": 7200
+  },
+  "source_pins": [
+    {
+      "path": "evidence/670c39ca04e5efa1-run_job53.py",
+      "sha256": "670c39ca04e5efa1da0b5949cf6680eb43a890c75ede3c59afa7fa17df8a41a2",
+      "bytes": 2160
+    },
+    {
+      "path": "evidence/36ab3598ffacd578-thermal53.py",
+      "sha256": "36ab3598ffacd5789728616323e25b276cf0ddce7a50e16c6845d801d1d54fff",
+      "bytes": 10181
+    }
+  ],
+  "stdout": "unpublished-local-ref:98a36c06ee48f308",
+  "stderr": "unpublished-local-ref:e4442ce985b949ae",
+  "no_time_budget": true
+}

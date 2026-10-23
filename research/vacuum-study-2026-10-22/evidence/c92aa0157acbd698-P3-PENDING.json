@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "mark": "PENDING-011b",
+  "main_point": "P2 SiC / Divinycell H35, already filed in rpt-ref-d5b4aaa267b71d82fe25",
+  "alternative": {
+    "family": "P3",
+    "status": "PENDING-011b",
+    "source": "rpt-ref-f21d4bd21d2026511818",
+    "sic_least_SF_on_011_modes_margin_0": 2.8485,
+    "aluminium_6061_least_SF_on_011_modes": 0.233,
+    "not_the_main_point": "Two modes are absent from 011. The main point stays the P2 sandwich."
+  },
+  "rows": [
+    {
+      "id": "NFI-P3-LATTICE",
+      "mode": "global lattice buckling",
+      "optimistic": "about 0.70, perfect, equivalent-continuum, at 011's 6061 optimum",
+      "with_knockdown_0.2_to_0.5": "about 0.14 to 0.35",
+      "source": "ord-admiral-rr2-mainline009-p3-pending-011b-1019, reporting the robotics seat's estimate. Not recomputed here.",
+      "tag": "QUESTIONABLE",
+      "direction": "MAINLINE-011b, the 011 owner."
+    },
+    {
+      "id": "NFI-P3-BENDING",
+      "mode": "member bending from the film line load",
+      "optimistic": null,
+      "conservative": null,
+      "factor": null,
+      "condition": "The mode is absent unless every member is an arc of the sphere.",
+      "source": "ord-admiral-rr2-mainline009-p3-pending-011b-1019",
+      "tag": "QUESTIONABLE",
+      "direction": "MAINLINE-011b."
+    }
+  ]
+}

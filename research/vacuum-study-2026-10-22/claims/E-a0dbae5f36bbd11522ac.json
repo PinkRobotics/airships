@@ -1,0 +1,40 @@
+{
+  "id": "E-a0dbae5f36bbd11522ac",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-a0dbae5f36bbd11522ac",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/12",
+    "row_id": "C055-13",
+    "fields": {
+      "id": "C055-13",
+      "title": "Reis and R30 similarity conventions must be explicit",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The 356.777mm width uses legacy nu=0.33; with Be nu=0.0752 its Reis lambda is about 1.0278. R30 R/t_eq is 164.871, despite R/h=285.565, so the two thickness ratios cannot be interchanged in the thin-shell discussion. R30 FE also uses nu=0.0752 while its 040 source uses 0.0768. These are small arithmetic/convention changes inside a larger unproved sandwich transfer.",
+      "proposed_fix": "Report both ratios and Poisson conventions. Preserve homogeneous neo-Hookean versus sandwich distinctions and compare R30 against its actual 97.172303kPa design load."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Reis and R30 similarity conventions must be explicit",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/12"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

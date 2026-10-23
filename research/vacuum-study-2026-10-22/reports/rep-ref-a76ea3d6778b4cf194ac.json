@@ -1,0 +1,54 @@
+{
+  "id": "rep-ref-a76ea3d6778b4cf194ac",
+  "unit": "vacuum-mainline063-favorable-spread-1020",
+  "at": "2026-10-20T14:30:38-07:00",
+  "body": "MAINLINE-063 is complete. Inputs are QUESTIONABLE. Targets are PROJECTION. No qualified hull safety factor. Simjob simjob-20261020t141536-2e6f2680cba4 exited 0 after 222 s and reproduced 061 at R 20 and R 30, both weathers and both bases.\n\nThe float rests on the favorable gamma ramp and Q=0.82 together. At R 30 the joint revert returns 95.7% of the log-spread, 1.55 times the separate log-deltas added. ISA density factor 2.0802, against endpoint 1.0593 and handbook 2.1435. Optimistic 2.1806, against 1.1001 and 2.2480. Alone, gamma is 48.9% and 49.8%, Q is 13.0% and 11.9%, film 2.8%, modulus 0.3%, strength 0.0%. Scarf shear already binds, so the 379.2 MPa lot adds nothing.\n\nFrom the handbook, gamma and Q stay short of closure at their caps (gamma 1, Q 0.82). Closure in this model is face density divided by 2.1435 (ISA, 863 kg/m³) or 2.2480 (optimistic, 823 kg/m³). Modulus alone closes only in ISA, at 626 GPa, past the 306.9 GPa polycrystal limit. Left favorable, concept still needs density divided by 1.0593 or 1.1001. R 30 TRL 7, +5595 kg and +1457 kg, turns negative if either coefficient returns to the handbook.\n\nThe gamma ramp is not admissible. Handbook 0.20 is admissible as the CR-1457 hemisphere value, with that limit. Q=0.82 is the classical cap. Q=0.33 is the 1969 design coefficient, admissible with that limit. Settles: ground-first rank 5 coupon T3 at 6–18 kUSD, and rank 1 gamma shell then T7 at 30–90 kUSD. FE-NEXT's measured article remains the bar. Files pinned. Stopping.",
+  "artifacts": [
+    {
+      "path": "evidence/8f23c591f42c4336-CARD.md",
+      "sha256": "8f23c591f42c4336587e664b50c38032ec47108871399194040a7089c5747bf2",
+      "bytes": 9701
+    },
+    {
+      "path": "evidence/5faf7ef236dcc9e1-RESULTS.json",
+      "sha256": "5faf7ef236dcc9e1a499ad4f08dec6fde716e5f21c0094b019be97c7ff1d718c",
+      "bytes": 27804
+    },
+    {
+      "path": "evidence/fe76256702f79b00-NFI.json",
+      "sha256": "fe76256702f79b005ad1f8e0b3507237450e99e8e675dd44d66b5a24d1867fed",
+      "bytes": 4770
+    },
+    {
+      "path": "evidence/4ced2e2436f604e5-INPUTS.json",
+      "sha256": "4ced2e2436f604e54abf4829e550695f1a512c2db32818ae8010204c4be45199",
+      "bytes": 13827
+    },
+    {
+      "path": "evidence/605f21394c7eb9ff-CALCULATIONS.json",
+      "sha256": "605f21394c7eb9ffc5b496380e3902db064707d3e0dcdfec39146d70c9d5f924",
+      "bytes": 111640
+    },
+    {
+      "path": "evidence/fb44ff0bcb850e4d-run63.py",
+      "sha256": "fb44ff0bcb850e4def46357f643a31a22c026f01915f18e17b19b4a6bb12aef8",
+      "bytes": 10485
+    },
+    {
+      "path": "evidence/2c44efb4bb78a17d-model63.py",
+      "sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+      "bytes": 19294
+    }
+  ],
+  "from": "ref-c2b5eb53ebd961120893",
+  "from_seat": "ref-c2b5eb53ebd961120893",
+  "re": "ord-admiral-rr2-mainline063-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline063-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

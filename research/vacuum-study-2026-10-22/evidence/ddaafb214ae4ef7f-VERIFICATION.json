@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Membrane force conservation over 18 independent states",
+    "status": "PASS",
+    "details": {
+      "maximum_residual_N_per_m": 2.3283064365386963e-10,
+      "states": 18
+    }
+  },
+  {
+    "name": "Finite release conservation over 365 topups",
+    "status": "PASS",
+    "details": {
+      "release_Pa": 30.407732685049314,
+      "inventory_Pa": 30.407732685049066
+    }
+  },
+  {
+    "name": "Occurrence conservation without duplicating inner/outer thermal cycles",
+    "status": "PASS",
+    "details": {
+      "component_rows": 1113,
+      "component_cycle_totals": {
+        "028b_250F": 111207,
+        "028b_200F": 111207,
+        "037b_fix": 111207
+      },
+      "pad_annual_cycles": 111730
+    }
+  },
+  {
+    "name": "All eight independent pad allocations close",
+    "status": "PASS",
+    "details": {
+      "maximum_absolute_D10_residual": 4.163336342344337e-17
+    }
+  },
+  {
+    "name": "Mass bill closes with systems and fixed reserve still charged",
+    "status": "PASS",
+    "details": {
+      "physical_structural_joining_kg": 4378.143206115311,
+      "systems_kg": 100,
+      "fixed_reserve_kg": 411.2989440716474,
+      "lift_kg": 4889.442150186961
+    }
+  },
+  {
+    "name": "Independent Fig10 reading agrees within declared 0.03 reading band",
+    "status": "PASS",
+    "details": {
+      "max_normalized_curve_difference": {
+        "L": 0.005081534824974199,
+        "W": 0.006367356679461977
+      },
+      "meaning": "Digitization agreement only; not density transfer validation."
+    }
+  },
+  {
+    "name": "Static-invalid cycle remains marked despite finite extrapolated N",
+    "status": "PASS",
+    "details": {
+      "250F_vent_core_response": {
+        "N": 145.7990198208459,
+        "test_horizon_capped_N": 145.7990198208459,
+        "equivalent_fraction": 1.1278802805749994,
+        "static_SF": 0.9593665877092824,
+        "classification": "high_stress_extrapolation;static_overload"
+      }
+    }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "NFI_id": "CHECK-NFI-1",
+    "gap": "Owner report body calls every baseline a sealed 002 baseline. P2-E/baseline (face 0.000248148148148 m, core 0.08375 m) is an equal-mass split constructed at the 002 P2 counted mass, not a sealed 002 geometry.",
+    "direction": "Relabel that one row as the equal-split row at the 002 P2 mass. No number changes.",
+    "effect": "Provenance only. All P2-E baseline numbers reproduce."
+  },
+  {
+    "NFI_id": "NFI-KD-020",
+    "gap": "Confirmed: buckling uses kd 0.2 from MAINLINE-002 and scales linearly with kd. Yield does not move with kd.",
+    "direction": "Multiply buckling SF by kd/0.2 when a later card adopts another knockdown.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-KNEE",
+    "gap": "Confirmed: knee is the largest finite-difference drop per 100 kg on the tabulated margins, sorted by payload, not a fitted optimum.",
+    "direction": "A denser margin grid if a smoother knee is needed.",
+    "effect": "Owner statement stands."
+  },
+  {
+    "NFI_id": "NFI-YIELD",
+    "gap": "Confirmed: yield is 276 MPa tensile yield transferred to compression, QUESTIONABLE.",
+    "direction": "A compression allowable.",
+    "effect": "Yield SF scales linearly with that allowable."
+  },
+  {
+    "NFI_id": "NFI-SHEAR",
+    "gap": "Confirmed: sandwich buckling omits core shear and uses the 002 formula.",
+    "direction": "A sandwich formula with shear (007b supplies one for its rows).",
+    "effect": "Buckling SF would move if the pressure formula moved."
+  }
+]

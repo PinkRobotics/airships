@@ -1,0 +1,370 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-016",
+  "unit": "ref-81587374594cae9c1e2e-nfi-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-19T23:37:00-07:00",
+  "reports": {
+    "001": "vacuum-mainline-estimates-owner3000-1019",
+    "002": "vacuum-mainline002-strength-owner1200-1019",
+    "003": "vacuum-mainline003-p2-targets-owner1200-1019",
+    "009": "rpt-ref-d5b4aaa267b71d82fe25"
+  },
+  "note": "MAINLINE-012 was not filed when this card ran; its 1/T and pressure terms are derived here from rho = p/(R_air T) on the pinned 500 m ISA case. The five scored mode safety factors are MAINLINE-009's pinned numbers, imported, not recomputed. The base point is 009's P2 sandwich.",
+  "pins": [
+    {
+      "path": "unpublished-local-ref:3a9786252b59f32d",
+      "sha256": "cd551e0da5584132542f6e2bd0c0d9344c225ebf9ac9b5aa120be6255aec487f",
+      "bytes": 1992
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063
+    },
+    {
+      "path": "evidence/a724c23d825f5134-CARD.md",
+      "sha256": "a724c23d825f5134f1cdb5dd1010180fb6844509748bb79770df94d7505fb868",
+      "bytes": 7132
+    },
+    {
+      "path": "evidence/f109f7eee35012a7-RESULTS.json",
+      "sha256": "f109f7eee35012a705e68805b63c1eb107a26f51d609b4e18a48277a9fddfeef",
+      "bytes": 13427
+    },
+    {
+      "path": "evidence/2815ce006a563a48-INPUTS.json",
+      "sha256": "2815ce006a563a486e14e1d4779d62cfa3304f850998b0aebd1960ed07b73986",
+      "bytes": 4652
+    },
+    {
+      "path": "evidence/d728af6ca61595e1-RESULTS.json",
+      "sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "bytes": 13071
+    },
+    {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    {
+      "path": "evidence/33ee112c1cb1a4b5-CARD.md",
+      "sha256": "33ee112c1cb1a4b5fe2460554b46bd68963cb980f49b06964fe672199132c4d8",
+      "bytes": 5667
+    }
+  ],
+  "inherited_values_used": [
+    {
+      "name": "atmosphere",
+      "value": {
+        "R_m": 10.0,
+        "p_ext_Pa": 95460.83791390515,
+        "T_K": 284.9,
+        "rho_air": 1.1672683307461802,
+        "lift_kg": 4889.442150186961
+      },
+      "tag": "QUESTIONABLE",
+      "source": "COMMON.md pinned case, MAINLINE-001/002/003"
+    },
+    {
+      "name": "P2 geometry",
+      "value": {
+        "tf_m": 0.00027215364631557974,
+        "core_m": 0.04624190488644608
+      },
+      "tag": "QUESTIONABLE",
+      "source": "MAINLINE-009 RESULTS.json"
+    },
+    {
+      "name": "masses and margin",
+      "value": {
+        "faces_kg": 2120.3898218634963,
+        "core_kg": 2208.1530759247057,
+        "joints_allowance_kg": 216.4271448894101,
+        "systems_kg": 100.0,
+        "total_kg": 4644.970042677613,
+        "margin_kg": 244.47210750934846
+      },
+      "tag": "QUESTIONABLE",
+      "source": "MAINLINE-009 RESULTS.json"
+    },
+    {
+      "name": "mode safety factors at kd 0.20",
+      "value": {
+        "global_buckling": 0.23515931324953654,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.23516798404427022
+      },
+      "tag": "QUESTIONABLE",
+      "source": "MAINLINE-009 RESULTS.json, imported not recomputed"
+    },
+    {
+      "name": "SiC face properties",
+      "value": {
+        "E_Pa": 410000000000.0,
+        "rho": 3100.0,
+        "compressive_Pa": 3900000000.0,
+        "flexural_Pa": 380000000.0,
+        "nu": 0.33
+      },
+      "tag": "QUESTIONABLE",
+      "source": "MAINLINE-009 face_source: Saint-Gobain Hexoloy SA datasheet; MatWeb alpha SiC; nu carried"
+    },
+    {
+      "name": "H35 core",
+      "value": {
+        "density_kg_m3": 38.0,
+        "compressive_allow_Pa": 500000.0
+      },
+      "tag": "QUESTIONABLE",
+      "source": "compressive allowable backed out of MAINLINE-009 core_crush SF times the 005b core stress p/2; density DIAB Divinycell H datasheet via MAINLINE-007"
+    }
+  ],
+  "sourced_values_new_this_card": [
+    {
+      "name": "R_air, M_air, R_v, gamma air",
+      "value": {
+        "R_air": 287.05,
+        "M_air": 0.02897,
+        "R_v": 461.5,
+        "gamma": 1.4
+      },
+      "tag": "QUESTIONABLE",
+      "source": "CODATA gas constants, textbook air"
+    },
+    {
+      "name": "air viscosity, conductivity, Prandtl at 285 K",
+      "value": {
+        "mu_Pa_s": 1.79e-05,
+        "k_W_mK": 0.0257,
+        "Pr": 0.71
+      },
+      "tag": "QUESTIONABLE",
+      "source": "Incropera, Fundamentals of Heat and Mass Transfer"
+    },
+    {
+      "name": "solar clear-sky at 500 m",
+      "value": 970.0,
+      "unit": "W/m2",
+      "tag": "QUESTIONABLE",
+      "source": "ASHRAE clear-sky model class"
+    },
+    {
+      "name": "sky effective temperature day/night",
+      "value": [
+        275.0,
+        260.0
+      ],
+      "unit": "K",
+      "tag": "QUESTIONABLE",
+      "source": "atmospheric radiation literature, Bliss 1961 class"
+    },
+    {
+      "name": "coating and bare SiC alpha/epsilon",
+      "value": {
+        "coated": [
+          0.2,
+          0.9
+        ],
+        "bare_SiC": [
+          0.7,
+          0.85
+        ]
+      },
+      "tag": "QUESTIONABLE",
+      "source": "spacecraft thermal-control handbook bands (Gilmore class)"
+    },
+    {
+      "name": "convection correlation",
+      "value": "Whitaker sphere Nu = 2 + (0.4 Re^0.5 + 0.06 Re^(2/3)) Pr^0.4",
+      "tag": "QUESTIONABLE",
+      "source": "Incropera"
+    },
+    {
+      "name": "H35 core conductivity, specific heat, service limit",
+      "value": {
+        "k_W_mK": 0.03,
+        "cp_J_kgK": 1300.0,
+        "service_K": [
+          343.0,
+          353.0
+        ]
+      },
+      "tag": "QUESTIONABLE",
+      "source": "DIAB Divinycell H datasheet class, same source family as MAINLINE-007 pin"
+    },
+    {
+      "name": "H35 shear modulus and shear strength band",
+      "value": {
+        "Gc_Pa": 12000000.0,
+        "tau_allow_Pa": [
+          400000.0,
+          550000.0
+        ]
+      },
+      "tag": "QUESTIONABLE",
+      "source": "DIAB Divinycell H nominal columns"
+    },
+    {
+      "name": "CTE SiC and PVC foam",
+      "value": {
+        "SiC_per_K": 4.5e-06,
+        "PVC_per_K": 6e-05
+      },
+      "tag": "QUESTIONABLE",
+      "source": "MatWeb alpha SiC (009's cited sheet); PVC foam class, Zenkert Handbook of Sandwich Construction"
+    },
+    {
+      "name": "sandwich shear-lag formula",
+      "value": "lambda = sqrt(Gc/(E_f tf tc)); tau_max = dEps E_f tf lambda",
+      "tag": "QUESTIONABLE",
+      "source": "Zenkert, Handbook of Sandwich Construction"
+    },
+    {
+      "name": "CFRP helium permeance band",
+      "value": [
+        1e-06,
+        1e-05
+      ],
+      "unit": "scc/(m2 s) at 1 atm",
+      "tag": "QUESTIONABLE",
+      "source": "NASA composite cryotank permeation literature (Grimsley/Cano class); air divided by 50"
+    },
+    {
+      "name": "polymer outgassing band",
+      "value": [
+        1e-07,
+        1e-05
+      ],
+      "unit": "Pa m3/(s m2)",
+      "tag": "QUESTIONABLE",
+      "source": "O'Hanlon, A User's Guide to Vacuum Technology"
+    },
+    {
+      "name": "PVC foam resident moisture",
+      "value": [
+        0.005,
+        0.03
+      ],
+      "unit": "mass fraction",
+      "tag": "QUESTIONABLE",
+      "source": "PVC foam water-uptake data class"
+    },
+    {
+      "name": "Roots/screw pump class",
+      "value": {
+        "mass_band_kg": [
+          150.0,
+          400.0
+        ],
+        "efficiency_band": [
+          0.25,
+          0.4
+        ]
+      },
+      "tag": "QUESTIONABLE",
+      "source": "vacuum pump catalog class (Leybold, Kaeser)"
+    },
+    {
+      "name": "Hexoloy SA max plate today / conservative tile",
+      "value": [
+        0.5,
+        0.25
+      ],
+      "unit": "m",
+      "tag": "QUESTIONABLE",
+      "source": "Saint-Gobain Hexoloy SA product forms"
+    },
+    {
+      "name": "aluminium sheet width context",
+      "value": [
+        2.0,
+        4.0
+      ],
+      "unit": "m",
+      "tag": "QUESTIONABLE",
+      "source": "aluminium industry standard sheet widths"
+    },
+    {
+      "name": "doubler width, adhesive and splice densities",
+      "value": {
+        "b_doubler_m": [
+          0.06,
+          0.12
+        ],
+        "t_adh_m": [
+          0.0002,
+          0.0003
+        ],
+        "t_splice_m": [
+          0.0015,
+          0.003
+        ],
+        "rho_adh": 1250.0,
+        "rho_paste": 1100.0
+      },
+      "tag": "QUESTIONABLE",
+      "source": "owner assumption, epoxy film and paste datasheet class"
+    },
+    {
+      "name": "sphere drag, gust factor, hardpoints",
+      "value": {
+        "Cd": 0.47,
+        "gust_factor": 1.4,
+        "n_hardpoints": 6,
+        "kg_per_hardpoint": 8.0
+      },
+      "tag": "QUESTIONABLE",
+      "source": "textbook sphere Cd; ASCE-class gust factor; owner assumption"
+    },
+    {
+      "name": "climate temperature band at 500 m mid-latitude",
+      "value": {
+        "hot_afternoon_dT_K": 25.1,
+        "cold_dawn_dT_K": -11.9,
+        "synoptic_dp_pct": 2.0
+      },
+      "tag": "QUESTIONABLE",
+      "source": "no site named anywhere in the mainline; generic mid-latitude climate normals band"
+    },
+    {
+      "name": "surface water film band",
+      "value": [
+        0.0001,
+        0.001
+      ],
+      "unit": "m retained",
+      "tag": "QUESTIONABLE",
+      "source": "owner assumption"
+    }
+  ],
+  "formulas": {
+    "leak_budget": "lift_1pct = 0.01*lift; p_int = 0.01*p_ext (isothermal same gas); Q = V*p_int/86400",
+    "choked_aperture": "flux = p*sqrt(gamma/(R T))*(2/(gamma+1))^((gamma+1)/(2(gamma-1))); A = m_dot/flux",
+    "molecular_aperture": "Q = (1/4)*p*vbar*A; vbar = sqrt(8 R_air T / pi)",
+    "permeation": "n_dot = permeance * A * dp; scc = 1/22414 mol",
+    "outgas_moisture": "p = m_water * R_v * T / V",
+    "pump": "W_ideal = Q*ln(p_out/p_in); pump-down energy = p0*V*ln(p0/p1)",
+    "seams": "L = 2A/w; mass = L*(b*tf*rho_SiC + b*t_adh*rho_adh + tc*t_splice*rho_paste)",
+    "thermal_balance": "alpha*S*pi*R^2 = eps*sigma*(T^4 - T_env^4)*4 pi R^2 + h*(T - T_air)*4 pi R^2, T_env = (T_sky + T_air)/2",
+    "core_tau": "tau = tc^2/(pi^2 * a); a = k/(rho*cp)",
+    "cte_shear_lag": "lambda = sqrt(Gc/(E_f tf tc)); tau_max = (alpha_core - alpha_face)*dT*E_f*tf*lambda",
+    "thermal_imperfection": "w = alpha_face * dT_vertical * R / 2",
+    "gust": "q = 0.5 rho v^2; F = Cd q pi R^2 * gust_factor; patch p = F/A_patch",
+    "climate": "rho = p/(R_air T); dL/L = dp/p - dT/T"
+  }
+}

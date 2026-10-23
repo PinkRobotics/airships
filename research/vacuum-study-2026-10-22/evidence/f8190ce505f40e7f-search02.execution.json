@@ -1,0 +1,48 @@
+{
+  "tag": "search02",
+  "command": [
+    "python3",
+    "tools/simjob.py",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "1G",
+    "--",
+    "python3",
+    ".ship/work/outputs/vacuum-mainline053-check-1020/search_check.py"
+  ],
+  "started_at": "2026-10-20T06:41:49.235953-07:00",
+  "cores": 1,
+  "memory": "1G",
+  "scratch": "unpublished-local-ref:d1b1f2c706a76783",
+  "source_pins": [
+    {
+      "path": "evidence/cbbd9c2412bd4958-account_check.py",
+      "sha256": "cbbd9c2412bd49586832bdc405c9546078b61f0c31bbab3cfb75e06b0659a225"
+    },
+    {
+      "path": "evidence/c943adc01d0a6422-admit.py",
+      "sha256": "c943adc01d0a64227d8e25845feadbf3e49443536aeed33f2e5e27b4379bdddc"
+    },
+    {
+      "path": "evidence/6d2b2248e44072c6-search_check.py",
+      "sha256": "6d2b2248e44072c6814e3c24b868b95091d31bf282f59bc3c037e363017f469a"
+    },
+    {
+      "path": "evidence/e90ab6d7dad5b4c9-supplement_check.py",
+      "sha256": "e90ab6d7dad5b4c96d19963d8e552b78850859adb9dfd886095b3b0aaec7b081"
+    },
+    {
+      "path": "evidence/702378d5f1cfe02f-thermal_check.py",
+      "sha256": "702378d5f1cfe02f183bf80e451fa9143d1cc14cc223a7dba72087765be3a0a7"
+    },
+    {
+      "path": ".ship/work/outputs/vacuum-mainline053-check-1020/search_check.py",
+      "sha256": "6d2b2248e44072c6814e3c24b868b95091d31bf282f59bc3c037e363017f469a"
+    }
+  ],
+  "ended_at": "2026-10-20T06:42:29.034523-07:00",
+  "exit_code": 0,
+  "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+}

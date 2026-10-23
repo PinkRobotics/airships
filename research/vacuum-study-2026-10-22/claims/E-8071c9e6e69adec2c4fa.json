@@ -1,0 +1,39 @@
+{
+  "id": "E-8071c9e6e69adec2c4fa",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-8071c9e6e69adec2c4fa",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/owner_findings_unchanged/rows/7",
+    "row_id": "NFI052-08",
+    "fields": {
+      "id": "NFI052-08",
+      "title": "Onboard pumping and energy",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "15–148 pump units arise from constant nominal-speed and 1000 W planning assumptions; this is not optimized or qualified hardware.",
+      "proposed_fix": "Obtain installed wet-speed curves near 32.5 Pa and a complete power/heat/plumbing design; recalculate changed barrier and power architectures explicitly."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "15–148 pump units arise from constant nominal-speed and 1000 W planning assumptions; this is not optimized or qualified hardware. | Onboard pumping and energy",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/owner_findings_unchanged/rows/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

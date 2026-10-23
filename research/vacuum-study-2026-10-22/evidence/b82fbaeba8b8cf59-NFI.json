@@ -1,0 +1,27 @@
+{
+  "unit": "vacuum-record-delta-c-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "open": [
+    {
+      "id": "NFI-C-064-LIMITS",
+      "fact": "Sciences admitted the 064 review with limits that remain open. The review reran the same model63.py, so it is a shared-model reproduction and the independent-derivation requirement is unmet. Shared assumptions, including NFI065-BETA-SCALE, are not independently cleared. 2014-T6 on glass-fabric describes the flight bulkhead, and SDL 468's plotted specimen materials remain unverified. The one-round result stands with those limits."
+    },
+    {
+      "id": "NFI-C-BETA1-UNREVIEWED",
+      "fact": "The eight Q 0.33 rows recomputed at BETA=1 are unreviewed. The four gamma 0.20 rows stay negative at concept and TRL 7. They are not a qualified safety factor."
+    },
+    {
+      "id": "NFI-C-Q-GATE-METHOD",
+      "fact": "simjob-20261020t172843-8fbc0cc8fd21 exited 1 after 6 s with Q gate 0.1328048780487805. The driver reverted Q and also multiplied by 0.33/0.82. That scope is a method error. It is not a model result. The kept scope is simjob-20261020t172906-48ca69d580a3."
+    },
+    {
+      "id": "NFI-THERMAL-RESIDUAL",
+      "fact": "The review left a cure-shaped residual open: membrane stress using the 064 pressures sits under the wrinkling allowable, and the gap grows with core thickness over face thickness. This delta did not recompute the thermal field. The residual stays open. It does not reopen the identity of BETA."
+    },
+    {
+      "id": "NFI-2171-UNOPENED",
+      "fact": "FPL Report 2171 stays unopened. No face gauge, core, density, cell, bond, stress or specimen count was checked in this delta."
+    }
+  ]
+}

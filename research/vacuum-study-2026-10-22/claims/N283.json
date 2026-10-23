@@ -1,0 +1,70 @@
+{
+  "id": "N283",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N283",
+    "report": "rpt-mainline004b-grok-kd-range-1019",
+    "card": "MAINLINE-04B",
+    "file": "evidence/f528292663aa7701-NFI.json",
+    "row_id": "NFI-STRENGTH",
+    "fields": {
+      "NFI_id": "NFI-STRENGTH",
+      "gap": "Strength safety factors stay at the sealed 003 QUESTIONABLE values. Knockdown does not rescale yield.",
+      "direction": "Leave strength on its own card.",
+      "effect": "Strength safety factor is unchanged at every knockdown."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-STRENGTH\", \"gap\": \"Strength safety factors stay at the sealed 003 QUESTIONABLE values. Knockdown does not rescale yield.\", \"direction\": \"Leave strength on its own card.\", \"effect\": \"Strength safety factor is unchanged at every knockdown.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/282"
+    },
+    {
+      "report": "rpt-mainline004b-grok-kd-range-1019",
+      "artifact": "evidence/f528292663aa7701-NFI.json",
+      "snapshot": "evidence/f528292663aa7701-NFI.json",
+      "sha256": "f528292663aa7701e2d2529e485ecdbfd5151a9880e99b40b033a19c7df0be60",
+      "bytes": 3253,
+      "selector": "source row ID: NFI-STRENGTH"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline004b-grok-kd-range-1019",
+          "artifact": "evidence/f528292663aa7701-NFI.json",
+          "snapshot": "evidence/f528292663aa7701-NFI.json",
+          "sha256": "f528292663aa7701e2d2529e485ecdbfd5151a9880e99b40b033a19c7df0be60",
+          "bytes": 3253,
+          "selector": "source row ID: NFI-STRENGTH"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/282"
+          }
+        ]
+      }
+    }
+  ]
+}

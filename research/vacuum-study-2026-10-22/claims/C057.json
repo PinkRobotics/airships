@@ -1,0 +1,79 @@
+{
+  "id": "C057",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C057",
+    "report": "rpt-ref-bba592d71d65b13cc2e5",
+    "file": "evidence/bcbfe1fd19022847-NFI.json",
+    "snapshot": "evidence/bcbfe1fd19022847-NFI.json",
+    "source_sha256": "bcbfe1fd1902284744421fec15238114658a385fc77b3ef5f9752260cd2a0bcd",
+    "source_json_pointer": "/rows/19",
+    "row_id": "NFI-CHECK037-CURRENT-GEOMETRY",
+    "fields": {
+      "id": "NFI-CHECK037-CURRENT-GEOMETRY",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "037 used 022c before 022d filed; several quoted high P3 factors are outside the half-wave band.",
+      "proposed_fix": "Carry the now-filed 022d in-band geometry into the next thermal/load calculation, charging both film plies and fittings. Keep this audit tied to the original 022c record."
+    },
+    "inherited_document_tag": {
+      "status": "Check complete; no work blocked"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "037 used 022c before 022d filed; several quoted high P3 factors are outside the half-wave band.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/767"
+    },
+    {
+      "report": "rpt-ref-bba592d71d65b13cc2e5",
+      "artifact": "evidence/bcbfe1fd19022847-NFI.json",
+      "snapshot": "evidence/bcbfe1fd19022847-NFI.json",
+      "sha256": "bcbfe1fd1902284744421fec15238114658a385fc77b3ef5f9752260cd2a0bcd",
+      "bytes": 9158,
+      "selector": "/rows/19"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-bba592d71d65b13cc2e5",
+          "artifact": "evidence/bcbfe1fd19022847-NFI.json",
+          "snapshot": "evidence/bcbfe1fd19022847-NFI.json",
+          "sha256": "bcbfe1fd1902284744421fec15238114658a385fc77b3ef5f9752260cd2a0bcd",
+          "bytes": 9158,
+          "selector": "/rows/19"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/767"
+          }
+        ]
+      }
+    }
+  ]
+}

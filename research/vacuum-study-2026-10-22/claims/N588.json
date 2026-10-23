@@ -1,0 +1,74 @@
+{
+  "id": "N588",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N588",
+    "report": "rpt-ref-244f32e2449e729d312f",
+    "card": "MAINLINE-034",
+    "file": "evidence/e2c32a737d582c44-NFI.json",
+    "snapshot": "evidence/e2c32a737d582c44-NFI.json",
+    "source_sha256": "e2c32a737d582c445bc78c8524ae41b1dcf5b46c8533395af611815dc960e897",
+    "source_json_pointer": "/open/16",
+    "row_id": "NFI-034-STRUCTURAL-CARRY",
+    "fields": {
+      "id": "NFI-034-STRUCTURAL-CARRY",
+      "tag": "QUESTIONABLE",
+      "finding": "This is a vacuum-maintenance estimate at fixed inherited points. The 022c Kapton equilateral row has filed least SF below one; Zylon structural assumptions and P2 optimism remain unqualified.",
+      "proposed_next": "Carry the existing structural NFI; vacuum arithmetic does not establish a floating or certified hull."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "This is a vacuum-maintenance estimate at fixed inherited points. The 022c Kapton equilateral row has filed least SF below one; Zylon structural assumptions and P2 optimism remain unqualified.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/587"
+    },
+    {
+      "report": "rpt-ref-244f32e2449e729d312f",
+      "artifact": "evidence/e2c32a737d582c44-NFI.json",
+      "snapshot": "evidence/e2c32a737d582c44-NFI.json",
+      "sha256": "e2c32a737d582c445bc78c8524ae41b1dcf5b46c8533395af611815dc960e897",
+      "bytes": 8850,
+      "selector": "/open/16"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-244f32e2449e729d312f",
+          "artifact": "evidence/e2c32a737d582c44-NFI.json",
+          "snapshot": "evidence/e2c32a737d582c44-NFI.json",
+          "sha256": "e2c32a737d582c445bc78c8524ae41b1dcf5b46c8533395af611815dc960e897",
+          "bytes": 8850,
+          "selector": "/open/16"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/587"
+          }
+        ]
+      }
+    }
+  ]
+}

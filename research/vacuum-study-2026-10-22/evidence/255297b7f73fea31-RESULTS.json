@@ -1,0 +1,52 @@
+{
+  "status": "COMPLETE_WITH_CORRECTIONS",
+  "tag": "QUESTIONABLE",
+  "certification": null,
+  "installed_damage_tolerance": null,
+  "checks": {
+    "total": 1358,
+    "passed": 1287,
+    "different": 71,
+    "arithmetic": 895,
+    "trajectory": 311,
+    "selected_frame": 56,
+    "audit": 96,
+    "explicit_findings": 88,
+    "input_pins": 72,
+    "source_files": 46
+  },
+  "main_conclusion": "No demonstrated installed damage tolerance for either lead; main conditional danger screens reproduce.",
+  "p2_patch_critical_diameter_m": {
+    "clamped": {
+      "D_crit_m": 0.05477999083256553
+    },
+    "ss": {
+      "D_crit_m": 0.027127598072411198
+    }
+  },
+  "p2_design_hail_depths_m": {
+    "fluid rho v2": 0.00039071160817356253,
+    "Shi-calibrated k rho v2": 0.0016753843391029098,
+    "all energy to the panel": 0.005430417308869799
+  },
+  "p2_vent_fraction": 0.45890373150418806,
+  "p2_vent_air_kg": 2645.660029222747,
+  "p2_vent_seconds": 614.0670729964407,
+  "p3_nominal_SF": 1.2582524765568135,
+  "p3_perry_SF": 3.454499160200503,
+  "p3_sampled_frame_reproduced": true,
+  "p3_all_orbits_tension_range_MPa": [
+    0.0,
+    1019.3722396461247
+  ],
+  "hole_threshold_m": {
+    "v0.914_cd0.47": 0.06310093409874737,
+    "v4.2_cd0.47": 0.14697223847740376,
+    "v0.914_cd0.2": 0.06560677030011354,
+    "v4.2_cd0.2": 0.1302264084762476
+  },
+  "nfi_new": 15,
+  "nfi_inherited": 16,
+  "all_nfi_nonblocking": true,
+  "owner_code_read_or_run": false
+}

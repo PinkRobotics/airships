@@ -1,0 +1,152 @@
+{
+  "agent_pgid": 930664,
+  "agent_pid": 930906,
+  "agent_pid_start_time": "123305680",
+  "attempt_results": [
+    {
+      "agent_pgid": 930664,
+      "agent_pid": 930906,
+      "agent_pid_start_time": "123305680",
+      "capture_complete": false,
+      "capture_contract": "codex_stream",
+      "capture_incomplete": true,
+      "capture_warning": null,
+      "duration_s": 4.824527740478516,
+      "error": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}",
+      "events": [
+        {
+          "thread_id": "ref-4bf96fd543e857642d68",
+          "type": "thread.started"
+        },
+        {
+          "item": {
+            "id": "item_0",
+            "message": "Model metadata for `gpt-6.1-sol` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.",
+            "type": "error"
+          },
+          "type": "item.completed"
+        },
+        {
+          "type": "turn.started"
+        },
+        {
+          "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}",
+          "type": "error"
+        },
+        {
+          "error": {
+            "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}"
+          },
+          "type": "turn.failed"
+        }
+      ],
+      "exit_code": 1,
+      "final_message": "",
+      "model": "gpt-6.1-sol",
+      "process_exit_code": 1,
+      "provider_terminal": {
+        "kind": "non_completion",
+        "source": "adapter"
+      },
+      "run_id": "eb74c538727f",
+      "run_reason": {
+        "code": "provider_non_completion",
+        "evidence": {
+          "agent_dispatched": true,
+          "body_bytes": 0,
+          "body_has_text": false,
+          "capture_complete": false,
+          "capture_contract": "codex_stream",
+          "capture_verdict": "incomplete",
+          "exit_code": 1,
+          "stop_kind": "non_completion",
+          "timed_out": false
+        },
+        "source": "provider_structured"
+      },
+      "run_state": "LaneDidNotRun",
+      "ref-1815199ae74b6c8c104c": "ref-4bf96fd543e857642d68",
+      "startup_log_path": "unpublished-local-ref:2b513f9265c7a428",
+      "structured": {
+        "error": {
+          "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}"
+        },
+        "type": "turn.failed"
+      },
+      "unsupported_capture_events": 1,
+      "usage": {}
+    }
+  ],
+  "candidate": "a628457a14709e5a0a1c8fe33f5c69487c3e33cc",
+  "capture_complete": false,
+  "capture_contract": "codex_stream",
+  "capture_incomplete": true,
+  "capture_warning": null,
+  "duration_s": 4.824527740478516,
+  "error": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}",
+  "events": [
+    {
+      "thread_id": "ref-4bf96fd543e857642d68",
+      "type": "thread.started"
+    },
+    {
+      "item": {
+        "id": "item_0",
+        "message": "Model metadata for `gpt-6.1-sol` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.",
+        "type": "error"
+      },
+      "type": "item.completed"
+    },
+    {
+      "type": "turn.started"
+    },
+    {
+      "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}",
+      "type": "error"
+    },
+    {
+      "error": {
+        "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}"
+      },
+      "type": "turn.failed"
+    }
+  ],
+  "exit_code": 1,
+  "final_message": "",
+  "lane": "codex",
+  "model": "gpt-6.1-sol",
+  "process_exit_code": 1,
+  "provider_terminal": {
+    "kind": "non_completion",
+    "source": "adapter"
+  },
+  "review_exit_code": 1,
+  "round_id": "public-floatplants-r1-1010",
+  "run_id": "eb74c538727f",
+  "run_reason": {
+    "code": "provider_non_completion",
+    "evidence": {
+      "agent_dispatched": true,
+      "body_bytes": 0,
+      "body_has_text": false,
+      "capture_complete": false,
+      "capture_contract": "codex_stream",
+      "capture_verdict": "incomplete",
+      "exit_code": 1,
+      "stop_kind": "non_completion",
+      "timed_out": false
+    },
+    "source": "provider_structured"
+  },
+  "run_state": "LaneDidNotRun",
+  "ref-1815199ae74b6c8c104c": "ref-4bf96fd543e857642d68",
+  "startup_log_path": "unpublished-local-ref:2b513f9265c7a428",
+  "structured": {
+    "error": {
+      "message": "{\"type\":\"error\",\"status\":400,\"error\":{\"type\":\"invalid_request_error\",\"message\":\"The 'gpt-6.1-sol' model is not supported when using Codex with a ChatGPT account.\"}}"
+    },
+    "type": "turn.failed"
+  },
+  "unsupported_capture_events": 1,
+  "usage": {}
+}

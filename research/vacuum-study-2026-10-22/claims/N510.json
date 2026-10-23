@@ -1,0 +1,79 @@
+{
+  "id": "N510",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N510",
+    "report": "rpt-ref-7ce5b278fa083d87105b",
+    "card": "rpt-ref-7ce5b278fa083d87105b",
+    "file": "evidence/78c3ad662469116d-NFI.json",
+    "snapshot": "evidence/78c3ad662469116d-NFI.json",
+    "source_sha256": "78c3ad662469116daa68efb93ae6446806ad2ec5d8c644b1c6abd4201806c8ab",
+    "source_json_pointer": "/rows/11",
+    "row_id": "NFI-026-12",
+    "fields": {
+      "id": "NFI-026-12",
+      "tag": "QUESTIONABLE",
+      "status": "execution_disclosed",
+      "owner": "sciences",
+      "issue": "Execution diagnostics and receipt exception",
+      "evidence": "One 3 GiB mixed-factor benchmark was OOM-killed and released; 8 GiB check passed. Four diagnostic scopes were stopped/released. ref-60b5e906764ecf85edea child exited0/released while outer wrapper END was missing.",
+      "implication": "All diagnostics retained; recovered child receipt distinguishes observed closure from unavailable exact outer end clock. No admission refusal was bypassed."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "Execution diagnostics and receipt exception",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/509"
+    },
+    {
+      "report": "rpt-ref-7ce5b278fa083d87105b",
+      "artifact": "evidence/78c3ad662469116d-NFI.json",
+      "snapshot": "evidence/78c3ad662469116d-NFI.json",
+      "sha256": "78c3ad662469116daa68efb93ae6446806ad2ec5d8c644b1c6abd4201806c8ab",
+      "bytes": 6153,
+      "selector": "/rows/11"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-7ce5b278fa083d87105b",
+          "artifact": "evidence/78c3ad662469116d-NFI.json",
+          "snapshot": "evidence/78c3ad662469116d-NFI.json",
+          "sha256": "78c3ad662469116daa68efb93ae6446806ad2ec5d8c644b1c6abd4201806c8ab",
+          "bytes": 6153,
+          "selector": "/rows/11"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/509"
+          }
+        ]
+      }
+    }
+  ]
+}

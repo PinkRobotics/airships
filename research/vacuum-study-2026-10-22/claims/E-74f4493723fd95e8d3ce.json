@@ -1,0 +1,44 @@
+{
+  "id": "E-74f4493723fd95e8d3ce",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-74f4493723fd95e8d3ce",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/checker_findings/0",
+    "row_id": "NFI-C052-01",
+    "fields": {
+      "id": "NFI-C052-01",
+      "status": "OPEN",
+      "blocking": false,
+      "type": "presentation correction",
+      "location": "SENSITIVITIES.alternative_checked_f5_5[*].{baseline,all_axes_endpoint,endpoints,roots,least}.family",
+      "owner_value": "f5-019 CHECK041; constant g/R; rescaled area and all associated debits",
+      "checker_value": "f5-5 CHECK041; constant g/R; rescaled area and all associated debits",
+      "affected_fields": 288,
+      "exact_rows": "MISMATCHES.json",
+      "effect": "Metadata only; the alternative-family numbers reproduce from f5-5 inputs.",
+      "proposed_fix": "Correct the family string in a new version, retaining the original pinned package."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-C052-01\", \"status\": \"OPEN\", \"blocking\": false, \"type\": \"presentation correction\", \"location\": \"SENSITIVITIES.alternative_checked_f5_5[*].{baseline,all_axes_endpoint,endpoints,roots,least}.family\", \"owner_value\": \"f5-019 CHECK041; constant g/R; rescaled area and all associated debits\", \"checker_value\": \"f5-5 CHECK041; constant g/R; rescaled area and all associated debits\", \"affected_fields\": 288, \"exact_rows\": \"MISMATCHES.json\", \"effect\": \"Metadata only; the alternative-family numbers reproduce from f5-5 inputs.\", \"proposed_fix\": \"Correct the family string in a new version, retaining the original pinned package.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/checker_findings/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

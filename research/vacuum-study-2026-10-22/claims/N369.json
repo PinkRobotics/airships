@@ -1,0 +1,93 @@
+{
+  "id": "N369",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N369",
+    "report": "rpt-ref-58c781cbea9c220eb5b4",
+    "card": "MAINLINE-025",
+    "file": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+    "source_sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+    "source_json_pointer": "/rows/1",
+    "row_id": "NFI-025-WEIBULL",
+    "fields": {
+      "id": "NFI-025-WEIBULL",
+      "status": "OPEN",
+      "classification": "QUESTIONABLE",
+      "target_transfer": "PROJECTION",
+      "evidence_state": "exists_today typical product and coupon data; structural scaling PROJECTION",
+      "issue": "Hexoloy SA fitted population, characteristic strength and test reference size are incomplete; current m8 and 2012 m10 differ.",
+      "factor": {
+        "m_alternatives": [
+          8,
+          10
+        ],
+        "SA_characteristic_strength_Pa_measured": null,
+        "illustrative_uniform_tensile_caps_Pa": [
+          7191893.634201991,
+          15585636.721825296
+        ],
+        "assembly_to_assumed_effective_coupon_volume_ratio_order": 100000000.0,
+        "size_interface": "allowable.py: tube_geometry, effective_measure, weibull_threshold; m-specific geometric measures and supplied hypothetical calibration are explicit"
+      },
+      "required_next_evidence": "Raw fracture samples and origins for the intended process, surface finish, flaw populations, specimen spans and gauge volumes; confidence-bounded fits.",
+      "note": "The 40/20 mm bend spans and mean interpretation of typical380 MPa are explicit assumptions. Independent tensile SA data show m5; do not cherry-pick m10 as validated."
+    },
+    "inherited_document_tag": {
+      "classification": "QUESTIONABLE"
+    }
+  },
+  "claim": "Hexoloy SA fitted population, characteristic strength and test reference size are incomplete; current m8 and 2012 m10 differ. | The 40/20 mm bend spans and mean interpretation of typical380 MPa are explicit assumptions. Independent tensile SA data show m5; do not cherry-pick m10 as validated.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/368"
+    },
+    {
+      "report": "rpt-ref-58c781cbea9c220eb5b4",
+      "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+      "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+      "bytes": 21434,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-58c781cbea9c220eb5b4",
+          "artifact": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "snapshot": "evidence/30fd9d8f3fc5e5ed-NFI.json",
+          "sha256": "30fd9d8f3fc5e5ed863a6a7f039689237163efc533a0f836d33584c8790323ef",
+          "bytes": 21434,
+          "selector": "/rows/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/368"
+          }
+        ]
+      }
+    }
+  ]
+}

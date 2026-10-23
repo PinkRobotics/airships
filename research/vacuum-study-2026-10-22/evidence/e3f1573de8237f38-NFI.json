@@ -1,0 +1,256 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-038",
+  "status": "QUESTIONABLE/PROJECTION",
+  "task_blocked": false,
+  "installed_hull_SF": null,
+  "items": [
+    {
+      "id": "NFI-038-SOURCE_STATE",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "P3 optimum changed during the card",
+      "evidence": "022d supersedes 022c; 034 uses older inventories.",
+      "resolution_needed": "Use P3-LATEST for a buy; re-inventory vacuum at final selected geometry.",
+      "tests": [
+        "T4",
+        "T5",
+        "T6",
+        "T8",
+        "T9"
+      ]
+    },
+    {
+      "id": "NFI-038-COMPRESSION",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "No finished thin SR200 compression minimum",
+      "evidence": "036; catalog 345 MPa is tensile.",
+      "resolution_needed": "Obtain lot/gauge/process specification and directional plus biaxial evidence.",
+      "tests": [
+        "T1"
+      ]
+    },
+    {
+      "id": "NFI-038-GAUGE",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Nominal thickness is not finished minimum",
+      "evidence": "036 shows catalog tolerances and processing alter demand.",
+      "resolution_needed": "Measure thickness map and track additional removal without double-counting catalog etch.",
+      "tests": [
+        "T1",
+        "T2"
+      ]
+    },
+    {
+      "id": "NFI-038-BAXIAL",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Uniaxial tests may censor the required wrinkle evidence",
+      "evidence": "Current equal-biaxial threshold needs approximately 440 MPa uniaxial wrinkle onset if inherited b applies.",
+      "resolution_needed": "Separate face yield from wrinkles; test equal-biaxial panel and actual orthotropy.",
+      "tests": [
+        "T1",
+        "T3"
+      ]
+    },
+    {
+      "id": "NFI-038-BOND_MASS",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Thin film, primer and repairs have no demonstrated installed mass",
+      "evidence": "028b nominal route has no unused joining allowance.",
+      "resolution_needed": "Weigh staged actual-process components; apply area/length/crossing model once.",
+      "tests": [
+        "T2"
+      ]
+    },
+    {
+      "id": "NFI-038-SEAM_MODES",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Mean shear does not qualify peel, cyclic debond or local instability",
+      "evidence": "028b lists unquantified seam/core modes.",
+      "resolution_needed": "Instrument production scarf and welded alternatives; retain failure locations and leak changes.",
+      "tests": [
+        "T2"
+      ]
+    },
+    {
+      "id": "NFI-038-GAMMA_DENOM",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Gamma denominators differ across models and shorthand",
+      "evidence": "029 brief versus 021b/028b finite-core convention.",
+      "resolution_needed": "Report collapse/reference pressures explicitly; preserve both FE and inherited normalizations.",
+      "tests": [
+        "T7"
+      ]
+    },
+    {
+      "id": "NFI-038-MIN_SHELL",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Smallest manufactured similarity shell not established",
+      "evidence": "Planning floors 25 um/1 mm are assumptions; commercial microcore/formed foil combination unverified.",
+      "resolution_needed": "Gate the surrogate on measured moduli, gauge and a fabrication trial; no Be-hull validation claim.",
+      "tests": [
+        "T7"
+      ]
+    },
+    {
+      "id": "NFI-038-CELL_SCALE",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Stock honeycomb cells do not scale with a miniature shell",
+      "evidence": "At R=.5m exact cellular similarity requires .47625mm cells.",
+      "resolution_needed": "Use custom cells or identify continuous-core model scope; separately validate real honeycomb local modes.",
+      "tests": [
+        "T3",
+        "T7"
+      ]
+    },
+    {
+      "id": "NFI-038-IMPERFECTION",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Maximum dent alone does not preserve buckling similarity",
+      "evidence": "021b localized amplitude map is not RMS or 028b qualification.",
+      "resolution_needed": "Measure full spatial field, angular width, seams and as-built mode sensitivity.",
+      "tests": [
+        "T7",
+        "T8"
+      ]
+    },
+    {
+      "id": "NFI-038-VACUUM_LOAD",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Ambient evacuation gives little Be overload and censored survivals",
+      "evidence": "101.325kPa maximum is only 1.06143 times the R10 design pressure.",
+      "resolution_needed": "Use differential metrology and external-pressure facility where collapse/proof exceeds ambient.",
+      "tests": [
+        "T7",
+        "T8"
+      ]
+    },
+    {
+      "id": "NFI-038-FILM_EXISTS",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "No complete qualified high-strength gas-tight laminate supplied",
+      "evidence": "024, 030, 022d; filament data are not a complete membrane.",
+      "resolution_needed": "Identify and weigh both plies, barrier, attachment, seams; test sustained biaxial response and transport.",
+      "tests": [
+        "T4"
+      ]
+    },
+    {
+      "id": "NFI-038-CERAMIC_SIZE",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Small compression specimens do not establish full curved SiC reliability",
+      "evidence": "025 and C1424 scope; no compression size law or full product specification. 022d also assumes an unqualified 15.586 MPa tensile ceiling.",
+      "resolution_needed": "Stage process witnesses, representative stubs, loaded contacts and full arcs; qualify tensile/contact response where present and build statistical model.",
+      "tests": [
+        "T5"
+      ]
+    },
+    {
+      "id": "NFI-038-JOINT_STIFFNESS",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Required P3 rotation/roll stiffness is unknown",
+      "evidence": "026 free-roll mechanisms; 022d joints have axial/bond sizing only.",
+      "resolution_needed": "Measure loaded stiffness matrix and define acceptance by exact discrete-frame sweeps.",
+      "tests": [
+        "T6",
+        "T8"
+      ]
+    },
+    {
+      "id": "NFI-038-TOPOLOGY",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Fractional optimized node counts are not buildable frames",
+      "evidence": "022d one-member half-wave screen does not validate continuum; two-way shear stiffness unresolved.",
+      "resolution_needed": "Select integer topology and re-evaluate before manufacturing; test pressure-skin load sharing.",
+      "tests": [
+        "T8"
+      ]
+    },
+    {
+      "id": "NFI-038-TRAPPED_GAS",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Every core cell/tube bore must be evacuated or charged",
+      "evidence": "034 estimates substantial ambient trapped gas.",
+      "resolution_needed": "Measure communication, initial inventory, transient gas release and structural impact of vents.",
+      "tests": [
+        "T2",
+        "T9"
+      ]
+    },
+    {
+      "id": "NFI-038-VACUUM_SPECIES",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Pressure, free gas and added mass are different constraints",
+      "evidence": "034: water pressure, finite desorption and external uptake differ.",
+      "resolution_needed": "Measure species and temperature, retain outgas pressure but do not double-count solid mass; use hot pressure limit.",
+      "tests": [
+        "T9"
+      ]
+    },
+    {
+      "id": "NFI-038-SYSTEM_MASS",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Sealed life and pumping hardware are not determined by a helium leak rate",
+      "evidence": "034 example 91.6-111.6kg Zylon package; inventories differ from current points.",
+      "resolution_needed": "Update complete bill and installed pump speed/power at measured service load; retain 100kg allowance.",
+      "tests": [
+        "T9"
+      ]
+    },
+    {
+      "id": "NFI-038-COST_AVAILABILITY",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "All prices and custom fabrication feasibility are projections",
+      "evidence": "No contact, quote, laboratory Be acceptance or minimum-order confirmation.",
+      "resolution_needed": "Admiral decides outreach; cost the specified specimen package, shared stock and follow-ons.",
+      "tests": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ]
+    },
+    {
+      "id": "NFI-038-RELIABILITY",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE/PROJECTION",
+      "issue": "Screening count is not a design allowable or mission qualification",
+      "evidence": "Three to ten specimens only screen large errors; size/lot/lifetime transfer unresolved.",
+      "resolution_needed": "Define required reliability and confidence, then qualify lots, environments, damage and life.",
+      "tests": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ]
+    }
+  ]
+}

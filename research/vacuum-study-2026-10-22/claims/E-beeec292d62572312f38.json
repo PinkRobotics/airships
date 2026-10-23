@@ -1,0 +1,38 @@
+{
+  "id": "E-beeec292d62572312f38",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-beeec292d62572312f38",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/9",
+    "row_id": "C029-10-CORE-LOSES-ELLIPTICITY",
+    "fields": {
+      "id": "C029-10-CORE-LOSES-ELLIPTICITY",
+      "state": "demonstrated",
+      "direction": "numerical and modelling; extends NFI-029-HOMOGENIZATION",
+      "note": "The card's core law, C = diag(E_in, E_n, G) in the tangent/normal frame with zero Poisson coupling, loses ellipticity under transverse shear tau. The plane-wave acoustic tensor has det = E_in G + 2 tau x (E_in + G) + x^2 (E_in E_n + 4 tau^2) + 2 tau x^3 (G + E_n) + G E_n x^4, which turns negative for some x = k_n/k_t once tau exceeds 0.088 MPa (W) or 0.088 MPa (L) at the card's E_in of 0.01 MPa. The thresholds are 2.58 / 2.61 MPa at 1 MPa. The card's static paths reach 0.088 MPa at lead021-W 11.0 kPa, lead021-L 11.3 kPa, lead021b-W 7.3 kPa, lead021b-L 6.9 kPa. The discretization sees it once elements are a few millimetres long, below the 9.5 mm cell size. With the far shift (-1000, the true lowest eigenvalues) on graded 4096 x 1.35 (about 3.5 mm): stabsig-4096g135-lead021b-W-a46: 30.0 kPa lowest 0.013; 60.0 kPa lowest -569.718; 80.0 kPa lowest -1059.992; 90.7 kPa lowest -1016.326; stabsig-4096g135-lead021b-L-a46: 30.0 kPa lowest 0.017; 60.0 kPa lowest -55.528; 90.0 kPa lowest -1077.184. The negative eigenvalues come in clusters of nearly equal values on the dimple flank at r 340 to 570 mm (anti-phase for L, mixed for W). On 4096 with grading 2.0 (about 1.35 mm): -0.595 already at 30 kPa, an exact eigenpair (residual 3e-7) whose small-strain quotient 617.9 is cancelled by the initial-stress term -589.1. The core carries 99.97% of the material and 100.00% of the initial-stress energy. The 021b W lowest mode at 60 kPa (-569.7) has 99.95% of its material energy in the core. Its worst element is a core element 3.31 mm long, where the core stress reaches 0.78 MPa. The 021b L lowest mode at 60 kPa (-55.5) has 99.75% of its material energy in the core. Its worst element is a core element 3.24 mm long, where the core stress reaches 0.82 MPa. Its outer-face motion has 33 sign changes over r 302 to 409 mm, a wavelength of 6.5 mm (about two elements; inner/outer correlation -0.99). That is mesh-scale, not the 37 mm wrinkle. With E_in 1 MPa and G_in 0.5 MPa that state's lowest eigenvalue is 0.0197. Along the paths with E_in 1 MPa: stabsig-4096g135-lead021b-W-a46-ein1: 30.0 kPa lowest 0.013; 60.0 kPa lowest 0.011; 80.0 kPa lowest 0.010; 90.7 kPa lowest 0.009; stabsig-4096g135-lead021b-L-a46-ein1: 30.0 kPa lowest 0.017; 60.0 kPa lowest 0.016; 90.0 kPa lowest 0.014; 105.0 kPa lowest 0.012.",
+      "proposed_fix": "Any refinement or stability study of these lead models must first source the in-plane core stiffness, or model the cells. The card's endpoints are properties of meshes too coarse to resolve this instability."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The card's core law, C = diag(E_in, E_n, G) in the tangent/normal frame with zero Poisson coupling, loses ellipticity under transverse shear tau. The plane-wave acoustic tensor has det = E_in G + 2 tau x (E_in + G) + x^2 (E_in E_n + 4 tau^2) + 2 tau x^3 (G + E_n) + G E_n x^4, which turns negative for some x = k_n/k_t once tau exceeds 0.088 MPa (W) or 0.088 MPa (L) at the card's E_in of 0.01 MPa. The thresholds are 2.58 / 2.61 MPa at 1 MPa. The card's static paths reach 0.088 MPa at lead021-W 11.0 kPa, lead021-L 11.3 kPa, lead021b-W 7.3 kPa, lead021b-L 6.9 kPa. The discretization sees it once elements are a few millimetres long, below the 9.5 mm cell size. With the far shift (-1000, the true lowest eigenvalues) on graded 4096 x 1.35 (about 3.5 mm): stabsig-4096g135-lead021b-W-a46: 30.0 kPa lowest 0.013; 60.0 kPa lowest -569.718; 80.0 kPa lowest -1059.992; 90.7 kPa lowest -1016.326; stabsig-4096g135-lead021b-L-a46: 30.0 kPa lowest 0.017; 60.0 kPa lowest -55.528; 90.0 kPa lowest -1077.184. The negative eigenvalues come in clusters of nearly equal values on the dimple flank at r 340 to 570 mm (anti-phase for L, mixed for W). On 4096 with grading 2.0 (about 1.35 mm): -0.595 already at 30 kPa, an exact eigenpair (residual 3e-7) whose small-strain quotient 617.9 is cancelled by the initial-stress term -589.1. The core carries 99.97% of the material and 100.00% of the initial-stress energy. The 021b W lowest mode at 60 kPa (-569.7) has 99.95% of its material energy in the core. Its worst element is a core element 3.31 mm long, where the core stress reaches 0.78 MPa. The 021b L lowest mode at 60 kPa (-55.5) has 99.75% of its material energy in the core. Its worst element is a core element 3.24 mm long, where the core stress reaches 0.82 MPa. Its outer-face motion has 33 sign changes over r 302 to 409 mm, a wavelength of 6.5 mm (about two elements; inner/outer correlation -0.99). That is mesh-scale, not the 37 mm wrinkle. With E_in 1 MPa and G_in 0.5 MPa that state's lowest eigenvalue is 0.0197. Along the paths with E_in 1 MPa: stabsig-4096g135-lead021b-W-a46-ein1: 30.0 kPa lowest 0.013; 60.0 kPa lowest 0.011; 80.0 kPa lowest 0.010; 90.7 kPa lowest 0.009; stabsig-4096g135-lead021b-L-a46-ein1: 30.0 kPa lowest 0.017; 60.0 kPa lowest 0.016; 90.0 kPa lowest 0.014; 105.0 kPa lowest 0.012.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

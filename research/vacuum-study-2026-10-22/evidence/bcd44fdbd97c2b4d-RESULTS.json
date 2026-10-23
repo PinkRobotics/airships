@@ -1,0 +1,181 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "unit": "vacuum-review-e-069-1020",
+  "started": "2026-10-22T09:30:31-07:00",
+  "ended": "2026-10-22T09:43:36-07:00",
+  "custody": {
+    "v7_sha256": "5234234ce0219906d39c9fcc2f3f8ff5ce14f28618441a4f3d6603ef6910552a",
+    "v7_bytes": 21697950,
+    "delta_d_sha256": "7472abe12cdfb637e1034b5dc99823b1eb45b363aa50271ea61e2c1f51cbc900",
+    "rebuilt_v8_sha256": "dede05e82b02973f6d4b2d79170dd9930563bc0500ce63717897c62da70040c7",
+    "rebuilt_v8_bytes": 21796723,
+    "admitted_match": true,
+    "live_sha256": "c2fdd2327f93a78cc989bcb6cdaa15e32a836122f49da335985496cb6bac308d",
+    "live_bytes": 21806940,
+    "live_equals_v8_plus_delta_069": true,
+    "delta_069_sha256": "6106cc6103c6e360da5734f23e6c896218819e99fbcdd8dbec85446156d0816f",
+    "delta_069_in_admitted_v8": false
+  },
+  "independent": {
+    "lift_kg": 132014.93805504794,
+    "faces_kg": 73751.36241333291,
+    "core_kg": 32375.50857909515,
+    "film_kg": 1656.568669767635,
+    "area_m2": 11309.733552923255,
+    "h_m": 0.18192380708928932,
+    "Vc": 1.3208622451020047,
+    "Kc": 0.6697844387244989,
+    "buckling_margin_no_cure": 1.0272329728699576,
+    "wrinkling_membrane_2_2_14": 1.0491194341443413,
+    "equibiaxial_factor_2_2_15": 0.7937005259840998,
+    "wrinkling_equibiaxial_on_membrane": 0.8326866467005049,
+    "wrinkling_equibiaxial_on_filed_margin": 0.7937005438272905,
+    "stress_improvement_to_clear_2_2_15": 1.259921049894873
+  },
+  "rows": [
+    {
+      "id": "lift_kg",
+      "card": 132014.93805504794,
+      "mine": 132014.93805504794,
+      "verdict": "reproduces",
+      "why": "COMMON lift at 10 m times (R/10)^3. Decides every payload."
+    },
+    {
+      "id": "face_mass_kg",
+      "card": 73751.36241333291,
+      "mine": 73751.36241333291,
+      "verdict": "reproduces",
+      "why": "Two faces, outer area, filed thickness and 1013.825 kg/m3. The largest mass."
+    },
+    {
+      "id": "core_mass_kg",
+      "card": 32375.508579095153,
+      "mine": 32375.50857909515,
+      "verdict": "reproduces",
+      "why": "Outer area times core thickness times the 040 CR-III density."
+    },
+    {
+      "id": "film_kg",
+      "card": 1656.568669767635,
+      "mine": 1656.568669767635,
+      "verdict": "reproduces",
+      "why": "Both faces times the favorable film areal density."
+    },
+    {
+      "id": "payload_optimistic_kg",
+      "card": 5.0314833774391445,
+      "mine": 5.0314833774391445,
+      "verdict": "reproduces",
+      "why": "Lift minus the filed bill minus growth. The float claim. Arithmetic only; scarf, splice, mooring and weather headroom were not re-derived."
+    },
+    {
+      "id": "payload_ISA_kg",
+      "card": 1499.23602416239,
+      "mine": 1499.23602416239,
+      "verdict": "reproduces",
+      "why": "Same geometry. The difference from the optimistic payload is the weather-headroom line."
+    },
+    {
+      "id": "payload_TRL7_optimistic_kg",
+      "card": 11607.265770909737,
+      "mine": 11607.265770909737,
+      "verdict": "reproduces",
+      "why": "Same geometry, TRL 7 growth. Not the resized gamma-0.553 hull."
+    },
+    {
+      "id": "payload_TRL7_ISA_kg",
+      "card": 13101.470311694688,
+      "mine": 13101.470311694688,
+      "verdict": "reproduces",
+      "why": "Same geometry, TRL 7 growth, ISA."
+    },
+    {
+      "id": "face_density_factor",
+      "card": 1.824771768877316,
+      "mine": 1.824771768877316,
+      "verdict": "reproduces",
+      "why": "1850 divided by the design density. The materials gap."
+    },
+    {
+      "id": "Vc",
+      "card": 1.322817147615744,
+      "mine": 1.3208622451020047,
+      "verdict": "differs",
+      "why": "CR-1457 (4.2-6) with h = tc+tf, outer R, nu 0.0768 and Gc in the W direction. Does not move the payload."
+    },
+    {
+      "id": "global_buckling",
+      "card": 1.00000000011136,
+      "mine": 1.0272329728699576,
+      "verdict": "differs",
+      "why": "Handbook gamma 0.20 times Kc times sigma_0 over membrane stress, no cure term. The filed 1.000 puts cure in the denominator. Cure is absent from the three opened sources."
+    },
+    {
+      "id": "face_wrinkling",
+      "card": 1.0000000224810115,
+      "mine": 1.0491194341443413,
+      "verdict": "reproduces",
+      "why": "Equation 2.2-14 on membrane stress at the design pressure is 1.0491, the filed membrane-only figure. Filed 1.000 is that margin after gradient, bending and cure."
+    },
+    {
+      "id": "face_wrinkling_equibiaxial",
+      "card": 1.0000000224810115,
+      "mine": 0.7937005438272905,
+      "verdict": "differs",
+      "why": "CR-1457 (2.2-15) for equibiaxial compression. A sphere is that case. Margin 0.794. Face stress must fall by 1.260."
+    },
+    {
+      "id": "thermal_interface",
+      "card": 1.0707994721064877,
+      "mine": null,
+      "verdict": "cannot_check",
+      "why": "Needs kb and the cure-temperature increment. They are not an equation in the admitted record."
+    },
+    {
+      "id": "BETA_frozen_wrinkling",
+      "card": 0.6823278191675012,
+      "mine": 0.6823278191675012,
+      "verdict": "reproduces",
+      "why": "The model root times the filed margin. The resized payload of -17249 kg was not re-optimized."
+    }
+  ],
+  "fixes": [
+    {
+      "id": "FIX-E069-BIAX",
+      "field": "face_wrinkling",
+      "card": 1.0000000224810115,
+      "mine": 0.7937005438272905,
+      "law": "CR-1457 (2.2-14) and (2.2-15)",
+      "improvement": "Face stress must fall by 1.260, or the sphere must be shown exempt from the equibiaxial interaction. Unreviewed."
+    },
+    {
+      "id": "FIX-E069-VC",
+      "field": "Vc",
+      "card": 1.322817147615744,
+      "mine": 1.3208622451020047,
+      "law": "CR-1457 (4.2-6), h=tc+tf, outer R, nu=0.0768, G=Gc_W",
+      "improvement": "Reconcile the 0.00195 gap. It does not move the payload. Unreviewed."
+    }
+  ],
+  "terms": {
+    "kc": {
+      "verdict": "stands",
+      "cite": "NASA-CR-1457 (4.2-4), (4.2-5), (6.2-1), (6.2-13)",
+      "factor_without": 1.4591468390294113
+    },
+    "cure": {
+      "verdict": "absent",
+      "factor_without": 1.7694119150252845
+    },
+    "gradient_bending": {
+      "verdict": "absent",
+      "factor_without": 1.8092731638452857
+    },
+    "pressure_adder": {
+      "verdict": "absent",
+      "factor_without": 1.7397410734805205
+    }
+  },
+  "join": "The +5 kg point is a hypothetical 1013.825 kg/m3 face. It does not stand as a graphite hull. 069's graphite paragraph does not stand with 071."
+}

@@ -1,0 +1,55 @@
+{
+  "name": "native-boundary-SF1.05-passing",
+  "analysis": "static",
+  "amplitude_mm": 0.737936,
+  "width_mm": 332.2164186283597,
+  "meridian": "W",
+  "yield_MPa": 345.0,
+  "nu": 0.0768,
+  "ntheta": 512,
+  "nface": 2,
+  "ncore": 6,
+  "grading": 2.0,
+  "increments": 20,
+  "endpoint_kPa": 100.23387980960041,
+  "endpoint_kind": "load_cap",
+  "first_yield_bracket_kPa": null,
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 75.73694433693002,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        75.17540985720031,
+        80.18710384768033
+      ]
+    },
+    "300.0": {
+      "p_kPa": 88.28294433610269,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        85.19879783816035,
+        90.21049182864037
+      ]
+    },
+    "341.5897774303177": {
+      "p_kPa": 99.43935604206116,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        95.22218581912038,
+        100.23387980960041
+      ]
+    }
+  },
+  "endpoint_max_mises_MPa": 344.6004493592126,
+  "endpoint_max_peeq": 0.0,
+  "endpoint_pole_uy_mm": -20.90046,
+  "solver": {
+    "returncode": 0,
+    "elapsed_s": 31.359084954019636,
+    "ended_at": "2026-10-20T13:06:33.834086+00:00"
+  },
+  "errors": [],
+  "eigen_kPa": [],
+  "eigen_native_output_labels": [],
+  "peeq_detection_threshold": 1e-10
+}

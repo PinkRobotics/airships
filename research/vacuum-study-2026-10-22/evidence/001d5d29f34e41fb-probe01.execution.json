@@ -1,0 +1,44 @@
+{
+  "tag": "probe01",
+  "command": [
+    "python3",
+    "tools/simjob.py",
+    "run",
+    "--cores",
+    "1",
+    "--mem",
+    "1G",
+    "--",
+    "python3",
+    ".ship/work/outputs/vacuum-mainline059-check-1020/probe_check.py"
+  ],
+  "started_at": "2026-10-20T07:05:25.859919-07:00",
+  "cores": 1,
+  "memory": "1G",
+  "scratch": "unpublished-local-ref:4e9ac4eadc1acd97",
+  "source_pins": [
+    {
+      "path": "evidence/015df10734ee9eb1-admit.py",
+      "sha256": "015df10734ee9eb13c5bfd89b0489128e6012b635de6a7f39d37d212bd802ffb"
+    },
+    {
+      "path": "evidence/5d53a0fb4b1c422d-liquid_check.py",
+      "sha256": "cf8d38535e11e32970145b4c026e8020ca33eaa816982a815968c913aae8bec7"
+    },
+    {
+      "path": "evidence/1bc63dd16be03461-pond_check.py",
+      "sha256": "9ddd0d784eb67ab47a98d3edbd6744009dfea389a59f8d8f268e0d12dae555d8"
+    },
+    {
+      "path": "evidence/d5b840b2bdcfcccd-probe_check.py",
+      "sha256": "4fc49e9057a547224b5df1db20fff06219a95fcb3e182ac9fe4d1b6dad0ae03b"
+    },
+    {
+      "path": ".ship/work/outputs/vacuum-mainline059-check-1020/probe_check.py",
+      "sha256": "4fc49e9057a547224b5df1db20fff06219a95fcb3e182ac9fe4d1b6dad0ae03b"
+    }
+  ],
+  "ended_at": "2026-10-20T07:05:26.474685-07:00",
+  "exit_code": 0,
+  "release": "simjob run subprocess returned; tool owns scope/reservation lifecycle"
+}

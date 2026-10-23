@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-05310d05f1fb52d6522e",
+  "unit": "vacuum-mainline007-core-trade-1019",
+  "at": "2026-10-19T22:54:28-07:00",
+  "body": "MAINLINE-007 filed. Densities 32, 16, 8, 6, 4, 3, 2 and 1 kg/m3 sit on the float-mass ceiling: aluminium faces, joints 5 percent of the sandwich, systems 100 kg, margin 0. At 32 and 16 the two splits coincide and buckling governs (SF 0.117 and 0.234). From 8 down, the least stated factor is the equal-factor split. It rises as density falls and peaks on the named set at 1 kg/m3, SF 0.737, still below 1. No interior peak from 0.25 to 64. Buckling SF reaches 1 at 3.73 kg/m3. Yield there is 0.389. Yield cannot reach 1 on this ceiling: all-face SF is 0.777, so 276 MPa must close by 1.29 with no core, by 1.36 at the named peak, and by 2.57 where buckling first reaches 1. kd stays 0.2. Buckling pressure and buckling SF scale with kd. The modulus factor scales as 1/kd. MAINLINE-004 is one multiplication. Catalog cores at 16 to 38 kg/m3 clear advisory crush (about p/2) and crimp. Wrinkling products miss by about 40 to 180 times. Honeycomb sheets have no Ec. No sourced core moduli at 1 to 8 kg/m3. The 0.9 kg/m3 microlattice is a density only. Baseline, P2-A and P2-E match. QUESTIONABLE. Not a certification. Starting MAINLINE-007b now.",
+  "artifacts": [
+    {
+      "path": "evidence/bbff5c7a2a0ce888-CARD.md",
+      "sha256": "bbff5c7a2a0ce8888879d7d5b6d697bfcd871bf348b529917bf81e6a6eee164c",
+      "bytes": 22947
+    },
+    {
+      "path": "evidence/cd02e4ec651bc748-RESULTS.json",
+      "sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "bytes": 31544
+    },
+    {
+      "path": "evidence/d0ddbdac23ccf0df-NFI.json",
+      "sha256": "d0ddbdac23ccf0df7c80b3cceed3e2db8339fabe5b00b63a0e7392265c0df3b0",
+      "bytes": 4978
+    },
+    {
+      "path": "evidence/7eb1c039dc8cf930-INPUTS.json",
+      "sha256": "7eb1c039dc8cf930e326dd95f0642f769b14644b9fb09204235a6422b9519144",
+      "bytes": 6730
+    },
+    {
+      "path": "evidence/d8db008dd86ed4d1-compute.py",
+      "sha256": "d8db008dd86ed4d11ddae9a9cc0034bb81c43d20cb0d349aafe1f082c21ceaaa",
+      "bytes": 25655
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline007-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline007-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

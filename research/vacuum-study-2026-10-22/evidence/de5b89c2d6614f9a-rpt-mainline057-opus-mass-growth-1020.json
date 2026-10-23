@@ -1,0 +1,57 @@
+{
+  "id": "rpt-mainline057-opus-mass-growth-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-55cff924be25afe6f9dd",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline057-mass-growth-1020",
+  "re": "ord-admiral-rr2-mainline057-dispatch-1019",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline057-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "completion": "none",
+  "standing": "none",
+  "next": "none",
+  "at": "2026-10-20T06:44:37-07:00",
+  "body": "MAINLINE-057 filed, QUESTIONABLE/PROJECTION. Once a sourced concept-stage mass-growth allowance is carried, no hull size from R10 to R30 floats, for either lead, in ISA or optimistic weather, at any of the 16 optimism subsets with every axis at its endpoint. The table is NASA GSFC IDC Table VI-1, adapted from AIAA S-120-2006 (S-120A and SAWE RP 7 are paywalled): calculated structure 15%, estimated hardware 30%, thermal 20%. Allocations (100 kg systems, gas, contamination, vacuum service), the water film, weather headroom and P3's sag debit carry none; the finish's own +10% and P3's joint allowance are credited. At R10, P2's +118.7 kg becomes -588.7 (MGA 707 kg) and P3's +30.9 becomes -649.7 (681 kg). R10 tolerates only 2.8% (P2) and 0.7% (P3) flat growth on hardware, so it needs flight-proven masses. Tolerance rises with radius: P2 reaches 9.9% at R30 ISA (6.3% optimistic), P3 7.5% (5.0%). R30 is the least-bad design point: it floats at TRL 7-8 allowances (5-6%), never at the 15-30% a concept carries. R20 is the smallest size where P2 floats in both weathers at TRL 7. The allowance costs more optimism than exists: the least sets' usage would need 1.78-2.13 (P2) and 4.6-30 (P3), linearly extrapolated. P2's R20/R30 bills are 040's with 048's finish transferred, checked within 0.2-9.2 kg at R10-15. Sensitivity gives payload at R10/12/15/20/30 against flat 0-30%. Eight NFI. Next: none.",
+  "artifacts": [
+    {
+      "path": "evidence/72231da907e3d985-CARD.md",
+      "sha256": "72231da907e3d985b3357e88105923f5d9ffc679333f27ecd18dce0ad9b40c93",
+      "bytes": 9653
+    },
+    {
+      "path": "evidence/f7d6534d2dd6995c-RESULTS.json",
+      "sha256": "f7d6534d2dd6995cfdb22e60bc861d74a301905fed98b1e413765be72da00c19",
+      "bytes": 62327
+    },
+    {
+      "path": "evidence/0990b1eb46c39545-NFI.json",
+      "sha256": "0990b1eb46c395452dbf1635fc3511bb372ee75f75cb866dcb029ed7a4df9b3b",
+      "bytes": 2940
+    },
+    {
+      "path": "evidence/9571658c961a9e51-INPUTS.json",
+      "sha256": "9571658c961a9e51ccc351329318203083bb89998546cc9b1fbdde0e25ce54e4",
+      "bytes": 6146
+    },
+    {
+      "path": "evidence/ac083116cfed2f4d-mga057.json",
+      "sha256": "ac083116cfed2f4dedbaea209f9902bfeefd03ff9742b1c3f44d28f4a43158b2",
+      "bytes": 2849327
+    }
+  ],
+  "ingested": "2026-10-20T06:46:13-07:00"
+}

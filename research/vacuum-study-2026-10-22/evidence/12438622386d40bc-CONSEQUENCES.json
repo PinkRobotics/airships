@@ -1,0 +1,219 @@
+{
+  "source": "inputs/prior053/RESIZED-CONSEQUENCES.json",
+  "new_solver_runs": 0,
+  "reason": "Existing complete independent four-boundary matrix already covers the requested readings.",
+  "endpoint_float_changes": 0,
+  "least_axis_choice_changes": 0,
+  "maximum_payload_cost_kg": 4.3889250393713155,
+  "frozen_crossings": {
+    "scarf": 288,
+    "global": 85
+  },
+  "primary_rows": [
+    {
+      "R_m": 10,
+      "weather": "ISA",
+      "cure_in_global": true,
+      "joining": "retained_floor",
+      "drying": "bake",
+      "original_owner_payload_kg": 118.69482529221204,
+      "forced_conduction_payload_kg": 118.08857781040842,
+      "forced_conduction_change_kg": -0.6062474818036208,
+      "mixed_conduction_payload_kg": 118.59492613075417,
+      "mixed_conduction_change_kg": -0.09989916145786992,
+      "forced_gap_payload_kg": 118.18812509607415,
+      "forced_gap_change_kg": -0.5067001961378992,
+      "mixed_gap_payload_kg": 118.69299673885962,
+      "mixed_gap_change_kg": -0.0018285533524249331
+    },
+    {
+      "R_m": 10,
+      "weather": "optimistic",
+      "cure_in_global": true,
+      "joining": "retained_floor",
+      "drying": "bake",
+      "original_owner_payload_kg": -29.25721692152183,
+      "forced_conduction_payload_kg": -29.863021252185717,
+      "forced_conduction_change_kg": -0.6058043306638865,
+      "mixed_conduction_payload_kg": -29.35865630250464,
+      "mixed_conduction_change_kg": -0.10143938098281069,
+      "forced_gap_payload_kg": -29.761951559271438,
+      "forced_gap_change_kg": -0.5047346377496069,
+      "mixed_gap_payload_kg": -29.259077916178285,
+      "mixed_gap_change_kg": -0.0018609946564538404
+    },
+    {
+      "R_m": 12,
+      "weather": "ISA",
+      "cure_in_global": true,
+      "joining": "retained_floor",
+      "drying": "bake",
+      "original_owner_payload_kg": 327.17603611028517,
+      "forced_conduction_payload_kg": 325.60650765555783,
+      "forced_conduction_change_kg": -1.5695284547273332,
+      "mixed_conduction_payload_kg": 326.9193270630485,
+      "mixed_conduction_change_kg": -0.25670904723665444,
+      "forced_gap_payload_kg": 325.86821762704494,
+      "forced_gap_change_kg": -1.3078184832402258,
+      "mixed_gap_payload_kg": 327.1724308613293,
+      "mixed_gap_change_kg": -0.0036052489558642264
+    },
+    {
+      "R_m": 12,
+      "weather": "optimistic",
+      "cure_in_global": true,
+      "joining": "retained_floor",
+      "drying": "bake",
+      "original_owner_payload_kg": 63.720186131289665,
+      "forced_conduction_payload_kg": 62.14868112643671,
+      "forced_conduction_change_kg": -1.571505004852952,
+      "mixed_conduction_payload_kg": 63.45955321699694,
+      "mixed_conduction_change_kg": -0.26063291429272795,
+      "forced_gap_payload_kg": 62.414378689516525,
+      "forced_gap_change_kg": -1.3058074417731405,
+      "mixed_gap_payload_kg": 63.716507056529736,
+      "mixed_gap_change_kg": -0.00367907475992979
+    },
+    {
+      "R_m": 15,
+      "weather": "ISA",
+      "cure_in_global": true,
+      "joining": "retained_floor",
+      "drying": "bake",
+      "original_owner_payload_kg": 813.1552445241614,
+      "forced_conduction_payload_kg": 808.781562210348,
+      "forced_conduction_change_kg": -4.373682313813333,
+      "mixed_conduction_payload_kg": 812.3926153480425,
+      "mixed_conduction_change_kg": -0.762629176118935,
+      "forced_gap_payload_kg": 809.5781260980748,
+      "forced_gap_change_kg": -3.5771184260865994,
+      "mixed_gap_payload_kg": 813.147415966052,
+      "mixed_gap_change_kg": -0.00782855810939509
+    },
+    {
+      "R_m": 15,
+      "weather": "optimistic",
+      "cure_in_global": true,
+      "joining": "retained_floor",
+      "drying": "bake",
+      "original_owner_payload_kg": 298.50810768884,
+      "forced_conduction_payload_kg": 294.1191826494687,
+      "forced_conduction_change_kg": -4.3889250393713155,
+      "mixed_conduction_payload_kg": 297.7335412336306,
+      "mixed_conduction_change_kg": -0.774566455209424,
+      "forced_gap_payload_kg": 294.92821333944994,
+      "forced_gap_change_kg": -3.579894349390088,
+      "mixed_gap_payload_kg": 298.4999896083209,
+      "mixed_gap_change_kg": -0.008118080519125215
+    }
+  ],
+  "all_alternatives": {
+    "forced_conduction": {
+      "payload_change_range_kg": [
+        -4.3889250393713155,
+        -0.5333710064469415
+      ],
+      "frozen_scarf_SF_range": [
+        0.9996341858857857,
+        0.9998310902603159
+      ],
+      "frozen_new_screens": {
+        "scarf": 72,
+        "global": 36
+      },
+      "minimum_frozen_global_SF": 0.9997875735081853,
+      "minimum_frozen_edge_SF": 1.0579272285424943,
+      "minimum_frozen_wall_SF": 2.3711515633054123,
+      "maximum_resized_edge_usage": 0.945244482650456,
+      "maximum_resized_wall_usage": 0.42173595787840296,
+      "added_face_range_m": [
+        1.3820944719917204e-07,
+        4.4100981647912305e-07
+      ],
+      "core_change_range_m": [
+        -1.6632109889933022e-05,
+        -2.501245083916942e-06
+      ]
+    },
+    "mixed_conduction": {
+      "payload_change_range_kg": [
+        -0.774566455209424,
+        -0.09789732593435474
+      ],
+      "frozen_scarf_SF_range": [
+        0.9999300931080013,
+        0.9999686340115838
+      ],
+      "frozen_new_screens": {
+        "scarf": 72,
+        "global": 13
+      },
+      "minimum_frozen_global_SF": 0.9999997520150158,
+      "minimum_frozen_edge_SF": 1.0789141074707465,
+      "minimum_frozen_wall_SF": 2.4181898372405537,
+      "maximum_resized_edge_usage": 0.9268578139683992,
+      "maximum_resized_wall_usage": 0.4135324513029643,
+      "added_face_range_m": [
+        2.5438502072720227e-08,
+        8.431160219914309e-08
+      ],
+      "core_change_range_m": [
+        -3.279821745104383e-06,
+        -9.527467675560231e-07
+      ]
+    },
+    "forced_gap": {
+      "payload_change_range_kg": [
+        -3.579894349390088,
+        -0.43580300779922254
+      ],
+      "frozen_scarf_SF_range": [
+        0.9997071988379421,
+        0.999862352611256
+      ],
+      "frozen_new_screens": {
+        "scarf": 72,
+        "global": 36
+      },
+      "minimum_frozen_global_SF": 0.9997877610417352,
+      "minimum_frozen_edge_SF": 1.0579454211068706,
+      "minimum_frozen_wall_SF": 2.3711923386312552,
+      "maximum_resized_edge_usage": 0.94522827474211,
+      "maximum_resized_wall_usage": 0.4217287264606301,
+      "added_face_range_m": [
+        1.1263093591628009e-07,
+        3.5362230807033795e-07
+      ],
+      "core_change_range_m": [
+        -1.3341445823031317e-05,
+        -1.5134881418132906e-06
+      ]
+    },
+    "mixed_gap": {
+      "payload_change_range_kg": [
+        -0.008131608581606997,
+        -0.001746589165122714
+      ],
+      "frozen_scarf_SF_range": [
+        0.9999992962310085,
+        0.9999994396990679
+      ],
+      "frozen_new_screens": {
+        "scarf": 72
+      },
+      "minimum_frozen_global_SF": 0.9999998821319637,
+      "minimum_frozen_edge_SF": 1.078927230209718,
+      "minimum_frozen_wall_SF": 2.4182192494743897,
+      "maximum_resized_edge_usage": 0.9268465673842199,
+      "maximum_resized_wall_usage": 0.4135274334593919,
+      "added_face_range_m": [
+        4.5420944479526715e-10,
+        8.674485457195458e-10
+      ],
+      "core_change_range_m": [
+        -3.323523570242237e-08,
+        -1.4668310621690495e-08
+      ]
+    }
+  }
+}

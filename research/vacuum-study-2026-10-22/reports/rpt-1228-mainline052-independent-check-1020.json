@@ -1,0 +1,114 @@
+{
+  "id": "rpt-1228-mainline052-independent-check-1020",
+  "unit": "vacuum-mainline052-check-1020",
+  "at": "2026-10-20T13:13:20.846507+00:00",
+  "body": "CHECK-052 complete. All 88,750 numerical field comparisons and 326 printed table cells match; eight independent checks pass. No owner code was accessed. Sixteen owner-output pins and 252 non-executable input pins verify.\n\nR10 ISA least S/F/J reproduces 1.055318 GPa compression, 5.343008 GPa ply strength (92.12%), retention .861568874 and sleeves 45.874 kg. Water ingress 1.258056 kg/day gives the 32.5165 Pa crossing at 17.279789 h; ground schedule 15.551810 h. Dry onboard duty needs 15–148 pumps and fails every tested case. Ground closure remains R10 ISA/R12 optimistic; P2 comparison reproduces.\n\nTwo presentation corrections: 288 f5-5 sensitivity fields incorrectly say f5-019; METHOD’s 52.425 kg family difference rounds to 52.426 kg. Neither changes closure.\n\nThe order’s COMMON.md pin differs from the live file. Humidity crossings retain 284.9 K bulk gas; holding rates/cold-film target fixed at 320 K gives a counterfactual 15.321116 h crossing, not a validated weather case.\n\nFour nonblocking checker findings, all 15 owner NFIs and 11 inherited registers are preserved. Qualified installed SF/life/Pf remain null. Released simjob receipts and exact comparisons are pinned. No successor.",
+  "artifacts": [
+    {
+      "path": "evidence/754a25a154ccf2b5-CARD.md",
+      "sha256": "754a25a154ccf2b55e52cff934ed362edfa859b3f6f2cb2bea89b47213ad3dfa",
+      "bytes": 7196
+    },
+    {
+      "path": "evidence/8f9e938dc8794216-RESULTS.json",
+      "sha256": "8f9e938dc8794216c20adddfe3b76af3f29edd97ef61eadc5296bad68c03a28e",
+      "bytes": 6153
+    },
+    {
+      "path": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126
+    },
+    {
+      "path": "evidence/64879827cb49fc16-INPUTS.json",
+      "sha256": "64879827cb49fc16f5733f979dedf9f8b11cd6e6308ab21381e6ef303b93254f",
+      "bytes": 129181
+    },
+    {
+      "path": "evidence/30ead45a7cb3c224-METHOD.md",
+      "sha256": "30ead45a7cb3c22401b4f506a2aafd2d1212f6f1f63e1325a24d4b7b43b13aee",
+      "bytes": 7505
+    },
+    {
+      "path": "evidence/04b7c5d50d9bb843-SOURCE-AUDIT.md",
+      "sha256": "04b7c5d50d9bb8439f926a6488b552dec90eaf9945d1f8f172fbce1b59898340",
+      "bytes": 4365
+    },
+    {
+      "path": "evidence/e1759a882f5b1859-MISMATCHES.json",
+      "sha256": "e1759a882f5b1859beafbcfaaa7eb044c40b9ab22297dcab43a6980ca17f00ff",
+      "bytes": 87376
+    },
+    {
+      "path": "evidence/3ca67bfb0356319b-PROSE-AUDIT.json",
+      "sha256": "3ca67bfb0356319bed9b5efa47c4f91ab8bd431a5334662cfbd91173eea30fe3",
+      "bytes": 4070
+    },
+    {
+      "path": "evidence/3b1f73cc68479a77-ARITHMETIC-SUMMARY.json",
+      "sha256": "3b1f73cc68479a77dd8fbda57ac31ec1e42d68d2008df3c7eb64f22d580e6460",
+      "bytes": 282
+    },
+    {
+      "path": "evidence/ref-67baedad6c445795ec5d-SUMMARY.json",
+      "sha256": "391bdb88447ccc0e9ccbb40bd8859e2aa8c3466b16ecd2f6e7e8abc8b65e8f27",
+      "bytes": 185
+    },
+    {
+      "path": "evidence/70f160e67702c428-VERIFICATION.json",
+      "sha256": "70f160e67702c4286147a77c62b466d5d47dbe59d8702c2dadd3e3f6333ce980",
+      "bytes": 1258
+    },
+    {
+      "path": "evidence/c33f0a64b6a96c01-SUPPLEMENTAL-RESULTS.json",
+      "sha256": "c33f0a64b6a96c01a318105733f600913701fc916e35094da6c1951d8ef111c3",
+      "bytes": 6044
+    },
+    {
+      "path": "evidence/a0f355b6fdac7838-P2-INDEPENDENT.json",
+      "sha256": "a0f355b6fdac7838161e9ef3f2540de28cea962f2eae409064000e74297e8e13",
+      "bytes": 27805
+    },
+    {
+      "path": "evidence/72d2bfd061f386f4-OWNER-INPUT-PIN-CHECK.json",
+      "sha256": "72d2bfd061f386f4657b80b6075bea5fae6716ae717245a02d5777a07fd3158e",
+      "bytes": 118676
+    },
+    {
+      "path": "evidence/2238f79caf998830-PIN-DISCREPANCIES.json",
+      "sha256": "2238f79caf9988307b58fc3fa42a62035cc599a914b71e68c0d2efdbbc0ac0e2",
+      "bytes": 380
+    },
+    {
+      "path": "evidence/f09f6dc4f4837198-PACKAGE-VALIDATION.json",
+      "sha256": "f09f6dc4f483719834d8001906a43b4d24df9d38a8555afdf5318fa68491db72",
+      "bytes": 6037
+    },
+    {
+      "path": "evidence/428a45018588bb94-check052.py",
+      "sha256": "428a45018588bb9488d9724e4f3efa0fdab87fcf26a932c48551fd27c93cbdd4",
+      "bytes": 22136
+    },
+    {
+      "path": "evidence/6d08ef56cb8abc6a-secondary052.py",
+      "sha256": "6d08ef56cb8abc6a2d29dc7ec7a357b45b32cff878f78f55f9e39da1d97400be",
+      "bytes": 12425
+    },
+    {
+      "path": "evidence/2ce3080d968ae159-MANIFEST.json",
+      "sha256": "2ce3080d968ae159d660d807af72f03f34ef3e6ea803f32b7f7071f4d15ce3e5",
+      "bytes": 49004
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-ed3515d83349998d6b1b",
+  "re": "ord-admiral-rr2-check052-codex-1228-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check052-codex-1228-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

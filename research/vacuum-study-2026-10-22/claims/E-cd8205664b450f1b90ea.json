@@ -1,0 +1,42 @@
+{
+  "id": "E-cd8205664b450f1b90ea",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-cd8205664b450f1b90ea",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043fold~1NFI.json/items/2",
+    "row_id": "NFI-043F-03",
+    "fields": {
+      "id": "NFI-043F-03",
+      "status": "open",
+      "topic": "Pressure level, local wall and nonlinear capacity",
+      "finding": "The f5 source screens are 1.143285 and 1.083205. The peak-compression local-wall sensitivity is 1.033223 and 0.978132; the 019 sensitivity is below unity. Common-q 1.258252 rows exceed both declared screens.",
+      "remaining": "A validated local bending/axial interaction, imperfection response and coupled nonlinear capacity are needed. Source 041's verified perfect nonlinear path belongs to its selected f4 section, not these re-sized f5 witnesses.",
+      "related_prior": [
+        "NFI-043-10"
+      ],
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The f5 source screens are 1.143285 and 1.083205. The peak-compression local-wall sensitivity is 1.033223 and 0.978132; the 019 sensitivity is below unity. Common-q 1.258252 rows exceed both declared screens.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043fold~1NFI.json/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

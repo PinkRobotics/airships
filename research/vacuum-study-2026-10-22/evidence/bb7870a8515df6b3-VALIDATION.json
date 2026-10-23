@@ -1,0 +1,71 @@
+{
+  "independent_comparisons": 3618,
+  "independent_passes": 3618,
+  "conditional_arithmetic_comparisons": 18,
+  "conditional_arithmetic_passes": 18,
+  "distinct_linear_cases": 7,
+  "independent_static_cases": 8,
+  "pin_frequency_checks": 3,
+  "source_field_checks": 11,
+  "source_fields_pass": true,
+  "admitted_successful_released_jobs": 8,
+  "refused_jobs": 1,
+  "no_owner_code_read_or_executed": true,
+  "unverified_rise": true,
+  "unverified_new_nonlinear_first_loss": true,
+  "endpoint_sampling_qualification_rows": 6,
+  "formulation_checks": {
+    "Euler_simply_supported": {
+      "calculated_N": 20232820.55729667,
+      "exact_N": 20232689.022233184,
+      "relative_error": 6.501116255108741e-06
+    },
+    "pressure_derivatives": {
+      "gradient_relative_error": 7.630503655656691e-10,
+      "hessian_relative_error": 2.7719040532341164e-10,
+      "symmetry_error": 8.673617379884035e-18
+    },
+    "pressure_balance": {
+      "net_force_N": 4.092478767942392e-09,
+      "net_moment_Nm": 9.428652923197875e-09,
+      "homogeneous_volume_identity_relative": 1.3322676295501878e-15
+    },
+    "pin_counts": [
+      {
+        "frequency": 2,
+        "rank": 120,
+        "singular_min": 0.4169839757368307,
+        "singular_max": 2.264689011882561,
+        "endpoint_nullity": 6,
+        "independent_member_rolls": 120,
+        "internal_mechanisms": 120
+      },
+      {
+        "frequency": 4,
+        "rank": 480,
+        "singular_min": 0.21168472285979037,
+        "singular_max": 2.4031329687945,
+        "endpoint_nullity": 6,
+        "independent_member_rolls": 480,
+        "internal_mechanisms": 480
+      },
+      {
+        "frequency": 6,
+        "rank": 1080,
+        "singular_min": 0.14039797275224727,
+        "singular_max": 2.4317562259946577,
+        "endpoint_nullity": 6,
+        "independent_member_rolls": 1080,
+        "internal_mechanisms": 1080
+      }
+    ],
+    "finite_pin_roll": {
+      "angle_rad": 0.05,
+      "endpoint_displacement_m": 0.0,
+      "max_segment_length_change_m": 5.551115123125783e-16,
+      "max_director_chord_error": 1.2975731600306517e-15
+    }
+  },
+  "max_independent_linear_relative_difference": 6.721754956596226e-12,
+  "note": "Counts distinguish independent solutions from scalar arithmetic on unverified owner outputs."
+}

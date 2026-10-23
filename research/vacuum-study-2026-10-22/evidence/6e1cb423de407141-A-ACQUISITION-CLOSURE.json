@@ -1,0 +1,144 @@
+{
+  "phase": "authenticated_acquisition",
+  "status": "PASS_AUTHENTICATED_FIVE_GETS_AND_SOURCE_BINARY_RELATION",
+  "start_monotonic": 2059188.367194322,
+  "end_monotonic": 2059508.962326699,
+  "end_utc": "2026-10-19T21:06:23.782024+00:00",
+  "actual_seconds": 320.59513237699866,
+  "cap_seconds": 350,
+  "unused_not_transferred_seconds": 29.404867623001337,
+  "GETs": 5,
+  "control": {
+    "Package": "calculix-ccx",
+    "Version": "2.21-1build1",
+    "Architecture": "amd64",
+    "Maintainer": "Ubuntu Developers <[address]>",
+    "Original-Maintainer": "Debian Science Maintainers <[address]>",
+    "Installed-Size": "5170",
+    "Depends": "libarpack2t64 (>= 2.1), libblas3 | libblas.so.3, libc6 (>= 2.38), libgcc-s1 (>= 4.0), libgfortran5 (>= 10), liblapack3 | liblapack.so.3, libspooles2.2t64",
+    "Section": "science",
+    "Priority": "optional",
+    "Homepage": "http://www.calculix.de",
+    "Description": "Three-Dimensional Structural Finite Element Program\nCalculiX is a free and open source finite element analysis\napplication that uses a similar input format to Abaqus. It has an implicit and\nexplicit solver and a pre and post processor (CGX).\nThis package contains the solver CalculiX CrunchiX (cxx)."
+  },
+  "binary": {
+    "path": "unpublished-local-ref:a297836d99b9ba41",
+    "sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d",
+    "bytes": 5276992
+  },
+  "archive_inspections": [
+    {
+      "kind": "control",
+      "argv": [
+        "ref-b49c1cde24372bb5448c",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "10s",
+        "ref-ad06f6c33a0bfc08c728",
+        "--ctrl-tarfile",
+        "unpublished-local-ref:210b37a96fc6e978"
+      ],
+      "returncode": 0,
+      "process_reaped": true,
+      "stream_bytes": 10240,
+      "entries": [
+        {
+          "name": ".",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "control",
+          "bytes": 805,
+          "type": "file"
+        },
+        {
+          "name": "md5sums",
+          "bytes": 260,
+          "type": "file"
+        }
+      ],
+      "elapsed": 0.10238079586997628
+    },
+    {
+      "kind": "data",
+      "argv": [
+        "ref-b49c1cde24372bb5448c",
+        "--signal=TERM",
+        "--kill-after=2s",
+        "10s",
+        "ref-ad06f6c33a0bfc08c728",
+        "--fsys-tarfile",
+        "unpublished-local-ref:210b37a96fc6e978"
+      ],
+      "returncode": 0,
+      "process_reaped": true,
+      "stream_bytes": 5294080,
+      "entries": [
+        {
+          "name": ".",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr/bin",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr/bin/ccx",
+          "bytes": 5276992,
+          "type": "file"
+        },
+        {
+          "name": "usr/share",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr/share/doc",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr/share/doc/calculix-ccx",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr/share/doc/calculix-ccx/changelog.Debian.gz",
+          "bytes": 1258,
+          "type": "file"
+        },
+        {
+          "name": "usr/share/doc/calculix-ccx/copyright",
+          "bytes": 3999,
+          "type": "file"
+        },
+        {
+          "name": "usr/share/man",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr/share/man/man1",
+          "bytes": 0,
+          "type": "directory"
+        },
+        {
+          "name": "usr/share/man/man1/ccx.1.gz",
+          "bytes": 456,
+          "type": "file"
+        }
+      ],
+      "elapsed": 0.10177828092128038
+    }
+  ],
+  "next_phase_start_monotonic": 2059508.962326699,
+  "next_phase_deadline_monotonic": 2060158.962326699
+}

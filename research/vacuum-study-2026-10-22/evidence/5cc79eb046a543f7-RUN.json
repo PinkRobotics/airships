@@ -1,0 +1,1981 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_hull_SF": null,
+  "fe_run": false,
+  "beta_natural": 0.682327803828082,
+  "beta_run": 1.0,
+  "revert": [
+    "Q",
+    "gamma"
+  ],
+  "basis": "endpoint",
+  "radius_m": 30,
+  "why_R30": "066 concept closure density is 1013.8 kg/m3 at R30 optimistic and 993.2 at R20 optimistic. R30 needs the smaller improvement and still clears both weathers.",
+  "model63_sha256": "2c44efb4bb78a17d61219eb2595a614af86dc7a04c765b4f906a9207c96f95ff",
+  "model61_sha256": "194954ccad05e1d17d3c97ed98d32c22e1b3bc738f1b59b165e7130d7428fc74",
+  "started": "2026-10-20T18:58:46.987878-07:00",
+  "sourcing": {
+    "kc": "unsourced; kept; form 1-Vc/4 below Vc 2, meeting 1/Vc at Vc 2",
+    "cure": "unsourced; kept; 12.3e-6, kb, 366.4833333333333 K",
+    "gradient_bending": "unsourced; kept; 11.3e-6",
+    "pressure_adder": "unsourced; kept; P0*max(1.01, QWEATHER)+QWIND",
+    "opened": [
+      "COMMON.md states the simpler kd buckling law and does not state these four equations",
+      "knockdown.md states CR-1457 gamma 0.20 and Q 0.33 and does not state these four equations",
+      "SOURCE-INDEX.json has no path for CR-1457, 014b, 10.2514/3.5568 or 10.2514/3.1932",
+      "CARD-065 states CR-1457 wrinkling equations 2.2-8 and 2.2-14, not these four terms",
+      "040 INPUTS stores external_pressure_factor_floor 1.01 and names pinned 014b, which is not in the index"
+    ],
+    "private_papers": "Cite 10.2514/3.5568 and 10.2514/3.1932 by DOI only. No named copy was opened."
+  },
+  "design": {
+    "filed_066_factor": 1.824771768877316,
+    "filed_066_density_kg_m3": 1013.8254172675006,
+    "factor_used": 1.824771768877316,
+    "density_kg_m3": 1013.8254172675006,
+    "status": "066 factor floats both concept weathers",
+    "primary": {
+      "role": "concept-optimistic-optimum",
+      "R_m": 30.0,
+      "weather": "optimistic",
+      "maturity": "concept",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "factors": {
+        "Q": 1.0,
+        "face_density": 1.824771768877316
+      },
+      "geometry": {
+        "tf_m": 0.003216062671563795,
+        "tc_m": 0.17870774441772552
+      },
+      "joints": {
+        "film_kg": 1656.568669767635,
+        "scarf_kg": 391.21245676843205,
+        "splice_kg": 1278.7103862840588,
+        "seal_kg": 57.24252814898052,
+        "sum_kg": 3383.7340409691064,
+        "scarf_ratio": 30.34139731914874,
+        "charged_joining_kg": 3383.734040969106
+      },
+      "properties": {
+        "E_Pa": 293600000000.0,
+        "strength_Pa": 379200000.0,
+        "density_kg_m3": 1013.8254172675006,
+        "Q": 0.33,
+        "Gc_Pa": 46884349.59354485,
+        "gamma": 0.2,
+        "Vc": 1.322817147615744,
+        "film_kg_m2_interface": 0.07323641454574575
+      },
+      "pressure_Pa": 99707.07115083348,
+      "lift_kg": 132014.93805504794,
+      "payload_kg": 5.0314833774391445,
+      "mass_before_growth_kg": 114873.23875249347,
+      "growth_total_kg": 17136.667819177026,
+      "bill_kg": {
+        "faces": 73751.36241333291,
+        "core": 32375.508579095153,
+        "charged_joining": 3383.734040969106,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.4648958266162,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 1494.2045407849553,
+        "absorbed_water": 5.50336814156486,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "growth_kg": {
+        "faces": 11062.704361999937,
+        "core": 4856.326286864272,
+        "charged_joining": 1015.1202122907317,
+        "coating": 8.567349361010423,
+        "mooring_pad": 158.9197343739924,
+        "gas": 0.0,
+        "systems": 0.0,
+        "extra_service": 0.0,
+        "water": 0.0,
+        "contamination": 0.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 1.100673628312972,
+        "structural_primer": 33.929200658769766,
+        "desiccant": 0.0
+      },
+      "modes": {
+        "global_buckling": 1.00000000011136,
+        "face_compression": 1.5544640657407518,
+        "core_shear_crimping": 5.533774443482437,
+        "face_wrinkling": 1.0000000224810115,
+        "intracell_dimpling": 138.0246341708769,
+        "core_crush": 4.840509353561036,
+        "scarf_average_shear": 1.2451435729207674,
+        "core_wall_yield": 2.400002357222553,
+        "thermal_interface": 1.0707994721064877,
+        "vacuum_pressure": 32.961173942400706
+      },
+      "crushing_margins": [
+        {
+          "mode": "global_buckling",
+          "value": 1.00000000011136,
+          "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_wrinkling",
+          "value": 1.0000000224810115,
+          "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "intracell_dimpling",
+          "value": 138.0246341708769,
+          "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_shear_crimping",
+          "value": 5.533774443482437,
+          "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_crush",
+          "value": 4.840509353561036,
+          "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_compression",
+          "value": 1.5544640657407518,
+          "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "thermal_interface",
+          "value": 1.0707994721064877,
+          "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "scarf_average_shear",
+          "value": 1.2451435729207674,
+          "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_wall_yield",
+          "value": 2.400002357222553,
+          "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "vacuum_pressure",
+          "value": 32.961173942400706,
+          "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "binding": [
+        [
+          "global_buckling",
+          1.00000000011136
+        ],
+        [
+          "face_wrinkling",
+          1.0000000224810115
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "floats": true,
+      "qualified_hull_SF": null,
+      "tag": "PROJECTION"
+    },
+    "isa_reoptimized_same_density": {
+      "role": "concept-ISA-reoptimized",
+      "R_m": 30.0,
+      "weather": "ISA",
+      "maturity": "concept",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "factors": {
+        "Q": 1.0,
+        "face_density": 1.824771768877316
+      },
+      "geometry": {
+        "tf_m": 0.0031469432352418704,
+        "tc_m": 0.17621113186752277
+      },
+      "joints": {
+        "film_kg": 1656.568669767635,
+        "scarf_kg": 381.49371246766725,
+        "splice_kg": 1256.5288486951408,
+        "seal_kg": 57.04651393487723,
+        "sum_kg": 3351.63774486532,
+        "scarf_ratio": 30.34139731914874,
+        "charged_joining_kg": 3351.63774486532
+      },
+      "properties": {
+        "E_Pa": 293600000000.0,
+        "strength_Pa": 379200000.0,
+        "density_kg_m3": 1013.8254172675006,
+        "Q": 0.33,
+        "Gc_Pa": 46884349.59354485,
+        "gamma": 0.2,
+        "Vc": 1.2945618094506288,
+        "film_kg_m2_interface": 0.07323641454574575
+      },
+      "pressure_Pa": 97172.30315075364,
+      "lift_kg": 132014.93805504794,
+      "payload_kg": 3884.0154578497895,
+      "mass_before_growth_kg": 111309.50280043152,
+      "growth_total_kg": 16821.419796766626,
+      "bill_kg": {
+        "faces": 72166.302320115,
+        "core": 31923.210883205546,
+        "charged_joining": 3351.63774486532,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.4648958266162,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 5.426042075872115,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "growth_kg": {
+        "faces": 10824.94534801725,
+        "core": 4788.481632480832,
+        "charged_joining": 1005.4913234595961,
+        "coating": 8.567349361010423,
+        "mooring_pad": 158.9197343739924,
+        "gas": 0.0,
+        "systems": 0.0,
+        "extra_service": 0.0,
+        "water": 0.0,
+        "contamination": 0.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 1.085208415174423,
+        "structural_primer": 33.929200658769766,
+        "desiccant": 0.0
+      },
+      "modes": {
+        "global_buckling": 1.000000000121535,
+        "face_compression": 1.560427031159148,
+        "core_shear_crimping": 5.596192627162899,
+        "face_wrinkling": 1.0000000159527116,
+        "intracell_dimpling": 132.6625052584806,
+        "core_crush": 4.966775458363128,
+        "scarf_average_shear": 1.2499199767179994,
+        "core_wall_yield": 2.4000301766630305,
+        "thermal_interface": 1.0708118841952043,
+        "vacuum_pressure": 33.1167626674988
+      },
+      "crushing_margins": [
+        {
+          "mode": "global_buckling",
+          "value": 1.000000000121535,
+          "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_wrinkling",
+          "value": 1.0000000159527116,
+          "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "intracell_dimpling",
+          "value": 132.6625052584806,
+          "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_shear_crimping",
+          "value": 5.596192627162899,
+          "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_crush",
+          "value": 4.966775458363128,
+          "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_compression",
+          "value": 1.560427031159148,
+          "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "thermal_interface",
+          "value": 1.0708118841952043,
+          "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "scarf_average_shear",
+          "value": 1.2499199767179994,
+          "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_wall_yield",
+          "value": 2.4000301766630305,
+          "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "vacuum_pressure",
+          "value": 33.1167626674988,
+          "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "binding": [
+        [
+          "global_buckling",
+          1.000000000121535
+        ],
+        [
+          "face_wrinkling",
+          1.0000000159527116
+        ],
+        [
+          "thermal_interface",
+          1.0708118841952043
+        ]
+      ],
+      "floats": true,
+      "qualified_hull_SF": null,
+      "tag": "PROJECTION"
+    },
+    "same_geometry": {
+      "concept:ISA": {
+        "role": "fixed-geometry",
+        "R_m": 30.0,
+        "weather": "ISA",
+        "maturity": "concept",
+        "basis": "endpoint",
+        "revert": [
+          "Q",
+          "gamma"
+        ],
+        "factors": {
+          "Q": 1.0,
+          "face_density": 1.824771768877316
+        },
+        "geometry": {
+          "tf_m": 0.003216062671563795,
+          "tc_m": 0.17870774441772552
+        },
+        "joints": {
+          "film_kg": 1656.568669767635,
+          "scarf_kg": 391.21245676843205,
+          "splice_kg": 1278.7103862840588,
+          "seal_kg": 57.24252814898052,
+          "sum_kg": 3383.7340409691064,
+          "scarf_ratio": 30.34139731914874,
+          "charged_joining_kg": 3383.734040969106
+        },
+        "properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1013.8254172675006,
+          "Q": 0.33,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.2,
+          "Vc": 1.322817147615744,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "pressure_Pa": 97172.30315075364,
+        "lift_kg": 132014.93805504794,
+        "payload_kg": 1499.23602416239,
+        "mass_before_growth_kg": 113379.03421170852,
+        "growth_total_kg": 17136.667819177026,
+        "bill_kg": {
+          "faces": 73751.36241333291,
+          "core": 32375.508579095153,
+          "charged_joining": 3383.734040969106,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.4648958266162,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 5.50336814156486,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "growth_kg": {
+          "faces": 11062.704361999937,
+          "core": 4856.326286864272,
+          "charged_joining": 1015.1202122907317,
+          "coating": 8.567349361010423,
+          "mooring_pad": 158.9197343739924,
+          "gas": 0.0,
+          "systems": 0.0,
+          "extra_service": 0.0,
+          "water": 0.0,
+          "contamination": 0.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 1.100673628312972,
+          "structural_primer": 33.929200658769766,
+          "desiccant": 0.0
+        },
+        "modes": {
+          "global_buckling": 1.025356716102878,
+          "face_compression": 1.59306709641559,
+          "core_shear_crimping": 5.671198311487768,
+          "face_wrinkling": 1.0248336821283819,
+          "intracell_dimpling": 141.45229088177206,
+          "core_crush": 4.966775458363128,
+          "scarf_average_shear": 1.2760650439276464,
+          "core_wall_yield": 2.400002357222553,
+          "thermal_interface": 1.0707994721064877,
+          "vacuum_pressure": 32.961173942400706
+        },
+        "crushing_margins": [
+          {
+            "mode": "global_buckling",
+            "value": 1.025356716102878,
+            "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_wrinkling",
+            "value": 1.0248336821283819,
+            "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "intracell_dimpling",
+            "value": 141.45229088177206,
+            "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_shear_crimping",
+            "value": 5.671198311487768,
+            "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_crush",
+            "value": 4.966775458363128,
+            "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_compression",
+            "value": 1.59306709641559,
+            "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "thermal_interface",
+            "value": 1.0707994721064877,
+            "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "scarf_average_shear",
+            "value": 1.2760650439276464,
+            "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_wall_yield",
+            "value": 2.400002357222553,
+            "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "vacuum_pressure",
+            "value": 32.961173942400706,
+            "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+            "tag": "QUESTIONABLE"
+          }
+        ],
+        "binding": [
+          [
+            "face_wrinkling",
+            1.0248336821283819
+          ],
+          [
+            "global_buckling",
+            1.025356716102878
+          ],
+          [
+            "thermal_interface",
+            1.0707994721064877
+          ]
+        ],
+        "floats": true,
+        "qualified_hull_SF": null,
+        "tag": "PROJECTION"
+      },
+      "concept:optimistic": {
+        "role": "fixed-geometry",
+        "R_m": 30.0,
+        "weather": "optimistic",
+        "maturity": "concept",
+        "basis": "endpoint",
+        "revert": [
+          "Q",
+          "gamma"
+        ],
+        "factors": {
+          "Q": 1.0,
+          "face_density": 1.824771768877316
+        },
+        "geometry": {
+          "tf_m": 0.003216062671563795,
+          "tc_m": 0.17870774441772552
+        },
+        "joints": {
+          "film_kg": 1656.568669767635,
+          "scarf_kg": 391.21245676843205,
+          "splice_kg": 1278.7103862840588,
+          "seal_kg": 57.24252814898052,
+          "sum_kg": 3383.7340409691064,
+          "scarf_ratio": 30.34139731914874,
+          "charged_joining_kg": 3383.734040969106
+        },
+        "properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1013.8254172675006,
+          "Q": 0.33,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.2,
+          "Vc": 1.322817147615744,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "pressure_Pa": 99707.07115083348,
+        "lift_kg": 132014.93805504794,
+        "payload_kg": 5.0314833774391445,
+        "mass_before_growth_kg": 114873.23875249347,
+        "growth_total_kg": 17136.667819177026,
+        "bill_kg": {
+          "faces": 73751.36241333291,
+          "core": 32375.508579095153,
+          "charged_joining": 3383.734040969106,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.4648958266162,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 1494.2045407849553,
+          "absorbed_water": 5.50336814156486,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "growth_kg": {
+          "faces": 11062.704361999937,
+          "core": 4856.326286864272,
+          "charged_joining": 1015.1202122907317,
+          "coating": 8.567349361010423,
+          "mooring_pad": 158.9197343739924,
+          "gas": 0.0,
+          "systems": 0.0,
+          "extra_service": 0.0,
+          "water": 0.0,
+          "contamination": 0.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 1.100673628312972,
+          "structural_primer": 33.929200658769766,
+          "desiccant": 0.0
+        },
+        "modes": {
+          "global_buckling": 1.00000000011136,
+          "face_compression": 1.5544640657407518,
+          "core_shear_crimping": 5.533774443482437,
+          "face_wrinkling": 1.0000000224810115,
+          "intracell_dimpling": 138.0246341708769,
+          "core_crush": 4.840509353561036,
+          "scarf_average_shear": 1.2451435729207674,
+          "core_wall_yield": 2.400002357222553,
+          "thermal_interface": 1.0707994721064877,
+          "vacuum_pressure": 32.961173942400706
+        },
+        "crushing_margins": [
+          {
+            "mode": "global_buckling",
+            "value": 1.00000000011136,
+            "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_wrinkling",
+            "value": 1.0000000224810115,
+            "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "intracell_dimpling",
+            "value": 138.0246341708769,
+            "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_shear_crimping",
+            "value": 5.533774443482437,
+            "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_crush",
+            "value": 4.840509353561036,
+            "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_compression",
+            "value": 1.5544640657407518,
+            "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "thermal_interface",
+            "value": 1.0707994721064877,
+            "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "scarf_average_shear",
+            "value": 1.2451435729207674,
+            "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_wall_yield",
+            "value": 2.400002357222553,
+            "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "vacuum_pressure",
+            "value": 32.961173942400706,
+            "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+            "tag": "QUESTIONABLE"
+          }
+        ],
+        "binding": [
+          [
+            "global_buckling",
+            1.00000000011136
+          ],
+          [
+            "face_wrinkling",
+            1.0000000224810115
+          ],
+          [
+            "thermal_interface",
+            1.0707994721064877
+          ]
+        ],
+        "floats": true,
+        "qualified_hull_SF": null,
+        "tag": "PROJECTION"
+      },
+      "TRL7:ISA": {
+        "role": "fixed-geometry",
+        "R_m": 30.0,
+        "weather": "ISA",
+        "maturity": "TRL7",
+        "basis": "endpoint",
+        "revert": [
+          "Q",
+          "gamma"
+        ],
+        "factors": {
+          "Q": 1.0,
+          "face_density": 1.824771768877316
+        },
+        "geometry": {
+          "tf_m": 0.003216062671563795,
+          "tc_m": 0.17870774441772552
+        },
+        "joints": {
+          "film_kg": 1656.568669767635,
+          "scarf_kg": 391.21245676843205,
+          "splice_kg": 1278.7103862840588,
+          "seal_kg": 57.24252814898052,
+          "sum_kg": 3383.7340409691064,
+          "scarf_ratio": 30.34139731914874,
+          "charged_joining_kg": 3383.734040969106
+        },
+        "properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1013.8254172675006,
+          "Q": 0.33,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.2,
+          "Vc": 1.322817147615744,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "pressure_Pa": 97172.30315075364,
+        "lift_kg": 132014.93805504794,
+        "payload_kg": 13101.470311694688,
+        "mass_before_growth_kg": 113379.03421170852,
+        "growth_total_kg": 5534.43353164473,
+        "bill_kg": {
+          "faces": 73751.36241333291,
+          "core": 32375.508579095153,
+          "charged_joining": 3383.734040969106,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.4648958266162,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 5.50336814156486,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "growth_kg": {
+          "faces": 3687.568120666646,
+          "core": 1618.7754289547577,
+          "charged_joining": 169.18670204845532,
+          "coating": 0.0,
+          "mooring_pad": 52.97324479133081,
+          "gas": 0.0,
+          "systems": 0.0,
+          "extra_service": 0.0,
+          "water": 0.0,
+          "contamination": 0.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 0.275168407078243,
+          "structural_primer": 5.654866776461628,
+          "desiccant": 0.0
+        },
+        "modes": {
+          "global_buckling": 1.025356716102878,
+          "face_compression": 1.59306709641559,
+          "core_shear_crimping": 5.671198311487768,
+          "face_wrinkling": 1.0248336821283819,
+          "intracell_dimpling": 141.45229088177206,
+          "core_crush": 4.966775458363128,
+          "scarf_average_shear": 1.2760650439276464,
+          "core_wall_yield": 2.400002357222553,
+          "thermal_interface": 1.0707994721064877,
+          "vacuum_pressure": 32.961173942400706
+        },
+        "crushing_margins": [
+          {
+            "mode": "global_buckling",
+            "value": 1.025356716102878,
+            "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_wrinkling",
+            "value": 1.0248336821283819,
+            "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "intracell_dimpling",
+            "value": 141.45229088177206,
+            "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_shear_crimping",
+            "value": 5.671198311487768,
+            "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_crush",
+            "value": 4.966775458363128,
+            "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_compression",
+            "value": 1.59306709641559,
+            "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "thermal_interface",
+            "value": 1.0707994721064877,
+            "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "scarf_average_shear",
+            "value": 1.2760650439276464,
+            "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_wall_yield",
+            "value": 2.400002357222553,
+            "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "vacuum_pressure",
+            "value": 32.961173942400706,
+            "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+            "tag": "QUESTIONABLE"
+          }
+        ],
+        "binding": [
+          [
+            "face_wrinkling",
+            1.0248336821283819
+          ],
+          [
+            "global_buckling",
+            1.025356716102878
+          ],
+          [
+            "thermal_interface",
+            1.0707994721064877
+          ]
+        ],
+        "floats": true,
+        "qualified_hull_SF": null,
+        "tag": "PROJECTION"
+      },
+      "TRL7:optimistic": {
+        "role": "fixed-geometry",
+        "R_m": 30.0,
+        "weather": "optimistic",
+        "maturity": "TRL7",
+        "basis": "endpoint",
+        "revert": [
+          "Q",
+          "gamma"
+        ],
+        "factors": {
+          "Q": 1.0,
+          "face_density": 1.824771768877316
+        },
+        "geometry": {
+          "tf_m": 0.003216062671563795,
+          "tc_m": 0.17870774441772552
+        },
+        "joints": {
+          "film_kg": 1656.568669767635,
+          "scarf_kg": 391.21245676843205,
+          "splice_kg": 1278.7103862840588,
+          "seal_kg": 57.24252814898052,
+          "sum_kg": 3383.7340409691064,
+          "scarf_ratio": 30.34139731914874,
+          "charged_joining_kg": 3383.734040969106
+        },
+        "properties": {
+          "E_Pa": 293600000000.0,
+          "strength_Pa": 379200000.0,
+          "density_kg_m3": 1013.8254172675006,
+          "Q": 0.33,
+          "Gc_Pa": 46884349.59354485,
+          "gamma": 0.2,
+          "Vc": 1.322817147615744,
+          "film_kg_m2_interface": 0.07323641454574575
+        },
+        "pressure_Pa": 99707.07115083348,
+        "lift_kg": 132014.93805504794,
+        "payload_kg": 11607.265770909737,
+        "mass_before_growth_kg": 114873.23875249347,
+        "growth_total_kg": 5534.43353164473,
+        "bill_kg": {
+          "faces": 73751.36241333291,
+          "core": 32375.508579095153,
+          "charged_joining": 3383.734040969106,
+          "coating": 94.24084297111466,
+          "mooring_pad": 1059.4648958266162,
+          "gas": 1320.1493805504795,
+          "systems": 100.0,
+          "extra_service": 0.0,
+          "water": 1130.9733552923256,
+          "contamination": 45.0,
+          "weather_headroom": 1494.2045407849553,
+          "absorbed_water": 5.50336814156486,
+          "structural_primer": 113.09733552923255,
+          "desiccant": 0.0
+        },
+        "growth_kg": {
+          "faces": 3687.568120666646,
+          "core": 1618.7754289547577,
+          "charged_joining": 169.18670204845532,
+          "coating": 0.0,
+          "mooring_pad": 52.97324479133081,
+          "gas": 0.0,
+          "systems": 0.0,
+          "extra_service": 0.0,
+          "water": 0.0,
+          "contamination": 0.0,
+          "weather_headroom": 0.0,
+          "absorbed_water": 0.275168407078243,
+          "structural_primer": 5.654866776461628,
+          "desiccant": 0.0
+        },
+        "modes": {
+          "global_buckling": 1.00000000011136,
+          "face_compression": 1.5544640657407518,
+          "core_shear_crimping": 5.533774443482437,
+          "face_wrinkling": 1.0000000224810115,
+          "intracell_dimpling": 138.0246341708769,
+          "core_crush": 4.840509353561036,
+          "scarf_average_shear": 1.2451435729207674,
+          "core_wall_yield": 2.400002357222553,
+          "thermal_interface": 1.0707994721064877,
+          "vacuum_pressure": 32.961173942400706
+        },
+        "crushing_margins": [
+          {
+            "mode": "global_buckling",
+            "value": 1.00000000011136,
+            "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_wrinkling",
+            "value": 1.0000000224810115,
+            "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "intracell_dimpling",
+            "value": 138.0246341708769,
+            "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_shear_crimping",
+            "value": 5.533774443482437,
+            "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_crush",
+            "value": 4.840509353561036,
+            "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "face_compression",
+            "value": 1.5544640657407518,
+            "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "thermal_interface",
+            "value": 1.0707994721064877,
+            "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "scarf_average_shear",
+            "value": 1.2451435729207674,
+            "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "core_wall_yield",
+            "value": 2.400002357222553,
+            "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+            "tag": "QUESTIONABLE"
+          },
+          {
+            "mode": "vacuum_pressure",
+            "value": 32.961173942400706,
+            "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+            "tag": "QUESTIONABLE"
+          }
+        ],
+        "binding": [
+          [
+            "global_buckling",
+            1.00000000011136
+          ],
+          [
+            "face_wrinkling",
+            1.0000000224810115
+          ],
+          [
+            "thermal_interface",
+            1.0707994721064877
+          ]
+        ],
+        "floats": true,
+        "qualified_hull_SF": null,
+        "tag": "PROJECTION"
+      }
+    }
+  },
+  "trl7_alternative": {
+    "face_density_kg_m3": 1850.0,
+    "face_density_factor": 1.0,
+    "filed_066_gamma_factor": 2.7669873295303313,
+    "filed_066_realized_gamma": 0.5533974659060663,
+    "gamma_factor_used": 2.7669873295303313,
+    "status": "066 realized-gamma factor floats both TRL7 weathers",
+    "note": "Optimism of this alternative only. The design point keeps gamma 0.20.",
+    "primary": {
+      "role": "TRL7-optimistic-optimum",
+      "R_m": 30.0,
+      "weather": "optimistic",
+      "maturity": "TRL7",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "factors": {
+        "Q": 1.0,
+        "face_density": 1.0,
+        "gamma": 2.7669873295303313
+      },
+      "geometry": {
+        "tf_m": 0.0025096409443310878,
+        "tc_m": 0.07183422307106092
+      },
+      "joints": {
+        "film_kg": 1656.568669767635,
+        "scarf_kg": 294.96257335682935,
+        "splice_kg": 496.6236175344195,
+        "seal_kg": 55.30774567360653,
+        "sum_kg": 2503.4626063324904,
+        "scarf_ratio": 30.34139731914874,
+        "charged_joining_kg": 2503.4626063324904
+      },
+      "properties": {
+        "E_Pa": 293600000000.0,
+        "strength_Pa": 379200000.0,
+        "density_kg_m3": 1850.0,
+        "Q": 0.33,
+        "Gc_Pa": 46884349.59354485,
+        "gamma": 0.5533974659060663,
+        "Vc": 1.0153583288656935,
+        "film_kg_m2_interface": 0.07323641454574575
+      },
+      "pressure_Pa": 99707.07115083348,
+      "lift_kg": 132014.93805504794,
+      "payload_kg": 33.822967121274814,
+      "mass_before_growth_kg": 125895.565232292,
+      "growth_total_kg": 6085.549855634658,
+      "bill_kg": {
+        "faces": 105018.47045739784,
+        "core": 13013.814890268914,
+        "charged_joining": 2503.4626063324904,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.4648958266162,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 1494.2045407849553,
+        "absorbed_water": 2.6869273380456216,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "growth_kg": {
+        "faces": 5250.923522869893,
+        "core": 650.6907445134457,
+        "charged_joining": 125.17313031662452,
+        "coating": 0.0,
+        "mooring_pad": 52.97324479133081,
+        "gas": 0.0,
+        "systems": 0.0,
+        "extra_service": 0.0,
+        "water": 0.0,
+        "contamination": 0.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 0.13434636690228108,
+        "structural_primer": 5.654866776461628,
+        "desiccant": 0.0
+      },
+      "modes": {
+        "global_buckling": 1.000000000149713,
+        "face_compression": 1.248421560349953,
+        "core_shear_crimping": 2.3661272706142316,
+        "face_wrinkling": 1.1190000714944521,
+        "intracell_dimpling": 67.5011782967997,
+        "core_crush": 4.840509353561036,
+        "scarf_average_shear": 1.0000000105661548,
+        "core_wall_yield": 2.4014418553267864,
+        "thermal_interface": 1.071441727229893,
+        "vacuum_pressure": 39.399519694538164
+      },
+      "crushing_margins": [
+        {
+          "mode": "global_buckling",
+          "value": 1.000000000149713,
+          "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_wrinkling",
+          "value": 1.1190000714944521,
+          "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "intracell_dimpling",
+          "value": 67.5011782967997,
+          "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_shear_crimping",
+          "value": 2.3661272706142316,
+          "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_crush",
+          "value": 4.840509353561036,
+          "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_compression",
+          "value": 1.248421560349953,
+          "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "thermal_interface",
+          "value": 1.071441727229893,
+          "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "scarf_average_shear",
+          "value": 1.0000000105661548,
+          "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_wall_yield",
+          "value": 2.4014418553267864,
+          "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "vacuum_pressure",
+          "value": 39.399519694538164,
+          "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "binding": [
+        [
+          "global_buckling",
+          1.000000000149713
+        ],
+        [
+          "scarf_average_shear",
+          1.0000000105661548
+        ],
+        [
+          "thermal_interface",
+          1.071441727229893
+        ]
+      ],
+      "floats": true,
+      "qualified_hull_SF": null,
+      "tag": "PROJECTION"
+    },
+    "isa_reoptimized": {
+      "role": "TRL7-ISA-reoptimized",
+      "R_m": 30.0,
+      "weather": "ISA",
+      "maturity": "TRL7",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "factors": {
+        "Q": 1.0,
+        "face_density": 1.0,
+        "gamma": 2.7669873295303313
+      },
+      "geometry": {
+        "tf_m": 0.0024462059152663635,
+        "tc_m": 0.07128225491751747
+      },
+      "joints": {
+        "film_kg": 1656.568669767635,
+        "scarf_kg": 286.64093497773604,
+        "splice_kg": 491.3232060053565,
+        "seal_kg": 55.14115192611448,
+        "sum_kg": 2489.6739626768417,
+        "scarf_ratio": 30.34139731914874,
+        "charged_joining_kg": 2489.673962676842
+      },
+      "properties": {
+        "E_Pa": 293600000000.0,
+        "strength_Pa": 379200000.0,
+        "density_kg_m3": 1850.0,
+        "Q": 0.33,
+        "Gc_Pa": 46884349.59354485,
+        "gamma": 0.5533974659060663,
+        "Vc": 0.9902862505901625,
+        "film_kg_m2_interface": 0.07323641454574575
+      },
+      "pressure_Pa": 97172.30315075364,
+      "lift_kg": 132014.93805504794,
+      "payload_kg": 4434.755758089747,
+      "mass_before_growth_kg": 121633.04807228466,
+      "growth_total_kg": 5947.134224673538,
+      "bill_kg": {
+        "faces": 102363.96733381513,
+        "core": 12913.817826634882,
+        "charged_joining": 2489.673962676842,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.4648958266162,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 2.66313898802657,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "growth_kg": {
+        "faces": 5118.198366690757,
+        "core": 645.6908913317442,
+        "charged_joining": 124.48369813384211,
+        "coating": 0.0,
+        "mooring_pad": 52.97324479133081,
+        "gas": 0.0,
+        "systems": 0.0,
+        "extra_service": 0.0,
+        "water": 0.0,
+        "contamination": 0.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 0.1331569494013285,
+        "structural_primer": 5.654866776461628,
+        "desiccant": 0.0
+      },
+      "modes": {
+        "global_buckling": 1.0000000258218327,
+        "face_compression": 1.2484215475158795,
+        "core_shear_crimping": 2.405950682007667,
+        "face_wrinkling": 1.1090364113669087,
+        "intracell_dimpling": 64.13191246674926,
+        "core_crush": 4.966775458363128,
+        "scarf_average_shear": 1.0000000002859146,
+        "core_wall_yield": 2.401450928460103,
+        "thermal_interface": 1.0714457753535698,
+        "vacuum_pressure": 39.47514859137649
+      },
+      "crushing_margins": [
+        {
+          "mode": "global_buckling",
+          "value": 1.0000000258218327,
+          "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_wrinkling",
+          "value": 1.1090364113669087,
+          "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "intracell_dimpling",
+          "value": 64.13191246674926,
+          "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_shear_crimping",
+          "value": 2.405950682007667,
+          "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_crush",
+          "value": 4.966775458363128,
+          "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_compression",
+          "value": 1.2484215475158795,
+          "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "thermal_interface",
+          "value": 1.0714457753535698,
+          "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "scarf_average_shear",
+          "value": 1.0000000002859146,
+          "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_wall_yield",
+          "value": 2.401450928460103,
+          "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "vacuum_pressure",
+          "value": 39.47514859137649,
+          "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "binding": [
+        [
+          "scarf_average_shear",
+          1.0000000002859146
+        ],
+        [
+          "global_buckling",
+          1.0000000258218327
+        ],
+        [
+          "thermal_interface",
+          1.0714457753535698
+        ]
+      ],
+      "floats": true,
+      "qualified_hull_SF": null,
+      "tag": "PROJECTION"
+    },
+    "same_geometry_ISA": {
+      "role": "fixed-geometry",
+      "R_m": 30.0,
+      "weather": "ISA",
+      "maturity": "TRL7",
+      "basis": "endpoint",
+      "revert": [
+        "Q",
+        "gamma"
+      ],
+      "factors": {
+        "Q": 1.0,
+        "face_density": 1.0,
+        "gamma": 2.7669873295303313
+      },
+      "geometry": {
+        "tf_m": 0.0025096409443310878,
+        "tc_m": 0.07183422307106092
+      },
+      "joints": {
+        "film_kg": 1656.568669767635,
+        "scarf_kg": 294.96257335682935,
+        "splice_kg": 496.6236175344195,
+        "seal_kg": 55.30774567360653,
+        "sum_kg": 2503.4626063324904,
+        "scarf_ratio": 30.34139731914874,
+        "charged_joining_kg": 2503.4626063324904
+      },
+      "properties": {
+        "E_Pa": 293600000000.0,
+        "strength_Pa": 379200000.0,
+        "density_kg_m3": 1850.0,
+        "Q": 0.33,
+        "Gc_Pa": 46884349.59354485,
+        "gamma": 0.5533974659060663,
+        "Vc": 1.0153583288656935,
+        "film_kg_m2_interface": 0.07323641454574575
+      },
+      "pressure_Pa": 97172.30315075364,
+      "lift_kg": 132014.93805504794,
+      "payload_kg": 1528.0275079062258,
+      "mass_before_growth_kg": 124401.36069150706,
+      "growth_total_kg": 6085.549855634658,
+      "bill_kg": {
+        "faces": 105018.47045739784,
+        "core": 13013.814890268914,
+        "charged_joining": 2503.4626063324904,
+        "coating": 94.24084297111466,
+        "mooring_pad": 1059.4648958266162,
+        "gas": 1320.1493805504795,
+        "systems": 100.0,
+        "extra_service": 0.0,
+        "water": 1130.9733552923256,
+        "contamination": 45.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 2.6869273380456216,
+        "structural_primer": 113.09733552923255,
+        "desiccant": 0.0
+      },
+      "growth_kg": {
+        "faces": 5250.923522869893,
+        "core": 650.6907445134457,
+        "charged_joining": 125.17313031662452,
+        "coating": 0.0,
+        "mooring_pad": 52.97324479133081,
+        "gas": 0.0,
+        "systems": 0.0,
+        "extra_service": 0.0,
+        "water": 0.0,
+        "contamination": 0.0,
+        "weather_headroom": 0.0,
+        "absorbed_water": 0.13434636690228108,
+        "structural_primer": 5.654866776461628,
+        "desiccant": 0.0
+      },
+      "modes": {
+        "global_buckling": 1.0257876324278465,
+        "face_compression": 1.280352400054733,
+        "core_shear_crimping": 2.426645634761926,
+        "face_wrinkling": 1.1476207017745883,
+        "intracell_dimpling": 69.22765385003726,
+        "core_crush": 4.966775458363128,
+        "scarf_average_shear": 1.0255769799619856,
+        "core_wall_yield": 2.4014418553267864,
+        "thermal_interface": 1.071441727229893,
+        "vacuum_pressure": 39.399519694538164
+      },
+      "crushing_margins": [
+        {
+          "mode": "global_buckling",
+          "value": 1.0257876324278465,
+          "source_law": "gamma*kc*sig0/(sigp+cure); gamma 0.20 is the CR-1457 hemisphere floor for Vc<2; kc=1-Vc/4 is unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_wrinkling",
+          "value": 1.1476207017745883,
+          "source_law": "BETA*Q*sqrt(E*Ec*tf/tc)/demand; Q=0.33 is CR-1457 eq 2.2-14; BETA=1 by the 066 line; demand includes unsourced grad, bend and cure",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "intracell_dimpling",
+          "value": 69.22765385003726,
+          "source_law": "E*(tf/s_cell)^2/((1-nu^2)*demand); model equation, unsourced as a hull test",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_shear_crimping",
+          "value": 2.426645634761926,
+          "source_law": "crimp/demand; Gc from the Hexcel CR-III citation in 040; demand includes unsourced thermal stress",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_crush",
+          "value": 4.966775458363128,
+          "source_law": "2*crush_Pa/p; crush from the 040 core record; pressure includes the unsourced adder",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "face_compression",
+          "value": 1.280352400054733,
+          "source_law": "strength/demand; strength_full 379.2 MPa is 040's historical tuple",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "thermal_interface",
+          "value": 1.071441727229893,
+          "source_law": "25 psi / tau; tau uses unsourced 12.3e-6, kb and the cure-temperature window",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "scarf_average_shear",
+          "value": 1.0255769799619856,
+          "source_law": "10 MPa / (demand*scarf/(1+scarf^2)); scarf ratio from 040 joining",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "core_wall_yield",
+          "value": 2.4014418553267864,
+          "source_law": "227.53 MPa / (1.2*67 GPa*12.3e-6*dt); coefficients unsourced",
+          "tag": "QUESTIONABLE"
+        },
+        {
+          "mode": "vacuum_pressure",
+          "value": 39.399519694538164,
+          "source_law": "0.01*P0/hot_pressure_24h; model leak and desorption account",
+          "tag": "QUESTIONABLE"
+        }
+      ],
+      "binding": [
+        [
+          "scarf_average_shear",
+          1.0255769799619856
+        ],
+        [
+          "global_buckling",
+          1.0257876324278465
+        ],
+        [
+          "thermal_interface",
+          1.071441727229893
+        ]
+      ],
+      "floats": true,
+      "qualified_hull_SF": null,
+      "tag": "PROJECTION"
+    },
+    "same_geometry_gamma_0.20_payload_kg": 33.822967121274814,
+    "gamma_optimism_payload_delta_kg": 0.0
+  },
+  "graphite_film_070": {
+    "source": "evidence/0bf313b068a05a24-RESULTS.json",
+    "source_sha256": "0bf313b068a05a2446c69dfa88223831130a89582f3a6dc16da5a820aeef4979",
+    "law": "gamma held at 0.20, the card case. Version-7 gamma step is not this case.",
+    "family_witness": {
+      "maturity": "concept",
+      "R_m": 20,
+      "weather": "optimistic",
+      "payload_kg": -17974.24789067152,
+      "tf_m": 0.001687652719452699,
+      "tc_m": 0.10556814278732786,
+      "E_GPa": 969.0,
+      "rho_kg_m3": 2250.0,
+      "strength_MPa": 1290.0,
+      "gamma": 0.2,
+      "Q": 0.33,
+      "Vc": 3.4433062952934135,
+      "co_binding": [
+        "scarf_average_shear",
+        "global_buckling"
+      ],
+      "binding": [
+        [
+          "scarf_average_shear",
+          1.0000000003288803
+        ],
+        [
+          "global_buckling",
+          1.0000000174520758
+        ],
+        [
+          "thermal_interface",
+          1.0712128618137595
+        ],
+        [
+          "face_wrinkling",
+          1.3751465315572982
+        ]
+      ],
+      "floats": false,
+      "density_factor_to_float": 1.6933050733021113,
+      "closed_rho_kg_m3": 1328.7623331880054
+    },
+    "r30_both_weathers": {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "optimistic",
+      "payload_kg": -58887.81634514379,
+      "tf_m": 0.0025340114899948117,
+      "tc_m": 0.15834810843671207,
+      "E_GPa": 969.0,
+      "rho_kg_m3": 2250.0,
+      "strength_MPa": 1290.0,
+      "gamma": 0.2,
+      "Q": 0.33,
+      "Vc": 3.446695208178461,
+      "co_binding": [
+        "scarf_average_shear",
+        "global_buckling"
+      ],
+      "binding": [
+        [
+          "scarf_average_shear",
+          1.000000000309505
+        ],
+        [
+          "global_buckling",
+          1.000000032185854
+        ],
+        [
+          "thermal_interface",
+          1.0709039094910273
+        ],
+        [
+          "face_wrinkling",
+          1.3758520225402693
+        ]
+      ],
+      "floats": false,
+      "density_factor_to_float": 1.6585815524396763,
+      "closed_rho_kg_m3": 1356.5808667595402
+    },
+    "r30_least_remaining_factor": {
+      "maturity": "concept",
+      "R_m": 30,
+      "weather": "ISA",
+      "payload_kg": -52721.061355906146,
+      "tf_m": 0.002469391803670647,
+      "tc_m": 0.1543228919322125,
+      "E_GPa": 969.0,
+      "rho_kg_m3": 2250.0,
+      "strength_MPa": 1290.0,
+      "gamma": 0.2,
+      "Q": 0.33,
+      "Vc": 3.358805616379029,
+      "co_binding": [
+        "scarf_average_shear",
+        "global_buckling"
+      ],
+      "binding": [
+        [
+          "scarf_average_shear",
+          1.0000000002016896
+        ],
+        [
+          "global_buckling",
+          1.0000000067014088
+        ],
+        [
+          "thermal_interface",
+          1.0709254013498304
+        ],
+        [
+          "face_wrinkling",
+          1.3757949188117764
+        ]
+      ],
+      "floats": false,
+      "density_factor_to_float": 1.5742815750815988,
+      "closed_rho_kg_m3": 1429.2233585236345
+    },
+    "r30_concept": [
+      {
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "ISA",
+        "payload_kg": -52721.061355906146,
+        "tf_m": 0.002469391803670647,
+        "tc_m": 0.1543228919322125,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.358805616379029,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.0000000002016896
+          ],
+          [
+            "global_buckling",
+            1.0000000067014088
+          ],
+          [
+            "thermal_interface",
+            1.0709254013498304
+          ],
+          [
+            "face_wrinkling",
+            1.3757949188117764
+          ]
+        ],
+        "floats": false,
+        "density_factor_to_float": 1.5742815750815988,
+        "closed_rho_kg_m3": 1429.2233585236345
+      },
+      {
+        "maturity": "concept",
+        "R_m": 30,
+        "weather": "optimistic",
+        "payload_kg": -58887.81634514379,
+        "tf_m": 0.0025340114899948117,
+        "tc_m": 0.15834810843671207,
+        "E_GPa": 969.0,
+        "rho_kg_m3": 2250.0,
+        "strength_MPa": 1290.0,
+        "gamma": 0.2,
+        "Q": 0.33,
+        "Vc": 3.446695208178461,
+        "co_binding": [
+          "scarf_average_shear",
+          "global_buckling"
+        ],
+        "binding": [
+          [
+            "scarf_average_shear",
+            1.000000000309505
+          ],
+          [
+            "global_buckling",
+            1.000000032185854
+          ],
+          [
+            "thermal_interface",
+            1.0709039094910273
+          ],
+          [
+            "face_wrinkling",
+            1.3758520225402693
+          ]
+        ],
+        "floats": false,
+        "density_factor_to_float": 1.6585815524396763,
+        "closed_rho_kg_m3": 1356.5808667595402
+      }
+    ],
+    "note": "No graphite row floats at the stated 2250 kg/m3. Factors are still required."
+  },
+  "delta_d_concept_R30_optimistic_factors_without_term": {
+    "filed_control": 1.824771768877316,
+    "no_kc": 1.4591468390294113,
+    "no_cure": 1.7694119150252845,
+    "no_grad_bend": 1.8092731638452857,
+    "no_pressure": 1.7397410734805205
+  },
+  "probes_at_design_geometry": [
+    {
+      "id": "face_density_back_to_1850",
+      "payload_kg": -69947.21639659262,
+      "delta_payload_kg": -69952.24787997006,
+      "abs_delta_payload_kg": 69952.24787997006,
+      "floats": false,
+      "binding": [
+        [
+          "global_buckling",
+          1.00000000011136
+        ],
+        [
+          "face_wrinkling",
+          1.0000000224810115
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "068 mirror-like graphite film, first coupon an in-plane compression stack near 2.1 mm; T1 is 038 SR-200 compression. The design density is not a published sheet.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "baseline_film",
+      "payload_kg": -2148.9053638012265,
+      "delta_payload_kg": -2153.9368471786656,
+      "abs_delta_payload_kg": 2153.9368471786656,
+      "floats": false,
+      "binding": [
+        [
+          "global_buckling",
+          1.00000000011136
+        ],
+        [
+          "face_wrinkling",
+          1.0000000224810115
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: weigh the installed film. Favorable film is half the 040 baseline. 067 read AF 163-2U at 0.015 lb/ft2 as a thin product, not a hull measurement.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "ISA_weather_same_geometry",
+      "payload_kg": 1499.23602416239,
+      "delta_payload_kg": 1494.204540784951,
+      "abs_delta_payload_kg": 1494.204540784951,
+      "floats": true,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.0248336821283819
+        ],
+        [
+          "global_buckling",
+          1.025356716102878
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: optimistic weather is QWEATHER 1.03655 plus QWIND and the mass headroom. ISA is the admissible weather.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_kc",
+      "payload_kg": 5.0314833774391445,
+      "delta_payload_kg": 0.0,
+      "abs_delta_payload_kg": 0.0,
+      "floats": true,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.0000000224810115
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ],
+        [
+          "scarf_average_shear",
+          1.2451435729207674
+        ]
+      ],
+      "route": "analysis: open CR-1457 and DOIs 10.2514/3.5568 and 10.2514/3.1932 for kc=1-Vc/4. No named copy was in SOURCE-INDEX.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_cure",
+      "payload_kg": 5.0314833774391445,
+      "delta_payload_kg": 0.0,
+      "abs_delta_payload_kg": 0.0,
+      "floats": true,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.027423567924888
+        ],
+        [
+          "global_buckling",
+          1.028002641605006
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: same sources, for the cure stress kb*12.3e-6*dtc*tc/(2*tf).",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_grad_bend",
+      "payload_kg": 5.0314833774391445,
+      "delta_payload_kg": 0.0,
+      "abs_delta_payload_kg": 0.0,
+      "floats": true,
+      "binding": [
+        [
+          "global_buckling",
+          1.00000000011136
+        ],
+        [
+          "face_wrinkling",
+          1.0205415743126842
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: same sources, for the 11.3e-6 gradient and bending stress.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "no_pressure",
+      "payload_kg": 5.0314833774391445,
+      "delta_payload_kg": 0.0,
+      "abs_delta_payload_kg": 0.0,
+      "floats": true,
+      "binding": [
+        [
+          "face_wrinkling",
+          1.042310718300151
+        ],
+        [
+          "global_buckling",
+          1.0432173837046856
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: the 1.01 floor and QWIND are not in COMMON.md. 040 names unopened pinned 014b.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "modulus_today_290_GPa",
+      "payload_kg": 5.0314833774391445,
+      "delta_payload_kg": 0.0,
+      "abs_delta_payload_kg": 0.0,
+      "floats": false,
+      "binding": [
+        [
+          "global_buckling",
+          0.9937226759172882
+        ],
+        [
+          "face_wrinkling",
+          0.9940956677309344
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "analysis: 067 normalizes the face to 290 GPa. The design uses 040 E_full 293.6 GPa.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "strength_today_345_MPa",
+      "payload_kg": 5.0314833774391445,
+      "delta_payload_kg": 0.0,
+      "abs_delta_payload_kg": 0.0,
+      "floats": true,
+      "binding": [
+        [
+          "global_buckling",
+          1.00000000011136
+        ],
+        [
+          "face_wrinkling",
+          1.0000000224810115
+        ],
+        [
+          "thermal_interface",
+          1.0707994721064877
+        ]
+      ],
+      "route": "T1: 038 measures SR-200 compression. The design uses 040 strength_full 379.2 MPa.",
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "admissible_reference": {
+    "face_density_kg_m3": 1850.0,
+    "E_today_Pa": 290000000000.0,
+    "E_full_Pa": 293600000000.0,
+    "strength_today_Pa": 345000000.0,
+    "strength_full_Pa": 379200000.0,
+    "film_baseline_kg_m2": 0.1464728290914915,
+    "film_favorable_kg_m2": 0.07323641454574575,
+    "gamma": 0.2,
+    "Q": 0.33,
+    "beta_natural": 0.682327803828082
+  },
+  "completed": "2026-10-20T18:58:48.604044-07:00",
+  "elapsed_s": 1.616163409780711
+}

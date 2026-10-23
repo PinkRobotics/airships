@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-035",
+  "unit": "vacuum-mainline035-sandwich-knockdown-tests-1020",
+  "rows": [
+    {
+      "id": "NFI-035-SPHERE-VC",
+      "state": "open",
+      "note": "The only measured sandwich hemispheres (Saturn S-II, two points, gamma 0.22-0.24 at R/rho about 240) have no recoverable Vc; Gonzalez and Patton's SDL 468, which holds the specimens, was not found. The only sphere data cannot be placed on the Vc axis.",
+      "settle": "SDL 468, or an S-II common-bulkhead construction record (faces, core, depth, radius)"
+    },
+    {
+      "id": "NFI-035-VC-GAP",
+      "state": "open",
+      "note": "No measured point at Vc 0.9 to 2 in any shell form. 018's linear rise from 0.2 to 1 across Vc 0 to 2 is untested there; the SBKF cylinders at Vc 0.3-0.5 already sit above it (0.72-0.87), but as cylinders.",
+      "settle": "MAINLINE-029's FE at the lead geometry; a sandwich test at Vc about 1"
+    },
+    {
+      "id": "NFI-035-TRANSFER",
+      "state": "open",
+      "note": "Cylinder-to-sphere transfer of a sandwich knockdown has no test behind it. The handbook monocoque ratio at the leads' R/t_eq is 0.30-0.34 (SP-8032/SP-8007), and CR-1457 makes the same split for sandwich (0.20 hemispheres against 0.32-0.36 cylinders).",
+      "settle": "029's FE run on both a cylinder and a sphere of the lead's section"
+    },
+    {
+      "id": "NFI-035-SBKF-VC",
+      "state": "computed by this seat",
+      "note": "SBKF Vc comes from lamination theory on stated lamina values with a generic G12 of 0.77 Msi and geometric-mean face and core conventions (range shown as bars: axial-face/axial-shear to softer-core). QUESTIONABLE.",
+      "settle": "the SBKF laminate stiffness tables, if published"
+    },
+    {
+      "id": "NFI-035-EYE-READ",
+      "state": "open",
+      "note": "CR-1457 Fig. 4.2-3 and Fig. 6.2-3 values are read by eye from page images, by the B and C researchers and independently by this seat; about +/-0.02 in gamma and +/-10% in R/rho.",
+      "settle": "the primary reports behind them"
+    },
+    {
+      "id": "ref-5e993e8eb72d4845aa62",
+      "state": "open",
+      "note": "Not retrieved: FPL 1830 (March and Kuenzi 1957; DTIC 403, FPL 502 from here), Baker AIAA J 1968, the Hexcel summary of 25 Jul 1963, FPL PE-227, Kazimi 1960. Per-specimen geometry and Vc of the pre-1969 cylinders stay unknown.",
+      "settle": "library retrieval"
+    },
+    {
+      "id": "NFI-035-DESICOS",
+      "state": "open",
+      "note": "Measured buckling of the Ariane 5 SYLDA/ISS sandwich shells (Bisagni 2016) is in a restricted paper; Alfano and Bisagni 2017 give only geometry, FE and SP-8007 0.57/0.64.",
+      "settle": "the restricted paper"
+    },
+    {
+      "id": "NFI-035-DOME-LEADS",
+      "state": "open",
+      "note": "Brix 1968 (GFP sandwich domes under external pressure) and Anderson 1966 (Georgia Tech, spherical sandwich shell) are unread leads; either may hold the only sandwich-dome test series.",
+      "settle": "library retrieval"
+    },
+    {
+      "id": "NFI-035-SP8007-P",
+      "state": "open",
+      "note": "CR-1457 cites SP-8007 (Sept 1965) for a 0.90 lateral-pressure factor; the 1968 SP-8007 text read here gives 0.56 with no supporting data.",
+      "settle": "the 1965 edition"
+    },
+    {
+      "id": "NFI-035-PALETTE",
+      "state": "recorded",
+      "note": "The chart uses the dataviz skill's documented passing slots 1-3; its validator could not run here (no JavaScript runtime). Marker shapes carry identity as well."
+    }
+  ]
+}

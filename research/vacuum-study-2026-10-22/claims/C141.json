@@ -1,0 +1,77 @@
+{
+  "id": "C141",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C141",
+    "report": "rpt-mainline042-opus-build-route-1020",
+    "file": "evidence/8e69a0d6ee962712-NFI.json",
+    "snapshot": "evidence/8e69a0d6ee962712-NFI.json",
+    "source_sha256": "8e69a0d6ee9627124e14dcb6b407053297ea86208ff4d6c8473acf60fd88dbad",
+    "source_json_pointer": "/rows/4",
+    "row_id": "N042-05",
+    "fields": {
+      "id": "N042-05",
+      "issue": "Forming residual stress is this card's estimate",
+      "detail": "Conforming a flat blank elastically to R 10 m takes about 4.6e-4 strain across a 0.61 m width (67 MPa) and about 1.2e-3 over the half-diagonal disc, which is at Be's elastic limit. CSO saw 150 um panel rebound from the same effect in 1.0 mm Al.",
+      "to_close": "Measure residual stress and springback on F1.",
+      "tag": "PROJECTION"
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "rows",
+    "blocks_progress": false
+  },
+  "claim": "Forming residual stress is this card's estimate",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/851"
+    },
+    {
+      "report": "rpt-mainline042-opus-build-route-1020",
+      "artifact": "evidence/8e69a0d6ee962712-NFI.json",
+      "snapshot": "evidence/8e69a0d6ee962712-NFI.json",
+      "sha256": "8e69a0d6ee9627124e14dcb6b407053297ea86208ff4d6c8473acf60fd88dbad",
+      "bytes": 6992,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline042-opus-build-route-1020",
+          "artifact": "evidence/8e69a0d6ee962712-NFI.json",
+          "snapshot": "evidence/8e69a0d6ee962712-NFI.json",
+          "sha256": "8e69a0d6ee9627124e14dcb6b407053297ea86208ff4d6c8473acf60fd88dbad",
+          "bytes": 6992,
+          "selector": "/rows/4"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/851"
+          }
+        ]
+      }
+    }
+  ]
+}

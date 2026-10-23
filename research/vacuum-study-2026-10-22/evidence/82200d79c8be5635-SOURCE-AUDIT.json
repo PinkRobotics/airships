@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline044-check-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "records": [
+    {
+      "id": "BIANCHI",
+      "source": "https://link.springer.com/article/10.1007/s10443-010-9184-5",
+      "pin_file": "inputs/sources/bianchi-core.pdf",
+      "location": "Fig.10, PDF page 11; paper test description",
+      "verified": "Separate L/W normalized curves for fully reversed 5056 5.3 pcf shear coupons; independent figure reading agrees within the declared ±0.03 band.",
+      "qualification": "The 1.0 pcf hull, nonzero-mean correction and low-stress extension remain PROJECTION.",
+      "tag": "QUESTIONABLE",
+      "evidence": "INDEPENDENT-DIGITIZATION.json"
+    },
+    {
+      "id": "YAHR",
+      "source": "https://www.osti.gov/servlets/purl/10157028",
+      "pin_file": "inputs/sources/yahr-6061.pdf",
+      "location": "PDF pages 6–8 and 12; Table 1",
+      "verified": "All 23 maximum-mean ordinates match the table. The construction uses cyclic yield 262 MPa and already contains design reductions. No second Goodman or design-factor reduction is appropriate.",
+      "qualification": "The 276 MPa baseline plate peak exceeds that cyclic-yield value; the elastic plate damage index does not qualify its assembly.",
+      "tag": "QUESTIONABLE",
+      "evidence": "source-pages/yahr-6061.png; source-pages/yahr-6061-p7.png; source-pages/yahr-6061-p8.png"
+    },
+    {
+      "id": "CRIII",
+      "source": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "pin_file": "inputs/sources/hexcel-criii.pdf",
+      "location": "PDF page 5, Table II; density tolerance on page 3",
+      "verified": "5056 3/8-1.0: W typical/minimum-average 35/25 psi, G 6.8 ksi; L 55/45 psi, G 15 ksi. The 1.6, 2.3 and 3.0 pcf comparison entries match.",
+      "qualification": "Catalogue static values at test depth are not installed fatigue allowables or statistical lower bounds.",
+      "tag": "QUESTIONABLE",
+      "evidence": "source-pages/hexcel-criii-p5.png"
+    },
+    {
+      "id": "AF163",
+      "source": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=TDS_AF163-2_R1.pdf",
+      "pin_file": "inputs/sources/af163.pdf",
+      "location": "PDF page 9",
+      "verified": "Aluminum lap runout: 1500 psi maximum, R=0.1, beyond 10^7 cycles. Titanium double-lap failure series and runout are the 0.060 lb/ft² K film.",
+      "qualification": "The 0.015 U-film, Be/core adherends, 200°F cure, local contact and peel transfer remain unsupported by these tests.",
+      "tag": "QUESTIONABLE",
+      "evidence": "source-pages/af163.png"
+    },
+    {
+      "id": "BE",
+      "source": "https://www-pub.iaea.org/MTCD/Publications/PDF/Pub23vol5_web.pdf",
+      "pin_file": "inputs/sources/iaea-be.pdf",
+      "location": "PDF page 62 / printed page 60, Figs.29–30, and following discussion",
+      "verified": "The figure labels support longitudinal 262 MPa and transverse 266 MPa for smooth S200F VHP rotating-beam specimens. Nearby prose reverses the directional names.",
+      "qualification": "The conservative 262 MPa screen is a proxy for SR200 sheet; original internal TM-778 was not obtained.",
+      "tag": "QUESTIONABLE",
+      "evidence": "source-pages/iaea-be-p62.png"
+    },
+    {
+      "id": "SR200",
+      "source": "https://ntrs.nasa.gov/api/citations/19940006718/downloads/19940006718.pdf",
+      "pin_file": "inputs/inputs/036-check/sources/sr200_lot.pdf",
+      "location": "Pinned PDF text, discussion of unfinished SR200 fatigue studies",
+      "verified": "The source does not furnish a finished SR200 thin-sheet S-N curve for this check.",
+      "qualification": "Prior finished-sheet/process qualifications remain open.",
+      "tag": "QUESTIONABLE",
+      "evidence": "inputs/inputs/036-check/sources/sr200_lot.txt"
+    },
+    {
+      "id": "HEXBOND",
+      "source": "https://www.hexcel.com/wp-content/uploads/2025/12/HexBond_312_DataSheet_eu.pdf",
+      "pin_file": "inputs/sources/hexbond312.pdf",
+      "location": "PDF pages 1–2",
+      "verified": "Unsupported 70 g/m² film; cure near 120°C; cited lap data are static aluminum-joint data.",
+      "qualification": "No applicable Be-scarf fatigue law is supplied; subsequent cure may change the face/core residual state.",
+      "tag": "QUESTIONABLE",
+      "evidence": "inputs/sources/hexbond312.txt"
+    },
+    {
+      "id": "FOIL",
+      "source": "https://www.makeitfrom.com/material-properties/5056-H14-Aluminum",
+      "pin_file": "inputs/inputs/037b/core.json",
+      "location": "rows[86]; cross-reference in 037b/COMPUTE.json sources_used",
+      "verified": "Inherited 67 GPa and 2700 kg/m³ are explicitly a bulk 5056-H14 aggregator entry, not a primary 5056-H39 foil test.",
+      "qualification": "Inherited input only; no new primary-source validation claimed. This transfer remains QUESTIONABLE.",
+      "tag": "QUESTIONABLE",
+      "evidence": "inputs/inputs/037b/core.json"
+    }
+  ],
+  "source_label_mismatches": [
+    {
+      "row": "owner/RESULTS.json#/mass_options/AF015_to_AF060",
+      "field": "qualification",
+      "filed_value": "Matches U-film weight in one fatigue test, still not substrate/cure/peel geometry.",
+      "check_value": "The 0.060 lb/ft² titanium double-lap fatigue series is AF163-2K, a supported film; it is not an AF163-2U test.",
+      "source": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf?fn=TDS_AF163-2_R1.pdf",
+      "source_location": "PDF page 9, titanium double-lap tensile-shear fatigue heading",
+      "source_image": "source-pages/af163.png",
+      "classification": "SOURCE_LABEL_MISMATCH",
+      "numeric_effect": "None: added film mass remains 552.1895565892116 kg.",
+      "owner_internal_crosscheck": "owner/SOURCE-DATA.json#/AF163/double_lap_Ti_AF163_2K_006 correctly names K; CARD.md calls it supported film."
+    }
+  ],
+  "independent_digitization": "INDEPENDENT-DIGITIZATION.json",
+  "tag_audit": "Owner CARD/METHOD apply global QUESTIONABLE / PROJECTION tags and explain transfers. SOURCE-DATA has sources but not a tag field on every material record. INPUTS.json in this check supplies explicit row tags without improving qualification.",
+  "unavailable": "The owner's thesis fetch was HTTP 403; the original journal paper is available and used. This check does not claim to have obtained that thesis."
+}

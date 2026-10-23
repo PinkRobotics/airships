@@ -1,0 +1,1764 @@
+{
+  "schema_version": 1,
+  "artifact": "MAINLINE-025 manufacturing and SiC/SiC evidence",
+  "researched_on": "2026-10-20",
+  "scope": "Public primary sources only; no vendor inquiry, procurement claim, qualification or world-maximum claim.",
+  "global_numeric_status": "QUESTIONABLE: every property and capability is unqualified for transfer to this target, including accurately transcribed measurements.",
+  "conclusion": "No source located demonstrates the combined target OD, wall, length, curvature, tolerances and quantity. A bounded evidence gap, not proof of physical impossibility.",
+  "evidence_state_definitions": {
+    "exists_today": "Present public catalogue offering, without procurement verification.",
+    "in_the_lab": "Reported experiment or development example at publication date, including historical patent examples.",
+    "PROJECTION": "Analytical assumption, transfer to another material/geometry, proposed full-size part, or mixed-property numerical scenario; not a qualified demonstrated product."
+  },
+  "target": {
+    "evidence_state": "PROJECTION",
+    "od": {
+      "value": 247.4,
+      "unit": "mm",
+      "status": "QUESTIONABLE"
+    },
+    "wall": {
+      "value": 0.8803,
+      "unit": "mm",
+      "status": "QUESTIONABLE"
+    },
+    "length": {
+      "value": 2040,
+      "unit": "mm",
+      "status": "QUESTIONABLE",
+      "ambiguity": "Task length may mean arc or chord; both sag values retained"
+    },
+    "centerline_radius": {
+      "value": 10000,
+      "unit": "mm",
+      "status": "QUESTIONABLE"
+    },
+    "quantity": {
+      "value": 1046,
+      "unit": "pieces",
+      "status": "QUESTIONABLE"
+    },
+    "full_size_arc_has_demonstrated_source": false
+  },
+  "sources": [
+    {
+      "id": "sg_sa",
+      "title": "Hexoloy SiC Process Tubes",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/products/shapes/tubes/hexoloy-sic-process-tubes",
+      "source_type": "manufacturer_catalogue",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Undated current family envelope; no matched dimensional drawing, wall minimum, curvature or numerical tolerances."
+    },
+    {
+      "id": "sg_se_web",
+      "title": "Shell and Tube Heat Exchangers",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/equipment/shell-tube-heat-exchangers",
+      "source_type": "manufacturer_catalogue",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Current length offering and small diameters; do not silently pair updated length with all dimensions from older brochure."
+    },
+    {
+      "id": "sg_se_pdf",
+      "title": "Hexoloy SE heat-exchanger dimensional brochure",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/files/6061/view",
+      "source_type": "manufacturer_brochure",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": "PDF p.3",
+      "limits": "Undated; explicitly paired small OD/ID sizes and length envelope, not a large-diameter arc."
+    },
+    {
+      "id": "xicar",
+      "title": "Sintered Silicon Carbide Thermocouple Tubes",
+      "url": "https://sialon.com/product/sintered-silicon-carbide-thermocouple-tubes/",
+      "source_type": "manufacturer_catalogue",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Advertised maximum OD and length; no delivered-part drawing, wall minimum, phase verification or tolerances."
+    },
+    {
+      "id": "coresic",
+      "title": "CORESIC SP silicon carbide furnace tubes",
+      "url": "https://en.sanzer.com/products_detail/26.html",
+      "source_type": "manufacturer_catalogue",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Undated family envelope; no wall minimum or numerical tolerances, no target arc."
+    },
+    {
+      "id": "sg_silit",
+      "title": "Ceramic Radiant Tube",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/products/products-application/heating-systems/ceramic-radiant-tube",
+      "source_type": "manufacturer_catalogue",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": "Single-ended radiant tube description and FAQ",
+      "limits": "Diameter/length paired for largest available single-ended product; FAQ minimum walls are family-wide and not established at maximum tube dimensions."
+    },
+    {
+      "id": "schunk",
+      "title": "Radiant tubes: CarSIK and IntrinSiC",
+      "url": "https://www.schunk-group.com/technical-ceramics/en/products/burner-components/radiant-tubes~p14387",
+      "source_type": "manufacturer_catalogue",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Sizes use greater-than-or-equal language, not maxima; U/P shapes do not prove a specified large thin shallow arc."
+    },
+    {
+      "id": "sg_silit_tolerance",
+      "title": "Ceramics Systems for Kilns and Furnaces",
+      "url": "https://www.saint-gobain.co.jp/jp/download-documents/kataroku/ceramics-systems-kilns-furnaces-en-a4-web.pdf",
+      "source_type": "manufacturer_brochure",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": "p.23, SILIT SK tubes and rollers",
+      "limits": "Smaller thick straight tubes; do not transfer to largest SKD radiant tube or proposed arc. Page image inspected."
+    },
+    {
+      "id": "cvd_toshiba",
+      "title": "Silicon carbide member and manufacturing method, JP3897393B2",
+      "url": "https://patents.google.com/patent/JP3897393B2/en",
+      "source_type": "primary_patent_example",
+      "publication_date": "2007-03-22",
+      "accessed_on": "2026-10-20",
+      "locator": "Example 15, paragraphs 0056-0059",
+      "limits": "Original application 1997-04-14. Historical reported example, not current commercial availability. English diameter label for carbon form is ambiguous; inferred final OD is not an explicit measured patent dimension."
+    },
+    {
+      "id": "cvd_rohm",
+      "title": "Chemical vapor deposition process for producing silicon carbide, US6228297B1",
+      "url": "https://patents.google.com/patent/US6228297B1/en",
+      "source_type": "primary_patent_example",
+      "publication_date": "2001-05-08",
+      "accessed_on": "2026-10-20",
+      "locator": "Example",
+      "limits": "Historical reported example; machined final dimensions, no final numerical straightness or wall tolerance and no production qualification."
+    },
+    {
+      "id": "morgan_cvd",
+      "title": "CVD Silicon Carbide",
+      "url": "https://www.morgantechnicalceramics.com/en-gb/materials/cvd-silicon-carbide/",
+      "source_type": "manufacturer_material_page",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Current CVD material availability claim; no inspected tube dimensional envelope."
+    },
+    {
+      "id": "nasa_2021",
+      "title": "In-Plane Tensile Properties, Creep Behavior and Failure Mechanisms of CVI and PIP SiC/SiC Composites at Temperatures to 1,650 °C in Air, NASA/TM-20210021598",
+      "url": "https://ntrs.nasa.gov/api/citations/20210021598/downloads/TM-20210021598.pdf#page=13",
+      "source_type": "primary_engineering_report",
+      "publication_date": "2021-10",
+      "accessed_on": "2026-10-20",
+      "locator": "Section 2 and Table I, printed p.9 / PDF p.13",
+      "limits": "Room-temperature small-panel/coupon tensile properties, no compression. Bulk physical density differs from separately reported Archimedes density. Table image inspected."
+    },
+    {
+      "id": "nasa_2020",
+      "title": "Challenges of Testing EB Coated CMC under SPLCF Conditions in Steam Environment at High Temperatures",
+      "url": "https://ntrs.nasa.gov/api/citations/20200004346/downloads/20200004346.pdf#page=16",
+      "source_type": "primary_engineering_presentation",
+      "publication_date": "2020-01",
+      "accessed_on": "2026-10-20",
+      "locator": "PDF p.16",
+      "limits": "Room-temperature material summary; no matched compression or full-size arc data."
+    },
+    {
+      "id": "honeywell_2001",
+      "title": "Advanced Ceramic Matrix Composites for Aerospace Applications, Patterson et al., in NASA/CP-2001-210427",
+      "url": "https://ntrs.nasa.gov/api/citations/20010067226/downloads/20010067226.pdf#page=870",
+      "source_type": "manufacturer_engineering_presentation_in_government_proceedings",
+      "publication_date": "2001-02",
+      "accessed_on": "2026-10-20",
+      "locator": "PDF p.870 table; authors/title at PDF p.866; conference September 2000",
+      "limits": "No density, E, tensile PLS, compression test orientation, geometry or scatter. Nearby C/SiC density is a different material. Table image inspected."
+    },
+    {
+      "id": "cmc_compression_2018",
+      "title": "In-plane mechanical behavior and failure mode of a 2D-SiC/SiC composite under uniaxial dynamic compression",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0272884218320224",
+      "source_type": "primary_engineering_paper",
+      "publication_date": "2018-11",
+      "accessed_on": "2026-10-20",
+      "locator": "Ceramics International 44(16), 20058-20068; DOI 10.1016/j.ceramint.2018.07.280",
+      "limits": "Accessed abstract/indexed text; complete processing details not verified. Do not assume this material matches NASA CVI. Rate-dependent compression, not a structural reliability allowable."
+    },
+    {
+      "id": "nasa_cylinders",
+      "title": "Hoop Tensile Properties of Ceramic Matrix Composite Cylinders",
+      "url": "https://ntrs.nasa.gov/api/citations/20050051727/downloads/20050051727.pdf",
+      "source_type": "primary_engineering_preprint",
+      "publication_date": "2004",
+      "accessed_on": "2026-10-20",
+      "locator": "Experimental methods",
+      "limits": "Mixed fiber/process cylinders, hoop tests; no single scalar property set transfers from flat coupons to target."
+    },
+    {
+      "id": "topfuel_2018",
+      "title": "Demonstration of Engineered Multi-Layered SiC-SiC Cladding with Enhanced Accident Tolerance, Deck et al.",
+      "url": "https://www.euronuclear.org/archiv/topfuel2018/fullpapers/TopFuel2018-A0105-fullpaper.pdf#page=2",
+      "source_type": "primary_developer_engineering_paper",
+      "publication_date": "2018",
+      "accessed_on": "2026-10-20",
+      "locator": "PDF p.2 geometry and fabrication",
+      "limits": "Small-diameter multilayer CVI/CVD cladding, not pure homogeneous CMC or target-size arc."
+    },
+    {
+      "id": "doe_2024",
+      "title": "New Fuel Cladding Could Transform Nuclear Fuels",
+      "url": "https://www.energy.gov/ne/articles/new-fuel-cladding-could-transform-nuclear-fuels",
+      "source_type": "primary_program_report",
+      "publication_date": "2024-07-09",
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Full-length fabrication statement with no simultaneous OD, wall or numerical tolerance; not full qualification."
+    },
+    {
+      "id": "nite",
+      "title": "NITE Corporation Products",
+      "url": "https://nite.co.jpunpublished-local-ref:8dc9b861aef000ca",
+      "source_type": "manufacturer_catalogue",
+      "publication_date": null,
+      "accessed_on": "2026-10-20",
+      "locator": null,
+      "limits": "Finished tube/ring examples and separately prepreg sheets. The 2000 mm maximum is sheet length, not finished tube length."
+    }
+  ],
+  "manufacturing_evidence": [
+    {
+      "id": "hexoloy_sa",
+      "material": "Sintered SiC, Hexoloy SA",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_sa"
+      ],
+      "geometry": {
+        "diameter_range": {
+          "value": [
+            25,
+            381
+          ],
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_sa"
+          ],
+          "diameter_definition": "Not explicitly OD/ID on page"
+        },
+        "one_piece_length_max": {
+          "value": 1400,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_sa"
+          ]
+        },
+        "bonded_assembly_length_max": {
+          "value": 4900,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_sa"
+          ]
+        },
+        "wall_minimum": null
+      },
+      "simultaneity": "Family envelope; no explicit maximum-diameter x maximum-length drawing.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "No published wall minimum, straightness, ovality or wall-uniformity tolerance.",
+        "Target length exceeds stated one-piece SA length."
+      ]
+    },
+    {
+      "id": "hexoloy_se_current",
+      "material": "Extruded sintered SiC, Hexoloy SE",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_se_web",
+        "sg_se_pdf"
+      ],
+      "geometry": {
+        "current_od_options": {
+          "value": [
+            12.7,
+            14,
+            19
+          ],
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_se_web"
+          ]
+        },
+        "current_length_max": {
+          "value": 5000,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_se_web"
+          ]
+        },
+        "brochure_length_max": {
+          "value": 4570,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_se_pdf"
+          ]
+        },
+        "brochure_paired_od_id_wall": [
+          {
+            "od": {
+              "value": 12.7,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ]
+            },
+            "id": {
+              "value": 9.7,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ]
+            },
+            "wall_derived": {
+              "value": 1.5,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ],
+              "evidence_state": "PROJECTION",
+              "formula": "(OD-ID)/2"
+            }
+          },
+          {
+            "od": {
+              "value": 14,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ]
+            },
+            "id": {
+              "value": 11,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ]
+            },
+            "wall_derived": {
+              "value": 1.5,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ],
+              "evidence_state": "PROJECTION",
+              "formula": "(OD-ID)/2"
+            }
+          },
+          {
+            "od": {
+              "value": 19,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ]
+            },
+            "id": {
+              "value": 14.5,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ]
+            },
+            "wall_derived": {
+              "value": 2.25,
+              "unit": "mm",
+              "status": "QUESTIONABLE",
+              "source_ids": [
+                "sg_se_pdf"
+              ],
+              "evidence_state": "PROJECTION",
+              "formula": "(OD-ID)/2"
+            }
+          }
+        ]
+      },
+      "simultaneity": "Brochure pairs OD/ID variants and brochure length envelope; current 5 m length is separate.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "Small OD and different grade from SA; cannot transfer to proposed large tube."
+      ]
+    },
+    {
+      "id": "xicar",
+      "material": "Pressureless-sintered SiC, XICAR",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "xicar"
+      ],
+      "geometry": {
+        "od_max": {
+          "value": 300,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "xicar"
+          ]
+        },
+        "length_max": {
+          "value": 3000,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "xicar"
+          ]
+        },
+        "wall_minimum": null
+      },
+      "simultaneity": "Manufacturer advertises OD and length maxima; no delivered part record.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "No wall minimum, numerical tolerances, or phase-specific alpha-SiC verification."
+      ]
+    },
+    {
+      "id": "coresic",
+      "material": "Isostatically formed SiC furnace tube, CORESIC SP",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "coresic"
+      ],
+      "geometry": {
+        "od_max": {
+          "value": 350,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "coresic"
+          ]
+        },
+        "length_max": {
+          "value": 2000,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "coresic"
+          ]
+        },
+        "wall_minimum": null
+      },
+      "simultaneity": "Family maxima; no matched full drawing.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "Larger products require ceramic joining.",
+        "No numerical wall minimum or tolerances."
+      ]
+    },
+    {
+      "id": "silit_skd",
+      "material": "Silicon-infiltrated reaction-bonded SiSiC, Silit SKD; Amasic-3D family comparison",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_silit"
+      ],
+      "geometry": {
+        "paired_diameter": {
+          "value": 300,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit"
+          ],
+          "diameter_definition": "Diameter per product description"
+        },
+        "paired_length": {
+          "value": 3500,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit"
+          ]
+        },
+        "silit_family_wall_min_approx": {
+          "value": 4,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit"
+          ]
+        },
+        "amasic3d_family_wall_min_approx": {
+          "value": 2,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit"
+          ]
+        }
+      },
+      "simultaneity": "Diameter and length explicitly paired; minimum walls are separate family FAQ claims, not demonstrated at largest size.",
+      "curvature_evidence": "Single-ended straight tube.",
+      "limits": [
+        "Target wall below both published approximate minima.",
+        "No target arc or target tolerances."
+      ]
+    },
+    {
+      "id": "schunk",
+      "material": "Reaction-bonded silicon-infiltrated SiSiC, CarSIK/IntrinSiC",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "schunk"
+      ],
+      "geometry": {
+        "diameter_offered_at_least": {
+          "value": 200,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "schunk"
+          ],
+          "operator": ">="
+        },
+        "length_offered_at_least": {
+          "value": 3000,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "schunk"
+          ],
+          "operator": ">="
+        },
+        "wall_minimum": null
+      },
+      "simultaneity": "Capability statements, not maxima or a matched dimensional drawing.",
+      "curvature_evidence": "U/P shapes and printed complex forms advertised.",
+      "limits": [
+        "Nonstraight catalogue products do not establish constant R10m arc at target size and wall."
+      ]
+    },
+    {
+      "id": "cvd_long_thin_patent",
+      "material": "Freestanding CVD SiC after carbon-form removal",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "cvd_toshiba"
+      ],
+      "geometry": {
+        "carbon_form_diameter": {
+          "value": 200,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ]
+        },
+        "length": {
+          "value": 1500,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ]
+        },
+        "deposited_wall": {
+          "value": 1,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ]
+        },
+        "final_od_inferred": {
+          "value": 202,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ],
+          "evidence_state": "PROJECTION",
+          "assumption": "200 mm is the coated outside diameter of carbon form; OD=form diameter + 2 wall"
+        },
+        "inner_surface_Ra": {
+          "value": 0.7,
+          "unit": "um",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ]
+        }
+      },
+      "simultaneity": "Example 15 reports form diameter, length and deposited thickness together.",
+      "curvature_evidence": "Target arc absent; separately described small shaped nozzles are not a target-scale demonstration.",
+      "limits": [
+        "Historical patent example, not current commercial qualification.",
+        "No straightness, ovality, wall uniformity or tolerance.",
+        "Ra is surface roughness, not centerline straightness."
+      ]
+    },
+    {
+      "id": "cvd_wide_short_patent",
+      "material": "Freestanding machined CVD SiC after carbon-form removal",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "cvd_rohm"
+      ],
+      "geometry": {
+        "diameter": {
+          "value": 600,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_rohm"
+          ]
+        },
+        "length": {
+          "value": 240,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_rohm"
+          ]
+        },
+        "wall": {
+          "value": 3,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_rohm"
+          ]
+        }
+      },
+      "simultaneity": "All three finished dimensions explicitly reported together in Example.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "Historical patent example; largest diameter dimensioned freestanding example located, not world maximum.",
+        "Significant as-deposited axial thickness variation; no final numerical tolerance."
+      ]
+    }
+  ],
+  "manufacturer_without_tube_envelope": {
+    "source_ids": [
+      "morgan_cvd"
+    ],
+    "evidence_state": "exists_today",
+    "scope": "CVD material production advertised; tube sizes unsubstantiated."
+  },
+  "actual_straight_tube_tolerances": {
+    "evidence_state": "exists_today",
+    "status": "QUESTIONABLE",
+    "source_ids": [
+      "sg_silit_tolerance"
+    ],
+    "product": "SILIT SK straight tubes/rollers, not largest Silit SKD radiant tube",
+    "example_od": {
+      "value": 90,
+      "unit": "mm",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_silit_tolerance"
+      ],
+      "plus_minus": 1.6
+    },
+    "example_id": {
+      "value": 76,
+      "unit": "mm",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_silit_tolerance"
+      ],
+      "plus": 1.4,
+      "minus": 2.6
+    },
+    "nominal_wall_derived": {
+      "value": 7,
+      "unit": "mm",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_silit_tolerance"
+      ]
+    },
+    "length_max": {
+      "value": 3000,
+      "unit": "mm",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_silit_tolerance"
+      ],
+      "plus_minus": 2
+    },
+    "centerline_deflection_limits": [
+      {
+        "length_at_most": {
+          "value": 2000,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit_tolerance"
+          ]
+        },
+        "deflection_at_most": {
+          "value": 5,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit_tolerance"
+          ]
+        }
+      },
+      {
+        "length_at_most": {
+          "value": 3500,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit_tolerance"
+          ]
+        },
+        "deflection_at_most": {
+          "value": 7,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_silit_tolerance"
+          ]
+        }
+      }
+    ],
+    "transfer_to_target": "Not justified; target arc requires deviation from prescribed curved centerline, not straight-line tolerance."
+  },
+  "geometry_analysis": {
+    "evidence_state": "PROJECTION",
+    "status": "QUESTIONABLE",
+    "source": "Own analytical inference from task-supplied geometry; no vendor capability implied",
+    "arc_angle": {
+      "value": 0.20400000000000001,
+      "unit": "rad",
+      "status": "QUESTIONABLE",
+      "formula": "L/R, if L is centerline arc length"
+    },
+    "arc_angle_degrees": {
+      "value": 11.688339020668794,
+      "unit": "degree",
+      "status": "QUESTIONABLE"
+    },
+    "chord_if_L_is_arc_length": {
+      "value": 2.0364644796789104,
+      "unit": "m",
+      "status": "QUESTIONABLE"
+    },
+    "sag_if_L_is_arc_length": {
+      "value": 51.974914298239526,
+      "unit": "mm",
+      "status": "QUESTIONABLE"
+    },
+    "sag_if_L_is_chord": {
+      "value": 52.15601248190005,
+      "unit": "mm",
+      "status": "QUESTIONABLE"
+    },
+    "D_over_wall": {
+      "value": 281.0405543564694,
+      "unit": "ratio",
+      "status": "QUESTIONABLE"
+    },
+    "L_over_wall": {
+      "value": 2317.3917982505964,
+      "unit": "ratio",
+      "status": "QUESTIONABLE"
+    },
+    "sag_over_wall_if_L_is_chord": {
+      "value": 59.24799782108378,
+      "unit": "ratio",
+      "status": "QUESTIONABLE"
+    },
+    "outer_minus_inner_path_length_if_L_is_arc": {
+      "value": 50.4696,
+      "unit": "mm",
+      "status": "QUESTIONABLE"
+    },
+    "cold_bending_outer_fiber_strain": {
+      "value": 0.01237,
+      "unit": "strain",
+      "status": "QUESTIONABLE",
+      "formula": "ro/R"
+    },
+    "cold_bending_linear_extrapolation_at_410GPa": {
+      "value": 5.0717,
+      "unit": "GPa",
+      "status": "QUESTIONABLE",
+      "assumption": "Task monolithic elastic modulus; linear extrapolation beyond likely failure is diagnostic, not attainable stress"
+    },
+    "cold_bending_linear_extrapolation_at_272GPa": {
+      "value": 3.36464,
+      "unit": "GPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ],
+      "assumption": "Initial CMC modulus; damage and nonlinear response invalidate extrapolation to this strain"
+    },
+    "published_4mm_wall_over_target_wall": {
+      "value": 4.543905486765875,
+      "unit": "ratio",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_silit"
+      ]
+    },
+    "published_2mm_wall_over_target_wall": {
+      "value": 2.2719527433829376,
+      "unit": "ratio",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "sg_silit"
+      ]
+    },
+    "cold_forming_conclusion": "Finished straight ceramic tube cannot silently be cold bent into the target. Need net-shape forming before densification, suitable shaped removable CVD form, or an explicit jointed redesign.",
+    "straightness_conclusion": "Intentional approximately52 mm sag is not a straightness tolerance. Evaluate deviation from the designed arc, end tangents, ovality and minimum wall."
+  },
+  "geometry_comparisons": {
+    "evidence_state": "PROJECTION",
+    "status": "QUESTIONABLE",
+    "ratios": [
+      {
+        "comparison": "Target / SA one-piece length",
+        "ratio": {
+          "value": 1.457142857142857,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "sg_sa"
+          ]
+        }
+      },
+      {
+        "comparison": "Target / long-thin CVD example length",
+        "ratio": {
+          "value": 1.36,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ]
+        }
+      },
+      {
+        "comparison": "Target / long-thin CVD inferred OD",
+        "ratio": {
+          "value": 1.2247524752475247,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ]
+        },
+        "limit": "Denominator OD is inferred from form and wall, not explicit."
+      },
+      {
+        "comparison": "Target / long-thin CVD wall",
+        "ratio": {
+          "value": 0.8803,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "cvd_toshiba"
+          ]
+        }
+      },
+      {
+        "comparison": "Target / GE cylinder diameter",
+        "ratio": {
+          "value": 2.474,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nasa_cylinders"
+          ]
+        }
+      },
+      {
+        "comparison": "Target / GE cylinder length",
+        "ratio": {
+          "value": 8.16,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nasa_cylinders"
+          ]
+        }
+      },
+      {
+        "comparison": "Target / GA2018 cladding OD",
+        "ratio": {
+          "value": 26.042105263157897,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "topfuel_2018"
+          ]
+        }
+      },
+      {
+        "comparison": "Target / GA2018 cladding length",
+        "ratio": {
+          "value": 2.04,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "topfuel_2018"
+          ]
+        }
+      },
+      {
+        "comparison": "Target / NITE200mm ring length",
+        "ratio": {
+          "value": 25.5,
+          "unit": "ratio",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        }
+      }
+    ],
+    "limitation": "Ratios show scale changes only; they do not imply linear process scalability."
+  },
+  "cmc_measured_property_sets": [
+    {
+      "id": "nasa_2021_cvi_i",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "CVI (I), Hyper-Therm",
+      "layup": "Balanced 0/90, 5-harness satin Sylramic-iBN",
+      "plies": 8,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2450,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 60
+      },
+      "initial_longitudinal_E": {
+        "value": 258,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 19
+      },
+      "tensile_proportional_limit": {
+        "value": 110,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 13
+      },
+      "ultimate_tensile_strength": {
+        "value": 440,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 10
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2021"
+      ],
+      "fiber_volume_fraction": {
+        "value": 0.37,
+        "unit": "fraction",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.01
+      },
+      "ultimate_tensile_strain": {
+        "value": 0.49,
+        "unit": "percent",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.1
+      }
+    },
+    {
+      "id": "nasa_2021_cvi_ii",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "CVI (II), GE Energy Ceramic Composites Products",
+      "layup": "Balanced 0/90, 5-harness satin Sylramic-iBN",
+      "plies": 8,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2440,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 50
+      },
+      "initial_longitudinal_E": {
+        "value": 272,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 22
+      },
+      "tensile_proportional_limit": {
+        "value": 128,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 24
+      },
+      "ultimate_tensile_strength": {
+        "value": 357,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 75
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2021"
+      ],
+      "fiber_volume_fraction": {
+        "value": 0.35,
+        "unit": "fraction",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.02
+      },
+      "ultimate_tensile_strain": {
+        "value": 0.41,
+        "unit": "percent",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.11
+      },
+      "density_warning": "Use physical bulk density2440 for structural mass; separate Archimedes density2840 is not the bulk density."
+    },
+    {
+      "id": "nasa_2021_pip",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "PIP, COIC/ATK",
+      "layup": "Balanced 0/90, 5-harness satin Sylramic-iBN",
+      "plies": 10,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2470,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 10
+      },
+      "initial_longitudinal_E": {
+        "value": 169,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 19
+      },
+      "tensile_proportional_limit": {
+        "value": 109,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 12
+      },
+      "ultimate_tensile_strength": {
+        "value": 349,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 84
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2021"
+      ],
+      "fiber_volume_fraction": {
+        "value": 0.5,
+        "unit": "fraction",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.02
+      },
+      "ultimate_tensile_strain": {
+        "value": 0.28,
+        "unit": "percent",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2021"
+        ],
+        "reported_plus_minus": 0.09
+      },
+      "pls_interpretation": "Pseudo-limit in initially microcracked PIP material; not a directly interchangeable first matrix-crack limit."
+    },
+    {
+      "id": "nasa_2020_mi",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "MI",
+      "layup": "Balanced 0/90 woven Sylramic-iBN",
+      "plies": 8,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2810,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 60
+      },
+      "initial_longitudinal_E": {
+        "value": 240,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 25
+      },
+      "tensile_proportional_limit": {
+        "value": 128,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 31
+      },
+      "ultimate_tensile_strength": {
+        "value": 333,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 90
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2020"
+      ]
+    },
+    {
+      "id": "nasa_2020_cvi_pip",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "process": "CVI + PIP",
+      "layup": "Biased 3D woven Sylramic-iBN",
+      "plies": 4,
+      "condition": "Room temperature, in-plane tensile panel/coupon test",
+      "bulk_density": {
+        "value": 2560,
+        "unit": "kg/m^3",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ],
+        "reported_plus_minus": 110
+      },
+      "initial_longitudinal_E": {
+        "value": 110,
+        "unit": "GPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ]
+      },
+      "tensile_proportional_limit": {
+        "value": 94,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ]
+      },
+      "ultimate_tensile_strength": {
+        "value": 250,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "nasa_2020"
+        ]
+      },
+      "compressive_strength": null,
+      "source_ids": [
+        "nasa_2020"
+      ]
+    }
+  ],
+  "cmc_panel_scope": {
+    "source_ids": [
+      "nasa_2021"
+    ],
+    "original_panel_dimensions": {
+      "value": [
+        229,
+        153
+      ],
+      "unit": "mm",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "original_panel_thickness_range": {
+      "value": [
+        2,
+        2.5
+      ],
+      "unit": "mm",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "conditions": "Room-temperature in-plane coupons; no compression or target curved-tube reliability allowable."
+  },
+  "cmc_compression_evidence": [
+    {
+      "id": "honeywell_cvi_pair",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "honeywell_2001"
+      ],
+      "process": "Enhanced 2D CVI SiC/SiC with Hi-Nicalon fibers",
+      "condition": "Room temperature; compression test orientation and specimen statistics not supplied",
+      "compressive_strength": {
+        "value": 579.159612626112,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "honeywell_2001"
+        ],
+        "original_value": 84,
+        "original_unit": "ksi"
+      },
+      "matched_tensile_strength": {
+        "value": 324.053592778896,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "honeywell_2001"
+        ],
+        "original_value": 47,
+        "original_unit": "ksi"
+      },
+      "density": null,
+      "E": null,
+      "tensile_PLS": null,
+      "limits": "Coherent tension/compression summary pair only; cannot furnish a complete measured scalar set. Nearby C/SiC density is inapplicable."
+    },
+    {
+      "id": "honeywell_mi_pair",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "honeywell_2001"
+      ],
+      "process": "2D MI SiC/SiC with Sylramic fibers",
+      "condition": "Room temperature; test orientation and specimen statistics not supplied",
+      "compressive_strength": {
+        "value": 586.05436991928,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "honeywell_2001"
+        ],
+        "original_value": 85,
+        "original_unit": "ksi"
+      },
+      "matched_tensile_strength": {
+        "value": 358.52737924473604,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "honeywell_2001"
+        ],
+        "original_value": 52,
+        "original_unit": "ksi"
+      },
+      "density": null,
+      "E": null,
+      "tensile_PLS": null
+    },
+    {
+      "id": "paper_2018_compression",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "cmc_compression_2018"
+      ],
+      "process": "2D SiC/SiC; exact match to selected NASA material not verified",
+      "direction": "in-plane",
+      "quasistatic_compression": {
+        "value": 367,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "cmc_compression_2018"
+        ]
+      },
+      "quasistatic_strain_rate": {
+        "value": 0.0001,
+        "unit": "s^-1",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "cmc_compression_2018"
+        ]
+      },
+      "dynamic_compression": {
+        "value": 491,
+        "unit": "MPa",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "cmc_compression_2018"
+        ]
+      },
+      "dynamic_strain_rate": {
+        "value": 200,
+        "unit": "s^-1",
+        "status": "QUESTIONABLE",
+        "source_ids": [
+          "cmc_compression_2018"
+        ]
+      },
+      "observed_quasistatic_modes": [
+        "fiber debonding",
+        "fiber bundle buckling"
+      ],
+      "limits": "Rate dependence and specimen/process specificity preclude treating the higher dynamic value as a quasistatic structural allowable."
+    }
+  ],
+  "scalar_screening_surrogate": {
+    "evidence_state": "PROJECTION",
+    "status": "QUESTIONABLE",
+    "name": "NASA CVI(II) tensile/density/stiffness base plus optional cross-material compression scenario",
+    "coherent_base_set": "nasa_2021_cvi_ii",
+    "bulk_density": {
+      "value": 2440,
+      "unit": "kg/m^3",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "initial_E": {
+      "value": 272,
+      "unit": "GPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "tensile_PLS": {
+      "value": 128,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "tensile_UTS": {
+      "value": 357,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_2021"
+      ]
+    },
+    "optimistic_compression": {
+      "value": 580,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "honeywell_2001"
+      ],
+      "evidence_state": "PROJECTION",
+      "basis": "Rounded enhanced Hi-Nicalon CVI compression579.16MPa from different material; no demonstrated joint property distribution"
+    },
+    "compression_sensitivity": {
+      "value": 367,
+      "unit": "MPa",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "cmc_compression_2018"
+      ],
+      "evidence_state": "PROJECTION",
+      "basis": "Different 2D CMC quasistatic test, not matched material"
+    },
+    "optional_poisson_ratio": {
+      "value": 0.2,
+      "unit": "dimensionless",
+      "status": "QUESTIONABLE",
+      "evidence_state": "PROJECTION",
+      "basis": "ASSUMED UNSOURCED only if isotropic scalar solver requires it"
+    },
+    "qualified_compressive_allowable": null,
+    "qualified_reliability_allowable": null,
+    "warnings": [
+      "Tensile PLS128 is not a tested compression limit.",
+      "No single located measured material supplies all five selected properties together.",
+      "UTS permits matrix damage and nonlinear stiffness loss; initial E cannot be assumed unchanged to ultimate.",
+      "Using scalar E or assumed nu for local CMC shell buckling projects an isotropic model onto an anisotropic laminate.",
+      "Longitudinal, hoop, through-wall, shear and bending/coupling properties require actual tube architecture.",
+      "Panel8-ply data have not been demonstrated in target0.8803mm wall."
+    ]
+  },
+  "cmc_tube_evidence": [
+    {
+      "id": "nasa_ge_cylinders",
+      "material": "GE SiC/SiC, CVI and partial-CVI+MI variants",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nasa_cylinders"
+      ],
+      "geometry": {
+        "diameter": {
+          "value": 100,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nasa_cylinders"
+          ]
+        },
+        "length": {
+          "value": 250,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nasa_cylinders"
+          ]
+        },
+        "fabric_ply_options": {
+          "value": [
+            6,
+            8,
+            12
+          ],
+          "unit": "plies",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nasa_cylinders"
+          ]
+        },
+        "wall_mm": null
+      },
+      "simultaneity": "Diameter/length and ply variants of actually fabricated hoop-test cylinders.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "Mixed fiber types and processes; ply splices affect hoop properties.",
+        "Not a full-size longitudinal property demonstration."
+      ]
+    },
+    {
+      "id": "ga_2018_cladding",
+      "material": "CVI Hi-Nicalon Type-S multilayer CMC with outer monolithic CVD SiC coating",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "topfuel_2018"
+      ],
+      "geometry": {
+        "id_approx": {
+          "value": 8,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "topfuel_2018"
+          ]
+        },
+        "od_approx": {
+          "value": 9.5,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "topfuel_2018"
+          ]
+        },
+        "length_approx": {
+          "value": 1000,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "topfuel_2018"
+          ]
+        },
+        "wall_derived_approx": {
+          "value": 0.75,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "topfuel_2018"
+          ],
+          "evidence_state": "PROJECTION",
+          "formula": "(9.5-8)/2"
+        }
+      },
+      "simultaneity": "Paired approximate dimensions; repeatedly fabricated development cladding.",
+      "curvature_evidence": "Straight small tube, no target arc.",
+      "limits": [
+        "Multilayer wall with outer CVD; hermeticity requires architecture and engineered end joints."
+      ]
+    },
+    {
+      "id": "ga_2024_full_length",
+      "material": "SiGA SiC/SiC fuel cladding",
+      "evidence_state": "in_the_lab",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "doe_2024"
+      ],
+      "geometry": {
+        "length": {
+          "value": 3657.6,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "doe_2024"
+          ],
+          "original_value": 12,
+          "original_unit": "ft"
+        },
+        "od": null,
+        "wall": null
+      },
+      "simultaneity": "Full-length development fabrication; OD and wall not stated in same release.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "Do not combine with 2018 dimensions as a demonstrated same specimen.",
+        "No procurement or full qualification established."
+      ]
+    },
+    {
+      "id": "nite_large_short",
+      "material": "NITE SiC/SiC composite tube/ring",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nite"
+      ],
+      "geometry": {
+        "od": {
+          "value": 200,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        },
+        "id": {
+          "value": 194,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        },
+        "length": {
+          "value": 80,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        },
+        "wall_derived": {
+          "value": 3,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ],
+          "evidence_state": "PROJECTION",
+          "formula": "(200-194)/2"
+        }
+      },
+      "simultaneity": "OD/ID/length explicitly listed together.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "Short ring geometry, different densification process from scalar surrogate."
+      ]
+    },
+    {
+      "id": "nite_small",
+      "material": "NITE Hi-Nicalon Type-S SiC/SiC small tubes",
+      "evidence_state": "exists_today",
+      "status": "QUESTIONABLE",
+      "source_ids": [
+        "nite"
+      ],
+      "geometry": {
+        "od": {
+          "value": 12,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        },
+        "id": {
+          "value": 10,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        },
+        "length_options": {
+          "value": [
+            50,
+            100,
+            200
+          ],
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        },
+        "wall_derived": {
+          "value": 1,
+          "unit": "mm",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ],
+          "evidence_state": "PROJECTION",
+          "formula": "(12-10)/2"
+        },
+        "layup_angle_options": {
+          "value": [
+            30,
+            45,
+            60
+          ],
+          "unit": "degree plus/minus",
+          "status": "QUESTIONABLE",
+          "source_ids": [
+            "nite"
+          ]
+        }
+      },
+      "simultaneity": "Listed small tube examples and layup options.",
+      "curvature_evidence": "No target arc.",
+      "limits": [
+        "Manufacturer 2000 mm number is prepreg sheet length, not a finished tube."
+      ]
+    }
+  ],
+  "failure_mode_rationale": {
+    "evidence_state": "PROJECTION",
+    "tension": "Matrix cracking and subsequent fiber bridging permit load beyond tensile proportional limit. Ultimate load may coexist with damage and loss of hermeticity.",
+    "compression": "Fiber/tow instability, interface sliding, debonding and delamination can govern;2018 paper reports quasi-static bundle buckling and debonding.",
+    "inference": "Neither tensile PLS nor tensile UTS nor monolithic ceramic compression replaces missing process/direction-specific CMC compression data.",
+    "source_ids": [
+      "nasa_2021",
+      "cmc_compression_2018"
+    ]
+  },
+  "joining_and_quantity": {
+    "evidence_state": "PROJECTION",
+    "status": "QUESTIONABLE",
+    "total_nominal_tube_length": {
+      "value": 2133.84,
+      "unit": "m",
+      "status": "QUESTIONABLE"
+    },
+    "tube_ends_before_node_sharing": {
+      "value": 2092,
+      "unit": "ends",
+      "status": "QUESTIONABLE"
+    },
+    "concerns": [
+      "Long bonded furnace tubes are not demonstrated structural nodes under the target axial force, bending, contact or vacuum requirements.",
+      "Clamps, pins, flanges and tube ends produce local bearing, bending and ovalization; uniaxial compression is not a contact allowable.",
+      "CMC fiber termination, hoop reinforcement and through-wall splitting require separate tests.",
+      "Joint eccentricity contributes moment N*e; collars, reinforcement and overlap require mass and stiffness accounting.",
+      "No target-geometry yield, flaw distribution, proof survival or interchangeability evidence at quantity1046.",
+      "Need net-shaped arc demonstration and centerline/ovality/minimum-wall maps, then tube/joint tests and statistical allowables."
+    ]
+  },
+  "handoff": {
+    "manufacturability": "Unsubstantiated combined geometry; routes exist separately.",
+    "material_allowable": "None established.",
+    "open_gaps": [
+      "actual fabrication process and curved form",
+      "wall thickness uniformity",
+      "arc radius and end tangent tolerances",
+      "full-size compression and combined loading",
+      "CMC orthotropic shell stiffness",
+      "joint/contact behavior",
+      "hermeticity after damage",
+      "batch yield",
+      "cost and schedule"
+    ],
+    "supplier_contact_made": false
+  }
+}

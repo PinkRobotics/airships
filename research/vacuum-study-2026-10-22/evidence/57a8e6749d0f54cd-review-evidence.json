@@ -1,0 +1,56 @@
+{
+  "schema": "helm.review-evidence.v1",
+  "candidate": "a628457a14709e5a0a1c8fe33f5c69487c3e33cc",
+  "round_id": "public-floatplants-r1-1010",
+  "required_lanes": [
+    "codex",
+    "claude"
+  ],
+  "exit_code": 88,
+  "lanes": [
+    {
+      "lane": "codex",
+      "candidate": "a628457a14709e5a0a1c8fe33f5c69487c3e33cc",
+      "round_id": "public-floatplants-r1-1010",
+      "exit_code": 1,
+      "run_state": "LaneDidNotRun",
+      "run_reason": {
+        "code": "provider_non_completion",
+        "source": "provider_structured",
+        "evidence": {
+          "exit_code": 1,
+          "body_bytes": 0,
+          "body_has_text": false,
+          "timed_out": false,
+          "capture_contract": "codex_stream",
+          "capture_verdict": "incomplete",
+          "stop_kind": "non_completion",
+          "agent_dispatched": true,
+          "capture_complete": false
+        }
+      }
+    },
+    {
+      "lane": "claude",
+      "candidate": "a628457a14709e5a0a1c8fe33f5c69487c3e33cc",
+      "round_id": "public-floatplants-r1-1010",
+      "exit_code": 0,
+      "run_state": "Completed",
+      "run_reason": {
+        "code": "completed",
+        "source": "wrapper_completion",
+        "evidence": {
+          "exit_code": 0,
+          "body_bytes": 7510,
+          "body_has_text": true,
+          "timed_out": false,
+          "capture_contract": "claude_stream",
+          "capture_verdict": "ok",
+          "stop_kind": "completed",
+          "agent_dispatched": true,
+          "capture_complete": true
+        }
+      }
+    }
+  ]
+}

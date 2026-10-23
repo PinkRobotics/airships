@@ -1,0 +1,38 @@
+{
+  "id": "E-701eee21e0734330773d",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-701eee21e0734330773d",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/10",
+    "row_id": "C029-11-CORE-SHEAR-FAILURE",
+    "fields": {
+      "id": "C029-11-CORE-SHEAR-FAILURE",
+      "state": "demonstrated with the card's own core source (QUESTIONABLE strengths)",
+      "direction": "the elastic endpoints are not capacities",
+      "note": "This is the core sibling of the card's face stress diagnostic; the card makes no core check. Along the card's static paths (graded 512 x 1f x 4c), the core's largest transverse shear (Cauchy, current tangent/normal frame) reaches the Hexcel CR III Table II strengths (5056, 3/8 in., 1.0 pcf: W shear 35 psi typical / 25 minimum, L shear 55 / 45, crush 35) at: lead021-W: typical 26.4 kPa, minimum 20.0 kPa; at the limit 1.61 MPa = 6.7 times typical; crush at 67.3 kPa; lead021-L: typical 41.2 kPa, minimum 35.1 kPa; at the limit 1.84 MPa = 4.8 times typical; crush at 76.6 kPa; lead021b-W: typical 19.5 kPa, minimum 14.1 kPa; at the limit 1.77 MPa = 7.4 times typical; crush at 54.4 kPa; lead021b-L: typical 28.4 kPa, minimum 23.5 kPa; at the limit 2.03 MPa = 5.4 times typical; crush at 46.8 kPa. The shear peaks on the dimple flank (r 330 to 600 mm). Crush occurs under the dimple centre. Mesh check: lead021b-W: W typical shear at 19.49 kPa; lead021b-W-1024: W typical shear at 19.49 kPa; lead021b-W-2048: W typical shear at 19.49 kPa; lead021b-W-2f6c: W typical shear at 19.49 kPa.",
+      "proposed_fix": "Fix card: core admissibility (shear and crush) at the specified dimples, together with face admissibility (C029-06), before any endpoint is used as a capacity."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "This is the core sibling of the card's face stress diagnostic; the card makes no core check. Along the card's static paths (graded 512 x 1f x 4c), the core's largest transverse shear (Cauchy, current tangent/normal frame) reaches the Hexcel CR III Table II strengths (5056, 3/8 in., 1.0 pcf: W shear 35 psi typical / 25 minimum, L shear 55 / 45, crush 35) at: lead021-W: typical 26.4 kPa, minimum 20.0 kPa; at the limit 1.61 MPa = 6.7 times typical; crush at 67.3 kPa; lead021-L: typical 41.2 kPa, minimum 35.1 kPa; at the limit 1.84 MPa = 4.8 times typical; crush at 76.6 kPa; lead021b-W: typical 19.5 kPa, minimum 14.1 kPa; at the limit 1.77 MPa = 7.4 times typical; crush at 54.4 kPa; lead021b-L: typical 28.4 kPa, minimum 23.5 kPa; at the limit 2.03 MPa = 5.4 times typical; crush at 46.8 kPa. The shear peaks on the dimple flank (r 330 to 600 mm). Crush occurs under the dimple centre. Mesh check: lead021b-W: W typical shear at 19.49 kPa; lead021b-W-1024: W typical shear at 19.49 kPa; lead021b-W-2048: W typical shear at 19.49 kPa; lead021b-W-2f6c: W typical shear at 19.49 kPa.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

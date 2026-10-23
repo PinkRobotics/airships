@@ -1,0 +1,70 @@
+{
+  "id": "N123",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N123",
+    "report": "rpt-ref-eb07faa637b7487d6dc5",
+    "card": "MAINLINE-005",
+    "file": "evidence/c108cdbb9f3bcf68-NFI.json",
+    "row_id": "NFI-005-SIGMA",
+    "fields": {
+      "NFI_id": "NFI-005-SIGMA",
+      "gap": "276 MPa is a QUESTIONABLE typical tensile yield transferred to compression (inherited NFI-AL-YIELD-CARRY). Required strengths here are membrane stresses and do not depend on it; only the x276 MPa multiples and SF labels do.",
+      "direction": "Obtain a compressive design allowable and rescale the multiples only.",
+      "effect": "No required Pa value in this card moves."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-005-SIGMA\", \"gap\": \"276 MPa is a QUESTIONABLE typical tensile yield transferred to compression (inherited NFI-AL-YIELD-CARRY). Required strengths here are membrane stresses and do not depend on it; only the x276 MPa multiples and SF labels do.\", \"direction\": \"Obtain a compressive design allowable and rescale the multiples only.\", \"effect\": \"No required Pa value in this card moves.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/122"
+    },
+    {
+      "report": "rpt-ref-eb07faa637b7487d6dc5",
+      "artifact": "evidence/c108cdbb9f3bcf68-NFI.json",
+      "snapshot": "evidence/c108cdbb9f3bcf68-NFI.json",
+      "sha256": "c108cdbb9f3bcf68133b4722ce84fbf6ea6ff0e12dc82704c3fc2e11fdcfa96d",
+      "bytes": 2462,
+      "selector": "source row ID: NFI-005-SIGMA"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-eb07faa637b7487d6dc5",
+          "artifact": "evidence/c108cdbb9f3bcf68-NFI.json",
+          "snapshot": "evidence/c108cdbb9f3bcf68-NFI.json",
+          "sha256": "c108cdbb9f3bcf68133b4722ce84fbf6ea6ff0e12dc82704c3fc2e11fdcfa96d",
+          "bytes": 2462,
+          "selector": "source row ID: NFI-005-SIGMA"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/122"
+          }
+        ]
+      }
+    }
+  ]
+}

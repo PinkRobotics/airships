@@ -1,0 +1,75 @@
+{
+  "id": "F-A2-058-P3-HARDWARE",
+  "kind": "review_fix",
+  "claim": "The standard-pressure P3 coverage likewise uses hull mass. It omits at least the declared common 5 kg valve, and no matched bladder mass is present in the coverage row. | The valve-only recount is an upper bound, not a complete repaired P3 bill.",
+  "original": {
+    "id": "F-A2-058-P3-HARDWARE",
+    "card": "MAINLINE058",
+    "owner": "ref-55cff924be25afe6f9dd",
+    "field": "CARD.md P3 standard-pressure climb+ballast coverage; days058b P3 design+0/mask15 mass_kg",
+    "finding": "The standard-pressure P3 coverage likewise uses hull mass. It omits at least the declared common 5 kg valve, and no matched bladder mass is present in the coverage row.",
+    "status": "unreviewed",
+    "meaning": "The valve-only recount is an upper bound, not a complete repaired P3 bill.",
+    "rows": [
+      {
+        "R_m": 10,
+        "hull": "design+0",
+        "selection": "mask15",
+        "owner_mass_kg": 4864.628266284152,
+        "minimum_added_hardware_kg": 5,
+        "owner_fraction": 0.7774655802191627,
+        "review_valve_only_upper_fraction": 0.7648215790952515,
+        "owner_days": 2767,
+        "review_valve_only_days": 2722,
+        "denominator_days": 3559
+      },
+      {
+        "R_m": 12,
+        "hull": "design+0",
+        "selection": "mask15",
+        "owner_mass_kg": 8227.736667338426,
+        "minimum_added_hardware_kg": 5,
+        "owner_fraction": 0.9699353751053666,
+        "review_valve_only_upper_fraction": 0.9688114638943524,
+        "owner_days": 3452,
+        "review_valve_only_days": 3448,
+        "denominator_days": 3559
+      },
+      {
+        "R_m": 15,
+        "hull": "design+0",
+        "selection": "mask15",
+        "owner_mass_kg": 15794.636225928629,
+        "minimum_added_hardware_kg": 5,
+        "owner_fraction": 0.9963472885642034,
+        "review_valve_only_upper_fraction": 0.9960663107614498,
+        "owner_days": 3546,
+        "review_valve_only_days": 3545,
+        "denominator_days": 3559
+      }
+    ],
+    "proposed_fix": "Specify the standard-pressure configuration's ballast capacity and associated hardware, add its mass, and update the P3 coverage and target witnesses. Preserve the missing cold-screen and operation limits.",
+    "evidence": [
+      "checks/058-COVERAGE-height27.29-humidityTrue.json",
+      "inputs/058/RESULTS.json",
+      "sources/days058b.json"
+    ]
+  },
+  "numerical_status": "unreviewed",
+  "change_type": "correction",
+  "review_status": "UNREVIEWED",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Demonstrated discrepancy; proposed values have not had a second review.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/93f07ada6e604aa5-FIXES.json",
+      "snapshot": "evidence/93f07ada6e604aa5-FIXES.json",
+      "sha256": "93f07ada6e604aa5a3deef1dc48ebc49f4c37c2c4c695f4f1764608d5985a1f0",
+      "bytes": 5191,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

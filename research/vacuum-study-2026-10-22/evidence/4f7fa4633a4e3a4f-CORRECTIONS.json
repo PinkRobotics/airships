@@ -1,0 +1,71 @@
+[
+  {
+    "topic": "Thermal comparison coverage",
+    "corrected": {
+      "thermal_comparisons": 103714,
+      "reconciled_legacy_entries": 26,
+      "full_account_comparisons": 1714368,
+      "full_account_tighter_tolerance": 2e-08
+    },
+    "disposition": "Numerical closure accepted; the 1714368 figure describes full-account comparisons."
+  },
+  {
+    "topic": "SolarWhite source coverage",
+    "nominal_areal_mass_kg_m2": 0.285,
+    "nominal_thickness_m": 0.00015,
+    "substrate": "Al2024-T3",
+    "alpha": 0.18,
+    "hemispherical_emittance": 0.89,
+    "qualified_Be_mass_kg_m2": null,
+    "disposition": "Source fact adopted locally; inherited source-absence/label-ambiguity claims are superseded by this fold."
+  },
+  {
+    "topic": "Classical CCAg source",
+    "NASA2015": {
+      "alpha": 0.08,
+      "normal_emittance": 0.72,
+      "substrate": "3 mil Kapton"
+    },
+    "modeled_classical_pair": {
+      "alpha": 0.09,
+      "emittance": 0.65
+    },
+    "disposition": "Model pair remains hypothetical; correct attribution is the patent range with unresolved emittance statistic. Selected multilayer .09/.80 is unchanged."
+  },
+  {
+    "topic": "Null optical-sensitivity least fields",
+    "affected_cases": 12,
+    "affected_fields": 24,
+    "disposition": "Adopt completed check's supplied floating witnesses; null does not mean infeasible. Do not treat these witnesses as repaired finish screens or installed wet/aged optics."
+  },
+  {
+    "topic": "Cure treatment versus thermal boundary",
+    "checker_lost_float_cases": [
+      "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+      "AgFEP1-R15-optimistic-floor-dry_gas-retained_water"
+    ],
+    "checker_changed_axis_counts": [
+      {
+        "id": "MLCCAg-R15-optimistic-actual-desiccant-retained_water",
+        "old": 2,
+        "new": 3
+      },
+      {
+        "id": "MLCCAg-R15-optimistic-floor-desiccant-retained_water",
+        "old": 2,
+        "new": 3
+      },
+      {
+        "id": "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+        "old": 4,
+        "new": null
+      },
+      {
+        "id": "AgFEP1-R15-optimistic-floor-dry_gas-retained_water",
+        "old": 4,
+        "new": null
+      }
+    ],
+    "disposition": "These are cure-compression model changes, distinct from MAINLINE-053 comparisons at fixed cure treatment; no contradiction with its zero thermal-only float/set flips."
+  }
+]

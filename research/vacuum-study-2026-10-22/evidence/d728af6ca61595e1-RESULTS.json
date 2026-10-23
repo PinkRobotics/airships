@@ -1,0 +1,384 @@
+{
+  "schema": 1,
+  "status": "ESTIMATE_PENDING_UNA",
+  "card": "MAINLINE-002",
+  "atmosphere": {
+    "T_K": 284.9,
+    "p_ext_Pa": 95460.83791390515,
+    "rho_kg_m3": 1.1672683307461802,
+    "volume_m3": 4188.790204786391,
+    "lift_kg": 4889.442150186961
+  },
+  "sigma_Pa": 276000000.0,
+  "sigma_transfer": "TRANSFERRED_FROM_TENSILE_YIELD",
+  "rows": [
+    {
+      "point_id": "P1",
+      "construction_family": "simple_shell",
+      "row_kind": "baseline",
+      "geometry": "sphere R=10.0 m, t=0.0007 m, p_int=0",
+      "masses_kg": {
+        "shell": 2375.0440461138837,
+        "joints": 237.5044046113884,
+        "systems_payload": 200.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 2812.5484507252722,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 0.42477109569284366,
+      "limits_Pa": {
+        "knocked_down_buckling": 82.59456002608204,
+        "aluminum_yield": 38640.0
+      },
+      "governing_limit": "knocked_down_buckling",
+      "collapse_pressure_Pa": 82.59456002608204,
+      "external_pressure_Pa": 95460.83791390515,
+      "crush_safety_factor": 0.0008652193070060097,
+      "factors": {
+        "knocked_down_buckling": {
+          "pressure_Pa": 82.59456002608204,
+          "property": "Young_modulus_of_6061-T6",
+          "factor": 1155.776335436137,
+          "factor_above_one": true,
+          "scaling": "p_stiff = kd*2*(t/R)^2/sqrt(3*(1-nu^2))*E",
+          "held_fixed": "t, R, nu, kd, sigma, masses",
+          "baseline_value": 68900000000.0
+        },
+        "aluminum_yield": {
+          "pressure_Pa": 38640.0,
+          "property": "transferred_aluminum_tensile_yield",
+          "factor": 2.4705185795524107,
+          "factor_above_one": true,
+          "scaling": "p_yield = 2*sigma*t/R",
+          "held_fixed": "t, R, E, kd",
+          "baseline_value": 276000000.0
+        }
+      },
+      "stiffness_only_ceiling_SF": 0.4047733169370344,
+      "extra": {
+        "t_m": 0.0007
+      }
+    },
+    {
+      "point_id": "P2",
+      "construction_family": "sandwich",
+      "row_kind": "baseline",
+      "geometry": "sphere R=10.0 m, tf=0.0002 m, core=0.1 m, p_int=0",
+      "masses_kg": {
+        "faces": 1357.1680263507908,
+        "core": 2010.6192982974678,
+        "joints": 168.38936623241295,
+        "systems_payload": 100.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 3636.1766908806717,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 0.2563207459686106,
+      "limits_Pa": {
+        "knocked_down_buckling": 11701.558395327304,
+        "aluminum_yield": 22080.0
+      },
+      "governing_limit": "knocked_down_buckling",
+      "collapse_pressure_Pa": 11701.558395327304,
+      "external_pressure_Pa": 95460.83791390515,
+      "crush_safety_factor": 0.12257967404267688,
+      "factors": {
+        "knocked_down_buckling": {
+          "pressure_Pa": 11701.558395327304,
+          "property": "Young_modulus_of_6061-T6_faces",
+          "factor": 8.157959366508381,
+          "factor_above_one": true,
+          "scaling": "p_stiff = kd*4*tf*d/(R^2*sqrt(1-nu^2))*E",
+          "held_fixed": "tf, d, R, nu, kd, sigma; shear omitted",
+          "baseline_value": 68900000000.0
+        },
+        "aluminum_yield": {
+          "pressure_Pa": 22080.0,
+          "property": "transferred_aluminum_tensile_yield",
+          "factor": 4.3234075142167185,
+          "factor_above_one": true,
+          "scaling": "p_yield = 4*sigma*tf/R",
+          "held_fixed": "tf, R, E, kd, core",
+          "baseline_value": 276000000.0
+        }
+      },
+      "stiffness_only_ceiling_SF": 0.23129903824973394,
+      "extra": {
+        "tf_m": 0.0002,
+        "d_m": 0.10020000000000001
+      }
+    },
+    {
+      "point_id": "P3",
+      "construction_family": "frame_membrane",
+      "row_kind": "baseline",
+      "geometry": "sphere R=10.0 m, s=1.0 m, ro=0.02 m, tw=0.001 m, film=8e-05 m, p_int=0",
+      "masses_kg": {
+        "frame": 1440.0538444621336,
+        "film": 97.51503596742718,
+        "nodes": 29.060789827747495,
+        "systems_payload": 50.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 1616.6296702573084,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 0.6693631664717636,
+      "limits_Pa": {
+        "pinned_euler": 3170.210558873461,
+        "aluminum_yield": 6763.220664648112,
+        "film_membrane": 240000.00000000003
+      },
+      "governing_limit": "pinned_euler",
+      "collapse_pressure_Pa": 3170.210558873461,
+      "external_pressure_Pa": 95460.83791390515,
+      "crush_safety_factor": 0.03320954045817858,
+      "factors": {
+        "pinned_euler": {
+          "pressure_Pa": 3170.210558873461,
+          "property": "Young_modulus_of_6061-T6_frame",
+          "factor": 30.111828896257066,
+          "factor_above_one": true,
+          "scaling": "p_euler = 2*pi^2*E*I/(R*s^3)",
+          "held_fixed": "I, R, s, A, film, sigma",
+          "baseline_value": 68900000000.0
+        },
+        "aluminum_yield": {
+          "pressure_Pa": 6763.220664648112,
+          "property": "transferred_aluminum_tensile_yield",
+          "factor": 14.114701064374032,
+          "factor_above_one": true,
+          "scaling": "p_yield = 2*sigma*A/(R*s)",
+          "held_fixed": "A, R, s, E, I",
+          "baseline_value": 276000000.0
+        },
+        "film_membrane": {
+          "pressure_Pa": 240000.00000000003,
+          "property": "film_tensile_allowable",
+          "factor": 0.3977534913079381,
+          "factor_above_one": false,
+          "scaling": "p_film = 2*sigma_film*t_film/s",
+          "held_fixed": "t_film, s; not an aluminum yield",
+          "baseline_value": 1500000000.0
+        }
+      },
+      "stiffness_only_ceiling_SF": 0.07084811753640555,
+      "extra": {
+        "tw_m": 0.001,
+        "area_m2": 0.00012252211349000203,
+        "I_m4": 2.3309832091472876e-08,
+        "n_edges": 4353.118474162124
+      }
+    },
+    {
+      "point_id": "P1-A",
+      "construction_family": "simple_shell",
+      "row_kind": "float_margin_allocation",
+      "geometry": "sphere R=10.0 m, t=0.0012564779436796986 m, p_int=0",
+      "masses_kg": {
+        "shell": 4263.129227442691,
+        "joints": 426.31292274426914,
+        "systems_payload": 200.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 4889.44215018696,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 1.8601195675014813e-16,
+      "limits_Pa": {
+        "knocked_down_buckling": 266.1123944669882,
+        "aluminum_yield": 69357.58249111936
+      },
+      "governing_limit": "knocked_down_buckling",
+      "collapse_pressure_Pa": 266.1123944669882,
+      "external_pressure_Pa": 95460.83791390515,
+      "crush_safety_factor": 0.0027876603671443925,
+      "factors": {
+        "knocked_down_buckling": {
+          "pressure_Pa": 266.1123944669882,
+          "property": "Young_modulus_of_6061-T6",
+          "factor": 358.7237569490484,
+          "factor_above_one": true,
+          "scaling": "p_stiff = kd*2*(t/R)^2/sqrt(3*(1-nu^2))*E",
+          "held_fixed": "t, R, nu, kd, sigma, masses",
+          "baseline_value": 68900000000.0
+        },
+        "aluminum_yield": {
+          "pressure_Pa": 69357.58249111936,
+          "property": "transferred_aluminum_tensile_yield",
+          "factor": 1.376357630777112,
+          "factor_above_one": true,
+          "scaling": "p_yield = 2*sigma*t/R",
+          "held_fixed": "t, R, E, kd",
+          "baseline_value": 276000000.0
+        }
+      },
+      "stiffness_only_ceiling_SF": 0.7265553498877941,
+      "extra": {
+        "t_m": 0.0012564779436796986
+      }
+    },
+    {
+      "point_id": "P2-A",
+      "construction_family": "sandwich",
+      "row_kind": "float_margin_allocation",
+      "geometry": "sphere R=10.0 m, tf=0.0003758936444928841 m, core=0.1 m, p_int=0",
+      "masses_kg": {
+        "faces": 2550.7541780710662,
+        "core": 2010.6192982974678,
+        "joints": 228.06867381842673,
+        "systems_payload": 100.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 4889.442150186961,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 0.0,
+      "limits_Pa": {
+        "knocked_down_buckling": 22031.313718349054,
+        "aluminum_yield": 41498.658352014405
+      },
+      "governing_limit": "knocked_down_buckling",
+      "collapse_pressure_Pa": 22031.313718349054,
+      "external_pressure_Pa": 95460.83791390515,
+      "crush_safety_factor": 0.23078902511015878,
+      "factors": {
+        "knocked_down_buckling": {
+          "pressure_Pa": 22031.313718349054,
+          "property": "Young_modulus_of_6061-T6_faces",
+          "factor": 4.3329616714776025,
+          "factor_above_one": true,
+          "scaling": "p_stiff = kd*4*tf*d/(R^2*sqrt(1-nu^2))*E",
+          "held_fixed": "tf, d, R, nu, kd, sigma; shear omitted",
+          "baseline_value": 68900000000.0
+        },
+        "aluminum_yield": {
+          "pressure_Pa": 41498.658352014405,
+          "property": "transferred_aluminum_tensile_yield",
+          "factor": 2.3003355217933534,
+          "factor_above_one": true,
+          "scaling": "p_yield = 4*sigma*tf/R",
+          "held_fixed": "tf, R, E, kd, core",
+          "baseline_value": 276000000.0
+        }
+      },
+      "stiffness_only_ceiling_SF": 0.43471919227695743,
+      "extra": {
+        "tf_m": 0.0003758936444928841,
+        "d_m": 0.10037589364449288
+      }
+    },
+    {
+      "point_id": "P3-A",
+      "construction_family": "frame_membrane",
+      "row_kind": "float_margin_allocation",
+      "geometry": "sphere R=10.0 m, s=1.0 m, ro=0.02 m, tw=0.0034965263377450123 m, film=8e-05 m, p_int=0",
+      "masses_kg": {
+        "frame": 4712.8663243917845,
+        "film": 97.51503596742718,
+        "nodes": 29.060789827747495,
+        "systems_payload": 50.0,
+        "residual_gas": 0.0
+      },
+      "all_mass_kg": 4889.442150186959,
+      "lift_equivalent_mass_kg": 4889.442150186961,
+      "float_margin": 3.7202391350029625e-16,
+      "limits_Pa": {
+        "pinned_euler": 9166.735695781266,
+        "aluminum_yield": 22134.002167645223,
+        "film_membrane": 240000.00000000003
+      },
+      "governing_limit": "pinned_euler",
+      "collapse_pressure_Pa": 9166.735695781266,
+      "external_pressure_Pa": 95460.83791390515,
+      "crush_safety_factor": 0.09602613905451597,
+      "factors": {
+        "pinned_euler": {
+          "pressure_Pa": 9166.735695781266,
+          "property": "Young_modulus_of_6061-T6_frame",
+          "factor": 10.413831169784718,
+          "factor_above_one": true,
+          "scaling": "p_euler = 2*pi^2*E*I/(R*s^3)",
+          "held_fixed": "I, R, s, A, film, sigma",
+          "baseline_value": 68900000000.0
+        },
+        "aluminum_yield": {
+          "pressure_Pa": 22134.002167645223,
+          "property": "transferred_aluminum_tensile_yield",
+          "factor": 4.312859336999919,
+          "factor_above_one": true,
+          "scaling": "p_yield = 2*sigma*A/(R*s)",
+          "held_fixed": "A, R, s, E, I",
+          "baseline_value": 276000000.0
+        },
+        "film_membrane": {
+          "pressure_Pa": 240000.00000000003,
+          "property": "film_tensile_allowable",
+          "factor": 0.3977534913079381,
+          "factor_above_one": false,
+          "scaling": "p_film = 2*sigma_film*t_film/s",
+          "held_fixed": "t_film, s; not an aluminum yield",
+          "baseline_value": 1500000000.0
+        }
+      },
+      "stiffness_only_ceiling_SF": 0.23186473795262078,
+      "extra": {
+        "tw_m": 0.0034965263377450123,
+        "area_m2": 0.00040097830013850045,
+        "I_m4": 6.740090789789744e-08,
+        "n_edges": 4353.118474162124
+      }
+    }
+  ],
+  "NFI": [
+    {
+      "NFI_id": "NFI-AL-YIELD-CARRY",
+      "gap": "276 MPa is the retrieved AA typical tensile yield. It is transferred to compression by owner assumption. The sheet says AA typical values are not for design. No compressive yield was in the retrieved snippet.",
+      "direction": "Obtain a compression yield or design allowable and drop the transfer.",
+      "effect": "Aluminum-strength pressure and its factor scale linearly with this value."
+    },
+    {
+      "NFI_id": "NFI-FLOAT-ALLOCATION-CARRY",
+      "gap": "Each alternative spends the baseline margin on one thickness. Residual margin is numerical zero by that rule. It is not an optimum and not a search over families.",
+      "direction": "A later card can compare other single changes, including core thickness and tube radius.",
+      "effect": "The allocation changes both stiffness and strength pressures through the named thickness."
+    },
+    {
+      "NFI_id": "NFI-SAND",
+      "gap": "Sandwich buckling still extrapolates the monocoque identity and omits core shear, wrinkling and core crush.",
+      "direction": "Replace with a published sandwich formula that includes shear.",
+      "effect": "Shear would lower the stiffness pressure. The omission is optimistic for that limit."
+    },
+    {
+      "NFI_id": "NFI-KD",
+      "gap": "Knockdown remains 0.2, the cited severe typical value, not a curve at this R/t.",
+      "direction": "Evaluate NASA SP-8032 for these complete spheres.",
+      "effect": "Stiffness pressure of P1 and P2 scales directly with the knockdown."
+    },
+    {
+      "NFI_id": "NFI-FRAME",
+      "gap": "Pinned Euler, tributary width equal to spacing, and no local crippling.",
+      "direction": "Integer mesh, end fixity and crippling.",
+      "effect": "Euler pressure scales with I. Section yield scales with area. Crippling could govern first."
+    },
+    {
+      "NFI_id": "NFI-FILM",
+      "gap": "Film allowable stays the owner value from MAINLINE-001 and is not aluminum yield.",
+      "direction": "Pin one film datasheet.",
+      "effect": "Film pressure is reported separately and can govern if it is the least."
+    },
+    {
+      "NFI_id": "NFI-GEOM",
+      "gap": "External volume still ignores wall intrusion.",
+      "direction": "Inner and outer mould lines.",
+      "effect": "Volume error moves lift and the allocation thicknesses."
+    },
+    {
+      "NFI_id": "NFI-MASS",
+      "gap": "Joint fractions, node mass and payload allowances are unchanged owner numbers.",
+      "direction": "Replace with a parts list.",
+      "effect": "They set how much margin the allocation can spend."
+    }
+  ],
+  "checks": {
+    "admitted_stiffness_match": "PASS",
+    "allocation_residual_near_zero": "PASS"
+  }
+}

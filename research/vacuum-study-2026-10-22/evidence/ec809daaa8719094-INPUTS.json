@@ -1,0 +1,56 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "unit": "vacuum-mainline048-coating-and-water-1020",
+  "original_048_directory": "unpublished-local-ref:2c491d684a140b5c",
+  "check040_directory": "unpublished-local-ref:54842d0a30679a70",
+  "started_at": "2026-10-20T11:48:59.979756+00:00",
+  "radii_m": [
+    10,
+    12,
+    15
+  ],
+  "weather": [
+    "ISA",
+    "optimistic",
+    "both"
+  ],
+  "joining": [
+    "actual",
+    "retained_floor"
+  ],
+  "routes": [
+    "dry_gas",
+    "bake70",
+    "desiccant"
+  ],
+  "profiles": [
+    "MLCCAg",
+    "CCAg",
+    "AgFEP05",
+    "AgFEP1"
+  ],
+  "retained_water_cases": [
+    {
+      "thickness_mm": 0.1,
+      "loading_kg_m2": 0.1,
+      "status": "019 optimistic planning scenario; not measured"
+    },
+    {
+      "thickness_mm": 1,
+      "loading_kg_m2": 1,
+      "status": "019 separate conservative planning scenario; not a measured bound"
+    }
+  ],
+  "cure_models": [
+    "original_balanced_residual_excluded_global_crimp",
+    "include_balanced_residual_global_crimp"
+  ],
+  "scope": "New cure-included 0.1 mm rows; both models at 1 mm. Original 0/dry-exterior rows remain filed separately and are not recomputed here.",
+  "equations": {
+    "global_demand": "sigma_pressure + sigma_cure",
+    "crimp_demand": "sigma_pressure + sigma_gradient + sigma_bend + sigma_cure",
+    "other_local_demand": "same total as original; cure is not counted twice"
+  },
+  "water_method": "1 mm differs by a geometry-independent 0.9*4*pi*R^2 mass. Reuse each optimized endpoint geometry and recalculate the full bill. Exclude any interior optimism float with a deliberately favorable full-E/cold-thermal-E bound.",
+  "overall_installed_hull_SF": null
+}

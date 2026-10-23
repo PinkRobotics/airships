@@ -1,0 +1,49 @@
+{
+  "id": "rpt-ref-ab7c8365b0b450980f1f",
+  "unit": "vacuum-mainline018b-crimp-gamma-measured-1020",
+  "at": "2026-10-20T00:26:41-07:00",
+  "body": "MAINLINE-018b measures gamma as imperfect collapse over handbook crimp pressure. QUESTIONABLE. Not a certification. The MPa are in EUCASS 2023-367, doi 10.13009/EUCASS2023-367. Sim 2024, doi 10.1155/2024/8765733, was not reopened. Hindawi and Wiley returned HTTP 403.\n\nFlat, inner 0.42 mm. Figure 9: linear 27.53 MPa, nonlinear perfect 12.45 MPa from foam plasticity. Figure 10: imperfect 6.03 MPa for mu above 0.50. Dimple, inner 0.40 mm. Figure 12: 27.56 and 12.44 MPa. Figure 13: 5.63 MPa. Figure 16 KDFs 0.22 and 0.20 divide by the linear load, not by crimp pressure.\n\np_crimp = 2 h^2 Gc / (R_m tc) at Gc 20 MPa, from foam E 0.04 GPa and Poisson 0. Flat 3.9156534174 MPa, Vc 201.532463528. Dimple 3.89248364981 MPa, Vc 197.24625832. Classical pressure is 789.131279531 MPa flat and 767.777835497 MPa dimple.\n\ngamma is 1.53997286205 flat and 1.44637730213 dimple. Divinycell H, H.ds-u/10_2012.rev7, ASTM C273, H80 shear modulus 27 MPa average. At that G, gamma is 1.14072063856 and 1.07139059417.\n\nOwn-face bending is 0.00472319506474 of flexural rigidity flat and 0.00453826240047 dimple. CR-1457 section 2.3.2 says neglecting it can be considerable. The papers do not isolate it. Linear over p_crimp is 7.03075504019 and 7.08031233513.\n\nBoth gammas exceed 1. That supports the optimistic curve and handbook unity on Vc above 2, not the conservative 0.20. The 009c-5 least times gamma is 1.00161658843 and 0.940740927738. Design credit stops at 1, so the carried least stays 0.650411843681. The 43 mm numerical transfer stays QUESTIONABLE. P3 stays PENDING-011b.",
+  "artifacts": [
+    {
+      "path": "evidence/55bee489508254fc-CARD.md",
+      "sha256": "55bee489508254fcf852bf29fbe135288700d8ec7812195c796c5f64ea987042",
+      "bytes": 3542
+    },
+    {
+      "path": "evidence/54bea4b17721a1f5-RESULTS.json",
+      "sha256": "54bea4b17721a1f5f277ccbc6836a2903c3232a63a4dd3d94040ad7a8373c1e9",
+      "bytes": 3665
+    },
+    {
+      "path": "evidence/5a3a9793e0652ba0-NFI.json",
+      "sha256": "5a3a9793e0652ba0c509cb8efb9d677ecc169ddf9b28c0e3bc76a7d3ae15106e",
+      "bytes": 1594
+    },
+    {
+      "path": "evidence/1903336e6522fdcd-INPUTS.json",
+      "sha256": "1903336e6522fdcd7e1be756267535fed7c14762db3cc7a7a4f007182ed6965b",
+      "bytes": 1022
+    },
+    {
+      "path": "evidence/4f4cb02a8b75276e-measure.py",
+      "sha256": "4f4cb02a8b75276e885fc813a73e5d6f69d508c91dbb487c9128552d18561cd2",
+      "bytes": 6540
+    },
+    {
+      "path": "unpublished-local-ref:21bc2f97ada03ac5",
+      "sha256": "bb8ab0bc8bf24db27567d3dabb50585b22c7f61924090c9ce94b4679ef3e7fa8",
+      "bytes": 452498
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009e-optimistic-only-then-018b-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline009e-optimistic-only-then-018b-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

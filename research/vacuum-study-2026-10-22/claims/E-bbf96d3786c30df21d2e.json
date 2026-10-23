@@ -1,0 +1,40 @@
+{
+  "id": "E-bbf96d3786c30df21d2e",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-bbf96d3786c30df21d2e",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/8",
+    "row_id": "NFI-043-09",
+    "fields": {
+      "id": "NFI-043-09",
+      "status": "open",
+      "topic": "Manufacturing geometry and flaw population",
+      "finding": "The selected tube is approximately 3.184 m long, 275.083 mm OD and 1.137 mm wall. Its L/1000 initial bow is an assumed imperfection, not a measured tolerance distribution or the spherical centerline curvature.",
+      "needed": "Demonstrated fabrication capability, full-length section/bow measurements, surface and end preparation, machining/handling damage controls and strength data at this size.",
+      "effect": "Current catalogue properties cannot establish the delivered-member lower tail. The actual material improvement factor remains unknown.",
+      "stops_other_work": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The selected tube is approximately 3.184 m long, 275.083 mm OD and 1.137 mm wall. Its L/1000 initial bow is an assumed imperfection, not a measured tolerance distribution or the spherical centerline curvature.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1043~1NFI.json/items/8"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

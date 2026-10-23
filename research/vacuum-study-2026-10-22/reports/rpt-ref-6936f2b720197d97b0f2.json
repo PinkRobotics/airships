@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-6936f2b720197d97b0f2",
+  "unit": "vacuum-mainline017-check-1019",
+  "at": "2026-10-20T00:07:18-07:00",
+  "body": "MAINLINE-017 check. The three P2 leaders and both P3 points agree. Own arithmetic uses the CR-1457 branch from 007b and the 011 axial column. arithmetic.py was not run. Least factors: CNT 0.750492, beryllium 0.685398, graphene 0.677924, SiC 2.848476, T700 0.765124. Single-property factors match, including CNT density 1.459123, beryllium 1.637323, graphene 1.654709, and the T700 pair 1.307371 and 1.308051. Gc caps at 0.510, 0.560 and 0.403 on global buckling, so the branch crossing is real. The lightest QUESTIONABLE face in 008 is T700 at 1550 kg/m3.\n\nProse puts 014's next-mode figures beside the re-optimised factor. CNT wrinkling is 0.750492, not 0.750642. Beryllium wrinkling is 0.685398 and yield 0.940245, not 0.685455 and 0.940266. Graphene crimping is 0.677924, not 0.677970. Beryllium at factor 1.637323 is 1129.9 kg/m3, not 1129.7.\n\nThe recorded combination product is not the product of the recorded split: CNT 1.47425 versus 1.45297, beryllium 1.65672 versus 1.62378, graphene 1.68547 versus 1.66768. At the stated thickness and split the least factors are 0.9954, 0.9891 and 0.9977, not the recorded values near 1.001. Density alone still reaches 1 at a smaller factor, so that ranking stands. NFI-CHECK-017-PROSE and NFI-CHECK-017-COMBO. Neither stops the card.",
+  "artifacts": [
+    {
+      "path": "evidence/6c9a21a43f6aeb25-CHECK.md",
+      "sha256": "6c9a21a43f6aeb25efaf32935575eb66369d0376b354184061ef6d01aaf4455a",
+      "bytes": 2922
+    },
+    {
+      "path": "evidence/b017364969b4c22a-check017.py",
+      "sha256": "b017364969b4c22afc8a2c5bed0c343086bccc9bc9fd3f9c63af29e9e834e499",
+      "bytes": 15238
+    },
+    {
+      "path": "unpublished-local-ref:5027920bc1fea27f",
+      "sha256": "75c007e78f203bf947b67146d6a4ab64bd184c8acb2d12611f95fdc7aed69aa7",
+      "bytes": 8649
+    }
+  ],
+  "from": "ref-cca93dbfd236dcaa3a8b",
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-check016-017-grok-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check016-017-grok-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

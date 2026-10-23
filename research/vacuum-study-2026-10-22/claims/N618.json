@@ -1,0 +1,79 @@
+{
+  "id": "N618",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N618",
+    "report": "rpt-ref-8befdd4c89803adc44a8",
+    "card": "rpt-ref-8befdd4c89803adc44a8",
+    "file": "evidence/d90bde67ada2ca77-NFI.json",
+    "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+    "source_sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+    "source_json_pointer": "/rows/3",
+    "row_id": "NFI-026B-04",
+    "fields": {
+      "id": "NFI-026B-04",
+      "tag": "QUESTIONABLE",
+      "status": "unresolved",
+      "owner": "sciences",
+      "issue": "New nonlinear first instability not verified",
+      "evidence": "Nearest-zero triplets can skip an already-negative family. Frequency4 has eta 0.000165 at lambda  5.059945, then reports positive nearest-zero modes at5.080744. Raw final zero 5.082444 is not accepted as first loss; frequency 2 zero 2.218113 lacks an independent smallest-algebraic check.",
+      "implication": "Freshly authorized smallest-algebraic or inertia checks must find and refine earliest tangent loss. Do not use raw critical_lambda_estimate as a first-instability allowable."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "New nonlinear first instability not verified",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/617"
+    },
+    {
+      "report": "rpt-ref-8befdd4c89803adc44a8",
+      "artifact": "evidence/d90bde67ada2ca77-NFI.json",
+      "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+      "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+      "bytes": 5415,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-8befdd4c89803adc44a8",
+          "artifact": "evidence/d90bde67ada2ca77-NFI.json",
+          "snapshot": "evidence/d90bde67ada2ca77-NFI.json",
+          "sha256": "d90bde67ada2ca775530663dde49353b0d0c6c0c2c10577839a92f1209072c32",
+          "bytes": 5415,
+          "selector": "/rows/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/617"
+          }
+        ]
+      }
+    }
+  ]
+}

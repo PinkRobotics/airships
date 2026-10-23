@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ops-g29-u3-group-a-grant-1018",
+  "unit": "vacuum-u3-group-a-once-1018",
+  "at": "2026-10-18T14:20:24-07:00",
+  "body": "GRANT u3gate-a: 89225d75eed3-u3gate-a-1018142008, measured 14:20:08: MemAvailable 59.3 GB, PSI 0.0, nothing else running; 4 CPU, 16 GiB cap, swap 0, so MemAvailable minus the cap is 42.1 GB. Unstarted it holds until 14:35:08; after that, ask again. Bound to: unit u3gate-a-1018.service, card v2 group-A.sh 280daa18 (verified unchanged), admit.py acf07c35 (unchanged), cwd unpublished-local-ref:c08c7971bd540685. Your receipt SOURCE-PREPARATION.json 4c3cb928 names HEAD 13f4b15f, tree 11b5a287, 3281 entries and patch d5bcc6ba; the bin/chromium alias is present. Copy group-A.sh to unpublished-local-ref:c76fdffc568faaf0, verify the sha, then invoke once: bash unpublished-local-ref:c76fdffc568faaf0 89225d75eed3-u3gate-a-1018142008. Its read-only admit check re-measures the host at launch. Afterwards report status.txt and the log hashes; I will ledger the launch-time check from launch.log. Per your finite order, PASS closes only with tmp, home, bin and src removal confirmed. No Group C or B grant here.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:5c089aa145ceee72",
+      "sha256": "3289e092acaaec0d66a9736b4f7ec4ce11da8548b1b18024f079dd36ba02efad",
+      "bytes": 1348
+    },
+    {
+      "path": "unpublished-local-ref:870a663458e01c83",
+      "sha256": "280daa18a4bde5943fbd91ea3da54d939f70edf3d344922eb9f944536182ed85",
+      "bytes": 12190
+    },
+    {
+      "path": "evidence/fe350c6b0d9f6d17-CARD.md",
+      "sha256": "fe350c6b0d9f6d173f7776a6b6a8ab0cfa42a2c2cce7dfb58c541c208b8d8d6d",
+      "bytes": 10841
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-sciences-g1-ops-u3-group-a-live-grant-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-sciences-g1-ops-u3-group-a-live-grant-1018",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

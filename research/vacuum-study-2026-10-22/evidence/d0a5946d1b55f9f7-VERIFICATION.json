@@ -1,0 +1,369 @@
+{
+  "checks": [
+    {
+      "name": "foam uniaxial plateau",
+      "observed": [
+        -1.4,
+        -1.6653345369377348e-16,
+        -1.6653345369377348e-16,
+        0.0
+      ],
+      "expected": [
+        -1.4,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 1.6653345369377348e-16,
+      "passed": true
+    },
+    {
+      "name": "foam residual compression",
+      "observed": [
+        -0.065,
+        5.204170427930421e-18,
+        5.204170427930421e-18,
+        0.0
+      ],
+      "expected": [
+        -0.065,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 5.204170427930421e-18,
+      "passed": true
+    },
+    {
+      "name": "foam accumulated strain",
+      "observed": 0.065,
+      "expected": 0.065,
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "unloading to permanent strain gives zero stress",
+      "observed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "unloading preserves plastic strain",
+      "observed": 0.065,
+      "expected": 0.065,
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "hydrostatic initial yield is uniaxial divided sqrt3",
+      "observed": [
+        -0.808290376865476,
+        -0.808290376865476,
+        -0.808290376865476
+      ],
+      "expected": [
+        -0.8082903768654761,
+        -0.8082903768654761,
+        -0.8082903768654761
+      ],
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "passed": true
+    },
+    {
+      "name": "pure shear plateau is uniaxial divided sqrt2",
+      "observed": [
+        0.0,
+        0.0,
+        0.0,
+        0.9899494936611662
+      ],
+      "expected": [
+        0.0,
+        0.0,
+        0.0,
+        0.9899494936611664
+      ],
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 1.1102230246251565e-16,
+      "passed": true
+    },
+    {
+      "name": "J2 von Mises perfect plasticity",
+      "observed": 750.0000000000001,
+      "expected": 750.0,
+      "absolute_tolerance": 1e-08,
+      "maximum_absolute_error": 1.1368683772161603e-13,
+      "passed": true
+    },
+    {
+      "name": "J2 plastic incompressibility",
+      "observed": 1.734723475976807e-18,
+      "expected": 0.0,
+      "absolute_tolerance": 1e-12,
+      "maximum_absolute_error": 1.734723475976807e-18,
+      "passed": true
+    },
+    {
+      "name": "J2 hydrostatic elastic stress",
+      "observed": -4117.647058823531,
+      "expected": -4117.64705882353,
+      "absolute_tolerance": 1e-08,
+      "maximum_absolute_error": 9.094947017729282e-13,
+      "passed": true
+    },
+    {
+      "name": "positive foam plastic-strain knots",
+      "observed": true,
+      "expected": true,
+      "absolute_tolerance": 0,
+      "maximum_absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.035",
+      "observed": 1.4000000000000004,
+      "expected": 1.4,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.1",
+      "observed": 1.4,
+      "expected": 1.4,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.2",
+      "observed": 1.4200000000000008,
+      "expected": 1.42,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 8.881784197001252e-16,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.3",
+      "observed": 1.4400000000000006,
+      "expected": 1.44,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 6.661338147750939e-16,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.4",
+      "observed": 1.4600000000000004,
+      "expected": 1.46,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.45",
+      "observed": 1.600000000000001,
+      "expected": 1.6,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 8.881784197001252e-16,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.5",
+      "observed": 1.899999999999996,
+      "expected": 1.9,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 3.9968028886505635e-15,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.55",
+      "observed": 2.399999999999981,
+      "expected": 2.4,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 1.9095836023552692e-14,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.58",
+      "observed": 2.9599999999998805,
+      "expected": 2.96,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 1.1945999744966684e-13,
+      "passed": true
+    },
+    {
+      "name": "digitized compression knot e=0.6",
+      "observed": 3.4999999999995595,
+      "expected": 3.5,
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 4.405364961712621e-13,
+      "passed": true
+    },
+    {
+      "name": "general DF hydrostatic alpha=1.0",
+      "observed": [
+        -1.4757295747452437,
+        -1.4757295747452437,
+        -1.4757295747452437
+      ],
+      "expected": [
+        -1.4757295747452437,
+        -1.4757295747452437,
+        -1.4757295747452437
+      ],
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "name": "general DF hydrostatic alpha=1.5",
+      "observed": [
+        -1.0434983894999017,
+        -1.0434983894999017,
+        -1.0434983894999017
+      ],
+      "expected": [
+        -1.043498389499902,
+        -1.043498389499902,
+        -1.043498389499902
+      ],
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "name": "general DF hydrostatic alpha=3.0",
+      "observed": [
+        -0.6599663291074441,
+        -0.6599663291074441,
+        -0.6599663291074441
+      ],
+      "expected": [
+        -0.6599663291074443,
+        -0.6599663291074443,
+        -0.6599663291074443
+      ],
+      "absolute_tolerance": 1e-09,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "name": "finite strain PK2 pushforward",
+      "observed": [
+        -1.4000000000000004,
+        1.1102230246251565e-16,
+        -5.551115123125783e-17
+      ],
+      "expected": [
+        -1.4,
+        1.1102230246251565e-16,
+        -5.551115123125783e-17
+      ],
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 4.440892098500626e-16,
+      "passed": true
+    },
+    {
+      "name": "superposed rigid rotation objectivity",
+      "observed": [
+        [
+          -1.001720264109538,
+          -0.6843889072874945,
+          0.0
+        ],
+        [
+          -0.6843889072874944,
+          0.008340233403238551,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.14039444484292146
+        ]
+      ],
+      "expected": [
+        [
+          -1.0017202641095382,
+          -0.6843889072874944,
+          0.0
+        ],
+        [
+          -0.6843889072874945,
+          0.008340233403238431,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -0.14039444484292146
+        ]
+      ],
+      "absolute_tolerance": 1e-10,
+      "maximum_absolute_error": 2.220446049250313e-16,
+      "passed": true
+    },
+    {
+      "name": "assembled plastic follower residual tangent",
+      "observed": 2.296948695393405e-10,
+      "expected": 0.0,
+      "absolute_tolerance": 2e-05,
+      "maximum_absolute_error": 2.296948695393405e-10,
+      "passed": true
+    },
+    {
+      "name": "029 exact coarse linear anchor",
+      "observed": 30.236527815934956,
+      "expected": 30.23653,
+      "absolute_tolerance": 0.0001,
+      "maximum_absolute_error": 2.184065042598604e-06,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "linear_anchors": [
+    {
+      "radius": "outer",
+      "ntheta": 96,
+      "ncore": 8,
+      "nface": 2,
+      "dead_pressure_MPa": [
+        30.236527815934956,
+        30.69269288346165,
+        31.46729484645386,
+        32.56074103490859
+      ]
+    },
+    {
+      "radius": "mid",
+      "ntheta": 96,
+      "ncore": 8,
+      "nface": 2,
+      "dead_pressure_MPa": [
+        28.09361949168164,
+        28.522881752684246,
+        29.14499043969682,
+        30.172787755792626
+      ]
+    }
+  ],
+  "elapsed_s": 0.5100958459079266,
+  "scope": "Numerical constitutive and FE checks; not experimental validation."
+}

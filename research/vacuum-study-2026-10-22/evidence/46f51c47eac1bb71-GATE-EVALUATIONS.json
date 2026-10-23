@@ -1,0 +1,267 @@
+{
+  "schema": 1,
+  "at": {
+    "captured_monotonic": 2049153.965122922,
+    "captured_utc": "2026-10-19T18:13:48.784818+00:00"
+  },
+  "status_scope": "Owner PASS/FAIL/UNBOUND evidence evaluations for Una review, not binding acceptance. The reader2 rounding subcheckFAIL is explicitly covered by the unchanged conservative hull; first unresolved proof blocker is the branch/tail certificate.",
+  "first_unresolved_proof_gate": "COMPLETE_PRECRITICAL_BASE_BRANCH",
+  "proof": {
+    "path": "unpublished-local-ref:04000b26e08e86cf",
+    "sha256": "e4fd0720f85638dfb4386ccd85cf3a824a0b9a948a2d558ee8cae615aca38729",
+    "bytes": 14571
+  },
+  "blocker": {
+    "path": "evidence/b79f2065f3fe093f-FIRST-PROOF-BLOCKER.json",
+    "sha256": "b79f2065f3fe093fab621538d88b02be2dd88645eca3b56d1596d43daeefed5d",
+    "bytes": 2622
+  },
+  "hull": {
+    "path": "evidence/8ed1e8084e302b48-TWO-READER-HULL.json",
+    "sha256": "8ed1e8084e302b4865e43a101de96011016844fd43f7f13a0dc446c2df7abde5",
+    "bytes": 3317
+  },
+  "gates": [
+    {
+      "id": "AUTHORITY_OU_AND_OWNER_ASSIGNMENT",
+      "owner_status": "PASS",
+      "value": "CO9c30f492,OUbecd490b,card26d5dfb5",
+      "reason": "Explicit declaration/funding; narrower than historical status fields in draft plan/card. Preparation only."
+    },
+    {
+      "id": "PRIVATE_PRIMARY_SOURCE_CUSTODY",
+      "owner_status": "PASS",
+      "value": [
+        "8d8fbe7d",
+        "6558ee55"
+      ],
+      "reason": "Both held PDFs hash/size match; no fetch. Required equation/profile/plot pages visually read."
+    },
+    {
+      "id": "READER2_ACCEPTED_BEFORE_OWNER_ORIGIN",
+      "owner_status": "PASS",
+      "value": "10:55:31PDT <10:58:48.041822PDT",
+      "reason": "Head8e47a6d7 accepted actualseal f04065a8 before owner origin."
+    },
+    {
+      "id": "READER1_FILED_BEFORE_UNBLIND",
+      "owner_status": "PASS",
+      "value": {
+        "captured_monotonic": 2048485.011718296,
+        "captured_utc": "2026-10-19T18:02:39.831414+00:00"
+      },
+      "reason": "Immutable reader1seal d4277195 and pin report filed before UNBLIND-START sample."
+    },
+    {
+      "id": "PLOT_READING_HULL",
+      "owner_status": "PASS",
+      "value": [
+        0.587,
+        0.634
+      ],
+      "reason": "Conservative hull, not intersection. Includes reader2 exact rational recorded-calibration interval; unknown historical discretization remains unknown."
+    },
+    {
+      "id": "READER2_AS_FILED_OUTWARD_ROUNDING",
+      "owner_status": "FAIL",
+      "value": [
+        0.5993,
+        0.6166
+      ],
+      "reason": "Read-only script audit finds nearest-rounding upper endpoint below exact1483/2405. Files remain unchanged; the final hull encloses that exact bound, so no favorable narrowing or new reading. This qualified subcheck is not a continuum/source-correspondence failure."
+    },
+    {
+      "id": "HULL_COVERS_READER2_UNROUNDED_BOUND",
+      "owner_status": "PASS",
+      "value": [
+        "7207/12025",
+        "1483/2405"
+      ],
+      "reason": "Both exact endpoints lie within reader1 and final hull; rounding shortfall fully covered without rewriting either sealed box."
+    },
+    {
+      "id": "SOURCE_EQUATION_AND_WORK_NORMALIZATION",
+      "owner_status": "PASS",
+      "value": "PROOF-NOTES1-3",
+      "reason": "Owner analytic candidate h=1 weak form recovers8-14 and uses fixed traces19; P=2piRN and lambda=P/Pcl, not a stiffness eigenvalue. Pending Una check."
+    },
+    {
+      "id": "FIXED_END_N0_REACTION_TERM",
+      "owner_status": "PASS",
+      "value": "(A/L)*(integral[sWprime+nuW/R])^2",
+      "reason": "Owner elimination retains global axial reaction; no silentbeta0Airy/load-control substitution. Pending Una check."
+    },
+    {
+      "id": "BASE_COERCIVITY_ON_COMPACT_SUBDOMAIN",
+      "owner_status": "PASS",
+      "value": "1-lambda_b>0 for0<=lambda<=lambda_b<1",
+      "reason": "Restricted theorem only, not a full-domain certificate."
+    },
+    {
+      "id": "COMPLETE_PRECRITICAL_BASE_BRANCH",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "First unresolved quantitative premise: no earliest event certificate below a positive cutoff and no remaining-domain validated continuation/inverse bound."
+    },
+    {
+      "id": "PHYSICAL_REFLECTION_FORMAL_IDENTITY",
+      "owner_status": "PASS",
+      "value": "T(U,V,W)=(-U(-X),V(-X),W(-X))",
+      "reason": "Conditional on even symmetric base; direct-sum proof preserves vector signs and clamped traces. Pending Una check."
+    },
+    {
+      "id": "PHYSICAL_REFLECTION_ENTIRE_BRANCH",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Complete branch symmetry/uniqueness or certified first symmetry loss not enclosed."
+    },
+    {
+      "id": "ROTATIONAL_COS_SIN_FORMAL_EQUIVALENCE",
+      "owner_status": "PASS",
+      "value": "n>0 phase pairs related by rotationpi/(2n)",
+      "reason": "Actual isotropic axisymmetric weak form; circumferential reflection gives the real-block split. Conditional on certified branch, not a solver implementation certificate."
+    },
+    {
+      "id": "ALL_FOURIER_TAIL_AXIAL_TERM",
+      "owner_status": "PASS",
+      "value": "1250c<2500<16641",
+      "reason": "Uses fixedlambda_max5/4 andR/t500; no response data."
+    },
+    {
+      "id": "ALL_FOURIER_TAIL_HOOP_AND_FULL_COERCIVITY",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "M_W andSmax unavailable across required branch; no certifiedN_tail<=128. Proposed sufficient coefficients are not attained bounds.",
+      "cap": 128
+    },
+    {
+      "id": "FINITE_MODES_BOTH_PARITIES_ALL_ROOTS",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No validated finite-block spectral/base/discretization enclosures; n0 andn1 retained, no gauge discard."
+    },
+    {
+      "id": "EVENT_CONTINUATION_NO_MISSED_ROOT",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No positive resolvent/interval-cover certificate between load samples, event slope/separation or cluster bound."
+    },
+    {
+      "id": "PEAK_BRANCH_EVENT_CORRESPONDENCE",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Delta_prime positive proved below1 only; complete prior turning/symmetry-loss and event ordering not certified."
+    },
+    {
+      "id": "EVEN_ODD_FULL_REFERENCE_INTERVALS",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "All are UNCOMPUTED; no certified strictly positiveL_ref. No event is invented."
+    },
+    {
+      "id": "PLOT_VS_CERTIFIED_EVEN_INTERVAL",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Hull exists; no certified even event interval exists to compare."
+    },
+    {
+      "id": "REFERENCE_QUADRATURE_BASE_DISCRETIZATION_ARITHMETIC",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No implemented validated enclosure or absolute root-error certificate."
+    },
+    {
+      "id": "ERROR_CAP_REFERENCE_BRANCH_SPECTRAL_QUADRATURE_ROUNDING",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Actual nonnegative absolute error and positiveL_ref missing; allowance is not a bound.",
+      "cap": 0.0075
+    },
+    {
+      "id": "ERROR_CAP_NATIVE_DISCRETIZATION_AND_EVENT",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Actual nonnegative absolute error and positiveL_ref missing; allowance is not a bound.",
+      "cap": 0.0075
+    },
+    {
+      "id": "ERROR_CAP_SHELL_SOLID_CONSTITUTIVE_END_TRANSFER",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Actual nonnegative absolute error and positiveL_ref missing; allowance is not a bound.",
+      "cap": 0.015
+    },
+    {
+      "id": "ERROR_CAP_GEOMETRY_AND_PROFILE",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Actual nonnegative absolute error and positiveL_ref missing; allowance is not a bound.",
+      "cap": 0.0025
+    },
+    {
+      "id": "ERROR_CAP_NATIVE_STATE_OUTPUT_ARITHMETIC",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Actual nonnegative absolute error and positiveL_ref missing; allowance is not a bound.",
+      "cap": 0.0025
+    },
+    {
+      "id": "ERROR_CAP_REMAINING_OBSERVED_CENTER_DISCREPANCY",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Actual nonnegative absolute error and positiveL_ref missing; allowance is not a bound.",
+      "cap": 0.015
+    },
+    {
+      "id": "TOTAL_CHARGED_COMPARISON_ERROR",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No native/ref centers or six certified errors; no cancellation/fitted correction.",
+      "cap": 0.05
+    },
+    {
+      "id": "THREE_MESH_AND_TWO_ADJACENT_CHANGES",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No meshes/responses generated. Need both adjacent changes plus absolute enclosures.",
+      "cap": {
+        "minimum_meshes": 3,
+        "both_adjacent": 0.01
+      }
+    },
+    {
+      "id": "SHELL_SOLID_GEOMETRY_CONSTITUTIVE_END_TRANSFER",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No event model-form/end-layer bound, positive-Jacobian/volume/profile certificate or native qualification."
+    },
+    {
+      "id": "FUTURE_MAXIMUM_FINITE_INVENTORY_ARITHMETIC",
+      "owner_status": "PASS",
+      "value": {
+        "paired": 198531,
+        "parity_blocks": 397062,
+        "uncollapsed_parity_blocks": 791046
+      },
+      "reason": "Inventory upper caps only; actual tail/branch and validated assessments not obtained."
+    },
+    {
+      "id": "LITERAL_VALIDATED_IMPLEMENTATION_ARGV_AND_CONTROLS",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No runnable reference/native method is supplied or claimed. Metadata/pixel scripts are not that implementation."
+    },
+    {
+      "id": "PAYLOAD_RESOURCE_FIT_AND_PRICE",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "No resource benchmark, measuredper-blockcost or justified runtime/memory bound; no prior2100/5100 envelope reused."
+    },
+    {
+      "id": "FULL_H1_NATIVE_ENERGY_MAP_ADOPTION",
+      "owner_status": "UNBOUND",
+      "value": null,
+      "reason": "Outside component scope; all qualification flags false, map0."
+    }
+  ]
+}

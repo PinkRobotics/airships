@@ -1,0 +1,216 @@
+{
+  "all_passed": true,
+  "numeric_check_count": 12,
+  "checks": {
+    "021b_six_modes_reproduced": true,
+    "021b_joint_mass_line_reproduced": true,
+    "028_four_joining_masses_reproduced": true,
+    "every_floating_point_respects_named_set": true,
+    "all_selected_mass_lines_close": true,
+    "joint_aware_points_pass_seventh_screen": true,
+    "S200F255_no_core_upper_bound_below_one": true,
+    "stock_envelope_fixed": true,
+    "dense_subsets_match": true,
+    "independent_mass_roots_match": true,
+    "S200F255_analytic_impossibility": true,
+    "all_conditional_points_meet_their_enforced_modes": true
+  },
+  "base_details": {
+    "all_passed": true,
+    "checks": {
+      "021b_six_modes_reproduced": true,
+      "021b_joint_mass_line_reproduced": true,
+      "028_four_joining_masses_reproduced": true,
+      "every_floating_point_respects_named_set": true,
+      "all_selected_mass_lines_close": true,
+      "joint_aware_points_pass_seventh_screen": true,
+      "S200F255_no_core_upper_bound_below_one": true,
+      "stock_envelope_fixed": true
+    },
+    "021b_max_mode_error": 4.440892098500626e-16,
+    "021b_mass_residual_kg": 0.0,
+    "028_mass_errors_kg": {
+      "af015_scarf": 0.0,
+      "af015_scarf_primer5": 0.0,
+      "lab8_eb_eta1": 0.0,
+      "lab8_scarf": 0.0
+    },
+    "max_selected_mass_residual_kg": 9.094947017729282e-12
+  },
+  "property_details": {
+    "all_passed": true,
+    "checks": {
+      "dense_subsets_match": true,
+      "independent_mass_roots_match": true,
+      "S200F255_analytic_impossibility": true,
+      "all_conditional_points_meet_their_enforced_modes": true
+    },
+    "dense_grid": [
+      {
+        "route": "af015_scarf",
+        "coarse": {
+          "usage": 0.9719775174295638,
+          "fraction": 0.11237531361894605,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "dense": {
+          "usage": 0.9719775174295703,
+          "fraction": 0.11237531361894511,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "usage_error": 6.439293542825908e-15,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf_primer5",
+        "coarse": {
+          "usage": 0.9960764380867377,
+          "fraction": 0.10977933381462106,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "dense": {
+          "usage": 0.9960764380867377,
+          "fraction": 0.10977933381462118,
+          "core": "Hexcel CR-III 5056 3/8-1.0"
+        },
+        "usage_error": 0.0,
+        "pass": true
+      }
+    ],
+    "independent_roots": [
+      {
+        "route": "af015_scarf",
+        "joint_screen": false,
+        "mass_error_kg": 2.7284841053187847e-12,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf",
+        "joint_screen": true,
+        "mass_error_kg": 5.4569682106375694e-12,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf_primer5",
+        "joint_screen": false,
+        "mass_error_kg": 2.7284841053187847e-12,
+        "pass": true
+      },
+      {
+        "route": "af015_scarf_primer5",
+        "joint_screen": true,
+        "mass_error_kg": 3.637978807091713e-12,
+        "pass": true
+      },
+      {
+        "route": "lab8_eb_eta1",
+        "joint_screen": true,
+        "mass_error_kg": 9.094947017729282e-12,
+        "pass": true
+      },
+      {
+        "route": "lab8_scarf",
+        "joint_screen": false,
+        "mass_error_kg": 9.094947017729282e-12,
+        "pass": true
+      },
+      {
+        "route": "lab8_scarf",
+        "joint_screen": true,
+        "mass_error_kg": 8.185452315956354e-12,
+        "pass": true
+      }
+    ]
+  },
+  "frozen_pin_count": 16,
+  "frozen_pins": [
+    {
+      "path": "unpublished-local-ref:f8552c7c6b8fb5b1",
+      "matches": true,
+      "sha256": "e7d08a00c28954565e3619ebb3619d7d0759669dd41430b8b10f66aae4bf788a"
+    },
+    {
+      "path": "unpublished-local-ref:7b00ba8d32e96cd9",
+      "matches": true,
+      "sha256": "422427edc4e7111e30fa6c489d252789ce699b132c915cabd24396c4f5b8b2fb"
+    },
+    {
+      "path": "unpublished-local-ref:5027144b72294e26",
+      "matches": true,
+      "sha256": "b056cc13a604abedca833c14256e19855537cfbd91fa1418981338ac474f005d"
+    },
+    {
+      "path": "unpublished-local-ref:fa5fa932700d8a22",
+      "matches": true,
+      "sha256": "6ab3d8fab525a2046453cbf9e6835cdb398c3cadf3b2e6e490a155c479464f1f"
+    },
+    {
+      "path": "unpublished-local-ref:c87c07639c0453c0",
+      "matches": true,
+      "sha256": "96a657c57620d86b7fa0b4f633aefc702e9daf9023fa52b530e8ae31bacfd1f4"
+    },
+    {
+      "path": "unpublished-local-ref:1aff3150a2659915",
+      "matches": true,
+      "sha256": "e7317e93c839e7a49389a3d4cfb1c5cb3006ef345df22740b84af53fabf83f92"
+    },
+    {
+      "path": "unpublished-local-ref:dd4cb7e459ec1a43",
+      "matches": true,
+      "sha256": "649d7a4bbc761f6b42f86a1481dd55e114ae2e0ee670bd2c3344619f27fea27a"
+    },
+    {
+      "path": "unpublished-local-ref:4f0e3e6431e96807",
+      "matches": true,
+      "sha256": "dedf8cb306f224675795ea7887d32b807a5e94f7f96eee6ce8e4fc8d926175db"
+    },
+    {
+      "path": "unpublished-local-ref:cab8a7bc5b14acbd",
+      "matches": true,
+      "sha256": "266652aa5589e0deb73d6020f7da16d0df478fcc3213d680039853efdac734c1"
+    },
+    {
+      "path": "unpublished-local-ref:55ddb5288903027f",
+      "matches": true,
+      "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221"
+    },
+    {
+      "path": "unpublished-local-ref:8f244e64a3fbe46c",
+      "matches": true,
+      "sha256": "527a0f9fbf0b0809c41dc1906a7107ecda3e20cd3bbbf16b75b14ccfdad6144f"
+    },
+    {
+      "path": "unpublished-local-ref:b57a7f1e34c64824",
+      "matches": true,
+      "sha256": "3624252d7cbe952e4f0919b02707c19748745f25ad210dcf68ae313869c1a24c"
+    },
+    {
+      "path": "unpublished-local-ref:9bfd540d2e32acab",
+      "matches": true,
+      "sha256": "579bff2ee5f7661aaae807ce102d3abf1ee787e58211aa9c67fd7d785ec10d61"
+    },
+    {
+      "path": "unpublished-local-ref:d0da9b97f50a3b87",
+      "matches": true,
+      "sha256": "0b7a9772fe072572a9043b67059049aac9db4130292538ca5f1eeb542de9619d"
+    },
+    {
+      "path": "unpublished-local-ref:ea0c814477e76046",
+      "matches": true,
+      "sha256": "5c5b71c7cae2671ffd06c2f2808930c0555a8c02454afb1e3edc98e9e0008c21"
+    },
+    {
+      "path": "unpublished-local-ref:19f8023c6bc95d8b",
+      "matches": true,
+      "sha256": "2496086dc88ea67bb12f440355074cd8a2e771d105f60c78a8379ae3a3b36415"
+    }
+  ],
+  "unique_NFI_ids": true,
+  "NFI_rows": 22,
+  "code_sha256": {
+    "calculate.py": "1dc9d1bc578c644a9200b74db3243bf27465fa73148eb664c45c49eec3b7ac0b",
+    "property_checks.py": "50aec9975f00eb6d7232c70a03eeeebf847867d5ea424b85eb8fac5d6b092b9f",
+    "make_report.py": "04dfce782e2eea65380ab35dfca381cba4d48bc1145b4ca6b7ff80423794ff7d"
+  },
+  "INPUTS_sha256": "52566f98ee23246b17b3cba274a0b9224bf0fef17e7f9193b6c4547072f77c96"
+}

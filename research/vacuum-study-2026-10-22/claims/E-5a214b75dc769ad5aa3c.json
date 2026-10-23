@@ -1,0 +1,37 @@
+{
+  "id": "E-5a214b75dc769ad5aa3c",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-5a214b75dc769ad5aa3c",
+    "report": "rpt-mainline055-opus-gamma-test-1020",
+    "file": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+    "source_sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+    "source_json_pointer": "/rows/4",
+    "row_id": "N055-05-CAP-EDGE",
+    "fields": {
+      "id": "N055-05-CAP-EDGE",
+      "state": "computed (elastic)",
+      "note": "In my elastic FE, the clamped edge of the 5 m cap yields the inner face and crushes the core at about 60 kPa. That is edge bending and not part of the sphere's behaviour. The dimple region itself matches the sphere: the limit is within +1.4%, core-shear onset within -0.4%, and outer-face yield within +0.5%.",
+      "proposed_fix": "Design a reinforced edge (face doublers, potted core ring) and check it before the build."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "In my elastic FE, the clamped edge of the 5 m cap yields the inner face and crushes the core at about 60 kPa. That is edge bending and not part of the sphere's behaviour. The dimple region itself matches the sphere: the limit is within +1.4%, core-shear onset within -0.4%, and outer-face yield within +0.5%.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-mainline055-opus-gamma-test-1020",
+      "artifact": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "snapshot": "evidence/a6c9f4c1f33dee57-NFI.json",
+      "sha256": "a6c9f4c1f33dee57ced250e1b4f07b5fe8604393f6a3bde6257dd62e24a75787",
+      "bytes": 5596,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

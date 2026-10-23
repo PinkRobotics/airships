@@ -1,0 +1,198 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "new_configurations": 648,
+  "heavy_water_configurations": 432,
+  "lost_float_configurations": [
+    "AgFEP05-R15-optimistic-floor-desiccant-retained_water",
+    "AgFEP1-R15-optimistic-floor-dry_gas-retained_water"
+  ],
+  "changed_axis_count": [
+    {
+      "id": "MLCCAg-R15-optimistic-actual-desiccant-retained_water",
+      "original": "G+Q 0.997147",
+      "new": "G+Q+film 0.826594"
+    },
+    {
+      "id": "MLCCAg-R15-optimistic-floor-desiccant-retained_water",
+      "original": "G+Q 0.997147",
+      "new": "G+Q+film 0.896292"
+    }
+  ],
+  "primary_R10_bake": {
+    "tag": "QUESTIONABLE / PROJECTION",
+    "R_m": 10,
+    "settings": {
+      "weather": "ISA",
+      "floor": true,
+      "pad": "heavy70",
+      "vented": true,
+      "coating": 0.00833272,
+      "thermal": true,
+      "cure_fraction": 1.0,
+      "pressure_factor_floor": 1.01,
+      "nu": 0.0768,
+      "wind": "envelope",
+      "systems": 100.0,
+      "charge_joining": true,
+      "water": true,
+      "contamination": true,
+      "gas": true,
+      "weather_pressure": true,
+      "extra_service": 0.0,
+      "legacy_climate": false,
+      "thermal_modulus_Pa": null,
+      "bond_model": "compliant037b",
+      "cure_temperature_K": 366.4833333333333,
+      "scarf_ratio": 30.34139731914874,
+      "edge_scarf_interaction": false,
+      "cure_in_global": true,
+      "finish_id": "MLCCAg",
+      "external_water_kg_m2": 0.1,
+      "structural_primer_kg_m2": 0.01,
+      "moisture_scale": 0.1,
+      "adhesive_water_fraction": 0.002,
+      "core_water_fraction": 0.001,
+      "primer_water_fraction": 0.01,
+      "finish_water_kg_m2": 8.33272e-05,
+      "desiccant": false,
+      "desiccant_capacity_kg_kg": 0.1,
+      "desiccant_capture_fraction": 0.95
+    },
+    "mask": 11,
+    "selected_axes": [
+      "gamma",
+      "Q",
+      "film"
+    ],
+    "usage": 1.0,
+    "geometry": {
+      "tf_m": 0.0008095915827673624,
+      "tc_m": 0.022604794259369607,
+      "area_m2": 1256.6370614359173,
+      "volume_m3": 4188.790204786391,
+      "core": "Hexcel CR-III 5056 3/8-1.0"
+    },
+    "properties": {
+      "E_Pa": 290000000000.0,
+      "Fcy_Pa": 345000000.0,
+      "Q": 0.82,
+      "film_kg_m2_interface": 0.07323641454574575,
+      "gamma": 0.5879077353063811,
+      "gamma_full": 0.5879077353063811,
+      "Vc": 0.9697693382659527,
+      "pressure_face_stress_Pa": 300065814.724127,
+      "added_gradient_stress_Pa": 324279.00654358784,
+      "added_bending_stress_Pa": 106839.40903679919,
+      "added_cure_compression_Pa": 3246622.45023724,
+      "thermal_interface_shear_Pa": 159736.883367555,
+      "thermal_shear_allowable_Pa": 172368.93232920903,
+      "scarf_shear_Pa": 9999999.989692917,
+      "global_compressive_demand_Pa": 303312437.1743642,
+      "crimp_compressive_demand_Pa": 303743555.5899446
+    },
+    "load_pressure_Pa": 97172.30315075364,
+    "modes": {
+      "global_buckling": 1.000000000004299,
+      "face_compression": 1.1358265670194228,
+      "core_shear_crimping": 2.312010628239223,
+      "core_crush": 4.966775458363128,
+      "face_wrinkling": 1.9091351827005496,
+      "intracell_dimpling": 6.938443920483276,
+      "scarf_average_shear_screen": 1.0000000010307082,
+      "core_cell_wall_yield_screen": 2.41856244409729,
+      "thermal_core_interface_screen": 1.079080351984755
+    },
+    "loadcases": {
+      "70kn": {
+        "global_buckling": 1.000000000004299,
+        "face_compression": 1.1358265670194228,
+        "core_shear_crimping": 2.312010628239223,
+        "core_crush": 4.966775458363128,
+        "face_wrinkling": 1.9091351827005496,
+        "intracell_dimpling": 6.938443920483276,
+        "scarf_average_shear_screen": 1.0000000010307082,
+        "core_cell_wall_yield_screen": 2.41856244409729,
+        "thermal_core_interface_screen": 1.079080351984755
+      },
+      "gust35": {
+        "global_buckling": 1.0028281587310004,
+        "face_compression": 1.1390342925857555,
+        "core_shear_crimping": 2.3185400543128685,
+        "core_crush": 4.980974704709949,
+        "face_wrinkling": 1.9145268348356144,
+        "intracell_dimpling": 6.9580390106146,
+        "scarf_average_shear_screen": 1.002824134276734,
+        "core_cell_wall_yield_screen": 2.41856244409729,
+        "thermal_core_interface_screen": 1.079080351984755
+      }
+    },
+    "least_shell_and_thermal_SF": 1.000000000004299,
+    "pad": {
+      "mass_kg": 33.13752886824479,
+      "SF_70kn": 1.0,
+      "area_m2": 0.4630996510045298,
+      "thickness_m": 0.026502198422020867,
+      "force_N": 111753.58936795215
+    },
+    "vacuum": {
+      "pore_volume_m3": 28.2374960003353,
+      "trapped_air_kg": 0.0,
+      "tube_bore_volume_m3": 0.0,
+      "initial_gas_kg": 0.5122158623775337,
+      "external_ingress_24h_upper_kg": 0.3003903578250015,
+      "desorbed_24h_kg": 0.699544152410791,
+      "added_material_water_kg": 0.13690315860808328,
+      "original_nominal_volatile_release_kg": 0.6130048512860548,
+      "desiccant_water_capacity_kg": 0.0,
+      "desiccant_capture_fraction": 0.0,
+      "gas_aboard_counted_kg": 0.8126062202025353,
+      "charged_gas_kg": 48.89442150186961,
+      "hot_pressure_24h_upper_Pa": 42.50959448334536,
+      "hot_pressure_after_late_vent_upper_Pa": 42.50959448334536,
+      "pressure_limit_Pa": 954.6083791390515,
+      "pressure_SF": 22.456304058912,
+      "late_vent_pressure_SF": 22.456304058912,
+      "service_hardware_band_kg": [
+        30.0,
+        50.0
+      ],
+      "service_extra_charge_kg": 0.0,
+      "battery_required_24h_kg": 1.1111111111111112
+    },
+    "actual_joining": {
+      "film": 184.06318552973724,
+      "scarf": 9.787346283827398,
+      "splice": 16.074600061343702,
+      "seal": 5.688917094985136,
+      "total": 215.61404896989347,
+      "length_m": 2844.458547492568
+    },
+    "floor_allowance_kg": 210.9631570299519,
+    "bill_kg": {
+      "faces": 3764.2423138685167,
+      "core": 455.0208267305213,
+      "charged_joining": 215.61404896989347,
+      "coating": 10.471204774568298,
+      "mooring_pad": 33.13752886824479,
+      "gas": 48.89442150186961,
+      "systems": 100.0,
+      "extra_service": 0.0,
+      "water": 125.66370614359174,
+      "contamination": 5.0,
+      "weather_headroom": 0.0,
+      "absorbed_water": 0.13690315860808328,
+      "structural_primer": 12.566370614359172,
+      "desiccant": 0.0
+    },
+    "lift_kg": 4889.442150186961,
+    "signed_payload_kg": 118.69482555678769,
+    "shell_and_thermal_pass": true,
+    "service_pressure_pass": true,
+    "modeled_assembly_pass": true,
+    "overall_installed_hull_SF": null
+  },
+  "best_one_mm_all_four_kg": -998.3326793918941,
+  "best_one_mm_favorable_upper_kg": -998.2796540587769,
+  "validation_checks": 130278,
+  "finished_at": "2026-10-20T12:06:51.129534+00:00"
+}

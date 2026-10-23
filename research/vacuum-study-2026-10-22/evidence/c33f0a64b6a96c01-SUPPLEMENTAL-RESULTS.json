@@ -1,0 +1,158 @@
+{
+  "R10_ISA_least": {
+    "R_m": 10,
+    "weather": "ISA",
+    "service": "ground",
+    "mask": 11,
+    "usage": 0.8393402109282349,
+    "axes": [
+      "SiC_full_member_compression",
+      "film_effective_strength",
+      "joint_allowance"
+    ],
+    "section_area_m2": 0.0007496405504840388,
+    "gyration_m": 0.0868494175257779,
+    "ro_m": 0.12330836000971492,
+    "wall_m": 0.000971392375307148,
+    "film_total_m": 5.847459261178168e-05,
+    "required_SiC_strength_Pa": 1055318095.6220437,
+    "assumed_SiC_strength_Pa": 3134038245.1981354,
+    "film_effective_strength_Pa": 5343007948.306368,
+    "ten_year_retention": 0.8615688736605606,
+    "joint_allowance_kg": 45.87415824837916,
+    "joint_actual_sleeves_kg": 34.313399819764086,
+    "applied_pressure_Pa": 97172.30315075364,
+    "all_screened_SF": 1.0,
+    "global_SF": 1.083358609706401,
+    "local_peak_SF": 1.0000000000000306,
+    "local_axial_SF": 1.1080953378653746,
+    "required_tension_Pa": 0.0,
+    "film_SF_at_ten_years": 1.0,
+    "joint_capacity_SF": 0.9999999999999996,
+    "bill_kg": {
+      "SiC_tubes": 4182.24278262546,
+      "joint_sleeves_and_allowance": 45.87415824837916,
+      "joint_bond_and_installation": 10.106878232617548,
+      "nodes": 5.04,
+      "PBO_two_plies": 114.6308907561975,
+      "barrier_and_protection": 95.75105069536089,
+      "systems": 100.0,
+      "vacuum_service": 50.0,
+      "gas": 48.89442150186961,
+      "exterior_water": 125.66370614359174,
+      "contamination": 5.0,
+      "mooring_load_introduction": 33.137528868244786,
+      "sag_lift_debit": 73.10073311524012,
+      "weather_headroom": 0.0
+    },
+    "protection_kg": {
+      "PET": 20.960706184751103,
+      "Al": 0.33929200658769765,
+      "attachment": 31.415926535897935,
+      "white": 31.415926535897935,
+      "seams": 11.61919943222622
+    },
+    "vacuum": {
+      "service": "ground",
+      "service_mass_kg": 50.0,
+      "installed_high_allowance_kg": 20.0,
+      "pumps": 0,
+      "pressure_only_pumps": 1,
+      "dry_cavity_pumps": 15,
+      "pump_speed_required_pressure_m3_h": 10.444648672578518,
+      "pump_speed_required_dry_m3_h": 308.6880672069949,
+      "electrical_24h_kWh": 0.12,
+      "battery_24h_kg": 1.1111111111111112,
+      "total_pressure_24h_sealed_Pa": 66.13175288343591,
+      "pressure_limit_Pa": 954.6083791390515,
+      "free_volume_m3": 4124.742138342475,
+      "water_external_upper_kg_day": 1.2580561955149514,
+      "dry_external_kg_day": 0.21629982752240942,
+      "initial_material_release_water_proxy_kg": 0.2225959391564457,
+      "SiC_internal_and_external_surface_m2": 2777.684094162015,
+      "initial_gas_kg": 0.5043839027941445,
+      "gas_charge_kg": 48.89442150186961,
+      "humidity_pressure_target_Pa": 32.51651646323057,
+      "water_capacity_kg": 1.0200352929779275,
+      "first_cycle_humidity_limit_h": 17.279788676579475,
+      "cold_h2_humidity_limit_h": 11.474873471541287,
+      "steady_cycle_humidity_limit_h": 19.459263519981068,
+      "total_pressure_limit_h": 450.24055768514785,
+      "planned_ground_service_interval_h": 15.551809808921528,
+      "life_dryness_supported_by_sizing": true,
+      "initial_evacuation_24h_effective_speed_m3_h": 1574.9444945907414,
+      "unvented_bore_air_debit_kg": 98.77123271104863
+    },
+    "lift_kg": 4889.442150186961,
+    "payload_kg": 0.0,
+    "local_peak_enforced": true,
+    "family": "f5-019 CHECK041; constant g/R; rescaled area and all associated debits",
+    "qualified_SF": null,
+    "actual_frame_Pf": null,
+    "reliability": {
+      "m": 10.0,
+      "scale_Pa": 3900000000.0,
+      "H_whole_member": 0.0009482477835320657,
+      "Pf_whole_member": 0.0009477983386755004,
+      "H_coupon_1cm3": 1.7389561743967683,
+      "Pf_coupon_1cm3": 0.8242962910406231,
+      "whole_scale_for_Pf1e_3_Pa": 3879136544.1626477,
+      "coupon_scale_for_Pf1e_3_Pa": 8223784984.845754,
+      "population": "750 members; each member peak applied uniformly to its complete SiC volume",
+      "qualified_probability": null
+    }
+  },
+  "ply_efficiency": 0.9212082669493737,
+  "extra_0p9_kg_m2_water_R10_kg": 1130.9733552923256,
+  "ground30_vs50_gain_kg": 20.0,
+  "explicit_nesting_of_ground50_in_systems100_gain_kg": 50.0,
+  "alternative_family_endpoint_difference_R10_kg": 52.42580196643212,
+  "bulk_temperature_sensitivity": [
+    {
+      "gas_temperature_K": 284.9,
+      "cold_film_temperature_held_K": 274.00711698603436,
+      "water_capacity_kg": 1.0200352929779275,
+      "first_humidity_crossing_h": 17.27978867657947,
+      "90pct_schedule_h": 15.551809808921524,
+      "tag": "PROJECTION; counterfactual bulk-temperature sensitivity, fixed sources and cold-film target"
+    },
+    {
+      "gas_temperature_K": 294.9,
+      "cold_film_temperature_held_K": 274.00711698603436,
+      "water_capacity_kg": 0.9854461002692828,
+      "first_humidity_crossing_h": 16.672866611427857,
+      "90pct_schedule_h": 15.005579950285071,
+      "tag": "PROJECTION; counterfactual bulk-temperature sensitivity, fixed sources and cold-film target"
+    },
+    {
+      "gas_temperature_K": 310.0,
+      "cold_film_temperature_held_K": 274.00711698603436,
+      "water_capacity_kg": 0.9374453386110048,
+      "first_humidity_crossing_h": 15.832682115892094,
+      "90pct_schedule_h": 14.249413904302886,
+      "tag": "PROJECTION; counterfactual bulk-temperature sensitivity, fixed sources and cold-film target"
+    },
+    {
+      "gas_temperature_K": 320.0,
+      "cold_film_temperature_held_K": 274.00711698603436,
+      "water_capacity_kg": 0.9081501717794108,
+      "first_humidity_crossing_h": 15.321115978140327,
+      "90pct_schedule_h": 13.789004380326295,
+      "tag": "PROJECTION; counterfactual bulk-temperature sensitivity, fixed sources and cold-film target"
+    }
+  ],
+  "R30_whole_vs_coupon_survival": [
+    {
+      "weather": "ISA",
+      "survival_coupon": 2.7819399229930527e-18
+    },
+    {
+      "weather": "optimistic",
+      "survival_coupon": 1.3553598068609145e-24
+    },
+    {
+      "weather": "both",
+      "survival_coupon": 9.513963529613452e-23
+    }
+  ]
+}

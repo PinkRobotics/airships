@@ -1,0 +1,118 @@
+{
+  "id": "rpt-ref-3eaf9fd65c0d3223ee65",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-3f7ec48b84b54a049007",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline050-check-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check050-codex-089a-1020"
+    }
+  ],
+  "re": "ord-admiral-rr2-check050-codex-089a-1020",
+  "at": "2026-10-20T06:59:46.845630-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "completion": "none",
+  "priority": 4,
+  "body": "CHECK050 complete: all 89 checked displayed quantities reproduce. Fixed-hull upper offsets at 100 m are −6.512/−3.040/−0.312/+1.786/+3.339 K; the conservative cold start remains about −10.5 K. The sampled MIL 10% hot case fails at every radius. R10 saturated-night payload reproduces at −82.280 kg.\n\nIndependently reoptimized 57,120 coupled and 5,200 frozen knots; checked 42,160 filed finite geometries and all three 2,027,245-point maps. No weather classification, least-set or zero-surface finite-status mismatch remains. Strict finite-knot masses agree within 0.00414 kg; night deposits within floating-point precision.\n\nThe exact ledger distinguishes interpolation differences up to 0.23814 kg, small heater quadrature differences, and 680 excluded marginal-cold knots. A checker interface-tolerance issue was corrected and retained in the audit. The broader gas sweep passes; the owner's exact scalar sampling/conventions remain an NFI.\n\nEight checker NFIs and all owner/inherited qualifications remain. Installed-hull SF and operational availability are null. No050 executable source was accessed; upstream040/048 authorship is disclosed. Numerical jobs used simjob, and all communication used the queue. No successor is named.",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check050-codex-089a-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "rpt-1228-mainline050-dew-conventions-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/97926e05973aab9b-CHECK.md",
+      "sha256": "97926e05973aab9b08f85c7f064ab711ec3540b90ddd3dd266f7749621053745",
+      "bytes": 6429
+    },
+    {
+      "path": "evidence/51691d59bfa31eb3-CARD.md",
+      "sha256": "51691d59bfa31eb3956f7c92add8129c5ff2c200008fcc9d83ecd75f694a4a42",
+      "bytes": 538
+    },
+    {
+      "path": "evidence/3438c8f9ac1c60a5-RESULTS.json",
+      "sha256": "3438c8f9ac1c60a579d0cffbd274e03f61fa75d8da2963aeb5e007d3587d066b",
+      "bytes": 25565
+    },
+    {
+      "path": "evidence/c9c55c3e8327b5ec-MISMATCHES.json",
+      "sha256": "c9c55c3e8327b5ec8ab0287bdc85dbc9182615657ee667c71e819cf3dae651e0",
+      "bytes": 309312
+    },
+    {
+      "path": "evidence/717e88be4a20c9a5-NFI.json",
+      "sha256": "717e88be4a20c9a5422ac9933ad9b1a69e9c724dcf0546111ffacff5332fd9ec",
+      "bytes": 54407
+    },
+    {
+      "path": "evidence/17e8269f3cdf720a-INPUTS.json",
+      "sha256": "17e8269f3cdf720aeb2751c618586b848661e38fc81bbfb84ee88b52433294f3",
+      "bytes": 35386
+    },
+    {
+      "path": "evidence/4c9736c6a1f2ba90-METHOD.md",
+      "sha256": "4c9736c6a1f2ba90ab528e2b5d65468b96278172f93ca3f2d09785284ab518ec",
+      "bytes": 6173
+    },
+    {
+      "path": "evidence/3c97c661b9e1e5a0-SOURCE-AUDIT.md",
+      "sha256": "3c97c661b9e1e5a05121f022cd01d09c03afe0e29bd633b9eeeae5ffbc2cfe09",
+      "bytes": 3737
+    },
+    {
+      "path": "evidence/ca17eb5b69fff1a2-REPRODUCE.md",
+      "sha256": "ca17eb5b69fff1a25bd407587af414855200f787d60ed5b478073bb34ef0cd0b",
+      "bytes": 2360
+    },
+    {
+      "path": "evidence/6f9b10df5fbebdb6-MANIFEST.json",
+      "sha256": "6f9b10df5fbebdb6d93c2bf879050a5a7c33640c59bdbc6f8160b1f834cb7fbb",
+      "bytes": 69833
+    },
+    {
+      "path": "evidence/efb6d6ff7fd4386c-PACKAGE-VALIDATION.json",
+      "sha256": "efb6d6ff7fd4386c959f18eba16b935df852dc8b9d4d38c55b6684418706543e",
+      "bytes": 415
+    },
+    {
+      "path": "withheld-source:aae05f7bd77af6bf",
+      "sha256": "3a3c082d2309a2a0a8423ae20dabee82533668426779077918ad0c537070b873",
+      "bytes": 7940
+    },
+    {
+      "path": "evidence/5fccb33212fc6083-EXACT-COMPARISONS.json",
+      "sha256": "5fccb33212fc6083e45bea40ca0a9f65fcfccedcc298f4927f73724b945e3034",
+      "bytes": 2727862
+    },
+    {
+      "path": "evidence/3f1cd83d5df15eb5-INTERFACE-TOLERANCE-CHECK.json",
+      "sha256": "3f1cd83d5df15eb5b2659a1a6872f17c57bc000033b5bdc0d4c2d188d89f4a25",
+      "bytes": 295791
+    },
+    {
+      "path": "unpublished-local-ref:93905f07f7ddf3e0",
+      "sha256": "0efd4c2fec6bda897fcf8626fdb2eef73a976b7a0a8deff800ee180a0a6b5557",
+      "bytes": 34788
+    }
+  ]
+}

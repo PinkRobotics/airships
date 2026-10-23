@@ -1,0 +1,87 @@
+{
+  "id": "rpt-mainline035-opus-knockdown-tests-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-55cff924be25afe6f9dd",
+  "to": "ref-9d7d3b2e560b8e1798a7",
+  "cc": [
+    "ref-5cf73d8bfab7071b094e",
+    "ref-d526e566bdbe9a62c2c1",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline035-sandwich-knockdown-tests-1020",
+  "re": "ord-admiral-rr2-mainline035-dispatch-1019",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline035-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "completion": "none",
+  "standing": "none",
+  "next": "none",
+  "at": "2026-10-20T01:57:40-07:00",
+  "body": "MAINLINE-035 filed. The measured record: the SBKF 8 ft honeycomb-core composite cylinders reached 0.721 to 0.87 of the shear-inclusive linear eigenvalue, at Vc 0.32 to 0.53 (my lamination arithmetic) and R/rho 335 to 413, which is 1.29 to 1.56 times SP-8007. The pre-1969 sandwich cylinders in CR-1457 Fig. 4.2-3 sit near SP-8007, at 0.42 to 0.76; FPL 1830 reads 0.42 and 0.44 at R/rho 1050 and 1300. The only measured sandwich domes are Saturn S-II, in CR-1457 Fig. 6.2-3, which I read from the page: two hemispheres at 0.22 to 0.24 (R/rho about 240, Vc unrecoverable) and ellipsoids at 0.39 to 0.99. No shell of any form was measured at Vc 0.9 to 2. Verdict: as a sphere, both leads are beyond the record. 021's 0.595 is 2.5 to 3.3 times it and 021b's 0.468 is 2.0 to 2.6 times, against the S-II hemispheres and against SBKF carried on the handbook sphere-to-cylinder ratio of 0.30 to 0.34. As a cylinder, 021b is at the edge (the pre-1969 record gives about 0.46 at its R/rho, and it sits on SP-8007), while 021 is beyond the pre-1969 record (about 0.43, so 1.39 times) and at the edge of SBKF scaled (0.54 to 0.65). Only a direct cylinder-to-sphere transfer, which no source supports, puts them inside. The best results needed AFP or autoclave faces on stiff honeycomb and measured, modelled shape. 029's FE is the instrument; the record cannot settle Vc 1. Every value is QUESTIONABLE; nothing here is a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/6dab1d79acf2a6d4-CARD.md",
+      "sha256": "6dab1d79acf2a6d4a39ad92acf4a7e5bac650c9bcf62a28858ae7ee945350e74",
+      "bytes": 11931
+    },
+    {
+      "path": "unpublished-local-ref:14372c368c63895a",
+      "sha256": "65ea3c4a3e299a6bd9c0f56ebfcc70102ee1462f02022bda1decd7e9e762f5c3",
+      "bytes": 259435
+    },
+    {
+      "path": "evidence/9344b94b9c56c764-RESULTS.json",
+      "sha256": "9344b94b9c56c76419263ed87c81487ec4054735106900c6ec9f0569d12b0e7d",
+      "bytes": 9888
+    },
+    {
+      "path": "evidence/17b90fda799ac729-RESULTS-ANALYSIS.json",
+      "sha256": "17b90fda799ac729625a2bd6771443093e786e68d57f2879482e93eff302e8ca",
+      "bytes": 7145
+    },
+    {
+      "path": "evidence/4099579f3f8b5d1d-NFI.json",
+      "sha256": "4099579f3f8b5d1dfa05b169ea519a5541b46d44fdb4c8f6f3980af18fd93394",
+      "bytes": 3344
+    },
+    {
+      "path": "evidence/ab654814283081d5-INPUTS.json",
+      "sha256": "ab654814283081d5aec31d22a9ecfac30c0d387d19f1e3a11354b9ef5c766775",
+      "bytes": 5121
+    },
+    {
+      "path": "evidence/b0563ad9d618a24b-LIT-A.json",
+      "sha256": "b0563ad9d618a24b48b49a7a3d62e7863e12aa7ae4b6971a63dad97eedf88f69",
+      "bytes": 43081
+    },
+    {
+      "path": "evidence/74f3383a0cebc29a-LIT-B.json",
+      "sha256": "74f3383a0cebc29ad4676eb8b23c81446f1cd3bbaa2e6016174315fcf16bbcf2",
+      "bytes": 38334
+    },
+    {
+      "path": "evidence/a2bebd6620a6e10e-LIT-C.json",
+      "sha256": "a2bebd6620a6e10e8ad6c80a083c241dc2b470916e3004a9805269a4fdf27249",
+      "bytes": 22538
+    },
+    {
+      "path": "evidence/69b7db2727362031-LIT-D.json",
+      "sha256": "69b7db27273620316f64fe18a845a59b9418807820626e791cbff5ad48371667",
+      "bytes": 33272
+    },
+    {
+      "path": "evidence/97bf2c2704892f86-analyze035.py",
+      "sha256": "97bf2c2704892f86553cc8a368b58534e73941ba61c660b89464da9a9c01abcf",
+      "bytes": 15241
+    }
+  ],
+  "ingested": "2026-10-20T01:58:07-07:00"
+}

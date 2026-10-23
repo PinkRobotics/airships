@@ -1,0 +1,55 @@
+{
+  "id": "rpt-mainline032b-grok-measured-flatness-1020",
+  "kind": "report",
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "to": "ref-9d7d3b2e560b8e1798a7",
+  "cc": [
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline032b-measured-flatness-1020",
+  "re": "ord-admiral-rr2-mainline032b-measured-flatness-1020",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline032b-measured-flatness-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "asks": "none",
+  "completion": "none",
+  "standing": "none",
+  "next": "none",
+  "at": "2026-10-20T01:53:55-07:00",
+  "body": "QUESTIONABLE. 032 lead amplitudes, not recomputed: 0.152868766846 mm and 0.0652229064039 mm at 60 psi, and 0.089173447327 mm and 0.0380466954023 mm at 35 psi. Zero-to-peak wrinkle components. Cell scale: NASA ER-1001, NTRS 19950020773, Figure 25, dimple depth 0.000065 inch, 0.001651 mm, on 3/16-inch foil coupons. That is 0.0434 of the smallest and exceeds none. The 3/8-inch cells are slopes of 0.5 to 1.6 milliradian, not a depth. A one-cell rise at the larger slope is a projection, 0.01524 mm, still under. Short wave: Woody, Proc. IEEE 82, May 1994, epoxies 1 mm aluminum onto a machined honeycomb core. Measured scales are greater than 40 mm. Under 10 mm is a 2 micrometre sheet finish, averaged over 10 mm, so the cell is not separate. Installed estimate 24 micrometres rms sits under the smallest amplitude and is not that component. Whole panel: von Hoerner, NRAO report 30, 1969, quotes honeycomb at 0.008 inch, 0.2032 mm, printed as 0.20 mm rms. That number is larger than every needed amplitude and is a vendor panel rms, not a cell depth. Per-foot shop bows on the 032 card are the same mismatch. AMS7902G section 1.3 names three flatness classes. Section 3.5.5 was not in the three pages obtained. Revision H was not opened. No class number is stated. No beryllium-face amplitude at the wrinkle wavelength was obtained. Elapsed 0.000121840741485 s. Not a certification. The caps-open order stays open.",
+  "artifacts": [
+    {
+      "path": "evidence/8c46f443e4d77f8d-flatness.py",
+      "sha256": "8c46f443e4d77f8dffabc5cc68b672656d031cf897655eb69f3f328d927315cc",
+      "bytes": 17438
+    },
+    {
+      "path": "evidence/afa3b052ed78e6ad-CARD.md",
+      "sha256": "afa3b052ed78e6ad92650c4253287cc9d120911cc6a345382dc1d4dc8b648eab",
+      "bytes": 6176
+    },
+    {
+      "path": "evidence/0a0494f3d3ad7978-RESULTS.json",
+      "sha256": "0a0494f3d3ad7978b768a21e24e6bef30f03cbff868371eeb13fe19614d6e80c",
+      "bytes": 24802
+    },
+    {
+      "path": "evidence/a754f4c4c109c350-NFI.json",
+      "sha256": "a754f4c4c109c3505ce878440f72984bdfeb646afa6ef3f2d9cf81faece55df1",
+      "bytes": 2094
+    },
+    {
+      "path": "evidence/0743dafdf93bc99c-ORIGIN.json",
+      "sha256": "0743dafdf93bc99c0e723de60b61e85aad9ea26c6421ad6f475ab084c8cbbace",
+      "bytes": 92
+    }
+  ],
+  "ingested": "2026-10-20T01:54:22-07:00"
+}

@@ -1,0 +1,243 @@
+{
+  "unit": "vacuum-mainline062-buildable-shape-1020",
+  "status": "QUESTIONABLE / PROJECTION",
+  "work_completion_is_not_physical_qualification": true,
+  "issues": [
+    {
+      "id": "NFI-062-01",
+      "key": "face-compression",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "345 MPa is a tensile proxy; processed thin-sheet compression is unqualified.",
+      "closure_evidence": "Obtain L/LT/off-axis and biaxial compression at finished gauges, lots, forming/cure histories and service temperatures.",
+      "inputs": [
+        "036",
+        "047"
+      ],
+      "detail": "ADMISSIBILITY.md"
+    },
+    {
+      "id": "NFI-062-02",
+      "key": "sheet-procurement",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "R10 24x72 inch blank plan conflicts with the maker's smaller thin-sheet size class; all sizes lack a quote.",
+      "closure_evidence": "Supplier to confirm actual usable blanks, finished minimum gauge, forming/etch yield and deliveries; rebill seam length and hardware.",
+      "inputs": [
+        "036",
+        "057",
+        "SR-200 datasheet"
+      ],
+      "detail": "BUILD-ROUTE.md"
+    },
+    {
+      "id": "NFI-062-03",
+      "key": "core-elastic",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "high",
+      "issue": "E1/E2/G12 and Poisson couplings are not matched CR III data.",
+      "closure_evidence": "Measure directional elastic response or validate a reciprocal homogenized tensor against coupon data.",
+      "inputs": [
+        "056",
+        "047",
+        "Hexcel Table II"
+      ],
+      "detail": "ADMISSIBILITY.md"
+    },
+    {
+      "id": "NFI-062-04",
+      "key": "core-nonlinear",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "Peak/crush scalars do not provide peak-to-densification, unloading, mixed loading or damage laws.",
+      "closure_evidence": "Supply CR III normal/shear cycles and mixed tests at actual thickness, ribbon direction, venting and bonded/cured condition.",
+      "inputs": [
+        "056"
+      ],
+      "detail": "FE-NEXT.md"
+    },
+    {
+      "id": "NFI-062-05",
+      "key": "processed-bond",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "2U light-film identity is sourced, but proposed Be/CR III bond behavior after the selected cure is not.",
+      "closure_evidence": "Qualify exact surfaces, primer, carrier/weight, cure and defects with flatwise, shear, peel and mixed-mode tests and aging.",
+      "inputs": [
+        "037b",
+        "3M guide"
+      ],
+      "detail": "ADMISSIBILITY.md"
+    },
+    {
+      "id": "NFI-062-06",
+      "key": "cure-state",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "Scalar cure stress debit is not a measured residual stress/shape state.",
+      "closure_evidence": "Measure cure locking and relaxation, temperature histories and strain/shape before and after release; carry the state into FE.",
+      "inputs": [
+        "037b",
+        "047"
+      ],
+      "detail": "FE-NEXT.md"
+    },
+    {
+      "id": "NFI-062-07",
+      "key": "scarf-closure",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "30.3414:1 overlap and room-temperature closure lack processed Be seam proof.",
+      "closure_evidence": "Build panel-pair and curved closure specimens, demonstrate strength, peel resistance, sealing, distortion and inspected defect limits.",
+      "inputs": [
+        "037b",
+        "042",
+        "057"
+      ],
+      "detail": "BUILD-ROUTE.md"
+    },
+    {
+      "id": "NFI-062-08",
+      "key": "scaled-C",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "high",
+      "issue": "Holding calibrated C across the changed 057 face/core ratios and shear compliance is unvalidated.",
+      "closure_evidence": "After material release, predict measured articles and compare fixed scaled cases with identical nondimensional defect definitions.",
+      "inputs": [
+        "047",
+        "CHECK047",
+        "CHECK055",
+        "057"
+      ],
+      "detail": "METHOD.md"
+    },
+    {
+      "id": "NFI-062-09",
+      "key": "defect-spectrum",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "One Gaussian and telescope RMS do not bound local dents, seams, wrinkles or interacting defects.",
+      "closure_evidence": "Measure full-field shape with inward peak/span and spectral bands, seam maps and gauge; establish pressure response for the measured field.",
+      "inputs": [
+        "042",
+        "047"
+      ],
+      "detail": "BUILD-ROUTE.md"
+    },
+    {
+      "id": "NFI-062-10",
+      "key": "passive-retention",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "No demonstrated free-standing Be sandwich sphere keeps the proposed shape after jig removal, thermal cycling and evacuation.",
+      "closure_evidence": "Validate panel, joined-sector and closed-shell release/cycle tests without uncharged distributed supports or active correction.",
+      "inputs": [
+        "042",
+        "062 route"
+      ],
+      "detail": "BUILD-ROUTE.md"
+    },
+    {
+      "id": "NFI-062-11",
+      "key": "retained-shape-mass",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "high",
+      "issue": "0.020 kg/m2 for targets/shims/filler and no flight frame are unverified allowances.",
+      "closure_evidence": "Weigh as-built items, count seal/repair material and any retained adjusters/back structure; retain or increase applicable mass growth.",
+      "inputs": [
+        "057",
+        "062 assumptions"
+      ],
+      "detail": "BUILD-ROUTE.md"
+    },
+    {
+      "id": "NFI-062-12",
+      "key": "MGA-float",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "All six selected mass accounts remain negative with inherited concept growth.",
+      "closure_evidence": "Close measured hardware/process masses and justified maturity-specific growth before making a payload or flight-feasibility claim; no silent 5% substitution.",
+      "inputs": [
+        "057",
+        "062 mass bills"
+      ],
+      "detail": "CARD.md"
+    },
+    {
+      "id": "NFI-062-13",
+      "key": "pricing-capacity",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "high",
+      "issue": "All route prices are unquoted assumptions; cheapest achievable route and supplier capacity are unproved.",
+      "closure_evidence": "Obtain competitive stock, forming, machining, bond, metrology, facilities and scrap/yield quotations at the stated quantities.",
+      "inputs": [
+        "042",
+        "062 assumptions"
+      ],
+      "detail": "BUILD-ROUTE.md"
+    },
+    {
+      "id": "NFI-062-14",
+      "key": "qualification-total",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "high",
+      "issue": "Full-scale destructive qualification/replacement hull, land, financing, taxes and operation are not priced.",
+      "closure_evidence": "Define the required program and article count, price these unknown costs, and add them to any procurement total.",
+      "inputs": [
+        "062 assumptions"
+      ],
+      "detail": "BUILD-ROUTE.md"
+    },
+    {
+      "id": "NFI-062-15",
+      "key": "precedent-metrics",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "medium",
+      "issue": "Published RMS, bond fit and relative alignment usually omit the largest local dimple and its span.",
+      "closure_evidence": "Obtain unmasked spatial maps and scope-matched mass and cost records if using a precedent as a quantitative hull acceptance claim.",
+      "inputs": [
+        "042",
+        "062 primary sources"
+      ],
+      "detail": "PRECEDENTS.md"
+    },
+    {
+      "id": "NFI-062-16",
+      "key": "external-review",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "high",
+      "issue": "REVIEW-A has not been performed as part of this card.",
+      "closure_evidence": "Include these pinned claims in the brief's piece review after filing. No new seat contact, checker or follow-on work is initiated here.",
+      "inputs": [
+        "PROCESS-v2"
+      ],
+      "detail": "REVIEW.md"
+    }
+  ],
+  "limited_source_clarifications": [
+    {
+      "claim": "290 GPa appears in the current SR-200 sheet datasheet",
+      "effect": "Resolves blanket unsourced-scalar wording only; compression and orthotropy remain open."
+    },
+    {
+      "claim": "AF 163-2U 0.015 lb/ft2 is a listed product",
+      "effect": "No automatic heavy-film substitution; installed weight and processed bond remain open."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "unit": "vacuum-mainline026b-check-1020",
+  "rows": [
+    {
+      "id": "NFI-C026B-RISE",
+      "issue": "Independent rise-8 force, pressure fan and geometry solve remains open.",
+      "evidence": "simjob refused f6-m12-rise8 at PSI some avg10 7.89 >= 5.00. Nothing started; no retry; m24 rise8 not submitted.",
+      "next_evidence": "A newly admitted independent rise8 m12/m24 calculation under fresh queue authority, including frozen spherical load.",
+      "fields": {
+        "rise8_m24.mean_compression_N": 538898.7411802687,
+        "rise8_m24.mean_chord_thrust_N": 569787.8471557666,
+        "rise8_m24.peak_moment_Nm": 177824.68854006825,
+        "rise8_m24.bending_stress_Pa": 4248086375.1604,
+        "rise8_m24.frozen_mean_compression_N": 513844.2503173434
+      },
+      "owner_numbers_not_independently_solved": true,
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C026B-NONLINEAR",
+      "issue": "First nonlinear loss remains unverified for f4 and f2.",
+      "evidence": "Nearest-zero spectral selection can switch families; raw f4 path shows the stated jump. This check performed no nonlinear solve.",
+      "next_evidence": "Independent smallest-algebraic or inertia tracking across the precritical path, retaining eigenfamilies and earliest loss.",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C026B-RAW-LABELS",
+      "issue": "Raw nonlinear result metadata still describes first loss and an m6 independent check without qualifying the new frequencies.",
+      "evidence": "Raw interpretation and stability_solver fields conflict with the correctly qualified top-level CARD/RESULTS.",
+      "next_evidence": "Keep raw receipts frozen; add an explicit downstream override or schema field verified_first_loss=false with frequency-specific verification scope.",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C026B-ENDPOINTS",
+      "issue": "Endpoint chord-thrust statistics sample the first endpoint in the stored member orientation.",
+      "evidence": "Independent first-end forces reproduce the owner. Both-end mean statistics differ by 8.697, 62.752 and 1331.327 N at f6/f4/f2; axial member compression is unaffected.",
+      "next_evidence": "Name the sampled endpoint explicitly, or provide both ends and an orientation-invariant aggregate. Apply the same convention to any rise comparison.",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C026B-SAG",
+      "issue": "Payloads retain source sag and film assumptions, not solved film geometry.",
+      "evidence": "f4 sag debit is uncharged; f2 carries 187.937932648 kg; fan volume is not actual lift volume.",
+      "next_evidence": "A compatible membrane equilibrium and displaced-volume calculation using actual bays and admissible film properties.",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C026B-JOINTS",
+      "issue": "Rigid-joint reserve and ball-pin mechanisms depend on unspecified joint/film restraint.",
+      "evidence": "Endpoint rank and independent member rolls reproduce; no positive freely pinned factor is established.",
+      "next_evidence": "Joint stiffness, anti-roll restraint and attached-film model, with fabricated load paths and mass.",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C026B-MATERIAL",
+      "issue": "Thin curved ceramic sections, film strength and joint allowances remain projections.",
+      "evidence": "Held E=410 GPa differs from the maker's typical 430 GPa; density 3.10 and nu=0.14 are typical, not allowables.",
+      "next_evidence": "Geometry- and process-matched material limits, local wall/failure checks, actual joints, seals and fabrication mass.",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    },
+    {
+      "id": "NFI-C026B-MODEL",
+      "issue": "Agreement verifies the stated elastic beam/fan model only.",
+      "evidence": "Initial-moment geometric terms, shear, local tube failure, self-weight, material failure and real film stiffness remain excluded.",
+      "next_evidence": "Quantified model-scope corrections and mesh/eigenspace checks appropriate to any proposed physical reserve.",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "blocks_card": false
+    }
+  ],
+  "note": "Inherited owner NFI rows remain open; these checker dispositions do not halt later cards."
+}

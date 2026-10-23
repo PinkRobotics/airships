@@ -1,0 +1,884 @@
+[
+  {
+    "id": "D-01",
+    "kind": "test_series",
+    "label": "NASA CoEx/Ares V honeycomb-core CFRP fairing-barrel arc-segment panels (5 panels), edgewise compression, 2014 AIAA summary",
+    "citation": {
+      "title": "Buckling Testing and Analysis of Honeycomb Sandwich Panel Arc Segments of a Full-Scale Fairing Barrel: Comparison of In- and Out-of-Autoclave Facesheet Configurations",
+      "authors": "Evan J. Pineda; David E. Myers; Daniel N. Kosareo; Bart F. Zalewski; Sotiris Kellas; Genevieve D. Dixon; Thomas M. Krivanek; Thomas G. Gyekenyesi",
+      "year": "2014 (inferred from NTRS record id 20140006743 and 2014 references; not printed on the PDF pages read)",
+      "venue": "AIAA paper (paper number not seen on the pages read)",
+      "doi_seen": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/20140006743/downloads/20140006743.pdf"
+    },
+    "read_level": "full text (downloaded PDF, pdftotext)",
+    "shell": {
+      "type": "CURVED PANEL (3 ft x 5 ft cut from 1/16 arc segments of a 10 m diameter barrel), not a closed cylinder",
+      "loading": "edgewise axial compression, servo-hydraulic frame, clamped/potted ends"
+    },
+    "geometry": {
+      "R": "tool radius of curvature 5.0 m (5 m outside radius); FE model arc radius 198 in, 10.272 deg (Sec II.A, Sec III.C)",
+      "L": "62 in long, 60 in free between potted end plates; 36 in wide (35.60 in along arc) (Sec II.B, III.A)",
+      "note": "paper itself states the eigenmode is not cylindrical buckling"
+    },
+    "faces": {
+      "material": "IM7/977-3 in-autoclave (Panels A, B-1, B-2) or T40-800b/5320-1 out-of-autoclave (Panels C, D) carbon/epoxy tape",
+      "layup": "8-ply [45/90/-45/0]s (Panels A, C, core 1.000 in curved) or 6-ply [60/-60/0]s (Panels B-1, B-2, D, core 1.125 in flat) (Table 1)",
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null,
+      "missing": "ply thickness and lamina moduli not given; text says properties are ITAR restricted (Sec III.A)"
+    },
+    "core": {
+      "type": "5052 aluminum honeycomb, 1/8 in cell, 0.0007 in foil, 3.1 pcf, FM 300 film adhesive",
+      "density": "3.1 pcf (Table 2)",
+      "t_c": "1.000 in (8-ply panels) or 1.125 in (6-ply panels) (Table 1)",
+      "G_c": "3-D model: G13 = 45.0 ksi, G23 = 22.0 ksi (Table 2); 2-D HyperSizer model: in-plane G12 1.00E-4 psi (in-plane stiffness neglected)",
+      "direction_note": "subscripts as printed in Table 2; ribbon/transverse mapping not stated"
+    },
+    "results": {
+      "measured_buckling_load_lb": {
+        "A (IA, 8-ply)": 73213,
+        "B-1 (IA, 6-ply)": 70907,
+        "B-2 (IA, 6-ply)": 69172,
+        "C (OOA, 8-ply)": 73468,
+        "D (OOA, 6-ply)": 64848
+      },
+      "measured_definition": "load at strain-reversal on local axial strain gages, averaged over gages (Fig 10, Table 5)",
+      "predicted_linear_2D_lb": {
+        "A": 80912,
+        "B-1": 74245,
+        "B-2": 75248,
+        "C": 82318,
+        "D": 80283
+      },
+      "predicted_linear_3D_lb": {
+        "A": 79471,
+        "B-1": 72928,
+        "B-2": 72884,
+        "C": 82319,
+        "D": 79471
+      },
+      "linear_error_pct_as_stated_2D": {
+        "A": 10.5,
+        "B-1": 4.7,
+        "B-2": 8.8,
+        "C": 12.0,
+        "D": 23.8
+      },
+      "linear_error_pct_as_stated_3D": {
+        "A": 8.6,
+        "B-1": 2.8,
+        "B-2": 5.4,
+        "C": 12.0,
+        "D": 22.5
+      },
+      "predicted_nonlinear_2D_lb": {
+        "A": 76524,
+        "B-1": 67238,
+        "B-2": 74336,
+        "C": 75661,
+        "D": 76660
+      },
+      "predicted_nonlinear_3D_lb": {
+        "A": 70582,
+        "B-1": 63087,
+        "B-2": 66107,
+        "C": 70216,
+        "D": 63795
+      },
+      "nonlinear_error_pct_as_stated_2D": {
+        "A": 4.5,
+        "B-1": -5.2,
+        "B-2": 7.8,
+        "C": 3.0,
+        "D": 18.2
+      },
+      "nonlinear_error_pct_as_stated_3D": {
+        "A": -3.6,
+        "B-1": -11.0,
+        "B-2": -4.4,
+        "C": -4.4,
+        "D": -1.6
+      },
+      "prediction_basis": "linear eigenvalue (MSC/NASTRAN Sol 105 2-D shell; ANSYS 3-D) and geometrically nonlinear progressive collapse (Sol 106, Abaqus, ANSYS) with measured bow imperfections",
+      "measured_over_predicted_ratio_as_stated": null,
+      "ratio_note": "paper gives an 'Error (%)' column only (positive = prediction above test, per text 'above the experimental'); no measured/predicted ratio is stated and none was computed here",
+      "recommended_kdf": "none recommended; paper states predictions are 'well within' the 0.65 shell-buckling knockdown"
+    },
+    "location_quotes": [
+      {
+        "what": "linear eigenvalue over-prediction range",
+        "where": "Sec IV.A, p.9, Table 6",
+        "quote": "All eigenvalue buckling load predictions were 3-24% above the experimental buckling loads."
+      },
+      {
+        "what": "not cylindrical buckling",
+        "where": "Sec IV.A, p.9",
+        "quote": "The exhibited eigenmode does not correspond to cylindrical buckling."
+      },
+      {
+        "what": "3-D nonlinear conservative",
+        "where": "Sec IV.B.1, p.11, Table 7",
+        "quote": "Predictions from the 3-D, non-linear analyses were always conservative within 11%"
+      },
+      {
+        "what": "experimental loads",
+        "where": "Table 5, p.9",
+        "quote": "Buckling loads obtained from experiment."
+      }
+    ],
+    "missing_inputs": [
+      "t_f per ply or per face",
+      "E_f",
+      "nu_f",
+      "paper number / DOI",
+      "explicit measured/predicted ratio"
+    ],
+    "usefulness_note": "Curved panels with shallow-panel (non-axisymmetric) buckling mode; analogue only for cylinder KDF. Linear bifurcation over-predicted all five panels (3-24%). Sandwich core is aluminum honeycomb, faces thin quasi-isotropic CFRP."
+  },
+  {
+    "id": "D-02",
+    "kind": "test_series",
+    "label": "NASA/TM-2019-217822 Part 4: Panel D (6-ply OOA T40-800b/5320-1, 1.125 in honeycomb) detail",
+    "citation": {
+      "title": "Buckling Testing and Analysis of Honeycomb Sandwich Panel Arc Segments of a Full-Scale Fairing Barrel, Part 4: Six-Ply Out-of-Autoclave Facesheets",
+      "authors": "David E. Myers; Evan J. Pineda; Sotirios Kellas; Genevieve D. Dixon; Daniel N. Kosareo",
+      "year": "2019 (December)",
+      "venue": "NASA/TM-2019-217822/PART4",
+      "doi_seen": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/20190034023/downloads/20190034023.pdf"
+    },
+    "read_level": "abstract, introduction and Sec 4 read from downloaded PDF; tables beyond Sec 4 only grepped",
+    "shell": {
+      "type": "CURVED PANEL (1/16 arc segment of 10 m barrel), same panel D as D-01",
+      "loading": "edgewise axial compression"
+    },
+    "geometry": {
+      "R": "5 m outside radius arc segment (Intro); 36 in x 62 in panel",
+      "L": "62 in potted, 60 in free (from D-01 Sec III.A; not re-checked in Part 4)"
+    },
+    "faces": {
+      "material": "OOA T40-800B/5320-1",
+      "layup": "[60/-60/0]s six ply",
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": "aluminum honeycomb HexWeb 5052 (per D-01)",
+      "t_c": "1.125 in",
+      "density": "3.1 pcf (per D-01)",
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load_lb": 63947,
+      "measured_definition": "lowest strain-reversal load, gages 9 and 10 (line ~447 of text)",
+      "predicted_linear_lb": 80283,
+      "predicted_nonlinear_2D_buckling_lb": 77312,
+      "prediction_basis": "Abaqus linear eigenvalue; pretest geometrically nonlinear Abaqus",
+      "measured_over_predicted_ratio_as_stated": null,
+      "stated_difference": "linear eigenvalue prediction 25 percent higher than test",
+      "recommended_kdf": null
+    },
+    "location_quotes": [
+      {
+        "what": "linear over-prediction",
+        "where": "Sec 4.1, p.11",
+        "quote": "predicted a buckling load 25 percent higher than the test results"
+      },
+      {
+        "what": "premature failure attributed",
+        "where": "Sec 4.1, p.11",
+        "quote": "attributed to the premature onset of failure"
+      }
+    ],
+    "missing_inputs": [
+      "t_f",
+      "E_f",
+      "G_c",
+      "DOI"
+    ],
+    "usefulness_note": "Panel D is the outlier (23.8-25% over-prediction); the report says the other four panels were much closer. Test load here (63,947 lb) differs slightly from the D-01 Table 5 average (64,848 lb); both as printed."
+  },
+  {
+    "id": "D-03",
+    "kind": "test_series",
+    "label": "DESICOS scaled Ariane 5 sandwich shells SYLDA / SYLDA with cut-outs / ISS (geometry and FE predictions; test loads NOT in this paper)",
+    "citation": {
+      "title": "Probability-based methodology for buckling investigation of sandwich composite shells with and without cut-outs",
+      "authors": "M. Alfano; C. Bisagni",
+      "year": "2017",
+      "venue": "International Journal for Computational Methods in Engineering Science and Mechanics, Vol. 18, No. 1, pp. 77-90 (accepted manuscript read)",
+      "doi_seen": "10.1080/15502287.2016.1276353",
+      "url_fetched": "https://re.public.polimi.it/retrieve/e0c31c0d-9c6e-4599-e053-1705fe0aef77/ALFAM_OA_01-17.pdf"
+    },
+    "read_level": "full text (accepted manuscript, open access PDF)",
+    "shell": {
+      "type": "cylinder (scaled Ariane 5 Dual Launch System SYLDA, with and without three circular cut-outs; Interstage Skirt Structure ISS)",
+      "loading": "pure axial compression (FE)"
+    },
+    "geometry": {
+      "R": "diameter 700 mm stated (R = 350 mm by halving; not printed)",
+      "L": "SYLDA 700 mm total, 620 mm free; ISS 358 mm total, 318 mm free (Sec 2); cut-outs: one 92 mm dia, two 46 mm dia"
+    },
+    "faces": {
+      "material": "Hexcel IM7/8552 UD carbon prepreg, ply thickness 0.131 mm",
+      "layup": "SYLDA [19/-19/90/CORE/90/-19/19], total thickness 2.286 mm; ISS [30/-30/0/CORE/0/-30/30], total 3.386 mm",
+      "t_f_each": "not stated per face (3 plies x 0.131 mm each side from the layup)",
+      "E_f": "E11 150000 MPa (compressive design value), E22 9080 MPa, G12 5290 MPa (Table 1); mean tensile E11 171.42 GPa used in probabilistic runs",
+      "nu_f": "nu12 = 0.32 (Table 1)"
+    },
+    "core": {
+      "type": "EVONIK Rohacell WF200 foam",
+      "density": "205 kg/m3 (Table 2)",
+      "t_c": "1.5 mm (SYLDA models), 2.6 mm (ISS)",
+      "G_c": "150 MPa (single value, Table 2; direction not stated); E 350 MPa; nu 0.33"
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "measured_note": "no test loads in this paper; it mentions bonded tabs for the experimental tests but gives no experimental buckling loads; the tests of this shell family are the subject of Bisagni 2016 (D-04) per that abstract",
+      "predicted_buckling_load_kN": {
+        "SYLDA_nominal_perfect_E11_150GPa": 417,
+        "SYLDA_nominal_perfect_E11_171.42GPa": 459,
+        "SYLDA_xi10pct_axisym_imperfection": 304,
+        "SYLDA_with_cutouts_global_buckle": 287,
+        "SYLDA_with_cutouts_collapse": 294,
+        "ISS_nominal_Sec3": 513,
+        "ISS_nominal_Sec5.3_probabilistic_normaliser": 545
+      },
+      "prediction_basis": "ABAQUS explicit dynamic, S4R shells, 10 mm mesh; axisymmetric sine imperfection xi = 0/10/50 pct of total thickness",
+      "internal_inconsistency": "ISS nominal load is 513 kN in Sec 3 but 545 kN in Sec 5.3/Table 5; not reconciled in the text read",
+      "ratio_as_stated": null,
+      "recommended_kdf": null
+    },
+    "location_quotes": [
+      {
+        "what": "SYLDA nominal buckling",
+        "where": "Sec 3, ms p.8",
+        "quote": "buckling which takes place at 1.78 mm for a load of 417 kN"
+      },
+      {
+        "what": "core",
+        "where": "Sec 2, ms p.7",
+        "quote": "EVONIK Rohacell WF200"
+      },
+      {
+        "what": "diameter",
+        "where": "Sec 2, ms p.6",
+        "quote": "The diameter of the shells is equal to 700 mm"
+      }
+    ],
+    "missing_inputs": [
+      "measured buckling loads",
+      "per-face thickness",
+      "G_c direction (L/W)",
+      "R printed"
+    ],
+    "usefulness_note": "Gives full geometry/material for the DESICOS sandwich cylinders needed to apply a design rule, but the measured loads are in the restricted Bisagni 2016 paper (D-04)."
+  },
+  {
+    "id": "D-04",
+    "kind": "test_series",
+    "label": "DESICOS sandwich shell buckling TESTS at Politecnico di Milano (SYLDA, SYLDA with cut-outs; same family as D-03) - full text NOT obtained",
+    "citation": {
+      "title": "Buckling tests of sandwich cylindrical shells with and without cut-outs",
+      "authors": "Chiara Bisagni",
+      "year": "2016",
+      "venue": "Proc. American Society for Composites 31st Technical Conference, Williamsburg VA (ISBN 978-1-60595-316-8)",
+      "doi_seen": null,
+      "url_fetched": "https://research.tudelft.nl/en/publications/buckling-tests-of-sandwich-cylindrical-shells-with-and-without-cu/ ; https://re.public.polimi.it/handle/11311/1007545"
+    },
+    "read_level": "abstract/metadata only; PDF at TU Delft returned HTTP 403 / HTML bot page, Polimi PDF listed as restricted access; not opened",
+    "shell": {
+      "type": "cylinder, reduced Ariane 5 Dual Launch System models",
+      "loading": "axial compression (per abstract)"
+    },
+    "geometry": {
+      "R": "see D-03 (diameter 700 mm there; not confirmed from this paper)",
+      "L": "see D-03"
+    },
+    "faces": {
+      "material": null,
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": null,
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "predicted_buckling_load": null,
+      "prediction_basis": null,
+      "ratio_as_stated": null,
+      "recommended_kdf": null
+    },
+    "location_quotes": [],
+    "missing_inputs": [
+      "everything numeric; full text must be obtained (e.g. Polimi file BISAC01-16.pdf is restricted; ASC proceedings; DESICOS reports)"
+    ],
+    "usefulness_note": "This is the primary source for MEASURED loads of the D-03 sandwich shells. Highest-priority gap."
+  },
+  {
+    "id": "D-05",
+    "kind": "test_series",
+    "label": "Deep glass/epoxy-Nomex honeycomb sandwich cylindrical PANELS, axial compression, 3 pairs",
+    "citation": {
+      "title": "Experimental Investigations of Compressed Sandwich Composite/Honeycomb Cylindrical Shells",
+      "authors": "A. Muc; A. Stawiarski; P. Romanowicz",
+      "year": "2018 (vol. 25; online 30 June 2017)",
+      "venue": "Applied Composite Materials 25, pp. 177-189 (open access)",
+      "doi_seen": "10.1007/s10443-017-9614-8",
+      "url_fetched": "https://link.springer.com/content/pdf/10.1007/s10443-017-9614-8.pdf"
+    },
+    "read_level": "full text (PDF, pdftotext); Fig. 7 load values are graphical only",
+    "shell": {
+      "type": "deep cylindrical sandwich PANEL (shallowness 0.36; 0.5 = full cylinder), tested in pairs between steel end plates",
+      "loading": "axial compression, quasi-static, 5 mm/min, clamped edges"
+    },
+    "geometry": {
+      "R": "inner radius 92 mm (Sec 4.1)",
+      "L": "248 mm; external arc length 240.85 mm; t/r = 6.5/92 = 0.07 as printed"
+    },
+    "faces": {
+      "material": "satin-weave glass fabric / epoxy (conclusions say woven roving glass/epoxy)",
+      "layup": "three plies each face",
+      "t_f_each": "0.5 mm",
+      "E_f": "E1 = E2 = 13.14 GPa, G12 = 9.62 GPa (Table 1, p.180)",
+      "nu_f": "0.25"
+    },
+    "core": {
+      "type": "Nomex honeycomb, phenolic-coated, 6.35 mm cell, 0.06 mm wall",
+      "density": null,
+      "t_c": "5.5 mm",
+      "G_c": "Table 1: core E1 5.2 GPa, E2 3.73 GPa, G12 1.85 GPa, nu12 0.24; caption states G23 = G13 = 0.6 G12 (relation printed, value not stated)"
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "measured_note": "pair-I buckling load shown only on Fig. 7 (axial force axis to about 60 kN); no tabulated value",
+      "predicted_buckling_load": "analytical Bert overall buckling P = 82.5 kN, stated higher than numerical result",
+      "prediction_basis": "2-D FE linear eigenvalue (first mode m=n=1); 2-D/3-D nonlinear FE; Bert (1969) analytical",
+      "ratio_as_stated": "linear eigenvalue prediction 8.49 pct higher than test (pair I)",
+      "scatter": "load capacity differs up to 15 pct (pair II) and 4.8 pct (pair III) relative to pair I; wrinkling occurred in one panel of pairs II and III",
+      "recommended_kdf": "none; paper cites NASA 1960s KDFs but gives no value"
+    },
+    "location_quotes": [
+      {
+        "what": "linear FE vs test",
+        "where": "Sec 5.1, p.184",
+        "quote": "The linear eigenproblem/eigenvalue solution predicted buckling loads is 8.49% higher than the test results."
+      },
+      {
+        "what": "inner radius",
+        "where": "Sec 4.1, p.181",
+        "quote": "inner radius of the panels r is equal to 92 [mm]"
+      },
+      {
+        "what": "Bert analytical",
+        "where": "Sec 5.1, p.184",
+        "quote": "the value of the force P is equal 82.5 [kN]"
+      }
+    ],
+    "missing_inputs": [
+      "tabulated measured loads",
+      "core density",
+      "numerical G13/G23",
+      "opening angle"
+    ],
+    "usefulness_note": "Small panel with thick faces relative to radius (t/r 0.07); not a closed cylinder; ratio is linear-FE over test, not a classical-theory KDF."
+  },
+  {
+    "id": "D-06",
+    "kind": "test_series",
+    "label": "Composite sandwich cylinders under external pressure (underwater application), 3 cylinders - abstract only; core type not confirmed",
+    "citation": {
+      "title": "Buckling Analysis and Test of Composite Sandwich Cylinder for Underwater Application",
+      "authors": "Ji-Seon Kim; Gyeong-Chan Lee; Jin-Hwe Kweon; Jin-Ho Cho; Jong-Rae Cho; Sang-Rae Cho; Yoon-Sik Cho",
+      "year": "2011",
+      "venue": "Composites Research (Korean Society for Composite Materials), Vol. 24, No. 4, pp. 17-22",
+      "doi_seen": "10.7234/kscm.2011.24.4.017",
+      "url_fetched": "https://koreascience.or.kr/article/JAKO201131263125044.page"
+    },
+    "read_level": "abstract/landing page only (via fetch summary); PDF not retrieved; the page I read does not state the core material",
+    "shell": {
+      "type": "cylinder",
+      "loading": "external pressure"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": null,
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": null,
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_pressure": null,
+      "predicted_buckling_pressure": null,
+      "prediction_basis": "MSC.Nastran linear FE, shell and solid models",
+      "ratio_as_stated": "linear FE predicted buckling pressure within about 3 pct of test (paraphrase of abstract)",
+      "recommended_kdf": null
+    },
+    "location_quotes": [],
+    "missing_inputs": [
+      "all dimensions, materials, core type, measured pressures"
+    ],
+    "usefulness_note": "Only candidate found for sandwich cylinders under external pressure; full paper needed. Wording of the 3 pct figure is the fetch tool's summary, not a verified verbatim quote."
+  },
+  {
+    "id": "D-07",
+    "kind": "kdf_statement",
+    "label": "SP-8019 cone KDF 0.33 vs SLS sandwich cone FE study (numerical, NOT measured)",
+    "citation": {
+      "title": "Buckling Imperfection Sensitivity of Conical Sandwich Composite Structures for Launch-Vehicles",
+      "authors": "David W. Sleight; Arunkumar Satyanarayana; Yingyong Li; Marc R. Schultz",
+      "year": "2018 (AIAA paper; year inferred from NTRS id 20180006171, not printed on page read)",
+      "venue": "AIAA conference paper, NASA Langley",
+      "doi_seen": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/20180006171/downloads/20180006171.pdf"
+    },
+    "read_level": "full text (PDF, pdftotext); tables not individually read",
+    "shell": {
+      "type": "cone (representative SLS Universal Stage Adapter and Payload Attach Fitting, full and half height)",
+      "loading": "axial compression, geometrically nonlinear FE with scaled imperfections measured on CTA8.1"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": "tape (quasi-isotropic, axially stiff) and fabric layups",
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": "sandwich core (type not checked)",
+      "t_c": "0.5, 1.0, 1.5 in",
+      "density": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "measured_note": "no test; analytical study only. Text says DESICOS cone tests were on cones under one metre tall and SBKF is not testing cones",
+      "predicted_normalised_buckling_loads": "perfect full/half-height PAF with 1-in core: 0.84 / 0.85; 10x imperfection: 0.75 / 0.77; all values > 0.50, all but two > 0.60",
+      "prediction_basis": "normalised by linear bifurcation load (per Intro: linear bifurcation load is multiplied by KDF)",
+      "recommended_kdf": "none; states SP-8019 universal cone KDF of 0.33 appears overly conservative"
+    },
+    "location_quotes": [
+      {
+        "what": "SP-8019 value",
+        "where": "Introduction, pp.1-2",
+        "quote": "a universal KDF of 0.33 is recommended by NASA SP-8019"
+      },
+      {
+        "what": "conclusion",
+        "where": "Concluding Remarks",
+        "quote": "significant conservatism in the NASA current KDF recommendation of 0.33"
+      },
+      {
+        "what": "range",
+        "where": "Concluding Remarks",
+        "quote": "all the normalized buckling loads are all greater than 0.50"
+      }
+    ],
+    "missing_inputs": [
+      "any measured cone data"
+    ],
+    "usefulness_note": "Numerical bound only. Confirms no sandwich cone buckling test data exist in the SLS/DESICOS work this paper cites."
+  },
+  {
+    "id": "D-08",
+    "kind": "kdf_statement",
+    "label": "Design KDFs quoted in the NASA arc-panel paper and in the DESICOS sandwich FE paper",
+    "citation": {
+      "title": "see D-01 (Pineda et al. 2014) and D-03 (Alfano and Bisagni 2017)",
+      "authors": null,
+      "year": null,
+      "venue": null,
+      "doi_seen": "10.1080/15502287.2016.1276353 (D-03)",
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/20140006743/downloads/20140006743.pdf ; https://re.public.polimi.it/retrieve/e0c31c0d-9c6e-4599-e053-1705fe0aef77/ALFAM_OA_01-17.pdf"
+    },
+    "read_level": "full text of both",
+    "shell": {
+      "type": "D-01 curved panels; D-03 sandwich cylinders",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": null,
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": null,
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "statements": [
+        "D-01 Intro: standard shell-buckling practice adds a 0.65 knockdown (plus 1.4 ultimate factor) on the linear eigenvalue",
+        "D-01 Sec IV.B.1: all buckling predictions are 'well within 65%' of experiment (no panel exceeded that knockdown)",
+        "D-03 Table 6: NASA SP-8007 KDF treating the sandwich as a seven-ply laminate = 0.57 (SYLDA) and 0.64 (ISS); load 262 kN (SYLDA) and 349 kN (ISS)",
+        "D-03 Table 6: probabilistic buckling factor lambda (99 pct probability) = 0.71 SYLDA, 0.87 SYLDA with cut-outs, 0.79 ISS; paper notes only one scaled shell was imperfection-measured so it is not a lower bound (per Bisagni and Alfano AIAA 2017 abstract)"
+      ],
+      "recommended_kdf": "D-03: lambda 0.71 / 0.87 / 0.79 are method outputs, not recommended design values; no test-based KDF"
+    },
+    "location_quotes": [
+      {
+        "what": "0.65 knockdown",
+        "where": "D-01 Introduction, p.2",
+        "quote": "additional knockdown factors (0.65 in addition the ultimate 1.4)"
+      },
+      {
+        "what": "ISS NASA KDF",
+        "where": "D-03 Sec 6 (Comparison with NASA KDF), ms p.37",
+        "quote": "The NASA knockdown factor of ISS is equal to 0.64."
+      },
+      {
+        "what": "SYLDA NASA KDF",
+        "where": "D-03 Sec 5 (SYLDA), ms p.~20-21; exact subsection not verified",
+        "quote": "It is equal to 0.57 and corresponds to a load of 262 kN."
+      },
+      {
+        "what": "table",
+        "where": "D-03 Table 6, ms p.38",
+        "quote": "NASA knockdown factors and probabilistic buckling factors of the three sandwich shells."
+      }
+    ],
+    "missing_inputs": [
+      "test-based KDF"
+    ],
+    "usefulness_note": "These are design-rule values and FE-based factors, not measured KDFs."
+  },
+  {
+    "id": "D-09",
+    "kind": "test_series",
+    "label": "Historical: Douglas 36 in dia aluminum honeycomb sandwich cylinders (0.010 in faces), axial compression - OUT of the 2000-2024 window, OCR text imperfect",
+    "citation": {
+      "title": "Design and Testing of Honeycomb Sandwich Cylinders under Axial Compression",
+      "authors": "John H. Cunningham; Marcus J. Jacobson (Douglas Aircraft Co.)",
+      "year": "1963 (from NTRS id 19630000960; year not read on the page)",
+      "venue": "NASA record 19630000960, pp. 341-353 of a larger proceedings (venue name not visible in extracted text)",
+      "doi_seen": null,
+      "url_fetched": "https://ntrs.nasa.gov/api/citations/19630000960/downloads/19630000960.pdf"
+    },
+    "read_level": "full text via pdftotext of a poor scan; several digits garbled",
+    "shell": {
+      "type": "cylinder",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R": "outside diameter 36 in (R not printed)",
+      "L": "30 in"
+    },
+    "faces": {
+      "material": "7075-T6 aluminum",
+      "layup": "monolithic sheet",
+      "t_f_each": "0.010 in",
+      "E_f": "10.6 x 10^6 psi (as read from a theory-comparison figure legend, OCR garbled)",
+      "nu_f": null
+    },
+    "core": {
+      "type": "aluminum honeycomb Hexcel 3/16-5052-.001P, ribbon parallel to load",
+      "density": null,
+      "t_c": "0.125, 0.188, 0.400 in (specimens 1, 2-3, 4-5)",
+      "G_c": "predictions run for Gc = 20,000 and 40,000 psi (text); 40,000 psi legend in figure"
+    },
+    "results": {
+      "measured_failing_face_stress_psi": {
+        "1": 61000,
+        "2": 69000,
+        "3": 62500,
+        "4": 74000,
+        "5": 78800
+      },
+      "measured_load_lb_Table_I_legible": {
+        "2": 156000,
+        "3": 141400,
+        "4": 168500,
+        "5": 178000,
+        "1": "digits garbled in OCR"
+      },
+      "predicted_stress_psi_Table_II": {
+        "wrinkling": "74,800 (specimens 1-3), 7?,800 (4-5, first digit garbled)",
+        "monocell": "70,000",
+        "general_instability_small_deflection": "57,000 (spec 1); 69,000 (spec 4-5); spec 2-3 digits garbled",
+        "general_instability_large_deflection": "31,000 (spec 1); 64,000 (spec 4-5); spec 2-3 digits garbled"
+      },
+      "prediction_basis": "classical small-deflection sandwich cylinder with plasticity reduction, large-deflection theory, face wrinkling, monocell buckling",
+      "failure_mode": "wrinkling of faces rather than general instability (text); failures at stresses above those from large-deflection theory",
+      "ratio_as_stated": null,
+      "recommended_kdf": null
+    },
+    "location_quotes": [
+      {
+        "what": "failure mode",
+        "where": "Introduction, p.341",
+        "quote": "wrinkling of the faces"
+      },
+      {
+        "what": "specimens",
+        "where": "Comparison Between Test and Theory, pp.349-350",
+        "quote": "eight 7075-T6 aluminum sandwich cylinders with faces 0.010 inches thick"
+      }
+    ],
+    "missing_inputs": [
+      "clean Table I/II digits",
+      "venue",
+      "ratio"
+    ],
+    "usefulness_note": "Inelastic regime (face stresses near 60-79 ksi) with wrinkling, so not an elastic shell-buckling KDF. Only 5 of the 8 specimens are tabulated; first three were reported as failing early from end-doubler detail. Included for completeness only."
+  },
+  {
+    "id": "D-10",
+    "kind": "abstract_only",
+    "label": "DESICOS overview of 15 buckling experiments incl. sandwich cylinders and cones - no numbers",
+    "citation": {
+      "title": "New Achievements in Stability of Composite Aerospace Structures",
+      "authors": "Richard Degenhardt",
+      "year": "2016",
+      "venue": "Int. Conf. on Vibrations and Buckling, Porto, 7-8 March 2016 (conference talk)",
+      "doi_seen": null,
+      "url_fetched": "https://elib.dlr.de/114128"
+    },
+    "read_level": "abstract/metadata only; full text not available on the record",
+    "shell": {
+      "type": "cylinders and cones, monolithic and sandwich",
+      "loading": "axial compression and perturbation loads"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": null,
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": null,
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "predicted_buckling_load": null,
+      "ratio_as_stated": null,
+      "recommended_kdf": null
+    },
+    "location_quotes": [],
+    "missing_inputs": [
+      "all numbers"
+    ],
+    "usefulness_note": "Pointer to the DESICOS sandwich test set (partners DLR, Technion, Politecnico di Milano, Riga Technical University per the search result summary); the sandwich test data themselves were not reachable."
+  },
+  {
+    "id": "D-11",
+    "kind": "abstract_only",
+    "label": "Technion/Riga DESICOS-era composite sandwich shells and cones, axial compression to collapse - book chapter, no numbers read",
+    "citation": {
+      "title": "Test Results on the Stability and Vibrations of Composite Shells",
+      "authors": "H. Abramovich; Kaspars Kalnins; A. Wieder",
+      "year": "2017",
+      "venue": "Stability and Vibrations of Thin Walled Composite Structures, Woodhead Publishing, pp. 619-691",
+      "doi_seen": "10.1016/B978-0-08-100410-4.00013-2",
+      "url_fetched": "https://ortus.rtu.lv/science/en/publications/28986"
+    },
+    "read_level": "abstract/metadata only; ScienceDirect chapter returned HTTP 403",
+    "shell": {
+      "type": "cylinders and cones, laminated composite sandwich and isotropic",
+      "loading": "axial compression to collapse"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": null,
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": null,
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "predicted_buckling_load": null,
+      "ratio_as_stated": null,
+      "recommended_kdf": null
+    },
+    "location_quotes": [],
+    "missing_inputs": [
+      "everything numeric; keywords on the page include buckling load and knockdown factor"
+    ],
+    "usefulness_note": "Likely the only open-literature source for sandwich CONE axial tests with KDFs; full chapter must be obtained."
+  },
+  {
+    "id": "D-12",
+    "kind": "abstract_only",
+    "label": "All-CFRP honeycomb sandwich cylinders (stretch-formed), axial compression - local failure modes, no global buckling number",
+    "citation": {
+      "title": "Fabrication and failure mechanisms of ultralight all-CFRP sandwich cylinders under axial compression",
+      "authors": "Ziqi Chu; Ruochen Wang; Shubin Tian; Chengyang Wang; Linzhi Wu; Qianqian Wu; Guocai Yu",
+      "year": "2024",
+      "venue": "Composite Structures 345, article 118386",
+      "doi_seen": "10.1016/j.compstruct.2024.118386",
+      "url_fetched": "https://hit.globalimpact.cn/en/publications/fabrication-and-failure-mechanisms-of-ultralight-all-cfrp-sandwic/"
+    },
+    "read_level": "abstract only",
+    "shell": {
+      "type": "cylinder",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": "CFRP",
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": "CFRP honeycomb",
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "predicted_buckling_load": null,
+      "ratio_as_stated": "abstract says observed modes (intracellular buckling, face crushing) agree with theory; no number",
+      "recommended_kdf": null
+    },
+    "location_quotes": [],
+    "missing_inputs": [
+      "all numbers"
+    ],
+    "usefulness_note": "Failure maps cover five modes; observed modes were local, so it is probably not a global-buckling KDF source."
+  },
+  {
+    "id": "D-13",
+    "kind": "abstract_only",
+    "label": "Winding-based all-composite honeycomb sandwich cylinder, axial compression - abstract only",
+    "citation": {
+      "title": "Fabrication and failure mechanisms of all-composite honeycomb sandwich cylinder under the axial compression",
+      "authors": "Zhibin Li; Ying Gao; Pengcheng Xue; Xingyu Wei; Yuntong Du; Yan Wang; Jian Xiong",
+      "year": "2022",
+      "venue": "Composites Part A: Applied Science and Manufacturing 161, article 107075",
+      "doi_seen": "10.1016/j.compositesa.2022.107075",
+      "url_fetched": "https://hit.globalimpact.cn/en/publications/fabrication-and-failure-mechanisms-of-all-composite-honeycomb-san/"
+    },
+    "read_level": "abstract only",
+    "shell": {
+      "type": "cylinder",
+      "loading": "axial compression"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": null,
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": "composite honeycomb",
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "predicted_buckling_load": null,
+      "ratio_as_stated": "small difference between theory/simulation and experiment, no number",
+      "recommended_kdf": null
+    },
+    "location_quotes": [],
+    "missing_inputs": [
+      "all numbers"
+    ],
+    "usefulness_note": "Intracell buckling and face crushing observed, i.e. local modes."
+  },
+  {
+    "id": "D-14",
+    "kind": "abstract_only",
+    "label": "Carbon/epoxy double-hull cylinders with graded PVC foam core, hydrostatic collapse (and shock) - abstract only",
+    "citation": {
+      "title": "Dynamic Collapse of Double Hull Composite Cylinders: Hydrostatic and Shock-Initiated Implosion",
+      "authors": "Nicholas A. DeNardo",
+      "year": "2017",
+      "venue": "Master's thesis, University of Rhode Island, paper 1075",
+      "doi_seen": "10.23860/thesis-denardo-nicholas-2017",
+      "url_fetched": "https://digitalcommons.uri.edu/theses/1075/"
+    },
+    "read_level": "abstract only; PDF returned HTTP 403",
+    "shell": {
+      "type": "double-hull cylinder with PVC foam core",
+      "loading": "external hydrostatic pressure, and underwater explosion at 80 pct of natural buckling pressure"
+    },
+    "geometry": {
+      "R": null,
+      "L": null
+    },
+    "faces": {
+      "material": "carbon fibre/epoxy",
+      "layup": null,
+      "t_f_each": null,
+      "E_f": null,
+      "nu_f": null
+    },
+    "core": {
+      "type": "graded PVC foam",
+      "density": null,
+      "t_c": null,
+      "G_c": null
+    },
+    "results": {
+      "measured_buckling_load": null,
+      "predicted_buckling_load": null,
+      "ratio_as_stated": "abstract says collapse-pressure increase with core density could be predicted from foam properties; no number",
+      "recommended_kdf": null
+    },
+    "location_quotes": [],
+    "missing_inputs": [
+      "all numbers"
+    ],
+    "usefulness_note": "Closest foam-core sandwich cylinder under external pressure found; needs the thesis PDF."
+  }
+]

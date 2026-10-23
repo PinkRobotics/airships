@@ -1,0 +1,747 @@
+{
+  "schema": 1,
+  "routes": [
+    {
+      "id": "G0",
+      "rank": 0,
+      "route": "Choose mission requirements",
+      "status": "DECISION",
+      "evidence": "031 and its check; 037",
+      "target": "Weather envelope, terrain-relative clearance, altitude ceiling/control, coating, bond reference temperature, airspeed and mooring wind.",
+      "original_030_priority": null,
+      "physical_tests_038": []
+    },
+    {
+      "id": "G1",
+      "rank": 1,
+      "route": "Imperfect sandwich-sphere analysis and calibrated shape evidence",
+      "status": "029 FILED; benchmark unresolved; physical gamma still unvalidated",
+      "evidence": "030 priority 1; CHECK-035 finds no compatible elastic sphere datum at lead geometry, without claiming universal absence; 029 adverse endpoint evidence, not collapse",
+      "target": "P2 gamma at each actual joined geometry, followed by appropriate measured validation.",
+      "original_030_priority": 1,
+      "physical_tests_038": [
+        "T7"
+      ]
+    },
+    {
+      "id": "G2",
+      "rank": 2,
+      "route": "Discrete P3 frame with actual nodes and film coupling",
+      "status": "041 FILED; direct integer frame modeled, physical qualification unresolved",
+      "evidence": "030 priority 2; 026/check; 026b; 022d; 041 direct f4 and resized f5 witnesses",
+      "target": "Resolve local-shell bending interaction, joint rotational stiffness, imperfections and complete membrane/mass account on actual f5 geometry. Local sensitivity at019 reserve is below one.",
+      "original_030_priority": 2,
+      "physical_tests_038": [
+        "T6",
+        "T8"
+      ]
+    },
+    {
+      "id": "G3",
+      "rank": 3,
+      "route": "Weighed curved sealed sandwich/joint article",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "030 priority 3; 028b/check; 036; 034; 037b; CHECK-038; 042 F1 full-blank extension",
+      "target": "Scarf/face-core capacity and stiffness, actual primer/splice/seal mass, thermal cycling, leak paths and shape. Include the 200 F panel bond and separately specified in-place seam cure.",
+      "original_030_priority": 3,
+      "physical_tests_038": [
+        "T2"
+      ]
+    },
+    {
+      "id": "G4",
+      "rank": 4,
+      "route": "Finished thin-sheet specification and compression evidence",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "030 priority 4; 036",
+      "target": "Minimum gauge, raw dimensions, orthotropic post-form properties and about 300 MPa effective compression at the scarf leads. Any external contact is a separate authorized task.",
+      "original_030_priority": 4,
+      "physical_tests_038": [
+        "T1"
+      ]
+    },
+    {
+      "id": "G5",
+      "rank": 5,
+      "route": "Matched wrinkle coupon and wavelength-resolved metrology",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "030 priority 5; 032/check; 032b",
+      "target": "Core/bond weakest flatwise capacity, Q, critical wavelength and as-built zero-to-peak component on the actual Be/core assembly.",
+      "original_030_priority": 5,
+      "physical_tests_038": [
+        "T3"
+      ]
+    },
+    {
+      "id": "G6",
+      "rank": 6,
+      "route": "Thermal and hardpoint closure on the chosen hull",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "037; CHECK-037's 84 missing inputs and 037b cure model; 040 common bill and044 declared life spectrum",
+      "target": "Coating mass, assembly stress-free temperature, wind pressure map and pad load path; charge pads/coating and reclose each selected hull. Resolve044pad static/cyclic failure and combined scarf loads on the actual selected common-account geometry.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T2",
+        "T9"
+      ]
+    },
+    {
+      "id": "G7",
+      "rank": 7,
+      "route": "Assembly gas-load and evacuation test",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "034; CHECK-034 daily ground-service and installed pump distinctions",
+      "target": "Every cell/bore vented, installed seam/port leaks, conditioning inventory, pressure and lift debit, monitoring endurance.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T9"
+      ]
+    },
+    {
+      "id": "G8",
+      "rank": 8,
+      "route": "Complete P3 membrane process and barrier qualification",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "024/check; 022b/c check; 022d; 034",
+      "target": "Two-direction strength, full barrier/attachment mass, biaxial creep, seams and loaded shape; no fibre-only payload credit.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T4"
+      ]
+    },
+    {
+      "id": "G9",
+      "rank": 9,
+      "route": "Full-size curved-tube material and joint evidence",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "025/check; 026; 022d; 043 qualifiedPf remains null; direct041f5 geometry needs its own allocation",
+      "target": "Compression/tension populations, contact fields, manufacturing and failure probability; preserve null allowables until established.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T5",
+        "T6"
+      ]
+    },
+    {
+      "id": "G10",
+      "rank": null,
+      "route": "Optional frame-bay cap adequacy test",
+      "status": "PROJECTION, not a current floating lead",
+      "evidence": "039 and CHECK-039",
+      "target": "Measure frame/bay coupling and clamping under the actual load path before O6 credit.",
+      "physical_tests_038": [
+        "T7"
+      ],
+      "original_030_priority": null
+    }
+  ],
+  "grounding_plan_038": {
+    "schema": 1,
+    "card": "MAINLINE-038",
+    "status": "QUESTIONABLE/PROJECTION",
+    "contacted_suppliers": false,
+    "purchases_executed": false,
+    "cost_currency": "USD",
+    "cost_basis_year": 2026,
+    "costs_are_quotes": false,
+    "shared_Be_stock_process_allowance_kUSD": [
+      20,
+      90
+    ],
+    "first_three": [
+      "T1",
+      "T2",
+      "T3"
+    ],
+    "first_three_initial_incremental_kUSD": [
+      23,
+      68
+    ],
+    "first_three_with_shared_stock_kUSD": [
+      43,
+      158
+    ],
+    "excluded_follow_on_biaxial_T3_kUSD": [
+      18,
+      45
+    ],
+    "physical_measurements_performed": false,
+    "test_details": "CARD.md",
+    "equations_and_transfer": "METHOD.md",
+    "latest_P3_test_targets": "P3-LATEST.md",
+    "tests": [
+      {
+        "id": "T1",
+        "rank": 1,
+        "title": "Finished SR200 compression and specification",
+        "initial_kUSD": [
+          5,
+          15
+        ],
+        "follow_on_kUSD": [
+          0,
+          0
+        ],
+        "covers": [
+          "P2 O3 compression",
+          "P2 O4 sheet size/gauge",
+          "030 ground-first 4",
+          "036 compression"
+        ],
+        "standards": [
+          "E9",
+          "E1012"
+        ],
+        "provider_type": "Be-capable sheet producer/fabricator and metals compression laboratory",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T2",
+        "rank": 2,
+        "title": "Weighed curved sealed scarf panel",
+        "initial_kUSD": [
+          12,
+          35
+        ],
+        "follow_on_kUSD": [
+          0,
+          0
+        ],
+        "covers": [
+          "P2 O4 stock panels",
+          "P2 O5 thin bond",
+          "P2 scarf/weld load transfer",
+          "030 ground-first 3"
+        ],
+        "standards": [
+          "C273",
+          "C297",
+          "C365",
+          "custom scarf/load/leak protocol"
+        ],
+        "provider_type": "Be-capable aerospace sandwich fabricator and bond/mechanical test house",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T3",
+        "rank": 3,
+        "title": "Wrinkle screen and biaxial follow-on",
+        "initial_kUSD": [
+          6,
+          18
+        ],
+        "follow_on_kUSD": [
+          18,
+          45
+        ],
+        "covers": [
+          "P2 O2 wrinkling",
+          "030 ground-first 5"
+        ],
+        "standards": [
+          "C364",
+          "C273",
+          "C365",
+          "D7249 optional",
+          "custom biaxial panel"
+        ],
+        "provider_type": "Sandwich compression lab with DIC and multiaxial fixture partner",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T4",
+        "rank": 4,
+        "title": "Complete film laminate strength, creep and barrier",
+        "initial_kUSD": [
+          8,
+          25
+        ],
+        "follow_on_kUSD": [
+          15,
+          40
+        ],
+        "covers": [
+          "P3 film 024/030/022d",
+          "P3 sag"
+        ],
+        "standards": [
+          "D882 where applicable",
+          "D1434",
+          "F1249",
+          "custom biaxial bulge/creep"
+        ],
+        "provider_type": "Structural laminate developer and polymer-barrier/multiaxial lab",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T9",
+        "rank": 5,
+        "title": "Service vacuum hold and hot gas pressure",
+        "initial_kUSD": [
+          4,
+          12
+        ],
+        "follow_on_kUSD": [
+          0,
+          0
+        ],
+        "covers": [
+          "034 vacuum hold",
+          "core/bore evacuation",
+          "019 systems and gas reserve"
+        ],
+        "standards": [
+          "ISO 20485",
+          "E595 optional screen",
+          "calibrated rate-of-rise/throughput"
+        ],
+        "provider_type": "Vacuum leak-test and thermal-vacuum materials laboratory",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T6",
+        "rank": 6,
+        "title": "P3 axial/moment/roll joint qualification",
+        "initial_kUSD": [
+          5,
+          15
+        ],
+        "follow_on_kUSD": [
+          25,
+          75
+        ],
+        "covers": [
+          "P3 joint 023",
+          "P3 restraint 026",
+          "022d sized joint"
+        ],
+        "standards": [
+          "E1012 supporting",
+          "custom loaded stiffness matrix and component strength"
+        ],
+        "provider_type": "Bonded-joint development shop and high-load multiaxial structural lab",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T5",
+        "rank": 7,
+        "title": "SiC process compression and tube stubs",
+        "initial_kUSD": [
+          10,
+          25
+        ],
+        "follow_on_kUSD": [
+          25,
+          100
+        ],
+        "covers": [
+          "P3 compression 025",
+          "P3 curved tube manufacture"
+        ],
+        "standards": [
+          "C1424 standard specimens",
+          "custom stub and curved component protocol"
+        ],
+        "provider_type": "Technical ceramic tube supplier and high-load ceramics/component laboratory",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T7",
+        "rank": 8,
+        "title": "Closed sandwich surrogate shell",
+        "initial_kUSD": [
+          30,
+          90
+        ],
+        "follow_on_kUSD": [
+          0,
+          0
+        ],
+        "covers": [
+          "P2 O1 gamma",
+          "030 ground-first 1",
+          "029 FE physical calibration"
+        ],
+        "standards": [
+          "C273/C297/C365 material witnesses",
+          "custom closed-shell external pressure"
+        ],
+        "provider_type": "Precision shell/core shop and nonlinear structures pressure laboratory",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      },
+      {
+        "id": "T8",
+        "rank": 9,
+        "title": "Closed discrete frame surrogate",
+        "initial_kUSD": [
+          45,
+          130
+        ],
+        "follow_on_kUSD": [
+          0,
+          0
+        ],
+        "covers": [
+          "030 ground-first 2",
+          "026 discrete frame",
+          "022d topology/global stability"
+        ],
+        "standards": [
+          "custom frame/skin pressure protocol",
+          "material and joint witness methods"
+        ],
+        "provider_type": "Precision curved-frame fabricator and pressure/DIC structural research laboratory",
+        "tag": "PROJECTION",
+        "qualification_closed": false
+      }
+    ],
+    "ranking_basis": "Ability to falsify a current binding premise per cost, dependencies and shared specimens; no assumed probabilities.",
+    "full_size_SiC_arc_campaign_additional_kUSD": [
+      100,
+      400
+    ],
+    "arc_cost_note": "Or more; manufacturability, tooling and minimum lot remain unknown.",
+    "smallest_shell": {
+      "absolute_mathematical_minimum": null,
+      "fabrication_floors_assumed": {
+        "face_um": 25,
+        "core_mm": 1
+      },
+      "conditional_021b_R_m": 0.3614032861983396,
+      "conditional_028b_R_m": 0.43034411608332657,
+      "suggested_surrogate_R_m": 0.5,
+      "commercial_actual_Be_small_shell_established": false
+    },
+    "source_cutoff": "2026-10-20T02:27:27.097637-07:00",
+    "not_filed_at_last_lookup": [
+      "MAINLINE-029"
+    ],
+    "not_filed_note": "No result assumed; the physical gamma protocol remains valid preparation for a future filed FE comparison."
+  },
+  "original_030_ground_first": [
+    {
+      "rank": 1,
+      "what": "sandwich-sphere gamma FE at Vc 1.06 (021) and 0.89 (021b), imperfect, geometrically nonlinear, CPU",
+      "retires": "O1 (factor 2.3-3.0), all of P2's margin",
+      "effort": "one FE series; 018b sized R/tc 40 at 12.6 GiB",
+      "owner": "MAINLINE-029 (pending)"
+    },
+    {
+      "rank": 2,
+      "what": "discrete geometrically nonlinear buckling of the P3 frame at s 2.2 m and 6.15 m (ccx/gmsh, installed)",
+      "retires": "R055 continuum validity, R057 two-way C = 4",
+      "effort": "two FE runs; 026 already set up",
+      "owner": "MAINLINE-026 / 022c"
+    },
+    {
+      "rank": 3,
+      "what": "020's weighed, curved, sealed two-skin joint/core panel with measured load transfer",
+      "retires": "seam/bond mass 214-968 kg, joint efficiency 0.6-0.9",
+      "effort": "one panel build and test",
+      "owner": "MAINLINE-020 / 028"
+    },
+    {
+      "rank": 4,
+      "what": "SR-200 thin-sheet specification: largest sheet at 0.7-0.85 mm, gauge map, post-form compression",
+      "retires": "O3 (255-379 MPa), O4 (0.914 vs 3.13 m)",
+      "effort": "a supplier enquiry; outward-facing, needs the Admiral's authorization",
+      "owner": "MAINLINE-020"
+    },
+    {
+      "rank": 5,
+      "what": "honeycomb wrinkling coupon, Be on CR-III 5056 3/8-1.0",
+      "retires": "O2 (0.37-0.61 vs 0.33)",
+      "effort": "coupon test",
+      "owner": "none pending"
+    }
+  ],
+  "execution": "No experiments, supplier contacts or other-seat messages performed by this register.",
+  "previous_030b_routes": [
+    {
+      "id": "G0",
+      "rank": 0,
+      "route": "Choose mission requirements",
+      "status": "DECISION",
+      "evidence": "031 and its check; 037",
+      "target": "Weather envelope, terrain-relative clearance, altitude ceiling/control, coating, bond reference temperature, airspeed and mooring wind.",
+      "original_030_priority": null,
+      "physical_tests_038": []
+    },
+    {
+      "id": "G1",
+      "rank": 1,
+      "route": "Imperfect sandwich-sphere analysis and calibrated shape evidence",
+      "status": "029 pending unless superseded in final intake",
+      "evidence": "030 priority 1; CHECK-035 finds no compatible elastic sphere datum at lead geometry, without claiming universal absence",
+      "target": "P2 gamma at each actual joined geometry, followed by appropriate measured validation.",
+      "original_030_priority": 1,
+      "physical_tests_038": [
+        "T7"
+      ]
+    },
+    {
+      "id": "G2",
+      "rank": 2,
+      "route": "Discrete P3 frame with actual nodes and film coupling",
+      "status": "026 and026b filed; exact current frame and new nonlinear first loss unresolved",
+      "evidence": "030 priority 2; 026/check; 026b; 022d",
+      "target": "Use current3.184m member geometry, integer topology, anti-roll/moment stiffness, complete mass and local/material interaction. Ordered global sensitivity1.067 is not a solved frame.",
+      "original_030_priority": 2,
+      "physical_tests_038": [
+        "T6",
+        "T8"
+      ]
+    },
+    {
+      "id": "G3",
+      "rank": 3,
+      "route": "Weighed curved sealed sandwich/joint article",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "030 priority 3; 028b/check; 036; 034",
+      "target": "Scarf/face-core capacity and stiffness, actual primer/splice/seal mass, thermal cycling, leak paths and shape.",
+      "original_030_priority": 3,
+      "physical_tests_038": [
+        "T2"
+      ]
+    },
+    {
+      "id": "G4",
+      "rank": 4,
+      "route": "Finished thin-sheet specification and compression evidence",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "030 priority 4; 036",
+      "target": "Minimum gauge, raw dimensions, orthotropic post-form properties and about 300 MPa effective compression at the scarf leads. Any external contact is a separate authorized task.",
+      "original_030_priority": 4,
+      "physical_tests_038": [
+        "T1"
+      ]
+    },
+    {
+      "id": "G5",
+      "rank": 5,
+      "route": "Matched wrinkle coupon and wavelength-resolved metrology",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "030 priority 5; 032/check; 032b",
+      "target": "Core/bond weakest flatwise capacity, Q, critical wavelength and as-built zero-to-peak component on the actual Be/core assembly.",
+      "original_030_priority": 5,
+      "physical_tests_038": [
+        "T3"
+      ]
+    },
+    {
+      "id": "G6",
+      "rank": 6,
+      "route": "Thermal and hardpoint closure on the chosen hull",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "037",
+      "target": "Coating mass, assembly stress-free temperature, wind pressure map and pad load path; charge pads/coating and reclose each selected hull.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T2",
+        "T9"
+      ]
+    },
+    {
+      "id": "G7",
+      "rank": 7,
+      "route": "Assembly gas-load and evacuation test",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "034",
+      "target": "Every cell/bore vented, installed seam/port leaks, conditioning inventory, pressure and lift debit, monitoring endurance.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T9"
+      ]
+    },
+    {
+      "id": "G8",
+      "rank": 8,
+      "route": "Complete P3 membrane process and barrier qualification",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "024/check; 022b/c check; 022d; 034",
+      "target": "Two-direction strength, full barrier/attachment mass, biaxial creep, seams and loaded shape; no fibre-only payload credit.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T4"
+      ]
+    },
+    {
+      "id": "G9",
+      "rank": 9,
+      "route": "Full-size curved-tube material and joint evidence",
+      "status": "EVIDENCE REQUIRED",
+      "evidence": "025/check; 026; 022d",
+      "target": "Compression/tension populations, contact fields, manufacturing and failure probability; preserve null allowables until established.",
+      "original_030_priority": null,
+      "physical_tests_038": [
+        "T5",
+        "T6"
+      ]
+    }
+  ],
+  "first_three_030c": [
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "042_F1_note": "After T1, expand T2 to full-size forming-and-seam article; can supply T3 coupons. No additional independent cost or qualification is inferred.",
+  "check_038": {
+    "report": "rpt-ref-2beb70a569266cf0297d",
+    "file": "evidence/30edc992de736a46-CARD.md",
+    "original_file": "evidence/30edc992de736a46-CARD.md",
+    "sha256": "30edc992de736a46c1b86b207c3849c0f963e71a15eb4e51cbdac0af2d61765f",
+    "selector": "whole card"
+  },
+  "first_three_030d": [
+    "T1",
+    "T2",
+    "T3"
+  ],
+  "extensions_030d": [
+    {
+      "id": "D-G1",
+      "route": "Matched finish and retained-water demonstration",
+      "ties": [
+        "T2",
+        "T3"
+      ],
+      "target": "Weigh coating/primer and material uptake separately; measure optics, adhesion and rain/dew/frost retention before/after actual conditioning."
+    },
+    {
+      "id": "D-G2",
+      "route": "Loaded damaged curved sandwich and member/bay tests",
+      "ties": [
+        "T2",
+        "T7"
+      ],
+      "target": "Impact/crushed-core growth and detection on selected048geometry;041member loss, film tears, joint restraint and safe loading."
+    },
+    {
+      "id": "D-G3",
+      "route": "Protected film life and renewal interface",
+      "ties": [
+        "G6",
+        "G7",
+        "G9"
+      ],
+      "target": "Measure combined loss, thermal restraint, creep, high-R fatigue, seam/edge protection and installed package mass."
+    },
+    {
+      "id": "D-G4",
+      "route": "Finished-member statistics and proof coverage",
+      "ties": [
+        "G2",
+        "G9"
+      ],
+      "target": "Calibrate compression population/reference size and joint/common-cause risk; qualify fixtures and damage-sensitive proof coverage."
+    },
+    {
+      "id": "D-G5",
+      "route": "052 complete dry-service and crossply demonstration",
+      "ties": [
+        "G6",
+        "G7",
+        "G9"
+      ],
+      "target": "Measure installed PBO ply efficiency, loaded wet barrier/humidity and cold-point service interval; replace100+50kg equipment allowances and verify the P3 hardpoint and damaged state."
+    }
+  ],
+  "extensions_030e": [
+    {
+      "id": "E-G1",
+      "route": "Finished-sheet compression and processed bond/cure",
+      "inherited": [
+        "T1",
+        "T2"
+      ],
+      "source_labels": [
+        "047",
+        "062"
+      ],
+      "qualification": "open"
+    },
+    {
+      "id": "E-G2",
+      "route": "Directional CR III peak/crush/unload/mixed-loading law",
+      "inherited": [
+        "T3"
+      ],
+      "source_labels": [
+        "check029",
+        "056",
+        "062"
+      ],
+      "qualification": "open"
+    },
+    {
+      "id": "E-G3",
+      "route": "Corrected full-section pressure article and measured geometry",
+      "source_labels": [
+        "055",
+        "check055"
+      ],
+      "qualification": "open"
+    },
+    {
+      "id": "E-G4",
+      "route": "Full-member compression, fittings and population statistics",
+      "source_labels": [
+        "051",
+        "check051",
+        "060",
+        "check060"
+      ],
+      "qualification": "open"
+    },
+    {
+      "id": "E-G5",
+      "route": "Assembled seamed barrier, desiccant transport/heat and weighed hardware",
+      "source_labels": [
+        "054",
+        "check054"
+      ],
+      "qualification": "open"
+    },
+    {
+      "id": "E-G6",
+      "route": "Full-bay retention, shrinking wet area and 99%-removal drying",
+      "source_labels": [
+        "059",
+        "check059"
+      ],
+      "qualification": "open"
+    },
+    {
+      "id": "E-G7",
+      "route": "Matched finish optics and complete weather-control hardware/trajectory",
+      "source_labels": [
+        "058",
+        "reviewA2"
+      ],
+      "qualification": "open"
+    },
+    {
+      "id": "E-G8",
+      "route": "Weighed maturity account and quoted manufacturing route",
+      "source_labels": [
+        "057",
+        "check057",
+        "062"
+      ],
+      "qualification": "open"
+    }
+  ],
+  "first_three_030e": [
+    "T1",
+    "T2",
+    "T3"
+  ]
+}

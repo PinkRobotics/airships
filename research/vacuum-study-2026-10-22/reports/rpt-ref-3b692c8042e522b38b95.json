@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-3b692c8042e522b38b95",
+  "unit": "vacuum-mainline067-materials-pathway-1020",
+  "at": "2026-10-20T17:58:26-07:00",
+  "body": "MAINLINE-067. QUESTIONABLE. PROJECTION. No qualified hull safety factor, no sweep, no simjob. Nothing was bought.\n\nNo face keeps SR-200 at 290 GPa and 345 MPa and meets the four DELTA-C factors at gamma 0.20 and Q 0.33: 1.779, 1.863, 1.743, 1.825. Targets are 1040, 993, 1061 and 1014 kg/m3. The 1.06 to 1.12 ramp is not admissible and was not used. The factor is a reoptimized hull result, not an index identity. The hull was not re-run.\n\nSR-200 leads wrinkling among sheets and quasi-isotropic laminates. Unidirectional M60J is 1.21 and CNT yarn is 1.40, short of 1.74 and the wrong form. Diamond's specific modulus is 1.91, above every factor, and its wrinkling ratio is 0.81, below every factor. Global buckling binds the optimistic concept rows and R 20 ISA at TRL 7. Wrinkling binds both ISA concept rows and the other TRL 7 rows. Diamond is 100 mm disks, not a hull face.\n\nNo sourced core is lighter than CR-III 5056 3/8-1.0 (16 kg/m3) and stiffer. HRH-10 at 24 kg/m3 has 0.42 of baseline support. Ultracor is heavier; its through-thickness modulus was not on the sheet.\n\nAF 163-2U at 0.015 lb/ft2 is 0.0732 kg/m2, half the baseline film, and does not clear the face factors.\n\nT3 and T7 stay on SR-200 bonded to CR-III. A different face does not raise gamma or Q. Show biaxial compression at a makeable gauge over both faces.\n\nProjection: no metal sheet here reaches 290 GPa below 1061 kg/m3. Card 066 chooses the index.",
+  "artifacts": [
+    {
+      "path": "evidence/cd2b78f1f63a9586-CARD.md",
+      "sha256": "cd2b78f1f63a958603aa9c440b05c2395195db82b11e49380ba391b259bbfd6f",
+      "bytes": 8171
+    },
+    {
+      "path": "evidence/e94a70230fcd048d-RESULTS.json",
+      "sha256": "e94a70230fcd048dbd22585ff934f9714ab08f8c1b57c70b5a9a4969f0f97614",
+      "bytes": 33884
+    },
+    {
+      "path": "evidence/3f57a026c14b4c09-NFI.json",
+      "sha256": "3f57a026c14b4c0981d784b9173a1f31ffcb6729fe3dfa3a8fb350bf67ffebc8",
+      "bytes": 3485
+    },
+    {
+      "path": "evidence/bdd40c47856a889b-INPUTS.json",
+      "sha256": "bdd40c47856a889b391635501f9318e259c583a6944e3c9499f99ddb9597a78d",
+      "bytes": 5015
+    },
+    {
+      "path": "evidence/21f34f2964b77612-rank.py",
+      "sha256": "21f34f2964b77612d78d92bc70401588a38352bec0ed2d039fa4dc612bb188dd",
+      "bytes": 23210
+    }
+  ],
+  "from": "ref-08887151c61d86c0cd02",
+  "from_seat": "ref-08887151c61d86c0cd02",
+  "re": "ord-admiral-rr2-mainline067-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline067-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

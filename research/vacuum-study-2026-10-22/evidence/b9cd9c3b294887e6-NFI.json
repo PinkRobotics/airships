@@ -1,0 +1,99 @@
+[
+  {
+    "id": "NFI-KD-PRECISION",
+    "value": "knockdown on classical sphere buckling",
+    "optimistic": 0.9,
+    "optimistic_source": "Wagner 2020 Table 3, Krenzke and Kiernan, reliable upper, outside this lambda. MAINLINE-004b.",
+    "main_point": 0.2,
+    "main_source": "Inside the sandwich data. Sim 2024 foam-core 0.20 to 0.22. Wagner 2020 central about 0.2.",
+    "conservative": 0.1407,
+    "conservative_source": "CARD-009 names SP-8032's 0.1407. MAINLINE-004b P2-E sealed value is 0.140725695373. Its own optimism ratio against that sealed value is near 6.4. This ledger does not replace that ratio.",
+    "factor_precision_gap": 4.5,
+    "factor_meaning": "0.90/0.20 = 4.5, the precision gap CARD-009 asks this ledger to carry.",
+    "direction": "Knockdown tests on sandwich spheres at lambda near 66, the regime of these rows."
+  },
+  {
+    "id": "NFI-FACE-STRENGTH",
+    "value": "SiC face compressive strength",
+    "optimistic": 3900000000.0,
+    "optimistic_source": "Saint-Gobain Hexoloy SA data https://www.ceramicsrefractories.saint-gobain.com/pt/files/4731/view (compressive 3900 MPa, flexural 380 MPa); MatWeb alpha SiC https://www.matweb.com/search/datasheet_print.aspx?matguid=dd2598e783ba4457845586b58c8ea9fb (density 3.10 g/cc, E 410 GPa)",
+    "conservative": 380000000.0,
+    "conservative_source": "Hexoloy SA flexural strength, the figure MAINLINE-008 says governs a bending or tension path.",
+    "factor": 10.263157894736842,
+    "stated_mode_uses": "compressive 3900 MPa, because the stated mode is face compression",
+    "SF_if_flexural_were_used": 0.433343716061625,
+    "direction": "A compressive allowable for the sintered face, and a check that the sphere stress stays membrane compression."
+  },
+  {
+    "id": "NFI-FACE-MODULUS",
+    "value": "SiC Young's modulus and density",
+    "optimistic": {
+      "E_Pa": 410000000000.0,
+      "rho": 3100.0
+    },
+    "conservative": "no second sourced pair on MAINLINE-008",
+    "factor": null,
+    "tag": "QUESTIONABLE",
+    "direction": "A batch modulus and density for the face sheet that would actually be built."
+  },
+  {
+    "id": "NFI-NU",
+    "value": "Poisson ratio inside the buckling and foam-wrinkling formulas",
+    "optimistic": 0.33,
+    "conservative": 0.33,
+    "factor": 1.0,
+    "source": "Carried from the 6061 case. MAINLINE-008 does not give a SiC Poisson ratio.",
+    "direction": "Use the face sheet's Poisson ratio. Buckling pressure scales as 1/sqrt(1-nu^2)."
+  },
+  {
+    "id": "NFI-CORE",
+    "value": "Divinycell H35",
+    "optimistic": {
+      "density_kg_m3": 38.0,
+      "Ec_Pa": 40000000.0,
+      "Gc_Pa": 12000000.0,
+      "compressive_Pa": 500000.0
+    },
+    "conservative": "Divinycell rev9 prints a minimum compressive strength of 0.3 MPa against the nominal 0.5 MPa used here. Other cores on MAINLINE-007 are typical columns, not allowables.",
+    "factor_divinycell_compression": 1.6666666666666667,
+    "tag": "QUESTIONABLE",
+    "direction": "Design allowables for Ec, Gc and compressive strength at the thickness this point uses."
+  },
+  {
+    "id": "NFI-CRUSH-MODEL",
+    "value": "core compressive stress",
+    "optimistic": "p/2",
+    "conservative": "p/2",
+    "factor": 1.0,
+    "source": "MAINLINE-005b. The brief's example, not a solved contact problem.",
+    "direction": "A core stress from the face-to-face load path, including local bending."
+  },
+  {
+    "id": "NFI-HANDBOOK-GAMMA",
+    "value": "NASA CR-1457 gamma_d",
+    "optimistic": 0.9,
+    "main": 0.2,
+    "conservative": 0.1407,
+    "factor": 4.5,
+    "note": "On the moderate-core branch gamma_d is 0.20 and the handbook safety factor is Kc times the classical kd=0.20 pressure. gamma_d of 0.90 is not a handbook value. It is the MAINLINE-004b precision direction, applied only to the classical pressure.",
+    "direction": "Tests that separate face-modulus knockdown from core-shear flexibility on a complete sphere."
+  },
+  {
+    "id": "NFI-WRINKLE-BIAX",
+    "value": "equibiaxial factor on the flat-plate interaction Rx^3+Ry=1",
+    "optimistic": 0.23516798404427022,
+    "factor_formula": "constant 0.682327803828, already inside the stated wrinkling safety factor",
+    "conservative": "the same interaction",
+    "direction": "A sphere-face wrinkling test. The interaction is a flat-plate equation."
+  },
+  {
+    "id": "NFI-MASS",
+    "value": "payload margin",
+    "optimistic": 0.0,
+    "main_point": 0.05,
+    "conservative": 0.05,
+    "factor": "zero margin raises the structural budget by (lift-100)/(0.95*lift-100), about 5 percent, which does not close a wrinkling gap of several times",
+    "source": "CARD-009 default, kept because MAINLINE-006's P2-E knee is that same 0 to 5 percent step.",
+    "direction": "MAINLINE-012's equal-margin geometry, when that card is the newer input."
+  }
+]

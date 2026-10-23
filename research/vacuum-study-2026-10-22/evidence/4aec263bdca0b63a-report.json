@@ -1,0 +1,147 @@
+{
+  "id": "rpt-ref-c7dfc45babe1b96007db",
+  "kind": "report",
+  "from": "ref-2b226fa1c9f1bf550d9b",
+  "from_seat": "ref-2b226fa1c9f1bf550d9b",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline041-p3-discrete-point-1020",
+  "re": "ord-admiral-rr2-mainline041-dispatch-1019",
+  "at": "2026-10-20T03:43:28.962025-07:00",
+  "body": "MAINLINE-041 complete, QUESTIONABLE/PROJECTION. The selected 022d section's own f=4 frame gives screened SF 1.133451 under the inherited 0.2-times-linear convention, versus the transferred 1.07. Actual tubes weigh 4361.909 kg (+178.319); the unchanged frame exceeds closure by 174.444 kg.\n\nPerfect nonlinear first sampled tangent loss is bracketed at 5.430880–5.430924. Smallest-algebraic continuation, independent shifted solves, a fresh random-start global solve and tangent finite differences pass. This is an ideal elastic limit, not material/joint collapse.\n\nBest-SF-at-closure search favors frequency 5 among frequencies 1–10. Fine-mesh witnesses give 1.143285 at 5% reserve and 1.083205 at 019 reserve. Required extreme SiC compression is 1.164235/1.145748 GPa. Tubes weigh 4263.218/4108.765 kg; actual end moments enter candidate-sized sleeve/bond demands. Film stiffness receives no resize credit.\n\nA conservative peak-compression local-shell sensitivity lowers those witnesses to 1.033223/0.978132. Bare pins have 480 roll mechanisms; filament-derived film tangents remain conditional. Eight NFIs cover material, local interaction, joints, membrane, imperfections, mass, model and search scope. Qualified SF/allowable/failure probability remain null.\n\nAll 17 numerical checks and 1162 package checks pass. Manifest pins 676 files; prior 026/026b/CHECK022d packages are unchanged. All 24 admitted jobs released; corrected assertion and usage-error receipts retained. No time budget. Brief names no successor; stopping.",
+  "asks": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline041-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "next": "none",
+  "standing": "none",
+  "deadline": "2026-10-20T07:00:00-07:00",
+  "artifacts": [
+    {
+      "path": "evidence/a415fd54a6fd5cf4-CARD.md",
+      "sha256": "a415fd54a6fd5cf426b1cdb48bf9876c7194e4b06dc1248cbb68a622abd06cea",
+      "bytes": 8044
+    },
+    {
+      "path": "evidence/3df5f3930ec2bb0a-RESULTS.json",
+      "sha256": "3df5f3930ec2bb0a1ca9cc3ca061004ba2ac97a038ca39e47c75d4f2b0521be6",
+      "bytes": 2884511
+    },
+    {
+      "path": "evidence/6be29d83b354a1c1-CHECKS.json",
+      "sha256": "6be29d83b354a1c1b348e925d28ab4b52ad9c504b28532672535745836c5fba7",
+      "bytes": 6412
+    },
+    {
+      "path": "evidence/9cdf9fe980f79310-NFI.json",
+      "sha256": "9cdf9fe980f793105f8e5eb1636792035e546b1ed0bfcdc66aedd8a4efa4dbcb",
+      "bytes": 8726
+    },
+    {
+      "path": "evidence/6ba3995e14925c90-RESIZE.csv",
+      "sha256": "6ba3995e14925c90590cc7995bdbf0737683f933a70a340623ba8f85ec6abcd6",
+      "bytes": 11823
+    },
+    {
+      "path": "evidence/217a6a66603852ba-MODES.csv",
+      "sha256": "217a6a66603852babb3ec1a0832c4eaf1aab0dbc3bf6c41c74a08a1a53a103ee",
+      "bytes": 786
+    },
+    {
+      "path": "evidence/e194c0b5c53ff24a-ADDITIONAL-SCORES.json",
+      "sha256": "e194c0b5c53ff24a5307aa6487501025d695825cc4cd06fdfa739d8f03bab004",
+      "bytes": 8786
+    },
+    {
+      "path": "evidence/c9ac7f97f9dd9278-SCIENCE-CHECKS.json",
+      "sha256": "c9ac7f97f9dd9278b837690eee4b80508260ea19d0292f7014324dd528b340f5",
+      "bytes": 3731
+    },
+    {
+      "path": "evidence/7983bf0fbf268cf5-NONLINEAR-AUDIT-M6-M12.json",
+      "sha256": "7983bf0fbf268cf50efbefe6902a50b3f618528b164878e623629494db5380a4",
+      "bytes": 2790
+    },
+    {
+      "path": "evidence/b303b8f1ba50218f-NONLINEAR-AUDIT-M24.json",
+      "sha256": "b303b8f1ba50218f1d016c9e693b0a2ce67c0582ba59e397078add09b90a259a",
+      "bytes": 1502
+    },
+    {
+      "path": "evidence/d1b5f3277138f2c9-GLOBAL-SA-AUDIT.json",
+      "sha256": "d1b5f3277138f2c9f6c80eee094af76ff0df5ee7f853b733f79713540abdb8d8",
+      "bytes": 794
+    },
+    {
+      "path": "evidence/aa47edd36cde9104-METHODS.md",
+      "sha256": "aa47edd36cde9104d90d3e612db8f31664736581f828c7c6ba553a592c10bbe0",
+      "bytes": 13710
+    },
+    {
+      "path": "evidence/0d24229a8dae1925-SOURCES.md",
+      "sha256": "0d24229a8dae19257a486dc029047d3e17453aa4864ad9eb428197f453df778a",
+      "bytes": 4786
+    },
+    {
+      "path": "evidence/edcab3d1b207d478-INPUTS.json",
+      "sha256": "edcab3d1b207d4782c81e7e84961d48ffb3eca0bbfb769cada06a1ad9c94c729",
+      "bytes": 11971
+    },
+    {
+      "path": "evidence/a51716eed51c11cf-EXECUTION.json",
+      "sha256": "a51716eed51c11cf1a6770aaaddef7267c46d1ab25abcab3a31cf3cadb7e3788",
+      "bytes": 152339
+    },
+    {
+      "path": "unpublished-local-ref:2d1623b57f8d1f64",
+      "sha256": "696b76eba39aaed58276117cef36c4b5f76b0f9865be4a4013319a7ebedd927c",
+      "bytes": 190768
+    },
+    {
+      "path": "unpublished-local-ref:f4a508f736f6852b",
+      "sha256": "702fe7980c0e2d31d2aff9cb816a5a3d3919f5850caa50ce4b6cbc2d8cd19fa7",
+      "bytes": 30245
+    },
+    {
+      "path": "unpublished-local-ref:d0b7a8a85fb56ed2",
+      "sha256": "937fdcfbb65519b6506a4bd7e7b3f7521ffc3a24d4a0d534f983d41cadbd02b3",
+      "bytes": 517362
+    },
+    {
+      "path": "unpublished-local-ref:8e26399970e088a7",
+      "sha256": "53341dfc63f6c84d87a41ebd276c9ec4785d346ddf68c3ca33f139b895adc872",
+      "bytes": 258655
+    },
+    {
+      "path": "evidence/9decf50e5f8cd68d-PRIOR-FREEZE-CHECK.json",
+      "sha256": "9decf50e5f8cd68d657546aa732d64d777fe9cf000a5459db709b168d7174e1f",
+      "bytes": 605
+    },
+    {
+      "path": "unpublished-local-ref:7f0ab014b3efbb03",
+      "sha256": "d0ce17e2d4cd9bf4aba4b99784f769735fcd20d4ee1ac4fbff2185e3cc885a0b",
+      "bytes": 138009
+    },
+    {
+      "path": "evidence/f69567e61d46a9d0-MANIFEST.json",
+      "sha256": "f69567e61d46a9d0e9c3e8977a52bb2ce0a83de516f885d2ea512a45021e2cd5",
+      "bytes": 118434
+    },
+    {
+      "path": "evidence/9c6a34ee5a42dac7-PACKAGECHECK.json",
+      "sha256": "9c6a34ee5a42dac787cd72ae7f259da147141ac46939765b894d8841194e0fd8",
+      "bytes": 113844
+    }
+  ],
+  "ingested": "2026-10-20T03:45:06-07:00"
+}

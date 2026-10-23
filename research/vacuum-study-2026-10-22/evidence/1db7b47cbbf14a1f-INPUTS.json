@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline012-check-1019",
+  "order": "ord-admiral-rr2-check012-004-004b-glm-1019",
+  "independence": "checker glm, owner grok; owner files read-only; the owner's script was never read",
+  "pins": {
+    "brief_check": {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    "brief_card_006": {
+      "path": "unpublished-local-ref:8bfba527efef47d2",
+      "sha256": "52b5ed16a27c3c3ce3d5739c4e8daf83a618c4ebb2a09269c874162018ad469a",
+      "bytes": 1787
+    },
+    "owner_card": {
+      "path": "evidence/01252f31bdfa2a0e-CARD.md",
+      "sha256": "01252f31bdfa2a0ed9f9758a40bba1802d97ce82b8d9f8dddb8f38f876ae40c4",
+      "bytes": 9511
+    },
+    "owner_inputs": {
+      "path": "evidence/b6d447ad4171eef6-INPUTS.json",
+      "sha256": "b6d447ad4171eef6fb33daeb66dffad9df6fcac73211f6aa213ae5a5de79879d",
+      "bytes": 760
+    },
+    "sealed_006_results": {
+      "path": "evidence/9021bec10649eb48-RESULTS.json",
+      "sha256": "9021bec10649eb488b7f255fd5ebabec52e9c2da3f7708370a56e69098777b06",
+      "bytes": 30953
+    },
+    "sealed_003_results": {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    }
+  },
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_Pa": 276000000.0,
+    "kd": 0.2,
+    "rho_Al": 2700.0,
+    "rho_core": 16.0,
+    "p500_Pa": 95460.83791390515,
+    "rho500": 1.1672683307461802,
+    "T500_K": 284.9,
+    "lift10_kg": 4889.442150186961,
+    "allowance_kg": 100.0,
+    "joints_frac": 0.05
+  },
+  "run": "python3 check012.py <owner CARD.md>; output CHECK-OUT-012.json"
+}

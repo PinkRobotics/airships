@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "check_of": "MAINLINE-020",
+  "unit": "vacuum-mainline020-check-1020",
+  "tag": "QUESTIONABLE",
+  "status": "OPEN",
+  "items": [
+    {
+      "id": "NFI-020C-GRADE-BASIS",
+      "rank": 1,
+      "kind": "proposed fix",
+      "tag": "QUESTIONABLE",
+      "against": "CARD.md sections 3 and 4; RESULTS mechanical_sensitivities and joining eta",
+      "claim": "The faces are bought as SR-200 sheet (sections 1-2), but every strength screen uses S-200F block values: 283 MPa inherited as 'optimistic', 241 MPa block tensile minimum, and 0.7 x 241. SR-200's own sourced minimum tensile yield is 345 MPa (S03; guide p. 8), above the card's optimistic value.",
+      "support": "S02 lists S-200-F in rod and bar and points to SR-200 sheet and PS-200 foil below 6.3 mm. Guide p. 8: wrought products are stronger than hot-pressed block in the working direction, and SR-200's in-plane properties are balanced by cross rolling. Guide p. 11: machined beryllium needs a 0.004 in etch on each side, together 27% of a 0.752 mm face, which points to rolled sheet for faces this thin.",
+      "numbers": {
+        "face_SF_at_lead": {
+          "card_283": 0.8922515676202372,
+          "card_241": 0.7598326070546896,
+          "SR200_345": 1.0877271760741407
+        },
+        "least_SF_eta_0.9_0.6": {
+          "card": [
+            0.6504118436805659,
+            0.5353509405721423
+          ],
+          "SR200_345_same_E": [
+            0.6504118436805659,
+            0.6504118436805659
+          ]
+        },
+        "least_SF_retention_0.8E_0.7sigma": {
+          "card": 0.5318828249382828,
+          "SR200_345": 0.5691315271080425
+        },
+        "eta_at_which_net_section_governs": {
+          "283": 0.728955674928437,
+          "345": 0.5979549449412976
+        }
+      },
+      "proposed_fix": "Add an SR-200 row (E 290 GPa, 345 MPa minimum tensile yield used as the compression proxy, the card's own transfer convention, QUESTIONABLE, S03) to the eta and retention screens, and keep 241 MPa only as an explicitly block-grade lower screen.",
+      "effect_on_lead": "None on the least SF at eta 1. The conservative joint screen (eta 0.6) no longer lowers it (0.65041 instead of 0.53535), and the retention screen becomes wrinkling-governed at 0.56913 instead of 0.53188. Rolled-sheet compression data are still needed (owner's NFI-020-GRADE-ORIENTATION-COMPRESSION)."
+    },
+    {
+      "id": "NFI-020C-FALLBACK-E-BASIS",
+      "rank": 2,
+      "kind": "proposed fix",
+      "tag": "QUESTIONABLE",
+      "against": "CARD.md section 6",
+      "claim": "Section 4 takes 290 GPa as Be's current modulus, but section 6 prices the K13D2U trade against Be at the inherited 303 GPa. At 290 GPa, the SF given up by choosing K13D2U is smaller.",
+      "numbers": {
+        "published_designs": {
+          "Be_303": 0.6853382311714526,
+          "Be_290": 0.6705892825890435,
+          "K13D2U": 0.651932173894196,
+          "loss_pct_303": 4.874389864425844,
+          "loss_pct_290": 2.7821960742968055
+        },
+        "009c5_geometry": {
+          "Be_303": 0.6504118436805659,
+          "Be_290": 0.6363083913759237,
+          "K13D2U": 0.5414748616333155,
+          "loss_pct_303": 16.74892348681649,
+          "loss_pct_290": 14.903705660323697
+        },
+        "5pct_budget_resized": {
+          "Be_lead_303": 0.6504118436805659,
+          "Be_lead_290": 0.6363083913759237,
+          "K13D2U": 0.6186549721852571,
+          "loss_pct_303": 4.882578908096491,
+          "loss_pct_290": 2.774349581103841
+        }
+      },
+      "proposed_fix": "State section 6's SF given up at both Be moduli; K13D2U's 210 GPa stays the 014b QI value.",
+      "effect_on_lead": "The Be-free fallback costs less SF than the card shows; the ranking does not change."
+    },
+    {
+      "id": "NFI-020C-DOUBLER-BERYLLIUM",
+      "rank": 3,
+      "kind": "NFI row",
+      "tag": "PROJECTION",
+      "against": "CARD.md sections 1 and 3",
+      "claim": "Section 3's splice doublers are full-gauge Be, but section 1 buys and prices only the faces.",
+      "numbers": {
+        "Be_doubler_kg_opt_con": [
+          459.11634213163603,
+          2066.023539592362
+        ],
+        "Be_total_kg": [
+          3957.5828691747024,
+          5564.490066635428
+        ],
+        "share_of_mine_output_percent": [
+          0.9139914247516633,
+          1.2940674573570763
+        ],
+        "sheet_stock_cost_USDm": [
+          44.69740652244371,
+          267.09552319850053
+        ],
+        "card_cost_USDm": [
+          39.51209254072168,
+          167.92639329806718
+        ],
+        "cost_increase_percent": [
+          13.12335958005255,
+          59.05511811023621
+        ]
+      },
+      "proposed_fix": "Count the doubler Be in the section 1 supply share and sheet cost, paired the way section 3 pairs panels and joints.",
+      "effect_on_lead": "No SF effect; procurement and cost rise."
+    }
+  ]
+}

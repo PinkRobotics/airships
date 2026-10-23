@@ -1,0 +1,125 @@
+{
+  "unit": "vacuum-mainline032-wrinkle-waviness-1020",
+  "tag": "QUESTIONABLE",
+  "pins": {
+    "card": {
+      "path": "unpublished-local-ref:0a1f00eba7cd9563",
+      "sha256": "26885739fb2fbeb601fc3c79b9aeb9ac5dc50c1838f76971065abc316d69d21c",
+      "bytes": 1874
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    }
+  },
+  "formula": {
+    "source": "NASA CR-1457 eq 2.2-12 and 2.2-13, printed page 2-33",
+    "url": "https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf",
+    "citation": "https://ntrs.nasa.gov/citations/19700004831",
+    "statement": "sigma_wr = 0.82 * (Ec*tf/(eta*Ef*tc))**0.5 * (eta*Ef) / (1 + 0.64*K_delta); K_delta = delta*Ec/(tc*Fc); elastic eta = 1. That is Q = 0.82 / (1 + 0.64*K_delta) in sigma = b*Q*sqrt(Ef*Ec*tf/tc).",
+    "Q_ideal": 0.82,
+    "K_factor": 0.64,
+    "eta": 1.0,
+    "design_Q_equation": "2.2-14",
+    "design_Q": 0.33,
+    "biaxial_equation": "2.2-15",
+    "biaxial_statement": "R_x**3 + R_y = 1. Equal compression gives r**3 + r = 1.",
+    "figures_from": "MIL-HDBK-23, as named on the CR-1457 page"
+  },
+  "core": {
+    "name": "Hexcel CR-III 5056 3/8-1.0",
+    "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+    "table": "Table II, test data at 0.625 inch thickness",
+    "density_pcf": 1.0,
+    "density_kg_m3": 16.018463373960138,
+    "cell_m": 0.009524999999999999,
+    "card_cell_m": 0.0095,
+    "Ec_ksi_typical": 15.0,
+    "Ec_Pa": 103421359.3975254,
+    "Fc_stabilised_typical_psi": 60.0,
+    "Fc_stabilised_minimum_psi": 35.0,
+    "Fc_typical_Pa": 413685.4375901016,
+    "Fc_minimum_Pa": 241316.50526089262,
+    "crush_psi_typical": 35.0,
+    "crush_Pa": 241316.50526089262,
+    "bare_typical_psi": 55.0,
+    "bare_minimum_psi": 25.0,
+    "Fc_choice": "Flatwise core compression is the stabilised column. The crush column is the post-crush plateau and is not Fc. Flatwise tension and the beryllium bond are not on the sheet.",
+    "tag": "QUESTIONABLE"
+  },
+  "faces": [
+    {
+      "name": "Be S-200F",
+      "lead": "MAINLINE-021 rev1",
+      "lead_Q": 0.371,
+      "tf_m": 0.0008434,
+      "tc_m": 0.02021,
+      "E_Pa": 290000000000.0,
+      "dimpling_SF_filed": 9.0
+    },
+    {
+      "name": "SR-200",
+      "lead": "MAINLINE-021b",
+      "lead_Q": 0.609,
+      "tf_m": 0.0006917,
+      "tc_m": 0.03012,
+      "E_Pa": 290000000000.0,
+      "dimpling_SF_filed": 4.98
+    }
+  ],
+  "flatness_sources": [
+    {
+      "name": "SAE AMS7902H",
+      "url": "https://doi.org/10.4271/AMS7902H",
+      "what": "Hot-rolled beryllium sheet and plate, three flatness classes in section 3.5.5.",
+      "number_read": false,
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "name": "Flatiron stock 3/8-cell panel",
+      "url": "https://www.flatironpanelproducts.com/wp-content/uploads/2020/02/Flatiron-Stock-AHP04038-Data-Sheet-2-11-2020.pdf",
+      "flatness_inch_per_radial_foot": 0.008,
+      "flatness_mm_per_foot": 0.2032,
+      "face_inch": 0.04,
+      "note": "Panel bow on faces thicker than either lead face. Not the wrinkle-wave amplitude.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "name": "Honylite balanced aluminum honeycomb",
+      "url": "https://www.honylite.com/materials/strength-flatness-inserts",
+      "flatness_mm_per_radial_metre": 0.7,
+      "note": "Long-wave panel tolerance. Not delta.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "name": "QC Facades honeycomb guarantee",
+      "url": "https://qcfacades.com/wp-content/uploads/2019/05/190101_Honeycomb-Flatness-Guarantee.pdf",
+      "wave_mm": 1.0,
+      "per_60_inch_mm": 1.5,
+      "note": "Architectural panel. Much larger than the amplitudes below.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "name": "Indy Honeycomb finished-core flatness",
+      "url": "https://indyhoneycomb.com/wp-content/uploads/2023/04/IHSS-N1_C.pdf",
+      "flatness_inch": 0.01,
+      "local_step_inch": 0.003,
+      "local_step_mm": 0.0762,
+      "note": "Core blanket under hold-down, before a beryllium face is bonded.",
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "other_sources": [
+    {
+      "name": "Norris, Ericksen and March, FPL Report 1810",
+      "url": "https://www.fpl.fs.usda.gov/documnts/fplr/fplr1810.pdf",
+      "note": "Initial irregularities are resolved into Fourier components. The component nearest the critical wavelength grows. The card names Kommers as the third author. This report's third author is March. Kommers was not located on this report."
+    },
+    {
+      "name": "Norris, Boller and Voss, FPL Report 1810-A",
+      "url": "https://ir.library.oregonstate.edu/downloads/2f75rc704",
+      "note": "Honeycomb supplement. Cell size influences the length of the waves into which the facings wrinkle. Report 1810's waves had amplitude proportional to core thickness."
+    }
+  ]
+}

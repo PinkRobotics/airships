@@ -1,0 +1,19 @@
+{
+  "unit": "robotics-p3-check-public-floatplants-public-shard1-1010",
+  "lane": "p3",
+  "rc": 1,
+  "systemd_result": "timeout",
+  "class": "CONTROL-STOP",
+  "argv": [
+    "ref-d9af09a16f3a81bf2ded",
+    "PATH=unpublished-local-ref:e456d84f4b6c63e1",
+    "TMPDIR=unpublished-local-ref:1ffe4110219d37c0",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "FLOAT_PLANT_WORKERS=1",
+    "FLOAT_PLANT_TIMEOUT=600",
+    "FLOAT_PLANT_SHARD=1/4",
+    "make",
+    "floatplantshard"
+  ],
+  "max_sec": 600
+}

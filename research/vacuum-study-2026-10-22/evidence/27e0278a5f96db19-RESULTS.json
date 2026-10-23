@@ -1,0 +1,1936 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline060-check-1020",
+  "order": "ord-admiral-rr2-check060-opus-6ea7-1020",
+  "card_report": "rpt-ref-93808d41af02a0580060",
+  "owner": "ref-4189c1615990eb515921",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "owner_code_read_or_run": false,
+  "measured_times": {
+    "order_at_local": "2026-10-20T07:51:37-07:00",
+    "first_working_line_local": "2026-10-20T07:55:49-07:00",
+    "results_built_local": "2026-10-20T08:13:26-07:00",
+    "note": "measurements, not a budget"
+  },
+  "summary": {
+    "rows": 237,
+    "confirmed": 216,
+    "mismatch": 19
+  },
+  "comparisons": [
+    {
+      "section": "sources",
+      "field": "K13D2U UD Xc / Ec",
+      "card": "340 MPa / 560 GPa",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "DIALEAD brochure p2, 2K/6K table, 350F epoxy, Vf60"
+    },
+    {
+      "section": "sources",
+      "field": "K13C2U, K13C6U",
+      "card": "380/560, 340/550 (K13C6U 250F epoxy)",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "DIALEAD brochure p2"
+    },
+    {
+      "section": "sources",
+      "field": "K1352U, K1392U",
+      "card": "450/250, 400/420",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "DIALEAD brochure p2"
+    },
+    {
+      "section": "sources",
+      "field": "K13312, K63712, K13916, K63A12",
+      "card": "540/160, 440/330, 360/430, 380/470",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "DIALEAD brochure p2, 12K/16K, 250F"
+    },
+    {
+      "section": "sources",
+      "field": "YS-80A, YS-90A, YS-95A",
+      "card": "380/460, 360/520, 340/540 (typical, not guaranteed)",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "GRANOC YS-A sheet p2"
+    },
+    {
+      "section": "sources",
+      "field": "Montagnier and Hochard K63712",
+      "card": "374 MPa (CV 5.1 %, n 6), Ec 367 GPa, strain 0.10 % (CV 13.6 %); maker 440 MPa (D695)",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "2005 paper, Table 1"
+    },
+    {
+      "section": "sources",
+      "field": "M55J composite compression",
+      "card": "890 MPa (SACMA SRM 1R-94)",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "Toray CMA M55J sheet"
+    },
+    {
+      "section": "sources",
+      "field": "NCAMP 0CLC RTA normalized",
+      "card": "189.2 ksi, CV 5.198, mod CV 6.599, B-basis (mod CV) 164.5, n 18, 3 batches",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "NCP-RP-2024-009 Table 4-38 (Tenax DRWF IM UD, not UHM)"
+    },
+    {
+      "section": "sources",
+      "field": "CMH-17 statement",
+      "card": "'Composite materials are expected to have a CV of at least 6%'",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "NCAMP report sec. on modified CV"
+    },
+    {
+      "section": "sources",
+      "field": "Nippon Steel TR 134",
+      "card": "XN-15 1150 MPa ratio 0.79; PAN 230 GPa 1400 MPa ratio 0.50",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "Table 2"
+    },
+    {
+      "section": "sources",
+      "field": "Kim et al. 2010 FTE",
+      "card": "8 plies 1.59 mm: 50.8 mm ice 254-263 J (93-94 m/s); 16 plies 453-458; 24 plies 666-768",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "FAA JAMS paper Table 8; 'linear dependence' text"
+    },
+    {
+      "section": "sources",
+      "field": "Matejak 2012",
+      "card": "hail density 810-920 kg/m3",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "READ 2012 paper"
+    },
+    {
+      "section": "sources",
+      "field": "Haag after Greenfeld 1969",
+      "card": "5.1 cm, 32.0 m/s, 29.80 J",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "Table 1"
+    },
+    {
+      "section": "sources",
+      "field": "Messinger 2010 44K strut",
+      "card": "body 13.31, insert 1.20, ball 1.50, total 16.01 lb",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "Fig. 2.3-1"
+    },
+    {
+      "section": "sources",
+      "field": "Wu et al. 2010 NG-2",
+      "card": "collapse at -121.7 klb (NG-1 stopped -119.3)",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "slides, compression tests"
+    },
+    {
+      "section": "sources",
+      "field": "Pernas-Sanchez 2016",
+      "card": "4 mm, 50 mm ice: ~153 m/s (667 J), the abrupt delamination transition; KEc = 85e6 Af t",
+      "mine": "matches the primary document",
+      "verdict": "confirmed",
+      "note": "IJIE Table 3, Eq. 1"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 0 deg ply ratio",
+      "card": 1.787,
+      "mine": 1.7875,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 laminate mean GPa",
+      "card": 0.19,
+      "mine": 0.1902,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 witness tubes kg",
+      "card": 3610,
+      "mine": 3610.3,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 peak at q1 GPa",
+      "card": 0.695,
+      "mine": 0.6951,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.6987"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 mean SF",
+      "card": 0.274,
+      "mine": 0.2736,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 wall for mean",
+      "card": 3.65,
+      "mine": 3.654,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 wall Pf 1e-3 CV 5.2 %",
+      "card": 6.21,
+      "mine": 6.15,
+      "verdict": "mismatch (conservative)",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 wall Pf 1e-3 CV 6 %",
+      "card": 6.69,
+      "mine": 6.692,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 6.727"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 wall size-scaled CV 6 %",
+      "card": 11.9,
+      "mine": 11.896,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-50-20-20-10 Pf at witness CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 0 deg ply ratio",
+      "card": 1.355,
+      "mine": 1.3551,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 laminate mean GPa",
+      "card": 0.251,
+      "mine": 0.2509,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 witness tubes kg",
+      "card": 4267,
+      "mine": 4267.1,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 peak at q1 GPa",
+      "card": 0.584,
+      "mine": 0.5839,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.5883"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 mean SF",
+      "card": 0.43,
+      "mine": 0.4297,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 wall for mean",
+      "card": 2.33,
+      "mine": 2.327,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 wall Pf 1e-3 CV 5.2 %",
+      "card": 3.96,
+      "mine": 3.917,
+      "verdict": "mismatch (conservative)",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 wall Pf 1e-3 CV 6 %",
+      "card": 4.26,
+      "mine": 4.262,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 4.295"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 wall size-scaled CV 6 %",
+      "card": 7.46,
+      "mine": 7.464,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-70-10-10-10 Pf at witness CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD 0 deg ply ratio",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD laminate mean GPa",
+      "card": 0.34,
+      "mine": 0.34,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD witness tubes kg",
+      "card": 8689,
+      "mine": 8689.1,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD peak at q1 GPa",
+      "card": 0.285,
+      "mine": 0.285,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.2876"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD mean SF",
+      "card": 1.193,
+      "mine": 1.1929,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD wall for mean",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD wall Pf 1e-3 CV 5.2 %",
+      "card": 1.43,
+      "mine": 1.412,
+      "verdict": "mismatch (conservative)",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD wall Pf 1e-3 CV 6 %",
+      "card": 1.54,
+      "mine": 1.536,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 1.550"
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD wall size-scaled CV 6 %",
+      "card": 2.65,
+      "mine": 2.647,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "K13D2U-UD Pf at witness CV 6 %",
+      "card": 0.995,
+      "mine": 0.995,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 0.998"
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 0 deg ply ratio",
+      "card": 1.774,
+      "mine": 1.7742,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 laminate mean GPa",
+      "card": 0.502,
+      "mine": 0.5016,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 witness tubes kg",
+      "card": 4704,
+      "mine": 4703.5,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 peak at q1 GPa",
+      "card": 0.484,
+      "mine": 0.4839,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.4864"
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 mean SF",
+      "card": 1.037,
+      "mine": 1.0366,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 wall for mean",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 wall Pf 1e-3 CV 5.2 %",
+      "card": 1.64,
+      "mine": 1.622,
+      "verdict": "mismatch (conservative)",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 wall Pf 1e-3 CV 6 %",
+      "card": 1.76,
+      "mine": 1.765,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 1.774"
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 wall size-scaled CV 6 %",
+      "card": 2.98,
+      "mine": 2.982,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-50-20-20-10 Pf at witness CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1"
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 0 deg ply ratio",
+      "card": 1.352,
+      "mine": 1.3518,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 laminate mean GPa",
+      "card": 0.658,
+      "mine": 0.6584,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 witness tubes kg",
+      "card": 4775,
+      "mine": 4775.2,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 peak at q1 GPa",
+      "card": 0.474,
+      "mine": 0.4736,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.4773"
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 mean SF",
+      "card": 1.39,
+      "mine": 1.3902,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 wall for mean",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 wall Pf 1e-3 CV 5.2 %",
+      "card": 1.22,
+      "mine": 1.209,
+      "verdict": "confirmed",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 wall Pf 1e-3 CV 6 %",
+      "card": 1.32,
+      "mine": 1.316,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 1.326"
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 wall size-scaled CV 6 %",
+      "card": 2.19,
+      "mine": 2.191,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-70-10-10-10 Pf at witness CV 6 %",
+      "card": 0.216,
+      "mine": 0.216,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 0.247"
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD 0 deg ply ratio",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD laminate mean GPa",
+      "card": 0.89,
+      "mine": 0.89,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD witness tubes kg",
+      "card": 8725,
+      "mine": 8725.3,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD peak at q1 GPa",
+      "card": 0.257,
+      "mine": 0.257,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.2593"
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD mean SF",
+      "card": 3.463,
+      "mine": 3.4631,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD wall for mean",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD wall Pf 1e-3 CV 5.2 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD wall Pf 1e-3 CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 1.000"
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD wall size-scaled CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "M55J-UD Pf at witness CV 6 %",
+      "card": 2.94e-09,
+      "mine": 2.94e-09,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 3.51e-09"
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 0 deg ply ratio",
+      "card": 1.7,
+      "mine": 1.7004,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 laminate mean GPa",
+      "card": 0.853,
+      "mine": 0.8527,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 witness tubes kg",
+      "card": 11024,
+      "mine": 11024.4,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 peak at q1 GPa",
+      "card": 0.199,
+      "mine": 0.1987,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.1996"
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 mean SF",
+      "card": 4.292,
+      "mine": 4.292,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 wall for mean",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 wall Pf 1e-3 CV 5.2 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 wall Pf 1e-3 CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 1.000"
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 wall size-scaled CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-50-20-20-10 Pf at witness CV 6 %",
+      "card": 3.9e-11,
+      "mine": 3.9e-11,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 4.26e-11"
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 0 deg ply ratio",
+      "card": 1.329,
+      "mine": 1.3291,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 laminate mean GPa",
+      "card": 1.091,
+      "mine": 1.091,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 witness tubes kg",
+      "card": 8876,
+      "mine": 8876.1,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 peak at q1 GPa",
+      "card": 0.246,
+      "mine": 0.2463,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.2481"
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 mean SF",
+      "card": 4.43,
+      "mine": 4.4298,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 wall for mean",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 wall Pf 1e-3 CV 5.2 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 wall Pf 1e-3 CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 1.000"
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 wall size-scaled CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-70-10-10-10 Pf at witness CV 6 %",
+      "card": 2.03e-11,
+      "mine": 2.03e-11,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 2.34e-11"
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD 0 deg ply ratio",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "my CLT from 051's ply constants"
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD laminate mean GPa",
+      "card": 1.45,
+      "mine": 1.45,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD witness tubes kg",
+      "card": 8849,
+      "mine": 8848.9,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD peak at q1 GPa",
+      "card": 0.245,
+      "mine": 0.2455,
+      "verdict": "confirmed",
+      "note": "051 comparison geometry; 051 fresh FE gives 0.2477"
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD mean SF",
+      "card": 5.906,
+      "mine": 5.9065,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD wall for mean",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD wall Pf 1e-3 CV 5.2 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "k(23.1) as ln S linear in m between 051's m 20 and 30, an upper bound on k"
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD wall Pf 1e-3 CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": "with 051's FE-normalized k on the FE peak: 1.000"
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD wall size-scaled CV 6 %",
+      "card": 1.0,
+      "mine": 1.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "T700S-UD Pf at witness CV 6 %",
+      "card": 6.51e-14,
+      "mine": 6.51e-14,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 7.77e-14"
+    },
+    {
+      "section": "1",
+      "field": "first-ply mean GPa",
+      "card": 0.19,
+      "mine": 0.1902,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "scale m10 GPa",
+      "card": 0.2,
+      "mine": 0.1999,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "scale m20 GPa",
+      "card": 0.195,
+      "mine": 0.1954,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "x below 2.16",
+      "card": 11.4,
+      "mine": 11.3558,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "x below in scale m10",
+      "card": 10.8,
+      "mine": 10.8034,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "1",
+      "field": "ply strength for 2.16 at m10 GPa",
+      "card": 3.68,
+      "mine": 3.6731,
+      "verdict": "confirmed",
+      "note": "3.67 with 2.16; 3.68 with 051's 2.161413"
+    },
+    {
+      "section": "1",
+      "field": "mean SF at stiffness wall",
+      "card": 0.274,
+      "mine": 0.2736,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "SiC R10 payload kg (ground)",
+      "card": 31,
+      "mine": 30.9,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "SiC R12 payload kg (ground)",
+      "card": 232,
+      "mine": 231.6,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "SiC R15 payload kg (ground)",
+      "card": 727,
+      "mine": 727.2,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "SiC R20 payload kg (ground)",
+      "card": 2234,
+      "mine": 2234.5,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "SiC R30 payload kg (ground)",
+      "card": 8896,
+      "mine": 8895.6,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:stiffness R10 payload kg (ground)",
+      "card": 619,
+      "mine": 618.6,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:stiffness R12 payload kg (ground)",
+      "card": 1247,
+      "mine": 1247.2,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:stiffness R15 payload kg (ground)",
+      "card": 2711,
+      "mine": 2710.9,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:stiffness R20 payload kg (ground)",
+      "card": 6937,
+      "mine": 6936.6,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:stiffness R30 payload kg (ground)",
+      "card": 24765,
+      "mine": 24765.3,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:mean R10 payload kg (ground)",
+      "card": -8923,
+      "mine": -8922.8,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:mean R12 payload kg (ground)",
+      "card": -15240,
+      "mine": -15240.3,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:mean R15 payload kg (ground)",
+      "card": -29491,
+      "mine": -29491.3,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:mean R20 payload kg (ground)",
+      "card": -69395,
+      "mine": -69394.5,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:mean R30 payload kg (ground)",
+      "card": -232852,
+      "mine": -232852.2,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:Pf_cv6 R10 payload kg (ground)",
+      "card": -19840,
+      "mine": -19840.3,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:Pf_cv6 R12 payload kg (ground)",
+      "card": -34106,
+      "mine": -34105.9,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:Pf_cv6 R15 payload kg (ground)",
+      "card": -66338,
+      "mine": -66338.1,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:Pf_cv6 R20 payload kg (ground)",
+      "card": -156735,
+      "mine": -156735.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10:Pf_cv6 R30 payload kg (ground)",
+      "card": -527627,
+      "mine": -527626.5,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-50-20-20-10:stiffness R10 payload kg (ground)",
+      "card": -470,
+      "mine": -469.9,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-50-20-20-10:stiffness R12 payload kg (ground)",
+      "card": -634,
+      "mine": -633.7,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-50-20-20-10:stiffness R15 payload kg (ground)",
+      "card": -963,
+      "mine": -962.8,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-50-20-20-10:stiffness R20 payload kg (ground)",
+      "card": -1771,
+      "mine": -1771.4,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-50-20-20-10:stiffness R30 payload kg (ground)",
+      "card": -4624,
+      "mine": -4624.1,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-70-10-10-10:Pf_cv6 R10 payload kg (ground)",
+      "card": -2044,
+      "mine": -2043.6,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-70-10-10-10:Pf_cv6 R12 payload kg (ground)",
+      "card": -3353,
+      "mine": -3353.2,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-70-10-10-10:Pf_cv6 R15 payload kg (ground)",
+      "card": -6274,
+      "mine": -6274.3,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-70-10-10-10:Pf_cv6 R20 payload kg (ground)",
+      "card": -14362,
+      "mine": -14361.5,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-70-10-10-10:Pf_cv6 R30 payload kg (ground)",
+      "card": -47116,
+      "mine": -47116.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-UD:Pf_size_cv6 R10 payload kg (ground)",
+      "card": -4474,
+      "mine": -4474.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-UD:Pf_size_cv6 R12 payload kg (ground)",
+      "card": -7553,
+      "mine": -7552.9,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-UD:Pf_size_cv6 R15 payload kg (ground)",
+      "card": -14477,
+      "mine": -14476.8,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-UD:Pf_size_cv6 R20 payload kg (ground)",
+      "card": -33805,
+      "mine": -33804.6,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-UD:Pf_size_cv6 R30 payload kg (ground)",
+      "card": -112736,
+      "mine": -112736.2,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "T700S-70-10-10-10:stiffness R10 payload kg (ground)",
+      "card": -4624,
+      "mine": -4624.2,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "T700S-70-10-10-10:stiffness R12 payload kg (ground)",
+      "card": -7812,
+      "mine": -7812.4,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "T700S-70-10-10-10:stiffness R15 payload kg (ground)",
+      "card": -14984,
+      "mine": -14983.6,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "T700S-70-10-10-10:stiffness R20 payload kg (ground)",
+      "card": -35006,
+      "mine": -35006.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "T700S-70-10-10-10:stiffness R30 payload kg (ground)",
+      "card": -116791,
+      "mine": -116791.0,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J 70/10/10/10 Pf R10 optimistic weather",
+      "card": -2175,
+      "mine": -2174.8,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J 70/10/10/10 Pf R10 baseline F/L/J axes",
+      "card": -2405,
+      "mine": -2404.8,
+      "verdict": "confirmed",
+      "note": "baseline axes from 052 mask 1; combined case with optimistic SiC tube basis"
+    },
+    {
+      "section": "2",
+      "field": "K13D2U 50/20 stiffness R10 optimistic + baseline axes + 7-day cavity",
+      "card": 258,
+      "mine": 257.9,
+      "verdict": "confirmed",
+      "note": "baseline axes from 052 mask 1; combined case with optimistic SiC tube basis"
+    },
+    {
+      "section": "2",
+      "field": "M55J 70/10/10/10 Pf R10/R30 with FE-normalized k",
+      "card": "-2,044 / -47,116",
+      "mine": "-2092 / -48427",
+      "verdict": "mismatch (non-conservative)",
+      "note": "051's GAPS k(m) is normalized to the fresh-FE peak; the card multiplies it by the 0.5-0.8 % lower comparison peak"
+    },
+    {
+      "section": "2",
+      "field": "float limit tube multiplier R10",
+      "card": 1.0074,
+      "mine": 1.0074,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "float limit tube multiplier R15",
+      "card": 1.0515,
+      "mine": 1.0515,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "float limit tube multiplier R30",
+      "card": 1.0788,
+      "mine": 1.0788,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-50-20-20-10 tube multiplier",
+      "card": 1.1197,
+      "mine": 1.1197,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "M55J-70-10-10-10 tube multiplier",
+      "card": 1.1368,
+      "mine": 1.1368,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "K13D2U-50-20-20-10 tube multiplier",
+      "card": 0.8595,
+      "mine": 0.8595,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "44K fitting share / per tube",
+      "card": "16.9 % / 0.203",
+      "mine": "16.86 % / 0.2029",
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "2",
+      "field": "light frame with 44K fittings R10 / R30 kg",
+      "card": "-76 / +6,005",
+      "mine": "-76 / 6005",
+      "verdict": "confirmed",
+      "note": "fittings replace 052's sleeves; floats from R12 (+47 kg)"
+    },
+    {
+      "section": "2",
+      "field": "member load at q1",
+      "card": "775 kN (174 klb), 1.43x NG-2",
+      "mine": "axial 701.4 kN (157.7 klb), 1.30x NG-2",
+      "verdict": "mismatch",
+      "note": "775 kN is the peak combined stress x area (774.7 kN), not the member axial force"
+    },
+    {
+      "section": "2",
+      "field": "dry cavity increments R10 kg (1 / 7 day)",
+      "card": "card table",
+      "mine": "0.152 / 29.747",
+      "verdict": "confirmed",
+      "note": "054 rows R10-15; R20/30 my a + bR^2 fit"
+    },
+    {
+      "section": "2",
+      "field": "dry cavity increments R12 kg (1 / 7 day)",
+      "card": "card table",
+      "mine": "0.219 / 40.627",
+      "verdict": "confirmed",
+      "note": "054 rows R10-15; R20/30 my a + bR^2 fit"
+    },
+    {
+      "section": "2",
+      "field": "dry cavity increments R15 kg (1 / 7 day)",
+      "card": "card table",
+      "mine": "0.342 / 61.165",
+      "verdict": "confirmed",
+      "note": "054 rows R10-15; R20/30 my a + bR^2 fit"
+    },
+    {
+      "section": "2",
+      "field": "dry cavity increments R20 kg (1 / 7 day)",
+      "card": "card table",
+      "mine": "0.609 / 105.149",
+      "verdict": "confirmed",
+      "note": "054 rows R10-15; R20/30 my a + bR^2 fit"
+    },
+    {
+      "section": "2",
+      "field": "dry cavity increments R30 kg (1 / 7 day)",
+      "card": "card table",
+      "mine": "1.369 / 230.820",
+      "verdict": "confirmed",
+      "note": "054 rows R10-15; R20/30 my a + bR^2 fit"
+    },
+    {
+      "section": "4",
+      "field": "R10:ground payload",
+      "card": 619,
+      "mine": 618.6288,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground max wall",
+      "card": 1.172,
+      "mine": 1.1721,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground laminate mean",
+      "card": 0.593,
+      "mine": 0.5931,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground UD at mean",
+      "card": 1.06,
+      "mine": 1.0601,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground UD Pf CV5.2",
+      "card": 1.8,
+      "mine": 1.784,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground UD Pf CV6",
+      "card": 1.94,
+      "mine": 1.9411,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground UD size CV5.2",
+      "card": 2.68,
+      "mine": 2.6567,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground UD size CV6",
+      "card": 3.07,
+      "mine": 3.0733,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:ground scale m20",
+      "card": 1.116,
+      "mine": 1.1155,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1.1213"
+    },
+    {
+      "section": "4",
+      "field": "R10:seven payload",
+      "card": 589,
+      "mine": 588.8817,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven max wall",
+      "card": 1.164,
+      "mine": 1.1638,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven laminate mean",
+      "card": 0.597,
+      "mine": 0.5973,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven UD at mean",
+      "card": 1.068,
+      "mine": 1.0676,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven UD Pf CV5.2",
+      "card": 1.82,
+      "mine": 1.7967,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven UD Pf CV6",
+      "card": 1.95,
+      "mine": 1.9549,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven UD size CV5.2",
+      "card": 2.7,
+      "mine": 2.6747,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven UD size CV6",
+      "card": 3.09,
+      "mine": 3.0941,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R10:seven scale m20",
+      "card": 1.123,
+      "mine": 1.1234,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1.1293"
+    },
+    {
+      "section": "4",
+      "field": "R12:ground payload",
+      "card": 1247,
+      "mine": 1247.2174,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground max wall",
+      "card": 1.201,
+      "mine": 1.2008,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground laminate mean",
+      "card": 0.579,
+      "mine": 0.5789,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground UD at mean",
+      "card": 1.035,
+      "mine": 1.0347,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground UD Pf CV5.2",
+      "card": 1.76,
+      "mine": 1.7414,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground UD Pf CV6",
+      "card": 1.89,
+      "mine": 1.8947,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground UD size CV5.2",
+      "card": 2.62,
+      "mine": 2.5959,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground UD size CV6",
+      "card": 3.0,
+      "mine": 3.0035,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R12:ground scale m20",
+      "card": 1.089,
+      "mine": 1.0889,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1.0945"
+    },
+    {
+      "section": "4",
+      "field": "R15:ground payload",
+      "card": 2711,
+      "mine": 2710.9103,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground max wall",
+      "card": 1.223,
+      "mine": 1.2235,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground laminate mean",
+      "card": 0.568,
+      "mine": 0.5682,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground UD at mean",
+      "card": 1.016,
+      "mine": 1.0156,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground UD Pf CV5.2",
+      "card": 1.73,
+      "mine": 1.7091,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground UD Pf CV6",
+      "card": 1.86,
+      "mine": 1.8596,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground UD size CV5.2",
+      "card": 2.58,
+      "mine": 2.5499,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground UD size CV6",
+      "card": 2.95,
+      "mine": 2.9506,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R15:ground scale m20",
+      "card": 1.069,
+      "mine": 1.0687,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1.0743"
+    },
+    {
+      "section": "4",
+      "field": "R20:ground payload",
+      "card": 6937,
+      "mine": 6936.6205,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground max wall",
+      "card": 1.241,
+      "mine": 1.2412,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground laminate mean",
+      "card": 0.56,
+      "mine": 0.56,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground UD at mean",
+      "card": 1.001,
+      "mine": 1.001,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground UD Pf CV5.2",
+      "card": 1.7,
+      "mine": 1.6847,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground UD Pf CV6",
+      "card": 1.83,
+      "mine": 1.833,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground UD size CV5.2",
+      "card": 2.54,
+      "mine": 2.515,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground UD size CV6",
+      "card": 2.91,
+      "mine": 2.9105,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R20:ground scale m20",
+      "card": 1.053,
+      "mine": 1.0534,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1.0589"
+    },
+    {
+      "section": "4",
+      "field": "R30:ground payload",
+      "card": 24765,
+      "mine": 24765.3319,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground max wall",
+      "card": 1.255,
+      "mine": 1.2552,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground laminate mean",
+      "card": 0.554,
+      "mine": 0.5538,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground UD at mean",
+      "card": 0.99,
+      "mine": 0.9899,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground UD Pf CV5.2",
+      "card": 1.68,
+      "mine": 1.6659,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground UD Pf CV6",
+      "card": 1.81,
+      "mine": 1.8127,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground UD size CV5.2",
+      "card": 2.51,
+      "mine": 2.4882,
+      "verdict": "mismatch (conservative)",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground UD size CV6",
+      "card": 2.88,
+      "mine": 2.8797,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "4",
+      "field": "R30:ground scale m20",
+      "card": 1.042,
+      "mine": 1.0417,
+      "verdict": "confirmed",
+      "note": "FE-normalized: 1.0471"
+    },
+    {
+      "section": "3",
+      "field": "design strike energy J (810-920 kg/m3)",
+      "card": "28.5-32.3",
+      "mine": "28.47-32.33",
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "254 J over design energy",
+      "card": 7.9,
+      "mine": 7.86,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "FTE fit J",
+      "card": "39 + 134 t",
+      "mine": "38.9 + 134.2 t",
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "FTE at 1.45 mm J",
+      "card": 233,
+      "mine": 233.5,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "x design at 1.45 mm",
+      "card": 7.3,
+      "mine": "7.22-7.38",
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "Pernas-Sanchez scaling at 1.45 mm J (independent)",
+      "card": "not in card",
+      "mine": 249.8,
+      "verdict": "supports",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "strike stress K13D2U 50/20 MPa",
+      "card": 159,
+      "mine": 158.96,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "strike stress M55J 50/20 MPa",
+      "card": 100,
+      "mine": 98.88,
+      "verdict": "mismatch (rounding)",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "M55J 50/20 strength left MPa",
+      "card": 18,
+      "mine": 17.71,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "strike / left",
+      "card": 5.6,
+      "mine": 5.58,
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "M55J 70/10 Pf wall: strike share of left",
+      "card": "28 % of 299 MPa",
+      "mine": "28.0 % of 298.5",
+      "verdict": "confirmed",
+      "note": ""
+    },
+    {
+      "section": "3",
+      "field": "Weibull m from CV 6 % / 5.2 %",
+      "card": "20 / 23.1 (m = 1.2/CV)",
+      "mine": "20.68 / 23.96 (exact Weibull)",
+      "verdict": "note (conservative)",
+      "note": "exact m lowers the Pf walls about 2 %: K13D2U 50/20 x6.55 vs x6.69, M55J 70/10 x1.289 vs x1.316"
+    }
+  ],
+  "objections": [
+    {
+      "id": "O1-15PCT",
+      "claim": "card: 'the one independent measurement sits 15% below its data sheet'",
+      "finding": "Montagnier and Hochard report 374 MPa against 440 MPa (-15.0 %) but attribute it to the fixture: 'the failure stresses are underestimated in comparison with the manufacturer's experimental data' and 'The Celanese pure compression test leads to premature ruptures in high-modulus carbon fibers'. Their pure-bending tests reached about 60 % higher failure strain. It is not independent evidence that data sheets overstate compression. The card sizes on the 340 MPa sheet value, so no number changes."
+    },
+    {
+      "id": "O2-FITTING-SHARE",
+      "claim": "card: titanium fittings at the sourced Boeing 44K share (16.9 %, 0.203x tube) delay floating to R12",
+      "finding": "Messinger's same table gives the 110K strut 3.56 + 5.40 of 32.24 lb, 27.8 % (0.385x tube), nearer these members' 158 klb axial load. With it the strength-ignored K13D2U 50/20/20/10 frame never floats: R10 -730 kg, R30 -11,661 kg."
+    },
+    {
+      "id": "O3-E2",
+      "claim": "051's K13D2U ply E2 = 8 GPa (assumed)",
+      "finding": "DIALEAD gives a 5.0 GPa transverse modulus; the 0 deg ply ratio becomes 1.7903 and the first-ply mean 0.1899 GPa (0.15 % lower). Negligible."
+    }
+  ],
+  "full_computation": "RESULTS-CHECK.json"
+}

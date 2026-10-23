@@ -1,0 +1,52 @@
+{
+  "id": "rpt-ref-68dff0680696fe9b4cb4",
+  "unit": "vacuum-mainline028-check-1020",
+  "at": "2026-10-20T01:31:19-07:00",
+  "body": "CHECK MAINLINE-028. The 0.015 lb/ft² film, the 30:1 scarf and the re-optimised factor match. One unstated screen moves the legacy re-optimisation and does not stop the card.\n\nAF 163-2U at 0.015 lb/ft² is 0.07323641454574575 kg/m². The datasheet column (± .005) lb/ft² puts both lines at 122.71 to 245.42 kg. Flatwise strength is not reported at this weight. Reticulation is not a solid-fraction discount.\n\nStock scarf length is 2847.462 m. Adhesive 0.003544449 kg/m, splice 0.005053344 kg/m, seal 0.002 kg/m. Seams 30.176812 kg. Film plus seams 214.2400 kg, leaving 2.187 kg of 216.427 kg. Shear 9.421 MPa, normal 0.314 MPa. The owner-selected 10 MPa screen gives factor 1.061 and is not a qualified allowable.\n\nRe-optimised stock least factor 1.000640757. Global buckling and face wrinkling tie; the owner labels wrinkling. Six baseline modes match. Other stated routes match, including 8 g/m² plus electron beam at 39.49 and 24.54 kg, factors 1.04375 and 1.04747, and 80 percent weld retention at 0.853 and 0.856. Qualified lightest mass and overall hull factor remain unknown. Materials QUESTIONABLE. Joints PROJECTION.\n\nMISMATCH. Legacy 020 fixed mass matches: stock 1022.44 kg, 4 m 517.70 kg. METHOD.md states no 0.9 face screen. Without it, stock factor 0.792549 against stored 0.750851, and 4 m 0.914222 against 0.844536. Joining mass and core fraction move with that search. The 0.305 m, 1 m and 2 m panels do the same. Fifteen fields are in NFI-028-LEGACY-09. The 0.9 screen recovers the stored factors. No next job.",
+  "artifacts": [
+    {
+      "path": "evidence/c69e1ebd7afc33be-CARD.md",
+      "sha256": "c69e1ebd7afc33be809e0553323cd38ed92e5a6c9540564247593009861accf8",
+      "bytes": 1255,
+      "observed_sha256": "c69e1ebd7afc33be809e0553323cd38ed92e5a6c9540564247593009861accf8",
+      "observed_bytes": 1255,
+      "matches": true,
+      "snapshot": "evidence/c69e1ebd7afc33be-CARD.md"
+    },
+    {
+      "path": "evidence/f8a5a93d1b07a9d6-RESULTS.json",
+      "sha256": "f8a5a93d1b07a9d6371d1f1c237fa30a5616b4313c1c646d42ede9583382e0fb",
+      "bytes": 11478,
+      "observed_sha256": "f8a5a93d1b07a9d6371d1f1c237fa30a5616b4313c1c646d42ede9583382e0fb",
+      "observed_bytes": 11478,
+      "matches": true,
+      "snapshot": "evidence/f8a5a93d1b07a9d6-RESULTS.json"
+    },
+    {
+      "path": "evidence/43ed944cb7138cf7-NFI.json",
+      "sha256": "43ed944cb7138cf79d5dcdfd0bf8b972e5268c8e499716421933354116da697f",
+      "bytes": 4198,
+      "observed_sha256": "43ed944cb7138cf79d5dcdfd0bf8b972e5268c8e499716421933354116da697f",
+      "observed_bytes": 4198,
+      "matches": true,
+      "snapshot": "evidence/43ed944cb7138cf7-NFI.json"
+    },
+    {
+      "path": "evidence/efd059d02fc1ffcd-INPUTS.json",
+      "sha256": "efd059d02fc1ffcdb8a0cfb628a9959abdbc5e783f0459a3d020c2a1dba9e1cf",
+      "bytes": 3216,
+      "observed_sha256": "efd059d02fc1ffcdb8a0cfb628a9959abdbc5e783f0459a3d020c2a1dba9e1cf",
+      "observed_bytes": 3216,
+      "matches": true,
+      "snapshot": "evidence/efd059d02fc1ffcd-INPUTS.json"
+    },
+    {
+      "path": "evidence/7d582369af5e05bb-check028.py",
+      "sha256": "7d582369af5e05bbb261317cf45829636c2e89ffdb123baf27a8bb180957c94f",
+      "bytes": 18619,
+      "observed_sha256": "7d582369af5e05bbb261317cf45829636c2e89ffdb123baf27a8bb180957c94f",
+      "observed_bytes": 18619,
+      "matches": true
+    }
+  ]
+}

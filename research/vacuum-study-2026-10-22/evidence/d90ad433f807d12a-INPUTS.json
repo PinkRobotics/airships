@@ -1,0 +1,902 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline024-check-1020",
+  "started_at": "2026-10-20T01:03:10-07:00",
+  "frame": {
+    "constants": {
+      "R_m": 10.0,
+      "p_ext_Pa": 95460.8379139,
+      "lift_mass_kg": 4889.44215019,
+      "film_kg": 97.515,
+      "node_kg": 0.02,
+      "systems_kg": 50.0,
+      "sigma_film_Pa": 1500000000.0,
+      "t_film_m": 8e-05,
+      "rho_film": 970.0,
+      "C_local": 0.6,
+      "joint_frac": 0.05,
+      "C_two_way": 4.0,
+      "C_triangular": 4.898979485566356,
+      "s_grid": "0.40 to 3.00 step 0.02",
+      "n_ro": 4000
+    },
+    "material": {
+      "rho": 3100.0,
+      "E_Pa": 410000000000.0,
+      "sigma_Pa": 3900000000.0,
+      "questionable": true
+    },
+    "model": {
+      "members": "spherical arcs of the 011 equilateral grid; length used in mass, Euler and Perry is the spacing s",
+      "arch": "w = p*s/2, N = w*R, sigma = N/A",
+      "straight_chord": "reported at each optimum and at the rounded brief point; not inside the minimiser",
+      "perry": "a0 = s/1000, eta = a0*r_o/rg^2, Perry-Robertson sigma_cr, SF = sigma_cr/sigma_axial(at p_ext)",
+      "global_two_way": "p = k*4*E*sqrt(I*A)/(s*R^2), from K=E*A/s and D=E*I/s",
+      "global_triangular": "Et=(2/sqrt(3))*E*A/s, D=(3*sqrt(3)/4)*E*I/s, nu=1/3, p=k*4*sqrt(D*Et)/R^2 = k*4*sqrt(3/2)*E*sqrt(I*A)/(s*R^2)",
+      "design_k": 0.2,
+      "wright_k": 0.4,
+      "band_ceiling_k": 0.5,
+      "perfect_k": 1.0,
+      "joints": "m_joint = 0.05*m_tube, m_tube = (L-film-nodes-systems)/1.05",
+      "nodes": "V=8*pi*R^2/(sqrt(3)*s^2)+2, 0.02 kg each",
+      "band": "s<=3 m, r_o<=s/3, r_o<=0.25 m, 4000 radii, same materials as 011",
+      "scored_grid": "equilateral_triangular"
+    },
+    "tag": "QUESTIONABLE",
+    "source": "Pinned MAINLINE-011b non-code INPUTS/CARD/RESULTS; independent checker equations."
+  },
+  "film_bay_m": 2.04,
+  "materials": [
+    {
+      "key": "kapton_hn",
+      "form": "biaxial_film",
+      "ultimate_Pa": 231000000.0,
+      "knockdown": 0.5,
+      "modulus_Pa": 2760000000.0,
+      "density_kg_m3": 1420,
+      "source": "DuPont Kapton HN Table 1, 2019, pinned PDF p2; 12.7-125 um gauges. Half-ultimate is an assumption.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "key": "teonex_q51",
+      "form": "biaxial_film",
+      "ultimate_Pa": 210000000.0,
+      "knockdown": 0.5,
+      "modulus_Pa": 6080000000.0,
+      "density_kg_m3": 1360,
+      "source": "Teonex Q51 thick-film table: 250 um, MD/TD 210 MPa; IEC 25 um sheet E=6080 MPa and rho=1.36. Half-ultimate and gauge transfer assumed.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "key": "zylon_hm_crossply",
+      "form": "filament_crossply",
+      "ultimate_Pa": 5800000000.0,
+      "knockdown": 0.6,
+      "modulus_Pa": 270000000000.0,
+      "density_kg_m3": 1560,
+      "source": "Toyobo Zylon technical data 2023.4: HM properties; creep rupture extrapolation 60 percent of break to 1e7 minutes (~19 years). Crossply/resin-free transfer assumed.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "key": "vectran_ht_crossply",
+      "form": "filament_crossply",
+      "ultimate_Pa": 3200000000.0,
+      "knockdown": 0.5,
+      "modulus_Pa": 75000000000.0,
+      "density_kg_m3": 1400,
+      "source": "Minifibers Vectran HT sheet: 3.2 GPa, 75 GPa, density 1.40-1.41 g/cc; lower density endpoint used. Half-ultimate assumed.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "key": "dyneema_dm20_crossply",
+      "form": "filament_crossply",
+      "ultimate_Pa": 3100000000.0,
+      "knockdown": 0.2,
+      "modulus_Pa": 94000000000.0,
+      "density_kg_m3": 968.75,
+      "tenacity_cN_dtex": 32,
+      "source": "FibrXL Dyneema PDS 2020 DM20 1760 dtex row: 32 cN/dtex, 3.1 GPa, 94 GPa. DSM CIS YA104: 200/1000 kN rope, 16 C, indicative 250 years.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "key": "dyneema_sk78_crossply",
+      "form": "filament_crossply",
+      "ultimate_Pa": 3400000000.0,
+      "knockdown": 0.2,
+      "modulus_Pa": 113000000000.0,
+      "density_kg_m3": 968.6609686609687,
+      "tenacity_cN_dtex": 35.1,
+      "source": "FibrXL Dyneema PDS 2020 SK78 1760 dtex row: 35.1 cN/dtex, 3.4 GPa, 113 GPa. DSM CIS YA104: 200/1000 kN rope, 16 C, indicative 15 years, 0.5 percent/year.",
+      "tag": "QUESTIONABLE"
+    }
+  ],
+  "gas_constants": {
+    "area_m2": 1256.6370614359173,
+    "x_O2": 0.20946,
+    "x_N2": 0.78084,
+    "M_O2_kg_mol": 0.031998,
+    "M_N2_kg_mol": 0.028014,
+    "Vm_STP_cm3_mol": 22414.0,
+    "atm_Pa": 101325.0,
+    "cmHg_per_atm": 76.0,
+    "seconds_per_day": 86400,
+    "tag": "QUESTIONABLE",
+    "note": "Dry-air fractions and STP volume convention are inherited conversion assumptions; no hull RH specified.",
+    "molar_mass_basis": "Twice conventional abridged atomic weights O=15.999 and N=14.007 g/mol; rounded STP volume 22.414 L/mol."
+  },
+  "barrier_inputs": {
+    "kapton": {
+      "reference_thickness_m": 2.5e-05,
+      "O2_ml_m2_day_MPa": 3800,
+      "N2_ml_m2_day_MPa": 910,
+      "water_g_m2_day": 54,
+      "tag": "QUESTIONABLE",
+      "source": "DuPont Kapton Summary Table 10 (25 um): gas ASTM D1434, shared 23 C/50% RH heading; water ASTM E96 with no separately specified humidity differential."
+    },
+    "pen": {
+      "reference_thickness_m": 2.5e-05,
+      "O2_cc_cm_cm2_s_cmHg": 8e-13,
+      "water_g_m2_day": 6.7,
+      "tag": "QUESTIONABLE",
+      "source": "Teonex Q51 IEC 25 um sheet chemical table, ASTM D1434-63 and JIS Z0208; water RH not printed"
+    },
+    "mylar": {
+      "thickness_m": 1.2e-05,
+      "O2_cc_m2_day_plain": 140,
+      "O2_cc_m2_day_metal": 0.5,
+      "water_g_m2_day_plain": 40,
+      "water_g_m2_day_metal_upper": 1,
+      "tag": "QUESTIONABLE",
+      "source": "DuPont Teijin 2001 flexible packaging film table: O2 100% oxygen 25 C/45% RH, water 38 C/90% RH. Oxygen pressure taken as one atmosphere; metal water value is <1."
+    },
+    "ald": {
+      "thickness_m": 2.6e-08,
+      "O2_cc_m2_day_upper": 0.005,
+      "water_g_m2_day": 0.001,
+      "tag": "PROJECTION",
+      "source": "Groner et al. 2006 DOI 10.1063/1.2168489 and 2005 SVC paper. O2 instrument bound <.005, water approximate .001; one plotted average .0011. Coupon properties; oxygen upper left at full reported test load."
+    }
+  },
+  "pump_inherited": {
+    "ceiling_Pa": 1000.0,
+    "vdot_m3_s": 0.046280720230841114,
+    "W_ideal": 210.98066393532739,
+    "W_real_band_W": [
+      843.9226557413095,
+      527.4516598383184
+    ],
+    "mass_band_kg": [
+      150.0,
+      400.0
+    ],
+    "pct_of_margin": [
+      61.356692805646176,
+      163.61784748172315
+    ]
+  },
+  "pump_allowance_kg_day": 48.89442150186961,
+  "pump_basis": "MAINLINE-016 1% of original lift/day; pump band not scaled or added to P3 mass closure.",
+  "owner_results": {
+    "schema": 1,
+    "card": "MAINLINE-024",
+    "unit": "vacuum-mainline024-p3-film-1020",
+    "seat": "ref-1a533823b6613bf7ff73",
+    "questionable": true,
+    "certification": false,
+    "started_at": "2026-10-20T00:54:29-07:00",
+    "ended_at": "2026-10-20T00:54:30-07:00",
+    "geometry": {
+      "bay_m": 2.04,
+      "curvature_radius_m": 2.04,
+      "curvature_basis": "011b film pressure is 2*sigma*t/s, so the pillow radius is the bay side",
+      "triangle_circumradius_m": 1.1777945491468367,
+      "cap_rise_m": 0.37434697490743885,
+      "hemisphere_not_used_m": 1.1777945491468367,
+      "line_load_011b_N_per_m": 97370.054672178,
+      "line_load_triangle_share_N_per_m": 56216.62727599055,
+      "line_load_used": "011b w=p*s/2",
+      "pin_stress_at_80um_Pa": 1217125683.4022248,
+      "pin_film_mass_check_kg": 97.51503596742718,
+      "hull_area_m2": 1256.6370614359173
+    },
+    "pin_reproduction": {
+      "s_m": 2.04,
+      "r_o_m": 0.12368836237368608,
+      "t_w_m": 0.0008802990936851718,
+      "m_nodes_kg": 7.013469297324945,
+      "m_joint_kg": 225.47208004250842,
+      "m_tube_kg": 4509.441600850166,
+      "m_film_kg": 97.515,
+      "budget_kg": 4734.913680892674,
+      "SF_least": 1.2255279468805444,
+      "governing": "global",
+      "second": "local",
+      "SF_second": 1.2257498873215107,
+      "SF_global": 1.2255279468805444,
+      "SF_film": 1.2324117553801495,
+      "SF_yield": 2.7304230824076914,
+      "SF_euler": 5.170415097855431,
+      "SF_local": 1.2257498873215107,
+      "SF_perry": 2.561743043112439,
+      "closure_kg": 4889.442150189999
+    },
+    "candidates": [
+      {
+        "key": "kapton_hn",
+        "name": "Kapton HN polyimide film",
+        "form": "biaxial_film",
+        "state": "exists today",
+        "tag": "QUESTIONABLE",
+        "ultimate_Pa": 231000000.0,
+        "knockdown": 0.5,
+        "knockdown_basis": "no creep-rupture stress in the opened Kapton sheets; knockdown is an assumption",
+        "design_allowable_Pa": 115500000.0,
+        "modulus_Pa": 2760000000.0,
+        "density_kg_m3": 1420.0,
+        "thickness_m": 0.0008430307763824935,
+        "pillow_stress_Pa": 115500000.0,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": 1.1971037024631408,
+        "mass_kg": 1504.3248788973378,
+        "against_pin_kg": 1406.8098788973377,
+        "barrier": "the film itself, scaled from the 25 um table"
+      },
+      {
+        "key": "teonex_q51",
+        "name": "Teonex Q51 PEN film",
+        "form": "biaxial_film",
+        "state": "exists today",
+        "tag": "QUESTIONABLE",
+        "ultimate_Pa": 210000000.0,
+        "knockdown": 0.5,
+        "knockdown_basis": "IEC sheet says the 25 um values are not design data; no creep-rupture stress; knockdown is an assumption on the 250 um ultimate",
+        "design_allowable_Pa": 105000000.0,
+        "modulus_Pa": 6080000000.0,
+        "density_kg_m3": 1360.0,
+        "thickness_m": 0.0009273338540207428,
+        "pillow_stress_Pa": 105000000.0,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": 1.2611740414682102,
+        "mass_kg": 1584.8380414298715,
+        "against_pin_kg": 1487.3230414298714,
+        "barrier": "the film itself, from the 25 um permeability coefficient"
+      },
+      {
+        "key": "zylon_hm_crossply",
+        "name": "Zylon HM filament as a 0/90 membrane",
+        "form": "filament_crossply",
+        "state": "filament exists today; the 0/90 membrane was not sourced",
+        "tag": "QUESTIONABLE",
+        "ultimate_Pa": 5800000000.0,
+        "knockdown": 0.6,
+        "knockdown_basis": "Toyobo extrapolation: 60 percent of break, 1e7 minutes, about 19 years, on HM filament",
+        "design_allowable_Pa": 3480000000.0,
+        "modulus_Pa": 270000000000.0,
+        "density_kg_m3": 1560.0,
+        "thickness_m": 5.5959801535734484e-05,
+        "pillow_stress_Pa": 3480000000.0,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": 0.0872972903957458,
+        "mass_kg": 109.70101047422791,
+        "against_pin_kg": 12.186010474227913,
+        "barrier": "not the filament; a separate metallised Mylar layer"
+      },
+      {
+        "key": "vectran_ht_crossply",
+        "name": "Vectran HT filament as a 0/90 membrane",
+        "form": "filament_crossply",
+        "state": "filament exists today; the 0/90 membrane was not sourced",
+        "tag": "QUESTIONABLE",
+        "ultimate_Pa": 3200000000.0,
+        "knockdown": 0.5,
+        "knockdown_basis": "no creep-rupture fraction in the opened Vectran sheet; knockdown is an assumption",
+        "design_allowable_Pa": 1600000000.0,
+        "modulus_Pa": 75000000000.0,
+        "density_kg_m3": 1400.0,
+        "thickness_m": 0.0001217125683402225,
+        "pillow_stress_Pa": 1600000000.0,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": 0.1703975956763115,
+        "mass_kg": 214.12793390642565,
+        "against_pin_kg": 116.61293390642565,
+        "barrier": "not the filament; a separate metallised Mylar layer"
+      },
+      {
+        "key": "dyneema_dm20_crossply",
+        "name": "Dyneema DM20 filament as a 0/90 membrane",
+        "form": "filament_crossply",
+        "state": "filament exists today; the 0/90 membrane was not sourced",
+        "tag": "QUESTIONABLE",
+        "ultimate_Pa": 3100000000.0,
+        "knockdown": 0.2,
+        "knockdown_basis": "CIS YA104 indicative rope: 20 percent of a 1000 kN break, 16 C, 250 years",
+        "design_allowable_Pa": 620000000.0,
+        "modulus_Pa": 94000000000.0,
+        "density_kg_m3": 968.75,
+        "thickness_m": 0.0003140969505554129,
+        "pillow_stress_Pa": 620000000.0,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": 0.30428142085055626,
+        "mass_kg": 382.3713105471886,
+        "against_pin_kg": 284.8563105471886,
+        "barrier": "not the filament; a separate metallised Mylar layer"
+      },
+      {
+        "key": "dyneema_sk78_crossply",
+        "name": "Dyneema SK78 filament as a 0/90 membrane",
+        "form": "filament_crossply",
+        "state": "filament exists today; the 0/90 membrane was not sourced",
+        "tag": "QUESTIONABLE",
+        "ultimate_Pa": 3400000000.0,
+        "knockdown": 0.2,
+        "knockdown_basis": "CIS YA104 indicative rope: 20 percent of a 1000 kN break, 16 C, 15 years, 0.5 percent per year",
+        "design_allowable_Pa": 680000000.0,
+        "modulus_Pa": 113000000000.0,
+        "density_kg_m3": 968.6609686609687,
+        "thickness_m": 0.0002863825137417,
+        "pillow_stress_Pa": 680000000.0,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": 0.2774075631685983,
+        "mass_kg": 348.600625000286,
+        "against_pin_kg": 251.08562500028603,
+        "barrier": "not the filament; a separate metallised Mylar layer"
+      },
+      {
+        "key": "mylar_12um_barrier_only",
+        "name": "Mylar polyester 12 um, plain and metallised",
+        "form": "barrier_gauge",
+        "state": "exists today as a packaging film",
+        "tag": "QUESTIONABLE",
+        "ultimate_Pa": null,
+        "knockdown": null,
+        "knockdown_basis": "the opened brochure has transmission, not a strength, modulus, density or creep",
+        "design_allowable_Pa": null,
+        "modulus_Pa": null,
+        "density_kg_m3": null,
+        "thickness_m": 1.2e-05,
+        "pillow_stress_Pa": 8114171222.6814995,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": null,
+        "mass_kg": null,
+        "against_pin_kg": null,
+        "barrier": "this gauge is the barrier layer, not the pillow structure"
+      },
+      {
+        "key": "cnt_sheet",
+        "name": "CNT sheet",
+        "form": "none_opened",
+        "state": "PROJECTION",
+        "tag": "PROJECTION",
+        "ultimate_Pa": null,
+        "knockdown": null,
+        "knockdown_basis": "no production allowable was opened",
+        "design_allowable_Pa": null,
+        "modulus_Pa": null,
+        "density_kg_m3": null,
+        "thickness_m": null,
+        "pillow_stress_Pa": null,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": null,
+        "mass_kg": null,
+        "against_pin_kg": null,
+        "barrier": "not opened"
+      },
+      {
+        "key": "graphene_laminate",
+        "name": "graphene laminate",
+        "form": "none_opened",
+        "state": "PROJECTION",
+        "tag": "PROJECTION",
+        "ultimate_Pa": null,
+        "knockdown": null,
+        "knockdown_basis": "no production allowable was opened",
+        "design_allowable_Pa": null,
+        "modulus_Pa": null,
+        "density_kg_m3": null,
+        "thickness_m": null,
+        "pillow_stress_Pa": null,
+        "curvature_radius_m": 2.04,
+        "areal_kg_m2": null,
+        "mass_kg": null,
+        "against_pin_kg": null,
+        "barrier": "not opened"
+      }
+    ],
+    "gas": {
+      "kapton_design": {
+        "o2_kg_day": 0.004042219077718579,
+        "n2_kg_day": 0.003159300141798823,
+        "h2o_kg_day_at_table": 2.012334638858764,
+        "h2o_note": "54 g/(m2 day) is the 25 um ASTM E-96 row. The sheet does not print a humidity on that row. Scaled by 25 um over the design thickness.",
+        "sum_o2_n2_kg_day": 0.007201519219517402,
+        "pump": {
+          "sourced_kg_per_day": 2.0195361580782816,
+          "allowance_kg_per_day": 48.89442150186961,
+          "pump_kg_band": [
+            150.0,
+            400.0
+          ],
+          "pump": "holds the sourced load",
+          "getter": "016 gives no getter capacity",
+          "missing": []
+        }
+      },
+      "pen_design": {
+        "o2_kg_day": 0.00020054150337260972,
+        "n2_kg_day": null,
+        "h2o_kg_day_at_table": 0.22698050640326128,
+        "h2o_note": "6.7 g/(m2 day) at 25 um, JIS Z0208. The sheet does not print the humidity. Scaled by thickness. N2 is not on the sheet.",
+        "o2_cc_m2_day": 0.11178690594330996,
+        "pump": {
+          "sourced_kg_per_day": 0.2271810479066339,
+          "allowance_kg_per_day": 48.89442150186961,
+          "pump_kg_band": [
+            150.0,
+            400.0
+          ],
+          "pump": "not shown",
+          "getter": "016 gives no getter capacity",
+          "missing": [
+            "n2"
+          ]
+        }
+      },
+      "mylar": {
+        "metallised_od3_12um": {
+          "o2_kg_day": 0.00017700806874165832,
+          "n2_kg_day": null,
+          "h2o_kg_day_upper_at_38C_90RH": 1.2566370614359172,
+          "condition": "O2 column is 100% oxygen, 25 C, 45% RH. Water column is 38 C, 90% RH. Pressure is not printed; 1 atm of oxygen is the reading used for the scale."
+        },
+        "plain_12um": {
+          "o2_kg_day": 0.049562259247664324,
+          "h2o_kg_day_at_38C_90RH": 50.2654824574367
+        },
+        "pump_metallised": {
+          "sourced_kg_per_day": 1.256814069504659,
+          "allowance_kg_per_day": 48.89442150186961,
+          "pump_kg_band": [
+            150.0,
+            400.0
+          ],
+          "pump": "not shown",
+          "getter": "016 gives no getter capacity",
+          "missing": [
+            "n2"
+          ]
+        }
+      },
+      "ald_26nm": {
+        "thickness_m": 2.6e-08,
+        "state": "in the lab, on coupon PEN and Kapton, not a hull",
+        "tag": "PROJECTION",
+        "o2_kg_day_upper": 8.969811879143946e-06,
+        "h2o_kg_day": 0.0012566370614359172,
+        "n2_kg_day": null,
+        "mass_note": "26 nm. A mass of 1 kg on this hull would need a density above 30550 kg/m3. The layer does not move the 98 kg comparison.",
+        "pump": {
+          "sourced_kg_per_day": 0.0012656068733150612,
+          "allowance_kg_per_day": 48.89442150186961,
+          "pump_kg_band": [
+            150.0,
+            400.0
+          ],
+          "pump": "not shown",
+          "getter": "016 gives no getter capacity",
+          "missing": [
+            "n2"
+          ]
+        }
+      }
+    },
+    "lightest_design_row": {
+      "key": "zylon_hm_crossply",
+      "mass_kg": 109.70101047422791,
+      "areal_kg_m2": 0.0872972903957458,
+      "scan": {
+        "s_m": 1.76,
+        "r_o_m": 0.11738159964290341,
+        "t_w_m": 0.0007976861387717776,
+        "m_nodes_kg": 9.408798368978397,
+        "m_joint_kg": 224.77773054032332,
+        "m_tube_kg": 4495.55461080647,
+        "m_film_kg": 109.70101047422791,
+        "budget_kg": 4720.332341346793,
+        "SF_least": 1.159090909090909,
+        "governing": "film",
+        "second": "global",
+        "SF_second": 1.1596440529576084,
+        "SF_global": 1.1596440529576084,
+        "SF_film": 1.159090909090909,
+        "SF_yield": 2.7220146448412037,
+        "SF_euler": 6.238825968058503,
+        "SF_local": 1.166790754932828,
+        "SF_perry": 2.5884478864431872,
+        "closure_kg": 4889.44215019
+      },
+      "film_sf_at_2p04": 1.0,
+      "closure_matches_lift": true
+    },
+    "lightest_biaxial_film": {
+      "key": "kapton_hn",
+      "mass_kg": 1504.3248788973378,
+      "areal_kg_m2": 1.1971037024631408,
+      "scan": {
+        "s_m": 2.48,
+        "r_o_m": 0.11735919047758459,
+        "t_w_m": 0.00079316640382876,
+        "m_nodes_kg": 4.75852071861139,
+        "m_joint_kg": 158.58851193209784,
+        "m_tube_kg": 3171.770238641953,
+        "m_film_kg": 1504.3248788973378,
+        "budget_kg": 3330.3587505740506,
+        "SF_least": 0.8180282640632864,
+        "governing": "global",
+        "second": "local",
+        "SF_second": 0.8187034204988268,
+        "SF_global": 0.8180282640632864,
+        "SF_film": 0.8225806451612904,
+        "SF_yield": 1.920476067380275,
+        "SF_euler": 2.2161217277727956,
+        "SF_local": 0.8187034204988268,
+        "SF_perry": 1.6473583876088211,
+        "closure_kg": 4889.44215019
+      },
+      "film_sf_at_2p04": 1.0,
+      "closure_matches_lift": true
+    },
+    "allowance_kg_day": 48.89442150186961,
+    "pump_kg_band": [
+      150.0,
+      400.0
+    ]
+  },
+  "owner_nfi": {
+    "tag": "QUESTIONABLE",
+    "rows": [
+      {
+        "id": "NFI-FILM-ALLOWABLE-011B",
+        "state": "unsourced",
+        "note": "1.5 GPa and 80 um at 970 kg/m3 are the 011b pin. They are not a candidate allowable."
+      },
+      {
+        "id": "NFI-CURVATURE",
+        "state": "assumption",
+        "note": "Pillow radius is set to the bay side, 2.04 m, because that is the 011b film formula. It is not a measured cap."
+      },
+      {
+        "id": "NFI-KNOCK-HALF",
+        "state": "assumption",
+        "note": "Where no creep-rupture fraction was opened, the design stress is half the opened ultimate. Kapton, Teonex and Vectran use it."
+      },
+      {
+        "id": "NFI-ZYLON-EXTRAPOLATION",
+        "state": "exists as a filament test note",
+        "note": "The 19 year life is Toyobo's extrapolation of an HM filament at 60 percent of break, not a laminate test."
+      },
+      {
+        "id": "NFI-CROSSPLY",
+        "state": "assumption",
+        "note": "A uniaxial filament needs a 0/90 build to carry both pillow directions. Total thickness is twice the one-direction thickness. No resin is included, so a real laminate is heavier."
+      },
+      {
+        "id": "NFI-DYNEEMA-ROPE",
+        "state": "exists as a rope example",
+        "note": "The 20 percent fraction and the 15 and 250 year lives are indicative rope numbers at 16 C, not a film."
+      },
+      {
+        "id": "NFI-DYNEEMA-DENSITY",
+        "state": "derived from the same row",
+        "note": "Density is the printed GPa divided by the printed N/tex. The sheet does not print density."
+      },
+      {
+        "id": "NFI-PEN-THICKNESS",
+        "state": "exists today",
+        "note": "The design thickness is above the 250 um row. The 210 MPa ultimate is the thickest opened gauge, not a measurement at the design thickness."
+      },
+      {
+        "id": "NFI-PEN-NOT-DESIGN-DATA",
+        "state": "exists today",
+        "note": "The IEC Teonex sheet says its typical values are not design data."
+      },
+      {
+        "id": "NFI-MYLAR-STRENGTH",
+        "state": "not opened",
+        "note": "The barrier brochure has no PET strength, modulus, density or creep. The 12 um mass is not computed."
+      },
+      {
+        "id": "NFI-MYLAR-PRESSURE",
+        "state": "assumption",
+        "note": "The oxygen column does not print the test pressure. The scale uses 1 atm of oxygen."
+      },
+      {
+        "id": "NFI-N2-MISSING",
+        "state": "not opened",
+        "note": "N2 is opened for Kapton only. PEN, Mylar and the ALD paper do not give N2."
+      },
+      {
+        "id": "NFI-HULL-HUMIDITY",
+        "state": "not in the case",
+        "note": "The case has no exterior humidity. Water loads stay at the sheet condition and are not a hull rate."
+      },
+      {
+        "id": "NFI-ALD-SCALE",
+        "state": "in the lab",
+        "note": "The alumina numbers are coupon measurements. A 1257 m2 hull coating was not opened. Tagged PROJECTION at hull scale."
+      },
+      {
+        "id": "NFI-GETTER",
+        "state": "not in the 016 method",
+        "note": "No getter capacity is stated. The pump band is the 150 to 400 kg catalog class, not scaled to the gas load."
+      },
+      {
+        "id": "NFI-CNT-GRAPHENE",
+        "state": "PROJECTION",
+        "note": "No production allowable was opened. Thickness is not stated."
+      },
+      {
+        "id": "NFI-FABRIC-POROUS",
+        "state": "assumption",
+        "note": "A filament crossply is not taken as gas-tight. The barrier is a separate layer."
+      },
+      {
+        "id": "NFI-AIR-FRACTIONS",
+        "state": "assumption",
+        "note": "Dry-air mole fractions 0.20946 and 0.78084 are not in the vacuum case."
+      }
+    ]
+  },
+  "pin_provenance": [
+    {
+      "path": "unpublished-local-ref:e24e74c4266e77c7",
+      "sha256": "f4eaf640cc8c6ed572cb298d03311460bd91a35d9d6316542f94a0825856b4eb",
+      "bytes": 6645
+    },
+    {
+      "path": "evidence/b5ed664753030d4f-CARD.md",
+      "sha256": "b5ed664753030d4f396f3e55664953b078d4f3d279cc079f273c6428ef6c3ea2",
+      "bytes": 5400,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/0962e22bd7a72d2a-RESULTS.json",
+      "sha256": "0962e22bd7a72d2aaef6ae16a03b3975933f54bce7861227b7926d002e620ad2",
+      "bytes": 12018,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/9c93ce0d2b5d8d46-NFI.json",
+      "sha256": "9c93ce0d2b5d8d4684d06083485b0cf25e6995ce7819f1f68cc8bc6f865ff348",
+      "bytes": 3311,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/faa89594bd234767-INPUTS.json",
+      "sha256": "faa89594bd234767be451290afedc1f7346fc8f53f7cd76dc41832c13151ca7a",
+      "bytes": 5124,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/035c081896b42702-film.py",
+      "sha256": "035c081896b427022d385366cfb2a01cc99f91c70f7e6adab34c9934d8c334c8",
+      "bytes": 32504,
+      "pin_verified": true,
+      "script_content_read": false
+    },
+    {
+      "path": "unpublished-local-ref:2ed027395abbb8ae",
+      "sha256": "e26cae72d5fca71cb17e9229f45733a11f92e4f88fe9602dfd2b45e7c174a7fe",
+      "bytes": 119403,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:11ac17cd6d52df42",
+      "sha256": "14febdf60860eb32bfca28f9b5c3070cbfefdb6399b3b431376fae6cc157ea90",
+      "bytes": 657705,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:33c0b67ed5b5c723",
+      "sha256": "65acf29d77969b4b29bd1d4f2494b7b640be6012c06bfee060074a1f05d54c7f",
+      "bytes": 207846,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:8096c6cc9b8f5192",
+      "sha256": "0e608dd30682a26ba64881637680dbece3e74965db99171ab796dd0ee570944a",
+      "bytes": 688784,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:9262c74a80b913f4",
+      "sha256": "ffed6c32529aedd69e683446667031ecc627fe00034159b70e1ac7406d74e51c",
+      "bytes": 93188,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:875f9638f58d8793",
+      "sha256": "a0872a563d3b72dfd3f40ae0c3a35bcb7c37f624b1102b7085345d9e2caac5a6",
+      "bytes": 180574,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:54bf1a0afaad398c",
+      "sha256": "73bffca3cab4b62f718c34f9bea1a27cd75dd6ea8d24f87a1a9abbc3c6391b0f",
+      "bytes": 2451318,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:9dfe64177b9a86f0",
+      "sha256": "5e0ae214d0b2a648526b59a89f6e752117f6c9203d36ac68cbc351ac48ed0d26",
+      "bytes": 83805,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:fbcacea6b212fd10",
+      "sha256": "cbf541c2d3353a0a96bf0202ae61ccd41f7277ab300b7c1cd1affb7d6c2c6b9c",
+      "bytes": 187695,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:1e6c2415a2d3e8b6",
+      "sha256": "511289799f09d83fc466d22f19af358db6a5d1e909fe6373ecba828f2bba9f89",
+      "bytes": 43944,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:0fadd623286fda3e",
+      "sha256": "e1f8dffa026e044bec4f32b02aad9477313f16d5a2eef305e34c759cde53f417",
+      "bytes": 531015,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:81d942befce9f1b7",
+      "sha256": "6334d89d1815d9255b55a6e023e056b31e8e85bcc6d2a9b50b862ac8fa041bd2",
+      "bytes": 837269,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/8d1c42afdeb216fd-CARD.md",
+      "sha256": "8d1c42afdeb216fd59701f50cfdf0d8301f5feb92ce443bf64a4e9253814a0d6",
+      "bytes": 8843
+    },
+    {
+      "path": "evidence/b89b24ce6d204323-INPUTS.json",
+      "sha256": "b89b24ce6d204323fdbebdda08e89b47d88f62edb63602f7db63f3586272fa27",
+      "bytes": 3342
+    },
+    {
+      "path": "evidence/e922d008b9c113ef-RESULTS.json",
+      "sha256": "e922d008b9c113efe498dfdde867a403730a236a3bdcf3cac4d437c790358f10",
+      "bytes": 137746
+    },
+    {
+      "path": "evidence/da2eeba2a608cb9e-NFI.json",
+      "sha256": "da2eeba2a608cb9ec74b8446af1d71f10c5c4565bb7c1e7d390252600bb05147",
+      "bytes": 3769
+    },
+    {
+      "path": "evidence/ebd306396bd1d7c3-CARD.md",
+      "sha256": "ebd306396bd1d7c3cd819fa92c9fc3e6fe04a03b2a0d0b7b3e3cf2a95b71710b",
+      "bytes": 6978
+    },
+    {
+      "path": "evidence/899e402bac40e805-INPUTS.json",
+      "sha256": "899e402bac40e805803d9f9761af1f7237d72424cb83edb7de559d17ef4317e2",
+      "bytes": 9835
+    },
+    {
+      "path": "evidence/d3b1d150aadf52a0-RESULTS.json",
+      "sha256": "d3b1d150aadf52a0f7d0c3f9b6b80986ee36756fee40fc8e8fe886376af4e826",
+      "bytes": 10719
+    },
+    {
+      "path": "unpublished-local-ref:16ecc0c012565c0a",
+      "sha256": "89994adafc1804d8f99efe285db1a9425827fedbb575800b3f2c6b61348c9491",
+      "bytes": 2021,
+      "pin_verified": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/8d1c42afdeb216fd-CARD.md",
+      "sha256": "8d1c42afdeb216fd59701f50cfdf0d8301f5feb92ce443bf64a4e9253814a0d6",
+      "bytes": 8843,
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:1ca4336370d9be9f",
+      "sha256": "73bffca3cab4b62f718c34f9bea1a27cd75dd6ea8d24f87a1a9abbc3c6391b0f",
+      "bytes": 2451318
+    },
+    {
+      "path": "unpublished-local-ref:b348e2acef805abe",
+      "sha256": "cbf541c2d3353a0a96bf0202ae61ccd41f7277ab300b7c1cd1affb7d6c2c6b9c",
+      "bytes": 187695
+    },
+    {
+      "path": "unpublished-local-ref:d88fc97b196b97db",
+      "sha256": "511289799f09d83fc466d22f19af358db6a5d1e909fe6373ecba828f2bba9f89",
+      "bytes": 43944
+    },
+    {
+      "path": "unpublished-local-ref:bc6a688686f86d7c",
+      "sha256": "a0872a563d3b72dfd3f40ae0c3a35bcb7c37f624b1102b7085345d9e2caac5a6",
+      "bytes": 180574
+    },
+    {
+      "path": "unpublished-local-ref:247c6b4ba62927fb",
+      "sha256": "65acf29d77969b4b29bd1d4f2494b7b640be6012c06bfee060074a1f05d54c7f",
+      "bytes": 207846
+    },
+    {
+      "path": "unpublished-local-ref:17e1e31712af2ff3",
+      "sha256": "6334d89d1815d9255b55a6e023e056b31e8e85bcc6d2a9b50b862ac8fa041bd2",
+      "bytes": 837269
+    },
+    {
+      "path": "unpublished-local-ref:edb0a4e460f3f667",
+      "sha256": "ffed6c32529aedd69e683446667031ecc627fe00034159b70e1ac7406d74e51c",
+      "bytes": 93188
+    },
+    {
+      "path": "unpublished-local-ref:0dcf8e0180cf334a",
+      "sha256": "e1f8dffa026e044bec4f32b02aad9477313f16d5a2eef305e34c759cde53f417",
+      "bytes": 531015
+    },
+    {
+      "path": "unpublished-local-ref:8780dd5fad2f044a",
+      "sha256": "5e0ae214d0b2a648526b59a89f6e752117f6c9203d36ac68cbc351ac48ed0d26",
+      "bytes": 83805
+    },
+    {
+      "path": "unpublished-local-ref:e185acae18cdecc9",
+      "sha256": "0e608dd30682a26ba64881637680dbece3e74965db99171ab796dd0ee570944a",
+      "bytes": 688784
+    },
+    {
+      "path": "unpublished-local-ref:9fbbdfd152a1bf73",
+      "sha256": "14febdf60860eb32bfca28f9b5c3070cbfefdb6399b3b431376fae6cc157ea90",
+      "bytes": 657705
+    },
+    {
+      "path": "unpublished-local-ref:492785aa09ac5a9d",
+      "sha256": "e26cae72d5fca71cb17e9229f45733a11f92e4f88fe9602dfd2b45e7c174a7fe",
+      "bytes": 119403
+    },
+    {
+      "path": "unpublished-local-ref:e6b5430b63b4ceb7",
+      "sha256": "f5874f13386fc3f469c2ad1b31e306cebd18f372ee3bb5595cb7e7b6beba6f10",
+      "bytes": 209878
+    },
+    {
+      "path": "unpublished-local-ref:a7c5eb0c3b73f94c",
+      "sha256": "f4a4a94d052ee07af1eb841dc7bcc96cb3aba29861758b81aef4fd56116ff91b",
+      "bytes": 213338
+    },
+    {
+      "path": "unpublished-local-ref:763e1443e92d641b",
+      "sha256": "6fc04305e1f5564c477031a5130142ea7fc6cf02b8a4642a10ff18d36a13eb9a",
+      "bytes": 819543
+    },
+    {
+      "path": "unpublished-local-ref:1575016e064815c8",
+      "sha256": "d44c35dfecb2568caa9dc6fbe612485b8b021e2bd67ad74243e8b7fa8cf783ba",
+      "bytes": 237829
+    }
+  ],
+  "independence": "No owner or upstream script inspected as code, imported or executed. Sources extracted independently; equations freshly implemented.",
+  "sag_scope": "Audit the original filed 024 artifacts; separate amendment belongs to its owner. Original mass ceiling uses full sphere and contains no sag-volume term.",
+  "source_verification": {
+    "materials": "All six computed material rows transcribed from the pinned manufacturer/distributor data; strength, modulus and density verified. Dyneema densities reconstructed from same-row specific tenacity.",
+    "barriers": "Kapton Table 10 and Teonex chemical table visually inspected, including units; Mylar 2001 table and Groner/SVC ALD values independently extracted.",
+    "creep": "Toyobo 2023.4 p5 text and plot visually inspected: 60 percent/1e7-minute claim is an extrapolation. DSM CIS YA104 supports indicative 16 C rope comparison, not membrane qualification.",
+    "upstream_model": "011b and 016 non-code records supply assumptions; none of film.py, arcs.py or compute.py inspected as code or executed.",
+    "coverage": "No CNT/graphene allowable, long-term membrane test, new pump/getter product or complete film/barrier assembly invented."
+  },
+  "full_precision_lift_kg_from_COMMON": 4889.442150186961
+}

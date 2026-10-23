@@ -1,0 +1,39 @@
+{
+  "id": "E-00f7c546012814324889",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-00f7c546012814324889",
+    "report": "rpt-ref-71723c1ae93445240630",
+    "file": "evidence/a3d2e7072aacaba7-NFI.json",
+    "snapshot": "evidence/a3d2e7072aacaba7-NFI.json",
+    "source_sha256": "a3d2e7072aacaba7ef6e25bbd3632d80761460af66357d2bab2c3ea475df3af3",
+    "source_json_pointer": "/rows/2",
+    "row_id": "NFI054-03",
+    "fields": {
+      "id": "NFI054-03",
+      "title": "Carrier and coating weights",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "ALD paper omits PET gauge; R10 ML3 zero-payload carrier limit is28.07um. SiOx/Verreal coat2g/m2 and foil adhesive3g/m2 are allowances.",
+      "proposed_fix": "Weigh the complete final laminate including all carrier, coatings, primer, adhesive and opacity layers. Do not use the12um recipe as a sourced product."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "ALD paper omits PET gauge; R10 ML3 zero-payload carrier limit is28.07um. SiOx/Verreal coat2g/m2 and foil adhesive3g/m2 are allowances. | Carrier and coating weights",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q5",
+  "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+  "sources": [
+    {
+      "report": "rpt-ref-71723c1ae93445240630",
+      "artifact": "evidence/a3d2e7072aacaba7-NFI.json",
+      "snapshot": "evidence/a3d2e7072aacaba7-NFI.json",
+      "sha256": "a3d2e7072aacaba7ef6e25bbd3632d80761460af66357d2bab2c3ea475df3af3",
+      "bytes": 7775,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

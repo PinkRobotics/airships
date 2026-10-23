@@ -1,0 +1,37 @@
+{
+  "id": "E-fabb803fad12175f0b1c",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-fabb803fad12175f0b1c",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1045~1NFI.json/items/10",
+    "row_id": "NFI-045-DESCENT",
+    "fields": {
+      "id": "NFI-045-DESCENT",
+      "tag": "QUESTIONABLE",
+      "claim": "The descent model is a rigid sphere in ISA with an isothermal fill, a constant drag coefficient 0.2-0.47, added mass 0.5 rho V and no wind; the neutral-buoyancy pressure result assumes the inside air takes the outside temperature.",
+      "needed_to_ground": "A coupled thermal and trajectory model, and the site's atmosphere."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The descent model is a rigid sphere in ISA with an isothermal fill, a constant drag coefficient 0.2-0.47, added mass 0.5 rho V and no wind; the neutral-buoyancy pressure result assumes the inside air takes the outside temperature.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1045~1NFI.json/items/10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

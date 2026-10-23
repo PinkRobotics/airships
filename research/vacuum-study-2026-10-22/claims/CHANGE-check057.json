@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check057",
+  "kind": "filed_change",
+  "label": "check057",
+  "claim": "Direct 048 puts P2 R12 ISA at +1.256483 kg under the earlier TRL7 table; coating increment is divided by 1.1.",
+  "report": "rpt-ref-22285eadc9122df1c8b7",
+  "source_report_body": "CHECK-057 complete, QUESTIONABLE/PROJECTION. Independently reconstructed 1,232 subset bills across 77 configurations; 82,034 final comparisons. Under the declared conventions, every concept-stage payload remains negative. R10 MGA reproduces 707.388727 kg for P2 and 680.594681 kg for P3.\n\nOne correction changes maturity: the card specifies direct 048 bills at R10–15 but its tables use 040 transfers. Direct 048 gives P2 R12 ISA +1.256483 kg at TRL 7, versus transfer −0.839968 kg. The first floating row changes from TRL 8 to TRL 7.\n\nThe finish allowance uses the wrong denominator; corrected P2 R10 MGA is 707.293535 kg. The 0.2–9.2 kg transfer-error range applies only to masks 11/15; all 96 comparisons reach 160.754744 kg. Four printed cells have one-kilogram rounding errors. Exact 3,193 correction entries are pinned.\n\nR10 growth tolerances 2.8/0.7% and R30 ISA 9.9/7.5% reproduce. All 28 item classes and zero-growth allocations were audited. Sixteen NFI dispositions retain maturity, reserves, classification, transfer and domain limitations. Qualified hull SF, failure probability and maturity remain null.\n\nAll 173 package checks pass; 36 input pins and the 137-file manifest verify. Six one-core/1 GiB simjob invocations admitted and released; no refusals. No owner code or out-of-band contact.\n\nResubmitted under the untimed replacement order. The scientific package is unchanged; refused envelopes are preserved. Next none.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q3",
+  "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+  "sources": [
+    {
+      "report": "rpt-ref-22285eadc9122df1c8b7",
+      "artifact": "evidence/c34bf29324b228ac-CHECK.md",
+      "snapshot": "evidence/c34bf29324b228ac-CHECK.md",
+      "sha256": "c34bf29324b228ac71a2c7c9aa7a35de79970ae36f4ad8fea5f41bbb1a5fa701",
+      "bytes": 6284,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

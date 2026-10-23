@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "checker_unit": "vacuum-mainline006-check-1019",
+  "pins": [
+    {
+      "path": "evidence/69d9ef27cb5c86f2-INPUTS.json",
+      "sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "bytes": 15384,
+      "role": "001 INPUTS",
+      "expected_sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "expected_bytes": 15384,
+      "match": true
+    },
+    {
+      "path": "evidence/d728af6ca61595e1-RESULTS.json",
+      "sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "bytes": 13071,
+      "role": "002 RESULTS",
+      "expected_sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "expected_bytes": 13071,
+      "match": true
+    },
+    {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995,
+      "role": "003 RESULTS",
+      "expected_sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "expected_bytes": 7995,
+      "match": true
+    },
+    {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799,
+      "role": "CHECK brief",
+      "expected_sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "expected_bytes": 799,
+      "match": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "role": "COMMON",
+      "expected_sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "expected_bytes": 5874,
+      "match": true
+    },
+    {
+      "path": "evidence/98606c5391fdfbdb-CARD.md",
+      "sha256": "98606c5391fdfbdb9c5b8923ebc15235ffa3db12183c3c97bbb44c16177edde2",
+      "bytes": 6766,
+      "role": "owner 006 CARD.md",
+      "expected_sha256": "98606c5391fdfbdb9c5b8923ebc15235ffa3db12183c3c97bbb44c16177edde2",
+      "expected_bytes": 6766,
+      "match": true
+    },
+    {
+      "path": "evidence/9021bec10649eb48-RESULTS.json",
+      "sha256": "9021bec10649eb488b7f255fd5ebabec52e9c2da3f7708370a56e69098777b06",
+      "bytes": 30953,
+      "role": "owner 006 RESULTS.json",
+      "expected_sha256": "9021bec10649eb488b7f255fd5ebabec52e9c2da3f7708370a56e69098777b06",
+      "expected_bytes": 30953,
+      "match": true
+    },
+    {
+      "path": "evidence/c433e7ad1bc469c3-NFI.json",
+      "sha256": "c433e7ad1bc469c34dd76336ec6f08e4d732b706f5227c9a9f96b5a01e52ed1a",
+      "bytes": 1148,
+      "role": "owner 006 NFI.json",
+      "expected_sha256": "c433e7ad1bc469c34dd76336ec6f08e4d732b706f5227c9a9f96b5a01e52ed1a",
+      "expected_bytes": 1148,
+      "match": true
+    },
+    {
+      "path": "evidence/5e129f11b0b93837-INPUTS.json",
+      "sha256": "5e129f11b0b93837c5d4737bf2e79588a8aa8bb134aad652a64bfcd5f9892870",
+      "bytes": 1626,
+      "role": "owner 006 INPUTS.json",
+      "expected_sha256": "5e129f11b0b93837c5d4737bf2e79588a8aa8bb134aad652a64bfcd5f9892870",
+      "expected_bytes": 1626,
+      "match": true
+    },
+    {
+      "path": "evidence/70e356ac9105c4c0-margin.py",
+      "sha256": "70e356ac9105c4c0ac20b4a1b6f62ea98937d719f63e23cb31856ab1ce5d1648",
+      "bytes": 21257,
+      "role": "owner 006 margin.py",
+      "expected_sha256": "70e356ac9105c4c0ac20b4a1b6f62ea98937d719f63e23cb31856ab1ce5d1648",
+      "expected_bytes": 21257,
+      "match": true
+    }
+  ],
+  "constants": {
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "sigma_Pa": 276000000.0,
+    "R_m": 10.0,
+    "kd": 0.2,
+    "p_ext_Pa": 95460.83791390515,
+    "lift_kg": 4889.442150186961,
+    "area_m2": 1256.6370614359173,
+    "rho_al": 2700.0,
+    "n_edges_P3": 4353.118474162124
+  }
+}

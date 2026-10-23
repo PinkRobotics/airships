@@ -1,0 +1,44 @@
+{
+  "id": "E-087c7cd7cd17b1c12670",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-087c7cd7cd17b1c12670",
+    "report": "rpt-ref-5c8405d45d6cb50633f1",
+    "file": "evidence/6e8dee54ea712f84-NFI.json",
+    "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+    "source_sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+    "source_json_pointer": "/rows/12",
+    "row_id": "NFI-048-C13",
+    "fields": {
+      "id": "NFI-048-C13",
+      "topic": "Compute admission",
+      "evidence": "execution/account-02/stderr.log",
+      "automatic_retry": true,
+      "standing_order": "ord-sciences-g1-c-simjob-heavy-route-1018",
+      "partial_finding": "Simjob exit75, PSI some avg10 6.13 >= 5.00. Nothing started; no retry or later numerical launch.",
+      "status": "resolved_authority_and_execution",
+      "finding": "Explicit resume order authorized>=60s unchanged exit75 retries; all final jobs completed and reservations released.",
+      "continuation_evidence": "EXECUTION.json; intake/RESUME-ORDER.json",
+      "partial_next_evidence": "Fresh queue execution authority and successful mandatory admission before any continuation.",
+      "next_evidence": "Numerical/administrative closure complete. Physical evidence remains in the separately open entries."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Explicit resume order authorized>=60s unchanged exit75 retries; all final jobs completed and reservations released.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-5c8405d45d6cb50633f1",
+      "artifact": "evidence/6e8dee54ea712f84-NFI.json",
+      "snapshot": "evidence/6e8dee54ea712f84-NFI.json",
+      "sha256": "6e8dee54ea712f842226ef637da41a6104c502425fc81ed2d473fc1b53d1fbf0",
+      "bytes": 19121,
+      "selector": "/rows/12"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

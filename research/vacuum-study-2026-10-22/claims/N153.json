@@ -1,0 +1,70 @@
+{
+  "id": "N153",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N153",
+    "report": "rpt-ref-f21d4bd21d2026511818",
+    "card": "MAINLINE-011",
+    "file": "evidence/0f1373271ca0676e-NFI.json",
+    "row_id": "NFI-011-NODES",
+    "fields": {
+      "NFI_id": "NFI-011-NODES",
+      "gap": "Node count is the equilateral-continuum formula (equal members, equal tributary area R*s per member, load N=p*R*s/2 — the 002 pinned load path), node hardware 0.02 kg each, and no separate joint or gusset mass exists for P3 in the pinned mass rules.",
+      "direction": "Real geodesic load paths and joint masses before any design pick.",
+      "effect": "Node and joint mass growth eats tube mass one-for-one at the ceiling; SF_yield falls in proportion."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-011-NODES\", \"gap\": \"Node count is the equilateral-continuum formula (equal members, equal tributary area R*s per member, load N=p*R*s/2 — the 002 pinned load path), node hardware 0.02 kg each, and no separate joint or gusset mass exists for P3 in the pinned mass rules.\", \"direction\": \"Real geodesic load paths and joint masses before any design pick.\", \"effect\": \"Node and joint mass growth eats tube mass one-for-one at the ceiling; SF_yield falls in proportion.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/152"
+    },
+    {
+      "report": "rpt-ref-f21d4bd21d2026511818",
+      "artifact": "evidence/0f1373271ca0676e-NFI.json",
+      "snapshot": "evidence/0f1373271ca0676e-NFI.json",
+      "sha256": "0f1373271ca0676e10b2226955ec043374b1eb803a154ba6b2fe8820f46a0811",
+      "bytes": 3866,
+      "selector": "source row ID: NFI-011-NODES"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f21d4bd21d2026511818",
+          "artifact": "evidence/0f1373271ca0676e-NFI.json",
+          "snapshot": "evidence/0f1373271ca0676e-NFI.json",
+          "sha256": "0f1373271ca0676e10b2226955ec043374b1eb803a154ba6b2fe8820f46a0811",
+          "bytes": 3866,
+          "selector": "source row ID: NFI-011-NODES"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/152"
+          }
+        ]
+      }
+    }
+  ]
+}

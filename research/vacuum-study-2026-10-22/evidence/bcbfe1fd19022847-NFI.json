@@ -1,0 +1,151 @@
+{
+  "unit": "vacuum-mainline037-check-1020",
+  "status": "Check complete; no work blocked",
+  "rows": [
+    {
+      "id": "NFI-CHECK037-HEAT-INPUTS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "84 thermal/projection fields are not independently recoverable from supplied inputs.",
+      "proposed_fix": "Publish velocities, all optical properties, sky/ground/cavity boundary conditions, grid, weights, converged day/night profiles and residuals; rerun both P2 and P3. The declared P2 comparison supplies a reproducible starting model."
+    },
+    {
+      "id": "NFI-CHECK037-PATTERN-DEFINITION",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "Filed residual maxima do not equal extrema of the filed n=2..6 polynomial.",
+      "proposed_fix": "State whether maxima use raw or truncated temperatures; retain raw samples, area weights and projection coefficients; use analytic extrema and constant/linear-mode consistency checks."
+    },
+    {
+      "id": "NFI-CHECK037-SHELL-EQUILIBRIUM",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The scalar bending estimate and a membrane-free kinematic trial do not establish full spherical-shell equilibrium.",
+      "proposed_fix": "Solve both curvature components, membrane/bending coupling and force/moment equilibrium with compatible thermal strains and core restraint; compare with the rough gradient screen."
+    },
+    {
+      "id": "NFI-CHECK037-P3-TUBE-IDENTITY",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "Ti/CFRP fittings were treated as tube materials in thermal CTE and mass while SiC capacities were retained.",
+      "proposed_fix": "Use SiC properties for all tubes, keep fittings separate, and rerun temperatures plus compatibility. Corrected fixed-temperature sensitivities are already tabulated."
+    },
+    {
+      "id": "NFI-CHECK037-P3-ARC-MASS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "Every filed tube mass uses chord length; inherited capacities use arcs.",
+      "proposed_fix": "Charge each SiC tube's inherited arc length. Eight unique corrected masses and ten exact result mismatches are supplied."
+    },
+    {
+      "id": "NFI-CHECK037-STEADY-FLIGHT-LOAD",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The 290.634 Pa flight addition omits the selected VB baseline.",
+      "proposed_fix": "For the same selected local-speed case add 189.214 Pa steady pressure; total 479.848 Pa gives conditional P2 least 1.001324769. Select EAS/TAS and dynamic-response treatment consistently."
+    },
+    {
+      "id": "NFI-CHECK037-WIND-PATCH",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Negative mean Cp is not proof that uniform excess bounds a nonuniform buckling mode.",
+      "proposed_fix": "Compute the prestressed nonuniform pressure and hardpoint equilibrium, then compare instability/imperfection response; retain uniform excess as a screening assumption until shown."
+    },
+    {
+      "id": "NFI-CHECK037-PAD-SUPPORT",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The filed thickness reproduces only a logarithmic term; support and boss-loading conditions are unspecified.",
+      "proposed_fix": "Select edge support versus elastic foundation and finite boss loading. The supplied simply-supported uniform-patch solution includes the nonlogarithmic term and has independent boundary-condition checks."
+    },
+    {
+      "id": "NFI-CHECK037-PAD-BOSS-FIT",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Under recovered 25 mm boss-radius assumptions the systems pad radius is only 14.683 mm.",
+      "proposed_fix": "Define whether 25 mm is radius or diameter; enforce boss containment. The supplied 25 mm radius floor changes six-pad mass to 0.031809 kg before installation."
+    },
+    {
+      "id": "NFI-CHECK037-PAD-PRELOAD-LOADPATH",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Load-only F/crush sizing omits possible existing p/2 compression and does not address pull/oblique mooring transfer.",
+      "proposed_fix": "Determine actual reaction direction and superpose compatible pressure loads; use available compression headroom when applicable, then check face bending, core shear, peel, local shell failure and hardware."
+    },
+    {
+      "id": "NFI-CHECK037-P3-HARDPOINTS",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "7/2/1 member counts are scalar 5% sharing counts, without a vector load path or mass.",
+      "proposed_fix": "Place attachment nodes and members, solve equilibrium and joint loads, size fittings/spreaders and weigh their mass into the same lift budget."
+    },
+    {
+      "id": "NFI-CHECK037-RESERVE-POINT-LOAD",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "The 411.299 kg reserve contains environmental lift losses and distributed masses, not one suspended payload.",
+      "proposed_fix": "Use the actual payload and equipment layout; label the 4.033 kN example as hypothetical. Do not convert buoyancy penalties into concentrated hardware weight."
+    },
+    {
+      "id": "NFI-CHECK037-RESTORATION",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Multiplying a tube mass by reciprocal least SF is not a demonstrated structural restoration and cannot repair a separate film failure.",
+      "proposed_fix": "Recompute changed sections, Euler/local/Perry/global modes, film, fittings, sag and lift. Use the supplied corrected proportional masses only as sensitivities."
+    },
+    {
+      "id": "NFI-CHECK037-SHEAR-ALLOWABLE",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "The 241.317 kPa W value is typical core shear, not a bonded-interface or cyclic allowable; the minimum-average column is 172.369 kPa.",
+      "proposed_fix": "Choose the intended material statistic, stress-free bond temperature, finite transfer geometry and interface properties. The nominal thermal-change limits are 27.975 K typical and 19.982 K minimum-average in this screen."
+    },
+    {
+      "id": "NFI-CHECK037-CORE-CTE-LAG",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Prescribed Al-versus-Be strain in an equivalent shear-lag formula does not include effective cellular in-plane stiffness or finite boundary conditions.",
+      "proposed_fix": "Model both adherends/core compatibility and effective thermal expansion, then compare with representative measured thermal-cycle shear and peel."
+    },
+    {
+      "id": "NFI-CHECK037-CONVECTION-OPTICS",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "No speed or validity check is provided for Whitaker; bare optics and coating durability are assumptions.",
+      "proposed_fix": "Select climate and flight/ground thermal cases, validate the applicable convection regime, and retain measured or explicitly assumed surface optics and their temperature dependence."
+    },
+    {
+      "id": "NFI-CHECK037-FILM-CONSTITUTIVE",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Film nu is unstated, the frame is assumed rigid, and an isotropic law is applied even to the Zylon reinforcement case.",
+      "proposed_fix": "Provide membrane/laminate stiffness and CTE tensors, prestress and slip/bond conditions; solve frame-film compatibility with both directions and barrier mass."
+    },
+    {
+      "id": "NFI-CHECK037-NONUNIFORM-BOW",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Saying uniform mismatch does not bow a member does not evaluate circumferential tube heating, asymmetric film traction or thermal imperfections.",
+      "proposed_fix": "Calculate thermal curvature and load eccentricity for actual tube and attachment temperatures and add the resulting imperfection to the member stability calculation."
+    },
+    {
+      "id": "NFI-CHECK037-COMPLETE-MODE-ACCOUNT",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "The seven-screen minimum omits unresolved assembly modes; the filed coated swing is 0.917 and a separate scalar scarf interaction is 0.980.",
+      "proposed_fix": "Maintain a complete mode/load-case ledger, distinguish day-rise from night-reference assembly and map core thermal shear to scarf/bond stresses before combining them. Do not present seven-screen unity as installed-hull unity."
+    },
+    {
+      "id": "NFI-CHECK037-CURRENT-GEOMETRY",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "finding": "037 used 022c before 022d filed; several quoted high P3 factors are outside the half-wave band.",
+      "proposed_fix": "Carry the now-filed 022d in-band geometry into the next thermal/load calculation, charging both film plies and fittings. Keep this audit tied to the original 022c record."
+    }
+  ],
+  "resolved_source_findings": [
+    "FAA 78-to-70-knot history is resolved by Appendix B, not a remaining document conflict.",
+    "FAA VB lower bound includes the 0.65 VH alternative; design airspeeds are EAS.",
+    "The SR-200 manufacturer's own sheet supports typical 11.3 ppm/K thermal expansion."
+  ]
+}

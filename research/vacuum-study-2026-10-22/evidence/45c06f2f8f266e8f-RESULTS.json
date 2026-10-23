@@ -1,0 +1,300 @@
+{
+  "schema": 1,
+  "status": "ESTIMATE_PENDING_UNA",
+  "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+  "card": "MAINLINE-004b",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "map_point": false,
+  "formula": {
+    "p_cl": "4*E*tf*d/(R^2*sqrt(1-nu^2))",
+    "d": "sealed 004 face separation, core thickness plus face thickness",
+    "buckling_SF": "kd*p_cl/p_ext",
+    "E_required": "E*p_ext/(kd*p_cl)",
+    "scaling": "E_required proportional to 1/kd; a larger knockdown lowers required E",
+    "scale_from_sealed": "SF_new = SF_sp*(kd_new/kd_sp); E_new = E_sp*(kd_sp/kd_new)",
+    "identity_tolerance_relative": 1e-12,
+    "E_Pa": 68900000000.0,
+    "nu": 0.33,
+    "R_m": 10.0,
+    "p_ext_Pa": 95460.83791390515
+  },
+  "sources": {
+    "conservative": "sealed MAINLINE-004 NASA SP-8032 per row",
+    "central_kd": 0.2,
+    "central": "Wagner, Huehne, Zhang and Tang, Int. J. Pressure Vessels and Piping 179 (2020) 104015, doi 10.1016/j.ijpvp.2019.104015, elastic-region statement that equation (7) equals about 0.2 and seems independent of R/t. Equation (7) was not evaluated. Numerical lower bound 0.21 was not substituted.",
+    "optimistic_kd": 0.9,
+    "optimistic_carry": true,
+    "optimistic": "Wagner 2020 Table 3 row 12, Krenzke and Kiernan, reliable yes, upper KDF 0.90. Highest reliable upper in that table.",
+    "classical_kd": 1.0,
+    "classical": "perfect-shell bound, reference only, not the carry",
+    "sandwich_flat_kd": 0.22,
+    "sandwich_dimple_kd": 0.2,
+    "sandwich": "Sim, Lee, Kim, Park and Lee, Int. J. Aerospace Engineering 2024, doi 10.1155/2024/8765733. Dimple 0.20, flat 0.22. Not the carry."
+  },
+  "rows": [
+    {
+      "point_id": "P2-A",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0003758936444928841,
+        "core_m": 0.1,
+        "d_m": 0.10037589364449288,
+        "t_eq_m": 0.0283242462162671
+      },
+      "lambda": 67.95598903760522,
+      "R_over_t_eq": 353.05440870856535,
+      "strength_SF_QUESTIONABLE_unchanged": 0.43471919227695743,
+      "p_cl_Pa": 110156.56859174526,
+      "sealed_sp8032_kd": 0.14069293819919523,
+      "factors": {
+        "conservative": {
+          "kd": 0.14069293819919523,
+          "buckling_SF": 0.16235193023438044,
+          "E_required_Pa": 424386700549.43024,
+          "buckling_pressure_Pa": 15498.251297113828,
+          "above_alloy_modulus": true
+        },
+        "central": {
+          "kd": 0.2,
+          "buckling_SF": 0.23078902511015878,
+          "E_required_Pa": 298541059164.8068,
+          "buckling_pressure_Pa": 22031.313718349054,
+          "above_alloy_modulus": true
+        },
+        "optimistic": {
+          "kd": 0.9,
+          "buckling_SF": 1.0385506129957145,
+          "E_required_Pa": 66342457592.1793,
+          "buckling_pressure_Pa": 99140.91173257073,
+          "above_alloy_modulus": false
+        },
+        "classical_reference": {
+          "kd": 1.0,
+          "buckling_SF": 1.1539451255507938,
+          "E_required_Pa": 59708211832.961365,
+          "buckling_pressure_Pa": 110156.56859174526,
+          "above_alloy_modulus": false
+        },
+        "sandwich_flat": {
+          "kd": 0.22,
+          "buckling_SF": 0.25386792762117466,
+          "E_required_Pa": 271400962877.0971,
+          "buckling_pressure_Pa": 24234.44509018396,
+          "above_alloy_modulus": true
+        },
+        "sandwich_dimple": {
+          "kd": 0.2,
+          "buckling_SF": 0.23078902511015878,
+          "E_required_Pa": 298541059164.8068,
+          "buckling_pressure_Pa": 22031.313718349054,
+          "above_alloy_modulus": true
+        }
+      },
+      "optimistic_over_conservative": 6.396909550113781
+    },
+    {
+      "point_id": "P2-C",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0002,
+        "core_m": 0.1593641050163484,
+        "d_m": 0.1595641050163484,
+        "t_eq_m": 0.03126203289795851
+      },
+      "lambda": 64.68421473744723,
+      "R_over_t_eq": 319.8768305516378,
+      "strength_SF_QUESTIONABLE_unchanged": 0.23129903824973394,
+      "p_cl_Pa": 93171.09244745204,
+      "sealed_sp8032_kd": 0.14076480964803406,
+      "factors": {
+        "conservative": {
+          "kd": 0.14076480964803406,
+          "buckling_SF": 0.13738839276576856,
+          "E_required_Pa": 501497969464.3244,
+          "buckling_pressure_Pa": 13115.21109306497,
+          "above_alloy_modulus": true
+        },
+        "central": {
+          "kd": 0.2,
+          "buckling_SF": 0.1952027543095354,
+          "E_required_Pa": 352966331052.6061,
+          "buckling_pressure_Pa": 18634.21848949041,
+          "above_alloy_modulus": true
+        },
+        "optimistic": {
+          "kd": 0.9,
+          "buckling_SF": 0.8784123943929093,
+          "E_required_Pa": 78436962456.13467,
+          "buckling_pressure_Pa": 83853.98320270685,
+          "above_alloy_modulus": true
+        },
+        "classical_reference": {
+          "kd": 1.0,
+          "buckling_SF": 0.976013771547677,
+          "E_required_Pa": 70593266210.52122,
+          "buckling_pressure_Pa": 93171.09244745204,
+          "above_alloy_modulus": true
+        },
+        "sandwich_flat": {
+          "kd": 0.22,
+          "buckling_SF": 0.21472302974048893,
+          "E_required_Pa": 320878482775.09644,
+          "buckling_pressure_Pa": 20497.64033843945,
+          "above_alloy_modulus": true
+        },
+        "sandwich_dimple": {
+          "kd": 0.2,
+          "buckling_SF": 0.1952027543095354,
+          "E_required_Pa": 352966331052.6061,
+          "buckling_pressure_Pa": 18634.21848949041,
+          "above_alloy_modulus": true
+        }
+      },
+      "optimistic_over_conservative": 6.393643427290846
+    },
+    {
+      "point_id": "P2-K",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0002708825134523563,
+        "core_m": 0.13544125672617813,
+        "d_m": 0.1357121392396305,
+        "t_eq_m": 0.031049637761016113
+      },
+      "lambda": 64.9050739631473,
+      "R_over_t_eq": 322.06494893654906,
+      "strength_SF_QUESTIONABLE_unchanged": 0.31327432420100315,
+      "p_cl_Pa": 107328.64790007638,
+      "sealed_sp8032_kd": 0.14075961350962365,
+      "factors": {
+        "conservative": {
+          "kd": 0.14075961350962365,
+          "buckling_SF": 0.1582590235647263,
+          "E_required_Pa": 435362221047.82935,
+          "buckling_pressure_Pa": 15107.538996925232,
+          "above_alloy_modulus": true
+        },
+        "central": {
+          "kd": 0.2,
+          "buckling_SF": 0.22486424851387676,
+          "E_required_Pa": 306407089856.91895,
+          "buckling_pressure_Pa": 21465.72958001528,
+          "above_alloy_modulus": true
+        },
+        "optimistic": {
+          "kd": 0.9,
+          "buckling_SF": 1.0118891183124454,
+          "E_required_Pa": 68090464412.64867,
+          "buckling_pressure_Pa": 96595.78311006875,
+          "above_alloy_modulus": false
+        },
+        "classical_reference": {
+          "kd": 1.0,
+          "buckling_SF": 1.1243212425693838,
+          "E_required_Pa": 61281417971.383804,
+          "buckling_pressure_Pa": 107328.64790007638,
+          "above_alloy_modulus": false
+        },
+        "sandwich_flat": {
+          "kd": 0.22,
+          "buckling_SF": 0.24735067336526442,
+          "E_required_Pa": 278551899869.9264,
+          "buckling_pressure_Pa": 23612.302538016804,
+          "above_alloy_modulus": true
+        },
+        "sandwich_dimple": {
+          "kd": 0.2,
+          "buckling_SF": 0.22486424851387676,
+          "E_required_Pa": 306407089856.91895,
+          "buckling_pressure_Pa": 21465.72958001528,
+          "above_alloy_modulus": true
+        }
+      },
+      "optimistic_over_conservative": 6.393879448514311
+    },
+    {
+      "point_id": "P2-E",
+      "dependency": "DEPENDENCY003_ESTIMATE_PENDING_UNA",
+      "tag": "QUESTIONABLE",
+      "geometry": {
+        "R_m": 10.0,
+        "tf_m": 0.0003360949703945902,
+        "core_m": 0.1134320525081742,
+        "d_m": 0.1137681474785688,
+        "t_eq_m": 0.029663214496440944
+      },
+      "lambda": 66.40454602706818,
+      "R_over_t_eq": 337.11788050481925,
+      "strength_SF_QUESTIONABLE_unchanged": 0.3886922170642076,
+      "p_cl_Pa": 111634.56673301916,
+      "sealed_sp8032_kd": 0.14072569537344654,
+      "factors": {
+        "conservative": {
+          "kd": 0.14072569537344654,
+          "buckling_SF": 0.16456855370771048,
+          "E_required_Pa": 418670508111.6105,
+          "buckling_pressure_Pa": 15709.852031217544,
+          "above_alloy_modulus": true
+        },
+        "central": {
+          "kd": 0.2,
+          "buckling_SF": 0.23388557899250975,
+          "E_required_Pa": 294588491931.80286,
+          "buckling_pressure_Pa": 22326.913346603833,
+          "above_alloy_modulus": true
+        },
+        "optimistic": {
+          "kd": 0.9,
+          "buckling_SF": 1.0524851054662938,
+          "E_required_Pa": 65464109318.17841,
+          "buckling_pressure_Pa": 100471.11005971725,
+          "above_alloy_modulus": false
+        },
+        "classical_reference": {
+          "kd": 1.0,
+          "buckling_SF": 1.1694278949625487,
+          "E_required_Pa": 58917698386.36057,
+          "buckling_pressure_Pa": 111634.56673301916,
+          "above_alloy_modulus": false
+        },
+        "sandwich_flat": {
+          "kd": 0.22,
+          "buckling_SF": 0.2572741368917607,
+          "E_required_Pa": 267807719938.0026,
+          "buckling_pressure_Pa": 24559.604681264216,
+          "above_alloy_modulus": true
+        },
+        "sandwich_dimple": {
+          "kd": 0.2,
+          "buckling_SF": 0.23388557899250975,
+          "E_required_Pa": 294588491931.80286,
+          "buckling_pressure_Pa": 22326.913346603833,
+          "above_alloy_modulus": true
+        }
+      },
+      "optimistic_over_conservative": 6.395420520834183
+    }
+  ],
+  "checks": {
+    "sealed_identity": "PASS",
+    "scale_identity": "PASS",
+    "tolerance_relative": 1e-12
+  },
+  "measurements": {
+    "origin_utc": "2026-10-19T22:48:41.445118-07:00",
+    "origin_monotonic_s": 2090846.625442535,
+    "end_utc": "2026-10-19T22:48:50.520370-07:00",
+    "end_monotonic_s": 2090855.700719862,
+    "elapsed_s": 9.075277327094227,
+    "role": "measurements_only_not_limits",
+    "wagner_pdf_mtime": "2026-10-19T22:39:02-07:00",
+    "note": "Source reading in this session preceded the origin file. Elapsed is origin to this write. No phase cap and no funded-seconds cap."
+  }
+}

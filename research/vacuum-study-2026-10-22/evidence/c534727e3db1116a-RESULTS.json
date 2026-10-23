@@ -1,0 +1,568 @@
+{
+  "unit": "vacuum-review-d-066-1020",
+  "tag": "QUESTIONABLE",
+  "qualified_hull_SF": null,
+  "started": "2026-10-20T18:11:10-07:00",
+  "ended": "2026-10-20T18:20:39-07:00",
+  "simjob": null,
+  "why_no_simjob": "Spot checks of the load-bearing rows. One core, seconds. The owner's model was not run.",
+  "route": {
+    "buckling": "p = 0.20 * 4 * tf * (tc + tf) * E / (R^2 * sqrt(1 - nu^2))",
+    "nu_common": 0.33,
+    "wrinkling": "sigma = 0.33 * sqrt(Ec * E * tf / tc); p = 4 * sigma * tf / R",
+    "wrinkling_source": "065's statement of NASA CR-1457 equation 2.2-14, Q = 0.33",
+    "yield": "p = 4 * strength * tf / R",
+    "applied_pressure_Pa": 95460.8379139,
+    "index": "rho / E^0.514, with 0.514 = 77082.7 / 149950.6",
+    "owner_code": "not read and not run"
+  },
+  "payload_match_max_abs_kg": 0.0020861789816990495,
+  "rows": [
+    {
+      "case": "concept:20:ISA",
+      "lift_independent_kg": 39115.53720152,
+      "lift_reported_kg": 39115.53720149569,
+      "lift_difference_kg": 2.4308974388986826e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 38921.59002872575,
+      "faces_reported_kg": 38921.59002872575,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 9472.261683121791,
+      "core_reported_kg": 9472.261683121791,
+      "core_difference_kg": 0.0,
+      "two_films_kg": 736.252742118949,
+      "joining_reported_kg": 1222.0007734724459,
+      "mass_above_bill_kg": 1404.4682669917893,
+      "delta_c_payload_kg": -19594.208605672735,
+      "reported_payload_kg": -19594.208679278785,
+      "payload_minus_delta_c_kg": -7.360605013673194e-05,
+      "buckling_margin_nu_0.33": 1.6328165288217407,
+      "buckling_margin_nu_0.0768": 1.545913495630816,
+      "wrinkling_margin": 1.063405352241138,
+      "yield_margin": 1.6626164634070382,
+      "reported_binding": [
+        [
+          "face_wrinkling",
+          1.0000000004298717
+        ],
+        [
+          "global_buckling",
+          1.000000014279677
+        ],
+        [
+          "thermal_interface",
+          1.0711372993415926
+        ],
+        [
+          "scarf_average_shear",
+          1.252368049091647
+        ]
+      ],
+      "card_margin": 1.0
+    },
+    {
+      "case": "concept:20:optimistic",
+      "lift_independent_kg": 39115.53720152,
+      "lift_reported_kg": 39115.53720149569,
+      "lift_difference_kg": 2.4308974388986826e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 39775.77973662449,
+      "faces_reported_kg": 39775.77973662449,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 9606.182658396207,
+      "core_reported_kg": 9606.182658396207,
+      "core_difference_kg": 0.0,
+      "two_films_kg": 736.252742118949,
+      "joining_reported_kg": 1230.4201193672238,
+      "mass_above_bill_kg": 1847.2173497789045,
+      "delta_c_payload_kg": -21184.23455564135,
+      "reported_payload_kg": -21184.234559666944,
+      "payload_minus_delta_c_kg": -4.025594535050914e-06,
+      "buckling_margin_nu_0.33": 1.692470504193185,
+      "buckling_margin_nu_0.0768": 1.6023925206571557,
+      "wrinkling_margin": 1.0909188794245794,
+      "yield_margin": 1.699104948851162,
+      "reported_binding": [
+        [
+          "global_buckling",
+          1.0000000001415708
+        ],
+        [
+          "face_wrinkling",
+          1.0000000126759845
+        ],
+        [
+          "thermal_interface",
+          1.071127162527881
+        ],
+        [
+          "scarf_average_shear",
+          1.2475745215486589
+        ]
+      ],
+      "card_margin": 1.0
+    },
+    {
+      "case": "concept:30:ISA",
+      "lift_independent_kg": 132014.93805512998,
+      "lift_reported_kg": 132014.93805504794,
+      "lift_difference_kg": 8.204369805753231e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 131687.03050870454,
+      "faces_reported_kg": 131687.03050870454,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 31923.211383640268,
+      "core_reported_kg": 31923.21138364027,
+      "core_difference_kg": -3.637978807091713e-12,
+      "two_films_kg": 1656.568669767635,
+      "joining_reported_kg": 3351.637761477487,
+      "mass_above_bill_kg": 3868.3518523122766,
+      "delta_c_payload_kg": -64564.821981282366,
+      "reported_payload_kg": -64564.8225562039,
+      "payload_minus_delta_c_kg": -0.0005749215342802927,
+      "buckling_margin_nu_0.33": 1.6346505049444386,
+      "buckling_margin_nu_0.0768": 1.5476498624477228,
+      "wrinkling_margin": 1.068137759013137,
+      "yield_margin": 1.6667510226233597,
+      "reported_binding": [
+        [
+          "face_wrinkling",
+          1.0000000003990992
+        ],
+        [
+          "global_buckling",
+          1.0000000123427324
+        ],
+        [
+          "thermal_interface",
+          1.0708118841814234
+        ],
+        [
+          "scarf_average_shear",
+          1.249919970060791
+        ]
+      ],
+      "card_margin": 1.0
+    },
+    {
+      "case": "concept:30:optimistic",
+      "lift_independent_kg": 132014.93805512998,
+      "lift_reported_kg": 132014.93805504794,
+      "lift_difference_kg": 8.204369805753231e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 134579.40369187808,
+      "faces_reported_kg": 134579.40369187808,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 32375.50966619362,
+      "core_reported_kg": 32375.509666193622,
+      "core_difference_kg": -3.637978807091713e-12,
+      "two_films_kg": 1656.568669767635,
+      "joining_reported_kg": 3383.7340821387206,
+      "mass_above_bill_kg": 5362.633719246165,
+      "delta_c_payload_kg": -69947.21520463409,
+      "reported_payload_kg": -69947.21729081307,
+      "payload_minus_delta_c_kg": -0.0020861789816990495,
+      "buckling_margin_nu_0.33": 1.6944514006312439,
+      "buckling_margin_nu_0.0768": 1.604267988281955,
+      "wrinkling_margin": 1.0957857293143953,
+      "yield_margin": 1.7033595325293085,
+      "reported_binding": [
+        [
+          "face_wrinkling",
+          1.0000000004048104
+        ],
+        [
+          "global_buckling",
+          1.0000000304779284
+        ],
+        [
+          "thermal_interface",
+          1.0707994720765919
+        ],
+        [
+          "scarf_average_shear",
+          1.2451435679851746
+        ]
+      ],
+      "card_margin": 1.0
+    },
+    {
+      "case": "TRL7:20:ISA",
+      "lift_independent_kg": 39115.53720152,
+      "lift_reported_kg": 39115.53720149569,
+      "lift_difference_kg": 2.4308974388986826e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 38921.58993779644,
+      "faces_reported_kg": 38921.58993779644,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 9472.261623257575,
+      "core_reported_kg": 9472.261623257577,
+      "core_difference_kg": -1.8189894035458565e-12,
+      "two_films_kg": 736.252742118949,
+      "joining_reported_kg": 1222.000770871491,
+      "mass_above_bill_kg": 1404.4682669832036,
+      "delta_c_payload_kg": -14403.015003408918,
+      "reported_payload_kg": -14403.014676574076,
+      "payload_minus_delta_c_kg": 0.0003268348427809542,
+      "buckling_margin_nu_0.33": 1.6328165148014986,
+      "buckling_margin_nu_0.0768": 1.5459134823567702,
+      "wrinkling_margin": 1.0634053518749524,
+      "yield_margin": 1.6626164595228041,
+      "reported_binding": [
+        [
+          "face_wrinkling",
+          1.0000000003706804
+        ],
+        [
+          "global_buckling",
+          1.0000000070146704
+        ],
+        [
+          "thermal_interface",
+          1.071137299346126
+        ],
+        [
+          "scarf_average_shear",
+          1.2523680465229683
+        ]
+      ],
+      "card_margin": 1.0
+    },
+    {
+      "case": "TRL7:20:optimistic",
+      "lift_independent_kg": 39115.53720152,
+      "lift_reported_kg": 39115.53720149569,
+      "lift_difference_kg": 2.4308974388986826e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 39775.779619715395,
+      "faces_reported_kg": 39775.779619715395,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 9606.182799034488,
+      "core_reported_kg": 9606.182799034486,
+      "core_difference_kg": 1.8189894035458565e-12,
+      "two_films_kg": 736.252742118949,
+      "joining_reported_kg": 1230.4201241736675,
+      "mass_above_bill_kg": 1847.217349797771,
+      "delta_c_payload_kg": -15892.121478656387,
+      "reported_payload_kg": -15892.121571510135,
+      "payload_minus_delta_c_kg": -9.285374835599214e-05,
+      "buckling_margin_nu_0.33": 1.6924705234731388,
+      "buckling_margin_nu_0.0768": 1.6023925389109768,
+      "wrinkling_margin": 1.0909188666291907,
+      "yield_margin": 1.6991049438571473,
+      "reported_binding": [
+        [
+          "face_wrinkling",
+          1.00000000042001
+        ],
+        [
+          "global_buckling",
+          1.000000012428281
+        ],
+        [
+          "thermal_interface",
+          1.071127162517196
+        ],
+        [
+          "scarf_average_shear",
+          1.247574517224345
+        ]
+      ],
+      "card_margin": 1.0
+    },
+    {
+      "case": "TRL7:30:ISA",
+      "lift_independent_kg": 132014.93805512998,
+      "lift_reported_kg": 132014.93805504794,
+      "lift_difference_kg": 8.204369805753231e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 131687.0302237354,
+      "faces_reported_kg": 131687.0302237354,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 31923.211197349454,
+      "core_reported_kg": 31923.211197349454,
+      "core_difference_kg": 0.0,
+      "two_films_kg": 1656.568669767635,
+      "joining_reported_kg": 3351.63775274772,
+      "mass_above_bill_kg": 3868.351852284919,
+      "delta_c_payload_kg": -47222.28610855001,
+      "reported_payload_kg": -47222.286343434724,
+      "payload_minus_delta_c_kg": -0.00023488471197197214,
+      "buckling_margin_nu_0.33": 1.6346504919732274,
+      "buckling_margin_nu_0.0768": 1.5476498501668754,
+      "wrinkling_margin": 1.0681377586625889,
+      "yield_margin": 1.666751019016531,
+      "reported_binding": [
+        [
+          "face_wrinkling",
+          1.000000000353687
+        ],
+        [
+          "global_buckling",
+          1.0000000056347822
+        ],
+        [
+          "thermal_interface",
+          1.070811884186554
+        ],
+        [
+          "scarf_average_shear",
+          1.2499199677094244
+        ]
+      ],
+      "card_margin": 1.0
+    },
+    {
+      "case": "TRL7:30:optimistic",
+      "lift_independent_kg": 132014.93805512998,
+      "lift_reported_kg": 132014.93805504794,
+      "lift_difference_kg": 8.204369805753231e-08,
+      "payload_identity_difference_kg": 0.0,
+      "faces_independent_kg": 134579.4034662775,
+      "faces_reported_kg": 134579.4034662775,
+      "faces_difference_kg": 0.0,
+      "core_independent_kg": 32375.50952012614,
+      "core_reported_kg": 32375.50952012614,
+      "core_difference_kg": 0.0,
+      "two_films_kg": 1656.568669767635,
+      "joining_reported_kg": 3383.734075250715,
+      "mass_above_bill_kg": 5362.633719224657,
+      "delta_c_payload_kg": -52262.178107306456,
+      "reported_payload_kg": -52262.178358895064,
+      "payload_minus_delta_c_kg": -0.00025158860808005556,
+      "buckling_margin_nu_0.33": 1.694451390230903,
+      "buckling_margin_nu_0.0768": 1.604267978435149,
+      "wrinkling_margin": 1.0957857290309438,
+      "yield_margin": 1.7033595296739021,
+      "reported_binding": [
+        [
+          "face_wrinkling",
+          1.0000000003640768
+        ],
+        [
+          "global_buckling",
+          1.0000000253161045
+        ],
+        [
+          "thermal_interface",
+          1.0707994720806087
+        ],
+        [
+          "scarf_average_shear",
+          1.24514356616926
+        ]
+      ],
+      "card_margin": 1.0
+    }
+  ],
+  "arithmetic": {
+    "density_only": [
+      {
+        "case": "concept:20:ISA",
+        "ln_factor": 0.5758890802663111,
+        "reported_l1": 0.5758890802663112,
+        "density_1850_over_factor": 1040.0788824888766,
+        "reported_density": 1040.0788824888766
+      },
+      {
+        "case": "concept:20:optimistic",
+        "ln_factor": 0.6220473886116742,
+        "reported_l1": 0.6220473886116742,
+        "density_1850_over_factor": 993.1617385280638,
+        "reported_density": 993.1617385280638
+      },
+      {
+        "case": "concept:30:ISA",
+        "ln_factor": 0.5557715590323488,
+        "reported_l1": 0.5557715590323488,
+        "density_1850_over_factor": 1061.2145775672793,
+        "reported_density": 1061.2145775672793
+      },
+      {
+        "case": "concept:30:optimistic",
+        "ln_factor": 0.6014549210646165,
+        "reported_l1": 0.6014549210646182,
+        "density_1850_over_factor": 1013.8254172675006,
+        "reported_density": 1013.8254172675006
+      },
+      {
+        "case": "TRL7:20:ISA",
+        "ln_factor": 0.43457207636436157,
+        "reported_l1": 0.43457207636436385,
+        "density_1850_over_factor": 1197.952156468441,
+        "reported_density": 1197.952156468441
+      },
+      {
+        "case": "TRL7:20:optimistic",
+        "ln_factor": 0.4789169927336536,
+        "reported_l1": 0.4789169927336536,
+        "density_1850_over_factor": 1145.9897182075047,
+        "reported_density": 1145.9897182075047
+      },
+      {
+        "case": "TRL7:30:ISA",
+        "ln_factor": 0.4178606342303512,
+        "reported_l1": 0.41786063423035347,
+        "density_1850_over_factor": 1218.139877758229,
+        "reported_density": 1218.139877758229
+      },
+      {
+        "case": "TRL7:30:optimistic",
+        "ln_factor": 0.46183480749020156,
+        "reported_l1": 0.46183480749020184,
+        "density_1850_over_factor": 1165.7338834937823,
+        "reported_density": 1165.7338834937823
+      }
+    ],
+    "modulus_closure": [
+      {
+        "case": "concept:20:ISA",
+        "ln_factor": 0.7537293695643877,
+        "reported_l1": 0.7537293695643877,
+        "E_GPa": 623.8735267302696,
+        "reported_E_GPa": 623.8735267302696
+      },
+      {
+        "case": "concept:30:ISA",
+        "ln_factor": 0.7365050217101835,
+        "reported_l1": 0.7365050217101835,
+        "E_GPa": 613.2197278522442,
+        "reported_E_GPa": 613.2197278522442
+      },
+      {
+        "case": "TRL7:20:ISA",
+        "ln_factor": 0.6542791665196629,
+        "reported_l1": 0.6542791665196629,
+        "E_GPa": 564.8145590829884,
+        "reported_E_GPa": 564.8145590829884
+      },
+      {
+        "case": "TRL7:30:ISA",
+        "ln_factor": 0.6403470753121044,
+        "reported_l1": 0.6403470753121044,
+        "E_GPa": 557.0000735937307,
+        "reported_E_GPa": 557.0000735937307
+      },
+      {
+        "case": "TRL7:20:optimistic",
+        "ln_factor": 0.6663411783705021,
+        "reported_l1": 0.6663411783705021,
+        "E_GPa": 571.6686127256019,
+        "reported_E_GPa": 571.6686127256019
+      },
+      {
+        "case": "TRL7:30:optimistic",
+        "ln_factor": 0.6523155831951076,
+        "reported_l1": 0.6523155831951076,
+        "E_GPa": 563.7065867872659,
+        "reported_E_GPa": 563.7065867872659
+      }
+    ],
+    "realized_gamma_0.20_times_factor": {
+      "concept:20:ISA": null,
+      "concept:20:optimistic": null,
+      "concept:30:ISA": 0.9654825665883637,
+      "concept:30:optimistic": null,
+      "TRL7:20:ISA": 0.47191283702264697,
+      "TRL7:20:optimistic": 0.6086928823904105,
+      "TRL7:30:ISA": 0.4461150408354934,
+      "TRL7:30:optimistic": 0.5533974659060663
+    },
+    "modulus_to_density_ratio": 0.51405396177141
+  },
+  "join_ranking_high_better": [
+    {
+      "id": "cnt-yarn-ud",
+      "index_rho_over_E_to_0.514": 1.42137080596325,
+      "membrane": false,
+      "specific_modulus_over_beryllium_in_067": 1.520864567716142,
+      "wrinkling_improvement_in_067": 1.3981655871145924
+    },
+    {
+      "id": "m60j-ud",
+      "index_rho_over_E_to_0.514": 1.2542250895296458,
+      "membrane": false,
+      "specific_modulus_over_beryllium_in_067": 1.4020462296324367,
+      "wrinkling_improvement_in_067": 1.213834094578843
+    },
+    {
+      "id": "i220h-block",
+      "index_rho_over_E_to_0.514": 1.0196390295280193,
+      "membrane": false,
+      "specific_modulus_over_beryllium_in_067": 1.0482272421273096,
+      "wrinkling_improvement_in_067": 1.0180263563650334
+    },
+    {
+      "id": "cvd-diamond",
+      "index_rho_over_E_to_0.514": 1.0133067897012165,
+      "membrane": false,
+      "specific_modulus_over_beryllium_in_067": 1.9056261343012706,
+      "wrinkling_improvement_in_067": 0.8081838471171517
+    },
+    {
+      "id": "sr200-sae-minimum",
+      "index_rho_over_E_to_0.514": 0.9989489588523703,
+      "membrane": true,
+      "specific_modulus_over_beryllium_in_067": 1.010344827586207,
+      "wrinkling_improvement_in_067": 1.0034364531247248
+    },
+    {
+      "id": "sr200-programme",
+      "index_rho_over_E_to_0.514": 0.993677992656239,
+      "membrane": true,
+      "specific_modulus_over_beryllium_in_067": 1.0,
+      "wrinkling_improvement_in_067": 1.0
+    },
+    {
+      "id": "albemet-162-sheet",
+      "index_rho_over_E_to_0.514": 0.71999858717529,
+      "membrane": true,
+      "specific_modulus_over_beryllium_in_067": 0.5944987429028122,
+      "wrinkling_improvement_in_067": 0.7799104387432587
+    },
+    {
+      "id": "carbon-epoxy-qi",
+      "index_rho_over_E_to_0.514": 0.49312135545533753,
+      "membrane": true,
+      "specific_modulus_over_beryllium_in_067": 0.22083561318965517,
+      "wrinkling_improvement_in_067": 0.6706265417570662
+    },
+    {
+      "id": "boron-epoxy-qi",
+      "index_rho_over_E_to_0.514": 0.44320741624409143,
+      "membrane": true,
+      "specific_modulus_over_beryllium_in_067": 0.23897791568965518,
+      "wrinkling_improvement_in_067": 0.5625304950559096
+    },
+    {
+      "id": "al-6061-common",
+      "index_rho_over_E_to_0.514": 0.3252310962736729,
+      "membrane": true,
+      "specific_modulus_over_beryllium_in_067": 0.16279054916985952,
+      "wrinkling_improvement_in_067": 0.4243736130438321
+    }
+  ],
+  "fixes": [
+    {
+      "id": "FIX-D066-BUCKLING",
+      "case": "four concept geometries",
+      "field": "global_buckling margin",
+      "card": 1.0,
+      "independent_nu_0.33": "1.63, 1.69, 1.63, 1.69 in case order"
+    },
+    {
+      "id": "FIX-D066-WRINKLING",
+      "case": "four concept geometries",
+      "field": "face_wrinkling margin",
+      "card": 1.0,
+      "independent": "1.06, 1.09, 1.07, 1.10 in case order"
+    },
+    {
+      "id": "FIX-D066-JOIN",
+      "case": "concept R 30 ISA index",
+      "field": "067 ranking under rho/E^0.514",
+      "card": "067's wrinkling order, diamond at 0.81",
+      "independent": "diamond 1.013, CNT yarn 1.421, M60J 1.254, programme SR-200 0.994"
+    }
+  ]
+}

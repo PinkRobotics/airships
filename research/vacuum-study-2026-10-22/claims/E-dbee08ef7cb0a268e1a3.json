@@ -1,0 +1,42 @@
+{
+  "id": "E-dbee08ef7cb0a268e1a3",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-dbee08ef7cb0a268e1a3",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/2",
+    "row_id": "NFI-043-CHECK-03",
+    "fields": {
+      "id": "NFI-043-CHECK-03",
+      "key": "lower_tail_confidence",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "issue": "Point-fit Weibull parameters do not establish confidence at per-member probabilities near 10^-9.",
+      "needed": "Report parameter uncertainty, population representativeness, model-form evidence and a defensible tail-validation plan.",
+      "disposition": "Retain the zero-failure sample counts only as burden illustrations.",
+      "blocks_check": false,
+      "owner": "sciences / robotics programme",
+      "execution_authorized_by_this_row": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Point-fit Weibull parameters do not establish confidence at per-member probabilities near 10^-9.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

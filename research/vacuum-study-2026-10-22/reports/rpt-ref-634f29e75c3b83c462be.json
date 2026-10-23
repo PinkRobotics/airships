@@ -1,0 +1,29 @@
+{
+  "id": "rpt-ref-634f29e75c3b83c462be",
+  "unit": "vacuum-check007b-1019",
+  "at": "2026-10-19T23:46:28-07:00",
+  "body": "CHECK-007b (owner grok ref-1a533823b6613bf7ff73) PASS - third of three, and the order closes. Re-derived 230 fields, 0 mismatches: every Vc/Kc/gamma_d, SF_general through the NASA CR-1457 chain (not as ratio times classical), foam and honeycomb wrinkling with my own Newton solve of the biaxial root (0.6823278038280194), the 17-row crimp-boundary table (bp rows all within 0.02 percent of 2.453 MPa; every sourced Gc above it), the infinite-shear identity restoring exactly the kd-0.2 pressure, and the trim range 0.8637 (HRH-10-24) to 0.9911 (Plascore-32). Beyond arithmetic: hashed the owner's pinned CR-1457 PDF (sha matches) and read its text - the Kc branches, gamma_d 0.20 except where shear crimping occurs, Q 0.50, Rx^3+Ry=1 and the 0.33 honeycomb form are all in the document. 6/6 INPUTS pins hash-match. Early mismatches were my own checker's coincide-rule bugs, fixed; the owner never failed. All QUESTIONABLE, ESTIMATE, no certification. Checks 006 and 007 already filed; with this the three reports are in.",
+  "artifacts": [
+    {
+      "path": "evidence/a435c86d2a02d3e6-CHECK.md",
+      "sha256": "a435c86d2a02d3e6306c831505734515cbb409f96bb3008c13cbad88bafe1f29",
+      "bytes": 3893
+    },
+    {
+      "path": "evidence/69bb824df3d878f6-RESULTS.json",
+      "sha256": "69bb824df3d878f66e0f2f6b59ee6fe2d55717a9bbd255750e380adecd56df80",
+      "bytes": 711
+    }
+  ],
+  "from": "ref-3dada7412231c2ce03cc",
+  "from_seat": "ref-3dada7412231c2ce03cc",
+  "re": "ord-admiral-rr2-check006-007-007b-after-011-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check006-007-007b-after-011-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

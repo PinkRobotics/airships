@@ -1,0 +1,274 @@
+{
+  "nominal_baseline_geometry": {
+    "tf_mm": 0.794624066985892,
+    "tc_mm": 23.23721790601544
+  },
+  "nominal_baseline": {
+    "Vc": 0.9532138526378398,
+    "gamma_needed": 0.5641635666030143,
+    "Q_needed": 0.43462785437520435,
+    "crimp": 2.44130835618403,
+    "dimple": 6.758508201897037,
+    "crush": 5.0558220634629825,
+    "scarf": 0.9999999999999998,
+    "face_SF_345": 1.1487236403995558,
+    "teq_mm": 41.74256657521359,
+    "global_wavelength_m": 1.5779313933172434,
+    "joining": {
+      "bond": 184.06318552973724,
+      "scarf_film": 9.488610953216437,
+      "core_splice": 16.507246397262346,
+      "seal": 5.683037087839709,
+      "seam_m": 2841.5185439198544,
+      "total": 215.74207996805572
+    }
+  },
+  "nominal_checks": [
+    {
+      "path": "/Vc",
+      "filed": 0.9532138526378371,
+      "independent": 0.9532138526378398,
+      "delta": 2.6645352591003757e-15,
+      "ok": true
+    },
+    {
+      "path": "/gamma_needed",
+      "filed": 0.5641635666030083,
+      "independent": 0.5641635666030143,
+      "delta": 5.995204332975845e-15,
+      "ok": true
+    },
+    {
+      "path": "/Q_needed",
+      "filed": 0.43462785437520945,
+      "independent": 0.43462785437520435,
+      "delta": -5.10702591327572e-15,
+      "ok": true
+    },
+    {
+      "path": "/crimp",
+      "filed": 2.4413083561840616,
+      "independent": 2.44130835618403,
+      "delta": -3.1530333899354446e-14,
+      "ok": true
+    },
+    {
+      "path": "/dimple",
+      "filed": 6.758508201896968,
+      "independent": 6.758508201897037,
+      "delta": 6.838973831690964e-14,
+      "ok": true
+    },
+    {
+      "path": "/crush",
+      "filed": 5.0558220634629825,
+      "independent": 5.0558220634629825,
+      "delta": 0.0,
+      "ok": true
+    },
+    {
+      "path": "/scarf",
+      "filed": 0.9999999999999967,
+      "independent": 0.9999999999999998,
+      "delta": 3.1086244689504383e-15,
+      "ok": true
+    },
+    {
+      "path": "/face_SF_345",
+      "filed": 1.1487236403995522,
+      "independent": 1.1487236403995558,
+      "delta": 3.552713678800501e-15,
+      "ok": true
+    },
+    {
+      "path": "/teq_mm",
+      "filed": 41.742566575214134,
+      "independent": 41.74256657521359,
+      "delta": -5.471179065352771e-13,
+      "ok": true
+    },
+    {
+      "path": "/global_wavelength_m",
+      "filed": 1.5779313764842855,
+      "independent": 1.5779313933172434,
+      "delta": 1.683295791643502e-08,
+      "ok": true
+    },
+    {
+      "path": "/joining/bond",
+      "filed": 184.06318552973724,
+      "independent": 184.06318552973724,
+      "delta": 0.0,
+      "ok": true
+    },
+    {
+      "path": "/joining/scarf_film",
+      "filed": 9.488610953216401,
+      "independent": 9.488610953216437,
+      "delta": 3.552713678800501e-14,
+      "ok": true
+    },
+    {
+      "path": "/joining/core_splice",
+      "filed": 16.507246397262566,
+      "independent": 16.507246397262346,
+      "delta": -2.2026824808563106e-13,
+      "ok": true
+    },
+    {
+      "path": "/joining/seal",
+      "filed": 5.6830370878397085,
+      "independent": 5.683037087839709,
+      "delta": 8.881784197001252e-16,
+      "ok": true
+    },
+    {
+      "path": "/joining/seam_m",
+      "filed": 2841.518543919854,
+      "independent": 2841.5185439198544,
+      "delta": 4.547473508864641e-13,
+      "ok": true
+    },
+    {
+      "path": "/joining/total",
+      "filed": 215.74207996805592,
+      "independent": 215.74207996805572,
+      "delta": -1.9895196601282805e-13,
+      "ok": true
+    }
+  ],
+  "psi_calibration": {
+    "aluminium_dome_IDH_ref_1-1": {
+      "dimensions_in": [
+        1.65,
+        0.1,
+        0.166,
+        0.0375
+      ],
+      "nu_inferred_not_specified_in_INPUTS": 0.33,
+      "psi": 28.020475527938963,
+      "filed": 28.02047552793897
+    },
+    "plastic_1-G": {
+      "dimensions_in": [
+        1.57,
+        0.0191,
+        0.23,
+        0.0474
+      ],
+      "nu_inferred_not_specified_in_INPUTS": 0.35,
+      "psi": 9.062443075659221,
+      "filed": 9.062443075659221
+    },
+    "plastic_2-G": {
+      "dimensions_in": [
+        1.6,
+        0.0239,
+        0.226,
+        0.0479
+      ],
+      "nu_inferred_not_specified_in_INPUTS": 0.35,
+      "psi": 10.082888491473183,
+      "filed": 10.082888491473183
+    },
+    "plastic_3-G": {
+      "dimensions_in": [
+        1.25,
+        0.0153,
+        0.205,
+        0.0296
+      ],
+      "nu_inferred_not_specified_in_INPUTS": 0.35,
+      "psi": 22.240144836028946,
+      "filed": 22.24014483602895
+    }
+  },
+  "ratios": {
+    "monocoque_low": 0.7836734693877551,
+    "monocoque_high": 0.8163265306122448,
+    "geodesic_1G": 0.5681632653061224,
+    "geodesic_2G": 0.6155102040816326,
+    "geodesic_3G_design_normalized": 0.6417177292753329,
+    "aluminium_test": 0.42448979591836733,
+    "handbook_co": 0.2601,
+    "Pineda_low": 0.8077544426494346,
+    "Pineda_high": 0.9722897423432183,
+    "Ossola_plain_317_over_917": 0.3456924754634678,
+    "Ossola_isogrid_410p3_over_934": 0.4392933618843683,
+    "Ossola_sample_mean": 410.3333333333333,
+    "Ossola_sample_sd": 4.041451884327381,
+    "Ossola_plain_nonlinear_error": 0.5993690851735016,
+    "Ossola_isogrid_nonlinear_error": 0.09188398732634662,
+    "TA01_test_classical": 0.9482663731425428,
+    "TA01_nonlinear_error": -0.10069645966337792,
+    "TA02_classical_kips": 290.71999999999997,
+    "TA02_LS4_test_classical": 0.9844523940561366,
+    "TA02_LS5_test_classical_280": 0.9631260319207486,
+    "TA02_LS5_test_classical_279p7": 0.9620941111722621,
+    "TA02_LS5_prediction_error_268_vs_280": -0.042857142857142816,
+    "TA02_LS5_prediction_error_267p6_vs_279p7": -0.04326063639613864,
+    "TA07_prediction_error": -0.14374034003091185,
+    "TA07_drop": 0.5174652241112829,
+    "STA8p1_test_above_pretest": 0.06599713055954082,
+    "STA8p1_final_prediction_error": 0.014804845222072593,
+    "STA8p1_intermediate_prediction_error": 0.021534320323014722,
+    "STA8p1_nonuniform_loading_reduction": 0.006587615283267456,
+    "STA8p1_imperfection_reduction": 0.03194444444444444,
+    "TA09_weld_and_imperfection_reduction": 0.3102981029810298,
+    "STA8p1_total_height_in": 0.5700000000000001
+  },
+  "diagnostics": {
+    "C2b_O5": {
+      "gamma_s_filed": 10.400177898756727,
+      "isolated_tube_EI_over_a_Dskin": 3.1968399605418045,
+      "psi_identity": 14.510227396301184,
+      "cap_factor_exact_at_filed_lambda": 0.6010131918193014,
+      "gamma_required_for_panel": 0.8460393085348252,
+      "Q_required": 0.4788801901268853,
+      "scarf_tau_required_Pa": 12301297.523952844,
+      "unrestricted_global_SF": 1.0550692201515455,
+      "wavelength_excluded_from_global_minimum_m": 3.427771773020092,
+      "wavelength_cutoff_m": 4.08,
+      "equal_area_radius_m": 0.757365554271405,
+      "circumscribed_radius_m": 1.1777945491468367,
+      "circumscribed_lambda": 4.0971541471539314,
+      "circumscribed_cap_factor": 0.33062742036545756,
+      "circumscribed_panel_SF": 0.39079439575690594,
+      "inscribed_lambda": 2.0485770735769657,
+      "inscribed_cap_factor": 0.8077544426494346,
+      "pipe_Euler_pin_ended_SF": 8.6745857443042
+    },
+    "SiC_O5": {
+      "mechanical_member_force_N": 55520.71015131752,
+      "compression_envelope_member_force_N": 63974.27969417141,
+      "omitted_thermal_force_N": 8453.56954285389,
+      "scalar_sleeve_mass_if_scaled_to_compression_envelope_kg": 17.945115453167613
+    },
+    "boundary_sensitivity": "Circumscribed/inscribed substitutions are sensitivity examples, not alternative validated triangular-cap rules.",
+    "missing_mode_sensitivity": "Unrestricted smeared N(k) is a diagnostic; homogenization is itself unverified at wavelengths of only 1-2 bays.",
+    "026_layout": {
+      "tube_area_independent_m2": 0.0006816960123390163,
+      "member_mass_from_area_and_reported_arc_length_kg": 4567.7029317808065,
+      "filed_026_member_mass_kg": 4567.702931780806,
+      "continuum_length_039_m": 2133.8816049814327,
+      "actual_026_arc_length_m": 2161.4510455815935,
+      "actual_over_continuum_length": 1.0129198548484608,
+      "C2b_O5_mass_change_at_unchanged_tubes_kg": 8.093260253983164,
+      "note": "Length-only sensitivity: actual load redistribution and joining require the discrete layout. 026 arc length is an input, not regenerated here."
+    }
+  },
+  "elapsed": [
+    {
+      "file": "RUNS.json",
+      "measured_timestamp_delta_s": 277.798049,
+      "filed_s": 277.7980464408174,
+      "difference_s": 2.559182576078456e-06
+    },
+    {
+      "file": "RUNS-gs5.json",
+      "measured_timestamp_delta_s": 277.892893,
+      "filed_s": 277.8928893771954,
+      "difference_s": 3.622804626957077e-06
+    }
+  ]
+}

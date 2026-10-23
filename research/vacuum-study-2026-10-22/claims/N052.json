@@ -1,0 +1,78 @@
+{
+  "id": "N052",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N052",
+    "report": "rpt-ref-d5b4aaa267b71d82fe25",
+    "card": "MAINLINE-009",
+    "file": "evidence/b9cd9c3b294887e6-NFI.json",
+    "row_id": "NFI-CORE",
+    "fields": {
+      "id": "NFI-CORE",
+      "value": "Divinycell H35",
+      "optimistic": {
+        "density_kg_m3": 38.0,
+        "Ec_Pa": 40000000.0,
+        "Gc_Pa": 12000000.0,
+        "compressive_Pa": 500000.0
+      },
+      "conservative": "Divinycell rev9 prints a minimum compressive strength of 0.3 MPa against the nominal 0.5 MPa used here. Other cores on MAINLINE-007 are typical columns, not allowables.",
+      "factor_divinycell_compression": 1.6666666666666667,
+      "tag": "QUESTIONABLE",
+      "direction": "Design allowables for Ec, Gc and compressive strength at the thickness this point uses."
+    }
+  },
+  "claim": "{\"id\": \"NFI-CORE\", \"value\": \"Divinycell H35\", \"optimistic\": {\"density_kg_m3\": 38.0, \"Ec_Pa\": 40000000.0, \"Gc_Pa\": 12000000.0, \"compressive_Pa\": 500000.0}, \"conservative\": \"Divinycell rev9 prints a minimum compressive strength of 0.3 MPa against the nominal 0.5 MPa used here. Other cores on MAINLINE-007 are typical columns, not allowables.\", \"factor_divinycell_compression\": 1.6666666666666667, \"tag\": \"QUESTIONABLE\", \"direction\": \"Design allowables for Ec, Gc and compressive strength at the thickness this point uses.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/51"
+    },
+    {
+      "report": "rpt-ref-d5b4aaa267b71d82fe25",
+      "artifact": "evidence/b9cd9c3b294887e6-NFI.json",
+      "snapshot": "evidence/b9cd9c3b294887e6-NFI.json",
+      "sha256": "b9cd9c3b294887e6e959aed40d3c037ce09cd0b6d560d4fdd1b1df797f31ba18",
+      "bytes": 4626,
+      "selector": "source row ID: NFI-CORE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d5b4aaa267b71d82fe25",
+          "artifact": "evidence/b9cd9c3b294887e6-NFI.json",
+          "snapshot": "evidence/b9cd9c3b294887e6-NFI.json",
+          "sha256": "b9cd9c3b294887e6e959aed40d3c037ce09cd0b6d560d4fdd1b1df797f31ba18",
+          "bytes": 4626,
+          "selector": "source row ID: NFI-CORE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/51"
+          }
+        ]
+      }
+    }
+  ]
+}

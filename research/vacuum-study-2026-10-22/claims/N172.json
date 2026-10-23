@@ -1,0 +1,70 @@
+{
+  "id": "N172",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N172",
+    "report": "rpt-ref-06668dbf12580ed0ffc3",
+    "card": "MAINLINE-015",
+    "file": "evidence/32fd0bf058dd6218-NFI.json",
+    "row_id": "NFI-015-KD03-AMPLITUDE",
+    "fields": {
+      "id": "NFI-015-KD03-AMPLITUDE",
+      "issue": "Eq 3 floors at 0.45, so kd 0.3 has no lambda_I = 1 amplitude. The worst-width curve is pinned only at its plateau 0.2338 and by the one-thickness statement, kd about 0.20-0.25 at delta equal to t. kd 0.3 sits on the unretrieved rising branch between those pins. No pair is interpolated. The aluminium-honeycomb beryllium point has R/t_eq 136.7, inside the fit range 100-1550, so the missing amplitude is the floor, not the range. P2-E at R/t_eq 50.75 remains outside that range.",
+      "consequence": "The kd 0.3 row is a ceiling: below 197.052 mm on P2-E, below 73.17 mm on the 014b beryllium point, below 39.05 mm on 014 beryllium with HRH-10. The true allowance is smaller, and the gap factor against manufacture is not known.",
+      "next": "Digitise the worst-width envelope (Lee et al. 2016, or a recomputation) at delta/t below 1."
+    }
+  },
+  "claim": "Eq 3 floors at 0.45, so kd 0.3 has no lambda_I = 1 amplitude. The worst-width curve is pinned only at its plateau 0.2338 and by the one-thickness statement, kd about 0.20-0.25 at delta equal to t. kd 0.3 sits on the unretrieved rising branch between those pins. No pair is interpolated. The aluminium-honeycomb beryllium point has R/t_eq 136.7, inside the fit range 100-1550, so the missing amplitude is the floor, not the range. P2-E at R/t_eq 50.75 remains outside that range.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/171"
+    },
+    {
+      "report": "rpt-ref-06668dbf12580ed0ffc3",
+      "artifact": "evidence/32fd0bf058dd6218-NFI.json",
+      "snapshot": "evidence/32fd0bf058dd6218-NFI.json",
+      "sha256": "32fd0bf058dd6218c0c22c124cdaabe5452a14c1dcc3e6dcb239e3b4bc604d82",
+      "bytes": 6822,
+      "selector": "source row ID: NFI-015-KD03-AMPLITUDE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-06668dbf12580ed0ffc3",
+          "artifact": "evidence/32fd0bf058dd6218-NFI.json",
+          "snapshot": "evidence/32fd0bf058dd6218-NFI.json",
+          "sha256": "32fd0bf058dd6218c0c22c124cdaabe5452a14c1dcc3e6dcb239e3b4bc604d82",
+          "bytes": 6822,
+          "selector": "source row ID: NFI-015-KD03-AMPLITUDE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/171"
+          }
+        ]
+      }
+    }
+  ]
+}

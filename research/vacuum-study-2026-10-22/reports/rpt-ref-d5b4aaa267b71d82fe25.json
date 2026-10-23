@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-d5b4aaa267b71d82fe25",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-19T23:24:34-07:00",
+  "body": "MAINLINE-009 filed. The point is a P2 sandwich. Faces are SiC, the best QUESTIONABLE equal-mass face on MAINLINE-008. The core is Divinycell H35 at 38 kg/m3, the complete core from MAINLINE-007 with the highest lesser factor across the five modes. The main knockdown is 0.20. The payload margin is 5 percent of lift. MAINLINE-006 places the P2-E knee on that same 0 to 5 percent step, so the margin stays. Float margin is 0.05, 244.472107509 kg. Each face is 0.000272153646316 m and the core is 0.0462419048864 m.\n\nAt knockdown 0.20 the handbook global buckling factor is 0.23515931325 and face wrinkling is 0.235167984044. Face compression is 4.44747498063, core crush is 10.4754999207, and core shear crimping is 1.17630177845. At 0.90, classical global buckling is 2.07346298088 and wrinkling stays 0.235167984044. SP-8032 at 0.1407 gives classical global buckling 0.324151379344. The precision gap 0.90/0.20 is 4.5.\n\nNo QUESTIONABLE face with a complete sourced core reaches 1 in every mode. Buckling at 0.20 and wrinkling at both knockdowns are short by a factor 4.25. On the foam formula that wrinkling factor is 76.9 on Ec times Gc. Beryllium S-200F is the nearest QUESTIONABLE face and reaches 0.282. Plascore at 16 kg/m3 has no Ec, so wrinkling there is open. MAINLINE-011's P3 SiC frame reaches 2.85 at margin 0. The five named modes stay on this sandwich. QUESTIONABLE. Not a certification. MAINLINE-009b takes that frame up at the 5 percent margin.",
+  "artifacts": [
+    {
+      "path": "evidence/a724c23d825f5134-CARD.md",
+      "sha256": "a724c23d825f5134f1cdb5dd1010180fb6844509748bb79770df94d7505fb868",
+      "bytes": 7132
+    },
+    {
+      "path": "evidence/f109f7eee35012a7-RESULTS.json",
+      "sha256": "f109f7eee35012a705e68805b63c1eb107a26f51d609b4e18a48277a9fddfeef",
+      "bytes": 13427
+    },
+    {
+      "path": "evidence/b9cd9c3b294887e6-NFI.json",
+      "sha256": "b9cd9c3b294887e6e959aed40d3c037ce09cd0b6d560d4fdd1b1df797f31ba18",
+      "bytes": 4626
+    },
+    {
+      "path": "evidence/2815ce006a563a48-INPUTS.json",
+      "sha256": "2815ce006a563a486e14e1d4779d62cfa3304f850998b0aebd1960ed07b73986",
+      "bytes": 4652
+    },
+    {
+      "path": "evidence/f3cc6bc67b486a4e-compute.py",
+      "sha256": "f3cc6bc67b486a4ec0ebc094b6300605cc0fc1f5c9d62c0d40ebd217d34cc357",
+      "bytes": 34000
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline009-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

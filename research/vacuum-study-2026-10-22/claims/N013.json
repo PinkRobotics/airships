@@ -1,0 +1,76 @@
+{
+  "id": "N013",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N013",
+    "report": "rpt-1228-mainline014b-independent-check-1019",
+    "card": "CHECK-MAINLINE-14B",
+    "file": "evidence/5d2a8afe8b483d72-NFI.json",
+    "row_id": "NFI-STRENGTH-EDITION",
+    "fields": {
+      "id": "NFI-STRENGTH-EDITION",
+      "type": "source_version_conflict",
+      "row": "Beryllium S-200F",
+      "field": "compressive_yield_MPa",
+      "reported": 283,
+      "current_guide_value_approx": 255,
+      "source_url": "https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74",
+      "page": 4,
+      "proposed_fix": "Pin the exact older MB-001 edition supporting 283 MPa and reconcile the newer guide. Current computations retain the frozen strength; 37/41 sensitivity is arithmetically correct.",
+      "stops_owner": false
+    }
+  },
+  "claim": "{\"id\": \"NFI-STRENGTH-EDITION\", \"type\": \"source_version_conflict\", \"row\": \"Beryllium S-200F\", \"field\": \"compressive_yield_MPa\", \"reported\": 283, \"current_guide_value_approx\": 255, \"source_url\": \"https://hkvxni.files.cmp.optimizely.com/download/dafce45ca04211ee97ee126db737ac74\", \"page\": 4, \"proposed_fix\": \"Pin the exact older MB-001 edition supporting 283 MPa and reconcile the newer guide. Current computations retain the frozen strength; 37/41 sensitivity is arithmetically correct.\", \"stops_owner\": false}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/12"
+    },
+    {
+      "report": "rpt-1228-mainline014b-independent-check-1019",
+      "artifact": "evidence/5d2a8afe8b483d72-NFI.json",
+      "snapshot": "evidence/5d2a8afe8b483d72-NFI.json",
+      "sha256": "5d2a8afe8b483d722464dbdd81d07ac777e0ead6cdb80a605b21458f2e90b562",
+      "bytes": 3048,
+      "selector": "source row ID: NFI-STRENGTH-EDITION"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline014b-independent-check-1019",
+          "artifact": "evidence/5d2a8afe8b483d72-NFI.json",
+          "snapshot": "evidence/5d2a8afe8b483d72-NFI.json",
+          "sha256": "5d2a8afe8b483d722464dbdd81d07ac777e0ead6cdb80a605b21458f2e90b562",
+          "bytes": 3048,
+          "selector": "source row ID: NFI-STRENGTH-EDITION"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/12"
+          }
+        ]
+      }
+    }
+  ]
+}

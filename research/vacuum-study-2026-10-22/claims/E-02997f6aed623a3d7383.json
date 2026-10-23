@@ -1,0 +1,43 @@
+{
+  "id": "E-02997f6aed623a3d7383",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-02997f6aed623a3d7383",
+    "report": "rpt-ref-02edbc8231269239b47f",
+    "file": "evidence/7420c6e334e87c11-NFI.json",
+    "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+    "source_sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+    "source_json_pointer": "/new_rows/0",
+    "row_id": "CHK054-01",
+    "fields": {
+      "id": "CHK054-01",
+      "status": "PROPOSED_TEXT_FIX",
+      "tag": "PROJECTION",
+      "row": "owner report body; R12 ISA, FOIL30 alone, 30 days",
+      "field": "payload_kg",
+      "owner_value": 47.35,
+      "independent_value": 47.34455788658644,
+      "correct_display": 47.34,
+      "finding": "The report rounds up incorrectly; the card and machine data already show the correct result.",
+      "action": "Use +47.34 kg in summaries. No route, mass model or closure change."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The report rounds up incorrectly; the card and machine data already show the correct result.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q5",
+  "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+  "sources": [
+    {
+      "report": "rpt-ref-02edbc8231269239b47f",
+      "artifact": "evidence/7420c6e334e87c11-NFI.json",
+      "snapshot": "evidence/7420c6e334e87c11-NFI.json",
+      "sha256": "7420c6e334e87c11eb16303b9676fd296389d5ad10ccddba202bbecb5e6a787f",
+      "bytes": 17209,
+      "selector": "/new_rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

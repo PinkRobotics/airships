@@ -1,0 +1,84 @@
+{
+  "id": "N427",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N427",
+    "report": "rpt-ref-d907de1e97319ecc3f9a",
+    "card": "MAINLINE-028b",
+    "file": "evidence/737765424727a77d-NFI.json",
+    "snapshot": "evidence/737765424727a77d-NFI.json",
+    "source_sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+    "source_json_pointer": "/rows/3",
+    "row_id": "NFI-028b-af015_scarf_primer5-wrinkle",
+    "fields": {
+      "id": "NFI-028b-af015_scarf_primer5-wrinkle",
+      "status": "OPEN",
+      "issue": "Ground wrinkling coefficient with the actual core and bond.",
+      "state": "PROJECTION",
+      "tag": "PROJECTION",
+      "needed": 0.42895155156547243,
+      "today": 0.33,
+      "improvement_factor": 1.2998531865620375,
+      "null_factor_reason": null,
+      "source": "Inherited CR-1457 bounds",
+      "usage": 0.288121245604928,
+      "full": 0.82
+    },
+    "inherited_document_tag": {
+      "overall_installed_hull_SF": null
+    }
+  },
+  "claim": "Ground wrinkling coefficient with the actual core and bond.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/426"
+    },
+    {
+      "report": "rpt-ref-d907de1e97319ecc3f9a",
+      "artifact": "evidence/737765424727a77d-NFI.json",
+      "snapshot": "evidence/737765424727a77d-NFI.json",
+      "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+      "bytes": 13400,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d907de1e97319ecc3f9a",
+          "artifact": "evidence/737765424727a77d-NFI.json",
+          "snapshot": "evidence/737765424727a77d-NFI.json",
+          "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+          "bytes": 13400,
+          "selector": "/rows/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/426"
+          }
+        ]
+      }
+    }
+  ]
+}

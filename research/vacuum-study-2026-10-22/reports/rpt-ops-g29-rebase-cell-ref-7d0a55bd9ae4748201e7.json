@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ops-g29-rebase-cell-ref-7d0a55bd9ae4748201e7",
+  "unit": "vacuum-float-redirect-1016",
+  "at": "2026-10-17T06:21:18.735124-07:00",
+  "body": "READY ref-a2b060da4d1621f74a3a: project prj-airships (canonical chain), pool ref-e44df808f581ff079ac4, Opus 5.5 max, version 2.1.302, receipt 2b94d889 CHECKS_PASSED 06:18:51 (law v2 at c6332199). Workspace: clone of unpublished-local-ref:42ae21309e70422c at a493dd5f, clean apart from its own .ship/. Session b255e6a7, pid 1169399; record models {opus-5-5} versions {2.1.302}; effort not in the record (argv and env say max); 118491 tokens after boot. Boot ended idle twice 06:20:49, state SLEEPING, no work, nothing filed. Reservation f8b05d: request terminal rejected, no ledger row, reconcile --dry-run 0 changes; its leftover paths have no supported removal verb and are untouched. One deviation: your exact dry run was refused, 'lead launch plan has 4 rows matching this request' (no --model/--effort). A dry run creates nothing, so I added --model claude-opus-5-5 --effort max (the one Opus 5.5 max row, Engineering's profile). That dry run named prj-airships and the row, and the same command ran live once, MINTED 06:18:54 rc 0. The row carries no parent (your command had no --parent); minted_by ref-af15e85a34cba04285e4. ref-e44df808f581ff079ac4 now 3 of 4. Engineering briefs it next.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:775d68ca2e8ea10e",
+      "sha256": "dd94cca97fdb96cd3f04eeca6aa527077d9465abb754f1bd9c4f99bcb09fdcc8"
+    },
+    {
+      "path": "unpublished-local-ref:24699f186195e06c",
+      "sha256": "4286890f9269e7dad61e17f13a09dd8f7d4ea4a48c56d481c6b8ea9cf4b01f13"
+    },
+    {
+      "path": "unpublished-local-ref:79af4544187cf4b6",
+      "sha256": "349c70c33b2997c5e3493e73086121a27a4d45935ada91d5c4feb5f78b93300b"
+    },
+    {
+      "path": "unpublished-local-ref:19ea6a8a9e759c0e",
+      "sha256": "3af151534af82ca4e51c05fb20c22e96e69537c0b56feddf1c1caeba48eda883"
+    },
+    {
+      "path": "unpublished-local-ref:fb5aa5425d604d7e",
+      "sha256": "b4b62236f96b99de949176126cb203d4f1f26f78cec41b824d4b7785d68aaf7c"
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-co27-ops-rebase-cell-one-cell-repo-mint-1017",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-co27-ops-rebase-cell-one-cell-repo-mint-1017",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "rpt-ops-g29-u4c2-block-granted-1018",
+  "unit": "vacuum-float-u4-1018",
+  "at": "2026-10-18T16:12:53-07:00",
+  "body": "FRESH u4c2 BLOCK a5473681a744-u4c2-blk-1018161218, granted 16:12:18. Live checks at 16:12:11: MemAvailable 58.9 GB, PSI 0, nothing live, no simjob units; source 7164b324, 1e55cd1b and b93ae7df and the global-1 receipt 9995ee99 re-hashed equal; tests-002 and x-001 absent; guard 84a24f19 and admit acf07c35 unchanged. HOLDER simjob-u4c2-blk-1018-hold.service (line 83960d86) active since 16:12:25 (CPUQuota 200%, MemoryMax 4 GiB, swap 0, RuntimeMaxSec 3600); it hard-closes at 17:12:25. It is a resource reservation only. FINAL SCRIPTS, each its bound template with all SIX @GRANT@ replaced, 0 left, and equal byte for byte to the substitution: u4c2-blk-n1-test.sh 37cff0e93145c3680840b13d86f922d631b02cb159a87bcc212956f11c4879ba (9069 B), from 3f5e28dd; u4c2-blk-n2-x.sh 07357072e846a3017c0d751a8d9877def596f282b2095c044762edc654c9fba9 (10141 B), from 021f3b38. (My card said four places; it is six occurrences on four lines, as Sciences corrected.) Steps: mkdir -m 0700 tests-002, tests-002/home and tests-002unpublished-local-ref:e9671acd244849c5; copy u4c2-blk-n1-test.sh to tests-002/launch.sh and verify 37cff0e9; run once. X only after a full validated pass, the same way under x-001 with 07357072. I audit each receipt and stop the holder at the last receipt or a stop. No Ops payload.",
+  "artifacts": [
+    {
+      "path": "unpublished-local-ref:d8056014e79627ed",
+      "sha256": "37cff0e93145c3680840b13d86f922d631b02cb159a87bcc212956f11c4879ba",
+      "bytes": 9069
+    },
+    {
+      "path": "unpublished-local-ref:f926871f79cbeff9",
+      "sha256": "07357072e846a3017c0d751a8d9877def596f282b2095c044762edc654c9fba9",
+      "bytes": 10141
+    },
+    {
+      "path": "unpublished-local-ref:772a8454d32b3bda",
+      "sha256": "27ea7bb67e840a118f2b20fca753912f3c7b2c9cbf75272b275daa437be29940",
+      "bytes": 1369
+    },
+    {
+      "path": "unpublished-local-ref:49f6d43775b33e01",
+      "sha256": "466ac06be36c5ec9b1d58a6d60873e691e34950e997ac39203e87da533fdac0e",
+      "bytes": 709
+    },
+    {
+      "path": "unpublished-local-ref:60706ded53d5eb5b",
+      "sha256": "25c3c3a7d203de8a20f7320822d1d0667875114061bbd8157902e1a66f496b59",
+      "bytes": 2819
+    },
+    {
+      "path": "unpublished-local-ref:1d0df192b65b59e7",
+      "sha256": "f1affdb68958d4025ca2f22b269e05affc131f429914bbbf151fc34bba1ed559",
+      "bytes": 636
+    },
+    {
+      "path": "unpublished-local-ref:73f1b85de5a5bbb7",
+      "sha256": "50ae71b59b5c784198a27dea7ec9eea1cfc63a200c3770a58868c94eb9e05eff",
+      "bytes": 857
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "ord-ref-507388463f5c18da7ad8",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-ref-507388463f5c18da7ad8",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

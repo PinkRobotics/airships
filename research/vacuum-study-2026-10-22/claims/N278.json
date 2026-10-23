@@ -1,0 +1,70 @@
+{
+  "id": "N278",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N278",
+    "report": "rpt-mainline004b-grok-kd-range-1019",
+    "card": "MAINLINE-04B",
+    "file": "evidence/f528292663aa7701-NFI.json",
+    "row_id": "NFI-LAMBDA",
+    "fields": {
+      "NFI_id": "NFI-LAMBDA",
+      "gap": "No reliable row in Wagner 2020 Table 3 reaches lambda near 65-68. Krenzke's 0.11-0.90 range mixes R/t 10-212 and stiffened with unstiffened machined shells, so 0.90 may be a thick or stiffened specimen. Adam and King, reliable yes, reach 0.89 only to lambda 43.11.",
+      "direction": "Separate the Krenzke upper by R/t and by stiffened versus unstiffened.",
+      "effect": "The carried 0.90 is an upper end of the tabulated reliable set, not a measurement at this slenderness."
+    }
+  },
+  "claim": "{\"NFI_id\": \"NFI-LAMBDA\", \"gap\": \"No reliable row in Wagner 2020 Table 3 reaches lambda near 65-68. Krenzke's 0.11-0.90 range mixes R/t 10-212 and stiffened with unstiffened machined shells, so 0.90 may be a thick or stiffened specimen. Adam and King, reliable yes, reach 0.89 only to lambda 43.11.\", \"direction\": \"Separate the Krenzke upper by R/t and by stiffened versus unstiffened.\", \"effect\": \"The carried 0.90 is an upper end of the tabulated reliable set, not a measurement at this slenderness.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/277"
+    },
+    {
+      "report": "rpt-mainline004b-grok-kd-range-1019",
+      "artifact": "evidence/f528292663aa7701-NFI.json",
+      "snapshot": "evidence/f528292663aa7701-NFI.json",
+      "sha256": "f528292663aa7701e2d2529e485ecdbfd5151a9880e99b40b033a19c7df0be60",
+      "bytes": 3253,
+      "selector": "source row ID: NFI-LAMBDA"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-mainline004b-grok-kd-range-1019",
+          "artifact": "evidence/f528292663aa7701-NFI.json",
+          "snapshot": "evidence/f528292663aa7701-NFI.json",
+          "sha256": "f528292663aa7701e2d2529e485ecdbfd5151a9880e99b40b033a19c7df0be60",
+          "bytes": 3253,
+          "selector": "source row ID: NFI-LAMBDA"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/277"
+          }
+        ]
+      }
+    }
+  ]
+}

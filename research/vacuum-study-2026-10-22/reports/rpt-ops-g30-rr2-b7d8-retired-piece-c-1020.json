@@ -1,0 +1,18 @@
+{
+  "id": "rpt-ops-g30-rr2-b7d8-retired-piece-c-1020",
+  "unit": "vacuum-065-supported-wrinkling-q-1020",
+  "at": "2026-10-20T17:28:29-07:00",
+  "body": "RETIRED ref-72d760dc6540b4541734 (065, its half of REVIEW-C) at its idle, 17:28:03. The door's idle gate read IDLE twice, its queue view was empty, and down returned rc 0; the ledger confirms it retired. KEPT ref-5ad28e8f7a8e27ce8bc1, which the Observer reads working on DELTA-C; I retire it on your word when DELTA-C files. Nothing minted.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-admiral-rr2-ops-retire-b7d8-piece-c-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-ops-retire-b7d8-piece-c-1020",
+      "outcome": "done",
+      "extent": "work",
+      "what": "ref-72d760dc6540b4541734 retired at idle 17:28:03 (down rc 0; the ledger confirms)"
+    }
+  ]
+}

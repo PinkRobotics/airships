@@ -1,0 +1,1929 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-015b",
+  "unit": "vacuum-mainline015b-kd-precision-fix-1020",
+  "started_at": "2026-10-20T01:11:19-07:00",
+  "ended_at": "2026-10-20T01:11:19-07:00",
+  "certification": false,
+  "tag": "QUESTIONABLE",
+  "nu_live": 0.33,
+  "nu_retired_audit_only": 0.3,
+  "kd_for_SF_1": {
+    "value": 0.5183040769,
+    "source": "rpt-ref-88e650e7f8b713866e0b continuous threshold",
+    "rescored_here": false,
+    "why_unchanged": "The mode score already used nu 0.33. This card changes the tolerance map only."
+  },
+  "equations": {
+    "eq3": "kd = 0.45 + 0.51 exp(-3.88 delta/t) at lambda_I = 1",
+    "lee_23": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+    "beta0": "lambda * sqrt(t_eq/R) / [12(1-nu^2)]^(1/4)",
+    "rms": "delta * beta0 / sqrt(8), one Gaussian dimple",
+    "t_eq": "sqrt(3)*(core+tf)"
+  },
+  "range_limits": {
+    "eq3": {
+      "lambda_I": 1,
+      "source_nu": 0.5,
+      "carried_nu": 0.33,
+      "R_over_t": [
+        100.0,
+        1550.0
+      ],
+      "excluded_delta_over_t_below": 0.07,
+      "floor_kd": 0.45
+    },
+    "lee_23": {
+      "k": [
+        1.0,
+        5.0
+      ],
+      "R_over_t_computed": [
+        100.0,
+        200.0
+      ],
+      "no_FEM_below_delta_over_t": 0.15,
+      "no_ODE_below_delta_over_t": 0.2,
+      "unique_rms": false,
+      "citation": "Lee et al. 2016, JAM, Eq. 23 and section 7"
+    }
+  },
+  "shells": {
+    "Al-P2-E": {
+      "role": "aluminum faces, 002/003 P2-E, the 015 aluminum point",
+      "tf_m": 0.000336094970395,
+      "core_m": 0.113432052508,
+      "h_m": 0.11376814747839499,
+      "t_eq_m": 0.19705221171556916,
+      "t_eq_definition": "sqrt(3)*(core+tf), the brief's thin-face form",
+      "t_eq_exact_ad_m": 0.19705249833946947,
+      "R_over_t_eq": 50.747971377425024,
+      "nu": 0.33,
+      "length_scale_sqrt_R_t_m": 1.4037528689750527,
+      "classical_wavelength_m": 4.877458723842944,
+      "width_lambda_1_m": 0.7762716656262922,
+      "beta0_lambda_1_rad": 0.07762716656262922,
+      "levels": {
+        "0.9": {
+          "kd": 0.9,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.03225854199845517,
+            "amplitude_mm": 6.356617047515167,
+            "width_m": 0.7762716656262922,
+            "single_dimple_rms_mm": 0.17445956659271813,
+            "inside_source_small_amplitude_exclusion": true,
+            "inside_source_R_over_t": false,
+            "retired_mixed_rms_mm": 0.455559764538205,
+            "retired_over_matched": 2.611262732308197
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.02048076923076919,
+            "amplitude_mm": 4.035780874559245,
+            "single_dimple_rms_mm_at_k_1": 0.11076341031335457,
+            "single_dimple_rms_mm_at_k_5": 0.5538170515667729,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.7": {
+          "kd": 0.7,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.1837499504783828,
+            "amplitude_mm": 36.20833414439164,
+            "width_m": 0.7762716656262922,
+            "single_dimple_rms_mm": 0.9937503289338763,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": false,
+            "retired_mixed_rms_mm": 2.5949431991640437,
+            "retired_over_matched": 2.611262732308197
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.11556962025316458,
+            "amplitude_mm": 22.773249278014518,
+            "single_dimple_rms_mm_at_k_1": 0.6250197501678055,
+            "single_dimple_rms_mm_at_k_5": 3.1250987508390273,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5": {
+          "kd": 0.5,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.5985535361572747,
+            "amplitude_mm": 117.94629812996588,
+            "width_m": 0.7762716656262922,
+            "single_dimple_rms_mm": 3.237077190455097,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": false,
+            "retired_mixed_rms_mm": 8.452859029040317,
+            "retired_over_matched": 2.611262732308197
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.2987037037037037,
+            "amplitude_mm": 58.86022546244686,
+            "single_dimple_rms_mm_at_k_1": 1.615439367665266,
+            "single_dimple_rms_mm_at_k_5": 8.07719683832633,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.595": {
+          "kd": 0.595,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3241435523963395,
+            "amplitude_mm": 63.87320391304017,
+            "width_m": 0.7762716656262922,
+            "single_dimple_rms_mm": 1.7530223054593583,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": false,
+            "retired_mixed_rms_mm": 4.577601815151018,
+            "retired_over_matched": 2.611262732308197
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.19438330170777995,
+            "amplitude_mm": 38.30365952209281,
+            "single_dimple_rms_mm_at_k_1": 1.0512572629731645,
+            "single_dimple_rms_mm_at_k_5": 5.2562863148658225,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.468": {
+          "kd": 0.468,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8618657133562386,
+            "amplitude_mm": 169.83254501866358,
+            "width_m": 0.7762716656262922,
+            "single_dimple_rms_mm": 4.661113289635157,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": false,
+            "retired_mixed_rms_mm": 12.171391424290748,
+            "retired_over_matched": 2.611262732308197
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.345,
+            "amplitude_mm": 67.98301304187136,
+            "single_dimple_rms_mm_at_k_1": 1.8658174469686242,
+            "single_dimple_rms_mm_at_k_5": 9.329087234843119,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5953179642995181": {
+          "kd": 0.5953179642995181,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3235790017685749,
+            "amplitude_mm": 63.76195796321375,
+            "width_m": 0.7762716656262922,
+            "single_dimple_rms_mm": 1.7499691216594153,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": false,
+            "retired_mixed_rms_mm": 4.569629150079341,
+            "retired_over_matched": 2.611262732308197
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.1940972561632649,
+            "amplitude_mm": 38.24729361489474,
+            "single_dimple_rms_mm_at_k_1": 1.049710281038139,
+            "single_dimple_rms_mm_at_k_5": 5.248551405190694,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.4682285666772076": {
+          "kd": 0.46822856667720764,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8586135991025216,
+            "amplitude_mm": 169.1917087122169,
+            "width_m": 0.7762716656262922,
+            "single_dimple_rms_mm": 4.6435253142319075,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": false,
+            "retired_mixed_rms_mm": 12.125464599583493,
+            "retired_over_matched": 2.611262732308197
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.34464306852346704,
+            "amplitude_mm": 67.91267890498965,
+            "single_dimple_rms_mm_at_k_1": 1.86388710210982,
+            "single_dimple_rms_mm_at_k_5": 9.319435510549098,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.3": {
+          "kd": 0.3,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.7975862068965518,
+            "amplitude_mm": 157.16612610279708,
+            "single_dimple_rms_mm_at_k_1": 4.3134790153307625,
+            "single_dimple_rms_mm_at_k_5": 21.567395076653806,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.2": {
+          "kd": 0.2,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 1.6139393939393938,
+            "amplitude_mm": 318.03032715064285,
+            "single_dimple_rms_mm_at_k_1": 8.728452984237936,
+            "single_dimple_rms_mm_at_k_5": 43.642264921189685,
+            "width_m_at_k_1": 0.7762716656262922,
+            "width_m_at_k_5": 3.8813583281314608,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        }
+      }
+    },
+    "Be-015": {
+      "role": "015 frozen 014b beryllium on CR-III 5056 at 1.6 pcf",
+      "tf_m": 0.0006932231273823878,
+      "core_m": 0.04154971376178697,
+      "h_m": 0.04224293688916936,
+      "t_eq_m": 0.0731669129529669,
+      "t_eq_definition": "sqrt(3)*(core+tf), the brief's thin-face form",
+      "t_eq_exact_ad_m": 0.07317019686574154,
+      "R_over_t_eq": 136.67379962344717,
+      "nu": 0.33,
+      "length_scale_sqrt_R_t_m": 0.8553766009949472,
+      "classical_wavelength_m": 2.9720787447010912,
+      "width_lambda_1_m": 0.47302102347753394,
+      "beta0_lambda_1_rad": 0.047302102347753394,
+      "levels": {
+        "0.9": {
+          "kd": 0.9,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.03225854199845517,
+            "amplitude_mm": 2.3602579343905963,
+            "width_m": 0.47302102347753394,
+            "single_dimple_rms_mm": 0.03947252570265869,
+            "inside_source_small_amplitude_exclusion": true,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.10307313531743004,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.02048076923076919,
+            "amplitude_mm": 1.4985146595174923,
+            "single_dimple_rms_mm_at_k_1": 0.02506088743596883,
+            "single_dimple_rms_mm_at_k_5": 0.12530443717984416,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.7": {
+          "kd": 0.7,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.1837499504783828,
+            "amplitude_mm": 13.444416631763813,
+            "width_m": 0.47302102347753394,
+            "single_dimple_rms_mm": 0.22484198583642026,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.5871214982728117,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.11556962025316458,
+            "amplitude_mm": 8.455872345070734,
+            "single_dimple_rms_mm_at_k_1": 0.14141447577227775,
+            "single_dimple_rms_mm_at_k_5": 0.7070723788613886,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5": {
+          "kd": 0.5,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.5985535361572747,
+            "amplitude_mm": 43.79431447770985,
+            "width_m": 0.47302102347753394,
+            "single_dimple_rms_mm": 0.7324081739812269,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 1.9125101695550757,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.2987037037037037,
+            "amplitude_mm": 21.855227887617705,
+            "single_dimple_rms_mm_at_k_1": 0.3655028681236873,
+            "single_dimple_rms_mm_at_k_5": 1.8275143406184364,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.595": {
+          "kd": 0.595,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3241435523963395,
+            "amplitude_mm": 23.71658308244844,
+            "width_m": 0.47302102347753394,
+            "single_dimple_rms_mm": 0.39663183487735854,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 1.0357099288622647,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.19438330170777995,
+            "amplitude_mm": 14.222426115563438,
+            "single_dimple_rms_mm_at_k_1": 0.23785327536487688,
+            "single_dimple_rms_mm_at_k_5": 1.1892663768243843,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.468": {
+          "kd": 0.468,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8618657133562386,
+            "amplitude_mm": 63.06005362628263,
+            "width_m": 0.47302102347753394,
+            "single_dimple_rms_mm": 1.0546049019922714,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 2.753850477881957,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.345,
+            "amplitude_mm": 25.242584968773578,
+            "single_dimple_rms_mm_at_k_1": 0.42215241371012363,
+            "single_dimple_rms_mm_at_k_5": 2.110762068550618,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5953179642995181": {
+          "kd": 0.5953179642995181,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3235790017685749,
+            "amplitude_mm": 23.675276655809242,
+            "width_m": 0.47302102347753394,
+            "single_dimple_rms_mm": 0.39594103368845296,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 1.0339060654622414,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.1940972561632649,
+            "amplitude_mm": 14.201497046107322,
+            "single_dimple_rms_mm_at_k_1": 0.23750326140241873,
+            "single_dimple_rms_mm_at_k_5": 1.1875163070120935,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.4682285666772076": {
+          "kd": 0.46822856667720764,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8586135991025216,
+            "amplitude_mm": 62.82210646576782,
+            "width_m": 0.47302102347753394,
+            "single_dimple_rms_mm": 1.0506255168274374,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 2.7434592577035257,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.34464306852346704,
+            "amplitude_mm": 25.21646939449992,
+            "single_dimple_rms_mm_at_k_1": 0.4217156615815802,
+            "single_dimple_rms_mm_at_k_5": 2.108578307907901,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.3": {
+          "kd": 0.3,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.7975862068965518,
+            "amplitude_mm": 58.35692057248705,
+            "single_dimple_rms_mm_at_k_1": 0.9759505576326998,
+            "single_dimple_rms_mm_at_k_5": 4.879752788163498,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.2": {
+          "kd": 0.2,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 1.6139393939393938,
+            "amplitude_mm": 118.08696314772777,
+            "single_dimple_rms_mm_at_k_1": 1.9748649586474472,
+            "single_dimple_rms_mm_at_k_5": 9.874324793237234,
+            "width_m_at_k_1": 0.47302102347753394,
+            "width_m_at_k_5": 2.3651051173876696,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        }
+      }
+    },
+    "Be-021": {
+      "role": "021 floating point, beryllium faces, CR-III 5056 3/8-1.0",
+      "tf_m": 0.0008434480441930918,
+      "core_m": 0.02021337638749162,
+      "h_m": 0.02105682443168471,
+      "t_eq_m": 0.036471489761735566,
+      "t_eq_definition": "sqrt(3)*(core+tf), the brief's thin-face form",
+      "t_eq_exact_ad_m": 0.03648124134460936,
+      "R_over_t_eq": 274.1867706893509,
+      "nu": 0.33,
+      "length_scale_sqrt_R_t_m": 0.6039163001752442,
+      "classical_wavelength_m": 2.098358544343639,
+      "width_lambda_1_m": 0.33396413471140424,
+      "beta0_lambda_1_rad": 0.033396413471140425,
+      "levels": {
+        "0.9": {
+          "kd": 0.9,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.03225854199845517,
+            "amplitude_mm": 1.1765170842251744,
+            "width_m": 0.33396413471140424,
+            "single_dimple_rms_mm": 0.01389162572260733,
+            "inside_source_small_amplitude_exclusion": true,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.03627468454061844,
+            "retired_over_matched": 2.6112627323081963
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.02048076923076919,
+            "amplitude_mm": 0.7469641653124675,
+            "single_dimple_rms_mm_at_k_1": 0.008819716051598458,
+            "single_dimple_rms_mm_at_k_5": 0.04409858025799229,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.7": {
+          "kd": 0.7,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.1837499504783828,
+            "amplitude_mm": 6.701634437591756,
+            "width_m": 0.33396413471140424,
+            "single_dimple_rms_mm": 0.0791289804330142,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.2066265576502745,
+            "retired_over_matched": 2.6112627323081963
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.11556962025316458,
+            "amplitude_mm": 4.214996221830959,
+            "single_dimple_rms_mm_at_k_1": 0.04976821052661666,
+            "single_dimple_rms_mm_at_k_5": 0.24884105263308332,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5": {
+          "kd": 0.5,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.5985535361572747,
+            "amplitude_mm": 21.830139165810664,
+            "width_m": 0.33396413471140424,
+            "single_dimple_rms_mm": 0.25775751736201113,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.6730725990597027,
+            "retired_over_matched": 2.6112627323081963
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.2987037037037037,
+            "amplitude_mm": 10.894169071422123,
+            "single_dimple_rms_mm_at_k_1": 0.1286319776636887,
+            "single_dimple_rms_mm_at_k_5": 0.6431598883184435,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.595": {
+          "kd": 0.595,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3241435523963395,
+            "amplitude_mm": 11.821998252555694,
+            "width_m": 0.33396413471140424,
+            "single_dimple_rms_mm": 0.13958724205520343,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.36449896308443613,
+            "retired_over_matched": 2.6112627323081963
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.19438330170777995,
+            "amplitude_mm": 7.089448598087652,
+            "single_dimple_rms_mm_at_k_1": 0.08370806325277975,
+            "single_dimple_rms_mm_at_k_5": 0.41854031626389876,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.468": {
+          "kd": 0.468,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8618657133562386,
+            "amplitude_mm": 31.433526540662974,
+            "width_m": 0.33396413471140424,
+            "single_dimple_rms_mm": 0.37114869958060115,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.9691667673594745,
+            "retired_over_matched": 2.6112627323081963
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.345,
+            "amplitude_mm": 12.58266396779877,
+            "single_dimple_rms_mm_at_k_1": 0.1485687379959405,
+            "single_dimple_rms_mm_at_k_5": 0.7428436899797024,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5953179642995181": {
+          "kd": 0.5953179642995181,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3235790017685749,
+            "amplitude_mm": 11.801408250115193,
+            "width_m": 0.33396413471140424,
+            "single_dimple_rms_mm": 0.13934412734708224,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.3638641267074433,
+            "retired_over_matched": 2.6112627323081963
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.1940972561632649,
+            "amplitude_mm": 7.079016090939481,
+            "single_dimple_rms_mm_at_k_1": 0.08358488230913348,
+            "single_dimple_rms_mm_at_k_5": 0.41792441154566734,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.4682285666772076": {
+          "kd": 0.46822856667720764,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8586135991025216,
+            "amplitude_mm": 31.314917088954545,
+            "width_m": 0.33396413471140424,
+            "single_dimple_rms_mm": 0.36974822853569284,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.9655097695122289,
+            "retired_over_matched": 2.6112627323081963
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.34464306852346704,
+            "amplitude_mm": 12.569646145106757,
+            "single_dimple_rms_mm_at_k_1": 0.14841503115820276,
+            "single_dimple_rms_mm_at_k_5": 0.7420751557910137,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.3": {
+          "kd": 0.3,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.7975862068965518,
+            "amplitude_mm": 29.089157178929096,
+            "single_dimple_rms_mm_at_k_1": 0.3434677571060574,
+            "single_dimple_rms_mm_at_k_5": 1.717338785530287,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.2": {
+          "kd": 0.2,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 1.6139393939393938,
+            "amplitude_mm": 58.86277408212231,
+            "single_dimple_rms_mm_at_k_1": 0.6950172143753878,
+            "single_dimple_rms_mm_at_k_5": 3.475086071876939,
+            "width_m_at_k_1": 0.33396413471140424,
+            "width_m_at_k_5": 1.6698206735570211,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        }
+      },
+      "filed_gamma": 0.5953179642995181
+    },
+    "Be-021b": {
+      "role": "021b floating point, SR-200 faces, CR-III 5056 3/8-1.0",
+      "tf_m": 0.0006917479988347394,
+      "core_m": 0.030118230884842855,
+      "h_m": 0.030809978883677595,
+      "t_eq_m": 0.05336444880665383,
+      "t_eq_definition": "sqrt(3)*(core+tf), the brief's thin-face form",
+      "t_eq_exact_ad_m": 0.053368932083487204,
+      "R_over_t_eq": 187.39067344687226,
+      "nu": 0.33,
+      "length_scale_sqrt_R_t_m": 0.7305097453604149,
+      "classical_wavelength_m": 2.538218235637148,
+      "width_lambda_1_m": 0.40396997884764135,
+      "beta0_lambda_1_rad": 0.040396997884764134,
+      "levels": {
+        "0.9": {
+          "kd": 0.9,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.03225854199845517,
+            "amplitude_mm": 1.7214593130538534,
+            "width_m": 0.40396997884764135,
+            "single_dimple_rms_mm": 0.024586735015979733,
+            "inside_source_small_amplitude_exclusion": true,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.06420242485636485,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.02048076923076919,
+            "amplitude_mm": 1.0929449611362734,
+            "single_dimple_rms_mm_at_k_1": 0.015609981567811342,
+            "single_dimple_rms_mm_at_k_5": 0.0780499078390567,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.7": {
+          "kd": 0.7,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.1837499504783828,
+            "amplitude_mm": 9.805714825528835,
+            "width_m": 0.40396997884764135,
+            "single_dimple_rms_mm": 0.14005007857539717,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.3657075508407693,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.11556962025316458,
+            "amplitude_mm": 6.167309083604425,
+            "single_dimple_rms_mm_at_k_1": 0.08808456467741281,
+            "single_dimple_rms_mm_at_k_5": 0.440422823387064,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": false,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5": {
+          "kd": 0.5,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.5985535361572747,
+            "amplitude_mm": 31.941479538306506,
+            "width_m": 0.40396997884764135,
+            "single_dimple_rms_mm": 0.4562040400673196,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 1.1912686081562271,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.2987037037037037,
+            "amplitude_mm": 15.940158504654189,
+            "single_dimple_rms_mm_at_k_1": 0.22766524325886742,
+            "single_dimple_rms_mm_at_k_5": 1.1383262162943368,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.595": {
+          "kd": 0.595,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3241435523963395,
+            "amplitude_mm": 17.297742007861373,
+            "width_m": 0.40396997884764135,
+            "single_dimple_rms_mm": 0.24705492363197323,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.6451253149134192,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.19438330170777995,
+            "amplitude_mm": 10.373157752853169,
+            "single_dimple_rms_mm_at_k_1": 0.14815457967224002,
+            "single_dimple_rms_mm_at_k_5": 0.7407728983612,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.468": {
+          "kd": 0.468,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8618657133562386,
+            "amplitude_mm": 45.99298873860918,
+            "width_m": 0.40396997884764135,
+            "single_dimple_rms_mm": 0.6568946579998245,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 1.7153245394872803,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.345,
+            "amplitude_mm": 18.41073483829557,
+            "single_dimple_rms_mm_at_k_1": 0.26295123880425914,
+            "single_dimple_rms_mm_at_k_5": 1.3147561940212953,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.5953179642995181": {
+          "kd": 0.5953179642995181,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.3235790017685749,
+            "amplitude_mm": 17.267615074787262,
+            "width_m": 0.40396997884764135,
+            "single_dimple_rms_mm": 0.24662463584374592,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 0.6440017204478538,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.1940972561632649,
+            "amplitude_mm": 10.357893090036523,
+            "single_dimple_rms_mm_at_k_1": 0.14793656219315396,
+            "single_dimple_rms_mm_at_k_5": 0.7396828109657698,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": false,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.4682285666772076": {
+          "kd": 0.46822856667720764,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "lambda_I_1_matched",
+            "delta_bar": 0.8586135991025216,
+            "amplitude_mm": 45.819441454003304,
+            "width_m": 0.40396997884764135,
+            "single_dimple_rms_mm": 0.6544159696759175,
+            "inside_source_small_amplitude_exclusion": false,
+            "inside_source_R_over_t": true,
+            "retired_mixed_rms_mm": 1.7088520330420545,
+            "retired_over_matched": 2.6112627323081967
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.34464306852346704,
+            "amplitude_mm": 18.391687386788643,
+            "single_dimple_rms_mm_at_k_1": 0.26267919366245457,
+            "single_dimple_rms_mm_at_k_5": 1.3133959683122725,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.3": {
+          "kd": 0.3,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 0.7975862068965518,
+            "amplitude_mm": 42.56274830682425,
+            "single_dimple_rms_mm_at_k_1": 0.6079022642221402,
+            "single_dimple_rms_mm_at_k_5": 3.0395113211107008,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        },
+        "0.2": {
+          "kd": 0.2,
+          "nu": 0.33,
+          "lambda_matched": 1.0,
+          "eq3": {
+            "status": "below_floor_0.45",
+            "delta_bar": null,
+            "amplitude_mm": null,
+            "single_dimple_rms_mm": null
+          },
+          "lee": {
+            "status": "eq_23_lower_envelope",
+            "equation": "kd = 0.068 + 0.25/(0.28 + delta/t)",
+            "delta_bar": 1.6139393939393938,
+            "amplitude_mm": 86.1269861649207,
+            "single_dimple_rms_mm_at_k_1": 1.230108298525678,
+            "single_dimple_rms_mm_at_k_5": 6.150541492628388,
+            "width_m_at_k_1": 0.40396997884764135,
+            "width_m_at_k_5": 2.0198498942382064,
+            "range": {
+              "fem_amplitude_at_or_above_0_15": true,
+              "ode_amplitude_at_or_above_0_20": true,
+              "r_over_t_is_100_or_200": false,
+              "width_sweep_k": [
+                1.0,
+                5.0
+              ],
+              "unique_rms": false
+            }
+          }
+        }
+      },
+      "filed_gamma": 0.46822856667720764
+    }
+  },
+  "gaps_matched_rms_over_GBT_0_25_mm": {
+    "Al-P2-E": {
+      "0.9": {
+        "matched_rms_over_GBT_0_25mm": 0.6978382663708725,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.7": {
+        "matched_rms_over_GBT_0_25mm": 3.975001315735505,
+        "allowance_looser_than_0_25mm": true
+      },
+      "0.5": {
+        "matched_rms_over_GBT_0_25mm": 12.948308761820387,
+        "allowance_looser_than_0_25mm": true
+      },
+      "0.595": {
+        "matched_rms_over_GBT_0_25mm": 7.012089221837432,
+        "allowance_looser_than_0_25mm": true
+      },
+      "0.468": {
+        "matched_rms_over_GBT_0_25mm": 18.644453158540628,
+        "allowance_looser_than_0_25mm": true
+      }
+    },
+    "Be-015": {
+      "0.9": {
+        "matched_rms_over_GBT_0_25mm": 0.15789010281063476,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.7": {
+        "matched_rms_over_GBT_0_25mm": 0.899367943345681,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.5": {
+        "matched_rms_over_GBT_0_25mm": 2.9296326959249077,
+        "allowance_looser_than_0_25mm": true
+      },
+      "0.595": {
+        "matched_rms_over_GBT_0_25mm": 1.5865273395094341,
+        "allowance_looser_than_0_25mm": true
+      },
+      "0.468": {
+        "matched_rms_over_GBT_0_25mm": 4.218419607969086,
+        "allowance_looser_than_0_25mm": true
+      }
+    },
+    "Be-021": {
+      "0.9": {
+        "matched_rms_over_GBT_0_25mm": 0.05556650289042931,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.7": {
+        "matched_rms_over_GBT_0_25mm": 0.3165159217320568,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.5": {
+        "matched_rms_over_GBT_0_25mm": 1.0310300694480445,
+        "allowance_looser_than_0_25mm": true
+      },
+      "0.595": {
+        "matched_rms_over_GBT_0_25mm": 0.5583489682208137,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.468": {
+        "matched_rms_over_GBT_0_25mm": 1.4845947983224046,
+        "allowance_looser_than_0_25mm": true
+      }
+    },
+    "Be-021b": {
+      "0.9": {
+        "matched_rms_over_GBT_0_25mm": 0.09834694006391893,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.7": {
+        "matched_rms_over_GBT_0_25mm": 0.5602003143015887,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.5": {
+        "matched_rms_over_GBT_0_25mm": 1.8248161602692785,
+        "allowance_looser_than_0_25mm": true
+      },
+      "0.595": {
+        "matched_rms_over_GBT_0_25mm": 0.9882196945278929,
+        "allowance_looser_than_0_25mm": false
+      },
+      "0.468": {
+        "matched_rms_over_GBT_0_25mm": 2.627578631999298,
+        "allowance_looser_than_0_25mm": true
+      }
+    }
+  },
+  "display_half_up": {
+    "Al-P2-E": {
+      "t_eq_mm": "197.05",
+      "R_over_t": "50.75",
+      "width_lambda_1_m": "0.7763",
+      "classical_wavelength_m": "4.8775",
+      "sqrt_R_t_m": "1.4038",
+      "kd_0.9_eq3_amp_mm": "6.357",
+      "kd_0.9_eq3_rms_mm": "0.1745",
+      "kd_0.9_eq3_small": true,
+      "kd_0.9_eq3_in_Rt": false,
+      "kd_0.9_lee_amp_mm": "4.036",
+      "kd_0.9_lee_rms_k1_mm": "0.1108",
+      "kd_0.9_lee_rms_k5_mm": "0.5538",
+      "kd_0.9_lee_fem": false,
+      "kd_0.9_lee_ode": false,
+      "kd_0.7_eq3_amp_mm": "36.208",
+      "kd_0.7_eq3_rms_mm": "0.9938",
+      "kd_0.7_eq3_small": false,
+      "kd_0.7_eq3_in_Rt": false,
+      "kd_0.7_lee_amp_mm": "22.773",
+      "kd_0.7_lee_rms_k1_mm": "0.6250",
+      "kd_0.7_lee_rms_k5_mm": "3.1251",
+      "kd_0.7_lee_fem": false,
+      "kd_0.7_lee_ode": false,
+      "kd_0.5_eq3_amp_mm": "117.946",
+      "kd_0.5_eq3_rms_mm": "3.2371",
+      "kd_0.5_eq3_small": false,
+      "kd_0.5_eq3_in_Rt": false,
+      "kd_0.5_lee_amp_mm": "58.860",
+      "kd_0.5_lee_rms_k1_mm": "1.6154",
+      "kd_0.5_lee_rms_k5_mm": "8.0772",
+      "kd_0.5_lee_fem": true,
+      "kd_0.5_lee_ode": true,
+      "kd_0.595_eq3_amp_mm": "63.873",
+      "kd_0.595_eq3_rms_mm": "1.7530",
+      "kd_0.595_eq3_small": false,
+      "kd_0.595_eq3_in_Rt": false,
+      "kd_0.595_lee_amp_mm": "38.304",
+      "kd_0.595_lee_rms_k1_mm": "1.0513",
+      "kd_0.595_lee_rms_k5_mm": "5.2563",
+      "kd_0.595_lee_fem": true,
+      "kd_0.595_lee_ode": false,
+      "kd_0.468_eq3_amp_mm": "169.833",
+      "kd_0.468_eq3_rms_mm": "4.6611",
+      "kd_0.468_eq3_small": false,
+      "kd_0.468_eq3_in_Rt": false,
+      "kd_0.468_lee_amp_mm": "67.983",
+      "kd_0.468_lee_rms_k1_mm": "1.8658",
+      "kd_0.468_lee_rms_k5_mm": "9.3291",
+      "kd_0.468_lee_fem": true,
+      "kd_0.468_lee_ode": true
+    },
+    "Be-015": {
+      "t_eq_mm": "73.17",
+      "R_over_t": "136.67",
+      "width_lambda_1_m": "0.4730",
+      "classical_wavelength_m": "2.9721",
+      "sqrt_R_t_m": "0.8554",
+      "kd_0.9_eq3_amp_mm": "2.360",
+      "kd_0.9_eq3_rms_mm": "0.0395",
+      "kd_0.9_eq3_small": true,
+      "kd_0.9_eq3_in_Rt": true,
+      "kd_0.9_lee_amp_mm": "1.499",
+      "kd_0.9_lee_rms_k1_mm": "0.0251",
+      "kd_0.9_lee_rms_k5_mm": "0.1253",
+      "kd_0.9_lee_fem": false,
+      "kd_0.9_lee_ode": false,
+      "kd_0.7_eq3_amp_mm": "13.444",
+      "kd_0.7_eq3_rms_mm": "0.2248",
+      "kd_0.7_eq3_small": false,
+      "kd_0.7_eq3_in_Rt": true,
+      "kd_0.7_lee_amp_mm": "8.456",
+      "kd_0.7_lee_rms_k1_mm": "0.1414",
+      "kd_0.7_lee_rms_k5_mm": "0.7071",
+      "kd_0.7_lee_fem": false,
+      "kd_0.7_lee_ode": false,
+      "kd_0.5_eq3_amp_mm": "43.794",
+      "kd_0.5_eq3_rms_mm": "0.7324",
+      "kd_0.5_eq3_small": false,
+      "kd_0.5_eq3_in_Rt": true,
+      "kd_0.5_lee_amp_mm": "21.855",
+      "kd_0.5_lee_rms_k1_mm": "0.3655",
+      "kd_0.5_lee_rms_k5_mm": "1.8275",
+      "kd_0.5_lee_fem": true,
+      "kd_0.5_lee_ode": true,
+      "kd_0.595_eq3_amp_mm": "23.717",
+      "kd_0.595_eq3_rms_mm": "0.3966",
+      "kd_0.595_eq3_small": false,
+      "kd_0.595_eq3_in_Rt": true,
+      "kd_0.595_lee_amp_mm": "14.222",
+      "kd_0.595_lee_rms_k1_mm": "0.2379",
+      "kd_0.595_lee_rms_k5_mm": "1.1893",
+      "kd_0.595_lee_fem": true,
+      "kd_0.595_lee_ode": false,
+      "kd_0.468_eq3_amp_mm": "63.060",
+      "kd_0.468_eq3_rms_mm": "1.0546",
+      "kd_0.468_eq3_small": false,
+      "kd_0.468_eq3_in_Rt": true,
+      "kd_0.468_lee_amp_mm": "25.243",
+      "kd_0.468_lee_rms_k1_mm": "0.4222",
+      "kd_0.468_lee_rms_k5_mm": "2.1108",
+      "kd_0.468_lee_fem": true,
+      "kd_0.468_lee_ode": true
+    },
+    "Be-021": {
+      "t_eq_mm": "36.47",
+      "R_over_t": "274.19",
+      "width_lambda_1_m": "0.3340",
+      "classical_wavelength_m": "2.0984",
+      "sqrt_R_t_m": "0.6039",
+      "kd_0.9_eq3_amp_mm": "1.177",
+      "kd_0.9_eq3_rms_mm": "0.0139",
+      "kd_0.9_eq3_small": true,
+      "kd_0.9_eq3_in_Rt": true,
+      "kd_0.9_lee_amp_mm": "0.747",
+      "kd_0.9_lee_rms_k1_mm": "0.0088",
+      "kd_0.9_lee_rms_k5_mm": "0.0441",
+      "kd_0.9_lee_fem": false,
+      "kd_0.9_lee_ode": false,
+      "kd_0.7_eq3_amp_mm": "6.702",
+      "kd_0.7_eq3_rms_mm": "0.0791",
+      "kd_0.7_eq3_small": false,
+      "kd_0.7_eq3_in_Rt": true,
+      "kd_0.7_lee_amp_mm": "4.215",
+      "kd_0.7_lee_rms_k1_mm": "0.0498",
+      "kd_0.7_lee_rms_k5_mm": "0.2488",
+      "kd_0.7_lee_fem": false,
+      "kd_0.7_lee_ode": false,
+      "kd_0.5_eq3_amp_mm": "21.830",
+      "kd_0.5_eq3_rms_mm": "0.2578",
+      "kd_0.5_eq3_small": false,
+      "kd_0.5_eq3_in_Rt": true,
+      "kd_0.5_lee_amp_mm": "10.894",
+      "kd_0.5_lee_rms_k1_mm": "0.1286",
+      "kd_0.5_lee_rms_k5_mm": "0.6432",
+      "kd_0.5_lee_fem": true,
+      "kd_0.5_lee_ode": true,
+      "kd_0.595_eq3_amp_mm": "11.822",
+      "kd_0.595_eq3_rms_mm": "0.1396",
+      "kd_0.595_eq3_small": false,
+      "kd_0.595_eq3_in_Rt": true,
+      "kd_0.595_lee_amp_mm": "7.089",
+      "kd_0.595_lee_rms_k1_mm": "0.0837",
+      "kd_0.595_lee_rms_k5_mm": "0.4185",
+      "kd_0.595_lee_fem": true,
+      "kd_0.595_lee_ode": false,
+      "kd_0.468_eq3_amp_mm": "31.434",
+      "kd_0.468_eq3_rms_mm": "0.3711",
+      "kd_0.468_eq3_small": false,
+      "kd_0.468_eq3_in_Rt": true,
+      "kd_0.468_lee_amp_mm": "12.583",
+      "kd_0.468_lee_rms_k1_mm": "0.1486",
+      "kd_0.468_lee_rms_k5_mm": "0.7428",
+      "kd_0.468_lee_fem": true,
+      "kd_0.468_lee_ode": true,
+      "filed_gamma_eq3_amp_mm": "11.801",
+      "filed_gamma_eq3_rms_mm": "0.1393",
+      "filed_gamma_lee_amp_mm": "7.079",
+      "filed_gamma_lee_rms_k1_mm": "0.0836",
+      "filed_gamma_lee_rms_k5_mm": "0.4179",
+      "filed_gamma_lee_fem": true,
+      "filed_gamma_lee_ode": false,
+      "filed_gamma_eq3_rms_over_0_25mm": "0.557"
+    },
+    "Be-021b": {
+      "t_eq_mm": "53.36",
+      "R_over_t": "187.39",
+      "width_lambda_1_m": "0.4040",
+      "classical_wavelength_m": "2.5382",
+      "sqrt_R_t_m": "0.7305",
+      "kd_0.9_eq3_amp_mm": "1.721",
+      "kd_0.9_eq3_rms_mm": "0.0246",
+      "kd_0.9_eq3_small": true,
+      "kd_0.9_eq3_in_Rt": true,
+      "kd_0.9_lee_amp_mm": "1.093",
+      "kd_0.9_lee_rms_k1_mm": "0.0156",
+      "kd_0.9_lee_rms_k5_mm": "0.0780",
+      "kd_0.9_lee_fem": false,
+      "kd_0.9_lee_ode": false,
+      "kd_0.7_eq3_amp_mm": "9.806",
+      "kd_0.7_eq3_rms_mm": "0.1401",
+      "kd_0.7_eq3_small": false,
+      "kd_0.7_eq3_in_Rt": true,
+      "kd_0.7_lee_amp_mm": "6.167",
+      "kd_0.7_lee_rms_k1_mm": "0.0881",
+      "kd_0.7_lee_rms_k5_mm": "0.4404",
+      "kd_0.7_lee_fem": false,
+      "kd_0.7_lee_ode": false,
+      "kd_0.5_eq3_amp_mm": "31.941",
+      "kd_0.5_eq3_rms_mm": "0.4562",
+      "kd_0.5_eq3_small": false,
+      "kd_0.5_eq3_in_Rt": true,
+      "kd_0.5_lee_amp_mm": "15.940",
+      "kd_0.5_lee_rms_k1_mm": "0.2277",
+      "kd_0.5_lee_rms_k5_mm": "1.1383",
+      "kd_0.5_lee_fem": true,
+      "kd_0.5_lee_ode": true,
+      "kd_0.595_eq3_amp_mm": "17.298",
+      "kd_0.595_eq3_rms_mm": "0.2471",
+      "kd_0.595_eq3_small": false,
+      "kd_0.595_eq3_in_Rt": true,
+      "kd_0.595_lee_amp_mm": "10.373",
+      "kd_0.595_lee_rms_k1_mm": "0.1482",
+      "kd_0.595_lee_rms_k5_mm": "0.7408",
+      "kd_0.595_lee_fem": true,
+      "kd_0.595_lee_ode": false,
+      "kd_0.468_eq3_amp_mm": "45.993",
+      "kd_0.468_eq3_rms_mm": "0.6569",
+      "kd_0.468_eq3_small": false,
+      "kd_0.468_eq3_in_Rt": true,
+      "kd_0.468_lee_amp_mm": "18.411",
+      "kd_0.468_lee_rms_k1_mm": "0.2630",
+      "kd_0.468_lee_rms_k5_mm": "1.3148",
+      "kd_0.468_lee_fem": true,
+      "kd_0.468_lee_ode": true,
+      "filed_gamma_eq3_amp_mm": "45.819",
+      "filed_gamma_eq3_rms_mm": "0.6544",
+      "filed_gamma_lee_amp_mm": "18.392",
+      "filed_gamma_lee_rms_k1_mm": "0.2627",
+      "filed_gamma_lee_rms_k5_mm": "1.3134",
+      "filed_gamma_lee_fem": true,
+      "filed_gamma_lee_ode": true,
+      "filed_gamma_eq3_rms_over_0_25mm": "2.618"
+    }
+  },
+  "checks": [
+    {
+      "name": "live map uses one nu",
+      "pass": true
+    },
+    {
+      "name": "retired mix over live RMS is lambda 2.625 times the nu 0.30 to 0.33 scale",
+      "pass": true,
+      "got": 2.611262732308197
+    },
+    {
+      "name": "Eq 3 does not invert 0.2 or 0.3",
+      "pass": true
+    },
+    {
+      "name": "Lee inverse round-trips",
+      "pass": true
+    },
+    {
+      "name": "check amplitude Al-P2-E kd 0.5",
+      "pass": true,
+      "got": 117.94629812996588
+    },
+    {
+      "name": "check matched RMS Al-P2-E kd 0.5",
+      "pass": true,
+      "got": 3.237077190455097
+    },
+    {
+      "name": "check amplitude Al-P2-E kd 0.7",
+      "pass": true,
+      "got": 36.20833414439164
+    },
+    {
+      "name": "check matched RMS Al-P2-E kd 0.7",
+      "pass": true,
+      "got": 0.9937503289338763
+    },
+    {
+      "name": "check amplitude Al-P2-E kd 0.9",
+      "pass": true,
+      "got": 6.356617047515167
+    },
+    {
+      "name": "check matched RMS Al-P2-E kd 0.9",
+      "pass": true,
+      "got": 0.17445956659271813
+    },
+    {
+      "name": "check amplitude Be-015 kd 0.5",
+      "pass": true,
+      "got": 43.79431447770985
+    },
+    {
+      "name": "check matched RMS Be-015 kd 0.5",
+      "pass": true,
+      "got": 0.7324081739812269
+    },
+    {
+      "name": "check amplitude Be-015 kd 0.7",
+      "pass": true,
+      "got": 13.444416631763813
+    },
+    {
+      "name": "check matched RMS Be-015 kd 0.7",
+      "pass": true,
+      "got": 0.22484198583642026
+    },
+    {
+      "name": "check amplitude Be-015 kd 0.9",
+      "pass": true,
+      "got": 2.3602579343905963
+    },
+    {
+      "name": "check matched RMS Be-015 kd 0.9",
+      "pass": true,
+      "got": 0.03947252570265869
+    },
+    {
+      "name": "check Lee delta/t kd 0.2",
+      "pass": true,
+      "got": 1.6139393939393938
+    },
+    {
+      "name": "check Lee delta/t kd 0.3",
+      "pass": true,
+      "got": 0.7975862068965518
+    },
+    {
+      "name": "check Lee delta/t kd 0.5",
+      "pass": true,
+      "got": 0.2987037037037037
+    },
+    {
+      "name": "check Lee delta/t kd 0.7",
+      "pass": true,
+      "got": 0.11556962025316458
+    },
+    {
+      "name": "check Lee delta/t kd 0.9",
+      "pass": true,
+      "got": 0.02048076923076919
+    },
+    {
+      "name": "check Lee amplitude Al-P2-E kd 0.2",
+      "pass": true,
+      "got": 318.03032715064285
+    },
+    {
+      "name": "check Lee amplitude Al-P2-E kd 0.3",
+      "pass": true,
+      "got": 157.16612610279708
+    },
+    {
+      "name": "check Lee amplitude Al-P2-E kd 0.5",
+      "pass": true,
+      "got": 58.86022546244686
+    },
+    {
+      "name": "check Lee amplitude Al-P2-E kd 0.7",
+      "pass": true,
+      "got": 22.773249278014518
+    },
+    {
+      "name": "check Lee amplitude Al-P2-E kd 0.9",
+      "pass": true,
+      "got": 4.035780874559245
+    },
+    {
+      "name": "check Lee amplitude Be-015 kd 0.2",
+      "pass": true,
+      "got": 118.08696314772777
+    },
+    {
+      "name": "check Lee amplitude Be-015 kd 0.3",
+      "pass": true,
+      "got": 58.35692057248705
+    },
+    {
+      "name": "check Lee amplitude Be-015 kd 0.5",
+      "pass": true,
+      "got": 21.855227887617705
+    },
+    {
+      "name": "check Lee amplitude Be-015 kd 0.7",
+      "pass": true,
+      "got": 8.455872345070734
+    },
+    {
+      "name": "check Lee amplitude Be-015 kd 0.9",
+      "pass": true,
+      "got": 1.4985146595174923
+    },
+    {
+      "name": "015 card amplitude still the lambda-1 inverse Al-P2-E 0.9",
+      "pass": true,
+      "got": "6.36"
+    },
+    {
+      "name": "015 card RMS was the retired mix Al-P2-E 0.9",
+      "pass": true,
+      "got": "0.46"
+    },
+    {
+      "name": "015 card amplitude still the lambda-1 inverse Al-P2-E 0.7",
+      "pass": true,
+      "got": "36.2"
+    },
+    {
+      "name": "015 card RMS was the retired mix Al-P2-E 0.7",
+      "pass": true,
+      "got": "2.59"
+    },
+    {
+      "name": "015 card amplitude still the lambda-1 inverse Al-P2-E 0.5",
+      "pass": true,
+      "got": "118"
+    },
+    {
+      "name": "015 card RMS was the retired mix Al-P2-E 0.5",
+      "pass": true,
+      "got": "8.45"
+    },
+    {
+      "name": "015 card amplitude still the lambda-1 inverse Be-015 0.9",
+      "pass": true,
+      "got": "2.36"
+    },
+    {
+      "name": "015 card RMS was the retired mix Be-015 0.9",
+      "pass": true,
+      "got": "0.10"
+    },
+    {
+      "name": "015 card amplitude still the lambda-1 inverse Be-015 0.7",
+      "pass": true,
+      "got": "13.44"
+    },
+    {
+      "name": "015 card RMS was the retired mix Be-015 0.7",
+      "pass": true,
+      "got": "0.59"
+    },
+    {
+      "name": "015 card amplitude still the lambda-1 inverse Be-015 0.5",
+      "pass": true,
+      "got": "43.79"
+    },
+    {
+      "name": "015 card RMS was the retired mix Be-015 0.5",
+      "pass": true,
+      "got": "1.91"
+    },
+    {
+      "name": "021 quoted amplitude 11.8 mm at its gamma",
+      "pass": true,
+      "got": 11.801408250115193
+    },
+    {
+      "name": "021 quoted retired RMS 0.3639 mm",
+      "pass": true,
+      "got": 0.3638641267074433
+    },
+    {
+      "name": "021b quoted amplitude 45.82 mm at its gamma",
+      "pass": true,
+      "got": 45.819441454003304
+    },
+    {
+      "name": "021b quoted retired RMS 1.709 mm",
+      "pass": true,
+      "got": 1.7088520330420545
+    }
+  ]
+}

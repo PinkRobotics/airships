@@ -1,0 +1,18 @@
+{
+  "id": "rpt-ops-g30-sci-e60f-retired-1020",
+  "unit": "vacuum-overnight-parallel-1019",
+  "at": "2026-10-20T10:59:22.302379-07:00",
+  "body": "RETIRED: ref-741b462e28e96fb5cf31 (glm-5.3, ref-a16c596268c92750edfc), by bridge_up.py down at 10:59:12. It read idle twice first (10:58:45, 10:59:05), and its ledger row carries the retired stamp. Its record stays on disk. Its 22 open U3 orders are yours to close; nothing wakes for them now. It cannot wake at the GLM reset.",
+  "from": "ref-6d8832caadb0a7ee73b7",
+  "from_seat": "ref-6d8832caadb0a7ee73b7",
+  "re": "ord-sciences-g5-ops-retire-e60f-u3-landed-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-sciences-g5-ops-retire-e60f-u3-landed-1020",
+      "outcome": "done",
+      "extent": "work",
+      "what": "e60f retired at its idle boundary 10:59:12"
+    }
+  ]
+}

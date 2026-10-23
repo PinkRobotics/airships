@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-10-20T07:22:09.716415+00:00",
+  "command": [
+    "systemctl",
+    "--user",
+    "show",
+    "simjob-20261020t001647-6686f2da3b84.scope",
+    "--property=ActiveState,SubState,LoadState"
+  ],
+  "returncode": 0,
+  "stdout": "LoadState=not-found\nActiveState=inactive\nSubState=dead\n",
+  "stderr": "",
+  "reservation_release": "simjob stderr.log reports reservation released"
+}

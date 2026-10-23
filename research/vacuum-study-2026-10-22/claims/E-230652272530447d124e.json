@@ -1,0 +1,38 @@
+{
+  "id": "E-230652272530447d124e",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-230652272530447d124e",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/3",
+    "row_id": "C029-04-LEAD021B-WRINKLING",
+    "fields": {
+      "id": "C029-04-LEAD021B-WRINKLING",
+      "state": "demonstrated in the linear analysis with the card's in-plane core stiffness",
+      "direction": "Table 2 linear column for 021b",
+      "note": "021b's lowest linear mode is a symmetric face-wrinkling mode: the inner and outer faces move opposite, and the mode does not depend on the core shear modulus. On graded meshes it falls with refinement: 230.386 (512), 209.173 (1024), 200.792 (2048), 198.219 (4096), 197.593 kPa (8192); 4096 with grading 2.0 gives 197.582, and 2 face x 6 core gives 198.174. It converges near 197.4 kPa. That is 2.8% below the card's W value of 203.245 and 15.8% below its L value of 234.532; both global modes reproduce. The owner's uniform 512 and 1024 eigen meshes (61 and 31 mm elements) cannot resolve it. Uniform 4096 (7.7 mm) only partly resolves it: L gives 210.188, and W shows only its global 203.244. So the card's 512 to 1,024 check (at most 0.0103%) tests the global modes only. A Winkler estimate gives 677.7 MPa = 187.5 kPa for 021b, with wavelength 36.7 mm; for 021 it gives 913.4 MPa = 308.2 kPa, so 021 is unaffected (191.476 / 160.132 at graded 2048). On the static paths, graded 2048 limit points equal the 512 values (78.631 / 90.736 / 105.077 kPa). Stability of the refined static paths, and why wrinkling there cannot be separated from the core: C029-10. The mode depends on the unsourced in-plane core stiffness. With E_in 1 MPa and G_in 0.5 MPa the graded 4096 lowest mode is the global 203.251 kPa. The card's 0.01 MPa is the more realistic value: a Gibson-Ashby estimate for 1.0 pcf 5056 honeycomb gives about 0.02 MPa (QUESTIONABLE). On the static paths, meshes fine enough to resolve the wrinkle also resolve the core's loss of ellipticity (C029-10), so wrinkling at the dimple cannot be isolated in this model class.",
+      "proposed_fix": "Add the 021b wrinkling eigenpressure (about 197 kPa, about 690 MPa face membrane stress) to the 021b margin table, conditional on a sourced in-plane core stiffness."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "021b's lowest linear mode is a symmetric face-wrinkling mode: the inner and outer faces move opposite, and the mode does not depend on the core shear modulus. On graded meshes it falls with refinement: 230.386 (512), 209.173 (1024), 200.792 (2048), 198.219 (4096), 197.593 kPa (8192); 4096 with grading 2.0 gives 197.582, and 2 face x 6 core gives 198.174. It converges near 197.4 kPa. That is 2.8% below the card's W value of 203.245 and 15.8% below its L value of 234.532; both global modes reproduce. The owner's uniform 512 and 1024 eigen meshes (61 and 31 mm elements) cannot resolve it. Uniform 4096 (7.7 mm) only partly resolves it: L gives 210.188, and W shows only its global 203.244. So the card's 512 to 1,024 check (at most 0.0103%) tests the global modes only. A Winkler estimate gives 677.7 MPa = 187.5 kPa for 021b, with wavelength 36.7 mm; for 021 it gives 913.4 MPa = 308.2 kPa, so 021 is unaffected (191.476 / 160.132 at graded 2048). On the static paths, graded 2048 limit points equal the 512 values (78.631 / 90.736 / 105.077 kPa). Stability of the refined static paths, and why wrinkling there cannot be separated from the core: C029-10. The mode depends on the unsourced in-plane core stiffness. With E_in 1 MPa and G_in 0.5 MPa the graded 4096 lowest mode is the global 203.251 kPa. The card's 0.01 MPa is the more realistic value: a Gibson-Ashby estimate for 1.0 pcf 5056 honeycomb gives about 0.02 MPa (QUESTIONABLE). On the static paths, meshes fine enough to resolve the wrinkle also resolve the core's loss of ellipticity (C029-10), so wrinkling at the dimple cannot be isolated in this model class.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

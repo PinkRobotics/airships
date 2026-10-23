@@ -1,0 +1,34 @@
+{
+  "id": "rpt-ref-656730310661fdf86af6",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "at": "2026-10-19T23:48:52-07:00",
+  "body": "MAINLINE-009c-5 puts the beryllium S-200F / Hexcel HRH-10-4.8-32 point on the 5 percent mass line. Payload is 244.472107509 kg. Float margin is 0.05. Each face is 0.000752430055433 m and the core is 0.0206423058669 m.\n\ngamma_d = 1 on the crimp branch is the handbook's step at Vc = 2. This row is above that step. Vc is 3.3288849074, Kc is 0.300400893337, and gamma_d is 1. MAINLINE-018 is testing whether a knockdown applies there. This card does not move the step.\n\nGlobal buckling and core shear crimping are both 0.650411843681 at knockdown 0.20, 0.90 and 0.1407. Design wrinkling, coefficient 0.33, is 0.650414127459. Face compression is 0.89225156762. Core crush is 20.9509998415. The lesser factor is the crimp pair. At coefficient 0.82, wrinkling is 1.61618055914 and the lesser factor stays 0.650411843681. The point does not reach 1.\n\nThe best geometry at or below Vc 2 has least factor 0.175022781624. P3 stays PENDING-011b. 014b and 018 have not filed, so 009d waits. Not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/7ab8a834854b859f-CARD.md",
+      "sha256": "7ab8a834854b859f485c33fa71210e951964280e865dfe16a366acb8d0e724fe",
+      "bytes": 2257
+    },
+    {
+      "path": "evidence/2036cd9ce5d14de5-POINT.json",
+      "sha256": "2036cd9ce5d14de5e6d4e72096ca30d9b26de6a169770e40b8aa88c3cdfa56f5",
+      "bytes": 5949
+    },
+    {
+      "path": "evidence/ceb5c213bfcfdae8-rederive.py",
+      "sha256": "ceb5c213bfcfdae8c9a3531616c17a2035ee24bcf5259eff8a013cdb40400b40",
+      "bytes": 13179
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline009c5-margin-five-percent-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline009c5-margin-five-percent-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

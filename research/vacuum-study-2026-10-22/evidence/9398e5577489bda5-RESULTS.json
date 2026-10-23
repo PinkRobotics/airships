@@ -1,0 +1,444 @@
+{
+  "unit": "vacuum-mainline051-p3-frame-targets-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "status": "PARTIAL_HELD_RESOURCE_ADMISSION",
+  "work_complete": false,
+  "qualified_frame_Pf": null,
+  "qualified_lifetime_Pf": null,
+  "qualified_structural_SF": null,
+  "completed": [
+    "288-row reliability target surface m5..40;actual lengths/coupon/3m references",
+    "592 arithmetic checks",
+    "primary-source material and damage-method evidence review"
+  ],
+  "incomplete": [
+    "material-by-material frame mass/SF recalculation",
+    "material-by-material numerical strength/m gaps",
+    "041-section hail calculation",
+    "lost-member/cascade recalculation",
+    "evidence-backed construction ranking"
+  ],
+  "target_summary": [
+    {
+      "reserve": "5",
+      "load": "operating",
+      "q": 1.0,
+      "peak_compression_GPa": 1.0145523610200073,
+      "area_m2": 0.0007641548070716787,
+      "actual_length_m": [
+        1.984730270495083,
+        2.399568831878784,
+        2.6234981973919025
+      ],
+      "hypothetical_whole_3p9_m10_Pf": 0.0006439158267920496,
+      "hypothetical_coupon1cm3_3p9_m10_Pf": 0.7000009947191338,
+      "m_required_at_hypothetical_3p9_GPa": {
+        "equal_complete_member": {
+          "0.001": 9.681968316183477,
+          "1e-06": 14.683328300965533
+        },
+        "coupon_1cm3": {
+          "0.001": 15.140800086521649,
+          "1e-06": 20.167457670665453
+        }
+      }
+    },
+    {
+      "reserve": "5",
+      "load": "own_screen",
+      "q": 1.1432846186728538,
+      "peak_compression_GPa": 1.1642347984588048,
+      "area_m2": 0.0007641548070716787,
+      "actual_length_m": [
+        1.984730270495083,
+        2.399568831878784,
+        2.6234981973919025
+      ],
+      "hypothetical_whole_3p9_m10_Pf": 0.0025241697604210813,
+      "hypothetical_coupon1cm3_3p9_m10_Pf": 0.9911326670061066,
+      "m_required_at_hypothetical_3p9_GPa": {
+        "equal_complete_member": {
+          "0.001": 10.743153447756859,
+          "1e-06": 16.302395597708916
+        },
+        "coupon_1cm3": {
+          "0.001": 16.812529791787295,
+          "1e-06": 22.40345653633099
+        }
+      }
+    },
+    {
+      "reserve": "019",
+      "load": "operating",
+      "q": 1.0,
+      "peak_compression_GPa": 1.0552624913948132,
+      "area_m2": 0.0007364701258650087,
+      "actual_length_m": [
+        1.984730270495083,
+        2.399568831878784,
+        2.6234981973919025
+      ],
+      "hypothetical_whole_3p9_m10_Pf": 0.0009473076803051309,
+      "hypothetical_coupon1cm3_3p9_m10_Pf": 0.81868497894122,
+      "m_required_at_hypothetical_3p9_GPa": {
+        "equal_complete_member": {
+          "0.001": 9.95975706148423,
+          "1e-06": 15.10694765152488
+        },
+        "coupon_1cm3": {
+          "0.001": 15.550620544080724,
+          "1e-06": 20.72462501456678
+        }
+      }
+    },
+    {
+      "reserve": "019",
+      "load": "own_screen",
+      "q": 1.083205354427274,
+      "peak_compression_GPa": 1.1457475608296588,
+      "area_m2": 0.0007364701258650087,
+      "actual_length_m": [
+        1.984730270495083,
+        2.399568831878784,
+        2.6234981973919025
+      ],
+      "hypothetical_whole_3p9_m10_Pf": 0.0021428273141729467,
+      "hypothetical_coupon1cm3_3p9_m10_Pf": 0.9790462016674567,
+      "m_required_at_hypothetical_3p9_GPa": {
+        "equal_complete_member": {
+          "0.001": 10.60365264686451,
+          "1e-06": 16.08945466368308
+        },
+        "coupon_1cm3": {
+          "0.001": 16.56330113767422,
+          "1e-06": 22.079843462129492
+        }
+      }
+    }
+  ],
+  "materials": [
+    {
+      "id": "Hexoloy-SA",
+      "form": "sintered monolith",
+      "compression_MPa": 3900,
+      "compression_basis": "manufacturer typical; specimen unspecified",
+      "other_statistics": "listed m10 old sheet / m8 current web page, test mode not established as compression; flexure bars3x4x45mm",
+      "source": "https://www.ceramicsrefractories.saint-gobain.com/sites/hps-mac3-cma-pcr/files/assetbank_media/hexoloy-sa-sic-en-1013-tds-215398.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "CVD-PureSiC",
+      "form": "CVD monolith",
+      "compression_MPa": null,
+      "compression_basis": "blank in manufacturer table",
+      "other_statistics": "HR/LR flexure447/590MPa; no m or size basis",
+      "source": "https://www.coorstek.com/media/4249/silicon-carbides.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "CVD-PremaTech",
+      "form": "CVD monolith",
+      "compression_MPa": null,
+      "compression_basis": "not reported",
+      "other_statistics": "four-point flexure scale424MPa m11; geometry/effective size unspecified",
+      "source": "https://www.prematechac.com/wp-content/uploads/2019/05/18437-CVD-Silicon-Carbide-Data-Sheet.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "UltraSiC",
+      "form": "direct-sintered monolith",
+      "compression_MPa": 3500,
+      "compression_basis": "manufacturer typical; size unspecified",
+      "other_statistics": "no compression distribution",
+      "source": "https://www.coorstek.com/media/4249/silicon-carbides.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "SCS-6",
+      "form": "monofilament for composite",
+      "compression_MPa": null,
+      "compression_basis": "no tube compression population",
+      "other_statistics": "maker tensile3900MPa; historical25mm tensile fibre m8.2, NASA19910011930; not compression",
+      "source": "https://www.specmaterials.com/silicon-carbide-fiber-1",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "SCS-Ultra",
+      "form": "monofilament for composite",
+      "compression_MPa": null,
+      "compression_basis": "not reported",
+      "other_statistics": "maker metric tensile5900MPa; m/size absent; page has unit/diameter inconsistencies",
+      "source": "https://www.specmaterials.com/silicon-carbide-fiber-1",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "Hi-Nicalon-S-bundle",
+      "form": "multifilament bundle",
+      "compression_MPa": null,
+      "compression_basis": "not reported",
+      "other_statistics": "tensile25mm bundle n26 m9 scale1730MPa; filament m8.42 scale3062MPa is another population",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7452681/",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "HNS-MI-SiC",
+      "form": "melt-infiltrated CMC",
+      "compression_MPa": 1000,
+      "compression_basis": "reported greater than1000MPa in hot turbine component property averages; not RT tube",
+      "other_statistics": "public m and size absent; private statistically derived curves mentioned but not supplied",
+      "source": "https://bulletin.ceramics.org/article/ceramic-matrix-composites-taking-flight-at-ge-aviation/",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "Tyranno-SA-CVI",
+      "form": "woven CVI composite",
+      "compression_MPa": null,
+      "compression_basis": "not reported",
+      "other_statistics": "flexure mean597MPa SD70 m10.2;34 bars25x4x2mm span16mm",
+      "source": "https://www.jstage.jst.go.jp/article/matertrans/44/9/44_9_1797/_pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "Tyranno-SA3-triplex",
+      "form": "CVD/composite/CVD short tube",
+      "compression_MPa": null,
+      "compression_basis": "not reported",
+      "other_statistics": "ultimate hoop mean282.4MPa m11.05;first drop226.95MPa m5.30;10mm long ID8.5mm OD9.8-10.1mm",
+      "source": "https://www.kns.org/files/pre_paper/33/15S-417%EA%B9%80%EB%8C%80%EC%A2%85.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "M55J-epoxy",
+      "form": "composite coupon; proposed tube",
+      "compression_MPa": 890,
+      "compression_basis": "Toray2025 reference lot average,Vf60%,#2500epoxy130C,SACMA; not allowable",
+      "other_statistics": "compression m and complete-tube size basis absent",
+      "source": "https://www.toraycma.com/wp-content/uploads/M55J-Data-Sheet.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "K13D2U",
+      "form": "fibre for composite tube",
+      "compression_MPa": null,
+      "compression_basis": "not found",
+      "other_statistics": "fibre tensile3700MPa E935GPa rho2.20; not composite compression",
+      "source": "https://www.m-chemical.co.jp/carbon-fiber/pdf/dialead/composites.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "T700S-epoxy",
+      "form": "composite coupon; proposed tube",
+      "compression_MPa": 1450,
+      "compression_basis": "Toray2025 reference lot average,Vf60%,epoxy130C,SACMA; not allowable",
+      "other_statistics": "compression m and complete-tube size basis absent",
+      "source": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    },
+    {
+      "id": "Al6061T6",
+      "form": "ductile metal tube",
+      "compression_MPa": null,
+      "compression_basis": "source gives tensile yield276MPa; no compression fit used",
+      "other_statistics": "tensile elongation12%; brittle Weibull rupture law inappropriate without evidence",
+      "source": "https://online.kaiseraluminum.com/depot/PublicProductInformation/Document/1071/Kaiser_Aluminum_6061_Pipe_Tube.pdf",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "compression_weibull_m": null,
+      "complete_member_compression_scale_MPa": null,
+      "qualified_compression_allowable_MPa": null,
+      "recomputed_frame_mass_kg": null,
+      "recomputed_P3_SF": null,
+      "strength_gap_multiplier": null,
+      "m_gap_multiplier": null,
+      "actual_hail_break_probability": null,
+      "dynamic_lost_member_cascade": null,
+      "computation_status": "not executed after compare-01 admission refusal"
+    }
+  ],
+  "execution": [
+    {
+      "label": "targets-01",
+      "returncode": 0,
+      "started_utc": "2026-10-20T12:05:33.501048+00:00",
+      "ended_utc": "2026-10-20T12:05:35.452540+00:00",
+      "elapsed_seconds": 1.9514693231321871,
+      "admitted": true,
+      "refused": false,
+      "released": true
+    },
+    {
+      "label": "compare-01",
+      "returncode": 75,
+      "started_utc": "2026-10-20T12:12:42.632967+00:00",
+      "ended_utc": "2026-10-20T12:12:42.687293+00:00",
+      "elapsed_seconds": 0.05431754980236292,
+      "admitted": false,
+      "refused": true,
+      "released": false
+    }
+  ],
+  "prior_041_reference": [
+    {
+      "reserve": "5",
+      "mass_kg": {
+        "tube": 4263.217784337443,
+        "film": 160.8308667208401,
+        "joint": 42.78065850692438,
+        "nodes": 5.04,
+        "systems": 100.0,
+        "sag_lift_loss": 73.10073311528532,
+        "reserve": 244.4721075095,
+        "total_with_reserve_and_sag": 4889.442150189992,
+        "headroom": 7.275957614183426e-12
+      },
+      "screened_SF": 1.1432846186728538,
+      "local_peak_sensitivity_SF": 1.0332229353106797
+    },
+    {
+      "reserve": "019",
+      "mass_kg": {
+        "tube": 4108.7650161525835,
+        "film": 152.37925285081053,
+        "joint": 38.85820399967597,
+        "nodes": 5.04,
+        "systems": 100.0,
+        "sag_lift_loss": 73.10073311528532,
+        "reserve": 411.2989440716474,
+        "total_with_reserve_and_sag": 4889.442150190002,
+        "headroom": -2.7284841053187847e-12
+      },
+      "screened_SF": 1.083205354427274,
+      "local_peak_sensitivity_SF": 0.9781320167916636
+    }
+  ],
+  "successor": "none; stop and file; robotics owns progress"
+}

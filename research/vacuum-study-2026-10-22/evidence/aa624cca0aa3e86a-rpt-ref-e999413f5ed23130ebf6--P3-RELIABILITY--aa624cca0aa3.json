@@ -1,0 +1,129 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "source": {
+    "report": "rpt-ref-a53ddf165139979127c4",
+    "file": "evidence/3e41a759ac971a64-RESULTS.json",
+    "original_file": "evidence/3e41a759ac971a64-RESULTS.json",
+    "sha256": "3e41a759ac971a64354afd84ff0e6f07f7e35eefbce7a11d2a123ce6fbd954a2",
+    "selector": "/derived/fold"
+  },
+  "probabilities": [
+    {
+      "point": "041-f5-5",
+      "load": "own_screen",
+      "q": 1.1432846186728538,
+      "members": 750,
+      "peak_compression_Pa": 1164234798.4588048,
+      "stress_envelope": "each member's own peak",
+      "m": 10,
+      "assumed_reference_characteristic_Pa": 3900000000.0,
+      "member_Pf_min": 3.705968426130149e-07,
+      "member_Pf_max": 5.620286689773461e-06,
+      "frame_hazard": 0.002527360847939603,
+      "frame_Pf": 0.0025241697604210783,
+      "calibration": "whole_member",
+      "uniform_global_peak_frame_Pf": 0.004206355263625808
+    },
+    {
+      "point": "041-f5-5",
+      "load": "own_screen",
+      "q": 1.1432846186728538,
+      "members": 750,
+      "peak_compression_Pa": 1164234798.4588048,
+      "stress_envelope": "each member's own peak",
+      "m": 10,
+      "assumed_reference_characteristic_Pa": 3900000000.0,
+      "member_Pf_min": 0.0006576767674707397,
+      "member_Pf_max": 0.011204111770832477,
+      "frame_hazard": 4.725381204998959,
+      "frame_Pf": 0.9911326670061066,
+      "calibration": "coupon_1cm3",
+      "uniform_global_peak_frame_Pf": 0.9995602117771346
+    },
+    {
+      "point": "041-f5-019",
+      "load": "own_screen",
+      "q": 1.083205354427274,
+      "members": 750,
+      "peak_compression_Pa": 1145747560.8296587,
+      "stress_envelope": "each member's own peak",
+      "m": 10,
+      "assumed_reference_characteristic_Pa": 3900000000.0,
+      "member_Pf_min": 3.1345038425313665e-07,
+      "member_Pf_max": 4.788972060826645e-06,
+      "frame_hazard": 0.0021451264536485417,
+      "frame_Pf": 0.002142827314172944,
+      "calibration": "whole_member",
+      "uniform_global_peak_frame_Pf": 0.0035852950719869837
+    },
+    {
+      "point": "041-f5-019",
+      "load": "own_screen",
+      "q": 1.083205354427274,
+      "members": 750,
+      "peak_compression_Pa": 1145747560.8296587,
+      "stress_envelope": "each member's own peak",
+      "m": 10,
+      "assumed_reference_characteristic_Pa": 3900000000.0,
+      "member_Pf_min": 0.000536141924966097,
+      "member_Pf_max": 0.009210252772283867,
+      "frame_hazard": 3.8654353443916856,
+      "frame_Pf": 0.9790462016674566,
+      "calibration": "coupon_1cm3",
+      "uniform_global_peak_frame_Pf": 0.9982486308294647
+    }
+  ],
+  "requirements": [
+    {
+      "point": "5",
+      "peak_compression_Pa": 1164234798.4588048,
+      "assumed_m": 10,
+      "assumed_member_scale_Pa": 3900000000.0,
+      "required_member_scale_for_Pf1e6_Pa": 8537511676.3616705,
+      "hypothesis": "Independent complete members with common m/scale; no qualified distribution."
+    },
+    {
+      "point": "019",
+      "peak_compression_Pa": 1145747560.8296587,
+      "assumed_m": 10,
+      "assumed_member_scale_Pa": 3900000000.0,
+      "required_member_scale_for_Pf1e6_Pa": 8398657581.678006,
+      "hypothesis": "Independent complete members with common m/scale; no qualified distribution."
+    }
+  ],
+  "proof": {
+    "original_target_E430GPa": {
+      "q": 1.2582524765581682,
+      "mean_compression_Pa": 1123186195.563026,
+      "bow_bending_Pa": 73446145.68528734,
+      "joint_proxy_bending_Pa": 0.0,
+      "peak_compression_Pa": 1196632341.2483132,
+      "opposite_face_tension_Pa": 0,
+      "bow_moment_Nm": 4903.375182730712,
+      "joint_proxy_moment_Nm": 0.0,
+      "additional_joint_moment_to_axial_tension_Nm": 70082.22502164739,
+      "critical_bow_for_axial_tension_m": 0.04869475713785967
+    },
+    "original_proof_stress": {
+      "q": 1.5728155956977101,
+      "mean_compression_Pa": 1403982744.4537823,
+      "bow_bending_Pa": 104874263.83900507,
+      "joint_proxy_bending_Pa": 0.0,
+      "peak_compression_Pa": 1508857008.2927873,
+      "opposite_face_tension_Pa": 0,
+      "bow_moment_Nm": 7001.563633016375,
+      "joint_proxy_moment_Nm": 0.0,
+      "additional_joint_moment_to_axial_tension_Nm": 86730.43662245624,
+      "critical_bow_for_axial_tension_m": 0.04262773935113394
+    },
+    "original_proof_peak_stress_ratio": 1.259378651349216,
+    "original_proof_Euler_ratio": 0.37500000000023986,
+    "effective_RBSC_reference_volume_mm3": 1.9531250000000002,
+    "effective_RBSC_reference_area_mm2": 13.476562500000002
+  },
+  "rise8_total_kg": 5446.29062569268,
+  "rise8_tubes_kg": 5039.557738754902,
+  "proof_correction": "The original member Euler ratio at 1.25× target force is .375. A combined-screen exceedance is not proof of Euler buckling.",
+  "qualified_frame_failure_probability": null,
+  "qualified_lifetime_failure_probability": null
+}

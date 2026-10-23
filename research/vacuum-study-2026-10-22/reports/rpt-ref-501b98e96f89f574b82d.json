@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-501b98e96f89f574b82d",
+  "unit": "vacuum-review-c-065-1020",
+  "at": "2026-10-20T17:25:25-07:00",
+  "body": "REVIEW-C on 065 is filed. One round. The owner's code was not run. QUESTIONABLE. PROJECTION. No qualified hull safety factor.\n\nThe source numbers reproduce. CR-1457 equation 2.2-14 is 0.33 on the square root when waviness is unknown, and equation 2.2-8 is 0.82 at zero waviness, about 5 percent under 0.86. The ratio 0.33/0.82 is 0.402. Q 0.33 is admissible only with the named limit: not this beryllium face on CR-III. The cap 0.82 is not an installed value. FPL 1810-A is spring steel on resin paper, average facing stress 43,900 psi. NTRS 19730016169, 79.8 to 91.2 ksi, is above a proportional limit of about 35 ksi and is plastic. Neither transfers.\n\nThe model arithmetic reproduces. Payload is lift minus mass minus growth on all eight rows. Ramp gamma matches 0.2+0.4*Vc. Handbook-gamma rows match this seat's 064 run to 0 kg. Cap anchors match 063 to 0 kg. Filed ramp concept payloads are -5,926, -7,069, -18,148 and -22,010 kg, factors 1.180, 1.218, 1.161 and 1.198, and every filed TRL 7 payload is negative.\n\nOne difference. The optimum sits on BETA times 0.33, BETA 0.6823, so the stress coefficient is 0.225, not equation 2.2-14. Membrane stress is 0.65 to 0.67 of the handbook allowable. Fix, unreviewed: recompute the four ramp rows on equation 2.2-14 before treating those negative cells as the handbook result. FPL 2171 was not opened. T3 remains the measurement that can place Q.",
+  "artifacts": [
+    {
+      "path": "evidence/5baf2982494ed9b3-CARD.md",
+      "sha256": "5baf2982494ed9b393c93ec1036e8661e987a5f33d0499d2e70823ee81a444dc",
+      "bytes": 5841
+    },
+    {
+      "path": "evidence/4fa1a0068ddd1229-RESULTS.json",
+      "sha256": "4fa1a0068ddd122913037bf4dc528f3bab9d69eb6fd3ee5cee836c80c2b33759",
+      "bytes": 5211
+    },
+    {
+      "path": "evidence/7afd8df08079400f-NFI.json",
+      "sha256": "7afd8df08079400f501e9d503c735d96fa0b264454bd5bce5d840e73f17022bf",
+      "bytes": 2133
+    },
+    {
+      "path": "evidence/4d05cc9af536ad09-INPUTS.json",
+      "sha256": "4d05cc9af536ad09f8da23da8ae04a4b38c79c444c5b934d722aef006855c907",
+      "bytes": 5525
+    }
+  ],
+  "from": "ref-5ad28e8f7a8e27ce8bc1",
+  "from_seat": "ref-5ad28e8f7a8e27ce8bc1",
+  "re": "ord-admiral-rr2-review-c2-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-review-c2-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

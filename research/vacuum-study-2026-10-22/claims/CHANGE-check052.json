@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-check052",
+  "kind": "filed_change",
+  "label": "check052",
+  "claim": "88,750 fields and 326 table cells reproduce; 288 f5-5 labels and 52.426 kg family difference are corrected.",
+  "report": "rpt-1228-mainline052-independent-check-1020",
+  "source_report_body": "CHECK-052 complete. All 88,750 numerical field comparisons and 326 printed table cells match; eight independent checks pass. No owner code was accessed. Sixteen owner-output pins and 252 non-executable input pins verify.\n\nR10 ISA least S/F/J reproduces 1.055318 GPa compression, 5.343008 GPa ply strength (92.12%), retention .861568874 and sleeves 45.874 kg. Water ingress 1.258056 kg/day gives the 32.5165 Pa crossing at 17.279789 h; ground schedule 15.551810 h. Dry onboard duty needs 15–148 pumps and fails every tested case. Ground closure remains R10 ISA/R12 optimistic; P2 comparison reproduces.\n\nTwo presentation corrections: 288 f5-5 sensitivity fields incorrectly say f5-019; METHOD’s 52.425 kg family difference rounds to 52.426 kg. Neither changes closure.\n\nThe order’s COMMON.md pin differs from the live file. Humidity crossings retain 284.9 K bulk gas; holding rates/cold-film target fixed at 320 K gives a counterfactual 15.321116 h crossing, not a validated weather case.\n\nFour nonblocking checker findings, all 15 owner NFIs and 11 inherited registers are preserved. Qualified installed SF/life/Pf remain null. Released simjob receipts and exact comparisons are pinned. No successor.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/754a25a154ccf2b5-CARD.md",
+      "snapshot": "evidence/754a25a154ccf2b5-CARD.md",
+      "sha256": "754a25a154ccf2b55e52cff934ed362edfa859b3f6f2cb2bea89b47213ad3dfa",
+      "bytes": 7196,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

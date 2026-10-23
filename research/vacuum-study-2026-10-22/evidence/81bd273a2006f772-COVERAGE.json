@@ -1,0 +1,63 @@
+{
+  "order": "ord-admiral-rr2-mainline043-dispatch-1019",
+  "assigned_analysis_complete": true,
+  "qualification_complete": false,
+  "items": [
+    {
+      "brief_item": 1,
+      "work": "Source compression and tensile/flexural statistics for SA, CVD SiC, RBSC and SiC/SiC, preserving size references and missing data.",
+      "artifacts": [
+        "SOURCES.md",
+        "SOURCE-DATA.json",
+        "web-sources/SOURCES.json"
+      ],
+      "disposition": "Completed source review; matched compression distributions unavailable in retrieved evidence."
+    },
+    {
+      "brief_item": 2,
+      "work": "Recover selected stresses, bow, joint sensitivity, actual frozen 026b member forces and attributed rise-8 extremes.",
+      "artifacts": [
+        "CARD.md",
+        "METHOD.md",
+        "RESULTS.json",
+        "MEMBERS-f4-m24.csv",
+        "MEMBERS-f6-m24.csv",
+        "MEMBERS-f2-m48.csv"
+      ],
+      "disposition": "Completed; selected joint transfer and rise-8 are explicitly qualified."
+    },
+    {
+      "brief_item": 3,
+      "work": "Compute conditional member/series compression and tensile probabilities, volume/area scaling and sensitivity.",
+      "artifacts": [
+        "RESULTS.json",
+        "reliability.py",
+        "VALIDATION.json",
+        "MEMBERS-f4-m24.csv",
+        "MEMBERS-f6-m24.csv",
+        "MEMBERS-f2-m48.csv"
+      ],
+      "disposition": "Completed projections; actual frame and lifetime Pf remain null."
+    },
+    {
+      "brief_item": 4,
+      "work": "Invert strength/scatter requirements for 1e-3 and 1e-6 frame targets, compare candidates, and assess proof/cost.",
+      "artifacts": [
+        "CARD.md",
+        "RESULTS.json",
+        "PROOF.md"
+      ],
+      "disposition": "Completed conditional requirements and qualification outline; no unqualified improvement or cost quote."
+    },
+    {
+      "brief_item": 5,
+      "work": "Answer whether current materials establish reliability and identify the quantitative lower-tail property requirement.",
+      "artifacts": [
+        "CARD.md",
+        "SUMMARY.json",
+        "NFI.json"
+      ],
+      "disposition": "Reliability not established; 16 open nonblocking qualification questions retained."
+    }
+  ]
+}

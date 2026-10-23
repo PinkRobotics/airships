@@ -1,0 +1,78 @@
+{
+  "id": "D478",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D478",
+    "report": "rpt-1228-mainline050-flyable-weather-1020",
+    "file": "evidence/ae00f8ccc00275d5-NFI.json",
+    "snapshot": "evidence/ae00f8ccc00275d5-NFI.json",
+    "source_sha256": "ae00f8ccc00275d5a115b3de5f0b94c6eff6c30386d1ee6e083e534637629393",
+    "source_json_pointer": "/findings/9",
+    "row_id": "NFI50-10",
+    "fields": {
+      "id": "NFI50-10",
+      "title": "Retained mechanical weather conventions",
+      "finding": "Wind load, pad sizing and reference convection retain 048 reference-density conventions. Mean centre pressure omits a full finite-height hydrostatic shell load. Fatigue, local support details, control and propulsion remain outside the payload screen.",
+      "missing_evidence": "Weather-dependent installed loads, local support design and controlled-flight analysis.",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "blocks_filing": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/findings",
+    "blocks_progress": false
+  },
+  "claim": "Wind load, pad sizing and reference convection retain 048 reference-density conventions. Mean centre pressure omits a full finite-height hydrostatic shell load. Fatigue, local support details, control and propulsion remain outside the payload screen. | Retained mechanical weather conventions",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1438"
+    },
+    {
+      "report": "rpt-1228-mainline050-flyable-weather-1020",
+      "artifact": "evidence/ae00f8ccc00275d5-NFI.json",
+      "snapshot": "evidence/ae00f8ccc00275d5-NFI.json",
+      "sha256": "ae00f8ccc00275d5a115b3de5f0b94c6eff6c30386d1ee6e083e534637629393",
+      "bytes": 48719,
+      "selector": "/findings/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline050-flyable-weather-1020",
+          "artifact": "evidence/ae00f8ccc00275d5-NFI.json",
+          "snapshot": "evidence/ae00f8ccc00275d5-NFI.json",
+          "sha256": "ae00f8ccc00275d5a115b3de5f0b94c6eff6c30386d1ee6e083e534637629393",
+          "bytes": 48719,
+          "selector": "/findings/9"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1438"
+          }
+        ]
+      }
+    }
+  ]
+}

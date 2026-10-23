@@ -1,0 +1,33 @@
+{
+  "id": "A2-05",
+  "kind": "review_claim",
+  "claim": "R10 worst-corner band4.0 to25.7K inside whole bill",
+  "original": {
+    "id": "A2-05",
+    "card": "058",
+    "claim": "R10 worst-corner band4.0 to25.7K inside whole bill",
+    "why_load_bearing": "Main band-widening headline",
+    "outcome": "it reproduces",
+    "finding": "R10 band is 4.029782 K baseline and 25.727676 K with the declared whole bill; substituting the independent thermal root changes the latter by only -0.000116 K.",
+    "evidence": [
+      "checks/058-EDGES.json",
+      "checks/058-THERMAL-MIXED-CONVECTION.json"
+    ]
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "it reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "snapshot": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059,
+      "selector": "/claims/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

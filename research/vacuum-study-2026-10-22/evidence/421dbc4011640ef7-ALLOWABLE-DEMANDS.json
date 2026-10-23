@@ -1,0 +1,351 @@
+{
+  "schema": 1,
+  "classification": "QUESTIONABLE inputs; illustrative calibrations and structural transfer PROJECTION",
+  "amendment": "ord-admiral-rr2-mainline025-demand-082gpa-1020",
+  "geometry": {
+    "outer_radius_m": 0.12368836237368608,
+    "wall_m": 0.0008802990936851718,
+    "inner_radius_m": 0.1228080632800009,
+    "member_length_m": 2.04,
+    "member_count": 1046.0203945987416,
+    "A_m2": 0.0006816960123390123,
+    "I_m4": 5.17758881828322e-06,
+    "total_volume_m3": 1.4546585809194141,
+    "total_inner_area_m2": 1646.558140674768,
+    "total_outer_area_m2": 1658.3608155173083,
+    "end_annuli_included": false
+  },
+  "uniform_tensile_screens": [
+    {
+      "classification": "PROJECTION",
+      "m": 8,
+      "characteristic_stress_Pa": 403507242.54156315,
+      "reference_measure": 1.4814814814814816e-08,
+      "measure_units": "m3",
+      "flaw_measure": "volume",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 1.4546585809194141,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 7191893.63363379,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    },
+    {
+      "classification": "PROJECTION",
+      "m": 8,
+      "characteristic_stress_Pa": 403507242.54156315,
+      "reference_measure": 9.62962962962963e-05,
+      "measure_units": "m2",
+      "flaw_measure": "surface",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 3304.9189561920766,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 8201767.569563455,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    },
+    {
+      "classification": "PROJECTION",
+      "m": 10,
+      "characteristic_stress_Pa": 399432062.3224757,
+      "reference_measure": 1.1900826446280993e-08,
+      "measure_units": "m3",
+      "flaw_measure": "volume",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 1.4546585809194141,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 15585636.720840208,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    },
+    {
+      "classification": "PROJECTION",
+      "m": 10,
+      "characteristic_stress_Pa": 399432062.3224757,
+      "reference_measure": 9.322314049586777e-05,
+      "measure_units": "m2",
+      "flaw_measure": "surface",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 3304.9189561920766,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 17639214.27392369,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    }
+  ],
+  "two_demands": {
+    "equilateral_equilibrium": {
+      "classification": "QUESTIONABLE surrogate",
+      "force_factor_relative_to_pRs_over2": 0.5773502691896258,
+      "N_N": 562166.2727599056,
+      "mean_compression_Pa": 824658297.2240363,
+      "Euler_stress_Pa": 7385162765.271846,
+      "eta": 0.03322172682668124,
+      "N_over_Ne": 0.111664200700075,
+      "qualified_compression_allowable_Pa": null,
+      "qualified_compression_margin": null,
+      "status": "elastic stress calculation only; no local/global/contact validation",
+      "bending_Pa": 30840333.911256965,
+      "maximum_compression_Pa": 855498631.1352932,
+      "opposite_compression_Pa": 793817963.3127794,
+      "maximum_tension_Pa": 0.0,
+      "assumed_compression_capacity": [
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 100000000.0,
+          "mean_stress_ratio_only": 0.12126234627920421,
+          "extreme_compression_pressure_multiplier": 0.1173132652821139,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 200000000.0,
+          "mean_stress_ratio_only": 0.24252469255840842,
+          "extreme_compression_pressure_multiplier": 0.23452387963356175,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 380000000.0,
+          "mean_stress_ratio_only": 0.460796915860976,
+          "extreme_compression_pressure_multiplier": 0.44523170284079816,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 1000000000.0,
+          "mean_stress_ratio_only": 1.212623462792042,
+          "extreme_compression_pressure_multiplier": 1.1680005781991842,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 3900000000.0,
+          "mean_stress_ratio_only": 4.729231504888964,
+          "extreme_compression_pressure_multiplier": 4.437069106606866,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        }
+      ],
+      "hypothetical_contact_Ct_caps": [
+        {
+          "m": 8,
+          "flaw_measure": "volume",
+          "Ct": 0.008721058962049048,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        },
+        {
+          "m": 8,
+          "flaw_measure": "surface",
+          "Ct": 0.009945655791219508,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        },
+        {
+          "m": 10,
+          "flaw_measure": "volume",
+          "Ct": 0.018899508770244062,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        },
+        {
+          "m": 10,
+          "flaw_measure": "surface",
+          "Ct": 0.021389725093776162,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        }
+      ]
+    },
+    "legacy_pRs_over2": {
+      "classification": "QUESTIONABLE surrogate",
+      "force_factor_relative_to_pRs_over2": 1.0,
+      "N_N": 973700.5467217801,
+      "mean_compression_Pa": 1428350069.6752675,
+      "Euler_stress_Pa": 7385162765.271846,
+      "eta": 0.03322172682668124,
+      "N_over_Ne": 0.19340806899909813,
+      "qualified_compression_allowable_Pa": null,
+      "qualified_compression_margin": null,
+      "status": "elastic stress calculation only; no local/global/contact validation",
+      "bending_Pa": 58830561.03566425,
+      "maximum_compression_Pa": 1487180630.7109318,
+      "opposite_compression_Pa": 1369519508.6396031,
+      "maximum_tension_Pa": 0.0,
+      "assumed_compression_capacity": [
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 100000000.0,
+          "mean_stress_ratio_only": 0.07001084826686416,
+          "extreme_compression_pressure_multiplier": 0.06773084529014244,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 200000000.0,
+          "mean_stress_ratio_only": 0.1400216965337283,
+          "extreme_compression_pressure_multiplier": 0.13540242503783226,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 380000000.0,
+          "mean_stress_ratio_only": 0.2660412234140838,
+          "extreme_compression_pressure_multiplier": 0.2570546434868903,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 1000000000.0,
+          "mean_stress_ratio_only": 0.7001084826686416,
+          "extreme_compression_pressure_multiplier": 0.6743454482369375,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        },
+        {
+          "classification": "PROJECTION: caller-assumed compression input",
+          "assumed_Fc_Pa": 3900000000.0,
+          "mean_stress_ratio_only": 2.730423082407702,
+          "extreme_compression_pressure_multiplier": 2.561743043112446,
+          "excludes": "tensile/contact, local shell, global lattice, film and mass feasibility",
+          "qualified_allowable": false
+        }
+      ],
+      "hypothetical_contact_Ct_caps": [
+        {
+          "m": 8,
+          "flaw_measure": "volume",
+          "Ct": 0.005035105739357616,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        },
+        {
+          "m": 8,
+          "flaw_measure": "surface",
+          "Ct": 0.005742127048327943,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        },
+        {
+          "m": 10,
+          "flaw_measure": "volume",
+          "Ct": 0.010911636476052101,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        },
+        {
+          "m": 10,
+          "flaw_measure": "surface",
+          "Ct": 0.01234936354078376,
+          "classification": "PROJECTION for this uniform tensile-field hypothesis only"
+        }
+      ]
+    }
+  },
+  "size_scaling": {
+    "formula": "sigma_target=characteristic*(-ln(1-P)*Q_reference/Q_effective)^(1/m)",
+    "full_volume": "Q=member_count*pi*(ro^2-(ro-t)^2)*member_length",
+    "full_two_surfaces": "Q=member_count*2*pi*(2ro-t)*member_length; ends excluded",
+    "nonuniform": "Q_effective=sum((max(sigma_i,0)/sigma_peak)^m*quadrature_measure_i)",
+    "compression": "No calibrated compression function exists in available data; return null.",
+    "different_populations": "Independently calibrated flaw populations require separate hazards; do not reuse one bend fit twice.",
+    "CVD": "Reported beta424 MPa and m11 lack effective reference size; no commercial-CVD size law supplied."
+  },
+  "doubled_member_count_screens": [
+    {
+      "classification": "PROJECTION",
+      "m": 8,
+      "characteristic_stress_Pa": 403507242.54156315,
+      "reference_measure": 1.4814814814814816e-08,
+      "measure_units": "m3",
+      "flaw_measure": "volume",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 2.9093171618388283,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 6594995.54034012,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    },
+    {
+      "classification": "PROJECTION",
+      "m": 8,
+      "characteristic_stress_Pa": 403507242.54156315,
+      "reference_measure": 9.62962962962963e-05,
+      "measure_units": "m2",
+      "flaw_measure": "surface",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 6609.837912384153,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 7521054.022714637,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    },
+    {
+      "classification": "PROJECTION",
+      "m": 10,
+      "characteristic_stress_Pa": 399432062.3224757,
+      "reference_measure": 1.1900826446280993e-08,
+      "measure_units": "m3",
+      "flaw_measure": "volume",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 2.9093171618388283,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 14541913.254651459,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    },
+    {
+      "classification": "PROJECTION",
+      "m": 10,
+      "characteristic_stress_Pa": 399432062.3224757,
+      "reference_measure": 9.322314049586777e-05,
+      "measure_units": "m2",
+      "flaw_measure": "surface",
+      "assumptions": "380 MPa as mean; spans40/20 mm; same flaw population and finish; no confidence bound",
+      "effective_assembly_measure": 6609.837912384153,
+      "failure_probability": 1e-06,
+      "tensile_threshold_Pa": 16457968.862357777,
+      "stress_field": "one uniform positive principal stress over entire stated measure",
+      "actual_component_allowable": false
+    }
+  ],
+  "verification": [
+    {
+      "name": "two times component count size scaling m8 volume",
+      "passed": true
+    },
+    {
+      "name": "two times component count size scaling m8 surface",
+      "passed": true
+    },
+    {
+      "name": "two times component count size scaling m10 volume",
+      "passed": true
+    },
+    {
+      "name": "two times component count size scaling m10 surface",
+      "passed": true
+    },
+    {
+      "name": "zero tensile measure yields no tensile threshold, not compression strength",
+      "passed": true
+    },
+    {
+      "name": "negative stresses contribute no tensile effective measure",
+      "passed": true
+    },
+    {
+      "name": "force equilibrium ratio",
+      "passed": true
+    },
+    {
+      "name": "baseline midspan has no positive tensile stress under either demand",
+      "passed": true
+    },
+    {
+      "name": "no compression reliability invented",
+      "passed": true
+    }
+  ]
+}

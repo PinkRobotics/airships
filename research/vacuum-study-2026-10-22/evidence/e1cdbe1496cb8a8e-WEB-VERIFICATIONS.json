@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "verification_date": "2026-10-20",
+  "scope": "Primary-source observations made during this check. These are paraphrased audit notes, not archived full-page transcripts. Downloaded byte snapshots are separately pinned in INPUTS.json.",
+  "observations": [
+    {
+      "url": "https://sam.gov/workspace/contract/opp/b3c6ad81649c467d86d2a44fbc4750a4/view",
+      "access": "Primary SAM notice visible through web search; direct HTML download is a JavaScript shell and does not itself archive the award contents.",
+      "facts": {
+        "award_number": "1333ND26PNB30149",
+        "related_notice": "NB305000-26-01460",
+        "award_date": "2026-09-22",
+        "award_value_USD": 530000
+      },
+      "scope_limit": "A purchase award with its own scope; not a quote for the proposed experiment or rental."
+    },
+    {
+      "url": "https://f-e-t.com/subsea/support-and-services/hyperbaric-pressure-test-facility/",
+      "access": "Primary facility table visible through web tool; direct download returned HTTP 403, retained in DOWNLOADS.json.",
+      "facts": {
+        "internal_diameter_mm": 2300,
+        "internal_length_mm": 8100
+      },
+      "scope_limit": "Facility dimensions, not a booking, quotation or qualified test procedure."
+    },
+    {
+      "url": "https://store.astm.org/c0273_c0273m-20.html",
+      "access": "Public primary standard scope",
+      "facts": "Core shear test method; no full paid standard was reproduced."
+    },
+    {
+      "url": "https://store.astm.org/c0365_c0365m-22.html",
+      "access": "Public primary standard scope",
+      "facts": "Flatwise compression of sandwich cores; core crush is excluded and referred to D7336."
+    },
+    {
+      "url": "https://store.astm.org/d7336_d7336m-22.html",
+      "access": "Public primary standard scope",
+      "facts": "Static energy absorption properties of honeycomb sandwich core; relevant to crush plateau and absorbed energy."
+    }
+  ]
+}

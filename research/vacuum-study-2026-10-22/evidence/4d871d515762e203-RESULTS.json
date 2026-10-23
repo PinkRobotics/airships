@@ -1,0 +1,363 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-017",
+  "unit": "vacuum-mainline017-improvement-directions-1019",
+  "checker_order": "ord-admiral-rr2-mainline017-dispatch-1019",
+  "inputs_used": "MAINLINE-014 filed; MAINLINE-009 and 009b filed; MAINLINE-011 filed; 014b, 011b and 013 not filed at start",
+  "start_script": "2026-10-19T23:40:30.144323-07:00",
+  "end_script": "2026-10-19T23:40:34.810761-07:00",
+  "script_elapsed_s": 4.666434988146648,
+  "biaxial_factor": 0.6823278038280193,
+  "P2_points": {
+    "CNT-yarn": {
+      "face": {
+        "E": 180000000000.0,
+        "sigma": 1200000000.0,
+        "rho": 1400.0,
+        "tag": "PROJECTION"
+      },
+      "core": "Hexcel HRH-10-4.8-32 at 32 kg/m3",
+      "base": {
+        "least_SF": 0.7504917332320338,
+        "governing": "core_shear_crimping",
+        "sfs": {
+          "face_yield": 5.168819769411007,
+          "core_shear_crimping": 0.7504917332320338,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.7504917670305804
+        },
+        "tf_m": 0.0010279580546123598,
+        "core_m": 0.023485722729592717
+      },
+      "single_property": {
+        "E_f": {
+          "status": "reaches_SF1",
+          "factor": 3.3068950443382388,
+          "at_least_SF": 1.0000000000014113,
+          "governing": "core_shear_crimping",
+          "tf_m": 0.0009282531851084864,
+          "core_m": 0.03220989881118163
+        },
+        "sigma_f": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.7504917332320338,
+          "cap_governing": "core_shear_crimping"
+        },
+        "rho_f": {
+          "status": "reaches_SF1",
+          "factor": 1.4591232219167407,
+          "at_least_SF": 1.000000000005787,
+          "governing": "core_shear_crimping",
+          "tf_m": 0.0013697127057731042,
+          "core_m": 0.03129377936239501
+        },
+        "E_c": {
+          "status": "reaches_SF1",
+          "factor": 3.3068950443382388,
+          "at_least_SF": 1.0000000000014113,
+          "governing": "core_shear_crimping",
+          "tf_m": 0.0009282531851084864,
+          "core_m": 0.03220989881118163
+        },
+        "G_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.509899054015387,
+          "cap_governing": "global_buckling"
+        },
+        "core_crush": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.7504917332320338,
+          "cap_governing": "core_shear_crimping"
+        },
+        "rho_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.9464265704414097,
+          "cap_governing": "face_wrinkling"
+        },
+        "kd": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.7504917332320338,
+          "cap_governing": "core_shear_crimping"
+        },
+        "wrinkling_coefficient": {
+          "status": "reaches_SF1",
+          "factor": 1.818487020668071,
+          "at_least_SF": 1.0000000000014113,
+          "governing": "core_shear_crimping",
+          "tf_m": 0.0009282531851084864,
+          "core_m": 0.03220989881118163
+        }
+      },
+      "cheapest_combination_found": {
+        "product_of_factors": 1.47424854315208,
+        "least_SF_on_grid": 1.0009936538238808,
+        "tf_m": 0.0013653415575371126,
+        "core_m": 0.031281757946111786,
+        "split": {
+          "rho_f": 1.4529739165134374
+        }
+      }
+    },
+    "Be S-200F": {
+      "face": {
+        "E": 303000000000.0,
+        "sigma": 283000000.0,
+        "rho": 1850.0,
+        "tag": "QUESTIONABLE"
+      },
+      "core": "Hexcel HRH-10-4.8-32 at 32 kg/m3",
+      "base": {
+        "least_SF": 0.6853984585857994,
+        "governing": "core_shear_crimping",
+        "sfs": {
+          "face_yield": 0.9402449836380112,
+          "core_shear_crimping": 0.6853984585857994,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.6853984939639672
+        },
+        "tf_m": 0.0007929025970179381,
+        "core_m": 0.02175268972797511
+      },
+      "single_property": {
+        "E_f": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.8732902656361343,
+          "cap_governing": "face_yield"
+        },
+        "sigma_f": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.6853984585857994,
+          "cap_governing": "core_shear_crimping"
+        },
+        "rho_f": {
+          "status": "reaches_SF1",
+          "factor": 1.637322535667118,
+          "at_least_SF": 1.0000000000029785,
+          "governing": "face_wrinkling",
+          "tf_m": 0.0011568490773975052,
+          "core_m": 0.03173729068802586
+        },
+        "E_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.8732902656361343,
+          "cap_governing": "face_yield"
+        },
+        "G_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.5600007594839561,
+          "cap_governing": "global_buckling"
+        },
+        "core_crush": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.6853984585857994,
+          "cap_governing": "core_shear_crimping"
+        },
+        "rho_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.8480022931772848,
+          "cap_governing": "face_wrinkling"
+        },
+        "kd": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.6853984585857994,
+          "cap_governing": "core_shear_crimping"
+        },
+        "wrinkling_coefficient": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.8732902656361343,
+          "cap_governing": "face_yield"
+        }
+      },
+      "cheapest_combination_found": {
+        "product_of_factors": 1.656719302023559,
+        "least_SF_on_grid": 1.0003779781035045,
+        "tf_m": 0.001147919765569346,
+        "core_m": 0.03169746919141202,
+        "split": {
+          "rho_f": 1.6237794253447189
+        }
+      }
+    },
+    "graphene": {
+      "face": {
+        "E": 150000000000.0,
+        "sigma": 900000000.0,
+        "rho": 1500.0,
+        "tag": "PROJECTION"
+      },
+      "core": "Hexcel HRH-10-4.8-32 at 32 kg/m3",
+      "base": {
+        "least_SF": 0.677923850099059,
+        "governing": "face_wrinkling",
+        "sfs": {
+          "face_yield": 3.7142719029768396,
+          "core_shear_crimping": 0.6779238628960933,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.677923850099059
+        },
+        "tf_m": 0.0009849097447173448,
+        "core_m": 0.021096763940923125
+      },
+      "single_property": {
+        "E_f": {
+          "status": "reaches_SF1",
+          "factor": 4.92416299489463,
+          "at_least_SF": 1.0000000000016185,
+          "governing": "core_shear_crimping",
+          "tf_m": 0.0008649812673052356,
+          "core_m": 0.03234005869830837
+        },
+        "sigma_f": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.677923850099059,
+          "cap_governing": "face_wrinkling"
+        },
+        "rho_f": {
+          "status": "reaches_SF1",
+          "factor": 1.6547089494882732,
+          "at_least_SF": 1.0000000000003262,
+          "governing": "core_shear_crimping",
+          "tf_m": 0.0014528324636913722,
+          "core_m": 0.031119665478909857
+        },
+        "E_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.8803816728691002,
+          "cap_governing": "core_shear_crimping"
+        },
+        "G_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.40307907454031006,
+          "cap_governing": "global_buckling"
+        },
+        "core_crush": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.677923850099059,
+          "cap_governing": "face_wrinkling"
+        },
+        "rho_c": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.8327968178404747,
+          "cap_governing": "face_wrinkling"
+        },
+        "kd": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.677923850099059,
+          "cap_governing": "face_wrinkling"
+        },
+        "wrinkling_coefficient": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.8803816728691002,
+          "cap_governing": "core_shear_crimping"
+        }
+      },
+      "cheapest_combination_found": {
+        "product_of_factors": 1.6854666964054406,
+        "least_SF_on_grid": 1.0009381745801964,
+        "tf_m": 0.001435483003097702,
+        "core_m": 0.031281757946111786,
+        "split": {
+          "rho_f": 1.6373298785891695,
+          "wrinkling_coefficient": 1.0185342600914835
+        }
+      }
+    }
+  },
+  "P3_points": {
+    "SiC": {
+      "material": {
+        "E": 410000000000.0,
+        "sigma": 3900000000.0,
+        "rho": 3100.0,
+        "tag": "QUESTIONABLE"
+      },
+      "base": {
+        "least_SF": 2.8484757388445185,
+        "sfs": {
+          "euler": 2.8515880881554176,
+          "yield": 2.8484757388445185,
+          "local": 5.777698124867854,
+          "film": 2.856954523835647
+        },
+        "governing": "yield",
+        "s_m": 0.88,
+        "r_o_m": 0.039283196323280624,
+        "t_w_m": 0.0012632189715727077,
+        "A_m2": 0.0003067791475777237
+      },
+      "single_property": {
+        "E": {
+          "status": "reaches_SF1",
+          "factor": 1.0000021959186756,
+          "at_least_SF": 2.8484757388445185,
+          "governing": "yield"
+        },
+        "sigma": {
+          "status": "reaches_SF1",
+          "factor": 1.0000021959186756,
+          "at_least_SF": 2.8484819938655903,
+          "governing": "yield"
+        },
+        "rho": {
+          "status": "reaches_SF1",
+          "factor": 1.0000021959186756,
+          "at_least_SF": 2.84848199386559,
+          "governing": "yield"
+        },
+        "film_allowable": {
+          "status": "reaches_SF1",
+          "factor": 1.0000021959186756,
+          "at_least_SF": 2.8484757388445185,
+          "governing": "yield"
+        }
+      }
+    },
+    "CFRP T700": {
+      "material": {
+        "E": 54000000000.0,
+        "sigma": 520000000.0,
+        "rho": 1550.0,
+        "tag": "QUESTIONABLE"
+      },
+      "base": {
+        "least_SF": 0.7651237817380396,
+        "sfs": {
+          "euler": 0.7813633468438251,
+          "yield": 0.7651237817380396,
+          "local": 0.8831434314233526,
+          "film": 0.8380399936584565
+        },
+        "governing": "yield",
+        "s_m": 3.0,
+        "r_o_m": 0.1351681142445142,
+        "t_w_m": 0.0025039873496716103,
+        "A_m2": 0.0021069045378625715
+      },
+      "single_property": {
+        "E": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.7651237817380396,
+          "cap_governing": "yield"
+        },
+        "sigma": {
+          "status": "reaches_SF1",
+          "factor": 1.3080514668285677,
+          "at_least_SF": 1.0000001879109455,
+          "governing": "yield"
+        },
+        "rho": {
+          "status": "reaches_SF1",
+          "factor": 1.3073708918971367,
+          "at_least_SF": 1.0000010628103164,
+          "governing": "yield"
+        },
+        "film_allowable": {
+          "status": "not_alone",
+          "cap_least_SF_at_1e4": 0.7651237817380396,
+          "cap_governing": "yield"
+        }
+      }
+    }
+  },
+  "pin_bad": 0
+}

@@ -1,0 +1,80 @@
+{
+  "id": "D277",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D277",
+    "report": "rpt-ref-982a0ff761f72abce96c",
+    "file": "evidence/914b464e65575975-NFI.json",
+    "snapshot": "evidence/914b464e65575975-NFI.json",
+    "source_sha256": "914b464e655759755f29ebb4053c5fbde3f10bf6de4d0b712baf78b8d87d7d04",
+    "source_json_pointer": "/new/1",
+    "row_id": "CHECK046-02",
+    "fields": {
+      "id": "CHECK046-02",
+      "topic": "Outdoor continuation is not a fit",
+      "status": "OPEN",
+      "finding": "The declared two-endpoint continuation gives .509318/.417089 at 2.25/4 months versus manual source readings .44/.335: residuals +.069318/+.082089, outside the stated ±.02 reading band.",
+      "evidence": "AGE-MODEL-SENSITIVITY.json; Toyobo page 12 visually inspected. The owner explicitly acknowledges that the curve does not fit all points.",
+      "needed": "Keep the numbers labeled endpoint continuation. Do not use the interpolated 10.2/5.95/3.55-day crossings as observed service lives or replacement triggers; the empirical bracket is zero to the first half-month observation."
+    },
+    "inherited_document_tag": {
+      "status": "OPEN / QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/new",
+    "blocks_progress": false
+  },
+  "claim": "The declared two-endpoint continuation gives .509318/.417089 at 2.25/4 months versus manual source readings .44/.335: residuals +.069318/+.082089, outside the stated ±.02 reading band.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1237"
+    },
+    {
+      "report": "rpt-ref-982a0ff761f72abce96c",
+      "artifact": "evidence/914b464e65575975-NFI.json",
+      "snapshot": "evidence/914b464e65575975-NFI.json",
+      "sha256": "914b464e655759755f29ebb4053c5fbde3f10bf6de4d0b712baf78b8d87d7d04",
+      "bytes": 6374,
+      "selector": "/new/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-982a0ff761f72abce96c",
+          "artifact": "evidence/914b464e65575975-NFI.json",
+          "snapshot": "evidence/914b464e65575975-NFI.json",
+          "sha256": "914b464e655759755f29ebb4053c5fbde3f10bf6de4d0b712baf78b8d87d7d04",
+          "bytes": 6374,
+          "selector": "/new/1"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1237"
+          }
+        ]
+      }
+    }
+  ]
+}

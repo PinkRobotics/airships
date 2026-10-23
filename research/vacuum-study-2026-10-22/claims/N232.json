@@ -1,0 +1,83 @@
+{
+  "id": "N232",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N232",
+    "report": "rpt-ref-2519e14e5d71b9eb18f3",
+    "card": "MAINLINE-028",
+    "file": "evidence/4a6f636dbfa17be3-NFI.json",
+    "row_id": "NFI-028-11",
+    "fields": {
+      "id": "NFI-028-11",
+      "status": "OPEN",
+      "tag": "PROJECTION",
+      "technology_state": "PROJECTION",
+      "hull_adoption_state": "PROJECTION",
+      "assumption": "Core splicing allowance",
+      "today_value": "Selected 0.5-mm gap and 500 kg/m3 cured filling density; installed value unknown",
+      "required_or_budget_target": {
+        "modeled_kg_m": 0.005053344096872905
+      },
+      "needed_evidence": "Weighed edge splice transmitting core shear with actual gaps, nodes and intersections.",
+      "scenario": "af015_scarf",
+      "scenario_joining_kg": 214.2399978421616,
+      "factor_to_216_427kg_allowance": 0.9898943034693449,
+      "mass_reduction_factor_to_fit": 1,
+      "modeled_component_kg": 14.389204513742502,
+      "component_fraction_of_allowance": 0.06648521155280727
+    }
+  },
+  "claim": "{\"id\": \"NFI-028-11\", \"status\": \"OPEN\", \"tag\": \"PROJECTION\", \"technology_state\": \"PROJECTION\", \"hull_adoption_state\": \"PROJECTION\", \"assumption\": \"Core splicing allowance\", \"today_value\": \"Selected 0.5-mm gap and 500 kg/m3 cured filling density; installed value unknown\", \"required_or_budget_target\": {\"modeled_kg_m\": 0.005053344096872905}, \"needed_evidence\": \"Weighed edge splice transmitting core shear with actual gaps, nodes and intersections.\", \"scenario\": \"af015_scarf\", \"scenario_joining_kg\": 214.2399978421616, \"factor_to_216_427kg_allowance\": 0.9898943034693449, \"mass_reduction_factor_to_fit\": 1, \"modeled_component_kg\": 14.389204513742502, \"component_fraction_of_allowance\": 0.06648521155280727}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/231"
+    },
+    {
+      "report": "rpt-ref-2519e14e5d71b9eb18f3",
+      "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+      "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+      "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+      "bytes": 17155,
+      "selector": "source row ID: NFI-028-11"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-2519e14e5d71b9eb18f3",
+          "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+          "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+          "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+          "bytes": 17155,
+          "selector": "source row ID: NFI-028-11"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/231"
+          }
+        ]
+      }
+    }
+  ]
+}

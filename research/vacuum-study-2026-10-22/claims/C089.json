@@ -1,0 +1,79 @@
+{
+  "id": "C089",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C089",
+    "report": "rpt-ref-d6eac96dde8db1968e86",
+    "file": "evidence/af79eb00f6335ba5-NFI.json",
+    "snapshot": "evidence/af79eb00f6335ba5-NFI.json",
+    "source_sha256": "af79eb00f6335ba5a916c0b6ee71afdeebf79d7390305c7675680cdc493b8f36",
+    "source_json_pointer": "/items/0",
+    "row_id": "NFI-037b-SCREEN-PREMISE",
+    "fields": {
+      "id": "NFI-037b-SCREEN-PREMISE",
+      "tag": "QUESTIONABLE",
+      "claim": "037's shear-lag screen holds each face at the core's expansion (0.227 after the 250 F cure). That needs the core to carry 47 times the in-plane force at which its walls yield. CR-1457, Hexcel AGU 075b and NASA TM-4585 treat the core's in-plane stiffness and thermal force as negligible; on that premise the continuous core carries no mismatch shear and a free core edge reads 1.17 / 0.83.",
+      "needed_to_ground": "A curved Be/CR-III panel cured with AF 163-2U, cycled over 271-302 K, strain-gauged at a core splice, at a face scarf and in the field, then sectioned."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE",
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "items",
+    "blocks_progress": false
+  },
+  "claim": "037's shear-lag screen holds each face at the core's expansion (0.227 after the 250 F cure). That needs the core to carry 47 times the in-plane force at which its walls yield. CR-1457, Hexcel AGU 075b and NASA TM-4585 treat the core's in-plane stiffness and thermal force as negligible; on that premise the continuous core carries no mismatch shear and a free core edge reads 1.17 / 0.83.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/799"
+    },
+    {
+      "report": "rpt-ref-d6eac96dde8db1968e86",
+      "artifact": "evidence/af79eb00f6335ba5-NFI.json",
+      "snapshot": "evidence/af79eb00f6335ba5-NFI.json",
+      "sha256": "af79eb00f6335ba5a916c0b6ee71afdeebf79d7390305c7675680cdc493b8f36",
+      "bytes": 5629,
+      "selector": "/items/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d6eac96dde8db1968e86",
+          "artifact": "evidence/af79eb00f6335ba5-NFI.json",
+          "snapshot": "evidence/af79eb00f6335ba5-NFI.json",
+          "sha256": "af79eb00f6335ba5a916c0b6ee71afdeebf79d7390305c7675680cdc493b8f36",
+          "bytes": 5629,
+          "selector": "/items/0"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/799"
+          }
+        ]
+      }
+    }
+  ]
+}

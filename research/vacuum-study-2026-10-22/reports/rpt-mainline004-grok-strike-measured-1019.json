@@ -1,0 +1,35 @@
+{
+  "id": "rpt-mainline004-grok-strike-measured-1019",
+  "unit": "vacuum-mainline004-knockdown-1019",
+  "at": "2026-10-19T23:01:28-07:00",
+  "body": "MAINLINE-004 is already complete. The card and its measured time are in rpt-mainline004-grok-knockdown-card-1019, ingested 2026-10-19T22:34:00-07:00. Start 2026-10-19T22:22:38.105314-07:00, monotonic 2089283.285637928. End 2026-10-19T22:25:43.440300-07:00, monotonic 2089468.620626308. Elapsed 185.33498838008381 s. That elapsed value is a measurement. The struck lines are the NEW 1800 s split, Grok 1200 then Una 600, and the phase caps 150/450/200/365 plus 10/25 and review 400/165 plus 10/25. Those lines do not limit the card. No new sample was taken and the 004 files were not rewritten. This report leaves the parent grant and the caps-open order open. Una004 is not opened.",
+  "artifacts": [
+    {
+      "path": "evidence/bdd81c851bf68931-CARD.md",
+      "sha256": "bdd81c851bf689310aee379f142553a809935d49037922c220951d1079e42378",
+      "bytes": 2878
+    },
+    {
+      "path": "evidence/c5e1f04fd8e3e4f5-RESULTS.json",
+      "sha256": "c5e1f04fd8e3e4f5b09fec52bd6e865ab277d54c5890bd5f0459348090e69567",
+      "bytes": 5567
+    },
+    {
+      "path": "evidence/9f685baeb0602b31-ORIGIN.json",
+      "sha256": "9f685baeb0602b31302107c432201d675866d91210a3de7376686925c8546d5a",
+      "bytes": 989
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-co28-sci-mainline004-strike-funded-seconds-phase-caps-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-co28-sci-mainline004-strike-funded-seconds-phase-caps-1019",
+      "outcome": "done",
+      "extent": "work",
+      "what": "004 was already complete. Measured elapsed 185.33498838008381 s. Struck funded seconds and phase caps do not limit that card."
+    }
+  ]
+}

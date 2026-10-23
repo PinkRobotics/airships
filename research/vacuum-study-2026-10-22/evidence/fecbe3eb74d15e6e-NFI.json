@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-027",
+  "status": "OPEN_EVIDENCE_NEEDS",
+  "certification": false,
+  "rows": [
+    {
+      "id": "NFI-027-PANEL-GAUGE",
+      "tag": "PROJECTION",
+      "issue": "The large 020 panel is 0.6096×1.8288 m; its quoted stock maximum begins at 0.059 in (1.4986 mm). At R = 20 the enhanced aluminium face is only 1.423 mm. The conservative small panel is an assumed 0.3048×0.6096 m. Some severe-budget faces are far below the supplier's stated sheet gauge.",
+      "next_evidence": "Supplier-confirm panel dimensions at each minimum gauge, shaping yield, thickness distribution and installed geometry; re-run with procurement bounds."
+    },
+    {
+      "id": "NFI-027-SEAM-SCALING",
+      "tag": "PROJECTION",
+      "issue": "Frozen 020 kg/m 2 hides Be-doubler and core-gap masses that grow with optimized thickness. The corrected model holds widths/gaps fixed but resizes their depths. Neither seam is mechanically designed.",
+      "next_evidence": "Weigh and load-test a curved two-skin splice; establish widths, gaps, taper, sealing, peel, fatigue and stiffness as functions of face/core thickness."
+    },
+    {
+      "id": "NFI-027-JOINT-STRENGTH",
+      "tag": "PROJECTION",
+      "issue": "020's 0.9/0.6 net-section efficiencies are assumed screens, applied only to compression. The enhanced aluminium optimum is global/joint limited. No joint buckling, shear or peel allowables exist.",
+      "next_evidence": "Measure the seam's biaxial compression, load eccentricity and failure envelope; do not count straps as structural stiffness without a model."
+    },
+    {
+      "id": "NFI-027-GAMMA",
+      "tag": "PROJECTION",
+      "issue": "Design uses the inherited hemispherical 0.2/1 step at Vc=2. Full 021 uses 0.2+0.4min(Vc,2). Neither is validated for this completed sphere. Constant 0.2 removes the enhanced P2 pass.",
+      "next_evidence": "Carry the 018b and 015 evidence into an installed-geometry shell test/model, retaining imperfection maps."
+    },
+    {
+      "id": "NFI-027-BE-GRADE",
+      "tag": "QUESTIONABLE",
+      "issue": "S-200F E = 290 GPa and inherited compression 283 MPa are the design screen. Full 021 transfers a historical SR-200 lot's 379.2 MPa and lower in-plane E = 293.6 GPa. Current SR-200 sheet lists E = 290 GPa and tensile minimum 345 MPa, not a guaranteed compression allowable. Nu 0.33 remains inherited.",
+      "next_evidence": "Obtain lot-, gauge-, direction- and post-form compression/stiffness/Poisson data. Keep these mechanical optimism choices separate from weather optimism."
+    },
+    {
+      "id": "NFI-027-CORE-TRANSFER",
+      "tag": "QUESTIONABLE",
+      "issue": "5056 3/8-1.0 uses the published typical Ec/Gc/crush row; stabilized modulus is used in the wrinkle formula. Manufacturer tests were at 15.875 mm depth; optimized cores reach roughly 120–144 mm at R = 50.",
+      "next_evidence": "Validate thick curved honeycomb, skin restraint, orthotropy, cell-depth effects, local modes, thermal response and crush definition. Catalogue sensitivity includes Plascore rows with Ec transferred from Hexcel and bare compression substituted for crush."
+    },
+    {
+      "id": "NFI-027-PUMP-SCALE",
+      "tag": "PROJECTION",
+      "issue": "One SV300B catalog pumping speed is insufficient for 019's volume-proportional 1%/day gas load above R = 10. Modular counting gives 1,3,7,23,103 pumps at 10,15,20,30,50 m, with full rated power continuously budgeted. Installed conductance/manifolds are not sized.",
+      "next_evidence": "Measure leak/outgas and installed speed at pressure; replace the assumed gas-load law and duty cycle with a measured area/seam/volume decomposition."
+    },
+    {
+      "id": "NFI-027-PASSIVE-SERVICE",
+      "tag": "PROJECTION",
+      "issue": "The 30 kg sealed-service package is held fixed. Its normalized gas-load limit grows with volume; this does not prove its seals, plumbing, monitoring or ground evacuation hardware scale at fixed mass.",
+      "next_evidence": "Demonstrate 24 h hold at the temperature envelope, seal transients, pressure monitoring and ground-service capability; add supporting hardware mass."
+    },
+    {
+      "id": "NFI-027-ENVIRONMENT",
+      "tag": "QUESTIONABLE",
+      "issue": "The optimistic +10 K/±1%/1000 Pa vapour and conservative +25.1 K/±2%/6000 Pa cases are owner scenarios, not a site distribution. Water is a full-area equivalent retained film, contamination an area load.",
+      "next_evidence": "Specify site, gas composition, temperatures, weather exposure, water shedding/icing and mission duration; retain both low-density lift and high-pressure strength envelopes."
+    },
+    {
+      "id": "NFI-027-OTHER-MASS",
+      "tag": "QUESTIONABLE",
+      "issue": "Extra coatings, lightning protection, mooring, hardpoints, navigation and propulsion are not independently sized. P2 retains a 100 kg system floor, including 70 kg above the passive package, but this is not a complete vehicle mass model.",
+      "next_evidence": "Itemize additional vehicle masses. An extra 0.1 kg/m 2 is included as a P2 sensitivity; 209.84 kg payload at R = 20 is only 41.75 g/m 2 of additional areal mass."
+    },
+    {
+      "id": "NFI-027-HANDLING",
+      "tag": "PROJECTION",
+      "issue": "Diameters grow 20→100 m, projected ground area and wind force at fixed speed grow 25-fold, characteristic overturning moment 125-fold. Point attachments, transport, launch and landing are outside uniform-pressure modes.",
+      "next_evidence": "Design and weigh handling/anchoring/assembly equipment and verify concentrated and asymmetric loads, gust response and damage tolerance."
+    },
+    {
+      "id": "NFI-027-FRAME-PRODUCT",
+      "tag": "PROJECTION",
+      "issue": "P3 asks for metre-scale curved, thin-walled SiC tubes and a pressure membrane at 1.5 GPa allowable. The opened supplier seal-tube example is typically 12 in long. These components and their formed geometry are not demonstrated products.",
+      "next_evidence": "Establish tube/film manufacturing, joints, porosity/leaks, defects, proof loads and installation tolerances; then replace bounds with physical ones."
+    },
+    {
+      "id": "NFI-027-FRAME-BRITTLE",
+      "tag": "QUESTIONABLE",
+      "issue": "011b's SiC compression 3900 MPa and metal-style Perry interaction produce the P3 pass. A380 MPa strength screen gives only about 0.24–0.25 over 10–50 m. Compressive strength is not a ceramic bending/tensile allowable.",
+      "next_evidence": "Use a brittle tension/compression interaction, statistical size effect and joint eccentricity rather than certifying on the inherited Perry score."
+    },
+    {
+      "id": "NFI-027-FRAME-NODES",
+      "tag": "PROJECTION",
+      "issue": "P3 retains 20 g/node and 5% tube-mass joints without measured capacity or complete film-attachment masses. A load-linked node-mass sensitivity changes little numerically, but does not validate the 20 g anchor.",
+      "next_evidence": "Size nodes and film attachment/seams from load paths. Same topology with truly similar solid nodes would make each node's mass scale as R^3."
+    },
+    {
+      "id": "NFI-027-FRAME-BOUNDARY",
+      "tag": "QUESTIONABLE",
+      "issue": "P3 reoptimization holds bay 0.4–3 m and radius≤0.25 m. The radius cap governs large hulls. Similarity rows separately scale members but hold 80 µm film, making film SF fall as 1/R.",
+      "next_evidence": "Treat relaxed member caps or thicker film as separately costed designs; do not infer a universal radius optimum from this bounded continuation."
+    },
+    {
+      "id": "NFI-027-RESERVE-MEANING",
+      "tag": "QUESTIONABLE",
+      "issue": "Reserve is the explicit charge above retained baseline system/joint floors, not statistical contingency or free payload. Climate plus internal air alone is 5.7396% optimistic and 13.1183% conservative.",
+      "next_evidence": "If a sub 5% requirement is mandatory, change/justify the climate or gas assumptions or definition. Increasing radius alone cannot meet it."
+    },
+    {
+      "id": "NFI-027-PROVENANCE",
+      "tag": "QUESTIONABLE",
+      "issue": "The dispatch names a nonmatching 019 report ID; actual verified ID uses lead-sci. Original 021 hashes are superseded by revision 1, which was used. Scientific uncertainty remains despite arithmetic checks.",
+      "next_evidence": "Use INPUTS.json's 53 verified/measured pins and the actual 019/revised 021 filing IDs; freeze this card after filing."
+    }
+  ]
+}

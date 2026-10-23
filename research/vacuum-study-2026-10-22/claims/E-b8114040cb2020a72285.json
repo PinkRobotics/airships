@@ -1,0 +1,43 @@
+{
+  "id": "E-b8114040cb2020a72285",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-b8114040cb2020a72285",
+    "report": "rpt-ref-9a28294ab892bcd529f5",
+    "file": "evidence/105e2c83175a7607-NFI.json",
+    "snapshot": "evidence/105e2c83175a7607-NFI.json",
+    "source_sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+    "source_json_pointer": "/items/2",
+    "row_id": "NFI-CHECK049-THERMAL-CLOSURE",
+    "fields": {
+      "id": "NFI-CHECK049-THERMAL-CLOSURE",
+      "kind": "reproducibility / model dependence",
+      "blocking": false,
+      "tag": "PROJECTION",
+      "row": "folded K13D2U 60% Vf /5056/50 C, R30 ISA endpoint",
+      "field": "free-edge SF",
+      "owner": 1.0175814590337993,
+      "checker": 0.9596642430419865,
+      "evidence": "Independent explicit thermal boundary gives Tmin=268.358318334 K at this geometry. Pinned-table arithmetic agrees where tables exist; the full owner heat boundary remains unspecified.",
+      "fix": "Publish complete non-code convection, sky/ground views, enclosure exchange and all 049 tables; retain both interpretations as sensitivities until closed."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"NFI-CHECK049-THERMAL-CLOSURE\", \"kind\": \"reproducibility / model dependence\", \"blocking\": false, \"tag\": \"PROJECTION\", \"row\": \"folded K13D2U 60% Vf /5056/50 C, R30 ISA endpoint\", \"field\": \"free-edge SF\", \"owner\": 1.0175814590337993, \"checker\": 0.9596642430419865, \"evidence\": \"Independent explicit thermal boundary gives Tmin=268.358318334 K at this geometry. Pinned-table arithmetic agrees where tables exist; the full owner heat boundary remains unspecified.\", \"fix\": \"Publish complete non-code convection, sky/ground views, enclosure exchange and all 049 tables; retain both interpretations as sensitivities until closed.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-9a28294ab892bcd529f5",
+      "artifact": "evidence/105e2c83175a7607-NFI.json",
+      "snapshot": "evidence/105e2c83175a7607-NFI.json",
+      "sha256": "105e2c83175a76074f34a3846f296a2c4a72383fd51a7dea104224a3983334c5",
+      "bytes": 8601,
+      "selector": "/items/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

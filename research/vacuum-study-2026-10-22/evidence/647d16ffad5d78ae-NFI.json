@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline015b-kd-precision-fix-1020",
+  "card": "MAINLINE-015b",
+  "rows": [
+    {
+      "id": "NFI-015B-WIDTH-NU",
+      "issue": "The filed 015 prominent RMS paired a lambda_I = 1 amplitude with a lambda_I = 2.625 width, and the widths used nu 0.30 while COMMON and the 015 inputs declare 0.33. The live map carries nu 0.33 only and matches width to amplitude at lambda_I = 1. The filed column is 2.611 times the live single-dimple RMS.",
+      "consequence": "The manufacturing conclusion that used the prominent RMS is replaced by the matched column. The retired mix is kept only as an audit.",
+      "next": "None. The arithmetic is in RESULTS.json."
+    },
+    {
+      "id": "NFI-015B-EQ3-REGIME",
+      "issue": "Baizhikova 2026 Eq. 3 is a lambda_I = 1 fit over R/t 100 to 1550 at nu 0.5, and the paper excludes delta/t below about 0.07. The kd 0.9 inverse is delta/t 0.0323. P2-E is at R/t 50.75. The 015 beryllium point is at 136.67, the 021 point at 274.19, and the 021b point at 187.39.",
+      "consequence": "Every kd 0.9 row is outside the small-amplitude regime. The P2-E rows are also outside the radius window. The other three shells are inside that window and still carry the source's nu 0.5.",
+      "next": "A fit at nu 0.33 and at R/t near 50 if P2-E stays the reference shell."
+    },
+    {
+      "id": "NFI-015B-LEE-RANGE",
+      "issue": "Lee 2016 Eq. 23 is the lower envelope over k from 1 to 5, computed at R/t 100 and 200. Section 7 gives no FEM result below delta/t 0.15 and no ODE result below 0.2. The envelope does not fix one width. None of these shells is at R/t 100 or 200. At kd 0.9 and 0.7 the inverse is below 0.15. At kd 0.595 it is between 0.15 and 0.2. At kd 0.5, 0.468, 0.3 and 0.2 it is at or above 0.2.",
+      "consequence": "Lee amplitudes below the cutoff are not validated tolerances. Where the amplitude is in range, the single-dimple RMS is the span from k = 1 to k = 5, not one number. The radius transfer remains.",
+      "next": "An envelope at this shell's R/t, or a statement that the 100 and 200 curves may be used outside that pair."
+    },
+    {
+      "id": "NFI-015B-SANDWICH",
+      "issue": "Both curves are monocoque results transferred through t_eq = sqrt(3)(core+tf). No sandwich measurement at this radius was retrieved. Core shear's effect on imperfection sensitivity has no coefficient. A single-dimple RMS is not an assembled-surface RMS.",
+      "consequence": "The table is QUESTIONABLE. The 0.25 mm comparison is a numerical ratio, not a manufacturing proof.",
+      "next": "A sandwich imperfection study at the floating-point geometry."
+    },
+    {
+      "id": "NFI-015B-KD-UNCHANGED",
+      "issue": "The codex check's continuous SF 1 threshold is kd 0.5183040769, with global buckling and face yield active. The mode formulas already used nu 0.33. This card changes the tolerance map only.",
+      "consequence": "The knockdown result is not replaced. kd 0.519 remains the first passing point on the 0.001 grid.",
+      "next": "None."
+    }
+  ]
+}

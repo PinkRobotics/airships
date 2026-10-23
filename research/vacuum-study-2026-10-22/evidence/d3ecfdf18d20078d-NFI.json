@@ -1,0 +1,62 @@
+{
+  "unit": "vacuum-mainline065-wrinkling-sources-1020",
+  "tag": "QUESTIONABLE",
+  "issues": [
+    {
+      "id": "NFI065-BETA-SCALE",
+      "status": "open",
+      "input": "Q",
+      "statement": "model63 multiplies BETA=0.682327803828082, the root of b^3+b=1, onto the CR-1457 Q before the square root. At the cap the product is about 0.560; at the supported Q it is about 0.225. CR-1457 eq 2.2-8 already uses 0.82 as the full perfect-face coefficient, about 5 percent under Bartelds and Mayers 0.86. This seat did not edit the formula. The scale difference is for the review."
+    },
+    {
+      "id": "NFI065-1810A-EC",
+      "status": "open",
+      "input": "Q",
+      "admissibility": "not admissible",
+      "statement": "FPL 1810-A reports core A E_R 0.99 psi and E_T 4.53 psi from head-to-head readings. Those are not a usable flatwise modulus normal to the facings, so no classical Q was computed. Table rows were not reconstructed from the broken OCR. Core density was not taken from the prose."
+    },
+    {
+      "id": "NFI065-2171-UNOPENED",
+      "status": "open",
+      "input": "Q",
+      "admissibility": "not admissible",
+      "statement": "FPL Report 2171, Jenkinson and Kuenzi, December 1959, aluminum and stainless faces, is CR-1457 Reference 2-10. This seat did not open it. No face gauge, core, density, cell, bond, stress, or specimen count is stated here. Do not invent those stresses."
+    },
+    {
+      "id": "NFI065-BE-PLASTIC",
+      "status": "open",
+      "input": "Q",
+      "admissibility": "not admissible",
+      "statement": "NTRS 19730016169 room-temperature facing stress 79.8 to 91.2 ksi is above the about 35 ksi proportional limit. Core is beryllium foil, bond is an Ag-27Cu-10Sn braze, and Table IX specimen count was not recovered. Not an elastic wrinkling Q."
+    },
+    {
+      "id": "NFI065-TI-ABSENT",
+      "status": "open",
+      "input": "Q",
+      "statement": "No titanium metal-face honeycomb wrinkling table was found. NASA/TM-2012-217697, seen as a title in the prior pass, is composite faces and was not used as a metal-face source."
+    },
+    {
+      "id": "NFI065-017B-SPAN",
+      "status": "open",
+      "input": "Q",
+      "statement": "017b, inside the copied 063 sources, says measured coefficients run 0.125 to 0.82 and that no waviness history was found. This card did not recover 0.125 from a table it opened, and that span is not adopted."
+    },
+    {
+      "id": "NFI065-HEXCEL-FORMULA",
+      "status": "open",
+      "input": "Q",
+      "statement": "A Hexcel aluminum design note seen in the prior pass uses a cube-root wrinkling formula with coefficient 0.5. It was not reopened here, it is not the CR-1457 Q, and it was not used."
+    },
+    {
+      "id": "NFI065-NO-SF",
+      "status": "open",
+      "statement": "No qualified hull safety factor is in this model. Closure means concept payload at least zero after 061 growth. The density divisors 1.16 to 1.22 and 2.08 to 2.22 are PROJECTION. No face material at the reduced density was identified. Even the inadmissible classical cap leaves concept payload negative, so the optimistic end of the published formula does not close the concept hull."
+    },
+    {
+      "id": "NFI065-GAMMA-REALIZED",
+      "status": "open",
+      "input": "gamma",
+      "statement": "At the supported Q the handbook step realizes gamma 0.20 because Vc stays near 1.60 to 1.64. The favorable ramp realizes 0.635 to 0.643. A factor cannot hold gamma at 0.20 once Vc reaches 2. It did not reach 2 in these optima."
+    }
+  ]
+}

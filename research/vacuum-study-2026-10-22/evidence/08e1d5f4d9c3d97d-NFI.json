@@ -1,0 +1,51 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "review": "UNREVIEWED",
+  "open": [
+    {
+      "id": "NFI-073-WAVELENGTH",
+      "status": "open",
+      "statement": "CR-1457 (2.2-15) is a flat-panel interaction. The wrinkle wavelength was not compared with R. If it is not short beside the radius, the equibiaxial factor is outside its stated use."
+    },
+    {
+      "id": "NFI-073-PRODUCT",
+      "status": "open",
+      "statement": "(2.2-14) and (2.2-15) are not a measured allowable for SR-200 on CR-III. The closures use that recommendation with the historical face tuple."
+    },
+    {
+      "id": "NFI-073-CURE",
+      "status": "open",
+      "statement": "Cure stress stays in the demand. It is absent from CR-1457, DOI 10.2514/3.5568 and DOI 10.2514/3.1932. DELTA-D factor without it was 1.769 under the uniaxial law."
+    },
+    {
+      "id": "NFI-073-GRAD-BEND",
+      "status": "open",
+      "statement": "Gradient and bending stresses at 11.3e-6 stay in the demand and are absent from those three sources. DELTA-D factor without them was 1.809 under the uniaxial law."
+    },
+    {
+      "id": "NFI-073-PRESSURE",
+      "status": "open",
+      "statement": "The pressure adder stays in the model and is absent from those three sources. DELTA-D factor without it was 1.740 under the uniaxial law."
+    },
+    {
+      "id": "NFI-073-THERMAL",
+      "status": "open",
+      "statement": "The thermal interface margin remains about 1.071 at the new closures. kb and the cure-temperature increment are still not a closed law in the admitted record."
+    },
+    {
+      "id": "NFI-073-SIG0",
+      "status": "open",
+      "statement": "Version 8 sig0 is E*h/(R*sqrt(1-nu^2)). Handbook (4.2-3) uses the one-quarter power. The wrinkling line was the only edit, so buckling still uses the model power."
+    },
+    {
+      "id": "NFI-073-T3",
+      "status": "open",
+      "statement": "T3 is still specified as a wrinkling coupon. It has to be equibiaxial, or a pressurized sphere or dome of this sandwich, before it can admit (2.2-15). A uniaxial coupon admits (2.2-14) only."
+    },
+    {
+      "id": "NFI-073-JOINTS",
+      "status": "open",
+      "statement": "Scarf, splice, mooring and weather headroom were not re-derived. The +0.009 kg closure is the model's bill. It is not an independent physical close."
+    }
+  ]
+}

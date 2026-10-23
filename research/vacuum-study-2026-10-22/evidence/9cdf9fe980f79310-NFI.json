@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-041",
+  "status": "QUESTIONABLE / PROJECTION",
+  "qualified_structural_SF": null,
+  "items": [
+    {
+      "id": "NFI-041-01",
+      "status": "open",
+      "topic": "Full-size ceramic material and contact reliability",
+      "evidence": [
+        "SOURCES.md",
+        "RESULTS.json:best_closure_by_reserve",
+        "intake/technical/Hexoloy-SA.pdf"
+      ],
+      "finding": "The best 5% closure witness requires 1.164235 GPa extreme compression under the declared amplified-demand screen. The 3.9 GPa typical compression value and fixed 15.586 MPa tension reliability projection are not qualified allowables for long, thin curved arcs or their contacts. The vendor sheet gives E=430 GPa; the dispatched comparison retains E=410 GPa.",
+      "needed": "Production-representative arc and joint/contact tests, defect/size statistics, environmental durability, and a stated reliability model. Resolve the modulus edition and geometry transfer before claiming capacity.",
+      "prohibited_inference": "No qualified compression allowable or assembly failure probability follows from the reported required stress."
+    },
+    {
+      "id": "NFI-041-02",
+      "status": "open",
+      "topic": "Local shell buckling under bending",
+      "evidence": [
+        "RESULTS.json:best_closure_by_reserve",
+        "ADDITIONAL-SCORES.json",
+        "METHODS.md"
+      ],
+      "finding": "The matching-022d optimization retains its axial-stress local-wall formula. Substituting peak amplified compression into that formula lowers the selected frequency-5 witnesses from 1.143285/1.083205 to 1.033223/0.978132 at the 5%/019 reserves. This is a conservative sensitivity, not a calibrated interaction law.",
+      "needed": "A verified local-shell model or tests for curved SiC tubes under combined axial force, end bending, contact and geometric imperfections. Reoptimize if the interaction changes the active local limit.",
+      "prohibited_inference": "The 019 witness cannot be presented as robustly above unity across the displayed local-shell conventions."
+    },
+    {
+      "id": "NFI-041-03",
+      "status": "open",
+      "topic": "Joint strength, density, rotational stiffness and mass",
+      "evidence": [
+        "MODES.csv",
+        "RESULTS.json:selected_realization",
+        "intake/joint/toray-legacy.pdf",
+        "intake/joint/henkel-ea9394.pdf"
+      ],
+      "finding": "Actual member-end axial force, bending and torsion are included in the annular-sleeve and ring-bond demand. The selected frame reaches 3.356559 kN m end bending and 1.118657 kN m torsion. Equal-stress resized joints attain the requested scalar target by construction, without surplus reserve. The 1550 kg/m3 composite density is assumed; Toray's laminate strength and Henkel's prepared-aluminum shear result do not establish the proposed SiC joint.",
+      "needed": "A joint architecture, laminate orientation/thickness, bondline and surface treatment, peel and transverse/torsional shear interaction, cyclic/environmental data, contact stress and measured rotational stiffness. Include all hardware mass.",
+      "prohibited_inference": "Scalar sleeve/bond sizing does not establish a rigid joint, full multiaxial strength or a manufactured joint mass."
+    },
+    {
+      "id": "NFI-041-04",
+      "status": "open",
+      "topic": "Complete membrane constitution and coupling",
+      "evidence": [
+        "film/rigid/RESULTS.json",
+        "film/pinned/RESULTS.json",
+        "intake/film/zylon-hp-fiber-data.pdf",
+        "film.py"
+      ],
+      "finding": "A 270 GPa filament-derived axial tangent changes perfect linear multipliers, but the assumed taut, perfectly attached 0/90 skin has no qualified shear modulus, Poisson coupling, prestress, wrinkling, sagged equilibrium or free interior kinematics. The projected tangent can overstate restraint. No film-stiffness credit is used in primary resizing.",
+      "needed": "An actual gas-tight laminate, biaxial and shear constitutive data, tension-only/wrinkling treatment, pressure-equilibrated geometry, seams and attachments, plus tear, creep, fatigue and permeability evidence.",
+      "prohibited_inference": "Neither the fiber modulus nor the conditional pinned-film result proves a stable pressure vessel."
+    },
+    {
+      "id": "NFI-041-05",
+      "status": "open",
+      "topic": "Imperfections, nonlinear capacity and the global 0.2 factor",
+      "evidence": [
+        "RESULTS.json:selected_mesh_study",
+        "NONLINEAR-AUDIT-M24.json",
+        "METHODS.md"
+      ],
+      "finding": "The selected perfect f=4 frame has a verified first sampled elastic tangent loss near 5.430902; m12 to m24 changes it by about 0.35%. Smallest-algebraic values are checked along the sampled path and independently audited. The inherited 0.2 factor is not calibrated to this frame. Applying it to the nonlinear value would be an alternative arithmetic sensitivity near 1.086180. The primary resize retains 022d's 0.2-times-linear convention.",
+      "needed": "Manufacturing and joint-imperfection distributions, path refinement as needed, measured stiffness, and validated nonlinear analyses for final resized candidates before adopting a capacity factor.",
+      "prohibited_inference": "Perfect elastic first loss is not material/joint collapse, a global certification of every inter-step state, or a validated knockdown. The frozen 026b nonlinear paths remain unverified."
+    },
+    {
+      "id": "NFI-041-06",
+      "status": "open",
+      "topic": "Realized mass, volume and practical fabrication",
+      "evidence": [
+        "CARD.md",
+        "RESULTS.json:selected_realization",
+        "RESIZE.csv",
+        "frame_tools.py:geometry"
+      ],
+      "finding": "Actual integer counts add 178.319 kg of tube mass to the selected continuum point and leave 174.444 kg closure deficit at the 5% reserve. Resizing closes the declared arithmetic, but the cap sag and pressure-fan surfaces are distinct approximations. Film mass uses 4 pi R squared; node and systems allowances are inherited.",
+      "needed": "Manufactured curved-tube tolerances and joints, gas-barrier/adhesive/seam/attachment mass, continuous or segmented arc feasibility, a pressure-equilibrated volume, assembly access, damage protection and a complete bill of materials.",
+      "prohibited_inference": "Near-zero numerical closure residual does not establish physical vehicle mass closure."
+    },
+    {
+      "id": "NFI-041-07",
+      "status": "open",
+      "topic": "Beam idealization and initial bending coupling",
+      "evidence": [
+        "METHODS.md",
+        "frame_tools.py:response",
+        "run_verified_nonlinear.py"
+      ],
+      "finding": "The linear eigenproblem uses segment compression geometric stiffness plus the conservative pressure Hessian; it omits initial-moment coupling. The separate corotational nonlinear selected-frame calculation includes the elastic tangent. Euler-Bernoulli circular beams do not resolve local shell ovalization, shear deformation, joints, contact or composite/ceramic defects.",
+      "needed": "Cross-check with independently formulated beam/shell models and benchmark problems; resolve the relevant local and joint physics rather than treating mesh convergence alone as model validation."
+    },
+    {
+      "id": "NFI-041-08",
+      "status": "open",
+      "topic": "Search scope and best-found ranking",
+      "evidence": [
+        "resize/coarse-m3/RESULTS.json",
+        "resize/f456-m12/RESULTS.json",
+        "resize/f45-m24/CLOSED.json"
+      ],
+      "finding": "Frequency 5 ranks first at both reserves in the tested uniform-section family. Frequencies 1 through 10 were searched; 4/5/6 reoptimized at m6 and m12; 4/5 checked at m24. The final m24 witnesses keep the m12 gyration and solve exact mass closure. Multiple local starts and adaptive interpolation checks are not a global optimality certificate.",
+      "needed": "Broader topology/nonuniform-section search and any necessary final exact optimizer refinement if a global optimum or minimum mass at the continuum target is required.",
+      "prohibited_inference": "No claim of a globally lightest design attaining 022d's target is made; this card selected the brief's best-SF-at-closure option."
+    }
+  ],
+  "resolved_for_this_card_only": [
+    {
+      "topic": "Cross-geometry global eigenvalue transfer",
+      "finding": "The selected section is modeled directly; the transferred 026b ratio is not used. Its own perfect linear multiplier and explicit 0.2 screen replace that numerical shortcut, while material and model qualification remain open."
+    },
+    {
+      "topic": "New nonlinear eigenvalue-family selection",
+      "finding": "Smallest-algebraic eigenvalues at every recorded selected-frame equilibrium, independent shifted solves and finite-difference tangent checks establish the reported first sampled loss for the new m6/m12/m24 paths. This is not a retroactive claim about earlier cards."
+    }
+  ]
+}

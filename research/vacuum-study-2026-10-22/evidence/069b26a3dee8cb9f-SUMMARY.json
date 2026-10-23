@@ -1,0 +1,47 @@
+{
+  "name": "tol-perfect-L",
+  "analysis": "static",
+  "amplitude_mm": 0.0,
+  "width_mm": 332.2164186283597,
+  "meridian": "L",
+  "yield_MPa": 10000.0,
+  "nu": 0.0768,
+  "ntheta": 512,
+  "nface": 2,
+  "ncore": 6,
+  "grading": 2.0,
+  "increments": 21,
+  "endpoint_kPa": 100.23387980960041,
+  "endpoint_kind": "load_cap",
+  "first_yield_bracket_kPa": null,
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 80.97263056958175,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        76.36867414955765,
+        81.141711272211
+      ]
+    },
+    "300.0": {
+      "p_kPa": 95.27773455966525,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        90.68779554090571,
+        95.46084268694705
+      ]
+    }
+  },
+  "endpoint_max_mises_MPa": 315.58727362065974,
+  "endpoint_max_peeq": 0.0,
+  "endpoint_pole_uy_mm": -20.0269,
+  "solver": {
+    "returncode": 0,
+    "elapsed_s": 38.84638565918431,
+    "ended_at": "2026-10-20T12:00:24.034453+00:00"
+  },
+  "errors": [],
+  "eigen_kPa": [],
+  "eigen_native_output_labels": [],
+  "peeq_detection_threshold": 1e-10
+}

@@ -1,0 +1,75 @@
+{
+  "id": "N011",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N011",
+    "report": "rpt-1228-mainline013-independent-check-1020",
+    "card": "CHECK-MAINLINE-013",
+    "file": "evidence/ef406b56c4cff82e-NFI.json",
+    "row_id": "NFI-CHECK013-INHERITED-LIMITS",
+    "fields": {
+      "id": "NFI-CHECK013-INHERITED-LIMITS",
+      "kind": "carry",
+      "row": "all core rows and ideal-lattice projection",
+      "source": "inputs/NFI.json (17 owner rows)",
+      "issue": "No measured G at or below 10 kg/m3; isotropic G=E/2 is an assumption, not a universal anisotropic bound. Figure reads, bulk-scale transfer, continuum/elastic validity and independent crush modelling remain unproved. The 190 kg/m3 row is a conditional local pass, while its global SF is 0.02035.",
+      "proposed_fix": "Retain all original qualifications and the PROJECTION tag on every ideal-lattice application. A new material claim requires measured properties at its own density.",
+      "nonblocking": true,
+      "halts_owner": false,
+      "halts_next_card": false
+    }
+  },
+  "claim": "No measured G at or below 10 kg/m3; isotropic G=E/2 is an assumption, not a universal anisotropic bound. Figure reads, bulk-scale transfer, continuum/elastic validity and independent crush modelling remain unproved. The 190 kg/m3 row is a conditional local pass, while its global SF is 0.02035.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/10"
+    },
+    {
+      "report": "rpt-1228-mainline013-independent-check-1020",
+      "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+      "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+      "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+      "bytes": 6151,
+      "selector": "source row ID: NFI-CHECK013-INHERITED-LIMITS"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-1228-mainline013-independent-check-1020",
+          "artifact": "evidence/ef406b56c4cff82e-NFI.json",
+          "snapshot": "evidence/ef406b56c4cff82e-NFI.json",
+          "sha256": "ef406b56c4cff82ee5d32cafc5f73d43c569b3570ade9959f05fc46356b336d2",
+          "bytes": 6151,
+          "selector": "source row ID: NFI-CHECK013-INHERITED-LIMITS"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/10"
+          }
+        ]
+      }
+    }
+  ]
+}

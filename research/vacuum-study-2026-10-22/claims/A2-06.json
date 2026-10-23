@@ -1,0 +1,33 @@
+{
+  "id": "A2-06",
+  "kind": "review_claim",
+  "claim": "R30 worst-corner band13.8 to34.6K",
+  "original": {
+    "id": "A2-06",
+    "card": "058",
+    "claim": "R30 worst-corner band13.8 to34.6K",
+    "why_load_bearing": "Controls size comparison",
+    "outcome": "it reproduces",
+    "finding": "R30 band is 13.846685 K baseline and 34.626234 K with the whole bill. The independent thermal roots preserve the displayed 13.8/34.6 K.",
+    "evidence": [
+      "checks/058-EDGES.json",
+      "checks/058-THERMAL-MIXED-CONVECTION.json"
+    ]
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "it reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "snapshot": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059,
+      "selector": "/claims/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

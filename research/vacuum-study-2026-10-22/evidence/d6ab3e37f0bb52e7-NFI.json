@@ -1,0 +1,35 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "open": [
+    {
+      "id": "NFI-E069-CURE",
+      "status": "open",
+      "statement": "The cure stress in the buckling denominator is absent from CR-1457, DOI 10.2514/3.5568 and DOI 10.2514/3.1932. DELTA-D factor without it is 1.769."
+    },
+    {
+      "id": "NFI-E069-GRAD-BEND",
+      "status": "open",
+      "statement": "The gradient and bending stresses at 11.3e-6 are absent from those three sources. DELTA-D factor without them is 1.809."
+    },
+    {
+      "id": "NFI-E069-PRESSURE",
+      "status": "open",
+      "statement": "The pressure adder is absent from those three sources. DELTA-D factor without it is 1.740."
+    },
+    {
+      "id": "NFI-E069-THERMAL",
+      "status": "open",
+      "statement": "The thermal interface margin 1.071 cannot be checked. kb and the cure-temperature increment are not a computable law in the admitted record."
+    },
+    {
+      "id": "NFI-E069-JOINTS",
+      "status": "open",
+      "statement": "Scarf, splice, mooring and weather headroom were not re-derived. Their mass exceeds the +5.031 kg residual, so the physical float is not independently closed."
+    },
+    {
+      "id": "NFI-E069-GRAPHITE-PAGE",
+      "status": "open",
+      "statement": "069's graphite paragraph still quotes factor 1.659 and thermal margin 1.071. Filed 071 says the aluminum-core shell is thermally infeasible, margin 0.536. DELTA-E should re-append DELTA-069-GRAPHITE-071."
+    }
+  ]
+}

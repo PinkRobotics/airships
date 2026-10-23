@@ -1,0 +1,92 @@
+{
+  "status": "PAPER_ARITHMETIC_ONLY",
+  "selection_premise": "coefficient error<2^-150 NOT yet a proved fixed-arithmetic implementation width",
+  "checks": [
+    {
+      "name": "complex_a",
+      "pass": true,
+      "detail": "Re a>3/10"
+    },
+    {
+      "name": "complex_b",
+      "pass": true,
+      "detail": "Re b>2/3"
+    },
+    {
+      "name": "decay",
+      "pass": true,
+      "detail": "Green decay"
+    },
+    {
+      "name": "exp_lower",
+      "pass": true,
+      "detail": "exp(4/5)>2"
+    },
+    {
+      "name": "clamped_complex_inverse",
+      "pass": true,
+      "detail": "complex disk bound"
+    },
+    {
+      "name": "ODE_induction",
+      "pass": true,
+      "detail": "all spatial derivative orders"
+    },
+    {
+      "name": "dy",
+      "pass": true,
+      "detail": "full cell/box plus conditional coefficient selection"
+    },
+    {
+      "name": "dyx",
+      "pass": true,
+      "detail": "full cell/box plus conditional coefficient selection"
+    },
+    {
+      "name": "dgx",
+      "pass": true,
+      "detail": "central sin, whole cell"
+    },
+    {
+      "name": "ds",
+      "pass": true,
+      "detail": "eta<1/10"
+    },
+    {
+      "name": "Cd",
+      "pass": true,
+      "detail": "1677881600"
+    },
+    {
+      "name": "Ce",
+      "pass": true,
+      "detail": "6610749650/21"
+    },
+    {
+      "name": "K",
+      "pass": true,
+      "detail": "T to G"
+    },
+    {
+      "name": "Ny_factor",
+      "pass": true,
+      "detail": "exact dimensionless coefficient"
+    },
+    {
+      "name": "uniform_G_error",
+      "pass": true,
+      "detail": "conditional selection premise retained"
+    },
+    {
+      "name": "box_inventory",
+      "pass": true,
+      "detail": "per mesh; all attempted boxes counted"
+    },
+    {
+      "name": "parity_dimensions",
+      "pass": true,
+      "detail": "all three meshes"
+    }
+  ],
+  "all_pass": true
+}

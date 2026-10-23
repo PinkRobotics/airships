@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-011",
+  "unit": "vacuum-mainline011-p3-frame-1019",
+  "seat": "ref-3dada7412231c2ce03cc",
+  "pins": [
+    {
+      "input_id": "I-011-CASE",
+      "quantity": "case and ceiling",
+      "value": "R=10 m, p_ext=95460.8379139 Pa, rho_air=1.16726833075 kg/m3, L=4889.44215019 kg; total mass held at L (margin 0)",
+      "tag": "QUESTIONABLE",
+      "source": "COMMON.md (vacuum-overnight-briefs-1019), pinned by MAINLINE-001/002/003; ISA recomputed by the estimates owner",
+      "why": "500 m ISA column, dry, no humidity; the ceiling itself is the brief's rule",
+      "NFI_id": "NFI-ISA"
+    },
+    {
+      "input_id": "I-011-FILM-MASS",
+      "quantity": "film mass",
+      "value": 97.515,
+      "units": "kg",
+      "tag": "QUESTIONABLE",
+      "source": "COMMON.md pin; reproduced by formula 4*pi*R^2*t_f*rho_f = 97.51503 kg (cross-check, 10/10)",
+      "why": "Film covers the full sphere at any s, so the pin is s-independent",
+      "NFI_id": "NFI-FILM"
+    },
+    {
+      "input_id": "I-011-FILM-PROPS",
+      "quantity": "film allowable, thickness, density",
+      "value": "sigma_f=1.5e9 Pa, t_f=8e-5 m, rho_f=970 kg/m3",
+      "tag": "QUESTIONABLE",
+      "source": "I-SIG, I-TFILM, I-RHO-FILM in the estimates owner INPUTS.json (owner assumptions, no datasheet pinned)",
+      "why": "Optimistic strong-polymer assumption; not tied to the density",
+      "NFI_id": "NFI-011-FILM"
+    },
+    {
+      "input_id": "I-011-NODES",
+      "quantity": "node mass and count",
+      "value": "0.02 kg per node; V(s)=8*pi*R^2/(sqrt(3)*s^2)+2; 29.061 kg at s=1",
+      "tag": "QUESTIONABLE",
+      "source": "I-NODE (owner allowance) + the sealed MAINLINE-002 geometry; the formula reproduces the 29.061 kg pin within 1 g (cross-check)",
+      "why": "Equilateral-triangle continuum, not a built geodesic; rescaled with s as the card directs, and said so",
+      "NFI_id": "NFI-011-NODES"
+    },
+    {
+      "input_id": "I-011-SYS",
+      "quantity": "systems and payload",
+      "value": 50.0,
+      "units": "kg",
+      "tag": "QUESTIONABLE",
+      "source": "I-SYS3, estimates owner INPUTS.json",
+      "why": "May be low for a real vehicle",
+      "NFI_id": "NFI-MASS"
+    },
+    {
+      "input_id": "I-011-AL",
+      "quantity": "6061-T6 E, sigma, density, nu",
+      "value": "E=68.9 GPa, sigma=276 MPa, rho=2700 kg/m3, nu=0.33",
+      "tag": "QUESTIONABLE",
+      "source": "ASM MatWeb 6061-T6 https://asm.matweb.com/search/specificmaterial.asp?bassnum=ma6061t6 (AA typical; tensile yield transferred to compression)",
+      "why": "Typical values, not design allowables",
+      "NFI_id": "NFI-AL"
+    },
+    {
+      "input_id": "I-011-SWAP",
+      "quantity": "swap materials (equal tube mass)",
+      "value": "CFRP QI M55J/epoxy 1640/135G/350M; CFRP QI T700/epoxy 1550/54G/520M; CFRP QI K13D2U/epoxy 1750/210G/220M; SiC alpha Hexoloy SA 3100/410G/3900M; CNT-yarn QI 1400/180G/1200M [PROJECTION]",
+      "units": "kg/m3, Pa, Pa",
+      "tag": "QUESTIONABLE (CNT: PROJECTION)",
+      "source": "MAINLINE-008 material gap table (vacuum-mainline008-material-gap-1019), rows ranks 1,2,4,6,9, with the datasheet sources named there; quasi-isotropic laminate properties, never fibre properties",
+      "why": "Carried at 008's values for the equal-mass swap; SiC flexural 380 MPa governs bending paths there",
+      "NFI_id": "NFI-011-SIC"
+    },
+    {
+      "input_id": "I-011-LOCAL",
+      "quantity": "tube local buckling coefficient",
+      "value": 0.6,
+      "units": "1 (sigma_local = 0.6*E*t_w/r_o)",
+      "tag": "QUESTIONABLE",
+      "source": "NASA SP-8007 Buckling of Thin-Walled Circular Cylinders (Weingarten, Seide, 1965/1968) https://ntrs.nasa.gov/citations/19690013955 ; classical E*t/(r*sqrt(3(1-nu^2))) = 0.6116 at nu=0.33; monograph PDF not retrieved this card, equation form standard; gamma=1 assumed (no knockdown)",
+      "why": "Card's named example formula; optimistic without an imperfection knockdown",
+      "NFI_id": "NFI-011-LOCAL-KD"
+    },
+    {
+      "input_id": "I-011-P2E",
+      "quantity": "P2-E knockdown comparison",
+      "value": "SF_b 0.233885578993 at kd 0.2; 0.164568553708 at curve kd 0.140725695373",
+      "tag": "QUESTIONABLE",
+      "source": "MAINLINE-004 knockdown card, P2-E row (NASA SP-8032 curve rho=0.14+3.2/lambda^2); arithmetic reproduced by cross-check (SF_b scales with kd)",
+      "why": "Curve mapped from monolithic caps onto a sandwich, QUESTIONABLE at 004",
+      "NFI_id": "NFI-011-GLOBAL"
+    },
+    {
+      "input_id": "I-011-005P3A",
+      "quantity": "005 P3-A reproduction targets",
+      "value": "t_w 0.00349653 m at s=1, r_o=0.02, ceiling mass; required figures 7.175e11 Pa (E) and 1.190e9 Pa (sigma)",
+      "tag": "QUESTIONABLE",
+      "source": "MAINLINE-005 strength limits card, family P3 rows",
+      "why": "Used as the cross-check that this card's arithmetic matches the line's",
+      "NFI_id": "NFI-005-THINWALL"
+    }
+  ],
+  "design_rules_stated": {
+    "band": "optimum reported for s <= 3.0 m (V >= 161 nodes): equal-triangle continuum defensible; the scan beyond rides to s=6.4 and is reported as unconstrained_ride only",
+    "slender": "r_o <= s/3 so members stay slender columns",
+    "rescale": "node mass rescaled as 0.02*V(s) with s (the card's lever 3); film mass fixed by area; systems fixed"
+  }
+}

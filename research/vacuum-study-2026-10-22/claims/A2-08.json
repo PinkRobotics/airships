@@ -1,0 +1,33 @@
+{
+  "id": "A2-08",
+  "kind": "review_claim",
+  "claim": "P3 standard-pressure/climb daily coverage78%R10 and97%R12",
+  "original": {
+    "id": "A2-08",
+    "card": "058",
+    "claim": "P3 standard-pressure/climb daily coverage78%R10 and97%R12",
+    "why_load_bearing": "Controls lead comparison",
+    "outcome": "it differs",
+    "finding": "P3 original 77.747%/96.994% reproduce at hull-only mass. Even adding only the 5 kg valve yields upper bounds 76.482%/96.881% at R10/R12; a matched bladder still needs pricing. See F-A2-058-P3-HARDWARE.",
+    "evidence": [
+      "FIXES.json",
+      "checks/058-COVERAGE-height27.29-humidityTrue.json"
+    ]
+  },
+  "numerical_status": "corrected",
+  "source_disposition": "it differs",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "snapshot": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059,
+      "selector": "/claims/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

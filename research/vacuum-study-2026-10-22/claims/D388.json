@@ -1,0 +1,91 @@
+{
+  "id": "D388",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D388",
+    "report": "rpt-ref-9a9a131b4ca724b68cc2",
+    "file": "evidence/8df81646550a6f8e-NFI.json",
+    "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+    "source_sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+    "source_json_pointer": "/inherited_CHECK040/retained_check037b_rows/2",
+    "row_id": "NFI-CHECK037b-FIELD-EDGE-RESIDUAL",
+    "fields": {
+      "id": "NFI-CHECK037b-FIELD-EDGE-RESIDUAL",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "Zero mean mismatch shear is a homogeneous continuous-field idealization. The 16.092 mm edge length spans only 1.68948 cells; local peaks and the effect of balanced residuals on global/crimp modes are unresolved.",
+      "exact": {
+        "transfer_length_mm": 16.09228418994669,
+        "transfer_length_cells": 1.6894786551125132,
+        "028b_finite_face_residual_MPa": 4.36267358508647
+      },
+      "disposition": "Retain the calculated factors conditionally. A layer-wise/cell-resolved model and representative cured curved panel are the grounding steps; no debond survival is established by a zero mean shear argument.",
+      "carries_owner_rows": [
+        "NFI-037b-SCREEN-PREMISE",
+        "NFI-037b-EDGE-MODEL",
+        "NFI-037b-BALANCED-COMPRESSION",
+        "NFI-037b-SPLICE",
+        "NFI-037b-WAVINESS",
+        "NFI-037b-HARDPOINTS"
+      ],
+      "blocking": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/inherited_CHECK040/retained_check037b_rows",
+    "blocks_progress": false
+  },
+  "claim": "Zero mean mismatch shear is a homogeneous continuous-field idealization. The 16.092 mm edge length spans only 1.68948 cells; local peaks and the effect of balanced residuals on global/crimp modes are unresolved.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1348"
+    },
+    {
+      "report": "rpt-ref-9a9a131b4ca724b68cc2",
+      "artifact": "evidence/8df81646550a6f8e-NFI.json",
+      "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+      "sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+      "bytes": 52773,
+      "selector": "/inherited_CHECK040/retained_check037b_rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-9a9a131b4ca724b68cc2",
+          "artifact": "evidence/8df81646550a6f8e-NFI.json",
+          "snapshot": "evidence/8df81646550a6f8e-NFI.json",
+          "sha256": "8df81646550a6f8eb0d874bb4302a7a24031af25244b60eacd7e52e54f47bc88",
+          "bytes": 52773,
+          "selector": "/inherited_CHECK040/retained_check037b_rows/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1348"
+          }
+        ]
+      }
+    }
+  ]
+}

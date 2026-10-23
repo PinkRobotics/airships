@@ -1,0 +1,86 @@
+{
+  "id": "N439",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N439",
+    "report": "rpt-ref-d907de1e97319ecc3f9a",
+    "card": "MAINLINE-028b",
+    "file": "evidence/737765424727a77d-NFI.json",
+    "snapshot": "evidence/737765424727a77d-NFI.json",
+    "source_sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+    "source_json_pointer": "/rows/15",
+    "row_id": "NFI-028b-lab-bond",
+    "fields": {
+      "id": "NFI-028b-lab-bond",
+      "status": "OPEN",
+      "issue": "8 g/m² deposition exists in laboratory work on other materials; transfer to Be/Al core is unqualified.",
+      "state": "in_the_lab",
+      "tag": "PROJECTION",
+      "needed": {
+        "per_line_kg_m2": 0.008,
+        "matched_strength": null
+      },
+      "today": null,
+      "improvement_factor": null,
+      "null_factor_reason": "No matched measured baseline or meaningful scalar ratio.",
+      "source": "https://infoscience.epfl.ch/server/api/core/bitstreams/28b8cc7a-f046-4da3-9fcc-5d5ad3c52a9d/content",
+      "Be_hull_transfer": "PROJECTION"
+    },
+    "inherited_document_tag": {
+      "overall_installed_hull_SF": null
+    }
+  },
+  "claim": "8 g/m² deposition exists in laboratory work on other materials; transfer to Be/Al core is unqualified.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/438"
+    },
+    {
+      "report": "rpt-ref-d907de1e97319ecc3f9a",
+      "artifact": "evidence/737765424727a77d-NFI.json",
+      "snapshot": "evidence/737765424727a77d-NFI.json",
+      "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+      "bytes": 13400,
+      "selector": "/rows/15"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d907de1e97319ecc3f9a",
+          "artifact": "evidence/737765424727a77d-NFI.json",
+          "snapshot": "evidence/737765424727a77d-NFI.json",
+          "sha256": "737765424727a77dcab3336738fae69917f3b940da16005213db57d91d88d580",
+          "bytes": 13400,
+          "selector": "/rows/15"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/438"
+          }
+        ]
+      }
+    }
+  ]
+}

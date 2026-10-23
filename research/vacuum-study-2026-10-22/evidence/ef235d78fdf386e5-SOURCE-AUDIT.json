@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "audits": [
+    {
+      "id": "032-incorporated",
+      "status": "immutable_prior_check_pins_verified",
+      "evidence": {
+        "path": "evidence/b2a1f4c629518daf-SOURCE-AUDIT.json",
+        "sha256": "b2a1f4c629518daf0594f2a8d5f781c44f59904848a5fe511b8143e91f0534de",
+        "bytes": 6944
+      },
+      "finding": "Prior fourteen-source audit incorporated; no changed source artifacts."
+    },
+    {
+      "id": "ER1001-depth",
+      "url": "https://ntrs.nasa.gov/api/citations/19950020773/downloads/19950020773.pdf",
+      "local": "sources/er1001.pdf",
+      "locator": "printed p.19 (PDF26), Fig.25 (PDF88)",
+      "status": "verified_source_number_with_metric_qualification",
+      "finding": ".000065 in = .001651 mm. Figure shows a local dimple depth, not a Fourier coefficient."
+    },
+    {
+      "id": "ER1001-identities",
+      "url": "https://ntrs.nasa.gov/api/citations/19950020773/downloads/19950020773.pdf",
+      "local": "sources/er1001.pdf",
+      "locator": "Fig.22 (PDF85), Fig.25 (PDF88), Fig.30 (PDF93)",
+      "status": "additional_source_reading",
+      "finding": "Both relevant coupons have .008-in faces; specimen30 H19/Crest471/3/16-in core, specimen32 APS/.015-in fillet/3/8-in core."
+    },
+    {
+      "id": "ER1001-slopes",
+      "url": "https://ntrs.nasa.gov/api/citations/19950020773/downloads/19950020773.pdf",
+      "local": "sources/er1001.pdf",
+      "locator": "printed p.20 (PDF27), Fig.30 (PDF93)",
+      "status": "verified_projection_inputs",
+      "finding": ".5-1.6 mrad range reproduced. No paired depth published for this range."
+    },
+    {
+      "id": "Woody",
+      "url": "http://www.cso.caltech.edu/wiki/_media/cso/publications/1994-woody-procieee.pdf",
+      "local": "sources/woody1994.pdf",
+      "locator": "printed pp.675,680,684 (PDF3,8,12)",
+      "status": "numeric_values_verified_one_attribution_correction",
+      "finding": "3 um refers to template adjustment. Metrology and RMS are multi-scale; they do not extract a cell or target wrinkle component."
+    },
+    {
+      "id": "vonHoerner",
+      "url": "https://library.nrao.edu/public/memos/65/65R/65R_030.pdf",
+      "local": "sources/vonhoerner1969.pdf",
+      "locator": "printed p.2 / PDF2, Table1",
+      "status": "verified_historical_vendor_figure",
+      "finding": ".008 in converts to .2032 mm; source prints .20 mm RMS. Rohr discussion, not a measured wrinkle spectrum."
+    },
+    {
+      "id": "Rion",
+      "url": "https://infoscience.epfl.ch/bitstreams/204993d8-6c72-4dca-a688-8293bdab6018/download",
+      "local": "sources/rion2008_thesis.pdf",
+      "locator": "Table3-3 p.75/PDF77; pp.166-171/PDF168-173; p.177/PDF179; p.181/PDF183",
+      "status": "omitted_primary_experiment_added",
+      "finding": "Measured thin-face cell-depth data near that system's own critical half-wavelength. Shape conversion and material-system limitations are retained.",
+      "numerical_reading": "RESULTS.omitted_primary_experiment; graph means approximate, fitted values explicitly not raw data"
+    },
+    {
+      "id": "Camarda",
+      "url": "https://ntrs.nasa.gov/api/citations/19810003663/downloads/19810003663.pdf",
+      "local": "sources/camarda1980.pdf",
+      "locator": "p.23/PDF34; AppendixA.3 pp.42-43/PDF53-54; Fig.46 p.129/PDF140",
+      "status": "omitted_profile_measurements_added_not_modal_data",
+      "finding": "Mean of maximum waviness .0097 cm and 45-point face profiles; no measured critical-band Fourier amplitude."
+    },
+    {
+      "id": "NASA1999-wavelength",
+      "url": "https://ntrs.nasa.gov/api/citations/19990017863/downloads/19990017863.pdf",
+      "local": "sources/nasa_wrinkling1999.pdf",
+      "locator": "Eq.19 p.24/PDF34; pp.31-32/PDF41-42",
+      "status": "conditional_model_projection",
+      "finding": "Eq.19 is explicitly a half-wavelength. Multiplying by two gives the periods compared with Woody's scale band."
+    },
+    {
+      "id": "FPL1810A",
+      "url": "https://ir.library.oregonstate.edu/downloads/2f75rc704",
+      "local": "unpublished-local-ref:19076f9c9def685b",
+      "status": "reused_verified_primary",
+      "finding": "Earlier FPL fitted imperfection parameters are not relabeled as new direct measurements."
+    },
+    {
+      "id": "AMS7902G",
+      "url": "https://img.antpedia.com/standard/files/pdfs_ora/20230614/SAE/AMS/SAE%20AMS%207902G-2018.pdf",
+      "official_listing": "https://saemobilus.sae.org/standards/ams7902g-beryllium-sheet-plate-98be",
+      "local": "sources/ams7902g-preview.pdf",
+      "locator": "sections1.1.1,1.3,3.2.1; three-page excerpt",
+      "status": "primary_document_on_third_party_mirror",
+      "finding": "Three classes and sheet interval confirmed; class table absent. Roughness wording transcribed literally, not converted into flatness."
+    },
+    {
+      "id": "mirror2022",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0254058422003340",
+      "doi": "10.1016/j.matchemphys.2022.126028",
+      "status": "indexed_primary_abstract_only_full_methods_not_retrieved",
+      "finding": "Optical mirror RMS lead; no verified target Be/CR-III wrinkle-band measurement. Not used to calculate any limit."
+    }
+  ],
+  "retrieval_limits": "NASA/Caltech web-reader failures were resolved by direct public HTTP retrieval where successful. Caltech HTTPS hostname validation failed; the cited public HTTP URL succeeded without disabling TLS.",
+  "search_scope": "Assigned reports; primary NASA references to surface waviness; process-pressure/thin-face experiment; precision-mirror abstract lead. Not an exhaustive nonexistence claim."
+}

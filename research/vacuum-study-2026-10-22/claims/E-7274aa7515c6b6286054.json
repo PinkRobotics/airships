@@ -1,0 +1,40 @@
+{
+  "id": "E-7274aa7515c6b6286054",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-7274aa7515c6b6286054",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/9",
+    "row_id": "C055-10",
+    "fields": {
+      "id": "C055-10",
+      "title": "Specified metrology does not establish the smallest waviness target",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "The proposed 0.1–0.3mm scan precision is 1.33–3.99 times the 0.0751mm end of the waviness requirement. No uncertainty budget, spatial sampling or frequency-band verification is supplied.",
+      "proposed_fix": "Choose and validate metrology for the actual wavelength and tolerance; retain separate gross dimple and short-wave waviness requirements."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Specified metrology does not establish the smallest waviness target",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

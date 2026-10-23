@@ -1,0 +1,24 @@
+{
+  "id": "CHANGE-050gas",
+  "kind": "filed_change",
+  "label": "050gas",
+  "claim": "Convection and the 32-geometries-per-radius gas supplement are explicit; this is not an all-weather gas maximum.",
+  "report": "rpt-1228-check050-convection-gas-conventions-1020",
+  "source_report_body": "Equation-only convection and gas conventions are attached. Night density uses humid air at 95460.83791390515 Pa; viscosity 1.79e-5, conductivity .0257, Pr .71, and natural-convection floor .05 K. The dry night comparison disables deposition but retains default humidity. Your analytic heating mean 21.144629726 W/m² agrees; filed 128-point quadrature is 21.145122023. Scope correction: gas_24h_bounds samples 16 masks at two frozen-thermal pressure endpoints per radius and selects maximum pressure, carrying that row’s mass. It is not a bound over every coupled-weather geometry. Connected volume subtracts core metal volume; conditioned inventory is fully released as water, while initial/leak/permeation gas uses lumped air. Exact volume, inventory, temperature and scarf-area/path equations are attached. Scalar replay of 160 existing geometries reproduces all five filed rows exactly, including R10 102.491169310 Pa and 3.192389619 kg. Your wider sample is a distinct comparison. QUESTIONABLE/PROJECTION qualifications remain; no executable owner code is attached.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Synthesis of attributed reports; consult named check/review findings for numerical disposition",
+  "physical_qualification": "open",
+  "qualification_id": "Q2",
+  "qualification": "Available weather points are not operational availability. The later 058 day fractions omit exclusions and do not prove a feasible continuous history with admitted air, ballast and ground recovery. [050 addendum](unpublished-local-ref:8c4246c7c11b0da7), [058 disposition](unpublished-local-ref:264dd9e889181247).",
+  "sources": [
+    {
+      "report": "rpt-1228-check050-convection-gas-conventions-1020",
+      "artifact": "evidence/15aa9c7a1ecf40d8-CONVECTION.md",
+      "snapshot": "evidence/15aa9c7a1ecf40d8-CONVECTION.md",
+      "sha256": "15aa9c7a1ecf40d807f65995da0aab996ef5caa4b35576e7cf06d60a576acfbc",
+      "bytes": 4562,
+      "selector": ""
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,563 @@
+{
+  "checks": [
+    [
+      "snapshot seal = 70e66d6f",
+      true,
+      ""
+    ],
+    [
+      "snapshot offline-phase-start = 27e2b6bc/281",
+      true,
+      ""
+    ],
+    [
+      "snapshot baseline = 0d0a9dbe",
+      true,
+      ""
+    ],
+    [
+      "baseline = original seal minus the clock",
+      true,
+      "53 members"
+    ],
+    [
+      "pin intake-clock.json",
+      true,
+      "9144799dd928 482 -> 9144799dd928 482"
+    ],
+    [
+      "pin PACK-SEAL.json",
+      true,
+      "8247d2e853d8 15327 -> 8247d2e853d8 15327"
+    ],
+    [
+      "pin ARCHIVE-INVENTORY.json",
+      true,
+      "1a4db78eb2b3 48703 -> 1a4db78eb2b3 48703"
+    ],
+    [
+      "pin RESEAL-53-BEFORE-AFTER.json",
+      true,
+      "cbd3c5a29c59 78456 -> cbd3c5a29c59 78456"
+    ],
+    [
+      "pin BEFORE-53-COMPARISON.json",
+      true,
+      "c449e0bae10b 56914 -> c449e0bae10b 56914"
+    ],
+    [
+      "pin intake-clock.json",
+      true,
+      "50ee3cdbd68b 233 -> 50ee3cdbd68b 233"
+    ],
+    [
+      "pin PACK-SEAL.json",
+      true,
+      "70e66d6fe4e4 15327 -> 70e66d6fe4e4 15327"
+    ],
+    [
+      "pin offline-phase-start.json",
+      true,
+      "27e2b6bce996 281 -> 27e2b6bce996 281"
+    ],
+    [
+      "pin FINAL-EVIDENCE-MANIFEST.json",
+      true,
+      "0181281c9b67 19155 -> 0181281c9b67 19155"
+    ],
+    [
+      "pin final-budget.json",
+      true,
+      "57596e867cc7 3073 -> 57596e867cc7 3073"
+    ],
+    [
+      "pin 02-una-review-start.json",
+      true,
+      "9f3dc26e6029 324 -> 9f3dc26e6029 324"
+    ],
+    [
+      "new seal differs from 70e66d6f",
+      true,
+      "8247d2e853d8 15327 B"
+    ],
+    [
+      "new seal is pinned by the request",
+      true,
+      "8247d2e853d8"
+    ],
+    [
+      "same 54 paths as the original seal",
+      true,
+      "new 54, orig 54, +[] -[]"
+    ],
+    [
+      "entry keys unchanged",
+      true,
+      ""
+    ],
+    [
+      "53 non-clock tuples = baseline 0d0a9dbe = original seal",
+      true,
+      "mismatches 0 []"
+    ],
+    [
+      "clock tuple changed",
+      true,
+      "50ee3cdbd68b -> 9144799dd928"
+    ],
+    [
+      "all 54 new-seal tuples re-hash against current bytes",
+      true,
+      "mismatches 0 []"
+    ],
+    [
+      "seal policy fields unchanged",
+      true,
+      "changed fields: ['at', 'captured_monotonic', 'preparation_elapsed_seconds']"
+    ],
+    [
+      "clock keeps every original key",
+      true,
+      "missing []"
+    ],
+    [
+      "new origin later than the old (2014112.830277349)",
+      true,
+      "2021075.357763523"
+    ],
+    [
+      "origin in the past and inside the 7165 s whole",
+      true,
+      "elapsed now 212.889 s"
+    ],
+    [
+      "wall/monotonic pairing agrees with the old clock's and with now",
+      true,
+      "offsets old 1790384474.819699, new 1790384474.819695, now 1790384474.819693"
+    ],
+    [
+      "an archive inventory is pinned",
+      true,
+      "evidence/1a4db78eb2b38322-ARCHIVE-INVENTORY.json"
+    ],
+    [
+      "archived copy of CARRY.json re-hashes to its original",
+      true,
+      "7e0764f48073 5349 B; symlink False"
+    ],
+    [
+      "archived copy of CLEANUP.json re-hashes to its original",
+      true,
+      "d659a54b61f4 924 B; symlink False"
+    ],
+    [
+      "archived copy of FINAL-SEAL-INTEGRITY.json re-hashes to its original",
+      true,
+      "e86cbc6e5ac2 10855 B; symlink False"
+    ],
+    [
+      "archived copy of FIRST-BLOCKER.json re-hashes to its original",
+      true,
+      "d1e3dcb02140 1660 B; symlink False"
+    ],
+    [
+      "archived copy of H1-ORACLE-AT-ASSIGNMENT-POOL-GATE-1019.json re-hashes to its original",
+      true,
+      "2d6d82e44a2f 2173 B; symlink False"
+    ],
+    [
+      "archived copy of H1-ORACLE-GRANT-AND-XO-DISPOSITION-1019.json re-hashes to its original",
+      true,
+      "0ab593dd3843 4710 B; symlink False"
+    ],
+    [
+      "archived copy of H1-STVK-INTERFACE-CONDITIONAL-PRICE-CARD-1019.json re-hashes to its original",
+      true,
+      "4d6e48f8d456 19561 B; symlink False"
+    ],
+    [
+      "archived copy of NOT-RUN-INVENTORY.json re-hashes to its original",
+      true,
+      "fe03fb794a06 4344 B; symlink False"
+    ],
+    [
+      "archived copy of PACK-SEAL.json re-hashes to its original",
+      true,
+      "70e66d6fe4e4 15327 B; symlink False"
+    ],
+    [
+      "archived copy of RETURN.json re-hashes to its original",
+      true,
+      "b15f60892181 5133 B; symlink False"
+    ],
+    [
+      "archived copy of SOURCE-CONTRACT.json re-hashes to its original",
+      true,
+      "2d1a571b29f7 4802 B; symlink False"
+    ],
+    [
+      "archived copy of accepted-order.json re-hashes to its original",
+      true,
+      "ab70536d81cd 3429 B; symlink False"
+    ],
+    [
+      "archived copy of calls.json re-hashes to its original",
+      true,
+      "c4f777d80c7a 3784 B; symlink False"
+    ],
+    [
+      "archived copy of candidate-executable-intake.json re-hashes to its original",
+      true,
+      "1507dd4334d9 227 B; symlink False"
+    ],
+    [
+      "archived copy of canonical-offline-admission-request.json re-hashes to its original",
+      true,
+      "07736673396e 4578 B; symlink False"
+    ],
+    [
+      "archived copy of cleanup-phase-end.json re-hashes to its original",
+      true,
+      "4e0507b86963 100 B; symlink False"
+    ],
+    [
+      "archived copy of cleanup-phase-start.json re-hashes to its original",
+      true,
+      "92fb4623a5d4 100 B; symlink False"
+    ],
+    [
+      "archived copy of deck-inventory.json re-hashes to its original",
+      true,
+      "beb5acda7363 4899 B; symlink False"
+    ],
+    [
+      "archived copy of 01-identity.inp re-hashes to its original",
+      true,
+      "00ab6f7abc85 13518 B; symlink False"
+    ],
+    [
+      "archived copy of 02-hydro-compression.inp re-hashes to its original",
+      true,
+      "2b1b7bf8d529 13533 B; symlink False"
+    ],
+    [
+      "archived copy of 03-axial11.inp re-hashes to its original",
+      true,
+      "6423772954a6 13522 B; symlink False"
+    ],
+    [
+      "archived copy of 04-axial22.inp re-hashes to its original",
+      true,
+      "c539b4b1591f 13522 B; symlink False"
+    ],
+    [
+      "archived copy of 05-axial33.inp re-hashes to its original",
+      true,
+      "c58ade9acf58 13522 B; symlink False"
+    ],
+    [
+      "archived copy of 06-shear12.inp re-hashes to its original",
+      true,
+      "d0d290428da3 13523 B; symlink False"
+    ],
+    [
+      "archived copy of 07-shear13.inp re-hashes to its original",
+      true,
+      "283b7d533770 13523 B; symlink False"
+    ],
+    [
+      "archived copy of 08-shear23.inp re-hashes to its original",
+      true,
+      "fb878fccf5e1 13523 B; symlink False"
+    ],
+    [
+      "archived copy of 09-negative-retained-macro-spcs.inp re-hashes to its original",
+      true,
+      "66c2cbf6a294 13599 B; symlink False"
+    ],
+    [
+      "archived copy of 10-negative-no-perturbation.inp re-hashes to its original",
+      true,
+      "d0f6077ba9c6 13520 B; symlink False"
+    ],
+    [
+      "archived copy of door_launcher.py re-hashes to its original",
+      true,
+      "b0db9efdd89a 1992 B; symlink False"
+    ],
+    [
+      "archived copy of filing-phase-start.json re-hashes to its original",
+      true,
+      "4e0507b86963 100 B; symlink False"
+    ],
+    [
+      "archived copy of input-source-pins.json re-hashes to its original",
+      true,
+      "0cfe296a8790 3436 B; symlink False"
+    ],
+    [
+      "archived copy of intake-clock.json re-hashes to its original",
+      true,
+      "50ee3cdbd68b 233 B; symlink False"
+    ],
+    [
+      "archived copy of interface.py re-hashes to its original",
+      true,
+      "156c950dcf04 14800 B; symlink False"
+    ],
+    [
+      "archived copy of literal-entries.json re-hashes to its original",
+      true,
+      "c0fc7bb28734 2668 B; symlink False"
+    ],
+    [
+      "archived copy of offline-admission-request-pointer.json re-hashes to its original",
+      true,
+      "bf55f03bd7ac 590 B; symlink False"
+    ],
+    [
+      "archived copy of offline-phase-end.json re-hashes to its original",
+      true,
+      "92fb4623a5d4 100 B; symlink False"
+    ],
+    [
+      "archived copy of offline-phase-start.json re-hashes to its original",
+      true,
+      "27e2b6bce996 281 B; symlink False"
+    ],
+    [
+      "archived copy of oracle.py re-hashes to its original",
+      true,
+      "c528e0891b05 8607 B; symlink False"
+    ],
+    [
+      "archived copy of ord-co27-sci-h1-stvk-oracle-unit-granted-1019.json re-hashes to its original",
+      true,
+      "e4e33dc0c892 1958 B; symlink False"
+    ],
+    [
+      "archived copy of prepare_pack.py re-hashes to its original",
+      true,
+      "bdbc8c4e65e0 5102 B; symlink False"
+    ],
+    [
+      "archived copy of rpt-xo-h1-reference-contract-oracle-paper-review-sci-1019.json re-hashes to its original",
+      true,
+      "289fe81ef069 4745 B; symlink False"
+    ],
+    [
+      "archived copy of run_pack.py re-hashes to its original",
+      true,
+      "3c7aa74ea6d3 19207 B; symlink False"
+    ],
+    [
+      "archived copy of runtime-premises.json re-hashes to its original",
+      true,
+      "32e222209ce8 6577 B; symlink False"
+    ],
+    [
+      "archived copy of arpack.c.txt re-hashes to its original",
+      true,
+      "0bc2b3c74168 41374 B; symlink False"
+    ],
+    [
+      "archived copy of bounadd.f.txt re-hashes to its original",
+      true,
+      "4f7a5470a104 11257 B; symlink False"
+    ],
+    [
+      "archived copy of bounaddf.f.txt re-hashes to its original",
+      true,
+      "70dfe584ae87 11910 B; symlink False"
+    ],
+    [
+      "archived copy of boundaryfs.f.txt re-hashes to its original",
+      true,
+      "b865042ce0be 10121 B; symlink False"
+    ],
+    [
+      "archived copy of boundarymesh.f.txt re-hashes to its original",
+      true,
+      "d7f43d71e243 4899 B; symlink False"
+    ],
+    [
+      "archived copy of boundarys.f.txt re-hashes to its original",
+      true,
+      "9a8971bb6edb 18489 B; symlink False"
+    ],
+    [
+      "archived copy of calinput.f.txt re-hashes to its original",
+      true,
+      "0e41b4f45079 74247 B; symlink False"
+    ],
+    [
+      "archived copy of elf-needed-sections.json re-hashes to its original",
+      true,
+      "6adf493a9542 59447 B; symlink False"
+    ],
+    [
+      "archived copy of equations.f.txt re-hashes to its original",
+      true,
+      "691e948c06b4 15287 B; symlink False"
+    ],
+    [
+      "archived copy of extracted-source-pins.json re-hashes to its original",
+      true,
+      "6848784703d6 4726 B; symlink False"
+    ],
+    [
+      "archived copy of frd.c.txt re-hashes to its original",
+      true,
+      "9c8214f65fad 86118 B; symlink False"
+    ],
+    [
+      "archived copy of frdheader.c.txt re-hashes to its original",
+      true,
+      "7297fe51bb5d 5467 B; symlink False"
+    ],
+    [
+      "archived copy of frdvector.c.txt re-hashes to its original",
+      true,
+      "2dabcb51ae3c 8960 B; symlink False"
+    ],
+    [
+      "archived copy of frequencys.f.txt re-hashes to its original",
+      true,
+      "04663ee6b345 7140 B; symlink False"
+    ],
+    [
+      "archived copy of gennactdofinv.f.txt re-hashes to its original",
+      true,
+      "ab4cae9907d2 4840 B; symlink False"
+    ],
+    [
+      "archived copy of mastruct.c.txt re-hashes to its original",
+      true,
+      "e34073023292 22414 B; symlink False"
+    ],
+    [
+      "archived copy of mastructmatrix.c.txt re-hashes to its original",
+      true,
+      "34981a57a92c 4702 B; symlink False"
+    ],
+    [
+      "archived copy of matrixstorage.c.txt re-hashes to its original",
+      true,
+      "211ec4bbb5bb 14256 B; symlink False"
+    ],
+    [
+      "archived copy of noelfiles.f.txt re-hashes to its original",
+      true,
+      "fb3f840302ea 33391 B; symlink False"
+    ],
+    [
+      "archived copy of selected-source-distro-identity.json re-hashes to its original",
+      true,
+      "cd49eab600e4 7220 B; symlink False"
+    ],
+    [
+      "archived copy of shape10tet.f.txt re-hashes to its original",
+      true,
+      "04b93f4f9ced 4143 B; symlink False"
+    ],
+    [
+      "archived copy of steps.f.txt re-hashes to its original",
+      true,
+      "09bd9adecba4 8176 B; symlink False"
+    ],
+    [
+      "archived copy of writematrix.f.txt re-hashes to its original",
+      true,
+      "392c70b38cc6 2102 B; symlink False"
+    ],
+    [
+      "archived copy of specimen.json re-hashes to its original",
+      true,
+      "665492786fc3 167419 B; symlink False"
+    ],
+    [
+      "archived copy of state-before.md re-hashes to its original",
+      true,
+      "f88c17a83d6c 1200 B; symlink False"
+    ],
+    [
+      "archived copy of FINAL-EVIDENCE-MANIFEST.json re-hashes to its original",
+      true,
+      "0181281c9b67 19155 B; symlink False"
+    ],
+    [
+      "archived copy of final-budget.json re-hashes to its original",
+      true,
+      "57596e867cc7 3073 B; symlink False"
+    ],
+    [
+      "inventory names intake-clock.json (50ee3cdb, 233 B)",
+      true,
+      ""
+    ],
+    [
+      "inventory names PACK-SEAL.json (70e66d6f, 15327 B)",
+      true,
+      ""
+    ],
+    [
+      "inventory names offline-phase-start.json (27e2b6bc, 281 B)",
+      true,
+      ""
+    ],
+    [
+      "archive outside the active root's sealed paths",
+      true,
+      "['unpublished-local-ref:8593dd08076c94fb', 'unpublished-local-ref:de636a9846297abc', 'unpublished-local-ref:e8e5b2c37dba3a85"
+    ],
+    [
+      "offline-phase-start.json still the original (no phase begun)",
+      true,
+      "27e2b6bce996"
+    ],
+    [
+      "old manifest members changed only where expected (clock, seal)",
+      true,
+      "changed: ['PACK-SEAL.json', 'intake-clock.json']"
+    ],
+    [
+      "33 runtime pins re-hash",
+      true,
+      "33 files, mismatches []"
+    ]
+  ],
+  "defects": [],
+  "notes": [
+    "new clock adds ['captured_local']; run_pack.py:59-61 reads only captured_monotonic"
+  ],
+  "seal_meta_changed": {
+    "at": [
+      "2026-10-19T08:53:54.458002+00:00",
+      "2026-10-19T10:28:32.533411+00:00"
+    ],
+    "preparation_elapsed_seconds": [
+      "1446.8065041739028",
+      "162.35595385404304"
+    ],
+    "captured_monotonic": [
+      "2015559.636781523",
+      "2021237.713717377"
+    ]
+  },
+  "origin_wall": "2026-10-19T03:25:50-07:00",
+  "elapsed_at_check": 212.889,
+  "origin_monotonic": 2021075.357763523,
+  "stage1_end_s": 162.4,
+  "ingested_s": 181.8,
+  "root_new_entries": [],
+  "verdict": "VERIFIED",
+  "new_seal": {
+    "sha256": "8247d2e853d8eeae0aec4467e53f7c35a2f0add553900c5b31a2387c245e0807",
+    "bytes": 15327
+  },
+  "new_clock": {
+    "sha256": "9144799dd9282a17bec02e2e2814b1e8e00ee18d9303d237ba11bce72fda6ef3",
+    "bytes": 482
+  },
+  "checked_at": "2026-10-19T03:29:23-07:00"
+}

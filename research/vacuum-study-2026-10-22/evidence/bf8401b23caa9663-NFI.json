@@ -1,0 +1,153 @@
+{
+  "unit": "vacuum-mainline037b-check-1020",
+  "status": "OPEN",
+  "items": [
+    {
+      "id": "NFI-CHECK037b-HEX679-SUPPORT",
+      "tag": "CORRECTION",
+      "status": "OPEN",
+      "finding": "HexBond 679 was priced using 250 g/m2 resin while its separate 30 g/m2 support was omitted at both interfaces.",
+      "exact": {
+        "owner_increment_kg": 444.25534518822144,
+        "corrected_increment_kg": 519.6535688743766,
+        "omitted_kg": 75.39822368615503,
+        "corrected_classical_maximum_minimum_SF": 0.9162604110157426
+      },
+      "disposition": "Correction already re-solved in this check; replace the owner's mass line when reconciling the card. It remains rejected.",
+      "evidence": "EVIDENCE.md; DERIVED.json/hexbond_support_correction; primary HexBond 679 p.1",
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-200F-TRANSFER",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "The detailed 200 F cure data use AF 163-2K at 0.060 lb/ft2 on metal, not the 2U 0.015 lb/ft2 Be/honeycomb joint. The family's six-hour guidance is not evidence that all two-to-six-hour cycles qualify the target assembly.",
+      "exact": {
+        "test_cycle_pressure_psi": 50,
+        "core_stabilized_typical_compression_psi": 60,
+        "core_stabilized_minimum_average_compression_psi": 35,
+        "unbypassed_cure_pressure_SF_typical": 1.2,
+        "unbypassed_cure_pressure_SF_minimum_average": 0.7
+      },
+      "disposition": "Keep the +0.12015 kg route as a process candidate; establish cure, pressure/tooling path, actual bond performance and stress-free temperature on target materials.",
+      "evidence": "3M datasheet pp.15,19; Hexcel CR-III Table II; EVIDENCE.md",
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-FIELD-EDGE-RESIDUAL",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "Zero mean mismatch shear is a homogeneous continuous-field idealization. The 16.092 mm edge length spans only 1.68948 cells; local peaks and the effect of balanced residuals on global/crimp modes are unresolved.",
+      "exact": {
+        "transfer_length_mm": 16.09228418994669,
+        "transfer_length_cells": 1.6894786551125132,
+        "028b_finite_face_residual_MPa": 4.36267358508647
+      },
+      "disposition": "Retain the calculated factors conditionally. A layer-wise/cell-resolved model and representative cured curved panel are the grounding steps; no debond survival is established by a zero mean shear argument.",
+      "carries_owner_rows": [
+        "NFI-037b-SCREEN-PREMISE",
+        "NFI-037b-EDGE-MODEL",
+        "NFI-037b-BALANCED-COMPRESSION",
+        "NFI-037b-SPLICE",
+        "NFI-037b-WAVINESS",
+        "NFI-037b-HARDPOINTS"
+      ],
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-FOIL-ALLOWABLE-TRANSFER",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "67 GPa/2700 kg/m3 came from a 5056-H14 bulk register, while 227.53 MPa comes from 5052-H39 foil. Neither is a primary allowable for the actual cured 5056-H39 core. The 10 MPa Be scarf limit also remains projected.",
+      "disposition": "Use the present numbers only as model inputs; measure or source the actual foil and bonded-scarf properties.",
+      "carries_owner_rows": [
+        "NFI-037b-FOIL",
+        "NFI-037b-SCARF",
+        "NFI-037b-028B-SCARF-LEVER"
+      ],
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-CREEP-STATEMENT",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "The statement that creep is none in service overstates a finite-duration displacement result. A zero table reading at one condition is not zero creep over all service histories, and no stress-relaxation fraction follows.",
+      "exact": {
+        "reported_180F_creep_in": 0.0002,
+        "converted_displacement_um": 5.08,
+        "duration_h": 192
+      },
+      "disposition": "Replace the absolute statement with the measured conditions and preserve the unmeasured relaxation/cyclic-life qualification.",
+      "carries_owner_rows": [
+        "NFI-037b-SUSTAINED-SHEAR",
+        "NFI-037b-STRESS-FREE-T"
+      ],
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-INTERLAYER-COUNT",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "The inherited rigid screen adds one interlayer compliance while the symmetric edge/global model adds both interfaces. A consistent two-interface version halves the rigid-screen thickness requirement.",
+      "exact": {
+        "owner_rigid_screen_each_layer_m": 0.0055061042526840685,
+        "symmetric_two_interface_each_layer_m": 0.0027530521263420342,
+        "symmetric_total_mass_kg": 10309.570255398545,
+        "note": "Changing the old screen to include both interfaces halves its required thickness. Both versions are far over budget."
+      },
+      "disposition": "State the topology explicitly. Neither 20.619 t nor the symmetric 10.310 t sensitivity can float; no change to the selected route.",
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-DIAGNOSTIC-SCHEMA",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "Some rows set feasible=true while named usage exceeds one. Failed rows also contain zero geometry, NaN and Infinity. Several rejected nonmetal solutions have core depths of only 0.016–0.076 mm, outside the supplied core data.",
+      "disposition": "Distinguish local-constraint feasibility from a design inside the named stretch, encode nonfinite values as null plus an infeasibility reason, and keep failed-solve trial coordinates out of build dimensions. Independent broader-envelope searches confirm the rejection.",
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-MASS-ALONE-WORDING",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "The glass/aramid rejections involve their specified mechanical properties and the fixed scarf, not density alone. An artificial ideal-property core at the HFT density can pass the broader classical envelope.",
+      "exact": {
+        "HFT_density_kg_m3": 32.04,
+        "actual_HFT_classical_maximum_minimum_SF": 0.9738619550030646,
+        "ideal_properties_same_density_classical_maximum_minimum_SF": 1.0249018707576047
+      },
+      "disposition": "Narrow 'mass alone' to the metallic density bounds that were actually proven. No sourced nonmetal candidate becomes feasible.",
+      "carries_owner_rows": [
+        "NFI-037b-NONMETAL-CTE",
+        "NFI-037b-RT-PASTE"
+      ],
+      "blocking": false
+    },
+    {
+      "id": "NFI-CHECK037b-L-PRECISION",
+      "tag": "ROUNDING",
+      "status": "OPEN",
+      "finding": "The L-direction branch mixes rounded 103.42 MPa/379.21 kPa inputs with exact-PSI conversions elsewhere. This produces 14 distinct precision differences, repeated twice in the verdict.",
+      "disposition": "Use one stated conversion convention or reduce reported digits. All fourteen values reproduce when the published rounded L inputs are used. W remains governing.",
+      "evidence": "EXACT-DIFFERENCES.csv; SUPPLEMENT.json/rounded_L_replication",
+      "blocking": false
+    }
+  ],
+  "retained_owner_rows": [
+    "NFI-037b-SCREEN-PREMISE",
+    "NFI-037b-EDGE-MODEL",
+    "NFI-037b-BALANCED-COMPRESSION",
+    "NFI-037b-SCARF",
+    "NFI-037b-028B-SCARF-LEVER",
+    "NFI-037b-SPLICE",
+    "NFI-037b-SUSTAINED-SHEAR",
+    "NFI-037b-STRESS-FREE-T",
+    "NFI-037b-RT-PASTE",
+    "NFI-037b-NONMETAL-CTE",
+    "NFI-037b-WAVINESS",
+    "NFI-037b-FOIL",
+    "NFI-037b-HARDPOINTS"
+  ],
+  "owner_rows_frozen_in": "owner/NFI.json",
+  "next": "none"
+}

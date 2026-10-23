@@ -1,0 +1,47 @@
+{
+  "name": "crt-old021b-W-a0.789411-SF1",
+  "analysis": "static",
+  "amplitude_mm": 0.789411,
+  "width_mm": 401.8559050423529,
+  "meridian": "W",
+  "yield_MPa": 10000.0,
+  "nu": 0.0768,
+  "ntheta": 512,
+  "nface": 2,
+  "ncore": 6,
+  "grading": 2.0,
+  "increments": 5,
+  "endpoint_kPa": 95.46083791390515,
+  "endpoint_kind": "load_cap",
+  "first_yield_bracket_kPa": null,
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 75.77990300531734,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        57.27650274834309,
+        76.36867033112412
+      ]
+    },
+    "300.0": {
+      "p_kPa": 88.18606157192353,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        76.36867033112412,
+        95.46083791390515
+      ]
+    }
+  },
+  "endpoint_max_mises_MPa": 326.44401406157766,
+  "endpoint_max_peeq": 0.0,
+  "endpoint_pole_uy_mm": -19.89988,
+  "solver": {
+    "returncode": 0,
+    "elapsed_s": 11.482465201988816,
+    "ended_at": "2026-10-20T13:21:11.755248+00:00"
+  },
+  "errors": [],
+  "eigen_kPa": [],
+  "eigen_native_output_labels": [],
+  "peeq_detection_threshold": 1e-10
+}

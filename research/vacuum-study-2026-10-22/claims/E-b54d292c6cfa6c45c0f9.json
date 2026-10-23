@@ -1,0 +1,42 @@
+{
+  "id": "E-b54d292c6cfa6c45c0f9",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-b54d292c6cfa6c45c0f9",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/11",
+    "row_id": "NFI-043-CHECK-12",
+    "fields": {
+      "id": "NFI-043-CHECK-12",
+      "key": "manufacturing_and_joint",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "issue": "Finished curvature, thin-wall variability, surface flaws and local joint behavior are not qualified by the ledger or beam model.",
+      "needed": "Establish process capability, inspection sensitivity, joint load-transfer/rotation behavior and representative full-size validation.",
+      "disposition": "Joint scalar mass sizing supplies no additional reliability reserve.",
+      "blocks_check": false,
+      "owner": "sciences / robotics programme",
+      "execution_authorized_by_this_row": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Finished curvature, thin-wall variability, surface flaws and local joint behavior are not qualified by the ledger or beam model.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check043~1NFI.json/11"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

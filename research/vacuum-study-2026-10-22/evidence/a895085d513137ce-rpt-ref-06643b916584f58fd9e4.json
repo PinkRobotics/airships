@@ -1,0 +1,197 @@
+{
+  "id": "rpt-ref-06643b916584f58fd9e4",
+  "kind": "report",
+  "from": "ref-4189c1615990eb515921",
+  "from_seat": "ref-4189c1615990eb515921",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "unit": "vacuum-mainline049-be-free-p2-1020",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-mainline049-dispatch-1019"
+    }
+  ],
+  "re": "ord-admiral-rr2-mainline049-dispatch-1019",
+  "supersedes": null,
+  "completion": "none",
+  "priority": 4,
+  "at": "2026-10-20T06:04:23-07:00",
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline049-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline049-fold-048-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline049-fold-chk040-1020",
+      "outcome": "done",
+      "extent": "work"
+    },
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline049-simjob-retry-standing-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "QUESTIONABLE/PROJECTION. MAINLINE-049 complete, folding in 048's finish and water, CHECK-040's rows and simjob.\n\nNo beryllium-free P2 floats on sourced faces at R 15-30, either weather, even at all four optimism endpoints. Under 048's account the closest, quasi-isotropic K13D2U on 5056 bonded at room temperature, is short 1.0/1.9/4.8 t and needs 7-12% more modulus. AlBeMet: short 1.7-10.0 t, and 62% beryllium. M55J: short 2.9-19.5 t. Aramid cores are crimp-bound, and undried their water breaks the service pressure. CFRP bonded to 5056 at 200 F fails the free edge (0.55); it needs a bond at or below 50 C.\n\nOne projection floats: K13D2U at 60% Vf (200 GPa), on gamma, Q and face compression. R 30 ISA usage 0.721 (gamma x1.95, Q x1.93, 293 MPa). Endpoints +1.6/+4.3/+16.3 t. Beryllium floats on gamma and Q alone (usage 0.72/0.60/0.53).\n\nCHECK-040's rows: at 1 mm of water only R 30 floats. Cure in the global and crimp demand costs the floating builds at most 0.45 t; edge/scarf costs beryllium 0.2-1.4 t and the CFRP nothing. No float is lost. The 60% Vf face fails 048's full-cycle screen at 037's geometry (0.890) and passes at its own (1.18).\n\nSupply at R 30: 4.8% of pitch-fibre capacity, against 24% of world beryllium.\n\nEasier to ground: beryllium's optimisms, fewer and smaller, on a sourced face. The CFRP's case is supply.\n\nChecks: 040's 12 rows; 048's 8 bit for bit; CHECK-040's 28 within 0.0006 kg. Results come from simjob runs; two earlier bare runs repeated identically. 17 NFI.",
+  "artifacts": [
+    {
+      "path": "evidence/e092afb908ded8b8-CARD.md",
+      "sha256": "e092afb908ded8b8d4215ccb1d8acfa9658492edeb2c5b8db49a460a6d2ee741",
+      "bytes": 36037
+    },
+    {
+      "path": "evidence/0d86f7e5903fa42b-RESULTS.json",
+      "sha256": "0d86f7e5903fa42b5c51ab33eed900e0b750a97be3ab3fe527c702029551a1d4",
+      "bytes": 1125128
+    },
+    {
+      "path": "evidence/ede31401347837cc-NFI.json",
+      "sha256": "ede31401347837cc9f1c2c09df66295368fe7e065043c73a599c13eae70bba33",
+      "bytes": 6295
+    },
+    {
+      "path": "evidence/63b8a77dcdebd540-INPUTS.json",
+      "sha256": "63b8a77dcdebd540c90cc24917e8f82865be99de01fcc776cea2e647b6bba68d",
+      "bytes": 47208
+    },
+    {
+      "path": "evidence/ebcef6ff70c0684b-FOLD.json",
+      "sha256": "ebcef6ff70c0684ba23b5f48a76078f60920d82ca8ba286347a917ce3e29ab59",
+      "bytes": 1251961
+    },
+    {
+      "path": "evidence/5750025a1b213d52-COMPUTE.json",
+      "sha256": "5750025a1b213d5269c5c66cf154be4b75fb64ae107cbc331c8a174260ce2aa0",
+      "bytes": 278365
+    },
+    {
+      "path": "evidence/84a825fe0c571a21-SENS.json",
+      "sha256": "84a825fe0c571a21648b089be9ff6fa0ccf946f0aae4a95f4b33f637c8f10b10",
+      "bytes": 3411
+    },
+    {
+      "path": "evidence/58eb1435cb0d46c5-EXTRA.json",
+      "sha256": "58eb1435cb0d46c53b4a3cf3d5df930da42309c0172814891a3971fa3ac0f759",
+      "bytes": 126841
+    },
+    {
+      "path": "evidence/f31f1eca4f7e98ca-model49.py",
+      "sha256": "f31f1eca4f7e98caae4ad8768a161c56d1fe5f0af45a96776b94b5ead9ce4e4a",
+      "bytes": 21430
+    },
+    {
+      "path": "evidence/bcbd83becb0e031a-thermal49.py",
+      "sha256": "bcbd83becb0e031a4dd8c5c68c6f62160ec28670ac57c23daa762b20b1ccbb49",
+      "bytes": 7186
+    },
+    {
+      "path": "evidence/76b9ed0c37fe2ee3-acct49.py",
+      "sha256": "76b9ed0c37fe2ee35c8ecb0c3401485247a002147c7168c8260fa0b4a4ee2651",
+      "bytes": 3988
+    },
+    {
+      "path": "evidence/cf6f4506f66085f7-laminate.py",
+      "sha256": "cf6f4506f66085f7167ec8b69efc2daadeac89822d581f6421a3a068403f023a",
+      "bytes": 2733
+    },
+    {
+      "path": "evidence/95ad764940329e77-src49.py",
+      "sha256": "95ad764940329e77662f04d209a275e145e802039e496eeb332c34eea873cb4e",
+      "bytes": 2054
+    },
+    {
+      "path": "evidence/68119697ab3c8c71-run49.py",
+      "sha256": "68119697ab3c8c71c38fb4994e7ac782cfa782bbd958a5960a86687627e005c5",
+      "bytes": 21630
+    },
+    {
+      "path": "evidence/3c56cdff3ef4fa8b-sens49.py",
+      "sha256": "3c56cdff3ef4fa8b7a3c9179d7c64a233ea345bc2255d66e41ba76a694905e42",
+      "bytes": 4434
+    },
+    {
+      "path": "evidence/be1c3304823a8285-extra49.py",
+      "sha256": "be1c3304823a8285ed8c7cec0a6d51aadb981642d7a6f3339560caf51648abd8",
+      "bytes": 5662
+    },
+    {
+      "path": "evidence/26edca4d763eaac2-fold49.py",
+      "sha256": "26edca4d763eaac2c2be1e7906216fca6b05782ba25fd6f33aa5f9ca4d1eab14",
+      "bytes": 27908
+    },
+    {
+      "path": "evidence/2e1de2dfb5f07463-card49.py",
+      "sha256": "2e1de2dfb5f074639834acb0641910a005cdee6cfa820ac3882da13d30ca70a9",
+      "bytes": 48234
+    },
+    {
+      "path": "unpublished-local-ref:3bea8bd2a478bf6f",
+      "sha256": "171498155eed7dee43857eadeee1c6d74e1ca164aa39da461d8403a645033e4f",
+      "bytes": 738
+    },
+    {
+      "path": "evidence/5b7f216a080b3e99-cfrp.json",
+      "sha256": "5b7f216a080b3e99698da2b7862e1fc090be38a5454ab9ee6e68e4561c880489",
+      "bytes": 152713
+    },
+    {
+      "path": "evidence/ef318e02d25becfd-cfrp.md",
+      "sha256": "ef318e02d25becfd307e359a22c3bbaedfa944c8e8220d51941bb8254f83362f",
+      "bytes": 3731
+    },
+    {
+      "path": "evidence/589f4cf38639d529-albemet.json",
+      "sha256": "589f4cf38639d529ad73b4e4e994f65ee5fbba2a40f235a00b84d869f0fd6224",
+      "bytes": 88844
+    },
+    {
+      "path": "evidence/4abbf78c498954c2-albemet.md",
+      "sha256": "4abbf78c498954c27625a0ffa675dce0551f9ec52e1e36a2efd62ffc179fb973",
+      "bytes": 2519
+    },
+    {
+      "path": "evidence/c4b4479611d81995-cores.json",
+      "sha256": "c4b4479611d8199524517ae8b28a90c5319393bdd9ba5ae9468469ad18c148df",
+      "bytes": 151398
+    },
+    {
+      "path": "evidence/2a38701af9e2fea5-cores.md",
+      "sha256": "2a38701af9e2fea5d2f9720fd7a5d60e36fc60212d542a5c8aa879ffa12baa30",
+      "bytes": 4602
+    },
+    {
+      "path": "evidence/5ffab72bd29c14b6-water.json",
+      "sha256": "5ffab72bd29c14b671fb7ec383efa6392270e13c32d42aa0d41bc12fc9c0dd38",
+      "bytes": 32749
+    },
+    {
+      "path": "evidence/b119f8d23d00ff61-water.md",
+      "sha256": "b119f8d23d00ff61ebe17a4493ffd89e8fbe1169aa1e669758ec2e67d2ecdcd5",
+      "bytes": 2398
+    },
+    {
+      "path": "evidence/f3f3059041fa1641-vacuum-mainline049-be-free-p2-1020.md",
+      "sha256": "f3f3059041fa16414fd1245a77d94c5dc7b99f1653c9ed2d4f3cdaaf88f29ee3",
+      "bytes": 5182
+    }
+  ],
+  "links_schema": 1,
+  "ingested": "2026-10-20T06:05:16-07:00"
+}

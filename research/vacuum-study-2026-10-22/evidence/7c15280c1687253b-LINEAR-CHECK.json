@@ -1,0 +1,55 @@
+{
+  "scope": "Two fresh linear/prestress eigenproblem anchors; no owner code.",
+  "cases": [
+    {
+      "radius_outer_mm": 42.8,
+      "ntheta": 384,
+      "ncore": 8,
+      "nface": 2,
+      "nodes": 14617,
+      "elements": 4608,
+      "free_dofs": 29159,
+      "dead_pressure_MPa": 30.21815361369929,
+      "first_four_MPa": [
+        30.21815361369929,
+        30.671081063730774,
+        31.440420091467736,
+        32.533358036750904
+      ],
+      "Rayleigh_pressure_MPa": 30.218153613659823,
+      "unit_preload_relative_residual": 2.174664392462015e-11,
+      "eigen_relative_residual": 8.343813986148722e-11,
+      "elapsed_seconds": 0.5808549420908093,
+      "tag": "QUESTIONABLE; conditional linear anchor",
+      "radius_reading": "outer",
+      "owner_dead_pressure_MPa": 30.21815361372398,
+      "difference_MPa": -2.469136006766348e-11,
+      "gap_to_paper_27p53_percent": 9.764451920447836
+    },
+    {
+      "radius_outer_mm": 44.77,
+      "ntheta": 384,
+      "ncore": 8,
+      "nface": 2,
+      "nodes": 14617,
+      "elements": 4608,
+      "free_dofs": 29159,
+      "dead_pressure_MPa": 28.074312431917896,
+      "first_four_MPa": [
+        28.074312431917896,
+        28.499661023179982,
+        29.119641445468524,
+        30.13825339640348
+      ],
+      "Rayleigh_pressure_MPa": 28.074312431910087,
+      "unit_preload_relative_residual": 2.3169104003382046e-11,
+      "eigen_relative_residual": 8.013212187756567e-11,
+      "elapsed_seconds": 0.6635824516415596,
+      "tag": "QUESTIONABLE; conditional linear anchor",
+      "radius_reading": "mid",
+      "owner_dead_pressure_MPa": 28.0743124318272,
+      "difference_MPa": 9.069722750609799e-11,
+      "gap_to_paper_27p53_percent": 1.9771610313036536
+    }
+  ]
+}

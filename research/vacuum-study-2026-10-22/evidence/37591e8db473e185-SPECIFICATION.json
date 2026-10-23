@@ -1,0 +1,30 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "owner_code_prohibited": true,
+  "inherited_input_boundary": "052 ground-service geometry, member mechanics and bills; 054 recalculated, 052 structure not reoptimized",
+  "cold_h2_K": 268.6301428187726,
+  "cold_source": "inputs/owner/inputs/046/ENVIRONMENT.csv, minimum 037_white_target/h2 film_K",
+  "comparison_tolerance": {
+    "absolute": 1e-08,
+    "relative": 1e-09
+  },
+  "unknown_parameter_for_numerical_reconstruction": {
+    "hardware_density_kg_m3": 1000,
+    "basis": "volume differences in 054 data, undocumented in METHOD; projection, not source evidence"
+  },
+  "UHMWPE_retention": {
+    "value": 0.99599466459,
+    "basis": "054 comparison allowance inherited from 046; not long-duration creep credit"
+  },
+  "constants_and_formulas": "check54.py and METHOD.md",
+  "new_structural_credit": false,
+  "qualified_hull_SF": null,
+  "cold_pressure052_Pa": 21.87136725311824,
+  "cold_pressure052_basis": "inverted 052 R10 ISA cold_h2_humidity_limit_h with 052 rate/inventory/free-volume inputs; reproduces inherited target without 054 computed data",
+  "cold_h2_precision_note": "046 cold temperature yields a 1.53428e-7 Pa offset from inherited 052 cold target; immaterial precision variant kept in sensitivity record",
+  "conventions_resolved": [
+    "Reference T0=284.9 K converts specified mbar L/s leakage in every weather case; weather pressure factor determines species fractions.",
+    "Coating-loss scenario applies RH factor to the intact coating, then mixes the explicitly stated 40 g/m2/day bare-PET envelope.",
+    "Wet-fibre mission free volume updates the substituted film solid volume and initial dry gas."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "unresolved_numerical_mismatches": [],
+  "resolved_checker_conventions_and_implementation": [
+    {
+      "id": "CHECKER-CURVATURE-CONVENTIONS",
+      "status": "RESOLVED",
+      "finding": "Initial 10 probe and 27 legacy/common curvature comparisons used different extrema conventions.",
+      "resolution": "Owner historical diagnostics use 1441-angle sampling; checker diagnostics use derivative roots. Settled tables use roots. Matched-convention comparisons pass.",
+      "exact_ledgers": [
+        "history/thermal01/THERMAL-MISMATCHES.json",
+        "history/supplement01/SUPPLEMENT-MISMATCHES.json",
+        "history/supplement02/SUPPLEMENT-MISMATCHES.json"
+      ],
+      "maximum_initial_probe_difference_K": 0.00021321463623991121
+    },
+    {
+      "id": "CHECKER-INCOMING-WATER-CAPTURE",
+      "status": "RESOLVED",
+      "finding": "Initial checker left incoming water vapor in the sorbent pressure balance.",
+      "resolution": "Apply .95 capture to incoming water mole fraction 1000/p0; retain its mass aboard. All service-pressure values now match.",
+      "exact_ledger": "history/account01/ACCOUNT-MISMATCHES.json"
+    },
+    {
+      "id": "CHECKER-FREE-EDGE-GUARD",
+      "status": "RESOLVED",
+      "finding": "Initial separate finish-screen reproduction omitted the declared 1.002 stress guard.",
+      "resolution": "Guard included; all 156 finish factors match, maximum difference 2.14e-14.",
+      "exact_ledger": "history/supplement01/SUPPLEMENT-MISMATCHES.json"
+    },
+    {
+      "id": "CHECKER-NONFLOATING-SCHEMA",
+      "status": "RESOLVED",
+      "finding": "First independent search expected a ties array in nonfloating accounts.",
+      "resolution": "Treat omitted ties as empty; admitted search02 completed all 7310 checks.",
+      "evidence": "search01.execution.json"
+    }
+  ],
+  "numerical_search_differences": {
+    "tolerance_kg": 0.001,
+    "maximum_absolute_endpoint_difference_kg": 0.00010391194336989429,
+    "exact_ledger": "OPTIMA-INDEPENDENT.json",
+    "least_usage_ledger": "SEARCH-CHECKS.json"
+  },
+  "all_exact_scalar_differences": [
+    "THERMAL-COMPARISONS.jsonl.gz",
+    "SUPPLEMENT-COMPARISONS.jsonl.gz",
+    "ACCOUNT-COMPARISONS.jsonl.gz"
+  ],
+  "unresolved_physical_qualifications": "NFI.json"
+}

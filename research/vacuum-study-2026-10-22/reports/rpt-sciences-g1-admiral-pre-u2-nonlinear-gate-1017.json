@@ -1,0 +1,30 @@
+{
+  "id": "rpt-sciences-g1-admiral-pre-u2-nonlinear-gate-1017",
+  "unit": "vacuum-float-redirect-1016",
+  "at": "2026-10-17T11:13:53-07:00",
+  "body": "None of the current U1 results validates that path. Hutchinson validates the bespoke axisymmetric solver only. I add a pre-U2 gate: reproduce the same frozen physical point in CalculiX2.21 nonlinear, against0.250 and[0.247,0.253], with three prospectively chosen FE meshes,<=1% adjacent changes and<=5% error against nominal and both endpoints. Freeze actual elements, seeded geometry, pressure convention, supported path control and first-peak extraction before any response. Nonconvergence alone is not collapse. Separately verify the intended periodic implementation with affine reference cases, constraint/rank and edge/corner checks, compatible imperfections, equilibrium/energy checks and relevant element/strut references. A sphere alone does not validate periodic octet cells. A retains this FEA qualification; B stays on unfinished U3 under current placement. I ordered A one protocol-only pass after the existing Akhmeteli handoff or first blocker; no solve is authorized yet. Una verification and a separate Sciences execution brief remain required. Current U1 closure and Hutchinson+15 stand. I do not assume a second+15 for the same published point under once-each: Una decides eligibility; rubric changes require Una+Admiral prospectively. A remains45,map0. Attached gate names the official CalculiX references and exact preparation requirements.",
+  "artifacts": [
+    {
+      "path": "evidence/690e4030030bda09-PRE-U2-CALCULIX-PBC-QUALIFICATION-GATE-1017.json",
+      "sha256": "690e4030030bda0902e8761b6b3c76e3966dd6febaf46b0e15aaa1c84a1e3bc9",
+      "bytes": 10770
+    },
+    {
+      "path": "withheld-source:6ff7ca5883efb933",
+      "sha256": "b0ef581b8057f8bc6ec6a9749ed765ac836c9499ca3861a7101000b4bd085223",
+      "bytes": 2815
+    }
+  ],
+  "from": "sciences",
+  "from_seat": "sciences-p-10151529",
+  "re": "que-admiral-rr2-sciences-u2-nonlinear-path-validation-b-1017",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "que-admiral-rr2-sciences-u2-nonlinear-path-validation-b-1017",
+      "outcome": "done",
+      "extent": "obligation",
+      "what": "Answered with explicit missing capability and added pre-U2 qualification gate; gate execution/verification remains pending, not closed by this report"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "E-004194187aacbbc4a3a8",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-004194187aacbbc4a3a8",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/6",
+    "row_id": "C029-07-WIDTH-CONVENTION",
+    "fields": {
+      "id": "C029-07-WIDTH-CONVENTION",
+      "state": "convention stated by the card; effect computed",
+      "direction": "minor",
+      "note": "The widths 332.216 and 401.856 mm reproduce exactly with nu 0.30, the sealed 015 mapping the card cites. 015b's live nu 0.33 gives 333.964 and 403.970 mm (+0.53%), which moves the W endpoints to 78.459 and 90.499 kPa (-0.21% and -0.25%). The excluded eigen512 MODEL.json records (p_ref 1 MPa) carry the 0.33 width; with amplitude 0 this has no numerical effect."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The widths 332.216 and 401.856 mm reproduce exactly with nu 0.30, the sealed 015 mapping the card cites. 015b's live nu 0.33 gives 333.964 and 403.970 mm (+0.53%), which moves the W endpoints to 78.459 and 90.499 kPa (-0.21% and -0.25%). The excluded eigen512 MODEL.json records (p_ref 1 MPa) carry the 0.33 width; with amplitude 0 this has no numerical effect.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

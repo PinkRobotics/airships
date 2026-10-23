@@ -1,0 +1,798 @@
+{
+  "schema": 1,
+  "started_at": "2026-10-20T00:16:15-07:00",
+  "case": {
+    "p_Pa": 95460.83791390515,
+    "R_m": 10.0,
+    "nu": 0.33,
+    "lift_kg": 4889.442150186961,
+    "tag": "QUESTIONABLE",
+    "basis": "Pinned COMMON case; full precision inherited from MAINLINE-014 INPUTS"
+  },
+  "rows": [
+    {
+      "label": "Be S-200F / HRH-10",
+      "geometry": {
+        "tf_m": 0.0007929207043436264,
+        "core_m": 0.021750596068442405
+      },
+      "geometry_pin_checked_against": "evidence/0e2d7bf61d20e6ee-mainline014.json",
+      "face": {
+        "name": "Beryllium S-200F",
+        "E_Pa": 303000000000.0,
+        "sigma_Pa": 283000000.0,
+        "rho_kg_m3": 1850,
+        "tag": "QUESTIONABLE",
+        "source": "Materion beryllium data sheet https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4 (S-200F density 1.85 g/cc, E 303 GPa); Brush/Materion Beryllium Guide MB-001 compressive-yield note",
+        "basis": "compressive yield 41 ksi = 283 MPa (tensile yield 37 ksi on the same page)"
+      },
+      "core": {
+        "name": "Hexcel HRH-10-4.8-32",
+        "rho_kg_m3": 32.0,
+        "Ec_Pa": 76000000.0,
+        "Gc_Pa": 14000000.0,
+        "crush_Pa": 1000000.0,
+        "form": "honeycomb",
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+        "note": "Aramid/phenolic honeycomb, 4.8 mm cell, 32 kg/m3. Stabilised modulus is not the continuum Ec of the wrinkling formula. W modulus is the smaller plate-shear modulus."
+      },
+      "owner": {
+        "label": "Be S-200F / HRH-10",
+        "Vc": 3.5080083728637845,
+        "branch": "shear_crimping",
+        "gamma_filed": 1.0,
+        "source": "MAINLINE-014 optima, kd 0.2, geometry held",
+        "tf_m": 0.0007929207043436264,
+        "core_m": 0.021750596068442405,
+        "Kc": 0.2850620334134618,
+        "filed_least_SF": 0.6853382311714157,
+        "filed_governing": "core_shear_crimping",
+        "margin": 0.0,
+        "face_tag": "QUESTIONABLE",
+        "core_tag": "QUESTIONABLE",
+        "curves": {
+          "optimistic": {
+            "gamma": 1.0,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 0.6853382311714157,
+              "face_yield": 0.940266455786305,
+              "core_shear_crimping": 0.6853382311714157,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6854549602516505
+            },
+            "bare_crimp_SF": 0.6853382311714157,
+            "design_global_SF": 0.6853382311714157,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.6853382311714157,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.6854549602516505,
+            "factor_to_SF_1": 1.459133540953564,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.13706764623428314,
+              "face_yield": 0.940266455786305,
+              "core_shear_crimping": 0.6853382311714157,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6854549602516505
+            },
+            "bare_crimp_SF": 0.6853382311714157,
+            "design_global_SF": 0.13706764623428314,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.13706764623428314,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.6854549602516505,
+            "factor_to_SF_1": 7.29566770476782,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      }
+    },
+    {
+      "label": "K13D2U / HRH-10",
+      "geometry": {
+        "tf_m": 0.0008496384824440842,
+        "core_m": 0.020502843490852483
+      },
+      "geometry_pin_checked_against": "evidence/0e2d7bf61d20e6ee-mainline014.json",
+      "face": {
+        "name": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+        "E_Pa": 210000000000.0,
+        "sigma_Pa": 220000000.0,
+        "rho_kg_m3": 1750,
+        "tag": "QUESTIONABLE",
+        "source": "Mitsubishi Chemical K13D2U tow data https://www.m-chemical.co.jp/carbon-fiber/en/product/tow/ (935 GPa, 3.70 GPa, 2.20 g/cc); QI reduction stated in sigma_c_basis",
+        "basis": "QI laminate estimate: UD E ~ 515 GPa (Vf 0.55 rule of mixtures on 935 GPa fibre), E_QI ~ 0.41 x UD; sigma_c_QI low, pitch high-modulus laminates are compression-weak; not fibre properties"
+      },
+      "core": {
+        "name": "Hexcel HRH-10-4.8-32",
+        "rho_kg_m3": 32.0,
+        "Ec_Pa": 76000000.0,
+        "Gc_Pa": 14000000.0,
+        "crush_Pa": 1000000.0,
+        "form": "honeycomb",
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+        "note": "Aramid/phenolic honeycomb, 4.8 mm cell, 32 kg/m3. Stabilised modulus is not the continuum Ec of the wrinkling formula. W modulus is the smaller plate-shear modulus."
+      },
+      "owner": {
+        "label": "K13D2U / HRH-10",
+        "Vc": 2.59273386386948,
+        "branch": "shear_crimping",
+        "gamma_filed": 1.0,
+        "source": "MAINLINE-014 optima, kd 0.2, geometry held",
+        "tf_m": 0.0008496384824440842,
+        "core_m": 0.020502843490852483,
+        "Kc": 0.3856932691531894,
+        "filed_least_SF": 0.6519321738941608,
+        "filed_governing": "face_wrinkling",
+        "margin": 0.0,
+        "face_tag": "QUESTIONABLE",
+        "core_tag": "QUESTIONABLE",
+        "curves": {
+          "optimistic": {
+            "gamma": 1.0,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 0.6522520015991726,
+              "face_yield": 0.7832341312833628,
+              "core_shear_crimping": 0.6522520015991726,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6519321738941608
+            },
+            "bare_crimp_SF": 0.6522520015991726,
+            "design_global_SF": 0.6522520015991726,
+            "governing": "face_wrinkling",
+            "least_SF": 0.6519321738941608,
+            "second_mode": "core_shear_crimping",
+            "second_SF": 0.6522520015991726,
+            "factor_to_SF_1": 1.5339018996818938,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.13045040031983454,
+              "face_yield": 0.7832341312833628,
+              "core_shear_crimping": 0.6522520015991726,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6519321738941608
+            },
+            "bare_crimp_SF": 0.6522520015991726,
+            "design_global_SF": 0.13045040031983454,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.13045040031983454,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.6519321738941608,
+            "factor_to_SF_1": 7.665748802213169,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      }
+    },
+    {
+      "label": "AlBeMet 162 / HRH-10",
+      "geometry": {
+        "tf_m": 0.0007420460875812382,
+        "core_m": 0.017383462046877695
+      },
+      "geometry_pin_checked_against": "evidence/0e2d7bf61d20e6ee-mainline014.json",
+      "face": {
+        "name": "AlBeMet 162 (AM162, HIP)",
+        "E_Pa": 193000000000.0,
+        "sigma_Pa": 193000000.0,
+        "rho_kg_m3": 2071,
+        "tag": "QUESTIONABLE",
+        "source": "Materion AlBeMet technical data sheet https://web.archive.org/web/20171024043552/https://materion.com/[private path] (density 2.071 g/cc, E 193 GPa, HIP yield 193 MPa)",
+        "basis": "HIP tensile yield transferred to compression"
+      },
+      "core": {
+        "name": "Hexcel HRH-10-4.8-32",
+        "rho_kg_m3": 32.0,
+        "Ec_Pa": 76000000.0,
+        "Gc_Pa": 14000000.0,
+        "crush_Pa": 1000000.0,
+        "form": "honeycomb",
+        "tag": "QUESTIONABLE",
+        "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+        "note": "Aramid/phenolic honeycomb, 4.8 mm cell, 32 kg/m3. Stabilised modulus is not the continuum Ec of the wrinkling formula. W modulus is the smaller plate-shear modulus."
+      },
+      "owner": {
+        "label": "AlBeMet 162 / HRH-10",
+        "Vc": 2.078609988914942,
+        "branch": "shear_crimping",
+        "gamma_filed": 1.0,
+        "source": "MAINLINE-014 optima, kd 0.2, geometry held",
+        "tf_m": 0.0007420460875812382,
+        "core_m": 0.017383462046877695,
+        "Kc": 0.4810907314661811,
+        "filed_least_SF": 0.5539944205083944,
+        "filed_governing": "face_wrinkling",
+        "margin": 0.0,
+        "face_tag": "QUESTIONABLE",
+        "core_tag": "QUESTIONABLE",
+        "curves": {
+          "optimistic": {
+            "gamma": 1.0,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 0.5543408667668701,
+              "face_yield": 0.600099048082283,
+              "core_shear_crimping": 0.5543408667668701,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.5539944205083944
+            },
+            "bare_crimp_SF": 0.5543408667668701,
+            "design_global_SF": 0.5543408667668701,
+            "governing": "face_wrinkling",
+            "least_SF": 0.5539944205083944,
+            "second_mode": "core_shear_crimping",
+            "second_SF": 0.5543408667668701,
+            "factor_to_SF_1": 1.8050723310215133,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.11086817335337402,
+              "face_yield": 0.600099048082283,
+              "core_shear_crimping": 0.5543408667668701,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.5539944205083944
+            },
+            "bare_crimp_SF": 0.5543408667668701,
+            "design_global_SF": 0.11086817335337402,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.11086817335337402,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.5539944205083944,
+            "factor_to_SF_1": 9.019721077325455,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      }
+    },
+    {
+      "label": "SiC / Divinycell H35",
+      "geometry": {
+        "tf_m": 0.00027215364631557974,
+        "core_m": 0.04624190488644608
+      },
+      "geometry_pin_checked_against": "evidence/47f87ef8ba295b43-KC-LEVELS.json",
+      "face": {
+        "name": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+        "E_Pa": 410000000000.0,
+        "sigma_Pa": 3900000000.0,
+        "rho_kg_m3": 3100,
+        "tag": "QUESTIONABLE",
+        "source": "Saint-Gobain Hexoloy SA data https://www.ceramicsrefractories.saint-gobain.com/pt/files/4731/view (compressive 3900 MPa, flexural 380 MPa); MatWeb alpha SiC https://www.matweb.com/search/datasheet_print.aspx?matguid=dd2598e783ba4457845586b58c8ea9fb (density 3.10 g/cc, E 410 GPa)",
+        "basis": "measured compressive strength of sintered SiC; flexural strength is only ~380 MPa and governs any bending/tension path (NFI)"
+      },
+      "core": {
+        "name": "Divinycell H35",
+        "rho_kg_m3": 38.0,
+        "Ec_Pa": 40000000.0,
+        "Gc_Pa": 12000000.0,
+        "crush_Pa": 500000.0,
+        "form": "foam",
+        "tag": "QUESTIONABLE",
+        "source": "DIAB Divinycell H, H Oct 2012 rev9 SI, nominal column, via https://www.castrocompositesshop.com/en/index.php?controller=attachment&id_attachment=1020",
+        "note": "Nearest listed PVC to 32 kg/m3, not a 32 kg/m3 product. An October 2012 rev7 sheet prints compressive strength 0.45 MPa for the same grade. Nominal is used. Minimum printed compressive strength on rev9 is 0.3 MPa."
+      },
+      "owner": {
+        "label": "SiC / Divinycell H35",
+        "Vc": 1.9585516223241044,
+        "branch": "stiff_or_moderate_core",
+        "gamma_filed": 0.2,
+        "source": "MAINLINE-009b design Q 0.50 at knockdown 0.20, geometry held",
+        "tf_m": 0.00027215364631557974,
+        "core_m": 0.04624190488644608,
+        "Kc": 0.510362094418974,
+        "filed_least_SF": 0.23515931324953646,
+        "filed_governing": "global_buckling",
+        "margin": 0.05,
+        "wrinkle_Q": 0.5,
+        "note": "Already on the moderate branch. A flat 0.20 curve does not move it.",
+        "curves": {
+          "optimistic": {
+            "gamma": 0.9834206489296418,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 1.1563026221885402,
+              "face_compression": 4.4474749806324665,
+              "core_crush": 10.475499920730703,
+              "core_shear_crimping": 1.1763017784546326,
+              "face_wrinkling": 0.23516798404427022
+            },
+            "bare_crimp_SF": 1.1763017784546326,
+            "design_global_SF": 1.1563026221885402,
+            "governing": "face_wrinkling",
+            "least_SF": 0.23516798404427022,
+            "second_mode": "global_buckling",
+            "second_SF": 1.1563026221885402,
+            "factor_to_SF_1": 4.252279510172399,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.23515931324953646,
+              "face_compression": 4.4474749806324665,
+              "core_crush": 10.475499920730703,
+              "core_shear_crimping": 1.1763017784546326,
+              "face_wrinkling": 0.23516798404427022
+            },
+            "bare_crimp_SF": 1.1763017784546326,
+            "design_global_SF": 0.23515931324953646,
+            "governing": "global_buckling",
+            "least_SF": 0.23515931324953646,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.23516798404427022,
+            "factor_to_SF_1": 4.252436300232184,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      }
+    }
+  ],
+  "pins": [
+    {
+      "path": "evidence/dabc4b7b7b346e53-RESULTS.json",
+      "sha256": "dabc4b7b7b346e53004720b6cb590cd3a04774129ce20c85a3b5706b54e8c1b3",
+      "bytes": 14011
+    },
+    {
+      "path": "evidence/d9e55cf2ddd55916-INPUTS.json",
+      "sha256": "d9e55cf2ddd559160b2e6ff60f85d7e2d762e4821ca2a81662d23c41320712a2",
+      "bytes": 1919
+    },
+    {
+      "path": "unpublished-local-ref:c36e3b43702d5bf5",
+      "sha256": "d144f70add045e2cb112512bc6d41579d51b679bbd1247186ecce640e32f16c4",
+      "bytes": 1928,
+      "expected_sha256": "d144f70add045e2cb112512bc6d41579d51b679bbd1247186ecce640e32f16c4",
+      "pin_verified": true
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874,
+      "expected_sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:993e7648efa339d0",
+      "sha256": "afa3a3bf4d923ae69f4b2d0a4218d9aad2322fac3f2dcf63dace8ea0ede4e987",
+      "bytes": 949710,
+      "expected_sha256": "afa3a3bf4d923ae69f4b2d0a4218d9aad2322fac3f2dcf63dace8ea0ede4e987",
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:717949c3dcf7d36e",
+      "sha256": "863f78e7dd334219b4490e06dd5660523ae0b119b3f65f544b39e0316a1a9465",
+      "bytes": 55337,
+      "expected_sha256": "863f78e7dd334219b4490e06dd5660523ae0b119b3f65f544b39e0316a1a9465",
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:7aa0d69cd664f3e8",
+      "sha256": "a6af91db293b693fb5c111ddcc3f8c802ca0428afb7f8273a3fc2ae97fe3506c",
+      "bytes": 2142405,
+      "expected_sha256": "a6af91db293b693fb5c111ddcc3f8c802ca0428afb7f8273a3fc2ae97fe3506c",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/0e2d7bf61d20e6ee-mainline014.json",
+      "sha256": "0e2d7bf61d20e6ee2316d545ba53d8a850378379ff126a95ce8cae8181df0eb8",
+      "bytes": 85107
+    },
+    {
+      "path": "evidence/47f87ef8ba295b43-KC-LEVELS.json",
+      "sha256": "47f87ef8ba295b43c3fd0c633d3012362c097f1bc7f38165b2c9dd8d5e8f8520",
+      "bytes": 6645
+    },
+    {
+      "path": "evidence/4d22ff53856afea6-INPUTS.json",
+      "sha256": "4d22ff53856afea6f5f8094b7e439e6eecca8ea50e5271a64e74c11c6d38b061",
+      "bytes": 7030
+    },
+    {
+      "path": "evidence/cd02e4ec651bc748-RESULTS.json",
+      "sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+      "bytes": 31544
+    },
+    {
+      "path": "evidence/b84f229e5f0e7f47-RESULTS.json",
+      "sha256": "b84f229e5f0e7f47af4788c15f0a75794ddfe3bb0d9a64723031815a49dca88d",
+      "bytes": 42460
+    },
+    {
+      "path": "unpublished-local-ref:663183e5ffe45542",
+      "sha256": "6a1a55855cc2c8b0a864289518b868a0528db319739a26eacb6a4b262f110b51",
+      "bytes": 10571741
+    },
+    {
+      "path": "unpublished-local-ref:1fb569707146604b",
+      "sha256": "6fd6a6ca6a39a8c53131e4c7b4a47d3377cd3fc0b2be2dea2334df4bf45596eb",
+      "bytes": 86120
+    },
+    {
+      "path": "unpublished-local-ref:3682f6270b91fbe8",
+      "sha256": "ce26002564ed8f9a9d27cab722ab511b74bbff0a7c01caf471c3abb504f070d5",
+      "bytes": 103568
+    },
+    {
+      "path": "unpublished-local-ref:880052c313b3d32c",
+      "sha256": "9546969ebc5cf10425a5c46e5fcf60fa92e82a2ce5e0262cf5bf51303c0f552b",
+      "bytes": 87544
+    },
+    {
+      "path": "unpublished-local-ref:a4f204007c687c9a",
+      "sha256": "e293e996196677696829733606eec71dab1d4f4497295eb2cd4868af7e6b00bb",
+      "bytes": 505988
+    }
+  ],
+  "owner_result": {
+    "schema": 1,
+    "card": "MAINLINE-018",
+    "unit": "vacuum-mainline018-crimp-branch-kd-1019",
+    "status": "ESTIMATE",
+    "tag": "QUESTIONABLE",
+    "certification": "none",
+    "started_at": "2026-10-20T00:04:59-07:00",
+    "ended_at": "2026-10-20T00:04:59-07:00",
+    "question": "Does a knockdown apply on the shear-crimp branch?",
+    "answer": "The handbook applies gamma 1 for Vc >= 2 and says a continuous transition is beyond its scope. Two estimate curves are scored here. The optimistic curve keeps gamma 1 on that branch. The conservative curve keeps 0.20. Neither is a test fit.",
+    "handbook": {
+      "document": "NASA CR-1457, Sullins, Smith and Spier, 1969",
+      "url": "https://ntrs.nasa.gov/citations/19700004831",
+      "local_extract": "unpublished-local-ref:993e7648efa339d0",
+      "theory": "Section 6.2. Yao, Journal of the Aerospace Sciences, March 1962, ref 6-1, reformulated by Plantema, Sandwich Construction, Wiley, 1966, ref 6-2.",
+      "step": "Section 6.2.2, page 6-12. Vc < 2: Yd = 0.20 for hemispheres and 0.35 for ellipsoids and torispheres. Vc >= 2: Yd = 1 for those domes.",
+      "kc_boundary": "Kc is 1 - Vc/4 for Vc <= 2 and 1/Vc for Vc > 2. Both give 1/2 at Vc = 2, so Kc is continuous. Yd is not.",
+      "implementation_note": "MAINLINE-014 puts the gamma step on Vc > 2, with the Kc inequality. Page 6-12 puts Yd = 1 at Vc >= 2. No rescored row is exactly Vc = 2.",
+      "why_unity": "Page 6-7. Sensitivity decreases as Vc goes from 0 to 2. Weak-core constructions are said not to be influenced by initial imperfections, so a knockdown of unity can be applied. A continuous transitional knockdown is beyond the scope of the handbook.",
+      "dome_tests": "Section 6.2.1.2. Data very scarce. Gonzalez and Patton, North American Rockwell report SDL 468, May 1964, ref 6-4, Saturn S-II 55-inch bulkheads. Recommended 0.20 except where shear crimping occurs. The method is called best-available and not very reliable.",
+      "cylinder_weak_core": "Section 4.2, Figs 4.2-4 and 4.2-5, refs 4-2 (March and Kuenzi, FPL 1830, revised December 1957) and 4-11 (Hexcel Products status summary, 25 July 1963). Axial compression, not external pressure. All but one test exceed the gamma-1 prediction. The exception is 0.86 of predicted. Individual Vc values are not tabulated. Class is Vc >= 2. Section 2.3 says no knockdown is required because crimping is insensitive, and that neglecting face bending is conservative and can be considerable.",
+      "transfer": "QUESTIONABLE. Cylinder axial tests and a theory claim are not a sphere series at Vc > 2."
+    },
+    "curves": {
+      "optimistic": {
+        "gamma": "0.20 + 0.40 * min(Vc, 2)",
+        "at_0": 0.2,
+        "at_and_above_2": 1.0,
+        "tag": "PROJECTION",
+        "source": "Handbook endpoints on page 6-7. The linear bridge is not in the handbook.",
+        "multiplies_crimp_branch": false
+      },
+      "conservative": {
+        "gamma": "0.20",
+        "tag": "QUESTIONABLE",
+        "source": "Equation 6.2-13 extended onto Vc >= 2. The crimp exception is withheld.",
+        "multiplies_crimp_branch": true,
+        "how": "Design pressure is gamma(Vc) * Kc * (4*tf/R) * sigma_0. On the crimp branch that equals gamma times the bare crimp pressure. Bare crimp, face, crush and wrinkling are not otherwise changed. gamma replaces kd. It is not stacked on 0.20, 0.90 or 0.1407."
+      },
+      "not_scored": "The handbook step itself is the discontinuous rule, not one of the two continuous curves. A third curve at 0.86 is not scored. That 0.86 is one axial cylinder, not a sphere fit."
+    },
+    "tests": {
+      "sim_2024": {
+        "source_geometry": "EUCASS 2023-367 Figure 4, doi 10.13009/EUCASS2023-367",
+        "source_kdf": "Sim, Lee, Kim, Park and Lee, Int. J. Aerospace Engineering, 2024, doi 10.1155/2024/8765733",
+        "kdf_denominator": "Their own perfect-shell linear buckling load, not the CR-1457 allowable. Numerical, not a test.",
+        "Gc_Pa": 20000000.0,
+        "Gc_basis": "Isotropic conversion G = E/(2*(1+nu)) from the stated foam modulus 0.04 GPa and Poisson 0. The paper does not state Gc.",
+        "rows": {
+          "flat": {
+            "t_outer_m": 0.00042,
+            "t_inner_m": 0.00042,
+            "t_core_m": 0.0031,
+            "h_m": 0.0035199999999999997,
+            "R_outer_m": 0.0428,
+            "R_middle_m": 0.04083,
+            "R_over_tc": 13.170967741935483,
+            "sigma_0_Pa": 19178708418.605698,
+            "sigma_crimp_Pa": 95164362.5192012,
+            "Vc": 201.53246352841413,
+            "branch_if_handbook": "shear_crimping",
+            "Gc_for_Vc_eq_2_Pa": 2015324635.2841413,
+            "published_kdf_imperfect_over_perfect_fea": 0.22
+          },
+          "dimple": {
+            "t_outer_m": 0.00042,
+            "t_inner_m": 0.0004,
+            "t_core_m": 0.0031,
+            "h_m": 0.00351,
+            "R_outer_m": 0.0428,
+            "R_middle_m": 0.04084,
+            "R_over_tc": 13.174193548387098,
+            "sigma_0_Pa": 19119540732.73865,
+            "sigma_crimp_Pa": 96932336.74272227,
+            "Vc": 197.24625832023136,
+            "branch_if_handbook": "shear_crimping",
+            "Gc_for_Vc_eq_2_Pa": 1972462583.2023137,
+            "published_kdf_imperfect_over_perfect_fea": 0.2
+          }
+        }
+      },
+      "wagner_2020": {
+        "doi": "10.1016/j.ijpvp.2019.104015",
+        "extract": "unpublished-local-ref:717949c3dcf7d36e",
+        "sandwich_rows": "none. The extract has no occurrence of sandwich. Table 3 is monocoque spherical shells, including PVC and aluminium. No sandwich Vc is computed from it.",
+        "carried_from_004b": "Equation 7 about 0.2 for elastic monocoque shells, deep-dome bound 0.21, Krenzke and Kiernan KDF 0.11 to 0.90. QUESTIONABLE if transferred onto this sandwich."
+      },
+      "sp_8032": "Monocoque doubly curved shells. The monograph PDF was not retrieved. The cap rho = 0.14 + 3.2/lambda^2 is not a sandwich Vc curve. QUESTIONABLE transfer, already filed on MAINLINE-004.",
+      "sp_8007": "CR-1457 ref 4-4 is NASA SP-8007, September 1965, Buckling of Thin-Walled Circular Cylinders. The monograph was not opened. It is a cylinder document. No sandwich-sphere Vc series was taken from it.",
+      "plantema": "Not opened. Used only as CR-1457 ref 6-2 and ref 4-12.",
+      "imperfection_analyses": "No separate sandwich-sphere gamma(Vc) analysis with a DOI was opened. The sourced sensitivity statement is CR-1457 page 6-7. Sim 2024 is a numerical dimple study and does not report Vc."
+    },
+    "rescore": [
+      {
+        "label": "Be S-200F / HRH-10",
+        "Vc": 3.5080083728637845,
+        "branch": "shear_crimping",
+        "gamma_filed": 1.0,
+        "source": "MAINLINE-014 optima, kd 0.2, geometry held",
+        "tf_m": 0.0007929207043436264,
+        "core_m": 0.021750596068442405,
+        "Kc": 0.2850620334134618,
+        "filed_least_SF": 0.6853382311714157,
+        "filed_governing": "core_shear_crimping",
+        "margin": 0.0,
+        "face_tag": "QUESTIONABLE",
+        "core_tag": "QUESTIONABLE",
+        "curves": {
+          "optimistic": {
+            "gamma": 1.0,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 0.6853382311714157,
+              "face_yield": 0.940266455786305,
+              "core_shear_crimping": 0.6853382311714157,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6854549602516505
+            },
+            "bare_crimp_SF": 0.6853382311714157,
+            "design_global_SF": 0.6853382311714157,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.6853382311714157,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.6854549602516505,
+            "factor_to_SF_1": 1.459133540953564,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.13706764623428314,
+              "face_yield": 0.940266455786305,
+              "core_shear_crimping": 0.6853382311714157,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6854549602516505
+            },
+            "bare_crimp_SF": 0.6853382311714157,
+            "design_global_SF": 0.13706764623428314,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.13706764623428314,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.6854549602516505,
+            "factor_to_SF_1": 7.29566770476782,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      },
+      {
+        "label": "K13D2U / HRH-10",
+        "Vc": 2.59273386386948,
+        "branch": "shear_crimping",
+        "gamma_filed": 1.0,
+        "source": "MAINLINE-014 optima, kd 0.2, geometry held",
+        "tf_m": 0.0008496384824440842,
+        "core_m": 0.020502843490852483,
+        "Kc": 0.3856932691531894,
+        "filed_least_SF": 0.6519321738941608,
+        "filed_governing": "face_wrinkling",
+        "margin": 0.0,
+        "face_tag": "QUESTIONABLE",
+        "core_tag": "QUESTIONABLE",
+        "curves": {
+          "optimistic": {
+            "gamma": 1.0,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 0.6522520015991726,
+              "face_yield": 0.7832341312833628,
+              "core_shear_crimping": 0.6522520015991726,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6519321738941608
+            },
+            "bare_crimp_SF": 0.6522520015991726,
+            "design_global_SF": 0.6522520015991726,
+            "governing": "face_wrinkling",
+            "least_SF": 0.6519321738941608,
+            "second_mode": "core_shear_crimping",
+            "second_SF": 0.6522520015991726,
+            "factor_to_SF_1": 1.5339018996818938,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.13045040031983454,
+              "face_yield": 0.7832341312833628,
+              "core_shear_crimping": 0.6522520015991726,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.6519321738941608
+            },
+            "bare_crimp_SF": 0.6522520015991726,
+            "design_global_SF": 0.13045040031983454,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.13045040031983454,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.6519321738941608,
+            "factor_to_SF_1": 7.665748802213169,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      },
+      {
+        "label": "AlBeMet 162 / HRH-10",
+        "Vc": 2.078609988914942,
+        "branch": "shear_crimping",
+        "gamma_filed": 1.0,
+        "source": "MAINLINE-014 optima, kd 0.2, geometry held",
+        "tf_m": 0.0007420460875812382,
+        "core_m": 0.017383462046877695,
+        "Kc": 0.4810907314661811,
+        "filed_least_SF": 0.5539944205083944,
+        "filed_governing": "face_wrinkling",
+        "margin": 0.0,
+        "face_tag": "QUESTIONABLE",
+        "core_tag": "QUESTIONABLE",
+        "curves": {
+          "optimistic": {
+            "gamma": 1.0,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 0.5543408667668701,
+              "face_yield": 0.600099048082283,
+              "core_shear_crimping": 0.5543408667668701,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.5539944205083944
+            },
+            "bare_crimp_SF": 0.5543408667668701,
+            "design_global_SF": 0.5543408667668701,
+            "governing": "face_wrinkling",
+            "least_SF": 0.5539944205083944,
+            "second_mode": "core_shear_crimping",
+            "second_SF": 0.5543408667668701,
+            "factor_to_SF_1": 1.8050723310215133,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.11086817335337402,
+              "face_yield": 0.600099048082283,
+              "core_shear_crimping": 0.5543408667668701,
+              "core_crush": 20.950999841461407,
+              "face_wrinkling": 0.5539944205083944
+            },
+            "bare_crimp_SF": 0.5543408667668701,
+            "design_global_SF": 0.11086817335337402,
+            "governing": "core_shear_crimping",
+            "least_SF": 0.11086817335337402,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.5539944205083944,
+            "factor_to_SF_1": 9.019721077325455,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      },
+      {
+        "label": "SiC / Divinycell H35",
+        "Vc": 1.9585516223241044,
+        "branch": "stiff_or_moderate_core",
+        "gamma_filed": 0.2,
+        "source": "MAINLINE-009b design Q 0.50 at knockdown 0.20, geometry held",
+        "tf_m": 0.00027215364631557974,
+        "core_m": 0.04624190488644608,
+        "Kc": 0.510362094418974,
+        "filed_least_SF": 0.23515931324953646,
+        "filed_governing": "global_buckling",
+        "margin": 0.05,
+        "wrinkle_Q": 0.5,
+        "note": "Already on the moderate branch. A flat 0.20 curve does not move it.",
+        "curves": {
+          "optimistic": {
+            "gamma": 0.9834206489296418,
+            "tag": "PROJECTION",
+            "modes": {
+              "global_buckling": 1.1563026221885402,
+              "face_compression": 4.4474749806324665,
+              "core_crush": 10.475499920730703,
+              "core_shear_crimping": 1.1763017784546326,
+              "face_wrinkling": 0.23516798404427022
+            },
+            "bare_crimp_SF": 1.1763017784546326,
+            "design_global_SF": 1.1563026221885402,
+            "governing": "face_wrinkling",
+            "least_SF": 0.23516798404427022,
+            "second_mode": "global_buckling",
+            "second_SF": 1.1563026221885402,
+            "factor_to_SF_1": 4.252279510172399,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          },
+          "conservative": {
+            "gamma": 0.2,
+            "tag": "QUESTIONABLE",
+            "modes": {
+              "global_buckling": 0.23515931324953646,
+              "face_compression": 4.4474749806324665,
+              "core_crush": 10.475499920730703,
+              "core_shear_crimping": 1.1763017784546326,
+              "face_wrinkling": 0.23516798404427022
+            },
+            "bare_crimp_SF": 1.1763017784546326,
+            "design_global_SF": 0.23515931324953646,
+            "governing": "global_buckling",
+            "least_SF": 0.23515931324953646,
+            "second_mode": "face_wrinkling",
+            "second_SF": 0.23516798404427022,
+            "factor_to_SF_1": 4.252436300232184,
+            "crimp_allowable": "gamma(Vc) * Kc * sigma_0. On the shear-crimp branch this equals gamma(Vc) times the bare crimp stress."
+          }
+        }
+      }
+    ],
+    "p3": "PENDING-011b. Not scored.",
+    "cnt": "Not the point.",
+    "geometry": "Held. No thickness search."
+  },
+  "sim": {
+    "face_E_Pa": 210000000000.0,
+    "face_nu": 0.33,
+    "core_E_Pa": 40000000.0,
+    "core_nu": 0.0,
+    "tag": "QUESTIONABLE",
+    "source": "https://onlinelibrary.wiley.com/doi/10.1155/2024/8765733; Table 1; geometry independently inspected in pinned EUCASS2023-367 Figure 4",
+    "rows": {
+      "flat": {
+        "t_outer_m": 0.00042,
+        "t_inner_m": 0.00042,
+        "t_core_m": 0.0031,
+        "R_outer_m": 0.0428,
+        "published_kdf": 0.22,
+        "imperfect_Pa": 6030000.0,
+        "linear_perfect_Pa": 27530000.0
+      },
+      "dimple": {
+        "t_outer_m": 0.00042,
+        "t_inner_m": 0.0004,
+        "t_core_m": 0.0031,
+        "R_outer_m": 0.0428,
+        "published_kdf": 0.2,
+        "imperfect_Pa": 5630000.0,
+        "linear_perfect_Pa": 27560000.0
+      }
+    }
+  },
+  "source_coverage": {
+    "NASA": "Downloaded independently from https://ntrs.nasa.gov/api/citations/19700004831/downloads/19700004831.pdf. Visually read printed pages 6-7, 6-12, 6-14; extracted 6-3 through 6-11, 4-11/12, 2-26/33. The unequal-face factor is equation 6.2-8 / 6.2-19.",
+    "Sim2024": "Read publisher article sections 2.1, 2.3, 3.2 and conclusions. Used 27.53 MPa for flat perfect load from conclusion, consistent with stated -0.11 percent difference; section 3.2.2 repeats 27.56 MPa. Published KDFs are rounded.",
+    "geometry": "Read the pinned original EUCASS PDF and visually inspected Figure 4; no owner OCR used for dimensions.",
+    "materials": "Inherited values checked through 014, 008 and 007 data; each URL/handbook, tag and substitution is retained. Manufacturer documents are not requalified here.",
+    "assumptions": "The complete R=10 m sphere is still an estimate. External-radius convention, biaxial flat-plate transfer and stabilised core modulus are inherited; no new physical validation.",
+    "not_read": "Plantema, SP-8007, SP-8032 original texts and an independent sandwich-shell sensitivity series were not opened; those coverage gaps remain NFI."
+  }
+}

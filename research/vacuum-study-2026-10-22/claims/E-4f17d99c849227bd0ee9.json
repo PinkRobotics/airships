@@ -1,0 +1,38 @@
+{
+  "id": "E-4f17d99c849227bd0ee9",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-4f17d99c849227bd0ee9",
+    "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+    "file": "evidence/8225ec6358048fa7-NFI.json",
+    "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+    "source_sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+    "source_json_pointer": "/resolved_local/1",
+    "row_id": "CHECKER-INCOMING-WATER-CAPTURE",
+    "fields": {
+      "id": "CHECKER-INCOMING-WATER-CAPTURE",
+      "status": "RESOLVED",
+      "finding": "Initial checker left incoming water vapor in the sorbent pressure balance.",
+      "resolution": "Apply .95 capture to incoming water mole fraction 1000/p0; retain its mass aboard. All service-pressure values now match.",
+      "exact_ledger": "history/account01/ACCOUNT-MISMATCHES.json"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Initial checker left incoming water vapor in the sorbent pressure balance.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+      "artifact": "evidence/8225ec6358048fa7-NFI.json",
+      "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+      "sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+      "bytes": 11519,
+      "selector": "/resolved_local/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

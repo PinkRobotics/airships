@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline028-check-1020",
+  "card": "CHECK-028",
+  "rows": [
+    {
+      "id": "NFI-028-LEGACY-09",
+      "issue": "METHOD.md states the 020 optimistic splice mass and does not state a 0.9 face-retention screen. Fixed legacy mass matches on every panel. The stored re-optimised factor, joining mass and core fraction match only after projected joint retention is set to 0.9 times face stress capacity over demand. That screen is in the owner's calculation and is absent from METHOD.md and CARD.md.",
+      "consequence": "The legacy mass column stands. The legacy safety-factor column is the screened search, not the search under the stated modes. The other 64 combinations are unchanged. This does not stop the card.",
+      "mismatches": [
+        {
+          "row": "small_planning/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.6299541781355524,
+          "mine": 0.639505067711224
+        },
+        {
+          "row": "small_planning/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 1467.6968689823811,
+          "mine": 1467.8914866714408
+        },
+        {
+          "row": "small_planning/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.10815208007294574,
+          "mine": 0.11007879393428102
+        },
+        {
+          "row": "stock_envelope/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.7508506635092148,
+          "mine": 0.7925494288963508
+        },
+        {
+          "row": "stock_envelope/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 927.9106724326657,
+          "mine": 928.2841394008699
+        },
+        {
+          "row": "stock_envelope/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.09563067036212788,
+          "mine": 0.10180000940685648
+        },
+        {
+          "row": "1m_projection/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.7604170345217105,
+          "mine": 0.8048670458298006
+        },
+        {
+          "row": "1m_projection/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 885.144031405966,
+          "mine": 885.5080226698558
+        },
+        {
+          "row": "1m_projection/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.0948109501600442,
+          "mine": 0.10124436898037081
+        },
+        {
+          "row": "2m_projection/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.81492106071556,
+          "mine": 0.8755239411748689
+        },
+        {
+          "row": "2m_projection/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 641.3198974286786,
+          "mine": 641.5683196771447
+        },
+        {
+          "row": "2m_projection/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.09052126825386655,
+          "mine": 0.09830732502491321
+        },
+        {
+          "row": "4m_projection/legacy020_optimistic",
+          "field": "reoptimized.least_known_mode_SF",
+          "card": 0.8445359574805592,
+          "mine": 0.9142216438967713
+        },
+        {
+          "row": "4m_projection/legacy020_optimistic",
+          "field": "reoptimized.joining.total_kg",
+          "card": 508.71676119210684,
+          "mine": 508.8598451495485
+        },
+        {
+          "row": "4m_projection/legacy020_optimistic",
+          "field": "reoptimized.core_mass_fraction",
+          "card": 0.08843502938056308,
+          "mine": 0.0968606088681324
+        }
+      ],
+      "next": "State the 0.9 screen in METHOD.md, or drop it from the stored search."
+    },
+    {
+      "id": "NFI-028-SHEAR-SCREEN",
+      "issue": "The 30:1 scarf average shear is 9.421138296 MPa. The 10 MPa screen is owner-selected. Its factor at the frozen geometry is 1.061442862. No qualified allowable for this beryllium scarf was in the pinned sources.",
+      "consequence": "The shear arithmetic matches. The screen is not a certification. The card already says so.",
+      "next": "A measured scarf allowable for this face, film and thickness."
+    },
+    {
+      "id": "NFI-028-HULL-SF",
+      "issue": "The least modeled factor excludes unmeasured core-bond, seam, thermal and defect modes. Flatwise strength is not reported for AF 163-2U at 0.015 lb/ft². No source in the card qualifies the lightest joining mass.",
+      "consequence": "Qualified lightest mass and overall installed-hull factor stay unknown. The modeled table is PROJECTION and the materials are QUESTIONABLE.",
+      "next": "A weighed curved beryllium and aluminium panel tested for the missing allowables."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "E-e7fc560301f1a3234746",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-e7fc560301f1a3234746",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/5",
+    "row_id": "C029-06-FACE-YIELD-BELOW-OPERATING",
+    "fields": {
+      "id": "C029-06-FACE-YIELD-BELOW-OPERATING",
+      "state": "demonstrated with the line's QUESTIONABLE strengths",
+      "direction": "the elastic endpoints are not capacities",
+      "note": "Along the specified-dimple paths, the outer face first reaches 345 MPa von Mises (the line's SR-200 proxy) at lead021/W 57.6 kPa, lead021/L 59.4 kPa, lead021b/W 43.2 kPa, lead021b/L 45.0 kPa (0.45 to 0.62 of the 95.461 kPa operating pressure). It reaches 379.2 MPa at 61.8, 64.1, 46.8, 48.8 kPa, and the 241 MPa S200F specification minimum (Materion, the card's own cited datasheet) at 42.9, 43.8, 31.5, 32.5 kPa. For 021 the first yield is at the pole; for 021b it is on the dimple flank at r of about 350 to 420 mm. 021b's perfect-sphere face membrane stress at operating is 345.0 MPa (pR/4t_f), so it is sized exactly to the proxy. The card says face survival is not established. Without plasticity the faces already yield well below operating.",
+      "proposed_fix": "Fix card: run the specified-dimple paths with an elastic-plastic face, or stop them at a sourced sheet allowable (SR-200 or S-200F), and report first yield and collapse for 021 and 021b."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Along the specified-dimple paths, the outer face first reaches 345 MPa von Mises (the line's SR-200 proxy) at lead021/W 57.6 kPa, lead021/L 59.4 kPa, lead021b/W 43.2 kPa, lead021b/L 45.0 kPa (0.45 to 0.62 of the 95.461 kPa operating pressure). It reaches 379.2 MPa at 61.8, 64.1, 46.8, 48.8 kPa, and the 241 MPa S200F specification minimum (Materion, the card's own cited datasheet) at 42.9, 43.8, 31.5, 32.5 kPa. For 021 the first yield is at the pole; for 021b it is on the dimple flank at r of about 350 to 420 mm. 021b's perfect-sphere face membrane stress at operating is 345.0 MPa (pR/4t_f), so it is sized exactly to the proxy. The card says face survival is not established. Without plasticity the faces already yield well below operating.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/5"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

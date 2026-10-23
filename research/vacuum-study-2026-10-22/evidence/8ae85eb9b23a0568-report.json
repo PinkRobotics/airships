@@ -1,0 +1,171 @@
+{
+  "id": "rpt-ref-bba592d71d65b13cc2e5",
+  "kind": "report",
+  "from": "ref-4bc9297546b34b47e7f1",
+  "from_seat": "ref-4bc9297546b34b47e7f1",
+  "to": "sciences",
+  "cc": [
+    "co",
+    "xo",
+    "admiral-robotics-review-v2"
+  ],
+  "re": "ord-admiral-rr2-check037-codex-8497-1020",
+  "unit": "vacuum-mainline037-check-1020",
+  "at": "2026-10-20T03:06:30.343057-07:00",
+  "authority": [
+    {
+      "id": "ord-admiral-rr2-check037-codex-8497-1020"
+    }
+  ],
+  "asks": "none",
+  "next": "none",
+  "standing": "none",
+  "links_schema": 1,
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-check037-codex-8497-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ],
+  "body": "MAINLINE-037 checked with independent arithmetic; owner code was hashed only, never inspected or executed. All 541 numeric result fields have dispositions; 84 thermal/projection fields lack reproducible inputs. The 1.771734429 MPa/K term, conditional shear factors 1.678282645/0.917423153, flight-increment 1.003303481 and 70-knot 0.998441984 reproduce.\n\nTen tube-mass entries disagree: all 022c frames are SiC and use arc lengths; Ti/CFRP label fittings. Ti/Kapton-5 checks at 3280.644870 kg versus 4681.445575; Zylon-019 at 3957.588678 versus 2014.309964. Exact row/field/card/check tables are attached. Filed polynomial maxima also differ from the reported residual maxima.\n\nIncluding steady flight pressure gives 479.847608 Pa total and conditional P2 least 1.001324769. FAA includes the 0.65 VH alternative; its appendix resolves the 78-to-70-knot change. Pad logarithmic arithmetic reproduces, but the support/load model is incomplete; specified plate and pressure-headroom alternatives are supplied. Proportional restoration masses remain sensitivities.\n\nA declared thermal countermodel closes energy and cavity radiation with converged quadrature. It does not validate the missing owner temperature inputs. Thirty-five source pins and 102 numerical/integrity checks pass; 20 NFIs carry proposed fixes. QUESTIONABLE/PROJECTION throughout. Check complete; no successor named.",
+  "artifacts": [
+    {
+      "path": "evidence/c4a491fa1390853b-CARD.md",
+      "sha256": "c4a491fa1390853b148c199e08416ce50307a11b69ae9f50f1c53054d1c92934",
+      "bytes": 9774
+    },
+    {
+      "path": "evidence/064d245f24d481a0-METHOD.md",
+      "sha256": "064d245f24d481a01e2e774c921374c64947c0bdadc21c759a414e3219b78330",
+      "bytes": 8460
+    },
+    {
+      "path": "evidence/74716e54c5cbeb5f-SOURCE-AUDIT.md",
+      "sha256": "74716e54c5cbeb5f218d89451ca4057cc0d0fcb2faf0cc984ccb69476d5f8eb8",
+      "bytes": 3778
+    },
+    {
+      "path": "evidence/0dd2bf188fd8dfa7-INPUTS.json",
+      "sha256": "0dd2bf188fd8dfa7cd8e729869dd8bbabace484b2a0ea0806b4a0a31d522b4d0",
+      "bytes": 67567
+    },
+    {
+      "path": "evidence/d54da99fc733259e-RESULTS.json",
+      "sha256": "d54da99fc733259e4c6b547629bbd5c1340c701bef02f7d61b4b7bc2341a24df",
+      "bytes": 31011
+    },
+    {
+      "path": "evidence/17d9e138610b8036-AUDIT.json",
+      "sha256": "17d9e138610b803643ab71d3df14a9cfeecd4ef1ab10c17f060ff61baed2f8b3",
+      "bytes": 162483
+    },
+    {
+      "path": "evidence/8317a52c61b8d05e-AUDIT.csv",
+      "sha256": "8317a52c61b8d05e9831a1d084f7988622c2bce51e9a54766389588aba957d29",
+      "bytes": 90822
+    },
+    {
+      "path": "evidence/e5120104ce0a1677-CORRECTIONS.json",
+      "sha256": "e5120104ce0a1677cf96c1ee0fbb547ccae3e8a9cd8c86e890d2de8b355cec6e",
+      "bytes": 31535
+    },
+    {
+      "path": "evidence/aec57a57620688eb-CORRECTIONS.csv",
+      "sha256": "aec57a57620688eb9417ac8c58f44ede5b9b1d5fb956a861be2b8ff199d59b21",
+      "bytes": 19875
+    },
+    {
+      "path": "evidence/adfa644220e14293-THERMAL-COMPARISON.json",
+      "sha256": "adfa644220e14293adbaf76bc826bf7d513497d006d651715274b3be0ef47594",
+      "bytes": 105964
+    },
+    {
+      "path": "evidence/bcbfe1fd19022847-NFI.json",
+      "sha256": "bcbfe1fd1902284744421fec15238114658a385fc77b3ef5f9752260cd2a0bcd",
+      "bytes": 9158
+    },
+    {
+      "path": "evidence/e8aed69850b8e772-VALIDATION.json",
+      "sha256": "e8aed69850b8e772ab4fb720a8be24b4a9bfe80582c618611fa30578d69462ff",
+      "bytes": 18694
+    },
+    {
+      "path": "evidence/edb0e13b46b9d8d2-prepare_inputs.py",
+      "sha256": "edb0e13b46b9d8d23f354450d9d3c42d9b447783c805481dd9dd45fb791d7634",
+      "bytes": 6212
+    },
+    {
+      "path": "evidence/d04a685fa3b6bc37-check.py",
+      "sha256": "d04a685fa3b6bc37231cf861af0695422c37c46639c69197dbb36c43bc9428b3",
+      "bytes": 27197
+    },
+    {
+      "path": "evidence/5b71a8b530f42e07-thermal_comparison.py",
+      "sha256": "5b71a8b530f42e07a4e9de1572fa8c5f4b50c0d0466220129c74fe569a669c66",
+      "bytes": 6805
+    },
+    {
+      "path": "evidence/fe41ed5bd99ea52f-validate.py",
+      "sha256": "fe41ed5bd99ea52f695250580250922cc2ce8e4b6d5c2ddef1929db06f4e58ef",
+      "bytes": 3105
+    },
+    {
+      "path": "evidence/594cb89bc10603e8-publish_artifacts.py",
+      "sha256": "594cb89bc10603e8a2040260bec9ad06f13e20b87caca00a38a64edeb65ebbad",
+      "bytes": 30373
+    },
+    {
+      "path": "unpublished-local-ref:702ae086c2d03f90",
+      "sha256": "1c09f337e42c250018ce71df6797b0e29494ff56fca48b4a066908f0cec19b00",
+      "bytes": 158772
+    },
+    {
+      "path": "evidence/f845353c06e992d6-thermal-boundary-sensitivity.svg",
+      "sha256": "f845353c06e992d657a20a7953417f0e1921910e0b5699bce5eaab3e60536c57",
+      "bytes": 83223
+    },
+    {
+      "path": "evidence/c154e91211b46bce-RUN.json",
+      "sha256": "c154e91211b46bce7ec643ee28d923e6791af3356b44193f3bda5c5d1b4a65c4",
+      "bytes": 314
+    },
+    {
+      "path": "unpublished-local-ref:71d1fa0213791815",
+      "sha256": "1786f65dac62aca67250f7abc8417486f5d5f83a3216ada3a02c2eae10eb18b8",
+      "bytes": 8645722
+    },
+    {
+      "path": "unpublished-local-ref:19b9971a55f85dd1",
+      "sha256": "6c45d2e525483df95cfdbf39041522de1eb6ff25bc1402b713ccb0450bb82b1f",
+      "bytes": 209114
+    },
+    {
+      "path": "unpublished-local-ref:22c9c9a80547c375",
+      "sha256": "49479251594cf6abc78e41997a131abf69cff65328c476e557c3941047f6a9b2",
+      "bytes": 196709
+    },
+    {
+      "path": "unpublished-local-ref:02cdf37a5f5ce5ad",
+      "sha256": "1e1d2355bf80ac21c3dc378a544ba9ad9d88abd7151ef4a41c80a8ced5d6e5b5",
+      "bytes": 281092
+    },
+    {
+      "path": "unpublished-local-ref:e119845baf5d54ea",
+      "sha256": "ca6bbe5093bd141873f166658407fd14843cd319d5424973556de57fdb37f9bc",
+      "bytes": 308149
+    },
+    {
+      "path": "unpublished-local-ref:334cefc4f5d295a1",
+      "sha256": "bace32f70458ba5f683a2e4a71c68545349ceb1fcf37422ba737ee00d84269d1",
+      "bytes": 327029
+    },
+    {
+      "path": "evidence/cbccec9e64c431b5-vacuum-mainline037-check-1020.md",
+      "sha256": "cbccec9e64c431b5e3fd1f79e1dfffc232f98aef5ce06521678cf9c4e6b2e233",
+      "bytes": 1926
+    }
+  ],
+  "ingested": "2026-10-20T03:06:48-07:00"
+}

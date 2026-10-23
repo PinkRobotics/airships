@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "groups": [
+    {
+      "group": "old021-W",
+      "interpolated_initial_edges": [],
+      "recalculated": false
+    },
+    {
+      "group": "old021-L",
+      "interpolated_initial_edges": [],
+      "recalculated": false
+    },
+    {
+      "group": "current-W",
+      "interpolated_initial_edges": [],
+      "recalculated": false
+    },
+    {
+      "group": "current-L",
+      "interpolated_initial_edges": [],
+      "recalculated": false
+    },
+    {
+      "group": "old021b-W",
+      "interpolated_initial_edges": [
+        {
+          "SF": 1.0,
+          "side": "failing",
+          "run": "tol-old021b-W-a1.302271"
+        }
+      ],
+      "recalculated": true
+    },
+    {
+      "group": "old021b-L",
+      "interpolated_initial_edges": [],
+      "recalculated": false
+    },
+    {
+      "group": "fullwave-W",
+      "interpolated_initial_edges": [],
+      "recalculated": false
+    },
+    {
+      "group": "fullwave-L",
+      "interpolated_initial_edges": [],
+      "recalculated": false
+    }
+  ],
+  "method": "Every final pass/fail edge uses a native target-pressure increment. Where adaptive cutbacks skipped service, an additional linear-ramp service cap replaces interpolation."
+}

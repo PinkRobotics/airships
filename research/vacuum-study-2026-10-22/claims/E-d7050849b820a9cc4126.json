@@ -1,0 +1,43 @@
+{
+  "id": "E-d7050849b820a9cc4126",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-d7050849b820a9cc4126",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/6",
+    "row_id": "NFI-041-07",
+    "fields": {
+      "id": "NFI-041-07",
+      "status": "open",
+      "topic": "Beam idealization and initial bending coupling",
+      "evidence": [
+        "METHODS.md",
+        "frame_tools.py:response",
+        "run_verified_nonlinear.py"
+      ],
+      "finding": "The linear eigenproblem uses segment compression geometric stiffness plus the conservative pressure Hessian; it omits initial-moment coupling. The separate corotational nonlinear selected-frame calculation includes the elastic tangent. Euler-Bernoulli circular beams do not resolve local shell ovalization, shear deformation, joints, contact or composite/ceramic defects.",
+      "needed": "Cross-check with independently formulated beam/shell models and benchmark problems; resolve the relevant local and joint physics rather than treating mesh convergence alone as model validation."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The linear eigenproblem uses segment compression geometric stiffness plus the conservative pressure Hessian; it omits initial-moment coupling. The separate corotational nonlinear selected-frame calculation includes the elastic tangent. Euler-Bernoulli circular beams do not resolve local shell ovalization, shear deformation, joints, contact or composite/ceramic defects.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1041~1NFI.json/items/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

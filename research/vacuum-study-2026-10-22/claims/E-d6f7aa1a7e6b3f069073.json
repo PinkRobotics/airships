@@ -1,0 +1,40 @@
+{
+  "id": "E-d6f7aa1a7e6b3f069073",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-d6f7aa1a7e6b3f069073",
+    "report": "rpt-ref-886d25bd397d38c2f48f",
+    "file": "evidence/5c1b96854a686466-NFI.json",
+    "snapshot": "evidence/5c1b96854a686466-NFI.json",
+    "source_sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+    "source_json_pointer": "/rows/1",
+    "row_id": "C055-02",
+    "fields": {
+      "id": "C055-02",
+      "title": "Stand-in matches one elastic combination, not complete similarity",
+      "status": "open",
+      "blocking": false,
+      "tag": "QUESTIONABLE / PROJECTION",
+      "evidence": "3.103123575680 mm and yield-demand ratio 0.985992767035 reproduce for the QUESTIONABLE 89.6 MPa tensile proxy. Vc changes from 0.953213852654 to 0.858516900574, biaxial membrane stiffness increases 30.667536%, and the wrinkle margin multiplies by 4.003643932. At 9.318 mm the owner's own core-onset ratio is 1.041532306140, exceeding the text's 'within +2.6%'.",
+      "proposed_fix": "State these changes and the separate 9.318-mm yield/onset ratios; measure the formed/cured 5052-O compression response before claiming a yield interaction match."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Stand-in matches one elastic combination, not complete similarity",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-ref-886d25bd397d38c2f48f",
+      "artifact": "evidence/5c1b96854a686466-NFI.json",
+      "snapshot": "evidence/5c1b96854a686466-NFI.json",
+      "sha256": "5c1b96854a686466ae48bee7007cbb8613c66be140101bd59760eab4e50a16ac",
+      "bytes": 10632,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,469 @@
+{
+  "schema": 1,
+  "card": "CHECK-028",
+  "unit": "vacuum-mainline028-check-1020",
+  "started_at": "2026-10-20T01:29:13-07:00",
+  "ended_at": "2026-10-20T01:29:21-07:00",
+  "owner_script_executed": false,
+  "biaxial_factor": 0.6823278038280194,
+  "film_kg_m2": 0.07323641454574575,
+  "baseline": {
+    "sfs": {
+      "global_buckling": 1.0,
+      "face_compression": 1.0001831189536448,
+      "core_shear_crimping": 2.154663914751214,
+      "core_crush_inherited": 5.0558220634629825,
+      "face_wrinkling": 1.0,
+      "intracell_dimpling": 9.018853684781929,
+      "projected_scarf_average_shear": 1.0614428623995686
+    },
+    "least_known_mode_SF": 1.0,
+    "governing": "face_wrinkling",
+    "Vc": 1.0610630680728836,
+    "Kc": 0.7347342329817791,
+    "stress_Pa": 282948186.8240931,
+    "scarf_shear_Pa": 9421138.296029737,
+    "scarf_normal_Pa": 314037.94320099126
+  },
+  "stock_fixed": {
+    "bond_kg": 184.06318552973724,
+    "seams_kg": 30.176812312424374,
+    "total_kg": 214.2399978421616,
+    "seam_length_m": 2847.4618466307857,
+    "scarf_overlap_m": 0.025303441325792753,
+    "mu": {
+      "face_joint_adhesive": 0.0035444492846716485,
+      "core_splice": 0.005053344096872905,
+      "sealing": 0.002,
+      "total": 0.010597793381544554
+    }
+  },
+  "four_metre_fixed": {
+    "bond_kg": 184.06318552973724,
+    "seams_kg": 6.701180699505449,
+    "total_kg": 190.76436622924268,
+    "seam_length_m": 632.3184891654114,
+    "scarf_overlap_m": 0.025303441325792753,
+    "mu": {
+      "face_joint_adhesive": 0.0035444492846716485,
+      "core_splice": 0.005053344096872905,
+      "sealing": 0.002,
+      "total": 0.010597793381544554
+    }
+  },
+  "reoptimized_stock_af015": {
+    "core_mass_fraction": 0.09398025559934194,
+    "tf_m": 0.0008438906516034859,
+    "tc_m": 0.020219294928495272,
+    "structural_mass_kg": 4330.719962875966,
+    "joining_kg": 214.25007980164656,
+    "least_SF": 1.000640756481855,
+    "governing": "global_buckling",
+    "residual_kg": 0.0
+  },
+  "tolerance_band_both_lines_kg": {
+    "lb_0_010": 122.70879035315816,
+    "lb_0_020": 245.41758070631633
+  },
+  "route_comparisons": 270,
+  "mismatches": [
+    {
+      "row": "small_planning/legacy020_optimistic",
+      "field": "reoptimized.least_known_mode_SF",
+      "card": 0.6299541781355524,
+      "mine": 0.639505067711224
+    },
+    {
+      "row": "small_planning/legacy020_optimistic",
+      "field": "reoptimized.joining.total_kg",
+      "card": 1467.6968689823811,
+      "mine": 1467.8914866714408
+    },
+    {
+      "row": "small_planning/legacy020_optimistic",
+      "field": "reoptimized.core_mass_fraction",
+      "card": 0.10815208007294574,
+      "mine": 0.11007879393428102
+    },
+    {
+      "row": "stock_envelope/legacy020_optimistic",
+      "field": "reoptimized.least_known_mode_SF",
+      "card": 0.7508506635092148,
+      "mine": 0.7925494288963508
+    },
+    {
+      "row": "stock_envelope/legacy020_optimistic",
+      "field": "reoptimized.joining.total_kg",
+      "card": 927.9106724326657,
+      "mine": 928.2841394008699
+    },
+    {
+      "row": "stock_envelope/legacy020_optimistic",
+      "field": "reoptimized.core_mass_fraction",
+      "card": 0.09563067036212788,
+      "mine": 0.10180000940685648
+    },
+    {
+      "row": "1m_projection/legacy020_optimistic",
+      "field": "reoptimized.least_known_mode_SF",
+      "card": 0.7604170345217105,
+      "mine": 0.8048670458298006
+    },
+    {
+      "row": "1m_projection/legacy020_optimistic",
+      "field": "reoptimized.joining.total_kg",
+      "card": 885.144031405966,
+      "mine": 885.5080226698558
+    },
+    {
+      "row": "1m_projection/legacy020_optimistic",
+      "field": "reoptimized.core_mass_fraction",
+      "card": 0.0948109501600442,
+      "mine": 0.10124436898037081
+    },
+    {
+      "row": "2m_projection/legacy020_optimistic",
+      "field": "reoptimized.least_known_mode_SF",
+      "card": 0.81492106071556,
+      "mine": 0.8755239411748689
+    },
+    {
+      "row": "2m_projection/legacy020_optimistic",
+      "field": "reoptimized.joining.total_kg",
+      "card": 641.3198974286786,
+      "mine": 641.5683196771447
+    },
+    {
+      "row": "2m_projection/legacy020_optimistic",
+      "field": "reoptimized.core_mass_fraction",
+      "card": 0.09052126825386655,
+      "mine": 0.09830732502491321
+    },
+    {
+      "row": "4m_projection/legacy020_optimistic",
+      "field": "reoptimized.least_known_mode_SF",
+      "card": 0.8445359574805592,
+      "mine": 0.9142216438967713
+    },
+    {
+      "row": "4m_projection/legacy020_optimistic",
+      "field": "reoptimized.joining.total_kg",
+      "card": 508.71676119210684,
+      "mine": 508.8598451495485
+    },
+    {
+      "row": "4m_projection/legacy020_optimistic",
+      "field": "reoptimized.core_mass_fraction",
+      "card": 0.08843502938056308,
+      "mine": 0.0968606088681324
+    }
+  ],
+  "legacy_unstated_0_9_screen": [
+    {
+      "panel": "small_planning",
+      "stated_least_SF": 0.639505067711224,
+      "with_0_9_least_SF": 0.6299541781264971,
+      "stored_least_SF": 0.6299541781355524,
+      "sf_gap_with_screen": 9.055312055750164e-12,
+      "joining_gap_with_screen": 1.3067165127722546e-09,
+      "fraction_gap_with_screen": 1.249648995393926e-11
+    },
+    {
+      "panel": "stock_envelope",
+      "stated_least_SF": 0.7925494288963508,
+      "with_0_9_least_SF": 0.750850663461681,
+      "stored_least_SF": 0.7508506635092148,
+      "sf_gap_with_screen": 4.753386573241869e-11,
+      "joining_gap_with_screen": 3.429249773034826e-09,
+      "fraction_gap_with_screen": 5.642346312395574e-11
+    },
+    {
+      "panel": "1m_projection",
+      "stated_least_SF": 0.8048670458298006,
+      "with_0_9_least_SF": 0.760417034488084,
+      "stored_least_SF": 0.7604170345217105,
+      "sf_gap_with_screen": 3.3626545992149204e-11,
+      "joining_gap_with_screen": 2.218257577624172e-09,
+      "fraction_gap_with_screen": 3.944808368849806e-11
+    },
+    {
+      "panel": "2m_projection",
+      "stated_least_SF": 0.8755239411748689,
+      "with_0_9_least_SF": 0.814921060696302,
+      "stored_least_SF": 0.81492106071556,
+      "sf_gap_with_screen": 1.9258039607450428e-11,
+      "joining_gap_with_screen": 6.818936526542529e-10,
+      "fraction_gap_with_screen": 2.133783427726854e-11
+    },
+    {
+      "panel": "4m_projection",
+      "stated_least_SF": 0.9142216438967713,
+      "with_0_9_least_SF": 0.8445359574778624,
+      "stored_least_SF": 0.8445359574805592,
+      "sf_gap_with_screen": 2.6968427491169678e-12,
+      "joining_gap_with_screen": 4.416733645484783e-11,
+      "fraction_gap_with_screen": 2.866082371433265e-12
+    }
+  ],
+  "checks": [
+    {
+      "name": "baseline global_buckling",
+      "got": 1.0,
+      "expect": 1.0,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "baseline face_compression",
+      "got": 1.0001831189536448,
+      "expect": 1.0001831189536448,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "baseline core_shear_crimping",
+      "got": 2.154663914751214,
+      "expect": 2.154663914751214,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "baseline core_crush_inherited",
+      "got": 5.0558220634629825,
+      "expect": 5.0558220634629825,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "baseline face_wrinkling",
+      "got": 1.0,
+      "expect": 1.0,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "baseline intracell_dimpling",
+      "got": 9.018853684781929,
+      "expect": 9.018853684781929,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "AF 0.015 kg/m2",
+      "got": 0.07323641454574575,
+      "expect": 0.07323641454574575,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "stock bond kg",
+      "got": 184.06318552973724,
+      "expect": 184.06318552973724,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "stock seam m",
+      "got": 2847.4618466307857,
+      "expect": 2847.4618466307857,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "scarf overlap m",
+      "got": 0.025303441325792753,
+      "expect": 0.025303441325792753,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "scarf adhesive kg/m",
+      "got": 0.0035444492846716485,
+      "expect": 0.0035444492846716485,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "core splice kg/m",
+      "got": 0.005053344096872905,
+      "expect": 0.005053344096872905,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "stock seams kg",
+      "got": 30.176812312424374,
+      "expect": 30.176812312424374,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "stock total kg",
+      "got": 214.2399978421616,
+      "expect": 214.2399978421616,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "remaining vs 216.427 kg",
+      "got": 2.1871470472484873,
+      "expect": 2.1871470472484873,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "4 m total kg",
+      "got": 190.76436622924268,
+      "expect": 190.76,
+      "abs_diff": 0.004366229242691588,
+      "pass": true
+    },
+    {
+      "name": "film tolerance low kg",
+      "got": 122.70879035315816,
+      "expect": 122.71,
+      "abs_diff": -0.001209646841829226,
+      "pass": true
+    },
+    {
+      "name": "film tolerance high kg",
+      "got": 245.41758070631633,
+      "expect": 245.42,
+      "abs_diff": -0.002419293683658452,
+      "pass": true
+    },
+    {
+      "name": "scarf shear MPa",
+      "got": 9.421138296029737,
+      "expect": 9.42,
+      "abs_diff": 0.0011382960297368072,
+      "pass": true
+    },
+    {
+      "name": "scarf normal MPa",
+      "got": 0.31403794320099127,
+      "expect": 0.314,
+      "abs_diff": 3.7943200991263915e-05,
+      "pass": true
+    },
+    {
+      "name": "reopt least SF",
+      "got": 1.000640756481855,
+      "expect": 1.0006407572834681,
+      "abs_diff": -8.016132202470772e-10,
+      "pass": true
+    },
+    {
+      "name": "reopt fraction",
+      "got": 0.09398025559934194,
+      "expect": 0.09398025568605683,
+      "abs_diff": -8.671489915013098e-11,
+      "pass": true
+    },
+    {
+      "name": "reopt joining kg",
+      "got": 214.25007980164656,
+      "expect": 214.2500798137841,
+      "abs_diff": -1.2137547855672892e-08,
+      "pass": true
+    },
+    {
+      "name": "both faces N/m",
+      "got": 477304.18956952577,
+      "expect": 477304.18956952577,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "each face N/m",
+      "got": 238652.09478476288,
+      "expect": 238652.09478476288,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "face stress Pa",
+      "got": 282948186.8240931,
+      "expect": 282948186.8240931,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "radial kPa",
+      "got": 47.730418956952576,
+      "expect": 47.73041895695258,
+      "abs_diff": -7.105427357601002e-15,
+      "pass": true
+    },
+    {
+      "name": "kd 0.2 global",
+      "got": 0.33595492156083406,
+      "expect": 0.335954921560834,
+      "abs_diff": 5.551115123125783e-17,
+      "pass": true
+    },
+    {
+      "name": "weld retention need",
+      "got": 0.9998169145727671,
+      "expect": 0.9998169145727672,
+      "abs_diff": -1.1102230246251565e-16,
+      "pass": true
+    },
+    {
+      "name": "bonds-only g/m2",
+      "got": 86.11362482103863,
+      "expect": 86.11362482103863,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "local 0.10 mm normal MPa",
+      "got": 0.5116481156583237,
+      "expect": 0.5116481156583237,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "local 0.10 mm shear MPa",
+      "got": 0.23194714576510672,
+      "expect": 0.23194714576510672,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "braze shear MPa",
+      "got": 84.88445604722793,
+      "expect": 84.88445604722793,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "strap width m",
+      "got": 0.047730418956952576,
+      "expect": 0.047730418956952576,
+      "abs_diff": 0.0,
+      "pass": true
+    },
+    {
+      "name": "braze face kg/m",
+      "got": 0.0007201485650694222,
+      "expect": 0.00072,
+      "abs_diff": 1.485650694221883e-07,
+      "pass": true
+    },
+    {
+      "name": "fillet 0.10 mm kg/m2",
+      "got": 0.005669291338582678,
+      "expect": 0.005669291338582677,
+      "abs_diff": 8.673617379884035e-19,
+      "pass": true
+    },
+    {
+      "name": "fillet 0.20 mm kg/m2",
+      "got": 0.022677165354330713,
+      "expect": 0.02267716535433071,
+      "abs_diff": 3.469446951953614e-18,
+      "pass": true
+    }
+  ]
+}

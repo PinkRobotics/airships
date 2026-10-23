@@ -1,0 +1,34 @@
+{
+  "id": "A1-01",
+  "kind": "review_claim",
+  "claim": "6.03 MPa is the source paper's simulation, not a measured pressure test.",
+  "original": {
+    "id": "A1-01",
+    "card": "056",
+    "claim": "6.03 MPa is the source paper's simulation, not a measured pressure test.",
+    "why_load_bearing": "Changes validation strength of the benchmark.",
+    "disposition": "reproduces",
+    "reviewer_finding": "EUCASS2023-367 §§3.1–3.2.1: experiments validate axial compression; 6.03 MPa is a pressure-postbuckling prediction.",
+    "evidence": [
+      "sources/primary--eucass2023-367.pdf"
+    ],
+    "tag": "QUESTIONABLE / PROJECTION",
+    "physical_qualification": "open; no new hull/material qualification"
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-ref-3692687111eb9cac0c5d",
+      "artifact": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "snapshot": "evidence/0a58772dc43eef58-CLAIMS.json",
+      "sha256": "0a58772dc43eef58cdd741ae5a44b971bafea7dbfcebefc55d5b366e716ca00e",
+      "bytes": 10860,
+      "selector": "/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

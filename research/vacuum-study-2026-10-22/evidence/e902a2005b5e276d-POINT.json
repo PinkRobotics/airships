@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009d",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-20T00:07:02-07:00",
+  "ended_at": "2026-10-20T00:07:02-07:00",
+  "held_from": "rpt-ref-656730310661fdf86af6",
+  "curves_from": "rpt-ref-089ed1faaaf72118b83f",
+  "geometry_held": {
+    "tf_m": 0.000752430055433027,
+    "core_m": 0.020642305866854553,
+    "Vc": 3.328884907403892,
+    "Kc": 0.3004008933369442,
+    "branch": "shear_crimping",
+    "float_margin": 0.0499999999999999,
+    "payload_kg": 244.47210750934755,
+    "total_kg": 4644.9700426776135
+  },
+  "carried_point": "optimistic",
+  "why_carried": "On this branch the optimistic curve is gamma 1, the handbook step. The filed 009c-5 factor stands. The conservative curve is the alternative if the crimp exception is withheld. It is not a replacement geometry.",
+  "curves": {
+    "optimistic": {
+      "gamma": 1.0,
+      "tag": "PROJECTION",
+      "modes": {
+        "global_buckling": 0.6504118436805308,
+        "face_compression": 0.892251567620189,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274587998
+      },
+      "bare_crimp_SF": 0.6504118436805308,
+      "design_global_SF": 0.6504118436805308,
+      "least_SF": 0.6504118436805308,
+      "governing": "core_shear_crimping",
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6504141274587998,
+      "factor_to_SF_1": 1.5374873777531946
+    },
+    "conservative": {
+      "gamma": 0.2,
+      "tag": "QUESTIONABLE",
+      "modes": {
+        "global_buckling": 0.13008236873610618,
+        "face_compression": 0.892251567620189,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274587998
+      },
+      "bare_crimp_SF": 0.6504118436805308,
+      "design_global_SF": 0.13008236873610618,
+      "least_SF": 0.13008236873610618,
+      "governing": "core_shear_crimping",
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6504141274587998,
+      "factor_to_SF_1": 7.687436888765972
+    }
+  },
+  "p3": "PENDING-011b. Not scored.",
+  "not_folded": "rpt-mainline014b-grok-metal-honeycomb-1019 has filed. This re-run does not take that core.",
+  "kd_columns": "None. The 018 curves replace kd. They are not stacked on 0.20, 0.90 or 0.1407."
+}

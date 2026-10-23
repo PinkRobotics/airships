@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline039-stiffened-sandwich-1020",
+  "rows": [
+    {
+      "id": "N039-01",
+      "issue": "Frame adequacy is assumed, not shown",
+      "detail": "The bays are scored as clamped caps (O5) only when the stiffener rigidity EI_e/(a D_skin) is at least 10, a flat-plate order of magnitude. Mixed modes with wavelengths between a and 2a are not modelled.",
+      "to_close": "Shell FE of frame plus sandwich bays (extend 026's beam model with shell bays), then a subscale frame-bay test.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N039-02",
+      "issue": "The frame-bay knockdown is a transfer, not a measurement",
+      "detail": "SP-8032's clamped-cap lower bound (isotropic caps on rigid rings, Eq. 4/19) is applied to sandwich bays on a frame at lambda_p about 2.6, giving 0.57-0.60. No sandwich bay has been tested.",
+      "to_close": "One bay test: a 2.04 m sandwich triangle (or a subscale bay at matched lambda_p and gamma_s) on a stiff frame ring, pressure-loaded, with the shape measured.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N039-03",
+      "issue": "The stiffened-dome record does not show a higher knockdown",
+      "detail": "IDH CR-124075A p.4.1.012 gives 0.425 for heavily stiffened domes from one 1964 aluminium dome (C 0.26, plasticity suspected). CR-62257's plastic geodesic caps reached 0.57-0.64 of classical, while monocoque caps in the same program reached 0.78-0.82. SP-8032 p24 gives stiffened domes the isotropic cap curve (0.14 at a complete sphere).",
+      "to_close": "Any stiffened-sphere test at a realistic scale; until then, 0.425 is a one-test handbook value.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-04",
+      "issue": "The heavy threshold psi 28 is this seat's computation",
+      "detail": "psi (composite over skin bending) of the IDH test dome is computed from CR-62257's design values (t 0.0375, d 0.166, b 0.10 in, side 1.65 in). As-built values were not extracted.",
+      "to_close": "Read the as-built dimensions in CR-62257 Chapter V.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-05",
+      "issue": "Stiffener one-sidedness",
+      "detail": "SP-8032 warns that inside and outside stiffening can give seriously different dome results. The two-group model carries the offset in bending only, not the prebuckling-rotation coupling.",
+      "to_close": "FE with eccentric stiffeners on both sides.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-06",
+      "issue": "Transfer bending is a simply supported bound",
+      "detail": "Bays carry the lattice's pressure share to the lines by bending, taken as the centre moment of a simply supported equilateral triangle, (1+nu) q a_t^2/54. It adds 45 MPa face stress at the Be-frame bay point. Continuous bays would see less.",
+      "to_close": "Plate FE of a continuous bay over the frame.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-07",
+      "issue": "Rib-skin separation is not driven in the membrane state, but peel is unmodelled",
+      "detail": "The bond carries 0.16-0.21 MPa compression at the lattice lines. Peel in post-buckling, at rib ends and splices, and under thermal cycling is not modelled. No test exists of bonded Be ribs or tubes on a Be/aluminium-honeycomb sandwich.",
+      "to_close": "A peel and post-buckling coupon of a rib or tube on the actual sandwich.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-08",
+      "issue": "SiC on Be thermal mismatch",
+      "detail": "11.3 ppm/C (SR-200) against 4.02 ppm/K (Hexoloy-SA). The 25.1 K climate swing is included (1.83e-4 strain). Every 100 K between a hot cure and service would lock in 7.3e-4 strain, of the order of the membrane strain (about 1e-3).",
+      "to_close": "A room-temperature-cure route, or the CTE-matched Be frame (C2b).",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-09",
+      "issue": "Thin-wall tubes at the edge of the grid",
+      "detail": "The frame-bay designs pick r/t 300 tubes (0.26-0.29 mm walls). Tube local buckling (026's coefficient 0.6 x SP-8007 gamma, FIX-B) fails there (0.65 SiC, 0.78 Be). Manufacturability is unknown.",
+      "to_close": "Tube supply and local-buckling tests at r/t 150-300.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N039-10",
+      "issue": "Rib material",
+      "detail": "Tees are taken as SR-200 sheet (blade plus foot, bonded) at sheet values. A machined S-200F tee would have about 255 MPa compression (030 ledger), below the 354-377 MPa rib stress of the heavy rib designs.",
+      "to_close": "A rib route decision and coupons.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-11",
+      "issue": "The core at the lattice lines",
+      "detail": "Crush and W-direction shear at the lines use a w_bond + 2h spread. Heavy rib designs fail core shear (0.65). Local core densification is not costed.",
+      "to_close": "Local insert design and mass.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-12",
+      "issue": "Lattice joining is a projection",
+      "detail": "Ribs: a 25 mm foot under one AF 0.015 lb/ft2 line, plus 5% of rib mass for splices and nodes. Frame: a 30 mm AF land plus two 5 mm paste fillets, 026's 0.02 kg nodes, and 023's Ti sleeves (157.7 kg at 562.2 kN, 030 register R064) scaled by member force.",
+      "to_close": "A joint card for ribs or frames on the sandwich.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N039-13",
+      "issue": "The seam screen decides feasibility",
+      "detail": "028's 10 MPa mean shear on a 30:1 scarf (300.333 MPa face stress) keeps every stiffened version from SF 1. A 40:1 scarf would cap at 400 MPa for about +3 kg of film. It is not evaluated as a route, because 028b's routes are fixed.",
+      "to_close": "A seam card if stiffening is pursued.",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-14",
+      "issue": "Smeared lattice idealisation",
+      "detail": "Equal members in three directions (nu 1/3). The frequency-6 geodesic has length scatter (026's mean arc is 2.001 m) and 12 five-valent joints.",
+      "to_close": "Discrete model (026 geometry).",
+      "tag": "QUESTIONABLE"
+    },
+    {
+      "id": "N039-15",
+      "issue": "026's frame knockdown does not transfer to a skin-dominated hull",
+      "detail": "026's 0.70-0.79 of linear is computed for a frame with t_eq about 2.6 r_o = 320 mm, where 10 mm is 3% of t_eq. Here it enters only frame-dominated designs (psi >= 28), and none of them carries a skin within the lift: 026's members alone weigh 4,567 kg.",
+      "to_close": "Measure a subscale frame if a frame-dominated hull is ever in reach.",
+      "tag": "PROJECTION"
+    },
+    {
+      "id": "N039-16",
+      "issue": "The core-shear correction in the bays is standard, not tested",
+      "detail": "The thin cores of the heavy rib designs cut the plate load by about 60% (N/(1+kD/S)).",
+      "to_close": "Bay test (N039-02).",
+      "tag": "QUESTIONABLE"
+    }
+  ]
+}

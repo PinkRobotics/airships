@@ -1,0 +1,71 @@
+{
+  "id": "N080",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N080",
+    "report": "rpt-ref-d7f99cd71e977826da48",
+    "card": "MAINLINE-019",
+    "file": "evidence/fec518f4f7e18a36-NFI.json",
+    "row_id": "NFI-019-RESERVE",
+    "fields": {
+      "id": "NFI-019-RESERVE",
+      "tag": "QUESTIONABLE",
+      "status": "open",
+      "issue": "The summed margin is consumed at the declared design condition; it is not an additional residual flight contingency or positive safety factor. The cases do not form a statistical confidence interval.",
+      "next_evidence": "Specify residual operational lift reserve and contingency after the environmental/system charges; add that amount to the budget."
+    }
+  },
+  "claim": "The summed margin is consumed at the declared design condition; it is not an additional residual flight contingency or positive safety factor. The cases do not form a statistical confidence interval.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/79"
+    },
+    {
+      "report": "rpt-ref-d7f99cd71e977826da48",
+      "artifact": "evidence/fec518f4f7e18a36-NFI.json",
+      "snapshot": "evidence/fec518f4f7e18a36-NFI.json",
+      "sha256": "fec518f4f7e18a36358537fb81b179a325deb431ca2e2a02d74338a4896ea7f0",
+      "bytes": 7294,
+      "selector": "source row ID: NFI-019-RESERVE"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d7f99cd71e977826da48",
+          "artifact": "evidence/fec518f4f7e18a36-NFI.json",
+          "snapshot": "evidence/fec518f4f7e18a36-NFI.json",
+          "sha256": "fec518f4f7e18a36358537fb81b179a325deb431ca2e2a02d74338a4896ea7f0",
+          "bytes": 7294,
+          "selector": "source row ID: NFI-019-RESERVE"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/79"
+          }
+        ]
+      }
+    }
+  ]
+}

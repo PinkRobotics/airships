@@ -1,0 +1,509 @@
+{
+  "schema": "review-a1-inputs-v1",
+  "unit": "vacuum-review-a-056-062-1020",
+  "order": "ord-admiral-rr2-review-a1-dispatch-1020",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "reviewed_reports": [
+    "rpt-1228-mainline056-crushable-benchmark-1020",
+    "rpt-1228-mainline062-buildable-shape-1020"
+  ],
+  "dispatch_brief_pins": [
+    {
+      "original": {
+        "path": "withheld-source:c7200f26a0af23aa",
+        "sha256": "7c39f7d9e8d2deac020460afc8801b3028d638929d9e2ba3306afbb27d7a5ba8",
+        "bytes": 3358
+      },
+      "local_path": "withheld-source:c7200f26a0af23aa"
+    },
+    {
+      "original": {
+        "path": "withheld-source:72d75581b24faab2",
+        "sha256": "01c05c6d6ca26029893e09fcd5cb4e9557dd4b72f522201c822473757cf620e4",
+        "bytes": 1299
+      },
+      "local_path": "withheld-source:72d75581b24faab2"
+    },
+    {
+      "original": {
+        "path": "withheld-source:b528d6a62c81ce0b",
+        "sha256": "2a7909da11b7b6925f8e21d0b0c0bde49d65c76ad5ff4e3ac798f262f516666a",
+        "bytes": 6686
+      },
+      "local_path": "withheld-source:3cdd29353267a8ea"
+    },
+    {
+      "original": {
+        "path": "withheld-source:1e41db6abdc46dc9",
+        "sha256": "0ca073ecfc5861f5650ea0445dfb97bf87ff004850d7414d0cdcc282cb820d15",
+        "bytes": 5343
+      },
+      "local_path": "withheld-source:1e41db6abdc46dc9"
+    },
+    {
+      "original": {
+        "path": "unpublished-local-ref:cc845a34db50125b",
+        "sha256": "dd537cc474ed292987295ba8cdc0a170db4895a60c73f3fd42618e0174505e48",
+        "bytes": 1071
+      },
+      "local_path": "unpublished-local-ref:896331901361437c"
+    },
+    {
+      "original": {
+        "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+        "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+        "bytes": 2021
+      },
+      "local_path": "unpublished-local-ref:5729489e3f9eb660"
+    },
+    {
+      "original": {
+        "path": "unpublished-local-ref:2bf170d37c993460",
+        "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+        "bytes": 2063
+      },
+      "local_path": "unpublished-local-ref:87b9a4e39fefae9f"
+    }
+  ],
+  "filed_artifact_pins": {
+    "056": {
+      "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+      "body": "MAINLINE056 complete; QUESTIONABLE/PROJECTION. Corrected provenance: 6.03 MPa is the paper's pressure simulation, not a measured pressure test. Owned DF/J2 extension reuses pinned CHECK029 Q8 code. Refined indentation with the midsurface-radius reading gives 6.159021 MPa (+2.140%); four refined-contact indentation/radius scenarios span 6.1590–6.5023 MPa. Contact mesh refinement changes the peak -0.1156%; doubling contact penalty changes it −0.0105%. Linear gaps are +1.977% midsurface and +9.764% outer-radius. Guarded reference paths yield in the foam, then faces, before the implied virgin shear screen and turning point; no sourced PVC80 shear-rupture criterion was recovered. Gaussian early turns are distinguished from larger later peaks. Steel-axis, foam-flow, densification and imported-history uncertainties prevent unique calibration. Directional CR III crush/shear law requirements are sourced. No P2 gamma released. Raw paths, saved states, mesh/step/material checks, source snapshots, receipts and NFIs are pinned. All scopes released; no successor named.",
+      "artifacts": {
+        "CARD.md": {
+          "path": "evidence/f5b564329a854cb1-CARD.md",
+          "sha256": "f5b564329a854cb169e29eef96ad49ef290b29ac1bbd5b1a6a11bec2bf5a1e5c",
+          "bytes": 10449,
+          "local_path": "evidence/f5b564329a854cb1-CARD.md"
+        },
+        "RESULTS.json": {
+          "path": "evidence/6fa69481a000b1f5-RESULTS.json",
+          "sha256": "6fa69481a000b1f5cabd5d769ddaab3ea2727464d46cb5f59956a914ef537647",
+          "bytes": 467810,
+          "local_path": "evidence/6fa69481a000b1f5-RESULTS.json"
+        },
+        "NFI.json": {
+          "path": "evidence/298ddfd71d18cdeb-NFI.json",
+          "sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+          "bytes": 5002,
+          "local_path": "evidence/298ddfd71d18cdeb-NFI.json"
+        },
+        "INPUTS.json": {
+          "path": "evidence/609be755745e366f-INPUTS.json",
+          "sha256": "609be755745e366f347d17d4ca65716de21d32ba9f6c9a0f82cf6593896784ad",
+          "bytes": 43259,
+          "local_path": "evidence/609be755745e366f-INPUTS.json"
+        },
+        "METHOD.md": {
+          "path": "evidence/a8f73c4c084d8eb7-METHOD.md",
+          "sha256": "a8f73c4c084d8eb7cef0f217f8b87bccfcf9d1e5a1d64eff41e0854d17712715",
+          "bytes": 10445,
+          "local_path": "evidence/a8f73c4c084d8eb7-METHOD.md"
+        },
+        "HONEYCOMB-TRANSFER.md": {
+          "path": "evidence/a54c0fbffdaefa70-HONEYCOMB-TRANSFER.md",
+          "sha256": "a54c0fbffdaefa700ebd0bd84690debb79faec17bbd80c38b8b341cbc62e2569",
+          "bytes": 4297,
+          "local_path": "evidence/a54c0fbffdaefa70-HONEYCOMB-TRANSFER.md"
+        },
+        "VERIFICATION.json": {
+          "path": "evidence/d0a5946d1b55f9f7-VERIFICATION.json",
+          "sha256": "d0a5946d1b55f9f7a2b282fd713b1847959761f8bf39b2006194a0f307221df2",
+          "bytes": 9040,
+          "local_path": "evidence/d0a5946d1b55f9f7-VERIFICATION.json"
+        },
+        "EVIDENCE-AUDIT.json": {
+          "path": "evidence/9ebc584f823b6187-EVIDENCE-AUDIT.json",
+          "sha256": "9ebc584f823b61876b806318e59e0d51b2db050db34557db09085fa0029930a6",
+          "bytes": 48874,
+          "local_path": "evidence/9ebc584f823b6187-EVIDENCE-AUDIT.json"
+        },
+        "ARTIFACT-MANIFEST.json": {
+          "path": "evidence/f6f41feddb7746ac-ARTIFACT-MANIFEST.json",
+          "sha256": "f6f41feddb7746ac4bb3e316e96d57260ceb2ed85a087bdac713480068c600b8",
+          "bytes": 117015,
+          "local_path": "evidence/f6f41feddb7746ac-ARTIFACT-MANIFEST.json"
+        }
+      }
+    },
+    "062": {
+      "report": "rpt-1228-mainline062-buildable-shape-1020",
+      "body": "MAINLINE062 complete; QUESTIONABLE/PROJECTION. 047 is not admissible as a physical hull tolerance: finished-sheet compression, directional CR III crushing/unloading/mixed loading, processed bond and manufactured residual state remain unqualified. SR-200’s 290 GPa and light 2U film identity are sourced, with limits. Closed-form transfer of 057 bills gives cure-debited SF1.05 amplitudes 0.793/1.628/2.486 mm at R10/20/30; no FE sweep. Seven precedent records distinguish RMS, fit and maximum local defects. Candidate passive panel/jig/closure route has unquoted first-shell costs $66.5–477.4M/$522.8M–3.814B/$1.835–13.448B; full qualification costs remain open. Whole mass bills retain concept growth: all six cases have negative payload. Pins, arithmetic, stock takeoff and cost closure verified. Sixteen NFIs and REVIEW-A handoff included. No qualified cheapest route or P2 capacity released; no successor.",
+      "artifacts": {
+        "CARD.md": {
+          "path": "evidence/80d1151ad89df3c3-CARD.md",
+          "sha256": "80d1151ad89df3c32c7b3be4849a2ee19401b88f51f1fa5b5cda67d71505cb33",
+          "bytes": 8589,
+          "local_path": "evidence/80d1151ad89df3c3-CARD.md"
+        },
+        "RESULTS.json": {
+          "path": "evidence/edf2b92f73acfced-RESULTS.json",
+          "sha256": "edf2b92f73acfced51fa9ad1b6dff5f4714154df9d5f10f5ea3f466d17692540",
+          "bytes": 33071,
+          "local_path": "evidence/edf2b92f73acfced-RESULTS.json"
+        },
+        "NFI.json": {
+          "path": "evidence/33496447d5518061-NFI.json",
+          "sha256": "33496447d55180613afb76e9185f48a4a043524f4f98901f22a08c4f893095fa",
+          "bytes": 9036,
+          "local_path": "evidence/33496447d5518061-NFI.json"
+        },
+        "INPUTS.json": {
+          "path": "evidence/99534b24f1a8b473-INPUTS.json",
+          "sha256": "99534b24f1a8b473938ba87a5f5f806527820f928114c6740ceab6f5ed9eb1f6",
+          "bytes": 31022,
+          "local_path": "evidence/99534b24f1a8b473-INPUTS.json"
+        },
+        "ADMISSIBILITY.md": {
+          "path": "evidence/b917115da385a04c-ADMISSIBILITY.md",
+          "sha256": "b917115da385a04cb840e8d9431b4dcd331a23a9cf3bb77bfccf7072841d0576",
+          "bytes": 6260,
+          "local_path": "evidence/b917115da385a04c-ADMISSIBILITY.md"
+        },
+        "METHOD.md": {
+          "path": "evidence/0367cc200ce41c7e-METHOD.md",
+          "sha256": "0367cc200ce41c7e9580e10a245c64773e399a79824dc48f8285f7dfc45f13b7",
+          "bytes": 5963,
+          "local_path": "evidence/0367cc200ce41c7e-METHOD.md"
+        },
+        "FE-NEXT.md": {
+          "path": "evidence/d52a49f389fbf989-FE-NEXT.md",
+          "sha256": "d52a49f389fbf98917b9152e51d44e98998acd4de7fb75f2f88ab959277afc53",
+          "bytes": 3899,
+          "local_path": "evidence/d52a49f389fbf989-FE-NEXT.md"
+        },
+        "PRECEDENTS.json": {
+          "path": "evidence/e47ecdb745c4ca8a-PRECEDENTS.json",
+          "sha256": "e47ecdb745c4ca8a8dddd0ff667a61bbb9c312f95d7bbecf74bf3ea7359eb4b4",
+          "bytes": 14847,
+          "local_path": "evidence/e47ecdb745c4ca8a-PRECEDENTS.json"
+        },
+        "BUILD-ROUTE.md": {
+          "path": "evidence/d52926ad436ca81e-BUILD-ROUTE.md",
+          "sha256": "d52926ad436ca81e50a23ad4faff44848c6d0d5b640699601682fadad46ac7a4",
+          "bytes": 9022,
+          "local_path": "evidence/d52926ad436ca81e-BUILD-ROUTE.md"
+        },
+        "MASS-BILL.csv": {
+          "path": "evidence/3bd11241dd1c8622-MASS-BILL.csv",
+          "sha256": "3bd11241dd1c862268c8f878c642cbe4171f8a2b487af40cb89e38538f89e679",
+          "bytes": 7423,
+          "local_path": "evidence/3bd11241dd1c8622-MASS-BILL.csv"
+        },
+        "COST-BILL.csv": {
+          "path": "evidence/513df556aabd89f1-COST-BILL.csv",
+          "sha256": "513df556aabd89f1c3206f1053478b630d03aca40d7f07e7f9e5f6199ec1c8ec",
+          "bytes": 5323,
+          "local_path": "evidence/513df556aabd89f1-COST-BILL.csv"
+        },
+        "REVIEW.md": {
+          "path": "evidence/99444f4ab94b0224-REVIEW.md",
+          "sha256": "99444f4ab94b02241728946e716630137403c842e5b18917953696d9870ec96f",
+          "bytes": 3558,
+          "local_path": "evidence/99444f4ab94b0224-REVIEW.md"
+        },
+        "VERIFICATION.json": {
+          "path": "evidence/ccc71a0a17b9665b-VERIFICATION.json",
+          "sha256": "ccc71a0a17b9665be3782cb8c0225cc70f59cb6714adc4976631b07f60198a14",
+          "bytes": 2289,
+          "local_path": "evidence/ccc71a0a17b9665b-VERIFICATION.json"
+        },
+        "ARTIFACT-MANIFEST.json": {
+          "path": "evidence/717907c00dda567e-ARTIFACT-MANIFEST.json",
+          "sha256": "717907c00dda567e1e8741216f7ba8f196ae06ee60929df0fedcc9e1096af979",
+          "bytes": 29082,
+          "local_path": "evidence/717907c00dda567e-ARTIFACT-MANIFEST.json"
+        }
+      }
+    }
+  },
+  "specifically_used_evidence": {
+    "primary--eucass2023-367.pdf": {
+      "declared": {
+        "path": "unpublished-local-ref:5602e152ce868266",
+        "sha256": "a6af91db293b693fb5c111ddcc3f8c802ca0428afb7f8273a3fc2ae97fe3506c",
+        "bytes": 2142405
+      },
+      "read_from": "unpublished-local-ref:5602e152ce868266",
+      "local_path": "unpublished-local-ref:8d7f859a086adb0e",
+      "sha256": "a6af91db293b693fb5c111ddcc3f8c802ca0428afb7f8273a3fc2ae97fe3506c",
+      "bytes": 2142405
+    },
+    "primary--criii.pdf": {
+      "declared": {
+        "path": "unpublished-local-ref:96c557e5b43e1a3d",
+        "sha256": "0467f718f7d9d3a175635718573f94f58baea1d753e83db4be8edcba9f374034",
+        "bytes": 269874
+      },
+      "read_from": "unpublished-local-ref:96c557e5b43e1a3d",
+      "local_path": "unpublished-local-ref:27d5f2a9cf324c9f",
+      "sha256": "0467f718f7d9d3a175635718573f94f58baea1d753e83db4be8edcba9f374034",
+      "bytes": 269874
+    },
+    "primary--sr200.pdf": {
+      "declared": {
+        "path": "unpublished-local-ref:c9f9278a64c21096",
+        "sha256": "6ecf4e420ebc92c0488e38e909fab7b3a1d661d473bc34079b661f467a6246d6",
+        "bytes": 179231,
+        "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+        "access_at": "2026-10-20T16:07:13.105886+00:00"
+      },
+      "read_from": "unpublished-local-ref:c9f9278a64c21096",
+      "local_path": "unpublished-local-ref:0737e661183fecfa",
+      "sha256": "6ecf4e420ebc92c0488e38e909fab7b3a1d661d473bc34079b661f467a6246d6",
+      "bytes": 179231
+    },
+    "primary--af163.pdf": {
+      "declared": {
+        "path": "unpublished-local-ref:962eb4a13ee64565",
+        "sha256": "51b590ff614004dfa6cdbb426670af891a31f9cc2a8803b21ff003dc49a6e9bf",
+        "bytes": 357427,
+        "url": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf",
+        "access_at": "2026-10-20T16:09:12.080346+00:00"
+      },
+      "read_from": "unpublished-local-ref:962eb4a13ee64565",
+      "local_path": "unpublished-local-ref:5bc34d4662096bfa",
+      "sha256": "51b590ff614004dfa6cdbb426670af891a31f9cc2a8803b21ff003dc49a6e9bf",
+      "bytes": 357427
+    },
+    "CHECK047--RESULTS.json": {
+      "declared": {
+        "pin_list": "DEPENDENCY-PINS.json",
+        "label": "CHECK047",
+        "report": "rpt-ref-a18ff970381ef39185d1",
+        "path": "evidence/098ba45eeb99dfd4-RESULTS.json",
+        "sha256": "098ba45eeb99dfd4ad139c0068a5a495482d4d24c853ee4b9e3288571ddd528c",
+        "bytes": 30506,
+        "owned_copy": "evidence/098ba45eeb99dfd4-RESULTS.json",
+        "owned_copy_verified": true
+      },
+      "read_from": "evidence/098ba45eeb99dfd4-RESULTS.json",
+      "local_path": "evidence/098ba45eeb99dfd4-RESULTS.json",
+      "sha256": "098ba45eeb99dfd4ad139c0068a5a495482d4d24c853ee4b9e3288571ddd528c",
+      "bytes": 30506
+    },
+    "047--INPUTS.json": {
+      "declared": {
+        "pin_list": "DEPENDENCY-PINS.json",
+        "label": "047",
+        "report": "rpt-ref-e23aa05d834f8e89bb2c",
+        "path": "evidence/d4ff0fe03860ee32-INPUTS.json",
+        "sha256": "d4ff0fe03860ee32a4b52e214810c5168a4395c9c8e678a287902b3a5b412666",
+        "bytes": 3990,
+        "owned_copy": "evidence/d4ff0fe03860ee32-INPUTS.json",
+        "owned_copy_verified": true
+      },
+      "read_from": "evidence/d4ff0fe03860ee32-INPUTS.json",
+      "local_path": "evidence/d4ff0fe03860ee32-INPUTS.json",
+      "sha256": "d4ff0fe03860ee32a4b52e214810c5168a4395c9c8e678a287902b3a5b412666",
+      "bytes": 3990
+    },
+    "047--CORE-THERMAL.json": {
+      "declared": {
+        "pin_list": "DEPENDENCY-PINS.json",
+        "label": "047",
+        "report": "rpt-ref-e23aa05d834f8e89bb2c",
+        "path": "evidence/46ae4347a891ccb8-CORE-THERMAL.json",
+        "sha256": "46ae4347a891ccb8fd846c8a2645a14ac1ba15b6a1cb6359dfb288c046da313c",
+        "bytes": 27789,
+        "owned_copy": "evidence/46ae4347a891ccb8-CORE-THERMAL.json",
+        "owned_copy_verified": true
+      },
+      "read_from": "evidence/46ae4347a891ccb8-CORE-THERMAL.json",
+      "local_path": "evidence/46ae4347a891ccb8-CORE-THERMAL.json",
+      "sha256": "46ae4347a891ccb8fd846c8a2645a14ac1ba15b6a1cb6359dfb288c046da313c",
+      "bytes": 27789
+    },
+    "057--RESULTS.json": {
+      "declared": {
+        "pin_list": "DEPENDENCY-PINS.json",
+        "label": "057",
+        "report": "rpt-mainline057-opus-mass-growth-1020",
+        "path": "evidence/f7d6534d2dd6995c-RESULTS.json",
+        "sha256": "f7d6534d2dd6995cfdb22e60bc861d74a301905fed98b1e413765be72da00c19",
+        "bytes": 62327,
+        "owned_copy": "evidence/f7d6534d2dd6995c-RESULTS.json",
+        "owned_copy_verified": true
+      },
+      "read_from": "evidence/f7d6534d2dd6995c-RESULTS.json",
+      "local_path": "evidence/f7d6534d2dd6995c-RESULTS.json",
+      "sha256": "f7d6534d2dd6995cfdb22e60bc861d74a301905fed98b1e413765be72da00c19",
+      "bytes": 62327
+    },
+    "062--ASSUMPTIONS.json": {
+      "declared": {
+        "path": "evidence/6b1bd85ba30e69a4-ASSUMPTIONS.json",
+        "sha256": "6b1bd85ba30e69a437039fc690b7a7214e4d829b89ec76eaed15145feaadb6a0",
+        "bytes": 3515
+      },
+      "read_from": "evidence/6b1bd85ba30e69a4-ASSUMPTIONS.json",
+      "local_path": "evidence/6b1bd85ba30e69a4-ASSUMPTIONS.json",
+      "sha256": "6b1bd85ba30e69a437039fc690b7a7214e4d829b89ec76eaed15145feaadb6a0",
+      "bytes": 3515
+    },
+    "indent-mid192p30k-pressure--MESH.npz": {
+      "declared": {
+        "path": "unpublished-local-ref:bf7aa63dcbb7bea6",
+        "sha256": "ff38fef5b283c9f301960dd78dabf5d90b76736c6a6c560fd0dbe7481e6ae330",
+        "bytes": 137263
+      },
+      "read_from": "unpublished-local-ref:bf7aa63dcbb7bea6",
+      "local_path": "unpublished-local-ref:9a25cbfa582d082e",
+      "sha256": "ff38fef5b283c9f301960dd78dabf5d90b76736c6a6c560fd0dbe7481e6ae330",
+      "bytes": 137263
+    },
+    "indent-mid192p30k-pressure--PEAK.npz": {
+      "declared": {
+        "path": "unpublished-local-ref:5707efef7f92ca34",
+        "sha256": "74741da9f14c3a4be9e6457455b74fee5560fbf9519da7677f293b8f9fb460e0",
+        "bytes": 394253
+      },
+      "read_from": "unpublished-local-ref:5707efef7f92ca34",
+      "local_path": "unpublished-local-ref:78e1e928d1509579",
+      "sha256": "74741da9f14c3a4be9e6457455b74fee5560fbf9519da7677f293b8f9fb460e0",
+      "bytes": 394253
+    },
+    "indent-mid192p30k-pressure--MODEL.json": {
+      "declared": {
+        "path": "evidence/9c65ccdd15d23f9e-MODEL.json",
+        "sha256": "9c65ccdd15d23f9e45f732907a37bc9d1ddd7b360f51f72880422f0ff0731ac7",
+        "bytes": 750
+      },
+      "read_from": "evidence/9c65ccdd15d23f9e-MODEL.json",
+      "local_path": "evidence/9c65ccdd15d23f9e-MODEL.json",
+      "sha256": "9c65ccdd15d23f9e45f732907a37bc9d1ddd7b360f51f72880422f0ff0731ac7",
+      "bytes": 750
+    },
+    "indent-mid192p30k-pressure--PATH.jsonl": {
+      "declared": {
+        "path": "unpublished-local-ref:28f5c989039aaf04",
+        "sha256": "c2e02317db8d1a5b504b8981a70044e3f6a8d7f7c0f14a6392dfe5de75aa7017",
+        "bytes": 1296273
+      },
+      "read_from": "unpublished-local-ref:28f5c989039aaf04",
+      "local_path": "unpublished-local-ref:c34c0324093a0afe",
+      "sha256": "c2e02317db8d1a5b504b8981a70044e3f6a8d7f7c0f14a6392dfe5de75aa7017",
+      "bytes": 1296273
+    },
+    "indent-mid96p30k-pressure--PATH.jsonl": {
+      "declared": {
+        "path": "unpublished-local-ref:8bce61a71beea957",
+        "sha256": "426c16fad8495bc751dc9b79fa4c1faef21745cd965dee9701e447162e4b58c8",
+        "bytes": 785510
+      },
+      "read_from": "unpublished-local-ref:8bce61a71beea957",
+      "local_path": "unpublished-local-ref:c489ed17eb7033ad",
+      "sha256": "426c16fad8495bc751dc9b79fa4c1faef21745cd965dee9701e447162e4b58c8",
+      "bytes": 785510
+    },
+    "indent-mid96p60k-pressure--PATH.jsonl": {
+      "declared": {
+        "path": "unpublished-local-ref:59d952959a424d6c",
+        "sha256": "a01a984ecc3cc989e68bab8a4f12e74a1eb2988a0dae6f48a7a2443d2305d330",
+        "bytes": 793760
+      },
+      "read_from": "unpublished-local-ref:59d952959a424d6c",
+      "local_path": "unpublished-local-ref:aa160411f714ae15",
+      "sha256": "a01a984ecc3cc989e68bab8a4f12e74a1eb2988a0dae6f48a7a2443d2305d330",
+      "bytes": 793760
+    },
+    "indent-outer96p30k-pressure--PATH.jsonl": {
+      "declared": {
+        "path": "unpublished-local-ref:bda22b0abbb9c122",
+        "sha256": "39c789dd12ff8c055bc7bcdf1cec82337fdedd24e61e9294239b0d29b37266c7",
+        "bytes": 794595
+      },
+      "read_from": "unpublished-local-ref:bda22b0abbb9c122",
+      "local_path": "unpublished-local-ref:aa1b8493b8aa580f",
+      "sha256": "39c789dd12ff8c055bc7bcdf1cec82337fdedd24e61e9294239b0d29b37266c7",
+      "bytes": 794595
+    },
+    "057--mga057.json": {
+      "declared": {
+        "pin_list": "DEPENDENCY-PINS.json",
+        "label": "057",
+        "report": "rpt-mainline057-opus-mass-growth-1020",
+        "path": "evidence/ac083116cfed2f4d-mga057.json",
+        "sha256": "ac083116cfed2f4dedbaea209f9902bfeefd03ff9742b1c3f44d28f4a43158b2",
+        "bytes": 2849327,
+        "owned_copy": "evidence/ac083116cfed2f4d-mga057.json",
+        "owned_copy_verified": true
+      },
+      "read_from": "evidence/ac083116cfed2f4d-mga057.json",
+      "local_path": "evidence/ac083116cfed2f4d-mga057.json",
+      "sha256": "ac083116cfed2f4dedbaea209f9902bfeefd03ff9742b1c3f44d28f4a43158b2",
+      "bytes": 2849327
+    },
+    "primary--sii-lessons.pdf": {
+      "declared": {
+        "path": "unpublished-local-ref:7f88e042045f0cb4",
+        "sha256": "bb091302c2ada4486232578865190bee02d415bea74a80c851cc5db6a9586b54",
+        "bytes": 39308402,
+        "url": "https://ntrs.nasa.gov/api/citations/19720008130/downloads/19720008130.pdf",
+        "access_at": "2026-10-20T16:09:12.078655+00:00"
+      },
+      "read_from": "unpublished-local-ref:7f88e042045f0cb4",
+      "local_path": "unpublished-local-ref:12e86812206885ca",
+      "sha256": "bb091302c2ada4486232578865190bee02d415bea74a80c851cc5db6a9586b54",
+      "bytes": 39308402
+    },
+    "primary--alma-prototypes.pdf": {
+      "declared": {
+        "path": "unpublished-local-ref:da19415f2fdb7ebe",
+        "sha256": "d1f8e416a8afe353375463a03151b578cde7b2a7917065b7d029a7db314feb3d",
+        "bytes": 4113380,
+        "url": "https://arxiv.org/pdf/astro-ph/0609329",
+        "access_at": "2026-10-20T16:07:10.725962+00:00"
+      },
+      "read_from": "unpublished-local-ref:da19415f2fdb7ebe",
+      "local_path": "unpublished-local-ref:c0b7adf5e5c4d971",
+      "sha256": "d1f8e416a8afe353375463a03151b578cde7b2a7917065b7d029a7db314feb3d",
+      "bytes": 4113380
+    }
+  },
+  "source_observations": [
+    {
+      "claim": "6.03 MPa provenance",
+      "url": "https://www.eucass.eu/doi/EUCASS2023-367.pdf",
+      "locator": "PDF pp.6–7, §§3.1–3.2.1",
+      "access": "Browser open unavailable; pinned primary PDF independently read."
+    },
+    {
+      "claim": "SR-200 scalar modulus/product limits",
+      "url": "https://hkvxni.files.cmp.optimizely.com/download/c3370ecef75e11eeb4768ed6ed17dca6",
+      "locator": "PDF pp.1–3",
+      "access": "Browser open unavailable; pinned primary PDF independently read."
+    },
+    {
+      "claim": "2U identity and 200°F table",
+      "url": "https://multimedia.3m.com/mws/media/282041O/3m-scotch-weld-structural-adhesive-film-af-163-2-af-163-3.pdf",
+      "locator": "PDF pp.1,15",
+      "access": "Browser and pinned primary PDF."
+    },
+    {
+      "claim": "Directional core anchors",
+      "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "locator": "Table II, PDF p.5",
+      "access": "Browser and pinned primary PDF."
+    },
+    {
+      "claim": "ALMA accuracy metric",
+      "url": "https://arxiv.org/pdf/astro-ph/0609329",
+      "locator": "PDF pp.8,12–14; Table 2 and Figs.4,6 captions",
+      "access": "Pinned primary PDF spot check."
+    },
+    {
+      "claim": "S-II core-to-face fit",
+      "url": "https://ntrs.nasa.gov/api/citations/19720008130/downloads/19720008130.pdf",
+      "locator": "PDF p.296, printed 4-45",
+      "access": "Pinned primary PDF spot check."
+    }
+  ],
+  "independence": {
+    "owner_code_read": false,
+    "owner_code_executed": false,
+    "owner_saved_states_used": true,
+    "owner_result_tables_used_as_comparison": true,
+    "new_code": "Own virtual-work, linear eigenproblem and arithmetic scripts."
+  }
+}

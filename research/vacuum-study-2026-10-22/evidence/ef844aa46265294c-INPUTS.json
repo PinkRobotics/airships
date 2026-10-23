@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline026-p3-lattice-model-1020",
+  "tag": "QUESTIONABLE",
+  "authority": "ord-admiral-rr2-mainline026-dispatch-1019",
+  "time_budget": null,
+  "phase_budget": null,
+  "source_pins": [
+    {
+      "path": "intake/dispatch.json",
+      "sha256": "5fc539d3f5aa658b14fea980fa67308d731a631a6b8b738d8626ab605613c6e4",
+      "bytes": 3261
+    },
+    {
+      "path": "intake/CARD-026-P3-LATTICE-MODEL.md",
+      "sha256": "8c4005c1ba885dfe1cd4fbc79003373e8f6d0b38c44a00648c8d231f173f78e2",
+      "bytes": 2181
+    },
+    {
+      "path": "intake/COMMON.md",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "path": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021
+    },
+    {
+      "path": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063
+    },
+    {
+      "path": "intake/011b/RESULTS.json",
+      "sha256": "e922d008b9c113efe498dfdde867a403730a236a3bdcf3cac4d437c790358f10",
+      "bytes": 137746
+    },
+    {
+      "path": "intake/011b/INPUTS.json",
+      "sha256": "b89b24ce6d204323fdbebdda08e89b47d88f62edb63602f7db63f3586272fa27",
+      "bytes": 3342
+    },
+    {
+      "path": "intake/011b/CARD.md",
+      "sha256": "8d1c42afdeb216fd59701f50cfdf0d8301f5feb92ce443bf64a4e9253814a0d6",
+      "bytes": 8843
+    }
+  ],
+  "physical_inputs": {
+    "radius_m": 10,
+    "pressure_Pa": 95460.8379139,
+    "target_spacing_m": 2.04,
+    "E_Pa": 410000000000,
+    "poisson_ratio": 0.14,
+    "density_kg_m3": 3100,
+    "outer_radius_m": 0.12368836237368608,
+    "wall_m": 0.0008802990936851718,
+    "lift_allowance_kg": 4889.442150189999,
+    "film_mass_inherited_kg": 97.515,
+    "node_allowance_kg_each": 0.02,
+    "joint_allowance_fraction_of_member_mass": 0.05,
+    "systems_allowance_kg": 50,
+    "compressive_typical_strength_Pa": 3900000000,
+    "inherited_local_shell_coefficient": 0.6
+  },
+  "geometry_selection": "exact primary_joints_on / SiC-alpha-Hexoloy-SA / equilateral_triangular / k=0.2 point from pinned 011b RESULTS; independently generated frequency-6 geodesic",
+  "primary_linear_mesh_segments_per_member": [
+    3,
+    6,
+    12,
+    24
+  ],
+  "nonlinear_imperfections": {
+    "tag": "PROJECTION",
+    "nodes_max_offset_m": 0.01,
+    "member_nominal_sinusoidal_amplitude_m": 0.00204,
+    "eigenmode_max_point_offset_m": 0.01,
+    "random_seed": 20261020,
+    "patterns": "separate deterministic stress-free geometries; no combined imperfection, ensemble or worst-case guarantee"
+  },
+  "idealizations": {
+    "tag": "PROJECTION",
+    "joints": [
+      "perfectly_rigid",
+      "freely_rolling_ball_pinned"
+    ],
+    "beam": "Euler-Bernoulli circular section, small material strain, no cracking or local shell instability",
+    "film": "conservative centroid-fan pressure line-load transfer; zero membrane material stiffness",
+    "construction": "stress-free reference curves with exact assigned properties"
+  },
+  "material_source_difference": "archived current primary Hexoloy-SA sheet E=430 GPa, nu=0.14; preserve dispatched inherited E=410 GPa, adopt primary nu=0.14 for torsion; not an allowable",
+  "execution": {
+    "cpu_only": true,
+    "cores_per_invocation": 1,
+    "all_numeric_library_threads": 1,
+    "python": "ref-81e2f24e4e80426e80f0",
+    "admission": "unpublished-local-ref:6b66f99ebd630954 run",
+    "scratch": "each own execution/<label>/scratch",
+    "task_time_cap": null
+  },
+  "sources": [
+    {
+      "file": "corotational-paper.pdf",
+      "url": "https://romanvetter.ethz.ch/publications/papers/2/preprint.pdf",
+      "sha256": "a02711b6b91b22390307e6b29f5fffda752192f3239b4ed42c94369a44a7eea5",
+      "bytes": 516524,
+      "retrieved_utc": "2026-10-20T07:45:27.143720+00:00"
+    },
+    {
+      "file": "Hexoloy-SA.pdf",
+      "url": "https://www.ceramicsrefractories.saint-gobain.com/sites/hps-mac3-cma-pcr/files/assetbank_media/hexoloy-sa-sic-en-1013-tds-215398.pdf",
+      "sha256": "07d24a91676b3ee5e06087220174e511b39e4aaea5a0a66986fbdf123b8a6add",
+      "bytes": 195833,
+      "retrieved_utc": "2026-10-20T07:45:27.654848+00:00"
+    },
+    {
+      "file": "scipy-eigsh.html",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.eigsh.html",
+      "sha256": "945c08425eced60ed021760f5627a806fe81c0ba72b4fefae811fc07699971d0",
+      "bytes": 47581,
+      "retrieved_utc": "2026-10-20T07:45:28.029771+00:00"
+    },
+    {
+      "file": "beam-buckling-fenics.html",
+      "url": "https://comet-fenics.readthedocs.io/en/latest/demo/beam_buckling/beam_buckling.html",
+      "sha256": "a2baca57a4da25b67fc1453ae8dfe7e3aeca4c85af4dbdfa7df7e1554b2cc16d",
+      "bytes": 126221,
+      "retrieved_utc": "2026-10-20T07:45:28.201390+00:00"
+    }
+  ]
+}

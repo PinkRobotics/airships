@@ -1,0 +1,33 @@
+{
+  "id": "A2-10",
+  "kind": "review_claim",
+  "claim": "87354 complete hours; all24 UTC hours and omitted exclusions",
+  "original": {
+    "id": "A2-10",
+    "card": "058",
+    "claim": "87354 complete hours; all24 UTC hours and omitted exclusions",
+    "why_load_bearing": "Determines denominator and prevents weather coverage becoming availability",
+    "outcome": "it reproduces",
+    "finding": "All 87648 processed hours give 87354 complete T/Tdew/SLP hours and 3559 complete 24-hour UTC days; 93 calendar days are excluded. All eight sampled original hour/day counts match exactly. The 24 raw NOAA spot observations also match. Exclusions remain explicit.",
+    "evidence": [
+      "checks/058-COVERAGE-height27.29-humidityTrue.json",
+      "NFI.json"
+    ]
+  },
+  "numerical_status": "reproduced",
+  "source_disposition": "it reproduces",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "Conditional numerical/source finding only. Corrections are separately UNREVIEWED; no installed capacity is released.",
+  "sources": [
+    {
+      "report": "rpt-1228-review-a-058-061-1020",
+      "artifact": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "snapshot": "evidence/6573f93e8fabbb35-RESULTS.json",
+      "sha256": "6573f93e8fabbb359231bed5a330a01f0e661f50b547e0fc474b15e2a42704d5",
+      "bytes": 10059,
+      "selector": "/claims/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

@@ -1,0 +1,189 @@
+{
+  "factor": 1.1,
+  "SF": 1,
+  "criterion": "min(endpoint/1.1,first face yield,first minimum-average core shear)",
+  "global_bracket": {
+    "group": "old021b",
+    "meridian": "W",
+    "width_mm": 401.8559050423529,
+    "passing": {
+      "run": "cfull-old021b-W-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 95.52354545454546,
+      "endpoint_kPa": 105.0759,
+      "face_yield_bracket": [
+        100.80000000000001,
+        104.39999999999999
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.17236893232920902,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 105.0759
+      }
+    },
+    "failing": {
+      "run": "cfull-old021b-W-y345-a0.538967-nu0.0768",
+      "amplitude_mm": 0.538967,
+      "capacity_kPa": 95.38216363636364,
+      "endpoint_kPa": 104.92038000000001,
+      "face_yield_bracket": [
+        102.7125,
+        103.61250000000001
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.17236893232920902,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 104.92038000000001
+      }
+    },
+    "estimate_mm": 0.528950598924113,
+    "rms_estimate_mm": 0.007514693161768268
+  },
+  "common_passing_checks": [
+    {
+      "label": "old021",
+      "meridian": "W",
+      "width_mm": 332.2164186283597,
+      "run": "cfull-old021-W-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 95.66615454545455,
+      "endpoint_kPa": 105.23277,
+      "face_yield_bracket": [
+        100.80000000000001,
+        104.39999999999999
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.17236893232920902,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 105.23277
+      }
+    },
+    {
+      "label": "old021",
+      "meridian": "L",
+      "width_mm": 332.2164186283597,
+      "run": "cfull-old021-L-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 97.65842727272725,
+      "endpoint_kPa": 107.42426999999999,
+      "face_yield_bracket": [
+        104.39999999999999,
+        105.3
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.31026407819257623,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 107.42426999999999
+      }
+    },
+    {
+      "label": "current",
+      "meridian": "W",
+      "width_mm": 347.1529189444301,
+      "run": "cfull-current-W-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 95.6109109090909,
+      "endpoint_kPa": 105.172002,
+      "face_yield_bracket": [
+        100.80000000000001,
+        104.39999999999999
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.17236893232920902,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 105.172002
+      }
+    },
+    {
+      "label": "current",
+      "meridian": "L",
+      "width_mm": 347.1529189444301,
+      "run": "cfull-current-L-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 97.57796727272726,
+      "endpoint_kPa": 107.335764,
+      "face_yield_bracket": [
+        104.39999999999999,
+        105.3
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.31026407819257623,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 107.335764
+      }
+    },
+    {
+      "label": "old021b",
+      "meridian": "W",
+      "width_mm": 401.8559050423529,
+      "run": "cfull-old021b-W-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 95.52354545454546,
+      "endpoint_kPa": 105.0759,
+      "face_yield_bracket": [
+        100.80000000000001,
+        104.39999999999999
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.17236893232920902,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 105.0759
+      }
+    },
+    {
+      "label": "old021b",
+      "meridian": "L",
+      "width_mm": 401.8559050423529,
+      "run": "cfull-old021b-L-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 97.36543636363635,
+      "endpoint_kPa": 107.10198,
+      "face_yield_bracket": [
+        101.81250000000001,
+        105.4125
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.31026407819257623,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 107.10198
+      }
+    },
+    {
+      "label": "fullwave",
+      "meridian": "W",
+      "width_mm": 2181.4248249368884,
+      "run": "cfull-fullwave-W-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 99.47286,
+      "endpoint_kPa": 109.420146,
+      "face_yield_bracket": [
+        109.371096,
+        109.392192
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.17236893232920902,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 109.420146
+      }
+    },
+    {
+      "label": "fullwave",
+      "meridian": "L",
+      "width_mm": 2181.4248249368884,
+      "run": "cfull-fullwave-L-y345-a0.520967-nu0.0768",
+      "amplitude_mm": 0.520967,
+      "capacity_kPa": 99.47755636363635,
+      "endpoint_kPa": 109.42531199999999,
+      "face_yield_bracket": [
+        109.371096,
+        109.392192
+      ],
+      "core_shear_crossing": {
+        "strength_MPa": 0.31026407819257623,
+        "bracket_kPa": null,
+        "not_reached_through_kPa": 109.42531199999999
+      }
+    }
+  ],
+  "caveat": "Conditional transfer only; CHECK-029 identifies predecessor foam-law artifacts. This is not physical calibration."
+}

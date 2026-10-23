@@ -1,0 +1,37 @@
+{
+  "id": "E-1175bc8f7b9af76718f0",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-1175bc8f7b9af76718f0",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/1",
+    "row_id": "C029-02-EUCASS-LINEAR-GAP",
+    "fields": {
+      "id": "C029-02-EUCASS-LINEAR-GAP",
+      "state": "candidates computed; cause not established",
+      "direction": "benchmark",
+      "note": "The linear gap (30.21717 against the paper's 27.53 MPa) is not the mesh, which is converged, and not the load stiffness, which raises the value by 1.70%. It is not the through-thickness discretization either. Two candidates fit. (a) Fig. 4(a) draws the 42.80 mm radius arrow to a point inside the wall, so the reference surface is not stated. Read as the mid-surface radius, it gives 28.076 / 28.061 MPa (+2.0% / +1.8%), closing about 80% of the gap. Read at the foam/outer-face interface, it gives 29.738 / 29.715. (b) E_steel of about 187 GPa closes it (190 GPa gives 27.877, 200 GPa gives 29.049), but Table 1 states 210 GPa. A third candidate, the paper's own discretization (about 2 foam solids through 3.1 mm, 1.04 mm continuum-shell faces, tie constraints), was not tested."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The linear gap (30.21717 against the paper's 27.53 MPa) is not the mesh, which is converged, and not the load stiffness, which raises the value by 1.70%. It is not the through-thickness discretization either. Two candidates fit. (a) Fig. 4(a) draws the 42.80 mm radius arrow to a point inside the wall, so the reference surface is not stated. Read as the mid-surface radius, it gives 28.076 / 28.061 MPa (+2.0% / +1.8%), closing about 80% of the gap. Read at the foam/outer-face interface, it gives 29.738 / 29.715. (b) E_steel of about 187 GPa closes it (190 GPa gives 27.877, 200 GPa gives 29.049), but Table 1 states 210 GPa. A third candidate, the paper's own discretization (about 2 foam solids through 3.1 mm, 1.04 mm continuum-shell faces, tie constraints), was not tested.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/1"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

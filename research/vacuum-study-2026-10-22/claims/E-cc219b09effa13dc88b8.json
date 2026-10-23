@@ -1,0 +1,44 @@
+{
+  "id": "E-cc219b09effa13dc88b8",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-cc219b09effa13dc88b8",
+    "report": "rpt-1228-mainline062-buildable-shape-1020",
+    "file": "evidence/33496447d5518061-NFI.json",
+    "snapshot": "evidence/33496447d5518061-NFI.json",
+    "source_sha256": "33496447d55180613afb76e9185f48a4a043524f4f98901f22a08c4f893095fa",
+    "source_json_pointer": "/issues/3",
+    "row_id": "NFI-062-04",
+    "fields": {
+      "id": "NFI-062-04",
+      "key": "core-nonlinear",
+      "status": "open",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "severity": "critical",
+      "issue": "Peak/crush scalars do not provide peak-to-densification, unloading, mixed loading or damage laws.",
+      "closure_evidence": "Supply CR III normal/shear cycles and mixed tests at actual thickness, ribbon direction, venting and bonded/cured condition.",
+      "inputs": [
+        "056"
+      ],
+      "detail": "FE-NEXT.md"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Peak/crush scalars do not provide peak-to-densification, unloading, mixed loading or damage laws.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline062-buildable-shape-1020",
+      "artifact": "evidence/33496447d5518061-NFI.json",
+      "snapshot": "evidence/33496447d5518061-NFI.json",
+      "sha256": "33496447d55180613afb76e9185f48a4a043524f4f98901f22a08c4f893095fa",
+      "bytes": 9036,
+      "selector": "/issues/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

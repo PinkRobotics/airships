@@ -1,0 +1,84 @@
+{
+  "id": "D007",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D007",
+    "report": "rpt-ref-14993e3c2e5e64177c8f",
+    "file": "evidence/baff59a164490001-NFI.json",
+    "snapshot": "evidence/baff59a164490001-NFI.json",
+    "source_sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+    "source_json_pointer": "/items/3",
+    "row_id": "NFI-043F-04",
+    "fields": {
+      "id": "NFI-043F-04",
+      "status": "partially addressed",
+      "topic": "Actual end moments and joint stresses",
+      "finding": "The fold uses actual FE end moments and correlated axial/bending/torsional demands. It does not add the older dimensional joint proxy. Each design has 1500 end interfaces, with source joints sized to the target and no extra scalar reserve.",
+      "remaining": "Joint rotational stiffness, local contact, SiC end damage, adhesive peel, shear-induced principal tension, hoop stress and residual stress still require resolved fields and qualification.",
+      "related_prior": [
+        "NFI-043-03",
+        "NFI-043-04"
+      ],
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/items",
+    "blocks_progress": false
+  },
+  "claim": "The fold uses actual FE end moments and correlated axial/bending/torsional demands. It does not add the older dimensional joint proxy. Each design has 1500 end interfaces, with source joints sized to the target and no extra scalar reserve.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/967"
+    },
+    {
+      "report": "rpt-ref-14993e3c2e5e64177c8f",
+      "artifact": "evidence/baff59a164490001-NFI.json",
+      "snapshot": "evidence/baff59a164490001-NFI.json",
+      "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+      "bytes": 6222,
+      "selector": "/items/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-14993e3c2e5e64177c8f",
+          "artifact": "evidence/baff59a164490001-NFI.json",
+          "snapshot": "evidence/baff59a164490001-NFI.json",
+          "sha256": "baff59a1644900017c933628d180c8d03500ac8455d62fef5e7a3b6a78c42b82",
+          "bytes": 6222,
+          "selector": "/items/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/967"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "N231",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N231",
+    "report": "rpt-ref-2519e14e5d71b9eb18f3",
+    "card": "MAINLINE-028",
+    "file": "evidence/4a6f636dbfa17be3-NFI.json",
+    "row_id": "NFI-028-10",
+    "fields": {
+      "id": "NFI-028-10",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE",
+      "technology_state": "exists_today",
+      "hull_adoption_state": "PROJECTION",
+      "assumption": "Electron-beam seam retention",
+      "today_value": "Be EB process exists; matching thin-sheet compression evidence unknown. 100% retention is a projection; 80% is a sensitivity.",
+      "required_or_budget_target": {
+        "required_retention_at_original_gauge": 0.9998169145727672,
+        "SF_with_assumed_80pct_reoptimized": 0.8529780485063345
+      },
+      "needed_evidence": "Establish weld/HAZ compression, ductility, full penetration, distortion and leak integrity; account reinforcement/repair mass.",
+      "scenario": "lab8_eb_eta1",
+      "scenario_joining_kg": 39.492661922586976,
+      "factor_to_216_427kg_allowance": 0.18247554826252008,
+      "mass_reduction_factor_to_fit": 1
+    }
+  },
+  "claim": "{\"id\": \"NFI-028-10\", \"status\": \"OPEN\", \"tag\": \"QUESTIONABLE\", \"technology_state\": \"exists_today\", \"hull_adoption_state\": \"PROJECTION\", \"assumption\": \"Electron-beam seam retention\", \"today_value\": \"Be EB process exists; matching thin-sheet compression evidence unknown. 100% retention is a projection; 80% is a sensitivity.\", \"required_or_budget_target\": {\"required_retention_at_original_gauge\": 0.9998169145727672, \"SF_with_assumed_80pct_reoptimized\": 0.8529780485063345}, \"needed_evidence\": \"Establish weld/HAZ compression, ductility, full penetration, distortion and leak integrity; account reinforcement/repair mass.\", \"scenario\": \"lab8_eb_eta1\", \"scenario_joining_kg\": 39.492661922586976, \"factor_to_216_427kg_allowance\": 0.18247554826252008, \"mass_reduction_factor_to_fit\": 1}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/230"
+    },
+    {
+      "report": "rpt-ref-2519e14e5d71b9eb18f3",
+      "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+      "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+      "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+      "bytes": 17155,
+      "selector": "source row ID: NFI-028-10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-2519e14e5d71b9eb18f3",
+          "artifact": "evidence/4a6f636dbfa17be3-NFI.json",
+          "snapshot": "evidence/4a6f636dbfa17be3-NFI.json",
+          "sha256": "4a6f636dbfa17be36c2c767b8233dba760cdff3b38877afd3f6cadbfd7031221",
+          "bytes": 17155,
+          "selector": "source row ID: NFI-028-10"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/230"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "rpt-ref-a5374575ee8867fc8d2e",
+  "unit": "vacuum-mainline015b-check-1020",
+  "at": "2026-10-20T01:40:47-07:00",
+  "body": "MAINLINE-015b checked independently. All 1,331 arithmetic/display/flag comparisons reproduce, covering every one of 1,201 owner RESULTS scalar leaves. Pins match. No owner code was read or run.\n\nThe live lambda-1 amplitude/width pair and nu 0.33 repair the principal 015 errors. Retired/live RMS is 2.611262732308197. The original continuous SF 1 threshold remains 0.5183040769297532; the first passing original grid level is 0.519.\n\nAt actual gammas, 021 amplitude/RMS are 11.8014082501/0.139344127347 mm; 021b values are 45.8194414540/0.654415969676 mm. Lee inverses and range flags reproduce.\n\nCOVERAGE answers all fourteen prior findings: three resolved in this map, five partly addressed, five outside-scope topics not revisited, and one validation finding acknowledged but open. Omitted legacy sections are not silently closed.\n\nOne prose correction: rounding 021b gamma to 0.468 changes amplitude by 0.173547284606 mm, or 0.378763422466%, affecting the third significant digit. The blanket fourth-digit claim is false. Both numeric rows are correct.\n\nTwo further qualifications: whole-sphere RMS uses a small-angle area approximation, overstating the widest P2-E k5 value by 0.628886203836%; Lee's k1–k5 span is a conditional geometric bound, not an iso-knockdown curve. Its Fig. 6(c) supplies critical-width information.\n\nQUESTIONABLE remains. Eleven carried findings and three new qualifications are nonblocking. CHECK gives derivations, source limits and exact comparisons. No successor job is named.",
+  "artifacts": [
+    {
+      "path": "evidence/9850f5ff7b7e4c5a-CHECK.md",
+      "sha256": "9850f5ff7b7e4c5a6f0049001c7406c2deda72b2d42a5a8c4956e6757811be14",
+      "bytes": 18442,
+      "observed_sha256": "9850f5ff7b7e4c5a6f0049001c7406c2deda72b2d42a5a8c4956e6757811be14",
+      "observed_bytes": 18442,
+      "matches": true,
+      "snapshot": "evidence/9850f5ff7b7e4c5a-CHECK.md"
+    },
+    {
+      "path": "evidence/fff78cbf4026c00c-CARD.md",
+      "sha256": "fff78cbf4026c00c01059986209b26622f46da90c61a49234c2555960e2c0e69",
+      "bytes": 1454,
+      "observed_sha256": "fff78cbf4026c00c01059986209b26622f46da90c61a49234c2555960e2c0e69",
+      "observed_bytes": 1454,
+      "matches": true,
+      "snapshot": "evidence/fff78cbf4026c00c-CARD.md"
+    },
+    {
+      "path": "evidence/9f9e82b742167d4e-RESULTS.json",
+      "sha256": "9f9e82b742167d4e5bc809b6a1ccf795ca21d7d1a4c60c1a4764da5c3e0236e8",
+      "bytes": 74426,
+      "observed_sha256": "9f9e82b742167d4e5bc809b6a1ccf795ca21d7d1a4c60c1a4764da5c3e0236e8",
+      "observed_bytes": 74426,
+      "matches": true,
+      "snapshot": "evidence/9f9e82b742167d4e-RESULTS.json"
+    },
+    {
+      "path": "evidence/5a38cd8c393ec4c9-NFI.json",
+      "sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+      "bytes": 14081,
+      "observed_sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+      "observed_bytes": 14081,
+      "matches": true,
+      "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json"
+    },
+    {
+      "path": "evidence/8dadf5ffe4476195-INPUTS.json",
+      "sha256": "8dadf5ffe44761950412d315e483298dbda68adeb43893a3795a88272f614a1e",
+      "bytes": 22369,
+      "observed_sha256": "8dadf5ffe44761950412d315e483298dbda68adeb43893a3795a88272f614a1e",
+      "observed_bytes": 22369,
+      "matches": true,
+      "snapshot": "evidence/8dadf5ffe4476195-INPUTS.json"
+    },
+    {
+      "path": "evidence/b51b12bda6be96a7-COVERAGE.json",
+      "sha256": "b51b12bda6be96a7a5bd7b96eefbb64b52a221e53a0542b0858450725cd52e38",
+      "bytes": 19822,
+      "observed_sha256": "b51b12bda6be96a7a5bd7b96eefbb64b52a221e53a0542b0858450725cd52e38",
+      "observed_bytes": 19822,
+      "matches": true,
+      "snapshot": "evidence/b51b12bda6be96a7-COVERAGE.json"
+    },
+    {
+      "path": "evidence/49365ea90d2e7c2c-COVERAGE.md",
+      "sha256": "49365ea90d2e7c2c56eb0806803e248592dc98348af0c3549242480405b28145",
+      "bytes": 4578,
+      "observed_sha256": "49365ea90d2e7c2c56eb0806803e248592dc98348af0c3549242480405b28145",
+      "observed_bytes": 4578,
+      "matches": true,
+      "snapshot": "evidence/49365ea90d2e7c2c-COVERAGE.md"
+    },
+    {
+      "path": "evidence/a4e34abc64edc33e-NUMERIC-CHECK.csv",
+      "sha256": "a4e34abc64edc33efce0f5b240949b23e981a439471ad494beca9ddf531c31bb",
+      "bytes": 114661,
+      "observed_sha256": "a4e34abc64edc33efce0f5b240949b23e981a439471ad494beca9ddf531c31bb",
+      "observed_bytes": 114661,
+      "matches": true,
+      "snapshot": "evidence/a4e34abc64edc33e-NUMERIC-CHECK.csv"
+    },
+    {
+      "path": "evidence/a890c967f8453a45-PROSE-CHECK.json",
+      "sha256": "a890c967f8453a451c9fbef55ef76a815b63c99335b6de230a379705520099c9",
+      "bytes": 9467,
+      "observed_sha256": "a890c967f8453a451c9fbef55ef76a815b63c99335b6de230a379705520099c9",
+      "observed_bytes": 9467,
+      "matches": true,
+      "snapshot": "evidence/a890c967f8453a45-PROSE-CHECK.json"
+    },
+    {
+      "path": "evidence/2f0d48fcc9613572-SOURCE-PINS.json",
+      "sha256": "2f0d48fcc9613572870778e0f1769633e46828afab83a61186efbc98c9912a23",
+      "bytes": 7370,
+      "observed_sha256": "2f0d48fcc9613572870778e0f1769633e46828afab83a61186efbc98c9912a23",
+      "observed_bytes": 7370,
+      "matches": true,
+      "snapshot": "evidence/2f0d48fcc9613572-SOURCE-PINS.json"
+    },
+    {
+      "path": "evidence/49a210149fc95a84-check.py",
+      "sha256": "49a210149fc95a848b34aa22ef7a6f3da8ef19faca10c212d758286d54b18382",
+      "bytes": 23865,
+      "observed_sha256": "49a210149fc95a848b34aa22ef7a6f3da8ef19faca10c212d758286d54b18382",
+      "observed_bytes": 23865,
+      "matches": true
+    },
+    {
+      "path": "evidence/e5316d48f96427c1-write_report.py",
+      "sha256": "e5316d48f96427c109b48b5bbaa69842f834130280065bb3c1b967b7fa1390c4",
+      "bytes": 27808,
+      "observed_sha256": "e5316d48f96427c109b48b5bbaa69842f834130280065bb3c1b967b7fa1390c4",
+      "observed_bytes": 27808,
+      "matches": true
+    },
+    {
+      "path": "evidence/c7922399b76747e1-WORK.json",
+      "sha256": "c7922399b76747e198f316abe797d8db7bd9b8f188d4c5bacf2144dc4381d251",
+      "bytes": 416,
+      "observed_sha256": "c7922399b76747e198f316abe797d8db7bd9b8f188d4c5bacf2144dc4381d251",
+      "observed_bytes": 416,
+      "matches": true,
+      "snapshot": "evidence/c7922399b76747e1-WORK.json"
+    }
+  ]
+}

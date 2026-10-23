@@ -1,0 +1,217 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-009b",
+  "unit": "vacuum-mainline009-combined-point-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "started_at": "2026-10-19T23:35:35-07:00",
+  "ended_at": "2026-10-19T23:35:35-07:00",
+  "does_not_restart": "Face, core, thicknesses and the moderate branch stay at the filed MAINLINE-009 point.",
+  "fix": {
+    "defect": "MAINLINE-009 stated classical global buckling at 0.90 and 0.1407, with Kc omitted. The 0.1407 factor then exceeded the 0.20 handbook factor.",
+    "rule": "stated global SF(kd) = Kc * classical SF(kd). Kc and Vc do not depend on kd. gamma_d stays 0.20 on the moderate branch.",
+    "Vc": 1.9585516223241044,
+    "Kc": 0.510362094418974,
+    "gamma_d": 0.2,
+    "branch": "stiff_or_moderate_core",
+    "sigma_0_Pa": 2020248857.9731042,
+    "sigma_crimp_Pa": 1031501460.0308503
+  },
+  "geometry": {
+    "tf_m": 0.00027215364631557974,
+    "core_m": 0.04624190488644608,
+    "separation_m": 0.04651405853276166,
+    "R_m": 10.0,
+    "radius_note": "R is the external 10 m. The handbook middle-surface radius is smaller by about half the separation. Both the classical and the handbook pressures use 10 m, as MAINLINE-007b did."
+  },
+  "float": {
+    "lift_kg": 4889.442150186961,
+    "total_mass_kg": 4644.970042677613,
+    "payload_kg": 244.47210750934846,
+    "float_margin": 0.050000000000000086,
+    "above_zero": true
+  },
+  "omitted_kc_global": {
+    "0.90": 2.073462980881545,
+    "0.1407": 0.3241513793444815,
+    "ratio_equals": 0.15633333333333332
+  },
+  "stated_global": {
+    "0.20": 0.23515931324953646,
+    "0.90": 1.0582169096229144,
+    "0.1407": 0.16543457687104893,
+    "rounded_0.90": 1.058,
+    "rounded_0.1407": 0.165,
+    "order_after_fix": "0.165 < 0.235 < 1.058"
+  },
+  "knockdown_gap_0.90_over_0.20": 4.5,
+  "old_column_0.90_classical_over_0.20_handbook": 8.81726924708831,
+  "levels_design_Q_0.50": {
+    "0.20": {
+      "Q": 0.5,
+      "modes": {
+        "global_buckling": 0.23515931324953646,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.23516798404427022
+      },
+      "least_SF": 0.23515931324953646,
+      "governing": "global_buckling"
+    },
+    "0.90": {
+      "Q": 0.5,
+      "modes": {
+        "global_buckling": 1.0582169096229144,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.23516798404427022
+      },
+      "least_SF": 0.23516798404427022,
+      "governing": "face_wrinkling"
+    },
+    "0.1407": {
+      "Q": 0.5,
+      "modes": {
+        "global_buckling": 0.16543457687104893,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.23516798404427022
+      },
+      "least_SF": 0.16543457687104893,
+      "governing": "global_buckling"
+    }
+  },
+  "levels_compare_Q_0.82": {
+    "0.20": {
+      "Q": 0.82,
+      "modes": {
+        "global_buckling": 0.23515931324953646,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.3856754938326032
+      },
+      "least_SF": 0.23515931324953646,
+      "governing": "global_buckling"
+    },
+    "0.90": {
+      "Q": 0.82,
+      "modes": {
+        "global_buckling": 1.0582169096229144,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.3856754938326032
+      },
+      "least_SF": 0.3856754938326032,
+      "governing": "face_wrinkling"
+    },
+    "0.1407": {
+      "Q": 0.82,
+      "modes": {
+        "global_buckling": 0.16543457687104893,
+        "face_compression": 4.4474749806324665,
+        "core_crush": 10.475499920730703,
+        "core_shear_crimping": 1.1763017784546326,
+        "face_wrinkling": 0.3856754938326032
+      },
+      "least_SF": 0.16543457687104893,
+      "governing": "global_buckling"
+    }
+  },
+  "foam": {
+    "design_Q": 0.5,
+    "comparison_Q": 0.82,
+    "theoretical_band": [
+      0.78,
+      0.91
+    ],
+    "theoretical_source": "The dispatch states about 0.78-0.91 for a perfect face on an isotropic core, naming Hoff and Mautner 1945, Allen 1969 and Plantema 1966. Those three works were not opened. The band is QUESTIONABLE.",
+    "rows": {
+      "design_0.50": {
+        "Q": 0.5,
+        "SF_wrinkle": 0.23516798404427022
+      },
+      "band_0.78": {
+        "Q": 0.78,
+        "SF_wrinkle": 0.36686205510906156
+      },
+      "compare_0.82": {
+        "Q": 0.82,
+        "SF_wrinkle": 0.3856754938326032
+      },
+      "band_0.91": {
+        "Q": 0.91,
+        "SF_wrinkle": 0.4280057309605719
+      }
+    },
+    "precision_gap_Ec_Gc": 4.410943999999999,
+    "product_factor_at_Q_0.50": 76.8892122204361,
+    "product_factor_at_Q_0.82": 17.431464153803837
+  },
+  "honeycomb_not_the_point": {
+    "design_0.33": {
+      "coefficient": 0.33,
+      "SF_wrinkle": 0.14566743215377415,
+      "global_buckling_handbook": 0.26626666435995383,
+      "least_of_buckling_and_wrinkle": 0.14566743215377415
+    },
+    "equation_2_2_12_0.80": {
+      "coefficient": 0.8,
+      "SF_wrinkle": 0.3531331688576343,
+      "global_buckling_handbook": 0.26626666435995383,
+      "least_of_buckling_and_wrinkle": 0.26626666435995383
+    }
+  },
+  "reaches_SF_1_in_every_mode": false,
+  "p3": {
+    "mark": "PENDING-011b",
+    "scored": false,
+    "rows": [
+      {
+        "id": "NFI-P3-LATTICE",
+        "mode": "global lattice buckling",
+        "optimistic": "about 0.70, perfect, equivalent-continuum, at 011's 6061 optimum",
+        "with_knockdown_0.2_to_0.5": "about 0.14 to 0.35",
+        "source": "ord-admiral-rr2-mainline009-p3-pending-011b-1019, reporting the robotics seat's estimate. Not recomputed here.",
+        "tag": "QUESTIONABLE",
+        "direction": "MAINLINE-011b, the 011 owner."
+      },
+      {
+        "id": "NFI-P3-BENDING",
+        "mode": "member bending from the film line load",
+        "optimistic": null,
+        "conservative": null,
+        "factor": null,
+        "condition": "The mode is absent unless every member is an arc of the sphere.",
+        "source": "ord-admiral-rr2-mainline009-p3-pending-011b-1019",
+        "tag": "QUESTIONABLE",
+        "direction": "MAINLINE-011b."
+      }
+    ]
+  },
+  "later_cards": {
+    "011b_report": null,
+    "013_report": null,
+    "014_report": "rpt-mainline014-grok-balanced-sandwich-1019",
+    "009c": "Due now because 014 has filed. 011b and 013 have not. This card does not absorb 014."
+  },
+  "sources": {
+    "RESULTS.json": {
+      "sha256": "b84f229e5f0e7f47af4788c15f0a75794ddfe3bb0d9a64723031815a49dca88d",
+      "bytes": 42460
+    },
+    "WRINKLE-COLUMN.json": {
+      "sha256": "b7a5272ffb1b0a4c417513ae13ed9f41a5926b510fafb277aab454065b7bc16b",
+      "bytes": 2976
+    },
+    "P3-PENDING.json": {
+      "sha256": "c92aa0157acbd69812e1a62ec9cf6fa40d39fe82fbfc9074344e94e8f212b695",
+      "bytes": 1308
+    }
+  }
+}

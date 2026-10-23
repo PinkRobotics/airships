@@ -1,0 +1,78 @@
+{
+  "id": "D456",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D456",
+    "report": "rpt-ref-d7b2450119f373b2d1db",
+    "file": "evidence/13b38defbfc1755a-NFI.json",
+    "snapshot": "evidence/13b38defbfc1755a-NFI.json",
+    "source_sha256": "13b38defbfc1755a91b0f91a84591d76a765f95d623343a9d8171ada6538e3ca",
+    "source_json_pointer": "/rows/2",
+    "row_id": "NFI052-03",
+    "fields": {
+      "id": "NFI052-03",
+      "title": "Rigid joints",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "Sleeve sizing does not demonstrate rotational stiffness, peel, torsion, fatigue or temperature-dependent bond behavior.",
+      "proposed_fix": "Demonstrate the assembled joint stiffness and multiaxial load envelope at the actual installation."
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/rows",
+    "blocks_progress": false
+  },
+  "claim": "Sleeve sizing does not demonstrate rotational stiffness, peel, torsion, fatigue or temperature-dependent bond behavior. | Rigid joints",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1416"
+    },
+    {
+      "report": "rpt-ref-d7b2450119f373b2d1db",
+      "artifact": "evidence/13b38defbfc1755a-NFI.json",
+      "snapshot": "evidence/13b38defbfc1755a-NFI.json",
+      "sha256": "13b38defbfc1755a91b0f91a84591d76a765f95d623343a9d8171ada6538e3ca",
+      "bytes": 7051,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-d7b2450119f373b2d1db",
+          "artifact": "evidence/13b38defbfc1755a-NFI.json",
+          "snapshot": "evidence/13b38defbfc1755a-NFI.json",
+          "sha256": "13b38defbfc1755a91b0f91a84591d76a765f95d623343a9d8171ada6538e3ca",
+          "bytes": 7051,
+          "selector": "/rows/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1416"
+          }
+        ]
+      }
+    }
+  ]
+}

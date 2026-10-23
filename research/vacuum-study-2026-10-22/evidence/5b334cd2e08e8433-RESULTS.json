@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline004b-check-1019",
+  "card": "MAINLINE-004b-check",
+  "checker": "ref-c713c40ee838487ac6d3 (glm)",
+  "owner": "ref-2543c559b19ffce7dfdd (grok)",
+  "tolerance_rel": 5e-09,
+  "form_agreement_tol": 1e-12,
+  "mismatches": [],
+  "checked": {
+    "knockdowns": [
+      "sp8032-row",
+      "0.20-central",
+      "0.90-optimistic",
+      "1.0-classical",
+      "0.22-flat",
+      "0.20-dimple"
+    ],
+    "families": [
+      "P2-A",
+      "P2-C",
+      "P2-K",
+      "P2-E"
+    ],
+    "per_branch": "fresh SF = kd*p_cl/p_ext vs scaled SF_new = SF_sp*(kd_new/kd_sp) agree within 1e-12; required modulus E/SF; above/below 68.9 GPa side; ratio 0.9/kd_sp",
+    "ratio_optimistic_over_conservative": {
+      "P2-A": 6.396909550113781,
+      "P2-C": 6.393643427290846,
+      "P2-K": 6.393879448514311,
+      "P2-E": 6.395420520834183
+    },
+    "yield_SF": "stays at the sealed 003 QUESTIONABLE values at every knockdown (agrees)"
+  },
+  "notes": [
+    "one script (check004.py, in ../vacuum-mainline004-check-1019/ and copied here) checks both cards in one run; CHECK-OUT-004.json is the combined machine output",
+    "source verification for 004b is in INPUTS.json: Wagner 2020 Table 3 rows 11 and 12, deep-dome bound 0.21, Sim et al 2024 quotes"
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "NFI_id": "NFI-AL-YIELD-CARRY",
+    "gap": "276 MPa is the retrieved AA typical tensile yield. It is transferred to compression by owner assumption. The sheet says AA typical values are not for design. No compressive yield was in the retrieved snippet.",
+    "direction": "Obtain a compression yield or design allowable and drop the transfer.",
+    "effect": "Aluminum-strength pressure and its factor scale linearly with this value."
+  },
+  {
+    "NFI_id": "NFI-FLOAT-ALLOCATION-CARRY",
+    "gap": "Each alternative spends the baseline margin on one thickness. Residual margin is numerical zero by that rule. It is not an optimum and not a search over families.",
+    "direction": "A later card can compare other single changes, including core thickness and tube radius.",
+    "effect": "The allocation changes both stiffness and strength pressures through the named thickness."
+  },
+  {
+    "NFI_id": "NFI-SAND",
+    "gap": "Sandwich buckling still extrapolates the monocoque identity and omits core shear, wrinkling and core crush.",
+    "direction": "Replace with a published sandwich formula that includes shear.",
+    "effect": "Shear would lower the stiffness pressure. The omission is optimistic for that limit."
+  },
+  {
+    "NFI_id": "NFI-KD",
+    "gap": "Knockdown remains 0.2, the cited severe typical value, not a curve at this R/t.",
+    "direction": "Evaluate NASA SP-8032 for these complete spheres.",
+    "effect": "Stiffness pressure of P1 and P2 scales directly with the knockdown."
+  },
+  {
+    "NFI_id": "NFI-FRAME",
+    "gap": "Pinned Euler, tributary width equal to spacing, and no local crippling.",
+    "direction": "Integer mesh, end fixity and crippling.",
+    "effect": "Euler pressure scales with I. Section yield scales with area. Crippling could govern first."
+  },
+  {
+    "NFI_id": "NFI-FILM",
+    "gap": "Film allowable stays the owner value from MAINLINE-001 and is not aluminum yield.",
+    "direction": "Pin one film datasheet.",
+    "effect": "Film pressure is reported separately and can govern if it is the least."
+  },
+  {
+    "NFI_id": "NFI-GEOM",
+    "gap": "External volume still ignores wall intrusion.",
+    "direction": "Inner and outer mould lines.",
+    "effect": "Volume error moves lift and the allocation thicknesses."
+  },
+  {
+    "NFI_id": "NFI-MASS",
+    "gap": "Joint fractions, node mass and payload allowances are unchanged owner numbers.",
+    "direction": "Replace with a parts list.",
+    "effect": "They set how much margin the allocation can spend."
+  }
+]

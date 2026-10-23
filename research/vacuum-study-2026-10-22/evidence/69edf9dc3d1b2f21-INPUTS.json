@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "unit": "vacuum-mainline004b-check-1019",
+  "order": "ord-admiral-rr2-check012-004-004b-glm-1019",
+  "independence": "checker glm, owner grok; owner files read-only; the owner's script was never read",
+  "pins": {
+    "brief_check": {
+      "path": "withheld-source:1577f21d44c55eff",
+      "sha256": "03b357cbce6a591d1278c1e0b4c0606c52d876bdedd9f5727da3e5fab2a958c6",
+      "bytes": 799
+    },
+    "common": {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    "brief_card_004b": {
+      "path": "unpublished-local-ref:d0b543c5d6ed6b41",
+      "sha256": "0b25b6f4294b79a4595a6ee15156c8d368619bd73b8e8af7689ef98b5fd0c2fb",
+      "bytes": 1754
+    },
+    "owner_card": {
+      "path": "evidence/a97d2d3c0cd35e4e-CARD.md",
+      "sha256": "a97d2d3c0cd35e4eaae3dc2354f8668ceb337d378e87ead78d1c2a2a5fa56506",
+      "bytes": 8138
+    },
+    "owner_nfi": {
+      "path": "evidence/f528292663aa7701-NFI.json",
+      "sha256": "f528292663aa7701e2d2529e485ecdbfd5151a9880e99b40b033a19c7df0be60"
+    },
+    "owner_inputs": {
+      "path": "evidence/5b23bfc0dd2e9a9c-INPUTS.json",
+      "sha256": "5b23bfc0dd2e9a9ce56e50e3fb1ccac15407d9de0823d306b6d0afa38a8a12a5"
+    },
+    "sealed_004_results": {
+      "path": "evidence/c5e1f04fd8e3e4f5-RESULTS.json",
+      "sha256": "c5e1f04fd8e3e4f5b09fec52bd6e865ab277d54c5890bd5f0459348090e69567",
+      "bytes": 5567
+    },
+    "sealed_003_results": {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    "wagner_2020_pdf": {
+      "sha256": "b54893a41e2d610cc37dc9c8bedf9dff19e51708729ed8412241184513776ebc",
+      "bytes": 3198472,
+      "note": "sha256 verified equal to the owner's INPUTS pin; extracted text at unpublished-local-ref:717949c3dcf7d36e"
+    }
+  },
+  "sources_verified": {
+    "wagner_2020": {
+      "doi": "10.1016/j.ijpvp.2019.104015",
+      "verified_against_sha_pinned_pdf": [
+        "eq (7): 'equals to about 0.2 for shells which buckle in the elastic region and seems to be independent of the R/t ratio'",
+        "deep dome lower bound: 'KDF in the plateau range equals to about 0.21 for this deep dome' with H/r ~0.5, R/t ~90, lambda ~15.7",
+        "Table 3 row 11 Adam [19] (H. Adam, P. King): n=8, PVC, reliable=yes, lambda 13.11-43.11, KDF 0.54-0.89",
+        "Table 3 row 12 Krenzke [75] (M. Krenzke, T. Kiernan, 'Tests of stiffened and unstiffened machined spherical...'): n=70, Aluminium, reliable=yes, R/t 10-212, H/r 0.072-1, lambda 1.58-33.18, KDF 0.11-0.90",
+        "SP-8032 characterized as 'a statistical lower bound of different empirical data'; appendix design example quotes NASA SP-8032 KDF 0.14"
+      ]
+    },
+    "sim_2024": {
+      "doi": "10.1155/2024/8765733",
+      "title": "Buckling Knockdown Factors for Hemispherical Foam Core Sandwich Shells With Single Dimple",
+      "retrieved": "https://onlinelibrary.wiley.com/doi/10.1155/2024/8765733 (2026-10-20)",
+      "verified_verbatim": [
+        "dimple KDF 0.20: 'The KDF of the dimple model was derived to be 0.20'",
+        "flat KDF 0.22: 'The KDF of the flat model is 22.22% and 10.00% higher than those of NASA SP-8032 (0.18) and CR-1457 (0.20)'",
+        "authors: Eun-Suk Sim, Haeseong Lee, Jisung Kim, Seung-Hyun Park, Joo-Sung Lee; Int J Aerospace Engineering 2024, Article 8765733"
+      ]
+    },
+    "gap_stands": "NASA SP-8032 monograph page and Wagner 2018 threshold equation remain unretrieved, exactly as the owner's NFI rows record."
+  },
+  "run": "python3 check004.py <owner 004 CARD.md> <owner 004b CARD.md> (script copied from ../vacuum-mainline004-check-1019/)"
+}

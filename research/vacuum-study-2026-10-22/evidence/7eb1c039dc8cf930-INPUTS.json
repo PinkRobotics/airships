@@ -1,0 +1,146 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-007",
+  "unit": "vacuum-mainline007-core-trade-1019",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE",
+  "certification": "none",
+  "brief": "CARD-007-CORE-TRADE.md with COMMON.md, pinned in ord-admiral-rr2-mainline007-dispatch-1019",
+  "started_at": "2026-10-19T22:45:53-07:00",
+  "ended_at": "2026-10-19T22:52:16.272157-07:00",
+  "case": {
+    "R_m": 10.0,
+    "p_external_Pa": 95460.83791390515,
+    "rho_air_kg_m3": 1.1672683307461802,
+    "volume_m3": 4188.790204786391,
+    "lift_kg": 4889.442150186961,
+    "p_int_Pa": 0.0,
+    "kd": 0.2,
+    "joint_fraction_of_sandwich": 0.05,
+    "systems_kg": 100.0,
+    "material_6061T6_QUESTIONABLE": {
+      "E_Pa": 68900000000.0,
+      "nu": 0.33,
+      "sigma_Pa": 276000000.0,
+      "rho_kg_m3": 2700.0,
+      "sigma_note": "typical tensile yield transferred to compression, QUESTIONABLE, inherited from MAINLINE-002 INPUTS"
+    }
+  },
+  "densities_kg_m3": [
+    32,
+    16,
+    8,
+    6,
+    4,
+    3,
+    2,
+    1
+  ],
+  "formulas": {
+    "area_m2": "4*pi*R^2, used for both faces and the core",
+    "structural_mass_kg": "(lift - systems) / 1.05",
+    "face_mass_kg": "2 * area * tf * 2700",
+    "core_mass_kg": "area * core_thickness * rho_core",
+    "separation_m": "core_thickness + tf",
+    "p_buckling_Pa": "kd*4*tf*separation*E/(R^2*sqrt(1-nu^2))",
+    "p_yield_Pa": "4*sigma*tf/R",
+    "SF": "limit pressure / external pressure",
+    "membrane_Pa": "p*R/(4*tf)",
+    "Gc_crimp_Pa": "p*R/(2*separation), from p = 2*Gc*d/R with d = separation",
+    "Ec_Gc_Pa2": "(2*membrane)^3 / E_face, from sigma_wr = 0.5*(E_face*Ec*Gc)^(1/3) set equal to membrane stress",
+    "crush_Pa": "p/2, the brief's 'about p/2', not an equilibrium solution",
+    "buckling_tf_m": "M_struct / (2*area*(2*rho_face - rho_core))",
+    "equal_SF_separation_m": "sigma*R*sqrt(1-nu^2)/(kd*E)",
+    "kd_scaling": "p_buckling and SF_b scale in direct proportion to kd. E_factor scales as 1/kd. Yield, membrane stress, the crimp modulus, the wrinkling product and the crush target do not depend on kd."
+  },
+  "omitted_from_stated_SF": [
+    "core_shear",
+    "face_wrinkling",
+    "core_crush"
+  ],
+  "kd_scaling": "Buckling pressure and buckling safety factor scale in direct proportion to kd. The modulus factor scales as 1/kd. Yield, membrane stress, crimp modulus, wrinkling product, and crush do not.",
+  "arithmetic": "compute.py in this directory. Closed form is the reported split. A uniform grid checked it and cannot sit on the equal-factor crossing.",
+  "pins": [
+    {
+      "path": "evidence/33ee112c1cb1a4b5-CARD.md",
+      "sha256": "33ee112c1cb1a4b5fe2460554b46bd68963cb980f49b06964fe672199132c4d8",
+      "bytes": 5667
+    },
+    {
+      "path": "evidence/69d9ef27cb5c86f2-INPUTS.json",
+      "sha256": "69d9ef27cb5c86f2a20399210b65cfb12f911ab1c1c4cb6fdff9cca70ba14c5a",
+      "bytes": 15384
+    },
+    {
+      "path": "evidence/e7b2e4a33ab68eb0-RESULTS.json",
+      "sha256": "e7b2e4a33ab68eb0e195b83cb91faa86a77d7bc5b8970dfa3dd3cbae07a9cde5",
+      "bytes": 30175
+    },
+    {
+      "path": "evidence/63c812f02bde7cf4-CARD.md",
+      "sha256": "63c812f02bde7cf43d029e423b360014f9bb73c233bf33b46e525005378a0f07",
+      "bytes": 6977
+    },
+    {
+      "path": "evidence/f7365a5dbdda8ddd-INPUTS.json",
+      "sha256": "f7365a5dbdda8dddb18217e3a352457b372b3d0e2d94d7e692d78e62b48c7928",
+      "bytes": 1643
+    },
+    {
+      "path": "evidence/d728af6ca61595e1-RESULTS.json",
+      "sha256": "d728af6ca61595e116b2b133b23477cecaf54d050486202277f441234c25a2c0",
+      "bytes": 13071
+    },
+    {
+      "path": "evidence/b155c07e690eaa66-NFI.json",
+      "sha256": "b155c07e690eaa665db0f27994bcf36986d5ffe168aa7a45cc0ae403ddcd87a8",
+      "bytes": 2449
+    },
+    {
+      "path": "evidence/17dc1e39680f79f6-CARD.md",
+      "sha256": "17dc1e39680f79f6ba2fd9d3ac0ac4fba28dfc4e4c95824e55e544bbcd3f1a3e",
+      "bytes": 3907
+    },
+    {
+      "path": "evidence/a697a764919c3211-INPUTS.json",
+      "sha256": "a697a764919c3211bb47caf3b032d3ace7637e85971078a66ef3264beb6abbe9",
+      "bytes": 851
+    },
+    {
+      "path": "evidence/df5d268297e342bd-mainline003.json",
+      "sha256": "df5d268297e342bdce62fb6c4906a128e6c8729c8b56ae7a710ef9fdd73cd0db",
+      "bytes": 7995
+    },
+    {
+      "path": "evidence/2090c6e1f4ca8afb-NFI.json",
+      "sha256": "2090c6e1f4ca8afb62ff5a7a0e2efbe8757aa60a79a773be2fae359cdd446e97",
+      "bytes": 2978
+    },
+    {
+      "path": "evidence/dcfa7ae3942a9e4f-UNA600-MAINLINE003-REVIEW.md",
+      "sha256": "dcfa7ae3942a9e4f8a43ac06ff5ba62d2249d69414228ea756661cb1f020925b",
+      "bytes": 3351
+    },
+    {
+      "path": "withheld-source:b528d6a62c81ce0b",
+      "sha256": "8f359d6c04f84d158ccc232173cb61e86eeede3797fe362d8212066a096f94b5",
+      "bytes": 5874
+    },
+    {
+      "path": "unpublished-local-ref:eee4da47983eaf06",
+      "sha256": "05791cd102b446c15ddf1b266b08263652ed4f24d54ac2f1206d79f010533b53",
+      "bytes": 1640
+    },
+    {
+      "path": "unpublished-local-ref:b40693bc2fdb6bdf",
+      "sha256": "14983c85c3495169b1bd4ab340f776ad6d4e93737b19623a7b483f440c5ff6ed",
+      "bytes": 2021
+    },
+    {
+      "path": "unpublished-local-ref:2bf170d37c993460",
+      "sha256": "98c8d5b2988600fcaed430704fba2d16a25e165e5aad1998ef07550437165a3f",
+      "bytes": 2063
+    }
+  ],
+  "pins_verified": "[withheld: private task or principal quotation; scientific result/status retained elsewhere]"
+}

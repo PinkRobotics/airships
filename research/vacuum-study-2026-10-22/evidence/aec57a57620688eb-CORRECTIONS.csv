@@ -1,0 +1,111 @@
+row,field,card_value,check_value,kind,basis
+coated_outer,constrained_upper_Pa_on_filed_polynomial,20511170.194997746,29385466.522224955,RECONSTRUCTION_MISMATCH,Same declared n=2..6 reconstruction; absolute maximum
+bare_Be,constrained_upper_Pa_on_filed_polynomial,60753067.85152074,52626605.99218798,RECONSTRUCTION_MISMATCH,Same declared n=2..6 reconstruction; absolute maximum
+P2 flight + coated,seven_screen_least_SF,1.0033034807456882,1.0013247690980471,CONDITIONAL_FIX,Include steady-flight qVB and gust increment at the owner's stated local-density/speed basis
+mooring_016_one_pad_SF1,area_one_m2,0.19998132315968878,0.19998132315968878,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_016_one_pad_SF1,radius_m,0.25230147089116306,0.25230147089116306,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_016_one_pad_SF1,thickness_m,0.016021402498860755,0.018439986473249594,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_016_one_pad_SF1,mass_total_kg,8.650749430609519,9.956662813711485,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_016_six_pads_SF1,area_one_m2,0.0333302205266148,0.0333302205266148,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_016_six_pads_SF1,radius_m,0.10300164417283542,0.10300164417283542,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_016_six_pads_SF1,thickness_m,0.005118776125942365,0.006322874973059208,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_016_six_pads_SF1,mass_total_kg,2.763880981085286,3.4140336388712877,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_70kn_one_pad_SF1,area_one_m2,0.46309885083269214,0.46309885083269214,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_70kn_one_pad_SF1,radius_m,0.3839387223247982,0.3839387223247982,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_70kn_one_pad_SF1,thickness_m,0.026502171335004102,0.029925825308551347,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+mooring_70kn_one_pad_SF1,mass_total_kg,33.13743774249109,37.41826133864706,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+systems_100kg_six_pads,area_one_m2,0.0006773020622437888,0.001963495408493621,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+systems_100kg_six_pads,radius_m,0.014683049490649655,0.025,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+systems_100kg_six_pads,thickness_m,0.001,0.001,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+systems_100kg_six_pads,mass_total_kg,0.01097229340834938,0.031808625617596654,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+reserve_411kg_one_pad,area_one_m2,0.016714417381105167,0.016714417381105167,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+reserve_411kg_one_pad,radius_m,0.07294082734798091,0.07294082734798091,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+reserve_411kg_one_pad,thickness_m,0.0031523160513926836,0.004096031118733363,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+reserve_411kg_one_pad,mass_total_kg,0.14226064074036363,0.18484948905616236,MODEL_DIFFERENCE,"Uniform circular boss loading, simply supported edge; enforce pad radius >= boss radius"
+projection_5 alpha=4.5e-06,combined_flight_gust.yield,3.906790320210332,3.8990784008532913,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=4.5e-06,combined_flight_gust.euler,1.443512828574796,1.440663365565431,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=4.5e-06,combined_flight_gust.local,1.375205554407698,1.3724909284743074,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=4.5e-06,combined_flight_gust.film,1.4601748554346607,1.4572908708400176,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=4.5e-06,combined_flight_gust.perry,1.3838853464483223,1.3811535867950355,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=4.5e-06,combined_flight_gust.global,1.3703923578032524,1.3676872330170138,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5,extra_mass_kg_if_that_part_scales,0.0,0.0,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+projection_5 alpha=1.7e-05,combined_flight_gust.yield,3.9201095544110007,3.9123450139131988,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=1.7e-05,combined_flight_gust.euler,1.448434128122406,1.4455652222237525,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=1.7e-05,combined_flight_gust.local,1.3798939772182242,1.3771608284363899,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=1.7e-05,combined_flight_gust.film,1.4682912720880468,1.4653751690072743,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=1.7e-05,combined_flight_gust.perry,1.3886033608605282,1.3858529614493904,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5 alpha=1.7e-05,combined_flight_gust.global,1.3750643712117954,1.37234078840678,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_5,extra_mass_kg_if_that_part_scales,0.0,0.0,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+projection_019 alpha=4.5e-06,combined_flight_gust.yield,3.7480347232959725,3.7406362423811004,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=4.5e-06,combined_flight_gust.euler,1.3510684628532275,1.3484015040346324,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=4.5e-06,combined_flight_gust.local,1.2917691365940553,1.2892192324437097,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=4.5e-06,combined_flight_gust.film,1.4404342623900783,1.4375893038363063,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=4.5e-06,combined_flight_gust.perry,1.296591383228924,1.2940319601444337,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=4.5e-06,combined_flight_gust.global,1.298569008426732,1.2960056815789875,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019,extra_mass_kg_if_that_part_scales,0.0,0.0,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+projection_019 alpha=1.7e-05,combined_flight_gust.yield,3.760674165567732,3.753225750521064,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=1.7e-05,combined_flight_gust.euler,1.355624651123119,1.3529396923563541,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=1.7e-05,combined_flight_gust.local,1.2961253506197523,1.293558236551395,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=1.7e-05,combined_flight_gust.film,1.448353909199044,1.445477612164681,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=1.7e-05,combined_flight_gust.perry,1.300963859245894,1.2983871619978062,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019 alpha=1.7e-05,combined_flight_gust.global,1.3029481535600171,1.300367526201252,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+projection_019,extra_mass_kg_if_that_part_scales,0.0,0.0,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+mylar_5 alpha=1.7e-05,combined_flight_gust.yield,0.4158680406684497,0.41504793543327095,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_5 alpha=1.7e-05,combined_flight_gust.euler,52.92551263090086,52.821141807188695,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_5 alpha=1.7e-05,combined_flight_gust.local,0.41271992552017417,0.41190602847006463,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_5 alpha=1.7e-05,combined_flight_gust.film,0.4351149335652014,0.43425809833626633,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_5 alpha=1.7e-05,combined_flight_gust.perry,0.41050630529711707,0.4096967735778417,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_5 alpha=1.7e-05,combined_flight_gust.global,0.7631730127329881,0.761668010853439,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_5,extra_mass_kg_if_that_part_scales,5862.522491560654,5882.914782192704,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+mylar_019 alpha=1.7e-05,combined_flight_gust.yield,0.39986891335100716,0.3990803578684235,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_019 alpha=1.7e-05,combined_flight_gust.euler,49.05482085378848,48.958083031432565,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_019 alpha=1.7e-05,combined_flight_gust.local,0.3954535403634755,0.3946736921506314,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_019 alpha=1.7e-05,combined_flight_gust.film,0.4292483276516342,0.4284030247100443,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_019 alpha=1.7e-05,combined_flight_gust.perry,0.3946177082035748,0.3938395082815435,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_019 alpha=1.7e-05,combined_flight_gust.global,0.720464129452018,0.7190433489909609,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+mylar_019,extra_mass_kg_if_that_part_scales,6021.9875446658325,6042.404709726271,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+ti_kapton_5,mismatch.eps_mechanical,-0.0005356204646484366,-0.0005740257106129907,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+ti_kapton_5,mismatch.film_stress_Pa,-2028865.3963955934,-2174339.8129279953,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+ti_kapton_5,mismatch.member_force_N,-1224.5049434236644,-1312.3048253182383,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+ti_kapton_5 alpha=2e-05,combined_flight_gust.yield,3.4334185493784717,3.427219647675099,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_5 alpha=2e-05,combined_flight_gust.euler,5.471173052836554,5.461295065793305,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_5 alpha=2e-05,combined_flight_gust.local,0.7612764196881333,0.7599019651531786,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_5 alpha=2e-05,combined_flight_gust.film,0.7465331988425643,0.7457414192087835,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_5 alpha=2e-05,combined_flight_gust.perry,3.162123994004245,3.1564149039178178,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_5 alpha=2e-05,combined_flight_gust.global,0.7412272015983322,0.7398889451359495,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_5,extra_mass_kg_if_that_part_scales,1634.3582228101607,1153.324432679419,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+ti_kapton_019,mismatch.eps_mechanical,-0.0005400739566191139,-0.0005783225205157241,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+ti_kapton_019,mismatch.film_stress_Pa,-2045734.6841633103,-2190615.6080141068,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+ti_kapton_019,mismatch.member_force_N,-1201.5585403583598,-1286.6540870764748,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+ti_kapton_019 alpha=2e-05,combined_flight_gust.yield,3.2847512022479144,3.278803630367505,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_019 alpha=2e-05,combined_flight_gust.euler,5.118759516772599,5.109491177013365,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_019 alpha=2e-05,combined_flight_gust.local,0.707789468471393,0.7065079014724897,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_019 alpha=2e-05,combined_flight_gust.film,0.7263245677269734,0.7255334255365735,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_019 alpha=2e-05,combined_flight_gust.perry,3.015956786506072,3.0104959102663402,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_019 alpha=2e-05,combined_flight_gust.global,0.7012636885314154,0.6999939375095785,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+ti_kapton_019,extra_mass_kg_if_that_part_scales,1908.0155383779725,1345.2104691620243,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+cfrp_zylon_5,mismatch.eps_mechanical,0.00019905913274712798,0.00023062939413911413,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+cfrp_zylon_5,mismatch.film_stress_Pa,51186634.13497577,59304701.35005793,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+cfrp_zylon_5,mismatch.member_force_N,18315.37932533707,21220.150911692308,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+cfrp_zylon_5 alpha=-6e-06,combined_flight_gust.yield,4.208694144838094,4.19259235377752,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_5 alpha=-6e-06,combined_flight_gust.euler,1.922346831118632,1.914992239416562,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_5 alpha=-6e-06,combined_flight_gust.local,1.469832234142391,1.4642088909564945,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_5 alpha=-6e-06,combined_flight_gust.film,1.4572968066993481,1.449565857605362,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_5 alpha=-6e-06,combined_flight_gust.perry,1.822870277982891,1.8158962676775854,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_5 alpha=-6e-06,combined_flight_gust.global,1.4629832594989411,1.457386119400252,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_5,extra_mass_kg_if_that_part_scales,0.0,0.0,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+cfrp_zylon_019,mismatch.eps_mechanical,0.000200898780955506,0.00023244400288835454,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+cfrp_zylon_019,mismatch.film_stress_Pa,51659686.53141583,59771315.02843403,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+cfrp_zylon_019,mismatch.member_force_N,18833.93107624103,21791.243872525258,CONDITIONAL_FIX,"Use SiC CTE for all tubes, holding unreproduced temperatures fixed"
+cfrp_zylon_019 alpha=-6e-06,combined_flight_gust.yield,4.032318754822479,4.017023566867118,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_019 alpha=-6e-06,combined_flight_gust.euler,1.7010580135659568,1.6946056461779528,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_019 alpha=-6e-06,combined_flight_gust.local,1.4062575136568987,1.400923368639295,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_019 alpha=-6e-06,combined_flight_gust.film,1.3837261446509181,1.3766215818615017,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_019 alpha=-6e-06,combined_flight_gust.perry,1.6205095771285454,1.6143627420037558,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_019 alpha=-6e-06,combined_flight_gust.global,1.3974273355784022,1.3921266847459877,CONDITIONAL_FIX,SiC CTE and total steady+gust dynamic pressure; frozen filed thermal fields
+cfrp_zylon_019,extra_mass_kg_if_that_part_scales,0.0,0.0,CONDITIONAL_FIX,"Correct SiC/arc mass, SiC CTE and total flight q; proportional sensitivity only"
+CARD.md P3 paragraph,ti_kapton_5 uniform least,0.7417,0.7391136383028991,TEXT_MISMATCH,"Card quotes global as uniform least, but upstream film governs"
+CARD.md Sun,coated shear remains above 1,coating keeps this mode above 1,1.678 day-rise basis; 0.917 cold-night stress-free basis,TEXT_SCOPE,The same card's swing case is below unity
+CARD.md Wind,VB minimum rule,VB at least 35 knots,"VB lower bound is min(35 knots, 0.65 VH), with design speeds EAS",SOURCE_MISMATCH,"FAA-P-8110-2 §3.6(b), printed p12"
+CARD.md/NFI mooring,78-knot ambiguity,decision between 70 and 78,Appendix explains old 78 was reduced to 70,SOURCE_MISMATCH,FAA-P-8110-2 Appendix B printed pp121–122; 78 remains optional sensitivity
+INPUTS.json properties_QUESTIONABLE,Be_sources alpha provenance,"11.3e-6 from S-200-F class, not a separate SR-200 coupon",Current SR-200 manufacturer sheet itself lists typical 11.3 ppm/K at 25–100 C,SOURCE_IMPROVEMENT,"Pinned Materion SR-200 primary sheet; this improves attribution, not thin formed-sheet qualification"

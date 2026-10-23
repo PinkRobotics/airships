@@ -1,0 +1,39 @@
+{
+  "id": "E-742a3c432c66ebe5b2ee",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-742a3c432c66ebe5b2ee",
+    "report": "rpt-ref-71723c1ae93445240630",
+    "file": "evidence/a3d2e7072aacaba7-NFI.json",
+    "snapshot": "evidence/a3d2e7072aacaba7-NFI.json",
+    "source_sha256": "a3d2e7072aacaba7ef6e25bbd3632d80761460af66357d2bab2c3ea475df3af3",
+    "source_json_pointer": "/rows/9",
+    "row_id": "NFI054-10",
+    "fields": {
+      "id": "NFI054-10",
+      "title": "Power and spare-mass fragility",
+      "status": "OPEN",
+      "tag": "QUESTIONABLE / PROJECTION",
+      "finding": "R10 seven-day screen has1.12kgpayload.5W monitoring instead of0.5W makes it negative; additional transport hardware could erase it.",
+      "proposed_fix": "Build an actual electrical/installation bill and mission duty cycle, including sensors, batteries, mounts, thermal parts and contingency."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "R10 seven-day screen has1.12kgpayload.5W monitoring instead of0.5W makes it negative; additional transport hardware could erase it. | Power and spare-mass fragility",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q5",
+  "qualification": "Its WVTR 0.08 assumption, desiccant capacity, kinetics and unweighed hardware are not an assembled seven-day demonstration. The 059 pond values were not reproduced; both proposed pond routes remain surrogates. Bulk drying is not complete drying. [CHECK054](unpublished-local-ref:53985958be51c48e), [CHECK059](unpublished-local-ref:ab03a39f43a477d7).",
+  "sources": [
+    {
+      "report": "rpt-ref-71723c1ae93445240630",
+      "artifact": "evidence/a3d2e7072aacaba7-NFI.json",
+      "snapshot": "evidence/a3d2e7072aacaba7-NFI.json",
+      "sha256": "a3d2e7072aacaba7ef6e25bbd3632d80761460af66357d2bab2c3ea475df3af3",
+      "bytes": 7775,
+      "selector": "/rows/9"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

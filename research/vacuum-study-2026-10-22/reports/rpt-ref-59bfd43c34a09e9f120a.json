@@ -1,0 +1,40 @@
+{
+  "id": "rpt-ref-59bfd43c34a09e9f120a",
+  "unit": "vacuum-mainline023-p3-nodes-1020",
+  "at": "2026-10-20T00:49:19-07:00",
+  "body": "MAINLINE-023 member ends, 011b SiC point. Arithmetic is nodes.py. arcs.py and floatpoint.py were not run. N is 973.7 kN at s 2.04 m. The 5 percent row recovers it, global, least SF 1.2255279468805444 at the filed radius. 350.7 nodes, 5.97 ends each.\n\nThe 0.461 kg pin bears at 15.6 GPa on the 0.880 mm wall and does not fit. The Ti-6Al-4V sleeve, 827 MPa with EA 9394 at 28.9 MPa, is 0.226 kg per end and 473.1 kg, 2.10 times 225.5 kg, bond 43.4 mm. Frozen least SF 1.095, local. At k 0.2 and 0.4 the least SF is 1.159 and 1.560. Invar 36 is 2575.7 kg, frozen SF 0.280, and does not close.\n\nCusil-ABA at 25 MPa gives a 50.1 mm socket, 0.106 kg per end, 221.7 kg. Least SF 1.227 frozen and at k 0.2, and 1.699 at k 0.4. The CFRP wrap uses compression 1470 MPa, not tensile 2550 MPa: 0.045 kg per end, 93.1 kg, bond 43.4 mm. Least SF 1.232 frozen, 1.261 at k 0.2, 1.767 at k 0.4.\n\nLightest is the CFRP wrap. It relies on that coupon and on transferring the aluminum lap shear onto SiC. The joint is a PROJECTION. Wall stress is 1428.4 MPa, SF 2.73 on 3900 MPa and 0.266 on 380 MPa flexure. 022 has filed. At 1423.8 kN the wrap is 83.3 kg, the braze 182.3 kg, and the sleeve 423.2 kg, against 216.4 kg. That shell was not rescored. NFI-023-CFRP-WRAP, NFI-023-ADHESIVE-TRANSFER, NFI-023-PIN-BEARING. No next job is named.",
+  "artifacts": [
+    {
+      "path": "evidence/9b6aed2278fd61f1-CARD.md",
+      "sha256": "adca70b9a450f324f16946f8f8631cb1fc0de34bab318ec162c21184c646bb73",
+      "bytes": 6339,
+      "match": false
+    },
+    {
+      "path": "evidence/ea53ee947d730681-RESULTS.json",
+      "sha256": "e6c3ebae6168376ddd800ea50e9cbc4121551b5e8164a577bc9b8dd3c3783437",
+      "bytes": 26894,
+      "match": false
+    },
+    {
+      "path": "evidence/30c19a9c27a07c4b-NFI.json",
+      "sha256": "12116207ee6c199b22f72eb77f17ffcd043f5e28ec97d92e89bc9a3cba8c96d6",
+      "bytes": 5626,
+      "match": false
+    },
+    {
+      "path": "evidence/8263a02faa2af71e-INPUTS.json",
+      "sha256": "e1fa48cad307981afd17347ffb8c92b9a012f01eb608fa04720b83106464c8fb",
+      "bytes": 4161,
+      "match": false
+    },
+    {
+      "path": "evidence/3ef49ed23ca377f6-nodes.py",
+      "sha256": "537e4e43ab8c0ebb5064892fdebacdcc86f3b3df94ccc4dafdbcb0a6cc4dd2aa",
+      "bytes": 17564,
+      "match": false
+    }
+  ],
+  "from_seat": "ref-cca93dbfd236dcaa3a8b",
+  "re": "ord-admiral-rr2-mainline023-dispatch-1019"
+}

@@ -1,0 +1,94 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "label": "K13D2U-50-20-20-10-019-same_tube_mass-m6-lost585",
+  "material": "K13D2U-50-20-20-10",
+  "reserve": "019",
+  "section_policy": "same_tube_mass",
+  "removed_member": 585,
+  "segments": 6,
+  "ndof": 23982,
+  "radius_m": 0.12329986013822045,
+  "wall_m": 0.0016482168187980095,
+  "frame_tubes_kg": 4108.765016152579,
+  "total_mass_including_reserve_sag_kg": 4889.442150189998,
+  "modes": {
+    "euler": 4.645883922822581,
+    "global_k0p2": 0.8115129425613401,
+    "local_peak": 0.5899195645507801,
+    "compression": null,
+    "joint_sleeve": 0.4592247559587629,
+    "joint_bond": 0.4591429938641263,
+    "film": 0.7326516005819772
+  },
+  "conditional_SF_or_ceiling": 0.4591429938641263,
+  "qualified_structural_SF": null,
+  "qualified_frame_Pf": null,
+  "qualified_hail_break_probability": null,
+  "all_composite_modes_complete": false,
+  "linear_multipliers": [
+    4.0575647128067,
+    6.28644796568237,
+    6.30416440452676,
+    6.482559545064394
+  ],
+  "eigen_relative_residuals": [
+    6.072415473859554e-13,
+    2.4120842150737203e-12,
+    7.421430730781135e-11,
+    2.8830529124454657e-08
+  ],
+  "equilibrium_relative_residual": 4.638546708830847e-13,
+  "load_rigid_projection_ratio": 1.9622315367581615e-16,
+  "q1_peak_compression_Pa": 1497846050.9664683,
+  "q1_peak_tension_Pa": 208998731.93120605,
+  "q1_whole_member_scale_needed_m10_Pf1e3_Pa": 3454869637.956603,
+  "max_axial_N": 1018832.0252168556,
+  "max_bending_Nm": 50604.53425881286,
+  "local_shell_limit_Pa": 844480397.7656018,
+  "secondary_failure_trigger_at_q1": true,
+  "individual_secondary_failure_members_at_q1": {
+    "local_shell": [
+      86,
+      92,
+      570,
+      573,
+      574,
+      578,
+      580,
+      581,
+      582,
+      583,
+      584,
+      586,
+      587,
+      588,
+      592,
+      593,
+      601
+    ],
+    "compression": null
+  },
+  "merged_bay": {
+    "incident_faces": [
+      341,
+      342
+    ],
+    "corner_nodes": [
+      185,
+      188,
+      189,
+      186
+    ],
+    "old_effective_inradii_m": [
+      0.7077519794617482,
+      0.7186160660504115
+    ],
+    "new_effective_inradius_m": 1.0624542004752946,
+    "tension_multiplier_same_rise_to_span": 1.4784726513486586,
+    "assumption": "045 equal rise/span, area/perimeter radius; not a membrane shape solution"
+  },
+  "pressure_fan_volume_m3": 4156.1373686854095,
+  "tube_loss_includes_pressure_bay_merge": true,
+  "dynamic_cascade_probability": null,
+  "elapsed_seconds": 1.3027511234395206
+}

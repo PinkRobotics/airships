@@ -1,0 +1,616 @@
+{
+  "schema": 1,
+  "started_at": "2026-10-20T00:25:12-07:00",
+  "case": {
+    "p_Pa": 95460.83791390515,
+    "R_m": 10.0,
+    "nu": 0.33,
+    "lift_kg": 4889.442150186961,
+    "tag": "QUESTIONABLE",
+    "basis": "Pinned COMMON case; full precision inherited from MAINLINE-014 INPUTS"
+  },
+  "face": {
+    "name": "Beryllium S-200F",
+    "E_Pa": 303000000000.0,
+    "sigma_Pa": 283000000.0,
+    "rho_kg_m3": 1850,
+    "tag": "QUESTIONABLE",
+    "source": "Materion beryllium data sheet https://hkvxni.files.cmp.optimizely.com/download/c3141b9ea04211ee9a7b2a5d2cb825d4 (S-200F density 1.85 g/cc, E 303 GPa); Brush/Materion Beryllium Guide MB-001 compressive-yield note",
+    "basis": "compressive yield 41 ksi = 283 MPa (tensile yield 37 ksi on the same page)"
+  },
+  "cores": [
+    {
+      "name": "Hexcel HRH-10-4.8-32",
+      "rho_kg_m3": 32.0,
+      "Ec_Pa": 76000000.0,
+      "Gc_Pa": 14000000.0,
+      "crush_Pa": 1000000.0,
+      "form": "honeycomb",
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb HRH-10 datasheet, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_HRH10_DataSheet_eu1.pdf",
+      "note": "Aramid/phenolic honeycomb, 4.8 mm cell, 32 kg/m3. Stabilised modulus is not the continuum Ec of the wrinkling formula. W modulus is the smaller plate-shear modulus.",
+      "s_cell_m": 0.0048,
+      "cell_basis": "HRH-10-4.8-32 nominal cell in upstream 007/014b"
+    },
+    {
+      "name": "Hexcel CR-III 5056 1/4-1.6",
+      "family": "aluminium_honeycomb",
+      "form": "honeycomb",
+      "cell": "1/4",
+      "pcf": 1.6,
+      "rho": 25.629541398336222,
+      "s_cell_m": 0.00635,
+      "Ec_Pa": 206842718.7950508,
+      "Gc_Pa": 72394951.57826778,
+      "Gl_Pa": 137895145.8633672,
+      "crush_Pa": 344737.86465841805,
+      "shear_strength_L_Pa": 620528.1563851525,
+      "shear_strength_W_Pa": 413685.4375901016,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "ec_source": "sheet",
+      "crush_basis": "CR-III crush column",
+      "Gc_direction": "W",
+      "rho_kg_m3": 25.629541398336222,
+      "basis": "Live Hexcel Table II agrees: 1.6 pcf, 30 ksi stabilised compression modulus, 10.5 ksi W shear modulus, 50 psi crush."
+    },
+    {
+      "name": "Hexcel CR-III 5056 3/8-1.6",
+      "family": "aluminium_honeycomb",
+      "form": "honeycomb",
+      "cell": "3/8",
+      "pcf": 1.6,
+      "rho": 25.629541398336222,
+      "s_cell_m": 0.009524999999999999,
+      "Ec_Pa": 206842718.7950508,
+      "Gc_Pa": 72394951.57826778,
+      "Gl_Pa": 137895145.8633672,
+      "crush_Pa": 344737.86465841805,
+      "shear_strength_L_Pa": 620528.1563851525,
+      "shear_strength_W_Pa": 413685.4375901016,
+      "tag": "QUESTIONABLE",
+      "source": "Hexcel HexWeb CR-III data sheet, 5056 typical, https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "ec_source": "sheet",
+      "crush_basis": "CR-III crush column",
+      "Gc_direction": "W",
+      "rho_kg_m3": 25.629541398336222,
+      "basis": "Live Hexcel Table II agrees: 1.6 pcf, 30 ksi stabilised compression modulus, 10.5 ksi W shear modulus, 50 psi crush."
+    }
+  ],
+  "owner_point": {
+    "schema": 1,
+    "card": "MAINLINE-009d",
+    "unit": "vacuum-mainline009-combined-point-1019",
+    "status": "ESTIMATE",
+    "tag": "QUESTIONABLE",
+    "certification": "none",
+    "started_at": "2026-10-20T00:09:59-07:00",
+    "ended_at": "2026-10-20T00:09:59-07:00",
+    "mass": {
+      "margin": 0.05,
+      "structural_kg": 4328.542897788202,
+      "total_kg": 4644.970042677613,
+      "payload_kg": 244.47210750934846
+    },
+    "aramid_crimp_branch": {
+      "source": "rpt-ref-656730310661fdf86af6",
+      "face": "Beryllium S-200F",
+      "core": "Hexcel HRH-10-4.8-32",
+      "tf_m": 0.000752430055433027,
+      "core_m": 0.020642305866854553,
+      "Vc": 3.328884907403892,
+      "Kc": 0.3004008933369442,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "modes": {
+        "global_buckling": 0.6504118436805308,
+        "face_compression": 0.892251567620189,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274587998
+      },
+      "least_SF": 0.6504118436805308,
+      "governing": "core_shear_crimping",
+      "note": "Handbook gamma is 1 on this branch. The 018 conservative curve is not this carry."
+    },
+    "aluminium_stiff_branch": {
+      "source": "014b formulas, re-optimised at 5 percent. Ceiling check reproduced 0.668649769509.",
+      "face": "Beryllium S-200F",
+      "cores": [
+        {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 0.6170447855269701,
+            "face_yield": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733214,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 19.494913735632846
+          },
+          "governing": "global_buckling",
+          "least_SF": 0.6170447855269701,
+          "second_mode": "face_wrinkling",
+          "second_SF": 0.6170619661451507,
+          "wrinkle_SF_coefficient_0.82": 1.533305491633405,
+          "core_mass_fraction": 0.30075,
+          "core_name": "Hexcel CR-III 5056 1/4-1.6"
+        },
+        {
+          "tf_m": 0.0006509724557417433,
+          "core_m": 0.040420032902513996,
+          "h_m": 0.04107100535825574,
+          "Vc": 0.568100356836699,
+          "Kc": 0.8579749107908252,
+          "gamma": 0.2,
+          "branch": "stiff_or_moderate_core",
+          "sfs": {
+            "global_buckling": 0.6170447855269701,
+            "face_yield": 0.771940448044521,
+            "core_shear_crimping": 6.329757041733214,
+            "core_crush": 7.222602947804261,
+            "face_wrinkling": 0.6170619661451507,
+            "intracell_dimpling": 8.664406104725712
+          },
+          "governing": "global_buckling",
+          "least_SF": 0.6170447855269701,
+          "second_mode": "face_wrinkling",
+          "second_SF": 0.6170619661451507,
+          "wrinkle_SF_coefficient_0.82": 1.533305491633405,
+          "core_mass_fraction": 0.30075,
+          "core_name": "Hexcel CR-III 5056 3/8-1.6"
+        }
+      ],
+      "kd_statement": {
+        "kd_that_brings_global_to_1": 0.3241255816288854,
+        "least_reaches_1": false,
+        "kd_that_brings_least_to_1": null,
+        "mode_that_stays_below_1": {
+          "mode": "face_wrinkling",
+          "SF": 0.6170619661451507
+        }
+      },
+      "Gc": "W shear, 10.5 ksi, the lower modulus",
+      "density_kg_m3": 25.629541398336222
+    }
+  },
+  "owner_aramid_curve_carry": {
+    "schema": 1,
+    "card": "MAINLINE-009d",
+    "unit": "vacuum-mainline009-combined-point-1019",
+    "status": "ESTIMATE",
+    "tag": "QUESTIONABLE",
+    "certification": "none",
+    "started_at": "2026-10-20T00:07:02-07:00",
+    "ended_at": "2026-10-20T00:07:02-07:00",
+    "held_from": "rpt-ref-656730310661fdf86af6",
+    "curves_from": "rpt-ref-089ed1faaaf72118b83f",
+    "geometry_held": {
+      "tf_m": 0.000752430055433027,
+      "core_m": 0.020642305866854553,
+      "Vc": 3.328884907403892,
+      "Kc": 0.3004008933369442,
+      "branch": "shear_crimping",
+      "float_margin": 0.0499999999999999,
+      "payload_kg": 244.47210750934755,
+      "total_kg": 4644.9700426776135
+    },
+    "carried_point": "optimistic",
+    "why_carried": "On this branch the optimistic curve is gamma 1, the handbook step. The filed 009c-5 factor stands. The conservative curve is the alternative if the crimp exception is withheld. It is not a replacement geometry.",
+    "curves": {
+      "optimistic": {
+        "gamma": 1.0,
+        "tag": "PROJECTION",
+        "modes": {
+          "global_buckling": 0.6504118436805308,
+          "face_compression": 0.892251567620189,
+          "core_shear_crimping": 0.6504118436805308,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.6504141274587998
+        },
+        "bare_crimp_SF": 0.6504118436805308,
+        "design_global_SF": 0.6504118436805308,
+        "least_SF": 0.6504118436805308,
+        "governing": "core_shear_crimping",
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6504141274587998,
+        "factor_to_SF_1": 1.5374873777531946
+      },
+      "conservative": {
+        "gamma": 0.2,
+        "tag": "QUESTIONABLE",
+        "modes": {
+          "global_buckling": 0.13008236873610618,
+          "face_compression": 0.892251567620189,
+          "core_shear_crimping": 0.6504118436805308,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.6504141274587998
+        },
+        "bare_crimp_SF": 0.6504118436805308,
+        "design_global_SF": 0.13008236873610618,
+        "least_SF": 0.13008236873610618,
+        "governing": "core_shear_crimping",
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6504141274587998,
+        "factor_to_SF_1": 7.687436888765972
+      }
+    },
+    "p3": "PENDING-011b. Not scored.",
+    "not_folded": "rpt-mainline014b-grok-metal-honeycomb-1019 has filed. This re-run does not take that core.",
+    "kd_columns": "None. The 018 curves replace kd. They are not stacked on 0.20, 0.90 or 0.1407."
+  },
+  "owner_aramid_prior": {
+    "schema": 1,
+    "card": "MAINLINE-009c-5",
+    "unit": "vacuum-mainline009-combined-point-1019",
+    "status": "ESTIMATE",
+    "tag": "QUESTIONABLE",
+    "certification": "none",
+    "started_at": "2026-10-19T23:48:00-07:00",
+    "ended_at": "2026-10-19T23:48:01-07:00",
+    "point": {
+      "family": "P2",
+      "face": "Beryllium S-200F",
+      "core": "Hexcel HRH-10-4.8-32",
+      "payload_margin": 0.05,
+      "taken_from": "rpt-mainline014-grok-balanced-sandwich-1019",
+      "replaces_margin": "MAINLINE-009c spent the float ceiling. This row is the same face and core on the 5 percent line."
+    },
+    "branch": {
+      "name": "shear_crimping",
+      "Vc": 3.328884907403892,
+      "Kc": 0.3004008933369442,
+      "gamma_d": 1.0
+    },
+    "optimum": {
+      "core_mass_fraction": 0.1917680823191768,
+      "tf_m": 0.000752430055433027,
+      "core_m": 0.020642305866854553,
+      "h_m": 0.02139473592228758,
+      "Vc": 3.328884907403892,
+      "Kc": 0.3004008933369442,
+      "gamma_d": 1.0,
+      "branch": "shear_crimping",
+      "modes_at_0.20_design_wrinkle": {
+        "global_buckling": 0.6504118436805308,
+        "face_compression": 0.892251567620189,
+        "core_shear_crimping": 0.6504118436805308,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6504141274587998
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.6504118436805308,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6504141274587998,
+      "masses_kg": {
+        "structural": 4328.542897788202,
+        "faces": 3498.466527043067,
+        "core": 830.076370745136,
+        "joints": 216.42714488941016,
+        "systems": 100.0,
+        "total": 4644.9700426776135,
+        "payload": 244.47210750934755,
+        "float_margin": 0.0499999999999999
+      }
+    },
+    "levels": {
+      "0.2": {
+        "gamma_d": 1.0,
+        "Kc": 0.3004008933369442,
+        "Vc": 3.328884907403892,
+        "modes": {
+          "global_buckling": 0.6504118436805308,
+          "face_compression": 0.892251567620189,
+          "core_shear_crimping": 0.6504118436805308,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.6504141274587998
+        },
+        "least_SF": 0.6504118436805308,
+        "governing": "core_shear_crimping",
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6504141274587998
+      },
+      "0.9": {
+        "gamma_d": 1.0,
+        "Kc": 0.3004008933369442,
+        "Vc": 3.328884907403892,
+        "modes": {
+          "global_buckling": 0.6504118436805308,
+          "face_compression": 0.892251567620189,
+          "core_shear_crimping": 0.6504118436805308,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.6504141274587998
+        },
+        "least_SF": 0.6504118436805308,
+        "governing": "core_shear_crimping",
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6504141274587998
+      },
+      "0.1407": {
+        "gamma_d": 1.0,
+        "Kc": 0.3004008933369442,
+        "Vc": 3.328884907403892,
+        "modes": {
+          "global_buckling": 0.6504118436805308,
+          "face_compression": 0.892251567620189,
+          "core_shear_crimping": 0.6504118436805308,
+          "core_crush": 20.950999841461407,
+          "face_wrinkling": 0.6504141274587998
+        },
+        "least_SF": 0.6504118436805308,
+        "governing": "core_shear_crimping",
+        "second_mode": "face_wrinkling",
+        "second_SF": 0.6504141274587998
+      }
+    },
+    "wrinkle_coefficient_0.82": {
+      "SF_wrinkle": 1.6161805591400482,
+      "least_SF": 0.6504118436805308,
+      "governing": "core_shear_crimping",
+      "source": "014's theoretical honeycomb coefficient. Hemp and NASA/CR-1999-208994 were not opened."
+    },
+    "other_branch": {
+      "core_mass_fraction": 0.5278747212527874,
+      "tf_m": 0.00043952885537908913,
+      "core_m": 0.0568215071230911,
+      "h_m": 0.05726103597847019,
+      "Vc": 1.9999645895869647,
+      "Kc": 0.5000088526032589,
+      "gamma_d": 0.2,
+      "branch": "stiff_or_moderate_core",
+      "modes_at_0.20_design_wrinkle": {
+        "global_buckling": 0.3385076113825892,
+        "face_compression": 0.5212050042320596,
+        "core_shear_crimping": 1.6925380574435132,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.175022781624177
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.175022781624177,
+      "second_mode": "global_buckling",
+      "second_SF": 0.3385076113825892,
+      "masses_kg": {
+        "structural": 4328.542897788202,
+        "faces": 2043.6145221875222,
+        "core": 2284.92837560068,
+        "joints": 216.4271448894101,
+        "systems": 100.0,
+        "total": 4644.970042677613,
+        "payload": 244.47210750934846,
+        "float_margin": 0.050000000000000086
+      }
+    },
+    "ceiling_check": {
+      "fraction": 0.19175,
+      "least_SF": 0.6853382311714157,
+      "matches_014": true
+    },
+    "nfi": [
+      {
+        "id": "NFI-CRIMP-STEP",
+        "first": true,
+        "note": "gamma_d = 1 on the crimp branch is the handbook's step at Vc = 2. At or below 2, gamma_d is the knockdown and Kc is 1 - Vc/4. Above 2, Kc is 1/Vc and gamma_d steps to 1. MAINLINE-018 is testing whether a knockdown applies on the crimp branch. This card does not move the step."
+      },
+      {
+        "id": "NFI-NU",
+        "note": "nu is the aluminium case value 0.33. MAINLINE-008 published no beryllium Poisson ratio."
+      },
+      {
+        "id": "NFI-FACE-STRENGTH",
+        "note": "Face compression uses compressive yield 283 MPa, from 41 ksi. The same 008 line prints tensile yield 37 ksi. Scaling the face factor by 37/41 is the tensile reading."
+      },
+      {
+        "id": "NFI-STABILISED-EC",
+        "note": "Hexcel Ec of 76 MPa is the stabilised compressive modulus. MAINLINE-007 says that column is not the continuum modulus of the wrinkling formula."
+      },
+      {
+        "id": "NFI-WRINKLE-Q",
+        "design": 0.33,
+        "theoretical": 0.82,
+        "factor_on_Ec": 6.1744719926538085,
+        "note": "Design coefficient 0.33 is CR-1457 equation 2.2-14. Theoretical 0.82 is 014's Hemp figure. Those works were not opened here."
+      },
+      {
+        "id": "NFI-P3",
+        "note": "P3 stays PENDING-011b. The SiC frame is not scored."
+      }
+    ],
+    "later": {
+      "014b_report": null,
+      "018_report": null,
+      "009d": "when 014b or 018 files"
+    },
+    "sources": {
+      "RESULTS.json": {
+        "path": "evidence/cd02e4ec651bc748-RESULTS.json",
+        "sha256": "cd02e4ec651bc748c7f09385b764e0c1880041651461547fed49ebc4c813e2b5",
+        "bytes": 31544
+      }
+    }
+  },
+  "pins": [
+    {
+      "path": "evidence/b6a9486957d5bf62-INPUTS.json",
+      "sha256": "b6a9486957d5bf62633cfe3cf958900487f1239f1b42acb4004b9cc572f3615d",
+      "bytes": 38568
+    },
+    {
+      "path": "evidence/e77280535c63af3c-POINT.json",
+      "sha256": "e77280535c63af3cf42d2d1423a5d76e07f1b03280ae5bbce5ebf279df107d9b",
+      "bytes": 3191
+    },
+    {
+      "path": "evidence/e902a2005b5e276d-POINT.json",
+      "sha256": "e902a2005b5e276db171220f2ece31d7b61ef1496beab305cf205d6e3eca2732",
+      "bytes": 2325
+    },
+    {
+      "path": "evidence/2036cd9ce5d14de5-POINT.json",
+      "sha256": "2036cd9ce5d14de5e6d4e72096ca30d9b26de6a169770e40b8aa88c3cdfa56f5",
+      "bytes": 5949
+    },
+    {
+      "path": "evidence/0b7a9772fe072572-p014b_inputs.json",
+      "sha256": "0b7a9772fe072572a9043b67059049aac9db4130292538ca5f1eeb542de9619d",
+      "bytes": 40462
+    },
+    {
+      "path": "unpublished-local-ref:3479f5b50d11615e",
+      "sha256": "96447848c554f535831af3ae832263cc43a7bdd333708b657bcb524a419fb530",
+      "bytes": 2733
+    },
+    {
+      "path": "evidence/6228dba5de010f62-CARD.md",
+      "sha256": "6228dba5de010f62d9d675df361e895717756971efb04ca125d60cc6bde6b7e9",
+      "bytes": 2166,
+      "expected_sha256": "6228dba5de010f62d9d675df361e895717756971efb04ca125d60cc6bde6b7e9",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/e77280535c63af3c-POINT.json",
+      "sha256": "e77280535c63af3cf42d2d1423a5d76e07f1b03280ae5bbce5ebf279df107d9b",
+      "bytes": 3191,
+      "expected_sha256": "e77280535c63af3cf42d2d1423a5d76e07f1b03280ae5bbce5ebf279df107d9b",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/377a389c7af73797-both.py",
+      "sha256": "377a389c7af73797cbf9598bed542772d05756f0f80757d67075c2f6cdbb0f2d",
+      "bytes": 9811,
+      "expected_sha256": "377a389c7af73797cbf9598bed542772d05756f0f80757d67075c2f6cdbb0f2d",
+      "pin_verified": true,
+      "script_content_read": false
+    },
+    {
+      "path": "unpublished-local-ref:dfff871fac80dfec",
+      "sha256": "bc1029bfbea8a432f5c06dded142fd2c682b5dbd802fd3a955ab5a0e9d122b95",
+      "bytes": 4084
+    },
+    {
+      "path": "evidence/84496ef5f3a06ffa-CARD.md",
+      "sha256": "84496ef5f3a06ffac72ccedde88fb9108914264c84cb43354ddc1efa090a5058",
+      "bytes": 6039,
+      "expected_sha256": "84496ef5f3a06ffac72ccedde88fb9108914264c84cb43354ddc1efa090a5058",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/f62190ad5542457d-RESULTS.json",
+      "sha256": "f62190ad5542457d5578473ff4bb2f96420ec75872f0da10a31ee318a89a2ab5",
+      "bytes": 396846,
+      "expected_sha256": "f62190ad5542457d5578473ff4bb2f96420ec75872f0da10a31ee318a89a2ab5",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/e56941cee236de62-NFI.json",
+      "sha256": "e56941cee236de6243935baef4e1aea357b68683f6179ae5930e0263ac35cb50",
+      "bytes": 4778,
+      "expected_sha256": "e56941cee236de6243935baef4e1aea357b68683f6179ae5930e0263ac35cb50",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/0b7a9772fe072572-p014b_inputs.json",
+      "sha256": "0b7a9772fe072572a9043b67059049aac9db4130292538ca5f1eeb542de9619d",
+      "bytes": 40462,
+      "expected_sha256": "0b7a9772fe072572a9043b67059049aac9db4130292538ca5f1eeb542de9619d",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/9e1a02f084e00729-honeycomb.py",
+      "sha256": "9e1a02f084e00729956e2c8678f6b8df96ed31e339271286fa7ddba3aec51d06",
+      "bytes": 42435,
+      "expected_sha256": "9e1a02f084e00729956e2c8678f6b8df96ed31e339271286fa7ddba3aec51d06",
+      "pin_verified": true,
+      "script_content_read": false
+    },
+    {
+      "path": "evidence/47dcc522dc1c4431-ORIGIN.json",
+      "sha256": "47dcc522dc1c44319f19c6d92be66b05ccab9e51144042dc4be4b117237301a7",
+      "bytes": 96,
+      "expected_sha256": "47dcc522dc1c44319f19c6d92be66b05ccab9e51144042dc4be4b117237301a7",
+      "pin_verified": true
+    },
+    {
+      "path": "unpublished-local-ref:74b37e1131bb130f",
+      "sha256": "da25ce748e3efe7f2123272c15c25d20a99d3121960d3f8feeb8ed1ee7db6cf0",
+      "bytes": 2580
+    },
+    {
+      "path": "evidence/7ab8a834854b859f-CARD.md",
+      "sha256": "7ab8a834854b859f485c33fa71210e951964280e865dfe16a366acb8d0e724fe",
+      "bytes": 2257,
+      "expected_sha256": "7ab8a834854b859f485c33fa71210e951964280e865dfe16a366acb8d0e724fe",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/2036cd9ce5d14de5-POINT.json",
+      "sha256": "2036cd9ce5d14de5e6d4e72096ca30d9b26de6a169770e40b8aa88c3cdfa56f5",
+      "bytes": 5949,
+      "expected_sha256": "2036cd9ce5d14de5e6d4e72096ca30d9b26de6a169770e40b8aa88c3cdfa56f5",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/ceb5c213bfcfdae8-rederive.py",
+      "sha256": "ceb5c213bfcfdae8c9a3531616c17a2035ee24bcf5259eff8a013cdb40400b40",
+      "bytes": 13179,
+      "expected_sha256": "ceb5c213bfcfdae8c9a3531616c17a2035ee24bcf5259eff8a013cdb40400b40",
+      "pin_verified": true,
+      "script_content_read": false
+    },
+    {
+      "path": "unpublished-local-ref:fa4099a7c8f771c8",
+      "sha256": "0fbd7eeb8cfbd684e48fdac421fe4681cfcf21f7ba5e0f6ab586cdc2245f1bc1",
+      "bytes": 2345
+    },
+    {
+      "path": "evidence/8f198ea1f23e8627-CARD.md",
+      "sha256": "8f198ea1f23e8627d40c0e813bb7381f05b7466d1fdad35769ab2f96f703d986",
+      "bytes": 1400,
+      "expected_sha256": "8f198ea1f23e8627d40c0e813bb7381f05b7466d1fdad35769ab2f96f703d986",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/e902a2005b5e276d-POINT.json",
+      "sha256": "e902a2005b5e276db171220f2ece31d7b61ef1496beab305cf205d6e3eca2732",
+      "bytes": 2325,
+      "expected_sha256": "e902a2005b5e276db171220f2ece31d7b61ef1496beab305cf205d6e3eca2732",
+      "pin_verified": true
+    },
+    {
+      "path": "evidence/c5796a3a813cc3de-rederive.py",
+      "sha256": "c5796a3a813cc3dee995f05b088792ea9c7435673be2c403f8e306ae19473469",
+      "bytes": 4762,
+      "expected_sha256": "c5796a3a813cc3dee995f05b088792ea9c7435673be2c403f8e306ae19473469",
+      "pin_verified": true,
+      "script_content_read": false
+    },
+    {
+      "path": "unpublished-local-ref:f21c166875e85495",
+      "sha256": "0467f718f7d9d3a175635718573f94f58baea1d753e83db4be8edcba9f374034",
+      "bytes": 269874,
+      "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+      "retrieval_note": "Direct checker urllib retrieval returned HTTP 403; public web tool read Table II. This preserved PDF matches the upstream declared SHA256."
+    },
+    {
+      "path": "unpublished-local-ref:1b5504be3dbcf019",
+      "sha256": "5dd577735c411e1c9c934e96ec53f330c58afd06658466c2cf0b03585823af14",
+      "bytes": 82780
+    },
+    {
+      "path": "unpublished-local-ref:34591390744eba48",
+      "sha256": "0c4475f8cdb48f59489f4d119867f1e7dc61927a5c8947e228ee21eba77e5605",
+      "bytes": 69036
+    }
+  ],
+  "source_coverage": {
+    "aluminium_table": "Primary public Hexcel Table II verified online and pinned source PDF preserved. Typical values, QUESTIONABLE; 0.625 inch test thickness differs from the scored core depth.",
+    "NASA_dimpling": "Checker visually read printed pages 2-5 and 2-7 from independently downloaded CR-1457. Uniaxial eq 2.1-4; biaxial interaction eq 2.1-6.",
+    "formula_scope": "Reproduce stated 014b formula first, then show the known biaxial dimpling transfer separately. No silent replacement of a brief assumption.",
+    "curve_scope": "Both-points report explicitly carries handbook gamma=1 aramid and 0.20 aluminium; earlier curve report carries optimistic/conservative aramid. Both curves are also evaluated at held aluminium geometry for comparison, without claiming to optimize the new optimistic curve.",
+    "packaging": "Owner both-points report pins CARD.md, POINT.json, both.py. Separate INPUTS.json, RESULTS.json, NFI.json requested by COMMON are absent from its directory; this check supplies the dependency/source record and NFI, without changing owner files."
+  }
+}

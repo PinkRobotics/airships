@@ -1,0 +1,38 @@
+{
+  "id": "E-bf27d1d10a2a0b898f12",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-bf27d1d10a2a0b898f12",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check037~1NFI.json/rows/6",
+    "row_id": "NFI-CHECK037-WIND-PATCH",
+    "fields": {
+      "id": "NFI-CHECK037-WIND-PATCH",
+      "tag": "PROJECTION",
+      "status": "open",
+      "finding": "Negative mean Cp is not proof that uniform excess bounds a nonuniform buckling mode.",
+      "proposed_fix": "Compute the prestressed nonuniform pressure and hardpoint equilibrium, then compare instability/imperfection response; retain uniform excess as a screening assumption until shown."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "Negative mean Cp is not proof that uniform excess bounds a nonuniform buckling mode.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check037~1NFI.json/rows/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

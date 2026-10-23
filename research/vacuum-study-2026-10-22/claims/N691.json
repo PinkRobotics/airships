@@ -1,0 +1,94 @@
+{
+  "id": "N691",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N691",
+    "report": "rpt-ref-f182f16ed5be422b7811",
+    "card": "rpt-ref-f182f16ed5be422b7811",
+    "file": "evidence/4b0e541f707f3658-NFI.json",
+    "snapshot": "evidence/4b0e541f707f3658-NFI.json",
+    "source_sha256": "4b0e541f707f3658d6cca9590c762d91c7df932b2e13be9befe0a2e6e464db9d",
+    "source_json_pointer": "/rows/2",
+    "row_id": "NFI-036-historical-transfer",
+    "fields": {
+      "id": "NFI-036-historical-transfer",
+      "status": "OPEN",
+      "issue": "Resolve gauge, lot and finish transfer of the 379.2 MPa historical value.",
+      "state": "in_the_lab",
+      "tag": "QUESTIONABLE",
+      "needed": {
+        "modern_target_gauges_mm": [
+          0.7,
+          0.85,
+          1.4
+        ]
+      },
+      "today": {
+        "historical_gauge_mm": 1.96,
+        "Fcy_L_MPa": 379.2
+      },
+      "improvement_factor": null,
+      "null_factor_reason": "No matched qualified baseline; a scalar improvement ratio would be misleading.",
+      "source": "sr200_lot Table 3",
+      "closure": "Obtain original AFML-TR-67-212 and qualification data for the purchased thin sheet; historical reported values remain non-minimum evidence.",
+      "origin": "MAINLINE-036 owner NFI retained by independent check",
+      "audit_disposition": "OPEN; check completion does not close qualification"
+    },
+    "inherited_document_tag": {
+      "overall_installed_hull_SF": null
+    }
+  },
+  "claim": "Resolve gauge, lot and finish transfer of the 379.2 MPa historical value.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/690"
+    },
+    {
+      "report": "rpt-ref-f182f16ed5be422b7811",
+      "artifact": "evidence/4b0e541f707f3658-NFI.json",
+      "snapshot": "evidence/4b0e541f707f3658-NFI.json",
+      "sha256": "4b0e541f707f3658d6cca9590c762d91c7df932b2e13be9befe0a2e6e464db9d",
+      "bytes": 13710,
+      "selector": "/rows/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-f182f16ed5be422b7811",
+          "artifact": "evidence/4b0e541f707f3658-NFI.json",
+          "snapshot": "evidence/4b0e541f707f3658-NFI.json",
+          "sha256": "4b0e541f707f3658d6cca9590c762d91c7df932b2e13be9befe0a2e6e464db9d",
+          "bytes": 13710,
+          "selector": "/rows/2"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/690"
+          }
+        ]
+      }
+    }
+  ]
+}

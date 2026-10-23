@@ -1,0 +1,89 @@
+{
+  "id": "D119",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D119",
+    "report": "rpt-ref-593068c3ed82fd458128",
+    "file": "evidence/a103f3bba0744beb-NFI.json",
+    "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+    "source_sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+    "source_json_pointer": "/retained_check037b_rows/7",
+    "row_id": "NFI-CHECK037b-MASS-ALONE-WORDING",
+    "fields": {
+      "id": "NFI-CHECK037b-MASS-ALONE-WORDING",
+      "tag": "QUESTIONABLE",
+      "status": "OPEN",
+      "finding": "The glass/aramid rejections involve their specified mechanical properties and the fixed scarf, not density alone. An artificial ideal-property core at the HFT density can pass the broader classical envelope.",
+      "exact": {
+        "HFT_density_kg_m3": 32.04,
+        "actual_HFT_classical_maximum_minimum_SF": 0.9738619550030646,
+        "ideal_properties_same_density_classical_maximum_minimum_SF": 1.0249018707576047
+      },
+      "disposition": "Narrow 'mass alone' to the metallic density bounds that were actually proven. No sourced nonmetal candidate becomes feasible.",
+      "carries_owner_rows": [
+        "NFI-037b-NONMETAL-CTE",
+        "NFI-037b-RT-PASTE"
+      ],
+      "blocking": false
+    },
+    "inherited_document_tag": {
+      "status": "OPEN"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/retained_check037b_rows",
+    "blocks_progress": false
+  },
+  "claim": "The glass/aramid rejections involve their specified mechanical properties and the fixed scarf, not density alone. An artificial ideal-property core at the HFT density can pass the broader classical envelope.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1079"
+    },
+    {
+      "report": "rpt-ref-593068c3ed82fd458128",
+      "artifact": "evidence/a103f3bba0744beb-NFI.json",
+      "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+      "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+      "bytes": 30702,
+      "selector": "/retained_check037b_rows/7"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-593068c3ed82fd458128",
+          "artifact": "evidence/a103f3bba0744beb-NFI.json",
+          "snapshot": "evidence/a103f3bba0744beb-NFI.json",
+          "sha256": "a103f3bba0744beb73a492288b4805399c82c1f0ac00c58123b79ffcbaf6fb2f",
+          "bytes": 30702,
+          "selector": "/retained_check037b_rows/7"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1079"
+          }
+        ]
+      }
+    }
+  ]
+}

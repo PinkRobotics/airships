@@ -1,0 +1,3672 @@
+{
+  "time_budget": null,
+  "timeout_is_technical_watchdog": true,
+  "retry_authority": "ord-admiral-rr2-check048-resume-retry-1020",
+  "retry_interval_seconds": 61,
+  "peak_reserved_own_cores": 5,
+  "live_own_jobs": 0,
+  "admitted": 23,
+  "refused": 8,
+  "failed_checker_attempts": 9,
+  "successful_attempts": 14,
+  "retries": [
+    {
+      "series": "full-AgFEP05",
+      "from_label": "full-AgFEP05-retry01",
+      "to_label": "full-AgFEP05-retry02",
+      "elapsed_after_refusal_seconds": 61.137744,
+      "payload_resources_same": true
+    },
+    {
+      "series": "search-smoke",
+      "from_label": "search-smoke-retry01",
+      "to_label": "search-smoke-retry02",
+      "elapsed_after_refusal_seconds": 61.154637,
+      "payload_resources_same": true
+    },
+    {
+      "series": "search-smoke",
+      "from_label": "search-smoke-retry02",
+      "to_label": "search-smoke-retry03",
+      "elapsed_after_refusal_seconds": 61.139427,
+      "payload_resources_same": true
+    },
+    {
+      "series": "supplemental",
+      "from_label": "supplemental-retry01",
+      "to_label": "supplemental-retry02",
+      "elapsed_after_refusal_seconds": 61.118648,
+      "payload_resources_same": true
+    },
+    {
+      "series": "supplemental",
+      "from_label": "supplemental-retry02",
+      "to_label": "supplemental-retry03",
+      "elapsed_after_refusal_seconds": 61.173427,
+      "payload_resources_same": true
+    },
+    {
+      "series": "thermal-resolved",
+      "from_label": "thermal-resolved-retry01",
+      "to_label": "thermal-resolved-retry02",
+      "elapsed_after_refusal_seconds": 61.099372,
+      "payload_resources_same": true
+    },
+    {
+      "series": "thermal-resolved",
+      "from_label": "thermal-resolved-retry02",
+      "to_label": "thermal-resolved-retry03",
+      "elapsed_after_refusal_seconds": 61.093673,
+      "payload_resources_same": true
+    }
+  ],
+  "attempts": [
+    {
+      "label": "account-02-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t053051-742a7c4672fe.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:30:51.084873+00:00",
+        "ended_utc": "2026-10-20T12:30:56.922581+00:00",
+        "elapsed_seconds": 5.837703621946275,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:6381f3af6d97f0a6",
+          "MPLCONFIGDIR=unpublished-local-ref:31aca8475be5c5a7",
+          "XDG_CACHE_HOME=unpublished-local-ref:dbea73a107d83d0a",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/062d2896ca485aa8-verify_account.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "076427aa3eb1dba5f1e7c3838c64a0bb3339b65617b35af243734f83c55cb22c",
+            "bytes": 8535
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/3a8d7c4ce84a85bb-END.json",
+        "sha256": "3a8d7c4ce84a85bb47f6be0ec35ce2de866a418918e4958ba85bc4a0d015a743",
+        "bytes": 3191
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:5598ba153f5fcc83",
+        "sha256": "3efd442471fc7e8a05b3e7ea54727fb02ad7015848ea3de5827bbfa18c7021bc",
+        "bytes": 616
+      }
+    },
+    {
+      "label": "account-final-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055034-77956385152b.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:50:34.081390+00:00",
+        "ended_utc": "2026-10-20T12:50:51.722483+00:00",
+        "elapsed_seconds": 17.641086749732494,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:e801cf080c4a7e7a",
+          "MPLCONFIGDIR=unpublished-local-ref:6b7d47e3518bddb2",
+          "XDG_CACHE_HOME=unpublished-local-ref:7b9683a810db0904",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/062d2896ca485aa8-verify_account.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/26083de4840236a5-END.json",
+        "sha256": "26083de4840236a54bb458162320245c8671636d3d4cfe80f4ac77c91e7f65a7",
+        "bytes": 4622
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:e20b59ff106a1167",
+        "sha256": "a88b2a697ef9bf28e84bf1d7f2773f3854c9686f71a113152158d98e10fd0f87",
+        "bytes": 618
+      }
+    },
+    {
+      "label": "detail-validation-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t060125-a1e3b9b0fddf.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T13:01:25.008864+00:00",
+        "ended_utc": "2026-10-20T13:01:33.550853+00:00",
+        "elapsed_seconds": 8.541993265040219,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:054603e5cf785a03",
+          "MPLCONFIGDIR=unpublished-local-ref:67ef3197fe5cf1e0",
+          "XDG_CACHE_HOME=unpublished-local-ref:3c3af0ef845e1e61",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/38a40ff9f4e9027e-verify_details.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/4eddfaed8e53b500-null_sensitivity_witnesses.py",
+            "sha256": "4eddfaed8e53b500084161b1168bd3ea6d8652c073609be92839c1a44707a2f7",
+            "bytes": 2209
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          },
+          {
+            "path": "evidence/38a40ff9f4e9027e-verify_details.py",
+            "sha256": "38a40ff9f4e9027e9b2039e758b81adc35202051ba10e08b8bf9f5d191e40c54",
+            "bytes": 4424
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/61f2054215632061-END.json",
+        "sha256": "61f2054215632061b0ab98411e735b1585622e070e2131a773f0b8ef7affa3a6",
+        "bytes": 6071
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:da8c2d40866f8f77",
+        "sha256": "399321d4bdaac3f08596dd2a7672743b77099b587080ba5e1fde13e2af8f320a",
+        "bytes": 617
+      }
+    },
+    {
+      "label": "extra-audits-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "numpy_boolean_serialization",
+      "unit": "simjob-20261020t055417-3e66eea8b024.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:54:17.013480+00:00",
+        "ended_utc": "2026-10-20T12:55:03.726660+00:00",
+        "elapsed_seconds": 46.71317301504314,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:aca7505f0387e7a4",
+          "MPLCONFIGDIR=unpublished-local-ref:e3d680592b7582c1",
+          "XDG_CACHE_HOME=unpublished-local-ref:47c624fbaa12efd0",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/73cf4c69806e6d04-extra_audits.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "3d9a7eb766a3689c7f9deec5ea9472d0b6efd86c86bea371700a229c5a550849",
+            "bytes": 9448
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/a806856c23258275-END.json",
+        "sha256": "a806856c23258275778c1252f6279380793c4651bfb2330fcdb6ca0c4d7e54f5",
+        "bytes": 5186
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:314648428d64bf01",
+        "sha256": "415740167123a92625102bb11546d703da16782b11794e41389fe666bb782231",
+        "bytes": 1674
+      }
+    },
+    {
+      "label": "extra-audits-v2-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055641-c07af9bb2683.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:56:41.847937+00:00",
+        "ended_utc": "2026-10-20T12:57:26.329635+00:00",
+        "elapsed_seconds": 44.48169477377087,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:2152756093eeb2a0",
+          "MPLCONFIGDIR=unpublished-local-ref:7afda2bee6cbe8b4",
+          "XDG_CACHE_HOME=unpublished-local-ref:0572ee9aebef892b",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/73cf4c69806e6d04-extra_audits.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/c4aee6143cf0cd9e-END.json",
+        "sha256": "c4aee6143cf0cd9edf682d138deb249126ef46460e419ea777ad2044890873bc",
+        "bytes": 5483
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:77c8ea0b1bc85a36",
+        "sha256": "baca0888d6fa0ade0519da8787ee72b39cf842381faaef9aad6c1efdb9e49e19",
+        "bytes": 618
+      }
+    },
+    {
+      "label": "full-AgFEP05-retry01",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:50:34.171965+00:00",
+        "ended_utc": "2026-10-20T12:50:34.273955+00:00",
+        "elapsed_seconds": 0.10198213392868638,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:0a63a008430cd6e5",
+          "MPLCONFIGDIR=unpublished-local-ref:57fef9d9466f0c00",
+          "XDG_CACHE_HOME=unpublished-local-ref:87301d022edd5271",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b8e3ea34dd0844f9-search_complete.py",
+          "AgFEP05"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/406c91170f4c3abd-END.json",
+        "sha256": "406c91170f4c3abd7ea8a615e1af3d8b6c4606b5b09f241abf9331043b94ba09",
+        "bytes": 4637
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:9c1b9f2c510620ec",
+        "sha256": "59a5be68fcba1d8aa9a896ba67642e28ab7bd63d562e22fe0106c7769b3d5821",
+        "bytes": 370
+      }
+    },
+    {
+      "label": "full-AgFEP05-retry02",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "missing_optional_ties",
+      "unit": "simjob-20261020t055135-96077b10aff5.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:51:35.411699+00:00",
+        "ended_utc": "2026-10-20T12:51:44.356595+00:00",
+        "elapsed_seconds": 8.944711934775114,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:69d54500a4b90b93",
+          "MPLCONFIGDIR=unpublished-local-ref:91ce229766bcbf20",
+          "XDG_CACHE_HOME=unpublished-local-ref:45cc0cec8def54da",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b8e3ea34dd0844f9-search_complete.py",
+          "AgFEP05"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/9926a644202ae0d4-END.json",
+        "sha256": "9926a644202ae0d4569ead86d478e6fd56c9a86bfcb17979387cf0abf11d5733",
+        "bytes": 4634
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:203e2f8c9dfcf5d1",
+        "sha256": "69ec11740e9408c06fa42f2767a1abaec6042ae5bdefbf56d3897440390c196c",
+        "bytes": 924
+      }
+    },
+    {
+      "label": "full-AgFEP1-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "missing_optional_ties",
+      "unit": "simjob-20261020t055034-4f20ffeeadbc.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:50:33.956588+00:00",
+        "ended_utc": "2026-10-20T12:50:37.723389+00:00",
+        "elapsed_seconds": 3.766788635868579,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:8dd8a15a4103d533",
+          "MPLCONFIGDIR=unpublished-local-ref:e49f19e5c994c508",
+          "XDG_CACHE_HOME=unpublished-local-ref:53bfbd9d361ece88",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b8e3ea34dd0844f9-search_complete.py",
+          "AgFEP1"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/edaa767c78a3d57f-END.json",
+        "sha256": "edaa767c78a3d57f21e5df739b14848485da841d884ee41cb5cf697634e7837e",
+        "bytes": 4630
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:2bb4c31bee90ba21",
+        "sha256": "f631d272c04d95276a303e1cfb9db812c967a7b35db326168c399318d3e96643",
+        "bytes": 924
+      }
+    },
+    {
+      "label": "full-CCAg-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "missing_optional_ties",
+      "unit": "simjob-20261020t055034-24004e7a1025.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:50:34.034314+00:00",
+        "ended_utc": "2026-10-20T12:50:51.592129+00:00",
+        "elapsed_seconds": 17.55779755488038,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:ff5fd5746a079f92",
+          "MPLCONFIGDIR=unpublished-local-ref:21003b48c2be8454",
+          "XDG_CACHE_HOME=unpublished-local-ref:06c2a68c63ab600a",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b8e3ea34dd0844f9-search_complete.py",
+          "CCAg"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/35cb2e5531ad0e97-END.json",
+        "sha256": "35cb2e5531ad0e97c920e343b76c4ceac39134d0f8e69d7f8ee86d4bfbfe667c",
+        "bytes": 4622
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:11b8678f0910437e",
+        "sha256": "d34a41ed981ea3809dc551578527cd26cbe6de167c7a3f7434a90cf9eb0705fc",
+        "bytes": 925
+      }
+    },
+    {
+      "label": "full-MLCCAg-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "missing_optional_ties",
+      "unit": "simjob-20261020t055034-20b04b044a29.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:50:33.939709+00:00",
+        "ended_utc": "2026-10-20T12:50:52.022825+00:00",
+        "elapsed_seconds": 18.083106691017747,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:a75b7db8512ec539",
+          "MPLCONFIGDIR=unpublished-local-ref:a4a131dafc00fa70",
+          "XDG_CACHE_HOME=unpublished-local-ref:3baaf650944eda96",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b8e3ea34dd0844f9-search_complete.py",
+          "MLCCAg"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/147f16698719ba06-END.json",
+        "sha256": "147f16698719ba069451deb9be73161f1806e37383c57ab3ee332600a384fe52",
+        "bytes": 4631
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:9242eb1026d2050c",
+        "sha256": "157f0dceb0baca92b6511ae63128e3d4dbfdbccc4fcaf9ab72ed78d9ba7ede26",
+        "bytes": 925
+      }
+    },
+    {
+      "label": "full-v2-AgFEP05-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "numpy_boolean_serialization",
+      "unit": "simjob-20261020t055155-37850ae2ef32.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:51:55.506708+00:00",
+        "ended_utc": "2026-10-20T12:58:01.695818+00:00",
+        "elapsed_seconds": 366.1891109170392,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:11f4c717bbd40d0e",
+          "MPLCONFIGDIR=unpublished-local-ref:82a37801920db444",
+          "XDG_CACHE_HOME=unpublished-local-ref:e00789387a0c8ce0",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b3848c4d92e003e2-search_complete_v2.py",
+          "AgFEP05"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/ec3d76434b02f55e-END.json",
+        "sha256": "ec3d76434b02f55e355c5d54db5945f8f2fb506d8c67abc77a0ec7ef9fa2cf0a",
+        "bytes": 4934
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:944eb8353665a523",
+        "sha256": "88c7d078a0cc0a8a6725fea1925f7fd8aef3f4f269430f667c70faa9b467d11c",
+        "bytes": 1681
+      }
+    },
+    {
+      "label": "full-v2-AgFEP1-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "numpy_boolean_serialization",
+      "unit": "simjob-20261020t055151-ff233f719268.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:51:51.100321+00:00",
+        "ended_utc": "2026-10-20T12:58:05.048083+00:00",
+        "elapsed_seconds": 373.9477674048394,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:06fa3b82fdb5ba89",
+          "MPLCONFIGDIR=unpublished-local-ref:eea2e319d7c5ac13",
+          "XDG_CACHE_HOME=unpublished-local-ref:8a32ff17f982b984",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b3848c4d92e003e2-search_complete_v2.py",
+          "AgFEP1"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/94b1b26566c85cc6-END.json",
+        "sha256": "94b1b26566c85cc6f934568b5f4f6027cce0e2559f2b6a2fff2eb24b92512031",
+        "bytes": 4930
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:1f9a213d513192f9",
+        "sha256": "1d4f9005ce34b48b10dc8ef03cb0198e4af8af359b99384f0151f4afe8156948",
+        "bytes": 1681
+      }
+    },
+    {
+      "label": "full-v2-CCAg-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "numpy_boolean_serialization",
+      "unit": "simjob-20261020t055151-85d3db70ef33.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:51:51.149599+00:00",
+        "ended_utc": "2026-10-20T12:57:50.270495+00:00",
+        "elapsed_seconds": 359.120901000686,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:52ddfb079f5f2c52",
+          "MPLCONFIGDIR=unpublished-local-ref:87db57384b190ed2",
+          "XDG_CACHE_HOME=unpublished-local-ref:6ae81939230efb42",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b3848c4d92e003e2-search_complete_v2.py",
+          "CCAg"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/77350435aeb8b583-END.json",
+        "sha256": "77350435aeb8b583b87f08e1881f9c60ad4e15c39d111d07cf26a42b6b8ee329",
+        "bytes": 4921
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:6b55ef3dfeeb0055",
+        "sha256": "d632c02e41b3eed1042fa4b1dd1560c91bad28bbb4177f0b38a2e524cf377f1c",
+        "bytes": 1681
+      }
+    },
+    {
+      "label": "full-v2-MLCCAg-retry01",
+      "returncode": 1,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": "numpy_boolean_serialization",
+      "unit": "simjob-20261020t055151-ff4e84814afc.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:51:51.087690+00:00",
+        "ended_utc": "2026-10-20T12:57:52.408283+00:00",
+        "elapsed_seconds": 361.32057897094637,
+        "returncode": 1,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:f7389b3b4c4f4a85",
+          "MPLCONFIGDIR=unpublished-local-ref:69817ed0ae1a8d25",
+          "XDG_CACHE_HOME=unpublished-local-ref:1dffbcb1f875be22",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/b3848c4d92e003e2-search_complete_v2.py",
+          "MLCCAg"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/322e13c5ac74de03-END.json",
+        "sha256": "322e13c5ac74de033164cfbc4f0ae344090dab5233410ac3f4369be88eda76b7",
+        "bytes": 4931
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:a3750a65381103f4",
+        "sha256": "3c8afc7c847847ce28e43af4fbb80cf20b0830b219164e44ef0e66e86402c882",
+        "bytes": 1681
+      }
+    },
+    {
+      "label": "full-v3-AgFEP05-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055805-8c5a925d63cd.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:58:05.185462+00:00",
+        "ended_utc": "2026-10-20T13:02:45.253326+00:00",
+        "elapsed_seconds": 280.06786613399163,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:b498239eac86bc1d",
+          "MPLCONFIGDIR=unpublished-local-ref:db7b7dfd89b6dec3",
+          "XDG_CACHE_HOME=unpublished-local-ref:624d26fad0fc1670",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+          "AgFEP05"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/f593d0c13bc25a8e-END.json",
+        "sha256": "f593d0c13bc25a8eb361a57a3f9ae2bf3b7adace8aa723a817a4120d9e2fbd12",
+        "bytes": 5505
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:96b6be719483927d",
+        "sha256": "8c370459771f93fb4e8720fc3db270f6163d0209ec8dc73495ebc3b8c030c740",
+        "bytes": 619
+      }
+    },
+    {
+      "label": "full-v3-AgFEP1-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055805-c8bb38b3cf28.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:58:05.021938+00:00",
+        "ended_utc": "2026-10-20T13:02:43.422931+00:00",
+        "elapsed_seconds": 278.40098554315045,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:31f6dc00e1603cca",
+          "MPLCONFIGDIR=unpublished-local-ref:52559711cf4fccba",
+          "XDG_CACHE_HOME=unpublished-local-ref:3f4f9cf54fa75ef2",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+          "AgFEP1"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/7c3537c7a8a69f16-END.json",
+        "sha256": "7c3537c7a8a69f16c3629d2ac882c69bdd0928889052281f1424aff3305cd512",
+        "bytes": 5501
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:169f822eac93a523",
+        "sha256": "2f101caa7f4174abad567b5215f908dcde8f8e4d73fd0f8488260c9ddb62f1b1",
+        "bytes": 619
+      }
+    },
+    {
+      "label": "full-v3-CCAg-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055805-bd9823f7ca46.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:58:05.124466+00:00",
+        "ended_utc": "2026-10-20T13:02:37.768449+00:00",
+        "elapsed_seconds": 272.64398109493777,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:33a46ab4f9ae998f",
+          "MPLCONFIGDIR=unpublished-local-ref:fb5f84e01291a53f",
+          "XDG_CACHE_HOME=unpublished-local-ref:fdb2a7738b46a62c",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+          "CCAg"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/0462239fa6820ac3-END.json",
+        "sha256": "0462239fa6820ac3408b4a0459cec63d4590f65c2dd8aef9c666d145c969e39d",
+        "bytes": 5493
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:e474c3941b3b4ca8",
+        "sha256": "a9c4fde2c1d144899f4a5622cc8c45c48ef8c2e7814e69cb0006a7b2acbd2893",
+        "bytes": 619
+      }
+    },
+    {
+      "label": "full-v3-MLCCAg-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055805-7f5ba95cc24a.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:58:05.015360+00:00",
+        "ended_utc": "2026-10-20T13:02:37.323470+00:00",
+        "elapsed_seconds": 272.3081104559824,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:f96e26c9eee9043d",
+          "MPLCONFIGDIR=unpublished-local-ref:c9f357f903a5cfe8",
+          "XDG_CACHE_HOME=unpublished-local-ref:8b499bab44409160",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+          "MLCCAg"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/3d82f1baf00540cb-END.json",
+        "sha256": "3d82f1baf00540cbfc560d55941ed5719277f7f70388a2b7780a4b3fa21929f2",
+        "bytes": 5500
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:e75c6b13484c3a1c",
+        "sha256": "c76d7d65f283f5232fd300f11bbcaa867bd5efcbde77591c6877696d100e9ed2",
+        "bytes": 619
+      }
+    },
+    {
+      "label": "null-witness-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055851-3b9bff59f409.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:58:50.974548+00:00",
+        "ended_utc": "2026-10-20T12:58:52.258940+00:00",
+        "elapsed_seconds": 1.2843815400265157,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:8cd82786f3844baf",
+          "MPLCONFIGDIR=unpublished-local-ref:a2263017c932e501",
+          "XDG_CACHE_HOME=unpublished-local-ref:aa1387ac19f3994f",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/4eddfaed8e53b500-null_sensitivity_witnesses.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/4eddfaed8e53b500-null_sensitivity_witnesses.py",
+            "sha256": "4eddfaed8e53b500084161b1168bd3ea6d8652c073609be92839c1a44707a2f7",
+            "bytes": 2209
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/7fcf3adc4ed6f661-END.json",
+        "sha256": "7fcf3adc4ed6f6613aaea2e78a282cbc5fb52c19faed508a94dd8113f35e52d3",
+        "bytes": 5785
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:163e8d7445f6a45b",
+        "sha256": "3ebaeac0782321418aec363550e31dc5fffa8470b75377009494895c7da7e1a3",
+        "bytes": 617
+      }
+    },
+    {
+      "label": "search-smoke-attempt01",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:33:04.485306+00:00",
+        "ended_utc": "2026-10-20T12:33:04.557679+00:00",
+        "elapsed_seconds": 0.07237375620752573,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:0818964de0edeacb",
+          "MPLCONFIGDIR=unpublished-local-ref:07460747ddc8bd25",
+          "XDG_CACHE_HOME=unpublished-local-ref:9e77a92ed5cb8a77",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/2b0b005e791d0919-search_smoke.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/080f505cfc585f29-END.json",
+        "sha256": "080f505cfc585f29ddd513e4d70bc6b857d62b1e76ec25d094c8049778e97851",
+        "bytes": 3486
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:0e10a4e351319977",
+        "sha256": "0c94d7298907ecf8b54acacdd2549ceffcf67ef63ed46705628f592351335527",
+        "bytes": 277
+      }
+    },
+    {
+      "label": "search-smoke-retry01",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:35:52.810353+00:00",
+        "ended_utc": "2026-10-20T12:35:52.866273+00:00",
+        "elapsed_seconds": 0.055910566821694374,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:b4ea8696759b8f4c",
+          "MPLCONFIGDIR=unpublished-local-ref:52f0b0092dee873d",
+          "XDG_CACHE_HOME=unpublished-local-ref:f872f62a9291fe41",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/2b0b005e791d0919-search_smoke.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/1980e2309f672767-END.json",
+        "sha256": "1980e2309f672767e737d787c5f63156776ba857633f09ac75a743c17b6c716d",
+        "bytes": 4049
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:2ee4d67d9b663b82",
+        "sha256": "cf0294087cd1e3c4a385959d6f64d14420643f64f6a2e82cddfeffc09dc79eda",
+        "bytes": 277
+      }
+    },
+    {
+      "label": "search-smoke-retry02",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:36:54.020910+00:00",
+        "ended_utc": "2026-10-20T12:36:54.091219+00:00",
+        "elapsed_seconds": 0.07030852138996124,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:ec5c0bb98546cebc",
+          "MPLCONFIGDIR=unpublished-local-ref:fb3f186d924001b5",
+          "XDG_CACHE_HOME=unpublished-local-ref:ba223dd2621a1497",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/2b0b005e791d0919-search_smoke.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/ea55954d76deeb17-END.json",
+        "sha256": "ea55954d76deeb173f3eaa9253fb48f722d8092c791631a9df04d4f5a295691c",
+        "bytes": 4048
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:645d38a28c675f4d",
+        "sha256": "f4379c0192cdba92efa91076ed8aba0b3a66a0f333092b8f56d6330841b8262d",
+        "bytes": 277
+      }
+    },
+    {
+      "label": "search-smoke-retry03",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t053755-ec719783bb20.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:37:55.230646+00:00",
+        "ended_utc": "2026-10-20T12:37:56.968970+00:00",
+        "elapsed_seconds": 1.7383233709260821,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:b948547c02a33692",
+          "MPLCONFIGDIR=unpublished-local-ref:5681745ba6d16cd6",
+          "XDG_CACHE_HOME=unpublished-local-ref:25395324989f7820",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/2b0b005e791d0919-search_smoke.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/2b459cc9613d98bf-END.json",
+        "sha256": "2b459cc9613d98bf81b8370796a4bf0d604fea03236451007a1b18664294b0a6",
+        "bytes": 4046
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:6caa2021758e6390",
+        "sha256": "102b9a7b9c2d2460945916d648bf5346ca9bf14a2e99c0fd055b249518d5e4b4",
+        "bytes": 616
+      }
+    },
+    {
+      "label": "summarize-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t060340-836827e91de5.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T13:03:40.036378+00:00",
+        "ended_utc": "2026-10-20T13:03:41.159271+00:00",
+        "elapsed_seconds": 1.1228950750082731,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:0a746d4954f0814b",
+          "MPLCONFIGDIR=unpublished-local-ref:ff49fcaeda8efb91",
+          "XDG_CACHE_HOME=unpublished-local-ref:07148b68004ea070",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/f0f7b2da010131c5-summarize_check.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/73cf4c69806e6d04-extra_audits.py",
+            "sha256": "73cf4c69806e6d049b86d424d01cbe3c7bb596e91b5772849cfda5b23c75ddd3",
+            "bytes": 9454
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/4eddfaed8e53b500-null_sensitivity_witnesses.py",
+            "sha256": "4eddfaed8e53b500084161b1168bd3ea6d8652c073609be92839c1a44707a2f7",
+            "bytes": 2209
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/b3848c4d92e003e2-search_complete_v2.py",
+            "sha256": "b3848c4d92e003e2cf52e2d2c09470a18f902dae0ba79e1fd2512e76dbf59889",
+            "bytes": 5868
+          },
+          {
+            "path": "evidence/cf07a9f2b00eb56e-search_complete_v3.py",
+            "sha256": "cf07a9f2b00eb56e2b25cda4a3f0e8e1855e4d604915c013defb0e9d42195ae3",
+            "bytes": 5880
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/f0f7b2da010131c5-summarize_check.py",
+            "sha256": "f0f7b2da010131c5bf5415265938404c1e9cf7862d12348e3c545c0c4738ca7e",
+            "bytes": 5531
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          },
+          {
+            "path": "evidence/38a40ff9f4e9027e-verify_details.py",
+            "sha256": "38a40ff9f4e9027e9b2039e758b81adc35202051ba10e08b8bf9f5d191e40c54",
+            "bytes": 4424
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/6b23e44ab1f33f07-END.json",
+        "sha256": "6b23e44ab1f33f0747b9ee0fef5d5a9a008e75c037ad6ead031f0ccffc7c6579",
+        "bytes": 6334
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:799c96b5f090d032",
+        "sha256": "a6d5e17b60e367b568705f204fb1864bc9070128529efaf20edc86d252984c35",
+        "bytes": 614
+      }
+    },
+    {
+      "label": "supplemental-corrected-retry01",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t055034-cd17900c45a9.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:50:33.975512+00:00",
+        "ended_utc": "2026-10-20T12:50:35.935369+00:00",
+        "elapsed_seconds": 1.959850445855409,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:e18b040b83a391e0",
+          "MPLCONFIGDIR=unpublished-local-ref:f51aedb9a7cec0cc",
+          "XDG_CACHE_HOME=unpublished-local-ref:011766ffb44ba093",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/df8a1e74754adc62-supplemental_checks.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/b8e3ea34dd0844f9-search_complete.py",
+            "sha256": "b8e3ea34dd0844f934a427701e9b2ea690cffd9e69c57532e92c60428bfa9060",
+            "bytes": 5861
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "062d2896ca485aa8fcf3285cfad842e347f142e793101946c159b5dbb8a72605",
+            "bytes": 4656
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/d10ea61f70f35a30-END.json",
+        "sha256": "d10ea61f70f35a30798f5d31e7fe7c2ac31404eeb1f16483d5993e66e8af7890",
+        "bytes": 4653
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:21a8c4d12738541e",
+        "sha256": "5b82144bdcf12bf5eda7fc2ed94f255c5c1fc9626e48bf4bac47128c0912845b",
+        "bytes": 617
+      }
+    },
+    {
+      "label": "supplemental-retry01",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:35:57.293503+00:00",
+        "ended_utc": "2026-10-20T12:35:57.353583+00:00",
+        "elapsed_seconds": 0.060072717256844044,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:5d4cca160af2dcc8",
+          "MPLCONFIGDIR=unpublished-local-ref:26a0914d0364866a",
+          "XDG_CACHE_HOME=unpublished-local-ref:7d82a1e69dc4a95d",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/df8a1e74754adc62-supplemental_checks.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/33a839632e619fac-END.json",
+        "sha256": "33a839632e619faca77e0a137f32a9caa8833d5a728f2d5e0eb804129d2253dd",
+        "bytes": 4056
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:8352476e6fa3d730",
+        "sha256": "21abc69d937cdfeed6c955caab64a6fbacb92302e5fe59d961985d2b644cd7aa",
+        "bytes": 278
+      }
+    },
+    {
+      "label": "supplemental-retry02",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:36:58.472231+00:00",
+        "ended_utc": "2026-10-20T12:36:58.559382+00:00",
+        "elapsed_seconds": 0.08714598324149847,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:a193ab7f38887fa6",
+          "MPLCONFIGDIR=unpublished-local-ref:173fa60774163bbd",
+          "XDG_CACHE_HOME=unpublished-local-ref:769275af2040c87b",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/df8a1e74754adc62-supplemental_checks.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/da300e1cf4252725-END.json",
+        "sha256": "da300e1cf425272589ff82184569d093205f2372e41142098552e5b07bcf381b",
+        "bytes": 4055
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:3c191b9bb9746dc0",
+        "sha256": "adea40080e0e2379ea2c4e3ce7102fdde369859aa06a4a9c66c750234319218c",
+        "bytes": 277
+      }
+    },
+    {
+      "label": "supplemental-retry03",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t053759-78139050a6f1.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:37:59.732809+00:00",
+        "ended_utc": "2026-10-20T12:38:01.727853+00:00",
+        "elapsed_seconds": 1.9950357568450272,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:5e52b6ca70c1ecfb",
+          "MPLCONFIGDIR=unpublished-local-ref:4274e3733675d91f",
+          "XDG_CACHE_HOME=unpublished-local-ref:8e04a6fe0b3cec90",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/df8a1e74754adc62-supplemental_checks.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/153b867dbca0ce0b-END.json",
+        "sha256": "153b867dbca0ce0b6093845d3527235c05c771fc90775d0f9c9bccedd18c0109",
+        "bytes": 4053
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:15854fca4f22861c",
+        "sha256": "053961fd29a28f6dc15d2756b581fd299d6b8d638f70985ec3cd07c2cbbff2a8",
+        "bytes": 616
+      }
+    },
+    {
+      "label": "thermal-resolved-retry01",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:47:21.138689+00:00",
+        "ended_utc": "2026-10-20T12:47:21.201483+00:00",
+        "elapsed_seconds": 0.06278113136067986,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:f6521269316a94e0",
+          "MPLCONFIGDIR=unpublished-local-ref:1d63b28efa42b4d6",
+          "XDG_CACHE_HOME=unpublished-local-ref:e552016459b12e63",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/fda9dd0d6668eff8-thermal_resolved.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/cbc8d43c692f4190-END.json",
+        "sha256": "cbc8d43c692f4190167dafbc7cec4f3ed4b27efee232f13cefcae19f04fc1af0",
+        "bytes": 4350
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:c8b4f6ac67ff1894",
+        "sha256": "1896e706af80867c7efb91ee4a1337043fd7407cc5986625bfff6f54d0eea0f5",
+        "bytes": 277
+      }
+    },
+    {
+      "label": "thermal-resolved-retry02",
+      "returncode": 75,
+      "admitted": false,
+      "released": false,
+      "refused": true,
+      "failure": null,
+      "unit": null,
+      "receipt": {
+        "started_utc": "2026-10-20T12:48:22.300855+00:00",
+        "ended_utc": "2026-10-20T12:48:22.381699+00:00",
+        "elapsed_seconds": 0.08084819372743368,
+        "returncode": 75,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:7624c8a17877de0b",
+          "MPLCONFIGDIR=unpublished-local-ref:aa1460238ec56b5c",
+          "XDG_CACHE_HOME=unpublished-local-ref:bd3c85edf8ca9e4c",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/fda9dd0d6668eff8-thermal_resolved.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "8fd590cf6a2928c96bea8f104998a286d49755ce6c298ad53dd9c8bda07e194c",
+            "bytes": 11857
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "74a0b48d4d0bd089ab609dadd60a35a8c65b9f9d668764ea53be84c8644f9c92",
+            "bytes": 8604
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "70234cdb9dc327bf58ecb201d79639efe6704ec3a7b146e8921326befbb6547c",
+            "bytes": 7208
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/25e49fe24e9f143e-END.json",
+        "sha256": "25e49fe24e9f143e6af03e66b2c8324fdfc3b57470a06059ae7d7b913e06929a",
+        "bytes": 4350
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:19748b4833344f8b",
+        "sha256": "4798d8111418aaa35ea2e69c727f7db4d017dcd89047f594251f7ff7ed634a79",
+        "bytes": 277
+      }
+    },
+    {
+      "label": "thermal-resolved-retry03",
+      "returncode": 0,
+      "admitted": true,
+      "released": true,
+      "refused": false,
+      "failure": null,
+      "unit": "simjob-20261020t054923-f37861a29813.scope",
+      "receipt": {
+        "started_utc": "2026-10-20T12:49:23.475372+00:00",
+        "ended_utc": "2026-10-20T12:49:27.381310+00:00",
+        "elapsed_seconds": 3.90591854788363,
+        "returncode": 0,
+        "command": [
+          "ref-81e2f24e4e80426e80f0",
+          "unpublished-local-ref:6b66f99ebd630954",
+          "run",
+          "--cores",
+          "1",
+          "--mem",
+          "3G",
+          "--timeout",
+          "900",
+          "--",
+          "ref-d9af09a16f3a81bf2ded",
+          "-i",
+          "PATH=ref-ccc203c53b7d040ba4dc:/bin",
+          "LANG=C.UTF-8",
+          "TMPDIR=unpublished-local-ref:c717c7a28fca46ed",
+          "MPLCONFIGDIR=unpublished-local-ref:74698bed6d1095a3",
+          "XDG_CACHE_HOME=unpublished-local-ref:4908c57fda37d819",
+          "CUDA_VISIBLE_DEVICES=",
+          "OPENBLAS_NUM_THREADS=1",
+          "OMP_NUM_THREADS=1",
+          "MKL_NUM_THREADS=1",
+          "NUMEXPR_NUM_THREADS=1",
+          "BLIS_NUM_THREADS=1",
+          "VECLIB_MAXIMUM_THREADS=1",
+          "ref-81e2f24e4e80426e80f0",
+          "-I",
+          "-B",
+          "evidence/fda9dd0d6668eff8-thermal_resolved.py"
+        ],
+        "source_pins": [
+          {
+            "path": "evidence/6236fa465426a182-account_model.py",
+            "sha256": "6236fa465426a182eda4f0684d28425c87e0f9b77d27530a5f205e79bfc78910",
+            "bytes": 11966
+          },
+          {
+            "path": "evidence/72a21305bdd1e1db-diagnose_thermal.py",
+            "sha256": "72a21305bdd1e1dbb2e81a11239d1b28bdc18831e426b9487334fb9a1dc3ddf7",
+            "bytes": 1090
+          },
+          {
+            "path": "evidence/41f6aeec517ef5fd-independent_search.py",
+            "sha256": "41f6aeec517ef5fdea44204adee8eefaeb59a9c8c0c35bce0f8abed3c0d1f469",
+            "bytes": 8719
+          },
+          {
+            "path": "evidence/947a14bc0933a32b-retry_job.py",
+            "sha256": "947a14bc0933a32b7a52f9af32560317c033103c8f6a598f40db1be74bc437a4",
+            "bytes": 1304
+          },
+          {
+            "path": "evidence/e4a915aa0fc96350-run_job.py",
+            "sha256": "e4a915aa0fc963503559f5f2eede524c6db8754cd31944c70ddc4dda84abfd07",
+            "bytes": 2535
+          },
+          {
+            "path": "evidence/2b0b005e791d0919-search_smoke.py",
+            "sha256": "2b0b005e791d09197a4ad8e6c110da2e7276f3a76c727981ffd46aad01ae4fc9",
+            "bytes": 1366
+          },
+          {
+            "path": "evidence/df8a1e74754adc62-supplemental_checks.py",
+            "sha256": "df8a1e74754adc62b48f0e8b0ebbdcb97ff90afc13c775b37e7c4afc0230bf01",
+            "bytes": 7235
+          },
+          {
+            "path": "evidence/9423fb5677e6dadc-thermal_check.py",
+            "sha256": "9423fb5677e6dadcd6c9c51edd3e142ecb7c2ee8fcdf43a09353705ec4ed55a7",
+            "bytes": 7094
+          },
+          {
+            "path": "evidence/fda9dd0d6668eff8-thermal_resolved.py",
+            "sha256": "fda9dd0d6668eff8bdda8bc42877627bef9bfdce7a59f9424f14fad2832a3e1f",
+            "bytes": 9409
+          },
+          {
+            "path": "evidence/062d2896ca485aa8-verify_account.py",
+            "sha256": "84c7fb8f4fb8ee97e4e65dfd0289d2a92606de52122c604e6d5da7c83256e5b0",
+            "bytes": 3816
+          }
+        ],
+        "time_budget": null,
+        "timeout_is_technical_watchdog": true
+      },
+      "receipt_pin": {
+        "path": "evidence/ff5c3ac9ff2583ed-END.json",
+        "sha256": "ff5c3ac9ff2583ed095bb65d6b058493f6f560118a83afef823b23ab36800e79",
+        "bytes": 4346
+      },
+      "stderr_pin": {
+        "path": "unpublished-local-ref:0b20e8629191828b",
+        "sha256": "10a7848968df60fde398b1d032b37140632366cd87dba15f4195f34413812f8b",
+        "bytes": 616
+      }
+    }
+  ]
+}

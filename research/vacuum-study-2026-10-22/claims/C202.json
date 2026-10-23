@@ -1,0 +1,82 @@
+{
+  "id": "C202",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "C202",
+    "report": "rpt-ref-8cb22d2e233e57207cf6",
+    "file": "evidence/02a2f53e8d94208a-NFI.json",
+    "snapshot": "evidence/02a2f53e8d94208a-NFI.json",
+    "source_sha256": "02a2f53e8d94208a4c447824fcf3c927c4cd28d00e83f4b2a4402a94c36b72aa",
+    "source_json_pointer": "/items/3",
+    "row_id": "NFI-043-04",
+    "fields": {
+      "id": "NFI-043-04",
+      "status": "open",
+      "topic": "Multiaxial and local tensile stresses",
+      "finding": "Nominal beam normal stresses are compressive, but ideal beam shear produces small positive principal-stress estimates. Hoop stresses, pressure load path, membrane attachment, contact and residual stresses are not resolved.",
+      "needed": "Validated three-dimensional joint/member stress fields and a suitable multiaxial fracture law, including tensile surface/volume flaw populations.",
+      "effect": "Zero longitudinal tension cannot be reported as zero actual tensile or frame hazard. Uniform tensile levels and stressed fractions are sensitivity inputs.",
+      "stops_other_work": false
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE / PROJECTION",
+      "status": "open qualification questions retained; assigned analysis complete"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "items",
+    "blocks_progress": false
+  },
+  "claim": "Nominal beam normal stresses are compressive, but ideal beam shear produces small positive principal-stress estimates. Hoop stresses, pressure load path, membrane attachment, contact and residual stresses are not resolved.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/912"
+    },
+    {
+      "report": "rpt-ref-8cb22d2e233e57207cf6",
+      "artifact": "evidence/02a2f53e8d94208a-NFI.json",
+      "snapshot": "evidence/02a2f53e8d94208a-NFI.json",
+      "sha256": "02a2f53e8d94208a4c447824fcf3c927c4cd28d00e83f4b2a4402a94c36b72aa",
+      "bytes": 11490,
+      "selector": "/items/3"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-8cb22d2e233e57207cf6",
+          "artifact": "evidence/02a2f53e8d94208a-NFI.json",
+          "snapshot": "evidence/02a2f53e8d94208a-NFI.json",
+          "sha256": "02a2f53e8d94208a4c447824fcf3c927c4cd28d00e83f4b2a4402a94c36b72aa",
+          "bytes": 11490,
+          "selector": "/items/3"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/912"
+          }
+        ]
+      }
+    }
+  ]
+}

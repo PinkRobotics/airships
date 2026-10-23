@@ -1,0 +1,874 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-018b independent check",
+  "unit": "vacuum-mainline018b-check-1020",
+  "status": "CHECKED_WITH_CORRECTION_AND_NFI",
+  "tag": "QUESTIONABLE",
+  "transfer_tag": "PROJECTION",
+  "certification": "none",
+  "started_at": "2026-10-20T00:43:38-07:00",
+  "ended_at": "2026-10-20T00:49:15-07:00",
+  "independence": "Fresh independent equations and source readings; no owner script inspected as code, imported or executed.",
+  "comparison_tolerance": {
+    "relative": 2e-12,
+    "absolute": 2e-12
+  },
+  "comparison_count": 75,
+  "comparisons": [
+    {
+      "row": "flat",
+      "field": "t_outer_m",
+      "filed": 0.00042,
+      "checker": 0.00042,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "t_inner_m",
+      "filed": 0.00042,
+      "checker": 0.00042,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "t_core_m",
+      "filed": 0.0031,
+      "checker": 0.0031,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "h_m",
+      "filed": 0.0035199999999999997,
+      "checker": 0.0035199999999999997,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "R_outer_m",
+      "filed": 0.0428,
+      "checker": 0.0428,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "R_middle_m",
+      "filed": 0.04083,
+      "checker": 0.04083,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "R_over_tc",
+      "filed": 13.170967741935483,
+      "checker": 13.170967741935483,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "sigma_0_Pa",
+      "filed": 19178708418.605698,
+      "checker": 19178708418.605698,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "sigma_crimp_Pa",
+      "filed": 95164362.5192012,
+      "checker": 95164362.5192012,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "Vc",
+      "filed": 201.53246352841413,
+      "checker": 201.53246352841413,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "p_crimp_Pa",
+      "filed": 3915653.4173954944,
+      "checker": 3915653.4173954944,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "p_classical_Pa",
+      "filed": 789131279.5311676,
+      "checker": 789131279.5311676,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "linear_over_crimp",
+      "filed": 7.030755040192409,
+      "checker": 7.030755040192409,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "nonlinear_perfect_over_crimp",
+      "filed": 3.179545958968234,
+      "checker": 3.179545958968234,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "gamma_imperfect_over_crimp",
+      "filed": 1.5399728620544941,
+      "checker": 1.5399728620544941,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "published_kdf_check",
+      "filed": 0.21903378132945878,
+      "checker": 0.21903378132945878,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "face_bending_share_of_flexural_rigidity",
+      "filed": 0.004723195064743116,
+      "checker": 0.004723195064743117,
+      "difference": 8.673617379884035e-19,
+      "relative_difference": 2.220446049250313e-16,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "lead_least_times_gamma",
+      "filed": 1.0016165884275698,
+      "checker": 1.0016165884268473,
+      "difference": -7.225331444260519e-13,
+      "relative_difference": -7.213118990989642e-13,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "pressures.linear_perfect_Pa",
+      "filed": 27530000.0,
+      "checker": 27530000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "pressures.nonlinear_perfect_Pa",
+      "filed": 12450000.0,
+      "checker": 12450000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "pressures.imperfect_Pa",
+      "filed": 6030000.0,
+      "checker": 6030000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat",
+      "field": "pressures.published_kdf",
+      "filed": 0.22,
+      "checker": 0.22,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.paper_E_over_2",
+      "field": "Gc_Pa",
+      "filed": 20000000.0,
+      "checker": 20000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.paper_E_over_2",
+      "field": "p_crimp_Pa",
+      "filed": 3915653.4173954944,
+      "checker": 3915653.4173954944,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.paper_E_over_2",
+      "field": "gamma",
+      "filed": 1.5399728620544941,
+      "checker": 1.5399728620544941,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.paper_E_over_2",
+      "field": "lead_least_times_gamma",
+      "filed": 1.0016165884275698,
+      "checker": 1.0016165884268473,
+      "difference": -7.225331444260519e-13,
+      "relative_difference": -7.213118990989642e-13,
+      "matches": true
+    },
+    {
+      "row": "flat.H80",
+      "field": "Gc_Pa",
+      "filed": 27000000.0,
+      "checker": 27000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.H80",
+      "field": "p_crimp_Pa",
+      "filed": 5286132.113483918,
+      "checker": 5286132.113483918,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.H80",
+      "field": "gamma",
+      "filed": 1.1407206385588844,
+      "checker": 1.1407206385588844,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.H80",
+      "field": "lead_least_times_gamma",
+      "filed": 0.7419382136500516,
+      "checker": 0.7419382136495164,
+      "difference": -5.35238520171788e-13,
+      "relative_difference": -7.214229214014267e-13,
+      "matches": true
+    },
+    {
+      "row": "flat.H35",
+      "field": "Gc_Pa",
+      "filed": 12000000.0,
+      "checker": 12000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.H35",
+      "field": "p_crimp_Pa",
+      "filed": 2349392.0504372967,
+      "checker": 2349392.0504372967,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.H35",
+      "field": "gamma",
+      "filed": 2.56662143675749,
+      "checker": 2.56662143675749,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "flat.H35",
+      "field": "lead_least_times_gamma",
+      "filed": 1.6693609807126164,
+      "checker": 1.6693609807114123,
+      "difference": -1.2041478925084448e-12,
+      "relative_difference": -7.213118990989642e-13,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "t_outer_m",
+      "filed": 0.00042,
+      "checker": 0.00042,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "t_inner_m",
+      "filed": 0.0004,
+      "checker": 0.0004,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "t_core_m",
+      "filed": 0.0031,
+      "checker": 0.0031,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "h_m",
+      "filed": 0.00351,
+      "checker": 0.00351,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "R_outer_m",
+      "filed": 0.0428,
+      "checker": 0.0428,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "R_middle_m",
+      "filed": 0.04084,
+      "checker": 0.04084,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "R_over_tc",
+      "filed": 13.174193548387098,
+      "checker": 13.174193548387098,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "sigma_0_Pa",
+      "filed": 19119540732.73865,
+      "checker": 19113852932.30557,
+      "difference": -5687800.433082581,
+      "relative_difference": -0.00029748624784398103,
+      "matches": false
+    },
+    {
+      "row": "dimple",
+      "field": "sigma_crimp_Pa",
+      "filed": 96932336.74272227,
+      "checker": 96932336.74272227,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "Vc",
+      "filed": 197.24625832023136,
+      "checker": 197.18758027094242,
+      "difference": -0.05867804928894316,
+      "relative_difference": -0.00029748624784398103,
+      "matches": false
+    },
+    {
+      "row": "dimple",
+      "field": "p_crimp_Pa",
+      "filed": 3892483.6498056934,
+      "checker": 3892483.649805694,
+      "difference": 4.656612873077393e-10,
+      "relative_difference": 2.220446049250313e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "p_classical_Pa",
+      "filed": 767777835.4968507,
+      "checker": 767549432.149391,
+      "difference": -228403.34745967388,
+      "relative_difference": -0.00029748624784387,
+      "matches": false
+    },
+    {
+      "row": "dimple",
+      "field": "linear_over_crimp",
+      "filed": 7.08031233512715,
+      "checker": 7.080312335127149,
+      "difference": -8.881784197001252e-16,
+      "relative_difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "nonlinear_perfect_over_crimp",
+      "filed": 3.1959029553331546,
+      "checker": 3.195902955333154,
+      "difference": -4.440892098500626e-16,
+      "relative_difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "gamma_imperfect_over_crimp",
+      "filed": 1.4463773021322879,
+      "checker": 1.4463773021322877,
+      "difference": -2.220446049250313e-16,
+      "relative_difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "published_kdf_check",
+      "filed": 0.20428156748911466,
+      "checker": 0.20428156748911466,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "face_bending_share_of_flexural_rigidity",
+      "filed": 0.004538262400473471,
+      "checker": 0.004538262400473472,
+      "difference": 8.673617379884035e-19,
+      "relative_difference": 2.220446049250313e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "lead_least_times_gamma",
+      "filed": 0.9407409277382122,
+      "checker": 0.9407409277375334,
+      "difference": -6.787903572558207e-13,
+      "relative_difference": -7.215339437038892e-13,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "pressures.linear_perfect_Pa",
+      "filed": 27560000.0,
+      "checker": 27560000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "pressures.nonlinear_perfect_Pa",
+      "filed": 12440000.0,
+      "checker": 12440000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "pressures.imperfect_Pa",
+      "filed": 5630000.0,
+      "checker": 5630000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple",
+      "field": "pressures.published_kdf",
+      "filed": 0.2,
+      "checker": 0.2,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple.paper_E_over_2",
+      "field": "Gc_Pa",
+      "filed": 20000000.0,
+      "checker": 20000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple.paper_E_over_2",
+      "field": "p_crimp_Pa",
+      "filed": 3892483.6498056934,
+      "checker": 3892483.649805694,
+      "difference": 4.656612873077393e-10,
+      "relative_difference": 2.220446049250313e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple.paper_E_over_2",
+      "field": "gamma",
+      "filed": 1.4463773021322879,
+      "checker": 1.4463773021322877,
+      "difference": -2.220446049250313e-16,
+      "relative_difference": -1.1102230246251565e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple.paper_E_over_2",
+      "field": "lead_least_times_gamma",
+      "filed": 0.9407409277382122,
+      "checker": 0.9407409277375334,
+      "difference": -6.787903572558207e-13,
+      "relative_difference": -7.215339437038892e-13,
+      "matches": true
+    },
+    {
+      "row": "dimple.H80",
+      "field": "Gc_Pa",
+      "filed": 27000000.0,
+      "checker": 27000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple.H80",
+      "field": "p_crimp_Pa",
+      "filed": 5254852.927237687,
+      "checker": 5254852.927237687,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple.H80",
+      "field": "gamma",
+      "filed": 1.071390594172065,
+      "checker": 1.071390594172065,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple.H80",
+      "field": "lead_least_times_gamma",
+      "filed": 0.6968451316579348,
+      "checker": 0.6968451316574321,
+      "difference": -5.027089855502709e-13,
+      "relative_difference": -7.214229214014267e-13,
+      "matches": true
+    },
+    {
+      "row": "dimple.H35",
+      "field": "Gc_Pa",
+      "filed": 12000000.0,
+      "checker": 12000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "dimple.H35",
+      "field": "p_crimp_Pa",
+      "filed": 2335490.189883416,
+      "checker": 2335490.1898834165,
+      "difference": 4.656612873077393e-10,
+      "relative_difference": 2.220446049250313e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple.H35",
+      "field": "gamma",
+      "filed": 2.4106288368871467,
+      "checker": 2.410628836887146,
+      "difference": -8.881784197001252e-16,
+      "relative_difference": -3.3306690738754696e-16,
+      "matches": true
+    },
+    {
+      "row": "dimple.H35",
+      "field": "lead_least_times_gamma",
+      "filed": 1.5679015462303538,
+      "checker": 1.567901546229222,
+      "difference": -1.1317613513028846e-12,
+      "relative_difference": -7.218670106112768e-13,
+      "matches": true
+    },
+    {
+      "row": "all",
+      "field": "Gc_paper_Pa",
+      "filed": 20000000.0,
+      "checker": 20000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "lead",
+      "field": "design_credit_cap",
+      "filed": 1.0,
+      "checker": 1.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "lead",
+      "field": "carried_least_if_capped",
+      "filed": 0.650411843681,
+      "checker": 0.6504118436805308,
+      "difference": -4.691802502065912e-13,
+      "relative_difference": -7.213118990989642e-13,
+      "matches": true
+    },
+    {
+      "row": "H80",
+      "field": "CARD.shear_modulus_Pa",
+      "filed": 27000000.0,
+      "checker": 27000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "H80",
+      "field": "CARD.compression_modulus_Pa",
+      "filed": 90000000.0,
+      "checker": 90000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "H35",
+      "field": "CARD.shear_modulus_Pa",
+      "filed": 12000000.0,
+      "checker": 12000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    },
+    {
+      "row": "H35",
+      "field": "CARD.compression_modulus_Pa",
+      "filed": 40000000.0,
+      "checker": 40000000.0,
+      "difference": 0.0,
+      "relative_difference": 0.0,
+      "matches": true
+    }
+  ],
+  "mismatches": [
+    {
+      "row": "dimple",
+      "field": "sigma_0_Pa",
+      "filed": 19119540732.73865,
+      "checker": 19113852932.30557,
+      "difference": -5687800.433082581,
+      "relative_difference": -0.00029748624784398103,
+      "matches": false
+    },
+    {
+      "row": "dimple",
+      "field": "Vc",
+      "filed": 197.24625832023136,
+      "checker": 197.18758027094242,
+      "difference": -0.05867804928894316,
+      "relative_difference": -0.00029748624784398103,
+      "matches": false
+    },
+    {
+      "row": "dimple",
+      "field": "p_classical_Pa",
+      "filed": 767777835.4968507,
+      "checker": 767549432.149391,
+      "difference": -228403.34745967388,
+      "relative_difference": -0.00029748624784387,
+      "matches": false
+    }
+  ],
+  "shells": {
+    "flat": {
+      "name": "flat",
+      "t_outer_m": 0.00042,
+      "t_inner_m": 0.00042,
+      "t_core_m": 0.0031,
+      "h_m": 0.0035199999999999997,
+      "R_outer_m": 0.0428,
+      "R_middle_m": 0.04083,
+      "R_over_tc": 13.170967741935483,
+      "sigma_0_Pa": 19178708418.605698,
+      "sigma_crimp_Pa": 95164362.5192012,
+      "Vc": 201.53246352841413,
+      "branch": "shear_crimping",
+      "p_crimp_Pa": 3915653.4173954944,
+      "p_classical_Pa": 789131279.5311676,
+      "linear_over_crimp": 7.030755040192409,
+      "nonlinear_perfect_over_crimp": 3.179545958968234,
+      "gamma_imperfect_over_crimp": 1.5399728620544941,
+      "published_kdf_check": 0.21903378132945878,
+      "face_bending_share_of_flexural_rigidity": 0.004723195064743117,
+      "lead_least_times_gamma": 1.0016165884268473,
+      "pressures": {
+        "linear_perfect_Pa": 27530000.0,
+        "nonlinear_perfect_Pa": 12450000.0,
+        "imperfect_Pa": 6030000.0,
+        "published_kdf": 0.22
+      },
+      "unequal_face_factor": 1.0,
+      "D_own_faces_Nm": 2.909976433621367,
+      "D_face_separation_Nm": 613.1934014139827,
+      "D_total_facings_Nm": 616.1033778476041,
+      "equal_face_approximation": {
+        "sigma_0_Pa": 19178708418.605698,
+        "Vc": 201.53246352841413,
+        "p_classical_Pa": 789131279.5311676
+      },
+      "Gc_for_gamma_equal_one_Pa": 30799457.241089884,
+      "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999
+    },
+    "dimple": {
+      "name": "dimple",
+      "t_outer_m": 0.00042,
+      "t_inner_m": 0.0004,
+      "t_core_m": 0.0031,
+      "h_m": 0.00351,
+      "R_outer_m": 0.0428,
+      "R_middle_m": 0.04084,
+      "R_over_tc": 13.174193548387098,
+      "sigma_0_Pa": 19113852932.30557,
+      "sigma_crimp_Pa": 96932336.74272227,
+      "Vc": 197.18758027094242,
+      "branch": "shear_crimping",
+      "p_crimp_Pa": 3892483.649805694,
+      "p_classical_Pa": 767549432.149391,
+      "linear_over_crimp": 7.080312335127149,
+      "nonlinear_perfect_over_crimp": 3.195902955333154,
+      "gamma_imperfect_over_crimp": 1.4463773021322877,
+      "published_kdf_check": 0.20428156748911466,
+      "face_bending_share_of_flexural_rigidity": 0.004538262400473472,
+      "lead_least_times_gamma": 0.9407409277375334,
+      "pressures": {
+        "linear_perfect_Pa": 27560000.0,
+        "nonlinear_perfect_Pa": 12440000.0,
+        "imperfect_Pa": 5630000.0,
+        "published_kdf": 0.2
+      },
+      "unequal_face_factor": 0.999702513752156,
+      "D_own_faces_Nm": 2.7118617439120194,
+      "D_face_separation_Nm": 594.8432165232887,
+      "D_total_facings_Nm": 597.5550782672007,
+      "equal_face_approximation": {
+        "sigma_0_Pa": 19119540732.73865,
+        "Vc": 197.24625832023136,
+        "p_classical_Pa": 767777835.4968507
+      },
+      "Gc_for_gamma_equal_one_Pa": 28927546.042645752,
+      "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999
+    }
+  },
+  "sensitivity": {
+    "flat": {
+      "paper_E_over_2": {
+        "Gc_Pa": 20000000.0,
+        "p_crimp_Pa": 3915653.4173954944,
+        "gamma": 1.5399728620544941,
+        "lead_least_times_gamma": 1.0016165884268473,
+        "Vc": 201.53246352841413,
+        "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999,
+        "lead_all_modes_with_gamma_capped_at_one": 0.6504118436805308,
+        "scope": "Denominator-only Gc sensitivity; published collapse pressure held fixed, no new simulation."
+      },
+      "H80": {
+        "Gc_Pa": 27000000.0,
+        "p_crimp_Pa": 5286132.113483918,
+        "gamma": 1.1407206385588844,
+        "lead_least_times_gamma": 0.7419382136495164,
+        "Vc": 149.2833063173438,
+        "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999,
+        "lead_all_modes_with_gamma_capped_at_one": 0.6504118436805308,
+        "scope": "Denominator-only Gc sensitivity; published collapse pressure held fixed, no new simulation."
+      },
+      "H35": {
+        "Gc_Pa": 12000000.0,
+        "p_crimp_Pa": 2349392.0504372967,
+        "gamma": 2.56662143675749,
+        "lead_least_times_gamma": 1.6693609807114123,
+        "Vc": 335.8874392140236,
+        "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999,
+        "lead_all_modes_with_gamma_capped_at_one": 0.6504118436805308,
+        "scope": "Denominator-only Gc sensitivity; published collapse pressure held fixed, no new simulation."
+      }
+    },
+    "dimple": {
+      "paper_E_over_2": {
+        "Gc_Pa": 20000000.0,
+        "p_crimp_Pa": 3892483.649805694,
+        "gamma": 1.4463773021322877,
+        "lead_least_times_gamma": 0.9407409277375334,
+        "Vc": 197.18758027094242,
+        "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999,
+        "lead_all_modes_with_gamma_capped_at_one": 0.6504118436805308,
+        "scope": "Denominator-only Gc sensitivity; published collapse pressure held fixed, no new simulation."
+      },
+      "H80": {
+        "Gc_Pa": 27000000.0,
+        "p_crimp_Pa": 5254852.927237687,
+        "gamma": 1.071390594172065,
+        "lead_least_times_gamma": 0.6968451316574321,
+        "Vc": 146.06487427477217,
+        "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999,
+        "lead_all_modes_with_gamma_capped_at_one": 0.6504118436805308,
+        "scope": "Denominator-only Gc sensitivity; published collapse pressure held fixed, no new simulation."
+      },
+      "H35": {
+        "Gc_Pa": 12000000.0,
+        "p_crimp_Pa": 2335490.1898834165,
+        "gamma": 2.410628836887146,
+        "lead_least_times_gamma": 1.567901546229222,
+        "Vc": 328.64596711823737,
+        "lead_uncapped_all_modes_if_gamma_only_changes_crimp": 0.6504141274587999,
+        "lead_all_modes_with_gamma_capped_at_one": 0.6504118436805308,
+        "scope": "Denominator-only Gc sensitivity; published collapse pressure held fixed, no new simulation."
+      }
+    }
+  },
+  "lead_baseline_least_SF": 0.6504118436805308,
+  "lead_other_mode_limit": 0.6504141274587999,
+  "lead_other_mode_governing": "face_wrinkling",
+  "face_bending_scope": "Fraction of facings-only conventional flexural rigidity. Does not measure the omitted term's effect on crimp collapse pressure.",
+  "curve_scope": "Two numerical high-Vc cases exceed the conditional unity-crimp prediction. This is neither a fit for gamma(Vc) nor validation of a 10 m honeycomb sphere."
+}

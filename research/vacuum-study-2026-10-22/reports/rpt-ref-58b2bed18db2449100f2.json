@@ -1,0 +1,39 @@
+{
+  "id": "rpt-ref-58b2bed18db2449100f2",
+  "unit": "vacuum-mainline010-nfi-geom-1019",
+  "at": "2026-10-19T22:42:05-07:00",
+  "body": "MAINLINE-010 NFI-GEOM filed. All four levers are reported against P2-E and P2-A with margin, buckling SF, yield SF and crush stress. Shrinking the sphere or clustering is the strongest lever (buckling x9 at n=27) and is real geometry, not allowance spread, but every SF gain costs float margin and nothing reaches SF 1 while floating. Altitude trades lift for SF, and no partial-vacuum fraction helps at equal margin. Neither 007 nor 008 has filed, so lever 1 was not re-run; that is an NFI row. The material lever, 008, remains the one that must close the gap.",
+  "artifacts": [
+    {
+      "path": "evidence/6031dd56a61f2080-CARD.md",
+      "sha256": "6031dd56a61f2080470539f4bbeef38a3ed2de9876108f6533a92093c7d2c823",
+      "bytes": 4316
+    },
+    {
+      "path": "evidence/78dea23183027063-RESULTS.json",
+      "sha256": "78dea23183027063d5e85d80e40ca3b7ba07f1ec589de4135df8e1aa751a81ad",
+      "bytes": 15766
+    },
+    {
+      "path": "evidence/21991360c704a696-NFI.json",
+      "sha256": "21991360c704a6963bbe0fcadb5e8e11e70b3a78a3481b1f161efb451a5116e0",
+      "bytes": 1558
+    },
+    {
+      "path": "evidence/d960bf35b97f9902-INPUTS.json",
+      "sha256": "d960bf35b97f99021692b8fa4d2ffaf7f895ec0cb328ea8dc72c40c1c675f915",
+      "bytes": 912
+    }
+  ],
+  "from": "ref-3f8a144b95b4cdc80c8e",
+  "from_seat": "ref-3f8a144b95b4cdc80c8e",
+  "re": "ord-admiral-rr2-mainline010-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline010-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "E-80f8288ce9949c09b3dc",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-80f8288ce9949c09b3dc",
+    "report": "rpt-ref-22285eadc9122df1c8b7",
+    "file": "evidence/84ce05528108d3ac-NFI.json",
+    "snapshot": "evidence/84ce05528108d3ac-NFI.json",
+    "source_sha256": "84ce05528108d3acd5416a915758558551c0854ffeba2edadd32c1088bfd417c",
+    "source_json_pointer": "/rows/4",
+    "row_id": "N057-05-OPTIMISM-COST",
+    "fields": {
+      "id": "N057-05-OPTIMISM-COST",
+      "owner_state": "PROJECTION",
+      "state": "checked; physical/applicability condition open",
+      "owner_note": "The optimism the allowance would need is a linear extrapolation of payload in the least set's usage, from its zero-payload point to its endpoint. P2 would need usage 1.78-2.13 and P3 4.6-30. Payload is not linear in usage; the point is that every value exceeds 1.",
+      "checker_disposition": "All eight two-point linear extrapolations reproduce. Values above one remain outside the stated optimism ranges and are not feasible design witnesses.",
+      "evidence": "INDEPENDENT-SUMMARIES.json",
+      "blocking": false
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "{\"id\": \"N057-05-OPTIMISM-COST\", \"owner_state\": \"PROJECTION\", \"state\": \"checked; physical/applicability condition open\", \"owner_note\": \"The optimism the allowance would need is a linear extrapolation of payload in the least set's usage, from its zero-payload point to its endpoint. P2 would need usage 1.78-2.13 and P3 4.6-30. Payload is not linear in usage; the point is that every value exceeds 1.\", \"checker_disposition\": \"All eight two-point linear extrapolations reproduce. Values above one remain outside the stated optimism ranges and are not feasible design witnesses.\", \"evidence\": \"INDEPENDENT-SUMMARIES.json\", \"blocking\": false}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q3",
+  "qualification": "Neither is a global impossibility proof. The corrected hypothetical TRL7 row is not achieved maturity; rejected carbon cases do not qualify SiC. [CHECK057](unpublished-local-ref:68eae3652d6c0a12), [CHECK060](unpublished-local-ref:d8968524247a969e).",
+  "sources": [
+    {
+      "report": "rpt-ref-22285eadc9122df1c8b7",
+      "artifact": "evidence/84ce05528108d3ac-NFI.json",
+      "snapshot": "evidence/84ce05528108d3ac-NFI.json",
+      "sha256": "84ce05528108d3acd5416a915758558551c0854ffeba2edadd32c1088bfd417c",
+      "bytes": 9069,
+      "selector": "/rows/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

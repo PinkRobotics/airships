@@ -1,0 +1,54 @@
+{
+  "id": "rpt-ref-5cd187fda051a1f967ef",
+  "unit": "vacuum-record-delta-c-1020",
+  "at": "2026-10-20T17:39:36-07:00",
+  "body": "DELTA-C is filed as claim-record version 7, appended on the version 6 bytes. QUESTIONABLE. PROJECTION. No qualified hull safety factor.\n\nBETA is the root of b^3+b=1, 0.682327803828082. model61.py line 33 and model63.py line 33 set it. It multiplies Q only in the face-wrinkling margin, model61.py line 123 and model63.py line 130. The model cites no handbook for that root. Equation 2.2-14's 0.33 stands. BETA times 0.33, 0.225, stays the model line. Both are kept.\n\nsimjob-20261020t172906-48ca69d580a3 exited 0 with BETA set to 1. UNREVIEWED. The four ramp rows at Q 0.33 match the Q 0.82 cap anchors to 0 kg, because face wrinkling no longer binds. Concept stays negative. TRL 7 is positive at R 20 ISA and both R 30 weathers. The ramp is not admissible, so those positives are not the programme result.\n\nThe four gamma 0.20, Q 0.33 rows stay negative at concept and TRL 7. Vc stays below 2, so gamma stays 0.20. Factors are 1.7786, 1.8626, 1.7432 and 1.8247, beside filed 2.1180, 2.2210, 2.0802 and 2.1806.\n\nWith admissible gamma 0.20 and Q 0.33 as equation 2.2-14, every recomputed concept and TRL 7 payload is still negative. The ramp and Q 0.82 are not admissible. T7 and T3 remain the tests that could show better. This restatement is unreviewed.\n\nThe 064 review reproduced all eight cells and named no fix. Sciences' limits stand with it: shared-model reproduction, independent derivation unmet, NFI065-BETA-SCALE not cleared, SDL 468 specimen materials unverified. Version 7 has 2,363 findings and row R120.",
+  "artifacts": [
+    {
+      "path": "evidence/0e7f6cdc9e3873d0-CARD.md",
+      "sha256": "0e7f6cdc9e3873d0d7c3c8eb5fcbfa75ae213ca98a885bc79385bcc6181b0e46",
+      "bytes": 4917
+    },
+    {
+      "path": "evidence/fbe2598151f9cf7f-RESULTS.json",
+      "sha256": "fbe2598151f9cf7f12133dca5053da03ba1b293ead10de924a93a1e34014ccb7",
+      "bytes": 7835
+    },
+    {
+      "path": "evidence/b82fbaeba8b8cf59-NFI.json",
+      "sha256": "b82fbaeba8b8cf5935efb5f07cc4ba0a6cd68a9bada242361d303c1a2d225709",
+      "bytes": 1712
+    },
+    {
+      "path": "evidence/b64e65a7d333d1cd-INPUTS.json",
+      "sha256": "b64e65a7d333d1cd53df5849cf59a73cc25e18999e19bea843391488a57d0de7",
+      "bytes": 7303
+    },
+    {
+      "path": "evidence/f945978fdd78508e-RUN.json",
+      "sha256": "f945978fdd78508e1cd4af69d6525a54467777f50c15f202ab330456360e33e4",
+      "bytes": 29289
+    },
+    {
+      "path": "evidence/4fb657f901c284a4-DELTA-C-1020.json",
+      "sha256": "4fb657f901c284a4de395dfbdee8a107a5f0596688d66b58180daea37b96c0fb",
+      "bytes": 30603
+    },
+    {
+      "path": "evidence/5234234ce0219906-CLAIM-RECORD.json",
+      "sha256": "5234234ce0219906d39c9fcc2f3f8ff5ce14f28618441a4f3d6603ef6910552a",
+      "bytes": 21697950
+    }
+  ],
+  "from": "ref-5ad28e8f7a8e27ce8bc1",
+  "from_seat": "ref-5ad28e8f7a8e27ce8bc1",
+  "re": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-record-delta-c-dispatch-1020",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

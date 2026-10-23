@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-018 independent check",
+  "blocking": false,
+  "open": [
+    {
+      "id": "NFI-CHK018-UNEQUAL-FACES",
+      "kind": "demonstrated numeric correction",
+      "tag": "QUESTIONABLE",
+      "source": "NASA CR-1457 eqs 6.2-8 and 6.2-19, https://ntrs.nasa.gov/citations/19700004831",
+      "finding": "Sim dimple reference stress omitted q=2*sqrt(t1*t2)/(t1+t2).",
+      "mismatches": [
+        {
+          "row": "Sim dimple",
+          "field": "sigma_0_Pa",
+          "filed": 19119540732.73865,
+          "checker": 19113852932.30557,
+          "difference": -5687800.433082581,
+          "relative_difference": -0.000297486247843981,
+          "matches": false
+        },
+        {
+          "row": "Sim dimple",
+          "field": "Vc",
+          "filed": 197.24625832023136,
+          "checker": 197.18758027094242,
+          "difference": -0.05867804928894316,
+          "relative_difference": -0.00029748624784394504,
+          "matches": false
+        },
+        {
+          "row": "Sim dimple",
+          "field": "Gc_for_Vc_eq_2_Pa",
+          "filed": 1972462583.2023137,
+          "checker": 1971875802.7094243,
+          "difference": -586780.4928894043,
+          "relative_difference": -0.0002974862478439312,
+          "matches": false
+        }
+      ],
+      "impact": "0.0297486 percent reduction in the three fields; crimp branch and all four hull rescores unchanged.",
+      "proposed_next": "Correct the three Sim dimple fields and state the unequal-face factor."
+    },
+    {
+      "id": "NFI-CHK018-SPHERE-EVIDENCE",
+      "kind": "inherited evidence gap",
+      "tag": "QUESTIONABLE",
+      "finding": "No measured sandwich-sphere gamma-versus-Vc series establishes unity for these full spheres. Cylinder tests and handbook theory are transfers; Sim is nonlinear numerical evidence with a different denominator.",
+      "proposed_next": "Obtain comparable pressure-test data or a validated nonlinear shell model; record thickness, core shear and both denominators per specimen."
+    },
+    {
+      "id": "NFI-CHK018-CURVE-CALIBRATION",
+      "kind": "inherited estimate uncertainty",
+      "tag": "PROJECTION",
+      "finding": "The optimistic straight line is not a handbook curve or a fit. The constant 0.20 extension is an assumed conservative scenario, not a demonstrated bound.",
+      "proposed_next": "Keep both scenarios separately labelled until comparable evidence supports a calibrated curve."
+    },
+    {
+      "id": "NFI-CHK018-SOURCE-COVERAGE",
+      "kind": "research coverage gap",
+      "tag": "QUESTIONABLE",
+      "finding": "Plantema, SP-8007, SP-8032 and an independent transverse-shear imperfection analysis were not opened by the owner or this checker. No test-by-test Vc series is supplied. Wagner Table 3 has no sandwich-core series.",
+      "proposed_next": "A follow-on evidence card can close these named gaps without stopping the rescore sequence."
+    },
+    {
+      "id": "NFI-CHK018-MODEL-TRANSFERS",
+      "kind": "inherited modelling uncertainty",
+      "tag": "QUESTIONABLE",
+      "finding": "Inherited materials and ideal isotropic/equal-face model, external-radius convention, flat-plate biaxial wrinkling, stabilised Ec, and the full-sphere transfer are not physically requalified. Sim R/tc is only about 13; individual face bending and material nonlinearity differ from the thin-shell approximation.",
+      "proposed_next": "Preserve source/tag/basis fields and qualify these assumptions when selecting a physical configuration."
+    },
+    {
+      "id": "NFI-CHK018-P3",
+      "kind": "inherited exclusion",
+      "tag": "QUESTIONABLE",
+      "finding": "P3 remains PENDING-011b and was not scored in this check.",
+      "proposed_next": "Use the assigned P3 card for lattice buckling and member bending."
+    }
+  ]
+}

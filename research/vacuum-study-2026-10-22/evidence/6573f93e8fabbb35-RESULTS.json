@@ -1,0 +1,234 @@
+{
+  "schema": 1,
+  "unit": "vacuum-review-a-058-061-1020",
+  "order": "ord-admiral-rr2-review-a2-dispatch-1020",
+  "reviewer": "ref-ed3515d83349998d6b1b",
+  "reviewed_cards": [
+    "058",
+    "061"
+  ],
+  "excluded_own_cards": [
+    "056",
+    "062"
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_installed_hull_SF": null,
+  "counts": {
+    "it reproduces": 13,
+    "it differs": 2,
+    "it cannot be checked without a source or a test": 2
+  },
+  "claims": [
+    {
+      "id": "A2-01",
+      "card": "058",
+      "claim": "Relief design load 103953 to 98019 Pa",
+      "why_load_bearing": "Sets the thinner relieved hull and lift cap",
+      "outcome": "it reproduces",
+      "finding": "103953.19780784745 and 98019.41905822608 Pa, independently from the stated hot/saturated maximum-pressure corner.",
+      "evidence": [
+        "checks/058-EDGES.json"
+      ]
+    },
+    {
+      "id": "A2-02",
+      "card": "058",
+      "claim": "P2 relief hot-edge gain 11.9–12.0 K",
+      "why_load_bearing": "Changes the design-day decision",
+      "outcome": "it reproduces",
+      "finding": "P2 R10/R30 gains are 11.920908/12.025678 K at the saturated -30 hPa corner, using the fixed hull bills before added hardware.",
+      "evidence": [
+        "checks/058-EDGES.json"
+      ]
+    },
+    {
+      "id": "A2-03",
+      "card": "058",
+      "claim": "P3 relief hot-edge gain 6.4–6.6 K",
+      "why_load_bearing": "Changes the design-day decision",
+      "outcome": "it reproduces",
+      "finding": "P3 R10/R30 gains are 6.555232/6.406881 K, retaining the saved sag-volume debit.",
+      "evidence": [
+        "checks/058-EDGES.json"
+      ]
+    },
+    {
+      "id": "A2-04",
+      "card": "058",
+      "claim": "Low-emittance finish eps=.05 lowers cold edge about11.1K",
+      "why_load_bearing": "Enables the claimed cold-weather coverage",
+      "outcome": "it reproduces",
+      "finding": "Independent R10 cold roots are 276.958501 K (MLCCAg) and 265.835307 K (epsilon .05): a shift of 11.123194 K. Source transfer to Be remains NFI.",
+      "evidence": [
+        "checks/058-THERMAL-MIXED-CONVECTION.json",
+        "SOURCE-AUDIT.json"
+      ]
+    },
+    {
+      "id": "A2-05",
+      "card": "058",
+      "claim": "R10 worst-corner band4.0 to25.7K inside whole bill",
+      "why_load_bearing": "Main band-widening headline",
+      "outcome": "it reproduces",
+      "finding": "R10 band is 4.029782 K baseline and 25.727676 K with the declared whole bill; substituting the independent thermal root changes the latter by only -0.000116 K.",
+      "evidence": [
+        "checks/058-EDGES.json",
+        "checks/058-THERMAL-MIXED-CONVECTION.json"
+      ]
+    },
+    {
+      "id": "A2-06",
+      "card": "058",
+      "claim": "R30 worst-corner band13.8 to34.6K",
+      "why_load_bearing": "Controls size comparison",
+      "outcome": "it reproduces",
+      "finding": "R30 band is 13.846685 K baseline and 34.626234 K with the whole bill. The independent thermal roots preserve the displayed 13.8/34.6 K.",
+      "evidence": [
+        "checks/058-EDGES.json",
+        "checks/058-THERMAL-MIXED-CONVECTION.json"
+      ]
+    },
+    {
+      "id": "A2-07",
+      "card": "058",
+      "claim": "P2 Heathrow daily coverage34/64/84% atR10 and96% atR12",
+      "why_load_bearing": "Controls site and radius selection",
+      "outcome": "it differs",
+      "finding": "The original counts reproduce exactly at hull-only mass. With the same report's hardware, R10 MLCCAg 63.979% becomes 61.253%; R10 AlAOC 83.647% becomes 79.854%; R12 AlAOC 95.785% becomes 94.156%. Baseline 33.802% is unchanged. See F-A2-058-P2-HARDWARE.",
+      "evidence": [
+        "FIXES.json",
+        "checks/058-COVERAGE-height27.29-humidityTrue.json"
+      ]
+    },
+    {
+      "id": "A2-08",
+      "card": "058",
+      "claim": "P3 standard-pressure/climb daily coverage78%R10 and97%R12",
+      "why_load_bearing": "Controls lead comparison",
+      "outcome": "it differs",
+      "finding": "P3 original 77.747%/96.994% reproduce at hull-only mass. Even adding only the 5 kg valve yields upper bounds 76.482%/96.881% at R10/R12; a matched bladder still needs pricing. See F-A2-058-P3-HARDWARE.",
+      "evidence": [
+        "FIXES.json",
+        "checks/058-COVERAGE-height27.29-humidityTrue.json"
+      ]
+    },
+    {
+      "id": "A2-09",
+      "card": "058",
+      "claim": "95%/99% day targets select P2 R12/R20 and P3 R12/R15",
+      "why_load_bearing": "Controls the design-day target",
+      "outcome": "it cannot be checked without a source or a test",
+      "finding": "The declared minimum-radius/least-optimism selection needs complete hardware bills for its specific lowe/design-pressure and P3 witnesses, followed by a selection check. The sampled static-finish rows do not establish new minima. N-A2-058-RADIUS.",
+      "evidence": [
+        "FIXES.json",
+        "NFI.json"
+      ]
+    },
+    {
+      "id": "A2-10",
+      "card": "058",
+      "claim": "87354 complete hours; all24 UTC hours and omitted exclusions",
+      "why_load_bearing": "Determines denominator and prevents weather coverage becoming availability",
+      "outcome": "it reproduces",
+      "finding": "All 87648 processed hours give 87354 complete T/Tdew/SLP hours and 3559 complete 24-hour UTC days; 93 calendar days are excluded. All eight sampled original hour/day counts match exactly. The 24 raw NOAA spot observations also match. Exclusions remain explicit.",
+      "evidence": [
+        "checks/058-COVERAGE-height27.29-humidityTrue.json",
+        "NFI.json"
+      ]
+    },
+    {
+      "id": "A2-11",
+      "card": "061",
+      "claim": "Favorable density factors1.1222/1.0766/1.0593ISA;1.1664/1.1183/1.1001other weather",
+      "why_load_bearing": "Primary improvement and size decision; identify growth basis",
+      "outcome": "it reproduces",
+      "finding": "All six favorable density factors reproduce within 1.09e-8: 1.122180/1.076600/1.059313 ISA, 1.166365/1.118320/1.100118 optimistic. These use concept growth and actual joining, not the TRL7 or retained-floor account.",
+      "evidence": [
+        "checks/061-ARITHMETIC.json"
+      ]
+    },
+    {
+      "id": "A2-12",
+      "card": "061",
+      "claim": "HandbookR30 density factors2.1435/2.2480",
+      "why_load_bearing": "Separates qualified-baseline aspiration from already favorable assumptions",
+      "outcome": "it reproduces",
+      "finding": "R30 handbook factors independently give 2.143497010 ISA and 2.248020659 optimistic, within 2.72e-8 of the saved roots.",
+      "evidence": [
+        "checks/061-ARITHMETIC.json"
+      ]
+    },
+    {
+      "id": "A2-13",
+      "card": "061",
+      "claim": "Best feasible product places all improvement in density",
+      "why_load_bearing": "Controls which development lever is prioritized; no global-optimality certificate",
+      "outcome": "it cannot be checked without a source or a test",
+      "finding": "The all-density witness independently closes mass and matches the reported product, but this spot review does not independently compare the full constrained multistart search. The best-found ranking remains N-A2-061-PRODUCT-RANKING, with no global-optimum inference.",
+      "evidence": [
+        "checks/061-ARITHMETIC.json",
+        "NFI.json"
+      ]
+    },
+    {
+      "id": "A2-14",
+      "card": "061",
+      "claim": "No finite named-lever combination closes P3 in constant-g/R family",
+      "why_load_bearing": "Eliminates named material routes within stated scope",
+      "outcome": "it reproduces",
+      "finding": "The irreducible fixed-family P3 bounds are all negative. R30 ISA is -3681.927506 kg; even giving the full stated tube-relief fraction free leaves -329.452553 kg. This is a certificate only for the specified family, named levers and inherited tube lower bound.",
+      "evidence": [
+        "checks/061-ARITHMETIC.json"
+      ]
+    },
+    {
+      "id": "A2-15",
+      "card": "061",
+      "claim": "TRL7 hardware5%, battery6%; R12ISA P2 +4.6kg",
+      "why_load_bearing": "Growth classification changes a float sign",
+      "outcome": "it reproduces",
+      "finding": "NASA Table VI-1 distinguishes 5% TRL7 hardware from 6% battery. R12 ISA P2 growth is 383.648403 kg and payload +4.615730 kg under the declared account.",
+      "evidence": [
+        "checks/061-ARITHMETIC.json",
+        "SOURCE-AUDIT.json",
+        "sources/NASA-table-VI-1.png"
+      ]
+    },
+    {
+      "id": "A2-16",
+      "card": "061",
+      "claim": "R30 reference faces23.77–24.38% of430t world minedBe",
+      "why_load_bearing": "Controls material supply implication",
+      "outcome": "it reproduces",
+      "finding": "R30 nominal Be faces are 102229.721909/104852.395618 kg: 23.774354%/24.384278% of USGS's 430000 kg estimated 2025 world mine Be content. This is not finished-sheet capacity.",
+      "evidence": [
+        "checks/061-ARITHMETIC.json",
+        "SOURCE-AUDIT.json"
+      ]
+    },
+    {
+      "id": "A2-17",
+      "card": "061",
+      "claim": "Large-R cure demand in global screen vs frozenCHECK057",
+      "why_load_bearing": "Changes R20 optimisticTRL7 sign and numerical target basis",
+      "outcome": "it reproduces",
+      "finding": "At R20 optimistic, the frozen earlier geometry with corrected hardware rate gives +14.701407 kg TRL7; the declared 061 cure/geometry scenario gives -29.884305 kg. Both accounts re-sum correctly; physical validity of global cure demand remains NFI.",
+      "evidence": [
+        "checks/061-ARITHMETIC.json",
+        "NFI.json"
+      ]
+    }
+  ],
+  "fix_register": "FIXES.json",
+  "nfi_register": "NFI.json",
+  "fixes_review_status": "unreviewed",
+  "independence": {
+    "owner_code_read_imported_or_executed": false,
+    "new_FE_solve": false,
+    "scope": "Load-bearing numerical spot checks; no whole-table rederivation."
+  },
+  "authority_note": "061 evaluated against its recovered original PROCESS-v2 pin, not the later in-place v2.1 bytes.",
+  "measured_start": "2026-10-20T16:55:51.528648+00:00",
+  "measured_end": "2026-10-20T17:22:52.047865+00:00",
+  "active_jobs": []
+}

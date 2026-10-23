@@ -1,0 +1,39 @@
+{
+  "id": "E-6f6e8d373fcddcc21852",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-6f6e8d373fcddcc21852",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/4",
+    "row_id": "CHECK046-05",
+    "fields": {
+      "id": "CHECK046-05",
+      "topic": "Cold-patch drying sensitivity",
+      "status": "OPEN",
+      "finding": "At the owner's h=2 W/m²K white-surface sensitivity, the cold patch reaches 268.630 K. At 041 the 5% RH water budget falls to .686336 kg, max WVTR .539393 g/m²/day and drying time 13.0198 h.",
+      "evidence": "HOT-AND-WATER-SENSITIVITY.json; primary h=5 values are 1.020387 kg, .805222 g/m²/day and 19.3568 h. Below freezing these use the declared supercooled-water convention.",
+      "needed": "Use the verified coldest patch, retained material water and installed moisture transport in the drying specification. A once-daily schedule is not established by the coupon upper bound."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "At the owner's h=2 W/m²K white-surface sensitivity, the cold patch reaches 268.630 K. At 041 the 5% RH water budget falls to .686336 kg, max WVTR .539393 g/m²/day and drying time 13.0198 h.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1check046~1NFI.json/new/4"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

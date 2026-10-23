@@ -1,0 +1,37 @@
+{
+  "id": "E-6e4be337e1ab03aace39",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-6e4be337e1ab03aace39",
+    "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+    "file": "evidence/298ddfd71d18cdeb-NFI.json",
+    "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+    "source_sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+    "source_json_pointer": "/issues/10",
+    "row_id": "NFI056-EARLY-LIMIT",
+    "fields": {
+      "id": "NFI056-EARLY-LIMIT",
+      "status": "open; distinguished in results",
+      "finding": "The Gaussian-imperfection paths have an earlier local maximum and descending branch before their largest traced pressure. Reconstructed-indentation paths differ.",
+      "consequence": "A largest-pressure comparison alone does not identify the first instability. Sampled turning points are retained; no dynamic jump or nonaxisymmetric stability is proved."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The Gaussian-imperfection paths have an earlier local maximum and descending branch before their largest traced pressure. Reconstructed-indentation paths differ.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline056-crushable-benchmark-1020",
+      "artifact": "evidence/298ddfd71d18cdeb-NFI.json",
+      "snapshot": "evidence/298ddfd71d18cdeb-NFI.json",
+      "sha256": "298ddfd71d18cdeb4596b0bc4de75b8236d5767b7ca1915e4e26d0e52402790a",
+      "bytes": 5002,
+      "selector": "/issues/10"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

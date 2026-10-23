@@ -1,0 +1,50 @@
+{
+  "unit": "vacuum-review-a-058-061-1020",
+  "inspection_date_UTC": "2026-10-20",
+  "sources": [
+    {
+      "title": "NASA GSFC IDC mass growth guidance, Table VI-1",
+      "url": "https://ntrs.nasa.gov/api/citations/20120013284/downloads/20120013284.pdf",
+      "method": "Primary PDF and rendered page 10 visually inspected in this review.",
+      "copies": [
+        "sources/NASA2012.pdf",
+        "sources/NASA-table-VI-1.png"
+      ],
+      "finding": {
+        "TRL7_hardware_fraction": 0.05,
+        "TRL7_battery_fraction": 0.06
+      },
+      "scope": "Rates validate the column correction; application and additional system margin remain the declared project scenario."
+    },
+    {
+      "title": "USGS Mineral Commodity Summaries 2026, Beryllium",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-beryllium.pdf",
+      "method": "Official-source indexed table inspected with web search; direct PDF request was refused. No locally archived USGS PDF is claimed.",
+      "corroborating_primary_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026.pdf",
+      "finding": {
+        "world_mine_Be_content_2024_tonnes": 433,
+        "estimated_world_mine_Be_content_2025_tonnes": 430
+      },
+      "scope": "World mine-production estimate, rounded, expressed as Be content; not sheet supply."
+    },
+    {
+      "title": "Sheldahl Red Book Rev E, aluminized polyimide with acrylic overcoat",
+      "url": "https://sheldahl.com/wp-content/uploads/2023/07/RedBook.pdf",
+      "method": "Pinned primary vendor PDF and extracted table inspected.",
+      "copies": [
+        "sources/RedBook.pdf",
+        "sources/RedBook.txt"
+      ],
+      "finding": {
+        "specified_maximum_solar_absorptance": 0.14,
+        "specified_maximum_hemispherical_emittance": 0.05
+      },
+      "scope": "Film product limits do not qualify an 8.33 g/m2 coating deposited on Be."
+    }
+  ],
+  "061_original_process": {
+    "copy": "sources/061-dispatched-PROCESS-v2.md",
+    "sha256": "be858ac11e1e4adc8e164157752df002a8edce54b62f077eb6b95f89d3e7c11a",
+    "finding": "Recovered originally dispatched bytes verified; later v2.1 in-place replacement is not an owner defect."
+  }
+}

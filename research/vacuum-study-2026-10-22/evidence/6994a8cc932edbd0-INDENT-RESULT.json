@@ -1,0 +1,63 @@
+{
+  "parameters": {
+    "ntheta": 96,
+    "ncore": 4,
+    "nface": 2,
+    "radius": "mid",
+    "radius_outer_mm": 44.769999999999996,
+    "amplitude_mu": 0,
+    "amplitude_mm": 0.0,
+    "alpha": 2.1213203435596424,
+    "foam_scale": 1.0,
+    "steel_scale": 1.0,
+    "inner_face_mm": 0.42,
+    "width_mm": 4.476999999999999,
+    "grading": 1.0
+  },
+  "penalty_MPa_per_mm": 30000.0,
+  "indenter_radius_mm": 4.28,
+  "target_depth_mm": 2.955,
+  "depth_mm": 2.955,
+  "reason": "prescribed indentation completed",
+  "steps": 403,
+  "cutbacks": 95,
+  "elapsed_s": 126.46763921901584,
+  "last": {
+    "step": 403,
+    "indenter_depth_mm": 2.955,
+    "outer_pole_mm": -2.9579282215794156,
+    "inner_pole_mm": -0.7930897400976912,
+    "increment_mm": 0.02,
+    "iterations": 6,
+    "relative_residual": 9.876131635824306e-11,
+    "elapsed_s": 126.4599156868644,
+    "maximum_contact_penetration_mm": 0.008253653942928985,
+    "active_contact_quadrature_points": 6,
+    "indenter_reaction_N": 1596.464410674148,
+    "core_equivalent_plastic_strain": 0.780761875398534,
+    "face_equivalent_plastic_strain": 0.2060294184567793,
+    "core_shear_MPa": 2.4440766023237117,
+    "core_compression_MPa": 19.639127434957906,
+    "face_von_mises_MPa": 953.1295156529316,
+    "core_initial_yield_index": 14.055945635910504,
+    "face_initial_yield_index": 1.2708393542039087,
+    "maximum_core_plastic_increment": 0.004615371174402916,
+    "maximum_face_plastic_increment": 0.0004371450223173215,
+    "minimum_J": 0.32164238165910286,
+    "maximum_J": 1.0058956331891225,
+    "core_extrapolated_points": 215,
+    "core_shear_location": {
+      "element": 18,
+      "gp": 6,
+      "reference_r_mm": 1.9521853386355945
+    },
+    "face_yield_location": {
+      "element": 7,
+      "gp": 2,
+      "reference_r_mm": 0.0825168874044198
+    },
+    "core_shear_initial_strength_MPa": 0.9899494936611666,
+    "core_shear_initial_strength_index": 2.468890198917819
+  },
+  "tag": "QUESTIONABLE / PROJECTION"
+}

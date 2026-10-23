@@ -1,0 +1,38 @@
+{
+  "id": "E-d321a173056e63ab4ff5",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-d321a173056e63ab4ff5",
+    "report": "rpt-check029-opus-1020",
+    "file": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+    "source_sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+    "source_json_pointer": "/rows/0",
+    "row_id": "C029-01-EUCASS-STVK-COLLAPSE",
+    "fields": {
+      "id": "C029-01-EUCASS-STVK-COLLAPSE",
+      "state": "demonstrated",
+      "direction": "the elastic benchmark endpoints are not structural",
+      "note": "The card's elastic imperfect endpoints (13.956916 / 13.843652 MPa) are set by the St. Venant-Kirchhoff foam collapsing under the dimple, not by shell buckling. With nu 0, StVK foam carries at most E/(3 sqrt 3) = 7.70 MPa in uniaxial compression, at stretch 1/sqrt 3 = 0.577. At each maximum the foam's most compressive principal stress is near that limit and its smallest stretch is past it: flat 96 x 2f x 12c -7.61 MPa at stretch 0.229; dimple 96 x 2f x 4c -7.48 MPa at 0.353; under displacement control at the card's mesh, a flat foam point reaches stretch 0.0096 at 13.78 MPa, and the path keeps rising to 14.219 through such states. So the endpoint depends on the core mesh and the path. At the card's mesh the flat first critical point is 13.785 (arc-length), with my load control at 14.051 and displacement control at 14.219. Refining the core (4/6/8/10/12 elements) gives 13.785/13.576/13.553/13.431/13.372 MPa, not converged; for the dimple (4/6/8/10) it gives 13.838/13.649/13.552/13.495. Meridional refinement is converged: 13.576/13.566/13.566 at 96/192/384 with 6 core elements. The lead models are not affected by this mechanism: their honeycomb normal strain stays below 1% at the limits (0.36 to 0.78%), while StVK collapse needs 42%. Their core has a different, shear instability (C029-10).",
+      "proposed_fix": "Fix card, if the EUCASS benchmark is reused: replace the StVK foam with a compressible hyperelastic or crushable-foam law and report the endpoint against core refinement. No lead number changes."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "The card's elastic imperfect endpoints (13.956916 / 13.843652 MPa) are set by the St. Venant-Kirchhoff foam collapsing under the dimple, not by shell buckling. With nu 0, StVK foam carries at most E/(3 sqrt 3) = 7.70 MPa in uniaxial compression, at stretch 1/sqrt 3 = 0.577. At each maximum the foam's most compressive principal stress is near that limit and its smallest stretch is past it: flat 96 x 2f x 12c -7.61 MPa at stretch 0.229; dimple 96 x 2f x 4c -7.48 MPa at 0.353; under displacement control at the card's mesh, a flat foam point reaches stretch 0.0096 at 13.78 MPa, and the path keeps rising to 14.219 through such states. So the endpoint depends on the core mesh and the path. At the card's mesh the flat first critical point is 13.785 (arc-length), with my load control at 14.051 and displacement control at 14.219. Refining the core (4/6/8/10/12 elements) gives 13.785/13.576/13.553/13.431/13.372 MPa, not converged; for the dimple (4/6/8/10) it gives 13.838/13.649/13.552/13.495. Meridional refinement is converged: 13.576/13.566/13.566 at 96/192/384 with 6 core elements. The lead models are not affected by this mechanism: their honeycomb normal strain stays below 1% at the limits (0.36 to 0.78%), while StVK collapse needs 42%. Their core has a different, shear instability (C029-10).",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q4",
+  "qualification": "047's regularizing in-plane core moduli remain unsourced, and its face-compression screen uses a tensile proxy. The 1.209–1.227 mm tolerance at SF1 is model-only. The 056 target, 6.03 MPa, is simulated rather than a physical collapse measurement; 6.159 MPa agreement supplies no P2 gamma. [047 disposition](unpublished-local-ref:7472c3f9ee41a250), [056 disposition](unpublished-local-ref:a6b49a9c06df2016).",
+  "sources": [
+    {
+      "report": "rpt-check029-opus-1020",
+      "artifact": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "snapshot": "evidence/27ffa98eb7bc4de8-NFI.json",
+      "sha256": "27ffa98eb7bc4de8b6b4dcbe24b245ab3a36be48cac26c3d87efaedcafe1d285",
+      "bytes": 13112,
+      "selector": "/rows/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

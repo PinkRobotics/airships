@@ -1,0 +1,49 @@
+{
+  "id": "rpt-mainline014b-grok-metal-honeycomb-1019",
+  "unit": "vacuum-mainline014b-metal-honeycomb-1019",
+  "at": "2026-10-19T23:51:50-07:00",
+  "body": "ESTIMATE_PENDING_UNA. MAINLINE-014b adds Hexcel CR-III 5052 and 5056, Plascore PAMG-XR1 with Ec transferred from the matching CR-III 5052 row, plus HFT fiberglass and HRH-49 Kevlar. No carbon sheet in this band lists stabilised Ec and both shear moduli. Gc is W shear, the lower modulus. Dimpling is 2*E/(1-nu^2)*(tf/s)^2. Honeycomb wrinkling is design 0.33 and theoretical 0.82. Best three at kd 0.20 match 014, all on HRH-10 at 32 kg/m3. CNT-yarn PROJECTION 0.750340630448 crimping, second wrinkling, tf 0.0010280184873 m, core 0.0234804348692 m, factor 1.332728043. Be S-200F QUESTIONABLE 0.685338231171 crimping, second wrinkling, tf 0.000792920704344 m, core 0.0217505960684 m, factor 1.45913354095. graphene PROJECTION 0.677880583214 wrinkling, second crimping, tf 0.000984892701244 m, core 0.0210983617665 m, factor 1.47518607962. Best QUESTIONABLE: Be as above. K13D2U 0.651932173894 wrinkling, second crimping, tf 0.000849638482444 m, core 0.0205028434909 m, factor 1.53390189968. M55J 0.593494382917 wrinkling, second crimping, tf 0.000799004311326 m, core 0.029997869915 m, HRH-49 Kevlar at 33.6387730853 kg/m3, factor 1.6849359131. AlBeMet stays 0.553994420508 on HRH-10. kd 0.1407 reproduces those leaders. Best aluminium for Be is CR-III 5056 at 25.6295413983 kg/m3, least SF 0.668649769509 by global buckling, gamma 0.20 on the stiff branch, below the aramid balance. Plascore 3/16-2.0 reaches 0.641722323466. Dimpling does not govern. 6061-T6 is 0.145930331406 on CR-III 5056 at 16.018463374 kg/m3. Theoretical wrinkling only moves a least SF onto the adjacent mode. Nothing here is a certification. Start 2026-10-19T23:48:05.977783-07:00. End 2026-10-19T23:48:23.371530-07:00. Elapsed 17.39373135380447 s, a measurement. The 07:00 deadline is a door check-in. The caps-open order stays open.",
+  "artifacts": [
+    {
+      "path": "evidence/84496ef5f3a06ffa-CARD.md",
+      "sha256": "84496ef5f3a06ffac72ccedde88fb9108914264c84cb43354ddc1efa090a5058",
+      "bytes": 6039
+    },
+    {
+      "path": "evidence/f62190ad5542457d-RESULTS.json",
+      "sha256": "f62190ad5542457d5578473ff4bb2f96420ec75872f0da10a31ee318a89a2ab5",
+      "bytes": 396846
+    },
+    {
+      "path": "evidence/e56941cee236de62-NFI.json",
+      "sha256": "e56941cee236de6243935baef4e1aea357b68683f6179ae5930e0263ac35cb50",
+      "bytes": 4778
+    },
+    {
+      "path": "evidence/0b7a9772fe072572-p014b_inputs.json",
+      "sha256": "0b7a9772fe072572a9043b67059049aac9db4130292538ca5f1eeb542de9619d",
+      "bytes": 40462
+    },
+    {
+      "path": "evidence/9e1a02f084e00729-honeycomb.py",
+      "sha256": "9e1a02f084e00729956e2c8678f6b8df96ed31e339271286fa7ddba3aec51d06",
+      "bytes": 42435
+    },
+    {
+      "path": "evidence/47dcc522dc1c4431-ORIGIN.json",
+      "sha256": "47dcc522dc1c44319f19c6d92be66b05ccab9e51144042dc4be4b117237301a7",
+      "bytes": 96
+    }
+  ],
+  "from": "lead",
+  "from_seat": "ref-2543c559b19ffce7dfdd",
+  "re": "ord-admiral-rr2-mainline014b-dispatch-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline014b-dispatch-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

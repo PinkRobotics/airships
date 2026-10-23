@@ -1,0 +1,3086 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-014",
+  "unit": "vacuum-mainline014-balanced-sandwich-1019",
+  "status": "ESTIMATE_PENDING_UNA",
+  "tag": "QUESTIONABLE",
+  "certification": false,
+  "kd_handbook": 0.2,
+  "kd_brief": 0.1407,
+  "nu_used_for_every_face": 0.33,
+  "crush_target_Pa": 47730.41895695258,
+  "structural_mass_kg": 4561.373476368534,
+  "checks": {
+    "P2E_mass_identity": "PASS",
+    "classical_kd_0_2_infinite_G": "PASS",
+    "classical_SF": 0.2338855789925098,
+    "biaxial_factor": 0.6823278038280194,
+    "atmosphere_from_007": "PASS"
+  },
+  "scaling": {
+    "exponent_moduli": 2,
+    "exponent_crush": 1.5,
+    "bases": [
+      "ROHACELL 31 IG-F at 32 kg/m3",
+      "Hexcel HRH-10-4.8-32"
+    ],
+    "tag": "PROJECTION",
+    "mainline_013": "not filed"
+  },
+  "partial_cores_excluded": [
+    {
+      "name": "Plascore PAMG-XR1 5052 3/16-2.0",
+      "reason": "no sourced Ec, wrinkling unscored"
+    },
+    {
+      "name": "Plascore PAMG-XR1 5052 3/8-1.0",
+      "reason": "no sourced Ec, wrinkling unscored"
+    }
+  ],
+  "optima": [
+    {
+      "core_mass_fraction": 0.136,
+      "tf_m": 0.0005058337722170968,
+      "core_m": 0.01542675914111169,
+      "h_m": 0.015932592913328786,
+      "d_balance_m": 0.44896654083441023,
+      "h_over_d_balance": 0.03548726121932795,
+      "Vc": 3.038915720711752,
+      "Kc": 0.329064736209857,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.4826485546302036,
+        "face_yield": 8.266224159590452,
+        "core_shear_crimping": 0.48264855463020356,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.4824084044357625
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.4824084044357625,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.48264855463020356,
+      "factor_to_SF_1": 2.0729323759805265,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.3979648505055748,
+      "p2e_least_SF_008": 1.2121884729842611,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.3500609956815915,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.4824084044357625,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.14155722358032305,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.1950550608661294,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.05711522765015865,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.07877822075390138,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.022989690686196024,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.03174203344857146,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.1987117928403794,
+      "least_SF_theoretical_coefficient": 0.48264855463020356,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 1.1987117928403794
+    },
+    {
+      "core_mass_fraction": 0.136,
+      "tf_m": 0.0005058337722170968,
+      "core_m": 0.01542675914111169,
+      "h_m": 0.015932592913328786,
+      "d_balance_m": 0.6381898235030707,
+      "h_over_d_balance": 0.024965288267797214,
+      "Vc": 3.038915720711752,
+      "Kc": 0.329064736209857,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.4826485546302036,
+        "face_yield": 8.266224159590452,
+        "core_shear_crimping": 0.48264855463020356,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.4824084044357625
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.4824084044357625,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.48264855463020356,
+      "factor_to_SF_1": 2.0729323759805265,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "SiC (monolithic alpha SiC, Hexoloy SA type)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.3979648505055748,
+      "p2e_least_SF_008": 1.2121884729842611,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.3500609956815915,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.4824084044357625,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.14155722358032305,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.1950550608661294,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.05711522765015865,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.07877822075390138,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.022989690686196024,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.03174203344857146,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.1987117928403794,
+      "least_SF_theoretical_coefficient": 0.48264855463020356,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 1.1987117928403794
+    },
+    {
+      "core_mass_fraction": 0.207,
+      "tf_m": 0.001028018487302653,
+      "core_m": 0.023480434869192057,
+      "h_m": 0.024508453356494708,
+      "d_balance_m": 0.3146603106702704,
+      "h_over_d_balance": 0.07788860725487838,
+      "Vc": 2.6828871093328863,
+      "Kc": 0.3727327909256141,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.7503406304475979,
+        "face_yield": 5.169123639479347,
+        "core_shear_crimping": 0.7503406304475981,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.7506424581940622
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.7503406304475981,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.7506424581940622,
+      "factor_to_SF_1": 1.3327280430002484,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "CNT-yarn composite quasi-isotropic",
+      "face_tag": "PROJECTION",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.6367456803749023,
+      "p2e_least_SF_008": 1.1783992472564768,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.5527844674660688,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.7503406304475981,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.22542338388358588,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.30660863614363915,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09175884346135191,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.12511956081505746,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03723115146475294,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.05093389890976824,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.8652327749064572,
+      "least_SF_theoretical_coefficient": 0.7503406304475981,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 1.8652327749064572
+    },
+    {
+      "core_mass_fraction": 0.207,
+      "tf_m": 0.001028018487302653,
+      "core_m": 0.023480434869192057,
+      "h_m": 0.024508453356494708,
+      "d_balance_m": 0.44727833783975895,
+      "h_over_d_balance": 0.05479463520380694,
+      "Vc": 2.6828871093328863,
+      "Kc": 0.3727327909256141,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.7503406304475979,
+        "face_yield": 5.169123639479347,
+        "core_shear_crimping": 0.7503406304475981,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.7506424581940622
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.7503406304475981,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.7506424581940622,
+      "factor_to_SF_1": 1.3327280430002484,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "CNT-yarn composite quasi-isotropic",
+      "face_tag": "PROJECTION",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.6367456803749023,
+      "p2e_least_SF_008": 1.1783992472564768,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.5527844674660688,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.7503406304475981,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.22542338388358588,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.30660863614363915,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09175884346135191,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.12511956081505746,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03723115146475294,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.05093389890976824,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.8652327749064572,
+      "least_SF_theoretical_coefficient": 0.7503406304475981,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 1.8652327749064572
+    },
+    {
+      "core_mass_fraction": 0.186,
+      "tf_m": 0.0009848927012443074,
+      "core_m": 0.021098361766520402,
+      "h_m": 0.02208325446776471,
+      "d_balance_m": 0.2831942796032434,
+      "h_over_d_balance": 0.0779791685718492,
+      "Vc": 2.1360163571019726,
+      "Kc": 0.46816120891356094,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6779695807279854,
+        "face_yield": 3.7142076289726766,
+        "core_shear_crimping": 0.6779695807279855,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6778805832136774
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.6778805832136774,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.6779695807279855,
+      "factor_to_SF_1": 1.4751860796177814,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "Graphene composite quasi-isotropic",
+      "face_tag": "PROJECTION",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.7396141434028453,
+      "p2e_least_SF_008": 0.9165327478661486,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.4956309590524252,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.6778805832136774,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.20144600950217673,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.2755299421288068,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.08175125012122782,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.11199284439148556,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03308356500009545,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.045422222887736625,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.6844305401067132,
+      "least_SF_theoretical_coefficient": 0.6779695807279855,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 1.6844305401067132
+    },
+    {
+      "core_mass_fraction": 0.186,
+      "tf_m": 0.0009848927012443074,
+      "core_m": 0.021098361766520402,
+      "h_m": 0.02208325446776471,
+      "d_balance_m": 0.4025505040557831,
+      "h_over_d_balance": 0.054858345090295905,
+      "Vc": 2.1360163571019726,
+      "Kc": 0.46816120891356094,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6779695807279854,
+        "face_yield": 3.7142076289726766,
+        "core_shear_crimping": 0.6779695807279855,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6778805832136774
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.6778805832136774,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.6779695807279855,
+      "factor_to_SF_1": 1.4751860796177814,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "Graphene composite quasi-isotropic",
+      "face_tag": "PROJECTION",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.7396141434028453,
+      "p2e_least_SF_008": 0.9165327478661486,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.4956309590524252,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.6778805832136774,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.20144600950217673,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.2755299421288068,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.08175125012122782,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.11199284439148556,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03308356500009545,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.045422222887736625,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.6844305401067132,
+      "least_SF_theoretical_coefficient": 0.6779695807279855,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 1.6844305401067132
+    },
+    {
+      "core_mass_fraction": 0.1195,
+      "tf_m": 0.0009744089973994867,
+      "core_m": 0.013555130274726815,
+      "h_m": 0.014529539272126302,
+      "d_balance_m": 0.12236789859399405,
+      "h_over_d_balance": 0.11873652681030372,
+      "Vc": 2.000093636714276,
+      "Kc": 0.49997659191735894,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.42417795730050095,
+        "face_yield": 1.4290389925024651,
+        "core_shear_crimping": 0.42417795730050095,
+        "core_crush": 8.380399936584563,
+        "face_wrinkling": 0.4489579231576306
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.42417795730050095,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.4489579231576306,
+      "factor_to_SF_1": 2.3575010978035538,
+      "core_name": "ROHACELL 31 IG-F",
+      "core_family": "PMI_foam",
+      "core_form": "foam",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "CFRP quasi-isotropic M55J/epoxy",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.5622250463458498,
+      "p2e_least_SF_008": 0.7544629326946956,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.42417795730050095,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.24354945796969435,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.18049609350449,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.24809361110985587,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.07306533121093715,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.10046674029256805,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.029504599130168348,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.04063886976147356,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.5,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.7362909939785142,
+      "least_SF_theoretical_coefficient": 0.42417795730050095,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.7362909939785142
+    },
+    {
+      "core_mass_fraction": 0.1195,
+      "tf_m": 0.0009744089973994867,
+      "core_m": 0.013555130274726815,
+      "h_m": 0.014529539272126302,
+      "d_balance_m": 0.17394157582657294,
+      "h_over_d_balance": 0.08353114661104866,
+      "Vc": 2.000093636714276,
+      "Kc": 0.49997659191735894,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.42417795730050095,
+        "face_yield": 1.4290389925024651,
+        "core_shear_crimping": 0.42417795730050095,
+        "core_crush": 8.380399936584563,
+        "face_wrinkling": 0.4489579231576306
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.42417795730050095,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.4489579231576306,
+      "factor_to_SF_1": 2.3575010978035538,
+      "core_name": "ROHACELL 31 IG-F",
+      "core_family": "PMI_foam",
+      "core_form": "foam",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "CFRP quasi-isotropic M55J/epoxy",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.5622250463458498,
+      "p2e_least_SF_008": 0.7544629326946956,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.42417795730050095,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.1872208412345287,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.18049609350449,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.24809361110985587,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.07306533121093715,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.10046674029256805,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.029504599130168348,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.04063886976147356,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.5,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.7362909939785142,
+      "least_SF_theoretical_coefficient": 0.42417795730050095,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.7362909939785142
+    },
+    {
+      "core_mass_fraction": 0.19175,
+      "tf_m": 0.0007929207043436264,
+      "core_m": 0.021750596068442405,
+      "h_m": 0.022543516772786033,
+      "d_balance_m": 0.044083597980042834,
+      "h_over_d_balance": 0.5113810534020329,
+      "Vc": 3.5080083728637845,
+      "Kc": 0.2850620334134618,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6853382311714157,
+        "face_yield": 0.940266455786305,
+        "core_shear_crimping": 0.6853382311714157,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6854549602516505
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.6853382311714157,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6854549602516505,
+      "factor_to_SF_1": 1.459133540953564,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "Beryllium S-200F",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 1.1782290475970947,
+      "p2e_least_SF_008": 0.5816680827629475,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.5041509147568072,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.6853382311714157,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.20541551643332703,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.2798343954149152,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.08348815199655345,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.11406375289069456,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.033821202691177964,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.04634424415771685,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.703251719413192,
+      "least_SF_theoretical_coefficient": 0.6853382311714157,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.940266455786305
+    },
+    {
+      "core_mass_fraction": 0.19175,
+      "tf_m": 0.0007929207043436264,
+      "core_m": 0.021750596068442405,
+      "h_m": 0.022543516772786033,
+      "d_balance_m": 0.06266325228151079,
+      "h_over_d_balance": 0.3597565710683301,
+      "Vc": 3.5080083728637845,
+      "Kc": 0.2850620334134618,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6853382311714157,
+        "face_yield": 0.940266455786305,
+        "core_shear_crimping": 0.6853382311714157,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6854549602516505
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.6853382311714157,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.6854549602516505,
+      "factor_to_SF_1": 1.459133540953564,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "Beryllium S-200F",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 1.1782290475970947,
+      "p2e_least_SF_008": 0.5816680827629475,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.5041509147568072,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.6853382311714157,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.20541551643332703,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.2798343954149152,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.08348815199655345,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.11406375289069456,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.033821202691177964,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.04634424415771685,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.703251719413192,
+      "least_SF_theoretical_coefficient": 0.6853382311714157,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.940266455786305
+    },
+    {
+      "core_mass_fraction": 0.18075,
+      "tf_m": 0.0008496384824440842,
+      "core_m": 0.020502843490852483,
+      "h_m": 0.021352481973296568,
+      "d_balance_m": 0.04944662024818535,
+      "h_over_d_balance": 0.43182894738048727,
+      "Vc": 2.59273386386948,
+      "Kc": 0.3856932691531894,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6522520015991726,
+        "face_yield": 0.7832341312833628,
+        "core_shear_crimping": 0.6522520015991726,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6519321738941608
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.6519321738941608,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.6522520015991726,
+      "factor_to_SF_1": 1.5339018996818938,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 1.363820630716521,
+      "p2e_least_SF_008": 0.4780189998677833,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.47711735432216607,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.6519321738941608,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.19393081313979532,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.26519680373574933,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.0786727184693994,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.1077793266394949,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03182253024140717,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.04369361824075219,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.6199526745248842,
+      "least_SF_theoretical_coefficient": 0.6522520015991726,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.7832341312833628
+    },
+    {
+      "core_mass_fraction": 0.18075,
+      "tf_m": 0.0008496384824440842,
+      "core_m": 0.020502843490852483,
+      "h_m": 0.021352481973296568,
+      "d_balance_m": 0.07028659594624784,
+      "h_over_d_balance": 0.30379166448217276,
+      "Vc": 2.59273386386948,
+      "Kc": 0.3856932691531894,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.6522520015991726,
+        "face_yield": 0.7832341312833628,
+        "core_shear_crimping": 0.6522520015991726,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.6519321738941608
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.6519321738941608,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.6522520015991726,
+      "factor_to_SF_1": 1.5339018996818938,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "CFRP quasi-isotropic K13D2U pitch/epoxy",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 1.363820630716521,
+      "p2e_least_SF_008": 0.4780189998677833,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.47711735432216607,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.6519321738941608,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.19393081313979532,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.26519680373574933,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.0786727184693994,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.1077793266394949,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03182253024140717,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.04369361824075219,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.6199526745248842,
+      "least_SF_theoretical_coefficient": 0.6522520015991726,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.7832341312833628
+    },
+    {
+      "core_mass_fraction": 0.102875,
+      "tf_m": 0.0008141018408511661,
+      "core_m": 0.02333864480355684,
+      "h_m": 0.02415274664440801,
+      "d_balance_m": 0.46650220477278465,
+      "h_over_d_balance": 0.05177413182038847,
+      "Vc": 4.09529344429665,
+      "Kc": 0.24418274626758668,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.183286388965991,
+        "face_yield": 2.8995620815630576,
+        "core_shear_crimping": 0.18328638896599098,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.1833783546107188
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.18328638896599098,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.1833783546107188,
+      "factor_to_SF_1": 5.455942504195177,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "Boron/epoxy quasi-isotropic",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.4650651241784419,
+      "p2e_least_SF_008": 0.3941090815824439,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.16794163279566102,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.15402758122205218,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.13167005885396238,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.18328638896599098,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.052982775614068764,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.07357140682036287,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.02128761585055341,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.029527900725564094,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.4556674266084527,
+      "least_SF_theoretical_coefficient": 0.18328638896599098,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.4556674266084527
+    },
+    {
+      "core_mass_fraction": 0.102875,
+      "tf_m": 0.0008141018408511661,
+      "core_m": 0.02333864480355684,
+      "h_m": 0.02415274664440801,
+      "d_balance_m": 0.6631161404019683,
+      "h_over_d_balance": 0.03642310173564329,
+      "Vc": 4.09529344429665,
+      "Kc": 0.24418274626758668,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.183286388965991,
+        "face_yield": 2.8995620815630576,
+        "core_shear_crimping": 0.18328638896599098,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.1833783546107188
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.18328638896599098,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.1833783546107188,
+      "factor_to_SF_1": 5.455942504195177,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "Boron/epoxy quasi-isotropic",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.4650651241784419,
+      "p2e_least_SF_008": 0.3941090815824439,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.11818403935130796,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.11640891259349538,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.13167005885396238,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.18328638896599098,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.052982775614068764,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.07357140682036287,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.02128761585055341,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.029527900725564094,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.4556674266084527,
+      "least_SF_theoretical_coefficient": 0.18328638896599098,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.4556674266084527
+    },
+    {
+      "core_mass_fraction": 0.15325,
+      "tf_m": 0.0007420460875812382,
+      "core_m": 0.017383462046877695,
+      "h_m": 0.018125508134458932,
+      "d_balance_m": 0.04719904660054057,
+      "h_over_d_balance": 0.38402275977861255,
+      "Vc": 2.078609988914942,
+      "Kc": 0.4810907314661811,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.5543408667668701,
+        "face_yield": 0.600099048082283,
+        "core_shear_crimping": 0.5543408667668701,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.5539944205083944
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.5539944205083944,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.5543408667668701,
+      "factor_to_SF_1": 1.8050723310215133,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "AlBeMet 162 (AM162, HIP)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 1.563391167056685,
+      "p2e_least_SF_008": 0.3543543242292784,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.4020425877053868,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.5539944205083944,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.16275480797254002,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.2240841906841987,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.06578920026151576,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.09062063998967039,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.02652672951601491,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.03658468979921913,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.376592196414798,
+      "least_SF_theoretical_coefficient": 0.5543408667668701,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.600099048082283
+    },
+    {
+      "core_mass_fraction": 0.15325,
+      "tf_m": 0.0007420460875812382,
+      "core_m": 0.017383462046877695,
+      "h_m": 0.018125508134458932,
+      "d_balance_m": 0.06709175067596386,
+      "h_over_d_balance": 0.2701600115042539,
+      "Vc": 2.078609988914942,
+      "Kc": 0.4810907314661811,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.5543408667668701,
+        "face_yield": 0.600099048082283,
+        "core_shear_crimping": 0.5543408667668701,
+        "core_crush": 20.950999841461407,
+        "face_wrinkling": 0.5539944205083944
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.5539944205083944,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.5543408667668701,
+      "factor_to_SF_1": 1.8050723310215133,
+      "core_name": "Hexcel HRH-10-4.8-32",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "AlBeMet 162 (AM162, HIP)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 1.563391167056685,
+      "p2e_least_SF_008": 0.3543543242292784,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.4020425877053868,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.5539944205083944,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.16275480797254002,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.2240841906841987,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.06578920026151576,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.09062063998967039,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.02652672951601491,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.03658468979921913,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 1.376592196414798,
+      "least_SF_theoretical_coefficient": 0.5543408667668701,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.600099048082283
+    },
+    {
+      "core_mass_fraction": 0.11175,
+      "tf_m": 0.0010400621485459171,
+      "core_m": 0.025352063735576934,
+      "h_m": 0.02639212588412285,
+      "d_balance_m": 0.4545093376348351,
+      "h_over_d_balance": 0.058067290809604856,
+      "Vc": 3.265808570869186,
+      "Kc": 0.30620288308382165,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.20146899868002163,
+        "face_yield": 2.266195558566734,
+        "core_shear_crimping": 0.20146899868002163,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.20132500370637135
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.20132500370637135,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.20146899868002163,
+      "factor_to_SF_1": 4.96709291737295,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "CFRP quasi-isotropic T700/epoxy",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.6305037400997122,
+      "p2e_least_SF_008": 0.3193081831275615,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.14085711213007776,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.13875824856182234,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.1445184075772589,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.20132500370637135,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.05818948310154663,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.08079281647771841,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.023396850852408172,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.03245161230772444,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.5002621304218924,
+      "least_SF_theoretical_coefficient": 0.20146899868002163,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.5002621304218924
+    },
+    {
+      "core_mass_fraction": 0.11175,
+      "tf_m": 0.0010400621485459171,
+      "core_m": 0.025352063735576934,
+      "h_m": 0.02639212588412285,
+      "d_balance_m": 0.6460687102129853,
+      "h_over_d_balance": 0.040850339084557014,
+      "Vc": 3.265808570869186,
+      "Kc": 0.30620288308382165,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.20146899868002163,
+        "face_yield": 2.266195558566734,
+        "core_shear_crimping": 0.20146899868002163,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.20132500370637135
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.20132500370637135,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.20146899868002163,
+      "factor_to_SF_1": 4.96709291737295,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "CFRP quasi-isotropic T700/epoxy",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.6305037400997122,
+      "p2e_least_SF_008": 0.3193081831275615,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.09909297838350968,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.10005905959446482,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.1445184075772589,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.20132500370637135,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.05818948310154663,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.08079281647771841,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.023396850852408172,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.03245161230772444,
+          "governing": "core_shear_crimping"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.5002621304218924,
+      "least_SF_theoretical_coefficient": 0.20146899868002163,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.5002621304218924
+    },
+    {
+      "core_mass_fraction": 0.075,
+      "tf_m": 0.0006194813199708407,
+      "core_m": 0.01701480787622613,
+      "h_m": 0.01763428919619697,
+      "d_balance_m": 0.347782448635562,
+      "h_over_d_balance": 0.05070494288996101,
+      "Vc": 2.7498539461506124,
+      "Kc": 0.3636556775678402,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.1340175474246732,
+        "face_yield": 1.4536203400877072,
+        "core_shear_crimping": 0.1340175474246732,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.13401522875346672
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.13401522875346672,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.1340175474246732,
+      "factor_to_SF_1": 7.461838548509972,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "Al-Li 2195-T8",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.5213889990456531,
+      "p2e_least_SF_008": 0.25703501416172436,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.11590978648566135,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.10330786784886135,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09543740033430684,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.13401522875346672,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03825054293468011,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.053473800153828056,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.015315093673043236,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.02135416545461134,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.3330075381146748,
+      "least_SF_theoretical_coefficient": 0.1340175474246732,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.3330075381146748
+    },
+    {
+      "core_mass_fraction": 0.075,
+      "tf_m": 0.0006194813199708407,
+      "core_m": 0.01701480787622613,
+      "h_m": 0.01763428919619697,
+      "d_balance_m": 0.494360268138681,
+      "h_over_d_balance": 0.03567092732308756,
+      "Vc": 2.7498539461506124,
+      "Kc": 0.3636556775678402,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.1340175474246732,
+        "face_yield": 1.4536203400877072,
+        "core_shear_crimping": 0.1340175474246732,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.13401522875346672
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.13401522875346672,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.1340175474246732,
+      "factor_to_SF_1": 7.461838548509972,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "Al-Li 2195-T8",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.5213889990456531,
+      "p2e_least_SF_008": 0.25703501416172436,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.08154253479266273,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07888125384031376,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09543740033430684,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.13401522875346672,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03825054293468011,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.053473800153828056,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.015315093673043236,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.02135416545461134,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.3330075381146748,
+      "least_SF_theoretical_coefficient": 0.1340175474246732,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.3330075381146748
+    },
+    {
+      "core_mass_fraction": 0.424125,
+      "tf_m": 0.00023592842704521836,
+      "core_m": 0.04810936927002938,
+      "h_m": 0.048345297697074595,
+      "d_balance_m": 0.40231173288685723,
+      "h_over_d_balance": 0.12016874911940692,
+      "Vc": 0.43543304060552723,
+      "Kc": 0.8911417398486182,
+      "gamma": 0.2,
+      "branch": "stiff_or_moderate_core",
+      "sfs": {
+        "global_buckling": 0.10268927367692932,
+        "face_yield": 0.9589296688983981,
+        "core_shear_crimping": 1.3232043512908471,
+        "core_crush": 8.380399936584563,
+        "face_wrinkling": 0.10268668289072856
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.10268668289072856,
+      "second_mode": "global_buckling",
+      "second_SF": 0.10268927367692932,
+      "factor_to_SF_1": 9.738361118005193,
+      "core_name": "ROHACELL 31 IG-F",
+      "core_family": "PMI_foam",
+      "core_form": "foam",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "Ti-6Al-4V (annealed)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.43614169006823966,
+      "p2e_least_SF_008": 0.2354434011448481,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.10268668289072856,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.08170215996000704,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.06789808900885208,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.09560606610875778,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.02714363239859932,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.038048409949464235,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.010840945385495572,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.015149083454366408,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.5,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.16840615994079483,
+      "least_SF_theoretical_coefficient": 0.10268927367692932,
+      "governing_theoretical": "global_buckling",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.16840615994079483
+    },
+    {
+      "core_mass_fraction": 0.054,
+      "tf_m": 0.00038756378030783853,
+      "core_m": 0.012250661670882814,
+      "h_m": 0.012638225451190652,
+      "d_balance_m": 0.571871688538532,
+      "h_over_d_balance": 0.022099757173656805,
+      "Vc": 2.587960375575693,
+      "Kc": 0.38640467969976144,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.09560606610875778,
+        "face_yield": 1.5752506477584276,
+        "core_shear_crimping": 0.09560606610875778,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.095636724009988
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.09560606610875778,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.095636724009988,
+      "factor_to_SF_1": 10.459587353614555,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "Ti-6Al-4V (annealed)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.4060681490492893,
+      "p2e_least_SF_008": 0.2354434011448481,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07520359242839966,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.06501482443417053,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.06789808900885208,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.09560606610875778,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.02714363239859932,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.038048409949464235,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.010840945385495572,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.015149083454366408,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.23764276875209137,
+      "least_SF_theoretical_coefficient": 0.09560606610875778,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.23764276875209137
+    },
+    {
+      "core_mass_fraction": 0.072875,
+      "tf_m": 0.0006232040988541688,
+      "core_m": 0.016532721653066386,
+      "h_m": 0.017155925751920556,
+      "d_balance_m": 0.18907020118649048,
+      "h_over_d_balance": 0.09073839052510824,
+      "Vc": 2.5048311089727546,
+      "Kc": 0.39922851341865745,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.13054395316554673,
+        "face_yield": 0.7207325434913068,
+        "core_shear_crimping": 0.13054395316554673,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.13061752299424764
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.13054395316554673,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.13061752299424764,
+      "factor_to_SF_1": 7.660255230143596,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "6061-T6 (baseline)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.558153066674228,
+      "p2e_least_SF_008": 0.23388557899250978,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.1065066903170451,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.09620723245876883,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09287420511623802,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.13054395316554673,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03721097049090607,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.05204315779021075,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.01489324449410929,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.020777395071453982,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.3245647541069183,
+      "least_SF_theoretical_coefficient": 0.13054395316554673,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.3245647541069183
+    },
+    {
+      "core_mass_fraction": 0.072875,
+      "tf_m": 0.0006232040988541688,
+      "core_m": 0.016532721653066386,
+      "h_m": 0.017155925751920556,
+      "d_balance_m": 0.2687565048848479,
+      "h_over_d_balance": 0.06383445773441364,
+      "Vc": 2.5048311089727546,
+      "Kc": 0.39922851341865745,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.13054395316554673,
+        "face_yield": 0.7207325434913068,
+        "core_shear_crimping": 0.13054395316554673,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.13061752299424764
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.13054395316554673,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.13061752299424764,
+      "factor_to_SF_1": 7.660255230143596,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "6061-T6 (baseline)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.558153066674228,
+      "p2e_least_SF_008": 0.23388557899250978,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07492745663804123,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07306461331093334,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09287420511623802,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.13054395316554673,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03721097049090607,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.05204315779021075,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.01489324449410929,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.020777395071453982,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.3245647541069183,
+      "least_SF_theoretical_coefficient": 0.13054395316554673,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.3245647541069183
+    },
+    {
+      "core_mass_fraction": 0.071125,
+      "tf_m": 0.0005999384926606708,
+      "core_m": 0.016135709469287777,
+      "h_m": 0.016735647961948447,
+      "d_balance_m": 0.3311174398894268,
+      "h_over_d_balance": 0.050542937175212334,
+      "Vc": 2.510557349495962,
+      "Kc": 0.39831792737209026,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.12728282211302683,
+        "face_yield": 1.2644727132208031,
+        "core_shear_crimping": 0.12728282211302686,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.12739259798720096
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.12728282211302686,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.12739259798720096,
+      "factor_to_SF_1": 7.856519704693555,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "7075-T6",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.5442632029982563,
+      "p2e_least_SF_008": 0.23386262641282154,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.1064726335101768,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.09511537425781962,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09055829973203937,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.12728282211302686,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.036274930482541524,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.050743211872552485,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.014516213453117337,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.02026458835928141,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.3165513040894084,
+      "least_SF_theoretical_coefficient": 0.12728282211302686,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.3165513040894084
+    },
+    {
+      "core_mass_fraction": 0.071125,
+      "tf_m": 0.0005999384926606708,
+      "core_m": 0.016135709469287777,
+      "h_m": 0.016735647961948447,
+      "d_balance_m": 0.47067155634602253,
+      "h_over_d_balance": 0.03555695630276188,
+      "Vc": 2.510557349495962,
+      "Kc": 0.39831792737209026,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.12728282211302683,
+        "face_yield": 1.2644727132208031,
+        "core_shear_crimping": 0.12728282211302686,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.12739259798720096
+      },
+      "governing": "core_shear_crimping",
+      "least_SF": 0.12728282211302686,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.12739259798720096,
+      "factor_to_SF_1": 7.856519704693555,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "7075-T6",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.5442632029982563,
+      "p2e_least_SF_008": 0.23386262641282154,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07490349767440938,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07254973433493278,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.09055829973203937,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.12728282211302686,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.036274930482541524,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.050743211872552485,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.014516213453117337,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.02026458835928141,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.3165513040894084,
+      "least_SF_theoretical_coefficient": 0.12728282211302686,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.3165513040894084
+    },
+    {
+      "core_mass_fraction": 0.093625,
+      "tf_m": 0.0009293737997025663,
+      "core_m": 0.021240151832155618,
+      "h_m": 0.022169525631858183,
+      "d_balance_m": 0.10174016711672078,
+      "h_over_d_balance": 0.21790337346727898,
+      "Vc": 2.4255089676842747,
+      "Kc": 0.4122846022518473,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.16967895544457484,
+        "face_yield": 0.3777434204064009,
+        "core_shear_crimping": 0.16967895544457484,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.16960226347447346
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.16960226347447346,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.16967895544457484,
+      "factor_to_SF_1": 5.896147725354552,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "Mg AZ31B",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.8139030000379116,
+      "p2e_least_SF_008": 0.20838142071791527,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.10648063346310131,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.10499489093301383,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.1209359516462463,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.16960226347447346,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.04856489442818758,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.0677708846161068,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.019482841779616813,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.027132978759287652,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.42143592742141883,
+      "least_SF_theoretical_coefficient": 0.16967895544457484,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.3777434204064009
+    },
+    {
+      "core_mass_fraction": 0.093625,
+      "tf_m": 0.0009293737997025663,
+      "core_m": 0.021240151832155618,
+      "h_m": 0.022169525631858183,
+      "d_balance_m": 0.14461999590152208,
+      "h_over_d_balance": 0.15329502323423075,
+      "Vc": 2.4255089676842747,
+      "Kc": 0.4122846022518473,
+      "gamma": 1.0,
+      "branch": "shear_crimping",
+      "sfs": {
+        "global_buckling": 0.16967895544457484,
+        "face_yield": 0.3777434204064009,
+        "core_shear_crimping": 0.16967895544457484,
+        "core_crush": 7.407297030267823,
+        "face_wrinkling": 0.16960226347447346
+      },
+      "governing": "face_wrinkling",
+      "least_SF": 0.16960226347447346,
+      "second_mode": "core_shear_crimping",
+      "second_SF": 0.16967895544457484,
+      "factor_to_SF_1": 5.896147725354552,
+      "core_name": "aramid honeycomb scaled from HRH-10-32 to 16",
+      "core_family": "aramid_honeycomb",
+      "core_form": "honeycomb",
+      "core_density_kg_m3": 16.0,
+      "core_tag": "PROJECTION",
+      "face": "Mg AZ31B",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.8139030000379116,
+      "p2e_least_SF_008": 0.20838142071791527,
+      "p2e_limiting_008": "sigma_c/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07490912564129175,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.07543500152980694,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.1209359516462463,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.16960226347447346,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.04856489442818758,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.0677708846161068,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.019482841779616813,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.027132978759287652,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.33,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.42143592742141883,
+      "least_SF_theoretical_coefficient": 0.16967895544457484,
+      "governing_theoretical": "core_shear_crimping",
+      "second_mode_theoretical": "face_yield",
+      "second_SF_theoretical": 0.3777434204064009
+    },
+    {
+      "core_mass_fraction": 0.452625,
+      "tf_m": 0.000162326456840946,
+      "core_m": 0.05134218276651234,
+      "h_m": 0.051504509223353284,
+      "d_balance_m": 0.9341477973023654,
+      "h_over_d_balance": 0.0551352894821228,
+      "Vc": 0.2531704648159832,
+      "Kc": 0.9367073837960042,
+      "gamma": 0.2,
+      "branch": "stiff_or_moderate_core",
+      "sfs": {
+        "global_buckling": 0.06674385118160646,
+        "face_yield": 1.2923425971850677,
+        "core_shear_crimping": 1.4072274042248138,
+        "core_crush": 8.380399936584563,
+        "face_wrinkling": 0.06675741103423637
+      },
+      "governing": "global_buckling",
+      "least_SF": 0.06674385118160646,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.06675741103423637,
+      "factor_to_SF_1": 14.98265356727848,
+      "core_name": "ROHACELL 31 IG-F",
+      "core_family": "PMI_foam",
+      "core_form": "foam",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "Metallic glass Vitreloy 1 (Zr41.2Ti13.8Cu12.5Ni10Be22.5)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.2,
+      "gain_vs_008_P2E": 0.4642409693198224,
+      "p2e_least_SF_008": 0.1437698428025331,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.06674385118160646,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.04997373684990444,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.04168410054930782,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.03483145894575247,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.018764551117643885,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.026403081423451973,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.007479528382889294,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.010483520080032473,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.5,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.10948215409614763,
+      "least_SF_theoretical_coefficient": 0.06674385118160646,
+      "governing_theoretical": "global_buckling",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.10948215409614763
+    },
+    {
+      "core_mass_fraction": 0.514,
+      "tf_m": 0.00014412543142215074,
+      "core_m": 0.05830407498920154,
+      "h_m": 0.05844820042062369,
+      "d_balance_m": 1.3278575654617846,
+      "h_over_d_balance": 0.04401692014331172,
+      "Vc": 0.22493810926925945,
+      "Kc": 0.9437654726826852,
+      "gamma": 0.1407,
+      "branch": "stiff_or_moderate_core",
+      "sfs": {
+        "global_buckling": 0.04766643884670595,
+        "face_yield": 1.1474373185328939,
+        "core_shear_crimping": 1.5958478560734726,
+        "core_crush": 8.380399936584563,
+        "face_wrinkling": 0.05927216581436652
+      },
+      "governing": "global_buckling",
+      "least_SF": 0.04766643884670595,
+      "second_mode": "face_wrinkling",
+      "second_SF": 0.05927216581436652,
+      "factor_to_SF_1": 20.979121247466683,
+      "core_name": "ROHACELL 31 IG-F",
+      "core_family": "PMI_foam",
+      "core_form": "foam",
+      "core_density_kg_m3": 32.0,
+      "core_tag": "QUESTIONABLE",
+      "face": "Metallic glass Vitreloy 1 (Zr41.2Ti13.8Cu12.5Ni10Be22.5)",
+      "face_tag": "QUESTIONABLE",
+      "kd": 0.1407,
+      "gain_vs_008_P2E": 0.33154685236858383,
+      "p2e_least_SF_008": 0.1437698428025331,
+      "p2e_limiting_008": "E/rho",
+      "per_density": [
+        {
+          "density": 32.0,
+          "form": "foam",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.04766643884670595,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 32.0,
+          "form": "honeycomb",
+          "tag": "QUESTIONABLE",
+          "least_SF": 0.04004469688417958,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.03917942455113461,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 16.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.02991846032980034,
+          "governing": "global_buckling"
+        },
+        {
+          "density": 8.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.018764551117643885,
+          "governing": "core_shear_crimping"
+        },
+        {
+          "density": 8.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.026403081423451973,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "foam",
+          "tag": "PROJECTION",
+          "least_SF": 0.007479528382889294,
+          "governing": "face_wrinkling"
+        },
+        {
+          "density": 4.0,
+          "form": "honeycomb",
+          "tag": "PROJECTION",
+          "least_SF": 0.010483520080032473,
+          "governing": "face_wrinkling"
+        }
+      ],
+      "wrinkle_coefficient_design": 0.5,
+      "wrinkle_coefficient_theoretical": 0.82,
+      "wrinkle_SF_theoretical": 0.09720635193556108,
+      "least_SF_theoretical_coefficient": 0.04766643884670595,
+      "governing_theoretical": "global_buckling",
+      "second_mode_theoretical": "face_wrinkling",
+      "second_SF_theoretical": 0.09720635193556108
+    }
+  ],
+  "best_three_kd_0_20": [
+    "CNT-yarn",
+    "Be S-200F",
+    "graphene"
+  ],
+  "best_three_questionable_kd_0_20": [
+    "Be S-200F",
+    "K13D2U",
+    "AlBeMet 162"
+  ],
+  "best_three_kd_0_1407": [
+    "CNT-yarn",
+    "Be S-200F",
+    "graphene"
+  ],
+  "strength_limited_gains_vs_008_P2E": {
+    "Be S-200F": 1.1782290475970947,
+    "AlBeMet 162": 1.563391167056685,
+    "K13D2U": 1.363820630716521
+  },
+  "measurements": {
+    "origin_utc": "2026-10-19T23:23:35.294565-07:00",
+    "end_utc": "2026-10-19T23:24:47.830573-07:00",
+    "elapsed_s": 72.53601943398826
+  },
+  "wrinkle_coefficients": {
+    "foam_design": 0.5,
+    "foam_theoretical": 0.82,
+    "foam_theoretical_band": {
+      "Allen_1969": 0.78,
+      "Plantema_1966": 0.85,
+      "Hoff_Mautner_1945": 0.91
+    },
+    "honeycomb_design": 0.33,
+    "honeycomb_theoretical": 0.82,
+    "Ec_Gc_factor_foam_0_82_over_0_50": 4.410943999999999,
+    "tag": "QUESTIONABLE",
+    "sources": [
+      "Hoff and Mautner, J. Aeronautical Sciences 12 (1945) 285: theoretical 0.91, practical 0.5",
+      "Composite Structures review, https://www.sciencedirect.com/science/article/abs/pii/S0263822321008497 : 0.91 Hoff, 0.85 Plantema, 0.78 Allen, practical 0.5",
+      "NASA CR-1457 eq 2.2-5 design Q=0.50; eq 2.2-14 honeycomb coefficient 0.33",
+      "NASA/CR-1999-208994, NTRS 19990017863: Hemp theoretical 0.82 for an anti-plane core, the honeycomb form"
+    ]
+  }
+}

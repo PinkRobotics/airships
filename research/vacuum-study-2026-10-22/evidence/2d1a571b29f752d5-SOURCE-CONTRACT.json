@@ -1,0 +1,38 @@
+{
+  "status": "SOURCE_AND_IMPLEMENTATION_PREPARED; NO_OFFLINE_OR_NATIVE_RESPONSE_SEEN",
+  "material": "Retained 2.21 manual section6.8.1: *ELASTIC with NLGEOM is PK2 linear in Green-Lagrange strain (StVK). E=1e9, nu=3/10, rho=1000, L=1.",
+  "shape": "shape10tet.f: L1,L2,L3,L4 vertex order; edge order12,23,31,14,24,34. 48 positive straight tetrahedra, shared midside nodes; exact rational barycentric integration. Literal decks and independent admitted mesh are sealed.",
+  "active_auxiliaries": "mastruct.c221-290: an MPC with an active physical term activates its auxiliary terms; then SPC/dependent MPC elimination, then ascending node/direction numbering. No auxiliary mass/stiffness is added.",
+  "coordinate_map": "native y=(u_rep/L,q), oracle z=(w_rep/L,q), y=Tz with u_rep=w_rep+(F-I)X_rep. Six symmetric macro coordinates q11,q22,q33,q12,q13,q23. Independent physical mapping, native map and T are checked exactly; Kz=T^T Ky T, all195x195 entries and zeros.",
+  "boundary_transition": "boundarys.f64-170 removes B SPCs for OP=NEW, without clearing ordinary MPCs (ntrans=0). Origin3 reissued, auxiliaries released in export except call9. arpack.c copies vold, calls results and mafillsm under iperturb; exact retained-state behavior remains the diagnostic, not a claimed capability.",
+  "frequency": "Manual6.9.2/7.62; frequencys.f zeroes frequency SPC values; arpack.c595-609 calls matrixstorage and exits after appending FRD9999. Calls1-9 STEP,PERTURBATION; call10 noPERT. No eigenvalue/continuation/BUCKLE work is requested.",
+  "sparse": "matrixstorage.c nontransformed branch: diagonal plus upper triangular structural entries, sorted(col,row), ASCII integer integer %20.13e. Fourteen significant decimal digits. Reader requires unique ordered upper entries, every diagonal, exact .dof labels/order, finite lexical numeric tokens. Documented absent structural entries are zero; missing DOFs never padded. .mas required and format-checked; mass physical accuracy is not the independent stiffness oracle.",
+  "frd": "noelfiles.f DOUBLE selects dbi; frd.c coordinates int32+3double, C3D10 topology14int32(type6), frdheader.c100CL offset74=3, frdvector.c dbi int32+3double without float downcast. Little-endian amd64, 4-byte int and8-byte double. Explicit binary framing, actual125-node terminal step1/increment1/time1 DISP required. No invented identity output.",
+  "static_controls": {
+    "increments": 1,
+    "increment_size": 1,
+    "step_time": 1,
+    "automatic_cutbacks": false,
+    "solver": "SPOOLES",
+    "maximum_Newton_iterations": 16,
+    "IA_cutbacks": 0,
+    "field_tolerances": [
+      "1e-10",
+      "1e-10",
+      "0.01",
+      "default dynamic average force",
+      "1e-10",
+      "1e-12",
+      "1e-10",
+      "1e-12"
+    ],
+    "displacement_output_frequency": 1
+  },
+  "exact_oracle": "oracle.py independently implements specified E_G,S,P,A and analytic determinant curvature. Exact rational matrix comparisons avoid conversion: comparison-conversion allowance=0. Offline alone generates expected matrix values and tests the elementwise displacement/state bound<=1e-7. No finite differences/native fits.",
+  "negative_inventory": "Exactly nine frozen offline mutations. Missing/duplicate corner vector tie means its three component equations. Two native negatives are calls9/10. No near-threshold pair added.",
+  "output_limits": "1e-10 displacement/L; matrix induced infinity norm over max(E L^3,reference induced infinity norm)<=1e-6. Exact bound of state uncertainty must fit1e-7; zero reference conversion; remaining8.99e-7 stays a diagnostic allowance, no native arithmetic or formatter enclosure.",
+  "runtime": "runtime-premises.json is frozen read-only ELF/candidate-library binding. Exact child environment, byte guards and process maps are required at native entry; source/distro identity does not establish an independent rebuild. All20 selected extracts equal retained distro orig; none is touched by the retained four distro patches.",
+  "scope_limit": "At most CONDITIONAL_INTERFACE_PASS after all gates. Nodal output does not prove integration-point history. Homogeneous local operators do not qualify Q0/native energy/controller/H1/instability, macro reactions, heterogeneous cells or F=sI target-control equivalence.",
+  "gates": "Freeze -> exact Ops admission plus simjob admission -> one offline invocation -> PASS plus derived hashes -> distinct exact Ops/native simjob admission -> one native batch <=10 processes. First blocker ends unit. No retry/repair/build/install/fetch.",
+  "actual_work_to_seal": "Read/copy/hash retained sources; read-only ELF metadata/library hashes; source writing; one preparation-only combinatorial deck/map generation. No import/test/compile of oracle/readers; no response/reference matrices; no native invocation."
+}

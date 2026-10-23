@@ -1,0 +1,70 @@
+{
+  "unit": "vacuum-mainline063-favorable-spread-1020",
+  "tag": "QUESTIONABLE",
+  "issues": [
+    {
+      "id": "NFI063-GAMMA-SURROGATE",
+      "status": "open",
+      "input": "gamma",
+      "admissibility": "favorable ramp not admissible; handbook 0.20 admissible with a named limit",
+      "statement": "The favorable law 0.2+0.4*min(Vc,2) is 061's surrogate. The handbook step 0.20 below Vc 2 is the CR-1457 1969 hemisphere design value 017b cites, from two 1964 tests, and is not a 20-30 m Be/CR-III sphere. At the favorable R30 closure, Vc is 0.986 (ISA) and 1.011 (optimistic), so the ramp is 0.595 and 0.604 against the handbook 0.20."
+    },
+    {
+      "id": "NFI063-Q-UNMEASURED",
+      "status": "open",
+      "input": "Q",
+      "admissibility": "0.33 admissible with a named limit; 0.82 not admissible as an installed value",
+      "statement": "0.82 is the classical perfect-face cap. 0.33 is the design coefficient 017b cites, unchanged since 1969, read there as CR-1457 eq 2.2-12/13 at K_delta 2.32. The measured span in that note is 0.125 to 0.82. Neither number is a Be face on CR-III 5056 3/8-1.0. A coupon does not by itself make Q admissible for the sphere."
+    },
+    {
+      "id": "NFI063-FILM-ROLE",
+      "status": "open",
+      "input": "bond_film",
+      "admissibility": "both areal weights admissible with a named limit",
+      "statement": "0.07323641454574575 kg/m2/interface is 0.015 lb/ft2. The baseline 0.1464728290914915 kg/m2/interface is 0.03 lb/ft2. 017b calls AF 163-2U at 0.015 lb/ft2 today's film in the 028 joining endpoint. 061 uses the same number as the favorable half of the baseline. Same figure, two roles. 040 assigns no installed strength from film weight. Neither figure is a weighed curved Be scarf. This input is 2.8% of the R30 log-spread."
+    },
+    {
+      "id": "NFI063-E-SOURCE",
+      "status": "open",
+      "input": "face_modulus",
+      "admissibility": "290 GPa admissible with a named limit; 293.6 GPa not admissible as a distinct better allowable",
+      "statement": "293.6 GPa is 040 E_full_Pa. 017b's history lists 293 GPa in 1971 and 290 GPa in 2024. The 0.6 GPa between 293.6 and 293 is not tied to a page in the files this card read. 290 GPa is a sheet scalar, not the orthotropic formed face FE-NEXT requires. The swap carries 0.3% of the R30 log-spread."
+    },
+    {
+      "id": "NFI063-STRENGTH-LOT",
+      "status": "open",
+      "input": "face_strength",
+      "admissibility": "345 MPa admissible with a named limit; 379.2 MPa not admissible as a design allowable",
+      "statement": "379.2 MPa is 040 strength_full_Pa, stored as 379200000.0 Pa. 017b says one 1967 lot reached 379 MPa in compression, and that the 345 MPa minimum tensile yield has stood since 1966 and is taken as compressive. This card does not equate 379.2 with 379. The swap leaves the R30 factor and both payloads unchanged, so its log-share is 0. The ~304 MPa scarf-screen figure is 061's statement; this run shows the scarf demand ratio already at 1 and does not recompute that screen stress."
+    },
+    {
+      "id": "NFI063-INTERACTION",
+      "status": "open",
+      "input": "gamma,Q",
+      "statement": "One-at-a-time log shares are not a partition. At R30 the five shares leave a residual of about 0.34, and the gamma-Q interaction ratio is 1.55 in both weathers, so the joint revert is larger than the sum of the separate log-deltas. The complement, a handbook hull with gamma and Q restored, was not run."
+    },
+    {
+      "id": "NFI063-MODULUS-ALONE",
+      "status": "open",
+      "input": "face_modulus",
+      "tag": "PROJECTION",
+      "statement": "From the handbook, modulus alone closes R30 only in ISA, at factor 2.1573938565221473, which is 625.64 GPa, past 017b's ideal-polycrystal limit of 306.9 GPa. Optimistic weather does not close on modulus inside the searched cap."
+    },
+    {
+      "id": "NFI063-NO-SF",
+      "status": "open",
+      "statement": "No qualified hull safety factor is in this model. Closure here means concept payload at least zero after 061's growth, not a certified margin."
+    },
+    {
+      "id": "NFI063-029-STATUS",
+      "status": "open",
+      "statement": "GROUND-FIRST route G1 says '029 FILED; benchmark unresolved' and the same file's not_filed_at_last_lookup lists MAINLINE-029 with the note 'No result assumed', cutoff 2026-10-20T02:27:27.097637-07:00. This card follows that note and did not open a 029 result."
+    },
+    {
+      "id": "NFI063-R20-OPT-TRL7",
+      "status": "open",
+      "tag": "QUESTIONABLE",
+      "statement": "R20 optimistic TRL7 payload at the favorable endpoint is -29.9 kg. It matches 061 inside the 1 kg gate. 061 recorded that the frozen check before the NASA correction was +14.7 kg, so the sign is fragile."
+    }
+  ]
+}

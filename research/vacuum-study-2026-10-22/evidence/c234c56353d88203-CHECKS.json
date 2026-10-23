@@ -1,0 +1,154 @@
+{
+  "all_new_case_checks_pass": true,
+  "case_checks": [
+    {
+      "tag": "QUESTIONABLE",
+      "frequency": 6,
+      "checks": {
+        "linear_equals_zero_state_energy_Hessian": {
+          "relative_error": 1.3936923875823369e-16,
+          "pass": true
+        },
+        "mixed_equals_condensed_pressure": {
+          "relative_error": 4.1478974670637277e-16,
+          "pass": true
+        },
+        "source_section_and_continuum_recovered": {
+          "relative_error": 4.884981308350689e-15,
+          "pass": true
+        },
+        "joint_framework_rigidity": {
+          "rank": 1080,
+          "expected": 1080,
+          "smallest_singular_value": 0.1403979727522459,
+          "pass": true
+        },
+        "roll_checks": {
+          "rows": [
+            {
+              "member": 0,
+              "Kz_relative": 1.1901901260700144e-19,
+              "finite_0p05rad_roll_energy_J": 8.607227228294809e-22
+            },
+            {
+              "member": 540,
+              "Kz_relative": 1.799549780111597e-19,
+              "finite_0p05rad_roll_energy_J": 7.658295873762448e-22
+            },
+            {
+              "member": 1079,
+              "Kz_relative": 1.7995497801115973e-19,
+              "finite_0p05rad_roll_energy_J": 8.253809845947905e-22
+            }
+          ],
+          "pass": true
+        }
+      },
+      "all_pass": true,
+      "pinned_internal_mechanism_count": 1080,
+      "six_additional_global_rigid_motions_excluded": true,
+      "count_basis": "Rigid joint-position bar framework has rank 3V-6; each curved, ball-pinned member adds one independent rigid roll about its endpoint chord.",
+      "elapsed_seconds": 2.564261637162417
+    },
+    {
+      "tag": "QUESTIONABLE",
+      "frequency": 4,
+      "checks": {
+        "linear_equals_zero_state_energy_Hessian": {
+          "relative_error": 1.3819978356195964e-16,
+          "pass": true
+        },
+        "mixed_equals_condensed_pressure": {
+          "relative_error": 3.006496690530355e-16,
+          "pass": true
+        },
+        "source_section_and_continuum_recovered": {
+          "relative_error": 4.884981308350689e-15,
+          "pass": true
+        },
+        "joint_framework_rigidity": {
+          "rank": 480,
+          "expected": 480,
+          "smallest_singular_value": 0.21168472285979031,
+          "pass": true
+        },
+        "roll_checks": {
+          "rows": [
+            {
+              "member": 0,
+              "Kz_relative": 9.970812041217474e-20,
+              "finite_0p05rad_roll_energy_J": 6.462511404289533e-22
+            },
+            {
+              "member": 240,
+              "Kz_relative": 1.608174618181478e-19,
+              "finite_0p05rad_roll_energy_J": 6.5151133628774e-22
+            },
+            {
+              "member": 479,
+              "Kz_relative": 5.560297768628471e-19,
+              "finite_0p05rad_roll_energy_J": 6.479980697135419e-22
+            }
+          ],
+          "pass": true
+        }
+      },
+      "all_pass": true,
+      "pinned_internal_mechanism_count": 480,
+      "six_additional_global_rigid_motions_excluded": true,
+      "count_basis": "Rigid joint-position bar framework has rank 3V-6; each curved, ball-pinned member adds one independent rigid roll about its endpoint chord.",
+      "elapsed_seconds": 1.6885509858839214
+    },
+    {
+      "tag": "QUESTIONABLE",
+      "frequency": 2,
+      "checks": {
+        "linear_equals_zero_state_energy_Hessian": {
+          "relative_error": 1.4484616373060573e-16,
+          "pass": true
+        },
+        "mixed_equals_condensed_pressure": {
+          "relative_error": 1.3472254667473623e-16,
+          "pass": true
+        },
+        "source_section_and_continuum_recovered": {
+          "relative_error": 2.6645352591003757e-15,
+          "pass": true
+        },
+        "joint_framework_rigidity": {
+          "rank": 120,
+          "expected": 120,
+          "smallest_singular_value": 0.4169839757368308,
+          "pass": true
+        },
+        "roll_checks": {
+          "rows": [
+            {
+              "member": 0,
+              "Kz_relative": 9.369845435856373e-19,
+              "finite_0p05rad_roll_energy_J": 1.1686768548169863e-21
+            },
+            {
+              "member": 60,
+              "Kz_relative": 6.775084421209421e-19,
+              "finite_0p05rad_roll_energy_J": 1.1577378276669757e-21
+            },
+            {
+              "member": 119,
+              "Kz_relative": 2.608285474216221e-18,
+              "finite_0p05rad_roll_energy_J": 1.395039354084842e-21
+            }
+          ],
+          "pass": true
+        }
+      },
+      "all_pass": true,
+      "pinned_internal_mechanism_count": 120,
+      "six_additional_global_rigid_motions_excluded": true,
+      "count_basis": "Rigid joint-position bar framework has rank 3V-6; each curved, ball-pinned member adds one independent rigid roll about its endpoint chord.",
+      "elapsed_seconds": 1.184063445776701
+    }
+  ],
+  "inherited_validation": "intake/rpt-ref-7ce5b278fa083d87105b/CHECKS-COMBINED.json",
+  "scope": "New source-section, topology, zero-state tangent, mixed pressure and finite pin-roll checks; prior finite-state nonlinear and Euler checks are inherited."
+}

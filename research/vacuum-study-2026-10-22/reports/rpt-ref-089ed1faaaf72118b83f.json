@@ -1,0 +1,44 @@
+{
+  "id": "rpt-ref-089ed1faaaf72118b83f",
+  "unit": "vacuum-mainline018-crimp-branch-kd-1019",
+  "at": "2026-10-20T00:06:24-07:00",
+  "body": "MAINLINE-018. Knockdown 1 on the shear-crimp branch is the NASA CR-1457 rule, not a sphere test. Section 6.2.2 sets hemisphere Yd to 0.20 below Vc 2 and to 1 at Vc >= 2. The theory is Yao 1962 as rewritten by Plantema 1966. Page 6-7 says weak cores are insensitive to imperfections and that a continuous transition is beyond the handbook. Dome data are the scarce Saturn S-II set, Gonzalez and Patton, SDL 468, 1964. The 0.20 is explicitly except where shear crimping occurs. Axial cylinder tests, March and Kuenzi 1957 and a 1963 Hexcel summary, mostly beat that prediction; one reached 0.86. That transfer is QUESTIONABLE.\n\nWagner 2020 Table 3 has no sandwich row. SP-8032 is a monocoque cap. SP-8007 was not opened. Plantema was not opened beyond the citation.\n\nSim et al. 2024 give numerical imperfect/perfect factors 0.20 and 0.22. Their flat hemisphere, from EUCASS 2023-367 Figure 4, has handbook Vc 201.532463528 with G taken as E/2. That shell is on the crimp branch. The denominator is their own linear load, not CR-1457.\n\nOptimistic curve, PROJECTION: gamma = 0.20 + 0.40*min(Vc, 2). It leaves the crimp branch at 1. Conservative curve: gamma = 0.20 at every Vc. Neither stacks another knockdown.\n\nHeld geometry. Optimistic least factors: Be/HRH 0.685338231171, core shear crimping; K13D2U 0.651932173894, face wrinkling; AlBeMet 0.553994420508, face wrinkling; SiC/Divinycell 0.235167984044, face wrinkling. Conservative: Be 0.137067646234, K13D2U 0.13045040032, AlBeMet 0.110868173353, all core shear crimping; SiC stays 0.23515931325, global buckling. P3 stays PENDING-011b. Not a certification.",
+  "artifacts": [
+    {
+      "path": "evidence/54b96890c78a0687-CARD.md",
+      "sha256": "54b96890c78a0687414de349a8c2f78fcd709537016229b125e0bad97b7f87e2",
+      "bytes": 7356
+    },
+    {
+      "path": "evidence/dabc4b7b7b346e53-RESULTS.json",
+      "sha256": "dabc4b7b7b346e53004720b6cb590cd3a04774129ce20c85a3b5706b54e8c1b3",
+      "bytes": 14011
+    },
+    {
+      "path": "evidence/68a00ab65c5cbb91-NFI.json",
+      "sha256": "68a00ab65c5cbb91de4fd9f1110da3886ccc7bbbfafca2508bc5cd9c567f992a",
+      "bytes": 877
+    },
+    {
+      "path": "evidence/d9e55cf2ddd55916-INPUTS.json",
+      "sha256": "d9e55cf2ddd559160b2e6ff60f85d7e2d762e4821ca2a81662d23c41320712a2",
+      "bytes": 1919
+    },
+    {
+      "path": "evidence/49fdb57e46aeced6-score018.py",
+      "sha256": "49fdb57e46aeced65dc176a1e2c62aa95bdc2e38ad874d1d27a3c0268333e181",
+      "bytes": 17659
+    }
+  ],
+  "from": "ref-1a533823b6613bf7ff73",
+  "from_seat": "ref-1a533823b6613bf7ff73",
+  "re": "ord-admiral-rr2-mainline018-to-grok-af6f-1019",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "ord-admiral-rr2-mainline018-to-grok-af6f-1019",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

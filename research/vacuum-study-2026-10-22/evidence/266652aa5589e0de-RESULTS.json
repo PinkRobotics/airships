@@ -1,0 +1,4630 @@
+{
+  "schema": 1,
+  "card": "MAINLINE-028",
+  "unit": "vacuum-mainline028-p2-joining-1020",
+  "status": "ESTIMATE",
+  "tag": "QUESTIONABLE / PROJECTION",
+  "certification": false,
+  "overall_installed_hull_SF": null,
+  "overall_SF_reason": "Core-bond, seam, thermal and defect allowables are unmeasured.",
+  "job_started_at": "2026-10-20T00:40:08-07:00",
+  "calculation_started_at": "2026-10-20T07:54:09.133891+00:00",
+  "calculation_ended_at": "2026-10-20T07:54:10.774133+00:00",
+  "case": {
+    "R_m": 10.0,
+    "p_Pa": 95460.83791390515,
+    "lift_kg": 4889.442150186961,
+    "margin_fraction": 0.05,
+    "systems_kg": 100,
+    "joint_allowance_kg": 216.4271448894101,
+    "structural_mass_kg": 4328.542897788202,
+    "tf_m": 0.0008434480441930918,
+    "tc_m": 0.02021337638749162,
+    "rho_face": 1850.0,
+    "E_Pa": 290000000000.0,
+    "nu": 0.33,
+    "sigma_face_Pa": 283000000.0,
+    "Ec_Pa": 103421359.3975254,
+    "Gc_Pa": 46884349.59354485,
+    "rho_core": 16.018463373960138,
+    "crush_Pa": 241316.50526089262,
+    "cell_m": 0.009524999999999999,
+    "biaxial_factor": 0.6823278038280194,
+    "gamma_needed": 0.5953179642995181,
+    "wrinkle_needed": 0.37068071372338524,
+    "baseline_mode_SFs": {
+      "global_buckling": 1.0,
+      "face_compression": 1.0001831189536448,
+      "core_shear_crimping": 2.154663914751214,
+      "core_crush_inherited": 5.0558220634629825,
+      "face_wrinkling": 1.0,
+      "intracell_dimpling": 9.018853684781929
+    },
+    "tag": "QUESTIONABLE; the needed gamma and wrinkle constants are PROJECTION"
+  },
+  "area_m2": 1256.6370614359173,
+  "mass_budget_bonds_only_kg_m2_per_line": 0.08611362482103863,
+  "demands": {
+    "hull_membrane_N_m": 477304.18956952577,
+    "per_face_membrane_N_m": 238652.09478476288,
+    "face_compression_Pa": 282948186.8240931,
+    "ideal_radial_compression_Pa": 47730.41895695258,
+    "ideal_interface_shear_Pa": 0,
+    "ideal_flatwise_tension_Pa": 0,
+    "note": "The zero base-state stresses do not bound imperfection, thermal, seam or wrinkle stresses.",
+    "relative_displacement_screens": [
+      {
+        "delta_m": 1e-05,
+        "normal_Pa": 51164.811565832366,
+        "shear_W_Pa": 23194.714576510672
+      },
+      {
+        "delta_m": 5e-05,
+        "normal_Pa": 255824.05782916184,
+        "shear_W_Pa": 115973.57288255336
+      },
+      {
+        "delta_m": 0.0001,
+        "normal_Pa": 511648.1156583237,
+        "shear_W_Pa": 231947.14576510672
+      }
+    ],
+    "core_shear_target_W_typical_Pa": 241316.50526088,
+    "core_shear_target_W_min_average_Pa": 172368.9323292,
+    "core_shear_target_L_typical_Pa": 379211.65112423996,
+    "core_shear_target_L_min_average_Pa": 310264.07819256,
+    "scarf30_shear_Pa": 9421138.296029737,
+    "scarf30_normal_compression_Pa": 314037.94320099126,
+    "braze_scarf3_shear_Pa": 84884456.04722793,
+    "bare_weld_required_retention": 0.9998169145727672
+  },
+  "bond_masses": [
+    {
+      "id": "AF163_015_reticulated",
+      "kg_m2_per_line": 0.07323641454574575,
+      "two_bond_lines_kg": 184.06318552973724,
+      "fraction_of_joining_allowance": 0.8504625684721286
+    },
+    {
+      "id": "HexBond312_70",
+      "kg_m2_per_line": 0.07,
+      "two_bond_lines_kg": 175.92918860102844,
+      "fraction_of_joining_allowance": 0.8128794966589089
+    },
+    {
+      "id": "HexBond312_100",
+      "kg_m2_per_line": 0.1,
+      "two_bond_lines_kg": 251.32741228718348,
+      "fraction_of_joining_allowance": 1.1612564237984413
+    },
+    {
+      "id": "AF163_030",
+      "kg_m2_per_line": 0.1464728290914915,
+      "two_bond_lines_kg": 368.1263710594745,
+      "fraction_of_joining_allowance": 1.7009251369442573
+    },
+    {
+      "id": "deposited_fillet_8",
+      "kg_m2_per_line": 0.008,
+      "two_bond_lines_kg": 20.106192982974676,
+      "fraction_of_joining_allowance": 0.0929005139038753
+    },
+    {
+      "id": "deposited_fillet_20",
+      "kg_m2_per_line": 0.02,
+      "two_bond_lines_kg": 50.26548245743669,
+      "fraction_of_joining_allowance": 0.23225128475968823
+    },
+    {
+      "id": "Be_Al_braze_edge_100um",
+      "kg_m2_per_line": 0.005669291338582677,
+      "two_bond_lines_kg": 14.248483216281267,
+      "fraction_of_joining_allowance": 0.06583500985313998
+    },
+    {
+      "id": "Be_Al_braze_edge_200um",
+      "kg_m2_per_line": 0.02267716535433071,
+      "two_bond_lines_kg": 56.99393286512507,
+      "fraction_of_joining_allowance": 0.2633400394125599
+    },
+    {
+      "id": "Be_Al_braze_full_50um",
+      "kg_m2_per_line": 0.135,
+      "two_bond_lines_kg": 339.2920065876977,
+      "fraction_of_joining_allowance": 1.5676961721278957
+    },
+    {
+      "id": "diffusion_or_integral",
+      "kg_m2_per_line": 0.0,
+      "two_bond_lines_kg": 0.0,
+      "fraction_of_joining_allowance": 0.0
+    }
+  ],
+  "seam_budget": [
+    {
+      "panel": "small_planning",
+      "zero_trim_seam_m": 6184.237507066521,
+      "max_total_seam_kg_m_after_AF015": 0.005233298255879027,
+      "max_total_seam_kg_m_after_8gsm": 0.0317453771272701
+    },
+    {
+      "panel": "stock_envelope",
+      "zero_trim_seam_m": 2748.5500031406764,
+      "max_total_seam_kg_m_after_AF015": 0.01177492107572781,
+      "max_total_seam_kg_m_after_8gsm": 0.07142709853635773
+    },
+    {
+      "panel": "1m_projection",
+      "zero_trim_seam_m": 2513.2741228718346,
+      "max_total_seam_kg_m_after_AF015": 0.01287721027529288,
+      "max_total_seam_kg_m_after_8gsm": 0.07811362482103863
+    },
+    {
+      "panel": "2m_projection",
+      "zero_trim_seam_m": 1256.6370614359173,
+      "max_total_seam_kg_m_after_AF015": 0.02575442055058576,
+      "max_total_seam_kg_m_after_8gsm": 0.15622724964207726
+    },
+    {
+      "panel": "4m_projection",
+      "zero_trim_seam_m": 628.3185307179587,
+      "max_total_seam_kg_m_after_AF015": 0.05150884110117152,
+      "max_total_seam_kg_m_after_8gsm": 0.31245449928415453
+    }
+  ],
+  "baseline_reproduction": {
+    "sfs": {
+      "global_buckling": 1.0,
+      "face_compression": 1.0001831189536448,
+      "core_shear_crimping": 2.154663914751214,
+      "core_crush_inherited": 5.0558220634629825,
+      "face_wrinkling": 1.0,
+      "intracell_dimpling": 9.018853684781929
+    },
+    "least_known_mode_SF": 1.0,
+    "governing": "global_buckling",
+    "Vc": 1.0610630680728836,
+    "Kc": 0.7347342329817791
+  },
+  "baseline_at_kd_0p2": {
+    "sfs": {
+      "global_buckling": 0.335954921560834,
+      "face_compression": 1.0001831189536448,
+      "core_shear_crimping": 2.154663914751214,
+      "core_crush_inherited": 5.0558220634629825,
+      "face_wrinkling": 1.0,
+      "intracell_dimpling": 9.018853684781929
+    },
+    "least_known_mode_SF": 0.335954921560834,
+    "governing": "global_buckling",
+    "Vc": 1.0610630680728836,
+    "Kc": 0.7347342329817791
+  },
+  "cases": [
+    {
+      "panel": "small_planning",
+      "route": "lab8_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 90.54715166886804,
+        "budget_fraction": 0.41837243528364154,
+        "remaining_budget_kg": 125.87999322054206,
+        "margin_at_this_geometry_kg": 370.3521007298914
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09230753367084316,
+        "tf_m": 0.0008693571211827092,
+        "tc_m": 0.020421023443696645,
+        "structural_mass_kg": 4453.188440928943,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 6662.160254538202,
+          "skin_seam_length_m": 13324.320509076404,
+          "scarf_overlap_m": 0.026080713635481277,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.00365332784575742,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005105255860924161,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010758583706681582,
+          "seams_kg": 71.67540876577633,
+          "total_kg": 91.781601748751,
+          "budget_fraction": 0.42407620262074586,
+          "remaining_budget_kg": 124.6455431406591,
+          "margin_at_this_geometry_kg": 244.4721075092666
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.030906791397119,
+            "face_compression": 1.0309067913968915,
+            "core_shear_crimping": 2.1803288143430963,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.041095334179305,
+            "intracell_dimpling": 9.875770354036902,
+            "projected_scarf_average_shear": 1.0940483145448754
+          },
+          "least_known_mode_SF": 1.0309067913968915,
+          "governing": "face_compression",
+          "Vc": 1.0927710258423295,
+          "Kc": 0.7268072435394176
+        },
+        "mass_residual_kg": 8.185452315956354e-11
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "lab20_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 50.26548245743669,
+        "primer_kg": 0.0,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 120.70644114333005,
+        "budget_fraction": 0.5577232061394545,
+        "remaining_budget_kg": 95.72070374608005,
+        "margin_at_this_geometry_kg": 340.19281125542875
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09270653568973244,
+        "tf_m": 0.0008631474974117749,
+        "tc_m": 0.020371755593686525,
+        "structural_mass_kg": 4423.324708465872,
+        "joining": {
+          "bond_kg": 50.26548245743669,
+          "primer_kg": 0.0,
+          "seam_length_m": 6658.46152698622,
+          "skin_seam_length_m": 13316.92305397244,
+          "scarf_overlap_m": 0.02589442492235325,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0036272329408198857,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005092938898421631,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010720171839241517,
+          "seams_kg": 71.37985175427075,
+          "total_kg": 121.64533421170744,
+          "budget_fraction": 0.5620613545212443,
+          "remaining_budget_kg": 94.78181067770267,
+          "margin_at_this_geometry_kg": 244.4721075093812
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0235432544093157,
+            "face_compression": 1.0235432544090461,
+            "core_shear_crimping": 2.1742263698117967,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0312055058503995,
+            "intracell_dimpling": 9.665657052047246,
+            "projected_scarf_average_shear": 1.0862337717580102
+          },
+          "least_known_mode_SF": 1.0235432544090461,
+          "governing": "face_compression",
+          "Vc": 1.0851757136103843,
+          "Kc": 0.7287060715974039
+        },
+        "mass_residual_kg": -3.2741809263825417e-11
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "hex70_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 246.3701472869218,
+        "budget_fraction": 1.1383514180386751,
+        "remaining_budget_kg": -29.94300239751169,
+        "margin_at_this_geometry_kg": 214.52910511183745
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09427064555866366,
+        "tf_m": 0.0008374293354486925,
+        "tc_m": 0.020132934452643608,
+        "structural_mass_kg": 4298.939320188016,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 6643.1900280158725,
+          "skin_seam_length_m": 13286.380056031745,
+          "scarf_overlap_m": 0.025122880063460775,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0035191566681902838,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005033233613160902,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010552390281351185,
+          "seams_kg": 70.1015338888038,
+          "total_kg": 246.03072248983224,
+          "budget_fraction": 1.1367831083090292,
+          "remaining_budget_kg": -29.603577600422142,
+          "margin_at_this_geometry_kg": 244.4721075091138
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9912898146066542,
+            "face_compression": 0.9930459740808909,
+            "core_shear_crimping": 2.145544362503204,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9912898146067152,
+            "intracell_dimpling": 8.82715689183786,
+            "projected_scarf_average_shear": 1.0538685779115227
+          },
+          "least_known_mode_SF": 0.9912898146066542,
+          "governing": "global_buckling",
+          "Vc": 1.0536252295870552,
+          "Kc": 0.7365936926032361
+        },
+        "mass_residual_kg": 2.355591277591884e-10
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "af015_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 0.0,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 254.50414421563062,
+        "budget_fraction": 1.1759344898518949,
+        "remaining_budget_kg": -38.076999326220516,
+        "margin_at_this_geometry_kg": 206.3951081831283
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09434486844141221,
+        "tf_m": 0.0008357942886722418,
+        "tc_m": 0.020111094262968473,
+        "structural_mass_kg": 4290.897446995847,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "seam_length_m": 6642.2217055872825,
+          "skin_seam_length_m": 13284.443411174565,
+          "scarf_overlap_m": 0.025073828660167254,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0035122856576792097,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005027773565742119,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01054005922342133,
+          "seams_kg": 70.0094101519846,
+          "total_kg": 254.07259568172185,
+          "budget_fraction": 1.1739405230871007,
+          "remaining_budget_kg": -37.64545079231175,
+          "margin_at_this_geometry_kg": 244.47210750939212
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9889245902941292,
+            "face_compression": 0.9911070921358031,
+            "core_shear_crimping": 2.1430681980861634,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9889245902942436,
+            "intracell_dimpling": 8.775553779788611,
+            "projected_scarf_average_shear": 1.0518109423019535
+          },
+          "least_known_mode_SF": 0.9889245902941292,
+          "governing": "global_buckling",
+          "Vc": 1.0516045458228944,
+          "Kc": 0.7370988635442763
+        },
+        "mass_residual_kg": -4.3655745685100555e-11
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "hex100_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 251.32741228718348,
+        "primer_kg": 0.0,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 321.76837097307686,
+        "budget_fraction": 1.4867283451782076,
+        "remaining_budget_kg": -105.34122608366675,
+        "margin_at_this_geometry_kg": 139.13088142568176
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09497038227368393,
+        "tf_m": 0.0008222721741971097,
+        "tc_m": 0.01993066821516176,
+        "structural_mass_kg": 4224.39373612344,
+        "joining": {
+          "bond_kg": 251.32741228718348,
+          "primer_kg": 0.0,
+          "seam_length_m": 6634.225251623033,
+          "skin_seam_length_m": 13268.450503246066,
+          "scarf_overlap_m": 0.02466816522591329,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003455461234042681,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.00498266705379044,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01043812828783312,
+          "seams_kg": 69.24889426682317,
+          "total_kg": 320.57630655400663,
+          "budget_fraction": 1.4812204204690436,
+          "remaining_budget_kg": -104.14916166459653,
+          "margin_at_this_geometry_kg": 244.472107509514
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9693807457283647,
+            "face_compression": 0.9750722092242843,
+            "core_shear_crimping": 2.1226093202772156,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9693807457283742,
+            "intracell_dimpling": 8.35647496720247,
+            "projected_scarf_average_shear": 1.034793946420589
+          },
+          "least_known_mode_SF": 0.9693807457283647,
+          "governing": "global_buckling",
+          "Vc": 1.0348911927175695,
+          "Kc": 0.7412772018206076
+        },
+        "mass_residual_kg": -1.6552803572267294e-10
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "af030_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 438.56732974536783,
+        "budget_fraction": 2.0263970583240236,
+        "remaining_budget_kg": -222.14018485595773,
+        "margin_at_this_geometry_kg": 22.331922653391302
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09610809684992566,
+        "tf_m": 0.0007987880059392749,
+        "tc_m": 0.019618052297636204,
+        "structural_mass_kg": 4108.909985014401,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 6620.387197821863,
+          "skin_seam_length_m": 13240.774395643726,
+          "scarf_overlap_m": 0.023963640178178248,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003356772946179943,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004904513074409051,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010261286020588994,
+          "seams_kg": 67.93368660389582,
+          "total_kg": 436.0600576633703,
+          "budget_fraction": 2.01481222647089,
+          "remaining_budget_kg": -219.6329127739602,
+          "margin_at_this_geometry_kg": 244.4721075091893
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9355161452253303,
+            "face_compression": 0.9472240580359984,
+            "core_shear_crimping": 2.087150781843588,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9355161452248945,
+            "intracell_dimpling": 7.6607438338738145,
+            "projected_scarf_average_shear": 1.005240136973421
+          },
+          "least_known_mode_SF": 0.9355161452248945,
+          "governing": "face_wrinkling",
+          "Vc": 1.0058558993662763,
+          "Kc": 0.748536025158431
+        },
+        "mass_residual_kg": 1.5916157281026244e-10
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "af020_tolerance_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 245.41758070631633,
+        "primer_kg": 0.0,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 315.8585393922097,
+        "budget_fraction": 1.4594220126759379,
+        "remaining_budget_kg": -99.4313945027996,
+        "margin_at_this_geometry_kg": 145.0407130065496
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09491457528916361,
+        "tf_m": 0.0008234603002072249,
+        "tc_m": 0.019946507993180766,
+        "structural_mass_kg": 4230.2368410263025,
+        "joining": {
+          "bond_kg": 245.41758070631633,
+          "primer_kg": 0.0,
+          "seam_length_m": 6634.92702526108,
+          "skin_seam_length_m": 13269.85405052216,
+          "scarf_overlap_m": 0.024703809006216746,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003460454134809534,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004986626998295191,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010447081133104726,
+          "seams_kg": 69.3156209451317,
+          "total_kg": 314.73320165144804,
+          "budget_fraction": 1.454222398083523,
+          "remaining_budget_kg": -98.30605676203794,
+          "margin_at_this_geometry_kg": 244.47210750921022
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.971096725993762,
+            "face_compression": 0.9764811206405695,
+            "core_shear_crimping": 2.124405616478959,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9710967259937742,
+            "intracell_dimpling": 8.39275090553295,
+            "projected_scarf_average_shear": 1.0362891515867527
+          },
+          "least_known_mode_SF": 0.971096725993762,
+          "governing": "global_buckling",
+          "Vc": 1.0363598612500429,
+          "Kc": 0.7409100346874893
+        },
+        "mass_residual_kg": 1.382431946694851e-10
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "af015_scarf_primer5",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 12.566370614359172,
+        "seam_length_m": 6646.757126682827,
+        "skin_seam_length_m": 13293.514253365654,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 70.44095868589336,
+        "total_kg": 267.07051482998975,
+        "budget_fraction": 1.2339973110418168,
+        "remaining_budget_kg": -50.643369940579646,
+        "margin_at_this_geometry_kg": 193.8287375687696
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0944601321436633,
+        "tf_m": 0.0008332682168013836,
+        "tc_m": 0.020077362560968693,
+        "structural_mass_kg": 4278.473332779688,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "seam_length_m": 6640.726294694788,
+          "skin_seam_length_m": 13281.452589389575,
+          "scarf_overlap_m": 0.024998046504041506,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0035016702632902665,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005019340640242173,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01052101090353244,
+          "seams_kg": 69.86715375385845,
+          "total_kg": 266.4967098979548,
+          "budget_fraction": 1.2313460496562445,
+          "remaining_budget_kg": -50.069565008544714,
+          "margin_at_this_geometry_kg": 244.47210750931845
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9852712781655129,
+            "face_compression": 0.9881116089404949,
+            "core_shear_crimping": 2.13924366664218,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9852712781652557,
+            "intracell_dimpling": 8.696225354264897,
+            "projected_scarf_average_shear": 1.0486319901712435
+          },
+          "least_known_mode_SF": 0.9852712781652557,
+          "governing": "face_wrinkling",
+          "Vc": 1.0484825841516752,
+          "Kc": 0.7378793539620812
+        },
+        "mass_residual_kg": 3.001332515850663e-11
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "lab8_braze_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 6227.342518341007,
+        "skin_seam_length_m": 12454.685036682014,
+        "scarf_overlap_m": 0.002530344132579275,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0007201485650694222,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007773492661942327,
+        "seams_kg": 48.40820136972527,
+        "total_kg": 68.51439435269995,
+        "budget_fraction": 0.3165702453253238,
+        "remaining_budget_kg": 147.91275053671015,
+        "margin_at_this_geometry_kg": 392.384858046059
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09200849147967355,
+        "tf_m": 0.0008740784811627073,
+        "tc_m": 0.020458671229463828,
+        "structural_mass_kg": 4475.898501015459,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 6228.920132975195,
+          "skin_seam_length_m": 12457.84026595039,
+          "scarf_overlap_m": 0.0026222354434881218,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.000746301290637979,
+            "core_splice": 0.005114667807365957,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007860969098003935,
+          "seams_kg": 48.96534867925257,
+          "total_kg": 69.07154166222725,
+          "budget_fraction": 0.31914454029101297,
+          "remaining_budget_kg": 147.35560322718285,
+          "margin_at_this_geometry_kg": 244.4721075092748
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0365055056072068,
+            "face_compression": 1.0365055056069825,
+            "core_shear_crimping": 2.1849872235121897,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0486217450323174,
+            "intracell_dimpling": 10.037547658548123,
+            "projected_braze_average_shear": 1.262363595756914
+          },
+          "least_known_mode_SF": 1.0365055056069825,
+          "governing": "face_compression",
+          "Vc": 1.0985450966863437,
+          "Kc": 0.725363725828414
+        },
+        "mass_residual_kg": 7.366907084360719e-11
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "lab8_eb_eta1",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 6184.237507066521,
+        "skin_seam_length_m": 12368.475014133042,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 43.61955511412766,
+        "total_kg": 63.72574809710233,
+        "budget_fraction": 0.29444434121082597,
+        "remaining_budget_kg": 152.70139679230778,
+        "margin_at_this_geometry_kg": 397.173504301657
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09194375728643239,
+        "tf_m": 0.0008751082770091703,
+        "tc_m": 0.02046690443907312,
+        "structural_mass_kg": 4480.852325159285,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 6184.237507066521,
+          "skin_seam_length_m": 12368.475014133042,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005116726109768281,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007116726109768281,
+          "seams_kg": 44.01152453554862,
+          "total_kg": 64.11771751852329,
+          "budget_fraction": 0.29625543298316925,
+          "remaining_budget_kg": 152.3094273708868,
+          "margin_at_this_geometry_kg": 244.47210750915292
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0377266649054353,
+            "face_compression": 1.0377266649050472,
+            "core_shear_crimping": 2.186005428064508,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0502641335001586,
+            "intracell_dimpling": 10.073066692562755
+          },
+          "least_known_mode_SF": 1.0377266649050472,
+          "governing": "face_compression",
+          "Vc": 1.0998044058689778,
+          "Kc": 0.7250488985327556
+        },
+        "mass_residual_kg": 1.9554136088117957e-10
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "lab8_eb_eta08",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 6184.237507066521,
+        "skin_seam_length_m": 12368.475014133042,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 43.61955511412766,
+        "total_kg": 63.72574809710233,
+        "budget_fraction": 0.29444434121082597,
+        "remaining_budget_kg": 152.70139679230778,
+        "margin_at_this_geometry_kg": 397.173504301657
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.07288217753482495,
+        "tf_m": 0.0008947790357009394,
+        "tc_m": 0.016247370409006208,
+        "structural_mass_kg": 4487.375975311632,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 6184.237507066521,
+          "skin_seam_length_m": 12368.475014133042,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004061842602251552,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.006061842602251552,
+          "seams_kg": 37.48787438277777,
+          "total_kg": 57.594067365752444,
+          "budget_fraction": 0.26611295637237115,
+          "remaining_budget_kg": 158.83307752365766,
+          "margin_at_this_geometry_kg": 244.47210750957674
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.8488422189024059,
+            "face_compression": 1.061052773627417,
+            "core_shear_crimping": 1.7765609893021224,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.2187484817199163,
+            "intracell_dimpling": 10.767719543756646,
+            "projected_weld_compression": 0.8488422189019336
+          },
+          "least_known_mode_SF": 0.8488422189019336,
+          "governing": "projected_weld_compression",
+          "Vc": 1.1114002267344574,
+          "Kc": 0.7221499433163856
+        },
+        "mass_residual_kg": -2.28283170145005e-10
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "hex70_strap",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 6184.237507066521,
+        "skin_seam_length_m": 12368.475014133042,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.14895507551570653,
+          "face_joint_adhesive": 0.0066822586539733615,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.16269067826655279,
+        "seams_kg": 1006.1177945861078,
+        "total_kg": 1182.0469831871362,
+        "budget_fraction": 5.461639221785873,
+        "remaining_budget_kg": -965.6198382977261,
+        "margin_at_this_geometry_kg": -721.147730788377
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.1028137399850719,
+        "tf_m": 0.0006832998399028513,
+        "tc_m": 0.018086758258879267,
+        "structural_mass_kg": 3541.117137325754,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 6184.237507066521,
+          "skin_seam_length_m": 12368.475014133042,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.12067249423759234,
+            "face_joint_adhesive": 0.0066822586539733615,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.0045216895647198175,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.13387644245628552,
+          "seams_kg": 827.9237167507938,
+          "total_kg": 1003.8529053518223,
+          "budget_fraction": 4.6382948214040844,
+          "remaining_budget_kg": -787.4257604624122,
+          "margin_at_this_geometry_kg": 244.47210750938484
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.7708476267425672,
+            "face_compression": 0.8102751198010988,
+            "core_shear_crimping": 1.9133884539699841,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.7708476267425672,
+            "intracell_dimpling": 4.7952393743963535
+          },
+          "least_known_mode_SF": 0.7708476267425672,
+          "governing": "global_buckling",
+          "Vc": 0.8628659118376545,
+          "Kc": 0.7842835220405864
+        },
+        "mass_residual_kg": -3.637978807091713e-11
+      }
+    },
+    {
+      "panel": "small_planning",
+      "route": "legacy020_optimistic",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 6184.237507066521,
+        "skin_seam_length_m": 12368.475014133042,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.18724546581086637,
+          "face_joint_adhesive": 0.01757673949097898,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.022234714026240783,
+          "sealing": 0.011
+        },
+        "mu_total_kg_m": 0.23805691932808615,
+        "seams_kg": 1472.2005293254595,
+        "total_kg": 1840.3269003849339,
+        "budget_fraction": 8.503216642835184,
+        "remaining_budget_kg": -1623.8997554955238,
+        "margin_at_this_geometry_kg": -1379.4276479861746
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.10815208007294574,
+        "tf_m": 0.0005902626000410807,
+        "tc_m": 0.01653370600246143,
+        "structural_mass_kg": 3077.273173695041,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 6184.237507066521,
+          "skin_seam_length_m": 12368.475014133042,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.13103829720911989,
+            "face_joint_adhesive": 0.01757673949097898,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.018187076602707575,
+            "sealing": 0.011
+          },
+          "mu_total_kg_m": 0.17780211330280643,
+          "seams_kg": 1099.5704979229067,
+          "total_kg": 1467.6968689823811,
+          "budget_fraction": 6.78148237704815,
+          "remaining_budget_kg": -1251.269724092971,
+          "margin_at_this_geometry_kg": 244.47210750953946
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.6299541781356377,
+            "face_compression": 0.6999490868172804,
+            "core_shear_crimping": 1.7420927928119923,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.6473135865030198,
+            "intracell_dimpling": 3.0910934461431694,
+            "projected_joint_retention": 0.6299541781355524
+          },
+          "least_known_mode_SF": 0.6299541781355524,
+          "governing": "projected_joint_retention",
+          "Vc": 0.7468750137740371,
+          "Kc": 0.8132812465564907
+        },
+        "mass_residual_kg": -1.9099388737231493e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "lab8_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 50.28300529539905,
+        "budget_fraction": 0.23233224890109164,
+        "remaining_budget_kg": 166.14413959401105,
+        "margin_at_this_geometry_kg": 410.61624710336037
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09177236695112848,
+        "tf_m": 0.0008778482802895272,
+        "tc_m": 0.02048884872249909,
+        "structural_mass_kg": 4494.033852083763,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2851.6661307452873,
+          "skin_seam_length_m": 5703.332261490575,
+          "scarf_overlap_m": 0.02633544840868582,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003689010521210165,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005122212180624772,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010811222701834936,
+          "seams_kg": 30.829997610767244,
+          "total_kg": 50.93619059374192,
+          "budget_fraction": 0.23535028667392568,
+          "remaining_budget_kg": 165.4909542956682,
+          "margin_at_this_geometry_kg": 244.47210750945578
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0409758336547879,
+            "face_compression": 1.0409758336543948,
+            "core_shear_crimping": 2.188718335288729,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.054635398724078,
+            "intracell_dimpling": 10.167980925271959,
+            "projected_scarf_average_shear": 1.1047340708157949
+          },
+          "least_known_mode_SF": 1.0409758336543948,
+          "governing": "face_compression",
+          "Vc": 1.1031549124793543,
+          "Kc": 0.7242112718801614
+        },
+        "mass_residual_kg": -1.0732037480920553e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "lab20_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 50.26548245743669,
+        "primer_kg": 0.0,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 80.44229476986106,
+        "budget_fraction": 0.3716830197569046,
+        "remaining_budget_kg": 135.98485011954904,
+        "margin_at_this_geometry_kg": 380.4569576288977
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0921647900093848,
+        "tf_m": 0.0008716034924484264,
+        "tc_m": 0.020438915517004337,
+        "structural_mass_kg": 4463.99322906443,
+        "joining": {
+          "bond_kg": 50.26548245743669,
+          "primer_kg": 0.0,
+          "seam_length_m": 2850.901879241631,
+          "skin_seam_length_m": 5701.803758483262,
+          "scarf_overlap_m": 0.026148104773452793,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003662767845151213,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005109728879251084,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010772496724402298,
+          "seams_kg": 30.711331155722824,
+          "total_kg": 80.97681361315952,
+          "budget_fraction": 0.3741527600640716,
+          "remaining_budget_kg": 135.45033127625058,
+          "margin_at_this_geometry_kg": 244.4721075093712
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0335705981773744,
+            "face_compression": 1.0335705981770973,
+            "core_shear_crimping": 2.182543229334917,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.044675588857362,
+            "intracell_dimpling": 9.952523691059081,
+            "projected_scarf_average_shear": 1.0968752755683917
+          },
+          "least_known_mode_SF": 1.0335705981770973,
+          "governing": "face_compression",
+          "Vc": 1.0955183577833947,
+          "Kc": 0.7261204105541513
+        },
+        "mass_residual_kg": -2.2737367544323206e-11
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "hex70_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 206.10600091345282,
+        "budget_fraction": 0.9523112316561253,
+        "remaining_budget_kg": 10.321143975957284,
+        "margin_at_this_geometry_kg": 254.79325148530643
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09387206702255613,
+        "tf_m": 0.0008455702605115541,
+        "tc_m": 0.020233799118143166,
+        "structural_mass_kg": 4338.821361004422,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 2847.7208146365438,
+          "skin_seam_length_m": 5695.4416292730875,
+          "scarf_overlap_m": 0.025367107815346623,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0035533675436725197,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005058449779535791,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010611817323208312,
+          "seams_kg": 30.21949307242096,
+          "total_kg": 206.1486816734494,
+          "budget_fraction": 0.9525084377876316,
+          "remaining_budget_kg": 10.278463215960699,
+          "margin_at_this_geometry_kg": 244.47210750908926
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.002699699496226,
+            "face_compression": 1.002699699495988,
+            "core_shear_crimping": 2.1571008179010676,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.003269850257043,
+            "intracell_dimpling": 9.087102668515646,
+            "projected_scarf_average_shear": 1.064113579794918
+          },
+          "least_known_mode_SF": 1.002699699495988,
+          "governing": "face_compression",
+          "Vc": 1.063668739932113,
+          "Kc": 0.7340828150169718
+        },
+        "mass_residual_kg": 2.5920599000528455e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "af015_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 0.0,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 214.2399978421616,
+        "budget_fraction": 0.9898943034693449,
+        "remaining_budget_kg": 2.1871470472484873,
+        "margin_at_this_geometry_kg": 246.65925455659726
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09398025568605683,
+        "tf_m": 0.0008438906515203281,
+        "tc_m": 0.02021929494709422,
+        "structural_mass_kg": 4330.7199628637045,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "seam_length_m": 2847.5158523821046,
+          "skin_seam_length_m": 5695.031704764209,
+          "scarf_overlap_m": 0.025316719545609843,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003546309267909755,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005054823736773555,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01060113300468331,
+          "seams_kg": 30.186894284046858,
+          "total_kg": 214.2500798137841,
+          "budget_fraction": 0.9899408871436232,
+          "remaining_budget_kg": 2.1770650756259897,
+          "margin_at_this_geometry_kg": 244.47210750947215
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.000640757283747,
+            "face_compression": 1.0007079744916647,
+            "core_shear_crimping": 2.1553348480229686,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0006407572834681,
+            "intracell_dimpling": 9.033059322669564,
+            "projected_scarf_average_shear": 1.0619998645665372
+          },
+          "least_known_mode_SF": 1.0006407572834681,
+          "governing": "face_wrinkling",
+          "Vc": 1.061610010240412,
+          "Kc": 0.734597497439897
+        },
+        "mass_residual_kg": -1.2369127944111824e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "hex100_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 251.32741228718348,
+        "primer_kg": 0.0,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 281.5042245996078,
+        "budget_fraction": 1.3006881587956576,
+        "remaining_budget_kg": -65.07707971019772,
+        "margin_at_this_geometry_kg": 179.39502779915074
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09459752225968143,
+        "tf_m": 0.0008302777563266962,
+        "tc_m": 0.020037445642798038,
+        "structural_mass_kg": 4263.765512562877,
+        "joining": {
+          "bond_kg": 251.32741228718348,
+          "primer_kg": 0.0,
+          "seam_length_m": 2845.855894030022,
+          "skin_seam_length_m": 5691.711788060044,
+          "scarf_overlap_m": 0.024908332689800885,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0034891033534926574,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.0050093614106995095,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010498464764192167,
+          "seams_kg": 29.87711782744278,
+          "total_kg": 281.20453011462627,
+          "budget_fraction": 1.2993034226751736,
+          "remaining_budget_kg": -64.77738522521616,
+          "margin_at_this_geometry_kg": 244.4721075094576
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9809477020904672,
+            "face_compression": 0.9845654413901962,
+            "core_shear_crimping": 2.1347176211863874,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9809477020901343,
+            "intracell_dimpling": 8.602933065608424,
+            "projected_scarf_average_shear": 1.0448686250795838
+          },
+          "least_known_mode_SF": 0.9809477020901343,
+          "governing": "face_wrinkling",
+          "Vc": 1.0447865301771253,
+          "Kc": 0.7388033674557186
+        },
+        "mass_residual_kg": -1.0913936421275139e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "af030_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 398.30318337189885,
+        "budget_fraction": 1.8403568719414736,
+        "remaining_budget_kg": -181.87603848248875,
+        "margin_at_this_geometry_kg": 62.59606902686028
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09572041143172333,
+        "tf_m": 0.0008066364808057384,
+        "tc_m": 0.019722436187864234,
+        "structural_mass_kg": 4147.50310179951,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 2842.978223984354,
+          "skin_seam_length_m": 5685.956447968708,
+          "scarf_overlap_m": 0.024199094424172153,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003389754848642961,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.0049306090469660585,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01032036389560902,
+          "seams_kg": 29.34056981881078,
+          "total_kg": 397.46694087828524,
+          "budget_fraction": 1.8364930197706153,
+          "remaining_budget_kg": -181.03979598887514,
+          "margin_at_this_geometry_kg": 244.47210750916656
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9468222117046642,
+            "face_compression": 0.9565309882316556,
+            "core_shear_crimping": 2.098991856597572,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9468222117045351,
+            "intracell_dimpling": 7.88878124157481,
+            "projected_scarf_average_shear": 1.0151171029407793
+          },
+          "least_known_mode_SF": 0.9468222117045351,
+          "governing": "face_wrinkling",
+          "Vc": 1.0155608796778746,
+          "Kc": 0.7461097800805314
+        },
+        "mass_residual_kg": 1.8280843505635858e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "af020_tolerance_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 245.41758070631633,
+        "primer_kg": 0.0,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 275.5943930187407,
+        "budget_fraction": 1.2733818262933878,
+        "remaining_budget_kg": -59.167248129330574,
+        "margin_at_this_geometry_kg": 185.30485938001857
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09454244807101675,
+        "tf_m": 0.0008314738492905728,
+        "tc_m": 0.020053409142432768,
+        "structural_mass_kg": 4269.648150713625,
+        "joining": {
+          "bond_kg": 245.41758070631633,
+          "primer_kg": 0.0,
+          "seam_length_m": 2846.0016588156145,
+          "skin_seam_length_m": 5692.003317631229,
+          "scarf_overlap_m": 0.024944215478717183,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0034941297340497063,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005013352285608192,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010507482019657899,
+          "seams_kg": 29.904311257921623,
+          "total_kg": 275.321891964238,
+          "budget_fraction": 1.2721227372145112,
+          "remaining_budget_kg": -58.894747074827876,
+          "margin_at_this_geometry_kg": 244.47210750909835
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9826768228386545,
+            "face_compression": 0.985983800232101,
+            "core_shear_crimping": 2.136527698188942,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.982676822838176,
+            "intracell_dimpling": 8.640166647955363,
+            "projected_scarf_average_shear": 1.0463738563122769
+          },
+          "least_known_mode_SF": 0.982676822838176,
+          "governing": "face_wrinkling",
+          "Vc": 1.046264859507049,
+          "Kc": 0.7384337851232378
+        },
+        "mass_residual_kg": 2.5011104298755527e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "af015_scarf_primer5",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 12.566370614359172,
+        "seam_length_m": 2847.4618466307857,
+        "skin_seam_length_m": 5694.923693261571,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 30.176812312424374,
+        "total_kg": 226.80636845652077,
+        "budget_fraction": 1.047957124659267,
+        "remaining_budget_kg": -10.379223567110671,
+        "margin_at_this_geometry_kg": 234.0928839422386
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09409399392455434,
+        "tf_m": 0.0008413476026572817,
+        "tc_m": 0.02018529482790215,
+        "structural_mass_kg": 4318.211510076897,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "seam_length_m": 2847.2055877359544,
+          "skin_seam_length_m": 5694.411175471909,
+          "scarf_overlap_m": 0.025240428079718453,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0035356225305516373,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005046323706975537,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010581946237527175,
+          "seams_kg": 30.128976456608832,
+          "total_kg": 226.75853260070522,
+          "budget_fraction": 1.0477360994461866,
+          "remaining_budget_kg": -10.331387711295122,
+          "margin_at_this_geometry_kg": 244.47210750935847
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.996959628351835,
+            "face_compression": 0.997692359527584,
+            "core_shear_crimping": 2.1514804829213836,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9969596283517046,
+            "intracell_dimpling": 8.95164229366113,
+            "projected_scarf_average_shear": 1.0587995476258576
+          },
+          "least_known_mode_SF": 0.9969596283517046,
+          "governing": "face_wrinkling",
+          "Vc": 1.0584674459841181,
+          "Kc": 0.7353831385039704
+        },
+        "mass_residual_kg": -1.000444171950221e-11
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "lab8_braze_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2758.0942815461563,
+        "skin_seam_length_m": 5516.1885630923125,
+        "scarf_overlap_m": 0.002530344132579275,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0007201485650694222,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007773492661942327,
+        "seams_kg": 21.44002565854414,
+        "total_kg": 41.54621864151882,
+        "budget_fraction": 0.1919639916829661,
+        "remaining_budget_kg": 174.8809262478913,
+        "margin_at_this_geometry_kg": 419.35303375724015
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09165475995784836,
+        "tf_m": 0.0008797399101070292,
+        "tc_m": 0.020504030805513912,
+        "structural_mass_kg": 4503.1346991259925,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2758.506619350863,
+          "skin_seam_length_m": 5517.013238701726,
+          "scarf_overlap_m": 0.0026392197303210874,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0007511351034122992,
+            "core_splice": 0.005126007701378479,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007877142804790778,
+          "seams_kg": 21.729150568587382,
+          "total_kg": 41.83534355156206,
+          "budget_fraction": 0.19329989116170745,
+          "remaining_budget_kg": 174.59180133784804,
+          "margin_at_this_geometry_kg": 244.47210750940667
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0432189785927253,
+            "face_compression": 1.0432189785923676,
+            "core_shear_crimping": 2.1905944434955034,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.057654318915982,
+            "intracell_dimpling": 10.233854035386308,
+            "projected_braze_average_shear": 1.2705399574375833
+          },
+          "least_known_mode_SF": 1.0432189785923676,
+          "governing": "face_compression",
+          "Vc": 1.1054678769141097,
+          "Kc": 0.7236330307714726
+        },
+        "mass_residual_kg": -5.820766091346741e-11
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "lab8_eb_eta1",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2748.5500031406764,
+        "skin_seam_length_m": 5497.100006281353,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 19.386468939612296,
+        "total_kg": 39.492661922586976,
+        "budget_fraction": 0.18247554826252008,
+        "remaining_budget_kg": 176.9344829668231,
+        "margin_at_this_geometry_kg": 421.4065904761719
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0916271845688319,
+        "tf_m": 0.0008801848025990764,
+        "tc_m": 0.02050760532121576,
+        "structural_mass_kg": 4505.275205020856,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2748.5500031406764,
+          "skin_seam_length_m": 5497.100006281353,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.00512690133030394,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.00712690133030394,
+          "seams_kg": 19.588644673790185,
+          "total_kg": 39.69483765676486,
+          "budget_fraction": 0.1834096997261971,
+          "remaining_budget_kg": 176.73230723264524,
+          "margin_at_this_geometry_kg": 244.47210750933937
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0437465439401226,
+            "face_compression": 1.0437465439395854,
+            "core_shear_crimping": 2.1910360641969895,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0583644689277152,
+            "intracell_dimpling": 10.249387948205293
+          },
+          "least_known_mode_SF": 1.0437465439395854,
+          "governing": "face_compression",
+          "Vc": 1.1060118464432216,
+          "Kc": 0.7234970383891945
+        },
+        "mass_residual_kg": 9.094947017729282e-12
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "lab8_eb_eta08",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2748.5500031406764,
+        "skin_seam_length_m": 5497.100006281353,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 19.386468939612296,
+        "total_kg": 39.492661922586976,
+        "budget_fraction": 0.18247554826252008,
+        "remaining_budget_kg": 176.9344829668231,
+        "margin_at_this_geometry_kg": 421.4065904761719
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0726650733521371,
+        "tf_m": 0.0008991386841053703,
+        "tc_m": 0.01627408775853518,
+        "structural_mass_kg": 4508.184213698187,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2748.5500031406764,
+          "skin_seam_length_m": 5497.100006281353,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004068521939633795,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.006068521939633795,
+          "seams_kg": 16.67963599623973,
+          "total_kg": 36.7858289792144,
+          "budget_fraction": 0.16996864694588665,
+          "remaining_budget_kg": 179.64131591019571,
+          "margin_at_this_geometry_kg": 244.47210750955946
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.8529780485066961,
+            "face_compression": 1.066222560632918,
+            "core_shear_crimping": 1.7800810976183508,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.2266583678885044,
+            "intracell_dimpling": 10.925878925432775,
+            "projected_weld_compression": 0.8529780485063345
+          },
+          "least_known_mode_SF": 0.8529780485063345,
+          "governing": "projected_weld_compression",
+          "Vc": 1.116627491948166,
+          "Kc": 0.7208431270129585
+        },
+        "mass_residual_kg": -2.1100277081131935e-10
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "hex70_strap",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 2748.5500031406764,
+        "skin_seam_length_m": 5497.100006281353,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.14895507551570653,
+          "face_joint_adhesive": 0.0066822586539733615,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.16269067826655279,
+        "seams_kg": 447.16346426049245,
+        "total_kg": 623.092652861521,
+        "budget_fraction": 2.8789949300486715,
+        "remaining_budget_kg": -406.66550797211085,
+        "margin_at_this_geometry_kg": -162.19340046276193
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09768865622150735,
+        "tf_m": 0.0007683065440768636,
+        "tc_m": 0.019213351237489164,
+        "structural_mass_kg": 3959.0382993685107,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 2748.5500031406764,
+          "skin_seam_length_m": 5497.100006281353,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.13568489497378108,
+            "face_joint_adhesive": 0.0066822586539733615,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004803337809372291,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.14917049143712674,
+          "seams_kg": 410.00255470801096,
+          "total_kg": 585.9317433090393,
+          "budget_fraction": 2.7072932261266884,
+          "remaining_budget_kg": -369.50459841962925,
+          "margin_at_this_geometry_kg": 244.47210750941122
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.8917275114130223,
+            "face_compression": 0.9110783300261842,
+            "core_shear_crimping": 2.0412329042168564,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.8917275114131107,
+            "intracell_dimpling": 6.816790259452245
+          },
+          "least_known_mode_SF": 0.8917275114130223,
+          "governing": "global_buckling",
+          "Vc": 0.9681508116200288,
+          "Kc": 0.7579622970949929
+        },
+        "mass_residual_kg": -6.275513442233205e-11
+      }
+    },
+    {
+      "panel": "stock_envelope",
+      "route": "legacy020_optimistic",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 2748.5500031406764,
+        "skin_seam_length_m": 5497.100006281353,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.18724546581086637,
+          "face_joint_adhesive": 0.01757673949097898,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.022234714026240783,
+          "sealing": 0.011
+        },
+        "mu_total_kg_m": 0.23805691932808615,
+        "seams_kg": 654.3113463668709,
+        "total_kg": 1022.4377174263454,
+        "budget_fraction": 4.724165806229115,
+        "remaining_budget_kg": -806.0105725369353,
+        "margin_at_this_geometry_kg": -561.5384650275864
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09563067036212788,
+        "tf_m": 0.0007035417499686032,
+        "tc_m": 0.017183915201270314,
+        "structural_mass_kg": 3617.059370244835,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 2748.5500031406764,
+          "skin_seam_length_m": 5497.100006281353,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.1561862684930299,
+            "face_joint_adhesive": 0.01757673949097898,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.018902306721397345,
+            "sealing": 0.011
+          },
+          "mu_total_kg_m": 0.20366531470540625,
+          "seams_kg": 559.7843013731912,
+          "total_kg": 927.9106724326657,
+          "budget_fraction": 4.287404303682929,
+          "remaining_budget_kg": -711.4835275432556,
+          "margin_at_this_geometry_kg": 244.47210750946124
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.7508506635094352,
+            "face_compression": 0.8342785150102386,
+            "core_shear_crimping": 1.8289748409730768,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.8262389793808006,
+            "intracell_dimpling": 5.2341475214006135,
+            "projected_joint_retention": 0.7508506635092148
+          },
+          "least_known_mode_SF": 0.7508506635092148,
+          "governing": "projected_joint_retention",
+          "Vc": 0.8857277881359052,
+          "Kc": 0.7785680529660237
+        },
+        "mass_residual_kg": -1.1186784831807017e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "lab8_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 47.43281030642943,
+        "budget_fraction": 0.21916294432783207,
+        "remaining_budget_kg": 168.99433458298068,
+        "margin_at_this_geometry_kg": 413.46644209233
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09173465546800269,
+        "tf_m": 0.0008784538230565997,
+        "tc_m": 0.02049370588927825,
+        "structural_mass_kg": 4496.947129599728,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2581.300727651769,
+          "skin_seam_length_m": 5162.601455303538,
+          "scarf_overlap_m": 0.02635361469169799,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003691555213372729,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005123426472319562,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01081498168569229,
+          "seams_kg": 27.916720094818068,
+          "total_kg": 48.022913077792744,
+          "budget_fraction": 0.22188950975780547,
+          "remaining_budget_kg": 168.40423181161736,
+          "margin_at_this_geometry_kg": 244.47210750944032
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.041693902370099,
+            "face_compression": 1.0416939023695935,
+            "core_shear_crimping": 2.189318625802586,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0556017084580394,
+            "intracell_dimpling": 10.189037168046607,
+            "projected_scarf_average_shear": 1.1054961201825722
+          },
+          "least_known_mode_SF": 1.0416939023695935,
+          "governing": "face_compression",
+          "Vc": 1.103895344121259,
+          "Kc": 0.7240261639696852
+        },
+        "mass_residual_kg": -9.185896487906575e-11
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "lab20_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 50.26548245743669,
+        "primer_kg": 0.0,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 77.59209978089144,
+        "budget_fraction": 0.358513715183645,
+        "remaining_budget_kg": 138.83504510851867,
+        "margin_at_this_geometry_kg": 383.30715261786736
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09212662271727565,
+        "tf_m": 0.000872206388728221,
+        "tc_m": 0.02044372378841993,
+        "structural_mass_kg": 4466.893217352535,
+        "joining": {
+          "bond_kg": 50.26548245743669,
+          "primer_kg": 0.0,
+          "seam_length_m": 2580.803933230389,
+          "skin_seam_length_m": 5161.607866460778,
+          "scarf_overlap_m": 0.02616619166184663,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003665301415893787,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.0051109309471049835,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01077623236299877,
+          "seams_kg": 27.811342867831833,
+          "total_kg": 78.07682532526852,
+          "budget_fraction": 0.3607533859265398,
+          "remaining_budget_kg": 138.35031956414159,
+          "margin_at_this_geometry_kg": 244.47210750915747
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0342855286175814,
+            "face_compression": 1.0342855286173085,
+            "core_shear_crimping": 2.1831381679332247,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.045636707865689,
+            "intracell_dimpling": 9.973190740954397,
+            "projected_scarf_average_shear": 1.0976339944454594
+          },
+          "least_known_mode_SF": 1.0342855286173085,
+          "governing": "face_compression",
+          "Vc": 1.0962556766385363,
+          "Kc": 0.7259360808403659
+        },
+        "mass_residual_kg": 1.9099388737231493e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "hex70_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 203.25580592448318,
+        "budget_fraction": 0.9391419270828657,
+        "remaining_budget_kg": 13.171338964926917,
+        "margin_at_this_geometry_kg": 257.64344647427606
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09383192770985313,
+        "tf_m": 0.000846162197219992,
+        "tc_m": 0.020238409215469808,
+        "structural_mass_kg": 4341.6664030149495,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 2578.734964171783,
+          "skin_seam_length_m": 5157.469928343566,
+          "scarf_overlap_m": 0.02538486591659976,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003555855058650162,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005059602303867452,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010615457362517615,
+          "seams_kg": 27.37445106139895,
+          "total_kg": 203.3036396624274,
+          "budget_fraction": 0.9393629425103374,
+          "remaining_budget_kg": 13.1235052269827,
+          "margin_at_this_geometry_kg": 244.47210750958493
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0034016337852973,
+            "face_compression": 1.0034016337850586,
+            "core_shear_crimping": 2.1576740142277364,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0042091410416802,
+            "intracell_dimpling": 9.106200156818023,
+            "projected_scarf_average_shear": 1.0648585065257217
+          },
+          "least_known_mode_SF": 1.0034016337850586,
+          "governing": "face_compression",
+          "Vc": 1.0643931983455246,
+          "Kc": 0.7339017004136188
+        },
+        "mass_residual_kg": -2.355591277591884e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "af015_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 0.0,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 211.38980285319198,
+        "budget_fraction": 0.9767249988960853,
+        "remaining_budget_kg": 5.037342036218121,
+        "margin_at_this_geometry_kg": 249.5094495455669
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09394645711510452,
+        "tf_m": 0.0008444756772177278,
+        "tc_m": 0.020225280841217684,
+        "structural_mass_kg": 4333.560565690412,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "seam_length_m": 2578.601100182361,
+          "skin_seam_length_m": 5157.202200364722,
+          "scarf_overlap_m": 0.025334270316531834,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0035487677405198217,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005056320210304421,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010605087950824243,
+          "seams_kg": 27.346291457526092,
+          "total_kg": 211.40947698726333,
+          "budget_fraction": 0.976815903085028,
+          "remaining_budget_kg": 5.017667902146769,
+          "margin_at_this_geometry_kg": 244.4721075092857
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0014017135205597,
+            "face_compression": 1.0014017135200752,
+            "core_shear_crimping": 2.1560415311192824,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0015332359564244,
+            "intracell_dimpling": 9.05185880641901,
+            "projected_scarf_average_shear": 1.0627360940890316
+          },
+          "least_known_mode_SF": 1.0014017135200752,
+          "governing": "face_compression",
+          "Vc": 1.0623290689230456,
+          "Kc": 0.7344177327692386
+        },
+        "mass_residual_kg": 6.275513442233205e-11
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "hex100_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 251.32741228718348,
+        "primer_kg": 0.0,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 278.65402961063825,
+        "budget_fraction": 1.287518854222398,
+        "remaining_budget_kg": -62.226884721228146,
+        "margin_at_this_geometry_kg": 182.24522278812037
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09457123132003073,
+        "tf_m": 0.0008308482961984648,
+        "tc_m": 0.02004505994078788,
+        "structural_mass_kg": 4266.571541500003,
+        "joining": {
+          "bond_kg": 251.32741228718348,
+          "primer_kg": 0.0,
+          "seam_length_m": 2577.5199650122736,
+          "skin_seam_length_m": 5155.039930024547,
+          "scarf_overlap_m": 0.02492544888595394,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003491500951844197,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.00501126498519697,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010502765937041168,
+          "seams_kg": 27.071088890574448,
+          "total_kg": 278.3985011777579,
+          "budget_fraction": 1.286338187014452,
+          "remaining_budget_kg": -61.971356288347806,
+          "margin_at_this_geometry_kg": 244.4721075092002
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9817724680763885,
+            "face_compression": 0.9852420027413804,
+            "core_shear_crimping": 2.135580999721283,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9817724680761374,
+            "intracell_dimpling": 8.62068022274438,
+            "projected_scarf_average_shear": 1.045586624817413
+          },
+          "least_known_mode_SF": 0.9817724680761374,
+          "governing": "face_wrinkling",
+          "Vc": 1.0454917010491809,
+          "Kc": 0.7386270747377048
+        },
+        "mass_residual_kg": 1.482476363889873e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "af030_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 395.4529883829292,
+        "budget_fraction": 1.8271875673682139,
+        "remaining_budget_kg": -179.02584349351912,
+        "margin_at_this_geometry_kg": 65.44626401582991
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09569309558907921,
+        "tf_m": 0.0008071953400653469,
+        "tc_m": 0.019729872317933633,
+        "structural_mass_kg": 4150.251234650714,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 2575.645596568123,
+          "skin_seam_length_m": 5151.291193136246,
+          "scarf_overlap_m": 0.024215860201960406,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0033921033611762335,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004932468079483408,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010324571440659642,
+          "seams_kg": 26.592436967588007,
+          "total_kg": 394.7188080270625,
+          "budget_fraction": 1.8237952925394632,
+          "remaining_budget_kg": -178.2916631376524,
+          "margin_at_this_geometry_kg": 244.47210750918475
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9476277280951777,
+            "face_compression": 0.9571936984023408,
+            "core_shear_crimping": 2.099835347761322,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9476277280947798,
+            "intracell_dimpling": 7.905189278151185,
+            "projected_scarf_average_shear": 1.0158204031336973
+          },
+          "least_known_mode_SF": 0.9476277280947798,
+          "governing": "face_wrinkling",
+          "Vc": 1.016251882380175,
+          "Kc": 0.7459370294049563
+        },
+        "mass_residual_kg": 1.6370904631912708e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "af020_tolerance_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 245.41758070631633,
+        "primer_kg": 0.0,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 272.7441980297711,
+        "budget_fraction": 1.2602125217201283,
+        "remaining_budget_kg": -56.317053140361,
+        "margin_at_this_geometry_kg": 188.1550543689882
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09451620782439907,
+        "tf_m": 0.0008320449818918073,
+        "tc_m": 0.02006103265012706,
+        "structural_mass_kg": 4272.457120966041,
+        "joining": {
+          "bond_kg": 245.41758070631633,
+          "primer_kg": 0.0,
+          "seam_length_m": 2577.614868366045,
+          "skin_seam_length_m": 5155.22973673209,
+          "scarf_overlap_m": 0.02496134945675422,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0034965298232476545,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005015258162531766,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01051178798577942,
+          "seams_kg": 27.095341005256593,
+          "total_kg": 272.5129217115729,
+          "budget_fraction": 1.2591439112262073,
+          "remaining_budget_kg": -56.08577682216281,
+          "margin_at_this_geometry_kg": 244.47210750934755
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.983502559227506,
+            "face_compression": 0.9866610644576472,
+            "core_shear_crimping": 2.1373921024215607,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9835025592277801,
+            "intracell_dimpling": 8.65798346044463,
+            "projected_scarf_average_shear": 1.0470926019744877
+          },
+          "least_known_mode_SF": 0.983502559227506,
+          "governing": "global_buckling",
+          "Vc": 1.046970749894979,
+          "Kc": 0.7382573125262553
+        },
+        "mass_residual_kg": 9.094947017729282e-13
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "af015_scarf_primer5",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 12.566370614359172,
+        "seam_length_m": 2578.519540779355,
+        "skin_seam_length_m": 5157.03908155871,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 27.32661732345475,
+        "total_kg": 223.95617346755114,
+        "budget_fraction": 1.0347878200860072,
+        "remaining_budget_kg": -7.5290285781410375,
+        "margin_at_this_geometry_kg": 236.94307893120822
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09406816810771049,
+        "tf_m": 0.0008419236348851631,
+        "tc_m": 0.020192995092408492,
+        "structural_mass_kg": 4321.044806491478,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "seam_length_m": 2578.398563597228,
+          "skin_seam_length_m": 5156.797127194456,
+          "scarf_overlap_m": 0.02525770904655489,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003538043209610791,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005048248773102123,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010586291982712914,
+          "seams_kg": 27.295680042047827,
+          "total_kg": 223.92523618614422,
+          "budget_fraction": 1.0346448746092616,
+          "remaining_budget_kg": -7.498091296734117,
+          "margin_at_this_geometry_kg": 244.47210750933846
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9977933621566155,
+            "face_compression": 0.998375433860694,
+            "core_shear_crimping": 2.1523534272502944,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.997793362156647,
+            "intracell_dimpling": 8.970041225153446,
+            "projected_scarf_average_shear": 1.0595244592561666
+          },
+          "least_known_mode_SF": 0.9977933621566155,
+          "governing": "global_buckling",
+          "Vc": 1.0591792861522185,
+          "Kc": 0.7352051784619453
+        },
+        "mass_residual_kg": 1.000444171950221e-11
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "lab8_braze_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2519.649703715787,
+        "skin_seam_length_m": 5039.299407431574,
+        "scarf_overlap_m": 0.002530344132579275,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0007201485650694222,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007773492661942327,
+        "seams_kg": 19.586478482499828,
+        "total_kg": 39.692671465474504,
+        "budget_fraction": 0.18339969085558402,
+        "remaining_budget_kg": 176.73447342393558,
+        "margin_at_this_geometry_kg": 421.2065809332844
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09163058381765632,
+        "tf_m": 0.0008801299321679334,
+        "tc_m": 0.020507164382244557,
+        "structural_mass_kg": 4505.011205982048,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2519.9277142965902,
+          "skin_seam_length_m": 5039.8554285931805,
+          "scarf_overlap_m": 0.0026403897965038003,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0007514681100858452,
+            "core_splice": 0.005126791095561139,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007878259205646984,
+          "seams_kg": 19.852643712722074,
+          "total_kg": 39.958836695696746,
+          "budget_fraction": 0.18462950530588437,
+          "remaining_budget_kg": 176.46830819371337,
+          "margin_at_this_geometry_kg": 244.47210750921568
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0436814771234986,
+            "face_compression": 1.043681477123275,
+            "core_shear_crimping": 2.190981589483423,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0582768805251652,
+            "intracell_dimpling": 10.247471237274928,
+            "projected_braze_average_shear": 1.2711032359781702
+          },
+          "least_known_mode_SF": 1.043681477123275,
+          "governing": "face_compression",
+          "Vc": 1.1059447567731993,
+          "Kc": 0.7235138108067002
+        },
+        "mass_residual_kg": 1.318767317570746e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "lab8_eb_eta1",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2513.2741228718346,
+        "skin_seam_length_m": 5026.548245743669,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 17.726987198381483,
+        "total_kg": 37.833180181356155,
+        "budget_fraction": 0.17480792532142003,
+        "remaining_budget_kg": 178.59396470805393,
+        "margin_at_this_geometry_kg": 423.0660722174025
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09160562842214987,
+        "tf_m": 0.0008805329441532693,
+        "tc_m": 0.020510403507049288,
+        "structural_mass_kg": 4506.950234852675,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2513.2741228718346,
+          "skin_seam_length_m": 5026.548245743669,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005127600876762322,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007127600876762322,
+          "seams_kg": 17.913614841725344,
+          "total_kg": 38.019807824700024,
+          "budget_fraction": 0.1756702369479918,
+          "remaining_budget_kg": 178.40733706471008,
+          "margin_at_this_geometry_kg": 244.47210750958584
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0441593794523178,
+            "face_compression": 1.0441593794519888,
+            "core_shear_crimping": 2.191381746191125,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.058920216694671,
+            "intracell_dimpling": 10.261554652443369
+          },
+          "least_known_mode_SF": 1.0441593794519888,
+          "governing": "face_compression",
+          "Vc": 1.1064375143058882,
+          "Kc": 0.723390621423528
+        },
+        "mass_residual_kg": -2.3737811716273427e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "lab8_eb_eta08",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 2513.2741228718346,
+        "skin_seam_length_m": 5026.548245743669,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 17.726987198381483,
+        "total_kg": 37.833180181356155,
+        "budget_fraction": 0.17480792532142003,
+        "remaining_budget_kg": 178.59396470805393,
+        "margin_at_this_geometry_kg": 423.0660722174025
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.07265027920281056,
+        "tf_m": 0.0008994375671188017,
+        "tc_m": 0.016275923374800296,
+        "structural_mass_kg": 4509.610837187916,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 2513.2741228718346,
+          "skin_seam_length_m": 5026.548245743669,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004068980843700074,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.006068980843700074,
+          "seams_kg": 15.25301250667627,
+          "total_kg": 35.35920548965095,
+          "budget_fraction": 0.16337694381043924,
+          "remaining_budget_kg": 181.06793939975915,
+          "margin_at_this_geometry_kg": 244.47210750939394
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.8532615872466771,
+            "face_compression": 1.0665769840578514,
+            "core_shear_crimping": 1.7803228163720541,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.2272008412637347,
+            "intracell_dimpling": 10.93677817368499,
+            "projected_weld_compression": 0.8532615872462811
+          },
+          "least_known_mode_SF": 0.8532615872462811,
+          "governing": "projected_weld_compression",
+          "Vc": 1.1169858283206624,
+          "Kc": 0.7207535429198344
+        },
+        "mass_residual_kg": -4.547473508864641e-11
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "hex70_strap",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 2513.2741228718346,
+        "skin_seam_length_m": 5026.548245743669,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.14895507551570653,
+          "face_joint_adhesive": 0.0066822586539733615,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.16269067826655279,
+        "seams_kg": 408.8862717197943,
+        "total_kg": 584.8154603208227,
+        "budget_fraction": 2.7021354489505076,
+        "remaining_budget_kg": -368.3883154314126,
+        "margin_at_this_geometry_kg": -123.91620792206322
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09733932969641879,
+        "tf_m": 0.0007748436651401654,
+        "tc_m": 0.01930006578042713,
+        "structural_mass_kg": 3991.178528465248,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 2513.2741228718346,
+          "skin_seam_length_m": 5026.548245743669,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.13683936722413884,
+            "face_joint_adhesive": 0.0066822586539733615,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004825016445106783,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.15034664232321898,
+          "seams_kg": 377.86232561161364,
+          "total_kg": 553.7915142126421,
+          "budget_fraction": 2.558789538602556,
+          "remaining_budget_kg": -337.36436932323204,
+          "margin_at_this_geometry_kg": 244.47210750907107
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9011013984965582,
+            "face_compression": 0.9188302220118083,
+            "core_shear_crimping": 2.051072679508861,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9011013984965538,
+            "intracell_dimpling": 6.9922765233921975
+          },
+          "least_known_mode_SF": 0.9011013984965538,
+          "governing": "face_wrinkling",
+          "Vc": 0.9762390084463329,
+          "Kc": 0.7559402478884167
+        },
+        "mass_residual_kg": 2.773958840407431e-10
+      }
+    },
+    {
+      "panel": "1m_projection",
+      "route": "legacy020_optimistic",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 2513.2741228718346,
+        "skin_seam_length_m": 5026.548245743669,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.18724546581086637,
+          "face_joint_adhesive": 0.01757673949097898,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.022234714026240783,
+          "sealing": 0.011
+        },
+        "mu_total_kg_m": 0.23805691932808615,
+        "seams_kg": 598.3022951178668,
+        "total_kg": 966.4286661773413,
+        "budget_fraction": 4.465376404938331,
+        "remaining_budget_kg": -750.0015212879312,
+        "margin_at_this_geometry_kg": -505.52941377858224
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0948109501600442,
+        "tf_m": 0.0007125053718045685,
+        "tc_m": 0.01723805340298513,
+        "structural_mass_kg": 3659.826011271777,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 2513.2741228718346,
+          "skin_seam_length_m": 5026.548245743669,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.15817619254061419,
+            "face_joint_adhesive": 0.01757673949097898,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.018961858743283645,
+            "sealing": 0.011
+          },
+          "mu_total_kg_m": 0.2057147907748768,
+          "seams_kg": 517.0176603464915,
+          "total_kg": 885.144031405966,
+          "budget_fraction": 4.089801359521037,
+          "remaining_budget_kg": -668.7168865165559,
+          "margin_at_this_geometry_kg": 244.4721075092184
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.7604170345218794,
+            "face_compression": 0.8449078161352339,
+            "core_shear_crimping": 1.8361170841857015,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.840756109283655,
+            "intracell_dimpling": 5.436767532989192,
+            "projected_joint_retention": 0.7604170345217105
+          },
+          "least_known_mode_SF": 0.7604170345217105,
+          "governing": "projected_joint_retention",
+          "Vc": 0.8966754281548952,
+          "Kc": 0.7758311429612762
+        },
+        "mass_residual_kg": 1.3096723705530167e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "lab8_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 33.59442222426171,
+        "budget_fraction": 0.1552227759666089,
+        "remaining_budget_kg": 182.8327226651484,
+        "margin_at_this_geometry_kg": 427.3048301744975
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09155272037585752,
+        "tf_m": 0.0008813887818836703,
+        "tc_m": 0.02051728611313225,
+        "structural_mass_kg": 4511.068043966588,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 1273.4734394898142,
+          "skin_seam_length_m": 2546.9468789796283,
+          "scarf_overlap_m": 0.026441663456510108,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0037038888867824567,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005129321528283062,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01083321041506552,
+          "seams_kg": 13.795805727990365,
+          "total_kg": 33.90199871096504,
+          "budget_fraction": 0.156643930816942,
+          "remaining_budget_kg": 182.52514617844506,
+          "margin_at_this_geometry_kg": 244.47210750940758
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0451742545907652,
+            "face_compression": 1.0451742545903022,
+            "core_shear_crimping": 2.1922319137394255,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0602865413169564,
+            "intracell_dimpling": 10.291505028710885,
+            "projected_scarf_average_shear": 1.1091896388526057
+          },
+          "least_known_mode_SF": 1.0451742545903022,
+          "governing": "face_compression",
+          "Vc": 1.1074839188528025,
+          "Kc": 0.7231290202867994
+        },
+        "mass_residual_kg": -5.911715561524034e-11
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "lab20_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 50.26548245743669,
+        "primer_kg": 0.0,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 63.75371169872373,
+        "budget_fraction": 0.2945735468224219,
+        "remaining_budget_kg": 152.67343319068638,
+        "margin_at_this_geometry_kg": 397.14554070003487
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09194235825671107,
+        "tf_m": 0.0008751305636256236,
+        "tc_m": 0.020467082706491883,
+        "structural_mass_kg": 4480.959536470902,
+        "joining": {
+          "bond_kg": 50.26548245743669,
+          "primer_kg": 0.0,
+          "seam_length_m": 1273.352304231357,
+          "skin_seam_length_m": 2546.704608462714,
+          "scarf_overlap_m": 0.026253916908768708,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003677589771643392,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005116770676622972,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010794360448266364,
+          "seams_kg": 13.7450237495038,
+          "total_kg": 64.01050620694049,
+          "budget_fraction": 0.2957600639219658,
+          "remaining_budget_kg": 152.41663868246962,
+          "margin_at_this_geometry_kg": 244.47210750911836
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0377530929675132,
+            "face_compression": 1.0377530929674617,
+            "core_shear_crimping": 2.1860274723151276,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.050299680729194,
+            "intracell_dimpling": 10.073836312610112,
+            "projected_scarf_average_shear": 1.1013139420066937
+          },
+          "least_known_mode_SF": 1.0377530929674617,
+          "governing": "face_compression",
+          "Vc": 1.099831659178746,
+          "Kc": 0.7250420852053134
+        },
+        "mass_residual_kg": 2.3010215954855084e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "hex70_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 189.41741784231547,
+        "budget_fraction": 0.8752017587216425,
+        "remaining_budget_kg": 27.00972704709463,
+        "margin_at_this_geometry_kg": 271.4818345564436
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0936375712578286,
+        "tf_m": 0.0008490415953101214,
+        "tc_m": 0.020260869758635044,
+        "structural_mass_kg": 4355.506446066796,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 1272.8475693995613,
+          "skin_seam_length_m": 2545.6951387991226,
+          "scarf_overlap_m": 0.025471247859303645,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003567955247359009,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005065217439658761,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01063317268701777,
+          "seams_kg": 13.53440800967637,
+          "total_kg": 189.46359661070483,
+          "budget_fraction": 0.8754151273746964,
+          "remaining_budget_kg": 26.963548278705275,
+          "margin_at_this_geometry_kg": 244.47210750945942
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0068161006068763,
+            "face_compression": 1.0068161006064855,
+            "core_shear_crimping": 2.160465738761191,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0087797056915566,
+            "intracell_dimpling": 9.19947908746977,
+            "projected_scarf_average_shear": 1.0684821044127721
+          },
+          "least_known_mode_SF": 1.0068161006064855,
+          "governing": "face_compression",
+          "Vc": 1.0679170456344231,
+          "Kc": 0.7330207385913943
+        },
+        "mass_residual_kg": -1.1095835361629725e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "af015_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 0.0,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 197.55141477102427,
+        "budget_fraction": 0.9127848305348623,
+        "remaining_budget_kg": 18.87573011838583,
+        "margin_at_this_geometry_kg": 263.3478376277344
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09375142482390239,
+        "tf_m": 0.0008473521856209701,
+        "tc_m": 0.020247684524464418,
+        "structural_mass_kg": 4347.386028422252,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "seam_length_m": 1272.8148987308755,
+          "skin_seam_length_m": 2545.629797461751,
+          "scarf_overlap_m": 0.0254205655686291,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003560855785803012,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.0050619211311161046,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010622776916919117,
+          "seams_kg": 13.520828725749087,
+          "total_kg": 197.58401425548632,
+          "budget_fraction": 0.9129354562083595,
+          "remaining_budget_kg": 18.843130633923778,
+          "margin_at_this_geometry_kg": 244.47210750922295
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0048127536742022,
+            "face_compression": 1.0048127536739517,
+            "core_shear_crimping": 2.158827067369821,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0060977468958907,
+            "intracell_dimpling": 9.144673344998425,
+            "projected_scarf_average_shear": 1.066356055430189
+          },
+          "least_known_mode_SF": 1.0048127536739517,
+          "governing": "face_compression",
+          "Vc": 1.0658495597938287,
+          "Kc": 0.7335376100515428
+        },
+        "mass_residual_kg": 1.255102688446641e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "hex100_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 251.32741228718348,
+        "primer_kg": 0.0,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 264.8156415284705,
+        "budget_fraction": 1.2235786858611748,
+        "remaining_budget_kg": -48.388496639060406,
+        "margin_at_this_geometry_kg": 196.0836108702888
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09444359877019734,
+        "tf_m": 0.0008336295852029003,
+        "tc_m": 0.02008218730118751,
+        "structural_mass_kg": 4280.250654906942,
+        "joining": {
+          "bond_kg": 251.32741228718348,
+          "primer_kg": 0.0,
+          "seam_length_m": 1272.549586191218,
+          "skin_seam_length_m": 2545.099172382436,
+          "scarf_overlap_m": 0.025008887556087007,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003503188853535483,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005020546825296878,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010523735678832361,
+          "seams_kg": 13.391975483283877,
+          "total_kg": 264.71938777046734,
+          "budget_fraction": 1.2231339460941169,
+          "remaining_budget_kg": -48.292242881057234,
+          "margin_at_this_geometry_kg": 244.47210750955128
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9857938406674048,
+            "face_compression": 0.9885401292001701,
+            "core_shear_crimping": 2.139790711084505,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9857938406669555,
+            "intracell_dimpling": 8.707544293474353,
+            "projected_scarf_average_shear": 1.049086756665905
+          },
+          "least_known_mode_SF": 0.9857938406669555,
+          "governing": "face_wrinkling",
+          "Vc": 1.0489292052223094,
+          "Kc": 0.7377676986944226
+        },
+        "mass_residual_kg": -2.02817318495363e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "af030_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 381.61460030076154,
+        "budget_fraction": 1.763247399006991,
+        "remaining_budget_kg": -165.18745541135144,
+        "margin_at_this_geometry_kg": 79.28465209799742
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09556012933116043,
+        "tf_m": 0.000809926935182454,
+        "tc_m": 0.019766225397258072,
+        "structural_mass_kg": 4163.683707680237,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 1272.091579955286,
+          "skin_seam_length_m": 2544.183159910572,
+          "scarf_overlap_m": 0.02429780805547362,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003403582432620528,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004941556349314518,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010345138781935046,
+          "seams_kg": 13.159963937968458,
+          "total_kg": 381.28633499744296,
+          "budget_fraction": 1.76173065163463,
+          "remaining_budget_kg": -164.85919010803286,
+          "margin_at_this_geometry_kg": 244.47210750928116
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9515657892575408,
+            "face_compression": 0.9604328965281252,
+            "core_shear_crimping": 2.103958836899877,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9515657892575727,
+            "intracell_dimpling": 7.985716007029806,
+            "projected_scarf_average_shear": 1.0192579973755487
+          },
+          "least_known_mode_SF": 0.9515657892575408,
+          "governing": "global_buckling",
+          "Vc": 1.0196292728170926,
+          "Kc": 0.7450926817957269
+        },
+        "mass_residual_kg": 6.730260793119669e-11
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "af020_tolerance_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 245.41758070631633,
+        "primer_kg": 0.0,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 258.90580994760336,
+        "budget_fraction": 1.196272353358905,
+        "remaining_budget_kg": -42.47866505819326,
+        "margin_at_this_geometry_kg": 201.99344245115572
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09438883877523849,
+        "tf_m": 0.0008348287862542826,
+        "tc_m": 0.02009820002508117,
+        "structural_mass_kg": 4286.148735142644,
+        "joining": {
+          "bond_kg": 245.41758070631633,
+          "primer_kg": 0.0,
+          "seam_length_m": 1272.5727671147777,
+          "skin_seam_length_m": 2545.1455342295553,
+          "scarf_overlap_m": 0.025044863587628478,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003508228295310247,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.0050245500062702925,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01053277830158054,
+          "seams_kg": 13.403726828648836,
+          "total_kg": 258.8213075349652,
+          "budget_fraction": 1.195881910594984,
+          "remaining_budget_kg": -42.39416264555507,
+          "margin_at_this_geometry_kg": 244.4721075093521
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.987528117249137,
+            "face_compression": 0.9899621736948866,
+            "core_shear_crimping": 2.141606258692992,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.987528117248686,
+            "intracell_dimpling": 8.745176564188307,
+            "projected_scarf_average_shear": 1.0505958992922175
+          },
+          "least_known_mode_SF": 0.987528117248686,
+          "governing": "face_wrinkling",
+          "Vc": 1.0504112995911528,
+          "Kc": 0.7373971751022118
+        },
+        "mass_residual_kg": -3.637978807091713e-12
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "af015_scarf_primer5",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 12.566370614359172,
+        "seam_length_m": 1272.7394048629037,
+        "skin_seam_length_m": 2545.4788097258074,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 13.488229241287035,
+        "total_kg": 210.11778538538343,
+        "budget_fraction": 0.9708476517247842,
+        "remaining_budget_kg": 6.3093595040266734,
+        "margin_at_this_geometry_kg": 250.78146701337573
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09392833637878453,
+        "tf_m": 0.0008447420148278725,
+        "tc_m": 0.02022735275874038,
+        "structural_mass_kg": 4334.84062406962,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "seam_length_m": 1272.7644252102168,
+          "skin_seam_length_m": 2545.5288504204336,
+          "scarf_overlap_m": 0.025342260444836177,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003549886979764323,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005056838189685095,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010606725169449417,
+          "seams_kg": 13.499862463657028,
+          "total_kg": 210.12941860775342,
+          "budget_fraction": 0.9709014029415086,
+          "remaining_budget_kg": 6.297726281656679,
+          "margin_at_this_geometry_kg": 244.47210750958766
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.001717543740722,
+            "face_compression": 1.0017175437403754,
+            "core_shear_crimping": 2.156299203523782,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0019557610196839,
+            "intracell_dimpling": 9.060426054501438,
+            "projected_scarf_average_shear": 1.0630712684453216
+          },
+          "least_known_mode_SF": 1.0017175437403754,
+          "governing": "face_compression",
+          "Vc": 1.0626550462032134,
+          "Kc": 0.7343362384491967
+        },
+        "mass_residual_kg": -2.3919710656628013e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "lab8_braze_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 1258.228937540691,
+        "skin_seam_length_m": 2516.457875081382,
+        "scarf_overlap_m": 0.002530344132579275,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0007201485650694222,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007773492661942327,
+        "seams_kg": 9.780833413016053,
+        "total_kg": 29.88702639599073,
+        "budget_fraction": 0.13809278134340494,
+        "remaining_budget_kg": 186.54011849341936,
+        "margin_at_this_geometry_kg": 431.01222600276833
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09150303986443908,
+        "tf_m": 0.000882194161804992,
+        "tc_m": 0.020523767898004305,
+        "structural_mass_kg": 4514.9431783262935,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 1258.3021616671313,
+          "skin_seam_length_m": 2516.6043233342625,
+          "scarf_overlap_m": 0.002646582485414976,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0007532305802478617,
+            "core_splice": 0.005130941974501076,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007884172554748938,
+          "seams_kg": 9.920671368597258,
+          "total_kg": 30.026864351571934,
+          "budget_fraction": 0.13873890156853963,
+          "remaining_budget_kg": 186.40028053783817,
+          "margin_at_this_geometry_kg": 244.47210750909562
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0461292955171886,
+            "face_compression": 1.0461292955168846,
+            "core_shear_crimping": 2.193032446640008,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0615724763907934,
+            "intracell_dimpling": 10.319742786347357,
+            "projected_braze_average_shear": 1.2740844423609643
+          },
+          "least_known_mode_SF": 1.0461292955168846,
+          "governing": "face_compression",
+          "Vc": 1.1084686090667415,
+          "Kc": 0.7228828477333147
+        },
+        "mass_residual_kg": 2.5283952709287405e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "lab8_eb_eta1",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 1256.6370614359173,
+        "skin_seam_length_m": 2513.2741228718346,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 8.863493599190742,
+        "total_kg": 28.969686582165416,
+        "budget_fraction": 0.13385421961264768,
+        "remaining_budget_kg": 187.45745830724468,
+        "margin_at_this_geometry_kg": 431.9295658165938
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0914907594629164,
+        "tf_m": 0.000882393503819838,
+        "tc_m": 0.020525372966993277,
+        "structural_mass_kg": 4515.902339479462,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 1256.6370614359173,
+          "skin_seam_length_m": 2513.2741228718346,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005131343241748319,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007131343241748319,
+          "seams_kg": 8.961510215401496,
+          "total_kg": 29.067703198376172,
+          "budget_fraction": 0.13430710465283446,
+          "remaining_budget_kg": 187.35944169103394,
+          "margin_at_this_geometry_kg": 244.4721075091229
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0463656805790869,
+            "face_compression": 1.0463656805787978,
+            "core_shear_crimping": 2.193230662198067,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0618907866854654,
+            "intracell_dimpling": 10.326739964347274
+          },
+          "least_known_mode_SF": 1.0463656805787978,
+          "governing": "face_compression",
+          "Vc": 1.108712329543967,
+          "Kc": 0.7228219176140083
+        },
+        "mass_residual_kg": 2.255546860396862e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "lab8_eb_eta08",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 1256.6370614359173,
+        "skin_seam_length_m": 2513.2741228718346,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 8.863493599190742,
+        "total_kg": 28.969686582165416,
+        "budget_fraction": 0.13385421961264768,
+        "remaining_budget_kg": 187.45745830724468,
+        "margin_at_this_geometry_kg": 431.9295658165938
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.07257141988369939,
+        "tf_m": 0.0009010346663931589,
+        "tc_m": 0.01628574074506588,
+        "structural_mass_kg": 4517.234259223444,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 1256.6370614359173,
+          "skin_seam_length_m": 2513.2741228718346,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.00407143518626647,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.00607143518626647,
+          "seams_kg": 7.6295904711685285,
+          "total_kg": 27.735783454143203,
+          "budget_fraction": 0.12815297946251442,
+          "remaining_budget_kg": 188.6913614352669,
+          "margin_at_this_geometry_kg": 244.47210750937393
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.854776693476934,
+            "face_compression": 1.0684708668458935,
+            "core_shear_crimping": 1.7816153095372185,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.2301000049641657,
+            "intracell_dimpling": 10.99514182857337,
+            "projected_weld_compression": 0.8547766934767148
+          },
+          "least_known_mode_SF": 0.8547766934767148,
+          "governing": "projected_weld_compression",
+          "Vc": 1.118900560820989,
+          "Kc": 0.7202748597947528
+        },
+        "mass_residual_kg": -2.546585164964199e-11
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "hex70_strap",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 1256.6370614359173,
+        "skin_seam_length_m": 2513.2741228718346,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.14895507551570653,
+          "face_joint_adhesive": 0.0066822586539733615,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.16269067826655279,
+        "seams_kg": 204.44313585989715,
+        "total_kg": 380.3723244609256,
+        "budget_fraction": 1.7575074728047084,
+        "remaining_budget_kg": -163.9451795715155,
+        "margin_at_this_geometry_kg": 80.52692793783353
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09548018804407685,
+        "tf_m": 0.0008115782367419559,
+        "tc_m": 0.01978820705049193,
+        "structural_mass_kg": 4171.804005990609,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 1256.6370614359173,
+          "skin_seam_length_m": 2513.2741228718346,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.14332678624734208,
+            "face_joint_adhesive": 0.0066822586539733615,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004947051762622982,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.15695609666393842,
+          "seams_kg": 197.23684808622335,
+          "total_kg": 373.1660366872518,
+          "budget_fraction": 1.7242108741855469,
+          "remaining_budget_kg": -156.7388917978417,
+          "margin_at_this_geometry_kg": 244.47210750910017
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9539471041875685,
+            "face_compression": 0.9623910538271863,
+            "core_shear_crimping": 2.1064521138543344,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.953947104187306,
+            "intracell_dimpling": 8.03466015986647
+          },
+          "least_known_mode_SF": 0.953947104187306,
+          "governing": "face_wrinkling",
+          "Vc": 1.0216708932347156,
+          "Kc": 0.744582276691321
+        },
+        "mass_residual_kg": 2.482920535840094e-10
+      }
+    },
+    {
+      "panel": "2m_projection",
+      "route": "legacy020_optimistic",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 1256.6370614359173,
+        "skin_seam_length_m": 2513.2741228718346,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.18724546581086637,
+          "face_joint_adhesive": 0.01757673949097898,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.022234714026240783,
+          "sealing": 0.011
+        },
+        "mu_total_kg_m": 0.23805691932808615,
+        "seams_kg": 299.1511475589334,
+        "total_kg": 667.2775186184078,
+        "budget_fraction": 3.0831507709412938,
+        "remaining_budget_kg": -450.85037372899774,
+        "margin_at_this_geometry_kg": -206.37826621964905
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09052126825386655,
+        "tf_m": 0.0007635752580447167,
+        "tc_m": 0.017554594486289446,
+        "structural_mass_kg": 3903.6501452489174,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 1256.6370614359173,
+          "skin_seam_length_m": 2513.2741228718346,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.16951370728592713,
+            "face_joint_adhesive": 0.01757673949097898,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.01931005393491839,
+            "sealing": 0.011
+          },
+          "mu_total_kg_m": 0.21740050071182448,
+          "seams_kg": 273.19352636920416,
+          "total_kg": 641.3198974286786,
+          "budget_fraction": 2.963213776887276,
+          "remaining_budget_kg": -424.8927525392685,
+          "margin_at_this_geometry_kg": 244.47210750936483
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.8149210607158524,
+            "face_compression": 0.9054678452395112,
+            "core_shear_crimping": 1.8776126633741117,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9243028641279375,
+            "intracell_dimpling": 6.691629353665935,
+            "projected_joint_retention": 0.81492106071556
+          },
+          "least_known_mode_SF": 0.81492106071556,
+          "governing": "projected_joint_retention",
+          "Vc": 0.9589532741723654,
+          "Kc": 0.7602616814569086
+        },
+        "mass_residual_kg": -1.6370904631912708e-11
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "lab8_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 26.807373682480126,
+        "budget_fraction": 0.12386326907458005,
+        "remaining_budget_kg": 189.61977120692998,
+        "margin_at_this_geometry_kg": 434.0918787162791
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09146384708234531,
+        "tf_m": 0.0008828307241877942,
+        "tc_m": 0.02052889442617936,
+        "structural_mass_kg": 4518.006105399527,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 632.5065020171785,
+          "skin_seam_length_m": 1265.013004034357,
+          "scarf_overlap_m": 0.026484921725633825,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0037099484080577463,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.00513222360654484,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010842172014602587,
+          "seams_kg": 6.857744295224827,
+          "total_kg": 26.963937278199502,
+          "budget_fraction": 0.12458666999454956,
+          "remaining_budget_kg": 189.4632076112106,
+          "margin_at_this_geometry_kg": 244.47210750923477
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0468841481176854,
+            "face_compression": 1.0468841481172586,
+            "core_shear_crimping": 2.1936655137366334,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.062588976398203,
+            "intracell_dimpling": 10.342098073561498,
+            "projected_scarf_average_shear": 1.111004260840577
+          },
+          "least_known_mode_SF": 1.0468841481172586,
+          "governing": "face_compression",
+          "Vc": 1.1092468815848398,
+          "Kc": 0.7226882796037901
+        },
+        "mass_residual_kg": 1.1368683772161603e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "lab20_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 50.26548245743669,
+        "primer_kg": 0.0,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 56.96666315694214,
+        "budget_fraction": 0.263214039930393,
+        "remaining_budget_kg": 159.46048173246797,
+        "margin_at_this_geometry_kg": 403.93258924181646
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09185233348726263,
+        "tf_m": 0.0008765674103786887,
+        "tc_m": 0.020478583543982697,
+        "structural_mass_kg": 4487.871742430199,
+        "joining": {
+          "bond_kg": 50.26548245743669,
+          "primer_kg": 0.0,
+          "seam_length_m": 632.4765934905674,
+          "skin_seam_length_m": 1264.9531869811349,
+          "scarf_overlap_m": 0.02629702231136066,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0036836278797179167,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005119645885995674,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010803273765713592,
+          "seams_kg": 6.8328177898845475,
+          "total_kg": 57.098300247321234,
+          "budget_fraction": 0.26382226811935866,
+          "remaining_budget_kg": 159.32884464208888,
+          "margin_at_this_geometry_kg": 244.47210750944032
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0394569440547607,
+            "face_compression": 1.0394569440544765,
+            "core_shear_crimping": 2.1874494535661193,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.052591724550144,
+            "intracell_dimpling": 10.123537481393413,
+            "projected_scarf_average_shear": 1.1031221514641734
+          },
+          "least_known_mode_SF": 1.0394569440544765,
+          "governing": "face_compression",
+          "Vc": 1.1015886808131978,
+          "Kc": 0.7246028297967005
+        },
+        "mass_residual_kg": -9.185896487906575e-11
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "hex70_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 182.63036930053389,
+        "budget_fraction": 0.8438422518296137,
+        "remaining_budget_kg": 33.796775588876216,
+        "margin_at_this_geometry_kg": 278.26888309822516
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09354255684531071,
+        "tf_m": 0.0008504572719184365,
+        "tc_m": 0.020271934186218858,
+        "structural_mass_kg": 4362.311435561398,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 632.3519430306751,
+          "skin_seam_length_m": 1264.7038860613502,
+          "scarf_overlap_m": 0.025513718157553097,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0035739043914422932,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.0050679835465547145,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010641887937997007,
+          "seams_kg": 6.729418515107112,
+          "total_kg": 182.65860711613556,
+          "budget_fraction": 0.8439727244448492,
+          "remaining_budget_kg": 33.768537773274545,
+          "margin_at_this_geometry_kg": 244.4721075094276
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0084948475732491,
+            "face_compression": 1.00849484757292,
+            "core_shear_crimping": 2.161840435629513,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.011027766063197,
+            "intracell_dimpling": 9.245572993662597,
+            "projected_scarf_average_shear": 1.0702636721592473
+          },
+          "least_known_mode_SF": 1.00849484757292,
+          "governing": "face_compression",
+          "Vc": 1.069649458408176,
+          "Kc": 0.732587635397956
+        },
+        "mass_residual_kg": -7.912603905424476e-11
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "af015_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 0.0,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 190.76436622924268,
+        "budget_fraction": 0.8814253236428333,
+        "remaining_budget_kg": 25.66277866016742,
+        "margin_at_this_geometry_kg": 270.134886169516
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09365607621855995,
+        "tf_m": 0.000848766495310224,
+        "tc_m": 0.020258721324133522,
+        "structural_mass_kg": 4354.184106215389,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 0.0,
+          "seam_length_m": 632.3438729142913,
+          "skin_seam_length_m": 1264.6877458285826,
+          "scarf_overlap_m": 0.02546299485930672,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003566799185637646,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005064680331033381,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010631479516671026,
+          "seams_kg": 6.722750932380714,
+          "total_kg": 190.78593646211795,
+          "budget_fraction": 0.8815249887420809,
+          "remaining_budget_kg": 25.641208427292156,
+          "margin_at_this_geometry_kg": 244.47210750945396
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0064898797116444,
+            "face_compression": 1.0064898797114157,
+            "core_shear_crimping": 2.160198764898749,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0083429227763414,
+            "intracell_dimpling": 9.190539748824142,
+            "projected_scarf_average_shear": 1.068135902968181
+          },
+          "least_known_mode_SF": 1.0064898797114157,
+          "governing": "face_compression",
+          "Vc": 1.0675803876554275,
+          "Kc": 0.7331049030861432
+        },
+        "mass_residual_kg": -1.0550138540565968e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "hex100_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 251.32741228718348,
+        "primer_kg": 0.0,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 258.0285929866889,
+        "budget_fraction": 1.192219178969146,
+        "remaining_budget_kg": -41.60144809727882,
+        "margin_at_this_geometry_kg": 202.87065941207038
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09438111394874915,
+        "tf_m": 0.000834998241141846,
+        "tc_m": 0.020100462953944683,
+        "structural_mass_kg": 4286.982176711241,
+        "joining": {
+          "bond_kg": 251.32741228718348,
+          "primer_kg": 0.0,
+          "seam_length_m": 632.2781643817424,
+          "skin_seam_length_m": 1264.5563287634848,
+          "scarf_overlap_m": 0.02504994723425538,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.00350894040112298,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005025115738486171,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01053405613960915,
+          "seams_kg": 6.660453679446297,
+          "total_kg": 257.9878659666298,
+          "budget_fraction": 1.1920310000783698,
+          "remaining_budget_kg": -41.56072107721968,
+          "margin_at_this_geometry_kg": 244.47210750909016
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9877732006614013,
+            "face_compression": 0.9901631178065387,
+            "core_shear_crimping": 2.141862829841682,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9877732006612175,
+            "intracell_dimpling": 8.750502975150264,
+            "projected_scarf_average_shear": 1.0508091509348543
+          },
+          "least_known_mode_SF": 0.9877732006612175,
+          "governing": "face_wrinkling",
+          "Vc": 1.050620726956394,
+          "Kc": 0.7373448182609015
+        },
+        "mass_residual_kg": 2.582964953035116e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "af030_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 374.82755175897995,
+        "budget_fraction": 1.731887892114962,
+        "remaining_budget_kg": -158.40040686956985,
+        "margin_at_this_geometry_kg": 86.07170063977901
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09549499469093312,
+        "tf_m": 0.0008112718696231093,
+        "tc_m": 0.019784128459946985,
+        "structural_mass_kg": 4170.297435010527,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 632.1649631044182,
+          "skin_seam_length_m": 1264.3299262088365,
+          "scarf_overlap_m": 0.02433815608869328,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003409234294580409,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004946032114986746,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010355266409567155,
+          "seams_kg": 6.5462366077404415,
+          "total_kg": 374.67260766721495,
+          "budget_fraction": 1.7311719741008693,
+          "remaining_budget_kg": -158.24546277780485,
+          "margin_at_this_geometry_kg": 244.4721075092193
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9535052586722019,
+            "face_compression": 0.9620277555510418,
+            "core_shear_crimping": 2.105989502731493,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9535052586720328,
+            "intracell_dimpling": 8.025564450555411,
+            "projected_scarf_average_shear": 1.0209505391654756
+          },
+          "least_known_mode_SF": 0.9535052586720328,
+          "governing": "face_wrinkling",
+          "Vc": 1.02129211433273,
+          "Kc": 0.7446769714168175
+        },
+        "mass_residual_kg": 1.291482476517558e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "af020_tolerance_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 245.41758070631633,
+        "primer_kg": 0.0,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 252.11876140582177,
+        "budget_fraction": 1.1649128464668763,
+        "remaining_budget_kg": -35.69161651641167,
+        "margin_at_this_geometry_kg": 208.7804909929373
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0943264848403226,
+        "tf_m": 0.0008361986422371437,
+        "tc_m": 0.02011649493290327,
+        "structural_mass_kg": 4292.886224212485,
+        "joining": {
+          "bond_kg": 245.41758070631633,
+          "primer_kg": 0.0,
+          "seam_length_m": 632.2838927124177,
+          "skin_seam_length_m": 1264.5677854248354,
+          "scarf_overlap_m": 0.02508595926711431,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003513984885881514,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005029123733225818,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.010543108619107332,
+          "seams_kg": 6.666237758979027,
+          "total_kg": 252.08381846529537,
+          "budget_fraction": 1.1647513928722069,
+          "remaining_budget_kg": -35.656673575885264,
+          "margin_at_this_geometry_kg": 244.4721075091802
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9895094796522951,
+            "face_compression": 0.9915865853452402,
+            "core_shear_crimping": 2.143680514292718,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9895094796523903,
+            "intracell_dimpling": 8.78829666458491,
+            "projected_scarf_average_shear": 1.0523198037645012
+          },
+          "least_known_mode_SF": 0.9895094796522951,
+          "governing": "global_buckling",
+          "Vc": 1.052104273584414,
+          "Kc": 0.7369739316038966
+        },
+        "mass_residual_kg": 1.6825651982799172e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "af015_scarf_primer5",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 184.06318552973724,
+        "primer_kg": 12.566370614359172,
+        "seam_length_m": 632.3184891654114,
+        "skin_seam_length_m": 1264.6369783308228,
+        "scarf_overlap_m": 0.025303441325792753,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0035444492846716485,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.010597793381544554,
+        "seams_kg": 6.701180699505449,
+        "total_kg": 203.33073684360184,
+        "budget_fraction": 0.9394881448327553,
+        "remaining_budget_kg": 13.09640804580826,
+        "margin_at_this_geometry_kg": 257.5685155551573
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.0938324686650055,
+        "tf_m": 0.0008461542135430309,
+        "tc_m": 0.020238347020864043,
+        "structural_mass_kg": 4341.628030513062,
+        "joining": {
+          "bond_kg": 184.06318552973724,
+          "primer_kg": 12.566370614359172,
+          "seam_length_m": 632.3314048371477,
+          "skin_seam_length_m": 1264.6628096742954,
+          "scarf_overlap_m": 0.02538462640629093,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.003555821508583518,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005059586755216012,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.01061540826379953,
+          "seams_kg": 6.712456020368224,
+          "total_kg": 203.34201216446462,
+          "budget_fraction": 0.9395402423682495,
+          "remaining_budget_kg": 13.085132724945481,
+          "margin_at_this_geometry_kg": 244.47210750943395
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0033921665288563,
+            "face_compression": 1.0033921665286238,
+            "core_shear_crimping": 2.1576662816853336,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.004196471760154,
+            "intracell_dimpling": 9.105942403843391,
+            "projected_scarf_average_shear": 1.0648484594137693
+          },
+          "least_known_mode_SF": 1.0033921665286238,
+          "governing": "face_compression",
+          "Vc": 1.0643834273843145,
+          "Kc": 0.7339041431539214
+        },
+        "mass_residual_kg": -8.549250196665525e-11
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "lab8_braze_scarf",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 628.7162478351504,
+        "skin_seam_length_m": 1257.4324956703008,
+        "scarf_overlap_m": 0.002530344132579275,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0007201485650694222,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007773492661942327,
+        "seams_kg": 4.887321138990456,
+        "total_kg": 24.99351412196513,
+        "budget_fraction": 0.11548234457713848,
+        "remaining_budget_kg": 191.43363076744498,
+        "margin_at_this_geometry_kg": 435.9057382767942
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09143958309920264,
+        "tf_m": 0.0008832253480947921,
+        "tc_m": 0.02053207402398561,
+        "structural_mass_kg": 4519.904935178283,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 628.7350167459773,
+          "skin_seam_length_m": 1257.4700334919546,
+          "scarf_overlap_m": 0.002649676044284376,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0007541110225371424,
+            "core_splice": 0.005133018505996402,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007887129528533545,
+          "seams_kg": 4.95891451620023,
+          "total_kg": 25.065107499174907,
+          "budget_fraction": 0.11581314123966599,
+          "remaining_budget_kg": 191.3620373902352,
+          "margin_at_this_geometry_kg": 244.47210750950308
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.0473521036400923,
+            "face_compression": 1.0473521036396316,
+            "core_shear_crimping": 2.194058119780602,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0632191846969532,
+            "intracell_dimpling": 10.355972977149245,
+            "projected_braze_average_shear": 1.2755737045505053
+          },
+          "least_known_mode_SF": 1.0473521036396316,
+          "governing": "face_compression",
+          "Vc": 1.1097293493935747,
+          "Kc": 0.7225676626516063
+        },
+        "mass_residual_kg": -1.546140993013978e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "lab8_eb_eta1",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 628.3185307179587,
+        "skin_seam_length_m": 1256.6370614359173,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 4.431746799595371,
+        "total_kg": 24.537939782570046,
+        "budget_fraction": 0.11337736675826147,
+        "remaining_budget_kg": 191.88920510684005,
+        "margin_at_this_geometry_kg": 436.361312616189
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09143349203272616,
+        "tf_m": 0.0008833244758787277,
+        "tc_m": 0.02053287290674194,
+        "structural_mass_kg": 4520.381916498951,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 628.3185307179587,
+          "skin_seam_length_m": 1256.6370614359173,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005133218226685486,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.007133218226685486,
+          "seams_kg": 4.481933195481587,
+          "total_kg": 24.588126178456264,
+          "budget_fraction": 0.11360925262411191,
+          "remaining_budget_kg": 191.83901871095384,
+          "margin_at_this_geometry_kg": 244.472107509554
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 1.047469652002117,
+            "face_compression": 1.047469652001732,
+            "core_shear_crimping": 2.194156758612802,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.0633774962140328,
+            "intracell_dimpling": 10.359460240757178
+          },
+          "least_known_mode_SF": 1.047469652001732,
+          "governing": "face_compression",
+          "Vc": 1.1098505424077498,
+          "Kc": 0.7225373643980626
+        },
+        "mass_residual_kg": -2.0554580260068178e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "lab8_eb_eta08",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 20.106192982974676,
+        "primer_kg": 0.0,
+        "seam_length_m": 628.3185307179587,
+        "skin_seam_length_m": 1256.6370614359173,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.0,
+          "face_joint_adhesive": 0.0,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.007053344096872905,
+        "seams_kg": 4.431746799595371,
+        "total_kg": 24.537939782570046,
+        "budget_fraction": 0.11337736675826147,
+        "remaining_budget_kg": 191.88920510684005,
+        "margin_at_this_geometry_kg": 436.361312616189
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.07253208985452952,
+        "tf_m": 0.0009018336772838365,
+        "tc_m": 0.016290657738152636,
+        "structural_mass_kg": 4521.048282099786,
+        "joining": {
+          "bond_kg": 20.106192982974676,
+          "primer_kg": 0.0,
+          "seam_length_m": 628.3185307179587,
+          "skin_seam_length_m": 1256.6370614359173,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.0,
+            "face_joint_adhesive": 0.0,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.004072664434538159,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.006072664434538159,
+          "seams_kg": 3.815567595052219,
+          "total_kg": 23.921760578026895,
+          "budget_fraction": 0.11053031536432471,
+          "remaining_budget_kg": 192.5053843113832,
+          "margin_at_this_geometry_kg": 244.47210750914837
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.855534684165422,
+            "face_compression": 1.069418355206579,
+            "core_shear_crimping": 1.7822624703457106,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 1.2315506911524854,
+            "intracell_dimpling": 11.024418274371484,
+            "projected_weld_compression": 0.8555346841652632
+          },
+          "least_known_mode_SF": 0.8555346841652632,
+          "governing": "projected_weld_compression",
+          "Vc": 1.1198584426927496,
+          "Kc": 0.7200353893268125
+        },
+        "mass_residual_kg": 2.000888343900442e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "hex70_strap",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 175.92918860102844,
+        "primer_kg": 0.0,
+        "seam_length_m": 628.3185307179587,
+        "skin_seam_length_m": 1256.6370614359173,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.14895507551570653,
+          "face_joint_adhesive": 0.0066822586539733615,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.005053344096872905,
+          "sealing": 0.002
+        },
+        "mu_total_kg_m": 0.16269067826655279,
+        "seams_kg": 102.22156792994858,
+        "total_kg": 278.150756530977,
+        "budget_fraction": 1.2851934847318085,
+        "remaining_budget_kg": -61.72361164156689,
+        "margin_at_this_geometry_kg": 182.74849586778237
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.09455593222369024,
+        "tf_m": 0.0008311806741584236,
+        "tc_m": 0.020049496067287884,
+        "structural_mass_kg": 4268.2062483541395,
+        "joining": {
+          "bond_kg": 175.92918860102844,
+          "primer_kg": 0.0,
+          "seam_length_m": 628.3185307179587,
+          "skin_seam_length_m": 1256.6370614359173,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.14678862668406423,
+            "face_joint_adhesive": 0.0066822586539733615,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.005012374016821971,
+            "sealing": 0.002
+          },
+          "mu_total_kg_m": 0.16048325935485955,
+          "seams_kg": 100.83460572267444,
+          "total_kg": 276.7637943237029,
+          "budget_fraction": 1.2787850362537638,
+          "remaining_budget_kg": -60.33664943429278,
+          "margin_at_this_geometry_kg": 244.47210750911836
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.9822529748941762,
+            "face_compression": 0.9856361453645709,
+            "core_shear_crimping": 2.136084004128405,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9822529748941662,
+            "intracell_dimpling": 8.631030381256224
+          },
+          "least_known_mode_SF": 0.9822529748941662,
+          "governing": "face_wrinkling",
+          "Vc": 1.0459025077698767,
+          "Kc": 0.7385243730575308
+        },
+        "mass_residual_kg": 2.3010215954855084e-10
+      }
+    },
+    {
+      "panel": "4m_projection",
+      "route": "legacy020_optimistic",
+      "tag": "PROJECTION",
+      "bond_strength_qualified": false,
+      "fixed_geometry": {
+        "bond_kg": 368.1263710594745,
+        "primer_kg": 0.0,
+        "seam_length_m": 628.3185307179587,
+        "skin_seam_length_m": 1256.6370614359173,
+        "scarf_overlap_m": 0,
+        "mu_kg_m": {
+          "face_joint_metal": 0.18724546581086637,
+          "face_joint_adhesive": 0.01757673949097898,
+          "face_joint_braze": 0.0,
+          "core_splice": 0.022234714026240783,
+          "sealing": 0.011
+        },
+        "mu_total_kg_m": 0.23805691932808615,
+        "seams_kg": 149.5755737794667,
+        "total_kg": 517.7019448389412,
+        "budget_fraction": 2.392037953942776,
+        "remaining_budget_kg": -301.27479994953114,
+        "margin_at_this_geometry_kg": -56.802692440182
+      },
+      "reoptimized_5pct_margin": {
+        "core_mass_fraction": 0.08843502938056308,
+        "tf_m": 0.0007913242064145697,
+        "tc_m": 0.017732583721137507,
+        "structural_mass_kg": 4036.2532814856613,
+        "joining": {
+          "bond_kg": 368.1263710594745,
+          "primer_kg": 0.0,
+          "seam_length_m": 628.3185307179587,
+          "skin_seam_length_m": 1256.6370614359173,
+          "scarf_overlap_m": 0,
+          "mu_kg_m": {
+            "face_joint_metal": 0.17567397382403446,
+            "face_joint_adhesive": 0.01757673949097898,
+            "face_joint_braze": 0.0,
+            "core_splice": 0.01950584209325126,
+            "sealing": 0.011
+          },
+          "mu_total_kg_m": 0.2237565554082647,
+          "seams_kg": 140.59039013263236,
+          "total_kg": 508.71676119210684,
+          "budget_fraction": 2.350521980281405,
+          "remaining_budget_kg": -292.28961630269674,
+          "margin_at_this_geometry_kg": 244.47210750919385
+        },
+        "evaluation": {
+          "sfs": {
+            "global_buckling": 0.8445359574808622,
+            "face_compression": 0.9383732860895102,
+            "core_shear_crimping": 1.9007537569541142,
+            "core_crush_inherited": 5.0558220634629825,
+            "face_wrinkling": 0.9702364696945702,
+            "intracell_dimpling": 7.448000333965991,
+            "projected_joint_retention": 0.8445359574805592
+          },
+          "least_known_mode_SF": 0.8445359574805592,
+          "governing": "projected_joint_retention",
+          "Vc": 0.9927290536083001,
+          "Kc": 0.751817736597925
+        },
+        "mass_residual_kg": 1.5552359400317073e-10
+      }
+    }
+  ],
+  "validation": {
+    "baseline_least_SF_equals_one": true,
+    "baseline_all_six_modes_reproduced": true,
+    "film_conversion_matches_020": true,
+    "baseline_mass_balances": true,
+    "all_optimized_mass_residuals_under_microgram": true,
+    "all_reoptimized_points_retain_five_percent_margin": true,
+    "same_panel_more_film_never_improves_SF": true,
+    "denser_grid_agrees_within_1e_7_SF": true
+  },
+  "scope": "Reoptimization holds the 021-rev1 material, core and the two needed optimism constants fixed. It does not reoptimize material grades or transfer the 006 aluminium-shell slope.",
+  "job_ended_at": "2026-10-20T01:03:18-07:00",
+  "elapsed_seconds": 1390.0,
+  "time_basis": "artifact preparation start",
+  "times_are": "measurements only, never limits"
+}

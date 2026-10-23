@@ -1,0 +1,106 @@
+{
+  "id": "N478",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N478",
+    "report": "rpt-ref-a5374575ee8867fc8d2e",
+    "card": "rpt-ref-a5374575ee8867fc8d2e",
+    "file": "evidence/5a38cd8c393ec4c9-NFI.json",
+    "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+    "source_sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+    "source_json_pointer": "/findings/12",
+    "row_id": "NFI-015B-CHECK-RMS-AREA",
+    "fields": {
+      "id": "NFI-015B-CHECK-RMS-AREA",
+      "provenance": "new",
+      "disposition": "non_blocking",
+      "blocks_progress": false,
+      "status": "qualification",
+      "reported": "CARD gives whole-sphere RMS = delta*beta0/sqrt(8) and k5/k1 = 5 without labeling the small-angle approximation.",
+      "checked": {
+        "model": "RMS/delta = sqrt(0.5*integral_0^pi exp(-2*(theta/beta0)^2)*sin(theta) dtheta), referenced to the undeformed sphere",
+        "P2_E": {
+          "1": {
+            "beta0_rad": 0.07762716656262922,
+            "exact_RMS_over_amplitude": 0.027438458108246803,
+            "small_angle_RMS_over_amplitude": 0.027445347940366367,
+            "exact_over_approx": 0.9997489617499281,
+            "approx_overstatement_percent": 0.025110128609928672,
+            "quadrature_absolute_error": 1.7605793792033294e-15
+          },
+          "5": {
+            "beta0_rad": 0.38813583281314606,
+            "exact_RMS_over_amplitude": 0.1363691330378657,
+            "small_angle_RMS_over_amplitude": 0.13722673970183183,
+            "exact_over_approx": 0.9937504405786397,
+            "approx_overstatement_percent": 0.6288862038361875,
+            "quadrature_absolute_error": 6.943192898576689e-16
+          }
+        },
+        "P2_E_exact_RMS_k5_over_k1": 4.969999862961654,
+        "interpretation": "Owner arithmetic is correct within its approximate area measure. At P2-E k5 the approximation exceeds the spherical-area value by 0.6288862038%; at k1 by 0.0251101286%."
+      },
+      "evidence": [
+        "check.py independent quadrature and Dawson-function agreement",
+        "RESULTS.json supplemental"
+      ],
+      "followup": "Label these values small-angle single-dimple whole-sphere RMS, or use the spherical-area integral. Qualify the exact five-times assertion."
+    },
+    "inherited_document_tag": {
+      "tag": "QUESTIONABLE"
+    }
+  },
+  "claim": "{\"id\": \"NFI-015B-CHECK-RMS-AREA\", \"provenance\": \"new\", \"disposition\": \"non_blocking\", \"blocks_progress\": false, \"status\": \"qualification\", \"reported\": \"CARD gives whole-sphere RMS = delta*beta0/sqrt(8) and k5/k1 = 5 without labeling the small-angle approximation.\", \"checked\": {\"model\": \"RMS/delta = sqrt(0.5*integral_0^pi exp(-2*(theta/beta0)^2)*sin(theta) dtheta), referenced to the undeformed sphere\", \"P2_E\": {\"1\": {\"beta0_rad\": 0.07762716656262922, \"exact_RMS_over_amplitude\": 0.027438458108246803, \"small_angle_RMS_over_amplitude\": 0.027445347940366367, \"exact_over_approx\": 0.9997489617499281, \"approx_overstatement_percent\": 0.025110128609928672, \"quadrature_absolute_error\": 1.7605793792033294e-15}, \"5\": {\"beta0_rad\": 0.38813583281314606, \"exact_RMS_over_amplitude\": 0.1363691330378657, \"small_angle_RMS_over_amplitude\": 0.13722673970183183, \"exact_over_approx\": 0.9937504405786397, \"approx_overstatement_percent\": 0.6288862038361875, \"quadrature_absolute_error\": 6.943192898576689e-16}}, \"P2_E_exact_RMS_k5_over_k1\": 4.969999862961654, \"interpretation\": \"Owner arithmetic is correct within its approximate area measure. At P2-E k5 the approximation exceeds the spherical-area value by 0.6288862038%; at k1 by 0.0251101286%.\"}, \"evidence\": [\"check.py independent quadrature and Dawson-function agreement\", \"RESULTS.json supplemental\"], \"followup\": \"Label these values small-angle single-dimple whole-sphere RMS, or use the spherical-area integral. Qualify the exact five-times assertion.\"}",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/477"
+    },
+    {
+      "report": "rpt-ref-a5374575ee8867fc8d2e",
+      "artifact": "evidence/5a38cd8c393ec4c9-NFI.json",
+      "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+      "sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+      "bytes": 14081,
+      "selector": "/findings/12"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-a5374575ee8867fc8d2e",
+          "artifact": "evidence/5a38cd8c393ec4c9-NFI.json",
+          "snapshot": "evidence/5a38cd8c393ec4c9-NFI.json",
+          "sha256": "5a38cd8c393ec4c98ab8ab66b6050a42d002330897a52c03f96060fdb001203a",
+          "bytes": 14081,
+          "selector": "/findings/12"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/477"
+          }
+        ]
+      }
+    }
+  ]
+}

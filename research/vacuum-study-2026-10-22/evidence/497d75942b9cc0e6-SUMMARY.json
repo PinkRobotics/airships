@@ -1,0 +1,60 @@
+{
+  "name": "control-hardening1000-a1",
+  "analysis": "static",
+  "amplitude_mm": 1.0,
+  "width_mm": 347.1529189444301,
+  "meridian": "W",
+  "yield_MPa": 345.0,
+  "nu": 0.0768,
+  "ntheta": 256,
+  "nface": 1,
+  "ncore": 4,
+  "grading": 1.5,
+  "increments": 40,
+  "endpoint_kPa": 101.417382,
+  "endpoint_kind": "last_converged_static_increment",
+  "first_yield_bracket_kPa": [
+    94.6125,
+    98.2125
+  ],
+  "first_yield_estimates": {
+    "255.0": {
+      "p_kPa": 73.82516632918218,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        72.0,
+        75.6
+      ]
+    },
+    "300.0": {
+      "p_kPa": 85.81228973323195,
+      "kind": "interpolated_on_elastic_path",
+      "bracket_kPa": [
+        83.8125,
+        87.4125
+      ]
+    },
+    "345.0": {
+      "p_kPa": 97.24787638003764,
+      "kind": "last_two_elastic_points_extrapolation",
+      "bracket_kPa": [
+        94.6125,
+        98.2125
+      ],
+      "inside_native_bracket": true
+    }
+  },
+  "endpoint_max_mises_MPa": 345.61419895174953,
+  "endpoint_max_peeq": 0.0006142089,
+  "endpoint_pole_uy_mm": -22.67735,
+  "solver": {
+    "returncode": 201,
+    "elapsed_s": 33.52904858486727,
+    "ended_at": "2026-10-20T11:33:47.966327+00:00"
+  },
+  "errors": [
+    " *ERROR: increment size smaller than minimum"
+  ],
+  "eigen_kPa": [],
+  "peeq_detection_threshold": 1e-10
+}

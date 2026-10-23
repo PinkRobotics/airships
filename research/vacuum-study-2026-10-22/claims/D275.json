@@ -1,0 +1,82 @@
+{
+  "id": "D275",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "D275",
+    "report": "rpt-ref-52963d63a80d69bb90bd",
+    "file": "evidence/d298a85ef299552d-NFI.json",
+    "snapshot": "evidence/d298a85ef299552d-NFI.json",
+    "source_sha256": "d298a85ef299552db215a5f8be55e3f6ff45590b248b47fc9a6c4752a12e2b6b",
+    "source_json_pointer": "/rows/11",
+    "row_id": "CHECK041-NFI-12",
+    "fields": {
+      "id": "CHECK041-NFI-12",
+      "status": "open",
+      "topic": "Pressure surface and sag-volume consistency",
+      "finding": "The pressure fan and circular-cap sag debit are different declared geometric surrogates. Arithmetic agreement does not establish that one pressure-equilibrated skin produces both.",
+      "action": "Use a common compatible pressure/volume/mass geometry when developing a qualified coupled model.",
+      "evidence": [
+        "METHOD.md",
+        "COVERAGE.md"
+      ],
+      "stops_work": false
+    },
+    "inherited_document_tag": {},
+    "register_classification": "QUESTIONABLE / PROJECTION",
+    "finding_collection": "/rows",
+    "blocks_progress": false
+  },
+  "claim": "The pressure fan and circular-cap sag debit are different declared geometric surrogates. Arithmetic agreement does not establish that one pressure-equilibrated skin produces both.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/1235"
+    },
+    {
+      "report": "rpt-ref-52963d63a80d69bb90bd",
+      "artifact": "evidence/d298a85ef299552d-NFI.json",
+      "snapshot": "evidence/d298a85ef299552d-NFI.json",
+      "sha256": "d298a85ef299552db215a5f8be55e3f6ff45590b248b47fc9a6c4752a12e2b6b",
+      "bytes": 7501,
+      "selector": "/rows/11"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-52963d63a80d69bb90bd",
+          "artifact": "evidence/d298a85ef299552d-NFI.json",
+          "snapshot": "evidence/d298a85ef299552d-NFI.json",
+          "sha256": "d298a85ef299552db215a5f8be55e3f6ff45590b248b47fc9a6c4752a12e2b6b",
+          "bytes": 7501,
+          "selector": "/rows/11"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/1235"
+          }
+        ]
+      }
+    }
+  ]
+}

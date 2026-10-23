@@ -1,0 +1,198 @@
+{
+  "tag": "QUESTIONABLE / PROJECTION",
+  "qualified_frame_failure_probability": null,
+  "qualified_lifetime_failure_probability": null,
+  "answer": "Reliability with available SiC is not established; this is not a proof of impossibility.",
+  "complete_member_strength_property": "Confidence-qualified lower-tail strength under actual combined stress and environment.",
+  "geometry": {
+    "continuum_members": 432.98628226949154,
+    "rounded_count": 433,
+    "physical_integer_mesh_established": false,
+    "compatible_closed_triangle_count_example": 435,
+    "ro_m": 0.13754142819010323,
+    "ri_m": 0.13640406334494515,
+    "wall_m": 0.0011373648451580842,
+    "area_m2": 0.0009788447832927507,
+    "inertia_m4": 9.18247267153439e-06,
+    "length_m": 3.184193538867475,
+    "member_volume_m3": 0.003116831234514911,
+    "member_surface_both_m2": 5.480794043852701,
+    "member_inner_surface_m2": 2.729019462043727,
+    "rounded_frame_volume_m3": 1.3495879245449565,
+    "rounded_frame_surface_both_m2": 2373.18382098822,
+    "continuum_frame_volume_m3": 1.349545168694041,
+    "nominal_force_N": 873771.3365768079,
+    "target_multiplier": 1.2582524765581682,
+    "bow_m": 0.003184193538867475,
+    "euler_force_N": 3664749.827308654
+  },
+  "stress_cases": [
+    {
+      "case": "operating_source_bow",
+      "q": 1.0,
+      "mean_compression_Pa": 892655660.5200626,
+      "bow_bending_Pa": 54721624.20893098,
+      "joint_proxy_bending_Pa": 0.0,
+      "peak_compression_Pa": 947377284.7289935,
+      "opposite_face_tension_Pa": 0.0,
+      "bow_moment_Nm": 3653.297958677437,
+      "joint_proxy_moment_Nm": 0.0,
+      "additional_joint_moment_to_axial_tension_Nm": 55941.73690228639,
+      "critical_bow_for_axial_tension_m": 0.0519426904400539
+    },
+    {
+      "case": "operating_joint_proxy",
+      "q": 1.0,
+      "mean_compression_Pa": 892655660.5200626,
+      "bow_bending_Pa": 54721624.20893098,
+      "joint_proxy_bending_Pa": 56454325.78702019,
+      "peak_compression_Pa": 1003831610.5160137,
+      "opposite_face_tension_Pa": 0.0,
+      "bow_moment_Nm": 3653.297958677437,
+      "joint_proxy_moment_Nm": 3768.9757228107137,
+      "additional_joint_moment_to_axial_tension_Nm": 52172.761179475674,
+      "critical_bow_for_axial_tension_m": 0.0519426904400539
+    },
+    {
+      "case": "target_source_bow",
+      "q": 1.2582524765581682,
+      "mean_compression_Pa": 1123186195.5630362,
+      "bow_bending_Pa": 74910188.45642495,
+      "joint_proxy_bending_Pa": 0.0,
+      "peak_compression_Pa": 1198096384.0194612,
+      "opposite_face_tension_Pa": 0.0,
+      "bow_moment_Nm": 5001.1168807254535,
+      "joint_proxy_moment_Nm": 0.0,
+      "additional_joint_moment_to_axial_tension_Nm": 69984.48332365266,
+      "critical_bow_for_axial_tension_m": 0.04774306807327507
+    },
+    {
+      "case": "target_joint_proxy",
+      "q": 1.2582524765581682,
+      "mean_compression_Pa": 1123186195.5630362,
+      "bow_bending_Pa": 74910188.45642495,
+      "joint_proxy_bending_Pa": 71033795.23393981,
+      "peak_compression_Pa": 1269130179.253401,
+      "opposite_face_tension_Pa": 0.0,
+      "bow_moment_Nm": 5001.1168807254535,
+      "joint_proxy_moment_Nm": 4742.323037314191,
+      "additional_joint_moment_to_axial_tension_Nm": 65242.16028633847,
+      "critical_bow_for_axial_tension_m": 0.04774306807327507
+    }
+  ],
+  "conditional_required_compression_m10": [
+    {
+      "case": "operating_source_bow",
+      "m": 10,
+      "frame_target": 0.001,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 3468566563.9222083,
+      "factor_over_assumed_3p9GPa": 0.8893760420313355,
+      "needed_m_at_assumed_3p9GPa": 9.171503272470481,
+      "allocated_member_Pf": 2.3106216574924222e-06
+    },
+    {
+      "case": "operating_source_bow",
+      "m": 10,
+      "frame_target": 1e-06,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 6921045993.83628,
+      "factor_over_assumed_3p9GPa": 1.7746271779067384,
+      "needed_m_at_assumed_3p9GPa": 14.053543523838538,
+      "allocated_member_Pf": 2.309469974239256e-09
+    },
+    {
+      "case": "operating_joint_proxy",
+      "m": 10,
+      "frame_target": 0.001,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 3675258860.6133246,
+      "factor_over_assumed_3p9GPa": 0.9423740668239294,
+      "needed_m_at_assumed_3p9GPa": 9.562665249581544,
+      "allocated_member_Pf": 2.3106216574924222e-06
+    },
+    {
+      "case": "operating_joint_proxy",
+      "m": 10,
+      "frame_target": 1e-06,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 7333471952.977526,
+      "factor_over_assumed_3p9GPa": 1.8803774238403912,
+      "needed_m_at_assumed_3p9GPa": 14.652923113736486,
+      "allocated_member_Pf": 2.309469974239256e-09
+    },
+    {
+      "case": "target_source_bow",
+      "m": 10,
+      "frame_target": 0.001,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 4386506965.020569,
+      "factor_over_assumed_3p9GPa": 1.1247453756462997,
+      "needed_m_at_assumed_3p9GPa": 10.996038246918157,
+      "allocated_member_Pf": 2.3106216574924222e-06
+    },
+    {
+      "case": "target_source_bow",
+      "m": 10,
+      "frame_target": 1e-06,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 8752669409.019718,
+      "factor_over_assumed_3p9GPa": 2.244274207440953,
+      "needed_m_at_assumed_3p9GPa": 16.849288224833362,
+      "allocated_member_Pf": 2.309469974239256e-09
+    },
+    {
+      "case": "target_joint_proxy",
+      "m": 10,
+      "frame_target": 0.001,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 4646578059.217663,
+      "factor_over_assumed_3p9GPa": 1.1914302715942726,
+      "needed_m_at_assumed_3p9GPa": 11.56019514425085,
+      "allocated_member_Pf": 2.3106216574924222e-06
+    },
+    {
+      "case": "target_joint_proxy",
+      "m": 10,
+      "frame_target": 1e-06,
+      "calibration": "whole_member",
+      "required_characteristic_Pa": 9271605393.506067,
+      "factor_over_assumed_3p9GPa": 2.377334716283607,
+      "needed_m_at_assumed_3p9GPa": 17.713748856356755,
+      "allocated_member_Pf": 2.309469974239256e-09
+    }
+  ],
+  "series_allocations_433": [
+    {
+      "count": 433,
+      "frame_target": 0.001,
+      "independent_member_target": 2.3106216574924222e-06,
+      "union_bound_member_target": 2.3094688221709006e-06,
+      "zero_failure_member_tests_for_95pct_bound": 1296504
+    },
+    {
+      "count": 433,
+      "frame_target": 1e-06,
+      "independent_member_target": 2.309469974239256e-09,
+      "union_bound_member_target": 2.3094688221709008e-09,
+      "zero_failure_member_tests_for_95pct_bound": 1297151426
+    }
+  ],
+  "actual_improvement_factor": null,
+  "closest_catalogue_compression_comparison": "Hexoloy SA among retrieved comparisons; not a qualified grade ranking.",
+  "cost_class": "High/custom qualification; high recurring full-member proof and inspection.",
+  "proof_load_example_N": 1374281.1852416366,
+  "proof_example_exceeds_source_stability_multiplier": true,
+  "ready_proof_protocol": false,
+  "source_rows": 17,
+  "pinned_inputs": 26,
+  "member_rows": {
+    "MEMBERS-f4-m24.csv": 480,
+    "MEMBERS-f6-m24.csv": 1080,
+    "MEMBERS-f2-m48.csv": 120
+  },
+  "scientific_checks_passed": 210,
+  "nfi_open_nonblocking": 16,
+  "successor": null,
+  "disposition": "File one report to sciences, cc co, xo and admiral-robotics-review-v2; then SLEEPING."
+}

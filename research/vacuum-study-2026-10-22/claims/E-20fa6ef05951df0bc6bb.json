@@ -1,0 +1,37 @@
+{
+  "id": "E-20fa6ef05951df0bc6bb",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-20fa6ef05951df0bc6bb",
+    "report": "rpt-1228-mainline052-independent-check-1020",
+    "file": "evidence/bce79fc147a76f64-NFI.json",
+    "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+    "source_sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+    "source_json_pointer": "/inherited_registers_unchanged/inputs~1034~1NFI.json/open/0",
+    "row_id": "NFI-034-LEAK-RATES",
+    "fields": {
+      "id": "NFI-034-LEAK-RATES",
+      "tag": "PROJECTION",
+      "finding": "No full-hull or seam/node leak rate is measured. The 1e-5/1e-3/0.1 mbar L/s per metre and per node values are scenarios, with a separate port allowance. They span four decades but are not bounds.",
+      "proposed_next": "Measure assembled pressure rise and test gas-specific leaks at service load and temperature; compare with the 24 h acceptance budget."
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "No full-hull or seam/node leak rate is measured. The 1e-5/1e-3/0.1 mbar L/s per metre and per node values are scenarios, with a separate port allowance. They span four decades but are not bounds.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-1228-mainline052-independent-check-1020",
+      "artifact": "evidence/bce79fc147a76f64-NFI.json",
+      "snapshot": "evidence/bce79fc147a76f64-NFI.json",
+      "sha256": "bce79fc147a76f64853e3b88556007c442055eb2a809ed3fd9dbb61f83761562",
+      "bytes": 117126,
+      "selector": "/inherited_registers_unchanged/inputs~1034~1NFI.json/open/0"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}

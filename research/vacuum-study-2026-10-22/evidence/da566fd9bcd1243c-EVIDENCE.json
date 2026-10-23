@@ -1,0 +1,73 @@
+[
+  {
+    "id": "owner_boundary_reply",
+    "source": "Owner in-band boundary clarification",
+    "local": "inputs/048reply/BOUNDARY-REPLY.md",
+    "report": "rpt-ref-0faaf1787ac688f46f7f",
+    "authority": "ord-admiral-rr2-mainline053-fold-boundary-reply-1020",
+    "evidence": "Explicit convection, conductance, normalized averages, outer balance and current/legacy conventions.",
+    "inference": "The physical equations agree with this reconstruction; all 46 supplied temperature/screen entries reproduce within tolerance. Iteration counts are algorithm-specific and are not compared as physical outputs.",
+    "access": "Four report artifact pins verified and copied; canonical report and order preserved."
+  },
+  {
+    "id": "convection",
+    "source": "Whitaker (1972), Table 1 pp.363; Eq.33 p.365",
+    "url": "https://www.researchgate.net/profile/Stephen-Whitaker-3/publication/229709417_Forced_convection_heat_transfer_correlations_for_flow_in_pipes_past_flat_plates_single_cylinders_single_spheres_and_for_flow_in_packed_beds_and_tube_bundles/links/59d73bda0f7e9b42a6b0694a/Forced-convection-heat-transfer-correlations-for-flow-in-pipes-past-flat-plates-single-cylinders-single-spheres-and-for-flow-in-packed-beds-and-tube-bundles.pdf",
+    "local": "sources/whitaker1972.browser.json",
+    "evidence": "Sphere forced-convection expression; published Re interval 3.5–76000.",
+    "inference": "Hull Re 2.61–7.83 million is outside the tabulated interval. Neither local uniform h nor the inherited mixed floor is qualified.",
+    "access": "Primary author-hosted PDF read through browser; raw retrieval returned 403."
+  },
+  {
+    "id": "bonded_conductance",
+    "source": "NASA 19680009019, section 3.1, printed pp.65–70",
+    "url": "https://ntrs.nasa.gov/api/citations/19680009019/downloads/19680009019.pdf",
+    "local": "sources/nasa_honeycomb1968.pdf",
+    "evidence": "Honeycomb metal conduction, radiation and bonded-interface resistance are separate transport effects.",
+    "inference": "The core-gap term is distinct from the internal hull cavity term; its coefficient remains unmeasured for the selected assembly.",
+    "access": "Primary PDF retrieved and text extracted."
+  },
+  {
+    "id": "multilayer_finish",
+    "source": "NASA Goddard 2018 presentation, slide 39",
+    "url": "https://ntrs.nasa.gov/api/citations/20180002012/downloads/20180002012.pdf",
+    "local": "sources/nasa_ccag2018.pdf",
+    "evidence": "Multilayer CCAg class reports hemispherical emittance above .80 and solar absorptance below .09.",
+    "inference": "The .09/.80 screen pair is a class transfer; Be substrate, exact thickness, ITO, moisture and terrestrial aging need qualification.",
+    "access": "Primary PDF retrieved and text extracted."
+  },
+  {
+    "id": "coating_recipe",
+    "source": "US Patent 11391493",
+    "url": "https://patents.justia.com/patent/11391493",
+    "local": "sources/coat_recipe.browser.json",
+    "evidence": "Multilayer silver-coating recipe and improvement of classical CCAg emittance.",
+    "inference": "A patent recipe supplies no installed-hull allowable or terrestrial life proof.",
+    "access": "Primary patent text read through browser; raw Justia 403 and guessed Google B2 URL 404 retained."
+  },
+  {
+    "id": "core_mechanics",
+    "source": "Hexcel HexWeb CR III datasheet",
+    "url": "https://www.hexcel.com/wp-content/uploads/2025/12/HexWeb_CRIII_DataSheet.pdf",
+    "local": "sources/hexcel_criii.pdf",
+    "evidence": "Manufacturer core-property context retained with the pinned 040 inputs.",
+    "inference": "Transferred core properties are not bonded assembly or full-hull qualifications.",
+    "access": "Primary PDF retrieved and text extracted."
+  },
+  {
+    "id": "additional_honeycomb",
+    "source": "NASA 19780023143",
+    "url": "https://ntrs.nasa.gov/api/citations/19780023143/downloads/19780023143.pdf",
+    "local": "sources/nasa_honeycomb1978.pdf",
+    "evidence": "Supplemental thermal background only; no new target conductance selected.",
+    "access": "Retrieved; not used to assign a numerical parameter."
+  },
+  {
+    "id": "coating_catalog",
+    "source": "NASA 19730017242 coating catalog",
+    "url": "https://ntrs.nasa.gov/api/citations/19730017242/downloads/19730017242.pdf",
+    "local": "sources/faa_heat_balance.pdf",
+    "evidence": "The historical retrieval key/filename is mislabeled; this is a NASA coating catalog, not an FAA heat-balance source.",
+    "access": "Retrieved; not used to assign a numerical parameter."
+  }
+]

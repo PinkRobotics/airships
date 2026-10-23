@@ -1,0 +1,80 @@
+{
+  "id": "N410",
+  "kind": "inherited_finding",
+  "original": {
+    "uid": "N410",
+    "report": "rpt-ref-444ac46ffbede876f9cd",
+    "card": "CHECK MAINLINE-021b",
+    "file": "evidence/e22bbb97f4477a6d-NFI.json",
+    "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+    "source_sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+    "source_json_pointer": "/rows/6",
+    "row_id": "NFI-021B-CHECK-RESERVE-JOINTS",
+    "fields": {
+      "id": "NFI-021B-CHECK-RESERVE-JOINTS",
+      "status": "open",
+      "tag": "PROJECTION",
+      "field": "019 fixed reserve and unvaried seam/adhesive assumptions",
+      "check_fixed_kg": 411.29894407164744,
+      "check_reserve_kg": 775.729373623117,
+      "issue": "The correct mass closure still assumes sealed service, zero payload, the chosen weather/water condition, 60 mm strips, 0.2 mm seam adhesive, 1.5 mm core splice and no demonstrated Be/core bond at the nominated film weight. These are explicit inputs, not measured capabilities.",
+      "implication": "3M lists .030 and .015 lb/ft² films, with .015 unsupported; nominal areal mass does not qualify the joint. 775.729 kg reserve is spent on the declared condition rather than spare payload. Other service, seal, coating or handling loads need a new budget.",
+      "source": "MAINLINE-019/020; 3M AF 163-2 technical datasheet",
+      "needed_evidence": "Weighed sealed sandwich/seam specimen with load transfer and gas-load measurements; declared site and payload."
+    },
+    "inherited_document_tag": {}
+  },
+  "claim": "The correct mass closure still assumes sealed service, zero payload, the chosen weather/water condition, 60 mm strips, 0.2 mm seam adhesive, 1.5 mm core splice and no demonstrated Be/core bond at the nominated film weight. These are explicit inputs, not measured capabilities.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "030d did not assign a per-finding numerical disposition; original review metadata is retained verbatim",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "An attributed historical finding; inherited scope and objections remain in original.fields. No physical qualification is inferred.",
+  "sources": [
+    {
+      "report": "rpt-ref-e999413f5ed23130ebf6",
+      "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+      "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+      "bytes": 2174484,
+      "selector": "/rows/409"
+    },
+    {
+      "report": "rpt-ref-444ac46ffbede876f9cd",
+      "artifact": "evidence/e22bbb97f4477a6d-NFI.json",
+      "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+      "sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+      "bytes": 9485,
+      "selector": "/rows/6"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION",
+  "amendments": [
+    {
+      "delta": "DELTA-030E-COVERAGE-PROVENANCE",
+      "reason": "Restore the direct original report/artifact pin beside the exact 030d witness",
+      "sources": [
+        {
+          "report": "rpt-ref-444ac46ffbede876f9cd",
+          "artifact": "evidence/e22bbb97f4477a6d-NFI.json",
+          "snapshot": "evidence/e22bbb97f4477a6d-NFI.json",
+          "sha256": "e22bbb97f4477a6d24492153e538523fa208f058b61078b717be6bc2be7688e0",
+          "bytes": 9485,
+          "selector": "/rows/6"
+        }
+      ],
+      "previous": {
+        "sources": [
+          {
+            "report": "rpt-ref-e999413f5ed23130ebf6",
+            "artifact": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "snapshot": "evidence/cc00328188bb34ef-rpt-ref-e999413f5ed23130ebf6--NFI--cc00328188bb.json",
+            "sha256": "cc00328188bb34ef9990a1d19ea77acc1ee4bd66f88d5bbef8a65471398c5513",
+            "bytes": 2174484,
+            "selector": "/rows/409"
+          }
+        ]
+      }
+    }
+  ]
+}

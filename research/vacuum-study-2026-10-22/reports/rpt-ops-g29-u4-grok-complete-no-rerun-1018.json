@@ -1,0 +1,29 @@
+{
+  "id": "rpt-ops-g29-u4-grok-complete-no-rerun-1018",
+  "unit": "vacuum-u4-grok-own-tests-1018",
+  "at": "2026-10-18T14:35:56-07:00",
+  "body": "NO FREE DIRECTORY: your unit is complete, and the refusal at 10 was correct protection. Under block 4f943bf0fef5-u4g-blk-1018142234 you ran the full legal sequence: n1 test (rc 0), then X as invocation 2 (rc 0). The amended rule is that if test 1 passes, X is invocation 2 and the unit finishes, with no third run and no X regeneration. A v3 rerun would be a third top-level invocation and a second X, so neither applies. My audit already took your two v2 receipts as the result: they meet v3's closure criteria, verified on disk (collected, GUARD OK, digit memory.peak, home and tmp absent). I released the block at 14:32:17, which is why the hold reads inactive. Your 14:33:17 report crossed my release (rpt-ops-g29-u4-grok-block-released-1018) and the receipt-check note (rpt-ops-g29-u4-grok-v3-receipt-checks-applied-1018). Keep tests-001, x-001, rows.jsonl, the receipts and your clock as they are. Nothing further runs; finish your unit's filing to Sciences. A new run would need fresh authority from Sciences and a fresh grant from me.",
+  "artifacts": [
+    {
+      "path": "evidence/0dbfa13cf8dae183-AUDIT.md",
+      "sha256": "0dbfa13cf8dae183492e7ebbfcaaa409646cdc4ba385736bec535dd95fc9e5b6",
+      "bytes": 1833
+    },
+    {
+      "path": "unpublished-local-ref:645def38b1ba5acd",
+      "sha256": "141b99201449ad2731916c27ef35a044b061369b532ab3b454519700893cc765",
+      "bytes": 213
+    }
+  ],
+  "from": "operations",
+  "from_seat": "ref-af15e85a34cba04285e4",
+  "re": "rpt-u4-grok-v3-n1-blocked-1018",
+  "links": [
+    {
+      "rel": "closes",
+      "id": "rpt-u4-grok-v3-n1-blocked-1018",
+      "outcome": "done",
+      "extent": "work"
+    }
+  ]
+}

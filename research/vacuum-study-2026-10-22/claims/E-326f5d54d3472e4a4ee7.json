@@ -1,0 +1,41 @@
+{
+  "id": "E-326f5d54d3472e4a4ee7",
+  "kind": "source_finding",
+  "original": {
+    "uid": "E-326f5d54d3472e4a4ee7",
+    "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+    "file": "evidence/8225ec6358048fa7-NFI.json",
+    "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+    "source_sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+    "source_json_pointer": "/checker_open/2",
+    "row_id": "NFI-C053-SCARF-QUALIFICATION",
+    "fields": {
+      "id": "NFI-C053-SCARF-QUALIFICATION",
+      "status": "OPEN",
+      "blocking": false,
+      "finding": "All frozen scarf crossings are real within the declared scalar/tolerance calculation. The largest deficit is about .0366%; the mixed-gap deficit is below one part per million. These do not establish physical bond failure or physical safety after resizing.",
+      "needed": "Matched process/adherend bond allowables, edge/scarf interaction, peel and full load-state validation.",
+      "source": "CROSSINGS-INDEPENDENT.json; SCARF-ROOTS-INDEPENDENT.json",
+      "extends": "NFI-053-CURE-BOND",
+      "classification": "QUESTIONABLE / PROJECTION"
+    },
+    "register_classification": "QUESTIONABLE / PROJECTION"
+  },
+  "claim": "All frozen scarf crossings are real within the declared scalar/tolerance calculation. The largest deficit is about .0366%; the mixed-gap deficit is below one part per million. These do not establish physical bond failure or physical safety after resizing.",
+  "numerical_status": "unreviewed",
+  "numerical_scope": "Source NFI carried without a new independent check",
+  "physical_qualification": "open",
+  "qualification_id": "Q1",
+  "qualification": "The common equations do not qualify the bond, core law, coatings or installed safety factor. Carry the exact conventions, not an interchangeable headline. [052 disposition](unpublished-local-ref:3a70e117fbb14e85), [CHECK053](unpublished-local-ref:599d3a276c2fcbce).",
+  "sources": [
+    {
+      "report": "rpt-ref-b71dd9842c7ae7b18ee8",
+      "artifact": "evidence/8225ec6358048fa7-NFI.json",
+      "snapshot": "evidence/8225ec6358048fa7-NFI.json",
+      "sha256": "8225ec6358048fa734f7ba3955484c2a2f587fabfe1b036b7e13836b135ed2bf",
+      "bytes": 11519,
+      "selector": "/checker_open/2"
+    }
+  ],
+  "tag": "QUESTIONABLE / PROJECTION"
+}
